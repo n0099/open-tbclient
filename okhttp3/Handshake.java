@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.io.IOException;
 import java.security.Principal;
 import java.security.cert.Certificate;
@@ -77,7 +76,7 @@ public final class Handshake {
     }
 
     public int hashCode() {
-        return ((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
+        return ((((((527 + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
     }
 
     public List<Certificate> localCertificates() {

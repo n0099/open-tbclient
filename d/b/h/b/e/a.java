@@ -7,52 +7,52 @@ import com.baidu.webkit.internal.utils.UtilsBlink;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f49479a = !a.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f49871a = !a.class.desiredAssertionStatus();
 
     /* renamed from: d.b.h.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static abstract class AbstractC1038a {
+    public static abstract class AbstractC1050a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f49480a;
+        public byte[] f49872a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49481b;
+        public int f49873b;
     }
 
     /* loaded from: classes.dex */
-    public static class b extends AbstractC1038a {
+    public static class b extends AbstractC1050a {
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f49482c;
+        public final byte[] f49874c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f49483d;
+        public int f49875d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f49484e;
+        public int f49876e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f49485f;
+        public final boolean f49877f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f49486g;
+        public final boolean f49878g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final boolean f49487h;
+        public final boolean f49879h;
         public final byte[] i;
         public static final /* synthetic */ boolean k = !a.class.desiredAssertionStatus();
         public static final byte[] j = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
 
         public b() {
-            this.f49480a = null;
-            this.f49485f = false;
-            this.f49486g = false;
-            this.f49487h = false;
+            this.f49872a = null;
+            this.f49877f = false;
+            this.f49878g = false;
+            this.f49879h = false;
             this.i = j;
-            this.f49482c = new byte[2];
-            this.f49483d = 0;
-            this.f49484e = 0 != 0 ? 19 : -1;
+            this.f49874c = new byte[2];
+            this.f49875d = 0;
+            this.f49876e = 0 != 0 ? 19 : -1;
         }
     }
 
@@ -77,7 +77,7 @@ public class a {
             int r3 = r1 / 3
             r4 = 4
             int r3 = r3 * 4
-            boolean r5 = r2.f49485f
+            boolean r5 = r2.f49877f
             r6 = 2
             r7 = 1
             if (r5 == 0) goto L1a
@@ -96,13 +96,13 @@ public class a {
         L24:
             int r3 = r3 + 2
         L26:
-            boolean r5 = r2.f49486g
+            boolean r5 = r2.f49878g
             if (r5 == 0) goto L3b
             if (r1 <= 0) goto L3b
             int r5 = r1 + (-1)
             int r5 = r5 / 57
             int r5 = r5 + r7
-            boolean r8 = r2.f49487h
+            boolean r8 = r2.f49879h
             if (r8 == 0) goto L37
             r8 = 2
             goto L38
@@ -113,19 +113,19 @@ public class a {
             int r3 = r3 + r5
         L3b:
             byte[] r5 = new byte[r3]
-            r2.f49480a = r5
+            r2.f49872a = r5
             byte[] r8 = r2.i
-            int r9 = r2.f49484e
+            int r9 = r2.f49876e
             r10 = 0
             int r1 = r1 + r10
-            int r11 = r2.f49483d
+            int r11 = r2.f49875d
             r12 = -1
             if (r11 == r7) goto L67
             if (r11 == r6) goto L4d
             goto L81
         L4d:
             if (r1 <= 0) goto L81
-            byte[] r11 = r2.f49482c
+            byte[] r11 = r2.f49874c
             r13 = r11[r10]
             r13 = r13 & 255(0xff, float:3.57E-43)
             int r13 = r13 << 16
@@ -136,12 +136,12 @@ public class a {
             r13 = r0[r10]
             r13 = r13 & 255(0xff, float:3.57E-43)
             r11 = r11 | r13
-            r2.f49483d = r10
+            r2.f49875d = r10
             r13 = 1
             goto L83
         L67:
             if (r6 > r1) goto L81
-            byte[] r11 = r2.f49482c
+            byte[] r11 = r2.f49874c
             r11 = r11[r10]
             r11 = r11 & 255(0xff, float:3.57E-43)
             int r11 = r11 << 16
@@ -152,7 +152,7 @@ public class a {
             r13 = r0[r7]
             r13 = r13 & 255(0xff, float:3.57E-43)
             r11 = r11 | r13
-            r2.f49483d = r10
+            r2.f49875d = r10
             r13 = 2
             goto L83
         L81:
@@ -180,7 +180,7 @@ public class a {
             r5[r12] = r11
             int r9 = r9 + (-1)
             if (r9 != 0) goto Lbc
-            boolean r9 = r2.f49487h
+            boolean r9 = r2.f49879h
             if (r9 == 0) goto Lb4
             r9 = 5
             r5[r4] = r15
@@ -234,7 +234,7 @@ public class a {
             int r11 = r11 + 4
             int r9 = r9 + (-1)
             if (r9 != 0) goto L114
-            boolean r6 = r2.f49487h
+            boolean r6 = r2.f49879h
             if (r6 == 0) goto L10c
             int r6 = r11 + 1
             r5[r11] = r15
@@ -251,13 +251,13 @@ public class a {
             r6 = 2
             goto Lbf
         L117:
-            int r6 = r2.f49483d
+            int r6 = r2.f49875d
             int r12 = r13 - r6
             int r14 = r1 + (-1)
             r17 = 61
             if (r12 != r14) goto L16a
             if (r6 <= 0) goto L128
-            byte[] r0 = r2.f49482c
+            byte[] r0 = r2.f49874c
             r0 = r0[r10]
             goto L12e
         L128:
@@ -268,9 +268,9 @@ public class a {
         L12e:
             r0 = r0 & 255(0xff, float:3.57E-43)
             int r0 = r0 << r4
-            int r4 = r2.f49483d
+            int r4 = r2.f49875d
             int r4 = r4 - r7
-            r2.f49483d = r4
+            r2.f49875d = r4
             int r4 = r11 + 1
             int r6 = r0 >> 6
             r6 = r6 & 63
@@ -280,16 +280,16 @@ public class a {
             r0 = r0 & 63
             r0 = r8[r0]
             r5[r4] = r0
-            boolean r0 = r2.f49485f
+            boolean r0 = r2.f49877f
             if (r0 == 0) goto L154
             int r0 = r6 + 1
             r5[r6] = r17
             int r6 = r0 + 1
             r5[r0] = r17
         L154:
-            boolean r0 = r2.f49486g
+            boolean r0 = r2.f49878g
             if (r0 == 0) goto L167
-            boolean r0 = r2.f49487h
+            boolean r0 = r2.f49879h
             if (r0 == 0) goto L161
             int r0 = r6 + 1
             r5[r6] = r15
@@ -306,7 +306,7 @@ public class a {
             int r12 = r1 + (-2)
             if (r4 != r12) goto L1d6
             if (r6 <= r7) goto L177
-            byte[] r4 = r2.f49482c
+            byte[] r4 = r2.f49874c
             r4 = r4[r10]
             goto L17e
         L177:
@@ -318,9 +318,9 @@ public class a {
         L17e:
             r4 = r4 & 255(0xff, float:3.57E-43)
             int r4 = r4 << 10
-            int r6 = r2.f49483d
+            int r6 = r2.f49875d
             if (r6 <= 0) goto L18e
-            byte[] r0 = r2.f49482c
+            byte[] r0 = r2.f49874c
             int r6 = r7 + 1
             r0 = r0[r7]
             r7 = r6
@@ -334,9 +334,9 @@ public class a {
             r6 = 2
             int r0 = r0 << r6
             r0 = r0 | r4
-            int r4 = r2.f49483d
+            int r4 = r2.f49875d
             int r4 = r4 - r7
-            r2.f49483d = r4
+            r2.f49875d = r4
             int r4 = r11 + 1
             int r6 = r0 >> 12
             r6 = r6 & 63
@@ -351,15 +351,15 @@ public class a {
             r0 = r0 & 63
             r0 = r8[r0]
             r5[r6] = r0
-            boolean r0 = r2.f49485f
+            boolean r0 = r2.f49877f
             if (r0 == 0) goto L1c2
             int r0 = r4 + 1
             r5[r4] = r17
             r4 = r0
         L1c2:
-            boolean r0 = r2.f49486g
+            boolean r0 = r2.f49878g
             if (r0 == 0) goto L1d4
-            boolean r0 = r2.f49487h
+            boolean r0 = r2.f49879h
             if (r0 == 0) goto L1cf
             int r0 = r4 + 1
             r5[r4] = r15
@@ -372,12 +372,12 @@ public class a {
             r11 = r4
             goto L1ee
         L1d6:
-            boolean r0 = r2.f49486g
+            boolean r0 = r2.f49878g
             if (r0 == 0) goto L1ee
             if (r11 <= 0) goto L1ee
             r0 = 19
             if (r9 == r0) goto L1ee
-            boolean r0 = r2.f49487h
+            boolean r0 = r2.f49879h
             if (r0 == 0) goto L1e9
             int r0 = r11 + 1
             r5[r11] = r15
@@ -390,7 +390,7 @@ public class a {
         L1ee:
             boolean r0 = d.b.h.b.e.a.b.k
             if (r0 != 0) goto L1fd
-            int r0 = r2.f49483d
+            int r0 = r2.f49875d
             if (r0 != 0) goto L1f7
             goto L1fd
         L1f7:
@@ -407,9 +407,9 @@ public class a {
             r0.<init>()
             throw r0
         L20a:
-            r2.f49481b = r11
-            r2.f49484e = r9
-            boolean r0 = d.b.h.b.e.a.f49479a
+            r2.f49873b = r11
+            r2.f49876e = r9
+            boolean r0 = d.b.h.b.e.a.f49871a
             if (r0 != 0) goto L21b
             if (r11 != r3) goto L215
             goto L21b
@@ -418,7 +418,7 @@ public class a {
             r0.<init>()
             throw r0
         L21b:
-            byte[] r0 = r2.f49480a
+            byte[] r0 = r2.f49872a
             return r0
         */
         throw new UnsupportedOperationException("Method not decompiled: d.b.h.b.e.a.a(byte[]):byte[]");

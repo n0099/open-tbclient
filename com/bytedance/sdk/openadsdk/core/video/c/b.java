@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.video.c;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b {
     void U();
 

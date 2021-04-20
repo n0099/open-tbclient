@@ -21,7 +21,7 @@ public interface k {
 
     boolean c();
 
-    a.a.a.a.u.p d();
+    a.a.a.a.u.o d();
 
     FunNativeAd getNativeAd(Context context, String str);
 }

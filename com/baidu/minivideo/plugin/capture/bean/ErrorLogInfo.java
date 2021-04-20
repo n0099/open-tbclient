@@ -48,23 +48,23 @@ public class ErrorLogInfo implements Jsonable {
         JSONException e2;
         try {
             jSONObject = new JSONObject();
-        } catch (JSONException e3) {
-            jSONObject = null;
-            e2 = e3;
-        }
-        try {
-            jSONObject.put("type", this.type);
-            jSONObject.put("doReport", this.doReport);
-            jSONObject.put("name", this.name);
-            jSONObject.put("code", this.code);
-            jSONObject.put("msg", this.msg);
-            jSONObject.put("data", this.data);
-            jSONObject.put("isShowSpecialToast", this.isShowSpecialToast);
-            jSONObject.put("specialToast", this.specialToast);
+            try {
+                jSONObject.put("type", this.type);
+                jSONObject.put("doReport", this.doReport);
+                jSONObject.put("name", this.name);
+                jSONObject.put("code", this.code);
+                jSONObject.put("msg", this.msg);
+                jSONObject.put("data", this.data);
+                jSONObject.put("isShowSpecialToast", this.isShowSpecialToast);
+                jSONObject.put("specialToast", this.specialToast);
+            } catch (JSONException e3) {
+                e2 = e3;
+                e2.printStackTrace();
+                return jSONObject;
+            }
         } catch (JSONException e4) {
+            jSONObject = null;
             e2 = e4;
-            e2.printStackTrace();
-            return jSONObject;
         }
         return jSONObject;
     }

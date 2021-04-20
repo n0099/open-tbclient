@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialNotificationActivity extends BaseFragmentActivity {
     public BaseFragment mFragment;
     public RelativeLayout mFragmentContainer;

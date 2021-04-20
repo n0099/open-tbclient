@@ -10,15 +10,14 @@ import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public abstract class g implements d {
-    public c<d.b.g0.l.k.g> A() {
+    public Map<String, String> A() {
         return null;
     }
 
-    public Map<String, String> B() {
-        return null;
+    public void B(d.b.g0.l.k.a aVar) {
     }
 
-    public void C(d.b.g0.l.k.a aVar) {
+    public void C() {
     }
 
     public void D() {
@@ -27,16 +26,13 @@ public abstract class g implements d {
     public void E() {
     }
 
-    public void F() {
+    public void F(d.b.g0.l.r.f fVar) {
     }
 
-    public void G(d.b.g0.l.r.f fVar) {
+    public void G(String str, int i) {
     }
 
-    public void H(String str, int i) {
-    }
-
-    public void I(String str, String str2, JSONObject jSONObject) {
+    public void H(String str, String str2, JSONObject jSONObject) {
     }
 
     @Override // d.b.g0.l.h.e
@@ -58,43 +54,47 @@ public abstract class g implements d {
     public void k(@Nullable String str, @Nullable String str2) {
     }
 
-    public f q() {
+    public f p() {
         return null;
     }
 
-    public c<d.b.g0.l.k.b> r() {
+    public c<d.b.g0.l.k.b> q() {
         return null;
     }
 
-    public c<d.b.g0.l.k.d> s() {
+    public c<d.b.g0.l.k.d> r() {
         return null;
     }
 
-    public Map<String, String> t() {
+    public Map<String, String> s() {
         return null;
     }
 
-    public c<d.b.g0.l.k.f> u() {
+    public c<d.b.g0.l.k.f> t() {
         return null;
     }
 
-    public a<a.C1020a> v() {
+    public a<a.C1032a> u() {
         return null;
     }
 
-    public d.b.g0.l.m.k.c w(String str) {
+    public d.b.g0.l.m.k.c v(String str) {
         return null;
     }
 
-    public c<d.b.g0.l.k.h> x() {
+    public c<d.b.g0.l.k.h> w() {
         return null;
     }
 
-    public Map<String, String> y() {
+    public Map<String, String> x() {
         return null;
     }
 
-    public c<i> z() {
+    public c<i> y() {
+        return null;
+    }
+
+    public c<d.b.g0.l.k.g> z() {
         return null;
     }
 }

@@ -10,29 +10,29 @@ import java.util.concurrent.BlockingQueue;
 public class j extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final BlockingQueue<n<?>> f9374a;
+    public final BlockingQueue<n<?>> f8932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final i f9375b;
+    public final i f8933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f9376c;
+    public final b f8934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final r f9377d;
+    public final r f8935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f9378e = false;
+    public volatile boolean f8936e = false;
 
     public j(BlockingQueue<n<?>> blockingQueue, i iVar, b bVar, r rVar) {
-        this.f9374a = blockingQueue;
-        this.f9375b = iVar;
-        this.f9376c = bVar;
-        this.f9377d = rVar;
+        this.f8932a = blockingQueue;
+        this.f8933b = iVar;
+        this.f8934c = bVar;
+        this.f8935d = rVar;
     }
 
     public void a() {
-        this.f9378e = true;
+        this.f8936e = true;
         interrupt();
     }
 
@@ -42,26 +42,26 @@ public class j extends Thread {
         while (true) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             try {
-                n<?> take = this.f9374a.take();
+                n<?> take = this.f8932a.take();
                 try {
                     take.a("network-queue-take");
                     if (take.h()) {
                         take.b("network-discard-cancelled");
                     } else {
                         a(take);
-                        l a2 = this.f9375b.a(take);
+                        l a2 = this.f8933b.a(take);
                         take.a("network-http-complete");
-                        if (a2.f9382d && take.w()) {
+                        if (a2.f8940d && take.w()) {
                             take.b("not-modified");
                         } else {
                             q<?> a3 = take.a(a2);
                             take.a("network-parse-complete");
-                            if (take.r() && a3.f9409b != null) {
-                                this.f9376c.a(take.e(), a3.f9409b);
+                            if (take.r() && a3.f8967b != null) {
+                                this.f8934c.a(take.e(), a3.f8967b);
                                 take.a("network-cache-written");
                             }
                             take.v();
-                            this.f9377d.a(take, a3);
+                            this.f8935d.a(take, a3);
                         }
                     }
                 } catch (v e2) {
@@ -71,10 +71,10 @@ public class j extends Thread {
                     w.a(e3, "Unhandled exception %s", e3.toString());
                     v vVar = new v(e3);
                     vVar.a(SystemClock.elapsedRealtime() - elapsedRealtime);
-                    this.f9377d.a(take, vVar);
+                    this.f8935d.a(take, vVar);
                 }
             } catch (InterruptedException unused) {
-                if (this.f9378e) {
+                if (this.f8936e) {
                     return;
                 }
             }
@@ -89,6 +89,6 @@ public class j extends Thread {
     }
 
     private void a(n<?> nVar, v vVar) {
-        this.f9377d.a(nVar, nVar.a(vVar));
+        this.f8935d.a(nVar, nVar.a(vVar));
     }
 }

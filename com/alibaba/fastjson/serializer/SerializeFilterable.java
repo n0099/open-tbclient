@@ -169,9 +169,17 @@ public abstract class SerializeFilterable {
     }
 
     public Object processValue(JSONSerializer jSONSerializer, BeanContext beanContext, Object obj, String str, Object obj2) {
+        return processValue(jSONSerializer, beanContext, obj, str, obj2, 0);
+    }
+
+    public boolean writeDirect(JSONSerializer jSONSerializer) {
+        return jSONSerializer.out.writeDirect && this.writeDirect && jSONSerializer.writeDirect;
+    }
+
+    public Object processValue(JSONSerializer jSONSerializer, BeanContext beanContext, Object obj, String str, Object obj2, int i) {
         boolean z;
         if (obj2 != null) {
-            if ((jSONSerializer.out.writeNonStringValueAsString || !(beanContext == null || (beanContext.getFeatures() & SerializerFeature.WriteNonStringValueAsString.mask) == 0)) && (((z = obj2 instanceof Number)) || (obj2 instanceof Boolean))) {
+            if ((SerializerFeature.isEnabled(jSONSerializer.out.features, i, SerializerFeature.WriteNonStringValueAsString) || !(beanContext == null || (beanContext.getFeatures() & SerializerFeature.WriteNonStringValueAsString.mask) == 0)) && (((z = obj2 instanceof Number)) || (obj2 instanceof Boolean))) {
                 String str2 = null;
                 if (z && beanContext != null) {
                     str2 = beanContext.getFormat();
@@ -210,9 +218,5 @@ public abstract class SerializeFilterable {
             }
         }
         return obj2;
-    }
-
-    public boolean writeDirect(JSONSerializer jSONSerializer) {
-        return jSONSerializer.out.writeDirect && this.writeDirect && jSONSerializer.writeDirect;
     }
 }

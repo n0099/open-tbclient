@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.h0.z0.w;
 import tbclient.RecomVertical.DataReq;
 import tbclient.RecomVertical.RecomVerticalReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GameVideoRequestMessage extends NetMessage {
     public String class_id;
     public int load_type;

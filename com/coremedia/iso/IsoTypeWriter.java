@@ -3,7 +3,7 @@ package com.coremedia.iso;
 import androidx.core.view.ViewCompat;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
 

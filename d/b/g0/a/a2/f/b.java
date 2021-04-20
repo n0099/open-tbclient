@@ -1,10 +1,10 @@
 package d.b.g0.a.a2.f;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements c {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends d.b.g0.a.a2.f.a {
         public a(b bVar) {
         }

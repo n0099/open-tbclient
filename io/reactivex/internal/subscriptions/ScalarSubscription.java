@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
-import f.a.x.c.d;
+import f.b.x.c.d;
 import g.d.c;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -22,7 +22,7 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         lazySet(2);
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public void clear() {
         lazySet(1);
     }
@@ -31,17 +31,17 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         return get() == 2;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean isEmpty() {
         return get() != 0;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean offer(T t) {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public T poll() {
         if (get() == 0) {
             lazySet(1);
@@ -62,7 +62,7 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         }
     }
 
-    @Override // f.a.x.c.c
+    @Override // f.b.x.c.c
     public int requestFusion(int i) {
         return i & 1;
     }

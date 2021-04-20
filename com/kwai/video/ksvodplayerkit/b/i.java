@@ -5,20 +5,20 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f37248a;
+    public List<String> f37537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37249b;
+    public int f37538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f37250c;
+    public float f37539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37251d;
+    public int f37540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37252e;
+    public int f37541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37253f;
+    public int f37542f;
 }

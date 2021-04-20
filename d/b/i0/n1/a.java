@@ -1,178 +1,203 @@
 package d.b.i0.n1;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.util.io.PathUtils;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.mainentrance.ForumSuggestModel;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import d.b.c.e.i.a;
+import java.util.Locale;
 /* loaded from: classes3.dex */
-public class a extends BaseAdapter {
+public class a implements d.b.c.e.i.b {
+    public static a k;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f58468a;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity<?> f57084e;
+    public b f58472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f57085f = true;
+    public LocationClient f58473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<ForumSuggestModel.Forum> f57086g;
+    public LocationClientOption f58474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57087h;
+    public Address f58475h;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f58469b = true;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f58470c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public a.d f58471d = null;
+    public long i = 0;
+    public boolean j = false;
+
+    /* renamed from: d.b.i0.n1.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static class C1400a extends CustomMessageListener {
+        public C1400a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001330) {
+                return;
+            }
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    d.b.c.e.i.a.l().p(a.j());
+                } else {
+                    d.b.c.e.i.a.l().t(a.j());
+                }
+            }
+        }
+    }
 
     /* loaded from: classes3.dex */
-    public class b {
+    public class b implements BDLocationListener {
+        public b() {
+        }
 
-        /* renamed from: a  reason: collision with root package name */
-        public View f57088a;
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
+                return;
+            }
+            a.this.c();
+            a.this.f58475h = new Address(Locale.getDefault());
+            a.this.f58475h.setLatitude(bDLocation.getLatitude());
+            a.this.f58475h.setLongitude(bDLocation.getLongitude());
+            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            j.x("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+            a.this.f58475h.setLocality(bDLocation.getCity());
+            Bundle bundle = new Bundle();
+            bundle.putFloat("radius", bDLocation.getRadius());
+            bundle.putDouble("altitude", bDLocation.getAltitude());
+            bundle.putFloat("speed", bDLocation.getSpeed());
+            bundle.putString("cityCode", bDLocation.getCityCode());
+            bundle.putString("street", bDLocation.getStreet());
+            bundle.putString("streetNumber", bDLocation.getStreetNumber());
+            bundle.putString("province", bDLocation.getProvince());
+            a.this.f58475h.setExtras(bundle);
+            a.this.i = System.currentTimeMillis();
+            StringBuffer stringBuffer = new StringBuffer();
+            if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                stringBuffer.append(bDLocation.getCity());
+            }
+            stringBuffer.append(bDLocation.getDistrict());
+            stringBuffer.append(bDLocation.getStreet());
+            if (bDLocation.getAddrStr() != null) {
+                a.this.f58475h.setAddressLine(0, stringBuffer.toString());
+            }
+            if (a.this.f58471d != null) {
+                a.this.f58471d.a(0, "", a.this.f58475h, a.this.i, a.this.j);
+                d.b.i0.s2.d0.a.e().i(String.valueOf(a.this.f58475h.getLatitude()));
+                d.b.i0.s2.d0.a.e().j(String.valueOf(a.this.f58475h.getLongitude()));
+                d.b.i0.s2.d0.a.e().k(System.currentTimeMillis());
+            }
+        }
 
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f57089b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public BarImageView f57090c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f57091d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f57092e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public TextView f57093f;
-
-        public b(a aVar) {
+        public /* synthetic */ b(a aVar, C1400a c1400a) {
+            this();
         }
     }
 
-    public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.f57084e = baseActivity;
-        this.f57086g = arrayList;
+    static {
+        MessageManager.getInstance().registerListener(new C1400a(2001330));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ForumSuggestModel.Forum getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
+    public static a j() {
+        if (k == null) {
+            synchronized (a.class) {
+                if (k == null) {
+                    k = new a();
+                }
+            }
         }
-        return this.f57086g.get(i);
+        return k;
     }
 
-    public String b(int i) {
-        if (i >= 100000) {
-            return String.valueOf(i / 10000) + this.f57084e.getPageContext().getString(R.string.member_count_unit);
+    @Override // d.b.c.e.i.b
+    public void a(a.d dVar) {
+        Context context = TbadkCoreApplication.getInst().getContext();
+        this.f58468a = context;
+        this.f58471d = dVar;
+        this.f58470c = PathUtils.DIRCTORY_BAIDU;
+        if (this.f58469b) {
+            try {
+                this.f58473f = new LocationClient(context);
+                LocationClientOption locationClientOption = new LocationClientOption();
+                this.f58474g = locationClientOption;
+                locationClientOption.setOpenGps(true);
+                this.f58474g.setIgnoreKillProcess(true);
+                this.f58474g.setProdName(this.f58470c);
+                this.f58474g.setAddrType("all");
+                this.f58474g.setCoorType("bd09ll");
+                b bVar = new b(this, null);
+                this.f58472e = bVar;
+                this.f58473f.registerLocationListener(bVar);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
-        return String.valueOf(i);
     }
 
-    public void c(TextView textView, String str) {
-        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f57087h)) {
+    @Override // d.b.c.e.i.b
+    public void b(boolean z) {
+        if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f58469b && this.f58473f != null) {
+            try {
+                this.j = z;
+                if (z) {
+                    this.f58474g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                }
+                this.f58473f.setLocOption(this.f58474g);
+                if (!this.f58473f.isStarted()) {
+                    this.f58473f.start();
+                }
+                this.f58473f.requestLocation();
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                c();
+                a.d dVar = this.f58471d;
+                if (dVar != null) {
+                    dVar.a(5, "", this.f58475h, this.i, this.j);
+                }
+            }
+        }
+    }
+
+    @Override // d.b.c.e.i.b
+    public void c() {
+        LocationClient locationClient = this.f58473f;
+        if (locationClient == null || !locationClient.isStarted()) {
             return;
         }
-        String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f57087h.toLowerCase();
-        if (!lowerCase.contains(lowerCase2)) {
-            textView.setText(str);
-            return;
-        }
-        int indexOf = lowerCase.indexOf(lowerCase2);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f57087h.length() + indexOf, 33);
-        textView.setText(spannableStringBuilder);
-    }
-
-    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.f57086g = arrayList;
-        if (arrayList != null) {
-            notifyDataSetChanged();
+        try {
+            this.f58473f.stop();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
     }
 
-    public void e(String str) {
-        this.f57087h = str;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        ArrayList<ForumSuggestModel.Forum> arrayList = this.f57086g;
-        if (arrayList == null) {
-            return 0;
-        }
-        return arrayList.size();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        b bVar;
-        String str;
-        if (view == null) {
-            view = LayoutInflater.from(this.f57084e.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
-            bVar = new b();
-            BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-            bVar.f57090c = barImageView;
-            barImageView.setGifIconSupport(false);
-            bVar.f57089b = (TextView) view.findViewById(R.id.name);
-            bVar.f57091d = (TextView) view.findViewById(R.id.forum_member_count);
-            bVar.f57092e = (TextView) view.findViewById(R.id.forum_thread_count);
-            bVar.f57093f = (TextView) view.findViewById(R.id.slogan);
-            bVar.f57088a = view.findViewById(R.id.offical_icon);
-            view.setTag(bVar);
-        } else {
-            bVar = (b) view.getTag();
-        }
-        ForumSuggestModel.Forum item = getItem(i);
-        if (item == null) {
-            return view;
-        }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        String str2 = item.avatar;
-        bVar.f57090c.setTag(str2);
-        bVar.f57090c.W(str2, 10, false);
-        bVar.f57090c.invalidate();
-        if (this.f57085f) {
-            str = this.f57084e.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
-        } else {
-            str = item.forum_name;
-        }
-        c(bVar.f57089b, str);
-        bVar.f57090c.setTag(item.avatar);
-        TextView textView = bVar.f57091d;
-        textView.setText(this.f57084e.getPageContext().getString(R.string.attention) + " " + b(item.member_num));
-        TextView textView2 = bVar.f57092e;
-        textView2.setText(this.f57084e.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
-        if (!this.f57085f && TextUtils.isEmpty(item.slogan)) {
-            bVar.f57093f.setVisibility(8);
-        } else {
-            bVar.f57093f.setVisibility(0);
-            bVar.f57093f.setText(item.slogan);
-        }
-        if (item.is_offical == 1) {
-            bVar.f57088a.setVisibility(0);
-            SkinManager.setBackgroundResource(bVar.f57088a, R.drawable.icon_search_official);
-        } else {
-            bVar.f57088a.setVisibility(8);
-        }
-        this.f57084e.getLayoutMode().k(skinType == 1);
-        this.f57084e.getLayoutMode().j(view);
-        return view;
+    @Override // d.b.c.e.i.b
+    public void destroy() {
+        c();
     }
 }

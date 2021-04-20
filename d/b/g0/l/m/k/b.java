@@ -13,20 +13,20 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f49052a = f.f48889a;
+    public static final boolean f49444a = f.f49281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f49053b;
+    public static volatile b f49445b;
 
     public static b a() {
-        if (f49053b == null) {
+        if (f49445b == null) {
             synchronized (b.class) {
-                if (f49053b == null) {
-                    f49053b = new b();
+                if (f49445b == null) {
+                    f49445b = new b();
                 }
             }
         }
-        return f49053b;
+        return f49445b;
     }
 
     public static void b(d.b.g0.l.k.e eVar, d.b.g0.l.r.f fVar) {
@@ -43,7 +43,7 @@ public class b {
     */
     public void c(JSONArray jSONArray, g gVar, g gVar2, g gVar3) {
         char c2;
-        if (f49052a) {
+        if (f49444a) {
             Log.i("SoBundleId", "updateConfig: soCallback=" + gVar3);
         }
         if (jSONArray == null || jSONArray.length() == 0) {
@@ -53,9 +53,9 @@ public class b {
         a aVar2 = new a();
         d.b.g0.l.r.f fVar = new d.b.g0.l.r.f();
         d.b.g0.l.r.f fVar2 = new d.b.g0.l.r.f();
-        c w = gVar3 != null ? gVar3.w("so") : null;
-        if (f49052a) {
-            Log.i("SoBundleId", "updateConfig: soNodeHandler=" + w);
+        c v = gVar3 != null ? gVar3.v("so") : null;
+        if (f49444a) {
+            Log.i("SoBundleId", "updateConfig: soNodeHandler=" + v);
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
@@ -90,26 +90,26 @@ public class b {
                                     d.b.g0.l.k.d dVar = (d.b.g0.l.k.d) d.b.g0.l.r.e.i(jSONObject2, new d.b.g0.l.k.d());
                                     if (dVar != null) {
                                         b(dVar, fVar);
-                                        aVar.f49049b = dVar;
+                                        aVar.f49441b = dVar;
                                     }
                                 } else if (c2 == 1) {
                                     d.b.g0.l.k.d dVar2 = (d.b.g0.l.k.d) d.b.g0.l.r.e.i(jSONObject2, new d.b.g0.l.k.d());
                                     if (dVar2 != null) {
                                         b(dVar2, fVar2);
-                                        aVar2.f49048a = dVar2;
+                                        aVar2.f49440a = dVar2;
                                     }
                                 } else if (c2 == 2) {
                                     d.b.g0.l.k.b bVar = (d.b.g0.l.k.b) d.b.g0.l.r.e.i(jSONObject2, new d.b.g0.l.k.b());
                                     if (bVar != null) {
                                         b(bVar, fVar);
-                                        aVar.f49050c = bVar;
+                                        aVar.f49442c = bVar;
                                     }
                                 } else if (c2 == 3) {
-                                    if (f49052a) {
-                                        Log.i("SoBundleId", "updateConfig: case so= " + jSONObject2 + " soNodeHandler=" + w);
+                                    if (f49444a) {
+                                        Log.i("SoBundleId", "updateConfig: case so= " + jSONObject2 + " soNodeHandler=" + v);
                                     }
-                                    if (w != null) {
-                                        w.e(jSONObject2);
+                                    if (v != null) {
+                                        v.e(jSONObject2);
                                     }
                                 }
                             }
@@ -129,40 +129,40 @@ public class b {
                     }
                 }
             } catch (JSONException e2) {
-                if (f49052a) {
+                if (f49444a) {
                     Log.i("SoBundleId", "updateConfig: end parse by catch=" + e2);
                 }
             }
         }
-        if (f49052a) {
-            Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + w);
+        if (f49444a) {
+            Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + v);
         }
         if (gVar != null) {
             if (fVar.k() == 0) {
-                gVar.F();
+                gVar.E();
             } else {
-                gVar.G(fVar);
+                gVar.F(fVar);
                 d.b.g0.l.l.h.a.e(aVar, gVar);
             }
         }
-        if (f49052a) {
+        if (f49444a) {
             Log.i("SoBundleId", "updateConfig: handle core end");
         }
         if (gVar2 != null) {
             if (fVar2.k() == 0) {
-                gVar2.F();
+                gVar2.E();
             } else {
-                gVar2.G(fVar2);
+                gVar2.F(fVar2);
                 d.b.g0.l.l.h.a.e(aVar2, gVar2);
             }
         }
-        if (f49052a) {
+        if (f49444a) {
             Log.i("SoBundleId", "updateConfig: handle game end");
         }
-        if (w != null) {
-            w.n();
+        if (v != null) {
+            v.handle();
         }
-        if (f49052a) {
+        if (f49444a) {
             Log.i("SoBundleId", "updateConfig: handle so end");
         }
     }

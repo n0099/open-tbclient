@@ -9,22 +9,22 @@ import d.b.g0.a.t1.k.a0;
 public class f extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public c f43546c;
+    public c f43938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f43547d;
+    public k f43939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f43548e;
+    public e f43940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f43549f;
+    public d f43941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i f43550g;
+    public i f43942g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f43551h;
+    public b f43943h;
     public j i;
     public h j;
 
@@ -34,7 +34,7 @@ public class f extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -110,16 +110,16 @@ public class f extends a0 {
         }
         switch (c2) {
             case 0:
-                if (this.f43546c == null) {
-                    this.f43546c = new c("/swanAPI/video/open");
+                if (this.f43938c == null) {
+                    this.f43938c = new c("/swanAPI/video/open");
                 }
-                c3 = this.f43546c.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f43938c.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.f43547d == null) {
-                    this.f43547d = new k("/swanAPI/video/update");
+                if (this.f43939d == null) {
+                    this.f43939d = new k("/swanAPI/video/update");
                 }
-                c3 = this.f43547d.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f43939d.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
                 if (this.j == null) {
@@ -128,28 +128,28 @@ public class f extends a0 {
                 c3 = this.j.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 3:
-                if (this.f43548e == null) {
-                    this.f43548e = new e("/swanAPI/video/play");
+                if (this.f43940e == null) {
+                    this.f43940e = new e("/swanAPI/video/play");
                 }
-                c3 = this.f43548e.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f43940e.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 4:
-                if (this.f43549f == null) {
-                    this.f43549f = new d("/swanAPI/video/pause");
+                if (this.f43941f == null) {
+                    this.f43941f = new d("/swanAPI/video/pause");
                 }
-                c3 = this.f43549f.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f43941f.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 5:
-                if (this.f43550g == null) {
-                    this.f43550g = new i("/swanAPI/video/seek");
+                if (this.f43942g == null) {
+                    this.f43942g = new i("/swanAPI/video/seek");
                 }
-                c3 = this.f43550g.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f43942g.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 6:
-                if (this.f43551h == null) {
-                    this.f43551h = new b("/swanAPI/video/fullScreen");
+                if (this.f43943h == null) {
+                    this.f43943h = new b("/swanAPI/video/fullScreen");
                 }
-                c3 = this.f43551h.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f43943h.c(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 7:
                 if (this.i == null) {

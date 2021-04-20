@@ -1,7 +1,7 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonBarAdapter extends BasePersonInfoAdapter {
     public PersonBarAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity, z);

@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.k.b;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends SQLiteOpenHelper {
     public d(Context context) {
         super(context, "tt_open_sdk_video.db", (SQLiteDatabase.CursorFactory) null, 3);

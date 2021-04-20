@@ -9,11 +9,11 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f26318a = new b();
+        public static b f26003a = new b();
     }
 
     public static b a() {
-        return a.f26318a;
+        return a.f26003a;
     }
 
     public b() {

@@ -19,10 +19,10 @@ public class LocalVideoActivityStatic {
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<b> run(CustomMessage<Object> customMessage) {
-            if (customMessage == null || !(customMessage.getData() instanceof d.b.i0.p3.b)) {
+            if (customMessage == null || !(customMessage.getData() instanceof d.b.i0.q3.b)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921466, new d.b.i0.p3.j.h.b((d.b.i0.p3.b) customMessage.getData()));
+            return new CustomResponsedMessage<>(2921466, new d.b.i0.q3.j.h.b((d.b.i0.q3.b) customMessage.getData()));
         }
     }
 

@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class r extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45891b = 1;
+    public int f46283b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45892c = 3;
+    public int f46284c = 3;
 
     @Override // d.b.g0.a.s0.a
     @NonNull
@@ -26,7 +26,7 @@ public class r extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.b.g0.a.s0.k.g.a aVar) {
         Object obj = command.obj;
         if (!(obj instanceof String)) {
-            if (d.b.g0.a.s0.a.f45783a) {
+            if (d.b.g0.a.s0.a.f46175a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("setZeusVideoExt with a illegal obj ");
                 sb.append(obj == null);
@@ -42,18 +42,18 @@ public class r extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
             if (!TextUtils.isEmpty(optString)) {
                 aVar.O(optString);
             }
-            this.f45891b = jSONObject.optInt("min-cache", this.f45891b);
-            int optInt = jSONObject.optInt("max-cache", this.f45892c);
-            this.f45892c = optInt;
-            if (this.f45891b <= optInt) {
+            this.f46283b = jSONObject.optInt("min-cache", this.f46283b);
+            int optInt = jSONObject.optInt("max-cache", this.f46284c);
+            this.f46284c = optInt;
+            if (this.f46283b <= optInt) {
                 if (jSONObject.has("min-cache")) {
-                    aVar.d0(this.f45891b);
+                    aVar.d0(this.f46283b);
                 }
                 if (jSONObject.has("max-cache")) {
-                    aVar.Y(this.f45892c);
+                    aVar.Y(this.f46284c);
                 }
-            } else if (d.b.g0.a.s0.a.f45783a) {
-                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.f45891b + " > maxCache " + this.f45892c);
+            } else if (d.b.g0.a.s0.a.f46175a) {
+                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.f46283b + " > maxCache " + this.f46284c);
             }
         } catch (Exception unused) {
         }

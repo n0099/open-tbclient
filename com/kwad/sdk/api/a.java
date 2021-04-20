@@ -3,9 +3,9 @@ package com.kwad.sdk.api;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f31746a;
+    public static final int f32035a;
 
     static {
-        f31746a = b.f31748b.booleanValue() ? 1 : 2;
+        f32035a = b.f32037b.booleanValue() ? 1 : 2;
     }
 }

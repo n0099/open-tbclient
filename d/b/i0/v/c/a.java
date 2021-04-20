@@ -10,25 +10,25 @@ import java.io.InputStream;
 public class a extends BdAsyncTask<Void, String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61928a;
+    public int f62937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.i0.v.b.c f61929b;
+    public d.b.i0.v.b.c f62938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61930c;
+    public String f62939c;
 
     public a(String str, int i, d.b.i0.v.b.c cVar) {
-        this.f61928a = i;
-        this.f61929b = cVar;
-        this.f61930c = str;
+        this.f62937a = i;
+        this.f62938b = cVar;
+        this.f62939c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public String doInBackground(Void... voidArr) {
-        String str = this.f61930c;
+        String str = this.f62939c;
         if (str == null) {
             return null;
         }
@@ -105,10 +105,10 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        d.b.i0.v.b.c cVar = this.f61929b;
+        d.b.i0.v.b.c cVar = this.f62938b;
         if (cVar == null || str == null) {
             return;
         }
-        cVar.a("", this.f61928a, str);
+        cVar.a("", this.f62937a, str);
     }
 }

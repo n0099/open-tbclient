@@ -4,83 +4,83 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BestStringsFitTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f21284e;
+    public String[] f20969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21285f;
+    public String f20970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21286g;
+    public float f20971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21287h;
+    public String f20972h;
     public boolean i;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.f21285f = " ";
-        this.f21286g = 0.0f;
-        this.f21287h = "";
+        this.f20970f = " ";
+        this.f20971g = 0.0f;
+        this.f20972h = "";
         this.i = false;
     }
 
     public void a() {
-        this.f21286g = (getWidth() - getPaddingLeft()) - getPaddingRight();
+        this.f20971g = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.f21284e.length; i++) {
+        for (int i = 0; i < this.f20969e.length; i++) {
             if (i > 0) {
-                sb.append(this.f21285f);
+                sb.append(this.f20970f);
             }
-            sb.append(this.f21284e[i]);
+            sb.append(this.f20969e[i]);
             String sb2 = sb.toString();
-            if (this.f21286g < getPaint().measureText(sb2)) {
+            if (this.f20971g < getPaint().measureText(sb2)) {
                 break;
             }
             this.i = true;
-            this.f21287h = sb2;
+            this.f20972h = sb2;
         }
-        setText(this.f21287h);
+        setText(this.f20972h);
     }
 
     public String getSeperator() {
-        return this.f21285f;
+        return this.f20970f;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f21284e == null || this.i) {
+        if (this.f20969e == null || this.i) {
             return;
         }
         a();
     }
 
     public void setSeperator(String str) {
-        this.f21285f = str;
+        this.f20970f = str;
     }
 
     public void setTextArray(String[] strArr) {
-        this.f21284e = strArr;
+        this.f20969e = strArr;
         a();
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21285f = " ";
-        this.f21286g = 0.0f;
-        this.f21287h = "";
+        this.f20970f = " ";
+        this.f20971g = 0.0f;
+        this.f20972h = "";
         this.i = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21285f = " ";
-        this.f21286g = 0.0f;
-        this.f21287h = "";
+        this.f20970f = " ";
+        this.f20971g = 0.0f;
+        this.f20972h = "";
         this.i = false;
     }
 }

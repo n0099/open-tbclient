@@ -6,21 +6,21 @@ import d.b.g0.g.l.j;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48483a;
+    public int f48875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48484b = 0;
+    public int f48876b = 0;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
     public j stats;
 
     public h() {
-        this.f48483a = 0;
-        this.f48483a = 0 + 1;
+        this.f48875a = 0;
+        this.f48875a = 0 + 1;
     }
 
     public String toString() {
-        return "StatCallBack" + this.f48484b;
+        return "StatCallBack" + this.f48876b;
     }
 }

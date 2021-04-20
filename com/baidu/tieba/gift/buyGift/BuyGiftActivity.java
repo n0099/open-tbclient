@@ -79,7 +79,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public int mCurrentPage;
     public int mFrom;
     public GiftCommonList mGiftCommonList;
-    public d.b.i0.t0.a.b mGiftNumAdapter;
+    public d.b.i0.u0.a.b mGiftNumAdapter;
     public GiftPagerAdapter mGiftPagerAdapter;
     public InputMethodManager mInputMethodManager;
     public String mPassword;
@@ -97,8 +97,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public boolean mHasShowAnim = false;
     public SendGiftSuccessMessage.a mGiftInfo = new SendGiftSuccessMessage.a();
     public final HttpMessageListener mGetGiftsHttpListener = new g(CmdConfigHttp.GET_GIFT_LIST);
-    public final d.b.b.c.g.c mGetGiftsSocketListener = new h(308001);
-    public final d.b.b.c.g.a mSendGiftNetListener = new i(CmdConfigHttp.SEND_GIFT, 308007);
+    public final d.b.c.c.g.c mGetGiftsSocketListener = new h(308001);
+    public final d.b.c.c.g.a mSendGiftNetListener = new i(CmdConfigHttp.SEND_GIFT, 308007);
     public final CustomMessageListener mBuyTdouListener = new j(2001227);
 
     /* loaded from: classes4.dex */
@@ -207,7 +207,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* loaded from: classes4.dex */
-    public class h extends d.b.b.c.g.c {
+    public class h extends d.b.c.c.g.c {
         public h(int i) {
             super(i);
         }
@@ -224,12 +224,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* loaded from: classes4.dex */
-    public class i extends d.b.b.c.g.a {
+    public class i extends d.b.c.c.g.a {
         public i(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof SendGiftSocketResponseMessage) {
                 BuyGiftActivity.this.gift_button.setEnabled(true);
@@ -364,7 +364,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             BuyGiftActivity buyGiftActivity = BuyGiftActivity.this;
             buyGiftActivity.mSelectedPage = buyGiftActivity.mCurrentPage;
             BuyGiftActivity.this.mSelectedPosition = i;
-            d.b.i0.t0.a.a aVar = (d.b.i0.t0.a.a) adapterView.getAdapter();
+            d.b.i0.u0.a.a aVar = (d.b.i0.u0.a.a) adapterView.getAdapter();
             if (aVar != null) {
                 GiftCommonList.GiftItem item = aVar.getItem(i);
                 if (item != null) {
@@ -420,7 +420,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            int d2 = d.b.b.e.m.b.d(editable.toString(), 0);
+            int d2 = d.b.c.e.m.b.d(editable.toString(), 0);
             if (editable.toString().length() == String.valueOf(d2).length()) {
                 BuyGiftActivity.this.countTotalPrice(true);
                 return;
@@ -448,15 +448,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public class s implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16864e;
+        public int f16537e;
 
         public s(int i) {
-            this.f16864e = i;
+            this.f16537e = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int min = Math.min(this.f16864e, BuyGiftActivity.this.mPageInfos.size());
+            int min = Math.min(this.f16537e, BuyGiftActivity.this.mPageInfos.size());
             int i = 0;
             for (int i2 = 0; i2 < min; i2++) {
                 i += BuyGiftActivity.this.mPageInfos.get(i2);
@@ -507,7 +507,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     /* JADX INFO: Access modifiers changed from: private */
     public int countTotalPrice(boolean z) {
-        int d2 = d.b.b.e.m.b.d(this.gift_count_input.getText().toString(), 1);
+        int d2 = d.b.c.e.m.b.d(this.gift_count_input.getText().toString(), 1);
         GiftCommonList.GiftItem giftItem = this.mCurrentItem;
         int price = ((giftItem == null || giftItem.getPrice() <= 0) ? 1 : this.mCurrentItem.getPrice()) * d2;
         if (z) {
@@ -560,7 +560,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private GridView getPageView(List<GiftCommonList.GiftItem> list, int i2) {
-        d.b.i0.t0.a.a aVar = new d.b.i0.t0.a.a(getPageContext().getPageActivity());
+        d.b.i0.u0.a.a aVar = new d.b.i0.u0.a.a(getPageContext().getPageActivity());
         aVar.c(list);
         aVar.d(i2);
         GridView gridView = new GridView(getPageContext().getPageActivity());
@@ -733,7 +733,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             list.removeAll(arrayList);
         }
-        d.b.i0.t0.a.b bVar = new d.b.i0.t0.a.b(getPageContext().getPageActivity());
+        d.b.i0.u0.a.b bVar = new d.b.i0.u0.a.b(getPageContext().getPageActivity());
         this.mGiftNumAdapter = bVar;
         this.gift_num_list.setAdapter((ListAdapter) bVar);
         this.mGiftNumAdapter.b(list);
@@ -833,7 +833,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         this.gift_button.setEnabled(false);
         this.gift_progress_layout.setVisibility(0);
         RequestSendGiftNetMessage requestSendGiftNetMessage = new RequestSendGiftNetMessage();
-        int d2 = d.b.b.e.m.b.d(String.valueOf(this.gift_count_input.getText()), 1);
+        int d2 = d.b.c.e.m.b.d(String.valueOf(this.gift_count_input.getText()), 1);
         requestSendGiftNetMessage.setParams(this.mReceiverId, this.mCurrentItem.getGiftId(), this.mCurrentItem.getPrice(), d2, readFromVal(), this.mPassword);
         this.mGiftInfo.a(d2);
         this.mGiftInfo.c(this.mCurrentItem.getName());
@@ -931,7 +931,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         boolean z = TbadkCoreApplication.getInst().getSkinType() == 1;
         getLayoutMode().k(z);
         getLayoutMode().j(this.gift_list_layout);
-        d.b.i0.t0.a.b bVar = this.mGiftNumAdapter;
+        d.b.i0.u0.a.b bVar = this.mGiftNumAdapter;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
@@ -995,7 +995,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
         GridView gridView = (GridView) this.mViewPagerContent.get(i2);
         if (gridView.getAdapter() != null) {
-            d.b.i0.t0.a.a aVar = (d.b.i0.t0.a.a) gridView.getAdapter();
+            d.b.i0.u0.a.a aVar = (d.b.i0.u0.a.a) gridView.getAdapter();
             if (aVar.b() >= 0 && i2 != this.mSelectedPage) {
                 aVar.d(-1);
                 aVar.notifyDataSetChanged();

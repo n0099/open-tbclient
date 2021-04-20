@@ -3,7 +3,6 @@ package com.baidu.platform.core.e;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.LocationShareURLOption;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.platform.base.e {
@@ -12,12 +11,12 @@ public class b extends com.baidu.platform.base.e {
     }
 
     private void a(LocationShareURLOption locationShareURLOption) {
-        this.f9821a.a("qt", IXAdRequestInfo.CS);
+        this.f9379a.a("qt", "cs");
         Point ll2point = CoordUtil.ll2point(locationShareURLOption.mLocation);
-        com.baidu.platform.util.a aVar = this.f9821a;
+        com.baidu.platform.util.a aVar = this.f9379a;
         aVar.a("geo", ll2point.x + FieldBuilder.SE + ll2point.y);
-        this.f9821a.a("t", locationShareURLOption.mName);
-        this.f9821a.a("cnt", locationShareURLOption.mSnippet);
+        this.f9379a.a("t", locationShareURLOption.mName);
+        this.f9379a.a("cnt", locationShareURLOption.mSnippet);
         b(false);
         a(false);
     }

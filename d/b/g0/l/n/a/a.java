@@ -9,5 +9,5 @@ public interface a {
 
     d.b.g0.l.h.g m();
 
-    c<JSONArray> p();
+    c<JSONArray> o();
 }

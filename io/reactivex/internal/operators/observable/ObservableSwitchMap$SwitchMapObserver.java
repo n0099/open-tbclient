@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.f.a;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.f.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -37,7 +37,7 @@ public final class ObservableSwitchMap$SwitchMapObserver<T, R> extends AtomicInt
         this.delayErrors = z;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -148,15 +148,15 @@ public final class ObservableSwitchMap$SwitchMapObserver<T, R> extends AtomicInt
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.done) {
             return;
@@ -165,7 +165,7 @@ public final class ObservableSwitchMap$SwitchMapObserver<T, R> extends AtomicInt
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (!this.done && this.errors.addThrowable(th)) {
             this.done = true;
@@ -175,10 +175,10 @@ public final class ObservableSwitchMap$SwitchMapObserver<T, R> extends AtomicInt
         if (!this.delayErrors) {
             disposeInner();
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         ObservableSwitchMap$SwitchMapInnerObserver<T, R> observableSwitchMap$SwitchMapInnerObserver;
         long j = this.unique + 1;
@@ -189,7 +189,7 @@ public final class ObservableSwitchMap$SwitchMapObserver<T, R> extends AtomicInt
         }
         try {
             n<? extends R> apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The ObservableSource returned is null");
+            f.b.x.b.a.b(apply, "The ObservableSource returned is null");
             n<? extends R> nVar = apply;
             ObservableSwitchMap$SwitchMapInnerObserver<T, R> observableSwitchMap$SwitchMapInnerObserver3 = new ObservableSwitchMap$SwitchMapInnerObserver<>(this, j, this.bufferSize);
             do {
@@ -200,13 +200,13 @@ public final class ObservableSwitchMap$SwitchMapObserver<T, R> extends AtomicInt
             } while (!this.active.compareAndSet(observableSwitchMap$SwitchMapInnerObserver, observableSwitchMap$SwitchMapInnerObserver3));
             nVar.subscribe(observableSwitchMap$SwitchMapInnerObserver3);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.s.dispose();
             onError(th);
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

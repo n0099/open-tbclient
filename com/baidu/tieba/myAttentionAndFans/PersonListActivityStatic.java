@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.d.b;
 import d.b.h0.d.c;
 import d.b.h0.d.d;

@@ -3,27 +3,27 @@ package com.baidu.mobstat;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f9233a;
+    public long f8807a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9234b;
+    public String f8808b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9235c;
+    public String f8809c;
 
     public i(long j, String str, String str2) {
-        this.f9233a = -1L;
+        this.f8807a = -1L;
         str2 = str2 == null ? "" : str2;
-        this.f9233a = j;
-        this.f9234b = str;
-        this.f9235c = str2;
+        this.f8807a = j;
+        this.f8808b = str;
+        this.f8809c = str2;
     }
 
     public long a() {
-        return this.f9233a;
+        return this.f8807a;
     }
 
     public String b() {
-        return this.f9235c;
+        return this.f8809c;
     }
 }

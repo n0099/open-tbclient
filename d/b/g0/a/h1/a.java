@@ -23,13 +23,13 @@ import org.json.JSONObject;
 public class a implements l {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44611c = k.f45051a;
+    public static final boolean f45003c = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f44613b = null;
+    public Boolean f45005b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f44612a = AppRuntime.getAppContext();
+    public Context f45004a = AppRuntime.getAppContext();
 
     @Override // d.b.g0.n.l
     public boolean a(String str) {
@@ -83,18 +83,13 @@ public class a implements l {
     @Override // d.b.g0.n.l
     public String getAppId() {
         e t = f.V().t();
-        return t != null ? t.f45740f : "";
+        return t != null ? t.f46132f : "";
     }
 
     @Override // d.b.g0.n.l
     public String getAppVersion() {
         e t = f.V().t();
         return t != null ? t.L().n1() : "";
-    }
-
-    @Override // d.b.g0.n.l
-    public String getDeviceId(Context context) {
-        return d.b.g0.a.w0.a.O().c(d.b.g0.a.w0.a.c());
     }
 
     @Override // d.b.g0.n.l
@@ -130,30 +125,35 @@ public class a implements l {
 
     @Override // d.b.g0.n.l
     public String n(Context context) {
+        return d.b.g0.a.w0.a.O().c(d.b.g0.a.w0.a.c());
+    }
+
+    @Override // d.b.g0.n.l
+    public String o(Context context) {
         return d.b.g0.q.b.b(context).a();
     }
 
     @Override // d.b.g0.n.l
-    public boolean o() {
-        if (this.f44613b == null) {
-            d.b.g0.a.w0.a.N().getSwitch("swan_ceres_add_counter", false);
-            this.f44613b = false;
-        }
-        return this.f44613b.booleanValue();
-    }
-
-    @Override // d.b.g0.n.l
     public boolean p() {
-        return d.b.g0.a.m1.a.a.R() && (r() || k.f45052b);
+        if (this.f45005b == null) {
+            d.b.g0.a.w0.a.N().getSwitch("swan_ceres_add_counter", false);
+            this.f45005b = false;
+        }
+        return this.f45005b.booleanValue();
     }
 
     @Override // d.b.g0.n.l
-    public String q(Context context) {
+    public boolean q() {
+        return d.b.g0.a.m1.a.a.R() && (s() || k.f45444b);
+    }
+
+    @Override // d.b.g0.n.l
+    public String r(Context context) {
         return d.b.g0.a.w0.a.O().a(d.b.g0.a.w0.a.c());
     }
 
     @Override // d.b.g0.n.l
-    public boolean r() {
-        return f44611c && PreferenceManager.getDefaultSharedPreferences(d.b.g0.a.w0.a.c()).getBoolean("KEY_UBC_DEBUG", true);
+    public boolean s() {
+        return f45003c && PreferenceManager.getDefaultSharedPreferences(d.b.g0.a.w0.a.c()).getBoolean("KEY_UBC_DEBUG", true);
     }
 }

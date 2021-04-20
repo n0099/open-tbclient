@@ -1,7 +1,7 @@
 package com.facebook.datasource;
 
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SimpleDataSource<T> extends AbstractDataSource<T> {
     public static <T> SimpleDataSource<T> create() {
         return new SimpleDataSource<>();

@@ -9,7 +9,7 @@ import android.os.Looper;
 import android.util.Log;
 import androidx.multidex.MultiDex;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import dalvik.system.DexFile;
 import java.io.File;
 import java.io.IOException;

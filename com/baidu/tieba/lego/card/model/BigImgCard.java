@@ -1,8 +1,8 @@
 package com.baidu.tieba.lego.card.model;
 
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BigImgCard extends BaseCardInfo {
     public final double ratio;
     public final String url;

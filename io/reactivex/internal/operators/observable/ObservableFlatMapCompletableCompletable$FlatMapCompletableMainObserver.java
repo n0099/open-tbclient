@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.c;
-import f.a.o;
-import f.a.t.a;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.c;
+import f.b.o;
+import f.b.t.a;
+import f.b.t.b;
+import f.b.w.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -12,10 +12,10 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMainObserver<T> extends AtomicInteger implements b, o<T> {
     public static final long serialVersionUID = 8443155186132538303L;
-    public final f.a.b actual;
+    public final f.b.b actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68063d;
+    public b f69069d;
     public final boolean delayErrors;
     public volatile boolean disposed;
     public final h<? super T, ? extends c> mapper;
@@ -23,49 +23,49 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
     public final a set = new a();
 
     /* loaded from: classes7.dex */
-    public final class InnerObserver extends AtomicReference<b> implements f.a.b, b {
+    public final class InnerObserver extends AtomicReference<b> implements f.b.b, b {
         public static final long serialVersionUID = 8606673141535671828L;
 
         public InnerObserver() {
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             DisposableHelper.dispose(this);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onComplete() {
             ObservableFlatMapCompletableCompletable$FlatMapCompletableMainObserver.this.innerComplete(this);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onError(Throwable th) {
             ObservableFlatMapCompletableCompletable$FlatMapCompletableMainObserver.this.innerError(this, th);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
     }
 
-    public ObservableFlatMapCompletableCompletable$FlatMapCompletableMainObserver(f.a.b bVar, h<? super T, ? extends c> hVar, boolean z) {
+    public ObservableFlatMapCompletableCompletable$FlatMapCompletableMainObserver(f.b.b bVar, h<? super T, ? extends c> hVar, boolean z) {
         this.actual = bVar;
         this.mapper = hVar;
         this.delayErrors = z;
         lazySet(1);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.disposed = true;
-        this.f68063d.dispose();
+        this.f69069d.dispose();
         this.set.dispose();
     }
 
@@ -79,12 +79,12 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
         onError(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f68063d.isDisposed();
+        return this.f69069d.isDisposed();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (decrementAndGet() == 0) {
             Throwable terminate = this.errors.terminate();
@@ -96,7 +96,7 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.errors.addThrowable(th)) {
             if (this.delayErrors) {
@@ -113,14 +113,14 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
             }
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         try {
             c apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The mapper returned a null CompletableSource");
+            f.b.x.b.a.b(apply, "The mapper returned a null CompletableSource");
             c cVar = apply;
             getAndIncrement();
             InnerObserver innerObserver = new InnerObserver();
@@ -129,16 +129,16 @@ public final class ObservableFlatMapCompletableCompletable$FlatMapCompletableMai
             }
             cVar.a(innerObserver);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
-            this.f68063d.dispose();
+            f.b.u.a.a(th);
+            this.f69069d.dispose();
             onError(th);
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68063d, bVar)) {
-            this.f68063d = bVar;
+        if (DisposableHelper.validate(this.f69069d, bVar)) {
+            this.f69069d = bVar;
             this.actual.onSubscribe(this);
         }
     }

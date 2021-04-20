@@ -1,11 +1,18 @@
 package d.b.n.a;
-/* loaded from: classes.dex */
-public final class a implements f {
-    public a(com.baidu.crabsdk.a.c cVar) {
-    }
 
-    @Override // d.b.n.a.f
-    public final void a(long j, long j2, long j3, long j4) {
-        com.baidu.crabsdk.a.c.a(j, j2, j3, j4);
+import android.content.Context;
+import com.baidu.crashpad.ZeusLogUploader;
+import com.baidu.crashpad.ZwCrashpad;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
+import java.io.File;
+/* loaded from: classes.dex */
+public final class a {
+    public static void a() {
+        ZwCrashpad.setEnabled(true);
+        File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
+        Context appContext = AppRuntime.getAppContext();
+        ZwCrashpad.doInit(appContext, new String[]{"0", "0", "0", "0", "0", "0", "0", "true", appContext.getFilesDir().getAbsolutePath(), "0.0.0.0", appContext.getApplicationInfo().nativeLibraryDir, appContext.getApplicationInfo().nativeLibraryDir, processCrashpadDir.getAbsolutePath()});
+        ZeusLogUploader.setEnabled(false);
     }
 }

@@ -16,28 +16,28 @@ import kotlin.jvm.internal.ByteCompanionObject;
 public class WebSocketFrame {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f12145g = k.f45051a;
+    public static final boolean f11806g = k.f45443a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Charset f12146h = Charset.forName("UTF-8");
+    public static final Charset f11807h = Charset.forName("UTF-8");
 
     /* renamed from: a  reason: collision with root package name */
-    public OpCode f12147a;
+    public OpCode f11808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12148b;
+    public boolean f11809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f12149c;
+    public byte[] f11810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f12150d;
+    public byte[] f11811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12151e;
+    public int f11812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12152f;
+    public String f11813f;
 
     /* loaded from: classes2.dex */
     public enum CloseCode {
@@ -146,7 +146,7 @@ public class WebSocketFrame {
     }
 
     public static String a(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, f12146h);
+        return new String(bArr, i, i2, f11807h);
     }
 
     public static String b(byte[] bArr) {
@@ -185,44 +185,44 @@ public class WebSocketFrame {
     }
 
     public static byte[] s(String str) {
-        return str.getBytes(f12146h);
+        return str.getBytes(f11807h);
     }
 
     public byte[] d() {
-        return this.f12150d;
+        return this.f11811d;
     }
 
     public final byte[] e() {
-        return this.f12149c;
+        return this.f11810c;
     }
 
     public OpCode f() {
-        return this.f12147a;
+        return this.f11808a;
     }
 
     public String g() {
-        if (this.f12152f == null) {
-            this.f12152f = b(d());
+        if (this.f11813f == null) {
+            this.f11813f = b(d());
         }
-        return this.f12152f;
+        return this.f11813f;
     }
 
     public boolean h() {
-        return this.f12148b;
+        return this.f11809b;
     }
 
     public final boolean i() {
-        byte[] bArr = this.f12149c;
+        byte[] bArr = this.f11810c;
         return bArr != null && bArr.length == 4;
     }
 
     public final String j() {
-        if (this.f12150d == null) {
+        if (this.f11811d == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         sb.append('[');
-        sb.append(this.f12150d.length);
+        sb.append(this.f11811d.length);
         sb.append("b] ");
         if (f() == OpCode.Text) {
             String g2 = g();
@@ -234,10 +234,10 @@ public class WebSocketFrame {
             }
         } else {
             sb.append("0x");
-            for (int i = 0; i < Math.min(this.f12150d.length, 50); i++) {
-                sb.append(Integer.toHexString(this.f12150d[i] & 255));
+            for (int i = 0; i < Math.min(this.f11811d.length, 50); i++) {
+                sb.append(Integer.toHexString(this.f11811d[i] & 255));
             }
-            if (this.f12150d.length > 50) {
+            if (this.f11811d.length > 50) {
                 sb.append(StringHelper.STRING_MORE);
             }
         }
@@ -245,30 +245,30 @@ public class WebSocketFrame {
     }
 
     public final void l(InputStream inputStream) throws IOException {
-        this.f12150d = new byte[this.f12151e];
+        this.f11811d = new byte[this.f11812e];
         int i = 0;
         int i2 = 0;
         while (true) {
-            int i3 = this.f12151e;
+            int i3 = this.f11812e;
             if (i2 >= i3) {
                 break;
             }
-            int read = inputStream.read(this.f12150d, i2, i3 - i2);
+            int read = inputStream.read(this.f11811d, i2, i3 - i2);
             c(read);
             i2 += read;
         }
         if (i()) {
             while (true) {
-                byte[] bArr = this.f12150d;
+                byte[] bArr = this.f11811d;
                 if (i >= bArr.length) {
                     break;
                 }
-                bArr[i] = (byte) (bArr[i] ^ this.f12149c[i % 4]);
+                bArr[i] = (byte) (bArr[i] ^ this.f11810c[i % 4]);
                 i++;
             }
         }
         if (f() == OpCode.Text) {
-            this.f12152f = b(d());
+            this.f11813f = b(d());
         }
     }
 
@@ -279,14 +279,14 @@ public class WebSocketFrame {
         int i = 0;
         boolean z = (b2 & ByteCompanionObject.MIN_VALUE) != 0;
         byte b3 = (byte) (b2 & ByteCompanionObject.MAX_VALUE);
-        this.f12151e = b3;
+        this.f11812e = b3;
         if (b3 == 126) {
             int read2 = inputStream.read();
             c(read2);
             int read3 = inputStream.read();
             c(read3);
             int i2 = ((read2 << 8) | read3) & 65535;
-            this.f12151e = i2;
+            this.f11812e = i2;
             if (i2 < 126) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Invalid data frame 2byte length.(not using minimal length encoding)");
             }
@@ -312,15 +312,15 @@ public class WebSocketFrame {
                 throw new IOException("Invalid data frame 4byte length.(not using minimal length encoding)");
             }
             if (j <= 2147483647L) {
-                this.f12151e = (int) j;
+                this.f11812e = (int) j;
             } else {
                 throw new WebSocketException(CloseCode.MessageTooLong, "Max frame length has been exceeded.");
             }
         }
-        if (this.f12147a.isControlFrame()) {
-            int i3 = this.f12151e;
+        if (this.f11808a.isControlFrame()) {
+            int i3 = this.f11812e;
             if (i3 <= 125) {
-                if (this.f12147a == OpCode.Close && i3 == 1) {
+                if (this.f11808a == OpCode.Close && i3 == 1) {
                     throw new WebSocketException(CloseCode.ProtocolError, "Received close frame with mPayload len 1.");
                 }
             } else {
@@ -330,9 +330,9 @@ public class WebSocketFrame {
         if (!z) {
             return;
         }
-        this.f12149c = new byte[4];
+        this.f11810c = new byte[4];
         while (true) {
-            byte[] bArr = this.f12149c;
+            byte[] bArr = this.f11810c;
             if (i >= bArr.length) {
                 return;
             }
@@ -343,54 +343,54 @@ public class WebSocketFrame {
     }
 
     public final void n(byte[] bArr) {
-        this.f12150d = bArr;
-        this.f12151e = bArr.length;
-        this.f12152f = null;
+        this.f11811d = bArr;
+        this.f11812e = bArr.length;
+        this.f11813f = null;
     }
 
     public final void o(boolean z) {
-        this.f12148b = z;
+        this.f11809b = z;
     }
 
     public final void p(byte[] bArr) {
-        if (bArr != null && bArr.length != 4 && f12145g) {
+        if (bArr != null && bArr.length != 4 && f11806g) {
             Log.e("WebSocketFrame", "MaskingKey " + Arrays.toString(bArr) + " hasn't length 4");
         }
-        this.f12149c = bArr;
+        this.f11810c = bArr;
     }
 
     public final void q(OpCode opCode) {
-        this.f12147a = opCode;
+        this.f11808a = opCode;
     }
 
     public final void r(String str) {
-        this.f12150d = s(str);
-        this.f12151e = str.length();
-        this.f12152f = str;
+        this.f11811d = s(str);
+        this.f11812e = str.length();
+        this.f11813f = str;
     }
 
     public void t(OutputStream outputStream) throws IOException {
-        outputStream.write((byte) ((this.f12148b ? (byte) 128 : (byte) 0) | (this.f12147a.getValue() & 15)));
+        outputStream.write((byte) ((this.f11809b ? (byte) 128 : (byte) 0) | (this.f11808a.getValue() & 15)));
         int length = d().length;
-        this.f12151e = length;
+        this.f11812e = length;
         if (length <= 125) {
-            outputStream.write(i() ? ((byte) this.f12151e) | ByteCompanionObject.MIN_VALUE : (byte) this.f12151e);
+            outputStream.write(i() ? ((byte) this.f11812e) | ByteCompanionObject.MIN_VALUE : (byte) this.f11812e);
         } else if (length < 65536) {
             outputStream.write(i() ? 254 : 126);
-            outputStream.write(this.f12151e >>> 8);
-            outputStream.write(this.f12151e);
+            outputStream.write(this.f11812e >>> 8);
+            outputStream.write(this.f11812e);
         } else {
             outputStream.write(i() ? 255 : 127);
             outputStream.write(new byte[4]);
-            outputStream.write(this.f12151e >>> 24);
-            outputStream.write(this.f12151e >>> 16);
-            outputStream.write(this.f12151e >>> 8);
-            outputStream.write(this.f12151e);
+            outputStream.write(this.f11812e >>> 24);
+            outputStream.write(this.f11812e >>> 16);
+            outputStream.write(this.f11812e >>> 8);
+            outputStream.write(this.f11812e);
         }
         if (i()) {
-            outputStream.write(this.f12149c);
-            for (int i = 0; i < this.f12151e; i++) {
-                outputStream.write(d()[i] ^ this.f12149c[i % 4]);
+            outputStream.write(this.f11810c);
+            for (int i = 0; i < this.f11812e; i++) {
+                outputStream.write(d()[i] ^ this.f11810c[i % 4]);
             }
         } else {
             outputStream.write(d());
@@ -421,7 +421,7 @@ public class WebSocketFrame {
         }
         if (j >= 0 && j <= 2147483647L) {
             int i = (int) j;
-            this.f12151e = i;
+            this.f11812e = i;
             byte[] bArr = new byte[i];
             int i2 = 0;
             for (WebSocketFrame webSocketFrame : list) {
@@ -429,7 +429,7 @@ public class WebSocketFrame {
                 i2 += webSocketFrame.d().length;
             }
             n(bArr);
-        } else if (f12145g) {
+        } else if (f11806g) {
             throw new RuntimeException("Max frame length has been exceeded.");
         }
     }

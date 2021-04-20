@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMyPost.GetMyPostResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetMyPostHttpResponseMessage extends TbHttpResponsedMessage {
     public GetMyPostResIdl mResponseData;
 

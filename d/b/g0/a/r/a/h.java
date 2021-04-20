@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f45699a = new h();
+    public static final h f46091a = new h();
 
     public final void a(int i, JSONObject jSONObject) {
         if (i == 0) {

@@ -14,11 +14,12 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.mobads.container.components.countly.XAdRemoteSDKCountly;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import d.b.b.e.m.g;
-import d.b.b.e.p.k;
-import d.b.h0.s.c.w;
-import d.b.i0.c3.l0.c;
+import d.b.c.e.m.g;
+import d.b.c.e.p.k;
+import d.b.h0.s.c.y;
+import d.b.i0.d3.l0.c;
 /* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public c callback;
@@ -82,13 +83,13 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         c cVar;
-        if (!w.a(str) && str2.startsWith("tiebaapp")) {
-            d.b.i0.c3.l0.d.c cVar2 = new d.b.i0.c3.l0.d.c();
-            cVar2.s(d.b.i0.c3.l0.d.g.b(str2));
+        if (!y.a(str) && str2.startsWith("tiebaapp")) {
+            d.b.i0.d3.l0.d.c cVar2 = new d.b.i0.d3.l0.d.c();
+            cVar2.s(d.b.i0.d3.l0.d.g.b(str2));
             cVar2.t(301);
             callJsMethod(webView, cVar2.c(), cVar2.d());
         }
-        if (w.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
+        if (y.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
             return true;
         }
         jsPromptResult.cancel();
@@ -106,7 +107,7 @@ public class TbWebChromeClient extends WebChromeClient {
         if (Build.VERSION.SDK_INT >= 23 || StringUtils.isNull(str)) {
             return;
         }
-        if ((str.contains("404") || str.contains("500") || str.contains(V8ExceptionInfo.V8_EXCEPTION_ERROR)) && (tbWebViewActivity = this.mActivity) != null) {
+        if ((str.contains(XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH) || str.contains("500") || str.contains(V8ExceptionInfo.V8_EXCEPTION_ERROR)) && (tbWebViewActivity = this.mActivity) != null) {
             tbWebViewActivity.onReceivedTitle();
         }
     }

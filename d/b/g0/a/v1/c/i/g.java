@@ -8,9 +8,9 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends h<JSONObject> {
-    public static final boolean p = k.f45051a;
+    public static final boolean p = k.f45443a;
     public final Activity l;
     public final String m;
     public final String n;
@@ -27,11 +27,11 @@ public class g extends h<JSONObject> {
         JSONObject jSONObject = new JSONObject();
         try {
             d.b.g0.a.r1.e G = G();
-            jSONObject.put("ma_id", G.f45740f);
+            jSONObject.put("ma_id", G.f46132f);
             jSONObject.put("scope", this.m);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", d.b.g0.a.v1.c.c.g());
-            jSONObject.put(com.alipay.sdk.cons.b.f1858h, G.B());
+            jSONObject.put(com.alipay.sdk.cons.b.f1883h, G.B());
             if (G.L() != null && G.L().S() != null) {
                 jSONObject.put("scene", G.L().S());
             }

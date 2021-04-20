@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c0 extends a0 {
     public c0(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/ubcFlowJar");
@@ -16,7 +16,7 @@ public class c0 extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("SwanAppAction", "start ubc flor jar");
         }
         if (eVar == null) {

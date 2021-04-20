@@ -21,49 +21,49 @@ import java.util.ArrayList;
 public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<MediaModel> f12329a;
+    public ArrayList<MediaModel> f11990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaModel f12330b;
+    public MediaModel f11991b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12331c;
+    public int f11992c;
 
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public SimpleDraweeView f12332a;
+        public SimpleDraweeView f11993a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f12333b;
+        public View f11994b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f12334c;
+        public View f11995c;
 
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view) {
             super(view);
-            this.f12332a = (SimpleDraweeView) view.findViewById(f.drag_photo_view);
-            this.f12333b = view.findViewById(f.album_thumbnail_video);
-            this.f12334c = view.findViewById(f.album_thumbnail_selected);
+            this.f11993a = (SimpleDraweeView) view.findViewById(f.drag_photo_view);
+            this.f11994b = view.findViewById(f.album_thumbnail_video);
+            this.f11995c = view.findViewById(f.album_thumbnail_selected);
         }
     }
 
     public SwanAppThumbnailAdapter(Context context) {
-        this.f12331c = context.getResources().getDimensionPixelSize(d.swanapp_preview_thumbnail);
+        this.f11992c = context.getResources().getDimensionPixelSize(d.swanapp_preview_thumbnail);
     }
 
     public MediaModel g(int i) {
-        ArrayList<MediaModel> arrayList = this.f12329a;
+        ArrayList<MediaModel> arrayList = this.f11990a;
         if (arrayList == null || i < 0 || i >= arrayList.size()) {
             return null;
         }
-        return this.f12329a.get(i);
+        return this.f11990a.get(i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        ArrayList<MediaModel> arrayList = this.f12329a;
+        ArrayList<MediaModel> arrayList = this.f11990a;
         if (arrayList == null) {
             return 0;
         }
@@ -71,26 +71,26 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     }
 
     public ArrayList<MediaModel> m() {
-        return this.f12329a;
+        return this.f11990a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: n */
     public void onBindViewHolder(a aVar, int i) {
-        ArrayList<MediaModel> arrayList = this.f12329a;
+        ArrayList<MediaModel> arrayList = this.f11990a;
         if (arrayList == null) {
             return;
         }
         MediaModel mediaModel = arrayList.get(i);
-        aVar.f12332a.setImageURI(Uri.fromFile(new File(mediaModel.b())));
-        aVar.f12333b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-        aVar.f12334c.setVisibility(mediaModel.equals(this.f12330b) ? 0 : 8);
+        aVar.f11993a.setImageURI(Uri.fromFile(new File(mediaModel.b())));
+        aVar.f11994b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+        aVar.f11995c.setVisibility(mediaModel.equals(this.f11991b) ? 0 : 8);
         ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(mediaModel.b())));
-        int i2 = this.f12331c;
+        int i2 = this.f11992c;
         newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
         newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-        aVar.f12332a.setController(Fresco.newDraweeControllerBuilder().setOldController(aVar.f12332a.getController()).setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).build());
+        aVar.f11993a.setController(Fresco.newDraweeControllerBuilder().setOldController(aVar.f11993a.getController()).setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).build());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -101,21 +101,21 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     }
 
     public int p(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList = this.f12329a;
+        ArrayList<MediaModel> arrayList = this.f11990a;
         if (arrayList == null) {
             return 0;
         }
-        MediaModel mediaModel2 = this.f12330b;
-        this.f12330b = mediaModel;
+        MediaModel mediaModel2 = this.f11991b;
+        this.f11991b = mediaModel;
         int size = arrayList.size();
         int i = 0;
         int i2 = -1;
         for (int i3 = 0; i3 < size; i3++) {
-            if (mediaModel2 != null && mediaModel2.equals(this.f12329a.get(i3))) {
+            if (mediaModel2 != null && mediaModel2.equals(this.f11990a.get(i3))) {
                 notifyItemChanged(i3);
                 i++;
             }
-            if (mediaModel != null && mediaModel.equals(this.f12329a.get(i3))) {
+            if (mediaModel != null && mediaModel.equals(this.f11990a.get(i3))) {
                 notifyItemChanged(i3);
                 i++;
                 i2 = i3;
@@ -128,9 +128,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     }
 
     public void q(ArrayList<MediaModel> arrayList) {
-        this.f12329a = arrayList;
+        this.f11990a = arrayList;
         if (arrayList != null && arrayList.size() == 1) {
-            this.f12330b = arrayList.get(0);
+            this.f11991b = arrayList.get(0);
         }
         notifyDataSetChanged();
     }

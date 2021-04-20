@@ -11,7 +11,6 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.clientupdate.d.j;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.util.Base64Encoder;
 import com.baidu.util.LogUtil;
@@ -28,26 +27,26 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f4572e;
+    public static d f4607e;
 
     /* renamed from: a  reason: collision with root package name */
-    public List f4573a = new ArrayList();
+    public List f4608a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public List f4574b = new ArrayList();
+    public List f4609b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f4575c;
+    public com.baidu.clientupdate.download.a f4610c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f4576d;
+    public b f4611d;
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x00c5 -> B:35:0x00c8). Please submit an issue!!! */
     public d(Context context) {
-        this.f4575c = com.baidu.clientupdate.download.a.a(context);
-        this.f4576d = b.a(context);
+        this.f4610c = com.baidu.clientupdate.download.a.a(context);
+        this.f4611d = b.a(context);
         try {
-            if (this.f4575c.h()) {
+            if (this.f4610c.h()) {
                 String a2 = com.baidu.util.a.a(context).a("lcsdk_xml", "apkMD5", "");
                 String a3 = j.a(context, context.getPackageName());
                 String a4 = com.baidu.util.a.a(context).a("lcsdk_xml", "sessionId", "-1");
@@ -64,13 +63,13 @@ public final class d {
         }
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.f4575c.g()) {
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.f4610c.g()) {
                 LogUtil.logE(LogUtils.TAG, "符合wifi下、有a6动作的上报时机");
                 b();
-                if (this.f4573a == null || this.f4573a.size() == 0) {
+                if (this.f4608a == null || this.f4608a.size() == 0) {
                     return;
                 }
-                String a6 = a(this.f4573a);
+                String a6 = a(this.f4608a);
                 if (TextUtils.isEmpty(a6)) {
                     return;
                 }
@@ -82,7 +81,7 @@ public final class d {
                     return;
                 }
                 LogUtil.logE(LogUtils.TAG, "日志超过20k或者日志超过7天 ，将日志舍弃");
-                this.f4575c.b();
+                this.f4610c.b();
             }
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -92,14 +91,14 @@ public final class d {
     private a a(Cursor cursor) {
         a aVar = new a();
         try {
-            aVar.f4559b = cursor.getString(cursor.getColumnIndex("ug"));
-            aVar.f4560c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
-            aVar.f4558a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
-            aVar.f4561d = cursor.getString(cursor.getColumnIndex("flag"));
-            aVar.f4562e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
-            aVar.f4563f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
-            aVar.f4564g = new JSONArray(cursor.getString(cursor.getColumnIndex("etm")));
-            aVar.f4565h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
+            aVar.f4594b = cursor.getString(cursor.getColumnIndex("ug"));
+            aVar.f4595c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
+            aVar.f4593a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
+            aVar.f4596d = cursor.getString(cursor.getColumnIndex("flag"));
+            aVar.f4597e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
+            aVar.f4598f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
+            aVar.f4599g = new JSONArray(cursor.getString(cursor.getColumnIndex("etm")));
+            aVar.f4600h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
             aVar.i = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.EXCEPTION_PART)));
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -110,10 +109,10 @@ public final class d {
     public static synchronized d a(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (f4572e == null) {
-                f4572e = new d(context);
+            if (f4607e == null) {
+                f4607e = new d(context);
             }
-            dVar = f4572e;
+            dVar = f4607e;
         }
         return dVar;
     }
@@ -128,9 +127,9 @@ public final class d {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject2.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.b());
-                jSONObject2.put(IXAdRequestInfo.MAX_TITLE_LENGTH, aVar.c());
+                jSONObject2.put("tm", aVar.c());
                 jSONObject3.put(Config.STAT_SDK_CHANNEL, aVar.d());
-                jSONObject3.put(IXAdRequestInfo.MAX_TITLE_LENGTH, aVar.e());
+                jSONObject3.put("tm", aVar.e());
                 jSONObject3.put("mg", aVar.f());
                 jSONObject3.put(Config.EXCEPTION_PART, aVar.g());
                 jSONObject2.put("in", jSONObject3);
@@ -150,7 +149,7 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         LogUtil.logE(LogUtils.TAG, "把db数据的flag变为1");
-        this.f4575c.d();
+        this.f4610c.d();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: android.database.Cursor */
@@ -179,7 +178,7 @@ public final class d {
     private List b() {
         Cursor cursor;
         LogUtil.logE(LogUtils.TAG, "queryAllLog");
-        List list = this.f4574b;
+        List list = this.f4609b;
         Cursor cursor2 = null;
         List list2 = list;
         if (list != null) {
@@ -188,17 +187,17 @@ public final class d {
         }
         try {
             try {
-                cursor = this.f4575c.f();
+                cursor = this.f4610c.f();
                 if (cursor != null) {
                     try {
                         cursor.moveToFirst();
                         while (!cursor.isAfterLast()) {
-                            this.f4574b.add(a(cursor));
+                            this.f4609b.add(a(cursor));
                             cursor.moveToNext();
                         }
-                        this.f4573a.addAll(this.f4574b);
-                        this.f4574b = null;
-                        List list3 = this.f4573a;
+                        this.f4608a.addAll(this.f4609b);
+                        this.f4609b = null;
+                        List list3 = this.f4608a;
                         if (cursor != null) {
                             cursor.close();
                         }
@@ -251,7 +250,7 @@ public final class d {
                 currentTimeMillis = System.currentTimeMillis();
                 LogUtil.logE(LogUtils.TAG, "打log");
                 str10 = TextUtils.isEmpty(str3) ? StringUtil.ARRAY_START : str3;
-                a2 = this.f4575c.a(str4);
+                a2 = this.f4610c.a(str4);
             } catch (Exception e2) {
                 e = e2;
             }
@@ -264,15 +263,15 @@ public final class d {
                     try {
                         if (a2.moveToNext()) {
                             a a3 = a(a2);
-                            if (a3.f4560c.equals(str4) && a3.f4561d.equals(str2)) {
+                            if (a3.f4595c.equals(str4) && a3.f4596d.equals(str2)) {
                                 LogUtil.logE(LogUtils.TAG, IMTrack.DbBuilder.ACTION_UPDATE);
                                 a3.a(str10);
-                                a3.f4563f.put(str5);
-                                a3.f4562e.put(str6);
-                                a3.f4564g.put(System.currentTimeMillis() / 1000);
-                                a3.f4565h.put(str8);
+                                a3.f4598f.put(str5);
+                                a3.f4597e.put(str6);
+                                a3.f4599g.put(System.currentTimeMillis() / 1000);
+                                a3.f4600h.put(str8);
                                 a3.i.put(str9);
-                                this.f4575c.b(a3);
+                                this.f4610c.b(a3);
                             }
                             cursor = a2;
                             LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
@@ -300,7 +299,7 @@ public final class d {
                         throw th;
                     }
                 }
-                this.f4575c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
+                this.f4610c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
                 LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
                 if (cursor == null) {
                 }

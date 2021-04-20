@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
 import d.b.h0.r.q.a2;
 /* loaded from: classes4.dex */
-public class c extends d.b.b.j.e.a<d.b.i0.t.h.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
+public class c extends d.b.c.j.e.a<d.b.i0.t.h.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
     public TbPageContext<?> m;
     public d.b.i0.t.c n;
     public String o;
@@ -21,7 +21,7 @@ public class c extends d.b.b.j.e.a<d.b.i0.t.h.b.a, AlaGameFrsGameLiveDoubleView.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: h0 */
     public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder R(ViewGroup viewGroup) {
         AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.m);
@@ -30,15 +30,15 @@ public class c extends d.b.b.j.e.a<d.b.i0.t.h.b.a, AlaGameFrsGameLiveDoubleView.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.h.b.a aVar, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
-        alaGameFrsGameLiveDoubleViewHolder.f14994a.n(aVar);
-        alaGameFrsGameLiveDoubleViewHolder.f14994a.x(this.n);
-        d.b.i0.t.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f60773e.q1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f60773e.q1().appId) ? aVar.f60773e.q1().appId : ""));
-        a2 a2Var = aVar.f60774f;
+        alaGameFrsGameLiveDoubleViewHolder.f14657a.n(aVar);
+        alaGameFrsGameLiveDoubleViewHolder.f14657a.x(this.n);
+        d.b.i0.t.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f62337e.q1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f62337e.q1().appId) ? aVar.f62337e.q1().appId : ""));
+        a2 a2Var = aVar.f62338f;
         if (a2Var != null) {
-            d.b.i0.t.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f60774f.q1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(a2Var.q1().appId) ? "" : aVar.f60774f.q1().appId));
+            d.b.i0.t.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f62338f.q1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(a2Var.q1().appId) ? "" : aVar.f62338f.q1().appId));
         }
         return alaGameFrsGameLiveDoubleViewHolder.a();
     }

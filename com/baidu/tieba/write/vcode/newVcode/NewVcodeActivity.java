@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import d.b.h0.s.c.f0;
-import d.b.i0.u3.t.a.a.a;
-import d.b.i0.u3.t.a.a.b;
-import d.b.i0.u3.t.a.a.c;
+import d.b.h0.s.c.h0;
+import d.b.i0.v3.t.a.a.a;
+import d.b.i0.v3.t.a.a.b;
+import d.b.i0.v3.t.a.a.c;
 /* loaded from: classes5.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public boolean mNeedFeedBackButton;
@@ -23,7 +23,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public int mPageType = 0;
     public NewWriteModel.g mDragVcodePresenterCallback = new NewWriteModel.g() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, f0 f0Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, h0 h0Var, WriteData writeData, AntiData antiData) {
             if (postWriteCallBackData == null || z) {
                 return;
             }
@@ -42,15 +42,15 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 intent2.putExtras(bundle2);
                 NewVcodeActivity.this.setResult(0, intent2);
                 NewVcodeActivity.this.finish();
-            } else if (f0Var == null || writeData == null) {
+            } else if (h0Var == null || writeData == null) {
             } else {
-                NewVcodeActivity.this.mPageType = d.b.b.e.m.b.d("4", 0);
+                NewVcodeActivity.this.mPageType = d.b.c.e.m.b.d("4", 0);
                 NewVcodeActivity.this.mPresenter.d();
                 NewVcodeActivity.this.mPresenter.onDestroy();
                 NewVcodeActivity.this.mWriteData = writeData;
-                NewVcodeActivity.this.mWriteData.setVcodeMD5(f0Var.b());
-                NewVcodeActivity.this.mWriteData.setVcodeUrl(f0Var.c());
-                NewVcodeActivity.this.mWriteData.setVcodeExtra(f0Var.a());
+                NewVcodeActivity.this.mWriteData.setVcodeMD5(h0Var.b());
+                NewVcodeActivity.this.mWriteData.setVcodeUrl(h0Var.c());
+                NewVcodeActivity.this.mWriteData.setVcodeExtra(h0Var.a());
                 NewVcodeActivity.this.mWriteModel.f0(NewVcodeActivity.this.mWriteData);
                 NewVcodeActivity newVcodeActivity = NewVcodeActivity.this;
                 newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
@@ -64,7 +64,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public b getVcodePresenterFromType() {
         b cVar;
-        if (this.mPageType == d.b.b.e.m.b.d("5", 0)) {
+        if (this.mPageType == d.b.c.e.m.b.d("5", 0)) {
             cVar = new a(this.mNewVcodeView, this.mWriteModel);
         } else {
             cVar = new c(this.mNewVcodeView, this.mWriteModel);

@@ -1,4 +1,4 @@
 package com.baidu.fsg.base;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface NoProguard {
 }

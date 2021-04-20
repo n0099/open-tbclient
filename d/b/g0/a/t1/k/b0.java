@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.heytap.mcssdk.PushManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b0 extends a0 {
     public b0(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/checkAppInstalled");

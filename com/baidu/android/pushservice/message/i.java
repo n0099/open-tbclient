@@ -11,28 +11,28 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3472a;
+    public String f3507a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3473b;
+    public String f3508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3474c;
+    public String f3509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3475d;
+    public String f3510d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3476e;
+    public String f3511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3477f;
+    public String f3512f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3478g;
+    public String f3513g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3479h;
+    public String f3514h;
     public String i;
     public String j;
     public int k;
@@ -45,16 +45,16 @@ public class i {
         try {
             publicMsg.mMsgId = this.j;
             publicMsg.mAppId = this.i;
-            if (TextUtils.isEmpty(this.f3478g) && TextUtils.isEmpty(this.f3479h)) {
-                publicMsg.mTitle = this.f3476e;
-                publicMsg.mDescription = this.f3477f;
-                publicMsg.mUrl = this.f3472a;
-                str = this.f3474c;
+            if (TextUtils.isEmpty(this.f3513g) && TextUtils.isEmpty(this.f3514h)) {
+                publicMsg.mTitle = this.f3511e;
+                publicMsg.mDescription = this.f3512f;
+                publicMsg.mUrl = this.f3507a;
+                str = this.f3509c;
             } else {
-                publicMsg.mTitle = this.f3478g;
-                publicMsg.mDescription = this.f3479h;
-                publicMsg.mUrl = this.f3473b;
-                str = this.f3475d;
+                publicMsg.mTitle = this.f3513g;
+                publicMsg.mDescription = this.f3514h;
+                publicMsg.mUrl = this.f3508b;
+                str = this.f3510d;
             }
             publicMsg.mPkgContent = str;
             return publicMsg;

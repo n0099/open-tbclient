@@ -12,43 +12,43 @@ import java.util.List;
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements d.b.h0.b1.n.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f15413e;
+    public List<a> f15076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15414f;
+    public int f15077f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragment f15415g;
+    public BaseFragment f15078g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f15416h;
+    public boolean f15079h;
     public FragmentManager i;
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Fragment f15417a;
+        public Fragment f15080a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f15418b;
+        public String f15081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f15419c;
+        public boolean f15082c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f15420d;
+        public String f15083d;
     }
 
     public EnterForumTabPagerAdapter(FragmentManager fragmentManager, List<a> list) {
         super(fragmentManager);
-        this.f15414f = -1;
+        this.f15077f = -1;
         this.i = fragmentManager;
-        this.f15413e = list;
+        this.f15076e = list;
     }
 
     public String e() {
-        BaseFragment baseFragment = this.f15415g;
+        BaseFragment baseFragment = this.f15078g;
         if (baseFragment instanceof BaseFragment) {
             return baseFragment.getCurrentPageKey();
         }
@@ -56,12 +56,12 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements d
     }
 
     public void f(boolean z) {
-        this.f15416h = z;
+        this.f15079h = z;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        List<a> list = this.f15413e;
+        List<a> list = this.f15076e;
         if (list != null) {
             return list.size();
         }
@@ -70,18 +70,18 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements d
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        List<a> list = this.f15413e;
-        if (list == null || i < 0 || i >= list.size() || this.f15413e.get(i) == null) {
+        List<a> list = this.f15076e;
+        if (list == null || i < 0 || i >= list.size() || this.f15076e.get(i) == null) {
             return null;
         }
-        return this.f15413e.get(i).f15417a;
+        return this.f15076e.get(i).f15080a;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public long getItemId(int i) {
-        List<a> list = this.f15413e;
-        if (list != null && i >= 0 && i < list.size() && this.f15413e.get(i) != null) {
-            return this.f15413e.get(i).hashCode();
+        List<a> list = this.f15076e;
+        if (list != null && i >= 0 && i < list.size() && this.f15076e.get(i) != null) {
+            return this.f15076e.get(i).hashCode();
         }
         return super.getItemId(i);
     }
@@ -93,37 +93,37 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements d
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        List<a> list = this.f15413e;
-        if (list == null || i < 0 || i >= list.size() || this.f15413e.get(i) == null) {
+        List<a> list = this.f15076e;
+        if (list == null || i < 0 || i >= list.size() || this.f15076e.get(i) == null) {
             return null;
         }
-        return this.f15413e.get(i).f15418b;
+        return this.f15076e.get(i).f15081b;
     }
 
     @Override // d.b.h0.b1.n.a
     public boolean h(int i) {
-        List<a> list = this.f15413e;
-        if (list == null || i < 0 || i >= list.size() || this.f15413e.get(i) == null || !(this.f15413e.get(i).f15417a instanceof EnterForumTabFeedFragment)) {
+        List<a> list = this.f15076e;
+        if (list == null || i < 0 || i >= list.size() || this.f15076e.get(i) == null || !(this.f15076e.get(i).f15080a instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.f15413e.get(i).f15419c;
+        return this.f15076e.get(i).f15082c;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         int i2;
         super.setPrimaryItem(viewGroup, i, obj);
-        if (!this.f15416h || (i2 = this.f15414f) == i) {
+        if (!this.f15079h || (i2 = this.f15077f) == i) {
             return;
         }
         if (i2 != -1) {
             ((BaseFragment) getItem(i2)).setPrimary(false);
         }
-        this.f15414f = i;
+        this.f15077f = i;
         if (obj instanceof BaseFragment) {
             BaseFragment baseFragment = (BaseFragment) obj;
             baseFragment.setPrimary(true);
-            this.f15415g = baseFragment;
+            this.f15078g = baseFragment;
         }
     }
 }

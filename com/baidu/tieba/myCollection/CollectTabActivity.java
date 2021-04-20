@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import d.b.h0.e0.c;
-import d.b.i0.v1.b;
+import d.b.i0.w1.b;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
-    public d.b.i0.v1.a mController;
+    public d.b.i0.w1.a mController;
     public CustomMessageListener mEditorEnableListener = new a(2022209);
 
     /* loaded from: classes3.dex */
@@ -78,7 +78,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             if (fragmentTabStructure == null) {
                 return;
             }
-            fragmentTabStructure.f50155a.setArguments(new Bundle());
+            fragmentTabStructure.f50548a.setArguments(new Bundle());
         }
         this.mController.h(aVar.c());
     }
@@ -103,7 +103,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (view == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                d.b.i0.v1.c.a("c14067");
+                d.b.i0.w1.c.a("c14067");
             }
             this.mController.b(z);
         }
@@ -113,7 +113,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.mController = new d.b.i0.v1.a(this);
+        this.mController = new d.b.i0.w1.a(this);
         registerListener(this.mEditorEnableListener);
         initTabsOnActivityCreated();
         checkSchemeFromIntent(getIntent());
@@ -135,7 +135,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.v1.c.a("c14061");
+        d.b.i0.w1.c.a("c14061");
         b.b().f(true);
         b.b().e(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);

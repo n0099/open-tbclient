@@ -16,13 +16,13 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 public abstract class a extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView f33927a;
+    public RecyclerView f34216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f33928b;
+    public d f34217b;
 
     private void a() {
-        this.f33927a.setAdapter(this.f33928b);
+        this.f34216a.setAdapter(this.f34217b);
     }
 
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -34,13 +34,13 @@ public abstract class a extends KsFragment {
     public abstract int b();
 
     public void c() {
-        this.f33927a.setItemAnimator(null);
-        this.f33927a.setLayoutManager(e());
-        this.f33928b = a(this.f33927a);
+        this.f34216a.setItemAnimator(null);
+        this.f34216a.setLayoutManager(e());
+        this.f34217b = a(this.f34216a);
     }
 
     public RecyclerView d() {
-        return this.f33927a;
+        return this.f34216a;
     }
 
     public RecyclerView.LayoutManager e() {
@@ -65,14 +65,14 @@ public abstract class a extends KsFragment {
     @CallSuper
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View a2 = a(layoutInflater, viewGroup, bundle);
-        this.f33927a = (RecyclerView) a2.findViewById(f());
+        this.f34216a = (RecyclerView) a2.findViewById(f());
         return a2;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         super.onDestroy();
-        RecyclerView recyclerView = this.f33927a;
+        RecyclerView recyclerView = this.f34216a;
         if (recyclerView != null) {
             recyclerView.setAdapter(null);
         }
@@ -81,7 +81,7 @@ public abstract class a extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        this.f33927a.clearOnChildAttachStateChangeListeners();
+        this.f34216a.clearOnChildAttachStateChangeListeners();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

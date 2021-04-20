@@ -2,26 +2,27 @@ package d.b.g0.a.z1.k;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.k;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends f {
-    public static final boolean y = k.f45051a;
+    public static final boolean y = k.f45443a;
     public static int z = 35;
     public boolean w = false;
     public JSONObject x;
 
     public d() {
-        this.f47253c = "NA";
+        this.f47645c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
     }
 
     @Override // d.b.g0.a.z1.k.f, d.b.g0.a.z1.k.e
     public JSONObject f() {
-        if (this.f47257g == null) {
-            this.f47257g = new JSONObject();
+        if (this.f47649g == null) {
+            this.f47649g = new JSONObject();
         }
         try {
             if (this.x != null) {
@@ -31,11 +32,11 @@ public class d extends f {
                         this.x.put("stacktrace", v);
                     }
                 }
-                this.f47257g.put("info", this.x);
+                this.f47649g.put("info", this.x);
             }
             ExtensionCore K = d.b.g0.a.e0.w.d.L().K();
             if (K != null) {
-                this.f47257g.put("extension_ver", K.extensionCoreVersionName);
+                this.f47649g.put("extension_ver", K.extensionCoreVersionName);
             }
         } catch (JSONException e2) {
             if (y) {
@@ -62,7 +63,7 @@ public class d extends f {
     }
 
     public d m(String str) {
-        this.f47255e = str;
+        this.f47647e = str;
         return this;
     }
 
@@ -72,18 +73,18 @@ public class d extends f {
     }
 
     public d o(int i) {
-        this.f47252b = String.valueOf(i);
+        this.f47644b = String.valueOf(i);
         return this;
     }
 
     public d p(@NonNull d.b.g0.a.f2.a aVar) {
-        this.f47252b = String.valueOf(aVar.a());
+        this.f47644b = String.valueOf(aVar.a());
         l("detail", aVar.f().toString());
         return this;
     }
 
     public d q(String str) {
-        this.f47251a = str;
+        this.f47643a = str;
         return this;
     }
 
@@ -92,10 +93,10 @@ public class d extends f {
             return this;
         }
         if (!TextUtils.isEmpty(eVar.S())) {
-            this.f47253c = eVar.S();
+            this.f47645c = eVar.S();
         }
         if (!TextUtils.isEmpty(eVar.G())) {
-            this.f47255e = eVar.G();
+            this.f47647e = eVar.G();
         }
         if (!TextUtils.isEmpty(eVar.V())) {
             this.q = eVar.V();
@@ -107,12 +108,12 @@ public class d extends f {
     }
 
     public d s(String str) {
-        this.f47256f = str;
+        this.f47648f = str;
         return this;
     }
 
     public d t(String str) {
-        this.f47253c = str;
+        this.f47645c = str;
         return this;
     }
 }

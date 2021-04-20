@@ -7,41 +7,41 @@ import kotlin.jvm.internal.Intrinsics;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48054a;
+    public String f48446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f48055b;
+    public Integer f48447b;
 
     public f() {
         this(null, null, 3, null);
     }
 
     public f(String str, Integer num) {
-        this.f48054a = str;
-        this.f48055b = num;
+        this.f48446a = str;
+        this.f48447b = num;
     }
 
     public final String a() {
-        return this.f48054a;
+        return this.f48446a;
     }
 
     public final Integer b() {
-        return this.f48055b;
+        return this.f48447b;
     }
 
     public final void c(String str) {
-        this.f48054a = str;
+        this.f48446a = str;
     }
 
     public final void d(Integer num) {
-        this.f48055b = num;
+        this.f48447b = num;
     }
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                return Intrinsics.areEqual(this.f48054a, fVar.f48054a) && Intrinsics.areEqual(this.f48055b, fVar.f48055b);
+                return Intrinsics.areEqual(this.f48446a, fVar.f48446a) && Intrinsics.areEqual(this.f48447b, fVar.f48447b);
             }
             return false;
         }
@@ -49,14 +49,14 @@ public final class f {
     }
 
     public int hashCode() {
-        String str = this.f48054a;
+        String str = this.f48446a;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.f48055b;
+        Integer num = this.f48447b;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.f48054a + ", responseStatusCode=" + this.f48055b + SmallTailInfo.EMOTION_SUFFIX;
+        return "ResponseParams(responseMessage=" + this.f48446a + ", responseStatusCode=" + this.f48447b + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public /* synthetic */ f(String str, Integer num, int i, DefaultConstructorMarker defaultConstructorMarker) {

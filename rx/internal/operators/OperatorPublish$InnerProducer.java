@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import h.f;
 import h.j;
 import h.k;
-import h.o.a.r;
+import h.o.a.s;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements f, k {
@@ -12,10 +12,10 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
     public final j<? super T> child;
-    public final r<T> parent;
+    public final s<T> parent;
 
-    public OperatorPublish$InnerProducer(r<T> rVar, j<? super T> jVar) {
-        this.parent = rVar;
+    public OperatorPublish$InnerProducer(s<T> sVar, j<? super T> jVar) {
+        this.parent = sVar;
         this.child = jVar;
         lazySet(-4611686018427387904L);
     }

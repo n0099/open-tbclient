@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.w.g;
+import f.b.o;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.w.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -23,7 +23,7 @@ public final class ObservableUsing$UsingObserver<T, D> extends AtomicBoolean imp
         this.eager = z;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         disposeAfter();
         this.s.dispose();
@@ -36,18 +36,18 @@ public final class ObservableUsing$UsingObserver<T, D> extends AtomicBoolean imp
                 this.disposer.accept((D) this.resource);
             } catch (Throwable th) {
                 a.a(th);
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             }
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get();
     }
 
     /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: D, ? super D */
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.eager) {
             if (compareAndSet(false, true)) {
@@ -69,7 +69,7 @@ public final class ObservableUsing$UsingObserver<T, D> extends AtomicBoolean imp
     }
 
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: D, ? super D */
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.eager) {
             if (compareAndSet(false, true)) {
@@ -89,12 +89,12 @@ public final class ObservableUsing$UsingObserver<T, D> extends AtomicBoolean imp
         disposeAfter();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         this.actual.onNext(t);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

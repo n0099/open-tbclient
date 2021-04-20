@@ -7,26 +7,26 @@ import com.baidu.platform.base.SearchType;
 public class d extends com.baidu.platform.base.a implements e {
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetDistricSearchResultListener f10407b = null;
+    public OnGetDistricSearchResultListener f9965b = null;
 
     @Override // com.baidu.platform.core.a.e
     public void a() {
-        this.f9808a.lock();
-        this.f10407b = null;
-        this.f9808a.unlock();
+        this.f9366a.lock();
+        this.f9965b = null;
+        this.f9366a.unlock();
     }
 
     @Override // com.baidu.platform.core.a.e
     public void a(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        this.f9808a.lock();
-        this.f10407b = onGetDistricSearchResultListener;
-        this.f9808a.unlock();
+        this.f9366a.lock();
+        this.f9965b = onGetDistricSearchResultListener;
+        this.f9366a.unlock();
     }
 
     @Override // com.baidu.platform.core.a.e
     public boolean a(DistrictSearchOption districtSearchOption) {
         b bVar = new b();
         bVar.a(SearchType.DISTRICT_SEARCH);
-        return a(new a(districtSearchOption), this.f10407b, bVar);
+        return a(new a(districtSearchOption), this.f9965b, bVar);
     }
 }

@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 public abstract class a<Z> implements j<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.glide.request.c f35772a;
+    public com.kwad.sdk.glide.request.c f36061a;
 
     @Override // com.kwad.sdk.glide.request.a.j
     public void a(@Nullable Drawable drawable) {
@@ -15,13 +15,13 @@ public abstract class a<Z> implements j<Z> {
 
     @Override // com.kwad.sdk.glide.request.a.j
     public void a(@Nullable com.kwad.sdk.glide.request.c cVar) {
-        this.f35772a = cVar;
+        this.f36061a = cVar;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     @Nullable
     public com.kwad.sdk.glide.request.c b() {
-        return this.f35772a;
+        return this.f36061a;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j

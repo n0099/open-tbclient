@@ -1,17 +1,17 @@
 package io.reactivex.internal.schedulers;
 
-import f.a.p;
-import f.a.t.c;
+import f.b.p;
+import f.b.t.c;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public class SchedulerWhen extends p implements f.a.t.b {
+public class SchedulerWhen extends p implements f.b.t.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final f.a.t.b f68093f = new b();
+    public static final f.b.t.b f69099f = new b();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final f.a.t.b f68094g = c.a();
+    public static final f.b.t.b f69100g = c.a();
 
     /* loaded from: classes7.dex */
     public static class DelayedAction extends ScheduledAction {
@@ -26,7 +26,7 @@ public class SchedulerWhen extends p implements f.a.t.b {
         }
 
         @Override // io.reactivex.internal.schedulers.SchedulerWhen.ScheduledAction
-        public f.a.t.b callActual(p.c cVar, f.a.b bVar) {
+        public f.b.t.b callActual(p.c cVar, f.b.b bVar) {
             return cVar.c(new a(this.action, bVar), this.delayTime, this.unit);
         }
     }
@@ -40,46 +40,46 @@ public class SchedulerWhen extends p implements f.a.t.b {
         }
 
         @Override // io.reactivex.internal.schedulers.SchedulerWhen.ScheduledAction
-        public f.a.t.b callActual(p.c cVar, f.a.b bVar) {
+        public f.b.t.b callActual(p.c cVar, f.b.b bVar) {
             return cVar.b(new a(this.action, bVar));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class ScheduledAction extends AtomicReference<f.a.t.b> implements f.a.t.b {
+    public static abstract class ScheduledAction extends AtomicReference<f.b.t.b> implements f.b.t.b {
         public ScheduledAction() {
-            super(SchedulerWhen.f68093f);
+            super(SchedulerWhen.f69099f);
         }
 
-        public void call(p.c cVar, f.a.b bVar) {
-            f.a.t.b bVar2 = get();
-            if (bVar2 != SchedulerWhen.f68094g && bVar2 == SchedulerWhen.f68093f) {
-                f.a.t.b callActual = callActual(cVar, bVar);
-                if (compareAndSet(SchedulerWhen.f68093f, callActual)) {
+        public void call(p.c cVar, f.b.b bVar) {
+            f.b.t.b bVar2 = get();
+            if (bVar2 != SchedulerWhen.f69100g && bVar2 == SchedulerWhen.f69099f) {
+                f.b.t.b callActual = callActual(cVar, bVar);
+                if (compareAndSet(SchedulerWhen.f69099f, callActual)) {
                     return;
                 }
                 callActual.dispose();
             }
         }
 
-        public abstract f.a.t.b callActual(p.c cVar, f.a.b bVar);
+        public abstract f.b.t.b callActual(p.c cVar, f.b.b bVar);
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
-            f.a.t.b bVar;
-            f.a.t.b bVar2 = SchedulerWhen.f68094g;
+            f.b.t.b bVar;
+            f.b.t.b bVar2 = SchedulerWhen.f69100g;
             do {
                 bVar = get();
-                if (bVar == SchedulerWhen.f68094g) {
+                if (bVar == SchedulerWhen.f69100g) {
                     return;
                 }
             } while (!compareAndSet(bVar, bVar2));
-            if (bVar != SchedulerWhen.f68093f) {
+            if (bVar != SchedulerWhen.f69099f) {
                 bVar.dispose();
             }
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get().isDisposed();
         }
@@ -89,33 +89,33 @@ public class SchedulerWhen extends p implements f.a.t.b {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final f.a.b f68095e;
+        public final f.b.b f69101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Runnable f68096f;
+        public final Runnable f69102f;
 
-        public a(Runnable runnable, f.a.b bVar) {
-            this.f68096f = runnable;
-            this.f68095e = bVar;
+        public a(Runnable runnable, f.b.b bVar) {
+            this.f69102f = runnable;
+            this.f69101e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f68096f.run();
+                this.f69102f.run();
             } finally {
-                this.f68095e.onComplete();
+                this.f69101e.onComplete();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class b implements f.a.t.b {
-        @Override // f.a.t.b
+    public static final class b implements f.b.t.b {
+        @Override // f.b.t.b
         public void dispose() {
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return false;
         }

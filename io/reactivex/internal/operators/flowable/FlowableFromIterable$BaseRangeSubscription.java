@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.x.b.a;
-import f.a.x.i.b;
+import f.b.x.b.a;
+import f.b.x.i.b;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
@@ -21,20 +21,20 @@ public abstract class FlowableFromIterable$BaseRangeSubscription<T> extends Basi
         this.cancelled = true;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final void clear() {
         this.it = null;
     }
 
     public abstract void fastPath();
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final boolean isEmpty() {
         Iterator<? extends T> it = this.it;
         return it == null || !it.hasNext();
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final T poll() {
         Iterator<? extends T> it = this.it;
         if (it == null) {
@@ -61,7 +61,7 @@ public abstract class FlowableFromIterable$BaseRangeSubscription<T> extends Basi
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.c
     public final int requestFusion(int i) {
         return i & 1;
     }

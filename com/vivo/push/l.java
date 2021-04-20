@@ -6,24 +6,24 @@ import java.util.List;
 public final class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f39478a;
+    public final /* synthetic */ List f39767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f39479b;
+    public final /* synthetic */ LocalAliasTagsManager f39768b;
 
     public l(LocalAliasTagsManager localAliasTagsManager, List list) {
-        this.f39479b = localAliasTagsManager;
-        this.f39478a = list;
+        this.f39768b = localAliasTagsManager;
+        this.f39767a = list;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        List list = this.f39478a;
+        List list = this.f39767a;
         if (list == null || list.size() <= 0) {
             return;
         }
-        iSubscribeAppAliasManager = this.f39479b.mSubscribeAppAliasManager;
-        iSubscribeAppAliasManager.delAliasSuccess((String) this.f39478a.get(0));
+        iSubscribeAppAliasManager = this.f39768b.mSubscribeAppAliasManager;
+        iSubscribeAppAliasManager.delAliasSuccess((String) this.f39767a.get(0));
     }
 }

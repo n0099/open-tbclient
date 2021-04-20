@@ -1,41 +1,217 @@
 package a.a.a.a.r.a.b;
 
-import a.a.a.a.k;
-import a.a.a.a.m;
 import a.a.a.a.s.e;
-import com.fun.ad.sdk.FunAdType;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAdInflater;
+import com.fun.ad.sdk.R;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
-public class d implements m.a {
-    @Override // a.a.a.a.m.a
-    public k a(e.a aVar) {
-        char c2;
-        String str = aVar.f1335d;
-        int hashCode = str.hashCode();
-        if (hashCode == -1900686778) {
-            if (str.equals(FunAdType.JY_NATIVE)) {
-                c2 = 0;
+public class d extends e<TTNativeAd> {
+    public final HashMap<TTNativeAd, TTNativeAd.AdInteractionListener> n;
+
+    /* loaded from: classes.dex */
+    public class a implements TTAdNative.NativeAdListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f1093a;
+
+        public a(String str) {
+            this.f1093a = str;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.a.b
+        public void onError(int i, String str) {
+            a.a.a.a.v.d.b("onError code: " + i + ", message: " + str, new Object[0]);
+            d.this.f1010g.a(Integer.valueOf(i));
+            d.this.b(i, str);
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
+        public void onNativeAdLoad(List<TTNativeAd> list) {
+            a.a.a.a.v.d.a("onNativeAdLoad", new Object[0]);
+            if (list != null && !list.isEmpty()) {
+                d.this.f1010g.b();
+                TTNativeAd tTNativeAd = list.get(0);
+                d dVar = d.this;
+                dVar.a((d) tTNativeAd);
+                dVar.h();
+                d.this.k.b(tTNativeAd, this.f1093a);
+                return;
             }
-            c2 = 65535;
-        } else if (hashCode != -39027267) {
-            if (hashCode == 1872382491 && str.equals(FunAdType.JY_INTERSTITIAL)) {
-                c2 = 1;
+            a.a.a.a.v.d.b("onNativeAdLoad error: list is null or empty", new Object[0]);
+            d.this.f1010g.a("NoFill");
+            onError(0, "NoFill");
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements TTNativeAd.AdInteractionListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f1095a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f1096b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ FunAdInteractionListener f1097c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ String f1098d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TTNativeAd f1099e;
+
+        public b(FunAdInteractionListener funAdInteractionListener, String str, TTNativeAd tTNativeAd) {
+            this.f1097c = funAdInteractionListener;
+            this.f1098d = str;
+            this.f1099e = tTNativeAd;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdClicked(View view, TTNativeAd tTNativeAd) {
+            a.a.a.a.v.d.a();
+            d.this.f1010g.a(this.f1096b);
+            this.f1096b = true;
+            d.this.e();
+            FunAdInteractionListener funAdInteractionListener = this.f1097c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClicked(this.f1098d);
             }
-            c2 = 65535;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdCreativeClick(View view, TTNativeAd tTNativeAd) {
+            a.a.a.a.v.d.a();
+            d.this.f1010g.a(this.f1096b);
+            this.f1096b = true;
+            d.this.e();
+            FunAdInteractionListener funAdInteractionListener = this.f1097c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClicked(this.f1098d);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdShow(TTNativeAd tTNativeAd) {
+            a.a.a.a.v.d.a();
+            d.this.f1010g.b(this.f1095a);
+            this.f1095a = true;
+            d.this.a((d) this.f1099e, this.f1098d);
+            FunAdInteractionListener funAdInteractionListener = this.f1097c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdShow(this.f1098d);
+            }
+        }
+    }
+
+    public d(e.a aVar) {
+        super(aVar, true);
+        this.n = new HashMap<>();
+    }
+
+    public final TTNativeAd.AdInteractionListener a(TTNativeAd tTNativeAd, String str, FunAdInteractionListener funAdInteractionListener) {
+        synchronized (this.n) {
+            TTNativeAd.AdInteractionListener adInteractionListener = this.n.get(tTNativeAd);
+            if (adInteractionListener != null) {
+                return adInteractionListener;
+            }
+            b bVar = new b(funAdInteractionListener, str, tTNativeAd);
+            synchronized (this.n) {
+                this.n.put(tTNativeAd, bVar);
+            }
+            return bVar;
+        }
+    }
+
+    @Override // a.a.a.a.b
+    public FunNativeAd a(Context context, String str, Object obj) {
+        return new a.a.a.a.r.b.a.c((TTNativeAd) obj, str, this);
+    }
+
+    public void a(String str) {
+        AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f1011h.f1320c).setSupportDeepLink(true);
+        e.a aVar = this.f1011h;
+        this.m.loadNativeAd(supportDeepLink.setImageAcceptedSize(aVar.f1324g, aVar.f1325h).setNativeAdType(1).setAdCount(1).build(), new a(str));
+    }
+
+    @Override // a.a.a.a.b
+    public void b(Object obj) {
+        TTNativeAd tTNativeAd = (TTNativeAd) obj;
+        if (tTNativeAd != null) {
+            synchronized (this.n) {
+                this.n.remove(tTNativeAd);
+            }
+        }
+    }
+
+    @Override // a.a.a.a.b
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        int i;
+        TTNativeAd tTNativeAd = (TTNativeAd) obj;
+        this.f1010g.g();
+        int imageMode = tTNativeAd.getImageMode();
+        if (imageMode == 15) {
+            i = R.layout.csj_ad_native_vertical_video_view;
+        } else if (imageMode == 16) {
+            i = R.layout.csj_ad_native_vertical_img_view;
+        } else if (imageMode == 2) {
+            i = R.layout.csj_ad_native_small_img_view;
+        } else if (imageMode == 3) {
+            i = R.layout.csj_ad_native_large_img_view;
+        } else if (imageMode == 4) {
+            i = R.layout.csj_ad_native_group_img_view;
+        } else if (imageMode != 5) {
+            return false;
         } else {
-            if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
-                c2 = 2;
-            }
-            c2 = 65535;
+            i = R.layout.csj_ad_native_large_video_view;
         }
-        if (c2 != 0) {
-            if (c2 != 1) {
-                if (c2 != 2) {
-                    return null;
-                }
-                return new a.a.a.a.r.a.e.c(aVar);
-            }
-            return new a.a.a.a.r.a.e.a(aVar);
+        a.a.a.a.r.b.a.b bVar = (a.a.a.a.r.b.a.b) LayoutInflater.from(activity).inflate(i, viewGroup, false);
+        viewGroup.removeAllViews();
+        viewGroup.addView(bVar);
+        tTNativeAd.setActivityForDownloadApp(activity);
+        bVar.a(activity, tTNativeAd, a(tTNativeAd, str, (FunAdInteractionListener) null));
+        return true;
+    }
+
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        if (this.m == null) {
+            this.m = TTAdSdk.getAdManager().createAdNative(context);
         }
-        return new a.a.a.a.r.a.e.b(aVar);
+        this.f1010g.a(funAdSlot, this.f1011h);
+        a(funAdSlot.getSid());
+        g();
+    }
+
+    @Override // a.a.a.a.b
+    public boolean a(Activity activity, String str, FunNativeAdInflater funNativeAdInflater, Object obj) {
+        TTNativeAd tTNativeAd = (TTNativeAd) obj;
+        this.f1010g.g();
+        ViewGroup adContainer = funNativeAdInflater.getAdContainer(new a.a.a.a.r.b.a.c(tTNativeAd, str, this));
+        List<View> clickViews = funNativeAdInflater.getClickViews();
+        if (clickViews == null) {
+            clickViews = new ArrayList<>();
+        }
+        List<View> creativeViews = funNativeAdInflater.getCreativeViews();
+        if (creativeViews == null) {
+            creativeViews = new ArrayList<>();
+        }
+        tTNativeAd.setActivityForDownloadApp(activity);
+        tTNativeAd.registerViewForInteraction(adContainer, clickViews, creativeViews, a(tTNativeAd, str, (FunAdInteractionListener) null));
+        return true;
     }
 }

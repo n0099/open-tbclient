@@ -10,18 +10,18 @@ import com.google.ar.core.u;
 public final class o implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f66077e;
+    public final /* synthetic */ Context f66922e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArCoreApk.a f66078f;
+    public final /* synthetic */ ArCoreApk.a f66923f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ l f66079g;
+    public final /* synthetic */ l f66924g;
 
     public o(l lVar, Context context, ArCoreApk.a aVar) {
-        this.f66079g = lVar;
-        this.f66077e = context;
-        this.f66078f = aVar;
+        this.f66924g = lVar;
+        this.f66922e = context;
+        this.f66923f = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -29,14 +29,14 @@ public final class o implements Runnable {
         com.google.a.b.a.a.a.a aVar;
         Bundle l;
         try {
-            aVar = this.f66079g.f66069d;
-            String str = this.f66077e.getApplicationInfo().packageName;
-            l lVar = this.f66079g;
+            aVar = this.f66924g.f66914d;
+            String str = this.f66922e.getApplicationInfo().packageName;
+            l lVar = this.f66924g;
             l = l.l();
             aVar.a(str, l, new u(this));
         } catch (RemoteException e2) {
             Log.e("ARCore-InstallService", "requestInfo threw", e2);
-            this.f66078f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.f66923f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

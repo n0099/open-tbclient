@@ -1,15 +1,17 @@
 package com.baidu.tieba.h5power;
 
 import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.vivo.push.PushClientConstants;
-import d.b.b.e.p.k;
-import d.b.i0.c3.l0.d.a;
-import d.b.i0.c3.l0.d.b;
-import d.b.i0.c3.l0.d.c;
-import d.b.i0.c3.l0.d.e;
+import d.b.c.e.p.k;
+import d.b.i0.d3.l0.d.a;
+import d.b.i0.d3.l0.d.b;
+import d.b.i0.d3.l0.d.c;
+import d.b.i0.d3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -35,7 +37,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
     }
 
-    @Override // d.b.i0.c3.l0.d.a
+    @Override // d.b.i0.d3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         c cVar2 = cVar == null ? new c() : cVar;
         String b2 = eVar.b();
@@ -173,7 +175,7 @@ public class CommonTbJsBridge_Proxy extends a {
             cVar2.u(0);
         } else if (b2.equals("router/goToEditPost")) {
             cVar2.o(true);
-            c goToEditPost = this.mJsBridge.goToEditPost(e2.optString("pos"), e2.optString("tid"), e2.optString("floorId"), e2.optString("postId"), e2.optString("content"), e2.optString("fid"), e2.optString("fname"));
+            c goToEditPost = this.mJsBridge.goToEditPost(e2.optString(IAdRequestParam.POS), e2.optString("tid"), e2.optString("floorId"), e2.optString("postId"), e2.optString("content"), e2.optString("fid"), e2.optString("fname"));
             if (goToEditPost != null) {
                 cVar2.t(goToEditPost.e());
                 cVar2.q(goToEditPost.b());
@@ -227,7 +229,7 @@ public class CommonTbJsBridge_Proxy extends a {
             cVar2.u(0);
         } else if (b2.equals("account/startDownloadCss")) {
             cVar2.o(true);
-            c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString("downloadUrl"));
+            c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL));
             if (startDownloadCss != null) {
                 cVar2.t(startDownloadCss.e());
                 cVar2.q(startDownloadCss.b());
@@ -310,7 +312,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return cVar2;
     }
 
-    @Override // d.b.i0.c3.l0.d.a
+    @Override // d.b.i0.d3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         c cVar = null;
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {

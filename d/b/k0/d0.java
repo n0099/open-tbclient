@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class d0 implements UBCManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f63926a = AppConfig.isDebug();
+    public static final boolean f64626a = AppConfig.isDebug();
 
     public final IRemoteUBCService a() throws RemoteException {
         return UBC.getProxy();
@@ -31,8 +31,8 @@ public class d0 implements UBCManager {
         Flow flow = null;
         try {
             flow = a().ubcBeginFlow(str, str2, i);
-            if (f63926a) {
-                Log.d("UBCServiceManager", "flow id " + str + " beginFlow  process name " + d.b.d0.b.a.a.b() + "flow hashCode " + flow.hashCode() + " handle id " + flow.getHandle());
+            if (f64626a) {
+                Log.d("UBCServiceManager", "flow id " + str + " beginFlow  process name " + d.b.b0.b.a.a.b() + "flow hashCode " + flow.hashCode() + " handle id " + flow.getHandle());
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -52,13 +52,13 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flowAddEventWithDate(Flow flow, String str, String str2, long j) {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
         }
         if (flow == null || !flow.getValid()) {
             return;
         }
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             d.q().y(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
             return;
         }
@@ -71,13 +71,13 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flowCancel(Flow flow) {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
         }
         if (flow == null || !flow.getValid()) {
             return;
         }
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             d.q().l(flow.getId(), flow.getHandle());
             return;
         }
@@ -90,13 +90,13 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flowEnd(Flow flow) {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
         }
         if (flow == null || !flow.getValid()) {
             return;
         }
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             JSONArray jSONArray = new JSONArray();
             if (flow.getSlotMaps() != null && (r1 = flow.getSlotMaps().entrySet().iterator()) != null) {
                 for (Map.Entry<String, Slot> entry : flow.getSlotMaps().entrySet()) {
@@ -131,13 +131,13 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flowSetValue(Flow flow, String str) {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
         }
         if (flow == null || !flow.getValid()) {
             return;
         }
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             d.q().C(flow.getId(), flow.getHandle(), str);
             return;
         }
@@ -150,13 +150,13 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flowSetValueWithDuration(Flow flow, String str) {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
         }
         if (flow == null || !flow.getValid()) {
             return;
         }
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             JSONObject jSONObject = new JSONObject();
             try {
                 float currentTimeMillis = ((float) (System.currentTimeMillis() - flow.getStartTime())) / 1000.0f;
@@ -167,7 +167,7 @@ public class d0 implements UBCManager {
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("option", str);
                 }
-                if (f63926a) {
+                if (f64626a) {
                     Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + ", duration: " + jSONObject.toString());
                 }
             } catch (JSONException e2) {
@@ -198,7 +198,7 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flush() {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", "flush");
         }
         d.q().p();
@@ -206,7 +206,7 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public String getUploadType(String str) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             return d.q().r(str);
         }
         try {
@@ -259,7 +259,7 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void upload() {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", "upload all data");
         }
         d.q().D();
@@ -267,7 +267,7 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void uploadFailedData() {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", "uploadFailedData and quality data");
         }
         d.q().w();
@@ -276,7 +276,7 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void uploadLocalDatas() {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             d.q().J();
             return;
         }
@@ -294,13 +294,13 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void flowAddEvent(Flow flow, String str, String str2) {
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
         }
         if (flow == null || !flow.getValid()) {
             return;
         }
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             d.q().x(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
             return;
         }
@@ -359,7 +359,7 @@ public class d0 implements UBCManager {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "UBC beginFlow# exception:" + e2.getMessage());
             }
         }
@@ -374,7 +374,7 @@ public class d0 implements UBCManager {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "UBC onEvent# exception:" + e2.getMessage());
             }
         }
@@ -392,11 +392,11 @@ public class d0 implements UBCManager {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "UBC beginFlow# exception:" + e2.getMessage());
             }
         }
-        if (f63926a) {
+        if (f64626a) {
             Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + jSONObject.toString());
         }
         flowSetValue(flow, jSONObject.toString());
@@ -404,14 +404,14 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public Flow beginFlow(String str, String str2, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             if (TextUtils.isEmpty(str)) {
-                if (f63926a) {
+                if (f64626a) {
                     throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
                 }
                 return null;
             }
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
             }
             return d.q().j(str, str2, i);
@@ -422,17 +422,17 @@ public class d0 implements UBCManager {
     @Override // com.baidu.ubc.UBCManager
     public void onEvent(String str, String str2, int i) {
         int length;
-        if (f63926a && !TextUtils.isEmpty(str2) && (length = str2.getBytes().length) > g.m().o()) {
+        if (f64626a && !TextUtils.isEmpty(str2) && (length = str2.getBytes().length) > g.m().o()) {
             Log.e("UBCServiceManager", "UBC log too large, id=" + str + ", content=" + str2);
             throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%d), log id=%s, please deal with. Any question connect UBC owner", Integer.valueOf(length), Integer.valueOf(g.m().o()), str));
-        } else if (d.b.d0.b.a.a.g()) {
+        } else if (d.b.b0.b.a.a.g()) {
             if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
-                if (f63926a) {
+                if (f64626a) {
                     throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
                 }
                 return;
             }
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
             }
             d.q().u(str, str2, i);
@@ -447,11 +447,11 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
             }
             return d.q().k(str, jSONObject, i);
@@ -461,11 +461,11 @@ public class d0 implements UBCManager {
 
     @Override // com.baidu.ubc.UBCManager
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (d.b.d0.b.a.a.g()) {
+        if (d.b.b0.b.a.a.g()) {
             if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
                 return;
             }
-            if (f63926a) {
+            if (f64626a) {
                 Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
             }
             d.q().v(str, jSONObject, i);

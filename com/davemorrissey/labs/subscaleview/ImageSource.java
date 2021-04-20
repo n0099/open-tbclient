@@ -3,7 +3,7 @@ package com.davemorrissey.labs.subscaleview;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ImageSource {
     public static final String ASSET_SCHEME = "file:///android_asset/";
     public static final String FILE_SCHEME = "file:///";

@@ -1,100 +1,40 @@
 package a.a.a.a.r.a.b;
 
-import a.a.a.a.k;
-import a.a.a.a.m;
-import a.a.a.a.r.a.d.g;
-import a.a.a.a.r.a.d.l;
-import a.a.a.a.r.a.d.n;
-import a.a.a.a.r.a.d.o;
-import a.a.a.a.s.e;
-import com.fun.ad.sdk.FunAdType;
+import android.view.View;
+import android.view.ViewGroup;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
 /* loaded from: classes.dex */
-public class c implements m.a {
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // a.a.a.a.m.a
-    public k a(e.a aVar) {
-        char c2;
-        String str = aVar.f1335d;
-        switch (str.hashCode()) {
-            case -1303381232:
-                if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
-                    c2 = 3;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case -942661506:
-                if (str.equals(FunAdType.GDT_SPLASH)) {
-                    c2 = 7;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case -596233886:
-                if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                    c2 = 2;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 114133351:
-                if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                    c2 = 0;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 125016359:
-                if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                    c2 = 4;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 425812868:
-                if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                    c2 = 1;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 543046357:
-                if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                    c2 = 6;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            case 1990506825:
-                if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                    c2 = 5;
-                    break;
-                }
-                c2 = 65535;
-                break;
-            default:
-                c2 = 65535;
-                break;
+public class c implements TTAdDislike.DislikeInteractionCallback {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ View f1091a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ a f1092b;
+
+    public c(a aVar, View view) {
+        this.f1092b = aVar;
+        this.f1091a = view;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
+        a.a.a.a.v.d.a("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
+        a.a.a.a.v.f.g.c.a(this.f1092b.f1010g.f1377a, "unlike_canceled", new Object[0]);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onRefuse() {
+        a.a.a.a.v.d.a("onRefuse", new Object[0]);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str) {
+        a.a.a.a.v.d.a("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+        this.f1092b.f1010g.h();
+        if (this.f1091a.getParent() != null) {
+            ((ViewGroup) this.f1091a.getParent()).removeView(this.f1091a);
         }
-        switch (c2) {
-            case 0:
-                return new n(aVar);
-            case 1:
-                return new g(aVar);
-            case 2:
-                return new a.a.a.a.r.a.d.e(aVar);
-            case 3:
-                return new a.a.a.a.r.a.d.b(aVar);
-            case 4:
-                return new o(aVar);
-            case 5:
-                return new a.a.a.a.r.a.d.a(aVar);
-            case 6:
-                return new l(aVar);
-            case 7:
-                return new a.a.a.a.r.a.d.m(aVar);
-            default:
-                return null;
-        }
+        this.f1092b.f();
     }
 }

@@ -18,33 +18,33 @@ import d.c.c.b.d.k;
 import d.c.c.b.d.o;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends Request<d> {
     public static final Object k = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f29481c;
+    public final Object f29166c;
     @Nullable
     @GuardedBy("mLock")
 
     /* renamed from: d  reason: collision with root package name */
-    public a f29482d;
+    public a f29167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Bitmap.Config f29483e;
+    public final Bitmap.Config f29168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f29484f;
+    public final int f29169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f29485g;
+    public final int f29170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ImageView.ScaleType f29486h;
+    public final ImageView.ScaleType f29171h;
     public r i;
     public long j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a extends o.a<d> {
         void a();
 
@@ -59,13 +59,13 @@ public class c extends Request<d> {
 
     public c(String str, a aVar, int i, int i2, ImageView.ScaleType scaleType, Bitmap.Config config) {
         super(0, str, aVar);
-        this.f29481c = new Object();
+        this.f29166c = new Object();
         setRetryPolicy(new g(1000, 2, 2.0f));
-        this.f29482d = aVar;
-        this.f29483e = config;
-        this.f29484f = i;
-        this.f29485g = i2;
-        this.f29486h = scaleType;
+        this.f29167d = aVar;
+        this.f29168e = config;
+        this.f29169f = i;
+        this.f29170g = i2;
+        this.f29171h = scaleType;
         setShouldCache(false);
     }
 
@@ -77,43 +77,43 @@ public class c extends Request<d> {
     private o<d> b(final k kVar) {
         Bitmap decodeByteArray;
         final Bitmap bitmap;
-        final byte[] bArr = kVar.f65724b;
+        final byte[] bArr = kVar.f66569b;
         f();
-        String a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(getUrl(), this.f29484f, this.f29485g, this.f29486h);
+        String a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(getUrl(), this.f29169f, this.f29170g, this.f29171h);
         if (bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70) {
             try {
                 com.bytedance.sdk.openadsdk.i.a.a.a().a(a2, bArr);
-                if (this.f29482d != null) {
-                    this.f27215b.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.1
+                if (this.f29167d != null) {
+                    this.f26900b.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.f29482d != null) {
+                            if (c.this.f29167d != null) {
                                 d dVar = new d(bArr);
-                                dVar.a(kVar.f65726d);
-                                dVar.a(kVar.f65725c);
-                                c.this.f29482d.a(c.this.getUrl(), dVar);
+                                dVar.a(kVar.f66571d);
+                                dVar.a(kVar.f66570c);
+                                c.this.f29167d.a(c.this.getUrl(), dVar);
                             }
                         }
                     });
                 }
                 d dVar = new d(bArr);
-                dVar.a(kVar.f65726d);
-                dVar.a(kVar.f65725c);
+                dVar.a(kVar.f66571d);
+                dVar.a(kVar.f66570c);
                 return o.c(dVar, d.c.c.b.e.c.b(kVar));
             } catch (Exception unused) {
             }
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        if (this.f29484f == 0 && this.f29485g == 0) {
-            options.inPreferredConfig = this.f29483e;
+        if (this.f29169f == 0 && this.f29170g == 0) {
+            options.inPreferredConfig = this.f29168e;
             decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
         } else {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i = options.outWidth;
             int i2 = options.outHeight;
-            int a3 = a(this.f29484f, this.f29485g, i, i2, this.f29486h);
-            int a4 = a(this.f29485g, this.f29484f, i2, i, this.f29486h);
+            int a3 = a(this.f29169f, this.f29170g, i, i2, this.f29171h);
+            int a4 = a(this.f29170g, this.f29169f, i2, i, this.f29171h);
             options.inJustDecodeBounds = false;
             options.inSampleSize = a(i, i2, a3, a4);
             decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
@@ -124,28 +124,28 @@ public class c extends Request<d> {
                 if (bitmap != null) {
                     return o.b(new e(kVar));
                 }
-                if (this.f29482d != null) {
-                    this.f27215b.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.2
+                if (this.f29167d != null) {
+                    this.f26900b.postAtFrontOfQueue(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (c.this.f29482d != null) {
+                            if (c.this.f29167d != null) {
                                 d dVar2 = new d(bitmap);
-                                dVar2.a(kVar.f65726d);
-                                dVar2.a(kVar.f65725c);
-                                c.this.f29482d.a(c.this.getUrl(), dVar2);
+                                dVar2.a(kVar.f66571d);
+                                dVar2.a(kVar.f66570c);
+                                c.this.f29167d.a(c.this.getUrl(), dVar2);
                             }
                         }
                     });
                 }
                 byte[] b2 = f.b(bitmap);
                 com.bytedance.sdk.openadsdk.i.a.a.a().a(a2, b2);
-                if (this.f29482d != null) {
-                    a(this.j, b2, bitmap, kVar.f65725c);
-                    this.f29482d.a();
+                if (this.f29167d != null) {
+                    a(this.j, b2, bitmap, kVar.f66570c);
+                    this.f29167d.a();
                 }
                 d dVar2 = new d(b2);
-                dVar2.a(kVar.f65726d);
-                dVar2.a(kVar.f65725c);
+                dVar2.a(kVar.f66571d);
+                dVar2.a(kVar.f66570c);
                 return o.c(dVar2, d.c.c.b.e.c.b(kVar));
             }
         }
@@ -168,8 +168,8 @@ public class c extends Request<d> {
     @Override // com.bytedance.sdk.adnet.core.Request
     public void cancel() {
         super.cancel();
-        synchronized (this.f29481c) {
-            this.f29482d = null;
+        synchronized (this.f29166c) {
+            this.f29167d = null;
         }
     }
 
@@ -220,8 +220,8 @@ public class c extends Request<d> {
     @Override // com.bytedance.sdk.adnet.core.Request
     public void a(o<d> oVar) {
         a aVar;
-        synchronized (this.f29481c) {
-            aVar = this.f29482d;
+        synchronized (this.f29166c) {
+            aVar = this.f29167d;
         }
         if (aVar != null) {
             aVar.a(oVar);

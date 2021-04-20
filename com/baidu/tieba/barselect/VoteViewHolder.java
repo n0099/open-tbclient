@@ -8,17 +8,17 @@ import d.b.i0.v.b.f;
 public class VoteViewHolder extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public VoteCandidateCard f15137a;
+    public VoteCandidateCard f14800a;
 
     public VoteViewHolder(View view) {
         super(view);
         if (view instanceof VoteCandidateCard) {
-            this.f15137a = (VoteCandidateCard) view;
+            this.f14800a = (VoteCandidateCard) view;
         }
     }
 
     public void a(int i, f fVar) {
-        VoteCandidateCard voteCandidateCard = this.f15137a;
+        VoteCandidateCard voteCandidateCard = this.f14800a;
         if (voteCandidateCard != null) {
             voteCandidateCard.setData(i, fVar);
         }

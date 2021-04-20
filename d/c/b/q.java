@@ -3,6 +3,7 @@ package d.c.b;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.provider.Settings;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.json.JSONObject;
@@ -10,24 +11,24 @@ import org.json.JSONObject;
 public class q extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65052e;
+    public final Context f65897e;
 
     public q(Context context) {
         super(false, false);
-        this.f65052e = context;
+        this.f65897e = context;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
         String str;
         try {
-            str = Settings.Secure.getString(this.f65052e.getContentResolver(), "android_id");
+            str = Settings.Secure.getString(this.f65897e.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception e2) {
             r0.d("", e2);
             str = null;
         }
         if (!j.n(str) || "9774d56d682e549c".equals(str)) {
-            SharedPreferences sharedPreferences = this.f65052e.getSharedPreferences("snssdk_openudid", 0);
+            SharedPreferences sharedPreferences = this.f65897e.getSharedPreferences("snssdk_openudid", 0);
             String string = sharedPreferences.getString("openudid", null);
             if (!j.n(string)) {
                 string = new BigInteger(64, new SecureRandom()).toString(16);

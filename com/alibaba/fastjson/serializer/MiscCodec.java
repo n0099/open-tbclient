@@ -14,6 +14,7 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -35,13 +36,31 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import org.apache.http.cookie.ClientCookie;
+import org.w3c.dom.Node;
 /* loaded from: classes.dex */
 public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
     public static Method method_paths_get;
     public static final MiscCodec instance = new MiscCodec();
     public static boolean method_paths_get_error = false;
     public static boolean FILE_RELATIVE_PATH_SUPPORT = "true".equals(IOUtils.getStringProperty("fastjson.deserializer.fileRelativePathSupport"));
+
+    public static String toString(Node node) {
+        try {
+            Transformer newTransformer = TransformerFactory.newInstance().newTransformer();
+            DOMSource dOMSource = new DOMSource(node);
+            StringWriter stringWriter = new StringWriter();
+            newTransformer.transform(dOMSource, new StreamResult(stringWriter));
+            return stringWriter.toString();
+        } catch (TransformerException e2) {
+            throw new JSONException("xml node to string error", e2);
+        }
+    }
 
     /* JADX WARN: Type inference failed for: r10v41, types: [T, java.text.SimpleDateFormat] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
@@ -163,7 +182,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                             type = ((ParameterizedType) type).getRawType();
                         }
                         if (type == Class.class) {
-                            return (T) TypeUtils.loadClass(str, defaultJSONParser.getConfig().getDefaultClassLoader());
+                            return (T) TypeUtils.loadClass(str, defaultJSONParser.getConfig().getDefaultClassLoader(), false);
                         }
                         if (type == Charset.class) {
                             return (T) Charset.forName(str);
@@ -215,7 +234,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        String currencyCode;
+        String miscCodec;
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull();
@@ -223,17 +242,17 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
         }
         Class<?> cls = obj.getClass();
         if (cls == SimpleDateFormat.class) {
-            currencyCode = ((SimpleDateFormat) obj).toPattern();
+            miscCodec = ((SimpleDateFormat) obj).toPattern();
             if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) && obj.getClass() != type) {
                 serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
                 serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
                 jSONSerializer.write(obj.getClass().getName());
-                serializeWriter.writeFieldValue(',', "val", currencyCode);
+                serializeWriter.writeFieldValue(',', "val", miscCodec);
                 serializeWriter.write(125);
                 return;
             }
         } else if (cls == Class.class) {
-            currencyCode = ((Class) obj).getName();
+            miscCodec = ((Class) obj).getName();
         } else if (cls == InetSocketAddress.class) {
             InetSocketAddress inetSocketAddress = (InetSocketAddress) obj;
             InetAddress address = inetSocketAddress.getAddress();
@@ -248,13 +267,13 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
             serializeWriter.write(125);
             return;
         } else if (obj instanceof File) {
-            currencyCode = ((File) obj).getPath();
+            miscCodec = ((File) obj).getPath();
         } else if (obj instanceof InetAddress) {
-            currencyCode = ((InetAddress) obj).getHostAddress();
+            miscCodec = ((InetAddress) obj).getHostAddress();
         } else if (obj instanceof TimeZone) {
-            currencyCode = ((TimeZone) obj).getID();
+            miscCodec = ((TimeZone) obj).getID();
         } else if (obj instanceof Currency) {
-            currencyCode = ((Currency) obj).getCurrencyCode();
+            miscCodec = ((Currency) obj).getCurrencyCode();
         } else if (obj instanceof JSONStreamAware) {
             ((JSONStreamAware) obj).writeJSONString(serializeWriter);
             return;
@@ -288,10 +307,12 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
         } else if (obj.getClass().getName().equals("net.sf.json.JSONNull")) {
             serializeWriter.writeNull();
             return;
+        } else if (obj instanceof Node) {
+            miscCodec = toString((Node) obj);
         } else {
             throw new JSONException("not support class : " + cls);
         }
-        serializeWriter.writeString(currencyCode);
+        serializeWriter.writeString(miscCodec);
     }
 
     public void writeIterator(JSONSerializer jSONSerializer, SerializeWriter serializeWriter, Iterator<?> it) {

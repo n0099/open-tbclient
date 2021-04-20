@@ -2,31 +2,31 @@ package d.c.d.b.a;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f65787b;
+    public static volatile f f66632b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f65788a;
+    public final c f66633a;
 
     public f(@NonNull Context context) {
-        this.f65788a = new c(context);
+        this.f66633a = new c(context);
     }
 
     public static f a(Context context) {
-        if (f65787b == null) {
+        if (f66632b == null) {
             synchronized (f.class) {
-                if (f65787b == null) {
-                    f65787b = new f(context);
+                if (f66632b == null) {
+                    f66632b = new f(context);
                 }
             }
         }
-        return f65787b;
+        return f66632b;
     }
 
     public void b() {
-        this.f65788a.c();
+        this.f66633a.c();
     }
 }

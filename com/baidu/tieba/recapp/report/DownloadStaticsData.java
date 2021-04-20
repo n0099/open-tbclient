@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.report;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DownloadStaticsData implements Serializable {
     public static final String DOWNLOAD_CONTINUE = "1";
     public static final String DOWNLOAD_NORMAL_CLICK = "0";

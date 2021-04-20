@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import d.b.b.a.b;
-import d.b.b.e.p.k;
-/* loaded from: classes5.dex */
+import d.b.c.a.b;
+import d.b.c.e.p.k;
+/* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
     public PersonPolymericFragment mFragment;
     public boolean mIsFromSchema = false;

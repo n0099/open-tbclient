@@ -3,10 +3,10 @@ package com.baidu.tieba.keepLive.nativekeepalive;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardProxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IGuard {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Fetcher {
         public static IGuard mDaemonStrategy;
 

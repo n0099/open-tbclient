@@ -14,10 +14,10 @@ public class d extends d.b.g0.a.q1.b.b.b {
     public a p;
 
     /* loaded from: classes2.dex */
-    public static class a extends b.C0762b {
+    public static class a extends b.C0774b {
 
         /* renamed from: g  reason: collision with root package name */
-        public View f44090g;
+        public View f44482g;
 
         public a(Context context) {
             super(context);
@@ -29,7 +29,7 @@ public class d extends d.b.g0.a.q1.b.b.b {
             return this;
         }
 
-        @Override // d.b.g0.a.q1.b.b.b.C0762b, d.b.g0.a.q1.b.b.g.a
+        @Override // d.b.g0.a.q1.b.b.b.C0774b, d.b.g0.a.q1.b.b.g.a
         public g c() {
             d dVar = (d) super.c();
             dVar.q(this);
@@ -37,7 +37,7 @@ public class d extends d.b.g0.a.q1.b.b.b {
         }
 
         public a c0(View view) {
-            this.f44090g = view;
+            this.f44482g = view;
             return this;
         }
 
@@ -67,7 +67,7 @@ public class d extends d.b.g0.a.q1.b.b.b {
     public final void p() {
         a aVar = this.p;
         if (aVar != null) {
-            this.o.addView(aVar.f44090g);
+            this.o.addView(aVar.f44482g);
         }
     }
 

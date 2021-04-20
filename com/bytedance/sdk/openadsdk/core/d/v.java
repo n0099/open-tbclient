@@ -2,32 +2,32 @@ package com.bytedance.sdk.openadsdk.core.d;
 
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28246a;
+    public int f27931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28247b;
+    public int f27932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28248c;
+    public long f27933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f28249d;
+    public double f27934d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28250e;
+    public String f27935e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28251f;
+    public String f27936f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28252g;
+    public String f27937g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28253h;
+    public String f27938h;
     public String i;
     public String j;
     public int k;
@@ -39,29 +39,29 @@ public class v {
     }
 
     public int b() {
-        return this.f28246a;
+        return this.f27931a;
     }
 
     public int c() {
-        return this.f28247b;
+        return this.f27932b;
     }
 
     public long d() {
-        return this.f28248c;
+        return this.f27933c;
     }
 
     public double e() {
-        return this.f28249d;
+        return this.f27934d;
     }
 
     public String f() {
-        return this.f28250e;
+        return this.f27935e;
     }
 
     public int[] g() {
         try {
-            int indexOf = this.f28250e.indexOf("x");
-            return new int[]{Integer.parseInt(this.f28250e.substring(0, indexOf).trim()), Integer.parseInt(this.f28250e.substring(indexOf + 1).trim())};
+            int indexOf = this.f27935e.indexOf("x");
+            return new int[]{Integer.parseInt(this.f27935e.substring(0, indexOf).trim()), Integer.parseInt(this.f27935e.substring(indexOf + 1).trim())};
         } catch (Throwable th) {
             com.bytedance.sdk.openadsdk.utils.u.c("VideoInfo", "getWidthAndHeight error", th);
             return null;
@@ -69,15 +69,15 @@ public class v {
     }
 
     public String h() {
-        return this.f28251f;
+        return this.f27936f;
     }
 
     public String i() {
-        return this.f28252g;
+        return this.f27937g;
     }
 
     public String j() {
-        return this.f28253h;
+        return this.f27938h;
     }
 
     public String k() {
@@ -122,15 +122,15 @@ public class v {
     }
 
     public void b(int i) {
-        this.f28246a = i;
+        this.f27931a = i;
     }
 
     public void c(int i) {
-        this.f28247b = i;
+        this.f27932b = i;
     }
 
     public void d(String str) {
-        this.f28253h = str;
+        this.f27938h = str;
     }
 
     public void e(String str) {
@@ -142,15 +142,15 @@ public class v {
     }
 
     public void a(long j) {
-        this.f28248c = j;
+        this.f27933c = j;
     }
 
     public void b(String str) {
-        this.f28251f = str;
+        this.f27936f = str;
     }
 
     public void c(String str) {
-        this.f28252g = str;
+        this.f27937g = str;
     }
 
     public void d(int i) {
@@ -162,11 +162,11 @@ public class v {
     }
 
     public void a(double d2) {
-        this.f28249d = d2;
+        this.f27934d = d2;
     }
 
     public void a(String str) {
-        this.f28250e = str;
+        this.f27935e = str;
     }
 
     public static int[] a(l lVar) {

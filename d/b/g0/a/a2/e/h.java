@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends a0 {
     public h(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/file/removeSavedFile");
@@ -24,11 +24,11 @@ public class h extends a0 {
                 return false;
             }
             String u = d.b.g0.a.a2.b.u(optParamsAsJo.optString("filePath"), d.b.g0.a.r1.e.T());
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
                 Log.d("SaveFileAction", "——> handle: filePath " + u);
             }
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("RemoveSavedFileAction", "——> handle: filePath " + u);
             }
             if (TextUtils.isEmpty(u)) {
@@ -37,7 +37,7 @@ public class h extends a0 {
                 return false;
             }
             int a2 = eVar.S().a(u);
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a2);
             }
             if (a2 > 2000) {
@@ -47,7 +47,7 @@ public class h extends a0 {
             } else if (d.b.g0.p.d.g(u)) {
                 d.b.g0.a.c0.c.g("removeSavedFile", "file delete success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
                     return true;
                 }
@@ -55,7 +55,7 @@ public class h extends a0 {
             } else {
                 d.b.g0.a.c0.c.b("removeSavedFile", "file delete fail");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, d.b.g0.a.t1.f.a(2004)));
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
                 }
                 return false;

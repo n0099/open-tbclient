@@ -1,16 +1,16 @@
 package com.bytedance.sdk.openadsdk.k.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f29641a = new c();
+        public static final c f29326a = new c();
     }
 
     public static c a() {
-        return a.f29641a;
+        return a.f29326a;
     }
 
     public b b() {

@@ -3,7 +3,7 @@ package com.facebook.drawee.drawable;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.ViewCompat;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DrawableUtils {
     @Nullable
     public static Drawable cloneDrawable(Drawable drawable) {

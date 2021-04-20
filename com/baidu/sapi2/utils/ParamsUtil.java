@@ -83,7 +83,7 @@ public class ParamsUtil implements NoProguard {
     }
 
     public static String getUrlTwitterLogin(SapiConfiguration sapiConfiguration) {
-        String str = sapiConfiguration.environment.getURL() + g.f11506f;
+        String str = sapiConfiguration.environment.getURL() + g.f11090f;
         HashMap hashMap = new HashMap();
         hashMap.put("type", String.valueOf(SocialType.TWITTER.getType()));
         hashMap.put("tpl", sapiConfiguration.tpl);
@@ -96,7 +96,7 @@ public class ParamsUtil implements NoProguard {
         hashMap.put("display", "native");
         hashMap.put("act", "optional");
         hashMap.put("supportGuestAccount", "1");
-        hashMap.put(com.alipay.sdk.cons.b.f1858h, sapiConfiguration.twitterAppKey);
+        hashMap.put(com.alipay.sdk.cons.b.f1883h, sapiConfiguration.twitterAppKey);
         hashMap.put("client", "android");
         hashMap.put("clientfrom", "native");
         return str + SapiUtils.mapToUrlParams(hashMap, false);

@@ -3,7 +3,7 @@ package com.facebook.common.logging;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static final FLogDefaultLoggingDelegate sInstance = new FLogDefaultLoggingDelegate();
     public String mApplicationTag = "unknown";

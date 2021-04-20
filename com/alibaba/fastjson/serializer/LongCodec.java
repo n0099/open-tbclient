@@ -24,6 +24,9 @@ public class LongCodec implements ObjectSerializer, ObjectDeserializer {
                 long longValue = jSONLexer.longValue();
                 jSONLexer.nextToken(16);
                 castToLong = (T) Long.valueOf(longValue);
+            } else if (i == 3) {
+                castToLong = (T) Long.valueOf(TypeUtils.longValue(jSONLexer.decimalValue()));
+                jSONLexer.nextToken(16);
             } else {
                 if (i == 12) {
                     JSONObject jSONObject = new JSONObject(true);

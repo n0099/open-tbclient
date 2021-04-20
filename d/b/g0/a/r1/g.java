@@ -3,36 +3,36 @@ package d.b.g0.a.r1;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45743b = d.b.g0.a.k.f45051a;
+    public static final boolean f46135b = d.b.g0.a.k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f45744a;
+    public Map<String, Object> f46136a;
 
     public g(e eVar) {
         super(eVar);
-        this.f45744a = new HashMap();
+        this.f46136a = new HashMap();
     }
 
     public void a() {
-        this.f45744a.clear();
+        this.f46136a.clear();
     }
 
     public boolean b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.f45744a.containsKey(str);
+        return this.f46136a.containsKey(str);
     }
 
     public Boolean c(String str, Boolean bool) {
         try {
             return (Boolean) f(str, bool);
         } catch (ClassCastException e2) {
-            if (f45743b) {
+            if (f46135b) {
                 e2.printStackTrace();
             }
             return bool;
@@ -43,7 +43,7 @@ public class g extends f {
         try {
             return (Integer) f(str, num);
         } catch (ClassCastException e2) {
-            if (f45743b) {
+            if (f46135b) {
                 e2.printStackTrace();
             }
             return num;
@@ -54,7 +54,7 @@ public class g extends f {
         try {
             return (String) f(str, str2);
         } catch (ClassCastException e2) {
-            if (f45743b) {
+            if (f46135b) {
                 e2.printStackTrace();
             }
             return str2;
@@ -63,13 +63,13 @@ public class g extends f {
 
     public final <V> V f(String str, V v) {
         if (b(str)) {
-            if (this.f45744a.get(str) == null) {
+            if (this.f46136a.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.f45744a.get(str);
+                return (V) this.f46136a.get(str);
             } catch (Exception e2) {
-                if (f45743b) {
+                if (f46135b) {
                     e2.printStackTrace();
                     return v;
                 }
@@ -96,6 +96,6 @@ public class g extends f {
     }
 
     public final <V> void k(String str, V v) {
-        this.f45744a.put(str, v);
+        this.f46136a.put(str, v);
     }
 }

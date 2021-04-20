@@ -21,25 +21,25 @@ import java.net.URLDecoder;
 public class n0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static BaseWebView f51728a;
+    public static BaseWebView f52152a;
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseWebView f51729a;
+        public final /* synthetic */ BaseWebView f52153a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i, BaseWebView baseWebView) {
             super(i);
-            this.f51729a = baseWebView;
+            this.f52153a = baseWebView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BaseWebView baseWebView;
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921024 || (baseWebView = this.f51729a) == null) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2921024 || (baseWebView = this.f52153a) == null) {
                 return;
             }
             baseWebView.reload();
@@ -50,16 +50,16 @@ public class n0 {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f51730a;
+        public String f52154a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51731b;
+        public String f52155b;
 
         public b(String str, String str2) {
-            this.f51730a = "";
-            this.f51731b = "";
-            this.f51730a = str;
-            this.f51731b = str2;
+            this.f52154a = "";
+            this.f52155b = "";
+            this.f52154a = str;
+            this.f52155b = str2;
         }
 
         public boolean equals(Object obj) {
@@ -68,20 +68,20 @@ public class n0 {
             }
             if (obj != null && b.class == obj.getClass()) {
                 b bVar = (b) obj;
-                String str = this.f51730a;
+                String str = this.f52154a;
                 if (str == null) {
-                    if (bVar.f51730a != null) {
+                    if (bVar.f52154a != null) {
                         return false;
                     }
-                } else if (!str.equals(bVar.f51730a)) {
+                } else if (!str.equals(bVar.f52154a)) {
                     return false;
                 }
-                String str2 = this.f51731b;
+                String str2 = this.f52155b;
                 if (str2 == null) {
-                    if (bVar.f51731b != null) {
+                    if (bVar.f52155b != null) {
                         return false;
                     }
-                } else if (!str2.equals(bVar.f51731b)) {
+                } else if (!str2.equals(bVar.f52155b)) {
                     return false;
                 }
                 return true;
@@ -90,15 +90,15 @@ public class n0 {
         }
 
         public int hashCode() {
-            String str = this.f51730a;
+            String str = this.f52154a;
             int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-            String str2 = this.f51731b;
+            String str2 = this.f52155b;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
     }
 
     public static String a(String str) {
-        if (d.b.b.e.p.k.isEmpty(str) || str.contains("page_type")) {
+        if (d.b.c.e.p.k.isEmpty(str) || str.contains("page_type")) {
             return str;
         }
         StringBuilder sb = new StringBuilder(str);
@@ -174,17 +174,17 @@ public class n0 {
     @Deprecated
     public static String e() {
         f();
-        BaseWebView baseWebView = f51728a;
+        BaseWebView baseWebView = f52152a;
         if (baseWebView == null || baseWebView.getSettings() == null) {
             return null;
         }
-        return f51728a.getSettings().getUserAgentString();
+        return f52152a.getSettings().getUserAgentString();
     }
 
     public static void f() {
         try {
-            if (f51728a == null) {
-                f51728a = new BaseWebView(TbadkCoreApplication.getInst());
+            if (f52152a == null) {
+                f52152a = new BaseWebView(TbadkCoreApplication.getInst());
             }
         } catch (Exception e2) {
             e2.printStackTrace();

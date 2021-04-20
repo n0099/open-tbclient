@@ -10,49 +10,49 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
-public class c extends d.b.b.j.e.b {
+public class c extends d.b.c.j.e.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f60744f;
+    public Context f62308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f60745g;
+    public View f62309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f60746h;
+    public ImageView f62310h;
     public TextView i;
     public View j;
     public View k;
     public View.OnClickListener l;
 
     public c(Context context) {
-        this.f60744f = context;
+        this.f62308f = context;
     }
 
-    @Override // d.b.b.j.e.b
+    @Override // d.b.c.j.e.b
     public View a() {
-        View inflate = LayoutInflater.from(this.f60744f).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.f60745g = inflate;
+        View inflate = LayoutInflater.from(this.f62308f).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
+        this.f62309g = inflate;
         this.i = (TextView) inflate.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.f60746h = (ImageView) this.f60745g.findViewById(R.id.ala_game_frs_more_live_icon);
-        this.j = this.f60745g.findViewById(R.id.ala_game_frs_more_live_top_line);
-        this.k = this.f60745g.findViewById(R.id.ala_game_frs_more_live_bottom_line);
+        this.f62310h = (ImageView) this.f62309g.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.j = this.f62309g.findViewById(R.id.ala_game_frs_more_live_top_line);
+        this.k = this.f62309g.findViewById(R.id.ala_game_frs_more_live_bottom_line);
         d(TbadkCoreApplication.getInst().getSkinType());
-        return this.f60745g;
+        return this.f62309g;
     }
 
-    @Override // d.b.b.j.e.b
+    @Override // d.b.c.j.e.b
     public void c() {
         View view;
         View.OnClickListener onClickListener = this.l;
-        if (onClickListener == null || (view = this.f60745g) == null) {
+        if (onClickListener == null || (view = this.f62309g) == null) {
             return;
         }
         onClickListener.onClick(view);
     }
 
     public void d(int i) {
-        View view = this.f60745g;
+        View view = this.f62309g;
         if (view != null) {
             SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         }
@@ -60,7 +60,7 @@ public class c extends d.b.b.j.e.b {
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0304);
         }
-        ImageView imageView = this.f60746h;
+        ImageView imageView = this.f62310h;
         if (imageView != null) {
             SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
         }

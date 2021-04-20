@@ -3,58 +3,58 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class EmptyView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13362e;
+    public int f13023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13363f;
+    public int f13024f;
 
     public EmptyView(Context context) {
         super(context);
-        this.f13362e = 0;
-        this.f13363f = 0;
+        this.f13023e = 0;
+        this.f13024f = 0;
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        int i3 = this.f13363f;
+        int i3 = this.f13024f;
         if (i3 == 0) {
-            setMeasuredDimension(i & 1073741823, this.f13362e);
-        } else if (this.f13362e == 0) {
+            setMeasuredDimension(i & 1073741823, this.f13023e);
+        } else if (this.f13023e == 0) {
             setMeasuredDimension(i3, i2 & 1073741823);
         }
     }
 
     public void setHeightDip(int i) {
-        this.f13362e = l.e(getContext(), i);
+        this.f13023e = l.e(getContext(), i);
     }
 
     public void setHeightPx(int i) {
-        this.f13362e = i;
+        this.f13023e = i;
     }
 
     public void setWidthDip(int i) {
-        this.f13363f = l.e(getContext(), i);
+        this.f13024f = l.e(getContext(), i);
     }
 
     public void setWidthPx(int i) {
-        this.f13363f = i;
+        this.f13024f = i;
     }
 
     public EmptyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13362e = 0;
-        this.f13363f = 0;
+        this.f13023e = 0;
+        this.f13024f = 0;
     }
 
     public EmptyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13362e = 0;
-        this.f13363f = 0;
+        this.f13023e = 0;
+        this.f13024f = 0;
     }
 }

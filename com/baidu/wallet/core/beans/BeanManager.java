@@ -7,42 +7,42 @@ import java.util.Iterator;
 public final class BeanManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, ArrayList<BaseBean<?>>> f24232a;
+    public final HashMap<String, ArrayList<BaseBean<?>>> f23917a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BeanManager f24233a = new BeanManager();
+        public static BeanManager f23918a = new BeanManager();
     }
 
     public static BeanManager getInstance() {
-        return a.f24233a;
+        return a.f23918a;
     }
 
     public synchronized void addBean(String str, BaseBean<?> baseBean) {
-        ArrayList<BaseBean<?>> arrayList = this.f24232a.get(str);
+        ArrayList<BaseBean<?>> arrayList = this.f23917a.get(str);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f24232a.put(str, arrayList);
+            this.f23917a.put(str, arrayList);
         }
         arrayList.add(baseBean);
     }
 
     public synchronized void removeAllBeans(String str) {
-        ArrayList<BaseBean<?>> arrayList = this.f24232a.get(str);
+        ArrayList<BaseBean<?>> arrayList = this.f23917a.get(str);
         if (arrayList != null) {
             Iterator<BaseBean<?>> it = arrayList.iterator();
             while (it.hasNext()) {
                 it.next().destroyBean();
             }
-            this.f24232a.remove(str);
+            this.f23917a.remove(str);
         }
     }
 
     public synchronized void removeBean(BaseBean<?> baseBean) {
-        for (String str : this.f24232a.keySet()) {
-            ArrayList<BaseBean<?>> arrayList = this.f24232a.get(str);
+        for (String str : this.f23917a.keySet()) {
+            ArrayList<BaseBean<?>> arrayList = this.f23917a.get(str);
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<BaseBean<?>> it = arrayList.iterator();
                 while (true) {
@@ -61,6 +61,6 @@ public final class BeanManager {
     }
 
     public BeanManager() {
-        this.f24232a = new HashMap<>();
+        this.f23917a = new HashMap<>();
     }
 }

@@ -20,7 +20,7 @@ public class d extends d.b.g0.l.l.d<d.b.g0.l.l.j.d> {
     /* renamed from: n */
     public boolean d(d.b.g0.l.l.j.d dVar) {
         List<d.b.g0.l.k.g> list;
-        if (dVar == null || (list = dVar.f48990a) == null) {
+        if (dVar == null || (list = dVar.f49382a) == null) {
             return false;
         }
         for (d.b.g0.l.k.g gVar : list) {
@@ -35,15 +35,15 @@ public class d extends d.b.g0.l.l.d<d.b.g0.l.l.j.d> {
     @Override // d.b.g0.l.l.d
     /* renamed from: o */
     public d.b.g0.l.k.a l(d.b.g0.l.l.j.d dVar) {
-        this.f48932e.E();
+        this.f49324e.D();
         f fVar = new f();
-        i(dVar.f48990a, fVar);
+        i(dVar.f49382a, fVar);
         if (fVar.k() == 0) {
-            this.f48932e.F();
+            this.f49324e.E();
             return null;
         }
-        this.f48932e.G(fVar);
-        d.b.g0.l.l.h.a.d(dVar, this.f48932e);
+        this.f49324e.F(fVar);
+        d.b.g0.l.l.h.a.d(dVar, this.f49324e);
         return null;
     }
 

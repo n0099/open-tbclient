@@ -10,35 +10,35 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    public static final boolean q = k.f45051a;
+    public static final boolean q = k.f45443a;
     public String l;
     public boolean n;
     public String o;
     public String p;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43278a = "";
+    public String f43670a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43279b = "";
+    public String f43671b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43280c = "";
+    public String f43672c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43281d = "";
+    public String f43673d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43282e = "";
+    public String f43674e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43283f = "";
+    public String f43675f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43284g = "";
+    public String f43676g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43285h = "";
+    public String f43677h = "";
     public int i = 0;
     public int j = 0;
     public String k = "";
@@ -47,15 +47,15 @@ public class a {
     public static a b(JSONObject jSONObject, a aVar) {
         a aVar2 = new a();
         if (jSONObject != null) {
-            aVar2.f43278a = jSONObject.optString("audioId", aVar.f43278a);
-            aVar2.f43279b = jSONObject.optString("slaveId", aVar.f43279b);
-            aVar2.f43280c = jSONObject.optString(UserAccountActionItem.KEY_SRC, aVar.f43280c);
-            aVar2.m = e.y() != null && d.b.g0.a.a2.b.m(aVar2.f43280c);
-            aVar2.f43281d = jSONObject.optString("title", aVar.f43281d);
-            aVar2.f43282e = jSONObject.optString("epname", aVar.f43282e);
-            aVar2.f43283f = jSONObject.optString("singer", aVar.f43283f);
-            aVar2.f43284g = jSONObject.optString("coverImgUrl", aVar.f43284g);
-            aVar2.f43285h = jSONObject.optString("lrcURL", aVar.f43285h);
+            aVar2.f43670a = jSONObject.optString("audioId", aVar.f43670a);
+            aVar2.f43671b = jSONObject.optString("slaveId", aVar.f43671b);
+            aVar2.f43672c = jSONObject.optString(UserAccountActionItem.KEY_SRC, aVar.f43672c);
+            aVar2.m = e.y() != null && d.b.g0.a.a2.b.m(aVar2.f43672c);
+            aVar2.f43673d = jSONObject.optString("title", aVar.f43673d);
+            aVar2.f43674e = jSONObject.optString("epname", aVar.f43674e);
+            aVar2.f43675f = jSONObject.optString("singer", aVar.f43675f);
+            aVar2.f43676g = jSONObject.optString("coverImgUrl", aVar.f43676g);
+            aVar2.f43677h = jSONObject.optString("lrcURL", aVar.f43677h);
             aVar2.i = jSONObject.optInt("startTime", aVar.i);
             aVar2.j = jSONObject.optInt("position", aVar.j);
             aVar2.l = jSONObject.optString("cb", aVar.l);
@@ -66,7 +66,7 @@ public class a {
                 aVar2.o = W;
             }
             String b2 = b0.b();
-            if (!TextUtils.isEmpty(b2) && b0.c(aVar2.f43280c)) {
+            if (!TextUtils.isEmpty(b2) && b0.c(aVar2.f43672c)) {
                 aVar2.p = b2;
             }
         }
@@ -81,11 +81,11 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(UserAccountActionItem.KEY_SRC, str);
-            jSONObject.putOpt("title", this.f43281d);
-            jSONObject.putOpt("epname", this.f43282e);
-            jSONObject.putOpt("singer", this.f43283f);
-            jSONObject.putOpt("coverImgUrl", this.f43284g);
-            jSONObject.putOpt("lrcURL", this.f43285h);
+            jSONObject.putOpt("title", this.f43673d);
+            jSONObject.putOpt("epname", this.f43674e);
+            jSONObject.putOpt("singer", this.f43675f);
+            jSONObject.putOpt("coverImgUrl", this.f43676g);
+            jSONObject.putOpt("lrcURL", this.f43677h);
             jSONObject.putOpt("isLocal", Boolean.valueOf(this.m));
             jSONObject.putOpt("appid", e.T());
             jSONObject.putOpt("user-agent", this.o);
@@ -99,6 +99,6 @@ public class a {
     }
 
     public String toString() {
-        return "playerId : " + this.f43278a + "; slaveId : " + this.f43279b + "; url : " + this.f43280c + "; startTime : " + this.i + "; pos : " + this.j + "; canPlay : " + this.n;
+        return "playerId : " + this.f43670a + "; slaveId : " + this.f43671b + "; url : " + this.f43672c + "; startTime : " + this.i + "; pos : " + this.j + "; canPlay : " + this.n;
     }
 }

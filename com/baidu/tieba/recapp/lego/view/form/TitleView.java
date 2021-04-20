@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.FormCard;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TitleView extends FormItemBaseView {
     public ImageView A;
     public ImageView B;
@@ -35,13 +35,13 @@ public class TitleView extends FormItemBaseView {
     public boolean g(FormCard.b bVar) {
         if (super.g(bVar)) {
             this.x.setTextSize(0, this.p);
-            this.x.setText(bVar.f20732b);
+            this.x.setText(bVar.f20416b);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.A.getLayoutParams();
-            int i = this.f20826g;
+            int i = this.f20510g;
             marginLayoutParams.leftMargin = i;
             marginLayoutParams.rightMargin = i;
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.B.getLayoutParams();
-            int i2 = this.f20826g;
+            int i2 = this.f20510g;
             marginLayoutParams2.leftMargin = i2;
             marginLayoutParams2.rightMargin = i2;
             return true;
@@ -55,11 +55,11 @@ public class TitleView extends FormItemBaseView {
     }
 
     public final void h() {
-        this.x = new TextView(this.f20824e);
-        this.y = new ImageView(this.f20824e);
-        this.z = new ImageView(this.f20824e);
-        this.A = new ImageView(this.f20824e);
-        this.B = new ImageView(this.f20824e);
+        this.x = new TextView(this.f20508e);
+        this.y = new ImageView(this.f20508e);
+        this.z = new ImageView(this.f20508e);
+        this.A = new ImageView(this.f20508e);
+        this.B = new ImageView(this.f20508e);
         k();
         i(this.A, true, 2);
         i(this.B, false, 3);
@@ -78,14 +78,14 @@ public class TitleView extends FormItemBaseView {
             imageView.setImageResource(R.drawable.form_title_icon_right);
             layoutParams.addRule(1, this.x.getId());
         }
-        int i2 = this.f20826g;
+        int i2 = this.f20510g;
         layoutParams.leftMargin = i2;
         layoutParams.rightMargin = i2;
         addView(imageView, layoutParams);
     }
 
     public final void j(ImageView imageView, boolean z) {
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.f20825f.getDimension(R.dimen.ds1));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.f20509f.getDimension(R.dimen.ds1));
         layoutParams.addRule(15);
         if (z) {
             layoutParams.addRule(0, this.A.getId());

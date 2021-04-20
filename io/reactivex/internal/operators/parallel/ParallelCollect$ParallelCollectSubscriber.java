@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.parallel;
 
-import f.a.a0.a;
-import f.a.w.b;
+import f.b.a0.a;
+import f.b.w.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscribers.DeferredScalarSubscriber;
@@ -56,13 +56,13 @@ public final class ParallelCollect$ParallelCollectSubscriber<T, C> extends Defer
         try {
             this.collector.a((C) this.collection, t);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             cancel();
             onError(th);
         }
     }
 
-    @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, f.a.g, g.d.c
+    @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

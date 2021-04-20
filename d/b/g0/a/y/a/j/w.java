@@ -6,24 +6,24 @@ import org.json.JSONArray;
 public class w extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f47058a;
+    public float f47450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f47059b;
+    public float f47451b;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
         if (bVar.b() == 0) {
             bVar.c(canvas.save());
         }
-        canvas.scale(this.f47058a, this.f47059b);
+        canvas.scale(this.f47450a, this.f47451b);
     }
 
     @Override // d.b.g0.a.y.a.j.a
     public void b(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.f47058a = (float) jSONArray.optDouble(0);
-            this.f47059b = (float) jSONArray.optDouble(1);
+            this.f47450a = (float) jSONArray.optDouble(0);
+            this.f47451b = (float) jSONArray.optDouble(1);
         }
     }
 }

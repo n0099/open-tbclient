@@ -8,57 +8,57 @@ public final class LinkPointPolyLineInfo implements Parcelable {
     public static final Parcelable.Creator<LinkPointPolyLineInfo> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public long f7819a;
+    public long f7854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7820b;
+    public LatLng f7855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7821c;
+    public LatLng f7856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7822d;
+    public int f7857d;
 
     public LinkPointPolyLineInfo() {
-        this.f7819a = 0L;
-        this.f7822d = 0;
-        this.f7819a = 0L;
-        this.f7820b = null;
-        this.f7821c = null;
-        this.f7822d = 0;
+        this.f7854a = 0L;
+        this.f7857d = 0;
+        this.f7854a = 0L;
+        this.f7855b = null;
+        this.f7856c = null;
+        this.f7857d = 0;
     }
 
     public LinkPointPolyLineInfo(Parcel parcel) {
-        this.f7819a = 0L;
-        this.f7822d = 0;
-        this.f7819a = parcel.readLong();
-        this.f7820b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7821c = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7822d = parcel.readInt();
+        this.f7854a = 0L;
+        this.f7857d = 0;
+        this.f7854a = parcel.readLong();
+        this.f7855b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7856c = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7857d = parcel.readInt();
     }
 
     public LatLng a() {
-        return this.f7820b;
+        return this.f7855b;
     }
 
     public void a(int i) {
-        this.f7822d = i;
+        this.f7857d = i;
     }
 
     public void a(LatLng latLng) {
-        this.f7820b = latLng;
+        this.f7855b = latLng;
     }
 
     public LatLng b() {
-        return this.f7821c;
+        return this.f7856c;
     }
 
     public void b(LatLng latLng) {
-        this.f7821c = latLng;
+        this.f7856c = latLng;
     }
 
     public int c() {
-        return this.f7822d;
+        return this.f7857d;
     }
 
     @Override // android.os.Parcelable
@@ -68,9 +68,9 @@ public final class LinkPointPolyLineInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.f7819a);
-        parcel.writeParcelable(this.f7820b, i);
-        parcel.writeParcelable(this.f7821c, i);
-        parcel.writeInt(this.f7822d);
+        parcel.writeLong(this.f7854a);
+        parcel.writeParcelable(this.f7855b, i);
+        parcel.writeParcelable(this.f7856c, i);
+        parcel.writeInt(this.f7857d);
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import d.b.b.e.p.l;
-import d.b.b.j.c.b;
+import d.b.c.e.p.l;
+import d.b.c.j.c.b;
 import d.b.h0.r.q.a2;
 import d.b.i.p;
 import d.b.i0.x.b0;
@@ -26,16 +26,16 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public static final int k = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4489e;
+    public TextView f4524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4490f;
+    public TextView f4525f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayVoiceBntNew f4491g;
+    public PlayVoiceBntNew f4526g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b0<d.b.h0.r.q.a> f4492h;
+    public b0<d.b.h0.r.q.a> f4527h;
     public d.b.h0.r.q.a i;
     public boolean j;
 
@@ -61,28 +61,28 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     private void setVoiceData(a2 a2Var) {
         ArrayList<VoiceData$VoiceModel> H1 = a2Var.H1();
         if (ListUtils.isEmpty(H1)) {
-            this.f4491g.setVisibility(8);
+            this.f4526g.setVisibility(8);
             return;
         }
-        this.f4491g.setVisibility(0);
+        this.f4526g.setVisibility(0);
         VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
-        this.f4491g.setVoiceModel(voiceData$VoiceModel);
-        this.f4491g.setTag(voiceData$VoiceModel);
-        this.f4491g.d();
+        this.f4526g.setVoiceModel(voiceData$VoiceModel);
+        this.f4526g.setTag(voiceData$VoiceModel);
+        this.f4526g.b();
         if (voiceData$VoiceModel != null) {
-            this.f4491g.m(voiceData$VoiceModel.voice_status.intValue());
+            this.f4526g.k(voiceData$VoiceModel.voice_status.intValue());
         }
-        this.f4491g.o();
+        this.f4526g.m();
     }
 
     public final void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_text_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4490f = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4489e = (TextView) findViewById(R.id.thread_card_title);
+        this.f4525f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4524e = (TextView) findViewById(R.id.thread_card_title);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.f4491g = playVoiceBntNew;
+        this.f4526g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
     }
 
@@ -92,43 +92,43 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public void a(d.b.h0.r.q.a aVar) {
         this.i = aVar;
         a2 n = aVar.n();
-        ThreadCardUtils.setTitle(this.f4489e, n, this.j);
-        ThreadCardUtils.setAbstract(this.f4490f, this.f4489e, n, k, this.j);
-        TextView textView = this.f4489e;
+        ThreadCardUtils.setTitle(this.f4524e, n, this.j);
+        ThreadCardUtils.setAbstract(this.f4525f, this.f4524e, n, k, this.j);
+        TextView textView = this.f4524e;
         boolean z = true;
         boolean z2 = textView == null || textView.getVisibility() != 0;
-        TextView textView2 = this.f4490f;
-        ThreadCardUtils.dealMainViewTopMargin(this.f4491g, z2 && (textView2 == null || textView2.getVisibility() != 0), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        TextView textView2 = this.f4525f;
+        ThreadCardUtils.dealMainViewTopMargin(this.f4526g, z2 && (textView2 == null || textView2.getVisibility() != 0), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
         setVoiceData(n);
-        PlayVoiceBntNew playVoiceBntNew = this.f4491g;
+        PlayVoiceBntNew playVoiceBntNew = this.f4526g;
         if (playVoiceBntNew != null && playVoiceBntNew.getVisibility() == 0) {
             z = false;
         }
         if (z) {
-            TextView textView3 = this.f4490f;
+            TextView textView3 = this.f4525f;
             if (textView3 != null && textView3.getVisibility() == 0) {
-                this.f4490f.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
+                this.f4525f.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
                 return;
             }
-            TextView textView4 = this.f4489e;
+            TextView textView4 = this.f4524e;
             if (textView4 == null || textView4.getVisibility() != 0) {
                 return;
             }
-            this.f4489e.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
+            this.f4524e.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds3));
             return;
         }
-        TextView textView5 = this.f4489e;
+        TextView textView5 = this.f4524e;
         if (textView5 != null) {
             textView5.setPadding(0, 0, 0, 0);
         }
-        TextView textView6 = this.f4490f;
+        TextView textView6 = this.f4525f;
         if (textView6 != null) {
             textView6.setPadding(0, 0, 0, 0);
         }
     }
 
     public b0<d.b.h0.r.q.a> getSubClickListener() {
-        return this.f4492h;
+        return this.f4527h;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -160,7 +160,7 @@ public class MutiImgTextLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     }
 
     public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
-        this.f4492h = b0Var;
+        this.f4527h = b0Var;
     }
 
     public MutiImgTextLayout(Context context, @Nullable AttributeSet attributeSet) {

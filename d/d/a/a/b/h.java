@@ -8,45 +8,45 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f65923a;
+    public JSONArray f66768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65924b;
+    public int f66769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f65925c;
+    public byte[] f66770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f65926d;
+    public byte[] f66771d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f65927a;
+        public int f66772a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65928b;
+        public String f66773b;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static h f65929a = new h();
+        public static h f66774a = new h();
     }
 
     public static h a() {
-        return c.f65929a;
+        return c.f66774a;
     }
 
     public void b(int i, String str) {
         if ("normal_log".equals(str)) {
-            this.f65924b = i;
+            this.f66769b = i;
         }
     }
 
@@ -54,18 +54,18 @@ public class h {
         if (jVar == null) {
             return;
         }
-        synchronized (this.f65925c) {
+        synchronized (this.f66770c) {
             try {
-                this.f65923a.put(this.f65923a.length(), jVar.b());
+                this.f66768a.put(this.f66768a.length(), jVar.b());
             } catch (JSONException unused) {
             }
-            e(d.d.a.a.a.e().f().isForceToSend(jVar.f65933a));
+            e(d.d.a.a.a.e().f().isForceToSend(jVar.f66778a));
         }
     }
 
     public void d(String str) {
         if ("normal_log".equals(str)) {
-            synchronized (this.f65925c) {
+            synchronized (this.f66770c) {
                 i();
             }
             e(false);
@@ -74,12 +74,12 @@ public class h {
 
     public final void e(boolean z) {
         int i;
-        synchronized (this.f65925c) {
-            if (this.f65923a.length() == 0) {
+        synchronized (this.f66770c) {
+            if (this.f66768a.length() == 0) {
                 e.g(false, d.d.a.a.a.c(), "f509cd1137cc45e510496d1c174306a6.json", "", false);
                 return;
             }
-            String jSONArray = this.f65923a.toString();
+            String jSONArray = this.f66768a.toString();
             try {
                 i = jSONArray.getBytes().length;
             } catch (Throwable th) {
@@ -104,7 +104,7 @@ public class h {
     public b f(String str) {
         JSONObject jSONObject;
         b bVar = new b();
-        synchronized (this.f65926d) {
+        synchronized (this.f66771d) {
             try {
                 d.d.a.a.b.a f2 = d.d.a.a.a.e().f();
                 jSONObject = f2 != null ? new JSONObject(f2.getHeader()) : null;
@@ -115,11 +115,11 @@ public class h {
         if (jSONObject == null) {
             return bVar;
         }
-        synchronized (this.f65925c) {
+        synchronized (this.f66770c) {
             try {
-                jSONObject.put("array", this.f65923a);
-                bVar.f65927a = this.f65923a.length();
-                bVar.f65928b = jSONObject.toString();
+                jSONObject.put("array", this.f66768a);
+                bVar.f66772a = this.f66768a.length();
+                bVar.f66773b = jSONObject.toString();
             } catch (JSONException unused2) {
             }
         }
@@ -128,8 +128,8 @@ public class h {
 
     public boolean g() {
         boolean z;
-        synchronized (this.f65925c) {
-            z = this.f65923a.length() == 0;
+        synchronized (this.f66770c) {
+            z = this.f66768a.length() == 0;
         }
         return z;
     }
@@ -141,8 +141,8 @@ public class h {
                 return;
             }
             try {
-                synchronized (this.f65925c) {
-                    this.f65923a = new JSONArray(c2);
+                synchronized (this.f66770c) {
+                    this.f66768a = new JSONArray(c2);
                 }
             } catch (JSONException unused) {
             }
@@ -151,7 +151,7 @@ public class h {
 
     @SuppressLint({"NewApi"})
     public final void i() {
-        int i = this.f65924b;
+        int i = this.f66769b;
         if (i <= 0) {
             return;
         }
@@ -159,10 +159,10 @@ public class h {
             while (true) {
                 int i2 = i - 1;
                 if (i > 0) {
-                    this.f65923a.remove(0);
+                    this.f66768a.remove(0);
                     i = i2;
                 } else {
-                    this.f65924b = 0;
+                    this.f66769b = 0;
                     return;
                 }
             }
@@ -170,8 +170,8 @@ public class h {
             try {
                 Field declaredField = JSONArray.class.getDeclaredField("values");
                 declaredField.setAccessible(true);
-                List list = (List) declaredField.get(this.f65923a);
-                int i3 = this.f65924b;
+                List list = (List) declaredField.get(this.f66768a);
+                int i3 = this.f66769b;
                 while (true) {
                     int i4 = i3 - 1;
                     if (i3 > 0) {
@@ -180,7 +180,7 @@ public class h {
                         }
                         i3 = i4;
                     } else {
-                        this.f65924b = 0;
+                        this.f66769b = 0;
                         return;
                     }
                 }
@@ -190,9 +190,9 @@ public class h {
     }
 
     public h() {
-        this.f65923a = new JSONArray();
-        this.f65924b = 0;
-        this.f65925c = new byte[0];
-        this.f65926d = new byte[0];
+        this.f66768a = new JSONArray();
+        this.f66769b = 0;
+        this.f66770c = new byte[0];
+        this.f66771d = new byte[0];
     }
 }

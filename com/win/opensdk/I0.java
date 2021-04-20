@@ -14,6 +14,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewParent;
 import android.view.WindowManager;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
@@ -25,68 +26,68 @@ import java.util.Iterator;
 public class I0 implements F0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public C0 f39679a;
+    public C0 f39968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39680b;
+    public boolean f39969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39681c;
+    public boolean f39970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39682d;
+    public boolean f39971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public B0 f39683e;
+    public B0 f39972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39684f;
+    public boolean f39973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39685g;
+    public boolean f39974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39686h;
+    public int f39975h;
     public int i;
     public L0 j;
 
     public I0(C0 c0) {
-        this.f39679a = c0;
+        this.f39968a = c0;
     }
 
     public void a() {
         Activity activity;
         C0 c0;
         try {
-            if (this.f39679a == null) {
+            if (this.f39968a == null) {
                 return;
             }
-            if (!this.f39684f && !this.f39685g && !this.f39680b) {
-                if (this.f39679a.d()) {
-                    c0 = this.f39679a;
-                } else if (!this.f39679a.f()) {
-                    this.f39679a.c();
+            if (!this.f39973f && !this.f39974g && !this.f39969b) {
+                if (this.f39968a.d()) {
+                    c0 = this.f39968a;
+                } else if (!this.f39968a.f()) {
+                    this.f39968a.c();
                     return;
                 } else {
-                    c0 = this.f39679a;
+                    c0 = this.f39968a;
                 }
                 ((A0) c0.getDispatcher()).a();
                 return;
             }
-            this.f39679a.b();
-            a(this.f39679a, L0.STATE_DEFAULT);
-            if (!this.f39679a.d() && !this.f39680b) {
-                ((A0) this.f39679a.getDispatcher()).a();
+            this.f39968a.b();
+            a(this.f39968a, L0.STATE_DEFAULT);
+            if (!this.f39968a.d() && !this.f39969b) {
+                ((A0) this.f39968a.getDispatcher()).a();
             }
-            if (!this.f39679a.f() && !this.f39680b) {
-                ((A0) this.f39679a.getDispatcher()).a();
+            if (!this.f39968a.f() && !this.f39969b) {
+                ((A0) this.f39968a.getDispatcher()).a();
             }
-            if ((this.f39679a.getViewContext() instanceof Activity) && (activity = (Activity) this.f39679a.getViewContext()) != null) {
+            if ((this.f39968a.getViewContext() instanceof Activity) && (activity = (Activity) this.f39968a.getViewContext()) != null) {
                 activity.setRequestedOrientation(-1);
             }
-            this.f39684f = false;
-            this.f39685g = false;
-            this.f39683e = null;
+            this.f39973f = false;
+            this.f39974g = false;
+            this.f39972e = null;
         } catch (Exception unused) {
         }
     }
@@ -136,7 +137,7 @@ public class I0 implements F0 {
                 e(arrayList);
             } else if ("useCustomClose".equals(host)) {
                 boolean parseBoolean = Boolean.parseBoolean((String) ((Pair) arrayList.get(0)).second);
-                C0 c0 = this.f39679a;
+                C0 c0 = this.f39968a;
                 if (c0 != null) {
                     try {
                         c0.setMRAIDUseCustomClose(parseBoolean);
@@ -154,7 +155,7 @@ public class I0 implements F0 {
     */
     public void a(ArrayList arrayList) {
         P0 b2;
-        if (this.f39679a == null) {
+        if (this.f39968a == null) {
             return;
         }
         if (!(Build.VERSION.SDK_INT >= 14 && (a(new Intent("android.intent.action.EDIT").setData(CalendarContract.Events.CONTENT_URI)) || a(new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event"))))) {
@@ -167,9 +168,9 @@ public class I0 implements F0 {
                     if (b2 == null) {
                         try {
                             Intent a2 = b2.a();
-                            a2.setFlags(268435456);
-                            this.f39679a.getContext().startActivity(a2);
-                            ((A0) this.f39679a.getDispatcher()).a((String) null);
+                            a2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                            this.f39968a.getContext().startActivity(a2);
+                            ((A0) this.f39968a.getDispatcher()).a((String) null);
                             return;
                         } catch (ActivityNotFoundException unused) {
                             return;
@@ -187,7 +188,7 @@ public class I0 implements F0 {
     }
 
     public boolean a(Intent intent) {
-        C0 c0 = this.f39679a;
+        C0 c0 = this.f39968a;
         if (c0 == null) {
             return false;
         }
@@ -199,10 +200,10 @@ public class I0 implements F0 {
     }
 
     public boolean a(String str) {
-        if (this.f39679a == null || TextUtils.isEmpty(str)) {
+        if (this.f39968a == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        return ((A0) this.f39679a.getDispatcher()).a(str);
+        return ((A0) this.f39968a.getDispatcher()).a(str);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:68:0x0088 A[SYNTHETIC] */
@@ -212,7 +213,7 @@ public class I0 implements F0 {
     */
     public void b(ArrayList arrayList) {
         char c2;
-        if (this.f39679a == null) {
+        if (this.f39968a == null) {
             return;
         }
         String str = null;
@@ -274,32 +275,32 @@ public class I0 implements F0 {
                 }
             }
             if (TextUtils.isEmpty(str)) {
-                this.f39679a.a(i, i2);
+                this.f39968a.a(i, i2);
             } else {
                 try {
-                    B0 b0 = new B0(this.f39679a.getViewContext(), this.f39679a.getMraidMideaType(), this);
-                    this.f39683e = b0;
+                    B0 b0 = new B0(this.f39968a.getViewContext(), this.f39968a.getMraidMideaType(), this);
+                    this.f39972e = b0;
                     b0.b(str);
                 } catch (Exception unused2) {
                 }
             }
-            a(this.f39679a, L0.STATE_EXPANDED);
-            this.f39684f = true;
-            C0 c0 = this.f39679a;
+            a(this.f39968a, L0.STATE_EXPANDED);
+            this.f39973f = true;
+            C0 c0 = this.f39968a;
             if (c0 != null) {
                 try {
                     c0.setMRAIDUseCustomClose(z);
                 } catch (Exception unused3) {
                 }
             }
-            ((A0) this.f39679a.getDispatcher()).a(this.f39683e, z);
+            ((A0) this.f39968a.getDispatcher()).a(this.f39972e, z);
         } catch (Exception unused4) {
         }
     }
 
     public void c(ArrayList arrayList) {
         char c2;
-        if (this.f39679a == null) {
+        if (this.f39968a == null) {
             return;
         }
         Iterator it = arrayList.iterator();
@@ -372,8 +373,8 @@ public class I0 implements F0 {
                 return;
             }
         }
-        if (i > this.f39686h && i2 > this.i) {
-            C0 c0 = this.f39679a;
+        if (i > this.f39975h && i2 > this.i) {
+            C0 c0 = this.f39968a;
             G.a(c0, "javascript:window.mraidbridge.notifyErrorEvent('Resize called with resizeProperties larger than the screen.','mraid.resize()')");
             return;
         }
@@ -382,14 +383,14 @@ public class I0 implements F0 {
             u2.valueOf(str.replace('-', '_'));
         } catch (IllegalArgumentException unused2) {
         }
-        this.f39679a.c(i, i2);
-        ((A0) this.f39679a.getDispatcher()).a((String) null);
-        a(this.f39679a, L0.STATE_RESIZED);
-        this.f39685g = true;
+        this.f39968a.c(i, i2);
+        ((A0) this.f39968a.getDispatcher()).a((String) null);
+        a(this.f39968a, L0.STATE_RESIZED);
+        this.f39974g = true;
     }
 
     public void d(ArrayList arrayList) {
-        if (this.f39679a == null) {
+        if (this.f39968a == null) {
             return;
         }
         O0 o0 = O0.NONE;
@@ -404,8 +405,8 @@ public class I0 implements F0 {
                 o0 = str.equals("landscape") ? O0.LANDSCAPE : str.equals("portrait") ? O0.PORTRAIT : O0.NONE;
             }
         }
-        if ((this.f39684f || this.f39679a.d() || this.f39679a.f()) && (this.f39679a.getViewContext() instanceof Activity)) {
-            Activity activity = (Activity) this.f39679a.getViewContext();
+        if ((this.f39973f || this.f39968a.d() || this.f39968a.f()) && (this.f39968a.getViewContext() instanceof Activity)) {
+            Activity activity = (Activity) this.f39968a.getViewContext();
             if (z) {
                 activity.setRequestedOrientation(-1);
                 return;
@@ -433,7 +434,7 @@ public class I0 implements F0 {
     }
 
     public void e(ArrayList arrayList) {
-        if (this.f39679a == null) {
+        if (this.f39968a == null) {
             return;
         }
         Iterator it = arrayList.iterator();
@@ -449,7 +450,7 @@ public class I0 implements F0 {
             return;
         }
         String decode = Uri.decode(str);
-        C0 c0 = this.f39679a;
+        C0 c0 = this.f39968a;
         if (c0 != null) {
             ViewParent parent = c0.getParent();
             if (parent == null || !(parent instanceof View)) {
@@ -470,24 +471,24 @@ public class I0 implements F0 {
     }
 
     public void b() {
-        C0 c0 = this.f39679a;
+        C0 c0 = this.f39968a;
         if (c0 == null) {
             return;
         }
         try {
             int[] d2 = G.d(c0.getViewContext());
             int i = d2[0];
-            int top = d2[1] - (this.f39679a.getViewContext() instanceof Activity ? ((Activity) this.f39679a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
-            float f2 = this.f39679a.getViewContext().getResources().getDisplayMetrics().density;
+            int top = d2[1] - (this.f39968a.getViewContext() instanceof Activity ? ((Activity) this.f39968a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
+            float f2 = this.f39968a.getViewContext().getResources().getDisplayMetrics().density;
             int i2 = (int) ((i / f2) + 0.5f);
-            C0 c02 = this.f39679a;
+            C0 c02 = this.f39968a;
             G.a(c02, "javascript:window.mraidbridge.setMaxSize(" + i2 + "," + ((int) ((top / f2) + 0.5f)) + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception unused) {
         }
     }
 
     public final void a(C0 c0, L0 l0) {
-        String str = l0.f39721a;
+        String str = l0.f40010a;
         G.a(c0, "javascript:window.mraidbridge.setState('" + str + "')");
         L0 l02 = L0.STATE_EXPANDED;
         if (l0 != l02 && ((this.j == l02 && l0 == L0.STATE_DEFAULT) || l0 == L0.STATE_HIDDEN)) {
@@ -497,7 +498,7 @@ public class I0 implements F0 {
     }
 
     public void c() {
-        C0 c0 = this.f39679a;
+        C0 c0 = this.f39968a;
         if (c0 == null) {
             return;
         }
@@ -506,19 +507,19 @@ public class I0 implements F0 {
             int[] d2 = G.d(viewContext);
             G.a(viewContext, d2);
             int i = d2[0];
-            this.f39686h = i;
+            this.f39975h = i;
             int i2 = d2[1];
             this.i = i2;
-            C0 c02 = this.f39679a;
+            C0 c02 = this.f39968a;
             G.a(c02, "javascript:window.mraidbridge.setScreenSize(" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception unused) {
         }
     }
 
     public void a(boolean z) {
-        C0 c0 = this.f39679a;
-        if (c0 != null && this.f39681c) {
-            this.f39682d = z;
+        C0 c0 = this.f39968a;
+        if (c0 != null && this.f39970c) {
+            this.f39971d = z;
             G.a(c0, "javascript:window.mraidbridge.setIsViewable(" + z + SmallTailInfo.EMOTION_SUFFIX);
         }
     }

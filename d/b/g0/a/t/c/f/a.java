@@ -18,46 +18,46 @@ public class a extends d.b.g0.a.t.b.d {
 
     /* renamed from: d.b.g0.a.t.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0803a implements Runnable {
+    public class RunnableC0815a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.q1.b.c.a f45989e;
+        public final /* synthetic */ d.b.g0.a.q1.b.c.a f46381e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f45990f;
+        public final /* synthetic */ Context f46382f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45991g;
+        public final /* synthetic */ String f46383g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f45992h;
+        public final /* synthetic */ boolean f46384h;
 
-        public RunnableC0803a(a aVar, d.b.g0.a.q1.b.c.a aVar2, Context context, String str, boolean z) {
-            this.f45989e = aVar2;
-            this.f45990f = context;
-            this.f45991g = str;
-            this.f45992h = z;
+        public RunnableC0815a(a aVar, d.b.g0.a.q1.b.c.a aVar2, Context context, String str, boolean z) {
+            this.f46381e = aVar2;
+            this.f46382f = context;
+            this.f46383g = str;
+            this.f46384h = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             LoadingView loadingView;
-            View e2 = this.f45989e.e();
+            View e2 = this.f46381e.e();
             if (e2 instanceof LoadingView) {
                 loadingView = (LoadingView) e2;
             } else {
-                loadingView = new LoadingView(this.f45990f);
-                FrameLayout frameLayout = new FrameLayout(this.f45990f);
+                loadingView = new LoadingView(this.f46382f);
+                FrameLayout frameLayout = new FrameLayout(this.f46382f);
                 frameLayout.setPadding(0, 0, 0, h0.f(160.0f));
                 frameLayout.addView(loadingView);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                this.f45989e.k(frameLayout, layoutParams);
+                this.f46381e.k(frameLayout, layoutParams);
             }
-            if (!TextUtils.isEmpty(this.f45991g)) {
-                loadingView.setMsg(this.f45991g);
+            if (!TextUtils.isEmpty(this.f46383g)) {
+                loadingView.setMsg(this.f46383g);
             }
-            this.f45989e.i(this.f45992h);
+            this.f46381e.i(this.f46384h);
         }
     }
 
@@ -65,15 +65,15 @@ public class a extends d.b.g0.a.t.b.d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.c f45993e;
+        public final /* synthetic */ d.b.g0.a.e0.l.c f46385e;
 
         public b(a aVar, d.b.g0.a.e0.l.c cVar) {
-            this.f45993e = cVar;
+            this.f46385e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.q1.b.c.a floatLayer = ((a.InterfaceC0765a) this.f45993e).getFloatLayer();
+            d.b.g0.a.q1.b.c.a floatLayer = ((a.InterfaceC0777a) this.f46385e).getFloatLayer();
             if (floatLayer != null && (floatLayer.e() instanceof FrameLayout) && (((FrameLayout) floatLayer.e()).getChildAt(0) instanceof LoadingView)) {
                 floatLayer.g();
             }
@@ -85,32 +85,32 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public final void q(@NonNull d.b.g0.a.q1.b.c.a aVar, @NonNull Context context, String str, boolean z) {
-        k0.X(new RunnableC0803a(this, aVar, context, str, z));
+        k0.X(new RunnableC0815a(this, aVar, context, str, z));
     }
 
     public d.b.g0.a.t.e.b r() {
         Context h2 = h();
         if (!(h2 instanceof SwanAppActivity)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "context not support");
             }
             return new d.b.g0.a.t.e.b(1001, "context not support");
         }
         d.b.g0.a.e0.l.f swanAppFragmentManager = ((SwanAppActivity) h2).getSwanAppFragmentManager();
         if (swanAppFragmentManager == null) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "none fragmentManger");
             }
             return new d.b.g0.a.t.e.b(1001, "none fragmentManger");
         }
         d.b.g0.a.e0.l.c m = swanAppFragmentManager.m();
-        if (!(m instanceof a.InterfaceC0765a)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+        if (!(m instanceof a.InterfaceC0777a)) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "fragment not support");
             }
             return new d.b.g0.a.t.e.b(1001, "fragment not support");
         } else if (m.l() == null) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "fragment has detached");
             }
             return new d.b.g0.a.t.e.b(1001, "fragment has detached");
@@ -122,7 +122,7 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b s(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-LoadingView", "start show loading");
         }
         if (k()) {
@@ -132,7 +132,7 @@ public class a extends d.b.g0.a.t.b.d {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-LoadingView", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "parse fail");
             }
             return bVar;
@@ -141,7 +141,7 @@ public class a extends d.b.g0.a.t.b.d {
         d.b.g0.a.c0.c.g("Api-LoadingView", "handleShowLoading : joParams = \n" + jSONObject);
         String optString = jSONObject.optString("title");
         if (TextUtils.isEmpty(optString)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "none title");
             }
             return new d.b.g0.a.t.e.b(202, "none title");
@@ -149,28 +149,28 @@ public class a extends d.b.g0.a.t.b.d {
         boolean optBoolean = jSONObject.optBoolean("mask", false);
         Context h2 = h();
         if (!(h2 instanceof SwanAppActivity)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "context not support");
             }
             return new d.b.g0.a.t.e.b(1001, "context not support");
         }
         d.b.g0.a.e0.l.f swanAppFragmentManager = ((SwanAppActivity) h2).getSwanAppFragmentManager();
         if (swanAppFragmentManager == null) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "none fragment");
             }
             return new d.b.g0.a.t.e.b(1001, "none fragment");
         }
         d.b.g0.a.e0.l.c m = swanAppFragmentManager.m();
-        if (!(m instanceof a.InterfaceC0765a)) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+        if (!(m instanceof a.InterfaceC0777a)) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "fragment not support");
             }
             return new d.b.g0.a.t.e.b(1001, "fragment not support");
         }
-        d.b.g0.a.q1.b.c.a floatLayer = ((a.InterfaceC0765a) m).getFloatLayer();
+        d.b.g0.a.q1.b.c.a floatLayer = ((a.InterfaceC0777a) m).getFloatLayer();
         if (floatLayer == null) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-LoadingView", "can't get floatLayer");
             }
             return new d.b.g0.a.t.e.b(1001, "can't get floatLayer");

@@ -3,46 +3,46 @@ package com.baidu.android.pushservice.b;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2722a;
+    public String f2757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2723b;
+    public String f2758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2724c;
+    public String f2759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2725d;
+    public int f2760d;
 
     public String a() {
-        return this.f2722a;
+        return this.f2757a;
     }
 
     public void a(int i) {
-        this.f2725d = i;
+        this.f2760d = i;
     }
 
     public void a(String str) {
-        this.f2722a = str;
+        this.f2757a = str;
     }
 
     public String b() {
-        return this.f2723b;
+        return this.f2758b;
     }
 
     public void b(String str) {
-        this.f2723b = str;
+        this.f2758b = str;
     }
 
     public String c() {
-        return this.f2724c;
+        return this.f2759c;
     }
 
     public void c(String str) {
-        this.f2724c = str;
+        this.f2759c = str;
     }
 
     public int d() {
-        return this.f2725d;
+        return this.f2760d;
     }
 }

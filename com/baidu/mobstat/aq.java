@@ -8,28 +8,28 @@ import org.json.JSONObject;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8955a;
+    public String f8529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8956b;
+    public String f8530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f8957c;
+    public JSONArray f8531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8958d;
+    public String f8532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8959e;
+    public String f8533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8960f;
+    public String f8534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8961g;
+    public boolean f8535g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8962h;
+    public long f8536h;
     public long i;
     public long j;
     public int k;
@@ -37,15 +37,15 @@ public class aq {
     public String m;
 
     public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
-        this.f8955a = str;
-        this.f8956b = str2;
-        this.f8957c = jSONArray;
-        this.f8958d = str3;
-        this.f8959e = str4;
-        this.f8960f = str5;
-        this.f8961g = z;
+        this.f8529a = str;
+        this.f8530b = str2;
+        this.f8531c = jSONArray;
+        this.f8532d = str3;
+        this.f8533e = str4;
+        this.f8534f = str5;
+        this.f8535g = z;
         this.k = i;
-        this.f8962h = j;
+        this.f8536h = j;
         this.i = j2;
         this.j = j3;
         this.l = str6;
@@ -53,31 +53,31 @@ public class aq {
     }
 
     public String a() {
-        return this.f8955a;
+        return this.f8529a;
     }
 
     public String b() {
-        return this.f8956b;
+        return this.f8530b;
     }
 
     public JSONArray c() {
-        return this.f8957c;
+        return this.f8531c;
     }
 
     public String d() {
-        return this.f8958d;
+        return this.f8532d;
     }
 
     public String e() {
-        return this.f8959e;
+        return this.f8533e;
     }
 
     public String f() {
-        return this.f8960f;
+        return this.f8534f;
     }
 
     public boolean g() {
-        return this.f8961g;
+        return this.f8535g;
     }
 
     public int h() {
@@ -85,7 +85,7 @@ public class aq {
     }
 
     public long i() {
-        return this.f8962h;
+        return this.f8536h;
     }
 
     public long j() {
@@ -121,22 +121,22 @@ public class aq {
     }
 
     public JSONObject a(String str, String str2, String str3) {
-        String a2 = a(this.f8955a, this.f8956b, this.f8957c, this.f8958d, this.f8959e, this.f8960f, this.f8961g);
+        String a2 = a(this.f8529a, this.f8530b, this.f8531c, this.f8532d, this.f8533e, this.f8534f, this.f8535g);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("id", this.f8955a);
+            jSONObject.put("id", this.f8529a);
             jSONObject.put("d", this.l);
             jSONObject.put("p", str);
             jSONObject.put("path", str3);
-            jSONObject.put("title", this.f8958d);
-            jSONObject.put("index", this.f8959e);
+            jSONObject.put("title", this.f8532d);
+            jSONObject.put("index", this.f8533e);
             jSONObject.put("n", str2);
-            jSONObject.put("user", this.f8961g ? 1 : 0);
+            jSONObject.put("user", this.f8535g ? 1 : 0);
             jSONObject.put("c", this.k);
-            jSONObject.put("t", this.f8962h);
+            jSONObject.put("t", this.f8536h);
             jSONObject.put("ps", this.m);
             jSONObject.put("sign", a2);
             return jSONObject;

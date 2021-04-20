@@ -28,8 +28,8 @@ public class d extends j {
         @Override // d.b.h0.r.s.l.e
         public void onItemClick(l lVar, int i, View view) {
             d.this.dismiss();
-            if (!d.b.b.e.p.j.z()) {
-                d.b.b.e.p.l.K(d.this.p, R.string.network_not_available);
+            if (!d.b.c.e.p.j.z()) {
+                d.b.c.e.p.l.K(d.this.p, R.string.network_not_available);
             } else if (i == 2) {
                 d.this.q.dispatchMvcEvent(new d.b.h0.g0.c.b(4, d.this.s, null, null));
             } else if (i == 1) {

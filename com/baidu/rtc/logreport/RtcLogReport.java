@@ -74,7 +74,7 @@ public class RtcLogReport {
                 case 12:
                 case 14:
                 case 15:
-                    return g.f3874b;
+                    return g.f3909b;
                 case 13:
                     return "4G";
                 default:

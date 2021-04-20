@@ -5,36 +5,36 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f38974a = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f39263a = !b.class.desiredAssertionStatus();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a {
         public int op;
         public byte[] output;
     }
 
     /* renamed from: com.ta.utdid2.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0505b extends a {
+    /* loaded from: classes6.dex */
+    public static class C0519b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int[] f38975a = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        public static final int[] f39264a = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f38976b = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        public static final int[] f39265b = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f38977c;
+        public final int[] f39266c;
         public int state;
         public int value;
 
-        public C0505b(int i, byte[] bArr) {
+        public C0519b(int i, byte[] bArr) {
             this.output = bArr;
-            this.f38977c = (i & 8) == 0 ? f38975a : f38976b;
+            this.f39266c = (i & 8) == 0 ? f39264a : f39265b;
             this.state = 0;
             this.value = 0;
         }
@@ -47,7 +47,7 @@ public class b {
             int i4 = i2 + i;
             int i5 = this.value;
             byte[] bArr2 = this.output;
-            int[] iArr = this.f38977c;
+            int[] iArr = this.f39266c;
             int i6 = i5;
             int i7 = 0;
             int i8 = i3;
@@ -163,27 +163,27 @@ public class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ boolean f38978a = !b.class.desiredAssertionStatus();
+        public static final /* synthetic */ boolean f39267a = !b.class.desiredAssertionStatus();
 
         /* renamed from: a  reason: collision with other field name */
         public static final byte[] f0a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         /* renamed from: b  reason: collision with root package name */
-        public static final byte[] f38979b = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
+        public static final byte[] f39268b = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
 
         /* renamed from: a  reason: collision with other field name */
         public int f1a;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f38980c;
+        public final byte[] f39269c;
         public int count;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f38981d;
+        public final byte[] f39270d;
         public final boolean do_cr;
         public final boolean do_newline;
         public final boolean do_padding;
@@ -193,8 +193,8 @@ public class b {
             this.do_padding = (i & 1) == 0;
             this.do_newline = (i & 2) == 0;
             this.do_cr = (i & 4) != 0;
-            this.f38981d = (i & 8) == 0 ? f0a : f38979b;
-            this.f38980c = new byte[2];
+            this.f39270d = (i & 8) == 0 ? f0a : f39268b;
+            this.f39269c = new byte[2];
             this.f1a = 0;
             this.count = this.do_newline ? 19 : -1;
         }
@@ -215,7 +215,7 @@ public class b {
             /*
                 r17 = this;
                 r0 = r17
-                byte[] r1 = r0.f38981d
+                byte[] r1 = r0.f39270d
                 byte[] r2 = r0.output
                 int r3 = r0.count
                 int r4 = r20 + r19
@@ -230,7 +230,7 @@ public class b {
             L15:
                 int r5 = r19 + 1
                 if (r5 > r4) goto L50
-                byte[] r10 = r0.f38980c
+                byte[] r10 = r0.f39269c
                 r11 = r10[r7]
                 r11 = r11 & 255(0xff, float:3.57E-43)
                 int r11 = r11 << 16
@@ -247,7 +247,7 @@ public class b {
             L31:
                 int r5 = r19 + 2
                 if (r5 > r4) goto L50
-                byte[] r5 = r0.f38980c
+                byte[] r5 = r0.f39269c
                 r5 = r5[r7]
                 r5 = r5 & 255(0xff, float:3.57E-43)
                 int r5 = r5 << 16
@@ -364,7 +364,7 @@ public class b {
                 r16 = 61
                 if (r10 != r15) goto L139
                 if (r5 <= 0) goto Lfa
-                byte[] r5 = r0.f38980c
+                byte[] r5 = r0.f39269c
                 r5 = r5[r7]
                 r7 = 1
                 goto L100
@@ -411,7 +411,7 @@ public class b {
                 int r12 = r4 + (-2)
                 if (r10 != r12) goto L1a4
                 if (r5 <= r9) goto L147
-                byte[] r5 = r0.f38980c
+                byte[] r5 = r0.f39269c
                 r5 = r5[r7]
                 r7 = 1
                 goto L14d
@@ -425,7 +425,7 @@ public class b {
                 int r5 = r5 << r14
                 int r10 = r0.f1a
                 if (r10 <= 0) goto L15b
-                byte[] r10 = r0.f38980c
+                byte[] r10 = r0.f39269c
                 int r12 = r7 + 1
                 r7 = r10[r7]
                 goto L162
@@ -493,7 +493,7 @@ public class b {
             L1bb:
                 r6 = r1
             L1bc:
-                boolean r1 = com.ta.utdid2.a.a.b.c.f38978a
+                boolean r1 = com.ta.utdid2.a.a.b.c.f39267a
                 if (r1 != 0) goto L1cb
                 int r1 = r0.f1a
                 if (r1 != 0) goto L1c5
@@ -503,7 +503,7 @@ public class b {
                 r1.<init>()
                 throw r1
             L1cb:
-                boolean r1 = com.ta.utdid2.a.a.b.c.f38978a
+                boolean r1 = com.ta.utdid2.a.a.b.c.f39267a
                 if (r1 != 0) goto L201
                 if (r11 != r4) goto L1d2
                 goto L201
@@ -514,7 +514,7 @@ public class b {
             L1d8:
                 int r1 = r4 + (-1)
                 if (r11 != r1) goto L1e9
-                byte[] r1 = r0.f38980c
+                byte[] r1 = r0.f39269c
                 int r2 = r0.f1a
                 int r4 = r2 + 1
                 r0.f1a = r4
@@ -524,7 +524,7 @@ public class b {
             L1e9:
                 int r4 = r4 - r8
                 if (r11 != r4) goto L201
-                byte[] r1 = r0.f38980c
+                byte[] r1 = r0.f39269c
                 int r2 = r0.f1a
                 int r4 = r2 + 1
                 r0.f1a = r4
@@ -585,17 +585,17 @@ public class b {
         }
         cVar.output = new byte[i4];
         cVar.process(bArr, i, i2, true);
-        if (f38974a || cVar.op == i4) {
+        if (f39263a || cVar.op == i4) {
             return cVar.output;
         }
         throw new AssertionError();
     }
 
     public static byte[] decode(byte[] bArr, int i, int i2, int i3) {
-        C0505b c0505b = new C0505b(i3, new byte[(i2 * 3) / 4]);
-        if (c0505b.process(bArr, i, i2, true)) {
-            int i4 = c0505b.op;
-            byte[] bArr2 = c0505b.output;
+        C0519b c0519b = new C0519b(i3, new byte[(i2 * 3) / 4]);
+        if (c0519b.process(bArr, i, i2, true)) {
+            int i4 = c0519b.op;
+            byte[] bArr2 = c0519b.output;
             if (i4 == bArr2.length) {
                 return bArr2;
             }

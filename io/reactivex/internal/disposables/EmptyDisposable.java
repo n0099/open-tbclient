@@ -1,9 +1,9 @@
 package io.reactivex.internal.disposables;
 
-import f.a.i;
-import f.a.o;
-import f.a.r;
-import f.a.x.c.b;
+import f.b.i;
+import f.b.o;
+import f.b.r;
+import f.b.x.c.b;
 /* loaded from: classes7.dex */
 public enum EmptyDisposable implements b<Object> {
     INSTANCE,
@@ -19,35 +19,35 @@ public enum EmptyDisposable implements b<Object> {
         oVar.onError(th);
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public void clear() {
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this == INSTANCE;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean isEmpty() {
         return true;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean offer(Object obj) {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public Object poll() throws Exception {
         return null;
     }
 
-    @Override // f.a.x.c.c
+    @Override // f.b.x.c.c
     public int requestFusion(int i) {
         return i & 2;
     }
@@ -61,12 +61,12 @@ public enum EmptyDisposable implements b<Object> {
         iVar.onComplete();
     }
 
-    public static void error(Throwable th, f.a.b bVar) {
+    public static void error(Throwable th, f.b.b bVar) {
         bVar.onSubscribe(INSTANCE);
         bVar.onError(th);
     }
 
-    public static void complete(f.a.b bVar) {
+    public static void complete(f.b.b bVar) {
         bVar.onSubscribe(INSTANCE);
         bVar.onComplete();
     }

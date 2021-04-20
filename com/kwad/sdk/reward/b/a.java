@@ -16,23 +16,23 @@ import com.kwad.sdk.utils.ap;
 public class a extends com.kwad.sdk.reward.d implements ap.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f36225b;
+    public Handler f36514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f36226c;
+    public AdInfo f36515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f36227d;
+    public com.kwad.sdk.reward.c.a f36516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f36228e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
+    public BroadcastReceiver f36517e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
             if (TextUtils.isEmpty(schemeSpecificPart)) {
                 return;
             }
-            Message obtainMessage = a.this.f36225b.obtainMessage(BaseActivity.DIALOG_LOADING);
+            Message obtainMessage = a.this.f36514b.obtainMessage(BaseActivity.DIALOG_LOADING);
             obtainMessage.obj = schemeSpecificPart;
             obtainMessage.sendToTarget();
         }
@@ -42,35 +42,35 @@ public class a extends com.kwad.sdk.reward.d implements ap.a {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        ((com.kwad.sdk.reward.d) this).f36458a.f36223g.registerReceiver(this.f36228e, intentFilter);
+        ((com.kwad.sdk.reward.d) this).f36747a.f36512g.registerReceiver(this.f36517e, intentFilter);
     }
 
     private void f() {
-        Activity activity = ((com.kwad.sdk.reward.d) this).f36458a.f36223g;
+        Activity activity = ((com.kwad.sdk.reward.d) this).f36747a.f36512g;
         if (activity != null) {
-            activity.unregisterReceiver(this.f36228e);
+            activity.unregisterReceiver(this.f36517e);
         }
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f36226c = com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.reward.d) this).f36458a.f36222f);
-        this.f36227d = ((com.kwad.sdk.reward.d) this).f36458a.i;
-        this.f36225b = new ap(this);
+        this.f36515c = com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.reward.d) this).f36747a.f36511f);
+        this.f36516d = ((com.kwad.sdk.reward.d) this).f36747a.i;
+        this.f36514b = new ap(this);
         e();
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         Object obj;
-        if (message.what == 242 && (obj = message.obj) != null && obj.equals(this.f36226c.adBaseInfo.appPackageName)) {
-            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f36458a.f36218b;
+        if (message.what == 242 && (obj = message.obj) != null && obj.equals(this.f36515c.adBaseInfo.appPackageName)) {
+            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f36747a.f36507b;
             if (bVar != null) {
                 bVar.e();
             }
-            this.f36227d.h();
-            ((com.kwad.sdk.reward.d) this).f36458a.b();
+            this.f36516d.h();
+            ((com.kwad.sdk.reward.d) this).f36747a.b();
         }
     }
 

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicTextView extends DynamicBaseWidgetImp {
     public DynamicTextView(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);

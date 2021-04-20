@@ -6,14 +6,14 @@ import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 public final class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BdSailorWebView f49469e;
+    public final /* synthetic */ BdSailorWebView f49861e;
 
     public b(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
-        this.f49469e = bdSailorWebView;
+        this.f49861e = bdSailorWebView;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f49469e.showEmbeddedTitleBar(false);
+        this.f49861e.showEmbeddedTitleBar(false);
     }
 }

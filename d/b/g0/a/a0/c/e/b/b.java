@@ -18,33 +18,33 @@ public final class b extends d.b.g0.a.a0.a.b.a<SimpleDraweeView, c> {
     public class a extends BaseControllerListener<ImageInfo> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f43125a;
+        public final /* synthetic */ boolean f43517a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SimpleDraweeView f43126b;
+        public final /* synthetic */ SimpleDraweeView f43518b;
 
         public a(boolean z, SimpleDraweeView simpleDraweeView) {
-            this.f43125a = z;
-            this.f43126b = simpleDraweeView;
+            this.f43517a = z;
+            this.f43518b = simpleDraweeView;
         }
 
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
         public void onFailure(String str, Throwable th) {
             super.onFailure(str, th);
-            if (!this.f43125a || b.this.i == null) {
+            if (!this.f43517a || b.this.i == null) {
                 return;
             }
-            b.this.i.a(0, this.f43126b, null);
+            b.this.i.a(0, this.f43518b, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
         public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
             super.onFinalImageSet(str, (String) imageInfo, animatable);
-            if (!this.f43125a || b.this.i == null) {
+            if (!this.f43517a || b.this.i == null) {
                 return;
             }
-            b.this.i.a(1, this.f43126b, null);
+            b.this.i.a(1, this.f43518b, null);
         }
     }
 

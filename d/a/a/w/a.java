@@ -1,103 +1,62 @@
 package d.a.a.w;
 
 import android.graphics.PointF;
-import android.view.animation.Interpolator;
-import androidx.annotation.FloatRange;
-import androidx.annotation.Nullable;
+import com.airbnb.lottie.parser.moshi.JsonReader;
+import com.baidu.mobstat.Config;
+import java.io.IOException;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a<T> {
-    @Nullable
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.a.d f41450a;
-    @Nullable
+    public static JsonReader.a f41735a = JsonReader.a.a(Config.APP_KEY, "x", "y");
 
-    /* renamed from: b  reason: collision with root package name */
-    public final T f41451b;
-    @Nullable
-
-    /* renamed from: c  reason: collision with root package name */
-    public final T f41452c;
-    @Nullable
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Interpolator f41453d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final float f41454e;
-    @Nullable
-
-    /* renamed from: f  reason: collision with root package name */
-    public Float f41455f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f41456g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f41457h;
-    public PointF i;
-    public PointF j;
-
-    public a(d.a.a.d dVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f2, @Nullable Float f3) {
-        this.f41456g = Float.MIN_VALUE;
-        this.f41457h = Float.MIN_VALUE;
-        this.i = null;
-        this.j = null;
-        this.f41450a = dVar;
-        this.f41451b = t;
-        this.f41452c = t2;
-        this.f41453d = interpolator;
-        this.f41454e = f2;
-        this.f41455f = f3;
-    }
-
-    public boolean a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        return f2 >= c() && f2 < b();
-    }
-
-    public float b() {
-        if (this.f41450a == null) {
-            return 1.0f;
+    public static d.a.a.u.i.e a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
+        ArrayList arrayList = new ArrayList();
+        if (jsonReader.B() == JsonReader.Token.BEGIN_ARRAY) {
+            jsonReader.n();
+            while (jsonReader.t()) {
+                arrayList.add(w.a(jsonReader, dVar));
+            }
+            jsonReader.q();
+            r.b(arrayList);
+        } else {
+            arrayList.add(new d.a.a.y.a(p.e(jsonReader, d.a.a.x.h.e())));
         }
-        if (this.f41457h == Float.MIN_VALUE) {
-            if (this.f41455f == null) {
-                this.f41457h = 1.0f;
+        return new d.a.a.u.i.e(arrayList);
+    }
+
+    public static d.a.a.u.i.m<PointF, PointF> b(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
+        jsonReader.o();
+        d.a.a.u.i.e eVar = null;
+        d.a.a.u.i.b bVar = null;
+        d.a.a.u.i.b bVar2 = null;
+        boolean z = false;
+        while (jsonReader.B() != JsonReader.Token.END_OBJECT) {
+            int D = jsonReader.D(f41735a);
+            if (D == 0) {
+                eVar = a(jsonReader, dVar);
+            } else if (D != 1) {
+                if (D != 2) {
+                    jsonReader.E();
+                    jsonReader.F();
+                } else if (jsonReader.B() == JsonReader.Token.STRING) {
+                    jsonReader.F();
+                    z = true;
+                } else {
+                    bVar2 = d.e(jsonReader, dVar);
+                }
+            } else if (jsonReader.B() == JsonReader.Token.STRING) {
+                jsonReader.F();
+                z = true;
             } else {
-                this.f41457h = c() + ((this.f41455f.floatValue() - this.f41454e) / this.f41450a.e());
+                bVar = d.e(jsonReader, dVar);
             }
         }
-        return this.f41457h;
-    }
-
-    public float c() {
-        d.a.a.d dVar = this.f41450a;
-        if (dVar == null) {
-            return 0.0f;
+        jsonReader.r();
+        if (z) {
+            dVar.a("Lottie doesn't support expressions.");
         }
-        if (this.f41456g == Float.MIN_VALUE) {
-            this.f41456g = (this.f41454e - dVar.m()) / this.f41450a.e();
-        }
-        return this.f41456g;
-    }
-
-    public boolean d() {
-        return this.f41453d == null;
-    }
-
-    public String toString() {
-        return "Keyframe{startValue=" + this.f41451b + ", endValue=" + this.f41452c + ", startFrame=" + this.f41454e + ", endFrame=" + this.f41455f + ", interpolator=" + this.f41453d + '}';
-    }
-
-    public a(T t) {
-        this.f41456g = Float.MIN_VALUE;
-        this.f41457h = Float.MIN_VALUE;
-        this.i = null;
-        this.j = null;
-        this.f41450a = null;
-        this.f41451b = t;
-        this.f41452c = t;
-        this.f41453d = null;
-        this.f41454e = Float.MIN_VALUE;
-        this.f41455f = Float.valueOf(Float.MAX_VALUE);
+        return eVar != null ? eVar : new d.a.a.u.i.i(bVar, bVar2);
     }
 }

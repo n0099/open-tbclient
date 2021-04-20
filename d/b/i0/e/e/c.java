@@ -3,13 +3,13 @@ package d.b.i0.e.e;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f54193a;
+    public Object f55076a;
 
     public c(Object obj) {
-        this.f54193a = obj;
+        this.f55076a = obj;
     }
 
     public Object a() {
-        return this.f54193a;
+        return this.f55076a;
     }
 }

@@ -37,7 +37,7 @@ import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendRe
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.SdkLiveInfoListResponsedMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import d.b.i0.p0.j0;
+import d.b.i0.q0.j0;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
@@ -77,7 +77,7 @@ public class AlaSquareDelegateStatic {
     public static class c implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            return new CustomResponsedMessage<>(2911006, d.b.h0.r.d0.b.i().o("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
+            return new CustomResponsedMessage<>(2911006, d.b.h0.r.d0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
         }
     }
 
@@ -85,7 +85,7 @@ public class AlaSquareDelegateStatic {
     public static class d implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            return new CustomResponsedMessage<>(2911008, d.b.h0.r.d0.b.i().o("show_live_forum_name", "百度直播"));
+            return new CustomResponsedMessage<>(2911008, d.b.h0.r.d0.b.j().p("show_live_forum_name", "百度直播"));
         }
     }
 
@@ -133,8 +133,8 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.b.i0.p0.g gVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.p0.g) || (gVar = (d.b.i0.p0.g) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gVar.e())) {
+            d.b.i0.q0.g gVar;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.q0.g) || (gVar = (d.b.i0.q0.g) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gVar.e())) {
                 return;
             }
             for (FrsTabInfo frsTabInfo : gVar.e()) {
@@ -151,20 +151,20 @@ public class AlaSquareDelegateStatic {
     public static class h extends d.b.h0.e0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.g f14705a;
+        public final /* synthetic */ d.b.i0.q0.g f14368a;
 
-        public h(d.b.i0.p0.g gVar) {
-            this.f14705a = gVar;
+        public h(d.b.i0.q0.g gVar) {
+            this.f14368a = gVar;
         }
 
         @Override // d.b.h0.e0.b
         public d.b.h0.e0.c createFragmentTabStructure() {
             LiveTabGameSubFragment S0 = LiveTabGameSubFragment.S0(true);
-            S0.I0(this.f14705a.b(), this.f14705a.c());
+            S0.I0(this.f14368a.b(), this.f14368a.c());
             d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-            cVar.f50155a = S0;
-            cVar.f50159e = 1121;
-            cVar.f50162h = d.b.h0.e0.c.j;
+            cVar.f50548a = S0;
+            cVar.f50552e = 1121;
+            cVar.i = d.b.h0.e0.c.k;
             return cVar;
         }
 
@@ -183,20 +183,20 @@ public class AlaSquareDelegateStatic {
     public static class i extends d.b.h0.e0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.p0.g f14706a;
+        public final /* synthetic */ d.b.i0.q0.g f14369a;
 
-        public i(d.b.i0.p0.g gVar) {
-            this.f14706a = gVar;
+        public i(d.b.i0.q0.g gVar) {
+            this.f14369a = gVar;
         }
 
         @Override // d.b.h0.e0.b
         public d.b.h0.e0.c createFragmentTabStructure() {
             LiveTabYanzhiSubFragment S0 = LiveTabYanzhiSubFragment.S0(true);
-            S0.I0(this.f14706a.b(), this.f14706a.c());
+            S0.I0(this.f14369a.b(), this.f14369a.c());
             d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-            cVar.f50155a = S0;
-            cVar.f50159e = 1120;
-            cVar.f50162h = d.b.h0.e0.c.j;
+            cVar.f50548a = S0;
+            cVar.f50552e = 1120;
+            cVar.i = d.b.h0.e0.c.k;
             return cVar;
         }
 
@@ -222,11 +222,11 @@ public class AlaSquareDelegateStatic {
             @Override // d.b.h0.e0.b
             public d.b.h0.e0.c createFragmentTabStructure() {
                 d.b.h0.e0.c cVar = new d.b.h0.e0.c();
-                cVar.f50155a = new MainBottomLiveTabFragment();
-                cVar.f50159e = 20;
-                cVar.f50156b = R.string.ala_live;
-                cVar.f50160f = R.raw.lottie_tab_live;
-                cVar.f50162h = d.b.h0.e0.c.k;
+                cVar.f50548a = new MainBottomLiveTabFragment();
+                cVar.f50552e = 20;
+                cVar.f50549b = R.string.ala_live;
+                cVar.f50553f = R.raw.lottie_tab_live;
+                cVar.i = d.b.h0.e0.c.l;
                 return cVar;
             }
 
@@ -280,13 +280,13 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
-    public static void c(d.b.i0.p0.g gVar) {
+    public static void c(d.b.i0.q0.g gVar) {
         if (gVar != null) {
             gVar.a(new h(gVar));
         }
     }
 
-    public static void d(d.b.i0.p0.g gVar) {
+    public static void d(d.b.i0.q0.g gVar) {
         if (gVar != null) {
             gVar.a(new i(gVar));
         }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.wallet.pay.data.PayChannelInfo;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

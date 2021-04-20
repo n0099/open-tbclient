@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.message;
 
-import d.b.b.e.j.a.e;
+import d.b.c.e.j.a.e;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;

@@ -3,7 +3,7 @@ package com.facebook.common.references;
 import java.lang.ref.SoftReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class OOMSoftReference<T> {
     public SoftReference<T> softRef1 = null;
     public SoftReference<T> softRef2 = null;

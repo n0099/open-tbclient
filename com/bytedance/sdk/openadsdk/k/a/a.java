@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.k.a;
 
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
     public void a(String str) {
     }

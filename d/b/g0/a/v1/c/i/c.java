@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends h<JSONObject> {
     public String l;
     public final Context m;
@@ -27,7 +27,7 @@ public class c extends h<JSONObject> {
     public boolean k() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(com.alipay.sdk.cons.b.f1858h, this.l);
+            jSONObject.put(com.alipay.sdk.cons.b.f1883h, this.l);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", d.b.g0.a.v1.c.c.g());
             String x = d.b.g0.a.w0.a.l().x();

@@ -19,7 +19,7 @@ import java.nio.charset.Charset;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46655a = k.f45051a;
+    public static final boolean f47047a = k.f45443a;
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x00b8 A[Catch: all -> 0x00ef, TryCatch #10 {, blocks: (B:4:0x0003, B:6:0x000e, B:8:0x0012, B:11:0x001b, B:21:0x0073, B:22:0x0076, B:49:0x00b0, B:51:0x00b8, B:52:0x00d4, B:25:0x007b, B:26:0x0081, B:57:0x00dd, B:58:0x00e0, B:62:0x00ee, B:61:0x00e5, B:44:0x00a1, B:45:0x00a4, B:48:0x00a9), top: B:74:0x0003, inners: #0, #3, #5 }] */
     /* JADX WARN: Removed duplicated region for block: B:70:0x00dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -34,7 +34,7 @@ public class a {
         synchronized (a.class) {
             long currentTimeMillis = System.currentTimeMillis();
             FileLock fileLock = null;
-            if (TextUtils.isEmpty(str) && f46655a) {
+            if (TextUtils.isEmpty(str) && f47047a) {
                 Log.w("SwanAppFile", "path name is empty");
                 return null;
             }
@@ -64,14 +64,14 @@ public class a {
                                         stackTraceString = Log.getStackTraceString(e3);
                                         Log.e(str2, stackTraceString);
                                         long currentTimeMillis2 = System.currentTimeMillis();
-                                        if (f46655a) {
+                                        if (f47047a) {
                                         }
                                         return stringBuffer.toString();
                                     }
                                 }
                                 d.a(bufferedReader);
                                 long currentTimeMillis22 = System.currentTimeMillis();
-                                if (f46655a) {
+                                if (f47047a) {
                                 }
                                 return stringBuffer.toString();
                             } catch (Throwable th) {
@@ -96,7 +96,7 @@ public class a {
                             throw th;
                         }
                     }
-                    if (f46655a) {
+                    if (f47047a) {
                         Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
                     }
                     if (lock != null) {
@@ -107,7 +107,7 @@ public class a {
                             stackTraceString = Log.getStackTraceString(e5);
                             Log.e(str2, stackTraceString);
                             long currentTimeMillis222 = System.currentTimeMillis();
-                            if (f46655a) {
+                            if (f47047a) {
                             }
                             return stringBuffer.toString();
                         }
@@ -128,7 +128,7 @@ public class a {
                 bufferedReader = null;
             }
             long currentTimeMillis2222 = System.currentTimeMillis();
-            if (f46655a) {
+            if (f47047a) {
                 Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
             }
             return stringBuffer.toString();
@@ -147,7 +147,7 @@ public class a {
         synchronized (a.class) {
             long currentTimeMillis = System.currentTimeMillis();
             boolean z2 = false;
-            if (TextUtils.isEmpty(str) && f46655a) {
+            if (TextUtils.isEmpty(str) && f47047a) {
                 Log.w("SwanAppFile", "path name is null");
                 return false;
             }
@@ -176,7 +176,7 @@ public class a {
                 }
                 channel.write(ByteBuffer.wrap(str2.getBytes()));
                 z2 = true;
-                if (f46655a) {
+                if (f47047a) {
                     Log.d("SwanAppFile", "Write file：" + str2);
                 }
                 if (fileLock != null) {
@@ -201,7 +201,7 @@ public class a {
                     }
                     d.a(fileChannel);
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    if (f46655a) {
+                    if (f47047a) {
                     }
                     return z2;
                 } catch (Throwable th2) {
@@ -225,7 +225,7 @@ public class a {
                 throw th;
             }
             long currentTimeMillis22 = System.currentTimeMillis();
-            if (f46655a) {
+            if (f47047a) {
                 Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
             }
             return z2;

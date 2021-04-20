@@ -17,7 +17,7 @@ public class c extends d.b.g0.a.q1.b.b.b {
     public View o;
     public TextView p;
     public SelectorTextView q;
-    public C0667c r;
+    public C0679c r;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -47,18 +47,18 @@ public class c extends d.b.g0.a.q1.b.b.b {
 
     /* renamed from: d.b.g0.a.e0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0667c extends b.C0762b {
+    public static class C0679c extends b.C0774b {
 
         /* renamed from: g  reason: collision with root package name */
-        public int f44088g;
+        public int f44480g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f44089h;
+        public int f44481h;
         public int i;
         public b.c j;
         public b.c k;
 
-        public C0667c(Context context) {
+        public C0679c(Context context) {
             super(context);
         }
 
@@ -68,25 +68,25 @@ public class c extends d.b.g0.a.q1.b.b.b {
             return this;
         }
 
-        @Override // d.b.g0.a.q1.b.b.b.C0762b, d.b.g0.a.q1.b.b.g.a
+        @Override // d.b.g0.a.q1.b.b.b.C0774b, d.b.g0.a.q1.b.b.g.a
         public g c() {
             c cVar = (c) super.c();
             cVar.r(this);
             return cVar;
         }
 
-        public C0667c e0(int i) {
-            this.f44088g = i;
+        public C0679c e0(int i) {
+            this.f44480g = i;
             return this;
         }
 
-        public C0667c f0(int i, b.c cVar) {
-            this.f44088g = i;
+        public C0679c f0(int i, b.c cVar) {
+            this.f44480g = i;
             this.k = cVar;
             return this;
         }
 
-        public C0667c g0(int i) {
+        public C0679c g0(int i) {
             super.U(i);
             return this;
         }
@@ -122,15 +122,15 @@ public class c extends d.b.g0.a.q1.b.b.b {
     }
 
     public final void q() {
-        C0667c c0667c = this.r;
-        if (c0667c == null) {
+        C0679c c0679c = this.r;
+        if (c0679c == null) {
             return;
         }
-        this.p.setText(this.k.getText(c0667c.f44088g));
+        this.p.setText(this.k.getText(c0679c.f44480g));
         this.p.setOnClickListener(new a());
-        if (this.r.f44089h > 0) {
+        if (this.r.f44481h > 0) {
             this.q.setVisibility(0);
-            this.q.setText(this.k.getText(this.r.f44089h));
+            this.q.setText(this.k.getText(this.r.f44481h));
             this.q.setOnClickListener(new b());
         } else {
             this.q.setVisibility(8);
@@ -143,7 +143,7 @@ public class c extends d.b.g0.a.q1.b.b.b {
         }
     }
 
-    public void r(C0667c c0667c) {
-        this.r = c0667c;
+    public void r(C0679c c0679c) {
+        this.r = c0679c;
     }
 }

@@ -20,11 +20,11 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduWalletServiceProviderMap f23355a = new BaiduWalletServiceProviderMap();
+        public static final BaiduWalletServiceProviderMap f23040a = new BaiduWalletServiceProviderMap();
     }
 
     public static final BaiduWalletServiceProviderMap getInstance() {
-        return a.f23355a;
+        return a.f23040a;
     }
 
     private void initMaps() {
@@ -38,7 +38,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
         this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_CREDIT), PLUGIN_WALLETHOME);
         this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_NFC_BUS_CARD_SETTING), PLUGIN_NFC);
         this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_LANGBRIGE), PLUGIN_LANGBRIGE);
-        this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_FINANCE), PLUGIN_TAB);
+        this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_FINANCE), "tab");
     }
 
     public void addDatas(Map<Long, String> map) {

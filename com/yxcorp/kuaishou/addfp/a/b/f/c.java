@@ -6,10 +6,10 @@ import android.os.Parcel;
 public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f41102a;
+    public IBinder f41391a;
 
     public c(IBinder iBinder) {
-        this.f41102a = iBinder;
+        this.f41391a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.f.a
@@ -21,7 +21,7 @@ public final class c implements a {
             obtain.writeString(str);
             obtain.writeString(str2);
             obtain.writeString(str3);
-            this.f41102a.transact(1, obtain, obtain2, 0);
+            this.f41391a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readString();
         } finally {
@@ -32,6 +32,6 @@ public final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f41102a;
+        return this.f41391a;
     }
 }

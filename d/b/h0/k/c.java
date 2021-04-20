@@ -5,27 +5,27 @@ import android.view.ViewGroup;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f50236a;
+    public ViewGroup f50643a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f50237b;
+    public a f50644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f50238c;
+    public b f50645c;
 
     public a a() {
-        return this.f50237b;
+        return this.f50644b;
     }
 
     public ViewGroup b() {
-        return this.f50236a;
+        return this.f50643a;
     }
 
     public void c(a aVar) {
-        this.f50237b = aVar;
+        this.f50644b = aVar;
     }
 
     public void d(ViewGroup viewGroup) {
-        this.f50236a = viewGroup;
+        this.f50643a = viewGroup;
     }
 }

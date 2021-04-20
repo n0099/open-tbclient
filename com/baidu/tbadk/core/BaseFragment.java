@@ -35,15 +35,14 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
-import d.b.b.a.i;
-import d.b.b.j.e.q;
+import d.b.c.a.i;
+import d.b.c.j.e.q;
 import d.b.h0.d0.g;
 import d.b.h0.d0.h;
 import d.b.h0.i0.c;
 import d.b.h0.k0.d;
 import d.b.h0.k0.e;
 import d.b.h0.z0.l;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -251,7 +250,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.mTbPageTag;
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -290,7 +289,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return this.isPrimary;
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
@@ -351,7 +350,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.b.b.e.l.d.h().e(this.mId);
+        d.b.c.e.l.d.h().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -371,15 +370,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
         unRegisterResponsedEventListener();
-        try {
-            Field declaredField = Fragment.class.getDeclaredField("mChildFragmentManager");
-            declaredField.setAccessible(true);
-            declaredField.set(this, null);
-        } catch (IllegalAccessException e2) {
-            throw new RuntimeException(e2);
-        } catch (NoSuchFieldException e3) {
-            throw new RuntimeException(e3);
-        }
     }
 
     public q onGetPreLoadListView() {
@@ -431,11 +421,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             e.b().i(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             this.lastResumeTime = System.currentTimeMillis();
         }
-        d.b.b.e.l.d.h().e(this.mId);
+        d.b.c.e.l.d.h().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public void onPreLoad(q qVar) {
         PreLoadImageHelper.load(qVar, getUniqueId());
         PreLoadVideoHelper.load(qVar, getUniqueId(), this);
@@ -515,15 +505,15 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (aVar.getTag() == 0) {
             aVar.setTag(getUniqueId());
         }
-        d.b.h0.f0.g.g(aVar);
+        d.b.h0.f0.h.i(aVar);
     }
 
     public void refreshImage(View view) {
         if (view == null) {
             return;
         }
-        if (view instanceof d.b.b.f.a.i) {
-            ((d.b.b.f.a.i) view).refresh();
+        if (view instanceof d.b.c.f.a.i) {
+            ((d.b.c.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -541,8 +531,8 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    public void registerResponsedEventListener(Class<? extends d.b.h0.f0.a> cls, d.b.h0.f0.h hVar) {
-        d.b.h0.f0.g.e().k(cls, hVar, getUniqueId());
+    public void registerResponsedEventListener(Class<? extends d.b.h0.f0.a> cls, d.b.h0.f0.i iVar) {
+        d.b.h0.f0.h.f().m(cls, iVar, getUniqueId());
     }
 
     public void sendMessage(Message<?> message) {
@@ -559,13 +549,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         this.mTag = str;
     }
 
-    @Override // d.b.b.a.i
+    @Override // d.b.c.a.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds300));
+        setNetRefreshViewEmotionMarginTop(d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds300));
     }
 
     public void setNetRefreshViewEmotionMarginTop(int i) {
@@ -682,14 +672,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         String name = getClass().getName();
         String str2 = getActivity().getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getActivity().getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-            d.b.b.e.p.l.L(getActivity(), str);
+            d.b.c.e.p.l.L(getActivity(), str);
         } else {
             this.customToast.showToast(str, 2000);
         }
     }
 
     public void unRegisterResponsedEventListener() {
-        d.b.h0.f0.g.e().l(getUniqueId());
+        d.b.h0.f0.h.f().n(getUniqueId());
     }
 
     public void unbindFragmentExtraFormView(View view) {
@@ -758,7 +748,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                 this.mProgressBar = continuousAnimationView2;
                 continuousAnimationView2.setAnimation(R.raw.lottie_pull_refresh);
                 FrameLayout frameLayout = (FrameLayout) getFragmentActivity().findViewById(16908290);
-                int g2 = d.b.b.e.p.l.g(getPageContext().getPageActivity(), z2 ? R.dimen.tbds160 : R.dimen.tbds80);
+                int g2 = d.b.c.e.p.l.g(getPageContext().getPageActivity(), z2 ? R.dimen.tbds160 : R.dimen.tbds80);
                 frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(g2, g2, 17));
             } catch (Throwable unused) {
                 return;
@@ -769,13 +759,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
         ContinuousAnimationView continuousAnimationView3 = this.mProgressBar;
         if (continuousAnimationView3 != null) {
-            continuousAnimationView3.setPadding(d.b.b.e.p.l.e(getPageContext().getPageActivity(), i), d.b.b.e.p.l.e(getPageContext().getPageActivity(), i2), 0, 0);
+            continuousAnimationView3.setPadding(d.b.c.e.p.l.e(getPageContext().getPageActivity(), i), d.b.c.e.p.l.e(getPageContext().getPageActivity(), i2), 0, 0);
             this.mProgressBar.setVisibility(0);
             this.mProgressBar.playAnimation();
         }
     }
 
-    public void registerListener(d.b.b.c.g.a aVar) {
+    public void registerListener(d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
@@ -789,13 +779,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         String name = getClass().getName();
         String str = getActivity().getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getActivity().getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-            d.b.b.e.p.l.K(getActivity(), i);
+            d.b.c.e.p.l.K(getActivity(), i);
         } else {
             this.customToast.showToast(i, 2000);
         }
     }
 
-    public void registerListener(int i, d.b.b.c.g.a aVar) {
+    public void registerListener(int i, d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
@@ -824,11 +814,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (z) {
             this.customToast.showToast(str, 2000);
         } else {
-            d.b.b.e.p.l.L(TbadkCoreApplication.getInst().getApp(), str);
+            d.b.c.e.p.l.L(TbadkCoreApplication.getInst().getApp(), str);
         }
     }
 
-    public void registerListener(d.b.b.c.g.a aVar, BdUniqueId bdUniqueId) {
+    public void registerListener(d.b.c.c.g.a aVar, BdUniqueId bdUniqueId) {
         if (aVar != null) {
             aVar.setTag(bdUniqueId);
         }
@@ -839,11 +829,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (z) {
             this.customToast.showToast(i, 2000);
         } else {
-            d.b.b.e.p.l.K(TbadkCoreApplication.getInst().getApp(), i);
+            d.b.c.e.p.l.K(TbadkCoreApplication.getInst().getApp(), i);
         }
     }
 
-    public void registerListener(int i, d.b.b.c.g.a aVar, BdUniqueId bdUniqueId) {
+    public void registerListener(int i, d.b.c.c.g.a aVar, BdUniqueId bdUniqueId) {
         if (aVar != null) {
             aVar.setTag(bdUniqueId);
         }

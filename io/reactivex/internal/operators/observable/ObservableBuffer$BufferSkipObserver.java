@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.x.b.a;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.b.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.ArrayDeque;
 import java.util.Collection;
@@ -27,17 +27,17 @@ public final class ObservableBuffer$BufferSkipObserver<T, U extends Collection<?
         this.bufferSupplier = callable;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.s.dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.s.isDisposed();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         while (!this.buffers.isEmpty()) {
             this.actual.onNext(this.buffers.poll());
@@ -45,13 +45,13 @@ public final class ObservableBuffer$BufferSkipObserver<T, U extends Collection<?
         this.actual.onComplete();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.buffers.clear();
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         long j = this.index;
         this.index = 1 + j;
@@ -78,7 +78,7 @@ public final class ObservableBuffer$BufferSkipObserver<T, U extends Collection<?
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

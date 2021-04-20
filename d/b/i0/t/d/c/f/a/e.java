@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
 import d.b.i0.x.b0;
 /* loaded from: classes4.dex */
-public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.b, LiveTabConcernOfflineViewHolder> {
+public class e extends d.b.c.j.e.a<d.b.i0.t.d.c.f.b.b, LiveTabConcernOfflineViewHolder> {
     public TbPageContext m;
     public b0<d.b.i0.t.d.c.f.b.b> n;
 
@@ -40,19 +40,19 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.b, LiveTabConcernOfflineView
         if (bVar == null) {
             return;
         }
-        String str = bVar.f60358e;
-        if (StringUtils.isNull(str) || d.b.b.e.m.b.f(str, 0L) == 0) {
+        String str = bVar.f61922e;
+        if (StringUtils.isNull(str) || d.b.c.e.m.b.f(str, 0L) == 0) {
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.m.getPageActivity());
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.m.getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.m.getPageActivity()).createNormalConfig(d.b.c.e.m.b.f(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public LiveTabConcernOfflineViewHolder R(ViewGroup viewGroup) {
         d.b.i0.t.d.c.f.d.f fVar = new d.b.i0.t.d.c.f.d.f(this.m, viewGroup);
@@ -61,11 +61,11 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.b, LiveTabConcernOfflineView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.f.b.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
         d.b.i0.t.d.c.f.d.f fVar;
-        if (liveTabConcernOfflineViewHolder == null || (fVar = liveTabConcernOfflineViewHolder.f14799a) == null) {
+        if (liveTabConcernOfflineViewHolder == null || (fVar = liveTabConcernOfflineViewHolder.f14462a) == null) {
             return null;
         }
         fVar.n(bVar);

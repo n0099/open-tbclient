@@ -6,33 +6,33 @@ import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 public class e extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45062b;
+    public String f45454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45063c;
+    public String f45455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45064d;
+    public String f45456d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45065e;
+    public String f45457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45066f;
+    public String f45458f;
 
     public e() {
-        this.f45056a = FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE;
+        this.f45448a = FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE;
     }
 
     @Override // d.b.g0.a.k0.b.a
     public String a(String str) {
-        String str2 = (d.b.g0.a.k0.a.e(str, "fromId", this.f45062b) + d.b.g0.a.k0.a.e(str, "toId", this.f45063c)) + d.b.g0.a.k0.a.e(str, "toTabIndex", this.f45066f);
-        if (!TextUtils.isEmpty(this.f45064d)) {
-            str2 = str2 + d.b.g0.a.k0.a.e(str, "routeType", this.f45064d);
+        String str2 = (d.b.g0.a.k0.a.e(str, "fromId", this.f45454b) + d.b.g0.a.k0.a.e(str, "toId", this.f45455c)) + d.b.g0.a.k0.a.e(str, "toTabIndex", this.f45458f);
+        if (!TextUtils.isEmpty(this.f45456d)) {
+            str2 = str2 + d.b.g0.a.k0.a.e(str, "routeType", this.f45456d);
         }
-        if (TextUtils.isEmpty(this.f45065e)) {
+        if (TextUtils.isEmpty(this.f45457e)) {
             return str2;
         }
-        return str2 + d.b.g0.a.k0.a.e(str, "toPage", this.f45065e);
+        return str2 + d.b.g0.a.k0.a.e(str, "toPage", this.f45457e);
     }
 }

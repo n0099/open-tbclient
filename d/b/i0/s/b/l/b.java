@@ -10,6 +10,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.lbspay.BuildConfig;
+import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -22,7 +23,6 @@ import d.b.g0.a.t1.k.a0;
 import d.b.g0.a.v1.c.h;
 import d.b.g0.a.v1.c.i.b;
 import d.b.h0.a.f;
-import d.b.h0.f0.g;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONException;
@@ -31,34 +31,34 @@ import org.json.JSONObject;
 public class b extends a0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60100d = "com.baidu.tieba://";
+    public static String f61401d = "com.baidu.tieba://";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60101c;
+    public String f61402c;
 
     /* loaded from: classes4.dex */
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f60102e;
+        public final /* synthetic */ CallbackHandler f61403e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f60103f;
+        public final /* synthetic */ Context f61404f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f60104g;
+        public final /* synthetic */ String f61405g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f60105h;
+        public final /* synthetic */ String f61406h;
         public final /* synthetic */ String i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
 
         public a(CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
-            this.f60102e = callbackHandler;
-            this.f60103f = context;
-            this.f60104g = str;
-            this.f60105h = str2;
+            this.f61403e = callbackHandler;
+            this.f61404f = context;
+            this.f61405g = str;
+            this.f61406h = str2;
             this.i = str3;
             this.j = str4;
             this.k = str5;
@@ -69,32 +69,32 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.o(hVar, this.f60102e, b.this.f60101c);
-            } else if (!b.this.l(this.f60103f, this.f60104g, this.f60105h, this.i, this.j, this.k)) {
+                d.b.g0.a.v1.c.c.o(hVar, this.f61403e, b.this.f61402c);
+            } else if (!b.this.l(this.f61404f, this.f61405g, this.f61406h, this.i, this.j, this.k)) {
                 d.b.g0.a.c0.c.b("PageTransitionAction", "page transition fail");
-                this.f60102e.handleSchemeDispatchCallback(b.this.f60101c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f61403e.handleSchemeDispatchCallback(b.this.f61402c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             } else {
                 d.b.g0.a.c0.c.g("PageTransitionAction", "page transition success");
-                this.f60102e.handleSchemeDispatchCallback(b.this.f60101c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f61403e.handleSchemeDispatchCallback(b.this.f61402c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
 
     /* renamed from: d.b.i0.s.b.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1530b implements f.b {
+    public static class C1569b implements f.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f60106a;
+        public final /* synthetic */ Context f61407a;
 
-        public C1530b(Context context) {
-            this.f60106a = context;
+        public C1569b(Context context) {
+            this.f61407a = context;
         }
 
         @Override // d.b.h0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.v) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f60106a, null, (String) hashMap.get(f.v), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f61407a, null, (String) hashMap.get(f.v), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
@@ -126,7 +126,7 @@ public class b extends a0 {
             if (!TextUtils.isEmpty(str4)) {
                 str4 = "/" + str4;
             }
-            if (TextUtils.equals(str3, "NA")) {
+            if (TextUtils.equals(str3, AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA)) {
                 str6 = "";
             } else {
                 str6 = "/" + str3;
@@ -134,7 +134,7 @@ public class b extends a0 {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str8 = f60100d;
+            String str8 = f61401d;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str8 = str8 + str;
@@ -150,12 +150,12 @@ public class b extends a0 {
             }
             StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
             String str9 = str8 + "?" + ((Object) sb2);
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.i("PageTransitionAction", "encodeParams: " + ((Object) sb2));
             }
             return str9;
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
             return null;
@@ -169,7 +169,7 @@ public class b extends a0 {
         if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
             Uri parse = Uri.parse(str);
             if (f.c(parse)) {
-                f.b().j(str, parse, new C1530b(context));
+                f.b().j(str, parse, new C1569b(context));
             } else {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
                 tbWebViewActivityConfig.setUri(parse);
@@ -180,7 +180,7 @@ public class b extends a0 {
         if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
             Uri parse2 = Uri.parse(str);
             if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
-                g.g(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                d.b.h0.f0.h.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
                 return true;
             }
         }
@@ -200,20 +200,20 @@ public class b extends a0 {
         }
         JSONObject b2 = v.b(param);
         String optString = b2.optString("cb");
-        this.f60101c = optString;
+        this.f61402c = optString;
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
         String optString2 = b2.optString("authority");
         String optString3 = b2.optString("path");
-        String optString4 = b2.optString("module", "NA");
+        String optString4 = b2.optString("module", AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA);
         String optString5 = b2.optString("action");
         JSONObject optJSONObject = b2.optJSONObject("scheme");
         try {
             optJSONObject.put("launchMode", BuildConfig.FLAVOR);
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
         }
@@ -245,7 +245,7 @@ public class b extends a0 {
                 str6 = m(str, str2, str3, str4, str5);
                 z = n(context, str6);
             }
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
             }
         }

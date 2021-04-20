@@ -7,32 +7,32 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f46768a;
+    public JSONObject f47160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f46769b;
+    public final String f47161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f46770c;
+    public boolean f47162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f46771d;
+    public boolean f47163d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f46772e = "";
+    public String f47164e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46773f = "";
+    public String f47165f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46774g = "";
+    public String f47166g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f46775h = new ArrayList();
+    public List<String> f47167h = new ArrayList();
     public final List<String> i = new ArrayList();
     public int j = -1;
     public String k = "";
@@ -45,41 +45,41 @@ public class e {
     public String r;
     public List<e> s;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46776a;
+        public String f47168a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46777b;
+        public String f47169b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46778c;
+        public String f47170c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f46779d;
+        public String f47171d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f46780e;
+        public String f47172e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f46781f;
+        public JSONArray f47173f;
     }
 
     public e(String str) {
-        this.f46769b = str;
+        this.f47161b = str;
     }
 
     public static e d(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.f46768a = jSONObject;
-        eVar.f46770c = jSONObject.optBoolean("permit", false);
-        eVar.f46771d = jSONObject.optBoolean("forbidden", true);
-        eVar.f46772e = jSONObject.optString("grade");
+        eVar.f47160a = jSONObject;
+        eVar.f47162c = jSONObject.optBoolean("permit", false);
+        eVar.f47163d = jSONObject.optBoolean("forbidden", true);
+        eVar.f47164e = jSONObject.optString("grade");
         eVar.k = jSONObject.optString("type", "");
-        eVar.f46773f = jSONObject.optString("name", "");
-        eVar.f46774g = jSONObject.optString("short_name", "");
+        eVar.f47165f = jSONObject.optString("name", "");
+        eVar.f47166g = jSONObject.optString("short_name", "");
         jSONObject.optString("description", "");
         eVar.j = jSONObject.optInt("tip_status", -1);
         eVar.l = jSONObject.optString("explain", "");
@@ -95,7 +95,7 @@ public class e {
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.f46775h.add(optJSONArray2.optString(i2));
+                eVar.f47167h.add(optJSONArray2.optString(i2));
             }
         }
         eVar.o = jSONObject.optJSONObject("other");
@@ -134,14 +134,14 @@ public class e {
         }
         a aVar = new a();
         this.n = aVar;
-        aVar.f46776a = this.o.optString("detail_text");
-        this.n.f46778c = this.o.optString("detail_url");
-        this.n.f46777b = this.o.optString("text_color");
-        this.n.f46779d = this.o.optString("keyword");
-        this.n.f46780e = this.o.optString("key_color");
+        aVar.f47168a = this.o.optString("detail_text");
+        this.n.f47170c = this.o.optString("detail_url");
+        this.n.f47169b = this.o.optString("text_color");
+        this.n.f47171d = this.o.optString("keyword");
+        this.n.f47172e = this.o.optString("key_color");
         JSONObject optJSONObject = this.o.optJSONObject("developer_agreements");
         if (optJSONObject != null) {
-            this.n.f46781f = optJSONObject.optJSONArray("details");
+            this.n.f47173f = optJSONObject.optJSONArray("details");
         }
     }
 
@@ -150,6 +150,6 @@ public class e {
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.f46769b, Integer.valueOf(this.j));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.f47161b, Integer.valueOf(this.j));
     }
 }

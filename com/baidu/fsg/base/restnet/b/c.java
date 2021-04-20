@@ -10,14 +10,14 @@ import java.util.regex.Pattern;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f5189a;
+    public final /* synthetic */ b f5224a;
 
     public c(b bVar) {
-        this.f5189a = bVar;
+        this.f5224a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -25,7 +25,7 @@ public class c implements HostnameVerifier {
         e eVar;
         try {
             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-            eVar = this.f5189a.f5185e;
+            eVar = this.f5224a.f5220e;
             String v = eVar.b().v();
             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];

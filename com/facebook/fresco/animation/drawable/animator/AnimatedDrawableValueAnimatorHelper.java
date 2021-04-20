@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedDrawableValueAnimatorHelper {
     @Nullable
     public static ValueAnimator.AnimatorUpdateListener createAnimatorUpdateListener(Drawable drawable) {

@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f3033a;
+    public static volatile b f3068a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -40,14 +40,14 @@ public class b {
     }
 
     public static b a() {
-        if (f3033a == null) {
+        if (f3068a == null) {
             synchronized (b.class) {
-                if (f3033a == null) {
-                    f3033a = new b();
+                if (f3068a == null) {
+                    f3068a = new b();
                 }
             }
         }
-        return f3033a;
+        return f3068a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -226,7 +226,7 @@ public class b {
         if (b(context, str, aVar)) {
             return;
         }
-        final String str2 = h.f3067c + h.f3071g;
+        final String str2 = h.f3102c + h.f3106g;
         final HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.3
@@ -292,7 +292,7 @@ public class b {
     }
 
     public void a(final Context context, final HashMap<String, Object> hashMap, final UploadDataListener uploadDataListener) {
-        final String str = h.f3067c + h.f3069e;
+        final String str = h.f3102c + h.f3104e;
         final HashMap hashMap2 = new HashMap();
         hashMap2.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.1

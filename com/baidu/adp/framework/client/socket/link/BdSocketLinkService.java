@@ -19,12 +19,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.b.c.e.c.i;
-import d.b.b.e.m.f;
-import d.b.b.e.p.l;
-import d.b.b.e.r.h;
-import d.b.b.e.r.j;
-import d.b.b.e.r.k;
+import d.b.c.c.e.c.i;
+import d.b.c.e.m.f;
+import d.b.c.e.p.l;
+import d.b.c.e.r.h;
+import d.b.c.e.r.j;
+import d.b.c.e.r.k;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class BdSocketLinkService extends BdBaseService {
@@ -35,15 +35,15 @@ public class BdSocketLinkService extends BdBaseService {
     public static final String REASON = "reason";
     public static final String RE_OPEN = "reopen";
     public static final int TIMEOUT_EVENT = 1;
-    public static d.b.b.c.e.c.k.a connStateCallBack;
-    public static d.b.b.c.e.c.k.b mCanOpenWebSocket;
+    public static d.b.c.c.e.c.k.a connStateCallBack;
+    public static d.b.c.c.e.c.k.b mCanOpenWebSocket;
     public ScreenOnBroadcastReciver mScreenOnBroadcastReciver;
     public static final int CONNECT_OPEN = (-100001000) - 1;
     public static final int BEGIN_OPEN = (-100001000) - 2;
     public static final int START_SERVICE_ERROR = (-100001000) - 3;
     public static final int ALLREADY = (-100001000) - 4;
     public static final int STOP_RECONN = (-100001000) - 5;
-    public static d.b.b.c.e.c.k.d reConnStra = new d.b.b.c.e.c.k.d();
+    public static d.b.c.c.e.c.k.d reConnStra = new d.b.c.c.e.c.k.d();
     public static boolean isAvailable = true;
     public static boolean hasAbsoluteClose = false;
     public static final Handler mHandler = new a(Looper.getMainLooper());
@@ -58,7 +58,7 @@ public class BdSocketLinkService extends BdBaseService {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            d.b.b.c.e.c.b r;
+            d.b.c.c.e.c.b r;
             if (intent == null || !"android.intent.action.SCREEN_ON".equals(intent.getAction()) || (r = MessageManager.getInstance().getSocketClient().r()) == null) {
                 return;
             }
@@ -85,7 +85,7 @@ public class BdSocketLinkService extends BdBaseService {
 
     /* loaded from: classes.dex */
     public static class b extends j {
-        @Override // d.b.b.e.r.j, d.b.b.e.r.g
+        @Override // d.b.c.e.r.j, d.b.c.e.r.g
         public void a(int i, String str) {
             i.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onClose", i, str);
             if (i == 6 || i == 5 || i == 2 || i == 3 || i == 4) {
@@ -95,32 +95,32 @@ public class BdSocketLinkService extends BdBaseService {
             if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.a(i, null) : false) || i == 1 || !l.C()) {
                 return;
             }
-            d.b.b.c.e.c.k.d dVar = BdSocketLinkService.reConnStra;
+            d.b.c.c.e.c.k.d dVar = BdSocketLinkService.reConnStra;
             dVar.e("onClose:" + i + ":" + str);
         }
 
-        @Override // d.b.b.e.r.g
-        public void b(d.b.b.e.r.c cVar) {
+        @Override // d.b.c.e.r.g
+        public void b(d.b.c.e.r.c cVar) {
             if (BdSocketLinkService.connStateCallBack != null) {
                 BdSocketLinkService.connStateCallBack.b(cVar);
             }
         }
 
-        @Override // d.b.b.e.r.g
+        @Override // d.b.c.e.r.g
         public void c(String str) {
             if (BdSocketLinkService.connStateCallBack != null) {
                 BdSocketLinkService.connStateCallBack.c(str);
             }
         }
 
-        @Override // d.b.b.e.r.g
+        @Override // d.b.c.e.r.g
         public void h(k kVar) {
             if (BdSocketLinkService.connStateCallBack != null) {
                 BdSocketLinkService.connStateCallBack.d(kVar);
             }
         }
 
-        @Override // d.b.b.e.r.g
+        @Override // d.b.c.e.r.g
         public void onOpen(Map<String, String> map) {
             i.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onOpen", 0, "LinkService:onOpen");
             i.d();
@@ -161,7 +161,7 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void init() {
-        h.j().r(d.b.b.c.e.c.h.d(), d.b.b.c.e.c.h.a(), null, d.b.b.c.e.c.h.b());
+        h.j().r(d.b.c.c.e.c.h.d(), d.b.c.c.e.c.h.a(), null, d.b.c.c.e.c.h.b());
         h.j().c(connCallback);
     }
 
@@ -181,7 +181,7 @@ public class BdSocketLinkService extends BdBaseService {
         i.a(MODULE_NAME, 0, 0, "open", 0, str);
         BdLog.w("启动连接");
         mHandler.removeMessages(1);
-        mHandler.sendEmptyMessageDelayed(1, d.b.b.c.j.c.c().b().b());
+        mHandler.sendEmptyMessageDelayed(1, d.b.c.c.j.c.c().b().b());
         try {
             return h.j().u();
         } catch (Throwable th) {
@@ -202,7 +202,7 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    public static boolean sendMessage(d.b.b.e.r.c cVar) {
+    public static boolean sendMessage(d.b.c.e.r.c cVar) {
         if (cVar != null && h.j().l() && h.j().k()) {
             return h.j().v(cVar);
         }
@@ -213,11 +213,11 @@ public class BdSocketLinkService extends BdBaseService {
         isAvailable = z;
     }
 
-    public static void setCanOpenWebSocket(d.b.b.c.e.c.k.b bVar) {
+    public static void setCanOpenWebSocket(d.b.c.c.e.c.k.b bVar) {
         mCanOpenWebSocket = bVar;
     }
 
-    public static void setConnStateCallBack(d.b.b.c.e.c.k.a aVar) {
+    public static void setConnStateCallBack(d.b.c.c.e.c.k.a aVar) {
         connStateCallBack = aVar;
     }
 
@@ -247,7 +247,7 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void stopReConnStrategy(String str) {
-        d.b.b.c.e.c.k.d dVar = reConnStra;
+        d.b.c.c.e.c.k.d dVar = reConnStra;
         if (dVar != null) {
             dVar.f(str);
         }
@@ -283,7 +283,7 @@ public class BdSocketLinkService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception unused) {
-                d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("loc", BdSocketLinkService.class.getName() + "-onCreate-startForeground");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
@@ -302,7 +302,7 @@ public class BdSocketLinkService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        d.b.b.c.e.c.k.b bVar = mCanOpenWebSocket;
+        d.b.c.c.e.c.k.b bVar = mCanOpenWebSocket;
         if (bVar != null && !bVar.a()) {
             close("exit app");
         } else if (intent != null) {

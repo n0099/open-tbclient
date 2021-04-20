@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 /* loaded from: classes4.dex */
 public class c {
@@ -67,8 +67,8 @@ public class c {
             return;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.liveID = d.b.b.e.m.b.f(sdkLiveInfoData.liveId, 0L);
-        alaLiveInfoCoreData.threadId = d.b.b.e.m.b.f(sdkLiveInfoData.tid, 0L);
+        alaLiveInfoCoreData.liveID = d.b.c.e.m.b.f(sdkLiveInfoData.liveId, 0L);
+        alaLiveInfoCoreData.threadId = d.b.c.e.m.b.f(sdkLiveInfoData.tid, 0L);
         SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
         if (liveAuthor != null) {
             alaLiveInfoCoreData.userName = liveAuthor.name;

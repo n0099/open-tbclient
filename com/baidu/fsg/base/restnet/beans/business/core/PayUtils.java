@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class PayUtils {
     public static final String API_SECRET = "";
     public static final String KEY_CARD_NO = "card_no";
@@ -35,7 +35,7 @@ public final class PayUtils {
     public static String TAG = "PayUtils";
     public static ArrayList<String> keys;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ParamComparator implements Comparator<String> {
         public ParamComparator() {
         }
@@ -128,7 +128,7 @@ public final class PayUtils {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append(name);
-                    sb.append(a.f1897h);
+                    sb.append(a.f1922h);
                     sb.append(value);
                     if (i != arrayList.size() - 1) {
                         sb.append(Typography.amp);
@@ -177,7 +177,7 @@ public final class PayUtils {
                     value = "";
                 }
                 sb.append(name);
-                sb.append(a.f1897h);
+                sb.append(a.f1922h);
                 sb.append(value);
                 sb.append(Typography.amp);
             }

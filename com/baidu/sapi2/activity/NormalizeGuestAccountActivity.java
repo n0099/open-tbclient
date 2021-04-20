@@ -14,7 +14,7 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.utils.c;
 import com.baidu.sapi2.utils.enums.SocialType;
-import d.b.a0.a.f;
+import d.b.x.a.f;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
@@ -128,7 +128,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 NormalizeGuestAccountActivity.this.p.setResultCode(0);
                 NormalizeGuestAccountActivity.this.p.setResultMsg("成功");
                 NormalizeGuestAccountActivity.this.c();
-                new c().a(c.f11446e);
+                new c().a(c.f11030e);
             }
         }, str);
         setNewLoginTitleAndSetStyleChangeCallBack();

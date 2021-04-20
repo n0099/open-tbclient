@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,8 +16,8 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-/* loaded from: classes3.dex */
+import d.b.c.e.p.l;
+/* loaded from: classes4.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
     public static final String FORUM_NAME_STRING = "forumname";
     public NoDataView emptyView;
@@ -27,7 +28,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public TextView mTextView = null;
     public TextView mTextAuditTip = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -74,7 +75,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         Intent intent = new Intent(context, CreateForumSuccessActivity.class);
         intent.putExtra(FORUM_NAME_STRING, str);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }

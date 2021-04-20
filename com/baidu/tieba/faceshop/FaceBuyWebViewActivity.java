@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,16 +31,16 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     public static final Pattern n = Pattern.compile("[?|&]order_id=(\\w+)&+");
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseWebView f15636e;
+    public BaseWebView f15299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f15637f;
+    public NavigationBar f15300f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15638g;
+    public String f15301g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15639h;
+    public String f15302h;
     public String i;
     public int j;
     public d.b.h0.r.s.a k;
@@ -54,9 +54,9 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
 
         @Override // java.lang.Runnable
         public void run() {
-            String guessUrl = URLUtil.guessUrl(FaceBuyWebViewActivity.this.f15638g);
+            String guessUrl = URLUtil.guessUrl(FaceBuyWebViewActivity.this.f15301g);
             if (URLUtil.isNetworkUrl(guessUrl)) {
-                FaceBuyWebViewActivity.this.f15636e.loadUrl(guessUrl);
+                FaceBuyWebViewActivity.this.f15299e.loadUrl(guessUrl);
             }
         }
     }
@@ -113,32 +113,32 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
 
     public final void k(Bundle bundle) {
         if (bundle != null) {
-            this.f15638g = bundle.getString(WebViewActivityConfig.TAG_URL);
-            this.f15639h = bundle.getString("tag_hook_url");
+            this.f15301g = bundle.getString(WebViewActivityConfig.TAG_URL);
+            this.f15302h = bundle.getString("tag_hook_url");
             this.i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
             this.j = bundle.getInt("tag_position");
         } else {
-            this.f15638g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
-            this.f15639h = getIntent().getStringExtra("tag_hook_url");
+            this.f15301g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
+            this.f15302h = getIntent().getStringExtra("tag_hook_url");
             this.i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
             this.j = getIntent().getIntExtra("tag_position", -1);
         }
-        this.f15637f.setTitleText(this.i);
+        this.f15300f.setTitleText(this.i);
         this.l.postDelayed(this.m, 150L);
     }
 
     public final void l() {
         setContentView(R.layout.face_buy_webview_activity);
         ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds98);
-        this.f15636e = (BaseWebView) findViewById(R.id.webview);
+        this.f15299e = (BaseWebView) findViewById(R.id.webview);
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f15637f = navigationBar;
+        this.f15300f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b());
-        this.f15637f.setTitleText("");
-        this.f15636e.setOnLoadUrlListener(this);
-        this.f15636e.setOnPageFinishedListener(this);
-        this.f15636e.setOnPageStartedListener(this);
-        this.f15636e.setHorizontalScrollBarEnabled(false);
+        this.f15300f.setTitleText("");
+        this.f15299e.setOnLoadUrlListener(this);
+        this.f15299e.setOnPageFinishedListener(this);
+        this.f15299e.setOnPageStartedListener(this);
+        this.f15299e.setHorizontalScrollBarEnabled(false);
     }
 
     public final void m() {
@@ -158,11 +158,11 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        NavigationBar navigationBar = this.f15637f;
+        NavigationBar navigationBar = this.f15300f;
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(getPageContext(), i);
         }
-        BaseWebView baseWebView = this.f15636e;
+        BaseWebView baseWebView = this.f15299e;
         if (baseWebView != null) {
             SkinManager.setBgColor(baseWebView, i);
         }
@@ -209,17 +209,17 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(WebViewActivityConfig.TAG_URL, this.f15638g);
-        bundle.putString("tag_hook_url", this.f15639h);
+        bundle.putString(WebViewActivityConfig.TAG_URL, this.f15301g);
+        bundle.putString("tag_hook_url", this.f15302h);
         bundle.putString(WebViewActivityConfig.TAG_TITLE, this.i);
         bundle.putInt("tag_position", this.j);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f15639h)) {
+        if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f15302h)) {
             String lowerCase = str.toLowerCase();
-            if (lowerCase.contains(this.f15639h.toLowerCase())) {
+            if (lowerCase.contains(this.f15302h.toLowerCase())) {
                 Matcher matcher = n.matcher(str);
                 if (matcher.find()) {
                     try {

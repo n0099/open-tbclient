@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.gdt;
 
-import a.a.a.a.r.b.c.b;
+import a.a.a.a.r.b.b.b;
 import a.a.a.a.v.d;
 import android.app.Activity;
 import android.content.Context;
@@ -24,16 +24,16 @@ import java.util.List;
 public class GDTNativeUnifiedVideoView extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaView f30777d;
+    public MediaView f30450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30778e;
+    public ImageView f30451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f30779f;
+    public View.OnClickListener f30452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f30780g;
+    public float f30453g;
 
     /* loaded from: classes6.dex */
     public class a implements NativeADMediaListener {
@@ -44,9 +44,9 @@ public class GDTNativeUnifiedVideoView extends b {
         public void onVideoClicked() {
             d.b("GDTNativeUnifiedAd video onVideoClicked", new Object[0]);
             GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView = GDTNativeUnifiedVideoView.this;
-            View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f30779f;
+            View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f30452f;
             if (onClickListener != null) {
-                onClickListener.onClick(gDTNativeUnifiedVideoView.f30777d);
+                onClickListener.onClick(gDTNativeUnifiedVideoView.f30450d);
             }
         }
 
@@ -111,25 +111,25 @@ public class GDTNativeUnifiedVideoView extends b {
 
     public GDTNativeUnifiedVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f30780g = 1.78f;
+        this.f30453g = 1.78f;
     }
 
-    @Override // a.a.a.a.r.b.c.b
+    @Override // a.a.a.a.r.b.b.b
     public List<View> a() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.f1292c);
-        arrayList.add(((b) this).f1291b);
-        arrayList.add(((b) this).f1290a);
-        arrayList.add(this.f30778e);
+        arrayList.add(this.f1278c);
+        arrayList.add(((b) this).f1277b);
+        arrayList.add(((b) this).f1276a);
+        arrayList.add(this.f30451e);
         return arrayList;
     }
 
-    @Override // a.a.a.a.r.b.c.b
+    @Override // a.a.a.a.r.b.b.b
     public void a(Activity activity, NativeUnifiedADData nativeUnifiedADData) {
         super.a(activity, nativeUnifiedADData);
         Context context = getContext();
         String iconUrl = nativeUnifiedADData.getIconUrl();
-        ImageView imageView = this.f30778e;
+        ImageView imageView = this.f30451e;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -143,28 +143,28 @@ public class GDTNativeUnifiedVideoView extends b {
             Glide.with(context).load(iconUrl).into(imageView);
         }
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-        this.f30780g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-        nativeUnifiedADData.bindMediaView(this.f30777d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a());
+        this.f30453g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+        nativeUnifiedADData.bindMediaView(this.f30450d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a());
     }
 
-    @Override // a.a.a.a.r.b.c.b, android.view.View
+    @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30777d = (MediaView) findViewById(R.id.ad_video);
-        this.f30778e = (ImageView) findViewById(R.id.ad_icon);
+        this.f30450d = (MediaView) findViewById(R.id.ad_video);
+        this.f30451e = (ImageView) findViewById(R.id.ad_icon);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30777d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30450d.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / this.f30780g);
-        this.f30777d.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i5 / this.f30453g);
+        this.f30450d.setLayoutParams(layoutParams);
     }
 
     public void setVideoOnClickListener(View.OnClickListener onClickListener) {
-        this.f30779f = onClickListener;
+        this.f30452f = onClickListener;
     }
 }

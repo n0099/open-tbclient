@@ -10,35 +10,35 @@ import d.o.a.d.f.c;
 import d.o.a.d.j;
 import d.o.a.d.n.l;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e implements l.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66569c = "e";
+    public static String f67562c = "e";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f66570d;
+    public static volatile e f67563d;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.o.a.d.n.l f66571a = new d.o.a.d.n.l(Looper.getMainLooper(), this);
+    public d.o.a.d.n.l f67564a = new d.o.a.d.n.l(Looper.getMainLooper(), this);
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f66572b;
+    public ConcurrentHashMap<Long, Runnable> f67565b;
 
     public e() {
-        this.f66572b = null;
-        this.f66572b = new ConcurrentHashMap<>();
+        this.f67565b = null;
+        this.f67565b = new ConcurrentHashMap<>();
     }
 
     public static e a() {
-        if (f66570d == null) {
+        if (f67563d == null) {
             synchronized (e.class) {
-                if (f66570d == null) {
-                    f66570d = new e();
+                if (f67563d == null) {
+                    f67563d = new e();
                 }
             }
         }
-        return f66570d;
+        return f67563d;
     }
 
     public static boolean c(d dVar) {
@@ -50,15 +50,15 @@ public class e implements l.a {
     }
 
     public void b(int i, d dVar, d.o.a.a.a.c.c cVar) {
-        String str = f66569c;
+        String str = f67562c;
         d.o.a.d.n.j.a(str, "sendQuickAppMsg msgWhat:" + i, null);
-        if (this.f66571a == null) {
+        if (this.f67564a == null) {
             return;
         }
         Message obtain = Message.obtain();
         obtain.what = i;
         obtain.obj = Long.valueOf(dVar.d());
-        this.f66571a.sendMessageDelayed(obtain, e());
+        this.f67564a.sendMessageDelayed(obtain, e());
     }
 
     public long e() {
@@ -88,15 +88,15 @@ public class e implements l.a {
             }
         } else if (i != 7) {
         } else {
-            Runnable runnable = this.f66572b.get(Long.valueOf(longValue));
-            this.f66572b.remove(Long.valueOf(longValue));
+            Runnable runnable = this.f67565b.get(Long.valueOf(longValue));
+            this.f67565b.remove(Long.valueOf(longValue));
             if (a2) {
                 j.c.a().c(longValue, 1);
                 j.c.a().g(longValue, true, 1);
                 return;
             }
             if (runnable != null) {
-                this.f66571a.post(runnable);
+                this.f67564a.post(runnable);
             }
             j.c.a().g(longValue, false, 1);
         }

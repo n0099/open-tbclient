@@ -1,8 +1,8 @@
 package io.reactivex.subjects;
 
-import f.a.d0.a;
-import f.a.o;
-import f.a.t.b;
+import f.b.d0.a;
+import f.b.o;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class PublishSubject<T> extends a<T> {
@@ -18,14 +18,14 @@ public final class PublishSubject<T> extends a<T> {
             this.parent = publishSubject;
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             if (compareAndSet(false, true)) {
                 this.parent.c(this);
             }
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get();
         }
@@ -39,7 +39,7 @@ public final class PublishSubject<T> extends a<T> {
 
         public void onError(Throwable th) {
             if (get()) {
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             } else {
                 this.actual.onError(th);
             }

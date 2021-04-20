@@ -4,13 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65842a;
+    public int f66687a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends BroadcastReceiver {
         public b() {
         }
@@ -18,7 +18,7 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                d.this.f65842a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                d.this.f66687a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
     }
@@ -31,7 +31,7 @@ public class d {
     }
 
     public int a() {
-        return this.f65842a;
+        return this.f66687a;
     }
 
     public final void c(Context context) {

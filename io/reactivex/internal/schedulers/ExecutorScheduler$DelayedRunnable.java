@@ -1,6 +1,6 @@
 package io.reactivex.internal.schedulers;
 
-import f.a.t.b;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.functions.Functions;
@@ -17,7 +17,7 @@ public final class ExecutorScheduler$DelayedRunnable extends AtomicReference<Run
         this.direct = new SequentialDisposable();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (getAndSet(null) != null) {
             this.timed.dispose();
@@ -27,10 +27,10 @@ public final class ExecutorScheduler$DelayedRunnable extends AtomicReference<Run
 
     public Runnable getWrappedRunnable() {
         Runnable runnable = get();
-        return runnable != null ? runnable : Functions.f68026a;
+        return runnable != null ? runnable : Functions.f69032a;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == null;
     }

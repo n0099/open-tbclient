@@ -14,21 +14,21 @@ public class a extends d.b.g0.a.t.b.d {
 
     /* renamed from: d.b.g0.a.t.c.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0827a implements d.b {
+    public class C0839a implements d.b {
 
         /* renamed from: d.b.g0.a.t.c.m.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0828a implements a.b {
+        public class C0840a implements a.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f46166a;
+            public final /* synthetic */ String f46558a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ k f46167b;
+            public final /* synthetic */ k f46559b;
 
-            public C0828a(String str, k kVar) {
-                this.f46166a = str;
-                this.f46167b = kVar;
+            public C0840a(String str, k kVar) {
+                this.f46558a = str;
+                this.f46559b = kVar;
             }
 
             @Override // d.b.g0.a.c2.a.a.b
@@ -39,20 +39,20 @@ public class a extends d.b.g0.a.t.b.d {
                         jSONObject.put("x", dArr[0]);
                         jSONObject.put("y", dArr[1]);
                         jSONObject.put("z", dArr[2]);
-                        this.f46167b.d(a.this, jSONObject);
+                        this.f46559b.d(a.this, jSONObject);
                         return;
                     } catch (JSONException e2) {
                         d.b.g0.a.c0.c.b("Api-Accelerometer", "handle compass,json error，" + e2.toString());
-                        this.f46167b.f(a.this, "Json error");
+                        this.f46559b.f(a.this, "Json error");
                         return;
                     }
                 }
                 d.b.g0.a.c0.c.b("Api-Accelerometer", "illegal accelerometers");
-                a.this.c(this.f46166a, new d.b.g0.a.t.e.b(1001));
+                a.this.c(this.f46558a, new d.b.g0.a.t.e.b(1001));
             }
         }
 
-        public C0827a() {
+        public C0839a() {
         }
 
         @Override // d.b.g0.a.t.b.d.b
@@ -61,7 +61,7 @@ public class a extends d.b.g0.a.t.b.d {
             k kVar = new k("accelerometerChange", jSONObject, str);
             d.b.g0.a.c2.a.a g2 = d.b.g0.a.c2.a.a.g();
             g2.h(a.this.h(), b.a(jSONObject.optString("interval")));
-            g2.k(new C0828a(str, kVar));
+            g2.k(new C0840a(str, kVar));
             g2.l();
             kVar.b(a.this);
             return new d.b.g0.a.t.e.b(0);
@@ -72,18 +72,18 @@ public class a extends d.b.g0.a.t.b.d {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ArrayMap<String, Integer> f46169a;
+        public static ArrayMap<String, Integer> f46561a;
 
         static {
             ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
-            f46169a = arrayMap;
+            f46561a = arrayMap;
             arrayMap.put(IMTrackDatabase.UiEnum.TABLE_NAME, 60);
-            f46169a.put("game", 20);
-            f46169a.put("normal", 200);
+            f46561a.put("game", 20);
+            f46561a.put("normal", 200);
         }
 
         public static int a(String str) {
-            Integer num = f46169a.get(str);
+            Integer num = f46561a.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -96,14 +96,14 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Accelerometer", "start listen accelerometer");
         }
-        return i(str, true, new C0827a());
+        return i(str, true, new C0839a());
     }
 
     public d.b.g0.a.t.e.b s() {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         d.b.g0.a.c0.c.g("Api-Accelerometer", "stop listen accelerometer");

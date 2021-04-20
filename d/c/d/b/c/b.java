@@ -4,47 +4,47 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import d.c.d.b.c.a.a;
 import d.c.d.b.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f65806c;
+    public static volatile b f66651c;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.c.d.b.c.c.b f65807a;
+    public d.c.d.b.c.c.b f66652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f65808b;
+    public SQLiteDatabase f66653b;
 
     public static b a() {
-        if (f65806c == null) {
+        if (f66651c == null) {
             synchronized (b.class) {
-                if (f65806c == null) {
-                    f65806c = new b();
+                if (f66651c == null) {
+                    f66651c = new b();
                 }
             }
         }
-        return f65806c;
+        return f66651c;
     }
 
     public void b(Context context) {
         try {
-            this.f65808b = new d(context).getWritableDatabase();
+            this.f66653b = new d(context).getWritableDatabase();
         } catch (Throwable th) {
             l.k.c(th);
         }
-        this.f65807a = new d.c.d.b.c.c.b();
+        this.f66652a = new d.c.d.b.c.c.b();
     }
 
     public synchronized void c(a aVar) {
-        if (this.f65807a != null) {
-            this.f65807a.f(this.f65808b, aVar);
+        if (this.f66652a != null) {
+            this.f66652a.f(this.f66653b, aVar);
         }
     }
 
     public synchronized boolean d(String str) {
-        if (this.f65807a != null) {
-            return this.f65807a.g(this.f65808b, str);
+        if (this.f66652a != null) {
+            return this.f66652a.g(this.f66653b, str);
         }
         return false;
     }

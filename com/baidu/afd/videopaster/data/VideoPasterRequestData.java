@@ -8,7 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.b.b.e.p.j;
-import d.b.c.m.a;
+import d.b.c.e.p.j;
+import d.b.d.m.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,7 +54,7 @@ public class VideoPasterRequestData extends HttpMessage {
         addParam("is_https", 1);
         addParam("flr", String.valueOf(aVar.d()));
         addParam("sw", String.valueOf(aVar.g()));
-        addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.e()));
+        addParam(IAdRequestParam.SCREEN_HEIGHT, String.valueOf(aVar.e()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", String.valueOf(aVar.d()));
         addParam("ft", aVar.b());
@@ -72,13 +72,13 @@ public class VideoPasterRequestData extends HttpMessage {
         addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
         addParam("net_type", String.valueOf(j.I()));
         addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-        addParam("android_id", androidId());
+        addParam(IAdRequestParam.ANDROID_ID, androidId());
     }
 
     public static String androidId() {
         if (TextUtils.isEmpty(_ANDROID_ID)) {
             try {
-                _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), "android_id");
+                _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception unused) {
             }
         }

@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.parallel;
 
-import f.a.g;
+import f.b.g;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.List;
@@ -34,7 +34,7 @@ public final class ParallelSortedJoin$SortedJoinInnerSubscriber<T> extends Atomi
         onNext((List) ((List) obj));
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(Long.MAX_VALUE);

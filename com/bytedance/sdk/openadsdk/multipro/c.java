@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.multipro;
 
 import android.text.TextUtils;
 import android.util.Base64;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static String a(String str) {
         return TextUtils.isEmpty(str) ? "" : Base64.encodeToString(str.getBytes(), 10);

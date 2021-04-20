@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public final int A;
     public LinearLayout r;
@@ -29,39 +29,39 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public HeadImageView y;
     public final int z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18676e;
+        public final /* synthetic */ RankDetailTrendCard f18353e;
 
         public a(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18676e = rankDetailTrendCard;
+            this.f18353e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
-                d.b.i0.i1.m.b a2 = d.b.i0.i1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f18676e;
+                d.b.i0.j1.m.b a2 = d.b.i0.j1.m.b.a();
+                RankDetailTrendCard rankDetailTrendCard = this.f18353e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18678e;
+        public final /* synthetic */ RankDetailTrendCard f18355e;
 
         public b(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18678e = rankDetailTrendCard;
+            this.f18355e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankDetailTrendCardView.this.q(this.f18678e);
+            RankDetailTrendCardView.this.q(this.f18355e);
         }
     }
 

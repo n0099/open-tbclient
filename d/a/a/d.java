@@ -1,7 +1,6 @@
 package d.a.a;
 
 import android.graphics.Rect;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.collection.LongSparseArray;
@@ -14,119 +13,156 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
 
-    /* renamed from: a  reason: collision with root package name */
-    public final m f41127a = new m();
-
-    /* renamed from: b  reason: collision with root package name */
-    public final HashSet<String> f41128b = new HashSet<>();
-
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<Layer>> f41129c;
+    public Map<String, List<Layer>> f41417c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, g> f41130d;
+    public Map<String, g> f41418d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, d.a.a.s.c> f41131e;
+    public Map<String, d.a.a.u.b> f41419e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArrayCompat<d.a.a.s.d> f41132f;
+    public List<d.a.a.u.g> f41420f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<Layer> f41133g;
+    public SparseArrayCompat<d.a.a.u.c> f41421g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Layer> f41134h;
-    public Rect i;
-    public float j;
+    public LongSparseArray<Layer> f41422h;
+    public List<Layer> i;
+    public Rect j;
     public float k;
     public float l;
+    public float m;
+    public boolean n;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final n f41415a = new n();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final HashSet<String> f41416b = new HashSet<>();
+    public int o = 0;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void a(String str) {
-        Log.w("LOTTIE", str);
-        this.f41128b.add(str);
+        d.a.a.x.d.c(str);
+        this.f41416b.add(str);
     }
 
     public Rect b() {
-        return this.i;
+        return this.j;
     }
 
-    public SparseArrayCompat<d.a.a.s.d> c() {
-        return this.f41132f;
+    public SparseArrayCompat<d.a.a.u.c> c() {
+        return this.f41421g;
     }
 
     public float d() {
-        return (e() / this.l) * 1000.0f;
+        return (e() / this.m) * 1000.0f;
     }
 
     public float e() {
-        return this.k - this.j;
+        return this.l - this.k;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public float f() {
-        return this.k;
-    }
-
-    public Map<String, d.a.a.s.c> g() {
-        return this.f41131e;
-    }
-
-    public float h() {
         return this.l;
     }
 
+    public Map<String, d.a.a.u.b> g() {
+        return this.f41419e;
+    }
+
+    public float h() {
+        return this.m;
+    }
+
     public Map<String, g> i() {
-        return this.f41130d;
+        return this.f41418d;
     }
 
     public List<Layer> j() {
-        return this.f41134h;
+        return this.i;
     }
 
-    public m k() {
-        return this.f41127a;
+    @Nullable
+    public d.a.a.u.g k(String str) {
+        this.f41420f.size();
+        for (int i = 0; i < this.f41420f.size(); i++) {
+            d.a.a.u.g gVar = this.f41420f.get(i);
+            if (gVar.a(str)) {
+                return gVar;
+            }
+        }
+        return null;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public int l() {
+        return this.o;
+    }
+
+    public n m() {
+        return this.f41415a;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public List<Layer> l(String str) {
-        return this.f41129c.get(str);
+    public List<Layer> n(String str) {
+        return this.f41417c.get(str);
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public float o() {
+        return this.k;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public float m() {
-        return this.j;
-    }
-
-    public void n(Rect rect, float f2, float f3, float f4, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<d.a.a.s.d> sparseArrayCompat, Map<String, d.a.a.s.c> map3) {
-        this.i = rect;
-        this.j = f2;
-        this.k = f3;
-        this.l = f4;
-        this.f41134h = list;
-        this.f41133g = longSparseArray;
-        this.f41129c = map;
-        this.f41130d = map2;
-        this.f41132f = sparseArrayCompat;
-        this.f41131e = map3;
+    public boolean p() {
+        return this.n;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer o(long j) {
-        return this.f41133g.get(j);
+    public void q(int i) {
+        this.o += i;
     }
 
-    public void p(boolean z) {
-        this.f41127a.b(z);
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public void r(Rect rect, float f2, float f3, float f4, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<d.a.a.u.c> sparseArrayCompat, Map<String, d.a.a.u.b> map3, List<d.a.a.u.g> list2) {
+        this.j = rect;
+        this.k = f2;
+        this.l = f3;
+        this.m = f4;
+        this.i = list;
+        this.f41422h = longSparseArray;
+        this.f41417c = map;
+        this.f41418d = map2;
+        this.f41421g = sparseArrayCompat;
+        this.f41419e = map3;
+        this.f41420f = list2;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public Layer s(long j) {
+        return this.f41422h.get(j);
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public void t(boolean z) {
+        this.n = z;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.f41134h) {
-            sb.append(layer.v(TrackUI.SEPERATOR));
+        for (Layer layer : this.i) {
+            sb.append(layer.w(TrackUI.SEPERATOR));
         }
         return sb.toString();
+    }
+
+    public void u(boolean z) {
+        this.f41415a.b(z);
     }
 }

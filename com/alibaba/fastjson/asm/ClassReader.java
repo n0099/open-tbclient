@@ -7,14 +7,16 @@ import java.io.InputStream;
 public class ClassReader {
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1624b;
+    public final byte[] f1648b;
     public final int header;
     public final int[] items;
     public final int maxStringLength;
+    public boolean readAnnotations;
     public final String[] strings;
 
-    public ClassReader(InputStream inputStream) throws IOException {
+    public ClassReader(InputStream inputStream, boolean z) throws IOException {
         int i;
+        this.readAnnotations = z;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
         while (true) {
@@ -27,7 +29,7 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.f1624b = byteArrayOutputStream.toByteArray();
+        this.f1648b = byteArrayOutputStream.toByteArray();
         int[] iArr = new int[readUnsignedShort(8)];
         this.items = iArr;
         int length = iArr.length;
@@ -37,7 +39,7 @@ public class ClassReader {
         while (i3 < length) {
             int i4 = i2 + 1;
             this.items[i3] = i4;
-            byte b2 = this.f1624b[i2];
+            byte b2 = this.f1648b[i2];
             int i5 = 5;
             if (b2 == 1) {
                 i5 = readUnsignedShort(i4) + 3;
@@ -70,8 +72,27 @@ public class ClassReader {
         this.header = i2;
     }
 
+    private int getAttributes() {
+        int i = this.header;
+        int readUnsignedShort = i + 8 + (readUnsignedShort(i + 6) * 2);
+        for (int readUnsignedShort2 = readUnsignedShort(readUnsignedShort); readUnsignedShort2 > 0; readUnsignedShort2--) {
+            for (int readUnsignedShort3 = readUnsignedShort(readUnsignedShort + 8); readUnsignedShort3 > 0; readUnsignedShort3--) {
+                readUnsignedShort += readInt(readUnsignedShort + 12) + 6;
+            }
+            readUnsignedShort += 8;
+        }
+        int i2 = readUnsignedShort + 2;
+        for (int readUnsignedShort4 = readUnsignedShort(i2); readUnsignedShort4 > 0; readUnsignedShort4--) {
+            for (int readUnsignedShort5 = readUnsignedShort(i2 + 8); readUnsignedShort5 > 0; readUnsignedShort5--) {
+                i2 += readInt(i2 + 12) + 6;
+            }
+            i2 += 8;
+        }
+        return i2 + 2;
+    }
+
     private int readInt(int i) {
-        byte[] bArr = this.f1624b;
+        byte[] bArr = this.f1648b;
         return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 
@@ -137,7 +158,7 @@ public class ClassReader {
     private String readUTF(int i, int i2, char[] cArr) {
         int i3;
         int i4 = i2 + i;
-        byte[] bArr = this.f1624b;
+        byte[] bArr = this.f1648b;
         int i5 = 0;
         char c2 = 0;
         char c3 = 0;
@@ -188,47 +209,64 @@ public class ClassReader {
     }
 
     private int readUnsignedShort(int i) {
-        byte[] bArr = this.f1624b;
+        byte[] bArr = this.f1648b;
         return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
     }
 
     public void accept(TypeCollector typeCollector) {
+        int i;
         char[] cArr = new char[this.maxStringLength];
-        int i = this.header;
-        int i2 = this.items[readUnsignedShort(i + 4)];
-        int readUnsignedShort = readUnsignedShort(i + 6);
-        int i3 = i + 8;
-        for (int i4 = 0; i4 < readUnsignedShort; i4++) {
+        if (this.readAnnotations) {
+            int attributes = getAttributes();
+            for (int readUnsignedShort = readUnsignedShort(attributes); readUnsignedShort > 0; readUnsignedShort--) {
+                if ("RuntimeVisibleAnnotations".equals(readUTF8(attributes + 2, cArr))) {
+                    i = attributes + 8;
+                    break;
+                }
+                attributes += readInt(attributes + 4) + 6;
+            }
+        }
+        i = 0;
+        int i2 = this.header;
+        int readUnsignedShort2 = readUnsignedShort(i2 + 6);
+        int i3 = i2 + 8;
+        for (int i4 = 0; i4 < readUnsignedShort2; i4++) {
             i3 += 2;
         }
         int i5 = i3 + 2;
         int i6 = i5;
-        for (int readUnsignedShort2 = readUnsignedShort(i3); readUnsignedShort2 > 0; readUnsignedShort2--) {
+        for (int readUnsignedShort3 = readUnsignedShort(i3); readUnsignedShort3 > 0; readUnsignedShort3--) {
             i6 += 8;
-            for (int readUnsignedShort3 = readUnsignedShort(i6 + 6); readUnsignedShort3 > 0; readUnsignedShort3--) {
+            for (int readUnsignedShort4 = readUnsignedShort(i6 + 6); readUnsignedShort4 > 0; readUnsignedShort4--) {
                 i6 += readInt(i6 + 2) + 6;
             }
         }
         int i7 = i6 + 2;
-        for (int readUnsignedShort4 = readUnsignedShort(i6); readUnsignedShort4 > 0; readUnsignedShort4--) {
+        for (int readUnsignedShort5 = readUnsignedShort(i6); readUnsignedShort5 > 0; readUnsignedShort5--) {
             i7 += 8;
-            for (int readUnsignedShort5 = readUnsignedShort(i7 + 6); readUnsignedShort5 > 0; readUnsignedShort5--) {
+            for (int readUnsignedShort6 = readUnsignedShort(i7 + 6); readUnsignedShort6 > 0; readUnsignedShort6--) {
                 i7 += readInt(i7 + 2) + 6;
             }
         }
         int i8 = i7 + 2;
-        for (int readUnsignedShort6 = readUnsignedShort(i7); readUnsignedShort6 > 0; readUnsignedShort6--) {
+        for (int readUnsignedShort7 = readUnsignedShort(i7); readUnsignedShort7 > 0; readUnsignedShort7--) {
             i8 += readInt(i8 + 2) + 6;
         }
-        for (int readUnsignedShort7 = readUnsignedShort(i3); readUnsignedShort7 > 0; readUnsignedShort7--) {
+        if (i != 0) {
+            int i9 = i + 2;
+            for (int readUnsignedShort8 = readUnsignedShort(i); readUnsignedShort8 > 0; readUnsignedShort8--) {
+                typeCollector.visitAnnotation(readUTF8(i9, cArr));
+            }
+        }
+        for (int readUnsignedShort9 = readUnsignedShort(i3); readUnsignedShort9 > 0; readUnsignedShort9--) {
             i5 += 8;
-            for (int readUnsignedShort8 = readUnsignedShort(i5 + 6); readUnsignedShort8 > 0; readUnsignedShort8--) {
+            for (int readUnsignedShort10 = readUnsignedShort(i5 + 6); readUnsignedShort10 > 0; readUnsignedShort10--) {
                 i5 += readInt(i5 + 2) + 6;
             }
         }
-        int i9 = i5 + 2;
-        for (int readUnsignedShort9 = readUnsignedShort(i5); readUnsignedShort9 > 0; readUnsignedShort9--) {
-            i9 = readMethod(typeCollector, cArr, i9);
+        int i10 = i5 + 2;
+        for (int readUnsignedShort11 = readUnsignedShort(i5); readUnsignedShort11 > 0; readUnsignedShort11--) {
+            i10 = readMethod(typeCollector, cArr, i10);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.ala.data;
 
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SdkMiddleStrategyInfo {
@@ -69,7 +68,7 @@ public class SdkMiddleStrategyInfo {
         if (jSONObject == null) {
             return;
         }
-        this.ts = jSONObject.optLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+        this.ts = jSONObject.optLong("ts");
         this.score = jSONObject.optInt("score");
         this.displayStrategy = new DisplayStrategy();
         JSONObject optJSONObject = jSONObject.optJSONObject("display_strategy");

@@ -5,7 +5,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeReader {
     public static IntHashMap codeCache = new IntHashMap();
     public static byte[] codeBytes = new byte[4];

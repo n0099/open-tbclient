@@ -52,7 +52,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuideActivity extends BaseActivity<GuideActivity> {
     public static final int MODE_GIF = 2;
     public static final int MODE_IMAGE = 1;
@@ -80,7 +80,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public final HttpMessageListener mNewUserGuideListener = new d(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
     public View.OnClickListener mOnClickListener = new e();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements BaseViewPager.a {
         public a() {
         }
@@ -100,7 +100,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -114,7 +114,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements ViewPager.OnPageChangeListener {
         public c() {
         }
@@ -145,7 +145,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
         public d(int i) {
             super(i);
@@ -161,7 +161,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                         return;
                     }
                     GuideActivity.this.isJumpToNewGuide = false;
-                    d.b.h0.r.d0.b.i().s("jump_to_new_user_guide", false);
+                    d.b.h0.r.d0.b.j().t("jump_to_new_user_guide", false);
                     return;
                 }
                 GuideActivity.this.isJumpToNewGuide = false;
@@ -171,7 +171,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -185,7 +185,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f extends BdAsyncTask<String, Integer, Boolean> {
         public f() {
         }
@@ -210,7 +210,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g extends PagerAdapter {
         public g() {
         }
@@ -420,7 +420,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         try {
             setContentView(R.layout.guide_activity);
             registerHttpTask();
-            boolean g2 = d.b.h0.r.d0.b.i().g("jump_to_new_user_guide", true);
+            boolean g2 = d.b.h0.r.d0.b.j().g("jump_to_new_user_guide", true);
             this.isJumpToNewGuide = g2;
             if (g2) {
                 getJumpInfoFromServer();

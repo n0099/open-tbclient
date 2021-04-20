@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.nativecode;
 
 import android.os.Build;
 import com.facebook.common.soloader.SoLoaderProxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NativeJpegTranscoderSoLoader {
     public static boolean sInitialized;
 

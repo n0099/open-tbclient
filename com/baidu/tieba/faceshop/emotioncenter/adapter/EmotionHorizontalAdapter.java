@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView;
-import d.b.b.j.e.a;
+import d.b.c.j.e.a;
 import d.b.i0.l0.y.c.b;
 /* loaded from: classes4.dex */
 public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
@@ -17,19 +17,19 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f15770a;
+        public EmotionHorizontalView f15433a;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.f15770a = (EmotionHorizontalView) view;
+            this.f15433a = (EmotionHorizontalView) view;
         }
 
         public void b(b bVar) {
-            EmotionHorizontalView emotionHorizontalView = this.f15770a;
+            EmotionHorizontalView emotionHorizontalView = this.f15433a;
             if (emotionHorizontalView == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f56684e);
+            emotionHorizontalView.setData(bVar.f58090e);
         }
     }
 
@@ -39,7 +39,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: h0 */
     public EmotionGridViewHolder R(ViewGroup viewGroup) {
         EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.m);
@@ -49,7 +49,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
         emotionGridViewHolder.b(bVar);

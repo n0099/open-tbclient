@@ -5,24 +5,24 @@ import com.baidu.apollon.ApollonConstants;
 public final class RestDebugConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    public static RestDebugConfig f3709a;
+    public static RestDebugConfig f3744a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3710b = false;
+    public boolean f3745b = false;
 
     public static synchronized RestDebugConfig getInstance() {
         RestDebugConfig restDebugConfig;
         synchronized (RestDebugConfig.class) {
-            if (f3709a == null) {
-                f3709a = new RestDebugConfig();
+            if (f3744a == null) {
+                f3744a = new RestDebugConfig();
             }
-            restDebugConfig = f3709a;
+            restDebugConfig = f3744a;
         }
         return restDebugConfig;
     }
 
     public boolean isQAEnv() {
-        return this.f3710b;
+        return this.f3745b;
     }
 
     public void setDebugOn(boolean z) {
@@ -30,6 +30,6 @@ public final class RestDebugConfig {
     }
 
     public void setQAEnv(boolean z) {
-        this.f3710b = z;
+        this.f3745b = z;
     }
 }

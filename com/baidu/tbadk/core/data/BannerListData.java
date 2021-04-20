@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.data.AppData;
-import d.b.b.e.m.b;
-import d.b.i0.r2.s;
+import d.b.c.e.m.b;
+import d.b.i0.s2.v;
 import d.b.i0.x.e0.n;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -76,9 +76,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> n = s.o().n();
-        if (n != null) {
-            n.clear();
+        List<AppData> o = v.p().o();
+        if (o != null) {
+            o.clear();
         }
         if (bannerList == null) {
             return;
@@ -88,15 +88,15 @@ public class BannerListData implements Serializable {
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i) != null) {
                     AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                    advertAppInfo.F4(list.get(i));
+                    advertAppInfo.H4(list.get(i));
                     this.advertAppList.add(advertAppInfo);
-                    if (n != null) {
-                        n.add(advertAppInfo.e4);
+                    if (o != null) {
+                        o.add(advertAppInfo.e4);
                     }
                 }
             }
         }
-        s.o().m();
+        v.p().n();
         Collections.sort(this.advertAppList, new a(this));
         List<FeedForumInfo> list2 = bannerList.feed_forum;
         if (list2 != null && list2.size() > 0) {

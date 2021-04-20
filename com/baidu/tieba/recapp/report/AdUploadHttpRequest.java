@@ -5,14 +5,14 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import d.b.b.e.p.j;
-import d.b.i0.r2.b0.c;
+import d.b.c.e.p.j;
+import d.b.i0.s2.f0.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdUploadHttpRequest extends HttpMessage {
     public static final String KEY_AD = "ad";
     public static final String KEY_BRAND = "brand";

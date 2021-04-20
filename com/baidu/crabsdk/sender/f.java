@@ -14,17 +14,17 @@ import java.lang.Thread;
 public final class f implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f4766g = false;
+    public static boolean f4801g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4767h = Environment.getExternalStorageDirectory().getPath() + File.separator + p.b() + File.separator + "oom" + File.separator;
+    public static final String f4802h = Environment.getExternalStorageDirectory().getPath() + File.separator + p.b() + File.separator + "oom" + File.separator;
     public static f i = new f();
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f4768e = null;
+    public Thread.UncaughtExceptionHandler f4803e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4769f = null;
+    public Context f4804f = null;
 
     public static f a() {
         return i;
@@ -41,12 +41,12 @@ public final class f implements Thread.UncaughtExceptionHandler {
     }
 
     public final void c(Context context) {
-        if (this.f4768e == null) {
-            this.f4768e = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.f4803e == null) {
+            this.f4803e = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.f4769f == null) {
-            this.f4769f = context.getApplicationContext();
+        if (this.f4804f == null) {
+            this.f4804f = context.getApplicationContext();
         }
     }
 
@@ -169,7 +169,7 @@ public final class f implements Thread.UncaughtExceptionHandler {
             if (r0 == 0) goto Le5
             boolean r0 = b(r9)
             if (r0 == 0) goto Le5
-            java.lang.String r0 = com.baidu.crabsdk.sender.f.f4767h     // Catch: java.lang.Throwable -> Lcf
+            java.lang.String r0 = com.baidu.crabsdk.sender.f.f4802h     // Catch: java.lang.Throwable -> Lcf
             java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> Lcf
             r1.<init>(r0)     // Catch: java.lang.Throwable -> Lcf
             boolean r3 = r1.exists()     // Catch: java.lang.Throwable -> Lcf
@@ -224,8 +224,8 @@ public final class f implements Thread.UncaughtExceptionHandler {
             if (r0 == 0) goto L14f
             boolean r0 = com.baidu.crabsdk.sender.h.n(r9)
             if (r0 == 0) goto L14f
-            com.baidu.crabsdk.sender.f.f4766g = r2
-            android.content.Context r0 = r7.f4769f
+            com.baidu.crabsdk.sender.f.f4801g = r2
+            android.content.Context r0 = r7.f4804f
             if (r0 == 0) goto L11d
             if (r8 == 0) goto L11d
             if (r9 != 0) goto L102
@@ -233,18 +233,18 @@ public final class f implements Thread.UncaughtExceptionHandler {
         L102:
             java.util.Map r0 = com.baidu.crabsdk.sender.g.c(r0, r9, r2)
             java.lang.String r0 = com.baidu.crabsdk.sender.i.h(r0)
-            android.content.Context r1 = r7.f4769f
+            android.content.Context r1 = r7.f4804f
             com.baidu.crabsdk.sender.i.g(r1, r0)
             com.baidu.crabsdk.sender.h.o(r9)
             com.baidu.crabsdk.sender.h.p(r9)
             com.baidu.crabsdk.sender.h.j()
-            android.content.Context r0 = r7.f4769f
+            android.content.Context r0 = r7.f4804f
             com.baidu.crabsdk.sender.k.b(r2, r0)
         L11d:
             long r0 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L14b
         L121:
             long r2 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L14b
-            boolean r4 = com.baidu.crabsdk.sender.f.f4766g     // Catch: java.lang.Exception -> L14b
+            boolean r4 = com.baidu.crabsdk.sender.f.f4801g     // Catch: java.lang.Exception -> L14b
             if (r4 == 0) goto L141
             java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L14b
             java.lang.String r5 = "^^ upload finished()! --> cost : "
@@ -268,10 +268,10 @@ public final class f implements Thread.UncaughtExceptionHandler {
             r0 = move-exception
             r0.printStackTrace()
         L14f:
-            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4768e
+            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4803e
             boolean r0 = r0.equals(r7)
             if (r0 != 0) goto L15c
-            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4768e
+            java.lang.Thread$UncaughtExceptionHandler r0 = r7.f4803e
             r0.uncaughtException(r8, r9)
         L15c:
             return

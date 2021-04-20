@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class b extends d.b.f0.f.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f42966g;
+    public static volatile b f43358g;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f42967c;
+    public e f43359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.f0.h.c f42968d;
+    public d.b.f0.h.c f43360d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42969e;
+    public Context f43361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42970f;
+    public int f43362f;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -45,20 +45,20 @@ public class b extends d.b.f0.f.a {
 
     /* renamed from: d.b.f0.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0583b implements Runnable {
+    public class RunnableC0595b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f42972e;
+        public final /* synthetic */ long f43364e;
 
-        public RunnableC0583b(long j) {
-            this.f42972e = j;
+        public RunnableC0595b(long j) {
+            this.f43364e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 if (b.this.i(false)) {
-                    d.b.f0.b.a.g(b.this.f42969e).E(this.f42972e);
+                    d.b.f0.b.a.g(b.this.f43361e).E(this.f43364e);
                 }
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
@@ -74,7 +74,7 @@ public class b extends d.b.f0.f.a {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                b.c(b.this.f42969e).i(true);
+                b.c(b.this.f43361e).i(true);
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
             }
@@ -83,21 +83,21 @@ public class b extends d.b.f0.f.a {
 
     public b(Context context, Handler handler) {
         super(context, handler);
-        this.f42970f = 0;
-        this.f42969e = context;
-        this.f42967c = e.a(context);
-        this.f42968d = new d.b.f0.h.c();
+        this.f43362f = 0;
+        this.f43361e = context;
+        this.f43359c = e.a(context);
+        this.f43360d = new d.b.f0.h.c();
     }
 
     public static b c(Context context) {
-        if (f42966g == null) {
+        if (f43358g == null) {
             synchronized (b.class) {
-                if (f42966g == null) {
-                    f42966g = new b(context, null);
+                if (f43358g == null) {
+                    f43358g = new b(context, null);
                 }
             }
         }
-        return f42966g;
+        return f43358g;
     }
 
     public final JSONArray d(JSONArray jSONArray, String str) {
@@ -110,27 +110,27 @@ public class b extends d.b.f0.f.a {
     }
 
     public void e() {
-        long a0 = d.b.f0.b.a.g(this.f42969e).a0();
-        long g0 = d.b.f0.b.a.g(this.f42969e).g0() * d.b.f0.l.c.f43019e;
+        long a0 = d.b.f0.b.a.g(this.f43361e).a0();
+        long g0 = d.b.f0.b.a.g(this.f43361e).g0() * d.b.f0.l.c.f43411e;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - a0 >= g0 && d.b.f0.l.c.k(this.f42969e) != 0 && d.b.f0.l.c.o(this.f42969e)) {
-            d.b.f0.h.a.a().post(new RunnableC0583b(currentTimeMillis));
+        if (currentTimeMillis - a0 >= g0 && d.b.f0.l.c.k(this.f43361e) != 0 && d.b.f0.l.c.o(this.f43361e)) {
+            d.b.f0.h.a.a().post(new RunnableC0595b(currentTimeMillis));
         }
     }
 
     public synchronized void f(String str, String str2, int i) {
         d.b.f0.j.a a2;
         try {
-            a2 = this.f42968d.a(this.f42969e, str, str2, i, 1);
+            a2 = this.f43360d.a(this.f43361e, str, str2, i, 1);
         } finally {
         }
         if (a2 == null) {
             return;
         }
-        this.f42970f++;
-        d.b.f0.i.a.a(this.f42969e).c(a2);
-        if (this.f42970f >= 2 && d.b.f0.l.c.o(this.f42969e)) {
-            this.f42970f = 0;
+        this.f43362f++;
+        d.b.f0.i.a.a(this.f43361e).c(a2);
+        if (this.f43362f >= 2 && d.b.f0.l.c.o(this.f43361e)) {
+            this.f43362f = 0;
             d.b.f0.h.a.a().post(new a());
         }
     }
@@ -140,10 +140,10 @@ public class b extends d.b.f0.f.a {
             return false;
         }
         try {
-            byte[] bytes = g.b(d.b.f0.l.d.e(this.f42969e)).getBytes();
+            byte[] bytes = g.b(d.b.f0.l.d.e(this.f43361e)).getBytes();
             byte[] f2 = d.b.f0.l.c.f();
-            String b2 = this.f42967c.b("p/1/r", URLEncoder.encode(Base64.encodeToString(d.b.f0.l.e.h(f2, bytes), 0)));
-            byte[] e2 = this.f42967c.e(f2, str);
+            String b2 = this.f43359c.b("p/1/r", URLEncoder.encode(Base64.encodeToString(d.b.f0.l.e.h(f2, bytes), 0)));
+            byte[] e2 = this.f43359c.e(f2, str);
             if (e2 == null) {
                 return false;
             }
@@ -166,7 +166,7 @@ public class b extends d.b.f0.f.a {
         boolean z2;
         ArrayList<d.b.f0.j.a> b2;
         try {
-            int k = d.b.f0.l.c.k(this.f42969e);
+            int k = d.b.f0.l.c.k(this.f43361e);
             if (k != 2) {
                 z2 = k == 1 ? true : true;
                 return false;
@@ -174,20 +174,20 @@ public class b extends d.b.f0.f.a {
             z2 = false;
             String valueOf = z ? String.valueOf(1) : "1,2";
             if (z2) {
-                b2 = d.b.f0.i.a.a(this.f42969e).e(valueOf);
-                String Z = d.b.f0.b.a.g(this.f42969e).Z();
+                b2 = d.b.f0.i.a.a(this.f43361e).e(valueOf);
+                String Z = d.b.f0.b.a.g(this.f43361e).Z();
                 String a2 = d.b.f0.l.c.a();
                 if (!TextUtils.isEmpty(a2) && !a2.equals(Z)) {
-                    d.b.f0.b.a.g(this.f42969e).J(a2);
-                    d.b.f0.b.a.g(this.f42969e).R(0L);
+                    d.b.f0.b.a.g(this.f43361e).J(a2);
+                    d.b.f0.b.a.g(this.f43361e).R(0L);
                 }
             } else {
-                b2 = d.b.f0.i.a.a(this.f42969e).b(valueOf);
+                b2 = d.b.f0.i.a.a(this.f43361e).b(valueOf);
             }
             if (b2 != null && b2.size() != 0) {
-                long k0 = d.b.f0.b.a.g(this.f42969e).k0();
+                long k0 = d.b.f0.b.a.g(this.f43361e).k0();
                 int size = b2.size();
-                long e0 = d.b.f0.b.a.g(this.f42969e).e0() * 1048576;
+                long e0 = d.b.f0.b.a.g(this.f43361e).e0() * 1048576;
                 JSONArray jSONArray = new JSONArray();
                 ArrayList<d.b.f0.j.a> arrayList = new ArrayList<>();
                 for (int i = 0; i < size; i++) {
@@ -209,9 +209,9 @@ public class b extends d.b.f0.f.a {
                 }
                 boolean h2 = h(jSONArray.toString());
                 if (h2) {
-                    d.b.f0.i.a.a(this.f42969e).d(arrayList);
+                    d.b.f0.i.a.a(this.f43361e).d(arrayList);
                     if (z2) {
-                        d.b.f0.b.a.g(this.f42969e).R(d.b.f0.b.a.g(this.f42969e).k0() + jSONArray.toString().length());
+                        d.b.f0.b.a.g(this.f43361e).R(d.b.f0.b.a.g(this.f43361e).k0() + jSONArray.toString().length());
                     }
                 }
                 return h2;
@@ -224,7 +224,7 @@ public class b extends d.b.f0.f.a {
     }
 
     public void j() {
-        if (d.b.f0.l.c.o(this.f42969e)) {
+        if (d.b.f0.l.c.o(this.f43361e)) {
             d.b.f0.h.a.a().post(new c());
         }
     }

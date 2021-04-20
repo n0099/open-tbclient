@@ -22,16 +22,16 @@ import com.baidu.tieba.enterForum.home.EnterForumDelegateStatic;
 public class EnterForumAdView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f15543e;
+    public Drawable f15206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f15544f;
+    public Drawable f15207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f15545g;
+    public Drawable f15208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f15546h;
+    public Drawable f15209h;
     public boolean i;
     public TbImageView j;
     public ViewEventCenter k;
@@ -86,28 +86,28 @@ public class EnterForumAdView extends FrameLayout {
 
     public static final void c(BdUniqueId bdUniqueId, Context context) {
         StatisticItem l;
-        d.b.i0.i0.d.b x = EnterForumDelegateStatic.f15393c.x();
+        d.b.i0.i0.d.b x = EnterForumDelegateStatic.f15056c.x();
         if (x != null) {
-            String str = EnterForumDelegateStatic.f15393c.x().f55474a;
+            String str = EnterForumDelegateStatic.f15056c.x().f56597a;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             if (context != null) {
                 d.b.h0.l.a.l(context, str);
             }
-            if (bdUniqueId == null || (l = d.b.i0.b3.a.l(true, "a025", "common_click", 3, 1, true, String.valueOf(x.f55475b), String.valueOf(x.f55475b), 5)) == null) {
+            if (bdUniqueId == null || (l = d.b.i0.c3.a.l(true, "a025", "common_click", 3, 1, true, String.valueOf(x.f56598b), String.valueOf(x.f56598b), 5)) == null) {
                 return;
             }
-            d.b.i0.b3.c.g().c(bdUniqueId, l);
+            d.b.i0.c3.c.g().c(bdUniqueId, l);
         }
     }
 
     public final void d(Context context) {
         setClipChildren(true);
-        this.f15546h = new ColorDrawable(1241513984);
-        this.f15543e = context.getResources().getDrawable(R.drawable.enter_forum_ad_top_shader);
-        this.f15544f = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2);
-        this.f15545g = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2_1);
+        this.f15209h = new ColorDrawable(1241513984);
+        this.f15206e = context.getResources().getDrawable(R.drawable.enter_forum_ad_top_shader);
+        this.f15207f = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2);
+        this.f15208g = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2_1);
         setOnClickListener(new a());
     }
 
@@ -115,9 +115,9 @@ public class EnterForumAdView extends FrameLayout {
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.i) {
-            this.f15546h.draw(canvas);
+            this.f15209h.draw(canvas);
         }
-        this.f15543e.draw(canvas);
+        this.f15206e.draw(canvas);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -146,35 +146,35 @@ public class EnterForumAdView extends FrameLayout {
             tbImageView.setPlaceHolder(3);
             this.j.setEvent(new b());
         }
-        d.b.i0.i0.d.b x = EnterForumDelegateStatic.f15393c.x();
+        d.b.i0.i0.d.b x = EnterForumDelegateStatic.f15056c.x();
         if (x != null && x.a()) {
             this.i = true;
-            this.j.W(x.f55476c, 38, false);
+            this.j.W(x.f56599c, 38, false);
             invalidate();
             if (this.k != null) {
                 d.b.i0.i0.d.c cVar = new d.b.i0.i0.d.c();
-                cVar.f55477a = true;
-                cVar.f55478b = false;
-                cVar.f55479c = getBottom();
-                cVar.f55480d = this.m;
+                cVar.f56600a = true;
+                cVar.f56601b = false;
+                cVar.f56602c = getBottom();
+                cVar.f56603d = this.m;
                 d.b.h0.g0.c.b bVar = new d.b.h0.g0.c.b(16, null, null, null);
                 bVar.h(cVar);
                 this.k.dispatchMvcEvent(bVar);
             }
             setVisibility(0);
-            if (this.p != x && (l = d.b.i0.b3.a.l(false, "a025", "common_exp", 0, 1, true, String.valueOf(x.f55475b), String.valueOf(x.f55475b), 5)) != null) {
-                d.b.i0.b3.c g2 = d.b.i0.b3.c.g();
+            if (this.p != x && (l = d.b.i0.c3.a.l(false, "a025", "common_exp", 0, 1, true, String.valueOf(x.f56598b), String.valueOf(x.f56598b), 5)) != null) {
+                d.b.i0.c3.c g2 = d.b.i0.c3.c.g();
                 BdUniqueId bdUniqueId = this.l;
-                g2.d(bdUniqueId, d.b.i0.b3.a.a("" + x.f55475b), l);
-                d.b.i0.b3.c.g().h(this.l, false);
+                g2.d(bdUniqueId, d.b.i0.c3.a.a("" + x.f56598b), l);
+                d.b.i0.c3.c.g().h(this.l, false);
             }
         } else {
             if (this.k != null) {
                 d.b.i0.i0.d.c cVar2 = new d.b.i0.i0.d.c();
-                cVar2.f55477a = false;
-                cVar2.f55478b = false;
-                cVar2.f55479c = getBottom();
-                cVar2.f55480d = this.m;
+                cVar2.f56600a = false;
+                cVar2.f56601b = false;
+                cVar2.f56602c = getBottom();
+                cVar2.f56603d = this.m;
                 d.b.h0.g0.c.b bVar2 = new d.b.h0.g0.c.b(16, null, null, null);
                 bVar2.h(cVar2);
                 this.k.dispatchMvcEvent(bVar2);
@@ -192,15 +192,15 @@ public class EnterForumAdView extends FrameLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         int i5 = -i2;
-        this.f15543e.setBounds(0, i5, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260) + i5);
-        if (!z || EnterForumDelegateStatic.f15393c.x() == null || this.k == null) {
+        this.f15206e.setBounds(0, i5, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260) + i5);
+        if (!z || EnterForumDelegateStatic.f15056c.x() == null || this.k == null) {
             return;
         }
         d.b.i0.i0.d.c cVar = new d.b.i0.i0.d.c();
-        cVar.f55477a = true;
-        cVar.f55478b = false;
-        cVar.f55479c = i4;
-        cVar.f55480d = this.m;
+        cVar.f56600a = true;
+        cVar.f56601b = false;
+        cVar.f56602c = i4;
+        cVar.f56603d = this.m;
         d.b.h0.g0.c.b bVar = new d.b.h0.g0.c.b(16, null, null, null);
         bVar.h(cVar);
         this.k.dispatchMvcEvent(bVar);
@@ -209,11 +209,11 @@ public class EnterForumAdView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f15546h.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
-        this.f15543e.setBounds(0, 0, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260));
+        this.f15209h.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+        this.f15206e.setBounds(0, 0, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260));
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.tbds240);
-        this.f15544f.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
-        this.f15545g.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
+        this.f15207f.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
+        this.f15208g.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
     }
 
     public void setAdData() {

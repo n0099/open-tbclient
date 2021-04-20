@@ -7,19 +7,19 @@ import android.os.IBinder;
 public final class n implements ServiceConnection {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ l f66076e;
+    public final /* synthetic */ l f66921e;
 
     public n(l lVar) {
-        this.f66076e = lVar;
+        this.f66921e = lVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.f66076e.f(iBinder);
+        this.f66921e.f(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f66076e.q();
+        this.f66921e.q();
     }
 }

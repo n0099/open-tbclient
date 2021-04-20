@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SubsamplingScaleImageView extends View {
     public static final int EASE_IN_OUT_QUAD = 2;
     public static final int EASE_OUT_QUAD = 1;
@@ -127,7 +127,7 @@ public class SubsamplingScaleImageView extends View {
     public static final List<Integer> VALID_PAN_LIMITS = Arrays.asList(1, 2, 3);
     public static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public Bitmap bitmap;
         public final WeakReference<Context> contextRef;
@@ -189,7 +189,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
         public void onImageLoadError(Exception exc) {
@@ -212,7 +212,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -225,7 +225,7 @@ public class SubsamplingScaleImageView extends View {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Tile {
         public Bitmap bitmap;
         public Rect fileSRect;
@@ -243,7 +243,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public final WeakReference<ImageRegionDecoder> decoderRef;
         public Exception exception;
@@ -310,7 +310,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public final WeakReference<Context> contextRef;
         public ImageRegionDecoder decoder;
@@ -1875,7 +1875,7 @@ public class SubsamplingScaleImageView extends View {
         return viewToSourceCoord(f2, f3, new PointF());
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleAndTranslate {
         public float scale;
         public PointF vTranslate;
@@ -1977,7 +1977,7 @@ public class SubsamplingScaleImageView extends View {
         return pointF;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Anim {
         public long duration;
         public int easing;
@@ -2003,7 +2003,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public final class AnimationBuilder {
         public long duration;
         public int easing;

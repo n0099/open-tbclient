@@ -10,7 +10,7 @@ import com.facebook.imagepipeline.producers.LocalContentUriThumbnailFetchProduce
 import com.facebook.imagepipeline.producers.LocalFileFetchProducer;
 import com.facebook.imagepipeline.producers.LocalResourceFetchProducer;
 import com.facebook.imagepipeline.producers.NetworkFetchProducer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageOriginUtils {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int mapProducerNameToImageOrigin(String str) {

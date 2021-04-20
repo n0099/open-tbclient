@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.view.MessageRedDotView;
@@ -19,16 +18,16 @@ import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
 import d.b.h0.e0.c;
 import d.b.h0.e0.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImMessageCenterDelegateStatic extends d.b.h0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f18209a;
+    public MessageRedDotView f17886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f18210b;
+    public CustomMessageListener f17887b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -44,7 +43,7 @@ public class ImMessageCenterDelegateStatic extends d.b.h0.e0.b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -78,30 +77,30 @@ public class ImMessageCenterDelegateStatic extends d.b.h0.e0.b {
     }
 
     public final void b(boolean z, int i) {
-        MessageRedDotView messageRedDotView = this.f18209a;
+        MessageRedDotView messageRedDotView = this.f17886a;
         if (messageRedDotView == null) {
             return;
         }
         if (z) {
             messageRedDotView.setThreeDotMode(2);
-            this.f18209a.f(i);
-            this.f18209a.setVisibility(0);
+            this.f17886a.f(i);
+            this.f17886a.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f18209a.getContext(), i);
+                c(this.f17886a.getContext(), i);
                 return;
             }
             return;
         }
         messageRedDotView.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f18209a.getContext(), 0);
+            c(this.f17886a.getContext(), 0);
         }
     }
 
     public final void c(Context context, int i) {
         Intent intent = new Intent();
         intent.setAction("launcher.action.CHANGE_APPLICATION_NOTIFICATION_NUM");
-        intent.putExtra(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, "com.baidu.tieba");
+        intent.putExtra("packageName", "com.baidu.tieba");
         intent.putExtra(PushClientConstants.TAG_CLASS_NAME, "com.baidu.tieba.LogoActivity");
         intent.putExtra("notificationNum", i);
         intent.addFlags(16777216);
@@ -111,27 +110,28 @@ public class ImMessageCenterDelegateStatic extends d.b.h0.e0.b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50155a = new MessageCenterFragment();
-        cVar.f50159e = 3;
-        cVar.f50156b = R.string.my_message;
-        cVar.f50160f = R.raw.lottie_tab_msg;
-        cVar.f50162h = c.k;
+        cVar.f50548a = new MessageCenterFragment();
+        cVar.f50552e = 3;
+        cVar.f50549b = R.string.my_message;
+        cVar.f50553f = R.raw.lottie_tab_msg;
+        cVar.i = c.l;
+        cVar.f50555h = d.b.h0.e0.e.c.d().c("message");
         return cVar;
     }
 
     @Override // d.b.h0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f18209a = new MessageRedDotView(context);
+        this.f17886a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-        aVar.f13961f = tbFragmentTabIndicator;
-        aVar.f13956a = this.f18209a;
-        aVar.f13957b = true;
+        aVar.f13622f = tbFragmentTabIndicator;
+        aVar.f13617a = this.f17886a;
+        aVar.f13618b = true;
         tbFragmentTabIndicator.b("msg", aVar);
-        this.f18209a.setVisibility(4);
+        this.f17886a.setVisibility(4);
         if (!TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f18209a.getContext(), 0);
+            c(this.f17886a.getContext(), 0);
         }
         return this.mIndicator;
     }
@@ -143,13 +143,13 @@ public class ImMessageCenterDelegateStatic extends d.b.h0.e0.b {
 
     @Override // d.b.h0.e0.b
     public void onAdd() {
-        this.f18210b = new b(2921002);
-        MessageManager.getInstance().registerListener(this.f18210b);
+        this.f17887b = new b(2921002);
+        MessageManager.getInstance().registerListener(this.f17887b);
     }
 
     @Override // d.b.h0.e0.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.f18210b);
+        MessageManager.getInstance().unRegisterListener(this.f17887b);
     }
 }

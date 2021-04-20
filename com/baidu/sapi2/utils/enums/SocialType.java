@@ -19,14 +19,14 @@ public enum SocialType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11495a;
+    public int f11079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11496b;
+    public String f11080b;
 
     SocialType(int i, String str) {
-        this.f11495a = i;
-        this.f11496b = str;
+        this.f11079a = i;
+        this.f11080b = str;
     }
 
     public static SocialType getSocialType(int i) {
@@ -58,10 +58,10 @@ public enum SocialType {
     }
 
     public String getName() {
-        return this.f11496b;
+        return this.f11080b;
     }
 
     public int getType() {
-        return this.f11495a;
+        return this.f11079a;
     }
 }

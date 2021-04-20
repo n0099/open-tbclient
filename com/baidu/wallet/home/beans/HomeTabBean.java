@@ -14,7 +14,7 @@ import java.util.Map;
 public class HomeTabBean extends BaseBean<HomeTabResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f24529a;
+    public HashMap<String, String> f24214a;
 
     public HomeTabBean(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        HashMap<String, String> hashMap = this.f24529a;
+        HashMap<String, String> hashMap = this.f24214a;
         if (hashMap != null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -48,6 +48,6 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
     }
 
     public void setParams(HashMap<String, String> hashMap) {
-        this.f24529a = hashMap;
+        this.f24214a = hashMap;
     }
 }

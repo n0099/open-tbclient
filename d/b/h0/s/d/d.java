@@ -11,28 +11,28 @@ public class d {
     public static d n = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51268a = 300;
+    public int f51685a = 300;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51269b = true;
+    public boolean f51686b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51270c = false;
+    public boolean f51687c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f51271d = true;
+    public boolean f51688d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51272e = true;
+    public boolean f51689e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51273f = true;
+    public boolean f51690f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51274g = true;
+    public boolean f51691g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51275h = false;
+    public boolean f51692h = false;
     public boolean i = true;
     public boolean j = true;
     public boolean k = false;
@@ -44,7 +44,7 @@ public class d {
     }
 
     public void A() {
-        d.b.i0.c3.n0.a.r();
+        d.b.i0.d3.n0.a.r();
     }
 
     public void B(boolean z) {
@@ -53,22 +53,22 @@ public class d {
     }
 
     public void C(boolean z) {
-        this.f51271d = z;
+        this.f51688d = z;
         b();
     }
 
     public void D(boolean z) {
-        this.f51269b = z;
+        this.f51686b = z;
         b();
     }
 
     public void E(int i) {
         if (i == 0) {
-            this.f51268a = i;
+            this.f51685a = i;
             b.g0().a0(0);
             b.g0().d0(0);
         } else {
-            this.f51268a = 300;
+            this.f51685a = 300;
         }
         b();
     }
@@ -78,12 +78,12 @@ public class d {
     }
 
     public void G(boolean z) {
-        this.f51274g = z;
+        this.f51691g = z;
         b();
     }
 
     public void H(boolean z) {
-        this.f51272e = z;
+        this.f51689e = z;
         b();
     }
 
@@ -92,11 +92,11 @@ public class d {
     }
 
     public void J(boolean z) {
-        this.f51275h = z;
+        this.f51692h = z;
     }
 
     public void K(boolean z) {
-        this.f51273f = z;
+        this.f51690f = z;
         b();
     }
 
@@ -121,7 +121,7 @@ public class d {
     }
 
     public void Q(boolean z) {
-        d.b.h0.r.d0.b.i().s("permit_screen_lock", z);
+        d.b.h0.r.d0.b.j().t("permit_screen_lock", z);
     }
 
     public void R(boolean z) {
@@ -133,7 +133,7 @@ public class d {
     }
 
     public void T(boolean z) {
-        this.f51270c = z;
+        this.f51687c = z;
     }
 
     public void U() {
@@ -161,9 +161,9 @@ public class d {
     }
 
     public int c() {
-        if (this.i || this.f51275h) {
-            if (!this.i || this.f51275h) {
-                return (this.i || !this.f51275h) ? 3 : 2;
+        if (this.i || this.f51692h) {
+            if (!this.i || this.f51692h) {
+                return (this.i || !this.f51692h) ? 3 : 2;
             }
             return 1;
         }
@@ -171,7 +171,7 @@ public class d {
     }
 
     public int e() {
-        return this.f51268a;
+        return this.f51685a;
     }
 
     public String f() {
@@ -183,7 +183,7 @@ public class d {
     }
 
     public boolean h() {
-        return d.b.h0.r.d0.b.i().g("permit_screen_lock", true);
+        return d.b.h0.r.d0.b.j().g("permit_screen_lock", true);
     }
 
     public int i() {
@@ -203,7 +203,7 @@ public class d {
     }
 
     public void m() {
-        d.b.i0.c3.n0.a.n();
+        d.b.i0.d3.n0.a.n();
     }
 
     public boolean n() {
@@ -212,11 +212,11 @@ public class d {
     }
 
     public boolean o() {
-        return this.f51271d;
+        return this.f51688d;
     }
 
     public boolean p() {
-        return this.f51269b;
+        return this.f51686b;
     }
 
     public boolean q() {
@@ -224,15 +224,15 @@ public class d {
     }
 
     public boolean r() {
-        return this.f51274g;
+        return this.f51691g;
     }
 
     public boolean s() {
-        return this.f51268a > 0;
+        return this.f51685a > 0;
     }
 
     public boolean t() {
-        return this.f51272e;
+        return this.f51689e;
     }
 
     public boolean u() {
@@ -240,11 +240,11 @@ public class d {
     }
 
     public boolean v() {
-        return this.f51275h;
+        return this.f51692h;
     }
 
     public boolean w() {
-        return this.f51273f;
+        return this.f51690f;
     }
 
     public boolean x() {
@@ -256,6 +256,6 @@ public class d {
     }
 
     public boolean z() {
-        return this.f51270c;
+        return this.f51687c;
     }
 }

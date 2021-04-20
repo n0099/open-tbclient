@@ -11,20 +11,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpMessageListener f55075a;
+    public HttpMessageListener f56388a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f55076b = null;
+    public c f56389b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f55077c = new a(2016489);
+    public CustomMessageListener f56390c = new a(2016489);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -51,8 +51,8 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && e.this.f55076b != null) {
-                e.this.f55076b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && e.this.f56389b != null) {
+                e.this.f56389b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
             }
         }
     }
@@ -63,11 +63,11 @@ public class e {
     }
 
     public e(String str) {
-        if (this.f55075a == null) {
-            this.f55075a = new b(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        if (this.f56388a == null) {
+            this.f56388a = new b(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
         }
-        MessageManager.getInstance().registerListener(this.f55075a);
-        MessageManager.getInstance().registerListener(this.f55077c);
+        MessageManager.getInstance().registerListener(this.f56388a);
+        MessageManager.getInstance().registerListener(this.f56390c);
     }
 
     public final void c(JSONObject jSONObject) {
@@ -91,16 +91,16 @@ public class e {
     }
 
     public void d() {
-        MessageManager.getInstance().unRegisterListener(this.f55077c);
-        MessageManager.getInstance().unRegisterListener(this.f55075a);
+        MessageManager.getInstance().unRegisterListener(this.f56390c);
+        MessageManager.getInstance().unRegisterListener(this.f56388a);
     }
 
     public void e() {
-        MessageManager.getInstance().registerListener(this.f55075a);
-        MessageManager.getInstance().registerListener(this.f55077c);
+        MessageManager.getInstance().registerListener(this.f56388a);
+        MessageManager.getInstance().registerListener(this.f56390c);
     }
 
     public void f(c cVar) {
-        this.f55076b = cVar;
+        this.f56389b = cVar;
     }
 }

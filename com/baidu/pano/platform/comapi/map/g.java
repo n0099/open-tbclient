@@ -7,10 +7,10 @@ import java.util.TimerTask;
 public class g extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f9495a;
+    public final /* synthetic */ e f9053a;
 
     public g(e eVar) {
-        this.f9495a = eVar;
+        this.f9053a = eVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -32,57 +32,57 @@ public class g extends TimerTask {
         float f14;
         float f15;
         float f16;
-        f2 = this.f9495a.i;
+        f2 = this.f9053a.i;
         float f17 = f2 * 0.1f;
-        f3 = this.f9495a.j;
+        f3 = this.f9053a.j;
         float f18 = f3 * 0.1f;
-        f4 = this.f9495a.i;
+        f4 = this.f9053a.i;
         if (!Float.isInfinite(Math.abs(f4))) {
-            f5 = this.f9495a.i;
+            f5 = this.f9053a.i;
             if (!Float.isNaN(f5)) {
-                f6 = this.f9495a.j;
+                f6 = this.f9053a.j;
                 if (!Float.isInfinite(Math.abs(f6))) {
-                    f7 = this.f9495a.j;
+                    f7 = this.f9053a.j;
                     if (!Float.isNaN(f7)) {
-                        f8 = this.f9495a.i;
+                        f8 = this.f9053a.i;
                         float f19 = 0.0f;
                         if (Math.abs(f8) > 40.0f) {
-                            e eVar = this.f9495a;
+                            e eVar = this.f9053a;
                             f15 = eVar.i;
                             eVar.i = f15 - f17;
-                            f16 = this.f9495a.i;
+                            f16 = this.f9053a.i;
                             f9 = 0.03f * f16;
                         } else {
                             f9 = 0.0f;
                         }
-                        f10 = this.f9495a.j;
+                        f10 = this.f9053a.j;
                         if (Math.abs(f10) > 40.0f) {
-                            e eVar2 = this.f9495a;
+                            e eVar2 = this.f9053a;
                             f13 = eVar2.j;
                             eVar2.j = f13 - f18;
-                            f14 = this.f9495a.j;
+                            f14 = this.f9053a.j;
                             f19 = 0.018f * f14;
                         }
-                        f11 = this.f9495a.i;
+                        f11 = this.f9053a.i;
                         if (Math.abs(f11) < 40.0f) {
-                            f12 = this.f9495a.j;
+                            f12 = this.f9053a.j;
                             if (Math.abs(f12) < 40.0f) {
-                                this.f9495a.j();
+                                this.f9053a.j();
                                 return;
                             }
                         }
-                        handler = this.f9495a.o;
+                        handler = this.f9053a.o;
                         Message obtainMessage = handler.obtainMessage();
                         obtainMessage.what = 1001;
                         obtainMessage.arg1 = (int) f9;
                         obtainMessage.arg2 = (int) f19;
-                        handler2 = this.f9495a.o;
+                        handler2 = this.f9053a.o;
                         handler2.sendMessage(obtainMessage);
                         return;
                     }
                 }
             }
         }
-        this.f9495a.j();
+        this.f9053a.j();
     }
 }

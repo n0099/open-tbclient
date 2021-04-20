@@ -14,29 +14,29 @@ import org.json.JSONObject;
 public class j extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f46998d = d.b.g0.a.k.f45051a;
+    public static final boolean f47390d = d.b.g0.a.k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f46999a;
+    public Bitmap f47391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47000b;
+    public String f47392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Matrix f47001c;
+    public Matrix f47393c;
 
     public j(String str) {
-        this.f47000b = str;
+        this.f47392b = str;
     }
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
         Matrix matrix;
-        Bitmap bitmap = this.f46999a;
-        if (bitmap == null || (matrix = this.f47001c) == null) {
+        Bitmap bitmap = this.f47391a;
+        if (bitmap == null || (matrix = this.f47393c) == null) {
             return;
         }
-        canvas.drawBitmap(bitmap, matrix, bVar.f46972h);
+        canvas.drawBitmap(bitmap, matrix, bVar.f47364h);
     }
 
     @Override // d.b.g0.a.y.a.j.a
@@ -45,7 +45,7 @@ public class j extends a {
 
     public int c() {
         try {
-            JSONObject jSONObject = new JSONObject(this.f47000b);
+            JSONObject jSONObject = new JSONObject(this.f47392b);
             int f2 = d.b.g0.a.i2.h0.f((float) jSONObject.optDouble("x"));
             int f3 = d.b.g0.a.i2.h0.f((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
@@ -63,22 +63,22 @@ public class j extends a {
                 byte[] decode = Base64.decode(optString, 2);
                 int i = optInt * optInt2 * 4;
                 if (decode != null && decode.length == i) {
-                    this.f46999a = e(d(decode, optInt, optInt2), f4, f5);
+                    this.f47391a = e(d(decode, optInt, optInt2), f4, f5);
                     Matrix matrix = new Matrix();
-                    this.f47001c = matrix;
+                    this.f47393c = matrix;
                     matrix.postTranslate(f2, f3);
                     return 0;
                 }
                 return 2001;
             } catch (Exception e2) {
-                if (f46998d) {
+                if (f47390d) {
                     e2.printStackTrace();
                 }
                 d.b.g0.a.c0.c.b("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
                 return 1001;
             }
         } catch (JSONException e3) {
-            if (f46998d) {
+            if (f47390d) {
                 e3.printStackTrace();
             }
             return 1001;

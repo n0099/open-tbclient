@@ -5,8 +5,8 @@ import com.kwad.sdk.glide.load.DecodeFormat;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f35740a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.gif.GifOptions.DecodeFormat", DecodeFormat.DEFAULT);
+    public static final com.kwad.sdk.glide.load.d<DecodeFormat> f36029a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.gif.GifOptions.DecodeFormat", DecodeFormat.DEFAULT);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f35741b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.gif.GifOptions.DisableAnimation", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f36030b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.gif.GifOptions.DisableAnimation", Boolean.FALSE);
 }

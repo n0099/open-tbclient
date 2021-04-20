@@ -28,14 +28,14 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
-import d.b.i0.d1.g.c;
-import d.b.i0.d1.h.l;
-import d.b.i0.d1.k.b;
-import d.b.i0.d1.s.a;
+import d.b.i0.e1.g.c;
+import d.b.i0.e1.h.l;
+import d.b.i0.e1.k.b;
+import d.b.i0.e1.s.a;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public static final int MSG_COUNT_PER = 10;
     public boolean hasFake;
@@ -43,7 +43,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public int mUserType;
     public c officialBarMenuDatas;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class MsgContent extends OrmObject {
         public String eventId;
         public String userMsg;
@@ -104,7 +104,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18045b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f17722b;
             if (list == null) {
                 list = new LinkedList();
             }
@@ -245,21 +245,21 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-        aVar.f18038a = this.mUser.getUserId();
+        aVar.f17715a = this.mUser.getUserId();
         super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(d.b.i0.d1.f.c cVar) {
+    public boolean loadFirst(d.b.i0.e1.f.c cVar) {
         if (this.mUser == null) {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f18042c = 10;
-        aVar.f18040a = null;
-        aVar.f18041b = null;
-        aVar.f18043d = this.mUser.getUserIdLong() + "";
+        aVar.f17719c = 10;
+        aVar.f17717a = null;
+        aVar.f17718b = null;
+        aVar.f17720d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
     }
@@ -271,7 +271,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f18042c = 10;
+        aVar.f17719c = 10;
         MsgPageData msgPageData = this.mDatas;
         long j2 = 0;
         if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -280,9 +280,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             j2 = this.mDatas.getChatMessages().get(0).getMsgId();
             j = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.f18040a = String.valueOf(j2);
-        aVar.f18041b = String.valueOf(j);
-        aVar.f18043d = this.mUser.getUserIdLong() + "";
+        aVar.f17717a = String.valueOf(j2);
+        aVar.f17718b = String.valueOf(j);
+        aVar.f17720d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
     }
@@ -315,8 +315,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         if (userData == null) {
             return false;
         }
-        aVar.f18066b = String.valueOf(String.valueOf(userData.getUserId()));
-        aVar.f18065a = str;
+        aVar.f17743b = String.valueOf(String.valueOf(userData.getUserId()));
+        aVar.f17742a = str;
         super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
         return true;
     }

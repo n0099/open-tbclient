@@ -14,12 +14,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.b.a.b;
-import d.b.b.a.h;
-import d.b.b.a.i;
-import d.b.b.e.l.d;
-import d.b.b.e.p.l;
-import d.b.b.j.e.q;
+import d.b.c.a.b;
+import d.b.c.a.h;
+import d.b.c.a.i;
+import d.b.c.e.l.d;
+import d.b.c.e.p.l;
+import d.b.c.j.e.q;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static final int PRELOAD_DELAY = 100;
@@ -44,8 +44,8 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         if (view == null) {
             return;
         }
-        if (view instanceof d.b.b.f.a.i) {
-            ((d.b.b.f.a.i) view).refresh();
+        if (view instanceof d.b.c.f.a.i) {
+            ((d.b.c.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -62,12 +62,12 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public boolean isScroll() {
         return this.mIsScroll;
     }
@@ -122,7 +122,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public void onPreLoad(q qVar) {
     }
 
@@ -193,7 +193,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.b.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
@@ -219,14 +219,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void registerListener(d.b.b.c.g.a aVar) {
+    public void registerListener(d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    public void registerListener(int i, d.b.b.c.g.a aVar) {
+    public void registerListener(int i, d.b.c.c.g.a aVar) {
         if (aVar != null && aVar.getTag() == null) {
             aVar.setTag(this.mId);
         }

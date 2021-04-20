@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.b.i0.c3.h;
-import d.b.i0.p0.k;
+import d.b.i0.d3.h;
+import d.b.i0.q0.k;
 import d.b.i0.x.z;
 /* loaded from: classes4.dex */
 public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
@@ -19,7 +19,7 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
     }
 
-    @Override // d.b.i0.p0.k, d.b.b.j.e.a
+    @Override // d.b.i0.q0.k, d.b.c.j.e.a
     public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         u0(i, view, viewGroup, (h) obj, (FrsPageAlaStageViewHolder) viewHolder);
         return view;
@@ -35,7 +35,7 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: t0 */
     public FrsPageAlaStageViewHolder R(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
@@ -53,10 +53,10 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
         if (hVar != null) {
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            d.b.i0.t.i.e.d dVar = frsPageAlaStageViewHolder.f15034a;
+            d.b.i0.t.i.e.d dVar = frsPageAlaStageViewHolder.f14697a;
             dVar.B = (i + 1) - topThreadSize;
             dVar.a(this.w);
-            frsPageAlaStageViewHolder.f15034a.n(hVar);
+            frsPageAlaStageViewHolder.f14697a.n(hVar);
         }
         return view;
     }

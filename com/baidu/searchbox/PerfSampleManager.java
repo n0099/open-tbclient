@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import d.b.d0.a.a;
-import d.b.d0.a.b.d;
-import d.b.i0.x2.p;
-import d.b.p.b.b;
+import d.b.b0.a.a;
+import d.b.b0.a.b.d;
+import d.b.i0.y2.p;
+import d.b.o.b.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -22,7 +22,7 @@ public class PerfSampleManager {
 
     /* loaded from: classes2.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
-        @Override // d.b.d0.a.a
+        @Override // d.b.b0.a.a
         public Object get() {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new b());
@@ -57,7 +57,7 @@ public class PerfSampleManager {
     }
 
     public void initmCallbackList() {
-        d.b.d0.a.b.b c2 = d.b.d0.a.b.b.c();
+        d.b.b0.a.b.b c2 = d.b.b0.a.b.b.c();
         this.mCallbackList = c2;
         c2.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }

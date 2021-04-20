@@ -7,13 +7,13 @@ import com.facebook.common.references.CloseableReference;
 import java.io.IOException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputStream {
     public CloseableReference<MemoryChunk> mBufRef;
     public int mCount;
     public final MemoryChunkPool mPool;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class InvalidStreamException extends RuntimeException {
         public InvalidStreamException() {
             super("OutputStream no longer valid");

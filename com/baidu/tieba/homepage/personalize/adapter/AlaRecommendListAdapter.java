@@ -30,105 +30,105 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.i0.z0.g.j.j;
+import d.b.c.e.p.l;
+import d.b.i0.a1.g.j.j;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f17239a;
+    public Context f16916a;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<j> f17241c;
+    public List<j> f16918c;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17240b = 3;
+    public int f16917b = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashSet<Long> f17242d = new HashSet<>();
+    public HashSet<Long> f16919d = new HashSet<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AlaUserInfoViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f17243a;
+        public View f16920a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ObjectAnimator f17244b;
+        public ObjectAnimator f16921b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f17245c;
+        public ImageView f16922c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HeadImageView f17246d;
+        public HeadImageView f16923d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TbImageView f17247e;
+        public TbImageView f16924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TBSpecificationBtn f17248f;
+        public TBSpecificationBtn f16925f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f17249g;
+        public TextView f16926g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TbImageView f17250h;
+        public TbImageView f16927h;
 
         public AlaUserInfoViewHolder(View view) {
             super(view);
-            this.f17243a = view.findViewById(R.id.ala_recommend_container);
+            this.f16920a = view.findViewById(R.id.ala_recommend_container);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ala_animation_background);
-            this.f17250h = tbImageView;
+            this.f16927h = tbImageView;
             SkinManager.setImageResource(tbImageView, R.drawable.icon_mask_live);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f17250h, "rotation", 0.0f, 359.0f);
-            this.f17244b = ofFloat;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f16927h, "rotation", 0.0f, 359.0f);
+            this.f16921b = ofFloat;
             ofFloat.setRepeatCount(-1);
-            this.f17244b.setDuration(10000L);
-            this.f17244b.setInterpolator(new LinearInterpolator());
-            this.f17245c = (ImageView) view.findViewById(R.id.ala_gradient_background);
+            this.f16921b.setDuration(10000L);
+            this.f16921b.setInterpolator(new LinearInterpolator());
+            this.f16922c = (ImageView) view.findViewById(R.id.ala_gradient_background);
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.ala_protrait);
-            this.f17246d = headImageView;
-            headImageView.setRadius(l.g(AlaRecommendListAdapter.this.f17239a, R.dimen.tbds63));
-            this.f17247e = (TbImageView) view.findViewById(R.id.ala_recommend_more);
-            this.f17248f = (TBSpecificationBtn) view.findViewById(R.id.ala_sign_icon);
+            this.f16923d = headImageView;
+            headImageView.setRadius(l.g(AlaRecommendListAdapter.this.f16916a, R.dimen.tbds63));
+            this.f16924e = (TbImageView) view.findViewById(R.id.ala_recommend_more);
+            this.f16925f = (TBSpecificationBtn) view.findViewById(R.id.ala_sign_icon);
             d.b.h0.r.f0.m.a aVar = new d.b.h0.r.f0.m.a();
             aVar.o(R.color.CAM_X0310);
             aVar.k(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds15));
             aVar.j(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds120), l.g(TbadkCoreApplication.getInst(), R.dimen.tbds46));
-            this.f17248f.setTextSize(R.dimen.tbds26);
-            this.f17248f.setClickState(false);
-            this.f17248f.setConfig(aVar);
-            this.f17249g = (TextView) view.findViewById(R.id.ala_recommend_user_name);
+            this.f16925f.setTextSize(R.dimen.tbds26);
+            this.f16925f.setClickState(false);
+            this.f16925f.setConfig(aVar);
+            this.f16926g = (TextView) view.findViewById(R.id.ala_recommend_user_name);
         }
 
         public void h(int i, int i2) {
-            if (i == AlaRecommendListAdapter.this.f17240b) {
+            if (i == AlaRecommendListAdapter.this.f16917b) {
                 return;
             }
-            SkinManager.setViewTextColor(this.f17248f, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f17249g, R.color.CAM_X0105);
-            SkinManager.setImageResource(this.f17250h, R.drawable.icon_mask_live);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f17245c, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
-            this.f17248f.k();
+            SkinManager.setViewTextColor(this.f16925f, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f16926g, R.color.CAM_X0105);
+            SkinManager.setImageResource(this.f16927h, R.drawable.icon_mask_live);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f16922c, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
+            this.f16925f.k();
             if (i2 == 1) {
-                SkinManager.setImageResource(this.f17246d, R.drawable.pic_live_hand_n);
+                SkinManager.setImageResource(this.f16923d, R.drawable.pic_live_hand_n);
             } else if (i2 == 2) {
-                SkinManager.setImageResource(this.f17247e, R.drawable.icon_pure_live_moe22);
-                HeadImageView headImageView = this.f17246d;
+                SkinManager.setImageResource(this.f16924e, R.drawable.icon_pure_live_moe22);
+                HeadImageView headImageView = this.f16923d;
                 int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds63);
                 int i3 = R.color.CAM_X0203;
                 SkinManager.setBackgroundShapeDrawable(headImageView, g2, i3, i3);
             }
-            SkinManager.setViewTextColor(this.f17249g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f16926g, R.color.CAM_X0105);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a(AlaRecommendListAdapter alaRecommendListAdapter) {
         }
@@ -143,45 +143,45 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f17251e;
+        public final /* synthetic */ long f16928e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f17252f;
+        public final /* synthetic */ j f16929f;
 
         public b(long j, j jVar) {
-            this.f17251e = j;
-            this.f17252f = jVar;
+            this.f16928e = j;
+            this.f16929f = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.liveID = this.f17251e;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(AlaRecommendListAdapter.this.f17239a, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PB_USER_ICON_LIVE, null, false, "")));
+            alaLiveInfoCoreData.liveID = this.f16928e;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(AlaRecommendListAdapter.this.f16916a, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PB_USER_ICON_LIVE, null, false, "")));
             StatisticItem statisticItem = new StatisticItem("c13623");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("fid", 0);
-            statisticItem.param("tid", this.f17252f.e());
-            statisticItem.param("obj_type", this.f17252f.b());
-            statisticItem.param(TiebaStatic.Params.STAR_ID, this.f17252f.d());
-            statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.f17251e);
+            statisticItem.param("tid", this.f16929f.e());
+            statisticItem.param("obj_type", this.f16929f.b());
+            statisticItem.param(TiebaStatic.Params.STAR_ID, this.f16929f.d());
+            statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.f16928e);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ViewHelper.checkUpIsLogin(AlaRecommendListAdapter.this.f17239a)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(AlaRecommendListAdapter.this.f17239a)));
+            if (ViewHelper.checkUpIsLogin(AlaRecommendListAdapter.this.f16916a)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(AlaRecommendListAdapter.this.f16916a)));
                 StatisticItem statisticItem = new StatisticItem("c13624");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("fid", 0);
@@ -191,7 +191,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     }
 
     public AlaRecommendListAdapter(Context context) {
-        this.f17239a = context;
+        this.f16916a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -200,29 +200,29 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public void onBindViewHolder(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder, int i) {
         List<j> list;
         j jVar;
-        if (alaUserInfoViewHolder == null || (list = this.f17241c) == null || list.size() <= i || (jVar = this.f17241c.get(i)) == null) {
+        if (alaUserInfoViewHolder == null || (list = this.f16918c) == null || list.size() <= i || (jVar = this.f16918c.get(i)) == null) {
             return;
         }
         if (jVar.f() == 1) {
-            alaUserInfoViewHolder.f17248f.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_hot_live));
-            alaUserInfoViewHolder.f17246d.setImageResource(R.drawable.pic_live_hand_n);
-            alaUserInfoViewHolder.f17249g.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_live_square));
-            alaUserInfoViewHolder.f17243a.setOnClickListener(new a(this));
+            alaUserInfoViewHolder.f16925f.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_hot_live));
+            alaUserInfoViewHolder.f16923d.setImageResource(R.drawable.pic_live_hand_n);
+            alaUserInfoViewHolder.f16926g.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_live_square));
+            alaUserInfoViewHolder.f16920a.setOnClickListener(new a(this));
         } else if (jVar.f() == 0) {
-            alaUserInfoViewHolder.f17248f.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
-            alaUserInfoViewHolder.f17246d.setPlaceHolder(1);
-            alaUserInfoViewHolder.f17246d.setDefaultResource(R.drawable.transparent_bg);
+            alaUserInfoViewHolder.f16925f.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
+            alaUserInfoViewHolder.f16923d.setPlaceHolder(1);
+            alaUserInfoViewHolder.f16923d.setDefaultResource(R.drawable.transparent_bg);
             if (!StringUtils.isNull(jVar.c())) {
-                alaUserInfoViewHolder.f17246d.W(jVar.c(), 10, false);
+                alaUserInfoViewHolder.f16923d.W(jVar.c(), 10, false);
             }
             if (StringHelper.getChineseAndEnglishLength(jVar.g()) > 8) {
-                alaUserInfoViewHolder.f17249g.setText(StringHelper.cutChineseAndEnglishWithSuffix(jVar.g(), 6, StringHelper.STRING_MORE));
+                alaUserInfoViewHolder.f16926g.setText(StringHelper.cutChineseAndEnglishWithSuffix(jVar.g(), 6, StringHelper.STRING_MORE));
             } else {
-                alaUserInfoViewHolder.f17249g.setText(jVar.g());
+                alaUserInfoViewHolder.f16926g.setText(jVar.g());
             }
             long a2 = jVar.a();
-            alaUserInfoViewHolder.f17243a.setOnClickListener(new b(a2, jVar));
-            if (!this.f17242d.contains(Long.valueOf(a2))) {
+            alaUserInfoViewHolder.f16920a.setOnClickListener(new b(a2, jVar));
+            if (!this.f16919d.contains(Long.valueOf(a2))) {
                 StatisticItem statisticItem = new StatisticItem("c13622");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("fid", 0);
@@ -231,16 +231,16 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                 statisticItem.param(TiebaStatic.Params.STAR_ID, jVar.d());
                 statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, a2);
                 TiebaStatic.log(statisticItem);
-                this.f17242d.add(Long.valueOf(a2));
+                this.f16919d.add(Long.valueOf(a2));
             }
         } else if (jVar.f() == 2) {
-            alaUserInfoViewHolder.f17248f.setVisibility(8);
-            alaUserInfoViewHolder.f17250h.setVisibility(8);
-            alaUserInfoViewHolder.f17245c.setVisibility(8);
-            alaUserInfoViewHolder.f17249g.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
-            alaUserInfoViewHolder.f17247e.setVisibility(0);
-            alaUserInfoViewHolder.f17247e.setImageResource(R.drawable.icon_pure_live_moe22);
-            alaUserInfoViewHolder.f17243a.setOnClickListener(new c());
+            alaUserInfoViewHolder.f16925f.setVisibility(8);
+            alaUserInfoViewHolder.f16927h.setVisibility(8);
+            alaUserInfoViewHolder.f16922c.setVisibility(8);
+            alaUserInfoViewHolder.f16926g.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+            alaUserInfoViewHolder.f16924e.setVisibility(0);
+            alaUserInfoViewHolder.f16924e.setImageResource(R.drawable.icon_pure_live_moe22);
+            alaUserInfoViewHolder.f16920a.setOnClickListener(new c());
         }
         alaUserInfoViewHolder.h(TbadkCoreApplication.getInst().getSkinType(), jVar.f());
     }
@@ -250,7 +250,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     @NonNull
     /* renamed from: f */
     public AlaUserInfoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new AlaUserInfoViewHolder(LayoutInflater.from(this.f17239a).inflate(R.layout.ala_recommend_item, (ViewGroup) null));
+        return new AlaUserInfoViewHolder(LayoutInflater.from(this.f16916a).inflate(R.layout.ala_recommend_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -259,7 +259,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public void onViewAttachedToWindow(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder) {
         ObjectAnimator objectAnimator;
         super.onViewAttachedToWindow(alaUserInfoViewHolder);
-        if (alaUserInfoViewHolder == null || (objectAnimator = alaUserInfoViewHolder.f17244b) == null) {
+        if (alaUserInfoViewHolder == null || (objectAnimator = alaUserInfoViewHolder.f16921b) == null) {
             return;
         }
         objectAnimator.start();
@@ -267,7 +267,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<j> list = this.f17241c;
+        List<j> list = this.f16918c;
         if (list == null) {
             return 0;
         }
@@ -276,11 +276,11 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        List<j> list = this.f17241c;
+        List<j> list = this.f16918c;
         if (list == null || list.get(i) == null) {
             return 0;
         }
-        return this.f17241c.get(i).f();
+        return this.f16918c.get(i).f();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -289,7 +289,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public void onViewDetachedFromWindow(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder) {
         ObjectAnimator objectAnimator;
         super.onViewDetachedFromWindow(alaUserInfoViewHolder);
-        if (alaUserInfoViewHolder == null || (objectAnimator = alaUserInfoViewHolder.f17244b) == null) {
+        if (alaUserInfoViewHolder == null || (objectAnimator = alaUserInfoViewHolder.f16921b) == null) {
             return;
         }
         objectAnimator.cancel();
@@ -300,13 +300,13 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        if (this.f17241c == null) {
-            this.f17241c = new ArrayList();
+        if (this.f16918c == null) {
+            this.f16918c = new ArrayList();
         }
-        this.f17241c.clear();
+        this.f16918c.clear();
         j jVar = new j();
         jVar.m(1);
-        this.f17241c.add(jVar);
+        this.f16918c.add(jVar);
         if (list != null && list.size() > 12) {
             list = ListUtils.subList(list, 0, 12);
         }
@@ -320,13 +320,13 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                 jVar2.l(alaLiveInfo.thread_id.longValue());
                 jVar2.k(alaLiveInfo.user_info.ala_id.longValue());
                 jVar2.i(alaLiveInfo.live_type.intValue());
-                this.f17241c.add(jVar2);
+                this.f16918c.add(jVar2);
             }
         }
-        if (this.f17241c.size() > 12) {
+        if (this.f16918c.size() > 12) {
             j jVar3 = new j();
             jVar3.m(2);
-            this.f17241c.add(jVar3);
+            this.f16918c.add(jVar3);
         }
     }
 }

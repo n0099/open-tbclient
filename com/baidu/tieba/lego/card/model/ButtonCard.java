@@ -1,9 +1,9 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import d.b.i0.i1.o.k.b;
+import d.b.i0.j1.o.k.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ButtonCard extends BaseCardInfo {
     public static final int BUTTON_COLOR_FILL = 2;
     public static final int BUTTON_COLOR_FRAME = 1;

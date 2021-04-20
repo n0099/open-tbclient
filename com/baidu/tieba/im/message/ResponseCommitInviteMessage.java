@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.CommitInviteMsg.CommitInviteMsgResIdl;
 import protobuf.CommitInviteMsg.DataRes;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseCommitInviteMessage extends SocketResponsedMessage {
     public DataRes mResData;
 

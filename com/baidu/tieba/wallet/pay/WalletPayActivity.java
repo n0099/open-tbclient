@@ -46,10 +46,10 @@ import com.baidu.tieba.wallet.WalletStatisticKey;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import com.baidu.wallet.api.BaiduWallet;
 import com.baidu.wallet.core.beans.BeanManager;
-import d.b.b.c.g.a;
-import d.b.b.e.m.e;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.c.g.a;
+import d.b.c.e.m.e;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.d0.b;
 import d.b.h0.r.s.a;
 import java.util.Date;
@@ -160,7 +160,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         }
     };
     public a mNetMessagelistener = new a(CmdConfigHttp.CMD_GET_ORDER, 303043) { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.5
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             DataRes data;
             WalletPayActivity.this.mIsPaying = false;
@@ -239,7 +239,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void createPayDebugLog(String str, int i, String str2, int i2, String str3) {
-        d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+        d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.b("requestMethod", str);
         statsItem.b("eventType", "requestfail");
         statsItem.c("response_code", Integer.valueOf(i));
@@ -391,11 +391,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 return;
             }
         }
-        b i = b.i();
-        int j = i.j("pay_dialog_error_key" + notifyPopup.popup_id, 0);
-        if (j < notifyPopup.popup_times.intValue()) {
-            b i2 = b.i();
-            i2.u("pay_dialog_error_key" + notifyPopup.popup_id, j + 1);
+        b j = b.j();
+        int k = j.k("pay_dialog_error_key" + notifyPopup.popup_id, 0);
+        if (k < notifyPopup.popup_times.intValue()) {
+            b j2 = b.j();
+            j2.v("pay_dialog_error_key" + notifyPopup.popup_id, k + 1);
             if (notifyPopup.popup_type.intValue() == 1) {
                 showSimplePayErrorDialog(notifyPopup);
                 return;

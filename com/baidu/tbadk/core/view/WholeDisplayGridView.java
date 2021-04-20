@@ -8,16 +8,16 @@ import android.view.View;
 public class WholeDisplayGridView extends BdGridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13594e;
+    public boolean f13255e;
 
     public WholeDisplayGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13594e = false;
+        this.f13255e = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 2 && this.f13594e) {
+        if (motionEvent.getAction() == 2 && this.f13255e) {
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -29,16 +29,16 @@ public class WholeDisplayGridView extends BdGridView {
     }
 
     public void setForbidMove(boolean z) {
-        this.f13594e = z;
+        this.f13255e = z;
     }
 
     public WholeDisplayGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13594e = false;
+        this.f13255e = false;
     }
 
     public WholeDisplayGridView(Context context) {
         super(context);
-        this.f13594e = false;
+        this.f13255e = false;
     }
 }

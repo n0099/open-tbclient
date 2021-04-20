@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.d;
 
 import android.util.Pair;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<String, Long>, Pair<String, Long>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d

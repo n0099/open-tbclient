@@ -13,24 +13,24 @@ import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
 public class AddPollPostModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19029e;
+    public b f18706e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f19030f;
+    public long f18707f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.b.c.g.a f19031g;
+    public d.b.c.c.g.a f18708g;
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
-            if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.f19030f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
+            if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.f18707f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
                 boolean z = responsedMessage instanceof AddPollPostHttpResponseMessage;
                 if (z || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
                     AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = z ? (AddPollPostHttpResponseMessage) responsedMessage : null;
@@ -48,8 +48,8 @@ public class AddPollPostModel extends BdBaseModel {
                         i = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                         str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                     }
-                    if (AddPollPostModel.this.f19029e != null) {
-                        AddPollPostModel.this.f19029e.a(i, str);
+                    if (AddPollPostModel.this.f18706e != null) {
+                        AddPollPostModel.this.f18706e.a(i, str);
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class AddPollPostModel extends BdBaseModel {
 
     public AddPollPostModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f19031g = new a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
+        this.f18708g = new a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
         v();
     }
 
@@ -78,31 +78,31 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        registerListener(this.f19031g);
+        registerListener(this.f18708g);
     }
 
     public void u(String str, String str2, long j) {
         AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
-        addPollPostRequestNetMessage.setThreadId(d.b.b.e.m.b.f(str, 0L));
+        addPollPostRequestNetMessage.setThreadId(d.b.c.e.m.b.f(str, 0L));
         addPollPostRequestNetMessage.setOptions(str2);
         addPollPostRequestNetMessage.setForumId(j);
         sendMessage(addPollPostRequestNetMessage);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.f19031g);
+        MessageManager.getInstance().unRegisterListener(this.f18708g);
     }
 
     public final void v() {
-        d.b.i0.c3.d0.a.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
     }
 
     public void w(b bVar) {
-        this.f19029e = bVar;
+        this.f18706e = bVar;
     }
 
     public void x(long j) {
-        this.f19030f = j;
+        this.f18707f = j;
     }
 }

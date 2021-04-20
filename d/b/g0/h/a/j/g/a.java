@@ -59,8 +59,8 @@ public class a extends c implements d.b.g0.h.a.j.b, OnGetPoiSearchResultListener
 
     /* renamed from: d.b.g0.h.a.j.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1013a extends RecyclerView.OnScrollListener {
-        public C1013a() {
+    public class C1025a extends RecyclerView.OnScrollListener {
+        public C1025a() {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -158,7 +158,7 @@ public class a extends c implements d.b.g0.h.a.j.b, OnGetPoiSearchResultListener
         this.y0.setOnFocusChangeListener(this);
         this.y0.setOnKeyListener(this);
         this.y0.requestFocus();
-        this.B0.addOnScrollListener(new C1013a());
+        this.B0.addOnScrollListener(new C1025a());
         this.y0.postDelayed(new b(), 100L);
     }
 
@@ -187,10 +187,10 @@ public class a extends c implements d.b.g0.h.a.j.b, OnGetPoiSearchResultListener
     }
 
     public final void M2(Intent intent) {
-        if (M() == null) {
+        if (K() == null) {
             return;
         }
-        M().p0(S(), 0, intent);
+        K().p0(S(), 0, intent);
     }
 
     public void N2(View view, boolean z) {
@@ -216,7 +216,7 @@ public class a extends c implements d.b.g0.h.a.j.b, OnGetPoiSearchResultListener
         d.b.g0.a.e0.l.f W = f.V().W();
         if (W != null) {
             f.b i = W.i("navigateTo");
-            i.n(d.b.g0.a.e0.l.f.f44013g, d.b.g0.a.e0.l.f.i);
+            i.n(d.b.g0.a.e0.l.f.f44405g, d.b.g0.a.e0.l.f.i);
             i.j(this);
             i.b();
         }
@@ -266,7 +266,7 @@ public class a extends c implements d.b.g0.h.a.j.b, OnGetPoiSearchResultListener
     @Override // d.b.g0.h.a.j.b
     public void c(d.b.g0.h.a.j.c cVar) {
         Intent intent = new Intent();
-        PoiInfo poiInfo = cVar.f48771a;
+        PoiInfo poiInfo = cVar.f49163a;
         if (poiInfo != null && poiInfo.location != null) {
             intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
         }

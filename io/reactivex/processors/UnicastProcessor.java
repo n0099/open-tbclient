@@ -1,8 +1,8 @@
 package io.reactivex.processors;
 
-import f.a.b0.a;
-import f.a.e;
-import f.a.x.i.b;
+import f.b.b0.a;
+import f.b.e;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -15,13 +15,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class UnicastProcessor<T> extends a<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final f.a.x.f.a<T> f68104f;
+    public final f.b.x.f.a<T> f69110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<Runnable> f68105g;
+    public final AtomicReference<Runnable> f69111g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f68106h;
+    public final boolean f69112h;
     public volatile boolean i;
     public Throwable j;
     public final AtomicReference<c<? super T>> k;
@@ -49,23 +49,23 @@ public final class UnicastProcessor<T> extends a<T> {
             if (unicastProcessor.p || unicastProcessor.n.getAndIncrement() != 0) {
                 return;
             }
-            UnicastProcessor.this.f68104f.clear();
+            UnicastProcessor.this.f69110f.clear();
             UnicastProcessor.this.k.lazySet(null);
         }
 
-        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
         public void clear() {
-            UnicastProcessor.this.f68104f.clear();
+            UnicastProcessor.this.f69110f.clear();
         }
 
-        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
         public boolean isEmpty() {
-            return UnicastProcessor.this.f68104f.isEmpty();
+            return UnicastProcessor.this.f69110f.isEmpty();
         }
 
-        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
         public T poll() {
-            return UnicastProcessor.this.f68104f.poll();
+            return UnicastProcessor.this.f69110f.poll();
         }
 
         @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
@@ -76,7 +76,7 @@ public final class UnicastProcessor<T> extends a<T> {
             }
         }
 
-        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.c
+        @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.c
         public int requestFusion(int i) {
             if ((i & 2) != 0) {
                 UnicastProcessor.this.p = true;
@@ -95,11 +95,11 @@ public final class UnicastProcessor<T> extends a<T> {
     }
 
     public static <T> UnicastProcessor<T> f(int i, Runnable runnable) {
-        f.a.x.b.a.b(runnable, "onTerminate");
+        f.b.x.b.a.b(runnable, "onTerminate");
         return new UnicastProcessor<>(i, runnable);
     }
 
-    @Override // f.a.e
+    @Override // f.b.e
     public void c(c<? super T> cVar) {
         if (!this.m.get() && this.m.compareAndSet(false, true)) {
             cVar.onSubscribe(this.n);
@@ -115,7 +115,7 @@ public final class UnicastProcessor<T> extends a<T> {
         EmptySubscription.error(new IllegalStateException("This processor allows only a single Subscriber"), cVar);
     }
 
-    public boolean d(boolean z, boolean z2, boolean z3, c<? super T> cVar, f.a.x.f.a<T> aVar) {
+    public boolean d(boolean z, boolean z2, boolean z3, c<? super T> cVar, f.b.x.f.a<T> aVar) {
         if (this.l) {
             aVar.clear();
             this.k.lazySet(null);
@@ -144,8 +144,8 @@ public final class UnicastProcessor<T> extends a<T> {
     }
 
     public void g() {
-        Runnable runnable = this.f68105g.get();
-        if (runnable == null || !this.f68105g.compareAndSet(runnable, null)) {
+        Runnable runnable = this.f69111g.get();
+        if (runnable == null || !this.f69111g.compareAndSet(runnable, null)) {
             return;
         }
         runnable.run();
@@ -172,9 +172,9 @@ public final class UnicastProcessor<T> extends a<T> {
     }
 
     public void i(c<? super T> cVar) {
-        f.a.x.f.a<T> aVar = this.f68104f;
+        f.b.x.f.a<T> aVar = this.f69110f;
         int i = 1;
-        boolean z = !this.f68106h;
+        boolean z = !this.f69112h;
         while (!this.l) {
             boolean z2 = this.i;
             if (z && z2 && this.j != null) {
@@ -207,8 +207,8 @@ public final class UnicastProcessor<T> extends a<T> {
     public void j(c<? super T> cVar) {
         int i;
         long j;
-        f.a.x.f.a<T> aVar = this.f68104f;
-        boolean z = !this.f68106h;
+        f.b.x.f.a<T> aVar = this.f69110f;
+        boolean z = !this.f69112h;
         int i2 = 1;
         while (true) {
             long j2 = this.o.get();
@@ -257,7 +257,7 @@ public final class UnicastProcessor<T> extends a<T> {
 
     @Override // g.d.c
     public void onError(Throwable th) {
-        f.a.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        f.b.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.i && !this.l) {
             this.j = th;
             this.i = true;
@@ -265,16 +265,16 @@ public final class UnicastProcessor<T> extends a<T> {
             h();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     @Override // g.d.c
     public void onNext(T t) {
-        f.a.x.b.a.b(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        f.b.x.b.a.b(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.i || this.l) {
             return;
         }
-        this.f68104f.offer(t);
+        this.f69110f.offer(t);
         h();
     }
 
@@ -292,10 +292,10 @@ public final class UnicastProcessor<T> extends a<T> {
     }
 
     public UnicastProcessor(int i, Runnable runnable, boolean z) {
-        f.a.x.b.a.c(i, "capacityHint");
-        this.f68104f = new f.a.x.f.a<>(i);
-        this.f68105g = new AtomicReference<>(runnable);
-        this.f68106h = z;
+        f.b.x.b.a.c(i, "capacityHint");
+        this.f69110f = new f.b.x.f.a<>(i);
+        this.f69111g = new AtomicReference<>(runnable);
+        this.f69112h = z;
         this.k = new AtomicReference<>();
         this.m = new AtomicBoolean();
         this.n = new UnicastQueueSubscription();

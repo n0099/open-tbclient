@@ -19,10 +19,10 @@ import d.b.g0.a.g;
 public class LoadingLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12682e;
+    public ImageView f12343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12683f;
+    public TextView f12344f;
 
     public LoadingLayout(Context context) {
         super(context);
@@ -31,8 +31,8 @@ public class LoadingLayout extends LinearLayout {
     public final void a() {
         View inflate = LayoutInflater.from(getContext()).inflate(g.swanapp_album_loadding_layout, (ViewGroup) null);
         inflate.setBackgroundResource(c.aiapps_white);
-        this.f12682e = (ImageView) inflate.findViewById(f.album_loadding_img);
-        this.f12683f = (TextView) inflate.findViewById(f.album_loadding_tv);
+        this.f12343e = (ImageView) inflate.findViewById(f.album_loadding_img);
+        this.f12344f = (TextView) inflate.findViewById(f.album_loadding_tv);
         addView(inflate);
     }
 
@@ -40,8 +40,8 @@ public class LoadingLayout extends LinearLayout {
         if (z) {
             setVisibility(0);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.swanapp_album_rotate_loading);
-            this.f12682e.setImageResource(e.swanapp_album_progress_icon);
-            this.f12682e.startAnimation(loadAnimation);
+            this.f12343e.setImageResource(e.swanapp_album_progress_icon);
+            this.f12343e.startAnimation(loadAnimation);
             return;
         }
         setVisibility(8);

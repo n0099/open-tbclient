@@ -5,5 +5,5 @@ import android.widget.TextView;
 public final class fe {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23272a;
+    public TextView f22957a;
 }

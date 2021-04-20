@@ -13,7 +13,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends a0 {
     public j(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/getImageInfo");
@@ -34,7 +34,7 @@ public class j extends a0 {
         }
         JSONObject jSONObject = null;
         if (d.b.g0.a.a2.b.c(optString) == PathType.BD_FILE) {
-            jSONObject = k(d.b.g0.a.a2.b.u(optString, eVar.f45740f), optString);
+            jSONObject = k(d.b.g0.a.a2.b.u(optString, eVar.f46132f), optString);
         } else if (d.b.g0.a.a2.b.c(optString) == PathType.RELATIVE) {
             jSONObject = k(d.b.g0.a.a2.b.t(optString, eVar, eVar.W()), optString);
         }
@@ -93,7 +93,7 @@ public class j extends a0 {
             jSONObject.put("type", str3);
         } catch (JSONException e2) {
             d.b.g0.a.c0.c.b("getImageInfo", "getImgInfo failed by json exception");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
         }

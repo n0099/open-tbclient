@@ -3,102 +3,128 @@ package a.a.a.a.r.a.c;
 import a.a.a.a.s.e;
 import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
+import com.qq.e.ads.splash.SplashAD;
+import com.qq.e.ads.splash.SplashADListener;
+import com.qq.e.comm.util.AdError;
 import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes.dex */
-public class m extends e<TTNativeExpressAd> {
-    public final HashMap<TTNativeExpressAd, String> n;
+public class m extends a.a.a.a.b<SplashAD> {
+    public final HashMap<SplashAD, String> m;
 
     /* loaded from: classes.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
+    public class a implements SplashADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f1136a;
+        public boolean f1187a;
 
-        public a(FunAdSlot funAdSlot) {
-            this.f1136a = funAdSlot;
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f1188b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ SplashAD[] f1189c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ FunAdSlot f1190d;
+
+        public a(SplashAD[] splashADArr, FunAdSlot funAdSlot) {
+            this.f1189c = splashADArr;
+            this.f1190d = funAdSlot;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.a.b
-        public void onError(int i, String str) {
-            a.a.a.a.v.d.b("CSJNativeExpressAd onError code: " + i + ", message: " + str, new Object[0]);
-            m.this.f1010g.a(Integer.valueOf(i));
-            m.this.b(i, str);
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADClicked() {
+            a.a.a.a.v.d.a();
+            m.this.f1010g.a(this.f1188b);
+            this.f1188b = true;
+            m.this.e();
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
-            a.a.a.a.v.d.b("CSJNativeExpressAd onNativeExpressAdLoad", new Object[0]);
-            if (list != null && !list.isEmpty()) {
-                m.this.f1010g.b();
-                TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                m.this.k.b(tTNativeExpressAd, this.f1136a.getSid());
-                m mVar = m.this;
-                String sid = this.f1136a.getSid();
-                if (mVar == null) {
-                    throw null;
-                }
-                tTNativeExpressAd.setExpressInteractionListener(new n(mVar, tTNativeExpressAd, sid));
-                tTNativeExpressAd.setCanInterruptVideoPlay(true);
-                tTNativeExpressAd.render();
-                return;
-            }
-            a.a.a.a.v.d.b("CSJNativeExpressAd onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
-            m.this.f1010g.a("NoFill");
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADDismissed() {
+            a.a.a.a.v.d.a();
+            m.this.f1010g.d();
+            m.this.f();
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADExposure() {
+            a.a.a.a.v.d.a();
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADLoaded(long j) {
+            a.a.a.a.v.d.a();
+            m.this.f1010g.b();
+            SplashAD splashAD = this.f1189c[0];
+            m.this.m.put(splashAD, this.f1190d.getSid());
+            m mVar = m.this;
+            mVar.a((m) splashAD);
+            mVar.h();
+            m.this.k.b(splashAD, this.f1190d.getSid());
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADPresent() {
+            a.a.a.a.v.d.a();
+            m.this.f1010g.b(this.f1187a);
+            this.f1187a = true;
+            SplashAD splashAD = this.f1189c[0];
+            m mVar = m.this;
+            mVar.a((m) splashAD, mVar.m.remove(splashAD));
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADTick(long j) {
+            a.a.a.a.v.d.a();
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onNoAD(AdError adError) {
+            a.a.a.a.v.d.b("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+            m.this.f1010g.a(Integer.valueOf(adError.getErrorCode()));
+            m.this.b(adError.getErrorCode(), adError.getErrorMsg());
         }
     }
 
     public m(e.a aVar) {
-        super(aVar);
-        this.n = new HashMap<>();
+        super(aVar, false);
+        this.m = new HashMap<>();
     }
 
     @Override // a.a.a.a.b
-    public boolean a(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-        View expressAdView = tTNativeExpressAd.getExpressAdView();
-        if (expressAdView != null && expressAdView.getParent() != null) {
-            ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
-        }
-        this.n.put(tTNativeExpressAd, str);
+    public a.a.a.a.u.a a(e.a aVar) {
+        return new a.a.a.a.u.i(aVar);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
+    @Override // a.a.a.a.b
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, SplashAD splashAD) {
+        SplashAD splashAD2 = splashAD;
         this.f1010g.g();
-        tTNativeExpressAd.setDislikeCallback(activity, new o(this, expressAdView));
-        tTNativeExpressAd.setDownloadListener(new a.a.a.a.r.b.b.a(null));
-        viewGroup.removeAllViews();
-        viewGroup.addView(expressAdView);
+        this.m.put(splashAD2, str);
+        splashAD2.showAd(viewGroup);
         return true;
     }
 
     @Override // a.a.a.a.b
-    public void b(Object obj) {
-        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-        this.n.remove(tTNativeExpressAd);
-        if (tTNativeExpressAd != null) {
-            tTNativeExpressAd.destroy();
+    public void b(Context context, FunAdSlot funAdSlot) {
+        if (!(context instanceof Activity)) {
+            b(0, "NotActivity");
+            return;
         }
+        a aVar = new a(r0, funAdSlot);
+        this.f1010g.a(funAdSlot, this.f1011h);
+        SplashAD splashAD = new SplashAD((Activity) context, this.f1011h.f1320c, aVar, 0);
+        SplashAD[] splashADArr = {splashAD};
+        splashAD.fetchAdOnly();
+        g();
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // a.a.a.a.b
-    public void b(Context context, FunAdSlot funAdSlot) {
-        if (this.m == null) {
-            this.m = TTAdSdk.getAdManager().createAdNative(context);
-        }
-        int expressWidth = funAdSlot.getExpressWidth();
-        int expressHeight = funAdSlot.getExpressHeight();
-        if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-            throw new RuntimeException("Invalid expressWidth and expressHeight.");
-        }
-        AdSlot build = new AdSlot.Builder().setCodeId(this.f1011h.f1334c).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
-        this.f1010g.a(funAdSlot, this.f1011h);
-        this.m.loadNativeExpressAd(build, new a(funAdSlot));
-        g();
+    public void b(SplashAD splashAD) {
+        this.m.remove(splashAD);
     }
 }

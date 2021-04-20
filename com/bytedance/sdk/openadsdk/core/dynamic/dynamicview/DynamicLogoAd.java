@@ -5,7 +5,7 @@ import android.os.Build;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicLogoAd extends DynamicBaseWidgetImp {
     public DynamicLogoAd(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);

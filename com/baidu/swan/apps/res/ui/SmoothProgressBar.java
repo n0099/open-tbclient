@@ -24,23 +24,23 @@ public class SmoothProgressBar extends RotateProgressBar {
     }
 
     private void a() {
-        this.f12473h = (int) ((((this.f12473h * 12.0f) / i) / 2.0f) + 0.5f);
+        this.f12134h = (int) ((((this.f12134h * 12.0f) / i) / 2.0f) + 0.5f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.RotateProgressBar, android.widget.ProgressBar, android.view.View
     public synchronized void onDraw(Canvas canvas) {
-        Drawable drawable = this.f12471f;
+        Drawable drawable = this.f12132f;
         if (drawable != null) {
             drawable.draw(canvas);
-            if (SystemClock.uptimeMillis() - this.f12472g >= this.f12473h) {
-                this.f12472g = SystemClock.uptimeMillis();
-                int i2 = this.f12470e + (10000 / i);
-                this.f12470e = i2;
+            if (SystemClock.uptimeMillis() - this.f12133g >= this.f12134h) {
+                this.f12133g = SystemClock.uptimeMillis();
+                int i2 = this.f12131e + (10000 / i);
+                this.f12131e = i2;
                 if (i2 >= 10000) {
-                    this.f12470e = i2 - 10000;
+                    this.f12131e = i2 - 10000;
                 }
-                drawable.setLevel(this.f12470e);
-                postInvalidateDelayed(this.f12473h);
+                drawable.setLevel(this.f12131e);
+                postInvalidateDelayed(this.f12134h);
             }
         }
     }

@@ -9,16 +9,16 @@ import d.b.g0.a.k;
 public class b implements ZeusPluginFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45796a;
+    public String f46188a;
 
     public b(@NonNull String str) {
-        this.f45796a = str;
+        this.f46188a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        c cVar = new c(invoker, this.f45796a);
-        if (k.f45051a) {
+        c cVar = new c(invoker, this.f46188a);
+        if (k.f45443a) {
             Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + cVar.hashCode() + "」");
         }
         return new a(cVar);

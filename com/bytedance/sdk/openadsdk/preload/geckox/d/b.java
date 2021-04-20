@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.d;
 import com.bytedance.sdk.openadsdk.preload.b.j;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends j<UpdatePackage, UpdatePackage> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.j

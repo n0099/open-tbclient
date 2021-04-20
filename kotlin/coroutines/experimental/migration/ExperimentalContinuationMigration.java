@@ -32,13 +32,13 @@ public final class ExperimentalContinuationMigration<T> implements Continuation<
     public void resume(T t) {
         kotlin.coroutines.Continuation<T> continuation = this.continuation;
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m628constructorimpl(t));
+        continuation.resumeWith(Result.m632constructorimpl(t));
     }
 
     @Override // kotlin.coroutines.experimental.Continuation
     public void resumeWithException(Throwable th) {
         kotlin.coroutines.Continuation<T> continuation = this.continuation;
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m628constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m632constructorimpl(ResultKt.createFailure(th)));
     }
 }

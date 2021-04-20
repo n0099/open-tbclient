@@ -3,13 +3,13 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.squareup.wire.Wire;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Object> {
     public List<l.b<String>> cacheList;
     public long gid;

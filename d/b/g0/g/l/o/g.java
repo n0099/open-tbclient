@@ -5,21 +5,21 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48481a;
+    public int f48873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48482b = 0;
+    public int f48874b = 0;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
     public String savedFilePath;
 
     public g() {
-        this.f48481a = 0;
-        this.f48481a = 0 + 1;
+        this.f48873a = 0;
+        this.f48873a = 0 + 1;
     }
 
     public String toString() {
-        return "SaveFileCallBack" + this.f48482b;
+        return "SaveFileCallBack" + this.f48874b;
     }
 }

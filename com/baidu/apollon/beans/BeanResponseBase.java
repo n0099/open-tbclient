@@ -10,13 +10,13 @@ import org.json.JSONObject;
 public class BeanResponseBase implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3561a = "系统开小差，等一会儿再试吧";
+    public static final String f3596a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3562b = "content";
+    public static final String f3597b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3563c = "data";
+    public static final String f3598c = "data";
     public Session cashdesk;
     public String mdAlgorithm;
     public String result_string;
@@ -67,7 +67,7 @@ public class BeanResponseBase implements NoProguard {
             return this.err_msg;
         }
         if (TextUtils.isEmpty(this.result_info)) {
-            return !TextUtils.isEmpty(this.result_string) ? this.result_string : f3561a;
+            return !TextUtils.isEmpty(this.result_string) ? this.result_string : f3596a;
         }
         return this.result_info;
     }

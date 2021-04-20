@@ -39,45 +39,45 @@ import javax.net.ssl.TrustManager;
 public class b implements com.baidu.apollon.restnet.rest.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3794e = "appcache";
+    public static final String f3829e = "appcache";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3795h = 2;
+    public static final int f3830h = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3796a;
+    public Context f3831a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3797b;
+    public String f3832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RestUrlConnectionRequest f3798c;
+    public RestUrlConnectionRequest f3833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URLConnection f3799d;
+    public URLConnection f3834d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3800f;
+    public boolean f3835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3801g;
+    public boolean f3836g;
 
     public b(Context context, String str, boolean z) {
-        this.f3801g = false;
-        this.f3796a = context.getApplicationContext();
-        this.f3797b = str;
-        this.f3801g = z;
+        this.f3836g = false;
+        this.f3831a = context.getApplicationContext();
+        this.f3832b = str;
+        this.f3836g = z;
     }
 
     private e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        a(this.f3799d);
-        return a(url, this.f3799d, "GET");
+        a(this.f3834d);
+        return a(url, this.f3834d, "GET");
     }
 
     private boolean c() {
-        if (this.f3798c != null) {
-            a.InterfaceC0064a a2 = com.baidu.apollon.restnet.a.a();
-            String h2 = this.f3798c.h();
+        if (this.f3833c != null) {
+            a.InterfaceC0063a a2 = com.baidu.apollon.restnet.a.a();
+            String h2 = this.f3833c.h();
             return (TextUtils.isEmpty(h2) || a2 == null || !a2.a(h2)) ? false : true;
         }
         return false;
@@ -85,7 +85,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
 
     private void d() {
         try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f3796a.getDir("appcache", 0), "http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
+            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f3831a.getDir("appcache", 0), "http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
         } catch (Exception unused) {
         }
     }
@@ -99,46 +99,46 @@ public class b implements com.baidu.apollon.restnet.rest.c {
 
     @Override // com.baidu.apollon.restnet.rest.c
     public e a(com.baidu.apollon.restnet.rest.d dVar) throws MalformedURLException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        this.f3798c = (RestUrlConnectionRequest) dVar;
+        this.f3833c = (RestUrlConnectionRequest) dVar;
         String c2 = dVar.c();
-        if (this.f3798c.k()) {
+        if (this.f3833c.k()) {
             c2 = a(c2);
         }
         URL url = new URL(c2);
-        this.f3799d = url.openConnection();
+        this.f3834d = url.openConnection();
         if ("https".equalsIgnoreCase(url.getProtocol())) {
             if (RestDebugConfig.getInstance().isQAEnv()) {
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
                 sSLContext.init(null, new TrustManager[]{new a()}, null);
-                ((HttpsURLConnection) this.f3799d).setSSLSocketFactory(sSLContext.getSocketFactory());
-                ((HttpsURLConnection) this.f3799d).setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.1
+                ((HttpsURLConnection) this.f3834d).setSSLSocketFactory(sSLContext.getSocketFactory());
+                ((HttpsURLConnection) this.f3834d).setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.1
                     @Override // javax.net.ssl.HostnameVerifier
                     public boolean verify(String str, SSLSession sSLSession) {
                         return true;
                     }
                 });
             } else {
-                a((HttpsURLConnection) this.f3799d);
-                b((HttpsURLConnection) this.f3799d);
+                a((HttpsURLConnection) this.f3834d);
+                b((HttpsURLConnection) this.f3834d);
             }
         }
-        LogUtil.v("apollon_rest", "con url: " + url + ", host: " + this.f3799d.getURL().getHost());
-        if (this.f3798c.j()) {
+        LogUtil.v("apollon_rest", "con url: " + url + ", host: " + this.f3834d.getURL().getHost());
+        if (this.f3833c.j()) {
             return a(url);
         }
-        if (this.f3798c.k()) {
+        if (this.f3833c.k()) {
             return b(url);
         }
         return null;
     }
 
     private void b() {
-        ((HttpsURLConnection) this.f3799d).setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.2
+        ((HttpsURLConnection) this.f3834d).setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.2
             @Override // javax.net.ssl.HostnameVerifier
             public boolean verify(String str, SSLSession sSLSession) {
                 try {
                     Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                    String v = b.this.f3798c.a().v();
+                    String v = b.this.f3833c.a().v();
                     if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                         X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
                         Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
@@ -177,17 +177,17 @@ public class b implements com.baidu.apollon.restnet.rest.c {
 
     private void b(HttpsURLConnection httpsURLConnection) {
         if (httpsURLConnection != null) {
-            httpsURLConnection.setHostnameVerifier(com.baidu.apollon.restnet.rest.a.f3765a);
+            httpsURLConnection.setHostnameVerifier(com.baidu.apollon.restnet.rest.a.f3800a);
         }
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x005d -> B:35:0x006c). Please submit an issue!!! */
     private void b(URLConnection uRLConnection) {
         DataOutputStream dataOutputStream;
-        RestUrlConnectionRequest restUrlConnectionRequest = this.f3798c;
+        RestUrlConnectionRequest restUrlConnectionRequest = this.f3833c;
         if (restUrlConnectionRequest != null) {
             String processedParams = restUrlConnectionRequest.getProcessedParams();
-            RestMultipartEntity i = this.f3798c.i();
+            RestMultipartEntity i = this.f3833c.i();
             uRLConnection.setDoOutput(true);
             uRLConnection.setDoInput(true);
             if (i != null) {
@@ -238,24 +238,24 @@ public class b implements com.baidu.apollon.restnet.rest.c {
 
     @Override // com.baidu.apollon.restnet.rest.c
     public void a() {
-        URLConnection uRLConnection = this.f3799d;
+        URLConnection uRLConnection = this.f3834d;
         if (uRLConnection != null) {
             if (uRLConnection instanceof HttpsURLConnection) {
                 ((HttpsURLConnection) uRLConnection).disconnect();
             } else if (uRLConnection instanceof HttpURLConnection) {
                 ((HttpURLConnection) uRLConnection).disconnect();
             }
-            this.f3799d = null;
+            this.f3834d = null;
         }
-        if (this.f3801g) {
+        if (this.f3836g) {
             e();
         }
     }
 
     private e a(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        a(this.f3799d);
-        b(this.f3799d);
-        return a(url, this.f3799d, "POST");
+        a(this.f3834d);
+        b(this.f3834d);
+        return a(url, this.f3834d, "POST");
     }
 
     private e a(URL url, URLConnection uRLConnection, String str) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
@@ -279,12 +279,12 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     }
 
     private void a(URLConnection uRLConnection) {
-        if (this.f3800f) {
-            uRLConnection.setConnectTimeout(this.f3798c.g() > 0 ? this.f3798c.g() : 30000);
-            uRLConnection.setReadTimeout(this.f3798c.g() > 0 ? this.f3798c.g() : 30000);
+        if (this.f3835f) {
+            uRLConnection.setConnectTimeout(this.f3833c.g() > 0 ? this.f3833c.g() : 30000);
+            uRLConnection.setReadTimeout(this.f3833c.g() > 0 ? this.f3833c.g() : 30000);
         } else {
-            uRLConnection.setConnectTimeout(this.f3798c.g() > 0 ? this.f3798c.g() : 30000);
-            uRLConnection.setReadTimeout(this.f3798c.g() > 0 ? this.f3798c.g() : 30000);
+            uRLConnection.setConnectTimeout(this.f3833c.g() > 0 ? this.f3833c.g() : 30000);
+            uRLConnection.setReadTimeout(this.f3833c.g() > 0 ? this.f3833c.g() : 30000);
         }
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
@@ -298,17 +298,17 @@ public class b implements com.baidu.apollon.restnet.rest.c {
             uRLConnection.setRequestProperty("Accept-Encoding", "");
             return;
         }
-        uRLConnection.setRequestProperty("User-Agent", this.f3797b);
-        for (Map.Entry<String, List<String>> entry : this.f3798c.a().entrySet()) {
+        uRLConnection.setRequestProperty("User-Agent", this.f3832b);
+        for (Map.Entry<String, List<String>> entry : this.f3833c.a().entrySet()) {
             uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
         }
-        if (this.f3801g) {
+        if (this.f3836g) {
             d();
         }
     }
 
     private String a(String str) {
-        RestUrlConnectionRequest restUrlConnectionRequest = this.f3798c;
+        RestUrlConnectionRequest restUrlConnectionRequest = this.f3833c;
         if (restUrlConnectionRequest != null) {
             String processedParams = restUrlConnectionRequest.getProcessedParams();
             if (TextUtils.isEmpty(processedParams)) {

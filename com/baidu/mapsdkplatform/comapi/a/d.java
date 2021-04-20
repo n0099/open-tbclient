@@ -17,22 +17,22 @@ import java.util.ArrayList;
 public class d extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f7484a = null;
+    public Animator f7519a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7485b = 0;
+    public long f7520b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f7486c = null;
+    public Interpolator f7521c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f7487d = null;
+    public Animation.AnimationListener f7522d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7488e = 0;
+    public int f7523e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Animation> f7489f = new ArrayList<>();
+    public ArrayList<Animation> f7524f = new ArrayList<>();
 
     @TargetApi(11)
     private ObjectAnimator b(Marker marker, Animation animation) {
@@ -57,7 +57,7 @@ public class d extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        Animator animator = this.f7484a;
+        Animator animator = this.f7519a;
         if (animator == null) {
             return;
         }
@@ -73,7 +73,7 @@ public class d extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f7485b = j;
+        this.f7520b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -87,27 +87,27 @@ public class d extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Interpolator interpolator) {
-        this.f7486c = interpolator;
+        this.f7521c = interpolator;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Animation.AnimationListener animationListener) {
-        this.f7487d = animationListener;
+        this.f7522d = animationListener;
     }
 
     public void a(Animation animation) {
-        if (this.f7489f.contains(animation)) {
+        if (this.f7524f.contains(animation)) {
             return;
         }
-        this.f7489f.add(animation);
+        this.f7524f.add(animation);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         ObjectAnimator b2;
-        this.f7484a = new AnimatorSet();
-        ArrayList<Animation> arrayList = this.f7489f;
+        this.f7519a = new AnimatorSet();
+        ArrayList<Animation> arrayList = this.f7524f;
         ArrayList arrayList2 = new ArrayList();
         arrayList2.clear();
         for (int i = 0; i < arrayList.size(); i++) {
@@ -116,32 +116,32 @@ public class d extends c {
                 arrayList2.add(b2);
             }
         }
-        long j = this.f7485b;
+        long j = this.f7520b;
         if (j != 0) {
-            this.f7484a.setDuration(j);
+            this.f7519a.setDuration(j);
         }
-        Interpolator interpolator = this.f7486c;
+        Interpolator interpolator = this.f7521c;
         if (interpolator != null) {
-            this.f7484a.setInterpolator(interpolator);
+            this.f7519a.setInterpolator(interpolator);
         }
         if (arrayList2.size() != 0) {
-            int i2 = this.f7488e;
+            int i2 = this.f7523e;
             if (i2 == 0) {
-                ((AnimatorSet) this.f7484a).playTogether(arrayList2);
+                ((AnimatorSet) this.f7519a).playTogether(arrayList2);
             } else if (i2 == 1) {
-                ((AnimatorSet) this.f7484a).playSequentially(arrayList2);
+                ((AnimatorSet) this.f7519a).playSequentially(arrayList2);
             }
         }
-        a(this.f7484a);
+        a(this.f7519a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        Animator animator = this.f7484a;
+        Animator animator = this.f7519a;
         if (animator != null) {
             animator.cancel();
-            this.f7484a = null;
+            this.f7519a = null;
         }
     }
 
@@ -151,6 +151,6 @@ public class d extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void c(int i) {
-        this.f7488e = i;
+        this.f7523e = i;
     }
 }

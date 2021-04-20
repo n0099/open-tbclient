@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.b.e.l.d;
-import d.b.b.e.p.l;
+import d.b.c.e.l.d;
+import d.b.c.e.p.l;
 import d.b.h0.a.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
@@ -28,7 +28,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public View.OnClickListener mOnClickListener = new a();
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -57,13 +57,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        d.b.b.j.d.a aVar;
+        d.b.c.j.d.a aVar;
         if (getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (d.b.b.j.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (d.b.c.j.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());

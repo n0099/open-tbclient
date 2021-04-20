@@ -7,24 +7,24 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.d0.h;
 /* loaded from: classes4.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14745e;
+    public Context f14408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f14746f;
+    public LinearLayout f14409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f14747g;
+    public h f14410g;
     public String j;
     public String k;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14748h = false;
+    public boolean f14411h = false;
     public boolean i = false;
     public CustomMessageListener l = new a(2921442);
 
@@ -45,7 +45,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     }
 
     public void E0() {
-        this.f14746f.setVisibility(8);
+        this.f14409f.setVisibility(8);
     }
 
     public void F0() {
@@ -65,19 +65,19 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     }
 
     public void J0() {
-        this.f14746f.setVisibility(0);
-        if (this.f14747g == null) {
-            this.f14747g = new h(this.f14745e, null);
+        this.f14409f.setVisibility(0);
+        if (this.f14410g == null) {
+            this.f14410g = new h(this.f14408e, null);
         }
-        this.f14747g.e();
-        this.f14747g.i(R.drawable.new_pic_emotion_03);
-        this.f14747g.n(this.f14745e.getResources().getString(R.string.no_data_common_txt));
-        this.f14747g.onChangeSkinType();
+        this.f14410g.e();
+        this.f14410g.i(R.drawable.new_pic_emotion_03);
+        this.f14410g.n(this.f14408e.getResources().getString(R.string.no_data_common_txt));
+        this.f14410g.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.f14747g.b() == null || this.f14747g.b().getParent() != null) {
+        if (this.f14410g.b() == null || this.f14410g.b().getParent() != null) {
             return;
         }
-        this.f14746f.addView(this.f14747g.b(), layoutParams);
+        this.f14409f.addView(this.f14410g.b(), layoutParams);
     }
 
     public abstract void loadData();
@@ -85,7 +85,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        h hVar = this.f14747g;
+        h hVar = this.f14410g;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }

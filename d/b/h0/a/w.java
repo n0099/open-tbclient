@@ -18,28 +18,28 @@ import com.baidu.tieba.R;
 public class w implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49646a;
+    public Context f50038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f49647b;
+    public b f50039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SensorManager f49648c;
+    public SensorManager f50040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Sensor f49649d;
+    public Sensor f50041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Vibrator f49650e;
+    public Vibrator f50042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SoundPool f49651f;
+    public SoundPool f50043f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49652g;
+    public int f50044g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49653h;
+    public int f50045h;
     public long i;
     public boolean j;
     public MediaPlayer k;
@@ -64,18 +64,18 @@ public class w implements SensorEventListener {
         if (context == null) {
             return;
         }
-        this.f49646a = context;
-        this.f49647b = bVar;
+        this.f50038a = context;
+        this.f50039b = bVar;
         SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-        this.f49648c = sensorManager;
+        this.f50040c = sensorManager;
         if (sensorManager != null) {
-            this.f49649d = sensorManager.getDefaultSensor(1);
+            this.f50041d = sensorManager.getDefaultSensor(1);
         }
-        this.f49650e = (Vibrator) context.getSystemService("vibrator");
+        this.f50042e = (Vibrator) context.getSystemService("vibrator");
         SoundPool soundPool = new SoundPool(1, 3, 0);
-        this.f49651f = soundPool;
+        this.f50043f = soundPool;
         if (soundPool != null) {
-            this.f49652g = soundPool.load(context, R.raw.shake_tone, 1);
+            this.f50044g = soundPool.load(context, R.raw.shake_tone, 1);
         }
     }
 
@@ -89,7 +89,7 @@ public class w implements SensorEventListener {
     }
 
     public void c() {
-        SensorManager sensorManager = this.f49648c;
+        SensorManager sensorManager = this.f50040c;
         if (sensorManager != null) {
             sensorManager.unregisterListener(this);
             this.j = false;
@@ -113,45 +113,45 @@ public class w implements SensorEventListener {
     }
 
     public void f() {
-        Sensor sensor = this.f49649d;
+        Sensor sensor = this.f50041d;
         if (sensor != null) {
-            this.f49648c.registerListener(this, sensor, 2);
+            this.f50040c.registerListener(this, sensor, 2);
             this.j = true;
         }
     }
 
     public boolean g() {
-        Context context = this.f49646a;
+        Context context = this.f50038a;
         if (context == null) {
             return false;
         }
         AudioManager audioManager = (AudioManager) context.getSystemService("audio");
         int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
-        Vibrator vibrator = this.f49650e;
+        Vibrator vibrator = this.f50042e;
         if (vibrator == null || !vibrator.hasVibrator() || ringerMode <= 0) {
             return false;
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            this.f49650e.vibrate(VibrationEffect.createOneShot(400L, 255));
+            this.f50042e.vibrate(VibrationEffect.createOneShot(400L, 255));
             return true;
         }
-        this.f49650e.vibrate(400L);
+        this.f50042e.vibrate(400L);
         return true;
     }
 
     public void h(boolean z) {
         int i;
-        if (!z && (i = this.f49653h) != 0) {
-            SoundPool soundPool = this.f49651f;
+        if (!z && (i = this.f50045h) != 0) {
+            SoundPool soundPool = this.f50043f;
             if (soundPool != null) {
                 soundPool.play(i, 1.0f, 1.0f, 0, 0, 1.0f);
                 return;
             }
             return;
         }
-        SoundPool soundPool2 = this.f49651f;
+        SoundPool soundPool2 = this.f50043f;
         if (soundPool2 != null) {
-            soundPool2.play(this.f49652g, 1.0f, 1.0f, 0, 0, 1.0f);
+            soundPool2.play(this.f50044g, 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 
@@ -177,7 +177,7 @@ public class w implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         b bVar;
-        if (sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.f49647b) != null) {
+        if (sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.f50039b) != null) {
             bVar.a();
         }
     }

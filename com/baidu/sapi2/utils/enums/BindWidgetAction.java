@@ -10,21 +10,21 @@ public enum BindWidgetAction {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11468a;
+    public String f11052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11469b;
+    public String f11053b;
 
     BindWidgetAction(String str, String str2) {
-        this.f11468a = str;
-        this.f11469b = str2;
+        this.f11052a = str;
+        this.f11053b = str2;
     }
 
     public String getName() {
-        return this.f11469b;
+        return this.f11053b;
     }
 
     public String getUri() {
-        return this.f11468a;
+        return this.f11052a;
     }
 }

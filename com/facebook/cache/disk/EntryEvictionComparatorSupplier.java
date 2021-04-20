@@ -1,5 +1,5 @@
 package com.facebook.cache.disk;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface EntryEvictionComparatorSupplier {
     EntryEvictionComparator get();
 }

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import d.b.b.e.a.d;
+import d.b.c.e.a.d;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class ImagesInvalidService extends BdBaseService {
@@ -14,7 +14,7 @@ public class ImagesInvalidService extends BdBaseService {
     public DiskFileOperate mDiskFileOperate = null;
 
     /* loaded from: classes3.dex */
-    public static class a extends DiskFileOperate implements d.b.b.e.a.a {
+    public static class a extends DiskFileOperate implements d.b.c.e.a.a {
         public a(String str, String str2, DiskFileOperate.Action action) {
             super(str, str2, action);
         }
@@ -26,7 +26,7 @@ public class ImagesInvalidService extends BdBaseService {
             ImagesInvalidReceiver.broadcast(z);
         }
 
-        @Override // d.b.b.e.a.a
+        @Override // d.b.c.e.a.a
         public boolean compare(File file) {
             return file != null && file.lastModified() + 259200000 < System.currentTimeMillis();
         }

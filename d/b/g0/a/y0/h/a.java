@@ -20,12 +20,12 @@ import java.util.Locale;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47124a = k.f45051a;
+    public static final boolean f47516a = k.f45443a;
 
     /* renamed from: d.b.g0.a.y0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0887a extends e {
-        public C0887a(String str) {
+    public static class C0899a extends e {
+        public C0899a(String str) {
             super(str);
         }
 
@@ -41,7 +41,7 @@ public class a {
     }
 
     public static void a(@NonNull Bundle bundle) {
-        if (f47124a) {
+        if (f47516a) {
             Log.i("SwanAppLaunchUtils", "asyncUpdatePkg: swanAsyncUpdate -> 异步更新小程序包 开始");
         }
         String string = bundle.getString("mAppId");
@@ -56,13 +56,13 @@ public class a {
         if (bundle.containsKey("pms_update_expect_pkg_ver")) {
             cVar.n(bundle.getInt("pms_update_expect_pkg_ver"));
         }
-        if (f47124a) {
+        if (f47516a) {
             Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.h())));
         }
         cVar.d("4");
-        C0887a c0887a = new C0887a(string);
-        c0887a.L(3);
-        d.b.g0.l.c.a(cVar, c0887a);
+        C0899a c0899a = new C0899a(string);
+        c0899a.K(3);
+        d.b.g0.l.c.a(cVar, c0899a);
     }
 
     public static boolean b(@Nullable PMSAppInfo pMSAppInfo, @Nullable Bundle bundle) {
@@ -102,7 +102,7 @@ public class a {
                         }
                         lastIndexOf2 = e2.lastIndexOf(File.separator);
                     }
-                    if (f47124a) {
+                    if (f47516a) {
                         Log.d("SwanAppLaunchUtils", "isInDependentPkg=" + z + ", pagePath=" + e2);
                     }
                     if (z && !TextUtils.isEmpty(e2)) {

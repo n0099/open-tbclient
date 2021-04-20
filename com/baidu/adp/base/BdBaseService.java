@@ -2,7 +2,7 @@ package com.baidu.adp.base;
 
 import android.app.Service;
 import android.content.Intent;
-import d.b.b.c.e.c.k.e;
+import d.b.c.c.e.c.k.e;
 /* loaded from: classes.dex */
 public abstract class BdBaseService extends Service {
     public static e sCallBack = null;

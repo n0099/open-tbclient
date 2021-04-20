@@ -11,7 +11,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GenericDraweeHierarchyInflater {
     @Nullable
     public static Drawable getDrawable(Context context, TypedArray typedArray, int i) {

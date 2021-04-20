@@ -1,63 +1,63 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28202a;
+    public int f27887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28203b;
+    public boolean f27888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f28204c;
+    public double f27889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f28205d;
+    public double f27890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f28206e;
+    public double f27891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f28207f;
+    public double f27892f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f28208g;
+    public double f27893g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f28209h;
+    public double f27894h;
     public String i;
     public int j;
 
     public int a() {
-        return this.f28202a;
+        return this.f27887a;
     }
 
     public boolean b() {
-        return this.f28203b;
+        return this.f27888b;
     }
 
     public double c() {
-        return this.f28204c;
+        return this.f27889c;
     }
 
     public double d() {
-        return this.f28205d;
+        return this.f27890d;
     }
 
     public double e() {
-        return this.f28206e;
+        return this.f27891e;
     }
 
     public double f() {
-        return this.f28207f;
+        return this.f27892f;
     }
 
     public double g() {
-        return this.f28208g;
+        return this.f27893g;
     }
 
     public double h() {
-        return this.f28209h;
+        return this.f27894h;
     }
 
     public int i() {
@@ -65,31 +65,31 @@ public class o {
     }
 
     public void a(int i) {
-        this.f28202a = i;
+        this.f27887a = i;
     }
 
     public void b(double d2) {
-        this.f28205d = d2;
+        this.f27890d = d2;
     }
 
     public void c(double d2) {
-        this.f28206e = d2;
+        this.f27891e = d2;
     }
 
     public void d(double d2) {
-        this.f28207f = d2;
+        this.f27892f = d2;
     }
 
     public void e(double d2) {
-        this.f28208g = d2;
+        this.f27893g = d2;
     }
 
     public void f(double d2) {
-        this.f28209h = d2;
+        this.f27894h = d2;
     }
 
     public void a(boolean z) {
-        this.f28203b = z;
+        this.f27888b = z;
     }
 
     public void b(int i) {
@@ -97,7 +97,7 @@ public class o {
     }
 
     public void a(double d2) {
-        this.f28204c = d2;
+        this.f27889c = d2;
     }
 
     public void a(String str) {

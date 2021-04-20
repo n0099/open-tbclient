@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import d.b.h0.r.q.a2;
 import d.b.i0.e.e.c;
 import d.b.i0.e.e.d;
 import d.b.i0.e.e.e;
 import d.b.i0.e.f.b;
-import d.b.i0.r2.q;
+import d.b.i0.s2.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -27,10 +27,10 @@ public class FrsFeedAdStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b bVar;
             d.b.i0.e.e.b c2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b) || (c2 = (bVar = (b) customResponsedMessage.getData()).c()) == null || !(c2 instanceof q)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b) || (c2 = (bVar = (b) customResponsedMessage.getData()).c()) == null || !(c2 instanceof t)) {
                 return;
             }
-            q qVar = (q) c2;
+            t tVar = (t) c2;
             d.b.i0.e.e.a injectPlugin = c2.getInjectPlugin(1);
             if (injectPlugin == null) {
                 d a2 = e.b().a(1);
@@ -39,7 +39,7 @@ public class FrsFeedAdStatic {
                 }
                 injectPlugin = a2.a();
                 c2.setInjectPlugin(1, injectPlugin);
-                injectPlugin.n(new c(qVar));
+                injectPlugin.n(new c(tVar));
             }
             if (injectPlugin instanceof d.b.i0.e.b.d) {
                 d.b.i0.e.b.d dVar = (d.b.i0.e.b.d) injectPlugin;
@@ -47,8 +47,8 @@ public class FrsFeedAdStatic {
                     List list = (List) bVar.f();
                     d.b.i0.e.b.b.e(dVar.e());
                     for (BdUniqueId bdUniqueId : d.b.i0.e.b.b.f()) {
-                        d.b.i0.e.b.a aVar = new d.b.i0.e.b.a(qVar, bdUniqueId);
-                        aVar.h0(qVar.q());
+                        d.b.i0.e.b.a aVar = new d.b.i0.e.b.a(tVar, bdUniqueId);
+                        aVar.h0(tVar.q());
                         list.add(aVar);
                     }
                 } else if (bVar.a() == 2) {

@@ -32,7 +32,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public String SHARE_ID = "recommend_new_friend" + TbadkCoreApplication.getCurrentAccount();
     public a.c mNewFriendItemListener = new e();
     public final CustomMessageListener mNewFriendAction = new f(2001174);
-    public final d.b.b.c.g.c mPassListener = new i(304101);
+    public final d.b.c.c.g.c mPassListener = new i(304101);
     public final f.g mOnPullRefreshLisner = new c();
     public final RecommendFriendModel praiseYModel = new RecommendFriendModel(this, new d());
 
@@ -40,17 +40,17 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.d1.g.a f14606a;
+        public final /* synthetic */ d.b.i0.e1.g.a f14284a;
 
-        public a(d.b.i0.d1.g.a aVar) {
-            this.f14606a = aVar;
+        public a(d.b.i0.e1.g.a aVar) {
+            this.f14284a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.b.i0.q.e.a.b.f().b(this.f14606a.b()));
+            return Boolean.valueOf(d.b.i0.q.e.a.b.f().b(this.f14284a.b()));
         }
     }
 
@@ -58,10 +58,10 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class b implements d.b.h0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.d1.g.a f14608a;
+        public final /* synthetic */ d.b.i0.e1.g.a f14286a;
 
-        public b(d.b.i0.d1.g.a aVar) {
-            this.f14608a = aVar;
+        public b(d.b.i0.e1.g.a aVar) {
+            this.f14286a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool.booleanValue()) {
-                NewFriendsActivity.this.mView.g(this.f14608a);
+                NewFriendsActivity.this.mView.g(this.f14286a);
             }
         }
     }
@@ -113,7 +113,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         @Override // d.b.i0.q.e.a.a.c
-        public void a(int i, int i2, View view, d.b.i0.d1.g.a aVar) {
+        public void a(int i, int i2, View view, d.b.i0.e1.g.a aVar) {
             if (aVar.f() == 0) {
                 NewFriendsActivity.this.addtNewFriend(aVar);
             } else if (aVar.f() == 1) {
@@ -142,34 +142,34 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class g extends f0<List<d.b.i0.d1.g.a>> {
+    public class g extends f0<List<d.b.i0.e1.g.a>> {
         public g() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
-        public List<d.b.i0.d1.g.a> doInBackground() {
+        public List<d.b.i0.e1.g.a> doInBackground() {
             return d.b.i0.q.e.a.b.f().j();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class h implements d.b.h0.z0.n<List<d.b.i0.d1.g.a>> {
+    public class h implements d.b.h0.z0.n<List<d.b.i0.e1.g.a>> {
         public h() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.n
         /* renamed from: a */
-        public void onReturnDataInUI(List<d.b.i0.d1.g.a> list) {
+        public void onReturnDataInUI(List<d.b.i0.e1.g.a> list) {
             NewFriendsActivity.this.mView.f().e(list);
             NewFriendsActivity.this.mView.f().notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class i extends d.b.b.c.g.c {
+    public class i extends d.b.c.c.g.c {
         public i(int i) {
             super(i);
         }
@@ -191,55 +191,55 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class j extends f0<List<d.b.i0.d1.g.a>> {
+    public class j extends f0<List<d.b.i0.e1.g.a>> {
         public j() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
-        public List<d.b.i0.d1.g.a> doInBackground() {
+        public List<d.b.i0.e1.g.a> doInBackground() {
             d.b.i0.q.e.a.b.f().p();
             return d.b.i0.q.e.a.b.f().j();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class k implements d.b.h0.z0.n<List<d.b.i0.d1.g.a>> {
+    public class k implements d.b.h0.z0.n<List<d.b.i0.e1.g.a>> {
         public k() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.n
         /* renamed from: a */
-        public void onReturnDataInUI(List<d.b.i0.d1.g.a> list) {
+        public void onReturnDataInUI(List<d.b.i0.e1.g.a> list) {
             NewFriendsActivity.this.mView.e();
             NewFriendsActivity.this.mView.h(list);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class l extends f0<List<d.b.i0.d1.g.a>> {
+    public class l extends f0<List<d.b.i0.e1.g.a>> {
         public l() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
-        public List<d.b.i0.d1.g.a> doInBackground() {
+        public List<d.b.i0.e1.g.a> doInBackground() {
             return d.b.i0.q.e.a.b.f().g();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class m implements d.b.h0.z0.n<List<d.b.i0.d1.g.a>> {
+    public class m implements d.b.h0.z0.n<List<d.b.i0.e1.g.a>> {
         public m() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.n
         /* renamed from: a */
-        public void onReturnDataInUI(List<d.b.i0.d1.g.a> list) {
+        public void onReturnDataInUI(List<d.b.i0.e1.g.a> list) {
             NewFriendsActivity.this.mView.m(list);
         }
     }
@@ -248,16 +248,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class n implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.d1.g.a f14621a;
+        public d.b.i0.e1.g.a f14299a;
 
-        public n(d.b.i0.d1.g.a aVar) {
-            this.f14621a = aVar;
+        public n(d.b.i0.e1.g.a aVar) {
+            this.f14299a = aVar;
         }
 
         @Override // d.b.h0.r.s.b.c
         public void a(d.b.h0.r.s.b bVar, int i, View view) {
             bVar.e();
-            d.b.i0.d1.g.a aVar = this.f14621a;
+            d.b.i0.e1.g.a aVar = this.f14299a;
             if (aVar != null) {
                 NewFriendsActivity.this.deleteNewFriend(aVar);
             }
@@ -265,14 +265,14 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void addtNewFriend(d.b.i0.d1.g.a aVar) {
+    public void addtNewFriend(d.b.i0.e1.g.a aVar) {
         if (aVar != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getPageContext().getPageActivity(), String.valueOf(aVar.b()), aVar.d(), aVar.e(), "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteNewFriend(d.b.i0.d1.g.a aVar) {
+    public void deleteNewFriend(d.b.i0.e1.g.a aVar) {
         h0.c(new a(aVar), new b(aVar));
     }
 
@@ -294,7 +294,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void passNewFriend(d.b.i0.d1.g.a aVar) {
+    public void passNewFriend(d.b.i0.e1.g.a aVar) {
         d.b.h0.h0.a.a(aVar.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
     }
 
@@ -347,16 +347,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        d.b.i0.d1.g.a item = this.mView.f().getItem(i2);
-        if (item != null && (item instanceof d.b.i0.d1.g.a) && i2 == j2) {
+        d.b.i0.e1.g.a item = this.mView.f().getItem(i2);
+        if (item != null && (item instanceof d.b.i0.e1.g.a) && i2 == j2) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.b()), item.d())));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        d.b.i0.d1.g.a item = this.mView.f().getItem(i2);
-        if (item == null || !(item instanceof d.b.i0.d1.g.a)) {
+        d.b.i0.e1.g.a item = this.mView.f().getItem(i2);
+        if (item == null || !(item instanceof d.b.i0.e1.g.a)) {
             return true;
         }
         d.b.h0.r.s.b deleteNewFriendDialog = getDeleteNewFriendDialog(new n(item));

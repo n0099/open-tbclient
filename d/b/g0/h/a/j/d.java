@@ -12,46 +12,46 @@ import d.b.g0.a.i2.h0;
 public class d {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f48774f = h0.f(58.0f);
+    public static final int f49166f = h0.f(58.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    public View f48775a;
+    public View f49167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48776b;
+    public View f49168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f48777c;
+    public View f49169c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f48778d;
+    public boolean f49170d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48779e;
+    public b f49171e;
 
     /* loaded from: classes3.dex */
     public class a extends AnimatorListenerAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48780e;
+        public final /* synthetic */ boolean f49172e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48781f;
+        public final /* synthetic */ int f49173f;
 
         public a(boolean z, int i) {
-            this.f48780e = z;
-            this.f48781f = i;
+            this.f49172e = z;
+            this.f49173f = i;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             super.onAnimationEnd(animator);
             animator.removeAllListeners();
-            if (!this.f48780e) {
-                d.this.c(this.f48781f);
+            if (!this.f49172e) {
+                d.this.c(this.f49173f);
             }
-            if (d.this.f48779e != null) {
-                d.this.f48779e.b(this.f48780e);
+            if (d.this.f49171e != null) {
+                d.this.f49171e.b(this.f49172e);
             }
         }
     }
@@ -64,28 +64,28 @@ public class d {
     }
 
     public d(View view, FrameLayout frameLayout, View view2) {
-        this.f48775a = view;
-        this.f48776b = frameLayout;
-        this.f48777c = view2;
+        this.f49167a = view;
+        this.f49168b = frameLayout;
+        this.f49169c = view2;
     }
 
     public final void c(int i) {
-        ViewGroup.LayoutParams layoutParams = this.f48775a.getLayoutParams();
-        layoutParams.height = this.f48775a.getHeight() - (i * 2);
-        this.f48775a.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams = this.f49167a.getLayoutParams();
+        layoutParams.height = this.f49167a.getHeight() - (i * 2);
+        this.f49167a.setLayoutParams(layoutParams);
     }
 
     public boolean d() {
-        return this.f48778d;
+        return this.f49170d;
     }
 
     public void e(boolean z) {
-        b bVar = this.f48779e;
+        b bVar = this.f49171e;
         if (bVar != null) {
             bVar.a(z);
         }
-        this.f48778d = z;
-        int i = f48774f;
+        this.f49170d = z;
+        int i = f49166f;
         if (z) {
             i = -i;
         }
@@ -106,7 +106,7 @@ public class d {
             fArr2[1] = 0.0f;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(ObjectAnimator.ofFloat(this.f48776b, "translationY", fArr), ObjectAnimator.ofFloat(this.f48775a, "translationY", fArr2), ObjectAnimator.ofFloat(this.f48777c, "translationY", fArr2));
+        animatorSet.playTogether(ObjectAnimator.ofFloat(this.f49168b, "translationY", fArr), ObjectAnimator.ofFloat(this.f49167a, "translationY", fArr2), ObjectAnimator.ofFloat(this.f49169c, "translationY", fArr2));
         animatorSet.setDuration(200L);
         animatorSet.start();
         animatorSet.addListener(new a(z, i));

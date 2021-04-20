@@ -18,22 +18,22 @@ public class a {
 
     /* renamed from: d.b.g0.h.a.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class View$OnClickListenerC1005a implements View.OnClickListener {
+    public static class View$OnClickListenerC1017a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.h.a.i.c f48729e;
+        public final /* synthetic */ d.b.g0.h.a.i.c f49121e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.a1.c.h.d f48730f;
+        public final /* synthetic */ d.b.g0.a.a1.c.h.d f49122f;
 
-        public View$OnClickListenerC1005a(d.b.g0.h.a.i.c cVar, d.b.g0.a.a1.c.h.d dVar) {
-            this.f48729e = cVar;
-            this.f48730f = dVar;
+        public View$OnClickListenerC1017a(d.b.g0.h.a.i.c cVar, d.b.g0.a.a1.c.h.d dVar) {
+            this.f49121e = cVar;
+            this.f49122f = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.g0.h.a.g.a.a(this.f48729e, this.f48730f);
+            d.b.g0.h.a.g.a.a(this.f49121e, this.f49122f);
         }
     }
 
@@ -42,8 +42,8 @@ public class a {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.m.f43200f);
-        paint.setTextSize(dVar.m.f43201g);
+        paint.setColor(dVar.m.f43592f);
+        paint.setTextSize(dVar.m.f43593g);
         d.b bVar = dVar.m;
         float f2 = bVar.i;
         float f3 = bVar.j;
@@ -51,7 +51,7 @@ public class a {
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
         paint2.setColor(dVar.m.l);
-        String str = dVar.m.f43199e;
+        String str = dVar.m.f43591e;
         int f4 = h0.f(6.0f);
         float f5 = f2 * 2.0f;
         float measureText = paint.measureText(str) + f5;
@@ -81,7 +81,7 @@ public class a {
             ImageView imageView = new ImageView(AppRuntime.getAppContext());
             imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
             imageView.setImageBitmap(createBitmap);
-            imageView.setOnClickListener(new View$OnClickListenerC1005a(cVar, dVar));
+            imageView.setOnClickListener(new View$OnClickListenerC1017a(cVar, dVar));
             d.b.g0.a.c0.c.g("map", "creatCallout end");
             return imageView;
         }

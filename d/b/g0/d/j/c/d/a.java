@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.swan.apps.view.SwanAppErrorDialog;
@@ -13,33 +14,33 @@ import d.b.g0.a.i2.e;
 import d.b.g0.a.k;
 import d.b.g0.d.j.c.b;
 /* loaded from: classes3.dex */
-public class a implements b.InterfaceC0925b {
+public class a implements b.InterfaceC0937b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47533b = k.f45051a;
+    public static final boolean f47925b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47534a = false;
+    public boolean f47926a = false;
 
     /* renamed from: d.b.g0.d.j.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnClickListenerC0926a implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0938a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.u.c f47535e;
+        public final /* synthetic */ d.b.g0.a.e0.u.c f47927e;
 
-        public DialogInterface$OnClickListenerC0926a(d.b.g0.a.e0.u.c cVar) {
-            this.f47535e = cVar;
+        public DialogInterface$OnClickListenerC0938a(d.b.g0.a.e0.u.c cVar) {
+            this.f47927e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
             if (-2 == i) {
-                this.f47535e.onFail();
+                this.f47927e.onFail();
                 return;
             }
             a.this.j();
-            a.this.l(this.f47535e);
+            a.this.l(this.f47927e);
         }
     }
 
@@ -47,25 +48,25 @@ public class a implements b.InterfaceC0925b {
     public class b implements d.b.g0.a.i2.u0.b<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.u.c f47537e;
+        public final /* synthetic */ d.b.g0.a.e0.u.c f47929e;
 
         public b(d.b.g0.a.e0.u.c cVar) {
-            this.f47537e = cVar;
+            this.f47929e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(Boolean bool) {
-            if (a.f47533b) {
+            if (a.f47925b) {
                 Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
             }
-            a.this.f47534a = false;
+            a.this.f47926a = false;
             a.this.i();
             if (bool.booleanValue()) {
-                this.f47537e.onSuccess();
+                this.f47929e.onSuccess();
             } else {
-                this.f47537e.onFail();
+                this.f47929e.onFail();
             }
         }
     }
@@ -79,7 +80,7 @@ public class a implements b.InterfaceC0925b {
         public void run() {
             Context appContext = AppRuntime.getAppContext();
             Intent intent = new Intent(appContext, LoadingActivity.class);
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.putExtra(LoadingActivity.EXT_SO_LIB_NAME, ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
             e.f(appContext, intent);
         }
@@ -96,14 +97,14 @@ public class a implements b.InterfaceC0925b {
         }
     }
 
-    @Override // d.b.g0.d.j.c.b.InterfaceC0925b
+    @Override // d.b.g0.d.j.c.b.InterfaceC0937b
     public d.b.g0.l.o.b a() {
         return new d.b.g0.t.c();
     }
 
-    @Override // d.b.g0.d.j.c.b.InterfaceC0925b
+    @Override // d.b.g0.d.j.c.b.InterfaceC0937b
     public void b(boolean z, d.b.g0.a.e0.u.c cVar) {
-        if (this.f47534a) {
+        if (this.f47926a) {
             if (!z) {
                 j();
             }
@@ -111,7 +112,7 @@ public class a implements b.InterfaceC0925b {
         } else if (z) {
             l(cVar);
         } else {
-            k(new DialogInterface$OnClickListenerC0926a(cVar));
+            k(new DialogInterface$OnClickListenerC0938a(cVar));
         }
     }
 
@@ -133,11 +134,11 @@ public class a implements b.InterfaceC0925b {
     }
 
     public final void l(d.b.g0.a.e0.u.c cVar) {
-        this.f47534a = true;
-        if (f47533b) {
+        this.f47926a = true;
+        if (f47925b) {
             Log.i("SailorSoDownloadAdapter", "startDownload: ");
         }
-        d.b.g0.a.j0.i.c cVar2 = d.b.g0.a.j0.i.c.f44832d;
+        d.b.g0.a.j0.i.c cVar2 = d.b.g0.a.j0.i.c.f45224d;
         d.b.g0.a.j0.i.d dVar = new d.b.g0.a.j0.i.d();
         dVar.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(cVar));
         cVar2.w(dVar);

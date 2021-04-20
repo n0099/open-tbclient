@@ -1,6 +1,6 @@
 package io.reactivex.internal.schedulers;
 
-import f.a.t.b;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class ExecutorScheduler$ExecutorWorker$BooleanRunnable extends AtomicBoolean implements Runnable, b {
@@ -11,12 +11,12 @@ public final class ExecutorScheduler$ExecutorWorker$BooleanRunnable extends Atom
         this.actual = runnable;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         lazySet(true);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get();
     }

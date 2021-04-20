@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f33813a = new Handler(Looper.getMainLooper());
+    public static final Handler f34102a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f33814b = false;
+    public static volatile boolean f34103b = false;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -66,7 +66,7 @@ public class o {
             /* renamed from: a */
             public TrendFeedResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                TrendFeedResultData trendFeedResultData = new TrendFeedResultData(h.a.this.f33785a.get(0).f33651a, trendInfo);
+                TrendFeedResultData trendFeedResultData = new TrendFeedResultData(h.a.this.f34074a.get(0).f33940a, trendInfo);
                 trendFeedResultData.parseJson(jSONObject);
                 return trendFeedResultData;
             }
@@ -97,7 +97,7 @@ public class o {
         a(aVar, trendInfo, new a() { // from class: com.kwad.sdk.core.g.o.4
             @Override // com.kwad.sdk.core.g.o.a
             public void a(final int i, final String str) {
-                o.f33813a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.4.1
+                o.f34102a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.4.1
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.d("TrendRequestManager", "loadFeedByTrendId onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -109,18 +109,18 @@ public class o {
             @Override // com.kwad.sdk.core.g.o.a
             public void a(@NonNull final TrendFeedResultData trendFeedResultData) {
                 if (trendFeedResultData.result != 1) {
-                    int i = com.kwad.sdk.core.network.f.f33871c.k;
-                    a(i, com.kwad.sdk.core.network.f.f33871c.l + "(无视频资源)");
+                    int i = com.kwad.sdk.core.network.f.f34160c.k;
+                    a(i, com.kwad.sdk.core.network.f.f34160c.l + "(无视频资源)");
                 } else if (!trendFeedResultData.adTemplateList.isEmpty()) {
-                    o.f33813a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.4.2
+                    o.f34102a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             c.this.a(trendFeedResultData.adTemplateList);
                         }
                     });
                 } else {
-                    int i2 = com.kwad.sdk.core.network.f.f33871c.k;
-                    a(i2, com.kwad.sdk.core.network.f.f33871c.l + "(无视频资源)");
+                    int i2 = com.kwad.sdk.core.network.f.f34160c.k;
+                    a(i2, com.kwad.sdk.core.network.f.f34160c.l + "(无视频资源)");
                 }
             }
         });
@@ -162,15 +162,15 @@ public class o {
     }
 
     public static void a(boolean z, @NonNull final d dVar) {
-        if (f33814b) {
+        if (f34103b) {
             return;
         }
-        f33814b = true;
+        f34103b = true;
         a(z, new b() { // from class: com.kwad.sdk.core.g.o.1
             @Override // com.kwad.sdk.core.g.o.b
             public void a(final int i, final String str) {
-                boolean unused = o.f33814b = false;
-                o.f33813a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.1.1
+                boolean unused = o.f34103b = false;
+                o.f34102a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.d("TrendRequestManager", "loadTrendList onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -182,8 +182,8 @@ public class o {
             @Override // com.kwad.sdk.core.g.o.b
             public void a(@NonNull TrendListResultData trendListResultData) {
                 if (trendListResultData.result != 1) {
-                    int i = com.kwad.sdk.core.network.f.f33871c.k;
-                    a(i, com.kwad.sdk.core.network.f.f33871c.l + "(无视频资源)");
+                    int i = com.kwad.sdk.core.network.f.f34160c.k;
+                    a(i, com.kwad.sdk.core.network.f.f34160c.l + "(无视频资源)");
                     return;
                 }
                 final ArrayList arrayList = new ArrayList();
@@ -193,17 +193,17 @@ public class o {
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    int i2 = com.kwad.sdk.core.network.f.f33871c.k;
-                    a(i2, com.kwad.sdk.core.network.f.f33871c.l + "(无热点资源)");
+                    int i2 = com.kwad.sdk.core.network.f.f34160c.k;
+                    a(i2, com.kwad.sdk.core.network.f.f34160c.l + "(无热点资源)");
                 } else {
-                    o.f33813a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.1.2
+                    o.f34102a.post(new Runnable() { // from class: com.kwad.sdk.core.g.o.1.2
                         @Override // java.lang.Runnable
                         public void run() {
                             d.this.a(arrayList);
                         }
                     });
                 }
-                boolean unused = o.f33814b = false;
+                boolean unused = o.f34103b = false;
             }
         });
     }

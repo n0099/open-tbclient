@@ -18,13 +18,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.proxy.PackageMangerProxy;
-import d.b.b.h.j.g.d;
+import d.b.c.h.j.g.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -440,7 +441,7 @@ public class PluginBaseApplication extends Application {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPacakgeName);
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
             if (intent != null) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             this.mApplicationProxy.startActivity(intent);
         }

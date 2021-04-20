@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.alibaba.fastjson.asm.Label;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
@@ -27,7 +28,7 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
     public static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template";
     public static final String TAG = "FeedDownloadActivity";
-    public static a.InterfaceC0405a mAdClickListener;
+    public static a.InterfaceC0419a mAdClickListener;
     public KsAdContainer mAdContainer;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -103,21 +104,21 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC0405a interfaceC0405a) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC0419a interfaceC0419a) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("key_template", adTemplate);
-        mAdClickListener = interfaceC0405a;
+        mAdClickListener = interfaceC0419a;
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyAdClick() {
         com.kwad.sdk.core.report.b.a(this.mAdTemplate, this.mAdContainer.getTouchCoords());
-        a.InterfaceC0405a interfaceC0405a = mAdClickListener;
-        if (interfaceC0405a != null) {
-            interfaceC0405a.a();
+        a.InterfaceC0419a interfaceC0419a = mAdClickListener;
+        if (interfaceC0419a != null) {
+            interfaceC0419a.a();
         }
     }
 
@@ -132,8 +133,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.mApkDownloadHelper, view == this.mProgressBarTv);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC0379a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC0393a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0393a
             public void a() {
                 FeedDownloadActivityProxy.this.notifyAdClick();
             }

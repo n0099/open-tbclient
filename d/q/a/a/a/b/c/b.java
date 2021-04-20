@@ -12,10 +12,10 @@ import java.util.concurrent.CountDownLatch;
 public final class b implements ServiceConnection {
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f67300e;
+    public /* synthetic */ a f68293e;
 
     public b(a aVar) {
-        this.f67300e = aVar;
+        this.f68293e = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -24,7 +24,7 @@ public final class b implements ServiceConnection {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
         try {
-            a aVar = this.f67300e;
+            a aVar = this.f68293e;
             if (iBinder == null) {
                 eVar = null;
             } else {
@@ -34,10 +34,10 @@ public final class b implements ServiceConnection {
                 }
                 eVar = new e(iBinder);
             }
-            aVar.f67296c = eVar;
-            countDownLatch = this.f67300e.f67297d;
+            aVar.f68289c = eVar;
+            countDownLatch = this.f68293e.f68290d;
             if (countDownLatch != null) {
-                countDownLatch2 = this.f67300e.f67297d;
+                countDownLatch2 = this.f68293e.f68290d;
                 countDownLatch2.countDown();
             }
         } catch (Throwable unused) {
@@ -46,6 +46,6 @@ public final class b implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f67300e.f67296c = null;
+        this.f68293e.f68289c = null;
     }
 }

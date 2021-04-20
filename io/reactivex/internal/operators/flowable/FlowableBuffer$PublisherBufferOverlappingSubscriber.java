@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.a0.a;
-import f.a.g;
-import f.a.w.e;
-import f.a.x.i.b;
-import f.a.x.i.i;
+import f.b.a0.a;
+import f.b.g;
+import f.b.w.e;
+import f.b.x.i.b;
+import f.b.x.i.i;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -42,7 +42,7 @@ public final class FlowableBuffer$PublisherBufferOverlappingSubscriber<T, C exte
         this.s.cancel();
     }
 
-    @Override // f.a.w.e
+    @Override // f.b.w.e
     public boolean getAsBoolean() {
         return this.cancelled;
     }
@@ -82,10 +82,10 @@ public final class FlowableBuffer$PublisherBufferOverlappingSubscriber<T, C exte
         if (i == 0) {
             try {
                 C call = this.bufferSupplier.call();
-                f.a.x.b.a.b(call, "The bufferSupplier returned a null buffer");
+                f.b.x.b.a.b(call, "The bufferSupplier returned a null buffer");
                 arrayDeque.offer(call);
             } catch (Throwable th) {
-                f.a.u.a.a(th);
+                f.b.u.a.a(th);
                 cancel();
                 onError(th);
                 return;
@@ -108,7 +108,7 @@ public final class FlowableBuffer$PublisherBufferOverlappingSubscriber<T, C exte
         this.index = i2;
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.t.b;
-import f.a.w.a;
+import f.b.r;
+import f.b.t.b;
+import f.b.w.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -11,46 +11,46 @@ public final class SingleDoOnDispose$DoOnDisposeObserver<T> extends AtomicRefere
     public final r<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68085d;
+    public b f69091d;
 
     public SingleDoOnDispose$DoOnDisposeObserver(r<? super T> rVar, a aVar) {
         this.actual = rVar;
         lazySet(aVar);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         a andSet = getAndSet(null);
         if (andSet != null) {
             try {
                 andSet.run();
             } catch (Throwable th) {
-                f.a.u.a.a(th);
-                f.a.a0.a.f(th);
+                f.b.u.a.a(th);
+                f.b.a0.a.f(th);
             }
-            this.f68085d.dispose();
+            this.f69091d.dispose();
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f68085d.isDisposed();
+        return this.f69091d.isDisposed();
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68085d, bVar)) {
-            this.f68085d = bVar;
+        if (DisposableHelper.validate(this.f69091d, bVar)) {
+            this.f69091d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         this.actual.onSuccess(t);
     }

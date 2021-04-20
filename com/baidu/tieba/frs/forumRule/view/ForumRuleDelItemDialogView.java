@@ -12,60 +12,60 @@ import d.b.h0.r.u.c;
 public class ForumRuleDelItemDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16300e;
+    public LinearLayout f15961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16301f;
+    public Context f15962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16302g;
+    public TextView f15963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16303h;
+    public TextView f15964h;
     public TextView i;
     public TextView j;
 
     public ForumRuleDelItemDialogView(Context context) {
         super(context);
-        this.f16301f = context;
+        this.f15962f = context;
         a(context);
     }
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_rule_del_dialog, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ll_main);
-        this.f16300e = linearLayout;
-        this.f16302g = (TextView) linearLayout.findViewById(R.id.dialog_title);
-        this.f16303h = (TextView) this.f16300e.findViewById(R.id.dialog_content);
-        this.i = (TextView) this.f16300e.findViewById(R.id.next_time);
-        this.j = (TextView) this.f16300e.findViewById(R.id.del_tv);
-        this.f16302g.setText(R.string.forum_rule_item_del_dialog_title);
-        this.f16303h.setText(R.string.forum_rule_item_del_dialog_abstract);
+        this.f15961e = linearLayout;
+        this.f15963g = (TextView) linearLayout.findViewById(R.id.dialog_title);
+        this.f15964h = (TextView) this.f15961e.findViewById(R.id.dialog_content);
+        this.i = (TextView) this.f15961e.findViewById(R.id.next_time);
+        this.j = (TextView) this.f15961e.findViewById(R.id.del_tv);
+        this.f15963g.setText(R.string.forum_rule_item_del_dialog_title);
+        this.f15964h.setText(R.string.forum_rule_item_del_dialog_abstract);
         this.i.setText(R.string.next_time);
         this.j.setText(R.string.del_post);
-        SkinManager.setBackgroundResource(this.f16300e, R.drawable.bg_frs_private_dialog);
-        c a2 = c.a(this.f16302g);
-        a2.n(R.color.CAM_X0105);
-        a2.s(R.string.F_X02);
-        a2.r(R.dimen.T_X06);
-        c a3 = c.a(this.f16303h);
-        a3.n(R.color.CAM_X0107);
-        a3.r(R.dimen.T_X07);
-        c a4 = c.a(this.i);
-        a4.n(R.color.CAM_X0105);
-        a4.h(R.string.J_X07);
-        a4.f(R.dimen.L_X02);
-        a4.r(R.dimen.T_X08);
-        a4.e(R.color.CAM_X0902);
-        a4.c(R.color.CAM_X0201);
-        c a5 = c.a(this.j);
-        a5.n(R.color.CAM_X0302);
-        a5.h(R.string.J_X07);
-        a5.r(R.dimen.T_X08);
-        a5.f(R.dimen.L_X02);
-        a5.b(R.string.A_X07);
-        a5.e(R.color.CAM_X0302);
-        a5.c(R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.f15961e, R.drawable.bg_frs_private_dialog);
+        c d2 = c.d(this.f15963g);
+        d2.q(R.color.CAM_X0105);
+        d2.v(R.string.F_X02);
+        d2.u(R.dimen.T_X06);
+        c d3 = c.d(this.f15964h);
+        d3.q(R.color.CAM_X0107);
+        d3.u(R.dimen.T_X07);
+        c d4 = c.d(this.i);
+        d4.q(R.color.CAM_X0105);
+        d4.k(R.string.J_X07);
+        d4.i(R.dimen.L_X02);
+        d4.u(R.dimen.T_X08);
+        d4.h(R.color.CAM_X0902);
+        d4.f(R.color.CAM_X0201);
+        c d5 = c.d(this.j);
+        d5.q(R.color.CAM_X0302);
+        d5.k(R.string.J_X07);
+        d5.u(R.dimen.T_X08);
+        d5.i(R.dimen.L_X02);
+        d5.e(R.string.A_X07);
+        d5.h(R.color.CAM_X0302);
+        d5.f(R.color.CAM_X0201);
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {

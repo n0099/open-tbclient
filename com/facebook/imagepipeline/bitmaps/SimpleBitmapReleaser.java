@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.bitmaps;
 
 import android.graphics.Bitmap;
 import com.facebook.common.references.ResourceReleaser;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SimpleBitmapReleaser implements ResourceReleaser<Bitmap> {
     public static SimpleBitmapReleaser sInstance;
 

@@ -6,21 +6,21 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48469a;
+    public int f48861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48470b = 0;
+    public int f48862b = 0;
     @V8JavascriptField
     public JsArrayBuffer data;
     @V8JavascriptField
     public String errMsg;
 
     public a() {
-        this.f48469a = 0;
-        this.f48469a = 0 + 1;
+        this.f48861a = 0;
+        this.f48861a = 0 + 1;
     }
 
     public String toString() {
-        return "ArrayBufferCallBack" + this.f48470b;
+        return "ArrayBufferCallBack" + this.f48862b;
     }
 }

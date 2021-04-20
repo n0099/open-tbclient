@@ -22,6 +22,8 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.apollon.statistics.g;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -50,14 +52,14 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f2072a = new b();
+    public static b f2097a = new b();
 
     public static String B() {
         try {
             ArrayList<NetworkInterface> list = Collections.list(NetworkInterface.getNetworkInterfaces());
             if (list != null) {
                 for (NetworkInterface networkInterface : list) {
-                    if (networkInterface != null && networkInterface.getName() != null && networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                    if (networkInterface != null && networkInterface.getName() != null && networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
                         byte[] hardwareAddress = networkInterface.getHardwareAddress();
                         if (hardwareAddress == null) {
                             return Config.DEF_MAC_ID;
@@ -186,7 +188,7 @@ public class b {
     }
 
     public static b a() {
-        return f2072a;
+        return f2097a;
     }
 
     public static String a(BluetoothAdapter bluetoothAdapter) {
@@ -253,7 +255,7 @@ public class b {
                     if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                         return subtype == 13 ? "4G" : "UNKNOW";
                     }
-                    return g.f3874b;
+                    return g.f3909b;
                 }
                 return "2G";
             }
@@ -969,7 +971,7 @@ public class b {
     public String r(Context context) {
         String str;
         try {
-            str = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            str = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Throwable unused) {
             str = "";
         }

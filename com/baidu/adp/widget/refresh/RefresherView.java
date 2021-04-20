@@ -12,26 +12,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import d.b.b.j.i;
+import d.b.c.j.i;
 /* loaded from: classes.dex */
 public class RefresherView extends ViewGroup {
     public final c A;
-    public d.b.b.j.k.b B;
+    public d.b.c.j.k.b B;
     public d C;
     public i D;
     public IRefreshable$State E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f2462e;
+    public final int f2497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f2463f;
+    public final int f2498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2464g;
+    public int f2499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2465h;
+    public int f2500h;
     public final int i;
     public final int j;
     public final int k;
@@ -55,42 +55,42 @@ public class RefresherView extends ViewGroup {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f2466a;
+        public long f2501a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f2467b;
+        public long f2502b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2468c;
+        public int f2503c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2469d;
+        public int f2504d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f2470e;
+        public int f2505e;
 
         public b() {
         }
 
         public void a(int i) {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2466a = uptimeMillis;
-            this.f2467b = uptimeMillis + 16;
+            this.f2501a = uptimeMillis;
+            this.f2502b = uptimeMillis + 16;
             if (i == 1000) {
-                this.f2470e = RefresherView.this.w - RefresherView.this.y;
-                this.f2469d = 0;
-                this.f2468c = Math.max(RefresherView.this.f2462e, (RefresherView.this.w - RefresherView.this.y) * 2);
+                this.f2505e = RefresherView.this.w - RefresherView.this.y;
+                this.f2504d = 0;
+                this.f2503c = Math.max(RefresherView.this.f2497e, (RefresherView.this.w - RefresherView.this.y) * 2);
                 RefresherView.this.A.removeMessages(1000);
-                RefresherView.this.A.sendEmptyMessageAtTime(1000, this.f2467b);
+                RefresherView.this.A.sendEmptyMessageAtTime(1000, this.f2502b);
             } else if (i == 1001) {
-                this.f2470e = RefresherView.this.f2464g;
-                this.f2469d = 0;
-                this.f2468c = RefresherView.this.f2463f;
+                this.f2505e = RefresherView.this.f2499g;
+                this.f2504d = 0;
+                this.f2503c = RefresherView.this.f2498f;
                 RefresherView.this.A.removeMessages(1001);
-                RefresherView.this.A.sendEmptyMessageAtTime(1001, this.f2467b);
+                RefresherView.this.A.sendEmptyMessageAtTime(1001, this.f2502b);
             }
             RefresherView.this.E = IRefreshable$State.animating;
-            d.b.b.j.k.b bVar = RefresherView.this.B;
+            d.b.c.j.k.b bVar = RefresherView.this.B;
             if (bVar != null) {
                 bVar.a(IRefreshable$State.animating);
             }
@@ -98,13 +98,13 @@ public class RefresherView extends ViewGroup {
 
         public void b() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            int i = (int) (this.f2469d + (this.f2468c * (((float) (uptimeMillis - this.f2466a)) / 1000.0f)));
-            this.f2469d = i;
-            if (i >= this.f2470e) {
+            int i = (int) (this.f2504d + (this.f2503c * (((float) (uptimeMillis - this.f2501a)) / 1000.0f)));
+            this.f2504d = i;
+            if (i >= this.f2505e) {
                 RefresherView refresherView = RefresherView.this;
                 refresherView.w = refresherView.y;
                 RefresherView.this.E = IRefreshable$State.idle;
-                d.b.b.j.k.b bVar = RefresherView.this.B;
+                d.b.c.j.k.b bVar = RefresherView.this.B;
                 if (bVar != null) {
                     bVar.a(IRefreshable$State.idle);
                 }
@@ -114,36 +114,36 @@ public class RefresherView extends ViewGroup {
                 }
             } else {
                 RefresherView refresherView2 = RefresherView.this;
-                int i2 = this.f2470e;
-                refresherView2.w = (int) (refresherView2.y + (i2 * (1.0f - d.b.b.j.a.f42332a.getInterpolation(this.f2469d / i2))));
-                this.f2466a = uptimeMillis;
-                this.f2467b = uptimeMillis + 16;
+                int i2 = this.f2505e;
+                refresherView2.w = (int) (refresherView2.y + (i2 * (1.0f - d.b.c.j.a.f42829a.getInterpolation(this.f2504d / i2))));
+                this.f2501a = uptimeMillis;
+                this.f2502b = uptimeMillis + 16;
                 RefresherView.this.A.removeMessages(1000);
-                RefresherView.this.A.sendEmptyMessageAtTime(1000, this.f2467b);
+                RefresherView.this.A.sendEmptyMessageAtTime(1000, this.f2502b);
             }
             RefresherView.this.invalidate();
         }
 
         public void c() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            int i = (int) (this.f2469d + (this.f2468c * (((float) (uptimeMillis - this.f2466a)) / 1000.0f)));
-            this.f2469d = i;
-            int i2 = this.f2470e;
+            int i = (int) (this.f2504d + (this.f2503c * (((float) (uptimeMillis - this.f2501a)) / 1000.0f)));
+            this.f2504d = i;
+            int i2 = this.f2505e;
             if (i >= i2) {
                 RefresherView refresherView = RefresherView.this;
-                refresherView.w = refresherView.f2464g;
+                refresherView.w = refresherView.f2499g;
                 RefresherView.this.E = IRefreshable$State.idle;
-                d.b.b.j.k.b bVar = RefresherView.this.B;
+                d.b.c.j.k.b bVar = RefresherView.this.B;
                 if (bVar != null) {
                     bVar.a(IRefreshable$State.idle);
                     RefresherView.this.W();
                 }
             } else {
-                RefresherView.this.w = d.b.b.j.a.a(i2, i, false);
-                this.f2466a = uptimeMillis;
-                this.f2467b = uptimeMillis + 16;
+                RefresherView.this.w = d.b.c.j.a.a(i2, i, false);
+                this.f2501a = uptimeMillis;
+                this.f2502b = uptimeMillis + 16;
                 RefresherView.this.A.removeMessages(1001);
-                RefresherView.this.A.sendEmptyMessageAtTime(1001, this.f2467b);
+                RefresherView.this.A.sendEmptyMessageAtTime(1001, this.f2502b);
             }
             RefresherView.this.invalidate();
         }
@@ -169,10 +169,10 @@ public class RefresherView extends ViewGroup {
     public class d extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.b.b.j.k.b f2473a;
+        public final d.b.c.j.k.b f2508a;
 
         public d() {
-            this.f2473a = RefresherView.this.B;
+            this.f2508a = RefresherView.this.B;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -185,10 +185,10 @@ public class RefresherView extends ViewGroup {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            if (this.f2473a != null) {
+            if (this.f2508a != null) {
                 RefresherView refresherView = RefresherView.this;
-                refresherView.y = refresherView.f2464g;
-                this.f2473a.b();
+                refresherView.y = refresherView.f2499g;
+                this.f2508a.b();
             }
         }
 
@@ -196,7 +196,7 @@ public class RefresherView extends ViewGroup {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             RefresherView.this.p = true;
-            d.b.b.j.k.b bVar = this.f2473a;
+            d.b.c.j.k.b bVar = this.f2508a;
             if (bVar != null) {
                 bVar.d();
                 return null;
@@ -209,24 +209,24 @@ public class RefresherView extends ViewGroup {
     public class e extends Handler implements i {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f2475e;
+        public final int f2510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f2476f;
+        public long f2511f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f2477g;
+        public long f2512g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f2478h;
+        public float f2513h;
         public float i;
         public int j;
 
         public e() {
-            this.f2475e = (int) ((RefresherView.this.getResources().getDisplayMetrics().density * 75.0f) + 0.5d);
+            this.f2510e = (int) ((RefresherView.this.getResources().getDisplayMetrics().density * 75.0f) + 0.5d);
         }
 
-        @Override // d.b.b.j.i
+        @Override // d.b.c.j.i
         public void a(boolean z, int i, int i2, int i3, int i4) {
             int i5 = i3 - i;
             int i6 = i4 - i2;
@@ -245,7 +245,7 @@ public class RefresherView extends ViewGroup {
             refresherView2.v = refresherView2.t[0];
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public boolean b(MotionEvent motionEvent) {
             View childAt;
             if (RefresherView.this.o && !RefresherView.this.p) {
@@ -258,9 +258,9 @@ public class RefresherView extends ViewGroup {
                 } else if (action == 2) {
                     if (!(RefresherView.this.l instanceof ViewGroup) || (childAt = ((ViewGroup) RefresherView.this.l).getChildAt(0)) == null) {
                         RefresherView.this.l.getLocationOnScreen(RefresherView.this.s);
-                        if (RefresherView.this.s[0] == RefresherView.this.v && x > RefresherView.this.r + this.f2475e) {
+                        if (RefresherView.this.s[0] == RefresherView.this.v && x > RefresherView.this.r + this.f2510e) {
                             RefresherView.this.E = IRefreshable$State.pulling_no_refresh;
-                            d.b.b.j.k.b bVar = RefresherView.this.B;
+                            d.b.c.j.k.b bVar = RefresherView.this.B;
                             if (bVar != null) {
                                 bVar.a(IRefreshable$State.pulling_no_refresh);
                             }
@@ -268,9 +268,9 @@ public class RefresherView extends ViewGroup {
                         }
                     } else {
                         childAt.getLocationOnScreen(RefresherView.this.s);
-                        if (RefresherView.this.s[0] == RefresherView.this.v && x > RefresherView.this.r + this.f2475e) {
+                        if (RefresherView.this.s[0] == RefresherView.this.v && x > RefresherView.this.r + this.f2510e) {
                             RefresherView.this.E = IRefreshable$State.pulling_no_refresh;
-                            d.b.b.j.k.b bVar2 = RefresherView.this.B;
+                            d.b.c.j.k.b bVar2 = RefresherView.this.B;
                             if (bVar2 != null) {
                                 bVar2.a(IRefreshable$State.pulling_no_refresh);
                             }
@@ -285,7 +285,7 @@ public class RefresherView extends ViewGroup {
         /* JADX WARN: Code restructure failed: missing block: B:7:0x0013, code lost:
             if (r0 != 3) goto L7;
          */
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -295,18 +295,18 @@ public class RefresherView extends ViewGroup {
             if (action != 1) {
                 if (action == 2) {
                     RefresherView refresherView = RefresherView.this;
-                    refresherView.x = Math.max(0, Math.min((x - refresherView.r) - this.f2475e, RefresherView.this.f2465h * 2));
-                    if (RefresherView.this.x <= RefresherView.this.f2464g || RefresherView.this.E != IRefreshable$State.pulling_no_refresh) {
-                        if (RefresherView.this.x < RefresherView.this.f2464g && RefresherView.this.E == IRefreshable$State.pulling_refresh) {
+                    refresherView.x = Math.max(0, Math.min((x - refresherView.r) - this.f2510e, RefresherView.this.f2500h * 2));
+                    if (RefresherView.this.x <= RefresherView.this.f2499g || RefresherView.this.E != IRefreshable$State.pulling_no_refresh) {
+                        if (RefresherView.this.x < RefresherView.this.f2499g && RefresherView.this.E == IRefreshable$State.pulling_refresh) {
                             RefresherView.this.E = IRefreshable$State.pulling_no_refresh;
-                            d.b.b.j.k.b bVar = RefresherView.this.B;
+                            d.b.c.j.k.b bVar = RefresherView.this.B;
                             if (bVar != null) {
                                 bVar.a(IRefreshable$State.pulling_no_refresh);
                             }
                         }
                     } else {
                         RefresherView.this.E = IRefreshable$State.pulling_refresh;
-                        d.b.b.j.k.b bVar2 = RefresherView.this.B;
+                        d.b.c.j.k.b bVar2 = RefresherView.this.B;
                         if (bVar2 != null) {
                             bVar2.a(IRefreshable$State.pulling_refresh);
                         }
@@ -315,7 +315,7 @@ public class RefresherView extends ViewGroup {
                 }
                 return true;
             }
-            if (RefresherView.this.x <= RefresherView.this.f2464g) {
+            if (RefresherView.this.x <= RefresherView.this.f2499g) {
                 RefresherView.this.y = 0;
             } else {
                 RefresherView.this.W();
@@ -324,7 +324,7 @@ public class RefresherView extends ViewGroup {
             return true;
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public void d(int i, int i2) {
             int i3 = i & 1073741823;
             int i4 = i2 & 1073741823;
@@ -343,13 +343,13 @@ public class RefresherView extends ViewGroup {
             RefresherView.this.setMeasuredDimension(i3, i4);
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             RefresherView.super.dispatchTouchEvent(motionEvent);
             return true;
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public void draw(Canvas canvas) {
             long drawingTime = RefresherView.this.getDrawingTime();
             if (RefresherView.this.n != null) {
@@ -367,7 +367,7 @@ public class RefresherView extends ViewGroup {
             canvas.restore();
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public void e(int i) {
             if (i == 1000) {
                 f();
@@ -379,35 +379,35 @@ public class RefresherView extends ViewGroup {
 
         public final void f() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2477g = uptimeMillis;
-            this.f2476f = uptimeMillis + 16;
+            this.f2512g = uptimeMillis;
+            this.f2511f = uptimeMillis + 16;
             this.i = RefresherView.this.x - RefresherView.this.y;
-            this.f2478h = 0.0f;
-            this.j = Math.max(RefresherView.this.f2462e, (RefresherView.this.x - RefresherView.this.y) * 2);
+            this.f2513h = 0.0f;
+            this.j = Math.max(RefresherView.this.f2497e, (RefresherView.this.x - RefresherView.this.y) * 2);
             removeMessages(1000);
-            sendEmptyMessageAtTime(1000, this.f2476f);
+            sendEmptyMessageAtTime(1000, this.f2511f);
         }
 
         public final void g() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2477g = uptimeMillis;
-            this.f2476f = uptimeMillis + 16;
-            this.i = RefresherView.this.f2464g;
-            this.f2478h = 0.0f;
-            this.j = RefresherView.this.f2463f;
+            this.f2512g = uptimeMillis;
+            this.f2511f = uptimeMillis + 16;
+            this.i = RefresherView.this.f2499g;
+            this.f2513h = 0.0f;
+            this.j = RefresherView.this.f2498f;
             removeMessages(1001);
-            sendEmptyMessageAtTime(1001, this.f2476f);
+            sendEmptyMessageAtTime(1001, this.f2511f);
         }
 
         public final void h() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            float f2 = this.f2478h + (this.j * (((float) (uptimeMillis - this.f2477g)) / 1000.0f));
-            this.f2478h = f2;
+            float f2 = this.f2513h + (this.j * (((float) (uptimeMillis - this.f2512g)) / 1000.0f));
+            this.f2513h = f2;
             if (f2 >= this.i) {
                 RefresherView refresherView = RefresherView.this;
                 refresherView.x = refresherView.y;
                 RefresherView.this.E = IRefreshable$State.idle;
-                d.b.b.j.k.b bVar = RefresherView.this.B;
+                d.b.c.j.k.b bVar = RefresherView.this.B;
                 if (bVar != null) {
                     bVar.a(IRefreshable$State.idle);
                 }
@@ -418,11 +418,11 @@ public class RefresherView extends ViewGroup {
             } else {
                 RefresherView refresherView2 = RefresherView.this;
                 float f3 = this.i;
-                refresherView2.x = (int) (refresherView2.y + (f3 * (1.0f - d.b.b.j.a.f42332a.getInterpolation(this.f2478h / f3))));
-                this.f2477g = uptimeMillis;
-                this.f2476f = uptimeMillis + 16;
+                refresherView2.x = (int) (refresherView2.y + (f3 * (1.0f - d.b.c.j.a.f42829a.getInterpolation(this.f2513h / f3))));
+                this.f2512g = uptimeMillis;
+                this.f2511f = uptimeMillis + 16;
                 removeMessages(1000);
-                sendEmptyMessageAtTime(1000, this.f2476f);
+                sendEmptyMessageAtTime(1000, this.f2511f);
             }
             RefresherView.this.invalidate();
         }
@@ -440,24 +440,24 @@ public class RefresherView extends ViewGroup {
 
         public final void i() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            float f2 = this.f2478h + (this.j * (((float) (uptimeMillis - this.f2477g)) / 1000.0f));
-            this.f2478h = f2;
+            float f2 = this.f2513h + (this.j * (((float) (uptimeMillis - this.f2512g)) / 1000.0f));
+            this.f2513h = f2;
             float f3 = this.i;
             if (f2 >= f3) {
                 RefresherView refresherView = RefresherView.this;
-                refresherView.x = refresherView.f2464g;
+                refresherView.x = refresherView.f2499g;
                 RefresherView.this.E = IRefreshable$State.idle;
-                d.b.b.j.k.b bVar = RefresherView.this.B;
+                d.b.c.j.k.b bVar = RefresherView.this.B;
                 if (bVar != null) {
                     bVar.a(IRefreshable$State.idle);
                     RefresherView.this.W();
                 }
             } else {
-                RefresherView.this.x = d.b.b.j.a.a(f3, f2, false);
-                this.f2477g = uptimeMillis;
-                this.f2476f = uptimeMillis + 16;
+                RefresherView.this.x = d.b.c.j.a.a(f3, f2, false);
+                this.f2512g = uptimeMillis;
+                this.f2511f = uptimeMillis + 16;
                 removeMessages(1001);
-                sendEmptyMessageAtTime(1001, this.f2476f);
+                sendEmptyMessageAtTime(1001, this.f2511f);
             }
             RefresherView.this.invalidate();
         }
@@ -468,7 +468,7 @@ public class RefresherView extends ViewGroup {
         public f() {
         }
 
-        @Override // d.b.b.j.i
+        @Override // d.b.c.j.i
         public void a(boolean z, int i, int i2, int i3, int i4) {
             int i5 = i3 - i;
             int i6 = i4 - i2;
@@ -487,7 +487,7 @@ public class RefresherView extends ViewGroup {
             refresherView2.u = refresherView2.t[1];
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public boolean b(MotionEvent motionEvent) {
             View childAt;
             if (RefresherView.this.o && !RefresherView.this.p) {
@@ -501,7 +501,7 @@ public class RefresherView extends ViewGroup {
                         RefresherView.this.l.getLocationOnScreen(RefresherView.this.s);
                         if (RefresherView.this.s[1] == RefresherView.this.u && y > RefresherView.this.q) {
                             RefresherView.this.E = IRefreshable$State.pulling_no_refresh;
-                            d.b.b.j.k.b bVar = RefresherView.this.B;
+                            d.b.c.j.k.b bVar = RefresherView.this.B;
                             if (bVar != null) {
                                 bVar.a(IRefreshable$State.pulling_no_refresh);
                             }
@@ -511,7 +511,7 @@ public class RefresherView extends ViewGroup {
                         childAt.getLocationOnScreen(RefresherView.this.s);
                         if (RefresherView.this.s[1] == RefresherView.this.u && y > RefresherView.this.q) {
                             RefresherView.this.E = IRefreshable$State.pulling_no_refresh;
-                            d.b.b.j.k.b bVar2 = RefresherView.this.B;
+                            d.b.c.j.k.b bVar2 = RefresherView.this.B;
                             if (bVar2 != null) {
                                 bVar2.a(IRefreshable$State.pulling_no_refresh);
                             }
@@ -526,7 +526,7 @@ public class RefresherView extends ViewGroup {
         /* JADX WARN: Code restructure failed: missing block: B:7:0x0013, code lost:
             if (r0 != 3) goto L7;
          */
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -536,18 +536,18 @@ public class RefresherView extends ViewGroup {
             if (action != 1) {
                 if (action == 2) {
                     RefresherView refresherView = RefresherView.this;
-                    refresherView.w = Math.max(0, Math.min(y - refresherView.q, RefresherView.this.f2465h * 2));
-                    if (RefresherView.this.w <= RefresherView.this.f2464g || RefresherView.this.E != IRefreshable$State.pulling_no_refresh) {
-                        if (RefresherView.this.w < RefresherView.this.f2464g && RefresherView.this.E == IRefreshable$State.pulling_refresh) {
+                    refresherView.w = Math.max(0, Math.min(y - refresherView.q, RefresherView.this.f2500h * 2));
+                    if (RefresherView.this.w <= RefresherView.this.f2499g || RefresherView.this.E != IRefreshable$State.pulling_no_refresh) {
+                        if (RefresherView.this.w < RefresherView.this.f2499g && RefresherView.this.E == IRefreshable$State.pulling_refresh) {
                             RefresherView.this.E = IRefreshable$State.pulling_no_refresh;
-                            d.b.b.j.k.b bVar = RefresherView.this.B;
+                            d.b.c.j.k.b bVar = RefresherView.this.B;
                             if (bVar != null) {
                                 bVar.a(IRefreshable$State.pulling_no_refresh);
                             }
                         }
                     } else {
                         RefresherView.this.E = IRefreshable$State.pulling_refresh;
-                        d.b.b.j.k.b bVar2 = RefresherView.this.B;
+                        d.b.c.j.k.b bVar2 = RefresherView.this.B;
                         if (bVar2 != null) {
                             bVar2.a(IRefreshable$State.pulling_refresh);
                         }
@@ -556,7 +556,7 @@ public class RefresherView extends ViewGroup {
                 }
                 return true;
             }
-            if (RefresherView.this.w <= RefresherView.this.f2464g) {
+            if (RefresherView.this.w <= RefresherView.this.f2499g) {
                 RefresherView.this.y = 0;
             } else {
                 RefresherView.this.W();
@@ -565,7 +565,7 @@ public class RefresherView extends ViewGroup {
             return true;
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public void d(int i, int i2) {
             int i3 = i & 1073741823;
             int i4 = i2 & 1073741823;
@@ -584,13 +584,13 @@ public class RefresherView extends ViewGroup {
             RefresherView.this.setMeasuredDimension(i3, i4);
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             RefresherView.super.dispatchTouchEvent(motionEvent);
             return true;
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public void draw(Canvas canvas) {
             long drawingTime = RefresherView.this.getDrawingTime();
             if (RefresherView.this.n != null) {
@@ -608,7 +608,7 @@ public class RefresherView extends ViewGroup {
             canvas.restore();
         }
 
-        @Override // d.b.b.j.j
+        @Override // d.b.c.j.j
         public void e(int i) {
             RefresherView.this.z.a(i);
         }
@@ -722,7 +722,7 @@ public class RefresherView extends ViewGroup {
         this.o = (!z || this.l == null || this.m == null) ? false : true;
     }
 
-    public void setOnRefreshListener(d.b.b.j.k.b bVar) {
+    public void setOnRefreshListener(d.b.c.j.k.b bVar) {
         this.B = bVar;
     }
 
@@ -769,18 +769,18 @@ public class RefresherView extends ViewGroup {
         this.z = new b();
         this.A = new c();
         float f2 = getResources().getDisplayMetrics().density;
-        this.f2462e = (int) ((100.0f * f2) + 0.5f);
-        this.f2463f = (int) ((500.0f * f2) + 0.5f);
+        this.f2497e = (int) ((100.0f * f2) + 0.5f);
+        this.f2498f = (int) ((500.0f * f2) + 0.5f);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.RefresherView);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.RefresherView_threshold_height, -1);
-        this.f2464g = dimensionPixelOffset;
+        this.f2499g = dimensionPixelOffset;
         if (dimensionPixelOffset == -1) {
-            this.f2464g = (int) ((200.0f * f2) + 0.5f);
+            this.f2499g = (int) ((200.0f * f2) + 0.5f);
         }
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.RefresherView_max_height, -1);
-        this.f2465h = dimensionPixelOffset2;
+        this.f2500h = dimensionPixelOffset2;
         if (dimensionPixelOffset2 == -1) {
-            this.f2465h = (int) ((f2 * 400.0f) + 0.5f);
+            this.f2500h = (int) ((f2 * 400.0f) + 0.5f);
         }
         String string = obtainStyledAttributes.getString(R.styleable.RefresherView_direction);
         if (string == null) {

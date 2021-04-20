@@ -7,6 +7,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -84,7 +85,7 @@ public class b {
         String[] strArr = new String[length];
         for (int i = 0; i < length; i++) {
             strArr[i] = b2[i] + ";" + packageName;
-            if (com.baidu.lbsapi.auth.a.f6322a) {
+            if (com.baidu.lbsapi.auth.a.f6357a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }
@@ -137,19 +138,19 @@ public class b {
     }
 
     public static String c(Context context) {
-        String string = context.getSharedPreferences("mac", 0).getString("macaddr", null);
+        String string = context.getSharedPreferences(IAdRequestParam.MAC, 0).getString("macaddr", null);
         if (string == null) {
             String d2 = d(context);
             if (d2 != null) {
                 string = Base64.encodeToString(d2.getBytes(), 0);
                 if (!TextUtils.isEmpty(string)) {
-                    context.getSharedPreferences("mac", 0).edit().putString("macaddr", string).commit();
+                    context.getSharedPreferences(IAdRequestParam.MAC, 0).edit().putString("macaddr", string).commit();
                 }
             } else {
                 string = "";
             }
         }
-        if (com.baidu.lbsapi.auth.a.f6322a) {
+        if (com.baidu.lbsapi.auth.a.f6357a) {
             com.baidu.lbsapi.auth.a.a("getMacID mac_adress: " + string);
         }
         return string;
@@ -157,7 +158,7 @@ public class b {
 
     public static boolean c(Context context, String str) {
         boolean z = context.checkCallingOrSelfPermission(str) != -1;
-        if (com.baidu.lbsapi.auth.a.f6322a) {
+        if (com.baidu.lbsapi.auth.a.f6357a) {
             com.baidu.lbsapi.auth.a.a("hasPermission " + z + " | " + str);
         }
         return z;
@@ -168,12 +169,12 @@ public class b {
         String str = null;
         try {
         } catch (Exception e2) {
-            if (com.baidu.lbsapi.auth.a.f6322a) {
+            if (com.baidu.lbsapi.auth.a.f6357a) {
                 com.baidu.lbsapi.auth.a.a(e2.toString());
             }
         }
         if (!c(context, "android.permission.ACCESS_WIFI_STATE")) {
-            if (com.baidu.lbsapi.auth.a.f6322a) {
+            if (com.baidu.lbsapi.auth.a.f6357a) {
             }
             return str;
         }
@@ -182,7 +183,7 @@ public class b {
         if (!TextUtils.isEmpty(str)) {
             Base64.encode(str.getBytes(), 0);
         }
-        format = com.baidu.lbsapi.auth.a.f6322a ? String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()) : "You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE";
+        format = com.baidu.lbsapi.auth.a.f6357a ? String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()) : "You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE";
         return str;
         com.baidu.lbsapi.auth.a.a(format);
         return str;

@@ -24,15 +24,15 @@ import androidx.core.view.ScrollingView;
 import androidx.viewpager.widget.ViewPager;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SSWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28967a;
+    public boolean f28652a;
 
     public SSWebView(Context context) {
         super(a(context));
-        this.f28967a = false;
+        this.f28652a = false;
         b(a(context));
     }
 
@@ -236,7 +236,7 @@ public class SSWebView extends WebView {
         ViewParent a2;
         try {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
-            if (motionEvent.getActionMasked() == 0 && this.f28967a && (a2 = a(this)) != null) {
+            if (motionEvent.getActionMasked() == 0 && this.f28652a && (a2 = a(this)) != null) {
                 a2.requestDisallowInterceptTouchEvent(true);
             }
             return onTouchEvent;
@@ -279,7 +279,7 @@ public class SSWebView extends WebView {
     }
 
     public void setIsPreventTouchEvent(boolean z) {
-        this.f28967a = z;
+        this.f28652a = z;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -346,7 +346,7 @@ public class SSWebView extends WebView {
 
     public SSWebView(Context context, AttributeSet attributeSet) {
         super(a(context), attributeSet);
-        this.f28967a = false;
+        this.f28652a = false;
         b(a(context));
     }
 
@@ -359,7 +359,7 @@ public class SSWebView extends WebView {
 
     public SSWebView(Context context, AttributeSet attributeSet, int i) {
         super(a(context), attributeSet, i);
-        this.f28967a = false;
+        this.f28652a = false;
         b(a(context));
     }
 

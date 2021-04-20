@@ -34,9 +34,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.j;
-import d.b.h0.s.c.t;
+import d.b.h0.s.c.v;
 import d.b.h0.w.m;
 import d.b.h0.w.n;
 import java.io.Serializable;
@@ -45,10 +45,10 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> implements d.b.b.e.q.f {
+/* loaded from: classes4.dex */
+public abstract class AbsMsglistView extends d.b.c.a.d<MsglistActivity<?>> implements d.b.c.e.q.f {
     public d.b.h0.w.b mActionListener;
-    public d.b.i0.d1.f.f mAdapter;
+    public d.b.i0.e1.f.f mAdapter;
     public ImageView mBackImage;
     public View mBtnGroupInfo;
     public f mCallback;
@@ -80,7 +80,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
     public TextView personal_lbs_title_time;
     public View personalchat_lbs_title;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DraftContent extends OrmObject implements Serializable {
         public String input_draft;
         public String input_status;
@@ -102,7 +102,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements d.b.h0.w.b {
         public a() {
         }
@@ -112,19 +112,19 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
             if (aVar == null) {
                 return;
             }
-            int i = aVar.f51524a;
+            int i = aVar.f51942a;
             if (i == 24) {
-                Object obj = aVar.f51526c;
-                if (obj == null || !(obj instanceof t)) {
+                Object obj = aVar.f51944c;
+                if (obj == null || !(obj instanceof v)) {
                     return;
                 }
-                t tVar = (t) obj;
-                EmotionGroupType e2 = tVar.e();
-                String b2 = tVar.b();
+                v vVar = (v) obj;
+                EmotionGroupType e2 = vVar.e();
+                String b2 = vVar.b();
                 if (e2 == EmotionGroupType.LOCAL || b2 == null) {
                     return;
                 }
-                AbsMsglistView.this.mContext.sendBigEmotionMsg(tVar);
+                AbsMsglistView.this.mContext.sendBigEmotionMsg(vVar);
                 AbsMsglistView.this.onSendEmotion();
             } else if (i == 8) {
                 AbsMsglistView.this.mContext.sendTextMsg();
@@ -133,7 +133,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
                     AbsMsglistView.this.mContext.openImageView();
                 }
             } else {
-                Object obj2 = aVar.f51526c;
+                Object obj2 = aVar.f51944c;
                 if (obj2 == null || !(obj2 instanceof String)) {
                     return;
                 }
@@ -142,7 +142,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends Handler {
         public b() {
         }
@@ -159,14 +159,14 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements AbsListView.OnScrollListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f17743e;
+        public final /* synthetic */ MsglistActivity f17420e;
 
         public c(MsglistActivity msglistActivity) {
-            this.f17743e = msglistActivity;
+            this.f17420e = msglistActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -175,7 +175,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            l.w(this.f17743e.getActivity(), this.f17743e.getActivity().getCurrentFocus());
+            l.w(this.f17420e.getActivity(), this.f17420e.getActivity().getCurrentFocus());
             EditorTools editorTools = AbsMsglistView.this.mTool;
             if (editorTools != null) {
                 editorTools.q();
@@ -183,19 +183,19 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsglistActivity f17745e;
+        public final /* synthetic */ MsglistActivity f17422e;
 
         public d(MsglistActivity msglistActivity) {
-            this.f17745e = msglistActivity;
+            this.f17422e = msglistActivity;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            l.w(this.f17745e.getActivity(), this.f17745e.getActivity().getCurrentFocus());
+            l.w(this.f17422e.getActivity(), this.f17422e.getActivity().getCurrentFocus());
             EditorTools editorTools = AbsMsglistView.this.mTool;
             if (editorTools != null) {
                 editorTools.q();
@@ -205,7 +205,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements AbsListView.RecyclerListener {
         public e(AbsMsglistView absMsglistView) {
         }
@@ -214,7 +214,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         public void onMovedToScrapHeap(View view) {
             View findViewById = view.findViewById(R.id.lay_msgitem_voice);
             if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
-                ((ChatVoiceView) findViewById).h();
+                ((ChatVoiceView) findViewById).e();
             }
             View findViewById2 = view.findViewById(R.id.emotion_msgitem_image);
             if (findViewById2 == null || !(findViewById2 instanceof GifView)) {
@@ -224,7 +224,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(VoiceData$VoiceModel voiceData$VoiceModel);
 
@@ -370,7 +370,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    public d.b.i0.d1.f.f getAdapter() {
+    public d.b.i0.e1.f.f getAdapter() {
         return this.mAdapter;
     }
 
@@ -391,7 +391,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
     }
 
     public final String getContent(ChatMessage chatMessage) {
-        return d.b.i0.d1.w.c.c(chatMessage);
+        return d.b.i0.e1.w.c.c(chatMessage);
     }
 
     public String getDraft() {
@@ -529,7 +529,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         ProgressBar progressBar = (ProgressBar) msglistActivity.findViewById(R.id.msg_progress);
         this.mPrgLisMsg = progressBar;
         progressBar.setVisibility(8);
-        this.mAdapter = new d.b.i0.d1.f.f(msglistActivity.getPageContext(), this.mLisMsg);
+        this.mAdapter = new d.b.i0.e1.f.f(msglistActivity.getPageContext(), this.mLisMsg);
         setNeedShowName();
         this.mAdapter.l(this.mNeedShowName);
         this.mAdapter.k(isPersonal());
@@ -620,7 +620,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         this.mNavigationBar.onBackBtnOnChangeSkin();
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onDeletedVoice(String str) {
         f fVar = this.mCallback;
         if (fVar != null) {
@@ -633,7 +633,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         if (handler != null) {
             handler.removeMessages(1);
         }
-        d.b.i0.d1.f.f fVar = this.mAdapter;
+        d.b.i0.e1.f.f fVar = this.mAdapter;
         if (fVar != null) {
             fVar.i();
         }
@@ -642,7 +642,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
     public void onSendEmotion() {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onSendVoice(String str, int i) {
         VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
         voiceData$VoiceModel.duration = i;
@@ -654,7 +654,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowErr(int i, String str) {
         if (this.mSendVoiceView != null && getPageContext().getOrignalPage().grantWindowPermission(null)) {
             this.mSendVoiceView.onShowErr(i, str);
@@ -672,11 +672,11 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowRecordTime(int i) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowRecording(int i) {
         ISendVoiceView iSendVoiceView = this.mSendVoiceView;
         if (iSendVoiceView != null) {
@@ -684,11 +684,11 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onStartedRecorder(boolean z) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onStopingRecorder() {
     }
 
@@ -842,7 +842,7 @@ public abstract class AbsMsglistView extends d.b.b.a.d<MsglistActivity<?>> imple
     }
 
     public final void showNewMsg(ChatMessage chatMessage) {
-        if (chatMessage == null || d.b.i0.d1.w.c.p(chatMessage)) {
+        if (chatMessage == null || d.b.i0.e1.w.c.p(chatMessage)) {
             return;
         }
         String content = getContent(chatMessage);

@@ -12,25 +12,25 @@ import java.lang.ref.WeakReference;
 public class a<T> {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49757c;
+    public String f50150c;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f49759e;
+    public T f50152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final f f49760f;
+    public final f f50153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49761g;
+    public int f50154g;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<b<T>> f49755a = null;
+    public WeakReference<b<T>> f50148a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f49756b = null;
+    public d f50149b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<T>.c f49758d = null;
+    public a<T>.c f50151d = null;
 
     /* loaded from: classes3.dex */
     public interface b<T> {
@@ -41,13 +41,13 @@ public class a<T> {
     public class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f49762a;
+        public boolean f50155a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49763b;
+        public int f50156b;
 
         public c() {
-            this.f49762a = false;
+            this.f50155a = false;
         }
 
         @Override // d.b.h0.b0.f.a
@@ -76,8 +76,8 @@ public class a<T> {
         /* renamed from: c */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.f49758d = null;
-            if (a.this.f49756b != null) {
+            a.this.f50151d = null;
+            if (a.this.f50149b != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
@@ -85,39 +85,39 @@ public class a<T> {
                     imageUploadResult.error_msg = string;
                     TiebaStatic.imgError(-1002, string, "");
                 }
-                a.this.f49756b.a(a.this.f49757c, imageUploadResult);
+                a.this.f50149b.a(a.this.f50150c, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.f49758d = null;
-            a.this.f49760f.a();
+            a.this.f50151d = null;
+            a.this.f50153f.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr == null || numArr.length == 0 || a.this.f49755a == null || a.this.f49755a.get() == null) {
+            if (numArr == null || numArr.length == 0 || a.this.f50148a == null || a.this.f50148a.get() == null) {
                 return;
             }
-            ((b) a.this.f49755a.get()).a(numArr[0].intValue(), a.this.f49759e);
+            ((b) a.this.f50148a.get()).a(numArr[0].intValue(), a.this.f50152e);
         }
 
         public void e(boolean z) {
-            this.f49762a = z;
+            this.f50155a = z;
         }
 
         public void f(int i) {
-            this.f49763b = i;
+            this.f50156b = i;
         }
 
         public final ImageUploadResult g() {
-            a.this.f49760f.c(this, null);
-            a.this.f49760f.f(this.f49763b);
-            ImageUploadResult j = a.this.f49760f.j(a.this.f49757c, this.f49762a);
+            a.this.f50153f.c(this, null);
+            a.this.f50153f.f(this.f50156b);
+            ImageUploadResult j = a.this.f50153f.j(a.this.f50150c, this.f50155a);
             publishProgress(100);
             return j;
         }
@@ -125,11 +125,11 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.f49756b != null) {
+            if (a.this.f50149b != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
-                a.this.f49756b.a(a.this.f49757c, imageUploadResult);
+                a.this.f50149b.a(a.this.f50150c, imageUploadResult);
             }
         }
     }
@@ -140,31 +140,31 @@ public class a<T> {
     }
 
     public a(String str, String str2) {
-        this.f49757c = null;
-        this.f49757c = str;
-        this.f49760f = new f(str2);
+        this.f50150c = null;
+        this.f50150c = str;
+        this.f50153f = new f(str2);
     }
 
     public T f() {
-        return this.f49759e;
+        return this.f50152e;
     }
 
     public void g(boolean z) {
-        if (this.f49758d == null) {
+        if (this.f50151d == null) {
             a<T>.c cVar = new c();
-            this.f49758d = cVar;
+            this.f50151d = cVar;
             cVar.e(z);
-            this.f49758d.f(this.f49761g);
-            this.f49758d.execute(new String[0]);
+            this.f50151d.f(this.f50154g);
+            this.f50151d.execute(new String[0]);
         }
     }
 
     public void h(String str) {
-        this.f49760f.b(str);
+        this.f50153f.b(str);
     }
 
     public void i(T t) {
-        this.f49759e = t;
+        this.f50152e = t;
     }
 
     public void j() {
@@ -174,18 +174,18 @@ public class a<T> {
     }
 
     public void k(int i, int i2, int i3, int i4) {
-        this.f49760f.e(i, i2, i3, i4);
+        this.f50153f.e(i, i2, i3, i4);
     }
 
     public void l(d dVar) {
-        this.f49756b = dVar;
+        this.f50149b = dVar;
     }
 
     public void m(b<T> bVar) {
-        this.f49755a = new WeakReference<>(bVar);
+        this.f50148a = new WeakReference<>(bVar);
     }
 
     public void n(int i) {
-        this.f49761g = i;
+        this.f50154g = i;
     }
 }

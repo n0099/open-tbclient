@@ -6,10 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public @interface WireField {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public enum Label {
         REQUIRED,
         OPTIONAL,

@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.activity;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdWebVideoActivityConfig extends AdWebViewActivityConfig {
     public static final String KEY_GOOD_STYLE = "good_style";
     public static final String KEY_TAIL_FRAME = "tail_frame";

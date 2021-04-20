@@ -16,16 +16,16 @@ import android.view.View;
 public class FrameOverlayView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetector.SimpleOnGestureListener f15173e;
+    public GestureDetector.SimpleOnGestureListener f14836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15174f;
+    public int f14837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15175g;
+    public int f14838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15176h;
+    public int f14839h;
     public int i;
     public int j;
     public Paint k;
@@ -53,10 +53,10 @@ public class FrameOverlayView extends View {
 
     public FrameOverlayView(Context context) {
         super(context);
-        this.f15173e = new a();
-        this.f15174f = -1;
-        this.f15175g = 20;
-        this.f15176h = 100;
+        this.f14836e = new a();
+        this.f14837f = -1;
+        this.f14838g = 20;
+        this.f14839h = 100;
         this.i = 6;
         this.j = Color.argb(180, 0, 0, 0);
         this.k = new Paint(1);
@@ -73,31 +73,31 @@ public class FrameOverlayView extends View {
     }
 
     private float getMinimumFrameHeight() {
-        return this.f15176h * 2.4f;
+        return this.f14839h * 2.4f;
     }
 
     private float getMinimumFrameWidth() {
-        return this.f15176h * 2.4f;
+        return this.f14839h * 2.4f;
     }
 
     public final void b(Canvas canvas) {
         this.k.setStrokeWidth(this.i);
         RectF rectF = this.o;
-        c(canvas, rectF.left - (this.i / 2), rectF.top, this.f15176h, 0);
+        c(canvas, rectF.left - (this.i / 2), rectF.top, this.f14839h, 0);
         RectF rectF2 = this.o;
-        c(canvas, rectF2.left, rectF2.top, 0, this.f15176h);
+        c(canvas, rectF2.left, rectF2.top, 0, this.f14839h);
         RectF rectF3 = this.o;
-        c(canvas, rectF3.right + (this.i / 2), rectF3.top, -this.f15176h, 0);
+        c(canvas, rectF3.right + (this.i / 2), rectF3.top, -this.f14839h, 0);
         RectF rectF4 = this.o;
-        c(canvas, rectF4.right, rectF4.top, 0, this.f15176h);
+        c(canvas, rectF4.right, rectF4.top, 0, this.f14839h);
         RectF rectF5 = this.o;
-        c(canvas, rectF5.right, rectF5.bottom, 0, -this.f15176h);
+        c(canvas, rectF5.right, rectF5.bottom, 0, -this.f14839h);
         RectF rectF6 = this.o;
-        c(canvas, rectF6.right + (this.i / 2), rectF6.bottom, -this.f15176h, 0);
+        c(canvas, rectF6.right + (this.i / 2), rectF6.bottom, -this.f14839h, 0);
         RectF rectF7 = this.o;
-        c(canvas, rectF7.left - (this.i / 2), rectF7.bottom, this.f15176h, 0);
+        c(canvas, rectF7.left - (this.i / 2), rectF7.bottom, this.f14839h, 0);
         RectF rectF8 = this.o;
-        c(canvas, rectF8.left, rectF8.bottom, 0, -this.f15176h);
+        c(canvas, rectF8.left, rectF8.bottom, 0, -this.f14839h);
     }
 
     public final void c(Canvas canvas, float f2, float f3, int i, int i2) {
@@ -118,40 +118,40 @@ public class FrameOverlayView extends View {
                     return e(motionEvent);
                 }
             }
-            this.f15174f = -1;
+            this.f14837f = -1;
             return false;
         }
-        float f2 = this.f15176h;
+        float f2 = this.f14839h;
         this.n.set(motionEvent.getX() - f2, motionEvent.getY() - f2, motionEvent.getX() + f2, motionEvent.getY() + f2);
         RectF rectF = this.n;
         RectF rectF2 = this.o;
         if (rectF.contains(rectF2.left, rectF2.top)) {
-            this.f15174f = 1;
+            this.f14837f = 1;
             return true;
         }
         RectF rectF3 = this.n;
         RectF rectF4 = this.o;
         if (rectF3.contains(rectF4.right, rectF4.top)) {
-            this.f15174f = 2;
+            this.f14837f = 2;
             return true;
         }
         RectF rectF5 = this.n;
         RectF rectF6 = this.o;
         if (rectF5.contains(rectF6.right, rectF6.bottom)) {
-            this.f15174f = 3;
+            this.f14837f = 3;
             return true;
         }
         RectF rectF7 = this.n;
         RectF rectF8 = this.o;
         if (rectF7.contains(rectF8.left, rectF8.bottom)) {
-            this.f15174f = 4;
+            this.f14837f = 4;
             return true;
         }
         return false;
     }
 
     public final boolean e(MotionEvent motionEvent) {
-        int i = this.f15174f;
+        int i = this.f14837f;
         if (i == 1) {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
@@ -176,8 +176,8 @@ public class FrameOverlayView extends View {
     }
 
     public final void f() {
-        this.m = new GestureDetector(getContext(), this.f15173e);
-        this.f15176h = d.b.i0.v.e.b.a(18);
+        this.m = new GestureDetector(getContext(), this.f14836e);
+        this.f14839h = d.b.i0.v.e.b.a(18);
         this.i = d.b.i0.v.e.b.a(3);
     }
 
@@ -219,28 +219,28 @@ public class FrameOverlayView extends View {
             f4 = rectF2.right;
             f2 = f7;
         }
-        this.o.set(Math.max(this.f15175g, f2), Math.max(this.f15175g, f3), Math.min(getWidth() - this.f15175g, f4), Math.min(getHeight() - this.f15175g, f5));
+        this.o.set(Math.max(this.f14838g, f2), Math.max(this.f14838g, f3), Math.min(getWidth() - this.f14838g, f4), Math.min(getHeight() - this.f14838g, f5));
         invalidate();
     }
 
     public final void i(float f2, float f3) {
         if (f2 > 0.0f) {
             float f4 = this.o.left;
-            int i = this.f15175g;
+            int i = this.f14838g;
             if (f4 - f2 < i) {
                 f2 = f4 - i;
             }
-        } else if (this.o.right - f2 > getWidth() - this.f15175g) {
-            f2 = (this.o.right - getWidth()) + this.f15175g;
+        } else if (this.o.right - f2 > getWidth() - this.f14838g) {
+            f2 = (this.o.right - getWidth()) + this.f14838g;
         }
         if (f3 > 0.0f) {
             float f5 = this.o.top;
-            int i2 = this.f15175g;
+            int i2 = this.f14838g;
             if (f5 - f3 < i2) {
                 f3 = f5 - i2;
             }
-        } else if (this.o.bottom - f3 > getHeight() - this.f15175g) {
-            f3 = (this.o.bottom - getHeight()) + this.f15175g;
+        } else if (this.o.bottom - f3 > getHeight() - this.f14838g) {
+            f3 = (this.o.bottom - getHeight()) + this.f14838g;
         }
         this.o.offset(-f2, -f3);
         invalidate();
@@ -283,10 +283,10 @@ public class FrameOverlayView extends View {
 
     public FrameOverlayView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15173e = new a();
-        this.f15174f = -1;
-        this.f15175g = 20;
-        this.f15176h = 100;
+        this.f14836e = new a();
+        this.f14837f = -1;
+        this.f14838g = 20;
+        this.f14839h = 100;
         this.i = 6;
         this.j = Color.argb(180, 0, 0, 0);
         this.k = new Paint(1);
@@ -304,10 +304,10 @@ public class FrameOverlayView extends View {
 
     public FrameOverlayView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15173e = new a();
-        this.f15174f = -1;
-        this.f15175g = 20;
-        this.f15176h = 100;
+        this.f14836e = new a();
+        this.f14837f = -1;
+        this.f14838g = 20;
+        this.f14839h = 100;
         this.i = 6;
         this.j = Color.argb(180, 0, 0, 0);
         this.k = new Paint(1);

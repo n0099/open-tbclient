@@ -29,32 +29,32 @@ public final class d extends b<d> {
                 this.t.e(f2);
                 this.u = Float.MAX_VALUE;
             }
-            this.f61219b = this.t.a();
-            this.f61218a = 0.0f;
+            this.f62655b = this.t.a();
+            this.f62654a = 0.0f;
             this.v = false;
             return true;
         }
         if (this.u != Float.MAX_VALUE) {
             this.t.a();
             long j2 = j / 2;
-            b.i h2 = this.t.h(this.f61219b, this.f61218a, j2);
+            b.i h2 = this.t.h(this.f62655b, this.f62654a, j2);
             this.t.e(this.u);
             this.u = Float.MAX_VALUE;
-            b.i h3 = this.t.h(h2.f61226a, h2.f61227b, j2);
-            this.f61219b = h3.f61226a;
-            this.f61218a = h3.f61227b;
+            b.i h3 = this.t.h(h2.f62662a, h2.f62663b, j2);
+            this.f62655b = h3.f62662a;
+            this.f62654a = h3.f62663b;
         } else {
-            b.i h4 = this.t.h(this.f61219b, this.f61218a, j);
-            this.f61219b = h4.f61226a;
-            this.f61218a = h4.f61227b;
+            b.i h4 = this.t.h(this.f62655b, this.f62654a, j);
+            this.f62655b = h4.f62662a;
+            this.f62654a = h4.f62663b;
         }
-        float max = Math.max(this.f61219b, this.f61225h);
-        this.f61219b = max;
-        float min = Math.min(max, this.f61224g);
-        this.f61219b = min;
-        if (j(min, this.f61218a)) {
-            this.f61219b = this.t.a();
-            this.f61218a = 0.0f;
+        float max = Math.max(this.f62655b, this.f62661h);
+        this.f62655b = max;
+        float min = Math.min(max, this.f62660g);
+        this.f62655b = min;
+        if (j(min, this.f62654a)) {
+            this.f62655b = this.t.a();
+            this.f62654a = 0.0f;
             return true;
         }
         return false;
@@ -68,8 +68,8 @@ public final class d extends b<d> {
         e eVar = this.t;
         if (eVar != null) {
             double a2 = eVar.a();
-            if (a2 <= this.f61224g) {
-                if (a2 < this.f61225h) {
+            if (a2 <= this.f62660g) {
+                if (a2 < this.f62661h) {
                     throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
                 }
                 return;

@@ -23,9 +23,9 @@ public class o {
         if (context == null) {
             return;
         }
-        an.a(context).m83a();
-        if (ea.a(context.getApplicationContext()).m264a() == null) {
-            ea.a(context.getApplicationContext()).a(b.m92a(context.getApplicationContext()).m93a(), context.getPackageName(), com.xiaomi.push.service.aq.a(context.getApplicationContext()).a(hk.AwakeInfoUploadWaySwitch.a(), 0), new c());
+        an.a(context).m87a();
+        if (ea.a(context.getApplicationContext()).m268a() == null) {
+            ea.a(context.getApplicationContext()).a(b.m96a(context.getApplicationContext()).m97a(), context.getPackageName(), com.xiaomi.push.service.aq.a(context.getApplicationContext()).a(hk.AwakeInfoUploadWaySwitch.a(), 0), new c());
             com.xiaomi.push.service.aq.a(context).a(new q(102, "awake online config", context));
         }
         if ((context instanceof Activity) && intent != null) {
@@ -55,7 +55,7 @@ public class o {
             a3 = 30;
         }
         boolean z = a3 >= 0 ? a2 : false;
-        if (!com.xiaomi.push.l.m516a()) {
+        if (!com.xiaomi.push.l.m520a()) {
             a(context, ieVar, z, a3);
         } else if (z) {
             com.xiaomi.push.ai.a(context.getApplicationContext()).a((ai.a) new p(ieVar, context), a3);
@@ -65,7 +65,7 @@ public class o {
     public static final <T extends iq<T, ?>> void a(Context context, T t, boolean z, int i) {
         byte[] a2 = ip.a(t);
         if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("send message fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m55a("send message fail, because msgBytes is null.");
             return;
         }
         Intent intent = new Intent();
@@ -74,17 +74,17 @@ public class o {
         intent.putExtra("extra_help_ping_frequency", i);
         intent.putExtra("mipush_payload", a2);
         intent.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
-        an.a(context).m84a(intent);
+        an.a(context).m88a(intent);
     }
 
     public static void a(Context context, String str) {
-        com.xiaomi.channel.commonutils.logger.b.m51a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
+        com.xiaomi.channel.commonutils.logger.b.m55a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
         HashMap hashMap = new HashMap();
         hashMap.put("awake_info", str);
         hashMap.put("event_type", String.valueOf(9999));
         hashMap.put("description", "ping message");
         ie ieVar = new ie();
-        ieVar.b(b.m92a(context).m93a());
+        ieVar.b(b.m96a(context).m97a());
         ieVar.d(context.getPackageName());
         ieVar.c(hp.AwakeAppResponse.f506a);
         ieVar.a(com.xiaomi.push.service.at.a());
@@ -96,17 +96,17 @@ public class o {
         ie ieVar = new ie();
         ieVar.b(str);
         ieVar.a(new HashMap());
-        ieVar.m447a().put("extra_aw_app_online_cmd", String.valueOf(i));
-        ieVar.m447a().put("extra_help_aw_info", str2);
+        ieVar.m451a().put("extra_aw_app_online_cmd", String.valueOf(i));
+        ieVar.m451a().put("extra_help_aw_info", str2);
         ieVar.a(com.xiaomi.push.service.at.a());
         byte[] a2 = ip.a(ieVar);
         if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("send message fail, because msgBytes is null.");
+            com.xiaomi.channel.commonutils.logger.b.m55a("send message fail, because msgBytes is null.");
             return;
         }
         Intent intent = new Intent();
         intent.setAction("action_aw_app_logic");
         intent.putExtra("mipush_payload", a2);
-        an.a(context).m84a(intent);
+        an.a(context).m88a(intent);
     }
 }

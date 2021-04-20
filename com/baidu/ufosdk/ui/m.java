@@ -5,18 +5,18 @@ import android.os.Handler;
 public final class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23288a;
+    public final /* synthetic */ FeedbackEditActivity f22973a;
 
     public m(FeedbackEditActivity feedbackEditActivity) {
-        this.f23288a = feedbackEditActivity;
+        this.f22973a = feedbackEditActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         int i;
         Handler handler;
-        i = this.f23288a.W;
-        handler = this.f23288a.af;
+        i = this.f22973a.W;
+        handler = this.f22973a.af;
         com.baidu.ufosdk.e.a.a(i, -1, handler);
     }
 }

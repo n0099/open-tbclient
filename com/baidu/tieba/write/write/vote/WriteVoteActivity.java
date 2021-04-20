@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import d.b.h0.t0.a;
-import d.b.i0.u3.v.p.b;
+import d.b.i0.v3.v.p.b;
 /* loaded from: classes5.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity

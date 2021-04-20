@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.task;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import d.b.b.c.j.e;
+import d.b.c.c.j.e;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class MessageTask {

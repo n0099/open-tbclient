@@ -10,7 +10,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     public static final String ASSET_PREFIX = "file:///android_asset/";
     public static final String FILE_PREFIX = "file://";

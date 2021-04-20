@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.a0.a;
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.i.e;
+import f.b.a0.a;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.i.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -18,7 +18,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
     public final h<? super Object[], R> combiner;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<b> f68080d;
+    public final AtomicReference<b> f69086d;
     public volatile boolean done;
     public final AtomicThrowable error;
     public final ObservableWithLatestFromMany$WithLatestInnerObserver[] observers;
@@ -33,7 +33,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         }
         this.observers = observableWithLatestFromMany$WithLatestInnerObserverArr;
         this.values = new AtomicReferenceArray<>(i);
-        this.f68080d = new AtomicReference<>();
+        this.f69086d = new AtomicReference<>();
         this.error = new AtomicThrowable();
     }
 
@@ -46,9 +46,9 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
-        DisposableHelper.dispose(this.f68080d);
+        DisposableHelper.dispose(this.f69086d);
         for (ObservableWithLatestFromMany$WithLatestInnerObserver observableWithLatestFromMany$WithLatestInnerObserver : this.observers) {
             observableWithLatestFromMany$WithLatestInnerObserver.dispose();
         }
@@ -65,7 +65,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
 
     public void innerError(int i, Throwable th) {
         this.done = true;
-        DisposableHelper.dispose(this.f68080d);
+        DisposableHelper.dispose(this.f69086d);
         cancelAllBut(i);
         e.c(this.actual, th, this, this.error);
     }
@@ -74,12 +74,12 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         this.values.set(i, obj);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
-        return DisposableHelper.isDisposed(this.f68080d.get());
+        return DisposableHelper.isDisposed(this.f69086d.get());
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.done) {
             return;
@@ -89,7 +89,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         e.a(this.actual, this, this.error);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.done) {
             a.f(th);
@@ -100,7 +100,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         e.c(this.actual, th, this, this.error);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -120,23 +120,23 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         }
         try {
             R apply = this.combiner.apply(objArr);
-            f.a.x.b.a.b(apply, "combiner returned a null value");
+            f.b.x.b.a.b(apply, "combiner returned a null value");
             e.e(this.actual, apply, this, this.error);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             dispose();
             onError(th);
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
-        DisposableHelper.setOnce(this.f68080d, bVar);
+        DisposableHelper.setOnce(this.f69086d, bVar);
     }
 
     public void subscribe(n<?>[] nVarArr, int i) {
         ObservableWithLatestFromMany$WithLatestInnerObserver[] observableWithLatestFromMany$WithLatestInnerObserverArr = this.observers;
-        AtomicReference<b> atomicReference = this.f68080d;
+        AtomicReference<b> atomicReference = this.f69086d;
         for (int i2 = 0; i2 < i && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i2++) {
             nVarArr[i2].subscribe(observableWithLatestFromMany$WithLatestInnerObserverArr[i2]);
         }

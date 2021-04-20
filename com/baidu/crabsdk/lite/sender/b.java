@@ -16,7 +16,7 @@ import com.baidu.crabsdk.lite.a.o;
 import com.baidu.crabsdk.lite.a.p;
 import com.baidu.crabsdk.lite.a.q;
 import com.baidu.crabsdk.lite.a.r;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.vivo.push.PushClientConstants;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public final class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("batvn", "2.2.1");
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
             String str4 = (hashMap == null || (obj = hashMap.get("sdk_appkey")) == null) ? null : (String) obj;
             if (str4 != null) {
                 jSONObject.put("appkey", str4);
@@ -41,8 +41,8 @@ public final class b {
                 }
                 jSONObject.put("appvn", str3);
                 jSONObject.put("apiType", str2);
-                if (!CrabLite.f4713b.equals("-1")) {
-                    jSONObject.put("ndkVN", CrabLite.f4713b);
+                if (!CrabLite.f4748b.equals("-1")) {
+                    jSONObject.put("ndkVN", CrabLite.f4748b);
                 }
                 com.baidu.crabsdk.lite.b.a.f(str, "agent is " + jSONObject.toString());
                 return jSONObject.toString();
@@ -61,7 +61,7 @@ public final class b {
             return null;
         }
         boolean z = true;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
         if (hashMap != null && (obj = hashMap.get("sdk_privacy")) != null) {
             z = ((Boolean) obj).booleanValue();
         }
@@ -80,7 +80,7 @@ public final class b {
     public static Map<String, Object> c(String str, Map<String, Object> map, Context context) {
         Object obj;
         try {
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
             if ((hashMap == null || (obj = hashMap.get("sdk_screenshot")) == null) ? false : ((Boolean) obj).booleanValue()) {
                 byte[] g2 = com.baidu.crabsdk.lite.a.a.g(str);
                 com.baidu.crabsdk.lite.b.a.c(str, "截图大小：" + (g2.length / 1024) + "KB");
@@ -114,7 +114,7 @@ public final class b {
     public static Map<String, Object> e(String str, Context context) {
         String str2;
         String str3;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
         if (hashMap == null) {
             str3 = "sdk config map is null!";
         } else {
@@ -138,7 +138,7 @@ public final class b {
                 hashMap2.put("uname", r.d(str));
                 hashMap2.put("uid", r.c(str));
                 hashMap2.put("batVN", "2.2.1");
-                hashMap2.put("nativeVN", CrabLite.f4713b);
+                hashMap2.put("nativeVN", CrabLite.f4748b);
                 Object obj2 = hashMap.get("sdk_developname");
                 hashMap2.put("developerName", obj2 != null ? (String) obj2 : "");
                 hashMap2.put("isRoot", Integer.valueOf(o.b(str)));
@@ -150,7 +150,7 @@ public final class b {
                 hashMap2.put("appVC", obj4 != null ? (String) obj4 : Integer.valueOf(n.e()));
                 hashMap2.put("model", Build.MODEL);
                 hashMap2.put("brand", Build.BRAND);
-                hashMap2.put(IXAdRequestInfo.OS, "Android");
+                hashMap2.put(IAdRequestParam.OS, "Android");
                 hashMap2.put("osVN", Build.VERSION.RELEASE);
                 hashMap2.put("osVC", Integer.valueOf(com.baidu.crabsdk.lite.b.c.g()));
                 hashMap2.put("startupTime", Long.valueOf(com.baidu.crabsdk.lite.a.a.a()));
@@ -185,10 +185,10 @@ public final class b {
         Object obj;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(IXAdRequestInfo.OS, "android");
+            jSONObject.put(IAdRequestParam.OS, "android");
             jSONObject.put("uid", r.c(str));
             String str2 = null;
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
             if (hashMap != null && (obj = hashMap.get("sdk_appvn")) != null) {
                 str2 = (String) obj;
             }
@@ -202,7 +202,7 @@ public final class b {
                 jSONObject.put(PushClientConstants.TAG_PKG_NAME, (String) obj2);
             }
             jSONObject.put("sdkVN", "2.2.1");
-            jSONObject.put("ndkVN", CrabLite.f4713b);
+            jSONObject.put("ndkVN", CrabLite.f4748b);
             jSONObject.put("appUsedCount", String.valueOf(l.d(str)));
             return jSONObject.toString();
         } catch (JSONException e2) {

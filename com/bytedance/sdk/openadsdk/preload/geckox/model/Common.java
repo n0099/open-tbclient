@@ -4,10 +4,10 @@ import android.os.Build;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Common {
     @c(a = "ac")
     public String ac;
@@ -23,7 +23,7 @@ public class Common {
     public String region;
     @c(a = "uid")
     public String uid;
-    @c(a = IXAdRequestInfo.OS)
+    @c(a = IAdRequestParam.OS)
     public int os = 0;
     @c(a = "os_version")
     public String osVersion = Build.VERSION.SDK_INT + "";

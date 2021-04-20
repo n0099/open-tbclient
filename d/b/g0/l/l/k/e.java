@@ -15,16 +15,16 @@ public class e extends d.b.g0.l.l.k.b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f49005a;
+        public final String f49397a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49006b;
+        public String f49398b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f49007c = 0;
+        public long f49399c = 0;
 
         public a(String str) {
-            this.f49005a = str;
+            this.f49397a = str;
         }
 
         @NonNull
@@ -33,7 +33,7 @@ public class e extends d.b.g0.l.l.k.b {
             if (list != null && !list.isEmpty()) {
                 for (d.b.g0.l.k.g gVar : list) {
                     if (gVar != null) {
-                        a aVar = new a(gVar.f48923g);
+                        a aVar = new a(gVar.f49315g);
                         aVar.d(gVar.r ? "independent" : "normal");
                         aVar.e(gVar.i);
                         arrayList.add(aVar);
@@ -44,23 +44,23 @@ public class e extends d.b.g0.l.l.k.b {
         }
 
         public String a() {
-            return this.f49005a;
+            return this.f49397a;
         }
 
         public String b() {
-            return this.f49006b;
+            return this.f49398b;
         }
 
         public long c() {
-            return this.f49007c;
+            return this.f49399c;
         }
 
         public void d(String str) {
-            this.f49006b = str;
+            this.f49398b = str;
         }
 
         public void e(long j) {
-            this.f49007c = j;
+            this.f49399c = j;
         }
     }
 
@@ -69,11 +69,11 @@ public class e extends d.b.g0.l.l.k.b {
         @Nullable
 
         /* renamed from: e  reason: collision with root package name */
-        public String[] f49008e;
+        public String[] f49400e;
         @Nullable
 
         /* renamed from: f  reason: collision with root package name */
-        public List<a> f49009f;
+        public List<a> f49401f;
 
         public b(String str) {
             super(str);
@@ -81,20 +81,20 @@ public class e extends d.b.g0.l.l.k.b {
 
         @Nullable
         public String[] h() {
-            return this.f49008e;
+            return this.f49400e;
         }
 
         @Nullable
         public List<a> i() {
-            return this.f49009f;
+            return this.f49401f;
         }
 
         public void j(@Nullable String[] strArr) {
-            this.f49008e = strArr;
+            this.f49400e = strArr;
         }
 
         public void k(@Nullable List<a> list) {
-            this.f49009f = list;
+            this.f49401f = list;
         }
     }
 

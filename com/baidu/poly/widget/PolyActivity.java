@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.poly.widget.m;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.b.c0.a;
-import d.b.c0.k.h.d;
-import d.b.c0.n.b;
-import d.b.c0.o.a.c;
+import d.b.z.a;
+import d.b.z.k.h.d;
+import d.b.z.n.b;
+import d.b.z.o.a.c;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -56,8 +58,8 @@ public class PolyActivity extends Activity implements m.l {
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
-            d.b.c0.n.d.e("!context instanceof Activity");
-            intent.addFlags(268435456);
+            d.b.z.n.d.e("!context instanceof Activity");
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }
@@ -75,7 +77,7 @@ public class PolyActivity extends Activity implements m.l {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put("mac", d.b.c0.n.a.c());
+            jSONObject.put(IAdRequestParam.MAC, d.b.z.n.a.c());
             jSONObject.put("app", "android");
             jSONObject.put("ver", X());
             bundle.putString("deviceInfo", jSONObject.toString());
@@ -87,9 +89,9 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.f42623a = bundle.getString("bduss");
-        d.f42624b = bundle.getString("tpOrderId");
-        d.f42627e = bundle.getString("nativeAppId");
+        d.f65691a = bundle.getString("bduss");
+        d.f65692b = bundle.getString("tpOrderId");
+        d.f65695e = bundle.getString("nativeAppId");
         bundle.putString("deviceType", "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
@@ -128,7 +130,7 @@ public class PolyActivity extends Activity implements m.l {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                d.b.c0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
+                d.b.z.k.i.a.k().d(this, intent.getExtras(), this.q, true);
                 return;
             }
             m mVar = this.q;
@@ -148,7 +150,7 @@ public class PolyActivity extends Activity implements m.l {
         if (!mVar.i0()) {
             super.onBackPressed();
         }
-        d.b.c0.n.d.e("PolyActivity onBackPressed");
+        d.b.z.n.d.e("PolyActivity onBackPressed");
     }
 
     @Override // com.baidu.poly.widget.m.l
@@ -164,7 +166,7 @@ public class PolyActivity extends Activity implements m.l {
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
         Z();
-        d.b.c0.n.d.e("PolyActivity onCreate");
+        d.b.z.n.d.e("PolyActivity onCreate");
     }
 
     @Override // android.app.Activity
@@ -199,7 +201,7 @@ public class PolyActivity extends Activity implements m.l {
         setContentView(mVar);
         this.q.setResultListener(n);
         this.q.setCloseListener(this);
-        this.q.setWalletList(new d.b.c0.k.i.c(new d.b.c0.k.i.b(this, m)));
+        this.q.setWalletList(new d.b.z.k.i.c(new d.b.z.k.i.b(this, m)));
         String string = this.arguments.getString("chosenChannel");
         if (TextUtils.equals(this.arguments.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
             this.q.i(c(this.arguments), string);

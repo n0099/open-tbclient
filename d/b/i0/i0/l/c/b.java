@@ -15,9 +15,9 @@ import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
-import d.b.b.j.e.w;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
+import d.b.c.j.e.w;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.z1;
 import d.b.i.k0;
@@ -26,24 +26,24 @@ import d.b.i.u0.a;
 import d.b.i0.x.b0;
 import d.b.i0.x.t;
 /* loaded from: classes4.dex */
-public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
+public class b extends d.b.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public String n;
     public TbPageContext<?> o;
     public boolean p;
     public s q;
-    public d.b.b.e.k.b<ImageView> r;
-    public d.b.b.e.k.b<GifView> s;
+    public d.b.c.e.k.b<ImageView> r;
+    public d.b.c.e.k.b<GifView> s;
     public b0<a2> t;
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.b.e.k.c<ImageView> {
+    public class a implements d.b.c.e.k.c<ImageView> {
         public a() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
             ImageView imageView2 = imageView;
             e(imageView2);
@@ -52,7 +52,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
             ImageView imageView2 = imageView;
             h(imageView2);
@@ -76,7 +76,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: f */
         public void b(ImageView imageView) {
             imageView.setBackgroundDrawable(null);
@@ -92,7 +92,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: g */
         public ImageView d() {
             ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(b.this.o.getPageActivity());
@@ -127,13 +127,13 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
 
     /* renamed from: d.b.i0.i0.l.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1292b implements d.b.b.e.k.c<GifView> {
-        public C1292b() {
+    public class C1330b implements d.b.c.e.k.c<GifView> {
+        public C1330b() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
             GifView gifView2 = gifView;
             e(gifView2);
@@ -142,7 +142,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
             GifView gifView2 = gifView;
             h(gifView2);
@@ -163,7 +163,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: f */
         public void b(GifView gifView) {
             gifView.setBackgroundDrawable(null);
@@ -175,7 +175,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: g */
         public GifView d() {
             GifView gifView = new GifView(b.this.o.getPageActivity());
@@ -224,7 +224,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         public d() {
         }
 
-        @Override // d.b.b.j.e.w
+        @Override // d.b.c.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if ((nVar instanceof z1) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
@@ -234,7 +234,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
                     b.this.t.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 2, false);
-                threadCardViewHolder.b().o(new a.C1118a(1));
+                threadCardViewHolder.b().o(new a.C1131a(1));
             }
         }
     }
@@ -242,8 +242,8 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.p = true;
-        this.r = new d.b.b.e.k.b<>(new a(), 12, 0);
-        this.s = new d.b.b.e.k.b<>(new C1292b(), 20, 0);
+        this.r = new d.b.c.e.k.b<>(new a(), 12, 0);
+        this.s = new d.b.c.e.k.b<>(new C1330b(), 20, 0);
         this.t = new c();
         this.o = tbPageContext;
         this.m = bdUniqueId2;
@@ -251,7 +251,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public ThreadCardViewHolder R(ViewGroup viewGroup) {
         k0.b bVar = new k0.b(this.o.getPageActivity(), false);
@@ -272,7 +272,7 @@ public class b extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
         a2 a2Var;

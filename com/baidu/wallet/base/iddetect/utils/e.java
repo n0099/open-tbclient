@@ -19,9 +19,9 @@ public class e {
                 }
                 if ((i7 & 1) == 0) {
                     int i11 = i6 + 1;
-                    i9 = (bArr[i6] & 255) + com.alipay.sdk.encrypt.a.f1896g;
+                    i9 = (bArr[i6] & 255) + com.alipay.sdk.encrypt.a.f1921g;
                     i6 = i11 + 1;
-                    i8 = (bArr[i11] & 255) + com.alipay.sdk.encrypt.a.f1896g;
+                    i8 = (bArr[i11] & 255) + com.alipay.sdk.encrypt.a.f1921g;
                 }
                 int i12 = i10 * 1192;
                 int i13 = (i9 * 1634) + i12;

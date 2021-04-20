@@ -14,95 +14,95 @@ import java.util.regex.Pattern;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f23649a = {Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SET_AVATAR, Constants.VIA_REPORT_TYPE_JOININ_GROUP, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_WPA_STATE, Constants.VIA_REPORT_TYPE_QQFAVORITES, Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "31", "32", "33", "34", "35", VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, PayConfig.PAYMENT_POS_KEY_MANGA, "41", "42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
+    public static final String[] f23334a = {Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SET_AVATAR, Constants.VIA_REPORT_TYPE_JOININ_GROUP, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_WPA_STATE, Constants.VIA_REPORT_TYPE_QQFAVORITES, Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "31", "32", "33", "34", "35", VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, PayConfig.PAYMENT_POS_KEY_MANGA, "41", "42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f23650b = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
+    public static final int[] f23335b = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f23651c = {"1", "0", "X", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "8", "7", "6", "5", "4", "3", "2"};
+    public static final String[] f23336c = {"1", "0", "X", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "8", "7", "6", "5", "4", "3", "2"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f23652d = new HashMap();
+    public static Map<String, String> f23337d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Integer> f23653e = new HashMap();
+    public static Map<String, Integer> f23338e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, Integer> f23654f = new HashMap();
+    public static Map<String, Integer> f23339f = new HashMap();
 
     static {
-        f23652d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Address.Builder.BEI_JING);
-        f23652d.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, Address.Builder.TIAN_JIN);
-        f23652d.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "河北");
-        f23652d.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "山西");
-        f23652d.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
-        f23652d.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "辽宁");
-        f23652d.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
-        f23652d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
-        f23652d.put("31", Address.Builder.SHANG_HAI);
-        f23652d.put("32", "江苏");
-        f23652d.put("33", "浙江");
-        f23652d.put("34", "安徽");
-        f23652d.put("35", "福建");
-        f23652d.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "江西");
-        f23652d.put(PayConfig.PAYMENT_POS_KEY_MANGA, "山东");
-        f23652d.put("41", "河南");
-        f23652d.put("42", "湖北");
-        f23652d.put("43", "湖南");
-        f23652d.put("44", "广东");
-        f23652d.put("45", "广西");
-        f23652d.put("46", "海南");
-        f23652d.put("50", Address.Builder.CHONG_QIN);
-        f23652d.put("51", "四川");
-        f23652d.put("52", "贵州");
-        f23652d.put("53", "云南");
-        f23652d.put("54", "西藏");
-        f23652d.put("61", "陕西");
-        f23652d.put("62", "甘肃");
-        f23652d.put("63", "青海");
-        f23652d.put(WebKitFactory.OS_64, "宁夏");
-        f23652d.put("65", "新疆");
-        f23652d.put("71", "台湾");
-        f23652d.put("81", "香港");
-        f23652d.put("82", "澳门");
-        f23652d.put("91", "国外");
-        f23653e.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 10);
-        f23653e.put("B", 11);
-        f23653e.put("C", 12);
-        f23653e.put("D", 13);
-        f23653e.put(ExifInterface.LONGITUDE_EAST, 14);
-        f23653e.put("F", 15);
-        f23653e.put("G", 16);
-        f23653e.put("H", 17);
-        f23653e.put("J", 18);
-        f23653e.put("K", 19);
-        f23653e.put("L", 20);
-        f23653e.put("M", 21);
-        f23653e.put("N", 22);
-        f23653e.put("P", 23);
-        f23653e.put("Q", 24);
-        f23653e.put("R", 25);
-        f23653e.put(ExifInterface.LATITUDE_SOUTH, 26);
-        f23653e.put(ExifInterface.GPS_DIRECTION_TRUE, 27);
-        f23653e.put("U", 28);
-        f23653e.put(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 29);
-        f23653e.put("X", 30);
-        f23653e.put("Y", 31);
-        f23653e.put(ExifInterface.LONGITUDE_WEST, 32);
-        f23653e.put("Z", 33);
-        f23653e.put("I", 34);
-        f23653e.put("O", 35);
-        f23654f.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 1);
-        f23654f.put("B", 2);
-        f23654f.put("C", 3);
-        f23654f.put("R", 18);
-        f23654f.put("U", 21);
-        f23654f.put("Z", 26);
-        f23654f.put("X", 24);
-        f23654f.put(ExifInterface.LONGITUDE_WEST, 23);
-        f23654f.put("O", 15);
-        f23654f.put("N", 14);
+        f23337d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Address.Builder.BEI_JING);
+        f23337d.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, Address.Builder.TIAN_JIN);
+        f23337d.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "河北");
+        f23337d.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "山西");
+        f23337d.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
+        f23337d.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "辽宁");
+        f23337d.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
+        f23337d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
+        f23337d.put("31", Address.Builder.SHANG_HAI);
+        f23337d.put("32", "江苏");
+        f23337d.put("33", "浙江");
+        f23337d.put("34", "安徽");
+        f23337d.put("35", "福建");
+        f23337d.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "江西");
+        f23337d.put(PayConfig.PAYMENT_POS_KEY_MANGA, "山东");
+        f23337d.put("41", "河南");
+        f23337d.put("42", "湖北");
+        f23337d.put("43", "湖南");
+        f23337d.put("44", "广东");
+        f23337d.put("45", "广西");
+        f23337d.put("46", "海南");
+        f23337d.put("50", Address.Builder.CHONG_QIN);
+        f23337d.put("51", "四川");
+        f23337d.put("52", "贵州");
+        f23337d.put("53", "云南");
+        f23337d.put("54", "西藏");
+        f23337d.put("61", "陕西");
+        f23337d.put("62", "甘肃");
+        f23337d.put("63", "青海");
+        f23337d.put(WebKitFactory.OS_64, "宁夏");
+        f23337d.put("65", "新疆");
+        f23337d.put("71", "台湾");
+        f23337d.put("81", "香港");
+        f23337d.put("82", "澳门");
+        f23337d.put("91", "国外");
+        f23338e.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 10);
+        f23338e.put("B", 11);
+        f23338e.put("C", 12);
+        f23338e.put("D", 13);
+        f23338e.put(ExifInterface.LONGITUDE_EAST, 14);
+        f23338e.put("F", 15);
+        f23338e.put("G", 16);
+        f23338e.put("H", 17);
+        f23338e.put("J", 18);
+        f23338e.put("K", 19);
+        f23338e.put("L", 20);
+        f23338e.put("M", 21);
+        f23338e.put("N", 22);
+        f23338e.put("P", 23);
+        f23338e.put("Q", 24);
+        f23338e.put("R", 25);
+        f23338e.put(ExifInterface.LATITUDE_SOUTH, 26);
+        f23338e.put(ExifInterface.GPS_DIRECTION_TRUE, 27);
+        f23338e.put("U", 28);
+        f23338e.put(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 29);
+        f23338e.put("X", 30);
+        f23338e.put("Y", 31);
+        f23338e.put(ExifInterface.LONGITUDE_WEST, 32);
+        f23338e.put("Z", 33);
+        f23338e.put("I", 34);
+        f23338e.put("O", 35);
+        f23339f.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 1);
+        f23339f.put("B", 2);
+        f23339f.put("C", 3);
+        f23339f.put("R", 18);
+        f23339f.put("U", 21);
+        f23339f.put("Z", 26);
+        f23339f.put("X", 24);
+        f23339f.put(ExifInterface.LONGITUDE_WEST, 23);
+        f23339f.put("O", 15);
+        f23339f.put("N", 14);
     }
 
     public static boolean a(String str) {
@@ -144,12 +144,12 @@ public final class d {
     }
 
     public static int a(int[] iArr) {
-        if (f23650b.length == iArr.length) {
+        if (f23335b.length == iArr.length) {
             int i = 0;
             for (int i2 = 0; i2 < iArr.length; i2++) {
                 int i3 = 0;
                 while (true) {
-                    int[] iArr2 = f23650b;
+                    int[] iArr2 = f23335b;
                     if (i3 < iArr2.length) {
                         if (i2 == i3) {
                             i += iArr[i2] * iArr2[i3];

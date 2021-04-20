@@ -6,33 +6,33 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.i0.i3.h.d;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.h.d;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f21670e;
+    public List<d> f21355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21671f;
+    public e f21356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.b.i0.i3.h.a> f21672g;
+    public List<d.b.i0.j3.h.a> f21357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21673h;
+    public b f21358h;
     public boolean i;
-    public d.b.b.c.g.a j = new a(CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
+    public d.b.c.c.g.a j = new a(CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
 
     /* loaded from: classes5.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -40,25 +40,25 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             boolean z = responsedMessage instanceof DressupCenterHttpResponseMessage;
             if (z || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (DressupCenterModel.this.f21673h != null) {
-                        DressupCenterModel.this.f21673h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21672g, DressupCenterModel.this.f21671f, DressupCenterModel.this.f21670e);
+                    if (DressupCenterModel.this.f21358h != null) {
+                        DressupCenterModel.this.f21358h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21357g, DressupCenterModel.this.f21356f, DressupCenterModel.this.f21355e);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     DressupCenterHttpResponseMessage dressupCenterHttpResponseMessage = (DressupCenterHttpResponseMessage) responsedMessage;
-                    DressupCenterModel.this.f21670e = dressupCenterHttpResponseMessage.getThemeList();
-                    DressupCenterModel.this.f21671f = dressupCenterHttpResponseMessage.getRecommand();
-                    DressupCenterModel.this.f21672g = dressupCenterHttpResponseMessage.getThemeCarouselList();
+                    DressupCenterModel.this.f21355e = dressupCenterHttpResponseMessage.getThemeList();
+                    DressupCenterModel.this.f21356f = dressupCenterHttpResponseMessage.getRecommand();
+                    DressupCenterModel.this.f21357g = dressupCenterHttpResponseMessage.getThemeCarouselList();
                 } else if (responsedMessage instanceof DressupCenterSocketResponseMessage) {
                     DressupCenterSocketResponseMessage dressupCenterSocketResponseMessage = (DressupCenterSocketResponseMessage) responsedMessage;
-                    DressupCenterModel.this.f21670e = dressupCenterSocketResponseMessage.getThemeList();
-                    DressupCenterModel.this.f21671f = dressupCenterSocketResponseMessage.getRecommand();
-                    DressupCenterModel.this.f21672g = dressupCenterSocketResponseMessage.getThemeCarouselList();
+                    DressupCenterModel.this.f21355e = dressupCenterSocketResponseMessage.getThemeList();
+                    DressupCenterModel.this.f21356f = dressupCenterSocketResponseMessage.getRecommand();
+                    DressupCenterModel.this.f21357g = dressupCenterSocketResponseMessage.getThemeCarouselList();
                 }
-                if (DressupCenterModel.this.f21673h != null) {
-                    DressupCenterModel.this.f21673h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21672g, DressupCenterModel.this.f21671f, DressupCenterModel.this.f21670e);
+                if (DressupCenterModel.this.f21358h != null) {
+                    DressupCenterModel.this.f21358h.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.f21357g, DressupCenterModel.this.f21356f, DressupCenterModel.this.f21355e);
                 }
             }
         }
@@ -66,7 +66,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i, String str, List<d.b.i0.i3.h.a> list, e eVar, List<d> list2);
+        void a(int i, String str, List<d.b.i0.j3.h.a> list, e eVar, List<d> list2);
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
@@ -76,7 +76,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public void A(b bVar) {
-        this.f21673h = bVar;
+        this.f21358h = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -95,8 +95,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public final void registerTask() {
-        d.b.i0.c3.d0.a.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+        d.b.i0.d3.d0.a.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
     }
 
     public boolean z() {

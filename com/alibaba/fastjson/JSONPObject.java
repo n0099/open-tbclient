@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class JSONPObject implements JSONSerializable {
-    public static final int BrowserSecureMask = SerializerFeature.BrowserSecure.mask;
     public static String SECURITY_PREFIX = "/**/";
     public String function;
     public final List<Object> parameters = new ArrayList();
@@ -45,7 +44,7 @@ public class JSONPObject implements JSONSerializable {
     @Override // com.alibaba.fastjson.serializer.JSONSerializable
     public void write(JSONSerializer jSONSerializer, Object obj, Type type, int i) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
-        int i2 = BrowserSecureMask;
+        int i2 = SerializerFeature.BrowserSecure.mask;
         if ((i & i2) != 0 || serializeWriter.isEnabled(i2)) {
             serializeWriter.write(SECURITY_PREFIX);
         }

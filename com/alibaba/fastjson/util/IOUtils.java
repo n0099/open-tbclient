@@ -13,7 +13,6 @@ import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
-import java.nio.charset.MalformedInputException;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Arrays;
@@ -31,7 +30,6 @@ public class IOUtils {
     public static final String FASTJSON_PROPERTIES = "fastjson.properties";
     public static final int[] IA;
     public static final char[] digits;
-    public static final boolean[] identifierFlags;
     public static final char[] replaceChars;
     public static final int[] sizeTable;
     public static final byte[] specicalFlags_doubleQuotes;
@@ -42,6 +40,7 @@ public class IOUtils {
     public static final Charset UTF8 = Charset.forName("UTF-8");
     public static final char[] DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     public static final boolean[] firstIdentifierFlags = new boolean[256];
+    public static final boolean[] identifierFlags = new boolean[256];
 
     static {
         char c2 = 0;
@@ -59,7 +58,6 @@ public class IOUtils {
             }
             c2 = (char) (c2 + 1);
         }
-        identifierFlags = new boolean[256];
         char c3 = 0;
         while (true) {
             boolean[] zArr2 = identifierFlags;
@@ -301,7 +299,7 @@ public class IOUtils {
                     int i10 = i9 + 1;
                     byte b7 = bArr[i9];
                     int i11 = (((b2 << 18) ^ (b5 << StandardMessageCodec.LIST)) ^ (b6 << 6)) ^ (3678080 ^ b7);
-                    if ((b5 & ExifInterface.MARKER_SOF0) == 128 && (b6 & ExifInterface.MARKER_SOF0) == 128 && (b7 & ExifInterface.MARKER_SOF0) == 128 && Character.isSupplementaryCodePoint(i11)) {
+                    if ((b5 & ExifInterface.MARKER_SOF0) == 128 && (b6 & ExifInterface.MARKER_SOF0) == 128 && (b7 & ExifInterface.MARKER_SOF0) == 128 && i11 >= 65536 && i11 < 1114112) {
                         int i12 = i4 + 1;
                         cArr[i4] = (char) ((i11 >>> 10) + 55232);
                         i4 = i12 + 1;
@@ -326,77 +324,93 @@ public class IOUtils {
         return i4;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0074 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0081  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0086  */
+    /* JADX WARN: Type inference failed for: r10v16, types: [int] */
+    /* JADX WARN: Type inference failed for: r10v26 */
+    /* JADX WARN: Type inference failed for: r10v3, types: [char, int] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static int encodeUTF8(char[] cArr, int i, int i2, byte[] bArr) {
         int i3;
         int i4;
-        int i5;
-        int i6 = i + i2;
-        int i7 = 0;
+        int i5 = i + i2;
+        int i6 = 0;
         int min = Math.min(i2, bArr.length) + 0;
-        while (i7 < min && cArr[i] < 128) {
-            bArr[i7] = (byte) cArr[i];
-            i7++;
+        while (i6 < min && cArr[i] < 128) {
+            bArr[i6] = (byte) cArr[i];
+            i6++;
             i++;
         }
-        while (i < i6) {
-            int i8 = i + 1;
+        while (i < i5) {
+            int i7 = i + 1;
             char c2 = cArr[i];
             if (c2 < 128) {
-                i3 = i7 + 1;
-                bArr[i7] = (byte) c2;
+                i3 = i6 + 1;
+                bArr[i6] = (byte) c2;
             } else {
                 if (c2 < 2048) {
-                    int i9 = i7 + 1;
-                    bArr[i7] = (byte) ((c2 >> 6) | 192);
-                    i7 = i9 + 1;
-                    bArr[i9] = (byte) ((c2 & '?') | 128);
-                } else if (c2 >= 55296 && c2 < 57344) {
-                    int i10 = i8 - 1;
-                    if (!Character.isHighSurrogate(c2)) {
-                        boolean isLowSurrogate = Character.isLowSurrogate(c2);
-                        i4 = c2;
-                        if (isLowSurrogate) {
-                            throw new JSONException("encodeUTF8 error", new MalformedInputException(1));
-                        }
-                    } else if (i6 - i10 < 2) {
-                        i4 = -1;
-                    } else {
-                        char c3 = cArr[i10 + 1];
-                        if (Character.isLowSurrogate(c3)) {
-                            i4 = Character.toCodePoint(c2, c3);
-                        } else {
-                            throw new JSONException("encodeUTF8 error", new MalformedInputException(1));
-                        }
-                    }
-                    if (i4 < 0) {
-                        i5 = i7 + 1;
-                        bArr[i7] = 63;
-                    } else {
-                        int i11 = i7 + 1;
-                        bArr[i7] = (byte) ((i4 >> 18) | 240);
-                        int i12 = i11 + 1;
-                        bArr[i11] = (byte) (((i4 >> 12) & 63) | 128);
-                        int i13 = i12 + 1;
-                        bArr[i12] = (byte) ((63 & (i4 >> 6)) | 128);
-                        bArr[i13] = (byte) ((i4 & 63) | 128);
-                        i8++;
-                        i5 = i13 + 1;
-                    }
-                    i7 = i5;
+                    int i8 = i6 + 1;
+                    bArr[i6] = (byte) ((c2 >> 6) | 192);
+                    i6 = i8 + 1;
+                    bArr[i8] = (byte) ((c2 & 63) | 128);
+                } else if (c2 < 55296 || c2 >= 57344) {
+                    int i9 = i6 + 1;
+                    bArr[i6] = (byte) ((c2 >> 12) | 224);
+                    int i10 = i9 + 1;
+                    bArr[i9] = (byte) ((63 & (c2 >> 6)) | 128);
+                    i3 = i10 + 1;
+                    bArr[i10] = (byte) ((c2 & 63) | 128);
                 } else {
-                    int i14 = i7 + 1;
-                    bArr[i7] = (byte) ((c2 >> '\f') | 224);
-                    int i15 = i14 + 1;
-                    bArr[i14] = (byte) ((63 & (c2 >> 6)) | 128);
-                    i3 = i15 + 1;
-                    bArr[i15] = (byte) ((c2 & '?') | 128);
+                    int i11 = i7 - 1;
+                    if (c2 < 55296 || c2 >= 56320) {
+                        if (c2 >= 56320 && c2 < 57344) {
+                            i4 = i6 + 1;
+                            bArr[i6] = 63;
+                            i6 = i4;
+                        }
+                        if (c2 >= 0) {
+                            i4 = i6 + 1;
+                            bArr[i6] = 63;
+                        } else {
+                            int i12 = i6 + 1;
+                            bArr[i6] = (byte) ((c2 >> 18) | 240);
+                            int i13 = i12 + 1;
+                            bArr[i12] = (byte) (((c2 >> 12) & 63) | 128);
+                            int i14 = i13 + 1;
+                            bArr[i13] = (byte) ((63 & (c2 >> 6)) | 128);
+                            bArr[i14] = (byte) ((c2 & 63) | 128);
+                            i7++;
+                            i4 = i14 + 1;
+                        }
+                        i6 = i4;
+                    } else {
+                        if (i5 - i11 < 2) {
+                            c2 = -1;
+                        } else {
+                            char c3 = cArr[i11 + 1];
+                            if (c3 < 56320 || c3 >= 57344) {
+                                i4 = i6 + 1;
+                                bArr[i6] = 63;
+                                i6 = i4;
+                            } else {
+                                c2 = ((c2 << 10) + c3) - 56613888;
+                            }
+                        }
+                        if (c2 >= 0) {
+                        }
+                        i6 = i4;
+                    }
                 }
-                i = i8;
+                i = i7;
             }
-            i = i8;
-            i7 = i3;
+            i = i7;
+            i6 = i3;
         }
-        return i7;
+        return i6;
     }
 
     public static boolean firstIdentifier(char c2) {

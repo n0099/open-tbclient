@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public TbImageView A;
     public XfremodeRoundLayout z;
@@ -19,7 +19,7 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public void S(AdCard adCard) {
         AdCard.d[] dVarArr;
         if (adCard != null && (dVarArr = adCard.threadPicList) != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20707a;
+            String str = dVarArr[0].f20399a;
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
                 this.A.W(str, 17, false);

@@ -6,7 +6,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     public Entry<K, V> mEnd;

@@ -1,528 +1,374 @@
 package d.b.i0.s2;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
-import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import d.b.i0.s2.b;
-/* loaded from: classes5.dex */
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.tbadkCore.data.AppData;
+import d.b.h0.r.q.m0;
+import d.b.h0.r.q.z1;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.GoodsInfo;
+/* loaded from: classes4.dex */
 public class a {
-    public CustomMessageListener A;
-    public CustomMessageListener B;
-    public CustomMessageListener C;
-    public CustomMessageListener D;
-    public CustomMessageListener E;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f60169a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f60170b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f60171c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f60172d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f60173e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f60174f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f60175g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f60176h;
-    public boolean i;
-    public boolean j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public final CustomMessageListener x;
-    public CustomMessageListener y;
-    public CustomMessageListener z;
 
     /* renamed from: d.b.i0.s2.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1534a extends CustomMessageListener {
-        public C1534a(int i) {
-            super(i);
-        }
-
+    /* loaded from: classes4.dex */
+    public static class C1575a implements Comparator<m0> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120) {
-                a.this.E(customResponsedMessage);
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(m0 m0Var, m0 m0Var2) {
+            if (m0Var.c() && m0Var2.c()) {
+                return m0Var.i() - m0Var2.i();
             }
+            if (m0Var.c() || m0Var2.c()) {
+                return m0Var.c() ? -1 : 1;
+            }
+            return (m0Var.d() == null ? -1 : a.f(m0Var.d())) - (m0Var2.d() != null ? a.f(m0Var2.d()) : -1);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+    public static Set<d.b.c.j.e.n> a(List<d.b.c.j.e.n> list, int i, String str) {
+        AdvertAppInfo d2;
+        AdvertAppInfo d3;
+        HashSet hashSet = new HashSet();
+        if (d.b.i0.j1.o.k.a.e(list)) {
+            return hashSet;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
-                ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-                if (responseUnreadPointNum.getNum() <= 0 || a.this.n >= responseUnreadPointNum.getNum()) {
-                    a.this.n = responseUnreadPointNum.getNum();
-                    a.this.o = false;
-                } else {
-                    a.this.o = true;
-                    a aVar = a.this;
-                    aVar.f60173e = aVar.o ? true : a.this.f60173e;
-                    a.this.n = responseUnreadPointNum.getNum();
-                    a.this.D();
+        Set<d.b.c.j.e.n> a2 = d.b.i0.s2.f0.a.a(str);
+        if (a2 == null) {
+            a2 = new HashSet();
+        }
+        for (d.b.c.j.e.n nVar : list) {
+            if (nVar != null) {
+                for (d.b.c.j.e.n nVar2 : a2) {
+                    if ((nVar instanceof m0) && (d3 = ((m0) nVar).d()) != null && nVar2.hashCode() == d3.hashCode()) {
+                        d3.Y3 = ((AdvertAppInfo) nVar2).Y3;
+                    }
                 }
-                a.this.H();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
-            }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (booleanValue) {
-                d.b.h0.r.d0.b.i().s("key_feedback_tip_show", true);
-            }
-            a.this.i = booleanValue;
-            a.this.v = booleanValue;
-            a.this.D();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends CustomMessageListener {
-        public d(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0048, code lost:
-            if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() <= r2.k("maintab_member_center_red_tip_" + r1, 0)) goto L10;
-         */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
-            }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (booleanValue) {
-                if (TbadkCoreApplication.isLogin()) {
-                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-                }
-                booleanValue = false;
-            }
-            a.this.t = booleanValue;
-            a.this.f60175g = booleanValue;
-            a.this.D();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends CustomMessageListener {
-        public e(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
-            }
-            a.this.p = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            a aVar = a.this;
-            aVar.f60174f = aVar.p ? true : a.this.f60174f;
-            a.this.D();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f extends CustomMessageListener {
-        public f(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null) {
-                return;
-            }
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof Integer) && ((Integer) data).intValue() == 4) {
-                a.this.F();
-                if (a.this.j) {
-                    TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 1));
-                    a.this.j = false;
+                if ((nVar instanceof m0) && (d2 = ((m0) nVar).d()) != null && d2.Y3 == null) {
+                    d.b.h0.r.q.d dVar = new d.b.h0.r.q.d();
+                    d2.Y3 = dVar;
+                    dVar.f51156a = str;
+                    dVar.f51157b = i;
+                    dVar.f51163h = d2.T3;
+                    dVar.i = false;
+                    hashSet.add(d2);
                 }
             }
         }
+        a2.addAll(hashSet);
+        d.b.i0.s2.f0.a.b(str, a2);
+        return hashSet;
     }
 
-    /* loaded from: classes5.dex */
-    public class g extends CustomMessageListener {
-        public g(int i) {
-            super(i);
+    public static int b(@NonNull List<d.b.c.j.e.n> list) {
+        int i = 0;
+        if (d.b.i0.j1.o.k.a.e(list)) {
+            return 0;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null) {
-                return;
-            }
-            a.this.G();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h extends CustomMessageListener {
-        public h(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.b.h0.s.c.b activityPrizeData = TbadkCoreApplication.getInst().getActivityPrizeData();
-            if (activityPrizeData.g()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (StringUtils.isNull(currentAccount)) {
-                    return;
+        int i2 = -1;
+        for (int k = d.b.i0.j1.o.k.a.k(list) - 1; k >= 0 && !(d.b.i0.j1.o.k.a.d(list, k) instanceof m0); k--) {
+            if (d.b.i0.j1.o.k.a.d(list, k) instanceof z1) {
+                int i3 = ((z1) d.b.i0.j1.o.k.a.d(list, k)).position;
+                if (i3 != i2) {
+                    i++;
+                    i2 = i3;
                 }
-                String a2 = activityPrizeData.a();
-                d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-                String o = i.o("person_item_activity_prize_red_tip" + currentAccount, "");
-                if (StringUtils.isNull(a2) || a2.equals(o)) {
-                    return;
-                }
-                a.this.f60176h = true;
-                a.this.u = true;
-                a.this.D();
+            } else {
+                i++;
             }
         }
+        return i;
     }
 
-    /* loaded from: classes5.dex */
-    public class i implements Runnable {
-        public i() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (a.this.w) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class j {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f60186a = new a(null);
-    }
-
-    public /* synthetic */ a(C1534a c1534a) {
-        this();
-    }
-
-    public static final a v() {
-        return j.f60186a;
-    }
-
-    public boolean A() {
-        return this.f60171c;
-    }
-
-    public boolean B() {
-        return this.f60170b;
-    }
-
-    public boolean C() {
-        return this.f60175g;
-    }
-
-    public final void D() {
-        SparseArray sparseArray = new SparseArray();
-        if (this.o) {
-            sparseArray.append(4, new b.a(this.f60173e, this.n));
-        }
-        if (this.q) {
-            sparseArray.append(2, new b.a(this.f60170b, this.k));
-        }
-        if (this.r) {
-            sparseArray.append(1, new b.a(this.f60172d, this.l));
-        }
-        if (this.s) {
-            sparseArray.append(3, new b.a(this.f60171c, this.m));
-        }
-        if (this.p) {
-            sparseArray.append(5, new b.a(this.f60174f, 0));
-        }
-        if (this.t) {
-            sparseArray.append(7, new b.a(this.f60175g, 0));
-        }
-        if (this.u) {
-            sparseArray.append(9, new b.a(this.f60176h, 0));
-        }
-        if (this.v) {
-            sparseArray.append(10, new b.a(this.i, 0));
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new d.b.i0.s2.b(sparseArray)));
-        M();
-    }
-
-    public final void E(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            this.s = newsNotifyMessage.getMsgBookmark() > this.m;
-            this.q = newsNotifyMessage.getMsgFans() > this.k;
-            this.r = newsNotifyMessage.getMsgGiftNum() > this.l;
-            this.m = newsNotifyMessage.getMsgBookmark();
-            this.k = newsNotifyMessage.getMsgFans();
-            this.l = newsNotifyMessage.getMsgGiftNum();
-            if (this.s || this.q || this.r || this.p) {
-                this.f60170b = this.q ? true : this.f60170b;
-                this.f60171c = this.s ? true : this.f60171c;
-                this.f60172d = this.r ? true : this.f60172d;
-                this.f60174f = this.p ? true : this.f60174f;
-                D();
-            }
-        }
-    }
-
-    public void F() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.b.h0.e0.a(false)));
-    }
-
-    public void G() {
-        this.f60170b = false;
-        this.f60171c = false;
-        this.f60172d = false;
-        this.f60173e = false;
-        this.f60174f = false;
-        this.f60175g = false;
-        this.f60176h = false;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0;
-        this.n = 0;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.s = false;
-        this.t = false;
-        this.u = false;
-        x();
-        d.b.b.e.m.e.a().post(new i());
-        y();
-    }
-
-    public void H() {
-        TbadkSettings inst = TbadkSettings.getInst();
-        StringBuilder sb = new StringBuilder();
-        sb.append("has_clicked_addresslist_item_in_leftnavi");
-        TbadkCoreApplication.getInst();
-        sb.append(TbadkCoreApplication.getCurrentAccount());
-        inst.saveBoolean(sb.toString(), !this.o);
-    }
-
-    public void I(boolean z) {
-        this.f60169a = z;
-    }
-
-    public final void J() {
-        boolean z = this.f60172d || this.f60171c || this.f60170b || this.f60173e || this.f60174f || this.f60175g || this.f60176h || this.j;
-        if (this.f60169a || !TbadkCoreApplication.isLogin()) {
+    public static void c(List<d.b.c.j.e.n> list) {
+        if (d.b.i0.j1.o.k.a.e(list)) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.b.h0.e0.a(z, 0)));
-    }
-
-    public void K(boolean z) {
-        if (z) {
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new b.a(this.f60173e, this.n));
-            sparseArray.append(2, new b.a(this.f60170b, this.k));
-            sparseArray.append(1, new b.a(this.f60172d, this.l));
-            sparseArray.append(3, new b.a(this.f60171c, this.m));
-            sparseArray.append(5, new b.a(this.f60174f, 0));
-            sparseArray.append(7, new b.a(this.f60175g, 0));
-            sparseArray.append(9, new b.a(this.f60176h, 0));
-            sparseArray.append(10, new b.a(this.i, 0));
-            sparseArray.append(11, new b.a(this.j, 0));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new d.b.i0.s2.b(sparseArray)));
+        Iterator<d.b.c.j.e.n> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next() instanceof m0) {
+                it.remove();
+            }
         }
     }
 
-    public void L(int i2, boolean z, boolean z2) {
-        if (z2) {
-            switch (i2) {
-                case 1:
-                    this.f60172d = z;
-                    break;
-                case 2:
-                    this.f60170b = z;
-                    break;
-                case 3:
-                    this.f60171c = z;
-                    break;
-                case 4:
-                    this.f60173e = z;
-                    break;
-                case 5:
-                    AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                    if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        d.b.h0.r.d0.b.i().s("member_close_ad_setting_clicked", true);
+    public static void d(String str, List list) {
+        String str2;
+        if (TextUtils.isEmpty(str) || d.b.i0.j1.o.k.a.e(list)) {
+            return;
+        }
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            Object next = it.next();
+            boolean z = next instanceof m0;
+            if (z || (next instanceof App)) {
+                if (next instanceof App) {
+                    str2 = ((App) next).id;
+                } else {
+                    if (z) {
+                        m0 m0Var = (m0) next;
+                        if (m0Var.d() != null) {
+                            str2 = m0Var.d().E3;
+                        }
                     }
-                    this.f60174f = z;
-                    break;
-                case 7:
-                    String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                    d.b.h0.r.d0.b i3 = d.b.h0.r.d0.b.i();
-                    i3.v("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
-                    this.f60175g = z;
-                    break;
-                case 9:
-                    this.f60176h = z;
-                    String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-                    d.b.h0.r.d0.b i4 = d.b.h0.r.d0.b.i();
-                    i4.w("person_item_activity_prize_red_tip" + currentAccount2, TbadkCoreApplication.getInst().getActivityPrizeData().a());
-                    break;
-                case 10:
-                    this.i = z;
-                    break;
-                case 11:
-                    this.j = z;
-                    break;
+                    str2 = "";
+                }
+                if (TextUtils.equals(str, str2)) {
+                    it.remove();
+                }
             }
-            K(true);
-            J();
         }
     }
 
-    public final void M() {
-        if (((this.k > 0 && this.q) || (this.m > 0 && this.s) || this.p || this.u || this.v) && !this.f60169a && TbadkCoreApplication.isLogin()) {
-            if (this.v) {
-                d.b.h0.r.d0.b.i().s("key_feedback_tip_tab_show", true);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.b.h0.e0.a(true, 0)));
-        }
-    }
-
-    public final void w() {
-        MessageManager.getInstance().registerListener(this.x);
-        MessageManager.getInstance().registerListener(this.y);
-        MessageManager.getInstance().registerListener(this.B);
-        MessageManager.getInstance().registerListener(this.D);
-        MessageManager.getInstance().registerListener(this.A);
-        MessageManager.getInstance().registerListener(this.C);
-        MessageManager.getInstance().registerListener(this.z);
-        MessageManager.getInstance().registerListener(this.E);
-    }
-
-    public final void x() {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (!d.b.h0.r.d0.b.i().g("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-            this.f60174f = true;
-        }
-        TbadkSettings inst = TbadkSettings.getInst();
+    public static String e(List<d.b.c.j.e.n> list, boolean z) {
+        m0 m0Var;
         StringBuilder sb = new StringBuilder();
-        sb.append("has_clicked_addresslist_item_in_leftnavi");
-        TbadkCoreApplication.getInst();
-        sb.append(TbadkCoreApplication.getCurrentAccount());
-        this.w = inst.loadBoolean(sb.toString(), false);
-    }
-
-    public final void y() {
-        if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new d.b.h0.e0.a(this.f60174f)));
+        if (!z && !d.b.i0.j1.o.k.a.e(list)) {
+            int i = 0;
+            for (int k = d.b.i0.j1.o.k.a.k(list) - 1; k >= 0 && i < 6; k--) {
+                if ((d.b.i0.j1.o.k.a.d(list, k) instanceof m0) && (m0Var = (m0) d.b.i0.j1.o.k.a.d(list, k)) != null && !l(m0Var.d())) {
+                    sb.append(m0Var.i() + 1);
+                    sb.append(",");
+                    i++;
+                }
+            }
+            if (sb.length() <= 1) {
+                return sb.toString();
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            return sb.toString();
         }
+        return sb.toString();
     }
 
-    public boolean z() {
-        return this.f60176h;
+    public static int f(AdvertAppInfo advertAppInfo) {
+        if (advertAppInfo == null) {
+            return 0;
+        }
+        if (TextUtils.isEmpty(advertAppInfo.K3)) {
+            return -1;
+        }
+        return d.b.c.e.m.b.d(advertAppInfo.K3, -1);
     }
 
-    public a() {
-        this.f60169a = false;
-        this.f60170b = false;
-        this.f60171c = false;
-        this.f60172d = false;
-        this.f60173e = false;
-        this.f60174f = false;
-        this.f60175g = false;
-        this.f60176h = false;
-        this.i = d.b.h0.r.d0.b.i().g("key_feedback_tip_show", false);
-        this.j = false;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0;
-        this.n = 0;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.s = false;
-        this.t = false;
-        this.u = false;
-        this.v = false;
-        this.x = new C1534a(2001120);
-        this.y = new b(2001176);
-        this.z = new c(2016561);
-        this.A = new d(2016459);
-        this.B = new e(2001436);
-        this.C = new f(2001384);
-        this.D = new g(2005016);
-        this.E = new h(2001371);
-        w();
+    public static List<m0> g(List<App> list, String str) {
+        ArrayList arrayList = new ArrayList();
+        if (d.b.i0.j1.o.k.a.e(list)) {
+            return arrayList;
+        }
+        Log.e("frs", "src ad list size " + list.size());
+        for (App app : list) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            advertAppInfo.H4(app);
+            advertAppInfo.c4 = str;
+            int k = k(advertAppInfo);
+            if (k != 0) {
+                p(advertAppInfo, k);
+            } else {
+                arrayList.add(advertAppInfo);
+            }
+        }
+        Log.e("frs", "src ad jiaoyan size " + arrayList.size());
+        return arrayList;
+    }
+
+    public static int h(@NonNull App app) {
+        List<GoodsInfo> list = app.goods_info;
+        if (list == null) {
+            return -1001;
+        }
+        for (GoodsInfo goodsInfo : list) {
+            if (goodsInfo != null) {
+                return goodsInfo.goods_style.intValue();
+            }
+        }
+        return -1001;
+    }
+
+    public static boolean i(App app, BannerList bannerList) {
+        if (app != null && bannerList != null) {
+            if (n(app, bannerList.pb_banner_ad)) {
+                return true;
+            }
+            List<App> list = bannerList.video_recommend_ad;
+            if (!d.b.i0.j1.o.k.a.e(list)) {
+                for (App app2 : list) {
+                    if (n(app, app2)) {
+                        return true;
+                    }
+                }
+            }
+            List<App> list2 = bannerList.app;
+            if (!d.b.i0.j1.o.k.a.e(list2)) {
+                for (App app3 : list2) {
+                    if (n(app, app3)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public static List<m0> j(List<m0> list, List<d.b.c.j.e.n> list2, int i) {
+        ArrayList arrayList = new ArrayList();
+        if (d.b.i0.j1.o.k.a.e(list)) {
+            return arrayList;
+        }
+        r(list);
+        int i2 = 0;
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            m0 m0Var = (m0) d.b.i0.j1.o.k.a.d(list, i3);
+            if (m0Var != null && m0Var.d() != null) {
+                int k = d.b.i0.j1.o.k.a.k(list2);
+                int f2 = f(m0Var.d()) - 1;
+                if (f2 < 0) {
+                    q(m0Var.d());
+                } else {
+                    int i4 = m0Var.c() ? m0Var.i() : f2 + i;
+                    if (i4 > k) {
+                        q(m0Var.d());
+                    } else {
+                        m0Var.setPosition(i4);
+                        d.b.i0.j1.o.k.a.b(list2, m0Var, i4);
+                        arrayList.add(m0Var);
+                    }
+                }
+            }
+        }
+        while (i < d.b.i0.j1.o.k.a.k(list2)) {
+            d.b.c.j.e.n nVar = list2.get(i);
+            if (nVar instanceof m0) {
+                i2++;
+            } else if (nVar instanceof BaseCardInfo) {
+                ((BaseCardInfo) nVar).position += i2;
+            }
+            i++;
+        }
+        return arrayList;
+    }
+
+    public static int k(@Nullable AdvertAppInfo advertAppInfo) {
+        int E4 = advertAppInfo.E4();
+        if (f(advertAppInfo) < 0) {
+            return 23;
+        }
+        return E4;
+    }
+
+    public static boolean l(AdvertAppInfo advertAppInfo) {
+        return advertAppInfo == null || advertAppInfo.getType() == AdvertAppInfo.h4 || advertAppInfo.getType() == AdvertAppInfo.i4 || advertAppInfo.getType() == AdvertAppInfo.j4;
+    }
+
+    public static boolean m(@NonNull App app) {
+        List<GoodsInfo> list = app.goods_info;
+        if (list == null) {
+            return false;
+        }
+        for (GoodsInfo goodsInfo : list) {
+            if (goodsInfo != null && goodsInfo.goods_style.intValue() == 1001) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean n(App app, App app2) {
+        String str;
+        String str2;
+        if (app != null && app2 != null && !d.b.i0.j1.o.k.a.e(app.goods_info) && !d.b.i0.j1.o.k.a.e(app2.goods_info)) {
+            Iterator<GoodsInfo> it = app.goods_info.iterator();
+            while (true) {
+                str = null;
+                if (!it.hasNext()) {
+                    str2 = null;
+                    break;
+                }
+                GoodsInfo next = it.next();
+                if (next != null) {
+                    str2 = next.lego_card;
+                    break;
+                }
+            }
+            Iterator<GoodsInfo> it2 = app2.goods_info.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    break;
+                }
+                GoodsInfo next2 = it2.next();
+                if (next2 != null) {
+                    str = next2.lego_card;
+                    break;
+                }
+            }
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                try {
+                    if (TextUtils.equals(new JSONObject(str2).optString("download_key"), new JSONObject(str).optString("download_key"))) {
+                        return true;
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean o(@NonNull App app) {
+        List<GoodsInfo> list = app.goods_info;
+        if (list == null) {
+            return false;
+        }
+        for (GoodsInfo goodsInfo : list) {
+            if (goodsInfo != null && !TextUtils.isEmpty(goodsInfo.lego_card)) {
+                try {
+                    JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("vertical_video_style");
+                    if (optJSONObject != null && !TextUtils.isEmpty(optJSONObject.optString("bottom_picture", ""))) {
+                        return true;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void p(AdvertAppInfo advertAppInfo, int i) {
+        AppData appData;
+        d.b.i0.s2.f0.e.b().d(d.b.i0.s2.f0.h.i(advertAppInfo, 5, 1, i));
+        if (advertAppInfo == null || (appData = advertAppInfo.e4) == null) {
+            return;
+        }
+        appData.mDiscardReason = i;
+    }
+
+    public static void q(AdvertAppInfo advertAppInfo) {
+        p(advertAppInfo, 23);
+    }
+
+    public static void r(List<m0> list) {
+        Collections.sort(list, new C1575a());
+    }
+
+    public static void s(List<d.b.c.j.e.n> list) {
+        for (int i = 0; i < d.b.i0.j1.o.k.a.k(list); i++) {
+            if (d.b.i0.j1.o.k.a.d(list, i) instanceof m0) {
+                ((m0) d.b.i0.j1.o.k.a.d(list, i)).setPosition(i);
+            }
+        }
     }
 }

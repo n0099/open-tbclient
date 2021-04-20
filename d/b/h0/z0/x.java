@@ -12,13 +12,13 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 public class x {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f51747b = new byte[1];
+    public static final byte[] f52171b = new byte[1];
 
     /* renamed from: c  reason: collision with root package name */
-    public static x f51748c;
+    public static x f52172c;
 
     /* renamed from: a  reason: collision with root package name */
-    public CustomMessageListener f51749a;
+    public CustomMessageListener f52173a;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -36,18 +36,18 @@ public class x {
     }
 
     public x() {
-        d.b.b.e.p.j.r();
+        d.b.c.e.p.j.r();
     }
 
     public static x b() {
-        if (f51748c == null) {
-            synchronized (f51747b) {
-                if (f51748c == null) {
-                    f51748c = new x();
+        if (f52172c == null) {
+            synchronized (f52171b) {
+                if (f52172c == null) {
+                    f52172c = new x();
                 }
             }
         }
-        return f51748c;
+        return f52172c;
     }
 
     public final CustomMessageListener c() {
@@ -56,12 +56,12 @@ public class x {
 
     public final void d() {
         try {
-            boolean z = d.b.b.e.p.j.z();
+            boolean z = d.b.c.e.p.j.z();
             if (z) {
-                if (d.b.b.e.p.j.H()) {
+                if (d.b.c.e.p.j.H()) {
                     TbImageHelper.getInstance().setNetworkIsWifi(true);
-                    d.b.i0.r2.a0.a.e().f();
-                } else if (d.b.b.e.p.j.x()) {
+                    d.b.i0.s2.d0.a.e().f();
+                } else if (d.b.c.e.p.j.x()) {
                     TbImageHelper.getInstance().setNetworkIsWifi(false);
                 }
             }
@@ -74,12 +74,12 @@ public class x {
 
     public void e() {
         try {
-            if (this.f51749a == null) {
-                this.f51749a = c();
-                MessageManager.getInstance().registerListener(this.f51749a);
+            if (this.f52173a == null) {
+                this.f52173a = c();
+                MessageManager.getInstance().registerListener(this.f52173a);
             }
         } catch (Exception e2) {
-            this.f51749a = null;
+            this.f52173a = null;
             BdLog.e(e2.getMessage());
         }
     }

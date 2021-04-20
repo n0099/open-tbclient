@@ -1,32 +1,34 @@
 package d.b.i0.c2;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class b {
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.tieba.payment.PayVcodeActivity;
+import d.b.c.e.m.g;
+/* loaded from: classes3.dex */
+public class b extends WebChromeClient {
 
-    /* loaded from: classes4.dex */
-    public static class a {
+    /* renamed from: a  reason: collision with root package name */
+    public PayVcodeActivity f53638a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public static String f52309a = "c12585";
+    /* renamed from: b  reason: collision with root package name */
+    public d.b.i0.d3.l0.c f53639b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public static String f52310b = "c12586";
+    public b(PayVcodeActivity payVcodeActivity) {
+        this.f53638a = payVcodeActivity;
     }
 
-    public static CustomDialogData a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
-            try {
-                return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
+    public void a(d.b.i0.d3.l0.c cVar) {
+        this.f53639b = cVar;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        PayVcodeActivity payVcodeActivity;
+        d.b.i0.d3.l0.c cVar = this.f53639b;
+        if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.f53638a) != null && g.f(payVcodeActivity.getPageContext())) {
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
-        return null;
+        return true;
     }
 }

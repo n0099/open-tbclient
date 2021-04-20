@@ -10,21 +10,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes3.dex */
 public interface h {
-    d.b.b.e.k.b<GifView> getGifViewPool();
+    d.b.c.e.k.b<GifView> getGifViewPool();
 
-    d.b.b.e.k.b<ImageView> getImageViewPool();
+    d.b.c.e.k.b<ImageView> getImageViewPool();
 
     ListView getListView();
 
-    d.b.b.e.k.b<RelativeLayout> getRelativeLayoutPool();
+    d.b.c.e.k.b<RelativeLayout> getRelativeLayoutPool();
 
     int getRichTextViewId();
 
-    d.b.b.e.k.b<TextView> getTextViewPool();
+    d.b.c.e.k.b<TextView> getTextViewPool();
 
-    d.b.b.e.k.b<LinearLayout> getTextVoiceViewPool();
+    d.b.c.e.k.b<LinearLayout> getTextVoiceViewPool();
 
-    d.b.b.e.k.b<View> getVoiceViewPool();
+    d.b.c.e.k.b<View> getVoiceViewPool();
 
     void onAtClicked(Context context, String str);
 

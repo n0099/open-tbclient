@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.b;
-import f.a.c;
+import f.b.b;
+import f.b.c;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -35,18 +35,18 @@ public final class CompletableConcatArray$ConcatInnerObserver extends AtomicInte
         }
     }
 
-    @Override // f.a.b
+    @Override // f.b.b
     public void onComplete() {
         next();
     }
 
-    @Override // f.a.b
+    @Override // f.b.b
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.b
-    public void onSubscribe(f.a.t.b bVar) {
+    @Override // f.b.b
+    public void onSubscribe(f.b.t.b bVar) {
         this.sd.replace(bVar);
     }
 }

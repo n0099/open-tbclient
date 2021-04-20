@@ -1,155 +1,96 @@
 package d.b.i0.o.b;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.b.e.p.k;
-import d.b.h0.r.l.a;
-import d.b.h0.r.l.e;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.constants.PlaceId;
+import d.b.i0.o.b.b;
+import d.b.i0.s2.f0.d;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class a {
-    public static String a(String str) {
-        if (k.isEmpty(str) || str.indexOf("cuid=") > -1) {
-            return str;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(str);
-        if (str.indexOf("?") > 0) {
-            sb.append("&");
-        } else {
-            sb.append("?");
-        }
-        if (!UtilHelper.isNativeAdURL(str)) {
-            sb.append("cuid=");
-            sb.append(TbadkCoreApplication.getInst().getCuid());
-            sb.append("&cuid_galaxy2=");
-            sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            sb.append("&c3_aid=");
-            sb.append(TbadkCoreApplication.getInst().getCuidGalaxy3());
-            sb.append("&cuid_gid=");
-            sb.append(TbadkCoreApplication.getInst().getCuidGid());
-        }
-        sb.append("&timestamp=");
-        sb.append(System.currentTimeMillis());
-        return sb.toString();
+public class a implements b.InterfaceC1409b {
+
+    /* renamed from: f  reason: collision with root package name */
+    public static long f58603f;
+
+    /* renamed from: a  reason: collision with root package name */
+    public PlaceId f58604a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f58605b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f58606c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c f58607d = c.d();
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f58608e;
+
+    public a(PlaceId placeId, String str, int i) {
+        this.f58604a = placeId;
+        this.f58605b = str;
+        this.f58606c = i;
+        this.f58608e = new b(this, this.f58604a);
     }
 
-    public static String b(String str) {
-        if (k.isEmpty(str) || str.indexOf("_client_version=") <= -1) {
-            return str + "&_client_version=" + TbConfig.getVersion();
-        }
-        return str;
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x00c9 -> B:29:0x00cc). Please submit an issue!!! */
-    public static void c(Context context) {
-        CookieManager cookieManager;
-        a.b d2 = d.b.h0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
-        try {
-            CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
-            cookieManager = CookieManager.getInstance();
-        } catch (Throwable th) {
-            BdLog.e(th);
-            cookieManager = null;
-        }
-        if (cookieManager == null) {
+    @Override // d.b.i0.o.b.b.InterfaceC1409b
+    public void a(boolean z, List<AdvertAppInfo> list) {
+        if (!z || d.b.i0.j1.o.k.a.e(list)) {
             return;
         }
-        if (d2 != null) {
-            cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ";");
-            String a2 = e.a(TbadkCoreApplication.getCurrentAccountInfo());
-            StringBuilder sb = new StringBuilder();
-            if (!StringUtils.isNull(a2)) {
-                sb.append("STOKEN=");
-                sb.append(a2);
-                sb.append("; domain=.tieba.baidu.com;");
-                cookieManager.setCookie(TbPatternsCompat.TB_DOMAIN_NAME, sb.toString());
-            }
-        } else {
-            try {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    cookieManager.removeAllCookies(null);
-                    CookieManager.getInstance().flush();
-                } else {
-                    cookieManager.removeAllCookie();
-                    CookieSyncManager.createInstance(context);
-                    CookieSyncManager.getInstance().sync();
-                }
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-        try {
-            if (Build.VERSION.SDK_INT >= 21) {
-                CookieManager.getInstance().flush();
-            } else {
-                CookieSyncManager.getInstance().sync();
-            }
-        } catch (Exception e3) {
-            BdLog.e(e3);
-        }
+        g(list);
+        this.f58607d.a(this.f58604a, list);
     }
 
-    public static String d(String str, String str2) {
-        String str3;
-        if (!str.startsWith("http://") && !str.startsWith("https://")) {
-            str = "http://".concat(str);
-        }
-        if (str.contains("?")) {
-            str3 = "&st_type=" + str2;
-        } else {
-            str3 = "?st_type=" + str2;
-        }
-        return str.concat(str3);
-    }
-
-    public static void e() {
-        new PvThread("open_webview", true).start();
-    }
-
-    public static void f(Context context, String str) {
-        String b2 = b(a(str));
-        try {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(b2));
-            if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-            context.startActivity(intent);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-        }
-    }
-
-    public static void g(Context context, String str, String str2, Bundle bundle) {
-        h(context, str2, str, true, true, true, bundle);
-    }
-
-    public static void h(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
-        e();
-        try {
-            if (StringUtils.isNull(str2)) {
+    public void b(int i) {
+        if (d.b.i0.s2.c.e(System.currentTimeMillis(), this.f58607d.e(this.f58604a), i)) {
+            List<AdvertAppInfo> b2 = this.f58607d.b(this.f58604a);
+            if (d.b.i0.j1.o.k.a.e(b2)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+            for (AdvertAppInfo advertAppInfo : b2) {
+                d.g(advertAppInfo, 0, 44);
+            }
+        }
+    }
+
+    @Nullable
+    public AdvertAppInfo c() {
+        return this.f58607d.c(this.f58604a);
+    }
+
+    public boolean d() {
+        return this.f58607d.f(this.f58604a);
+    }
+
+    public void e() {
+        this.f58608e.b();
+    }
+
+    public void f(int i, Map<String, String> map) {
+        if (System.currentTimeMillis() - f58603f < this.f58606c * d.b.i0.s2.c.f61592c) {
+            return;
+        }
+        this.f58608e.c(map, i);
+        f58603f = System.currentTimeMillis();
+    }
+
+    public final void g(List<AdvertAppInfo> list) {
+        Iterator<AdvertAppInfo> it = list.iterator();
+        while (it.hasNext()) {
+            AdvertAppInfo next = it.next();
+            next.c4 = this.f58605b;
+            int E4 = next.E4();
+            if (E4 != 0) {
+                d.g(next, 0, E4);
+                it.remove();
+            }
+            if (d.b.i0.s2.a.l(next)) {
+                it.remove();
+            }
         }
     }
 }

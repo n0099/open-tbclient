@@ -11,32 +11,32 @@ import com.bytedance.sdk.openadsdk.dislike.d;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.z;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements TTAdDislike {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29133a;
+    public String f28818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f29134b;
+    public final Context f28819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f29135c;
+    public l f28820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f29136d;
+    public d f28821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f29137e;
+    public c f28822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29138f;
+    public String f28823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Boolean f29139g;
+    public Boolean f28824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicBoolean f29140h;
+    public AtomicBoolean f28825h;
     public boolean i;
     public TTAdDislike.DislikeInteractionCallback j;
 
@@ -46,8 +46,8 @@ public class b implements TTAdDislike {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void sendDislikeSource(String str) {
-        this.f29135c.c(str);
-        this.f29138f = str;
+        this.f28820c.c(str);
+        this.f28823f = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
@@ -62,10 +62,10 @@ public class b implements TTAdDislike {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void showDislikeDialog() {
-        Context context = this.f29134b;
-        if (((context instanceof Activity) && !((Activity) context).isFinishing()) && !this.f29136d.isShowing() && !this.f29137e.isShowing()) {
-            this.f29136d.show();
-            this.f29140h.set(false);
+        Context context = this.f28819b;
+        if (((context instanceof Activity) && !((Activity) context).isFinishing()) && !this.f28821d.isShowing() && !this.f28822e.isShowing()) {
+            this.f28821d.show();
+            this.f28825h.set(false);
             return;
         }
         TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback = this.j;
@@ -75,29 +75,29 @@ public class b implements TTAdDislike {
     }
 
     public b(Context context, l lVar, String str) {
-        this.f29139g = Boolean.FALSE;
-        this.f29140h = new AtomicBoolean(false);
+        this.f28824g = Boolean.FALSE;
+        this.f28825h = new AtomicBoolean(false);
         this.i = false;
-        this.f29133a = str;
+        this.f28818a = str;
         z.a(context, "Dislike 初始化必须使用activity,请在TTAdManager.createAdNative(activity)中传入");
-        this.f29134b = context;
+        this.f28819b = context;
         lVar.c("other");
-        this.f29135c = lVar;
+        this.f28820c = lVar;
         a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        Context context = this.f29134b;
-        if (!((context instanceof Activity) && !((Activity) context).isFinishing()) || this.f29136d.isShowing() || this.f29137e.isShowing()) {
+        Context context = this.f28819b;
+        if (!((context instanceof Activity) && !((Activity) context).isFinishing()) || this.f28821d.isShowing() || this.f28822e.isShowing()) {
             return;
         }
-        this.f29137e.show();
+        this.f28822e.show();
     }
 
     private void a() {
-        d dVar = new d(this.f29134b, this.f29135c, this.f29133a);
-        this.f29136d = dVar;
+        d dVar = new d(this.f28819b, this.f28820c, this.f28818a);
+        this.f28821d = dVar;
         dVar.a(new d.a() { // from class: com.bytedance.sdk.openadsdk.dislike.b.1
             @Override // com.bytedance.sdk.openadsdk.dislike.d.a
             public void a() {
@@ -116,7 +116,7 @@ public class b implements TTAdDislike {
                         if (b.this.j != null) {
                             b.this.j.onSelected(i, filterWord.getName());
                         }
-                        b.this.f29140h.set(true);
+                        b.this.f28825h.set(true);
                     }
                     u.f("TTAdDislikeImpl", "onDislikeSelected: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(filterWord.getName()));
                 } catch (Throwable th) {
@@ -137,8 +137,8 @@ public class b implements TTAdDislike {
                 }
             }
         });
-        c cVar = new c(this.f29134b, this.f29135c);
-        this.f29137e = cVar;
+        c cVar = new c(this.f28819b, this.f28820c);
+        this.f28822e = cVar;
         cVar.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.dislike.b.2
             @Override // com.bytedance.sdk.openadsdk.dislike.c.a
             public void a() {
@@ -153,8 +153,8 @@ public class b implements TTAdDislike {
                     if (b.this.j != null) {
                         b.this.j.onSelected(i, filterWord.getName());
                     }
-                    b.this.f29140h.set(true);
-                    b.this.f29139g = Boolean.TRUE;
+                    b.this.f28825h.set(true);
+                    b.this.f28824g = Boolean.TRUE;
                 } catch (Throwable th) {
                     u.c("TTAdDislikeImpl", "comment callback selected error: ", th);
                 }
@@ -163,10 +163,10 @@ public class b implements TTAdDislike {
             @Override // com.bytedance.sdk.openadsdk.dislike.c.a
             public void b() {
                 try {
-                    if (b.this.f29139g.booleanValue()) {
+                    if (b.this.f28824g.booleanValue()) {
                         return;
                     }
-                    b.this.f29136d.show();
+                    b.this.f28821d.show();
                 } catch (Throwable th) {
                     u.c("TTAdDislikeImpl", "dislike callback selected error: ", th);
                 }
@@ -175,8 +175,8 @@ public class b implements TTAdDislike {
     }
 
     public void a(l lVar) {
-        this.f29136d.a(lVar);
-        this.f29137e.a(lVar);
+        this.f28821d.a(lVar);
+        this.f28822e.a(lVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
@@ -185,11 +185,11 @@ public class b implements TTAdDislike {
             showDislikeDialog();
             return;
         }
-        Context context = this.f29134b;
-        if (((context instanceof Activity) && !((Activity) context).isFinishing()) && !this.f29136d.isShowing() && !this.f29137e.isShowing()) {
-            this.f29136d.a(this.f29138f);
-            this.f29136d.show();
-            this.f29140h.set(false);
+        Context context = this.f28819b;
+        if (((context instanceof Activity) && !((Activity) context).isFinishing()) && !this.f28821d.isShowing() && !this.f28822e.isShowing()) {
+            this.f28821d.a(this.f28823f);
+            this.f28821d.show();
+            this.f28825h.set(false);
             return;
         }
         TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback = this.j;

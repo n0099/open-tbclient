@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.livecard.holder.FrsPageAlaVideoHolder;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.b.b.j.e.s;
+import d.b.c.j.e.s;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.z1;
-import d.b.i0.p0.k;
+import d.b.i0.q0.k;
 import d.b.i0.x.b0;
 import d.b.i0.x.z;
 /* loaded from: classes4.dex */
@@ -57,7 +57,7 @@ public class f extends k<z1, FrsPageAlaVideoHolder> implements z, d.b.i0.m.f {
         this.x = str;
     }
 
-    @Override // d.b.i0.p0.k, d.b.i0.x.y
+    @Override // d.b.i0.q0.k, d.b.i0.x.y
     public void i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super.i(tbPageContext, bdUniqueId);
     }
@@ -72,7 +72,7 @@ public class f extends k<z1, FrsPageAlaVideoHolder> implements z, d.b.i0.m.f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: v0 */
     public FrsPageAlaVideoHolder R(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
@@ -88,7 +88,7 @@ public class f extends k<z1, FrsPageAlaVideoHolder> implements z, d.b.i0.m.f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.p0.k, d.b.b.j.e.a
+    @Override // d.b.i0.q0.k, d.b.c.j.e.a
     /* renamed from: w0 */
     public View X(int i, View view, ViewGroup viewGroup, z1 z1Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         TiebaStatic.log("c11842");
@@ -100,14 +100,14 @@ public class f extends k<z1, FrsPageAlaVideoHolder> implements z, d.b.i0.m.f {
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (z1Var != null) {
-            d.b.i0.t.i.e.e eVar = frsPageAlaVideoHolder.f15035a;
+            d.b.i0.t.i.e.e eVar = frsPageAlaVideoHolder.f14698a;
             if (eVar instanceof d.b.i0.m.e) {
                 eVar.setPage(this.y);
             }
-            frsPageAlaVideoHolder.f15035a.a(this.x);
-            frsPageAlaVideoHolder.f15035a.X(l0());
-            frsPageAlaVideoHolder.f15035a.n(z1Var.w);
-            z1Var.w.x4();
+            frsPageAlaVideoHolder.f14698a.a(this.x);
+            frsPageAlaVideoHolder.f14698a.X(l0());
+            frsPageAlaVideoHolder.f14698a.n(z1Var.w);
+            z1Var.w.y4();
         }
         this.q = (s) viewGroup;
         return frsPageAlaVideoHolder.a();

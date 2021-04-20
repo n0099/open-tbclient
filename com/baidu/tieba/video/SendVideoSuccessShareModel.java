@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class SendVideoSuccessShareModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21696e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+    public HttpMessageListener f21381e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
 
     /* loaded from: classes5.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
@@ -40,9 +40,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
             String optString3 = jSONObject.optString("video_id");
             OriginalThreadInfo originalThreadInfo = this.threadInfo;
-            originalThreadInfo.f13213c = optString2;
-            originalThreadInfo.f13211a = 3;
-            originalThreadInfo.f13212b = optString;
+            originalThreadInfo.f12874c = optString2;
+            originalThreadInfo.f12872a = 3;
+            originalThreadInfo.f12873b = optString;
             originalThreadInfo.l = optString3;
         }
 
@@ -73,9 +73,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f21696e.setTag(getUniqueId());
-        this.f21696e.setSelfListener(true);
-        registerListener(this.f21696e);
+        this.f21381e.setTag(getUniqueId());
+        this.f21381e.setSelfListener(true);
+        registerListener(this.f21381e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -85,7 +85,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f21696e);
+        MessageManager.getInstance().unRegisterListener(this.f21381e);
         return false;
     }
 

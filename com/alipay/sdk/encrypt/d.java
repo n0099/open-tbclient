@@ -11,7 +11,7 @@ import javax.crypto.Cipher;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1898a = "RSA";
+    public static final String f1923a = "RSA";
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0052: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:28:0x0052 */
     /* JADX WARN: Removed duplicated region for block: B:35:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */

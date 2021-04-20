@@ -5,8 +5,8 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import d.b.i0.u2.c.c;
-/* loaded from: classes5.dex */
+import d.b.i0.v2.c.c;
+/* loaded from: classes4.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public c mView = null;
 

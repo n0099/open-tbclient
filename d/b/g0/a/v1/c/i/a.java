@@ -4,32 +4,32 @@ import android.app.Activity;
 import com.baidu.searchbox.http.request.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends h<b> {
     public final String l;
     public final Activity m;
     public final boolean n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f46811a;
+        public final String f47203a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f46812b;
+        public final boolean f47204b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final JSONObject f46813c;
+        public final JSONObject f47205c;
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.f46812b), this.f46811a);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.f47204b), this.f47203a);
         }
 
         public b(boolean z, String str, JSONObject jSONObject) {
-            this.f46811a = str == null ? "" : str;
-            this.f46812b = z;
-            this.f46813c = jSONObject;
+            this.f47203a = str == null ? "" : str;
+            this.f47204b = z;
+            this.f47205c = jSONObject;
         }
     }
 

@@ -11,37 +11,37 @@ import d.b.h0.m.g;
 public abstract class AdapterLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.b1.f.a.b f14120e;
+    public d.b.h0.b1.f.a.b f13796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f14121f;
+    public DataSetObserver f13797f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14122g;
+    public boolean f13798g;
 
     /* loaded from: classes3.dex */
     public class a extends g {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f14123e;
+        public final /* synthetic */ Context f13799e;
 
         public a(Context context) {
-            this.f14123e = context;
+            this.f13799e = context;
         }
 
         @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             DataSetObserver dataSetObserver;
-            if (activity == this.f14123e) {
+            if (activity == this.f13799e) {
                 AdapterLayout adapterLayout = AdapterLayout.this;
-                d.b.h0.b1.f.a.b bVar = adapterLayout.f14120e;
-                if (bVar != null && (dataSetObserver = adapterLayout.f14121f) != null) {
+                d.b.h0.b1.f.a.b bVar = adapterLayout.f13796e;
+                if (bVar != null && (dataSetObserver = adapterLayout.f13797f) != null) {
                     bVar.e(dataSetObserver);
                     AdapterLayout adapterLayout2 = AdapterLayout.this;
-                    adapterLayout2.f14120e = null;
-                    adapterLayout2.f14121f = null;
+                    adapterLayout2.f13796e = null;
+                    adapterLayout2.f13797f = null;
                 }
-                ((Activity) this.f14123e).getApplication().unregisterActivityLifecycleCallbacks(this);
+                ((Activity) this.f13799e).getApplication().unregisterActivityLifecycleCallbacks(this);
             }
         }
     }
@@ -63,22 +63,22 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public final void a() {
         DataSetObserver dataSetObserver;
-        d.b.h0.b1.f.a.b bVar = this.f14120e;
-        if (bVar == null || (dataSetObserver = this.f14121f) == null || this.f14122g) {
+        d.b.h0.b1.f.a.b bVar = this.f13796e;
+        if (bVar == null || (dataSetObserver = this.f13797f) == null || this.f13798g) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f14122g = true;
+        this.f13798g = true;
     }
 
     public void b() {
-        if (this.f14120e == null) {
+        if (this.f13796e == null) {
             return;
         }
         removeAllViews();
-        int a2 = this.f14120e.a();
+        int a2 = this.f13796e.a();
         for (int i = 0; i < a2; i++) {
-            View b2 = this.f14120e.b(i, this);
+            View b2 = this.f13796e.b(i, this);
             b2.setFocusable(true);
             addView(b2);
         }
@@ -86,11 +86,11 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public final void c() {
         DataSetObserver dataSetObserver;
-        d.b.h0.b1.f.a.b bVar = this.f14120e;
-        if (bVar == null || (dataSetObserver = this.f14121f) == null || !this.f14122g) {
+        d.b.h0.b1.f.a.b bVar = this.f13796e;
+        if (bVar == null || (dataSetObserver = this.f13797f) == null || !this.f13798g) {
             return;
         }
-        this.f14122g = false;
+        this.f13798g = false;
         bVar.e(dataSetObserver);
     }
 
@@ -109,8 +109,8 @@ public abstract class AdapterLayout extends ViewGroup {
     public void setAdapter(d.b.h0.b1.f.a.b bVar) {
         c();
         if (bVar != null) {
-            this.f14120e = bVar;
-            this.f14121f = new b();
+            this.f13796e = bVar;
+            this.f13797f = new b();
             a();
             b();
             return;
@@ -124,7 +124,7 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public AdapterLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14122g = false;
+        this.f13798g = false;
         if (context instanceof Activity) {
             ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new a(context));
         }

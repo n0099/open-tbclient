@@ -1,6 +1,5 @@
 package okio;
 
-import com.alipay.sdk.data.a;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
@@ -103,7 +102,7 @@ public class Timeout {
                 j = System.nanoTime() - nanoTime;
             }
             if (j >= timeoutNanos) {
-                throw new InterruptedIOException(a.i);
+                throw new InterruptedIOException("timeout");
             }
         } catch (InterruptedException unused) {
             throw new InterruptedIOException("interrupted");

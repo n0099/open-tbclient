@@ -15,18 +15,18 @@ public class h extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45147e;
+        public final /* synthetic */ CallbackHandler f45539e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f45148f;
+        public final /* synthetic */ UnitedSchemeEntity f45540f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45149g;
+        public final /* synthetic */ JSONObject f45541g;
 
         public a(h hVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
-            this.f45147e = callbackHandler;
-            this.f45148f = unitedSchemeEntity;
-            this.f45149g = jSONObject;
+            this.f45539e = callbackHandler;
+            this.f45540f = unitedSchemeEntity;
+            this.f45541g = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,11 +34,11 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.n(hVar, this.f45147e, this.f45148f);
+                d.b.g0.a.v1.c.c.n(hVar, this.f45539e, this.f45540f);
                 return;
             }
-            d.b.g0.a.m1.a.a.G(d.b.g0.a.l0.g.a.b(this.f45149g.optInt("emitReplaceGameCore")));
-            UnitedSchemeUtility.callCallback(this.f45147e, this.f45148f, UnitedSchemeUtility.wrapCallbackParams(0));
+            d.b.g0.a.m1.a.a.G(d.b.g0.a.l0.g.a.b(this.f45541g.optInt("emitReplaceGameCore")));
+            UnitedSchemeUtility.callCallback(this.f45539e, this.f45540f, UnitedSchemeUtility.wrapCallbackParams(0));
             d.b.g0.a.m1.a.a.T();
         }
     }

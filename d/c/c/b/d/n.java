@@ -14,28 +14,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f65731a;
+    public final AtomicInteger f66576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<Request<?>> f65732b;
+    public final Set<Request<?>> f66577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PriorityBlockingQueue<Request<?>> f65733c;
+    public final PriorityBlockingQueue<Request<?>> f66578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final PriorityBlockingQueue<Request<?>> f65734d;
+    public final PriorityBlockingQueue<Request<?>> f66579d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.c.c.b.f.b f65735e;
+    public final d.c.c.b.f.b f66580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.c.c.b.f.c f65736f;
+    public final d.c.c.b.f.c f66581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.c.c.b.f.d f65737g;
+    public final d.c.c.b.f.d f66582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final j[] f65738h;
+    public final j[] f66583h;
     public f i;
     public final List<b> j;
     public final List<a> k;
@@ -52,46 +52,46 @@ public class n {
     }
 
     public n(d.c.c.b.f.b bVar, d.c.c.b.f.c cVar, int i, d.c.c.b.f.d dVar) {
-        this.f65731a = new AtomicInteger();
-        this.f65732b = new HashSet();
-        this.f65733c = new PriorityBlockingQueue<>();
-        this.f65734d = new PriorityBlockingQueue<>();
+        this.f66576a = new AtomicInteger();
+        this.f66577b = new HashSet();
+        this.f66578c = new PriorityBlockingQueue<>();
+        this.f66579d = new PriorityBlockingQueue<>();
         this.j = new ArrayList();
         this.k = new ArrayList();
-        this.f65735e = bVar;
-        this.f65736f = cVar;
-        this.f65738h = new j[i];
-        this.f65737g = dVar;
+        this.f66580e = bVar;
+        this.f66581f = cVar;
+        this.f66583h = new j[i];
+        this.f66582g = dVar;
     }
 
     public <T> Request<T> a(Request<T> request) {
         e(request);
         request.setStartTime();
         request.setRequestQueue(this);
-        synchronized (this.f65732b) {
-            this.f65732b.add(request);
+        synchronized (this.f66577b) {
+            this.f66577b.add(request);
         }
         request.setSequence(f());
         request.addMarker("add-to-queue");
         c(request, 0);
         if (!request.shouldCache()) {
-            this.f65734d.add(request);
+            this.f66579d.add(request);
             return request;
         }
-        this.f65733c.add(request);
+        this.f66578c.add(request);
         return request;
     }
 
     public void b() {
         d();
-        f fVar = new f(this.f65733c, this.f65734d, this.f65735e, this.f65737g);
+        f fVar = new f(this.f66578c, this.f66579d, this.f66580e, this.f66582g);
         this.i = fVar;
         fVar.setName("tt_pangle_thread_CacheDispatcher");
         this.i.start();
-        for (int i = 0; i < this.f65738h.length; i++) {
-            j jVar = new j(this.f65734d, this.f65736f, this.f65735e, this.f65737g);
+        for (int i = 0; i < this.f66583h.length; i++) {
+            j jVar = new j(this.f66579d, this.f66581f, this.f66580e, this.f66582g);
             jVar.setName("tt_pangle_thread_NetworkDispatcher" + i);
-            this.f65738h[i] = jVar;
+            this.f66583h[i] = jVar;
             jVar.start();
         }
     }
@@ -110,7 +110,7 @@ public class n {
         if (fVar != null) {
             fVar.b();
         }
-        for (j jVar : this.f65738h) {
+        for (j jVar : this.f66583h) {
             if (jVar != null) {
                 jVar.a();
             }
@@ -132,12 +132,12 @@ public class n {
     }
 
     public int f() {
-        return this.f65731a.incrementAndGet();
+        return this.f66576a.incrementAndGet();
     }
 
     public <T> void g(Request<T> request) {
-        synchronized (this.f65732b) {
-            this.f65732b.remove(request);
+        synchronized (this.f66577b) {
+            this.f66577b.remove(request);
         }
         synchronized (this.j) {
             for (b bVar : this.j) {

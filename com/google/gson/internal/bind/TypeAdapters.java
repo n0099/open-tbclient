@@ -13,8 +13,8 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.LazilyParsedNumber;
 import com.google.gson.stream.JsonToken;
-import d.g.c.a.c;
-import d.g.c.d.b;
+import d.g.d.a.c;
+import d.g.d.d.b;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -68,28 +68,28 @@ public final class TypeAdapters {
     public static final TypeAdapterFactory Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TypeAdapter<Class> f30993a;
+    public static final TypeAdapter<Class> f31282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f30994b;
+    public static final TypeAdapterFactory f31283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final TypeAdapter<BitSet> f30995c;
+    public static final TypeAdapter<BitSet> f31284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TypeAdapterFactory f30996d;
+    public static final TypeAdapterFactory f31285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final TypeAdapter<Boolean> f30997e;
+    public static final TypeAdapter<Boolean> f31286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final TypeAdapter<Boolean> f30998f;
+    public static final TypeAdapter<Boolean> f31287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final TypeAdapterFactory f30999g;
+    public static final TypeAdapterFactory f31288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final TypeAdapter<Number> f31000h;
+    public static final TypeAdapter<Number> f31289h;
     public static final TypeAdapterFactory i;
     public static final TypeAdapter<Number> j;
     public static final TypeAdapterFactory k;
@@ -113,10 +113,10 @@ public final class TypeAdapters {
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, T> f31016a = new HashMap();
+        public final Map<String, T> f31305a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<T, String> f31017b = new HashMap();
+        public final Map<T, String> f31306b = new HashMap();
 
         public EnumTypeAdapter(Class<T> cls) {
             T[] enumConstants;
@@ -127,11 +127,11 @@ public final class TypeAdapters {
                     if (cVar != null) {
                         name = cVar.value();
                         for (String str : cVar.alternate()) {
-                            this.f31016a.put(str, t);
+                            this.f31305a.put(str, t);
                         }
                     }
-                    this.f31016a.put(name, t);
-                    this.f31017b.put(t, name);
+                    this.f31305a.put(name, t);
+                    this.f31306b.put(t, name);
                 }
             } catch (NoSuchFieldException e2) {
                 throw new AssertionError(e2);
@@ -141,19 +141,19 @@ public final class TypeAdapters {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
-        public T read(d.g.c.d.a aVar) throws IOException {
+        public T read(d.g.d.d.a aVar) throws IOException {
             if (aVar.M() == JsonToken.NULL) {
                 aVar.I();
                 return null;
             }
-            return this.f31016a.get(aVar.K());
+            return this.f31305a.get(aVar.K());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: b */
         public void write(b bVar, T t) throws IOException {
-            bVar.O(t == null ? null : this.f31017b.get(t));
+            bVar.O(t == null ? null : this.f31306b.get(t));
         }
     }
 
@@ -161,49 +161,49 @@ public final class TypeAdapters {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31018a;
+        public static final /* synthetic */ int[] f31307a;
 
         static {
             int[] iArr = new int[JsonToken.values().length];
-            f31018a = iArr;
+            f31307a = iArr;
             try {
                 iArr[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31018a[JsonToken.BOOLEAN.ordinal()] = 2;
+                f31307a[JsonToken.BOOLEAN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31018a[JsonToken.STRING.ordinal()] = 3;
+                f31307a[JsonToken.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31018a[JsonToken.NULL.ordinal()] = 4;
+                f31307a[JsonToken.NULL.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31018a[JsonToken.BEGIN_ARRAY.ordinal()] = 5;
+                f31307a[JsonToken.BEGIN_ARRAY.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31018a[JsonToken.BEGIN_OBJECT.ordinal()] = 6;
+                f31307a[JsonToken.BEGIN_OBJECT.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f31018a[JsonToken.END_DOCUMENT.ordinal()] = 7;
+                f31307a[JsonToken.END_DOCUMENT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f31018a[JsonToken.NAME.ordinal()] = 8;
+                f31307a[JsonToken.NAME.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f31018a[JsonToken.END_OBJECT.ordinal()] = 9;
+                f31307a[JsonToken.END_OBJECT.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f31018a[JsonToken.END_ARRAY.ordinal()] = 10;
+                f31307a[JsonToken.END_ARRAY.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
         }
@@ -211,7 +211,7 @@ public final class TypeAdapters {
 
     static {
         TypeAdapter<Class> nullSafe = new TypeAdapter<Class>() { // from class: com.google.gson.internal.bind.TypeAdapters.1
-            public Class a(d.g.c.d.a aVar) throws IOException {
+            public Class a(d.g.d.d.a aVar) throws IOException {
                 throw new UnsupportedOperationException("Attempted to deserialize a java.lang.Class. Forgot to register a type adapter?");
             }
 
@@ -221,20 +221,20 @@ public final class TypeAdapters {
 
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // com.google.gson.TypeAdapter
-            public /* bridge */ /* synthetic */ Class read(d.g.c.d.a aVar) throws IOException {
+            public /* bridge */ /* synthetic */ Class read(d.g.d.d.a aVar) throws IOException {
                 a(aVar);
                 throw null;
             }
 
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [d.g.c.d.b, java.lang.Object] */
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [d.g.d.d.b, java.lang.Object] */
             @Override // com.google.gson.TypeAdapter
             public /* bridge */ /* synthetic */ void write(b bVar, Class cls) throws IOException {
                 b(bVar, cls);
                 throw null;
             }
         }.nullSafe();
-        f30993a = nullSafe;
-        f30994b = b(Class.class, nullSafe);
+        f31282a = nullSafe;
+        f31283b = b(Class.class, nullSafe);
         TypeAdapter<BitSet> nullSafe2 = new TypeAdapter<BitSet>() { // from class: com.google.gson.internal.bind.TypeAdapters.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
@@ -251,13 +251,13 @@ public final class TypeAdapters {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public BitSet read(d.g.c.d.a aVar) throws IOException {
+            public BitSet read(d.g.d.d.a aVar) throws IOException {
                 BitSet bitSet = new BitSet();
                 aVar.n();
                 JsonToken M2 = aVar.M();
                 int i2 = 0;
                 while (M2 != JsonToken.END_ARRAY) {
-                    int i3 = a.f31018a[M2.ordinal()];
+                    int i3 = a.f31307a[M2.ordinal()];
                     boolean z2 = true;
                     if (i3 != 1) {
                         if (i3 == 2) {
@@ -294,13 +294,13 @@ public final class TypeAdapters {
                 bVar.t();
             }
         }.nullSafe();
-        f30995c = nullSafe2;
-        f30996d = b(BitSet.class, nullSafe2);
-        f30997e = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
+        f31284c = nullSafe2;
+        f31285d = b(BitSet.class, nullSafe2);
+        f31286e = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public Boolean read(d.g.c.d.a aVar) throws IOException {
+            public Boolean read(d.g.d.d.a aVar) throws IOException {
                 JsonToken M2 = aVar.M();
                 if (M2 == JsonToken.NULL) {
                     aVar.I();
@@ -319,11 +319,11 @@ public final class TypeAdapters {
                 bVar.M(bool);
             }
         };
-        f30998f = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
+        f31287f = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public Boolean read(d.g.c.d.a aVar) throws IOException {
+            public Boolean read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -338,12 +338,12 @@ public final class TypeAdapters {
                 bVar.O(bool == null ? StringUtil.NULL_STRING : bool.toString());
             }
         };
-        f30999g = c(Boolean.TYPE, Boolean.class, f30997e);
-        f31000h = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
+        f31288g = c(Boolean.TYPE, Boolean.class, f31286e);
+        f31289h = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -361,12 +361,12 @@ public final class TypeAdapters {
                 bVar.N(number);
             }
         };
-        i = c(Byte.TYPE, Byte.class, f31000h);
+        i = c(Byte.TYPE, Byte.class, f31289h);
         j = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.6
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -389,7 +389,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -412,7 +412,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public AtomicInteger read(d.g.c.d.a aVar) throws IOException {
+            public AtomicInteger read(d.g.d.d.a aVar) throws IOException {
                 try {
                     return new AtomicInteger(aVar.E());
                 } catch (NumberFormatException e2) {
@@ -433,7 +433,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public AtomicBoolean read(d.g.c.d.a aVar) throws IOException {
+            public AtomicBoolean read(d.g.d.d.a aVar) throws IOException {
                 return new AtomicBoolean(aVar.C());
             }
 
@@ -450,7 +450,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public AtomicIntegerArray read(d.g.c.d.a aVar) throws IOException {
+            public AtomicIntegerArray read(d.g.d.d.a aVar) throws IOException {
                 ArrayList arrayList = new ArrayList();
                 aVar.n();
                 while (aVar.y()) {
@@ -487,7 +487,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -509,7 +509,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -527,7 +527,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -545,9 +545,9 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
-            public Number read(d.g.c.d.a aVar) throws IOException {
+            public Number read(d.g.d.d.a aVar) throws IOException {
                 JsonToken M2 = aVar.M();
-                int i2 = a.f31018a[M2.ordinal()];
+                int i2 = a.f31307a[M2.ordinal()];
                 if (i2 == 1 || i2 == 3) {
                     return new LazilyParsedNumber(aVar.K());
                 }
@@ -570,7 +570,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public Character read(d.g.c.d.a aVar) throws IOException {
+            public Character read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -594,7 +594,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public String read(d.g.c.d.a aVar) throws IOException {
+            public String read(d.g.d.d.a aVar) throws IOException {
                 JsonToken M2 = aVar.M();
                 if (M2 == JsonToken.NULL) {
                     aVar.I();
@@ -617,7 +617,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public BigDecimal read(d.g.c.d.a aVar) throws IOException {
+            public BigDecimal read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -640,7 +640,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public BigInteger read(d.g.c.d.a aVar) throws IOException {
+            public BigInteger read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -664,7 +664,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public StringBuilder read(d.g.c.d.a aVar) throws IOException {
+            public StringBuilder read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -685,7 +685,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public StringBuffer read(d.g.c.d.a aVar) throws IOException {
+            public StringBuffer read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -706,7 +706,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public URL read(d.g.c.d.a aVar) throws IOException {
+            public URL read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -731,7 +731,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public URI read(d.g.c.d.a aVar) throws IOException {
+            public URI read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -760,7 +760,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public InetAddress read(d.g.c.d.a aVar) throws IOException {
+            public InetAddress read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -781,7 +781,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public UUID read(d.g.c.d.a aVar) throws IOException {
+            public UUID read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -802,7 +802,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public Currency read(d.g.c.d.a aVar) throws IOException {
+            public Currency read(d.g.d.d.a aVar) throws IOException {
                 return Currency.getInstance(aVar.K());
             }
 
@@ -817,7 +817,7 @@ public final class TypeAdapters {
         R = b(Currency.class, nullSafe6);
         S = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.26
             @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
+            public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
                 if (aVar.c() != Timestamp.class) {
                     return null;
                 }
@@ -826,7 +826,7 @@ public final class TypeAdapters {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.google.gson.TypeAdapter
                     /* renamed from: a */
-                    public Timestamp read(d.g.c.d.a aVar2) throws IOException {
+                    public Timestamp read(d.g.d.d.a aVar2) throws IOException {
                         Date date = (Date) adapter.read(aVar2);
                         if (date != null) {
                             return new Timestamp(date.getTime());
@@ -847,7 +847,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public Calendar read(d.g.c.d.a aVar) throws IOException {
+            public Calendar read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -910,7 +910,7 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public Locale read(d.g.c.d.a aVar) throws IOException {
+            public Locale read(d.g.d.d.a aVar) throws IOException {
                 if (aVar.M() == JsonToken.NULL) {
                     aVar.I();
                     return null;
@@ -941,8 +941,8 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: a */
-            public JsonElement read(d.g.c.d.a aVar) throws IOException {
-                switch (a.f31018a[aVar.M().ordinal()]) {
+            public JsonElement read(d.g.d.d.a aVar) throws IOException {
+                switch (a.f31307a[aVar.M().ordinal()]) {
                     case 1:
                         return new JsonPrimitive((Number) new LazilyParsedNumber(aVar.K()));
                     case 2:
@@ -1017,7 +1017,7 @@ public final class TypeAdapters {
         Y = e(JsonElement.class, typeAdapter10);
         Z = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.30
             @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
+            public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
                 Class c2 = aVar.c();
                 if (!Enum.class.isAssignableFrom(c2) || c2 == Enum.class) {
                     return null;
@@ -1030,11 +1030,11 @@ public final class TypeAdapters {
         };
     }
 
-    public static <TT> TypeAdapterFactory a(final d.g.c.c.a<TT> aVar, final TypeAdapter<TT> typeAdapter) {
+    public static <TT> TypeAdapterFactory a(final d.g.d.c.a<TT> aVar, final TypeAdapter<TT> typeAdapter) {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.31
             @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar2) {
-                if (aVar2.equals(d.g.c.c.a.this)) {
+            public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar2) {
+                if (aVar2.equals(d.g.d.c.a.this)) {
                     return typeAdapter;
                 }
                 return null;
@@ -1045,7 +1045,7 @@ public final class TypeAdapters {
     public static <TT> TypeAdapterFactory b(final Class<TT> cls, final TypeAdapter<TT> typeAdapter) {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.32
             @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
+            public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
                 if (aVar.c() == cls) {
                     return typeAdapter;
                 }
@@ -1061,7 +1061,7 @@ public final class TypeAdapters {
     public static <TT> TypeAdapterFactory c(final Class<TT> cls, final Class<TT> cls2, final TypeAdapter<? super TT> typeAdapter) {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.33
             @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
+            public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
                 Class<? super T> c2 = aVar.c();
                 if (c2 == cls || c2 == cls2) {
                     return typeAdapter;
@@ -1078,7 +1078,7 @@ public final class TypeAdapters {
     public static <TT> TypeAdapterFactory d(final Class<TT> cls, final Class<? extends TT> cls2, final TypeAdapter<? super TT> typeAdapter) {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.34
             @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
+            public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
                 Class<? super T> c2 = aVar.c();
                 if (c2 == cls || c2 == cls2) {
                     return typeAdapter;
@@ -1095,7 +1095,7 @@ public final class TypeAdapters {
     public static <T1> TypeAdapterFactory e(final Class<T1> cls, final TypeAdapter<T1> typeAdapter) {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.35
             @Override // com.google.gson.TypeAdapterFactory
-            public <T2> TypeAdapter<T2> create(Gson gson, d.g.c.c.a<T2> aVar) {
+            public <T2> TypeAdapter<T2> create(Gson gson, d.g.d.c.a<T2> aVar) {
                 final Class<? super T2> c2 = aVar.c();
                 if (cls.isAssignableFrom(c2)) {
                     return (TypeAdapter<T2>) new TypeAdapter<T1>() { // from class: com.google.gson.internal.bind.TypeAdapters.35.1
@@ -1103,7 +1103,7 @@ public final class TypeAdapters {
                         /* JADX WARN: Multi-variable type inference failed */
                         /* JADX WARN: Type inference failed for: r4v1, types: [java.lang.Object, T1] */
                         @Override // com.google.gson.TypeAdapter
-                        public T1 read(d.g.c.d.a aVar2) throws IOException {
+                        public T1 read(d.g.d.d.a aVar2) throws IOException {
                             ?? read = typeAdapter.read(aVar2);
                             if (read == 0 || c2.isInstance(read)) {
                                 return read;

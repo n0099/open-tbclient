@@ -11,17 +11,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33595a;
+    public Context f33884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f33596b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f33885b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f33597c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.a.1
+    public ServiceConnection f33886c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                a.this.f33596b.put(iBinder);
+                a.this.f33885b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -33,7 +33,7 @@ public class a {
     };
 
     public a(Context context) {
-        this.f33595a = context;
+        this.f33884a = context;
     }
 
     public String a() {
@@ -44,16 +44,16 @@ public class a {
             Intent intent = new Intent();
             intent.setAction("com.asus.msa.action.ACCESS_DID");
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
-            if (this.f33595a.bindService(intent, this.f33597c, 1)) {
+            if (this.f33884a.bindService(intent, this.f33886c, 1)) {
                 try {
-                    str = new a.C0382a(this.f33596b.take()).a();
+                    str = new a.C0396a(this.f33885b.take()).a();
                     com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID oaid:" + str);
-                    context = this.f33595a;
-                    serviceConnection = this.f33597c;
+                    context = this.f33884a;
+                    serviceConnection = this.f33886c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
-                    context = this.f33595a;
-                    serviceConnection = this.f33597c;
+                    context = this.f33884a;
+                    serviceConnection = this.f33886c;
                 }
                 context.unbindService(serviceConnection);
             }

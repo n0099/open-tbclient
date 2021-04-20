@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import d.b.b.e.m.b;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
-import d.b.b.j.e.n;
+import d.b.c.e.m.b;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.j.e.n;
 import d.b.h0.a.f;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,8 +30,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.b.i0.z0.j.a.a {
+/* loaded from: classes4.dex */
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.b.i0.a1.j.a.a {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public long mCurPageNum = 1;
@@ -41,7 +41,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public TopicDetailView mTopicDetailView;
     public long topicID;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements f.b {
         public a() {
         }
@@ -112,7 +112,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return "a024";
     }
 
-    @Override // d.b.i0.z0.j.a.a
+    @Override // d.b.i0.a1.j.a.a
     public void loadData() {
         int i;
         String substring;
@@ -166,10 +166,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.b.i0.z0.j.a.a
-    public void netCallback(int i, d.b.i0.z0.j.a.c.a aVar) {
+    @Override // d.b.i0.a1.j.a.a
+    public void netCallback(int i, d.b.i0.a1.j.a.c.a aVar) {
         this.mTopicDetailView.r();
-        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f63309f)) {
+        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f52928f)) {
             this.mTopicDetailView.s();
             this.mTopicDetailView.setData(aVar);
             return;
@@ -177,7 +177,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         this.mTopicDetailView.E(true);
     }
 
-    @Override // d.b.i0.z0.j.a.a
+    @Override // d.b.i0.a1.j.a.a
     public void netThreadCallback(int i, boolean z, List<n> list) {
         this.mTopicDetailView.setNextData(i, z, list);
     }
@@ -209,7 +209,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         adjustResizeForSoftInput();
         this.mTopicDetailModel.z(this);
         loadData();
-        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.b.a.b.f().h("MainTabActivity")) {
+        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.c.a.b.f().h("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
         if (this.mIsFromSchema) {

@@ -12,23 +12,23 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45157b = k.f45051a;
+    public static final boolean f45549b = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f45158c;
+    public static a f45550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f45159d;
+    public static a f45551d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45160a;
+    public String f45552a;
 
     @NonNull
     public static a a(@NonNull String str) {
-        if (f45158c == null) {
-            f45158c = d(e(str));
+        if (f45550c == null) {
+            f45550c = d(e(str));
         }
-        return f45158c;
+        return f45550c;
     }
 
     @NonNull
@@ -41,40 +41,40 @@ public class a {
 
     @NonNull
     public static a c(@NonNull String str) {
-        if (f45159d == null) {
-            f45159d = d(e(str));
+        if (f45551d == null) {
+            f45551d = d(e(str));
         }
-        return f45159d;
+        return f45551d;
     }
 
     @NonNull
     public static a d(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject != null) {
-            aVar.f45160a = jSONObject.optString("extension-core-version");
+            aVar.f45552a = jSONObject.optString("extension-core-version");
         }
         return aVar;
     }
 
     public static JSONObject e(@NonNull String str) {
-        if (f45157b) {
+        if (f45549b) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }
         String q = d.q(AppRuntime.getAppContext(), str);
         if (TextUtils.isEmpty(q)) {
-            if (f45157b) {
+            if (f45549b) {
                 Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
             }
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(q);
-            if (f45157b) {
+            if (f45549b) {
                 Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (f45157b) {
+            if (f45549b) {
                 throw new RuntimeException(e2);
             }
             return null;

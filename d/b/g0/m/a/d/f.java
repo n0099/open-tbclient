@@ -7,7 +7,7 @@ import android.view.View;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f49176a;
+    public static final k f49568a;
 
     /* loaded from: classes3.dex */
     public static class a implements k {
@@ -49,7 +49,7 @@ public class f {
 
     /* renamed from: d.b.g0.m.a.d.f$f  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1029f extends e {
+    public static class C1041f extends e {
         @Override // d.b.g0.m.a.d.f.k
         public boolean d(View view) {
             return d.b.g0.m.a.d.i.a(view);
@@ -57,7 +57,7 @@ public class f {
     }
 
     /* loaded from: classes3.dex */
-    public static class g extends C1029f {
+    public static class g extends C1041f {
     }
 
     /* loaded from: classes3.dex */
@@ -87,29 +87,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            f49176a = new j();
+            f49568a = new j();
         } else {
-            f49176a = new i();
+            f49568a = new i();
         }
     }
 
     public static boolean a(View view, int i2) {
-        return f49176a.e(view, i2);
+        return f49568a.e(view, i2);
     }
 
     public static int b(View view) {
-        return f49176a.a(view);
+        return f49568a.a(view);
     }
 
     public static boolean c(View view) {
-        return f49176a.d(view);
+        return f49568a.d(view);
     }
 
     public static void d(View view, int i2, Paint paint) {
-        f49176a.b(view, i2, paint);
+        f49568a.b(view, i2, paint);
     }
 
     public static void e(View view, boolean z) {
-        f49176a.c(view, z);
+        f49568a.c(view, z);
     }
 }

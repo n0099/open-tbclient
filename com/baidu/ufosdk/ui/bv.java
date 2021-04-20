@@ -8,23 +8,23 @@ import android.widget.TextView;
 public final class bv implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f23100a;
+    public final /* synthetic */ View f22785a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f23101b;
+    public final /* synthetic */ PopupWindow f22786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23102c;
+    public final /* synthetic */ FeedbackInputActivity f22787c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
-        this.f23102c = feedbackInputActivity;
-        this.f23100a = view;
-        this.f23101b = popupWindow;
+        this.f22787c = feedbackInputActivity;
+        this.f22785a = view;
+        this.f22786b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ((ClipboardManager) this.f23102c.getSystemService("clipboard")).setText(((TextView) this.f23100a).getText().toString());
-        this.f23101b.dismiss();
+        ((ClipboardManager) this.f22787c.getSystemService("clipboard")).setText(((TextView) this.f22785a).getText().toString());
+        this.f22786b.dismiss();
     }
 }

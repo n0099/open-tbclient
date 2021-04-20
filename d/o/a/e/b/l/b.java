@@ -1,7 +1,8 @@
 package d.o.a.e.b.l;
 
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(int i) {
         if (i != 449) {
@@ -90,7 +91,7 @@ public class b {
                                                             return "Requested Range Not Satisfiable";
                                                         case HttpStatus.SC_EXPECTATION_FAILED /* 417 */:
                                                             return "Expectation Failed";
-                                                        case 418:
+                                                        case SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG /* 418 */:
                                                             return "I'm a teapot";
                                                         default:
                                                             switch (i) {
@@ -102,9 +103,9 @@ public class b {
                                                                     return "Locked";
                                                                 case HttpStatus.SC_FAILED_DEPENDENCY /* 424 */:
                                                                     return "Failed Dependency";
-                                                                case 425:
+                                                                case SDKLogTypeConstants.TYPE_CRASH_SOURCE /* 425 */:
                                                                     return "Unordered Collection";
-                                                                case 426:
+                                                                case SDKLogTypeConstants.TYPE_SHOUBAI_APO_INFO /* 426 */:
                                                                     return "Upgrade Required";
                                                                 default:
                                                                     switch (i) {

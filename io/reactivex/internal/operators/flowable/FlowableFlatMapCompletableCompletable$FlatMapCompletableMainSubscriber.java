@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.c;
-import f.a.g;
-import f.a.t.a;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.c;
+import f.b.g;
+import f.b.t.a;
+import f.b.t.b;
+import f.b.w.h;
 import g.d.d;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableFlatMapCompletableCompletable$FlatMapCompletableMainSubscriber<T> extends AtomicInteger implements g<T>, b {
     public static final long serialVersionUID = 8443155186132538303L;
-    public final f.a.b actual;
+    public final f.b.b actual;
     public final boolean delayErrors;
     public volatile boolean disposed;
     public final h<? super T, ? extends c> mapper;
@@ -24,39 +24,39 @@ public final class FlowableFlatMapCompletableCompletable$FlatMapCompletableMainS
     public final a set = new a();
 
     /* loaded from: classes7.dex */
-    public final class InnerObserver extends AtomicReference<b> implements f.a.b, b {
+    public final class InnerObserver extends AtomicReference<b> implements f.b.b, b {
         public static final long serialVersionUID = 8606673141535671828L;
 
         public InnerObserver() {
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             DisposableHelper.dispose(this);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onComplete() {
             FlowableFlatMapCompletableCompletable$FlatMapCompletableMainSubscriber.this.innerComplete(this);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onError(Throwable th) {
             FlowableFlatMapCompletableCompletable$FlatMapCompletableMainSubscriber.this.innerError(this, th);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
     }
 
-    public FlowableFlatMapCompletableCompletable$FlatMapCompletableMainSubscriber(f.a.b bVar, h<? super T, ? extends c> hVar, boolean z, int i) {
+    public FlowableFlatMapCompletableCompletable$FlatMapCompletableMainSubscriber(f.b.b bVar, h<? super T, ? extends c> hVar, boolean z, int i) {
         this.actual = bVar;
         this.mapper = hVar;
         this.delayErrors = z;
@@ -64,7 +64,7 @@ public final class FlowableFlatMapCompletableCompletable$FlatMapCompletableMainS
         lazySet(1);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.disposed = true;
         this.s.cancel();
@@ -81,7 +81,7 @@ public final class FlowableFlatMapCompletableCompletable$FlatMapCompletableMainS
         onError(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.set.isDisposed();
     }
@@ -121,14 +121,14 @@ public final class FlowableFlatMapCompletableCompletable$FlatMapCompletableMainS
             }
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     @Override // g.d.c
     public void onNext(T t) {
         try {
             c apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The mapper returned a null CompletableSource");
+            f.b.x.b.a.b(apply, "The mapper returned a null CompletableSource");
             c cVar = apply;
             getAndIncrement();
             InnerObserver innerObserver = new InnerObserver();
@@ -137,13 +137,13 @@ public final class FlowableFlatMapCompletableCompletable$FlatMapCompletableMainS
             }
             cVar.a(innerObserver);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.s.cancel();
             onError(th);
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

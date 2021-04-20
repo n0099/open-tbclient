@@ -6,13 +6,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public ImageProblemAssistant mImageProblemAssistant;
     public CheckTask mTask;
     public ImageProblemView mView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class CheckTask extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         public CheckTask() {
         }
@@ -56,7 +56,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             super.onProgressUpdate(numArr);
             int intValue = numArr[0].intValue();
             ImageProblemActivity imageProblemActivity = ImageProblemActivity.this;
-            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f18447d);
+            imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f18124d);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

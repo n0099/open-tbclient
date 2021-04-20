@@ -11,35 +11,37 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.bumptech.glide.Glide;
 import com.fun.ad.sdk.FunNativeAd;
 import d.b.h0.b.d;
 import d.b.h0.r.u.c;
-import d.b.i0.a1.a.a;
-import d.b.i0.c3.h0.n;
-import d.b.i0.q0.a;
+import d.b.i0.b1.a.a;
+import d.b.i0.d3.h0.n;
+import d.b.i0.r0.a;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FunAdNativeFrsView extends FunAdNativePbView {
-    public TextView A;
+    public View A;
     public ImageView B;
     public TextView C;
-    public ViewGroup D;
+    public View D;
     public ImageView E;
-    public LinearLayout u;
-    public RoundTbImageView v;
-    public TextView w;
+    public TextView F;
+    public ViewGroup G;
+    public ImageView H;
+    public LinearLayout v;
+    public RoundTbImageView w;
     public TextView x;
-    public FunAdAgreeView y;
-    public ImageView z;
+    public TextView y;
+    public FunAdAgreeView z;
 
     public FunAdNativeFrsView(Context context) {
         super(context);
@@ -47,7 +49,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public void d(int i) {
-        this.u.setVisibility(i);
+        this.v.setVisibility(i);
         ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
         marginLayoutParams.topMargin = i == 0 ? UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) : 0;
         setLayoutParams(marginLayoutParams);
@@ -61,54 +63,53 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public void f(@NonNull n nVar, @NonNull Activity activity) {
         super.f(nVar, activity);
-        if (nVar.c() == null) {
+        if (nVar.d() == null) {
             return;
         }
-        FunNativeAd funNativeAd = (FunNativeAd) nVar.c();
+        FunNativeAd funNativeAd = (FunNativeAd) nVar.d();
         if (nVar.a() == null) {
             AgreeData agreeData = new AgreeData();
-            agreeData.agreeNum = a.a(20, 100);
-            nVar.f(agreeData);
+            agreeData.agreeNum = a.a(25, 1000);
+            nVar.h(agreeData);
         }
+        this.y.setText(this.f16476e);
         AgreeData a2 = nVar.a();
-        this.x.setText(this.f16811e);
-        this.y.setAgreeAlone(true);
-        this.y.setData(a2);
-        if (StringUtils.isNull(funNativeAd.getIconUrl())) {
-            Glide.with(this.v).load(Integer.valueOf(R.drawable.icon_frs_default_header)).into(this.v);
-        } else {
-            Glide.with(this.v).load(funNativeAd.getIconUrl()).into(this.v);
-        }
+        this.z.setAgreeAlone(true);
+        this.z.setData(a2);
+        this.w.W(funNativeAd.getIconUrl(), 10, false);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public void g(Context context) {
         super.g(context);
-        this.u = (LinearLayout) findViewById(R.id.fun_ad_frs_view_layout);
-        this.v = (RoundTbImageView) findViewById(R.id.top_ad_logo);
-        this.x = (TextView) findViewById(R.id.top_ad_name);
-        this.w = (TextView) findViewById(R.id.top_ad_justnow);
-        this.y = (FunAdAgreeView) findViewById(R.id.ad_agree_view);
-        this.B = (ImageView) findViewById(R.id.thread_info_commont_img);
-        this.C = (TextView) findViewById(R.id.thread_info_commont_num);
-        this.z = (ImageView) findViewById(R.id.share_num_img);
-        this.A = (TextView) findViewById(R.id.share_num);
-        this.D = (ViewGroup) findViewById(R.id.layout_card_top);
-        this.E = (ImageView) findViewById(R.id.fun_ad_feedback);
-        this.f16843g.setVisibility(8);
+        this.v = (LinearLayout) findViewById(R.id.fun_ad_frs_view_layout);
+        this.w = (RoundTbImageView) findViewById(R.id.top_ad_logo);
+        this.y = (TextView) findViewById(R.id.top_ad_name);
+        this.x = (TextView) findViewById(R.id.top_ad_justnow);
+        this.z = (FunAdAgreeView) findViewById(R.id.ad_agree_view);
+        this.A = findViewById(R.id.share_num_container);
+        this.D = findViewById(R.id.thread_info_commont_container);
+        this.E = (ImageView) findViewById(R.id.thread_info_commont_img);
+        this.F = (TextView) findViewById(R.id.thread_info_commont_num);
+        this.B = (ImageView) findViewById(R.id.share_num_img);
+        this.C = (TextView) findViewById(R.id.share_num);
+        this.G = (ViewGroup) findViewById(R.id.layout_card_top);
+        this.H = (ImageView) findViewById(R.id.fun_ad_feedback);
+        this.f16508g.setVisibility(8);
+        m(this.w);
         l();
-        RelativeLayout relativeLayout = this.f16842f;
-        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16842f.getPaddingTop(), this.f16842f.getPaddingRight(), 0);
+        RelativeLayout relativeLayout = this.f16507f;
+        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16507f.getPaddingTop(), this.f16507f.getPaddingRight(), 0);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public List<View> getClickViews() {
-        return Arrays.asList(this, this.f16842f, this.i, this.o, this.s, this.q, this.D);
+        return Arrays.asList(this, this.f16507f, this.k, this.n, this.t, this.s, this.G);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public View getFeedBackView() {
-        return this.E;
+        return this.H;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -117,8 +118,8 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public a.c getLogItem() {
-        return d.b.i0.q0.a.a("frs", d.l() ? "1" : "0");
+    public a.d getLogItem() {
+        return d.b.i0.r0.a.a("frs", d.m() ? "1" : "0");
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -129,20 +130,17 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public void h() {
         super.h();
-        WebPManager.setPureDrawable(this.E, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-        c a2 = c.a(this);
-        a2.h(R.string.J_X06);
-        a2.d(R.color.CAM_X0205, R.color.CAM_X0206);
-        c.a(this.w).n(R.color.CAM_X0109);
-        c.a(this.x).n(R.color.CAM_X0105);
-        c.a(this.n).n(R.color.CAM_X0101);
-        c a3 = c.a(this.l);
-        a3.h(R.string.J_X04);
-        a3.c(R.color.CAM_X0606);
-        this.z.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-        this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-        this.A.setTextColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
-        this.C.setTextColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+        c d2 = c.d(this);
+        d2.k(R.string.J_X06);
+        d2.g(R.color.CAM_X0205, R.color.CAM_X0206);
+        c.d(this.x).q(R.color.CAM_X0109);
+        c.d(this.y).q(R.color.CAM_X0105);
+        WebPManager.setPureDrawable(this.H, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
+        this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+        this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+        this.C.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+        this.F.setTextColor(d.b.i0.d3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+        this.w.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView
@@ -151,7 +149,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     public final void l() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.y.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.z.getLayoutParams();
         int i = layoutParams.width;
         if (layoutParams.weight == 1.0f && i == 0) {
             return;
@@ -160,12 +158,23 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         layoutParams.weight = 1.0f;
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;
-        this.y.setLayoutParams(layoutParams);
+        this.z.setLayoutParams(layoutParams);
+    }
+
+    public final void m(TbImageView tbImageView) {
+        tbImageView.setDefaultResource(R.drawable.icon_frs_default_header);
+        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        tbImageView.setIsLongPic(false);
+        tbImageView.setIsSmartCrop(false);
+        tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+        tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        tbImageView.setBorderSurroundContent(true);
+        tbImageView.setDrawBorder(true);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public void setFunAdViewVisible(boolean z) {
-        LinearLayout linearLayout = this.u;
+        LinearLayout linearLayout = this.v;
         if (linearLayout != null) {
             linearLayout.setVisibility(z ? 0 : 8);
         }

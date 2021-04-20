@@ -56,7 +56,7 @@ public class f extends com.baidu.platform.base.d {
             return;
         }
         OnGetShareUrlResultListener onGetShareUrlResultListener = (OnGetShareUrlResultListener) obj;
-        int i = g.f10423a[a().ordinal()];
+        int i = g.f9981a[a().ordinal()];
         if (i == 1) {
             onGetShareUrlResultListener.onGetPoiDetailShareUrlResult((ShareUrlResult) searchResult);
         } else if (i != 2) {

@@ -16,32 +16,32 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.f0.q.c;
-import d.b.i0.p0.a1;
+import d.b.i0.q0.a1;
 /* loaded from: classes4.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f16086b;
+    public HeadImageView f15747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f16087c;
+    public TextView f15748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f16088d;
+    public TextView f15749d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EntelechyUserLikeButton f16089e;
+    public EntelechyUserLikeButton f15750e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f16090f;
+    public c f15751f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f16091g;
+    public BdUniqueId f15752g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a1 f16092h;
+    public a1 f15753h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -53,10 +53,10 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FrsSchoolRecommendItemView.this.f16092h == null || k.isEmpty(FrsSchoolRecommendItemView.this.f16092h.f57324a.getUserName()) || k.isEmpty(FrsSchoolRecommendItemView.this.f16092h.f57324a.getUserId())) {
+            if (FrsSchoolRecommendItemView.this.f15753h == null || k.isEmpty(FrsSchoolRecommendItemView.this.f15753h.f59023a.getUserName()) || k.isEmpty(FrsSchoolRecommendItemView.this.f15753h.f59023a.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(FrsSchoolRecommendItemView.this.a().getContext(), FrsSchoolRecommendItemView.this.f16092h.f57324a.getUserId(), FrsSchoolRecommendItemView.this.f16092h.f57324a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(FrsSchoolRecommendItemView.this.a().getContext(), FrsSchoolRecommendItemView.this.f15753h.f59023a.getUserId(), FrsSchoolRecommendItemView.this.f15753h.f59023a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 
@@ -64,51 +64,51 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         super(view);
         this.i = 3;
         this.k = new a();
-        this.f16091g = bdUniqueId;
+        this.f15752g = bdUniqueId;
         this.j = tbPageContext;
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.rec_usr_header);
-        this.f16086b = headImageView;
-        headImageView.setPageId(this.f16091g);
-        this.f16086b.setIsRound(true);
-        this.f16087c = (TextView) view.findViewById(R.id.rec_user_name);
-        this.f16088d = (TextView) view.findViewById(R.id.rec_user_describe);
+        this.f15747b = headImageView;
+        headImageView.setPageId(this.f15752g);
+        this.f15747b.setIsRound(true);
+        this.f15748c = (TextView) view.findViewById(R.id.rec_user_name);
+        this.f15749d = (TextView) view.findViewById(R.id.rec_user_describe);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
-        this.f16089e = entelechyUserLikeButton;
+        this.f15750e = entelechyUserLikeButton;
         c cVar = new c(tbPageContext, entelechyUserLikeButton);
-        this.f16090f = cVar;
+        this.f15751f = cVar;
         cVar.m("1");
-        this.f16090f.l(bdUniqueId);
+        this.f15751f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void b(d.b.i0.a1.b.c cVar) {
+    public void b(d.b.i0.b1.b.c cVar) {
         if (cVar instanceof a1) {
             a1 a1Var = (a1) cVar;
-            this.f16092h = a1Var;
-            if (StringUtils.isNull(a1Var.f57324a.getUserId())) {
+            this.f15753h = a1Var;
+            if (StringUtils.isNull(a1Var.f59023a.getUserId())) {
                 return;
             }
-            this.f16086b.W(this.f16092h.f57324a.getPortrait(), 28, false);
-            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f16092h.f57324a.getUserName(), 5);
-            this.f16088d.setText(StringHelper.cutStringWithEllipsis(this.f16092h.f57324a.getGodUserData().getIntro(), 6));
-            this.f16087c.setText(cutStringWithEllipsis);
+            this.f15747b.W(this.f15753h.f59023a.getPortrait(), 28, false);
+            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f15753h.f59023a.getUserName(), 5);
+            this.f15749d.setText(StringHelper.cutStringWithEllipsis(this.f15753h.f59023a.getGodUserData().getIntro(), 6));
+            this.f15748c.setText(cutStringWithEllipsis);
             a().setOnClickListener(this.k);
-            this.f16090f.n(this.f16092h.f57324a);
+            this.f15751f.n(this.f15753h.f59023a);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public ItemViewHolder c(View view) {
-        return new FrsSchoolRecommendItemView(view, this.j, this.f16091g);
+        return new FrsSchoolRecommendItemView(view, this.j, this.f15752g);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void d(int i) {
         if (this.i != i) {
-            SkinManager.setViewTextColor(this.f16087c, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f16088d, R.color.CAM_X0109);
-            this.f16089e.g(i);
+            SkinManager.setViewTextColor(this.f15748c, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f15749d, R.color.CAM_X0109);
+            this.f15750e.g(i);
         }
         this.i = i;
     }

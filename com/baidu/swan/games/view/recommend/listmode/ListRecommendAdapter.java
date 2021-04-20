@@ -13,13 +13,13 @@ import java.util.List;
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f12910e;
+    public LayoutInflater f12571e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f12911f;
+    public a f12572f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.g0.g.k0.i.e.a f12912g;
+    public d.b.g0.g.k0.i.e.a f12573g;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,23 +27,23 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     }
 
     public ListRecommendAdapter(@NonNull Context context) {
-        this.f12910e = LayoutInflater.from(context);
+        this.f12571e = LayoutInflater.from(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: c */
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
-        RecommendItemModel recommendItemModel = this.f12912g.f48303b.get(i);
+        RecommendItemModel recommendItemModel = this.f12573g.f48695b.get(i);
         if (recommendItemModel != null) {
-            listRecommendViewHolder.f12916a.setImageURI(recommendItemModel.iconUrl);
-            listRecommendViewHolder.f12917b.setText(recommendItemModel.appName);
-            listRecommendViewHolder.f12918c.setText(recommendItemModel.desc);
-            listRecommendViewHolder.f12919d.setText(recommendItemModel.buttonText);
+            listRecommendViewHolder.f12577a.setImageURI(recommendItemModel.iconUrl);
+            listRecommendViewHolder.f12578b.setText(recommendItemModel.appName);
+            listRecommendViewHolder.f12579c.setText(recommendItemModel.desc);
+            listRecommendViewHolder.f12580d.setText(recommendItemModel.buttonText);
             listRecommendViewHolder.itemView.setTag(Integer.valueOf(i));
-            listRecommendViewHolder.f12919d.setTag(Integer.valueOf(i));
+            listRecommendViewHolder.f12580d.setTag(Integer.valueOf(i));
             listRecommendViewHolder.itemView.setOnClickListener(this);
-            listRecommendViewHolder.f12919d.setOnClickListener(this);
+            listRecommendViewHolder.f12580d.setOnClickListener(this);
         }
     }
 
@@ -51,23 +51,23 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ListRecommendViewHolder(this.f12910e.inflate(g.swangame_recommend_dialog_item, viewGroup, false));
+        return new ListRecommendViewHolder(this.f12571e.inflate(g.swangame_recommend_dialog_item, viewGroup, false));
     }
 
     public void e(a aVar) {
-        this.f12911f = aVar;
+        this.f12572f = aVar;
     }
 
     public void f(d.b.g0.g.k0.i.e.a aVar) {
-        this.f12912g = aVar;
+        this.f12573g = aVar;
         notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         List<RecommendItemModel> list;
-        d.b.g0.g.k0.i.e.a aVar = this.f12912g;
-        if (aVar == null || (list = aVar.f48303b) == null) {
+        d.b.g0.g.k0.i.e.a aVar = this.f12573g;
+        if (aVar == null || (list = aVar.f48695b) == null) {
             return 0;
         }
         return list.size();
@@ -75,9 +75,9 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f12911f == null || view == null || !(view.getTag() instanceof Integer)) {
+        if (this.f12572f == null || view == null || !(view.getTag() instanceof Integer)) {
             return;
         }
-        this.f12911f.a(((Integer) view.getTag()).intValue());
+        this.f12572f.a(((Integer) view.getTag()).intValue());
     }
 }

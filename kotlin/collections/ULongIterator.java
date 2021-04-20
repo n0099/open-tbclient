@@ -22,6 +22,6 @@ public abstract class ULongIterator implements Iterator<ULong>, KMappedMarker {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
     public final ULong next() {
-        return ULong.m776boximpl(nextULong());
+        return ULong.m780boximpl(nextULong());
     }
 }

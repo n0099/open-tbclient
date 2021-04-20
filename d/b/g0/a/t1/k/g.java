@@ -24,123 +24,123 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends d.b.g0.a.g1.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static AtomicLong f46339f = new AtomicLong(System.currentTimeMillis());
+    public static AtomicLong f46731f = new AtomicLong(System.currentTimeMillis());
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46340e;
+    public int f46732e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46341a;
+        public final /* synthetic */ CallbackHandler f46733a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46342b;
+        public final /* synthetic */ String f46734b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f46343c;
+        public final /* synthetic */ String f46735c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f46344d;
+        public final /* synthetic */ String f46736d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46345e;
+        public final /* synthetic */ String f46737e;
 
         public a(CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
-            this.f46341a = callbackHandler;
-            this.f46342b = str;
-            this.f46343c = str2;
-            this.f46344d = str3;
-            this.f46345e = str4;
+            this.f46733a = callbackHandler;
+            this.f46734b = str;
+            this.f46735c = str2;
+            this.f46736d = str3;
+            this.f46737e = str4;
         }
 
         @Override // d.b.g0.a.g1.m.a.b
         public void a(long j) {
-            this.f46341a.handleSchemeDispatchCallback(this.f46342b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
-            SwanAppNetworkUtils.a(d.b.g0.k.e.a.f().getOkHttpClient(), this.f46343c);
-            g.this.q(this.f46344d);
+            this.f46733a.handleSchemeDispatchCallback(this.f46734b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
+            SwanAppNetworkUtils.a(d.b.g0.k.e.a.f().getOkHttpClient(), this.f46735c);
+            g.this.q(this.f46736d);
         }
 
         @Override // d.b.g0.a.g1.m.a.b
         public void b(int i, long j, long j2) {
-            if (System.currentTimeMillis() - g.this.p(this.f46344d) > 500) {
+            if (System.currentTimeMillis() - g.this.p(this.f46736d) > 500) {
                 if (i <= 100) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("progress", i);
                         jSONObject.put("totalBytesWritten", j);
                         jSONObject.put("totalBytesExpectedToWrite", j2);
-                        this.f46341a.handleSchemeDispatchCallback(this.f46345e, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                        this.f46733a.handleSchemeDispatchCallback(this.f46737e, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                     } catch (Exception e2) {
-                        if (a0.f46288b) {
+                        if (a0.f46680b) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                g.this.f44512c.put(this.f46344d, Long.valueOf(System.currentTimeMillis()));
+                g.this.f44904c.put(this.f46736d, Long.valueOf(System.currentTimeMillis()));
             }
         }
 
         @Override // d.b.g0.a.g1.m.a.b
         public void c(long j, long j2) {
-            this.f46341a.handleSchemeDispatchCallback(this.f46342b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
-            SwanAppNetworkUtils.a(d.b.g0.k.e.a.f().getOkHttpClient(), this.f46343c);
-            g.this.q(this.f46344d);
+            this.f46733a.handleSchemeDispatchCallback(this.f46734b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
+            SwanAppNetworkUtils.a(d.b.g0.k.e.a.f().getOkHttpClient(), this.f46735c);
+            g.this.q(this.f46736d);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46347a;
+        public final /* synthetic */ CallbackHandler f46739a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46348b;
+        public final /* synthetic */ String f46740b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f46349c;
+        public final /* synthetic */ String f46741c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f46350d;
+        public final /* synthetic */ String f46742d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46351e;
+        public final /* synthetic */ String f46743e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46352f;
+        public final /* synthetic */ String f46744f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46353g;
+        public final /* synthetic */ String f46745g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46354h;
+        public final /* synthetic */ String f46746h;
         public final /* synthetic */ String i;
 
         public b(CallbackHandler callbackHandler, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
-            this.f46347a = callbackHandler;
-            this.f46348b = str;
-            this.f46349c = str2;
-            this.f46350d = str3;
-            this.f46351e = str4;
-            this.f46352f = str5;
-            this.f46353g = str6;
-            this.f46354h = str7;
+            this.f46739a = callbackHandler;
+            this.f46740b = str;
+            this.f46741c = str2;
+            this.f46742d = str3;
+            this.f46743e = str4;
+            this.f46744f = str5;
+            this.f46745g = str6;
+            this.f46746h = str7;
             this.i = str8;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             d.b.g0.a.z0.f.V().S();
-            this.f46347a.handleSchemeDispatchCallback(this.f46348b, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-            g.this.q(this.f46349c);
+            this.f46739a.handleSchemeDispatchCallback(this.f46740b, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
+            g.this.q(this.f46741c);
             if (SwanAppNetworkUtils.h(null)) {
-                d.b.g0.a.z1.h.t(0, this.f46350d, 0, iOException.getMessage(), this.f46351e, this.f46352f);
+                d.b.g0.a.z1.h.t(0, this.f46742d, 0, iOException.getMessage(), this.f46743e, this.f46744f);
             }
         }
 
@@ -148,26 +148,26 @@ public class g extends d.b.g0.a.g1.a {
         public void onResponse(Call call, Response response) {
             String y;
             String str;
-            if (!TextUtils.isEmpty(this.f46353g)) {
-                y = g.this.y(this.f46353g);
+            if (!TextUtils.isEmpty(this.f46745g)) {
+                y = g.this.y(this.f46745g);
             } else {
-                y = g.A(response, this.f46354h);
+                y = g.A(response, this.f46746h);
             }
             if (TextUtils.isEmpty(y)) {
-                this.f46347a.handleSchemeDispatchCallback(this.f46348b, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
+                this.f46739a.handleSchemeDispatchCallback(this.f46740b, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
                 return;
             }
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("DownloadFileAction", "the real file path is " + y);
             }
             g.this.r(this.i, response.headers());
-            if (TextUtils.isEmpty(this.f46353g)) {
+            if (TextUtils.isEmpty(this.f46745g)) {
                 str = d.b.g0.a.z0.f.V().y().c(y);
             } else {
-                str = this.f46353g;
+                str = this.f46745g;
             }
             if (TextUtils.isEmpty(str)) {
-                this.f46347a.handleSchemeDispatchCallback(this.f46348b, UnitedSchemeUtility.wrapCallbackParams(1001, "parse tmpFilePath from realFilePath fail").toString());
+                this.f46739a.handleSchemeDispatchCallback(this.f46740b, UnitedSchemeUtility.wrapCallbackParams(1001, "parse tmpFilePath from realFilePath fail").toString());
                 return;
             }
             int code = response.code();
@@ -176,7 +176,7 @@ public class g extends d.b.g0.a.g1.a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("statusCode", code);
-                    jSONObject.put(TextUtils.isEmpty(this.f46353g) ? "tempFilePath" : "filePath", str);
+                    jSONObject.put(TextUtils.isEmpty(this.f46745g) ? "tempFilePath" : "filePath", str);
                     InputStream byteStream = response.body().byteStream();
                     File file = new File(y);
                     if (file.exists()) {
@@ -184,24 +184,24 @@ public class g extends d.b.g0.a.g1.a {
                         file.createNewFile();
                     }
                     if (d.b.g0.p.f.a(byteStream, file)) {
-                        this.f46347a.handleSchemeDispatchCallback(this.f46348b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                        this.f46739a.handleSchemeDispatchCallback(this.f46740b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                     } else {
-                        this.f46347a.handleSchemeDispatchCallback(this.f46348b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
+                        this.f46739a.handleSchemeDispatchCallback(this.f46740b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
                     }
                 } catch (Exception e2) {
-                    if (a0.f46288b) {
+                    if (a0.f46680b) {
                         e2.printStackTrace();
                     }
-                    this.f46347a.handleSchemeDispatchCallback(this.f46348b, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+                    this.f46739a.handleSchemeDispatchCallback(this.f46740b, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
                 }
-                g.this.q(this.f46349c);
+                g.this.q(this.f46741c);
                 d.b.g0.a.z0.f.V().S();
-                if (a0.f46288b) {
-                    Log.d("DownloadFileAction", "onResponse: respCode: " + code + ", url=" + this.f46350d + ", msg=" + message);
+                if (a0.f46680b) {
+                    Log.d("DownloadFileAction", "onResponse: respCode: " + code + ", url=" + this.f46742d + ", msg=" + message);
                 }
-                d.b.g0.a.z1.h.t(code, this.f46350d, 0, message, this.f46351e, this.f46352f);
+                d.b.g0.a.z1.h.t(code, this.f46742d, 0, message, this.f46743e, this.f46744f);
             } catch (Throwable th) {
-                g.this.q(this.f46349c);
+                g.this.q(this.f46741c);
                 d.b.g0.a.z0.f.V().S();
                 throw th;
             }
@@ -210,7 +210,7 @@ public class g extends d.b.g0.a.g1.a {
 
     public g(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/downloadFile");
-        this.f46340e = 0;
+        this.f46732e = 0;
     }
 
     @Nullable
@@ -242,7 +242,7 @@ public class g extends d.b.g0.a.g1.a {
                 }
             }
         }
-        long andIncrement = f46339f.getAndIncrement();
+        long andIncrement = f46731f.getAndIncrement();
         StringBuilder sb = new StringBuilder();
         sb.append(andIncrement);
         if (TextUtils.isEmpty(str)) {
@@ -285,7 +285,7 @@ public class g extends d.b.g0.a.g1.a {
         String a3 = d.b.g0.a.t.c.h.c.a(T);
         Request x = x(a2, a3);
         if (x == null) {
-            unitedSchemeEntity.result = t(this.f46340e);
+            unitedSchemeEntity.result = t(this.f46732e);
             return false;
         }
         String httpUrl = x.url().toString();
@@ -304,7 +304,7 @@ public class g extends d.b.g0.a.g1.a {
         bVar.a(m);
         d.b.g0.a.z0.f.V().b0();
         String valueOf = String.valueOf(System.currentTimeMillis());
-        this.f44512c.put(valueOf, 0L);
+        this.f44904c.put(valueOf, 0L);
         d.b.g0.a.g1.m.a aVar = new d.b.g0.a.g1.m.a();
         aVar.b(new a(callbackHandler, optString3, a3, valueOf, optString));
         String m2 = d.b.g0.a.z1.h.m();
@@ -329,7 +329,7 @@ public class g extends d.b.g0.a.g1.a {
             return null;
         }
         int c2 = d.b.g0.a.s1.a.b.c("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
-        this.f46340e = c2;
+        this.f46732e = c2;
         if (c2 != 0) {
             return null;
         }

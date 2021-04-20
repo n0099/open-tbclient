@@ -1,18 +1,18 @@
 package com.baidu.fsg.base.b;
 
 import java.util.TimerTask;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f5173a;
+    public final /* synthetic */ a f5208a;
 
     public c(a aVar) {
-        this.f5173a = aVar;
+        this.f5208a = aVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.f5173a.a();
+        this.f5208a.a();
     }
 }

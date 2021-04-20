@@ -9,21 +9,21 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<JSONObject>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46685e;
+        public final /* synthetic */ CallbackHandler f47077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46686f;
+        public final /* synthetic */ String f47078f;
 
         public a(b bVar, CallbackHandler callbackHandler, String str) {
-            this.f46685e = callbackHandler;
-            this.f46686f = str;
+            this.f47077e = callbackHandler;
+            this.f47078f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,8 +31,8 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<JSONObject> hVar) {
             JSONObject wrapCallbackParams;
-            if (hVar.c() && d.b.g0.a.t.c.a.a.r(hVar.f46808a)) {
-                JSONObject optJSONObject = hVar.f46808a.optJSONObject("data");
+            if (hVar.c() && d.b.g0.a.t.c.a.a.r(hVar.f47200a)) {
+                JSONObject optJSONObject = hVar.f47200a.optJSONObject("data");
                 if (optJSONObject.optBoolean("result")) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
                 } else {
@@ -40,9 +40,9 @@ public class b extends a0 {
                 }
             } else {
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(hVar.b());
-                d.b.g0.g.c0.c.b(this.f46685e, wrapCallbackParams.toString());
+                d.b.g0.g.c0.c.b(this.f47077e, wrapCallbackParams.toString());
             }
-            this.f46685e.handleSchemeDispatchCallback(this.f46686f, wrapCallbackParams.toString());
+            this.f47077e.handleSchemeDispatchCallback(this.f47078f, wrapCallbackParams.toString());
         }
     }
 

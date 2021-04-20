@@ -16,30 +16,30 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<AnimatorSet> f45779a = new CopyOnWriteArrayList();
+    public List<AnimatorSet> f46171a = new CopyOnWriteArrayList();
 
     /* renamed from: d.b.g0.a.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0779a implements Runnable {
+    public class RunnableC0791a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45780e;
+        public final /* synthetic */ SwanAppActivity f46172e;
 
-        public RunnableC0779a(SwanAppActivity swanAppActivity) {
-            this.f45780e = swanAppActivity;
+        public RunnableC0791a(SwanAppActivity swanAppActivity) {
+            this.f46172e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f45780e.isFinishing()) {
+            if (this.f46172e.isFinishing()) {
                 return;
             }
-            if (a.this.f45779a != null) {
-                for (AnimatorSet animatorSet : a.this.f45779a) {
+            if (a.this.f46171a != null) {
+                for (AnimatorSet animatorSet : a.this.f46171a) {
                     animatorSet.cancel();
                 }
             }
-            this.f45780e.getFloatLayer().g();
+            this.f46172e.getFloatLayer().g();
         }
     }
 
@@ -47,10 +47,10 @@ public class a {
     public class b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45782e;
+        public final /* synthetic */ SwanAppActivity f46174e;
 
         public b(a aVar, SwanAppActivity swanAppActivity) {
-            this.f45782e = swanAppActivity;
+            this.f46174e = swanAppActivity;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -59,12 +59,12 @@ public class a {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.f45782e.isFinishing()) {
+            if (this.f46174e.isFinishing()) {
                 return;
             }
-            this.f45782e.getLoadingView().f44988a.setVisibility(8);
-            this.f45782e.getLoadingView().D();
-            this.f45782e.getFloatLayer().g();
+            this.f46174e.getLoadingView().f45380a.setVisibility(8);
+            this.f46174e.getLoadingView().D();
+            this.f46174e.getFloatLayer().g();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -73,25 +73,25 @@ public class a {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            if (this.f45782e.isFinishing()) {
+            if (this.f46174e.isFinishing()) {
                 return;
             }
-            this.f45782e.getLoadingView().s();
+            this.f46174e.getLoadingView().s();
         }
     }
 
     public final ObjectAnimator b(SwanAppActivity swanAppActivity, long j) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f44988a, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f45380a, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(j);
         return ofFloat;
     }
 
     public final AnimatorSet c(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f44991d, "translationX", -h0.e(AppRuntime.getAppContext(), 9.5f), h0.e(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f45383d, "translationX", -h0.e(AppRuntime.getAppContext(), 9.5f), h0.e(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(380L);
         ofFloat.setRepeatMode(2);
         ofFloat.setRepeatCount(-1);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f44992e, "translationX", 0.0f, -h0.e(AppRuntime.getAppContext(), 19.0f));
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f45384e, "translationX", 0.0f, -h0.e(AppRuntime.getAppContext(), 19.0f));
         ofFloat2.setDuration(380L);
         ofFloat2.setRepeatMode(2);
         ofFloat2.setRepeatCount(-1);
@@ -101,9 +101,9 @@ public class a {
     }
 
     public final AnimatorSet d(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f44991d, "translationX", 0.0f, -h0.e(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f45383d, "translationX", 0.0f, -h0.e(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(240L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f44992e, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f45384e, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(240L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ofFloat).with(ofFloat2);
@@ -115,9 +115,9 @@ public class a {
         if (swanAppActivity.isFinishing() || (loadingView = swanAppActivity.getLoadingView()) == null) {
             return;
         }
-        loadingView.f44988a.setVisibility(8);
+        loadingView.f45380a.setVisibility(8);
         if (!d.b.g0.a.w0.a.N().B()) {
-            List<AnimatorSet> list = this.f45779a;
+            List<AnimatorSet> list = this.f46171a;
             if (list != null) {
                 for (AnimatorSet animatorSet : list) {
                     animatorSet.cancel();
@@ -126,7 +126,7 @@ public class a {
             swanAppActivity.getFloatLayer().g();
             return;
         }
-        k0.T(new RunnableC0779a(swanAppActivity));
+        k0.T(new RunnableC0791a(swanAppActivity));
     }
 
     public final void f(SwanAppActivity swanAppActivity, boolean z) {
@@ -136,7 +136,7 @@ public class a {
         animatorSet.addListener(new b(this, swanAppActivity));
         animatorSet.setStartDelay(i);
         animatorSet.start();
-        this.f45779a.add(animatorSet);
+        this.f46171a.add(animatorSet);
     }
 
     public void g(SwanAppActivity swanAppActivity, int i) {
@@ -157,14 +157,14 @@ public class a {
         animatorSet.start();
         i.n().A(new UbcFlowEvent("first_anim_start"));
         d.b.g0.a.y1.a.d().i("first_anim_start");
-        this.f45779a.add(animatorSet);
+        this.f46171a.add(animatorSet);
     }
 
     public void i() {
-        for (AnimatorSet animatorSet : this.f45779a) {
+        for (AnimatorSet animatorSet : this.f46171a) {
             animatorSet.removeAllListeners();
             animatorSet.cancel();
         }
-        this.f45779a.clear();
+        this.f46171a.clear();
     }
 }

@@ -7,28 +7,28 @@ import java.util.List;
 public class e implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31521a;
+    public final String f31810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final GradientType f31522b;
+    public final GradientType f31811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.c f31523c;
+    public final com.ksad.lottie.model.a.c f31812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.d f31524d;
+    public final com.ksad.lottie.model.a.d f31813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.f f31525e;
+    public final com.ksad.lottie.model.a.f f31814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.f f31526f;
+    public final com.ksad.lottie.model.a.f f31815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31527g;
+    public final com.ksad.lottie.model.a.b f31816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ShapeStroke.LineCapType f31528h;
+    public final ShapeStroke.LineCapType f31817h;
     public final ShapeStroke.LineJoinType i;
     public final float j;
     public final List<com.ksad.lottie.model.a.b> k;
@@ -36,14 +36,14 @@ public class e implements b {
     public final com.ksad.lottie.model.a.b l;
 
     public e(String str, GradientType gradientType, com.ksad.lottie.model.a.c cVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.f fVar2, com.ksad.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f2, List<com.ksad.lottie.model.a.b> list, @Nullable com.ksad.lottie.model.a.b bVar2) {
-        this.f31521a = str;
-        this.f31522b = gradientType;
-        this.f31523c = cVar;
-        this.f31524d = dVar;
-        this.f31525e = fVar;
-        this.f31526f = fVar2;
-        this.f31527g = bVar;
-        this.f31528h = lineCapType;
+        this.f31810a = str;
+        this.f31811b = gradientType;
+        this.f31812c = cVar;
+        this.f31813d = dVar;
+        this.f31814e = fVar;
+        this.f31815f = fVar2;
+        this.f31816g = bVar;
+        this.f31817h = lineCapType;
         this.i = lineJoinType;
         this.j = f2;
         this.k = list;
@@ -56,35 +56,35 @@ public class e implements b {
     }
 
     public String a() {
-        return this.f31521a;
+        return this.f31810a;
     }
 
     public GradientType b() {
-        return this.f31522b;
+        return this.f31811b;
     }
 
     public com.ksad.lottie.model.a.c c() {
-        return this.f31523c;
+        return this.f31812c;
     }
 
     public com.ksad.lottie.model.a.d d() {
-        return this.f31524d;
+        return this.f31813d;
     }
 
     public com.ksad.lottie.model.a.f e() {
-        return this.f31525e;
+        return this.f31814e;
     }
 
     public com.ksad.lottie.model.a.f f() {
-        return this.f31526f;
+        return this.f31815f;
     }
 
     public com.ksad.lottie.model.a.b g() {
-        return this.f31527g;
+        return this.f31816g;
     }
 
     public ShapeStroke.LineCapType h() {
-        return this.f31528h;
+        return this.f31817h;
     }
 
     public ShapeStroke.LineJoinType i() {

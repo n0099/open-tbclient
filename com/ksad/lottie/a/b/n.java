@@ -11,6 +11,6 @@ public class n extends f<com.ksad.lottie.model.b> {
     @Override // com.ksad.lottie.a.b.a
     /* renamed from: b */
     public com.ksad.lottie.model.b a(com.ksad.lottie.e.a<com.ksad.lottie.model.b> aVar, float f2) {
-        return aVar.f31383a;
+        return aVar.f31672a;
     }
 }

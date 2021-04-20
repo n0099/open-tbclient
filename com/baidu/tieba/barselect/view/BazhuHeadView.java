@@ -6,8 +6,8 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.i0.i1.o.k.b;
+import d.b.c.e.p.l;
+import d.b.i0.j1.o.k.b;
 /* loaded from: classes4.dex */
 public class BazhuHeadView extends HeadPendantView {
     public TbImageView q;

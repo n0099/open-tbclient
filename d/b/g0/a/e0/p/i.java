@@ -8,34 +8,34 @@ import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 import d.b.g0.a.b2.f.a;
 /* loaded from: classes2.dex */
 public class i extends l {
-    public static final boolean o = d.b.g0.a.k.f45051a;
+    public static final boolean o = d.b.g0.a.k.f45443a;
 
     public i(d.b.g0.a.i2.u0.b<Exception> bVar) {
         super(bVar);
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public int U() {
+    public int T() {
         return 0;
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public PMSDownloadType V() {
+    public PMSDownloadType U() {
         return PMSDownloadType.SWAN_APP_UPDATE_CORE;
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public String W() {
+    public String V() {
         return d.b.g0.a.e0.p.r.a.d();
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public String X() {
+    public String W() {
         return d.b.g0.a.e0.p.r.a.h();
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public d.b.g0.a.f2.a b0(d.b.g0.l.k.b bVar) {
+    public d.b.g0.a.f2.a a0(d.b.g0.l.k.b bVar) {
         if (bVar == null) {
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
             aVar.j(14L);
@@ -44,9 +44,9 @@ public class i extends l {
             return aVar;
         }
         d.b.g0.a.l0.h.a aVar2 = new d.b.g0.a.l0.h.a();
-        aVar2.f45154a = bVar.j;
-        aVar2.f45155b = bVar.f48917a;
-        aVar2.f45156c = bVar.m;
+        aVar2.f45546a = bVar.j;
+        aVar2.f45547b = bVar.f49309a;
+        aVar2.f45548c = bVar.m;
         if (d.b.g0.a.l0.b.a(0, aVar2) == null) {
             if (o) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
@@ -79,7 +79,7 @@ public class i extends l {
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public d.b.g0.a.f2.a c0(d.b.g0.l.k.d dVar) {
+    public d.b.g0.a.f2.a b0(d.b.g0.l.k.d dVar) {
         if (dVar == null) {
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
             aVar.j(13L);
@@ -87,9 +87,9 @@ public class i extends l {
             aVar.c("小程序Core包 Framework null");
             return aVar;
         }
-        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48917a, dVar.m, 0);
+        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f49309a, dVar.m, 0);
         d.b.g0.a.c0.c.h("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c2);
-        d.b.g0.p.d.g(dVar.f48917a);
+        d.b.g0.p.d.g(dVar.f49309a);
         if (c2.c()) {
             long d2 = d.b.g0.a.b2.f.a.d(0);
             if (d2 > 0) {

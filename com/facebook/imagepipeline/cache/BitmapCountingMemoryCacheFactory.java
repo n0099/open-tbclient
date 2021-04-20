@@ -5,7 +5,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapCountingMemoryCacheFactory {
     public static CountingMemoryCache<CacheKey, CloseableImage> get(Supplier<MemoryCacheParams> supplier, MemoryTrimmableRegistry memoryTrimmableRegistry) {
         return get(supplier, memoryTrimmableRegistry, new BitmapMemoryCacheTrimStrategy());

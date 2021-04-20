@@ -17,7 +17,7 @@ public class USequencesKt___USequencesKt {
     public static final int sumOfUByte(Sequence<UByte> sequence) {
         int i = 0;
         for (UByte uByte : sequence) {
-            i = UInt.m713constructorimpl(i + UInt.m713constructorimpl(uByte.m687unboximpl() & 255));
+            i = UInt.m717constructorimpl(i + UInt.m717constructorimpl(uByte.m691unboximpl() & 255));
         }
         return i;
     }
@@ -28,7 +28,7 @@ public class USequencesKt___USequencesKt {
     public static final int sumOfUInt(Sequence<UInt> sequence) {
         int i = 0;
         for (UInt uInt : sequence) {
-            i = UInt.m713constructorimpl(i + uInt.m756unboximpl());
+            i = UInt.m717constructorimpl(i + uInt.m760unboximpl());
         }
         return i;
     }
@@ -39,7 +39,7 @@ public class USequencesKt___USequencesKt {
     public static final long sumOfULong(Sequence<ULong> sequence) {
         long j = 0;
         for (ULong uLong : sequence) {
-            j = ULong.m782constructorimpl(j + uLong.m825unboximpl());
+            j = ULong.m786constructorimpl(j + uLong.m829unboximpl());
         }
         return j;
     }
@@ -50,7 +50,7 @@ public class USequencesKt___USequencesKt {
     public static final int sumOfUShort(Sequence<UShort> sequence) {
         int i = 0;
         for (UShort uShort : sequence) {
-            i = UInt.m713constructorimpl(i + UInt.m713constructorimpl(uShort.m920unboximpl() & UShort.MAX_VALUE));
+            i = UInt.m717constructorimpl(i + UInt.m717constructorimpl(uShort.m924unboximpl() & UShort.MAX_VALUE));
         }
         return i;
     }

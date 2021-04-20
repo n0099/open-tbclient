@@ -2,6 +2,7 @@ package androidx.constraintlayout.solver;
 
 import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 /* loaded from: classes.dex */
 public class ArrayRow implements LinearSystem.Row {
     public static final boolean DEBUG = false;
@@ -338,7 +339,7 @@ public class ArrayRow implements LinearSystem.Row {
         if (z) {
             return str;
         }
-        return str + "0.0";
+        return str + XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
     }
 
     public String toString() {

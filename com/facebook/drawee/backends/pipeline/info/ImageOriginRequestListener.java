@@ -2,7 +2,7 @@ package com.facebook.drawee.backends.pipeline.info;
 
 import com.facebook.imagepipeline.listener.BaseRequestListener;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageOriginRequestListener extends BaseRequestListener {
     public String mControllerId;
     @Nullable

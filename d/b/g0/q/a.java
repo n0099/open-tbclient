@@ -7,18 +7,18 @@ import java.util.List;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.g0.q.c.b<T>> f49339a = new ArrayList(6);
+    public List<d.b.g0.q.c.b<T>> f49731a = new ArrayList(6);
 
     public void a(d.b.g0.q.c.b<T> bVar) {
-        if (bVar == null || this.f49339a.contains(bVar)) {
+        if (bVar == null || this.f49731a.contains(bVar)) {
             return;
         }
-        this.f49339a.add(bVar);
+        this.f49731a.add(bVar);
     }
 
     public T b() {
         ArrayList<d.b.g0.q.c.b> arrayList = new ArrayList();
-        Iterator<d.b.g0.q.c.b<T>> it = this.f49339a.iterator();
+        Iterator<d.b.g0.q.c.b<T>> it = this.f49731a.iterator();
         T t = null;
         while (true) {
             if (!it.hasNext()) {
@@ -62,7 +62,7 @@ public class a<T> {
         if (c(t)) {
             return;
         }
-        for (d.b.g0.q.c.b<T> bVar : this.f49339a) {
+        for (d.b.g0.q.c.b<T> bVar : this.f49731a) {
             if (bVar.a()) {
                 bVar.put(t);
             }

@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.core;
 import android.graphics.Rect;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.utils.al;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class y {
     public static boolean a(View view, int i) {
         if (view == null || view.getVisibility() != 0 || view.getParent() == null) {

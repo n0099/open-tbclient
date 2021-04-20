@@ -15,16 +15,16 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43112e;
+    public String f43504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43113f = "";
+    public String f43505f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43114g = "";
+    public String f43506g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43115h = "";
+    public String f43507h = "";
     public String i = "";
     public boolean j = false;
     public boolean k = false;
@@ -33,14 +33,14 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     public String m;
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public b(@NonNull String str, @NonNull String str2) {
-        this.f43112e = "unknown";
+        this.f43504e = "unknown";
         this.m = "id";
         if (!TextUtils.isEmpty(str)) {
-            this.f43112e = str;
+            this.f43504e = str;
         } else {
             d.b.g0.a.a0.g.a.a("Component-Model-Base", "component type is empty");
         }
@@ -58,16 +58,16 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
             return;
         }
         String optString = jSONObject.optString(this.m);
-        this.f43113f = optString;
+        this.f43505f = optString;
         if (TextUtils.isEmpty(optString)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component componentId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43504e + " component componentId is empty");
         }
         String optString2 = jSONObject.optString("slaveId");
-        this.f43114g = optString2;
+        this.f43506g = optString2;
         if (TextUtils.isEmpty(optString2)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component slaveId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43504e + " component slaveId is empty");
         }
-        this.f43115h = jSONObject.optString("parentId");
+        this.f43507h = jSONObject.optString("parentId");
         this.i = jSONObject.optString("cb");
         this.j = jSONObject.optBoolean("hide", false);
         this.k = TextUtils.equals(jSONObject.optString("gesture"), "1");
@@ -108,9 +108,9 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     public final String d() {
         StringBuilder sb = new StringBuilder();
         sb.append("【");
-        sb.append(this.f43112e);
+        sb.append(this.f43504e);
         sb.append("#");
-        sb.append(TextUtils.isEmpty(this.f43113f) ? "" : this.f43113f);
+        sb.append(TextUtils.isEmpty(this.f43505f) ? "" : this.f43505f);
         sb.append("】");
         return sb.toString();
     }
@@ -119,17 +119,17 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
         if (jSONObject == null) {
             return;
         }
-        String optString = jSONObject.optString(this.m, bVar.f43113f);
-        this.f43113f = optString;
+        String optString = jSONObject.optString(this.m, bVar.f43505f);
+        this.f43505f = optString;
         if (TextUtils.isEmpty(optString)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component componentId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43504e + " component componentId is empty");
         }
-        String optString2 = jSONObject.optString("slaveId", bVar.f43114g);
-        this.f43114g = optString2;
+        String optString2 = jSONObject.optString("slaveId", bVar.f43506g);
+        this.f43506g = optString2;
         if (TextUtils.isEmpty(optString2)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component slaveId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43504e + " component slaveId is empty");
         }
-        this.f43115h = jSONObject.optString("parentId", bVar.f43115h);
+        this.f43507h = jSONObject.optString("parentId", bVar.f43507h);
         this.i = jSONObject.optString("cb", bVar.i);
         this.j = jSONObject.optBoolean("hide", bVar.j);
         this.k = TextUtils.equals(jSONObject.optString("gesture", bVar.k ? "1" : "0"), "1");
@@ -154,17 +154,17 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     }
 
     public void g(JSONObject jSONObject) {
-        String optString = jSONObject.optString(this.m, this.f43113f);
-        this.f43113f = optString;
+        String optString = jSONObject.optString(this.m, this.f43505f);
+        this.f43505f = optString;
         if (TextUtils.isEmpty(optString)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component componentId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43504e + " component componentId is empty");
         }
-        String optString2 = jSONObject.optString("slaveId", this.f43114g);
-        this.f43114g = optString2;
+        String optString2 = jSONObject.optString("slaveId", this.f43506g);
+        this.f43506g = optString2;
         if (TextUtils.isEmpty(optString2)) {
-            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43112e + " component slaveId is empty");
+            d.b.g0.a.c0.c.b("Component-Model-Base", this.f43504e + " component slaveId is empty");
         }
-        this.f43115h = jSONObject.optString("parentId", this.f43115h);
+        this.f43507h = jSONObject.optString("parentId", this.f43507h);
         this.i = jSONObject.optString("cb", this.i);
         this.j = jSONObject.optBoolean("hide", this.j);
         this.k = TextUtils.equals(jSONObject.optString("gesture", this.k ? "1" : "0"), "1");
@@ -174,10 +174,10 @@ public abstract class b implements d.b.g0.a.e1.a, Cloneable {
     @Override // d.b.g0.a.e1.a
     public boolean isValid() {
         d.b.g0.a.e1.d.a.a aVar;
-        return (TextUtils.isEmpty(this.f43113f) || TextUtils.isEmpty(this.f43114g) || (aVar = this.l) == null || !aVar.i()) ? false : true;
+        return (TextUtils.isEmpty(this.f43505f) || TextUtils.isEmpty(this.f43506g) || (aVar = this.l) == null || !aVar.i()) ? false : true;
     }
 
     public String toString() {
-        return "SwanAppBaseComponentModel{componentType='" + this.f43112e + "', componentId='" + this.f43113f + "', slaveId='" + this.f43114g + "', parentId='" + this.f43115h + "', callback='" + this.i + "', hidden=" + this.j + ", gesture=" + this.k + ", position=" + this.l + ", mComponentIdKey='" + this.m + "'}";
+        return "SwanAppBaseComponentModel{componentType='" + this.f43504e + "', componentId='" + this.f43505f + "', slaveId='" + this.f43506g + "', parentId='" + this.f43507h + "', callback='" + this.i + "', hidden=" + this.j + ", gesture=" + this.k + ", position=" + this.l + ", mComponentIdKey='" + this.m + "'}";
     }
 }

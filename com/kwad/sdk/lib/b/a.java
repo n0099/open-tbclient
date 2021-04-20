@@ -6,44 +6,44 @@ import java.util.List;
 public abstract class a<PAGE, MODEL> implements c<PAGE, MODEL> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<MODEL> f35947a = new ArrayList();
+    public final List<MODEL> f36236a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f35948b = new e();
+    public final e f36237b = new e();
 
     @Override // com.kwad.sdk.lib.b.d
     public void a(f fVar) {
-        this.f35948b.a(fVar);
+        this.f36237b.a(fVar);
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public boolean a(MODEL model) {
-        boolean remove = this.f35947a.remove(model);
+        boolean remove = this.f36236a.remove(model);
         if (remove) {
-            this.f35948b.a(false);
+            this.f36237b.a(false);
         }
         return remove;
     }
 
     @Override // com.kwad.sdk.lib.b.d
     public void b(f fVar) {
-        this.f35948b.b(fVar);
+        this.f36237b.b(fVar);
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public boolean e() {
-        return this.f35947a.isEmpty();
+        return this.f36236a.isEmpty();
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public List<MODEL> f() {
-        return this.f35947a;
+        return this.f36236a;
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public List<MODEL> g() {
-        ArrayList arrayList = new ArrayList(this.f35947a.size());
-        arrayList.addAll(this.f35947a);
+        ArrayList arrayList = new ArrayList(this.f36236a.size());
+        arrayList.addAll(this.f36236a);
         return arrayList;
     }
 }

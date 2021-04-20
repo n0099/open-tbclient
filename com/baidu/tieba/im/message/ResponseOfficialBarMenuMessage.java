@@ -4,14 +4,14 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.h0.r.r.a;
-import d.b.i0.d1.g.b;
-import d.b.i0.d1.g.c;
+import d.b.i0.e1.g.b;
+import d.b.i0.e1.g.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";
     public c officialBarMenuDatas;

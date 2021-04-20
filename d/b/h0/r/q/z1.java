@@ -5,20 +5,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 /* loaded from: classes3.dex */
-public class z1 extends a implements d.b.b.j.e.n {
+public class z1 extends a implements d.b.c.j.e.n {
     public a2 w;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50954e = false;
+    public boolean f51361e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50955f = false;
+    public boolean f51362f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50956g = false;
+    public boolean f51363g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50957h = false;
+    public boolean f51364h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -49,7 +49,7 @@ public class z1 extends a implements d.b.b.j.e.n {
         v0Var.m(n().L0());
         v0Var.j(this.w.d1);
         a2 a2Var2 = this.w;
-        v0Var.f50907g = a2Var2.e1;
+        v0Var.f51314g = a2Var2.e1;
         v0Var.o = a2Var2.T0;
         v0Var.j = a2Var2.S0;
         v0Var.l = a2Var2.U0;
@@ -59,7 +59,7 @@ public class z1 extends a implements d.b.b.j.e.n {
         return v0Var;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         OriginalThreadInfo originalThreadInfo;
         a2 a2Var = this.w;
@@ -98,7 +98,7 @@ public class z1 extends a implements d.b.b.j.e.n {
             return a2.g3;
         }
         if (x0 != 2 && x0 != 1) {
-            if (a2Var3.u1() != null && this.w.b2() && !this.w.f2()) {
+            if (a2Var3.u1() != null && this.w.c2() && !this.w.g2()) {
                 return a2.w3;
             }
             a2 a2Var4 = this.w;
@@ -113,32 +113,32 @@ public class z1 extends a implements d.b.b.j.e.n {
                     return a2.k3;
                 }
                 return a2.j3;
-            } else if (this.w.d2()) {
+            } else if (this.w.e2()) {
                 return a2.t3.get() ? a2.A3 : a2.H2;
             } else if (this.w.L1() && this.w.G() == 1) {
                 return a2.t3.get() ? a2.B3 : a2.H2;
-            } else if (this.w.e2()) {
+            } else if (this.w.f2()) {
                 return a2.c3;
             } else {
-                if (this.w.v2()) {
+                if (this.w.w2()) {
                     return this.w.n0() != null ? a2.p3 : a2.o3;
                 }
-                d.b.i0.c3.h0.n nVar = this.w.C2;
-                if (nVar != null && nVar.d()) {
-                    return this.w.C2.e() ? AdvertAppInfo.m4 : AdvertAppInfo.n4;
+                d.b.i0.d3.h0.n nVar = this.w.C2;
+                if (nVar != null && nVar.f()) {
+                    return this.w.C2.g() ? AdvertAppInfo.m4 : AdvertAppInfo.n4;
                 } else if (this.v) {
                     return a2.M2;
                 } else {
-                    if (this.f50954e) {
+                    if (this.f51361e) {
                         return a2.N2;
                     }
-                    if (this.f50955f) {
+                    if (this.f51362f) {
                         return a2.O2;
                     }
-                    if (this.f50956g) {
+                    if (this.f51363g) {
                         return a2.P2;
                     }
-                    if (this.f50957h) {
+                    if (this.f51364h) {
                         return a2.Q2;
                     }
                     if (this.i) {
@@ -159,7 +159,7 @@ public class z1 extends a implements d.b.b.j.e.n {
                     if (this.n) {
                         return a2.x3;
                     }
-                    if (this.w.Z1()) {
+                    if (this.w.a2()) {
                         if (this.o) {
                             return a2.n3;
                         }

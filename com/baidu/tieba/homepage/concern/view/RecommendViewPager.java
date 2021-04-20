@@ -6,19 +6,19 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecommendViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f17060e;
+    public float f16733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f17061f;
+    public float f16734f;
 
     public RecommendViewPager(@NonNull Context context) {
         super(context);
-        this.f17060e = 0.0f;
-        this.f17061f = 0.0f;
+        this.f16733e = 0.0f;
+        this.f16734f = 0.0f;
     }
 
     public void a(boolean z) {
@@ -41,10 +41,10 @@ public class RecommendViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float abs = Math.abs(motionEvent.getX() - this.f17060e);
-                    float abs2 = Math.abs(motionEvent.getY() - this.f17061f);
-                    this.f17060e = motionEvent.getX();
-                    this.f17061f = motionEvent.getY();
+                    float abs = Math.abs(motionEvent.getX() - this.f16733e);
+                    float abs2 = Math.abs(motionEvent.getY() - this.f16734f);
+                    this.f16733e = motionEvent.getX();
+                    this.f16734f = motionEvent.getY();
                     if (abs2 / abs < 1.0f && z) {
                         a(true);
                     } else {
@@ -54,15 +54,15 @@ public class RecommendViewPager extends ViewPager {
             }
             a(false);
         } else {
-            this.f17060e = motionEvent.getX();
-            this.f17061f = motionEvent.getY();
+            this.f16733e = motionEvent.getX();
+            this.f16734f = motionEvent.getY();
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public RecommendViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17060e = 0.0f;
-        this.f17061f = 0.0f;
+        this.f16733e = 0.0f;
+        this.f16734f = 0.0f;
     }
 }

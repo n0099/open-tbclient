@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.c;
-import f.a.g;
-import f.a.t.a;
-import f.a.t.b;
+import f.b.c;
+import f.b.g;
+import f.b.t.a;
+import f.b.t.b;
 import g.d.d;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class CompletableMerge$CompletableMergeSubscriber extends AtomicInteger implements g<c>, b {
     public static final long serialVersionUID = -2108443387387077490L;
-    public final f.a.b actual;
+    public final f.b.b actual;
     public final boolean delayErrors;
     public final int maxConcurrency;
     public d s;
@@ -21,46 +21,46 @@ public final class CompletableMerge$CompletableMergeSubscriber extends AtomicInt
     public final AtomicThrowable error = new AtomicThrowable();
 
     /* loaded from: classes7.dex */
-    public final class MergeInnerObserver extends AtomicReference<b> implements f.a.b, b {
+    public final class MergeInnerObserver extends AtomicReference<b> implements f.b.b, b {
         public static final long serialVersionUID = 251330541679988317L;
 
         public MergeInnerObserver() {
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             DisposableHelper.dispose(this);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onComplete() {
             CompletableMerge$CompletableMergeSubscriber.this.innerComplete(this);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onError(Throwable th) {
             CompletableMerge$CompletableMergeSubscriber.this.innerError(this, th);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
     }
 
-    public CompletableMerge$CompletableMergeSubscriber(f.a.b bVar, int i, boolean z) {
+    public CompletableMerge$CompletableMergeSubscriber(f.b.b bVar, int i, boolean z) {
         this.actual = bVar;
         this.maxConcurrency = i;
         this.delayErrors = z;
         lazySet(1);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.s.cancel();
         this.set.dispose();
@@ -92,7 +92,7 @@ public final class CompletableMerge$CompletableMergeSubscriber extends AtomicInt
                 }
                 return;
             }
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         } else if (this.error.addThrowable(th)) {
             if (decrementAndGet() == 0) {
                 this.actual.onError(this.error.terminate());
@@ -100,11 +100,11 @@ public final class CompletableMerge$CompletableMergeSubscriber extends AtomicInt
                 this.s.request(1L);
             }
         } else {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.set.isDisposed();
     }
@@ -131,17 +131,17 @@ public final class CompletableMerge$CompletableMergeSubscriber extends AtomicInt
                 }
                 return;
             }
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         } else if (this.error.addThrowable(th)) {
             if (decrementAndGet() == 0) {
                 this.actual.onError(this.error.terminate());
             }
         } else {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

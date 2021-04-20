@@ -14,10 +14,10 @@ import java.net.UnknownHostException;
 public class e implements d.q.a.a.a.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f67385e;
+    public Context f68378e;
 
     public e(Context context) {
-        this.f67385e = context;
+        this.f68378e = context;
     }
 
     public static String a(int i) {
@@ -54,7 +54,7 @@ public class e implements d.q.a.a.a.b.b {
     public static String c(String str) {
         try {
             d a2 = c.a(new String[]{str}, false, true);
-            return !TextUtils.isEmpty(a2.f67383b) ? a2.f67383b : (TextUtils.isEmpty(a2.f67384c) || !a2.f67384c.contains("denied")) ? TextUtils.isEmpty(a2.f67383b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+            return !TextUtils.isEmpty(a2.f68376b) ? a2.f68376b : (TextUtils.isEmpty(a2.f68377c) || !a2.f68377c.contains("denied")) ? TextUtils.isEmpty(a2.f68376b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
         } catch (Throwable th) {
             b.c(th);
             return "KWE_PE";
@@ -166,13 +166,13 @@ public class e implements d.q.a.a.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public String b() {
-        String e2 = d.q.a.a.a.b.e.a.a.a(this.f67385e).e();
+        String e2 = d.q.a.a.a.b.e.a.a.a(this.f68378e).e();
         return TextUtils.isEmpty(e2) ? "" : e2;
     }
 
     @Override // d.q.a.a.a.b.b
     public boolean c() {
-        return d.q.a.a.a.b.e.a.a.a(this.f67385e).d();
+        return d.q.a.a.a.b.e.a.a.a(this.f68378e).d();
     }
 
     @Override // d.q.a.a.a.b.b

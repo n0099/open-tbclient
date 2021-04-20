@@ -37,34 +37,34 @@ public class c extends d.b.g0.g.w.a {
     public class a implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f48616a;
+        public final /* synthetic */ String f49008a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f48617b;
+        public final /* synthetic */ long f49009b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f48618c;
+        public final /* synthetic */ String f49010c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.w.b f48619d;
+        public final /* synthetic */ d.b.g0.g.w.b f49011d;
 
         public a(String str, long j, String str2, d.b.g0.g.w.b bVar) {
-            this.f48616a = str;
-            this.f48617b = j;
-            this.f48618c = str2;
-            this.f48619d = bVar;
+            this.f49008a = str;
+            this.f49009b = j;
+            this.f49010c = str2;
+            this.f49011d = bVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            this.f48619d.cancelTag(c.this.f48587g);
-            c.this.Z(this.f48616a, 0, iOException.getMessage(), this.f48617b);
+            this.f49011d.cancelTag(c.this.f48979g);
+            c.this.Z(this.f49008a, 0, iOException.getMessage(), this.f49009b);
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
             if (!response.isSuccessful()) {
-                c.this.Z(this.f48616a, response.code(), response.message(), this.f48617b);
+                c.this.Z(this.f49008a, response.code(), response.message(), this.f49009b);
                 return;
             }
             try {
@@ -76,7 +76,7 @@ public class c extends d.b.g0.g.w.a {
                     e2.printStackTrace();
                 }
             }
-            String str = this.f48618c;
+            String str = this.f49010c;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 3556653) {
@@ -87,22 +87,22 @@ public class c extends d.b.g0.g.w.a {
                 c2 = 1;
             }
             if (c2 != 0) {
-                c.this.a0(this.f48616a, response);
+                c.this.a0(this.f49008a, response);
             } else {
-                c.this.Y(this.f48616a, response);
+                c.this.Y(this.f49008a, response);
             }
             int code = response.code();
             String message = response.message();
             if (d.b.g0.g.w.a.i) {
-                Log.d("RequestTask", "onResponse: id:" + c.this.f48587g + ",respCode: " + code + ", url=" + this.f48616a + ", msg=" + message);
+                Log.d("RequestTask", "onResponse: id:" + c.this.f48979g + ",respCode: " + code + ", url=" + this.f49008a + ", msg=" + message);
             }
-            h.F(code, this.f48616a, 1, message, this.f48617b, System.currentTimeMillis());
+            h.F(code, this.f49008a, 1, message, this.f49009b, System.currentTimeMillis());
         }
     }
 
     public c(d.b.g0.g.i.b bVar, d.b.g0.g.e.d.c cVar) {
         super(bVar, cVar);
-        this.f48585e = 1;
+        this.f48977e = 1;
     }
 
     @NonNull
@@ -125,7 +125,7 @@ public class c extends d.b.g0.g.w.a {
             }
             return null;
         }
-        String B = this.f48586f.B("method");
+        String B = this.f48978f.B("method");
         if (TextUtils.isEmpty(B)) {
             B = "GET";
         }
@@ -136,29 +136,29 @@ public class c extends d.b.g0.g.w.a {
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        J(builder, this.f48586f.w("header"), hashMap, true);
+        J(builder, this.f48978f.w("header"), hashMap, true);
         if (d.b.g0.g.w.a.i) {
             Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
-        Object C2 = this.f48586f.C("data", null);
+        Object C2 = this.f48978f.C("data", null);
         if (C2 == null) {
-            C2 = this.f48586f.t("data", null);
+            C2 = this.f48978f.t("data", null);
         }
         boolean z = C2 != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(C).method(upperCase, null).tag(this.f48587g).build();
+            return builder.url(C).method(upperCase, null).tag(this.f48979g).build();
         }
         RequestBody V = (z || HttpMethod.requiresRequestBody(upperCase)) ? V(C2, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && V == null) {
             return null;
         }
-        return builder.url(C).method(upperCase, V).tag(this.f48587g).build();
+        return builder.url(C).method(upperCase, V).tag(this.f48979g).build();
     }
 
     @Nullable
     public final RequestBody V(Object obj, Map<String, String> map) {
         String str = map.get("content-type");
-        MediaType mediaType = f.f44518a;
+        MediaType mediaType = f.f44910a;
         if (!TextUtils.isEmpty(str)) {
             mediaType = MediaType.parse(str);
         }
@@ -179,7 +179,7 @@ public class c extends d.b.g0.g.w.a {
     }
 
     public void W(Request request) {
-        String X = X(this.f48586f);
+        String X = X(this.f48978f);
         String httpUrl = request.url().toString();
         if (d.b.g0.a.r1.e.y() == null) {
             F("", -1, "request:swanApp is null");
@@ -253,7 +253,7 @@ public class c extends d.b.g0.g.w.a {
 
     public void start() {
         Request U;
-        if (this.f48586f == null || (U = U()) == null) {
+        if (this.f48978f == null || (U = U()) == null) {
             return;
         }
         W(U);

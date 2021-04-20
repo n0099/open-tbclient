@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RestTemplate {
     public static final String TAG = "RestTemplate";
     public Context mContext;
@@ -26,7 +26,7 @@ public class RestTemplate {
     public a<?> messageConverter;
     public List<RestHttpRequestInterceptor> requestInterceptors;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         public final Class<?> responseType;
 

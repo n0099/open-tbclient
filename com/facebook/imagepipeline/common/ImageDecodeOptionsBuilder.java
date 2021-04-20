@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageDecodeOptionsBuilder {
     @Nullable
     public BitmapTransformation mBitmapTransformation;

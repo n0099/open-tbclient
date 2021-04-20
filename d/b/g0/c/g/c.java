@@ -18,13 +18,13 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f47486c;
+    public static volatile c f47878c;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f47488b = false;
+    public volatile boolean f47880b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f47487a = new a();
+    public a f47879a = new a();
 
     /* loaded from: classes3.dex */
     public static class a extends i {
@@ -34,23 +34,23 @@ public class c {
     }
 
     public static c e() {
-        if (f47486c == null) {
+        if (f47878c == null) {
             synchronized (c.class) {
-                if (f47486c == null) {
-                    f47486c = new c();
+                if (f47878c == null) {
+                    f47878c = new c();
                 }
             }
         }
-        return f47486c;
+        return f47878c;
     }
 
     public Set<String> a() {
-        Set<String> stringSet = this.f47487a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+        Set<String> stringSet = this.f47879a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet != null) {
             return stringSet;
         }
         if (h()) {
-            return this.f47487a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            return this.f47879a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         }
         return null;
     }
@@ -58,7 +58,7 @@ public class c {
     public String b() {
         String c2 = c("appKey");
         if (TextUtils.isEmpty(c2)) {
-            if (d.b.g0.c.c.f47485a) {
+            if (d.b.g0.c.c.f47877a) {
                 throw new IllegalStateException("获取 host app key 失败");
             }
             return "";
@@ -70,10 +70,10 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.f47487a.getString(str, "");
+        String string = this.f47879a.getString(str, "");
         if (TextUtils.isEmpty(string)) {
             if (h()) {
-                String string2 = this.f47487a.getString(str, "");
+                String string2 = this.f47879a.getString(str, "");
                 if (!TextUtils.isEmpty(string2)) {
                     return string2;
                 }
@@ -86,7 +86,7 @@ public class c {
     public String d() {
         String c2 = c("hostName");
         if (TextUtils.isEmpty(c2)) {
-            if (d.b.g0.c.c.f47485a) {
+            if (d.b.g0.c.c.f47877a) {
                 throw new IllegalStateException("获取 HostName-宿主名称 失败");
             }
             return "";
@@ -97,7 +97,7 @@ public class c {
     public String f() {
         String c2 = c("schemeHead");
         if (TextUtils.isEmpty(c2)) {
-            if (d.b.g0.c.c.f47485a) {
+            if (d.b.g0.c.c.f47877a) {
                 throw new IllegalStateException("获取 SchemeHead-协议头 失败");
             }
             return "";
@@ -118,7 +118,7 @@ public class c {
     }
 
     public final synchronized boolean h() {
-        if (this.f47488b) {
+        if (this.f47880b) {
             return true;
         }
         String q = d.q(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -145,10 +145,10 @@ public class c {
                 }
             }
             i(optString, optString2, optString3, optString4, optInt, hashSet);
-            this.f47488b = true;
+            this.f47880b = true;
             return true;
         } catch (JSONException e2) {
-            if (d.b.g0.c.c.f47485a) {
+            if (d.b.g0.c.c.f47877a) {
                 e2.printStackTrace();
             }
             return false;
@@ -159,7 +159,7 @@ public class c {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i < 0) {
             return;
         }
-        SharedPreferences.Editor putInt = this.f47487a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
+        SharedPreferences.Editor putInt = this.f47879a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
         if (set != null && !set.isEmpty()) {
             putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
         }

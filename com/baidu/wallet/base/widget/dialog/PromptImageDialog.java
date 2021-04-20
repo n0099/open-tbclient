@@ -10,15 +10,15 @@ import com.baidu.wallet.base.widget.dialog.view.ImageDialogAdapter;
 public class PromptImageDialog extends WalletDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageDialogModel f24023a;
+    public ImageDialogModel f23708a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f24024b;
+    public View.OnClickListener f23709b;
 
     public PromptImageDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f24023a = new ImageDialogModel();
-        this.f24024b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f23708a = new ImageDialogModel();
+        this.f23709b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptImageDialog.this.dismiss();
@@ -28,55 +28,55 @@ public class PromptImageDialog extends WalletDialog {
     }
 
     private void a() {
-        ImageDialogModel imageDialogModel = this.f24023a;
-        imageDialogModel.defaultClickListener = this.f24024b;
+        ImageDialogModel imageDialogModel = this.f23708a;
+        imageDialogModel.defaultClickListener = this.f23709b;
         setAdapter(new ImageDialogAdapter(imageDialogModel));
     }
 
     public void setButtonText(String str) {
-        this.f24023a.buttonText = str;
+        this.f23708a.buttonText = str;
     }
 
     public void setImage(int i) {
-        this.f24023a.imageId = i;
+        this.f23708a.imageId = i;
     }
 
     public void setMessage(int i) {
-        this.f24023a.messageId = i;
+        this.f23708a.messageId = i;
     }
 
     public void setMessageTemp(String str) {
-        this.f24023a.messageTemp = str;
+        this.f23708a.messageTemp = str;
     }
 
     public void setTitleMessage(int i) {
-        this.f24023a.titleTextId = i;
+        this.f23708a.titleTextId = i;
     }
 
     public void setButtonText(int i) {
-        this.f24023a.buttonTextId = i;
+        this.f23708a.buttonTextId = i;
     }
 
     public void setImage(Drawable drawable) {
-        this.f24023a.imageDrawable = drawable;
+        this.f23708a.imageDrawable = drawable;
     }
 
     public void setMessage(String str) {
-        this.f24023a.message = str;
+        this.f23708a.message = str;
     }
 
     public void setMessageTemp(int i) {
-        this.f24023a.messageTempId = i;
+        this.f23708a.messageTempId = i;
     }
 
     public void setTitleMessage(String str) {
-        this.f24023a.titleText = str;
+        this.f23708a.titleText = str;
     }
 
     public PromptImageDialog(Context context, int i) {
         super(context, i);
-        this.f24023a = new ImageDialogModel();
-        this.f24024b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f23708a = new ImageDialogModel();
+        this.f23709b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptImageDialog.this.dismiss();

@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.NinePatchDrawable;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RoundedNinePatchDrawable extends RoundedDrawable {
     public RoundedNinePatchDrawable(NinePatchDrawable ninePatchDrawable) {
         super(ninePatchDrawable);

@@ -8,25 +8,25 @@ public final class f {
     public static class a extends j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.e f67986e;
+        public final /* synthetic */ h.e f68996e;
 
         public a(h.e eVar) {
-            this.f67986e = eVar;
+            this.f68996e = eVar;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f67986e.onCompleted();
+            this.f68996e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f67986e.onError(th);
+            this.f68996e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f67986e.onNext(t);
+            this.f68996e.onNext(t);
         }
     }
 
@@ -34,27 +34,27 @@ public final class f {
     public static class b extends j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f67987e;
+        public final /* synthetic */ j f68997e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(j jVar, j jVar2) {
             super(jVar);
-            this.f67987e = jVar2;
+            this.f68997e = jVar2;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f67987e.onCompleted();
+            this.f68997e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f67987e.onError(th);
+            this.f68997e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f67987e.onNext(t);
+            this.f68997e.onNext(t);
         }
     }
 

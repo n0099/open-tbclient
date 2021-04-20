@@ -8,9 +8,9 @@ import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
 import d.b.h0.s.d.d;
-import d.b.i0.u2.c.f;
+import d.b.i0.v2.c.f;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {
     public MsgRemindModel mModel;
     public OfficialAccountPushModel mOfficialPushModel;
@@ -18,7 +18,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public MsgRemindModel.e mMsgRemindModelCallback = new a();
     public OfficialAccountPushModel.b mCallback = new b();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements MsgRemindModel.e {
         public a() {
         }
@@ -59,7 +59,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements OfficialAccountPushModel.b {
         public b() {
         }

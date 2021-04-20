@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import d.b.i0.h1.b;
-/* loaded from: classes3.dex */
+import d.b.i0.i1.b;
+/* loaded from: classes4.dex */
 public class TiebaLcUpdateService extends BdBaseService {
     public b mLcUpdateAsyncTask;
 

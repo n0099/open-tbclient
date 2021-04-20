@@ -7,28 +7,28 @@ import java.util.Map;
 public class ax implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ax f40253a;
+    public static volatile ax f40542a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f134a = aw.f40252a;
+    public int f134a = aw.f40541a;
 
     /* renamed from: a  reason: collision with other field name */
     public ar f135a;
 
     public ax(Context context) {
         this.f135a = aw.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m51a("create id manager is: " + this.f134a);
+        com.xiaomi.channel.commonutils.logger.b.m55a("create id manager is: " + this.f134a);
     }
 
     public static ax a(Context context) {
-        if (f40253a == null) {
+        if (f40542a == null) {
             synchronized (ax.class) {
-                if (f40253a == null) {
-                    f40253a = new ax(context.getApplicationContext());
+                if (f40542a == null) {
+                    f40542a = new ax(context.getApplicationContext());
                 }
             }
         }
-        return f40253a;
+        return f40542a;
     }
 
     private String a(String str) {
@@ -52,9 +52,9 @@ public class ax implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo130b = mo130b();
-        if (!TextUtils.isEmpty(mo130b)) {
-            map.put("oaid", mo130b);
+        String mo134b = mo134b();
+        if (!TextUtils.isEmpty(mo134b)) {
+            map.put("oaid", mo134b);
         }
         String c2 = c();
         if (!TextUtils.isEmpty(c2)) {
@@ -69,13 +69,13 @@ public class ax implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f135a.m132a();
+        return this.f135a.m136a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo130b() {
-        return a(this.f135a.mo130b());
+    public String mo134b() {
+        return a(this.f135a.mo134b());
     }
 
     @Override // com.xiaomi.push.ar
@@ -89,6 +89,6 @@ public class ax implements ar {
     }
 
     public String e() {
-        return "t:" + this.f134a + " s:" + a() + " d:" + b(a()) + " | " + b(mo130b()) + " | " + b(c()) + " | " + b(d());
+        return "t:" + this.f134a + " s:" + a() + " d:" + b(a()) + " | " + b(mo134b()) + " | " + b(c()) + " | " + b(d());
     }
 }

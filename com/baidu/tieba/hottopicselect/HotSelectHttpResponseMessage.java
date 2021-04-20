@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.h0.r.r.a;
-import d.b.i0.c1.c;
+import d.b.i0.d1.c;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public c mBangTopic;
     public c mSugTopic;

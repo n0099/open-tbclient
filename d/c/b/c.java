@@ -11,10 +11,10 @@ public interface c {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f64960a;
+        public final String f65805a;
 
         public a(@Nullable String str) {
-            this.f64960a = str;
+            this.f65805a = str;
         }
     }
 

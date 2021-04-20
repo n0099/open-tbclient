@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,14 +22,14 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f56523a = new g();
+    public static g f57929a = new g();
 
     public static g k() {
-        return f56523a;
+        return f57929a;
     }
 
     public boolean a(CollectEmotionData collectEmotionData) {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         f2.beginTransaction();
         try {
@@ -74,7 +75,7 @@ public class g {
     }
 
     public boolean c(EmotionData emotionData) {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         f2.beginTransaction();
         try {
@@ -105,7 +106,7 @@ public class g {
     }
 
     public boolean e(EmotionGroupData emotionGroupData) {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         f2.beginTransaction();
         try {
@@ -121,7 +122,7 @@ public class g {
             contentValues.put("downloadTime", Long.valueOf(emotionGroupData.downloadTime));
             contentValues.put("bytesLength", Integer.valueOf(emotionGroupData.bytesLength));
             contentValues.put("bytesReceived", Integer.valueOf(emotionGroupData.bytesReceived));
-            contentValues.put("downloadUrl", emotionGroupData.downloadUrl);
+            contentValues.put(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL, emotionGroupData.downloadUrl);
             f2.insert("emotion_group", null, contentValues);
             f2.setTransactionSuccessful();
             return true;
@@ -139,7 +140,7 @@ public class g {
         if (TextUtils.isEmpty(str) || emotionGroupData == null) {
             return false;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         f2.beginTransaction();
         try {
@@ -165,7 +166,7 @@ public class g {
         if (collectEmotionData == null) {
             return;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             mainDBDatabaseManager.f().delete("user_collect_emotion", "pid = ? and uid = ? ", new String[]{collectEmotionData.pid, collectEmotionData.uid});
         } catch (Throwable th) {
@@ -174,7 +175,7 @@ public class g {
     }
 
     public boolean h(String str) {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         f2.beginTransaction();
         try {
@@ -216,7 +217,7 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM emotion_group where groupId = ? ", new String[]{str});
         } catch (Throwable th) {
@@ -233,7 +234,7 @@ public class g {
                 mainDBDatabaseManager.i(th, "EmotionsDBManager.getEmotionGroup");
                 return null;
             } finally {
-                d.b.b.e.p.m.a(cursor);
+                d.b.c.e.p.m.a(cursor);
             }
         }
         return null;
@@ -311,7 +312,7 @@ public class g {
             return;
         }
         Collections.reverse(list);
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         long currentTimeMillis = System.currentTimeMillis();
         try {
@@ -348,7 +349,7 @@ public class g {
         emotionGroupData.downloadTime = cursor.getInt(cursor.getColumnIndex("downloadTime"));
         emotionGroupData.bytesLength = cursor.getInt(cursor.getColumnIndex("bytesLength"));
         emotionGroupData.bytesReceived = cursor.getInt(cursor.getColumnIndex("bytesReceived"));
-        emotionGroupData.downloadUrl = cursor.getString(cursor.getColumnIndex("downloadUrl"));
+        emotionGroupData.downloadUrl = cursor.getString(cursor.getColumnIndex(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL));
         return emotionGroupData;
     }
 
@@ -356,7 +357,7 @@ public class g {
         if (collectEmotionData == null) {
             return;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase f2 = mainDBDatabaseManager.f();
         try {
             ContentValues contentValues = new ContentValues();

@@ -12,6 +12,8 @@ import java.lang.annotation.Target;
 public @interface JSONField {
     String[] alternateNames() default {};
 
+    String defaultValue() default "";
+
     boolean deserialize() default true;
 
     Class<?> deserializeUsing() default Void.class;

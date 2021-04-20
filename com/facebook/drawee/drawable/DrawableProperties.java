@@ -3,7 +3,7 @@ package com.facebook.drawee.drawable;
 import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DrawableProperties {
     public static final int UNSET = -1;
     public int mAlpha = -1;

@@ -19,11 +19,11 @@ public class ChannelBaiduPayForTransCashier {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f2611a = new ChannelBaiduPayForTransCashier();
+        public static ChannelBaiduPayForTransCashier f2646a = new ChannelBaiduPayForTransCashier();
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
-        return a.f2611a;
+        return a.f2646a;
     }
 
     private String getNotify(String str) {

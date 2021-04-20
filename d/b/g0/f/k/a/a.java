@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class a extends d.b.g0.f.i.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47852c = k.f45051a;
+    public static final boolean f48244c = k.f45443a;
 
     public a() {
         super("startPermissionsPage");
@@ -22,7 +22,7 @@ public class a extends d.b.g0.f.i.a {
         if (O != null && O.n() != null) {
             y.g(O.n());
             bVar.a(null);
-        } else if (f47852c) {
+        } else if (f48244c) {
             Log.d("StartPermissionsPage", "swan or activity is null");
         }
         return null;

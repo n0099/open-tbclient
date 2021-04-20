@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import d.b.h0.f0.h;
-import d.b.i0.d1.f.j.g;
+import d.b.h0.f0.i;
+import d.b.i0.e1.f.j.g;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public OfficialBarFeedMsglistView feedView;
     public String forumId;
     public g model;
     public byte source;
-    public h mTopToastEventListener = new a();
+    public i mTopToastEventListener = new a();
     public g.d onDataLoadListener = new b();
 
-    /* loaded from: classes3.dex */
-    public class a extends h<TopToastEvent> {
+    /* loaded from: classes4.dex */
+    public class a extends i<TopToastEvent> {
         public a() {
         }
 
@@ -39,18 +39,18 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements g.d {
         public b() {
         }
 
-        @Override // d.b.i0.d1.f.j.g.d
-        public void a(List<d.b.i0.d1.l.c.b> list) {
+        @Override // d.b.i0.e1.f.j.g.d
+        public void a(List<d.b.i0.e1.l.c.b> list) {
             SingleForumBroadcastFeedActivity.this.feedView.l(list, null);
         }
 
-        @Override // d.b.i0.d1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<d.b.i0.d1.i.a.b.b> longSparseArray) {
+        @Override // d.b.i0.e1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<d.b.i0.e1.i.a.b.b> longSparseArray) {
             SingleForumBroadcastFeedActivity.this.feedView.m(longSparseArray);
         }
     }

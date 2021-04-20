@@ -6,7 +6,7 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.g0.b.c;
 import d.b.h0.g0.b.e;
 /* loaded from: classes3.dex */
@@ -21,7 +21,7 @@ public class d<T extends d.b.h0.g0.b.c> extends a<T> {
         if (customMessage == null || !(customMessage instanceof WriteCacheMessage)) {
             return null;
         }
-        WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.f50211e);
+        WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.f50618e);
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null) {
@@ -30,7 +30,7 @@ public class d<T extends d.b.h0.g0.b.c> extends a<T> {
         d.b.h0.g0.b.c cVar = (d.b.h0.g0.b.c) a();
         if (cVar != null) {
             if (cVar instanceof d.b.h0.g0.b.b) {
-                l<byte[]> e2 = d.b.h0.r.r.a.f().e(this.f50209f, currentAccount);
+                l<byte[]> e2 = d.b.h0.r.r.a.f().e(this.f50616f, currentAccount);
                 if (writeCacheMessage.isClear()) {
                     d.b.h0.g0.b.c cVar2 = (d.b.h0.g0.b.c) writeCacheMessage.getData();
                     if (cVar2 == null) {
@@ -48,7 +48,7 @@ public class d<T extends d.b.h0.g0.b.c> extends a<T> {
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (cVar instanceof e) {
-                l<String> h2 = d.b.h0.r.r.a.f().h(this.f50209f, currentAccount);
+                l<String> h2 = d.b.h0.r.r.a.f().h(this.f50616f, currentAccount);
                 if (writeCacheMessage.isClear()) {
                     d.b.h0.g0.b.c cVar4 = (d.b.h0.g0.b.c) writeCacheMessage.getData();
                     if (cVar4 == null) {

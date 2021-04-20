@@ -6,14 +6,14 @@ import org.json.JSONObject;
 public class b extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48024b;
+    public String f48416b;
 
     @Override // d.b.g0.g.c0.e.d
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("key", this.f48024b);
-            jSONObject.put("errMsg", this.f48027a);
+            jSONObject.put("key", this.f48416b);
+            jSONObject.put("errMsg", this.f48419a);
         } catch (JSONException unused) {
         }
         return jSONObject;

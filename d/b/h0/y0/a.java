@@ -9,20 +9,20 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.trackConfig.TrackConfigResponseMessage;
-import d.b.b.e.n.f;
+import d.b.c.e.n.f;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f51646a;
+    public b f52064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f51647b = new C1115a(CmdConfigHttp.CMD_TRACK_CONFIG);
+    public HttpMessageListener f52065b = new C1128a(CmdConfigHttp.CMD_TRACK_CONFIG);
 
     /* renamed from: d.b.h0.y0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1115a extends HttpMessageListener {
-        public C1115a(int i) {
+    public class C1128a extends HttpMessageListener {
+        public C1128a(int i) {
             super(i);
         }
 
@@ -31,8 +31,8 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof TrackConfigResponseMessage) {
                 TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (a.this.f51646a != null) {
-                    a.this.f51646a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                if (a.this.f52064a != null) {
+                    a.this.f52064a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.f51647b);
+        MessageManager.getInstance().registerListener(this.f52065b);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -52,7 +52,7 @@ public class a {
     }
 
     public void b(b bVar) {
-        this.f51646a = bVar;
+        this.f52064a = bVar;
     }
 
     public void c() {

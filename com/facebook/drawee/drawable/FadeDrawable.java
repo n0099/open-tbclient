@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FadeDrawable extends ArrayDrawable {
     @VisibleForTesting
     public static final int TRANSITION_NONE = 2;

@@ -9,12 +9,12 @@ import java.util.List;
 public class a extends f {
 
     /* renamed from: e  reason: collision with root package name */
-    public ConstrainImageLayout.c f49933e;
+    public ConstrainImageLayout.c f50326e;
 
     /* renamed from: d.b.h0.b1.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1055a implements ConstrainImageLayout.c {
-        public C1055a(a aVar) {
+    public class C1067a implements ConstrainImageLayout.c {
+        public C1067a(a aVar) {
         }
 
         @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
@@ -37,15 +37,15 @@ public class a extends f {
 
     public a(int i) {
         super(i);
-        this.f49933e = new C1055a(this);
+        this.f50326e = new C1067a(this);
     }
 
     @Override // d.b.h0.b1.j.f, d.b.h0.b1.j.c
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        if (list.size() < this.f49935b) {
+        if (list.size() < this.f50328b) {
             list.size();
         }
-        constrainImageLayout.setTbImageViewConfiguration(this.f49933e);
+        constrainImageLayout.setTbImageViewConfiguration(this.f50326e);
         return super.a(constrainImageLayout, list, i, i2);
     }
 }

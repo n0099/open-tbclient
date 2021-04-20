@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.content.FileProvider;
+import com.alibaba.fastjson.asm.Label;
 import d.b.g0.a.t1.k.p;
 import java.io.File;
 /* loaded from: classes2.dex */
@@ -35,7 +36,7 @@ public class g implements d.b.g0.a.p.c.u {
     public final void d(Activity activity, Uri uri, String str) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.addFlags(1);
         intent.setDataAndType(uri, str);
         d.b.g0.a.i2.e.e(activity, intent);

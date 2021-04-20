@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import d.b.b.e.d.l;
-import d.b.b.e.p.p;
+import d.b.c.e.d.l;
+import d.b.c.e.p.p;
 import d.b.h0.g0.b.c;
 import d.b.h0.g0.b.e;
 import java.util.ArrayList;
@@ -61,21 +61,21 @@ public class c<T extends d.b.h0.g0.b.c> extends a<T> {
                     if (readCacheMessage.getRequestData() == null) {
                         try {
                             if (cVar4 instanceof d.b.h0.g0.b.b) {
-                                List<l.b<byte[]>> a2 = p.a(d.b.h0.r.r.a.f().e(this.f50209f, str));
+                                List<l.b<byte[]>> a2 = p.a(d.b.h0.r.r.a.f().e(this.f50616f, str));
                                 if (a2 != null) {
                                     arrayList = new ArrayList(a2.size());
                                     for (l.b<byte[]> bVar : a2) {
-                                        if (bVar != null && (bArr = bVar.f41702b) != null && (cVar2 = (d.b.h0.g0.b.c) a()) != null) {
+                                        if (bVar != null && (bArr = bVar.f42199b) != null && (cVar2 = (d.b.h0.g0.b.c) a()) != null) {
                                             ((d.b.h0.g0.b.b) cVar2).initByByteArray(bArr);
                                             arrayList.add(cVar2);
                                         }
                                     }
                                     cVar3 = arrayList;
                                 }
-                            } else if ((cVar4 instanceof e) && (b2 = p.b(d.b.h0.r.r.a.f().h(this.f50209f, str))) != null) {
+                            } else if ((cVar4 instanceof e) && (b2 = p.b(d.b.h0.r.r.a.f().h(this.f50616f, str))) != null) {
                                 arrayList = new ArrayList(b2.size());
                                 for (l.b<String> bVar2 : b2) {
-                                    if (bVar2 != null && (str3 = bVar2.f41702b) != null && (cVar = (d.b.h0.g0.b.c) a()) != null) {
+                                    if (bVar2 != null && (str3 = bVar2.f42199b) != null && (cVar = (d.b.h0.g0.b.c) a()) != null) {
                                         ((e) cVar).a(str3);
                                         arrayList.add(cVar);
                                     }
@@ -86,10 +86,10 @@ public class c<T extends d.b.h0.g0.b.c> extends a<T> {
                             e = e2;
                             cVar3 = cVar4;
                             e.printStackTrace();
-                            return new ReadCacheRespMsg(this.f50211e, cVar3);
+                            return new ReadCacheRespMsg(this.f50618e, cVar3);
                         } catch (Throwable unused) {
                             cVar3 = cVar4;
-                            return new ReadCacheRespMsg(this.f50211e, cVar3);
+                            return new ReadCacheRespMsg(this.f50618e, cVar3);
                         }
                     } else {
                         String cacheKey = readCacheMessage.getRequestData().getCacheKey();
@@ -115,14 +115,14 @@ public class c<T extends d.b.h0.g0.b.c> extends a<T> {
                             cVar3 = q;
                             e = e3;
                             e.printStackTrace();
-                            return new ReadCacheRespMsg(this.f50211e, cVar3);
+                            return new ReadCacheRespMsg(this.f50618e, cVar3);
                         } catch (Throwable unused2) {
                             cVar3 = q;
-                            return new ReadCacheRespMsg(this.f50211e, cVar3);
+                            return new ReadCacheRespMsg(this.f50618e, cVar3);
                         }
                     }
                 }
-                return new ReadCacheRespMsg(this.f50211e, cVar3);
+                return new ReadCacheRespMsg(this.f50618e, cVar3);
             } catch (Throwable unused3) {
             }
         } catch (Exception e4) {

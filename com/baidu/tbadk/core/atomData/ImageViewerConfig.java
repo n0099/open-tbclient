@@ -69,19 +69,19 @@ public class ImageViewerConfig extends IntentConfig {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f13193a;
+        public ArrayList<String> f12854a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13195c;
+        public String f12856c;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f13198f;
+        public boolean f12859f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f13199g;
+        public String f12860g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f13200h;
+        public boolean f12861h;
         public ConcurrentHashMap<String, ImageUrlData> i;
         public boolean j;
         public boolean k;
@@ -94,13 +94,13 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean u;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13194b = 0;
+        public int f12855b = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13196d = "";
+        public String f12857d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f13197e = "";
+        public String f12858e = "";
         public boolean l = false;
         public boolean p = true;
         public boolean s = true;
@@ -111,12 +111,12 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b B(int i) {
-            this.f13194b = i;
+            this.f12855b = i;
             return this;
         }
 
         public b C(boolean z) {
-            this.f13198f = z;
+            this.f12859f = z;
             return this;
         }
 
@@ -136,7 +136,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b G(boolean z) {
-            this.f13200h = z;
+            this.f12861h = z;
             return this;
         }
 
@@ -156,7 +156,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b K(String str) {
-            this.f13199g = str;
+            this.f12860g = str;
             return this;
         }
 
@@ -182,7 +182,7 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b P(String str) {
-            this.f13197e = str;
+            this.f12858e = str;
             return this;
         }
 
@@ -196,17 +196,17 @@ public class ImageViewerConfig extends IntentConfig {
         }
 
         public b x(ArrayList<String> arrayList) {
-            this.f13193a = arrayList;
+            this.f12854a = arrayList;
             return this;
         }
 
         public b y(String str) {
-            this.f13196d = str;
+            this.f12857d = str;
             return this;
         }
 
         public b z(String str) {
-            this.f13195c = str;
+            this.f12856c = str;
             return this;
         }
     }
@@ -218,25 +218,25 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f13193a != null && bVar.f13193a.size() > 0) {
+        if (bVar.f12854a != null && bVar.f12854a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f13193a);
-            intent.putExtra("index", bVar.f13194b);
+            intent.putStringArrayListExtra("url", bVar.f12854a);
+            intent.putExtra("index", bVar.f12855b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f13198f);
-            intent.putExtra("fname", bVar.f13195c);
-            intent.putExtra("fid", bVar.f13196d);
-            intent.putExtra("tid", bVar.f13197e);
-            intent.putExtra(LAST_ID, bVar.f13199g);
-            intent.putExtra(REVERSE_MODE, bVar.f13200h);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12859f);
+            intent.putExtra("fname", bVar.f12856c);
+            intent.putExtra("fid", bVar.f12857d);
+            intent.putExtra("tid", bVar.f12858e);
+            intent.putExtra(LAST_ID, bVar.f12860g);
+            intent.putExtra(REVERSE_MODE, bVar.f12861h);
             intent.putExtra(ASSIST_URLS, bVar.i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f13193a.size();
+            int size = bVar.f12854a.size();
             for (int i = 0; i < size; i++) {
-                String str = (String) bVar.f13193a.get(i);
+                String str = (String) bVar.f12854a.get(i);
                 if (!StringUtils.isNull(str)) {
                     ImageUrlData imageUrlData = bVar.i != null ? (ImageUrlData) bVar.i.get(str) : null;
                     if (imageUrlData == null) {
@@ -259,8 +259,8 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
         if (bVar.m != null) {
-            intent.putExtra(IS_BJH, bVar.m.x2());
-            if (bVar.m.x2()) {
+            intent.putExtra(IS_BJH, bVar.m.y2());
+            if (bVar.m.y2()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
             intent.putExtra("nid", bVar.m.L0());
@@ -269,7 +269,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra("ab_tag", bVar.m.T0);
             intent.putExtra("weight", bVar.m.S0);
             intent.putExtra("extra", bVar.m.U0);
-            if (bVar.m.z2()) {
+            if (bVar.m.A2()) {
                 intent.putExtra(IS_VIDEO_WORKS_INFO, true);
             }
         }

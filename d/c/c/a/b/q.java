@@ -6,7 +6,7 @@ import java.util.List;
 public interface q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final q f65540a = new a();
+    public static final q f66385a = new a();
 
     /* loaded from: classes5.dex */
     public static class a implements q {

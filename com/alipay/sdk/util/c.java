@@ -6,7 +6,7 @@ import java.io.StringWriter;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1960a = "alipaysdk";
+    public static final String f1985a = "alipaysdk";
 
     public static void a(String str, String str2) {
     }

@@ -22,22 +22,22 @@ import java.util.List;
 public class EntryTyp4View extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f34752c;
+    public TextView f35041c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f34753d;
+    public ImageView f35042d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f34754e;
+    public ImageView f35043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f34755f;
+    public TextView f35044f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f34756g;
+    public AdTemplate f35045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PhotoInfo f34757h;
+    public PhotoInfo f35046h;
     public com.kwad.sdk.lib.widget.b<AdTemplate> i;
     public View.OnClickListener j;
 
@@ -48,7 +48,7 @@ public class EntryTyp4View extends a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EntryTyp4View entryTyp4View = EntryTyp4View.this;
-                entryTyp4View.a(entryTyp4View.f34756g, 0, view, 1);
+                entryTyp4View.a(entryTyp4View.f35045g, 0, view, 1);
             }
         };
     }
@@ -60,37 +60,37 @@ public class EntryTyp4View extends a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EntryTyp4View entryTyp4View = EntryTyp4View.this;
-                entryTyp4View.a(entryTyp4View.f34756g, 0, view, 1);
+                entryTyp4View.a(entryTyp4View.f35045g, 0, view, 1);
             }
         };
     }
 
     private void c() {
-        this.f34752c = (TextView) findViewById(R.id.ksad_entryitem4_title);
-        this.f34753d = (ImageView) findViewById(R.id.ksad_entryitem4_background);
-        this.f34754e = (ImageView) findViewById(R.id.ksad_entryitem4_thumb);
-        this.f34755f = (TextView) findViewById(R.id.ksad_entryitem4_duration);
+        this.f35041c = (TextView) findViewById(R.id.ksad_entryitem4_title);
+        this.f35042d = (ImageView) findViewById(R.id.ksad_entryitem4_background);
+        this.f35043e = (ImageView) findViewById(R.id.ksad_entryitem4_thumb);
+        this.f35044f = (TextView) findViewById(R.id.ksad_entryitem4_duration);
         RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.ksad_entryitem4_container);
         ratioFrameLayout.setRatio(0.56f);
         ratioFrameLayout.setOnClickListener(this.j);
-        this.f34752c.setOnClickListener(this.j);
+        this.f35041c.setOnClickListener(this.j);
     }
 
     private boolean g() {
-        com.kwad.sdk.core.response.model.c E = d.E(this.f34757h);
+        com.kwad.sdk.core.response.model.c E = d.E(this.f35046h);
         return E.b() * 16 > E.c() * 9;
     }
 
     @Override // com.kwad.sdk.entry.view.a, com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        e.b(this.f34756g, ((a) this).f34781a.f34069e);
+        e.b(this.f35045g, ((a) this).f35070a.f34358e);
     }
 
     @Override // com.kwad.sdk.entry.view.a
     public boolean b() {
         this.i.clear();
-        Iterator<AdTemplate> it = ((a) this).f34781a.k.iterator();
+        Iterator<AdTemplate> it = ((a) this).f35070a.k.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -103,55 +103,55 @@ public class EntryTyp4View extends a {
         }
         if (this.i.size() > 0) {
             AdTemplate adTemplate = this.i.get(0);
-            this.f34756g = adTemplate;
-            this.f34757h = adTemplate.photoInfo;
+            this.f35045g = adTemplate;
+            this.f35046h = adTemplate.photoInfo;
         } else {
-            this.f34756g = null;
+            this.f35045g = null;
         }
-        if (this.f34756g == null) {
+        if (this.f35045g == null) {
             return false;
         }
-        if (((a) this).f34781a.f34072h != 1 || TextUtils.isEmpty(this.f34757h.baseInfo.videoDesc)) {
-            this.f34752c.setVisibility(8);
+        if (((a) this).f35070a.f34361h != 1 || TextUtils.isEmpty(this.f35046h.baseInfo.videoDesc)) {
+            this.f35041c.setVisibility(8);
         } else {
-            this.f34752c.setText(this.f34757h.baseInfo.videoDesc);
-            this.f34752c.setVisibility(0);
+            this.f35041c.setText(this.f35046h.baseInfo.videoDesc);
+            this.f35041c.setVisibility(0);
         }
-        String a2 = ai.a(this.f34757h.videoInfo.duration);
-        if (((a) this).f34781a.f34072h == 1) {
-            this.f34755f.setText(a2);
-            this.f34755f.setVisibility(0);
+        String a2 = ai.a(this.f35046h.videoInfo.duration);
+        if (((a) this).f35070a.f34361h == 1) {
+            this.f35044f.setText(a2);
+            this.f35044f.setVisibility(0);
         } else {
-            this.f34755f.setVisibility(8);
+            this.f35044f.setVisibility(8);
         }
         if (g()) {
-            this.f34754e.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.f34753d.setVisibility(0);
-            String h2 = d.h(this.f34757h);
-            com.kwad.sdk.glide.c.b(this.f34753d.getContext()).a(h2).a(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).b(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).c(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).a((com.kwad.sdk.glide.request.e) new com.kwad.sdk.c(h2, this.f34756g)).a(this.f34753d);
-            com.kwad.sdk.core.d.a.a("EntryTyp4View", "blurBackgroundUrl=" + h2 + " blurCoverUrl=" + this.f34757h.coverInfo.blurCoverUrl);
+            this.f35043e.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            this.f35042d.setVisibility(0);
+            String h2 = d.h(this.f35046h);
+            com.kwad.sdk.glide.c.b(this.f35042d.getContext()).a(h2).a(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).b(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).c(getContext().getResources().getDrawable(R.drawable.ksad_entry_blur_def_bg)).a((com.kwad.sdk.glide.request.e) new com.kwad.sdk.c(h2, this.f35045g)).a(this.f35042d);
+            com.kwad.sdk.core.d.a.a("EntryTyp4View", "blurBackgroundUrl=" + h2 + " blurCoverUrl=" + this.f35046h.coverInfo.blurCoverUrl);
         } else {
-            this.f34754e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f34753d.setVisibility(8);
+            this.f35043e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f35042d.setVisibility(8);
         }
-        String a3 = d.E(this.f34757h).a();
-        com.kwad.sdk.glide.c.b(this.f34754e.getContext()).a(a3).a(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).b(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).a((com.kwad.sdk.glide.request.e) new com.kwad.sdk.c(a3, this.f34756g)).a(this.f34754e);
+        String a3 = d.E(this.f35046h).a();
+        com.kwad.sdk.glide.c.b(this.f35043e.getContext()).a(a3).a(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).b(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).a((com.kwad.sdk.glide.request.e) new com.kwad.sdk.c(a3, this.f35045g)).a(this.f35043e);
         return true;
     }
 
     @Override // com.kwad.sdk.entry.view.a
     public String getEntrySourceDesc() {
-        if (TextUtils.isEmpty(((a) this).f34781a.f34066b)) {
-            ((a) this).f34781a.f34066b = "快手推荐";
+        if (TextUtils.isEmpty(((a) this).f35070a.f34355b)) {
+            ((a) this).f35070a.f34355b = "快手推荐";
         }
         StringBuilder sb = new StringBuilder();
-        com.kwad.sdk.core.response.model.a aVar = ((a) this).f34781a;
-        if (aVar.f34067c != 0) {
-            sb.append(aVar.f34066b);
+        com.kwad.sdk.core.response.model.a aVar = ((a) this).f35070a;
+        if (aVar.f34356c != 0) {
+            sb.append(aVar.f34355b);
             sb.append("   ");
         }
-        if (((a) this).f34781a.j != 0) {
-            sb.append(ag.a(this.f34757h.baseInfo.commentCount, "0"));
+        if (((a) this).f35070a.j != 0) {
+            sb.append(ag.a(this.f35046h.baseInfo.commentCount, "0"));
             sb.append(" 评论");
         }
         return sb.toString();
@@ -160,7 +160,7 @@ public class EntryTyp4View extends a {
     @Override // com.kwad.sdk.entry.view.a
     public int getEntrySourcePos() {
         int entrySourcePos = super.getEntrySourcePos();
-        return entrySourcePos == 0 ? ((a) this).f34781a.j : entrySourcePos;
+        return entrySourcePos == 0 ? ((a) this).f35070a.j : entrySourcePos;
     }
 
     @Override // com.kwad.sdk.entry.view.a

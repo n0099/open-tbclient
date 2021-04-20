@@ -3,19 +3,19 @@ package com.baidu.ufosdk.ui;
 public final class cl implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ck f23123a;
+    public final /* synthetic */ ck f22808a;
 
     public cl(ck ckVar) {
-        this.f23123a = ckVar;
+        this.f22808a = ckVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            if (this.f23123a.f23122b.f23115a.B) {
-                this.f23123a.f23122b.f23115a.a(this.f23123a.f23122b.f23115a, this.f23123a.f23122b.f23115a.f23020f, this.f23123a.f23122b.f23115a.A);
+            if (this.f22808a.f22807b.f22800a.B) {
+                this.f22808a.f22807b.f22800a.a(this.f22808a.f22807b.f22800a, this.f22808a.f22807b.f22800a.f22705f, this.f22808a.f22807b.f22800a.A);
             }
-            com.baidu.ufosdk.e.a.a(this.f23123a.f23122b.f23115a.f23020f, 9);
+            com.baidu.ufosdk.e.a.a(this.f22808a.f22807b.f22800a.f22705f, 9);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

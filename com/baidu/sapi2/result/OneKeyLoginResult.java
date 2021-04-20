@@ -20,28 +20,28 @@ public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_UNSUPPORT = -101;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11318a = "未知错误";
+    public static final String f10902a = "未知错误";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11319b = "不支持一键登录";
+    public static final String f10903b = "不支持一键登录";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11320c = "获取token失败";
+    public static final String f10904c = "获取token失败";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11321d = "一键登录失败";
+    public static final String f10905d = "一键登录失败";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11322e = "进行引导流程中";
+    public static final String f10906e = "进行引导流程中";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11323f = "获取JS代码失败";
+    public static final String f10907f = "获取JS代码失败";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11324g = "JS代码校验失败";
+    public static final String f10908g = "JS代码校验失败";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f11325h = "执行JS代码失败";
+    public static final String f10909h = "执行JS代码失败";
     public static final String i = "sign签名校验失败";
     public static final String j = "Android版本低于KITKAT";
     public static final String k = "冷启预取号失败，二次取号时已登录";
@@ -59,13 +59,13 @@ public class OneKeyLoginResult extends SapiResult {
 
     public OneKeyLoginResult() {
         this.msgMap.put(-100, "未知错误");
-        this.msgMap.put(-101, f11319b);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, f11320c);
-        this.msgMap.put(-103, f11321d);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, f11322e);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, f11323f);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, f11324g);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, f11325h);
+        this.msgMap.put(-101, f10903b);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, f10904c);
+        this.msgMap.put(-103, f10905d);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, f10906e);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, f10907f);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, f10908g);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, f10909h);
         this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL, i);
         this.msgMap.put(ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, j);
         this.msgMap.put(-110, k);

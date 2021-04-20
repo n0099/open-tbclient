@@ -6,17 +6,17 @@ import android.os.RemoteException;
 import com.bytedance.sdk.openadsdk.ICommonDialogListener;
 import com.bytedance.sdk.openadsdk.utils.g;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends ICommonDialogListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f29821a = new Handler(Looper.getMainLooper());
+    public Handler f29506a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public g.a f29822b;
+    public g.a f29507b;
 
     public a(g.a aVar) {
-        this.f29822b = aVar;
+        this.f29507b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -25,8 +25,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29822b != null) {
-                    a.this.f29822b.b();
+                if (a.this.f29507b != null) {
+                    a.this.f29507b.b();
                 }
             }
         });
@@ -38,8 +38,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29822b != null) {
-                    a.this.f29822b.a();
+                if (a.this.f29507b != null) {
+                    a.this.f29507b.a();
                 }
             }
         });
@@ -51,14 +51,14 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29822b != null) {
-                    a.this.f29822b.c();
+                if (a.this.f29507b != null) {
+                    a.this.f29507b.c();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        this.f29821a.post(runnable);
+        this.f29506a.post(runnable);
     }
 }

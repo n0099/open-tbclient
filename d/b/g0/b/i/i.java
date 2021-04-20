@@ -8,8 +8,8 @@ public class i extends ProviderDelegation {
     public Bundle execCall(Bundle bundle) {
         Bundle bundle2 = new Bundle();
         a0 A = a.A(getAgent().getContext());
-        bundle2.putString("NICK_NAME", A.f47286a);
-        bundle2.putString("AVATAR_URL", A.f47287b);
+        bundle2.putString("NICK_NAME", A.f47678a);
+        bundle2.putString("AVATAR_URL", A.f47679b);
         return bundle2;
     }
 }

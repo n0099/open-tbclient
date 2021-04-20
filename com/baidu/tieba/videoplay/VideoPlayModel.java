@@ -25,16 +25,16 @@ public class VideoPlayModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoPlayActivity f21988e;
+    public VideoPlayActivity f21673e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21989f;
+    public b f21674f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21990g;
+    public int f21675g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21991h;
+    public String f21676h;
     public String i;
     public boolean j;
     public VideoItemData k;
@@ -55,11 +55,11 @@ public class VideoPlayModel extends BdBaseModel {
                 ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
                 if (responseGetNaniVideoMessage.getError() == 0) {
                     TbSingleton.getInstance().clearVideoRecord();
-                    if (VideoPlayModel.this.f21989f != null) {
-                        if (VideoPlayModel.this.f21990g == 1) {
-                            VideoPlayModel.this.f21989f.b(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                    if (VideoPlayModel.this.f21674f != null) {
+                        if (VideoPlayModel.this.f21675g == 1) {
+                            VideoPlayModel.this.f21674f.b(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                         } else {
-                            VideoPlayModel.this.f21989f.a(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                            VideoPlayModel.this.f21674f.a(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                         }
                     }
                     VideoPlayModel.u(VideoPlayModel.this);
@@ -80,13 +80,13 @@ public class VideoPlayModel extends BdBaseModel {
         this.m = "client_other";
         a aVar = new a(CmdConfigHttp.CMD_GET_NANI_VIDEO);
         this.n = aVar;
-        this.f21988e = videoPlayActivity;
+        this.f21673e = videoPlayActivity;
         registerListener(aVar);
     }
 
     public static /* synthetic */ int u(VideoPlayModel videoPlayModel) {
-        int i = videoPlayModel.f21990g;
-        videoPlayModel.f21990g = i + 1;
+        int i = videoPlayModel.f21675g;
+        videoPlayModel.f21675g = i + 1;
         return i;
     }
 
@@ -132,10 +132,10 @@ public class VideoPlayModel extends BdBaseModel {
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
         httpMessage.addParam("tid", this.k.thread_id);
-        httpMessage.addParam("st_type", this.f21991h);
+        httpMessage.addParam("st_type", this.f21676h);
         httpMessage.addParam("yuelaou_locate", this.i);
         httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, this.j ? "1" : "0");
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f21990g);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f21675g);
         httpMessage.addParam("user_view_data", v());
         BaijiahaoData baijiahaoData = videoItemData.baijiahaoData;
         if (baijiahaoData != null) {
@@ -148,11 +148,11 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void x(VideoItemData videoItemData, String str, String str2, boolean z) {
-        this.f21990g = 1;
+        this.f21675g = 1;
         if (videoItemData == null) {
             return;
         }
-        this.f21991h = str;
+        this.f21676h = str;
         this.i = str2;
         this.j = z;
         this.k = videoItemData;
@@ -161,7 +161,7 @@ public class VideoPlayModel extends BdBaseModel {
         httpMessage.addParam("st_type", str);
         httpMessage.addParam("yuelaou_locate", str2);
         httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, z ? "1" : "0");
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f21990g);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f21675g);
         httpMessage.addParam("user_view_data", v());
         if ("frs".equals(this.l)) {
             this.m = "client_frs";
@@ -182,6 +182,6 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void y(b bVar) {
-        this.f21989f = bVar;
+        this.f21674f = bVar;
     }
 }

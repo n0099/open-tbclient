@@ -13,14 +13,14 @@ import d.b.g0.a.k;
 public class SwanAppScrollView extends ScrollView {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f12517f = k.f45051a;
+    public static final boolean f12178f = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12518e;
+    public int f12179e;
 
     public SwanAppScrollView(Context context) {
         super(context);
-        this.f12518e = -1;
+        this.f12179e = -1;
     }
 
     private int getLimitHeight() {
@@ -35,7 +35,7 @@ public class SwanAppScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (f12517f) {
+        if (f12178f) {
             Log.d("BoxScrollView", "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
@@ -43,12 +43,12 @@ public class SwanAppScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (f12517f) {
+        if (f12178f) {
             Log.d("BoxScrollView", "onMeasure( " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + SmallTailInfo.EMOTION_SUFFIX);
         }
         int size = View.MeasureSpec.getSize(i2);
         int size2 = View.MeasureSpec.getSize(i);
-        int i3 = this.f12518e;
+        int i3 = this.f12179e;
         if (i3 > 0) {
             size = Math.min(size, i3);
         }
@@ -68,16 +68,16 @@ public class SwanAppScrollView extends ScrollView {
     }
 
     public void setMaxHeight(int i) {
-        this.f12518e = i;
+        this.f12179e = i;
     }
 
     public SwanAppScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12518e = -1;
+        this.f12179e = -1;
     }
 
     public SwanAppScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12518e = -1;
+        this.f12179e = -1;
     }
 }

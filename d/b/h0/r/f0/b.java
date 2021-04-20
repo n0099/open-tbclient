@@ -20,10 +20,10 @@ import java.util.Arrays;
 public class b extends ReplacementSpan {
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50481f;
+    public int f50888f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50483h;
+    public int f50890h;
     public int i;
     public int j;
     public int k;
@@ -35,10 +35,10 @@ public class b extends ReplacementSpan {
     public boolean q;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f50480e = new float[8];
+    public float[] f50887e = new float[8];
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f50482g = new RectF();
+    public RectF f50889g = new RectF();
     public int r = 255;
     public boolean s = false;
     public int t = 0;
@@ -47,8 +47,8 @@ public class b extends ReplacementSpan {
         if (i2 > 0) {
             c(i2);
         }
-        this.f50481f = i3;
-        this.f50483h = i4;
+        this.f50888f = i3;
+        this.f50890h = i4;
         this.i = i5;
         this.j = i6;
         this.l = i7;
@@ -56,7 +56,7 @@ public class b extends ReplacementSpan {
         this.m = paint;
         paint.setAntiAlias(true);
         this.m.setStyle(Paint.Style.STROKE);
-        this.m.setTextSize(this.f50483h);
+        this.m.setTextSize(this.f50890h);
     }
 
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
@@ -64,15 +64,15 @@ public class b extends ReplacementSpan {
     }
 
     public void b(int i) {
-        Arrays.fill(this.f50480e, i);
+        Arrays.fill(this.f50887e, i);
     }
 
     public void c(int i) {
         float[] u = d.b.h0.r.u.a.u(i);
-        if (Arrays.equals(this.f50480e, u)) {
+        if (Arrays.equals(this.f50887e, u)) {
             return;
         }
-        this.f50480e = u;
+        this.f50887e = u;
     }
 
     public void d(int i) {
@@ -84,7 +84,7 @@ public class b extends ReplacementSpan {
         int dimenPixelSize;
         int color;
         int color2;
-        this.m.setColor(SkinManager.getColor(this.f50481f));
+        this.m.setColor(SkinManager.getColor(this.f50888f));
         this.m.setAlpha(this.r);
         if (this.q) {
             this.m.setStyle(Paint.Style.FILL);
@@ -92,7 +92,7 @@ public class b extends ReplacementSpan {
             this.m.setStyle(Paint.Style.STROKE);
         }
         if (this.s) {
-            RectF rectF = this.f50482g;
+            RectF rectF = this.f50889g;
             int i6 = this.o;
             rectF.left = f2 + i6;
             int i7 = this.t;
@@ -108,7 +108,7 @@ public class b extends ReplacementSpan {
                 dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
             }
             int i8 = dimenPixelSize + i4 + fontMetricsInt.ascent;
-            RectF rectF2 = this.f50482g;
+            RectF rectF2 = this.f50889g;
             int i9 = this.o;
             rectF2.left = f2 + i9;
             rectF2.top = i8;
@@ -132,11 +132,11 @@ public class b extends ReplacementSpan {
             }
             int i10 = color;
             int i11 = color2;
-            RectF rectF3 = this.f50482g;
+            RectF rectF3 = this.f50889g;
             this.m.setShader(new LinearGradient(rectF3.left, rectF3.top, rectF3.right, rectF3.bottom, i10, i11, Shader.TileMode.CLAMP));
         }
         Path path = new Path();
-        path.addRoundRect(this.f50482g, this.f50480e, Path.Direction.CW);
+        path.addRoundRect(this.f50889g, this.f50887e, Path.Direction.CW);
         canvas.drawPath(path, this.m);
         this.m.setShader(null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -148,7 +148,7 @@ public class b extends ReplacementSpan {
                 this.m.setStyle(Paint.Style.STROKE);
             }
             Path path2 = new Path();
-            path2.addRoundRect(this.f50482g, this.f50480e, Path.Direction.CW);
+            path2.addRoundRect(this.f50889g, this.f50887e, Path.Direction.CW);
             canvas.drawPath(path2, this.m);
         }
         Paint.FontMetricsInt fontMetricsInt2 = this.m.getFontMetricsInt();
@@ -159,7 +159,7 @@ public class b extends ReplacementSpan {
             this.m.setColor(SelectorHelper.getResources().getColor(R.color.CAM_X0201));
         }
         this.m.setStyle(Paint.Style.FILL);
-        float centerY = this.f50482g.centerY();
+        float centerY = this.f50889g.centerY();
         int i13 = fontMetricsInt2.bottom;
         canvas.drawText(charSequence, i, i2, f2 + this.j + this.o, (int) ((centerY + ((i13 - fontMetricsInt2.top) / 2)) - i13), this.m);
     }

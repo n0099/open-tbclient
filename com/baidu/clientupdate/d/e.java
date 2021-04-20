@@ -6,14 +6,14 @@ import android.widget.Toast;
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f4602a;
+    public final /* synthetic */ Context f4637a;
 
     public e(Context context) {
-        this.f4602a = context;
+        this.f4637a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Toast.makeText(this.f4602a, "文件不可用", 0).show();
+        Toast.makeText(this.f4637a, "文件不可用", 0).show();
     }
 }

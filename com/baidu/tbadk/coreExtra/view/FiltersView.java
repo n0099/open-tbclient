@@ -9,13 +9,13 @@ import android.widget.LinearLayout;
 public class FiltersView extends HorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f13749e;
+    public Runnable f13410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13750f;
+    public View f13411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13751g;
+    public View f13412g;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -25,7 +25,7 @@ public class FiltersView extends HorizontalScrollView {
         @Override // java.lang.Runnable
         public void run() {
             int i;
-            if (FiltersView.this.f13750f == null) {
+            if (FiltersView.this.f13411f == null) {
                 return;
             }
             int childCount = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildCount();
@@ -36,13 +36,13 @@ public class FiltersView extends HorizontalScrollView {
                     break;
                 }
                 View childAt = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildAt(i2);
-                if (childAt == FiltersView.this.f13750f) {
+                if (childAt == FiltersView.this.f13411f) {
                     i = childAt.getRight();
                     break;
                 }
                 i2++;
             }
-            FiltersView.this.f13750f = null;
+            FiltersView.this.f13411f = null;
             int width = i - FiltersView.this.getWidth();
             if (width > 0) {
                 FiltersView.this.scrollBy(width, 0);
@@ -52,21 +52,21 @@ public class FiltersView extends HorizontalScrollView {
 
     public FiltersView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13749e = new a();
-        this.f13750f = null;
-        this.f13751g = null;
+        this.f13410e = new a();
+        this.f13411f = null;
+        this.f13412g = null;
     }
 
     public String getSelectedFilter() {
-        View view = this.f13751g;
+        View view = this.f13412g;
         return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.f13750f != null) {
-            post(this.f13749e);
+        if (this.f13411f != null) {
+            post(this.f13410e);
         }
     }
 }

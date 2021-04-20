@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TTCustomController {
     public boolean alist() {
         return true;

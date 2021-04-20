@@ -2,7 +2,7 @@ package d.o.a.e.b.m;
 
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import d.o.a.e.b.g.r;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j implements r {
     @Override // d.o.a.e.b.g.r
     public long a(int i, int i2) {

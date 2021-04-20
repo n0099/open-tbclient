@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LegoHttpResponse extends HttpResponsedMessage {
     public DataRes resultData;
 

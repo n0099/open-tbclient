@@ -23,51 +23,51 @@ import java.util.concurrent.Executors;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f4985a;
+    public static b f5020a;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4990f;
+    public Context f5025f;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f4987c = new Object();
+    public final Object f5022c = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f4989e = 0;
+    public volatile int f5024e = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f4991g = new Handler(Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.loader.b.1
+    public Handler f5026g = new Handler(Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.loader.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Object obj;
             int i = message.what;
             int i2 = 0;
             if (i == 0) {
-                synchronized (b.this.f4987c) {
-                    while (i2 < b.this.f4986b.size()) {
-                        a aVar = (a) b.this.f4986b.get(i2);
-                        if (aVar.f5000c != null && CyberPlayerManager.isCoreLoaded(aVar.f4999b)) {
-                            aVar.f5000c.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
+                synchronized (b.this.f5022c) {
+                    while (i2 < b.this.f5021b.size()) {
+                        a aVar = (a) b.this.f5021b.get(i2);
+                        if (aVar.f5035c != null && CyberPlayerManager.isCoreLoaded(aVar.f5034b)) {
+                            aVar.f5035c.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
                         }
                         i2++;
                     }
                     b.this.b(message.arg1);
                 }
             } else if (i == 1) {
-                synchronized (b.this.f4987c) {
-                    while (i2 < b.this.f4986b.size()) {
-                        a aVar2 = (a) b.this.f4986b.get(i2);
-                        if (aVar2.f5000c != null) {
-                            aVar2.f5000c.onInstallError(message.arg1, message.arg2, (String) message.obj);
+                synchronized (b.this.f5022c) {
+                    while (i2 < b.this.f5021b.size()) {
+                        a aVar2 = (a) b.this.f5021b.get(i2);
+                        if (aVar2.f5035c != null) {
+                            aVar2.f5035c.onInstallError(message.arg1, message.arg2, (String) message.obj);
                         }
                         i2++;
                     }
                     b.this.b(message.arg1);
                 }
             } else if (i == 2) {
-                while (i2 < b.this.f4986b.size()) {
-                    a aVar3 = (a) b.this.f4986b.get(i2);
-                    if (aVar3.f5000c != null) {
-                        aVar3.f5000c.onInstallProgress(message.arg1, message.arg2);
+                while (i2 < b.this.f5021b.size()) {
+                    a aVar3 = (a) b.this.f5021b.get(i2);
+                    if (aVar3.f5035c != null) {
+                        aVar3.f5035c.onInstallProgress(message.arg1, message.arg2);
                     }
                     i2++;
                 }
@@ -79,40 +79,40 @@ public class b {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f4986b = new ArrayList();
+    public List<a> f5021b = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f4988d = Executors.newSingleThreadExecutor();
+    public ExecutorService f5023d = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4999b;
+        public int f5034b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CyberPlayerManager.InstallListener f5000c;
+        public CyberPlayerManager.InstallListener f5035c;
 
         public a(int i, CyberPlayerManager.InstallListener installListener) {
-            this.f4999b = i;
-            this.f5000c = installListener;
+            this.f5034b = i;
+            this.f5035c = installListener;
         }
     }
 
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f4985a == null) {
-                f4985a = new b();
+            if (f5020a == null) {
+                f5020a = new b();
             }
-            bVar = f4985a;
+            bVar = f5020a;
         }
         return bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
-        com.baidu.cyberplayer.sdk.statistics.b.a(this.f4990f, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, (HashMap) obj);
+        com.baidu.cyberplayer.sdk.statistics.b.a(this.f5025f, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, (HashMap) obj);
         n.h();
         CyberLog.d("CyberCoreLoaderManager", "onLoad session:" + obj);
     }
@@ -131,21 +131,21 @@ public class b {
                 hashMap.put("detail", str2);
                 hashMap.put(LokiService.Constant.LOG_PROCESS_NAME, n.l());
                 b.this.a(hashMap);
-                Message obtainMessage = b.this.f4991g.obtainMessage();
+                Message obtainMessage = b.this.f5026g.obtainMessage();
                 obtainMessage.what = 1;
                 obtainMessage.arg1 = i2;
                 obtainMessage.arg2 = i3;
                 obtainMessage.obj = str2;
-                b.this.f4991g.sendMessage(obtainMessage);
+                b.this.f5026g.sendMessage(obtainMessage);
             }
 
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
             public void onInstallProgress(int i2, int i3) {
-                Message obtainMessage = b.this.f4991g.obtainMessage();
+                Message obtainMessage = b.this.f5026g.obtainMessage();
                 obtainMessage.what = 2;
                 obtainMessage.arg1 = i2;
                 obtainMessage.arg2 = i3;
-                b.this.f4991g.sendMessage(obtainMessage);
+                b.this.f5026g.sendMessage(obtainMessage);
             }
 
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
@@ -158,18 +158,18 @@ public class b {
                 if (n.m() && CyberPlayerManager.getRemoteServiceClass() != null && !CyberCfgManager.getInstance().getCfgBoolValue("remote_forbidden", false)) {
                     g.a().a(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), CyberPlayerManager.getInstallOpts());
                 }
-                Message obtainMessage = b.this.f4991g.obtainMessage();
+                Message obtainMessage = b.this.f5026g.obtainMessage();
                 obtainMessage.what = 0;
                 obtainMessage.arg1 = i2;
-                b.this.f4991g.sendMessage(obtainMessage);
+                b.this.f5026g.sendMessage(obtainMessage);
             }
         });
     }
 
     private boolean a(int i) {
-        synchronized (this.f4987c) {
-            if (i != (this.f4989e & i)) {
-                this.f4989e = i | this.f4989e;
+        synchronized (this.f5022c) {
+            if (i != (this.f5024e & i)) {
+                this.f5024e = i | this.f5024e;
                 return true;
             }
             return false;
@@ -178,30 +178,30 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        Iterator<a> it = this.f4986b.iterator();
+        Iterator<a> it = this.f5021b.iterator();
         while (it.hasNext()) {
-            if (it.next().f4999b == i) {
+            if (it.next().f5034b == i) {
                 it.remove();
             }
         }
-        this.f4989e = (i ^ Integer.MAX_VALUE) & this.f4989e;
+        this.f5024e = (i ^ Integer.MAX_VALUE) & this.f5024e;
     }
 
     public void a(final String str, final int i, final Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
-        this.f4990f = CyberPlayerManager.getApplicationContext();
-        synchronized (this.f4987c) {
+        this.f5025f = CyberPlayerManager.getApplicationContext();
+        synchronized (this.f5022c) {
             if (CyberPlayerManager.isCoreLoaded(i)) {
                 if (installListener != null) {
-                    Message obtainMessage = this.f4991g.obtainMessage();
+                    Message obtainMessage = this.f5026g.obtainMessage();
                     obtainMessage.what = 3;
                     obtainMessage.arg1 = i;
                     obtainMessage.obj = installListener;
-                    this.f4991g.sendMessage(obtainMessage);
+                    this.f5026g.sendMessage(obtainMessage);
                 }
                 return;
             }
             if (installListener != null) {
-                this.f4986b.add(new a(i, installListener));
+                this.f5021b.add(new a(i, installListener));
             }
             if (a(i)) {
                 boolean z = false;
@@ -219,7 +219,7 @@ public class b {
                 if (z) {
                     a(str, i, map);
                 } else {
-                    this.f4988d.submit(new Runnable() { // from class: com.baidu.cyberplayer.sdk.loader.b.2
+                    this.f5023d.submit(new Runnable() { // from class: com.baidu.cyberplayer.sdk.loader.b.2
                         @Override // java.lang.Runnable
                         public void run() {
                             b.this.a(str, i, map);

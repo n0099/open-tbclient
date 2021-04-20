@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CommitPusherCount.CommitPusherCountReqIdl;
 import protobuf.CommitPusherCount.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PushCountMessage extends TbSocketMessage {
     public long downFlowSize;
     public int enterForeCount;

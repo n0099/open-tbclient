@@ -41,7 +41,7 @@ public class SocialResponse extends SapiAccountResponse {
         socialResponse.isBinded = jSONObject.optBoolean("is_binded");
         socialResponse.displayname = jSONObject.optString("display_name");
         socialResponse.username = jSONObject.optString("passport_uname");
-        socialResponse.ptoken = jSONObject.optString(SapiAccount.f10606h);
+        socialResponse.ptoken = jSONObject.optString(SapiAccount.f10190h);
         socialResponse.stoken = jSONObject.optString("stoken");
         JSONObject optJSONObject = jSONObject.optJSONObject("stoken_list");
         if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("stoken")) != null) {

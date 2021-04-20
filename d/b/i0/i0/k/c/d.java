@@ -9,16 +9,16 @@ public class d extends BaseCardInfo {
     public static final BdUniqueId j = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55649e;
+    public String f56772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55650f;
+    public int f56773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55651g = 0;
+    public int f56774g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<b> f55652h;
+    public List<b> f56775h;
     public List<c> i;
 
     public final c g() {
@@ -36,31 +36,31 @@ public class d extends BaseCardInfo {
         return cVar;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return j;
     }
 
     public List<b> j() {
-        return this.f55652h;
+        return this.f56775h;
     }
 
     public final b n() {
         b bVar;
-        if (this.f55651g < j().size()) {
-            bVar = j().get(this.f55651g);
-        } else if (this.f55650f >= j().size()) {
+        if (this.f56774g < j().size()) {
+            bVar = j().get(this.f56774g);
+        } else if (this.f56773f >= j().size()) {
             return null;
         } else {
-            this.f55651g = 0;
-            bVar = j().get(this.f55651g);
+            this.f56774g = 0;
+            bVar = j().get(this.f56774g);
         }
-        this.f55651g++;
+        this.f56774g++;
         return bVar;
     }
 
     public int o() {
-        return this.f55650f;
+        return this.f56773f;
     }
 
     public List<c> s() {
@@ -72,7 +72,7 @@ public class d extends BaseCardInfo {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.f55650f == 2) {
+        if (this.f56773f == 2) {
             if (g() != null) {
                 arrayList.add(g());
             }
@@ -91,15 +91,15 @@ public class d extends BaseCardInfo {
     }
 
     public String u() {
-        return this.f55649e;
+        return this.f56772e;
     }
 
     public void v(List<b> list) {
-        this.f55652h = list;
+        this.f56775h = list;
     }
 
     public void w(int i) {
-        this.f55650f = i;
+        this.f56773f = i;
     }
 
     public final void x(List<c> list) {
@@ -107,6 +107,6 @@ public class d extends BaseCardInfo {
     }
 
     public void y(String str) {
-        this.f55649e = str;
+        this.f56772e = str;
     }
 }

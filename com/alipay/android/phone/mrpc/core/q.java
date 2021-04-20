@@ -53,22 +53,22 @@ import org.apache.http.protocol.HttpContext;
 public final class q implements Callable<u> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HttpRequestRetryHandler f1690e = new ad();
+    public static final HttpRequestRetryHandler f1715e = new ad();
 
     /* renamed from: a  reason: collision with root package name */
-    public l f1691a;
+    public l f1716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1692b;
+    public Context f1717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f1693c;
+    public o f1718c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1694d;
+    public String f1719d;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpUriRequest f1695f;
+    public HttpUriRequest f1720f;
     public CookieManager i;
     public AbstractHttpEntity j;
     public HttpHost k;
@@ -76,19 +76,19 @@ public final class q implements Callable<u> {
     public String q;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpContext f1696g = new BasicHttpContext();
+    public HttpContext f1721g = new BasicHttpContext();
 
     /* renamed from: h  reason: collision with root package name */
-    public CookieStore f1697h = new BasicCookieStore();
+    public CookieStore f1722h = new BasicCookieStore();
     public int m = 0;
     public boolean n = false;
     public boolean o = false;
     public String p = null;
 
     public q(l lVar, o oVar) {
-        this.f1691a = lVar;
-        this.f1692b = lVar.f1668a;
-        this.f1693c = oVar;
+        this.f1716a = lVar;
+        this.f1717b = lVar.f1693a;
+        this.f1718c = oVar;
     }
 
     public static long a(String[] strArr) {
@@ -143,8 +143,8 @@ public final class q implements Callable<u> {
             a(entity, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             this.o = false;
-            this.f1691a.c(System.currentTimeMillis() - currentTimeMillis);
-            this.f1691a.a(byteArray.length);
+            this.f1716a.c(System.currentTimeMillis() - currentTimeMillis);
+            this.f1716a.a(byteArray.length);
             new StringBuilder("res:").append(byteArray.length);
             p pVar = new p(a(httpResponse), i, str, byteArray);
             long b2 = b(httpResponse);
@@ -198,11 +198,11 @@ public final class q implements Callable<u> {
                 byte[] bArr = new byte[2048];
                 while (true) {
                     int read = a2.read(bArr);
-                    if (read == -1 || this.f1693c.h()) {
+                    if (read == -1 || this.f1718c.h()) {
                         break;
                     }
                     outputStream.write(bArr, 0, read);
-                    if (this.f1693c.f() != null) {
+                    if (this.f1718c.f() != null) {
                         int i = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
                     }
                 }
@@ -235,8 +235,8 @@ public final class q implements Callable<u> {
     }
 
     private URI b() {
-        String a2 = this.f1693c.a();
-        String str = this.f1694d;
+        String a2 = this.f1718c.a();
+        String str = this.f1719d;
         if (str != null) {
             a2 = str;
         }
@@ -247,31 +247,31 @@ public final class q implements Callable<u> {
     }
 
     private HttpUriRequest c() {
-        HttpUriRequest httpUriRequest = this.f1695f;
+        HttpUriRequest httpUriRequest = this.f1720f;
         if (httpUriRequest != null) {
             return httpUriRequest;
         }
         if (this.j == null) {
-            byte[] b2 = this.f1693c.b();
-            String b3 = this.f1693c.b(AsyncHttpClient.ENCODING_GZIP);
+            byte[] b2 = this.f1718c.b();
+            String b3 = this.f1718c.b(AsyncHttpClient.ENCODING_GZIP);
             if (b2 != null) {
                 if (TextUtils.equals(b3, "true")) {
                     this.j = b.a(b2);
                 } else {
                     this.j = new ByteArrayEntity(b2);
                 }
-                this.j.setContentType(this.f1693c.c());
+                this.j.setContentType(this.f1718c.c());
             }
         }
         AbstractHttpEntity abstractHttpEntity = this.j;
         if (abstractHttpEntity != null) {
             HttpPost httpPost = new HttpPost(b());
             httpPost.setEntity(abstractHttpEntity);
-            this.f1695f = httpPost;
+            this.f1720f = httpPost;
         } else {
-            this.f1695f = new HttpGet(b());
+            this.f1720f = new HttpGet(b());
         }
-        return this.f1695f;
+        return this.f1720f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -297,7 +297,7 @@ public final class q implements Callable<u> {
         String a3;
         while (true) {
             try {
-                NetworkInfo[] allNetworkInfo = ((ConnectivityManager) this.f1692b.getSystemService("connectivity")).getAllNetworkInfo();
+                NetworkInfo[] allNetworkInfo = ((ConnectivityManager) this.f1717b.getSystemService("connectivity")).getAllNetworkInfo();
                 boolean z2 = true;
                 if (allNetworkInfo != null) {
                     for (NetworkInfo networkInfo : allNetworkInfo) {
@@ -309,7 +309,7 @@ public final class q implements Callable<u> {
                 }
                 z = false;
                 if (z) {
-                    ArrayList<Header> d2 = this.f1693c.d();
+                    ArrayList<Header> d2 = this.f1718c.d();
                     if (d2 != null && !d2.isEmpty()) {
                         Iterator<Header> it = d2.iterator();
                         while (it.hasNext()) {
@@ -318,16 +318,16 @@ public final class q implements Callable<u> {
                     }
                     b.a((HttpRequest) c());
                     b.b((HttpRequest) c());
-                    c().addHeader("cookie", i().getCookie(this.f1693c.a()));
-                    this.f1696g.setAttribute(ClientContext.COOKIE_STORE, this.f1697h);
-                    this.f1691a.a().a(f1690e);
+                    c().addHeader("cookie", i().getCookie(this.f1718c.a()));
+                    this.f1721g.setAttribute(ClientContext.COOKIE_STORE, this.f1722h);
+                    this.f1716a.a().a(f1715e);
                     long currentTimeMillis = System.currentTimeMillis();
                     StringBuilder sb = new StringBuilder("By Http/Https to request. operationType=");
                     sb.append(f());
                     sb.append(" url=");
-                    sb.append(this.f1695f.getURI().toString());
-                    HttpParams params = this.f1691a.a().getParams();
-                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f1692b.getSystemService("connectivity")).getActiveNetworkInfo();
+                    sb.append(this.f1720f.getURI().toString());
+                    HttpParams params = this.f1716a.a().getParams();
+                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f1717b.getSystemService("connectivity")).getActiveNetworkInfo();
                     HttpHost httpHost3 = null;
                     if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                         String defaultHost = Proxy.getDefaultHost();
@@ -349,10 +349,10 @@ public final class q implements Callable<u> {
                             if (g() == 80) {
                                 httpHost2 = new HttpHost(h().getHost());
                             }
-                            HttpResponse execute = this.f1691a.a().execute(httpHost2, this.f1695f, this.f1696g);
-                            this.f1691a.b(System.currentTimeMillis() - currentTimeMillis);
-                            cookies = this.f1697h.getCookies();
-                            if (this.f1693c.e()) {
+                            HttpResponse execute = this.f1716a.a().execute(httpHost2, this.f1720f, this.f1721g);
+                            this.f1716a.b(System.currentTimeMillis() - currentTimeMillis);
+                            cookies = this.f1722h.getCookies();
+                            if (this.f1718c.e()) {
                                 i().removeAllCookie();
                             }
                             if (!cookies.isEmpty()) {
@@ -365,7 +365,7 @@ public final class q implements Callable<u> {
                                         sb2.append("; domain=");
                                         sb2.append(cookie.getDomain());
                                         sb2.append(cookie.isSecure() ? "; Secure" : "");
-                                        i().setCookie(this.f1693c.a(), sb2.toString());
+                                        i().setCookie(this.f1718c.a(), sb2.toString());
                                         CookieSyncManager.getInstance().sync();
                                     }
                                 }
@@ -387,7 +387,7 @@ public final class q implements Callable<u> {
                                 } catch (Exception unused) {
                                 }
                             }
-                            a3 = this.f1693c.a();
+                            a3 = this.f1718c.a();
                             if (a3 != null && !TextUtils.isEmpty(f())) {
                                 StringBuilder sb3 = new StringBuilder();
                                 sb3.append(a3);
@@ -406,10 +406,10 @@ public final class q implements Callable<u> {
                     }
                     if (g() == 80) {
                     }
-                    HttpResponse execute2 = this.f1691a.a().execute(httpHost2, this.f1695f, this.f1696g);
-                    this.f1691a.b(System.currentTimeMillis() - currentTimeMillis);
-                    cookies = this.f1697h.getCookies();
-                    if (this.f1693c.e()) {
+                    HttpResponse execute2 = this.f1716a.a().execute(httpHost2, this.f1720f, this.f1721g);
+                    this.f1716a.b(System.currentTimeMillis() - currentTimeMillis);
+                    cookies = this.f1722h.getCookies();
+                    if (this.f1718c.e()) {
                     }
                     if (!cookies.isEmpty()) {
                     }
@@ -421,7 +421,7 @@ public final class q implements Callable<u> {
                     if (((a2 != null || a2.b() == null) ? -1L : a2.b().length) == -1) {
                         Long.parseLong(((p) a2).a().getHead("Content-Length"));
                     }
-                    a3 = this.f1693c.a();
+                    a3 = this.f1718c.a();
                     if (a3 != null) {
                         StringBuilder sb32 = new StringBuilder();
                         sb32.append(a3);
@@ -433,7 +433,7 @@ public final class q implements Callable<u> {
                 throw new HttpException(1, "The network is not available");
             } catch (HttpException e2) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     e2.getCode();
                     e2.getMsg();
                 }
@@ -449,7 +449,7 @@ public final class q implements Callable<u> {
                 this.m = i + 1;
             } catch (SocketTimeoutException e4) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e4);
                 }
                 new StringBuilder().append(e4);
@@ -458,69 +458,69 @@ public final class q implements Callable<u> {
                 throw new RuntimeException("Url parser error!", e5.getCause());
             } catch (UnknownHostException e6) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e6);
                 }
                 new StringBuilder().append(e6);
                 throw new HttpException(9, String.valueOf(e6));
             } catch (SSLHandshakeException e7) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e7);
                 }
                 new StringBuilder().append(e7);
                 throw new HttpException(2, String.valueOf(e7));
             } catch (SSLPeerUnverifiedException e8) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e8);
                 }
                 new StringBuilder().append(e8);
                 throw new HttpException(2, String.valueOf(e8));
             } catch (SSLException e9) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e9);
                 }
                 new StringBuilder().append(e9);
                 throw new HttpException(6, String.valueOf(e9));
             } catch (NoHttpResponseException e10) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e10);
                 }
                 new StringBuilder().append(e10);
                 throw new HttpException(5, String.valueOf(e10));
             } catch (ConnectionPoolTimeoutException e11) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e11);
                 }
                 new StringBuilder().append(e11);
                 throw new HttpException(3, String.valueOf(e11));
             } catch (ConnectTimeoutException e12) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e12);
                 }
                 new StringBuilder().append(e12);
                 throw new HttpException(3, String.valueOf(e12));
             } catch (HttpHostConnectException e13) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e13);
                 }
                 throw new HttpException(8, String.valueOf(e13));
             } catch (IOException e14) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e14);
                 }
                 new StringBuilder().append(e14);
                 throw new HttpException(6, String.valueOf(e14));
             } catch (Exception e15) {
                 e();
-                if (this.f1693c.f() != null) {
+                if (this.f1718c.f() != null) {
                     new StringBuilder().append(e15);
                 }
                 throw new HttpException(0, String.valueOf(e15));
@@ -529,7 +529,7 @@ public final class q implements Callable<u> {
     }
 
     private void e() {
-        HttpUriRequest httpUriRequest = this.f1695f;
+        HttpUriRequest httpUriRequest = this.f1720f;
         if (httpUriRequest != null) {
             httpUriRequest.abort();
         }
@@ -537,7 +537,7 @@ public final class q implements Callable<u> {
 
     private String f() {
         if (TextUtils.isEmpty(this.q)) {
-            String b2 = this.f1693c.b("operationType");
+            String b2 = this.f1718c.b("operationType");
             this.q = b2;
             return b2;
         }
@@ -554,7 +554,7 @@ public final class q implements Callable<u> {
         if (url != null) {
             return url;
         }
-        URL url2 = new URL(this.f1693c.a());
+        URL url2 = new URL(this.f1718c.a());
         this.l = url2;
         return url2;
     }
@@ -570,6 +570,6 @@ public final class q implements Callable<u> {
     }
 
     public final o a() {
-        return this.f1693c;
+        return this.f1718c;
     }
 }

@@ -9,6 +9,7 @@ import android.os.Process;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
@@ -16,7 +17,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
+import d.b.c.e.m.e;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -69,7 +70,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         }
         intent.putExtra(PluginStatus.class.getName(), jsonStrWithObject);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }
@@ -117,7 +118,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         } else if (view == this.btn) {
             PluginStatus pluginStatus = this.status;
             if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
-                d.b.b.h.h.a.b().u(true);
+                d.b.c.h.h.a.b().u(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
             e.a().postDelayed(new a(), 2000L);

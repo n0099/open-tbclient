@@ -16,14 +16,14 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.SingleLineCard;
 import com.baidu.tieba.lego.view.MoreButton;
-import d.b.b.e.p.l;
-import d.b.i0.c3.v;
-import d.b.i0.i1.i;
-import d.b.i0.i1.o.f;
-import d.b.i0.i1.o.j.c;
-import d.b.i0.i1.o.k.b;
+import d.b.c.e.p.l;
+import d.b.i0.d3.v;
+import d.b.i0.j1.i;
+import d.b.i0.j1.o.f;
+import d.b.i0.j1.o.j.c;
+import d.b.i0.j1.o.k.b;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public LinearLayout r;
     public View s;
@@ -33,20 +33,20 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public MoreButton w;
     public ImageView x;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f18691e;
+        public final /* synthetic */ SingleLineCard f18368e;
 
         public a(SingleLineCard singleLineCard) {
-            this.f18691e = singleLineCard;
+            this.f18368e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.e(this.f18691e).a(TiebaStatic.Params.OBJ_URL, this.f18691e.getScheme()).c("obj_locate", SingleLineCardView.this.getStatPosition()).b(this.f18691e);
-            v.c(SingleLineCardView.this.m, this.f18691e.getScheme());
+            i.e(this.f18368e).a(TiebaStatic.Params.OBJ_URL, this.f18368e.getScheme()).c("obj_locate", SingleLineCardView.this.getStatPosition()).b(this.f18368e);
+            v.c(SingleLineCardView.this.m, this.f18368e.getScheme());
         }
     }
 

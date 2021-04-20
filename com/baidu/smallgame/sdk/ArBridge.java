@@ -7,7 +7,7 @@ import android.view.OrientationEventListener;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
-import d.b.e0.a.d.c;
+import d.b.d0.a.d.c;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ public class ArBridge {
     public static final boolean DEBUG = false;
     public static final int INVALID_MESSAGE_ID = -1;
     public static final String TAG = "EngineLogger";
-    public d.b.e0.a.c.a mDataStore;
+    public d.b.d0.a.c.a mDataStore;
     public EGLContext mEglContext;
     public FirstFrameListener mFirstFrameListener;
     public long mNativeARBridge;
@@ -40,7 +40,7 @@ public class ArBridge {
     public boolean mHasResumeByUser = false;
     public int mImuType = 0;
     public final PerformanceJsonBean mPerformanceJsonBean = new PerformanceJsonBean();
-    public d.b.u.c.b mGameRecorder = new d.b.u.c.b(V8Engine.getAppContext());
+    public d.b.t.c.b mGameRecorder = new d.b.t.c.b(V8Engine.getAppContext());
 
     @NotProguard
     /* loaded from: classes2.dex */
@@ -71,7 +71,7 @@ public class ArBridge {
         this.mNativeARBridge = 0L;
         this.mNativeARBridge = nativeInitializeAR();
         Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
-        this.mStuckScreenHandler = new d.b.e0.a.b();
+        this.mStuckScreenHandler = new d.b.d0.a.b();
     }
 
     public static void exceptionCallback(String str) {
@@ -94,7 +94,7 @@ public class ArBridge {
 
     private void onFirstFrameFinished() {
         Log.i(TAG, "onFirstFrameFinished");
-        d.b.u.c.b bVar = this.mGameRecorder;
+        d.b.t.c.b bVar = this.mGameRecorder;
         if (bVar != null && this.mEglContext != null) {
             bVar.t(nativeIsFlipYNeeded(), this.mEglContext, this.mScreenWidth, this.mScreenHeight, V8Engine.getAppContext());
         }
@@ -107,7 +107,7 @@ public class ArBridge {
     }
 
     public void clearARMemory() {
-        d.b.e0.a.c.a aVar = this.mDataStore;
+        d.b.d0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             aVar.a();
         }
@@ -127,7 +127,7 @@ public class ArBridge {
 
     public native int getCaseId();
 
-    public d.b.u.c.b getGameRecorder() {
+    public d.b.t.c.b getGameRecorder() {
         return this.mGameRecorder;
     }
 
@@ -154,7 +154,7 @@ public class ArBridge {
     }
 
     public String getValue(int i, String str) {
-        d.b.e0.a.c.a aVar = this.mDataStore;
+        d.b.d0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             return aVar.b(i, str);
         }
@@ -164,7 +164,7 @@ public class ArBridge {
 
     public void initDataStore(SharedPreferences sharedPreferences) {
         if (this.mDataStore == null) {
-            d.b.e0.a.c.a aVar = new d.b.e0.a.c.a();
+            d.b.d0.a.c.a aVar = new d.b.d0.a.c.a();
             this.mDataStore = aVar;
             aVar.c(sharedPreferences);
         }
@@ -241,7 +241,7 @@ public class ArBridge {
     public native void nativeUpdateSLAMMatrix(float[] fArr);
 
     public void notifyFrameUpdated() {
-        d.b.u.c.b bVar = this.mGameRecorder;
+        d.b.t.c.b bVar = this.mGameRecorder;
         if (bVar != null) {
             bVar.u(getScreenTextureId());
         }
@@ -284,8 +284,8 @@ public class ArBridge {
         this.mCurrentGLThreadID = j;
     }
 
-    public void setGameRecordCallback(d.b.u.c.c cVar) {
-        d.b.u.c.b bVar = this.mGameRecorder;
+    public void setGameRecordCallback(d.b.t.c.c cVar) {
+        d.b.t.c.b bVar = this.mGameRecorder;
         if (bVar != null) {
             bVar.C(cVar);
         }
@@ -295,7 +295,7 @@ public class ArBridge {
         this.mImuType = i;
     }
 
-    public void setOnStuckScreenListener(d.b.e0.a.d.a aVar) {
+    public void setOnStuckScreenListener(d.b.d0.a.d.a aVar) {
         this.mStuckScreenHandler.b(aVar);
     }
 
@@ -319,7 +319,7 @@ public class ArBridge {
     }
 
     public void setValue(int i, String str, String str2) {
-        d.b.e0.a.c.a aVar = this.mDataStore;
+        d.b.d0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
             aVar.d(i, str, str2);
         } else {

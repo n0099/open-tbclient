@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
@@ -27,19 +28,19 @@ import java.util.List;
 public class b implements g {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f47621e = k.f45051a;
+    public static final boolean f48013e = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f47622a;
+    public Context f48014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAdDownloadButtonView f47623b;
+    public SwanAdDownloadButtonView f48015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.e.a.l.j.a f47624c;
+    public d.b.g0.e.a.l.j.a f48016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.q.g.a.a f47625d;
+    public d.b.g0.a.q.g.a.a f48017d;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -48,83 +49,83 @@ public class b implements g {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.f47624c.f47618a == SwanAdDownloadState.NOT_START || b.this.f47624c.f47618a == SwanAdDownloadState.DELETED) {
-                if (b.f47621e) {
+            if (b.this.f48016c.f48010a == SwanAdDownloadState.NOT_START || b.this.f48016c.f48010a == SwanAdDownloadState.DELETED) {
+                if (b.f48013e) {
                     Log.d("SwanAppAdDownloadViewImpl", "download start");
                 }
-                d.b.g0.a.w0.a.d().a(b.this.f47622a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f47625d);
+                d.b.g0.a.w0.a.d().a(b.this.f48014a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f48017d);
             }
-            if (b.this.f47624c.f47618a == SwanAdDownloadState.DOWNLOADING) {
-                if (b.f47621e) {
+            if (b.this.f48016c.f48010a == SwanAdDownloadState.DOWNLOADING) {
+                if (b.f48013e) {
                     Log.d("SwanAppAdDownloadViewImpl", "download pause");
                 }
-                d.b.g0.a.w0.a.d().a(b.this.f47622a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, b.this.f47625d);
+                d.b.g0.a.w0.a.d().a(b.this.f48014a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, b.this.f48017d);
             }
-            if (b.this.f47624c.f47618a == SwanAdDownloadState.DOWNLOAD_PAUSED) {
-                if (b.f47621e) {
+            if (b.this.f48016c.f48010a == SwanAdDownloadState.DOWNLOAD_PAUSED) {
+                if (b.f48013e) {
                     Log.d("SwanAppAdDownloadViewImpl", "download resume");
                 }
-                d.b.g0.a.w0.a.d().a(b.this.f47622a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f47625d);
+                d.b.g0.a.w0.a.d().a(b.this.f48014a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f48017d);
             }
-            if (b.this.f47624c.f47618a == SwanAdDownloadState.DOWNLOAD_FAILED) {
-                if (b.f47621e) {
+            if (b.this.f48016c.f48010a == SwanAdDownloadState.DOWNLOAD_FAILED) {
+                if (b.f48013e) {
                     Log.d("SwanAppAdDownloadViewImpl", "download retry");
                 }
-                d.b.g0.a.w0.a.d().a(b.this.f47622a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f47625d);
+                d.b.g0.a.w0.a.d().a(b.this.f48014a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, b.this.f48017d);
             }
-            if (b.this.f47624c.f47618a == SwanAdDownloadState.DOWNLOADED) {
-                if (b.f47621e) {
+            if (b.this.f48016c.f48010a == SwanAdDownloadState.DOWNLOADED) {
+                if (b.f48013e) {
                     Log.d("SwanAppAdDownloadViewImpl", "download install");
                 }
-                b.this.f47625d.b();
-                d.b.g0.a.w0.a.d().a(b.this.f47622a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, b.this.f47625d);
+                b.this.f48017d.b();
+                d.b.g0.a.w0.a.d().a(b.this.f48014a, ((d.b.g0.a.q.g.b.a) b.this.p()).a(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, b.this.f48017d);
             }
-            if (b.this.f47624c.f47618a == SwanAdDownloadState.INSTALLED) {
-                if (b.f47621e) {
+            if (b.this.f48016c.f48010a == SwanAdDownloadState.INSTALLED) {
+                if (b.f48013e) {
                     Log.d("SwanAppAdDownloadViewImpl", "open app");
                 }
-                String e2 = b.this.f47625d.e();
-                if (TextUtils.isEmpty(b.this.f47624c.f47619b) && !TextUtils.isEmpty(e2)) {
+                String e2 = b.this.f48017d.e();
+                if (TextUtils.isEmpty(b.this.f48016c.f48011b) && !TextUtils.isEmpty(e2)) {
                     b.this.a(e2);
                 }
                 b bVar = b.this;
-                bVar.r(bVar.f47624c.f47619b);
+                bVar.r(bVar.f48016c.f48011b);
             }
         }
     }
 
     /* renamed from: d.b.g0.e.a.l.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0932b {
+    public static /* synthetic */ class C0944b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47627a;
+        public static final /* synthetic */ int[] f48019a;
 
         static {
             int[] iArr = new int[SwanAdDownloadState.values().length];
-            f47627a = iArr;
+            f48019a = iArr;
             try {
                 iArr[SwanAdDownloadState.NOT_START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47627a[SwanAdDownloadState.DOWNLOADING.ordinal()] = 2;
+                f48019a[SwanAdDownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47627a[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
+                f48019a[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47627a[SwanAdDownloadState.DOWNLOADED.ordinal()] = 4;
+                f48019a[SwanAdDownloadState.DOWNLOADED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47627a[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+                f48019a[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47627a[SwanAdDownloadState.INSTALLED.ordinal()] = 6;
+                f48019a[SwanAdDownloadState.INSTALLED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -137,7 +138,7 @@ public class b implements g {
 
     @Override // d.b.g0.a.p.c.g
     public void a(String str) {
-        this.f47624c.f47619b = str;
+        this.f48016c.f48011b = str;
     }
 
     @Override // d.b.g0.a.p.c.g
@@ -147,12 +148,12 @@ public class b implements g {
 
     @Override // d.b.g0.a.p.c.g
     public void c(Object obj) {
-        this.f47623b.setTag(obj);
+        this.f48015b.setTag(obj);
     }
 
     @Override // d.b.g0.a.p.c.g
     public void d() {
-        u(this.f47623b);
+        u(this.f48015b);
     }
 
     @Override // d.b.g0.a.p.c.g
@@ -168,34 +169,34 @@ public class b implements g {
 
     @Override // d.b.g0.a.p.c.g
     public View getRealView() {
-        return this.f47623b;
+        return this.f48015b;
     }
 
     public final void k() {
-        this.f47623b = new SwanAdDownloadButtonView(this.f47622a);
-        String string = this.f47622a.getResources().getString(i.swanapp_ad_download_button);
+        this.f48015b = new SwanAdDownloadButtonView(this.f48014a);
+        String string = this.f48014a.getResources().getString(i.swanapp_ad_download_button);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
         layoutParams.bottomMargin = (int) (d.b.g0.a.w0.a.c().getResources().getDisplayMetrics().heightPixels * 0.04d);
-        this.f47623b.setLayoutParams(layoutParams);
-        float n = n(this.f47622a, e.swanapp_round_text_size);
-        int color = this.f47622a.getResources().getColor(d.swanapp_ad_download_button_color);
-        u(this.f47623b);
-        SwanAdDownloadButtonView swanAdDownloadButtonView = this.f47623b;
-        swanAdDownloadButtonView.j(m(this.f47622a, n));
+        this.f48015b.setLayoutParams(layoutParams);
+        float n = n(this.f48014a, e.swanapp_round_text_size);
+        int color = this.f48014a.getResources().getColor(d.swanapp_ad_download_button_color);
+        u(this.f48015b);
+        SwanAdDownloadButtonView swanAdDownloadButtonView = this.f48015b;
+        swanAdDownloadButtonView.j(m(this.f48014a, n));
         swanAdDownloadButtonView.f(true);
         swanAdDownloadButtonView.i(-1);
         swanAdDownloadButtonView.h(color);
         swanAdDownloadButtonView.g(true);
-        this.f47623b.setText(string);
-        this.f47623b.setVisibility(0);
-        this.f47623b.setProgress(this.f47624c.f47620c);
+        this.f48015b.setText(string);
+        this.f48015b.setVisibility(0);
+        this.f48015b.setProgress(this.f48016c.f48012c);
     }
 
     public b l(Context context, d.b.g0.a.q.g.b.a aVar, d.b.g0.a.q.g.a.a aVar2) {
-        this.f47622a = context;
-        this.f47624c = d.b.g0.e.a.l.j.a.a(aVar.f45487a, aVar.f45488b);
-        this.f47625d = aVar2;
+        this.f48014a = context;
+        this.f48016c = d.b.g0.e.a.l.j.a.a(aVar.f45879a, aVar.f45880b);
+        this.f48017d = aVar2;
         k();
         q();
         return this;
@@ -222,34 +223,34 @@ public class b implements g {
     }
 
     public Object p() {
-        return this.f47623b.getTag();
+        return this.f48015b.getTag();
     }
 
     public final void q() {
-        this.f47623b.setOnClickListener(new a());
+        this.f48015b.setOnClickListener(new a());
     }
 
     public final void r(String str) {
         ResolveInfo o;
-        if (TextUtils.isEmpty(str) || (o = o(this.f47622a, str)) == null) {
+        if (TextUtils.isEmpty(str) || (o = o(this.f48014a, str)) == null) {
             return;
         }
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.LAUNCHER");
         ActivityInfo activityInfo = o.activityInfo;
         intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         try {
-            this.f47622a.startActivity(intent);
+            this.f48014a.startActivity(intent);
         } catch (Exception e2) {
-            if (f47621e) {
+            if (f48013e) {
                 e2.printStackTrace();
             }
         }
     }
 
     public final int s(SwanAdDownloadState swanAdDownloadState) {
-        switch (C0932b.f47627a[swanAdDownloadState.ordinal()]) {
+        switch (C0944b.f48019a[swanAdDownloadState.ordinal()]) {
             case 1:
                 return i.swanapp_ad_download_button;
             case 2:
@@ -268,27 +269,27 @@ public class b implements g {
     }
 
     public final void t(int i) {
-        d.b.g0.e.a.l.j.a aVar = this.f47624c;
-        if (i != aVar.f47620c) {
-            aVar.f47620c = i;
+        d.b.g0.e.a.l.j.a aVar = this.f48016c;
+        if (i != aVar.f48012c) {
+            aVar.f48012c = i;
             w();
         }
     }
 
     public final void u(View view) {
         if (view != null) {
-            float n = n(this.f47622a, e.swanapp_round_width_size);
-            float n2 = n(this.f47622a, e.swanapp_round_height_size);
+            float n = n(this.f48014a, e.swanapp_round_width_size);
+            float n2 = n(this.f48014a, e.swanapp_round_height_size);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(-1, -2);
                 view.setLayoutParams(layoutParams);
             }
             if (n >= 0.0f && n <= 1.0f) {
-                n *= this.f47622a.getResources().getDisplayMetrics().widthPixels;
+                n *= this.f48014a.getResources().getDisplayMetrics().widthPixels;
             }
             if (n2 > 0.0f && n2 <= 1.0f) {
-                n2 *= this.f47622a.getResources().getDisplayMetrics().heightPixels;
+                n2 *= this.f48014a.getResources().getDisplayMetrics().heightPixels;
             }
             layoutParams.width = (int) n;
             layoutParams.height = (int) n2;
@@ -296,43 +297,43 @@ public class b implements g {
     }
 
     public final void v(SwanAdDownloadState swanAdDownloadState) {
-        d.b.g0.e.a.l.j.a aVar = this.f47624c;
-        if (swanAdDownloadState != aVar.f47618a) {
-            aVar.f47618a = swanAdDownloadState;
+        d.b.g0.e.a.l.j.a aVar = this.f48016c;
+        if (swanAdDownloadState != aVar.f48010a) {
+            aVar.f48010a = swanAdDownloadState;
             w();
         }
     }
 
     public final void w() {
         String string;
-        d.b.g0.e.a.l.j.a aVar = this.f47624c;
-        if (aVar.f47618a == SwanAdDownloadState.DOWNLOADING) {
-            SwanAdDownloadButtonView swanAdDownloadButtonView = this.f47623b;
+        d.b.g0.e.a.l.j.a aVar = this.f48016c;
+        if (aVar.f48010a == SwanAdDownloadState.DOWNLOADING) {
+            SwanAdDownloadButtonView swanAdDownloadButtonView = this.f48015b;
             if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
-                if (this.f47624c.f47620c < this.f47623b.getMax()) {
-                    String string2 = this.f47622a.getResources().getString(i.swanapp_ad_button_downloading);
-                    string = String.format(string2, this.f47624c.f47620c + "%");
+                if (this.f48016c.f48012c < this.f48015b.getMax()) {
+                    String string2 = this.f48014a.getResources().getString(i.swanapp_ad_button_downloading);
+                    string = String.format(string2, this.f48016c.f48012c + "%");
                 } else {
-                    string = this.f47622a.getResources().getString(i.swanapp_ad_download_button_install);
+                    string = this.f48014a.getResources().getString(i.swanapp_ad_download_button_install);
                 }
-                this.f47623b.setText(string);
-                this.f47623b.setProgress(this.f47624c.f47620c);
+                this.f48015b.setText(string);
+                this.f48015b.setProgress(this.f48016c.f48012c);
             }
         } else {
-            if (d.b.g0.e.a.l.e.a(this.f47622a, aVar.f47619b)) {
-                this.f47624c.f47618a = SwanAdDownloadState.INSTALLED;
+            if (d.b.g0.e.a.l.e.a(this.f48014a, aVar.f48011b)) {
+                this.f48016c.f48010a = SwanAdDownloadState.INSTALLED;
             }
-            String string3 = this.f47622a.getResources().getString(s(this.f47624c.f47618a));
-            if (this.f47624c.f47618a == SwanAdDownloadState.DOWNLOADED) {
-                this.f47623b.setProgress(100);
+            String string3 = this.f48014a.getResources().getString(s(this.f48016c.f48010a));
+            if (this.f48016c.f48010a == SwanAdDownloadState.DOWNLOADED) {
+                this.f48015b.setProgress(100);
             }
-            d.b.g0.e.a.l.j.a aVar2 = this.f47624c;
-            if (aVar2.f47618a == SwanAdDownloadState.DOWNLOAD_PAUSED) {
-                this.f47623b.setProgress(aVar2.f47620c);
+            d.b.g0.e.a.l.j.a aVar2 = this.f48016c;
+            if (aVar2.f48010a == SwanAdDownloadState.DOWNLOAD_PAUSED) {
+                this.f48015b.setProgress(aVar2.f48012c);
             }
-            this.f47623b.setText(string3);
+            this.f48015b.setText(string3);
         }
-        SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.f47623b;
+        SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.f48015b;
         if (swanAdDownloadButtonView2 != null) {
             swanAdDownloadButtonView2.postInvalidate();
         }

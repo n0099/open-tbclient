@@ -12,7 +12,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
-import com.alipay.sdk.data.a;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
@@ -84,7 +83,7 @@ public class FlutterWebViewClient {
             case -9:
                 return "redirectLoop";
             case -8:
-                return a.i;
+                return "timeout";
             case -7:
                 return "io";
             case -6:

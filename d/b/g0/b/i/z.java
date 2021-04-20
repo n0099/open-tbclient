@@ -3,5 +3,5 @@ package d.b.g0.b.i;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47306a;
+    public String f47698a;
 }

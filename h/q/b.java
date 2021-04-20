@@ -8,31 +8,31 @@ import rx.exceptions.OnErrorFailedException;
 public final class b implements h.c, k {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c f67974e;
+    public final h.c f68984e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f67975f;
+    public k f68985f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67976g;
+    public boolean f68986g;
 
     public b(h.c cVar) {
-        this.f67974e = cVar;
+        this.f68984e = cVar;
     }
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f67976g || this.f67975f.isUnsubscribed();
+        return this.f68986g || this.f68985f.isUnsubscribed();
     }
 
     @Override // h.c
     public void onCompleted() {
-        if (this.f67976g) {
+        if (this.f68986g) {
             return;
         }
-        this.f67976g = true;
+        this.f68986g = true;
         try {
-            this.f67974e.onCompleted();
+            this.f68984e.onCompleted();
         } catch (Throwable th) {
             h.m.a.e(th);
             throw new OnCompletedFailedException(th);
@@ -42,12 +42,12 @@ public final class b implements h.c, k {
     @Override // h.c
     public void onError(Throwable th) {
         h.r.c.j(th);
-        if (this.f67976g) {
+        if (this.f68986g) {
             return;
         }
-        this.f67976g = true;
+        this.f68986g = true;
         try {
-            this.f67974e.onError(th);
+            this.f68984e.onError(th);
         } catch (Throwable th2) {
             h.m.a.e(th2);
             throw new OnErrorFailedException(new CompositeException(th, th2));
@@ -56,9 +56,9 @@ public final class b implements h.c, k {
 
     @Override // h.c
     public void onSubscribe(k kVar) {
-        this.f67975f = kVar;
+        this.f68985f = kVar;
         try {
-            this.f67974e.onSubscribe(this);
+            this.f68984e.onSubscribe(this);
         } catch (Throwable th) {
             h.m.a.e(th);
             kVar.unsubscribe();
@@ -68,6 +68,6 @@ public final class b implements h.c, k {
 
     @Override // h.k
     public void unsubscribe() {
-        this.f67975f.unsubscribe();
+        this.f68985f.unsubscribe();
     }
 }

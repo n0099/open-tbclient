@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
 public class MainTabActivityConfig extends IntentConfig {
@@ -35,7 +36,7 @@ public class MainTabActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.setFlags(603979776);
         if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         if (i >= 0) {
             intent.putExtra("locate_type", i);
@@ -62,7 +63,7 @@ public class MainTabActivityConfig extends IntentConfig {
             intent.putExtra("locate_type", i);
         }
         if (z) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("close_dialog", true);
         return this;

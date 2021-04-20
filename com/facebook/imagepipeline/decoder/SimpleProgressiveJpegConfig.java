@@ -5,11 +5,11 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     public final DynamicValueConfig mDynamicValueConfig;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultDynamicValueConfig implements DynamicValueConfig {
         public DefaultDynamicValueConfig() {
         }
@@ -25,7 +25,7 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface DynamicValueConfig {
         int getGoodEnoughScanNumber();
 

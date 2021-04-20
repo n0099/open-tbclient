@@ -4,7 +4,7 @@ import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import d.b.i0.t.d.c.e.e;
 import d.b.i0.t.d.c.e.f;
 import d.b.i0.t.d.c.e.g;
@@ -16,35 +16,35 @@ import java.util.List;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public g f60419b;
+    public g f61983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.t.d.c.e.a f60420c;
+    public d.b.i0.t.d.c.e.a f61984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.i0.t.d.c.e.d f60421d;
+    public d.b.i0.t.d.c.e.d f61985d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f60422e;
+    public j f61986e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f60423f;
+    public List<n> f61987f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f60424g;
+    public List<n> f61988g;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60418a = false;
+    public boolean f61982a = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<SdkLiveInfoData> f60425h = new ArrayList();
+    public List<SdkLiveInfoData> f61989h = new ArrayList();
     public List<n> i = new ArrayList();
 
     public c(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
-        this.f60419b = alaTabLiveResponsedMessage.stageLiveInfo;
-        this.f60420c = alaTabLiveResponsedMessage.hotLiveInfo;
-        this.f60421d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
-        this.f60422e = alaTabLiveResponsedMessage.tabAllLiveInfo;
+        this.f61983b = alaTabLiveResponsedMessage.stageLiveInfo;
+        this.f61984c = alaTabLiveResponsedMessage.hotLiveInfo;
+        this.f61985d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
+        this.f61986e = alaTabLiveResponsedMessage.tabAllLiveInfo;
         e();
     }
 
@@ -53,24 +53,24 @@ public class c {
             return false;
         }
         boolean g2 = g(jVar);
-        this.f60418a = jVar.f60340a;
+        this.f61982a = jVar.f61904a;
         return g2;
     }
 
     public void b() {
-        this.f60419b = null;
-        this.f60420c = null;
-        this.f60421d = null;
-        this.f60418a = false;
-        List<n> list = this.f60423f;
+        this.f61983b = null;
+        this.f61984c = null;
+        this.f61985d = null;
+        this.f61982a = false;
+        List<n> list = this.f61987f;
         if (list != null) {
             list.clear();
         }
-        List<n> list2 = this.f60424g;
+        List<n> list2 = this.f61988g;
         if (list2 != null) {
             list2.clear();
         }
-        List<SdkLiveInfoData> list3 = this.f60425h;
+        List<SdkLiveInfoData> list3 = this.f61989h;
         if (list3 != null) {
             list3.clear();
         }
@@ -86,14 +86,14 @@ public class c {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             d.b.i0.t.d.a.a aVar = new d.b.i0.t.d.a.a();
-            aVar.f60235e = list.get(i);
+            aVar.f61799e = list.get(i);
             aVar.j = true;
-            eVar.f60329e = aVar;
+            eVar.f61893e = aVar;
             int i2 = i + 1;
             if (i2 < size) {
                 d.b.i0.t.d.a.a aVar2 = new d.b.i0.t.d.a.a();
-                aVar2.f60235e = list.get(i2);
-                eVar.f60330f = aVar2;
+                aVar2.f61799e = list.get(i2);
+                eVar.f61894f = aVar2;
                 aVar2.k = true;
             } else {
                 aVar.j = false;
@@ -106,8 +106,8 @@ public class c {
 
     public List<n> d() {
         ArrayList arrayList = new ArrayList();
-        if (!ListUtils.isEmpty(this.f60424g)) {
-            arrayList.addAll(this.f60424g);
+        if (!ListUtils.isEmpty(this.f61988g)) {
+            arrayList.addAll(this.f61988g);
         }
         if (!ListUtils.isEmpty(this.i)) {
             arrayList.addAll(this.i);
@@ -116,31 +116,31 @@ public class c {
     }
 
     public final void e() {
-        this.f60423f = new ArrayList();
-        g gVar = this.f60419b;
+        this.f61987f = new ArrayList();
+        g gVar = this.f61983b;
         if (gVar != null && gVar.a()) {
             f fVar = new f();
-            fVar.f60332e = this.f60419b;
-            this.f60423f.add(fVar);
+            fVar.f61896e = this.f61983b;
+            this.f61987f.add(fVar);
         }
-        if (this.f60420c != null) {
+        if (this.f61984c != null) {
             ArrayList<n> f2 = f();
             if (!ListUtils.isEmpty(f2)) {
-                this.f60423f.addAll(f2);
+                this.f61987f.addAll(f2);
             }
         }
-        d.b.i0.t.d.c.e.d dVar = this.f60421d;
-        if (dVar != null && !ListUtils.isEmpty(dVar.f60327a)) {
+        d.b.i0.t.d.c.e.d dVar = this.f61985d;
+        if (dVar != null && !ListUtils.isEmpty(dVar.f61891a)) {
             d.b.i0.t.d.c.e.c cVar = new d.b.i0.t.d.c.e.c();
-            cVar.f60326e = this.f60421d;
-            this.f60423f.add(cVar);
+            cVar.f61890e = this.f61985d;
+            this.f61987f.add(cVar);
         }
-        this.f60424g = new ArrayList(this.f60423f);
-        a(this.f60422e);
+        this.f61988g = new ArrayList(this.f61987f);
+        a(this.f61986e);
     }
 
     public final ArrayList<n> f() {
-        ArrayList<SdkLiveInfoData> arrayList = this.f60420c.f60321a;
+        ArrayList<SdkLiveInfoData> arrayList = this.f61984c.f61885a;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -160,7 +160,7 @@ public class c {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.f60341b;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.f61905b;
         if (ListUtils.isEmpty(arrayList)) {
             return false;
         }
@@ -175,13 +175,13 @@ public class c {
         if (ListUtils.isEmpty(arrayList2)) {
             return false;
         }
-        this.f60425h.addAll(arrayList2);
-        ArrayList<n> c2 = c(this.f60425h);
+        this.f61989h.addAll(arrayList2);
+        ArrayList<n> c2 = c(this.f61989h);
         this.i = c2;
         return !ListUtils.isEmpty(c2);
     }
 
     public boolean h() {
-        return this.f60418a;
+        return this.f61982a;
     }
 }

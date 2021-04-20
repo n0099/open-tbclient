@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.g;
-import f.a.i;
+import f.b.g;
+import f.b.i;
 import g.d.d;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -53,7 +53,7 @@ public final class MaybeDelayOtherPublisher$OtherSubscriber<T> extends AtomicRef
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(Long.MAX_VALUE);

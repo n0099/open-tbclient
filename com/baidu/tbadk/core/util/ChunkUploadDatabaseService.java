@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util;
 import android.database.Cursor;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.b.a.k.b;
-import d.b.b.e.m.a;
-import d.b.h0.s.c.o;
+import d.b.c.a.k.b;
+import d.b.c.e.m.a;
+import d.b.h0.s.c.q;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class ChunkUploadDatabaseService {
@@ -28,10 +28,10 @@ public class ChunkUploadDatabaseService {
         mainDBDatabaseManager.e("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
     }
 
-    public static o getChunkUploadDataByMd5(String str) {
-        o oVar;
+    public static q getChunkUploadDataByMd5(String str) {
+        q qVar;
         Cursor cursor = null;
-        o oVar2 = null;
+        q qVar2 = null;
         cursor = null;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
@@ -43,25 +43,25 @@ public class ChunkUploadDatabaseService {
                 try {
                     try {
                         if (j.moveToFirst()) {
-                            oVar = new o();
+                            qVar = new q();
                             try {
-                                oVar.e(str);
-                                oVar.d(j.getInt(3));
-                                oVar.f(j.getLong(2));
-                                oVar2 = oVar;
+                                qVar.e(str);
+                                qVar.d(j.getInt(3));
+                                qVar.f(j.getLong(2));
+                                qVar2 = qVar;
                             } catch (Exception e2) {
                                 e = e2;
                                 cursor = j;
                                 mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
                                 a.a(cursor);
-                                return oVar;
+                                return qVar;
                             }
                         }
                         a.a(j);
-                        return oVar2;
+                        return qVar2;
                     } catch (Exception e3) {
                         e = e3;
-                        oVar = null;
+                        qVar = null;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -71,23 +71,23 @@ public class ChunkUploadDatabaseService {
                 }
             } catch (Exception e4) {
                 e = e4;
-                oVar = null;
+                qVar = null;
             }
         } catch (Throwable th2) {
             th = th2;
         }
     }
 
-    public static boolean saveChunkUploadData(o oVar) {
+    public static boolean saveChunkUploadData(q qVar) {
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return false;
         }
         b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Date date = new Date();
-        if (oVar == null || mainDBDatabaseManager == null) {
+        if (qVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.e("delete from chunk_upload_data where md5=? and account=?", new String[]{oVar.b(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.e("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{oVar.b(), Long.valueOf(oVar.c()), Integer.valueOf(oVar.a()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.e("delete from chunk_upload_data where md5=? and account=?", new String[]{qVar.b(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.e("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{qVar.b(), Long.valueOf(qVar.c()), Integer.valueOf(qVar.a()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 }

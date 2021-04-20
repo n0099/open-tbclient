@@ -9,28 +9,28 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5299a = "en";
+    public static final String f5334a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5300b = "et";
+    public static final String f5335b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5301c = "ev";
+    public static final String f5336c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5302d = "eg";
+    public static final String f5337d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5303e = "lk";
+    public static final String f5338e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5304f = "nu";
+    public static final String f5339f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5305g = "extra1";
+    public static final String f5340g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5306h = "extra2";
+    public static final String f5341h = "extra2";
     public static final String i = "extra3";
     public static final String j = "extra4";
     public static final String k = "extra5";

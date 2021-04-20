@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBManualMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -188,7 +187,7 @@ public class QuickReply implements Parcelable {
             quickReply.setVersionId(jSONObject.getLong("version_id"));
             quickReply.setPaId(jSONObject.getLong("pa_uid"));
             quickReply.setStatus(jSONObject.getLong("status"));
-            quickReply.setTimeStamp(jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING));
+            quickReply.setTimeStamp(jSONObject.getLong("ts"));
             quickReply.setRefreshTime(jSONObject.getLong("menu_refresh_ts"));
             quickReply.setMenuName(jSONObject.getString("name"));
             quickReply.setPaName(jSONObject.optString(UserAccountActionItem.KEY_SRC));

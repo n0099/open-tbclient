@@ -18,22 +18,22 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.i0.i0.d.c;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15549e;
+    public LinearLayout f15212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15550f;
+    public TextView f15213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f15551g;
+    public ImageView f15214g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f15552h;
+    public c f15215h;
     public int i;
 
     public ForumHeaderView(Context context) {
@@ -45,30 +45,30 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void a() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.f15549e = (LinearLayout) findViewById(R.id.search_container);
-        this.f15550f = (TextView) findViewById(R.id.search_text);
-        this.f15551g = (ImageView) findViewById(R.id.search_icon);
+        this.f15212e = (LinearLayout) findViewById(R.id.search_container);
+        this.f15213f = (TextView) findViewById(R.id.search_text);
+        this.f15214g = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.f15549e.setOnClickListener(this);
+        this.f15212e.setOnClickListener(this);
     }
 
     public void b() {
-        c cVar = this.f15552h;
-        if (cVar != null && cVar.f55477a) {
-            if (cVar.f55479c > 0) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15551g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f15550f, R.color.white_alpha50);
-                SkinManager.setBackgroundResource(this.f15549e, R.drawable.enter_forum_search_ad_bg);
+        c cVar = this.f15215h;
+        if (cVar != null && cVar.f56600a) {
+            if (cVar.f56602c > 0) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15214g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f15213f, R.color.white_alpha50);
+                SkinManager.setBackgroundResource(this.f15212e, R.drawable.enter_forum_search_ad_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15551g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f15550f, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f15549e, R.drawable.enter_forum_search_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15214g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f15213f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f15212e, R.drawable.enter_forum_search_bg);
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15551g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f15550f, R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(this.f15549e, R.drawable.enter_forum_search_bg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15214g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f15213f, R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.f15212e, R.drawable.enter_forum_search_bg);
     }
 
     @Override // android.view.View.OnClickListener
@@ -90,7 +90,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setAdState(c cVar) {
-        this.f15552h = cVar;
+        this.f15215h = cVar;
         b();
     }
 
@@ -99,7 +99,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setSearchHint(String str) {
-        this.f15550f.setText(str);
+        this.f15213f.setText(str);
     }
 
     public ForumHeaderView(Context context, AttributeSet attributeSet) {

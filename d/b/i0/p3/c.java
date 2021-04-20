@@ -1,41 +1,32 @@
 package d.b.i0.p3;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
+import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class c {
+    public static int a(int i) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return 2038;
+        }
+        return i;
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f58888a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f58889b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f58890c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f58891d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f58892e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f58893f;
-
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb.append("/");
-        sb.append("tieba");
-        sb.append("/videoCover.jpg");
-        f58889b = sb.toString();
-        f58890c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb2.append("/");
-        sb2.append("DCIM/tieba/");
-        f58891d = sb2.toString();
-        f58892e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        f58893f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+        if (layoutParams == null || window == null) {
+            return;
+        }
+        try {
+            Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+            if (declaredField != null) {
+                declaredField.set(layoutParams, Integer.valueOf(i));
+                window.setAttributes(layoutParams);
+            }
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
+        } catch (NoSuchFieldException e3) {
+            e3.printStackTrace();
+        }
     }
 }

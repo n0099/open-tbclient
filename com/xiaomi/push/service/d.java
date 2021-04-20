@@ -5,7 +5,7 @@ import com.xiaomi.push.ie;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f41026a;
+    public static a f41315a;
 
     /* renamed from: a  reason: collision with other field name */
     public static b f946a;
@@ -25,14 +25,14 @@ public class d {
 
     public static boolean a(ie ieVar) {
         String str;
-        if (f41026a == null || ieVar == null) {
+        if (f41315a == null || ieVar == null) {
             str = "rc params is null, not cpra";
-        } else if (com.xiaomi.push.l.m517a(com.xiaomi.push.t.m617a())) {
-            return f41026a.a(ieVar);
+        } else if (com.xiaomi.push.l.m521a(com.xiaomi.push.t.m621a())) {
+            return f41315a.a(ieVar);
         } else {
             str = "rc app not permission to cpra";
         }
-        com.xiaomi.channel.commonutils.logger.b.m51a(str);
+        com.xiaomi.channel.commonutils.logger.b.m55a(str);
         return false;
     }
 }

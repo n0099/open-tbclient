@@ -29,7 +29,7 @@ import com.baidu.tieba.im.forum.detail.BarEmotionResponseMessage;
 import com.baidu.tieba.im.forum.detail.ForumDetailModel;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> implements ForumDetailModel.f, BdSwitchView.b {
     public static final int THREAD_ITEM_MAX_NUM = 5;
     public ManagerApplyInfo applyInfo;
@@ -51,29 +51,29 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public ForumDetailModel mModel;
     public PriManagerApplyInfo mPrivateApplyInfo;
     public List<SimpleThreadInfo> mThreadInfoList;
-    public d.b.i0.d1.i.b.a mView;
+    public d.b.i0.e1.i.b.a mView;
     public ManagerElectionTab managerElectionTab;
     public boolean isBawuShow = false;
     public boolean mIsComplaintShow = false;
     public boolean mIsHasData = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f17940e;
+        public final /* synthetic */ d.b.h0.r.s.a f17617e;
 
         public a(d.b.h0.r.s.a aVar) {
-            this.f17940e = aVar;
+            this.f17617e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f17940e.dismiss();
+            this.f17617e.dismiss();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -84,7 +84,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -95,7 +95,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public d() {
         }
@@ -106,14 +106,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17945a;
+        public final /* synthetic */ boolean f17622a;
 
         public e(boolean z) {
-            this.f17945a = z;
+            this.f17622a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,12 +122,12 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             if (TextUtils.isEmpty(ForumDetailActivity.this.mForumId)) {
                 return null;
             }
-            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17945a);
+            d.b.i0.e1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17622a);
             return null;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements NoNetworkView.b {
         public f() {
         }
@@ -149,7 +149,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
@@ -289,7 +289,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         } else if (id == R.id.bar_info_clean_lay) {
             this.mView.u();
         } else if (id == R.id.bar_info_history_lay) {
-            sendMessage(new CustomMessage(2002001, new OfficialBarHistoryActivityConfig(getPageContext().getPageActivity(), d.b.b.e.m.b.d(this.mForumId, 0))));
+            sendMessage(new CustomMessage(2002001, new OfficialBarHistoryActivityConfig(getPageContext().getPageActivity(), d.b.c.e.m.b.d(this.mForumId, 0))));
         } else if (id == R.id.bar_info_emotion_layout) {
             if (!TbadkCoreApplication.isLogin()) {
                 TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
@@ -345,7 +345,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_detail_activity);
-        d.b.i0.d1.i.b.a aVar = new d.b.i0.d1.i.b.a(this);
+        d.b.i0.e1.i.b.a aVar = new d.b.i0.e1.i.b.a(this);
         this.mView = aVar;
         aVar.h().a(new f());
         this.mView.q(new g());

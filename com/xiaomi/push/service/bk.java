@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class bk implements ai {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bk f41005a;
+    public static volatile bk f41294a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f931a;
@@ -29,29 +29,29 @@ public final class bk implements ai {
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f41006a;
+        public long f41295a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f936a;
 
         public a(String str, long j) {
             this.f936a = str;
-            this.f41006a = j;
+            this.f41295a = j;
         }
 
         public abstract void a(bk bkVar);
 
         @Override // java.lang.Runnable
         public void run() {
-            if (bk.f41005a != null) {
-                Context context = bk.f41005a.f932a;
+            if (bk.f41294a != null) {
+                Context context = bk.f41294a.f932a;
                 if (com.xiaomi.push.bg.d(context)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    SharedPreferences sharedPreferences = bk.f41005a.f933a;
-                    if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f936a, 0L) > this.f41006a || com.xiaomi.push.af.a(context)) {
-                        SharedPreferences.Editor edit = bk.f41005a.f933a.edit();
+                    SharedPreferences sharedPreferences = bk.f41294a.f933a;
+                    if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f936a, 0L) > this.f41295a || com.xiaomi.push.af.a(context)) {
+                        SharedPreferences.Editor edit = bk.f41294a.f933a.edit();
                         com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f936a, System.currentTimeMillis()));
-                        a(bk.f41005a);
+                        a(bk.f41294a);
                     }
                 }
             }
@@ -64,14 +64,14 @@ public final class bk implements ai {
     }
 
     public static bk a(Context context) {
-        if (f41005a == null) {
+        if (f41294a == null) {
             synchronized (bk.class) {
-                if (f41005a == null) {
-                    f41005a = new bk(context);
+                if (f41294a == null) {
+                    f41294a = new bk(context);
                 }
             }
         }
-        return f41005a;
+        return f41294a;
     }
 
     public String a(String str, String str2) {
@@ -81,7 +81,7 @@ public final class bk implements ai {
 
     @Override // com.xiaomi.push.service.ai
     /* renamed from: a  reason: collision with other method in class */
-    public void mo600a() {
+    public void mo604a() {
         if (this.f935a) {
             return;
         }
@@ -101,7 +101,7 @@ public final class bk implements ai {
     }
 
     public void a(String str, String str2, String str3) {
-        SharedPreferences.Editor edit = f41005a.f933a.edit();
+        SharedPreferences.Editor edit = f41294a.f933a.edit();
         com.xiaomi.push.r.a(edit.putString(str + ":" + str2, str3));
     }
 }

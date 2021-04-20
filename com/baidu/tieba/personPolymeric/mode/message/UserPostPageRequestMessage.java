@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import d.b.h0.z0.w;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     public int from;
     public boolean isHost;

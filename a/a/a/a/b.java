@@ -29,7 +29,7 @@ public abstract class b<A> implements k {
     public boolean f1008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.a.a.a.u.p f1009f;
+    public a.a.a.a.u.o f1009f;
 
     /* renamed from: g  reason: collision with root package name */
     public final a.a.a.a.v.f.g.c f1010g;
@@ -66,7 +66,7 @@ public abstract class b<A> implements k {
     }
 
     public a.a.a.a.u.a a(e.a aVar) {
-        return a.a.a.a.u.c.f1353c;
+        return a.a.a.a.u.b.f1339c;
     }
 
     public FunNativeAd a(Context context, String str, A a2) {
@@ -207,17 +207,17 @@ public abstract class b<A> implements k {
     }
 
     @Override // a.a.a.a.k
-    public final synchronized a.a.a.a.u.p d() {
+    public final synchronized a.a.a.a.u.o d() {
         if (this.f1008e) {
             if (c()) {
                 if (this.f1006c.isEmpty()) {
                     return null;
                 }
-                a.a.a.a.u.p pVar = this.f1009f;
-                if (pVar != null) {
-                    return pVar;
+                a.a.a.a.u.o oVar = this.f1009f;
+                if (oVar != null) {
+                    return oVar;
                 }
-                a.a.a.a.u.p b2 = this.k.b(this.f1006c.get(0));
+                a.a.a.a.u.o b2 = this.k.b(this.f1006c.get(0));
                 if (b2 == null) {
                     this.f1008e = false;
                     return null;

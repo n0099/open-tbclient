@@ -10,7 +10,7 @@ import com.facebook.imagepipeline.drawable.DrawableFactory;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PipelineDraweeControllerFactory {
     public DrawableFactory mAnimatedDrawableFactory;
     @Nullable

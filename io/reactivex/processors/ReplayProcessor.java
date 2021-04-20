@@ -1,6 +1,6 @@
 package io.reactivex.processors;
 
-import f.a.x.i.b;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class ReplayProcessor<T> extends f.a.b0.a<T> {
+public final class ReplayProcessor<T> extends f.b.b0.a<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final a<T> f68103f;
+    public final a<T> f69109f;
 
     /* loaded from: classes7.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
@@ -51,7 +51,7 @@ public final class ReplayProcessor<T> extends f.a.b0.a<T> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
-                this.state.f68103f.a(this);
+                this.state.f69109f.a(this);
             }
         }
     }

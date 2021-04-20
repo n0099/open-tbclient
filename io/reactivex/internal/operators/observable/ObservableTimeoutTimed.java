@@ -1,19 +1,19 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.n;
-import f.a.o;
-import f.a.p;
-import f.a.t.b;
-import f.a.x.a.e;
+import f.b.n;
+import f.b.o;
+import f.b.p;
+import f.b.t.b;
+import f.b.x.a.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
+public final class ObservableTimeoutTimed<T> extends f.b.x.e.c.a<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f68074e = new a();
+    public static final b f69080e = new a();
 
     /* loaded from: classes7.dex */
     public static final class TimeoutTimedObserver<T> extends AtomicReference<b> implements o<T>, b {
@@ -30,15 +30,15 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
         public final class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final long f68075e;
+            public final long f69081e;
 
             public a(long j) {
-                this.f68075e = j;
+                this.f69081e = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f68075e == TimeoutTimedObserver.this.index) {
+                if (this.f69081e == TimeoutTimedObserver.this.index) {
                     TimeoutTimedObserver.this.done = true;
                     TimeoutTimedObserver.this.s.dispose();
                     DisposableHelper.dispose(TimeoutTimedObserver.this);
@@ -55,18 +55,18 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             this.worker = cVar;
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             this.s.dispose();
             this.worker.dispose();
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return this.worker.isDisposed();
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onComplete() {
             if (this.done) {
                 return;
@@ -76,10 +76,10 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             dispose();
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onError(Throwable th) {
             if (this.done) {
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
                 return;
             }
             this.done = true;
@@ -87,7 +87,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             dispose();
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onNext(T t) {
             if (this.done) {
                 return;
@@ -98,7 +98,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             scheduleTimeout(j);
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onSubscribe(b bVar) {
             if (DisposableHelper.validate(this.s, bVar)) {
                 this.s = bVar;
@@ -112,7 +112,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.f68074e)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.f69080e)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }
@@ -135,15 +135,15 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
         public final class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final long f68077e;
+            public final long f69083e;
 
             public a(long j) {
-                this.f68077e = j;
+                this.f69083e = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f68077e == TimeoutTimedOtherObserver.this.index) {
+                if (this.f69083e == TimeoutTimedOtherObserver.this.index) {
                     TimeoutTimedOtherObserver.this.done = true;
                     TimeoutTimedOtherObserver.this.s.dispose();
                     DisposableHelper.dispose(TimeoutTimedOtherObserver.this);
@@ -162,18 +162,18 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             this.arbiter = new e<>(oVar, this, 8);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             this.s.dispose();
             this.worker.dispose();
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return this.worker.isDisposed();
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onComplete() {
             if (this.done) {
                 return;
@@ -183,10 +183,10 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             this.worker.dispose();
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onError(Throwable th) {
             if (this.done) {
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
                 return;
             }
             this.done = true;
@@ -194,7 +194,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             this.worker.dispose();
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onNext(T t) {
             if (this.done) {
                 return;
@@ -206,7 +206,7 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             }
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onSubscribe(b bVar) {
             if (DisposableHelper.validate(this.s, bVar)) {
                 this.s = bVar;
@@ -222,23 +222,23 @@ public final class ObservableTimeoutTimed<T> extends f.a.x.e.c.a<T, T> {
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.f68074e)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.f69080e)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }
 
         public void subscribeNext() {
-            this.other.subscribe(new f.a.x.d.a(this.arbiter));
+            this.other.subscribe(new f.b.x.d.a(this.arbiter));
         }
     }
 
     /* loaded from: classes7.dex */
     public static final class a implements b {
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return true;
         }

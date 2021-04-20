@@ -15,16 +15,16 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.a.d;
 import d.o.a.e.a.e;
 import d.o.a.e.a.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadTaskDeleteActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.m f38697a;
+    public d.m f38986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f38698b;
+    public Intent f38987b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnCancelListener {
         public a() {
         }
@@ -35,69 +35,69 @@ public class DownloadTaskDeleteActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f38700e;
+        public final /* synthetic */ boolean f38989e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38701f;
+        public final /* synthetic */ DownloadInfo f38990f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38702g;
+        public final /* synthetic */ int f38991g;
 
         public b(boolean z, DownloadInfo downloadInfo, int i) {
-            this.f38700e = z;
-            this.f38701f = downloadInfo;
-            this.f38702g = i;
+            this.f38989e = z;
+            this.f38990f = downloadInfo;
+            this.f38991g = i;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            if (this.f38700e) {
-                DownloadTaskDeleteActivity.this.a(this.f38701f, this.f38702g);
+            if (this.f38989e) {
+                DownloadTaskDeleteActivity.this.a(this.f38990f, this.f38991g);
             }
             DownloadTaskDeleteActivity.this.finish();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f38704e;
+        public final /* synthetic */ boolean f38993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38705f;
+        public final /* synthetic */ DownloadInfo f38994f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38706g;
+        public final /* synthetic */ int f38995g;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
             public a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).C(c.this.f38705f.c0());
+                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).C(c.this.f38994f.c0());
             }
         }
 
         public c(boolean z, DownloadInfo downloadInfo, int i) {
-            this.f38704e = z;
-            this.f38705f = downloadInfo;
-            this.f38706g = i;
+            this.f38993e = z;
+            this.f38994f = downloadInfo;
+            this.f38995g = i;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            if (!this.f38704e) {
-                DownloadTaskDeleteActivity.this.a(this.f38705f, this.f38706g);
+            if (!this.f38993e) {
+                DownloadTaskDeleteActivity.this.a(this.f38994f, this.f38995g);
             } else {
-                this.f38705f.Q2(true);
-                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).v(this.f38705f.c0());
+                this.f38994f.Q2(true);
+                d.o.a.e.b.g.a.l(DownloadTaskDeleteActivity.this).v(this.f38994f.c0());
                 new Handler(Looper.getMainLooper()).postDelayed(new a(), 100L);
             }
             DownloadTaskDeleteActivity.this.finish();
@@ -106,7 +106,7 @@ public class DownloadTaskDeleteActivity extends Activity {
 
     private void b() {
         Intent intent;
-        if (this.f38697a != null || (intent = this.f38698b) == null) {
+        if (this.f38986a != null || (intent = this.f38987b) == null) {
             return;
         }
         try {
@@ -125,7 +125,7 @@ public class DownloadTaskDeleteActivity extends Activity {
             d.e b2 = e.F().b();
             d.n a2 = b2 != null ? b2.a(this) : null;
             if (a2 == null) {
-                a2 = new e.C1841e(this);
+                a2 = new e.C1876e(this);
             }
             if (a2 != null) {
                 int a3 = l.a(this, "tt_appdownloader_tip");
@@ -140,7 +140,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                     format = getResources().getString(l.a(this, "tt_appdownloader_resume_in_wifi"));
                 }
                 a2.a(a3).a(format).b(a4, new c(z, f2, intExtra)).a(a5, new b(z, f2, intExtra)).c(new a());
-                this.f38697a = a2.a();
+                this.f38986a = a2.a();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -162,12 +162,12 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f38698b = getIntent();
+        this.f38987b = getIntent();
         b();
-        d.m mVar = this.f38697a;
+        d.m mVar = this.f38986a;
         if (mVar != null && !mVar.b()) {
-            this.f38697a.a();
-        } else if (this.f38697a == null) {
+            this.f38986a.a();
+        } else if (this.f38986a == null) {
             finish();
         }
     }

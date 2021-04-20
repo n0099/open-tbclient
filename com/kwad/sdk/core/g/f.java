@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f33765a = new Handler(Looper.getMainLooper());
+    public static final Handler f34054a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class f {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f33651a);
+                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f33940a);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -46,7 +46,7 @@ public class f {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, final int i, final String str) {
-                f.f33765a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
+                f.f34054a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.c("PatchAdRequestManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -59,7 +59,7 @@ public class f {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, @NonNull final AdResultData adResultData) {
                 if (!adResultData.isAdResultDataEmpty()) {
-                    f.f33765a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
+                    f.f34054a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
@@ -68,7 +68,7 @@ public class f {
                     });
                     return;
                 }
-                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f33871c;
+                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34160c;
                 a(aVar2, fVar2.k, fVar2.l);
             }
         });

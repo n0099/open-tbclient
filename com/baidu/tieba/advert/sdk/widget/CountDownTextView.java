@@ -9,16 +9,16 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14670e;
+    public int f14333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14671f;
+    public String f14334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f14672g;
+    public b f14335g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f14673h;
+    public d f14336h;
     public Handler i;
     public final Runnable j;
     public boolean k;
@@ -32,18 +32,18 @@ public class CountDownTextView extends TextView {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f14674e;
+        public final WeakReference<CountDownTextView> f14337e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f14674e.get();
+            CountDownTextView countDownTextView = this.f14337e.get();
             if (countDownTextView != null) {
                 countDownTextView.b(1);
             }
         }
 
         public c(CountDownTextView countDownTextView) {
-            this.f14674e = new WeakReference<>(countDownTextView);
+            this.f14337e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -54,25 +54,25 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.f14670e = 0;
-        this.f14671f = "";
-        this.f14672g = null;
-        this.f14673h = null;
+        this.f14333e = 0;
+        this.f14334f = "";
+        this.f14335g = null;
+        this.f14336h = null;
         this.i = new Handler();
         this.k = false;
         this.j = new c();
     }
 
     public final void b(int i) {
-        int i2 = this.f14670e - i;
-        this.f14670e = i2;
-        b bVar = this.f14672g;
+        int i2 = this.f14333e - i;
+        this.f14333e = i2;
+        b bVar = this.f14335g;
         if (bVar != null && i != 0) {
             bVar.a(i2);
         }
-        int i3 = this.f14670e;
+        int i3 = this.f14333e;
         if (i3 == 0) {
-            d dVar = this.f14673h;
+            d dVar = this.f14336h;
             if (dVar != null) {
                 dVar.a(this);
             }
@@ -81,9 +81,9 @@ public class CountDownTextView extends TextView {
         }
         if (i3 > 0) {
             if (this.k) {
-                setText(String.format("%s 0%s", this.f14671f, Integer.valueOf(i3)));
+                setText(String.format("%s 0%s", this.f14334f, Integer.valueOf(i3)));
             } else {
-                setText(String.format("%s %s", this.f14671f, Integer.valueOf(i3)));
+                setText(String.format("%s %s", this.f14334f, Integer.valueOf(i3)));
             }
         }
         this.i.removeCallbacks(this.j);
@@ -95,9 +95,9 @@ public class CountDownTextView extends TextView {
     }
 
     public void d(String str, int i) {
-        this.f14671f = str;
+        this.f14334f = str;
         if (i > 0) {
-            this.f14670e = i;
+            this.f14333e = i;
         }
     }
 
@@ -128,10 +128,10 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(d dVar) {
-        this.f14673h = dVar;
+        this.f14336h = dVar;
     }
 
     public void setTimerChangedListener(b bVar) {
-        this.f14672g = bVar;
+        this.f14335g = bVar;
     }
 }

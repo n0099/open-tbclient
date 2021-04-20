@@ -31,11 +31,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.google.gson.Gson;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-import d.b.i0.c2.k.e.u0;
+import d.b.i0.d2.k.e.w0;
 /* loaded from: classes3.dex */
 public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView A;
@@ -45,16 +45,16 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public ImageView E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ThreadAchievementShareInfo f13131e;
+    public final ThreadAchievementShareInfo f12792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Gson f13132f;
+    public Gson f12793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f13133g;
+    public Context f12794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f13134h;
+    public LinearLayout f12795h;
     public TextView i;
     public TextView j;
     public TextView k;
@@ -64,7 +64,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView o;
     public TextView p;
     public PermissionJudgePolicy q;
-    public u0 r;
+    public w0 r;
     public TbPageContext s;
     public d.b.h0.r.s.a t;
     public Bitmap u;
@@ -164,21 +164,21 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public class h extends f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f13142a;
+        public final /* synthetic */ Bitmap f12803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f13143b;
+        public final /* synthetic */ int f12804b;
 
         public h(Bitmap bitmap, int i) {
-            this.f13142a = bitmap;
-            this.f13143b = i;
+            this.f12803a = bitmap;
+            this.f12804b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            return ThreadAchievementShareDialogView.this.j(this.f13142a, this.f13143b);
+            return ThreadAchievementShareDialogView.this.j(this.f12803a, this.f12804b);
         }
     }
 
@@ -186,46 +186,46 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public class i implements n<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f13145a;
+        public final /* synthetic */ int f12806a;
 
         public i(int i) {
-            this.f13145a = i;
+            this.f12806a = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
-            MessageManager.getInstance().sendMessage(new ImplicitShareMessage(ThreadAchievementShareDialogView.this.f13133g, this.f13145a, shareItem, false));
+            MessageManager.getInstance().sendMessage(new ImplicitShareMessage(ThreadAchievementShareDialogView.this.f12794g, this.f12806a, shareItem, false));
         }
     }
 
     public ThreadAchievementShareDialogView(Context context, String str) {
         super(context);
-        this.f13132f = new Gson();
-        this.f13133g = context;
-        this.f13131e = m(str);
+        this.f12793f = new Gson();
+        this.f12794g = context;
+        this.f12792e = m(str);
     }
 
     private int getTextViewWidth() {
         int k;
-        int g2 = l.g(this.f13133g, R.dimen.tbds44);
-        int g3 = l.g(this.f13133g, R.dimen.tbds54);
-        if (UtilHelper.getRealScreenOrientation(this.f13133g) == 2) {
-            k = l.i(this.f13133g);
+        int g2 = l.g(this.f12794g, R.dimen.tbds44);
+        int g3 = l.g(this.f12794g, R.dimen.tbds54);
+        if (UtilHelper.getRealScreenOrientation(this.f12794g) == 2) {
+            k = l.i(this.f12794g);
         } else {
-            k = l.k(this.f13133g);
+            k = l.k(this.f12794g);
         }
         return ((k - (g2 * 2)) - g3) / 6;
     }
 
     public final void f() {
         String user_img;
-        ThreadAchievementShareInfo threadAchievementShareInfo = this.f13131e;
+        ThreadAchievementShareInfo threadAchievementShareInfo = this.f12792e;
         if (threadAchievementShareInfo == null || threadAchievementShareInfo.getParams() == null) {
             return;
         }
-        ThreadAchievementShareInfo.UserBean user = this.f13131e.getParams().getUser();
+        ThreadAchievementShareInfo.UserBean user = this.f12792e.getParams().getUser();
         if (!TextUtils.isEmpty(user.getImg())) {
             user_img = user.getImg();
         } else {
@@ -234,8 +234,8 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         HeadImageView headImageView = this.z;
         headImageView.W("http://tb.himg.baidu.com/sys/portrait/item/" + user_img + ".jpg", 12, false);
         this.o.setText(user.getUsername());
-        if (!TextUtils.isEmpty(this.f13131e.getParams().getUrl())) {
-            i(this.f13131e.getParams().getUrl());
+        if (!TextUtils.isEmpty(this.f12792e.getParams().getUrl())) {
+            i(this.f12792e.getParams().getUrl());
             this.w.setVisibility(0);
             return;
         }
@@ -254,21 +254,21 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public boolean h(TbPageContext tbPageContext, d.b.h0.r.s.a aVar) {
         this.s = tbPageContext;
         this.t = aVar;
-        l(this.f13133g);
-        if (this.f13131e.getParams() != null && !ListUtils.isEmpty(this.f13131e.getParams().getThread_list())) {
-            this.y.addView(new d.b.h0.l.f.a(this.f13133g, this.f13131e).a());
-            this.p.setText(this.f13131e.getParams().getTitle());
+        l(this.f12794g);
+        if (this.f12792e.getParams() != null && !ListUtils.isEmpty(this.f12792e.getParams().getThread_list())) {
+            this.y.addView(new d.b.h0.l.f.a(this.f12794g, this.f12792e).a());
+            this.p.setText(this.f12792e.getParams().getTitle());
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
             statisticItem.param("obj_source", 1);
             TiebaStatic.log(statisticItem);
             this.D = 2;
-        } else if (this.f13131e.getParams() != null) {
-            if (this.f13131e.getParams().getVideo_info() != null) {
-                this.y.addView(new d.b.h0.l.f.c(this.f13133g, this.f13131e).a());
+        } else if (this.f12792e.getParams() != null) {
+            if (this.f12792e.getParams().getVideo_info() != null) {
+                this.y.addView(new d.b.h0.l.f.c(this.f12794g, this.f12792e).a());
             } else {
-                this.y.addView(new d.b.h0.l.f.b(this.f13133g, this.f13131e).a());
+                this.y.addView(new d.b.h0.l.f.b(this.f12794g, this.f12792e).a());
             }
-            this.p.setText(this.f13131e.getParams().getTitle());
+            this.p.setText(this.f12792e.getParams().getTitle());
             StatisticItem statisticItem2 = new StatisticItem("c10898");
             statisticItem2.param("obj_source", 2);
             TiebaStatic.log(statisticItem2);
@@ -291,7 +291,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         shareItem.a0 = false;
         shareItem.Z = false;
         shareItem.V = 1;
-        shareItem.r = this.f13133g.getString(R.string.app_name);
+        shareItem.r = this.f12794g.getString(R.string.app_name);
         shareItem.s = "";
         shareItem.h(bitmap);
         shareItem.f();
@@ -313,26 +313,26 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public final void l(Context context) {
         LayoutInflater.from(context).inflate(R.layout.webview_poster_share, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_share);
-        this.f13134h = linearLayout;
+        this.f12795h = linearLayout;
         this.v = linearLayout.findViewById(R.id.poster_head_bg);
-        SkinManager.setBackgroundResource(this.f13134h, R.drawable.bg_frs_private_dialog);
+        SkinManager.setBackgroundResource(this.f12795h, R.drawable.bg_frs_private_dialog);
         SkinManager.setBackgroundResource(this.v, R.drawable.pic_announcement_round);
-        this.y = (FrameLayout) this.f13134h.findViewById(R.id.poster_container);
-        this.p = (TextView) this.f13134h.findViewById(R.id.achievement_desc);
-        this.z = (HeadImageView) this.f13134h.findViewById(R.id.head_portrait);
-        TextView textView = (TextView) this.f13134h.findViewById(R.id.user_name);
+        this.y = (FrameLayout) this.f12795h.findViewById(R.id.poster_container);
+        this.p = (TextView) this.f12795h.findViewById(R.id.achievement_desc);
+        this.z = (HeadImageView) this.f12795h.findViewById(R.id.head_portrait);
+        TextView textView = (TextView) this.f12795h.findViewById(R.id.user_name);
         this.o = textView;
         SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0101);
         this.z.setIsRound(true);
         this.z.setPlaceHolder(2);
         this.z.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.x = (LinearLayout) this.f13134h.findViewById(R.id.share_view_layout);
-        this.w = (ImageView) this.f13134h.findViewById(R.id.share_qrcode);
-        this.A = (TextView) this.f13134h.findViewById(R.id.qrcode_top_desc);
-        this.B = (TextView) this.f13134h.findViewById(R.id.qrcode_bottom_desc);
-        this.C = (FrameLayout) this.f13134h.findViewById(R.id.qrcode_layout);
-        ImageView imageView = (ImageView) this.f13134h.findViewById(R.id.close_button);
+        this.x = (LinearLayout) this.f12795h.findViewById(R.id.share_view_layout);
+        this.w = (ImageView) this.f12795h.findViewById(R.id.share_qrcode);
+        this.A = (TextView) this.f12795h.findViewById(R.id.qrcode_top_desc);
+        this.B = (TextView) this.f12795h.findViewById(R.id.qrcode_bottom_desc);
+        this.C = (FrameLayout) this.f12795h.findViewById(R.id.qrcode_layout);
+        ImageView imageView = (ImageView) this.f12795h.findViewById(R.id.close_button);
         this.E = imageView;
         imageView.setOnClickListener(new a());
         SkinManager.setImageResource(this.E, R.drawable.icon_popup_shut_n);
@@ -340,27 +340,27 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         SkinManager.setViewTextColor(this.B, R.color.CAM_X0109);
         SkinManager.setBackgroundColor(this.C, R.color.CAM_X0201);
         SkinManager.setBackgroundResource(this.x, R.drawable.bg_frs_private_dialog);
-        TextView textView2 = (TextView) this.f13134h.findViewById(R.id.frs_private_share_download);
+        TextView textView2 = (TextView) this.f12795h.findViewById(R.id.frs_private_share_download);
         this.i = textView2;
         o(textView2, new SvgMaskType(R.drawable.icon_mask_frs_private_share_download40_svg));
         this.i.setOnClickListener(new b());
-        TextView textView3 = (TextView) this.f13134h.findViewById(R.id.frs_private_share_wechat);
+        TextView textView3 = (TextView) this.f12795h.findViewById(R.id.frs_private_share_wechat);
         this.j = textView3;
         o(textView3, new SvgMaskType(R.drawable.icon_mask_share_wechat40_svg));
         this.j.setOnClickListener(new c());
-        TextView textView4 = (TextView) this.f13134h.findViewById(R.id.frs_private_share_moment);
+        TextView textView4 = (TextView) this.f12795h.findViewById(R.id.frs_private_share_moment);
         this.k = textView4;
         o(textView4, new SvgMaskType(R.drawable.icon_mask_share_circle40_svg));
         this.k.setOnClickListener(new d());
-        TextView textView5 = (TextView) this.f13134h.findViewById(R.id.frs_private_share_qzone);
+        TextView textView5 = (TextView) this.f12795h.findViewById(R.id.frs_private_share_qzone);
         this.l = textView5;
         o(textView5, new SvgMaskType(R.drawable.icon_mask_share_qqzone40_svg));
         this.l.setOnClickListener(new e());
-        TextView textView6 = (TextView) this.f13134h.findViewById(R.id.frs_private_share_qq);
+        TextView textView6 = (TextView) this.f12795h.findViewById(R.id.frs_private_share_qq);
         this.m = textView6;
         o(textView6, new SvgMaskType(R.drawable.icon_mask_share_qq40_svg));
         this.m.setOnClickListener(new f());
-        TextView textView7 = (TextView) this.f13134h.findViewById(R.id.frs_private_share_weibo);
+        TextView textView7 = (TextView) this.f12795h.findViewById(R.id.frs_private_share_weibo);
         this.n = textView7;
         o(textView7, new SvgMaskType(R.drawable.icon_mask_share_weibo40_svg));
         this.n.setOnClickListener(new g());
@@ -370,7 +370,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return (ThreadAchievementShareInfo) this.f13132f.fromJson(str, (Class<Object>) ThreadAchievementShareInfo.class);
+        return (ThreadAchievementShareInfo) this.f12793f.fromJson(str, (Class<Object>) ThreadAchievementShareInfo.class);
     }
 
     public final void n(Bitmap bitmap) {
@@ -378,10 +378,10 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.r == null) {
-            this.r = new u0(this.s);
+            this.r = new w0(this.s);
         }
-        if (this.f13131e.getParams() != null && !TextUtils.isEmpty(this.f13131e.getParams().getUrl())) {
-            this.r.b(this.f13131e.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));
+        if (this.f12792e.getParams() != null && !TextUtils.isEmpty(this.f12792e.getParams().getUrl())) {
+            this.r.b(this.f12792e.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));
         } else {
             this.r.b("http://tieba.baidu.com", BitmapHelper.Bitmap2Bytes(bitmap, 100));
         }

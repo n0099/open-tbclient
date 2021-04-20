@@ -26,17 +26,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class TTAdSdk {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f27300a = false;
+    public static volatile boolean f26985a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TTAdManager f27301b = new v();
+    public static final TTAdManager f26986b = new v();
     public static AtomicBoolean isColdStartSdk = new AtomicBoolean(false);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InitCallback {
         void fail(int i, String str);
 
@@ -61,14 +61,14 @@ public final class TTAdSdk {
                             a0.a aVar = new a0.a();
                             aVar.e(l);
                             c a2 = c2.c(aVar.p()).a();
-                            m.f28462d = a2.r();
+                            m.f28147d = a2.r();
                             if (a2 != null) {
                                 a2.close();
                             }
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        u.b("TTAdSdk", "pre url=", l, " response code=", Integer.valueOf(m.f28462d));
+                        u.b("TTAdSdk", "pre url=", l, " response code=", Integer.valueOf(m.f28147d));
                     }
                 });
             }
@@ -104,7 +104,7 @@ public final class TTAdSdk {
                 e.a(true);
                 e.a(new a());
                 if (tTAdConfig.isDebug()) {
-                    TTAdSdk.f27301b.openDebugMode();
+                    TTAdSdk.f26986b.openDebugMode();
                 }
                 com.bytedance.sdk.openadsdk.utils.d.a(context);
                 com.bytedance.sdk.openadsdk.utils.i.a(context);
@@ -134,12 +134,12 @@ public final class TTAdSdk {
         if (tTAdConfig.getHttpStack() != null) {
             com.bytedance.sdk.openadsdk.i.e.a(tTAdConfig.getHttpStack());
         }
-        m.f28459a = tTAdConfig.isAsyncInit();
-        m.f28460b = tTAdConfig.getCustomController();
-        f27301b.setAppId(tTAdConfig.getAppId()).setName(tTAdConfig.getAppName()).setKeywords(tTAdConfig.getKeywords()).setData(tTAdConfig.getData()).setTitleBarTheme(tTAdConfig.getTitleBarTheme()).setAllowShowNotifiFromSDK(tTAdConfig.isAllowShowNotify()).setAllowLandingPageShowWhenScreenLock(tTAdConfig.isAllowShowPageWhenScreenLock()).setDirectDownloadNetworkType(tTAdConfig.getDirectDownloadNetworkType()).isUseTextureView(tTAdConfig.isUseTextureView()).setTTDownloadEventLogger(tTAdConfig.getTTDownloadEventLogger()).setNeedClearTaskReset(tTAdConfig.getNeedClearTaskReset()).setTTSecAbs(tTAdConfig.getTTSecAbs()).setCustomController(tTAdConfig.getCustomController());
+        m.f28144a = tTAdConfig.isAsyncInit();
+        m.f28145b = tTAdConfig.getCustomController();
+        f26986b.setAppId(tTAdConfig.getAppId()).setName(tTAdConfig.getAppName()).setKeywords(tTAdConfig.getKeywords()).setData(tTAdConfig.getData()).setTitleBarTheme(tTAdConfig.getTitleBarTheme()).setAllowShowNotifiFromSDK(tTAdConfig.isAllowShowNotify()).setAllowLandingPageShowWhenScreenLock(tTAdConfig.isAllowShowPageWhenScreenLock()).setDirectDownloadNetworkType(tTAdConfig.getDirectDownloadNetworkType()).isUseTextureView(tTAdConfig.isUseTextureView()).setTTDownloadEventLogger(tTAdConfig.getTTDownloadEventLogger()).setNeedClearTaskReset(tTAdConfig.getNeedClearTaskReset()).setTTSecAbs(tTAdConfig.getTTSecAbs()).setCustomController(tTAdConfig.getCustomController());
         try {
             if (tTAdConfig.isDebug()) {
-                f27301b.openDebugMode();
+                f26986b.openDebugMode();
                 com.bytedance.sdk.openadsdk.utils.p.a();
                 com.bytedance.sdk.openadsdk.video.d.a.a();
             }
@@ -148,33 +148,33 @@ public final class TTAdSdk {
     }
 
     public static TTAdManager getAdManager() {
-        return f27301b;
+        return f26986b;
     }
 
     public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (Looper.getMainLooper() == Looper.myLooper()) {
-            m.f28461c = true;
-            if (f27300a) {
-                return f27301b;
+            m.f28146c = true;
+            if (f26985a) {
+                return f26986b;
             }
             try {
                 b(context, tTAdConfig);
                 b(context, tTAdConfig, false);
                 c(context, tTAdConfig);
                 a(SystemClock.elapsedRealtime() - elapsedRealtime, false, tTAdConfig);
-                f27300a = true;
+                f26985a = true;
             } catch (Throwable th) {
                 th.printStackTrace();
-                f27300a = false;
+                f26985a = false;
             }
-            return f27301b;
+            return f26986b;
         }
         throw new RuntimeException("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
     }
 
     public static boolean isInitSuccess() {
-        return f27300a;
+        return f26985a;
     }
 
     public static void updateAdConfig(TTAdConfig tTAdConfig) {
@@ -228,9 +228,9 @@ public final class TTAdSdk {
     public static void init(final Context context, final TTAdConfig tTAdConfig, final InitCallback initCallback) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (Looper.getMainLooper() == Looper.myLooper()) {
-            m.f28461c = true;
+            m.f28146c = true;
             isColdStartSdk.set(true);
-            if (f27300a) {
+            if (f26985a) {
                 if (initCallback != null) {
                     initCallback.success();
                     return;
@@ -248,14 +248,14 @@ public final class TTAdSdk {
                             initCallback.success();
                         }
                         TTAdSdk.c(context, tTAdConfig);
-                        boolean unused = TTAdSdk.f27300a = true;
+                        boolean unused = TTAdSdk.f26985a = true;
                     } catch (Throwable th) {
                         th.printStackTrace();
                         InitCallback initCallback2 = initCallback;
                         if (initCallback2 != null) {
                             initCallback2.fail(4000, th.getMessage());
                         }
-                        boolean unused2 = TTAdSdk.f27300a = false;
+                        boolean unused2 = TTAdSdk.f26985a = false;
                     }
                 }
             });

@@ -11,8 +11,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a extends c {
     public a(@NonNull Context context) {
-        super(BaiduMap.f6807e, context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.f48838c = true;
+        super(BaiduMap.f6842e, context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
+        this.f49230c = true;
     }
 
     @Override // d.b.g0.h.a.k.c

@@ -3,17 +3,17 @@ package com.baidu.tieba.im.chat;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbPageContext<MsglistActivity<?>> f17762a;
+        public TbPageContext<MsglistActivity<?>> f17439a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<MsgCommonItemAdapter> f17763b;
+        public List<MsgCommonItemAdapter> f17440b;
     }
 
     public MsgAdapterScanMessage(a aVar) {

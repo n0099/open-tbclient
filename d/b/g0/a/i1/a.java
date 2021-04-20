@@ -15,22 +15,22 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44617e = k.f45051a;
+    public static final boolean f45009e = k.f45443a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f44618f;
+    public static volatile a f45010f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44619a;
+    public String f45011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44620b;
+    public String f45012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44621c;
+    public String f45013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b0.e.a f44622d;
+    public d.b.y.e.a f45014d;
 
     public static int a(int i) {
         if (i != -2) {
@@ -40,14 +40,14 @@ public class a {
     }
 
     public static a b() {
-        if (f44618f == null) {
+        if (f45010f == null) {
             synchronized (a.class) {
-                if (f44618f == null) {
-                    f44618f = new a();
+                if (f45010f == null) {
+                    f45010f = new a();
                 }
             }
         }
-        return f44618f;
+        return f45010f;
     }
 
     public static String d(UnitedSchemeEntity unitedSchemeEntity, String str) {
@@ -58,7 +58,7 @@ public class a {
         try {
             return new JSONObject(str2).optString(UserAccountActionItem.KEY_SRC);
         } catch (JSONException e2) {
-            if (f44617e) {
+            if (f45009e) {
                 e2.printStackTrace();
             }
             return null;
@@ -71,7 +71,7 @@ public class a {
             d.b.g0.a.c0.c.g("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!d.b.b0.b.a().b(context)) {
+        } else if (!d.b.y.b.a().b(context)) {
             d.b.g0.a.q1.b.f.d.f(context, context.getText(h.aiapps_wx_not_install_toast_msg)).C();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;

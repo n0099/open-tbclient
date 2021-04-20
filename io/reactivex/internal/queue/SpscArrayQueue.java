@@ -1,7 +1,7 @@
 package io.reactivex.internal.queue;
 
-import f.a.x.c.e;
-import f.a.x.i.h;
+import f.b.x.c.e;
+import f.b.x.i.h;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
@@ -30,7 +30,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         return ((int) j) & i;
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public void clear() {
         while (true) {
             if (poll() == null && isEmpty()) {
@@ -39,7 +39,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         }
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean isEmpty() {
         return this.producerIndex.get() == this.consumerIndex.get();
     }
@@ -48,7 +48,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         return get(i);
     }
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public boolean offer(E e2) {
         if (e2 != null) {
             int i = this.mask;
@@ -69,7 +69,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         throw new NullPointerException("Null is not a valid element");
     }
 
-    @Override // f.a.x.c.e, f.a.x.c.f
+    @Override // f.b.x.c.e, f.b.x.c.f
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);

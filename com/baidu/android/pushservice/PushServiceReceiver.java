@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
@@ -31,7 +32,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         try {
             intent.setAction("android.intent.action.VIEW");
             intent.setData(Uri.parse(str));
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             return intent;
         } catch (Exception e3) {
             e = e3;
@@ -95,7 +96,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         }
         try {
             intent.setClassName(context.getPackageName(), publicMsg.getLauncherActivityName(context, context.getPackageName()));
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             return intent;
         } catch (Exception e3) {
             e = e3;

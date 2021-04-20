@@ -44,6 +44,7 @@ import androidx.appcompat.view.CollapsibleActionView;
 import androidx.core.view.ViewCompat;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.customview.view.AbsSavedState;
+import com.alibaba.fastjson.asm.Label;
 import com.baidubce.auth.NTLMEngineImpl;
 import java.lang.reflect.Method;
 import java.util.WeakHashMap;
@@ -453,7 +454,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
     private Intent createIntent(String str, Uri uri, String str2, String str3, int i, String str4) {
         Intent intent = new Intent(str);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         if (uri != null) {
             intent.setData(uri);
         }
@@ -1334,11 +1335,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         obtainStyledAttributes.recycle();
         Intent intent = new Intent("android.speech.action.WEB_SEARCH");
         this.mVoiceWebSearchIntent = intent;
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         this.mVoiceWebSearchIntent.putExtra("android.speech.extra.LANGUAGE_MODEL", "web_search");
         Intent intent2 = new Intent("android.speech.action.RECOGNIZE_SPEECH");
         this.mVoiceAppSearchIntent = intent2;
-        intent2.addFlags(268435456);
+        intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         View findViewById = findViewById(this.mSearchSrcTextView.getDropDownAnchor());
         this.mDropDownAnchor = findViewById;
         if (findViewById != null) {

@@ -4,7 +4,8 @@ public enum PropertyNamingStrategy {
     CamelCase,
     PascalCase,
     SnakeCase,
-    KebabCase;
+    KebabCase,
+    NoChange;
 
     /* renamed from: com.alibaba.fastjson.PropertyNamingStrategy$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -29,6 +30,10 @@ public enum PropertyNamingStrategy {
             try {
                 $SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy[PropertyNamingStrategy.CamelCase.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy[PropertyNamingStrategy.NoChange.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
             }
         }
     }

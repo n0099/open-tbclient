@@ -20,16 +20,16 @@ import d.b.g0.a.y0.e.b;
 public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12700e;
+    public TextView f12361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAppRoundedImageView f12701f;
+    public SwanAppRoundedImageView f12362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12702g;
+    public View f12363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12703h;
+    public TextView f12364h;
     public e i;
     public f j;
     public e k;
@@ -47,10 +47,10 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
 
         @Override // d.b.g0.a.i2.s.b
         public void a(String str, Bitmap bitmap) {
-            if (bitmap == null || SwanAppMenuHeaderView.this.f12701f == null) {
+            if (bitmap == null || SwanAppMenuHeaderView.this.f12362f == null) {
                 return;
             }
-            SwanAppMenuHeaderView.this.f12701f.setImageBitmap(bitmap);
+            SwanAppMenuHeaderView.this.f12362f.setImageBitmap(bitmap);
         }
     }
 
@@ -92,7 +92,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                 return;
             }
             SwanAppMenuHeaderView swanAppMenuHeaderView = SwanAppMenuHeaderView.this;
-            swanAppMenuHeaderView.n = swanAppMenuHeaderView.j.onLongClick(SwanAppMenuHeaderView.this.f12702g);
+            swanAppMenuHeaderView.n = swanAppMenuHeaderView.j.onLongClick(SwanAppMenuHeaderView.this.f12363g);
         }
     }
 
@@ -111,16 +111,16 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     }
 
     public final void g(View view) {
-        this.f12702g = view.findViewById(d.b.g0.a.f.header_content);
-        this.f12701f = (SwanAppRoundedImageView) view.findViewById(d.b.g0.a.f.swan_app_icon);
-        this.f12700e = (TextView) view.findViewById(d.b.g0.a.f.swan_app_title);
-        this.f12703h = (TextView) view.findViewById(d.b.g0.a.f.btn_item_attenion);
+        this.f12363g = view.findViewById(d.b.g0.a.f.header_content);
+        this.f12362f = (SwanAppRoundedImageView) view.findViewById(d.b.g0.a.f.swan_app_icon);
+        this.f12361e = (TextView) view.findViewById(d.b.g0.a.f.swan_app_title);
+        this.f12364h = (TextView) view.findViewById(d.b.g0.a.f.btn_item_attenion);
         b.a J = d.b.g0.a.r1.d.e().s().J();
-        this.f12701f.setImageBitmap(k0.l(J.P(), "SwanAppMenuHeaderView", false, new a()));
-        this.f12700e.setText(J.J());
-        this.f12702g.setOnTouchListener(this);
-        this.f12702g.setOnClickListener(new b());
-        this.f12703h.setOnClickListener(new c());
+        this.f12362f.setImageBitmap(k0.l(J.P(), "SwanAppMenuHeaderView", false, new a()));
+        this.f12361e.setText(J.J());
+        this.f12363g.setOnTouchListener(this);
+        this.f12363g.setOnClickListener(new b());
+        this.f12364h.setOnClickListener(new c());
     }
 
     @Override // android.view.ViewGroup
@@ -149,7 +149,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
             if (action == 1) {
                 removeCallbacks(this.q);
                 if (!this.n && (eVar = this.i) != null) {
-                    eVar.onClick(this.f12702g);
+                    eVar.onClick(this.f12363g);
                 }
                 this.n = false;
                 view.setPressed(false);
@@ -178,19 +178,19 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     }
 
     public void setAttentionBtnShow(boolean z) {
-        this.f12703h.setVisibility(z ? 0 : 8);
+        this.f12364h.setVisibility(z ? 0 : 8);
     }
 
     public void setAttentionBtnStates(boolean z) {
         if (!z) {
-            this.f12703h.setText(h.aiapps_favorite_guide_add);
-            this.f12703h.setBackground(d.b.g0.m.a.b.a.d(getContext(), d.b.g0.a.e.swanapp_attention_btn_bg));
-            this.f12703h.setTextColor(d.b.g0.m.a.b.a.c(getContext(), d.b.g0.a.c.swanapp_attention_btn_text_color));
+            this.f12364h.setText(h.aiapps_favorite_guide_add);
+            this.f12364h.setBackground(d.b.g0.m.a.b.a.d(getContext(), d.b.g0.a.e.swanapp_attention_btn_bg));
+            this.f12364h.setTextColor(d.b.g0.m.a.b.a.c(getContext(), d.b.g0.a.c.swanapp_attention_btn_text_color));
             return;
         }
-        this.f12703h.setText(h.swanapp_favored);
-        this.f12703h.setBackground(d.b.g0.m.a.b.a.d(getContext(), d.b.g0.a.e.swanapp_cancel_attention_btn_bg));
-        this.f12703h.setTextColor(d.b.g0.m.a.b.a.c(getContext(), d.b.g0.a.c.swanapp_cancel_attention_btn_text_color));
+        this.f12364h.setText(h.swanapp_favored);
+        this.f12364h.setBackground(d.b.g0.m.a.b.a.d(getContext(), d.b.g0.a.e.swanapp_cancel_attention_btn_bg));
+        this.f12364h.setTextColor(d.b.g0.m.a.b.a.c(getContext(), d.b.g0.a.c.swanapp_cancel_attention_btn_text_color));
     }
 
     public void setOnAttentionBtnClickListener(e eVar) {

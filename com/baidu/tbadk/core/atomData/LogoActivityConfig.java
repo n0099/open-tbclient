@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
@@ -17,7 +18,7 @@ public class LogoActivityConfig extends IntentConfig {
         mFromSpacial = true;
         setIntentAction(IntentAction.Activity);
         if (!(context instanceof Activity)) {
-            getIntent().setFlags(268435456);
+            getIntent().setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         if (intent != null) {
             getIntent().putExtra(EXTRAINTENT, intent);
@@ -32,7 +33,7 @@ public class LogoActivityConfig extends IntentConfig {
         mFromSpacial = z;
         setIntentAction(IntentAction.Activity);
         if (!(context instanceof Activity)) {
-            getIntent().setFlags(268435456);
+            getIntent().setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         getIntent().addCategory("android.intent.category.LAUNCHER");
         getIntent().setAction("android.intent.action.MAIN");

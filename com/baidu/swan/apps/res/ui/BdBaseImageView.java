@@ -12,15 +12,15 @@ import d.b.g0.a.i2.z;
 public class BdBaseImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12421e;
+    public boolean f12082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12422f;
+    public int f12083f;
 
     public BdBaseImageView(Context context) {
         super(context);
-        this.f12421e = true;
-        this.f12422f = 0;
+        this.f12082e = true;
+        this.f12083f = 0;
     }
 
     public final boolean a() {
@@ -28,15 +28,15 @@ public class BdBaseImageView extends ImageView {
     }
 
     public final boolean b() {
-        return this.f12421e || this.f12422f != z.d(getContext());
+        return this.f12082e || this.f12083f != z.d(getContext());
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (b()) {
             z.b(getContext(), getDrawable());
-            this.f12422f = z.d(getContext());
-            this.f12421e = false;
+            this.f12083f = z.d(getContext());
+            this.f12082e = false;
         }
         super.draw(canvas);
     }
@@ -52,19 +52,19 @@ public class BdBaseImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageDrawable(@Nullable Drawable drawable) {
-        this.f12421e = true;
+        this.f12082e = true;
         super.setImageDrawable(drawable);
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12421e = true;
-        this.f12422f = 0;
+        this.f12082e = true;
+        this.f12083f = 0;
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12421e = true;
-        this.f12422f = 0;
+        this.f12082e = true;
+        this.f12083f = 0;
     }
 }

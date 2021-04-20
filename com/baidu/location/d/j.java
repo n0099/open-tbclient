@@ -55,7 +55,7 @@ public class j {
     public static int Z = 420000;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6715a = false;
+    public static boolean f6750a = false;
     public static String aA = "http://loc.map.baidu.com/rtbu.php";
     public static String aB = "http://loc.map.baidu.com/iofd.php";
     public static String aC = "http://loc.map.baidu.com/wloc";
@@ -87,25 +87,25 @@ public class j {
     public static String az = "http://loc.map.baidu.com/tcu.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f6716b = false;
+    public static boolean f6751b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f6717c = false;
+    public static boolean f6752c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6718d = 0;
+    public static int f6753d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6719e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f6754e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6720f = "https://loc.map.baidu.com/sdk.php";
+    public static String f6755f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6721g = "no";
+    public static String f6756g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f6722h = false;
+    public static boolean f6757h = false;
     public static boolean i = false;
     public static boolean j = false;
     public static boolean k = false;
@@ -187,7 +187,7 @@ public class j {
             }
         }
         if (location != null) {
-            String b4 = (f6718d == 0 || i2 == 0) ? com.baidu.location.b.e.b(location) : com.baidu.location.b.e.c(location);
+            String b4 = (f6753d == 0 || i2 == 0) ? com.baidu.location.b.e.b(location) : com.baidu.location.b.e.c(location);
             if (b4 != null) {
                 stringBuffer.append(b4);
             }
@@ -206,7 +206,7 @@ public class j {
         if (location != null && hVar != null) {
             try {
                 float speed = location.getSpeed();
-                int i3 = f6718d;
+                int i3 = f6753d;
                 int g2 = hVar.g();
                 int a4 = hVar.a();
                 boolean h2 = hVar.h();

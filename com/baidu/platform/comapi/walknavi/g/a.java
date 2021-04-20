@@ -73,19 +73,19 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     public com.baidu.platform.comapi.wnplatform.walkmap.c ag;
 
     /* renamed from: d  reason: collision with root package name */
-    public Point f10059d;
+    public Point f9617d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f10060e;
+    public LatLng f9618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LatLng f10061f;
+    public LatLng f9619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Runnable f10062g;
+    public final Runnable f9620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Runnable f10063h;
+    public final Runnable f9621h;
     public Activity i;
     public View j;
     public com.baidu.platform.comapi.walknavi.g.b.c k;
@@ -100,48 +100,48 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     public com.baidu.platform.comapi.walknavi.g.b.a n = null;
     public Handler o = new Handler();
     public boolean p = true;
-    public CountDownTimerC0125a q = null;
+    public CountDownTimerC0124a q = null;
     public int v = 0;
     public boolean w = false;
     public boolean z = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f10056a = null;
+    public Bitmap f9614a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f10057b = null;
+    public Bitmap f9615b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f10058c = null;
+    public Bitmap f9616c = null;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class CountDownTimerC0125a extends CountDownTimer {
+    public class CountDownTimerC0124a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f10064a;
+        public Activity f9622a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.platform.comapi.walknavi.widget.a f10065b;
+        public com.baidu.platform.comapi.walknavi.widget.a f9623b;
 
-        public CountDownTimerC0125a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0124a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f10064a = activity;
-            this.f10065b = aVar;
+            this.f9622a = activity;
+            this.f9623b = aVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            Activity activity = this.f10064a;
+            Activity activity = this.f9622a;
             if (activity != null && !activity.isFinishing()) {
-                this.f10065b.dismiss();
+                this.f9623b.dismiss();
             }
             a.this.q();
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            com.baidu.platform.comapi.walknavi.widget.a aVar = this.f10065b;
+            com.baidu.platform.comapi.walknavi.widget.a aVar = this.f9623b;
             if (aVar != null) {
                 ((Button) aVar.c()).setText("确定(" + ((j / 1000) - 1) + SmallTailInfo.EMOTION_SUFFIX);
             }
@@ -166,10 +166,10 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         this.S = new o(this);
         this.T = new p(this);
         this.ab = "";
-        this.f10062g = new f(this);
+        this.f9620g = new f(this);
         this.ae = new j(this);
         this.af = -1;
-        this.f10063h = new l(this);
+        this.f9621h = new l(this);
         this.ag = new n(this);
         this.i = activity;
         this.j = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.array.S_O_X001, null);
@@ -179,24 +179,24 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Point A() {
-        if (this.f10059d == null) {
-            this.f10059d = com.baidu.platform.comapi.walknavi.b.a().L();
+        if (this.f9617d == null) {
+            this.f9617d = com.baidu.platform.comapi.walknavi.b.a().L();
         }
-        return this.f10059d;
+        return this.f9617d;
     }
 
     private LatLng B() {
-        if (this.f10061f == null) {
-            this.f10061f = com.baidu.platform.comapi.walknavi.b.a().N();
+        if (this.f9619f == null) {
+            this.f9619f = com.baidu.platform.comapi.walknavi.b.a().N();
         }
-        return this.f10061f;
+        return this.f9619f;
     }
 
     private LatLng C() {
-        if (this.f10060e == null) {
-            this.f10060e = com.baidu.platform.comapi.walknavi.b.a().M();
+        if (this.f9618e == null) {
+            this.f9618e = com.baidu.platform.comapi.walknavi.b.a().M();
         }
-        return this.f10060e;
+        return this.f9618e;
     }
 
     private void D() {
@@ -225,22 +225,22 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     private void F() {
-        Bitmap bitmap = this.f10056a;
+        Bitmap bitmap = this.f9614a;
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f10056a.recycle();
-            this.f10056a = null;
+            this.f9614a.recycle();
+            this.f9614a = null;
         }
-        Bitmap bitmap2 = this.f10057b;
+        Bitmap bitmap2 = this.f9615b;
         if (bitmap2 != null && !bitmap2.isRecycled()) {
-            this.f10057b.recycle();
-            this.f10057b = null;
+            this.f9615b.recycle();
+            this.f9615b = null;
         }
-        Bitmap bitmap3 = this.f10058c;
+        Bitmap bitmap3 = this.f9616c;
         if (bitmap3 == null || bitmap3.isRecycled()) {
             return;
         }
-        this.f10058c.recycle();
-        this.f10058c = null;
+        this.f9616c.recycle();
+        this.f9616c = null;
     }
 
     private void G() {
@@ -303,8 +303,8 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         cVar.h().setOnClickListener(new u(this));
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.i.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        com.baidu.platform.comapi.walknavi.segmentbrowse.c.f10167a = displayMetrics.widthPixels;
-        com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "screen width" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.f10167a);
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.f9725a = displayMetrics.widthPixels;
+        com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "screen width" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.f9725a);
         this.k.a(new c(this));
         this.G = new com.baidu.platform.comapi.walknavi.widget.d(this.i, this, this.j);
         this.r = (FrameLayout) this.j.findViewById(R.dimen.abc_action_bar_subtitle_bottom_margin_material);
@@ -493,7 +493,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         P();
         Handler handler = this.o;
         if (handler != null) {
-            handler.removeCallbacks(this.f10062g);
+            handler.removeCallbacks(this.f9620g);
             this.o = null;
         }
         com.baidu.platform.comapi.walknavi.g.b.c cVar = this.k;
@@ -543,7 +543,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     public void w() {
         Runnable runnable;
         Handler handler = this.o;
-        if (handler == null || (runnable = this.f10062g) == null) {
+        if (handler == null || (runnable = this.f9620g) == null) {
             return;
         }
         handler.removeCallbacks(runnable);
@@ -564,11 +564,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     public void z() {
         Runnable runnable;
         Handler handler = this.o;
-        if (handler == null || (runnable = this.f10063h) == null) {
+        if (handler == null || (runnable = this.f9621h) == null) {
             return;
         }
         handler.removeCallbacks(runnable);
-        this.o.postDelayed(this.f10063h, 3000L);
+        this.o.postDelayed(this.f9621h, 3000L);
     }
 
     private void b(int i, boolean z) {
@@ -705,11 +705,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             cVar.e();
         }
         Handler handler = this.o;
-        if (handler == null || (runnable = this.f10062g) == null) {
+        if (handler == null || (runnable = this.f9620g) == null) {
             return;
         }
         handler.removeCallbacks(runnable);
-        this.o.postDelayed(this.f10062g, 20000L);
+        this.o.postDelayed(this.f9620g, 20000L);
     }
 
     public void m() {
@@ -762,7 +762,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     @Override // com.baidu.platform.comapi.wnplatform.h.a
     public void c(Bundle bundle) {
-        if (bundle.getInt("updatetype") == e.a.f10278c) {
+        if (bundle.getInt("updatetype") == e.a.f9836c) {
             this.A.setVisibility(0);
             int i = bundle.getInt("totaldist");
             int i2 = bundle.getInt("totaltime");
@@ -948,7 +948,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     @Override // com.baidu.platform.comapi.wnplatform.h.a
     public void b(Bundle bundle) {
         int i = bundle.getInt("simpleUpdateType");
-        if (i == e.a.f10276a || i == e.a.f10279d || !bundle.containsKey("enGuideType")) {
+        if (i == e.a.f9834a || i == e.a.f9837d || !bundle.containsKey("enGuideType")) {
             return;
         }
         int i2 = bundle.getInt("enGuideType");
@@ -989,16 +989,16 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         try {
             if (this.i != null && !this.i.isFinishing()) {
                 com.baidu.platform.comapi.walknavi.widget.a b3 = new com.baidu.platform.comapi.walknavi.widget.a(this.i).a(true).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080004_avd_show_password__1));
-                if (com.baidu.platform.comapi.walknavi.g.a.b.f10067a == 2) {
+                if (com.baidu.platform.comapi.walknavi.g.a.b.f9625a == 2) {
                     b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080003_avd_show_password__0);
                 } else {
                     b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, i);
                 }
                 this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080000_avd_hide_password__0)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080005_avd_show_password__2)).a(new d(this));
                 if (z) {
-                    CountDownTimerC0125a countDownTimerC0125a = new CountDownTimerC0125a(PassLoginUtil.f25328c, 1000L, this.i, this.l);
-                    this.q = countDownTimerC0125a;
-                    countDownTimerC0125a.start();
+                    CountDownTimerC0124a countDownTimerC0124a = new CountDownTimerC0124a(PassLoginUtil.f25013c, 1000L, this.i, this.l);
+                    this.q = countDownTimerC0124a;
+                    countDownTimerC0124a.start();
                 }
                 if (this.l.isShowing() || this.i == null || this.i.isFinishing()) {
                     return;

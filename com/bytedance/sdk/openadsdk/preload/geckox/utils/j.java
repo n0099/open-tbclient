@@ -2,28 +2,28 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile j f30349a;
+    public static volatile j f30034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f30350b = com.bytedance.sdk.openadsdk.l.e.a();
+    public ExecutorService f30035b = com.bytedance.sdk.openadsdk.l.e.a();
 
     public static j a() {
-        if (f30349a == null) {
+        if (f30034a == null) {
             synchronized (j.class) {
-                if (f30349a == null) {
-                    f30349a = new j();
+                if (f30034a == null) {
+                    f30034a = new j();
                 }
             }
         }
-        return f30349a;
+        return f30034a;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.f30350b.execute(runnable);
+        this.f30035b.execute(runnable);
     }
 }

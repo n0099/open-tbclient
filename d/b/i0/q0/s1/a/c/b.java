@@ -1,0 +1,352 @@
+package d.b.i0.q0.s1.a.c;
+
+import android.content.Context;
+import android.os.Handler;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import com.baidu.tieba.frs.game.strategy.message.FrsGameStrategyHttpResponseMessage;
+import com.baidu.tieba.frs.game.strategy.message.FrsGameStrategyRequestMessage;
+import com.baidu.tieba.frs.game.strategy.message.FrsGameStrategySocketResponseMessage;
+import d.b.c.j.e.n;
+import d.b.i0.q0.s1.a.c.a;
+import d.b.i0.q0.s1.a.d.e;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class b implements d.b.i0.q0.s1.a.d.a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f60203a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BdUniqueId f60204b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public d.b.i0.q0.s1.a.d.b f60205c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<e> f60206d;
+    public long j;
+    public d.b.i0.q0.s1.a.c.a l;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f60208f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f60209g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f60210h = 0;
+    public boolean i = false;
+    public Handler k = new Handler();
+    public a.c m = new a();
+    public d.b.c.c.g.a n = new C1502b(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478);
+
+    /* renamed from: e  reason: collision with root package name */
+    public final HashMap<String, d.b.i0.q0.s1.a.a.c> f60207e = new HashMap<>();
+
+    /* loaded from: classes4.dex */
+    public class a implements a.c {
+        public a() {
+        }
+
+        @Override // d.b.i0.q0.s1.a.c.a.c
+        public void a(List<e> list, List<n> list2, boolean z) {
+            if (b.this.f60206d == null || b.this.f60205c == null) {
+                return;
+            }
+            b.this.f60205c.a(0, 0, list2, list, z, true, -1);
+        }
+    }
+
+    /* renamed from: d.b.i0.q0.s1.a.c.b$b  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public class C1502b extends d.b.c.c.g.a {
+        public C1502b(int i, int i2) {
+            super(i, i2);
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:52:0x0123  */
+        /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
+        @Override // d.b.c.c.g.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            List<n> threadList;
+            boolean hasMore;
+            int i;
+            e eVar;
+            d.b.i0.q0.s1.a.a.a aVar;
+            if (responsedMessage == null) {
+                return;
+            }
+            b.this.i = false;
+            if (responsedMessage.hasError()) {
+                if (b.this.f60205c != null) {
+                    b.this.f60205c.b(b.this.f60208f, b.this.f60209g, responsedMessage.getErrorString());
+                    return;
+                }
+                return;
+            }
+            if (responsedMessage instanceof FrsGameStrategySocketResponseMessage) {
+                FrsGameStrategySocketResponseMessage frsGameStrategySocketResponseMessage = (FrsGameStrategySocketResponseMessage) responsedMessage;
+                if (b.this.f60206d == null) {
+                    b.this.f60206d = frsGameStrategySocketResponseMessage.getTabList();
+                }
+                threadList = frsGameStrategySocketResponseMessage.getThreadList();
+                hasMore = frsGameStrategySocketResponseMessage.hasMore();
+            } else if (!(responsedMessage instanceof FrsGameStrategyHttpResponseMessage)) {
+                return;
+            } else {
+                FrsGameStrategyHttpResponseMessage frsGameStrategyHttpResponseMessage = (FrsGameStrategyHttpResponseMessage) responsedMessage;
+                if (b.this.f60206d == null) {
+                    b.this.f60206d = frsGameStrategyHttpResponseMessage.getTabList();
+                }
+                threadList = frsGameStrategyHttpResponseMessage.getThreadList();
+                hasMore = frsGameStrategyHttpResponseMessage.hasMore();
+            }
+            int i2 = b.this.f60208f;
+            int i3 = b.this.f60209g;
+            if (b.this.f60208f == 0 && b.this.f60209g == 0 && !ListUtils.isEmpty(b.this.f60206d) && (eVar = (e) b.this.f60206d.get(0)) != null) {
+                i2 = eVar.f60221a;
+                Object obj = eVar.f60223c;
+                if (obj instanceof LabelDataList) {
+                    LabelDataList labelDataList = (LabelDataList) obj;
+                    if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
+                        i3 = aVar.f60187a;
+                    }
+                }
+            }
+            String p = b.this.p(i2, i3);
+            d.b.i0.q0.s1.a.a.c cVar = (d.b.i0.q0.s1.a.a.c) b.this.f60207e.get(p);
+            if (cVar == null) {
+                cVar = new d.b.i0.q0.s1.a.a.c();
+                b.this.f60207e.put(p, cVar);
+                b.this.f60207e.put(p, cVar);
+            }
+            cVar.f60196e = hasMore;
+            cVar.f60197f = b.this.f60210h;
+            if (!ListUtils.isEmpty(threadList)) {
+                if (b.this.f60210h == 0) {
+                    if (ListUtils.isEmpty(cVar.f60195d)) {
+                        cVar.f60195d = threadList;
+                    } else {
+                        i = cVar.a(threadList);
+                        if (b.this.f60205c == null) {
+                            b.this.f60205c.a(b.this.f60208f, b.this.f60209g, cVar.f60195d, b.this.f60206d, cVar.f60196e, false, i);
+                            return;
+                        }
+                        return;
+                    }
+                } else {
+                    cVar.f60195d.addAll(threadList);
+                }
+            }
+            i = -1;
+            if (b.this.f60205c == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f60213e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f60214f;
+
+        public c(int i, int i2) {
+            this.f60213e = i;
+            this.f60214f = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            b.this.b(this.f60213e, this.f60214f);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f60216e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f60217f;
+
+        public d(int i, int i2) {
+            this.f60216e = i;
+            this.f60217f = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            b.this.d(this.f60216e, this.f60217f);
+        }
+    }
+
+    public b(Context context, BdUniqueId bdUniqueId, long j, String str) {
+        this.j = 0L;
+        this.f60203a = context;
+        this.f60204b = bdUniqueId;
+        this.j = j;
+        d.b.i0.q0.s1.a.c.a aVar = new d.b.i0.q0.s1.a.c.a();
+        this.l = aVar;
+        aVar.e(this.m);
+        s();
+        t();
+    }
+
+    public static void t() {
+        d.b.i0.d3.d0.a.h(309478, FrsGameStrategySocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, d.b.i0.d3.d0.a.a("c/f/game/gameForumGuideTab", 309478));
+        tbHttpMessageTask.setIsNeedLogin(false);
+        tbHttpMessageTask.setIsNeedTbs(false);
+        tbHttpMessageTask.setIsNeedAddCommenParam(false);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+        tbHttpMessageTask.setResponsedClass(FrsGameStrategyHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    @Override // d.b.i0.q0.s1.a.d.a
+    public e a(int i) {
+        if (ListUtils.isEmpty(this.f60206d)) {
+            return null;
+        }
+        for (e eVar : this.f60206d) {
+            if (eVar != null && eVar.f60221a == i) {
+                return eVar;
+            }
+        }
+        return null;
+    }
+
+    @Override // d.b.i0.q0.s1.a.d.a
+    public void b(int i, int i2) {
+        if (this.i) {
+            this.k.postDelayed(new c(i, i2), 1000L);
+            return;
+        }
+        this.f60208f = i;
+        this.f60209g = i2;
+        if (i == 0 && i2 == 0) {
+            this.l.c(String.valueOf(this.j));
+        } else {
+            String p = p(i, i2);
+            d.b.i0.q0.s1.a.a.c cVar = this.f60207e.get(p);
+            if (cVar == null) {
+                cVar = new d.b.i0.q0.s1.a.a.c();
+                this.f60207e.put(p, cVar);
+            }
+            cVar.f60192a = p;
+            cVar.f60193b = this.f60208f;
+            cVar.f60194c = this.f60209g;
+            cVar.f60197f = 0;
+            cVar.f60196e = true;
+        }
+        this.f60210h = 0;
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.j, 0, this.f60208f, this.f60209g);
+        frsGameStrategyRequestMessage.setTag(this.f60204b);
+        MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
+        this.i = true;
+    }
+
+    @Override // d.b.i0.q0.s1.a.d.a
+    public boolean c(int i, int i2) {
+        d.b.i0.q0.s1.a.a.c q = q(i, i2);
+        if (q == null || ListUtils.isEmpty(q.f60195d)) {
+            return false;
+        }
+        d.b.i0.q0.s1.a.d.b bVar = this.f60205c;
+        if (bVar != null) {
+            bVar.a(i, i2, q.f60195d, this.f60206d, q.f60196e, false, -1);
+            return true;
+        }
+        return true;
+    }
+
+    @Override // d.b.i0.q0.s1.a.d.a
+    public void d(int i, int i2) {
+        d.b.i0.q0.s1.a.a.a aVar;
+        if (this.i) {
+            this.k.postDelayed(new d(i, i2), 1000L);
+            return;
+        }
+        this.f60208f = i;
+        if (i == 0 && i2 == 0) {
+            e o = o(i);
+            if (o != null) {
+                Object obj = o.f60223c;
+                if (obj instanceof LabelDataList) {
+                    LabelDataList labelDataList = (LabelDataList) obj;
+                    if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
+                        this.f60209g = aVar.f60187a;
+                    }
+                }
+            }
+        } else {
+            this.f60209g = i2;
+        }
+        String p = p(i, i2);
+        d.b.i0.q0.s1.a.a.c cVar = this.f60207e.get(p);
+        if (cVar == null) {
+            cVar = new d.b.i0.q0.s1.a.a.c();
+            this.f60207e.put(p, cVar);
+            cVar.f60196e = true;
+            this.f60207e.put(p, cVar);
+        }
+        int i3 = cVar.f60197f + 1;
+        this.f60210h = i3;
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.j, i3, this.f60208f, this.f60209g);
+        frsGameStrategyRequestMessage.setTag(this.f60204b);
+        MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
+        this.i = true;
+    }
+
+    @Override // d.b.i0.q0.s1.a.d.a
+    public String h() {
+        return String.valueOf(this.j);
+    }
+
+    public final e o(int i) {
+        if (ListUtils.isEmpty(this.f60206d)) {
+            return null;
+        }
+        for (e eVar : this.f60206d) {
+            if (eVar != null && eVar.f60221a == i) {
+                return eVar;
+            }
+        }
+        return null;
+    }
+
+    public final String p(int i, int i2) {
+        return i + "_" + i2;
+    }
+
+    public d.b.i0.q0.s1.a.a.c q(int i, int i2) {
+        return this.f60207e.get(p(i, i2));
+    }
+
+    public void r() {
+        this.k.removeCallbacksAndMessages(null);
+    }
+
+    public final void s() {
+        this.n.setTag(this.f60204b);
+        MessageManager.getInstance().registerListener(this.n);
+    }
+
+    public void u(d.b.i0.q0.s1.a.d.b bVar) {
+        this.f60205c = bVar;
+    }
+}

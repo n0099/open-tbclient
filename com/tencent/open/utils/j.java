@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.tencent.connect.common.Constants;
 import java.io.File;
@@ -32,47 +33,47 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39328a = "";
+    public static String f39617a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39329b = "";
+    public static String f39618b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39330c = "";
+    public static String f39619c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39331d = "";
+    public static String f39620d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39332e = -1;
+    public static int f39621e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f39333f = null;
+    public static String f39622f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f39334g = "0123456789ABCDEF";
+    public static String f39623g = "0123456789ABCDEF";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39335a;
+        public String f39624a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39336b;
+        public long f39625b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f39337c;
+        public long f39626c;
 
         public a(String str, int i) {
-            this.f39335a = str;
-            this.f39336b = i;
+            this.f39624a = str;
+            this.f39625b = i;
             if (str != null) {
-                this.f39337c = str.length();
+                this.f39626c = str.length();
             }
         }
     }
@@ -189,7 +190,7 @@ public class j {
             return "";
         }
         String d2 = d(context, str);
-        f39330c = d2;
+        f39619c = d2;
         return d2;
     }
 
@@ -227,7 +228,7 @@ public class j {
                 return "";
             }
             String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-            f39333f = str;
+            f39622f = str;
             return str;
         } catch (Exception e2) {
             com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
@@ -280,7 +281,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f39328a;
+        return f39617a;
     }
 
     public static boolean d(Context context) {
@@ -321,10 +322,10 @@ public class j {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f39329b = str2;
-            f39328a = str2.substring(0, str2.lastIndexOf(46));
-            f39331d = f39329b.substring(f39329b.lastIndexOf(46) + 1, f39329b.length());
-            f39332e = packageInfo.versionCode;
+            f39618b = str2;
+            f39617a = str2.substring(0, str2.lastIndexOf(46));
+            f39620d = f39618b.substring(f39618b.lastIndexOf(46) + 1, f39618b.length());
+            f39621e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -356,7 +357,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f39329b;
+        return f39618b;
     }
 
     public static boolean f(Context context, String str) {
@@ -422,7 +423,7 @@ public class j {
         intent.setComponent(new ComponentName(str, str2));
         intent.setAction("android.intent.action.VIEW");
         intent.addFlags(1073741824);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.setData(Uri.parse(str3));
         context.startActivity(intent);
     }

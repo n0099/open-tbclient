@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.l.a;
-import d.b.i0.p3.f;
-/* loaded from: classes5.dex */
+import d.b.i0.q3.f;
+/* loaded from: classes3.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public TextView i;
 
@@ -48,7 +48,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (view.getId() == R.id.free_flow) {
             a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == R.id.play) {
-            View.OnClickListener onClickListener = this.f20527g;
+            View.OnClickListener onClickListener = this.f20219g;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }

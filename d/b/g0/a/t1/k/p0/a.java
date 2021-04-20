@@ -19,28 +19,28 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46464a = d.b.g0.a.k.f45051a;
+    public static final boolean f46856a = d.b.g0.a.k.f45443a;
 
     /* renamed from: d.b.g0.a.t1.k.p0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class RunnableC0842a implements Runnable {
+    /* loaded from: classes3.dex */
+    public static class RunnableC0854a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46465e;
+        public final /* synthetic */ String f46857e;
 
-        public RunnableC0842a(String str) {
-            this.f46465e = str;
+        public RunnableC0854a(String str) {
+            this.f46857e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
             if (W != null) {
-                f.b i = W.i(this.f46465e);
+                f.b i = W.i(this.f46857e);
                 i.f();
                 i.b();
             }
@@ -75,7 +75,7 @@ public final class a {
                 jSONObject.put("removedSlaveIDs", jSONArray);
             }
         } catch (JSONException e2) {
-            if (f46464a) {
+            if (f46856a) {
                 e2.printStackTrace();
             }
         }
@@ -94,7 +94,7 @@ public final class a {
                 jSONObject.put("pageUrl", str2);
             }
         } catch (JSONException e2) {
-            if (f46464a) {
+            if (f46856a) {
                 e2.printStackTrace();
             }
         }
@@ -104,38 +104,38 @@ public final class a {
     /* JADX WARN: Type inference failed for: r8v2, types: [d.b.g0.a.p.d.c] */
     public static void d(d.b.g0.a.p.d.b bVar, d.b.g0.a.e1.b bVar2, String str) {
         d.b.g0.a.j1.h.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage start.");
-        String c2 = k0.c(bVar2.f44364c, bVar2.f44362a, bVar2.f44363b);
-        d.b.g0.a.r1.n.c k = d.b.g0.a.z0.f.V().k(bVar2.f44365d);
+        String c2 = k0.c(bVar2.f44756c, bVar2.f44754a, bVar2.f44755b);
+        d.b.g0.a.r1.n.c k = d.b.g0.a.z0.f.V().k(bVar2.f44757d);
         d.b.g0.a.e0.w.b bVar3 = new d.b.g0.a.e0.w.b();
         bVar3.i = bVar.w();
-        bVar3.f44317a = bVar2.f44364c;
+        bVar3.f44709a = bVar2.f44756c;
         if (d.b.g0.a.r1.e.y() != null) {
-            bVar3.f44319c = d.b.g0.a.r1.e.y().Q(bVar2.f44365d);
+            bVar3.f44711c = d.b.g0.a.r1.e.y().Q(bVar2.f44757d);
         }
-        bVar3.k = d.b.g0.a.e0.w.a.b(d.b.g0.a.r1.e.y(), bVar2.f44362a);
-        bVar3.f44318b = d.b.g0.a.e1.b.a(bVar2);
-        bVar3.f44320d = k.f45777g;
-        bVar3.f44321e = String.valueOf(d.b.g0.a.c0.a.a());
+        bVar3.k = d.b.g0.a.e0.w.a.b(d.b.g0.a.r1.e.y(), bVar2.f44754a);
+        bVar3.f44710b = d.b.g0.a.e1.b.a(bVar2);
+        bVar3.f44712d = k.f46169g;
+        bVar3.f44713e = String.valueOf(d.b.g0.a.c0.a.a());
         if (d.b.g0.a.r1.e.y() != null) {
-            String K = d.b.g0.a.r1.e.y().K(bVar2.f44365d);
+            String K = d.b.g0.a.r1.e.y().K(bVar2.f44757d);
             if (!TextUtils.isEmpty(K)) {
-                if (f46464a) {
+                if (f46856a) {
                     Log.d("ActionUtils", "add initData: " + K);
                 }
-                bVar3.f44322f = K;
+                bVar3.f44714f = K;
             }
         }
-        bVar3.f44323g = f46464a || d.b.g0.a.z0.f.V().O();
-        bVar3.f44324h = str;
+        bVar3.f44715g = f46856a || d.b.g0.a.z0.f.V().O();
+        bVar3.f44716h = str;
         if (d.b.g0.a.m1.a.a.C()) {
             bVar3.j = d.b.g0.a.c0.d.b.d();
         }
         d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).A(new UbcFlowEvent("slave_dispatch_start"));
         b0.d();
-        bVar.getWebView().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar2.d());
-        bVar.s(bVar3.f44318b);
+        bVar.F().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar2.d());
+        bVar.s(bVar3.f44710b);
         d.b.g0.a.z0.f.V().z(bVar.c(), d.b.g0.a.e0.w.b.a(bVar3));
-        d.b.g0.a.z1.e.B(bVar.c(), bVar3.f44318b);
+        d.b.g0.a.z1.e.B(bVar.c(), bVar3.f44710b);
         d.b.g0.a.e0.v.b.i(c2, bVar);
         d.b.g0.a.j1.h.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage end.");
     }
@@ -151,7 +151,7 @@ public final class a {
 
     public static List<String> f(d.b.g0.a.e0.l.f fVar) {
         d.b.g0.a.e0.l.c j;
-        if (fVar != null && fVar.k() >= d.b.g0.a.t.c.i.b.f46112d && (j = fVar.j(0)) != null && (j instanceof d.b.g0.a.e0.l.e)) {
+        if (fVar != null && fVar.k() >= d.b.g0.a.t.c.i.b.f46504d && (j = fVar.j(0)) != null && (j instanceof d.b.g0.a.e0.l.e)) {
             return ((d.b.g0.a.e0.l.e) j).Y2();
         }
         return null;
@@ -168,7 +168,7 @@ public final class a {
 
     public static boolean h(@NonNull String str) {
         String g2 = g();
-        if (f46464a) {
+        if (f46856a) {
             Log.i("ActionUtils", "lastPageUrl: " + g2 + "\ncurPageUrl: " + str);
         }
         if (g2 != null && str != null) {
@@ -215,7 +215,7 @@ public final class a {
         try {
             return new JSONObject(str3).optString(str2);
         } catch (JSONException e2) {
-            if (f46464a) {
+            if (f46856a) {
                 e2.printStackTrace();
             }
             return null;
@@ -235,6 +235,6 @@ public final class a {
     }
 
     public static void p(String str) {
-        k0.T(new RunnableC0842a(str));
+        k0.T(new RunnableC0854a(str));
     }
 }

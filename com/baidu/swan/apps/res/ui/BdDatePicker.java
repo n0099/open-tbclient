@@ -17,19 +17,19 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class BdDatePicker extends LinearLayout {
-    public static final boolean w = k.f45051a;
+    public static final boolean w = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12423e;
+    public int f12084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12424f;
+    public int f12085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12425g;
+    public int f12086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WheelView3d f12426h;
+    public WheelView3d f12087h;
     public WheelView3d i;
     public WheelView3d j;
     public Date k;
@@ -53,7 +53,7 @@ public class BdDatePicker extends LinearLayout {
         @Override // d.b.g0.a.q1.a.f.c.b
         public void a(WheelView3d wheelView3d, int i) {
             BdDatePicker bdDatePicker = BdDatePicker.this;
-            bdDatePicker.f12423e = i + bdDatePicker.m;
+            bdDatePicker.f12084e = i + bdDatePicker.m;
             BdDatePicker.this.j();
             BdDatePicker.this.i();
         }
@@ -67,7 +67,7 @@ public class BdDatePicker extends LinearLayout {
         @Override // d.b.g0.a.q1.a.f.c.b
         public void a(WheelView3d wheelView3d, int i) {
             BdDatePicker bdDatePicker = BdDatePicker.this;
-            bdDatePicker.f12424f = i + bdDatePicker.o;
+            bdDatePicker.f12085f = i + bdDatePicker.o;
             BdDatePicker.this.i();
         }
     }
@@ -80,7 +80,7 @@ public class BdDatePicker extends LinearLayout {
         @Override // d.b.g0.a.q1.a.f.c.b
         public void a(WheelView3d wheelView3d, int i) {
             BdDatePicker bdDatePicker = BdDatePicker.this;
-            bdDatePicker.f12425g = i + bdDatePicker.r;
+            bdDatePicker.f12086g = i + bdDatePicker.r;
         }
     }
 
@@ -90,9 +90,9 @@ public class BdDatePicker extends LinearLayout {
 
     public BdDatePicker(Context context) {
         super(context);
-        this.f12423e = 1900;
-        this.f12424f = 1;
-        this.f12425g = 1;
+        this.f12084e = 1900;
+        this.f12085f = 1;
+        this.f12086g = 1;
         this.m = 1900;
         this.n = 2100;
         this.o = 1;
@@ -111,15 +111,15 @@ public class BdDatePicker extends LinearLayout {
         this.u = h0.f(16.0f);
         this.v = h0.f(14.0f);
         WheelView3d wheelView3d = (WheelView3d) findViewById(f.wheel_year);
-        this.f12426h = wheelView3d;
+        this.f12087h = wheelView3d;
         wheelView3d.setCenterTextSize(this.u);
-        this.f12426h.setOuterTextSize(this.v);
-        this.f12426h.setLineSpacingMultiplier(3.0f);
-        this.f12426h.setTextColorCenter(-16777216);
-        this.f12426h.setTextColorOut(-16777216);
-        this.f12426h.setDividerType(WheelView3d.DividerType.FILL);
-        this.f12426h.setVisibleItem(7);
-        this.f12426h.setOnItemSelectedListener(new a());
+        this.f12087h.setOuterTextSize(this.v);
+        this.f12087h.setLineSpacingMultiplier(3.0f);
+        this.f12087h.setTextColorCenter(-16777216);
+        this.f12087h.setTextColorOut(-16777216);
+        this.f12087h.setDividerType(WheelView3d.DividerType.FILL);
+        this.f12087h.setVisibleItem(7);
+        this.f12087h.setOnItemSelectedListener(new a());
         WheelView3d wheelView3d2 = (WheelView3d) findViewById(f.wheel_month);
         this.i = wheelView3d2;
         wheelView3d2.setCenterTextSize(this.u);
@@ -144,34 +144,34 @@ public class BdDatePicker extends LinearLayout {
     }
 
     public int getDay() {
-        return this.f12425g;
+        return this.f12086g;
     }
 
     public int getMonth() {
-        return this.f12424f;
+        return this.f12085f;
     }
 
     public int getYear() {
-        return this.f12423e;
+        return this.f12084e;
     }
 
     public final void h() {
         Calendar calendar = Calendar.getInstance();
-        this.f12423e = calendar.get(1);
-        this.f12424f = calendar.get(2) + 1;
-        this.f12425g = calendar.get(5);
+        this.f12084e = calendar.get(1);
+        this.f12085f = calendar.get(2) + 1;
+        this.f12086g = calendar.get(5);
         n();
     }
 
     public void i() {
         int[] iArr = {4, 6, 9, 11};
-        if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.f12424f) >= 0) {
+        if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.f12085f) >= 0) {
             this.q = 31;
-        } else if (Arrays.binarySearch(iArr, this.f12424f) >= 0) {
+        } else if (Arrays.binarySearch(iArr, this.f12085f) >= 0) {
             this.q = 30;
         } else {
-            int i = this.f12423e;
-            if ((i % 4 == 0 && i % 100 != 0) || this.f12423e % 400 == 0) {
+            int i = this.f12084e;
+            if ((i % 4 == 0 && i % 100 != 0) || this.f12084e % 400 == 0) {
                 this.q = 29;
             } else {
                 this.q = 28;
@@ -180,41 +180,41 @@ public class BdDatePicker extends LinearLayout {
         this.r = 1;
         this.s = this.q;
         Date date = this.k;
-        if (date != null && this.f12423e == this.m && this.f12424f == date.getMonth() + 1) {
+        if (date != null && this.f12084e == this.m && this.f12085f == date.getMonth() + 1) {
             this.r = this.k.getDate();
         }
         Date date2 = this.l;
-        if (date2 != null && this.f12423e == this.n && this.f12424f == date2.getMonth() + 1) {
+        if (date2 != null && this.f12084e == this.n && this.f12085f == date2.getMonth() + 1) {
             this.s = this.l.getDate();
         }
         this.j.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.r, this.s));
         m(this.j, this.r, this.s);
-        setDay(this.f12425g);
+        setDay(this.f12086g);
     }
 
     public void j() {
         this.o = 1;
         this.p = 12;
         Date date = this.k;
-        if (date != null && this.f12423e == this.m) {
+        if (date != null && this.f12084e == this.m) {
             this.o = date.getMonth() + 1;
         }
         Date date2 = this.l;
-        if (date2 != null && this.f12423e == this.n) {
+        if (date2 != null && this.f12084e == this.n) {
             this.p = date2.getMonth() + 1;
         }
         this.i.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.o, this.p));
         m(this.i, this.o, this.p);
-        setMonth(this.f12424f);
+        setMonth(this.f12085f);
     }
 
     public final void k() {
-        int i = this.f12423e;
+        int i = this.f12084e;
         if (i < this.m || i > this.n) {
-            this.f12423e = this.m;
+            this.f12084e = this.m;
         }
-        this.f12426h.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.m, this.n));
-        m(this.f12426h, this.m, this.n);
+        this.f12087h.setAdapter(new d.b.g0.a.q1.a.f.a.b(this.m, this.n));
+        m(this.f12087h, this.m, this.n);
     }
 
     public boolean l(String str) {
@@ -238,7 +238,7 @@ public class BdDatePicker extends LinearLayout {
             c2 = 65535;
         }
         if (c2 == 0) {
-            wheelView3d = this.f12426h;
+            wheelView3d = this.f12087h;
         } else if (c2 != 1) {
             wheelView3d = c2 != 2 ? null : this.j;
         } else {
@@ -274,12 +274,12 @@ public class BdDatePicker extends LinearLayout {
             }
             i = i2;
         }
-        this.f12425g = i;
+        this.f12086g = i;
         this.j.setCurrentItem(i - this.r);
     }
 
     public void setDisabled(boolean z) {
-        this.f12426h.setIsOptions(z);
+        this.f12087h.setIsOptions(z);
         this.i.setIsOptions(z);
         this.j.setIsOptions(z);
     }
@@ -307,19 +307,19 @@ public class BdDatePicker extends LinearLayout {
             c2 = 0;
         }
         if (c2 == 0) {
-            this.f12426h.setGravity(17);
+            this.f12087h.setGravity(17);
             this.i.setVisibility(8);
             this.j.setVisibility(8);
         } else if (c2 != 1) {
-            this.f12426h.setGravity(5);
-            this.f12426h.setGravityOffset(this.t);
+            this.f12087h.setGravity(5);
+            this.f12087h.setGravityOffset(this.t);
             this.j.setGravity(3);
             this.j.setGravityOffset(this.t);
             this.i.setVisibility(0);
             this.j.setVisibility(0);
         } else {
-            this.f12426h.setGravity(5);
-            this.f12426h.setGravityOffset(this.t);
+            this.f12087h.setGravity(5);
+            this.f12087h.setGravityOffset(this.t);
             this.i.setGravity(3);
             this.i.setGravityOffset(this.t);
             this.i.setVisibility(0);
@@ -342,11 +342,11 @@ public class BdDatePicker extends LinearLayout {
                     d.b.g0.a.q1.b.f.d.f(appContext2, "The month must be between " + this.o + " and " + this.p).C();
                 }
             }
-            this.f12424f = i;
+            this.f12085f = i;
             this.i.setCurrentItem(i - this.o);
         }
         i = i2;
-        this.f12424f = i;
+        this.f12085f = i;
         this.i.setCurrentItem(i - this.o);
     }
 
@@ -355,7 +355,7 @@ public class BdDatePicker extends LinearLayout {
 
     public void setScrollCycle(boolean z) {
         this.i.setCyclic(z);
-        this.f12426h.setCyclic(z);
+        this.f12087h.setCyclic(z);
         this.j.setCyclic(z);
     }
 
@@ -383,19 +383,19 @@ public class BdDatePicker extends LinearLayout {
                     d.b.g0.a.q1.b.f.d.f(appContext2, "The year must be between " + this.m + " and " + this.n).C();
                 }
             }
-            this.f12423e = i;
-            this.f12426h.setCurrentItem(i - this.m);
+            this.f12084e = i;
+            this.f12087h.setCurrentItem(i - this.m);
         }
         i = i2;
-        this.f12423e = i;
-        this.f12426h.setCurrentItem(i - this.m);
+        this.f12084e = i;
+        this.f12087h.setCurrentItem(i - this.m);
     }
 
     public BdDatePicker(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12423e = 1900;
-        this.f12424f = 1;
-        this.f12425g = 1;
+        this.f12084e = 1900;
+        this.f12085f = 1;
+        this.f12086g = 1;
         this.m = 1900;
         this.n = 2100;
         this.o = 1;
@@ -409,9 +409,9 @@ public class BdDatePicker extends LinearLayout {
 
     public BdDatePicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12423e = 1900;
-        this.f12424f = 1;
-        this.f12425g = 1;
+        this.f12084e = 1900;
+        this.f12085f = 1;
+        this.f12086g = 1;
         this.m = 1900;
         this.n = 2100;
         this.o = 1;

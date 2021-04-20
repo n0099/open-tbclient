@@ -2,7 +2,7 @@ package com.coremedia.iso;
 
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeWriterVariable {
     public static void write(long j, ByteBuffer byteBuffer, int i) {
         if (i == 1) {

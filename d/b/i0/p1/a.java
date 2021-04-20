@@ -1,296 +1,196 @@
 package d.b.i0.p1;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.searchbox.live.nps.LiveNpsLoadingCallback;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.view.NpsPluginLoadingDialogActivity;
-import d.b.b.e.p.l;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.majorsearch.SearchMajorActivity;
+import com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter;
+import d.b.c.e.p.l;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<NpsPluginLoadingDialogActivity> f58783a;
+    public SearchMajorActivity f58904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58784b;
+    public View f58905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58785c;
+    public NavigationBar f58906c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public RelativeLayout f58907d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public EditText f58908e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f58909f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f58910g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public RecyclerView f58911h;
+    public LinearLayoutManager i;
+    public SearchMajorResultItemAdapter j;
+    public LinearLayout k;
 
     /* renamed from: d.b.i0.p1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1449a implements LiveNpsLoadingCallback {
-        public C1449a() {
+    public class View$OnTouchListenerC1429a implements View.OnTouchListener {
+        public View$OnTouchListenerC1429a() {
         }
 
-        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
-        public void onLoadingEnd(int i) {
-            a.this.f58785c = false;
-            a.this.e();
-        }
-
-        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
-        public void onLoadingProgress(long j, long j2) {
-            BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
-            a.this.f58784b = (int) (j2 <= 0 ? 0.0f : (((float) j) * 100.0f) / ((float) j2));
-            a aVar = a.this;
-            aVar.B(aVar.g());
-        }
-
-        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
-        public void onLoadingStart() {
-            a.this.f58785c = true;
-            a.this.l(TbadkCoreApplication.getInst());
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == 0) {
+                a.this.f58907d.setFocusable(true);
+                a.this.f58907d.setFocusableInTouchMode(true);
+                if (a.this.f58908e.hasFocus()) {
+                    l.w(a.this.f58904a, a.this.f58908e);
+                    return false;
+                }
+                return false;
+            }
+            return false;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f58787a = new a(null);
-    }
-
-    public /* synthetic */ a(C1449a c1449a) {
-        this();
-    }
-
-    public static a h() {
-        return b.f58787a;
-    }
-
-    public boolean A() {
-        return Build.VERSION.SDK_INT < 21;
-    }
-
-    public void B(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
-        if (npsPluginLoadingDialogActivity != null) {
-            npsPluginLoadingDialogActivity.setRoundProgress(this.f58784b);
+    public class b implements View.OnClickListener {
+        public b() {
         }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            a.this.f58908e.setText("");
+        }
+    }
+
+    public a(View view, SearchMajorActivity searchMajorActivity) {
+        this.f58905b = view;
+        this.f58904a = searchMajorActivity;
+        h();
+    }
+
+    public LinearLayout d() {
+        return this.k;
     }
 
     public final void e() {
-        NpsPluginLoadingDialogActivity g2 = g();
-        if (g2 != null) {
-            g2.finish();
-            this.f58783a = null;
-        }
+        NavigationBar navigationBar = (NavigationBar) this.f58905b.findViewById(R.id.navigation_bar);
+        this.f58906c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f58906c.setCenterTextTitle(this.f58904a.getResources().getString(R.string.search_major));
     }
 
-    public void f(Context context, String str, Map<String, Object> map) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().dispatchHostEvent(context, str, map);
-        }
+    public final void f() {
+        RelativeLayout relativeLayout = (RelativeLayout) this.f58905b.findViewById(R.id.search_container);
+        this.f58907d = relativeLayout;
+        relativeLayout.setOnTouchListener(new View$OnTouchListenerC1429a());
+        this.f58910g = (ImageView) this.f58905b.findViewById(R.id.search_icon);
+        this.f58908e = (EditText) this.f58905b.findViewById(R.id.search_box);
+        ImageView imageView = (ImageView) this.f58905b.findViewById(R.id.search_del);
+        this.f58909f = imageView;
+        imageView.setOnClickListener(new b());
+        k(false);
+        this.f58908e.setText("");
+        this.f58908e.requestFocus();
     }
 
-    public final NpsPluginLoadingDialogActivity g() {
-        WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f58783a;
-        if (weakReference != null) {
-            return weakReference.get();
-        }
-        return null;
+    public final void g() {
+        this.k = (LinearLayout) this.f58905b.findViewById(R.id.layout_container);
+        this.f58911h = (RecyclerView) this.f58905b.findViewById(R.id.rv_major_list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.f58904a);
+        this.i = linearLayoutManager;
+        this.f58911h.setLayoutManager(linearLayoutManager);
+        SearchMajorResultItemAdapter searchMajorResultItemAdapter = new SearchMajorResultItemAdapter(this.f58904a);
+        this.j = searchMajorResultItemAdapter;
+        this.f58911h.setAdapter(searchMajorResultItemAdapter);
     }
 
-    public boolean i() {
-        return this.f58785c;
+    public final void h() {
+        e();
+        f();
+        g();
+    }
+
+    public void i(int i) {
+        SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
+        if (searchMajorResultItemAdapter != null) {
+            searchMajorResultItemAdapter.notifyDataSetChanged();
+        }
+        this.f58906c.onChangeSkinType(this.f58904a.getPageContext(), i);
+        this.f58908e.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+        this.f58908e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58910g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setBackgroundResource(this.f58907d, R.drawable.search_major_bg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58909f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void j() {
-        this.f58783a = null;
-        LiveNPSPluginManager.getInstance().cancelLoading();
-    }
-
-    public void k(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
-        this.f58783a = new WeakReference<>(npsPluginLoadingDialogActivity);
-        B(npsPluginLoadingDialogActivity);
-    }
-
-    public void l(Context context) {
-        new WeakReference(context);
-        if (g() != null) {
+        if (StringUtils.isNull(this.f58908e.getText().toString())) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        Intent intent = new Intent(context, NpsPluginLoadingDialogActivity.class);
-        intent.putExtra("dialogId", currentTimeMillis);
-        if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
-        }
-        context.startActivity(intent);
+        this.f58907d.setFocusable(true);
+        this.f58907d.setFocusableInTouchMode(true);
+        this.f58907d.requestFocus();
     }
 
-    public void m(Context context) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startAdminListActivity(context);
-        }
+    public void k(boolean z) {
+        this.f58909f.setVisibility(z ? 0 : 8);
     }
 
-    public void n(Context context, String str, int i) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startFansListActivity(context, str, i);
+    public void l(List<String> list, String str) {
+        this.f58911h.setVisibility(0);
+        SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
+        if (searchMajorResultItemAdapter != null) {
+            searchMajorResultItemAdapter.g(str);
+            this.j.setData(list);
+            this.f58911h.setAdapter(this.j);
         }
     }
 
-    public void o(Context context) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startForbiddenListActivity(context);
+    public void m(ErrorData errorData) {
+        this.f58911h.setVisibility(8);
+        SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
+        if (searchMajorResultItemAdapter != null) {
+            searchMajorResultItemAdapter.m();
         }
     }
 
-    public void p(Context context, String str, String str2) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startGuardianListActivity(context, str, str2);
-        }
+    public void n(SearchMajorResultItemAdapter.b bVar) {
+        this.j.n(bVar);
     }
 
-    public void q(Context context, long j, int i) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startLiveExpActivity(context, j, i);
-        }
+    public void o(RecyclerView.OnScrollListener onScrollListener) {
+        this.f58911h.addOnScrollListener(onScrollListener);
     }
 
-    public void r(Context context, String str, String str2, String str3, Uri uri) {
-        if (A()) {
-            return;
-        }
-        LiveNPSPluginManager.getInstance().startLiveMediaActivity(context, str, str2, str3, uri);
+    public void p(TextView.OnEditorActionListener onEditorActionListener) {
+        this.f58908e.setOnEditorActionListener(onEditorActionListener);
     }
 
-    public void s(Context context, String str) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startLiveShowActivity(context, str);
-        }
+    public void q(View.OnFocusChangeListener onFocusChangeListener) {
+        this.f58908e.setOnFocusChangeListener(onFocusChangeListener);
     }
 
-    public void t(Context context, String str, String str2, Map<String, Object> map) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startYuYinActivity(context, str, str2, map);
-        }
-    }
-
-    public void u(@NonNull Context context) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startPatronageActivity(context);
-        }
-    }
-
-    public void v(@NonNull Context context, String str) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startPatronsActivity(context, str);
-        }
-    }
-
-    public void w(@NonNull Context context, @NonNull String str) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startPayActivity(context, str);
-        }
-    }
-
-    public void x(Context context, String str, String str2) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startRealAuthActivity(context, str, str2);
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x002e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0037 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x003d  */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [org.json.JSONObject] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void y(Context context, String str) {
-        JSONObject jSONObject;
-        JSONException e2;
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-            return;
-        }
-        Object obj = null;
-        try {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("show_ar_loading", 1);
-                    jSONObject = jSONObject2;
-                } else {
-                    JSONObject jSONObject3 = new JSONObject(str);
-                    obj = jSONObject3.opt("show_ar_loading");
-                    jSONObject = jSONObject3;
-                    if (obj == null) {
-                        jSONObject3.put("show_ar_loading", 1);
-                        jSONObject = jSONObject3;
-                    }
-                }
-            } catch (JSONException e3) {
-                e2 = e3;
-                e2.printStackTrace();
-                LiveNPSPluginManager liveNPSPluginManager = LiveNPSPluginManager.getInstance();
-                if (jSONObject != 0) {
-                }
-                liveNPSPluginManager.startShowMasterActivity(context, str);
-            }
-        } catch (JSONException e4) {
-            jSONObject = obj;
-            e2 = e4;
-        }
-        LiveNPSPluginManager liveNPSPluginManager2 = LiveNPSPluginManager.getInstance();
-        if (jSONObject != 0) {
-            str = jSONObject.toString();
-        }
-        liveNPSPluginManager2.startShowMasterActivity(context, str);
-    }
-
-    public void z(Context context, String str) {
-        if (A()) {
-            l.L(context, "安卓系统版本不支持)");
-        } else {
-            LiveNPSPluginManager.getInstance().startYuYinCreateLiveRoomActivity(context, str);
-        }
-    }
-
-    public a() {
-        this.f58784b = 0;
-        this.f58785c = false;
-        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1449a());
-        d.b.i0.l1.h.a.c(TbadkCoreApplication.getInst());
+    public void r(TextWatcher textWatcher) {
+        this.f58908e.addTextChangedListener(textWatcher);
     }
 }

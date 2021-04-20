@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.io.ActionJsonData;
 import com.vivo.push.model.InsideNotificationItem;
 import java.text.SimpleDateFormat;
@@ -178,7 +179,7 @@ public class NotifyAdapterUtil {
         intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
         intent.putExtra("command_type", "reflect_receiver");
         new com.vivo.push.b.r(packageName, j, insideNotificationItem).b(intent);
-        notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456);
+        notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, Label.FORWARD_REFERENCE_TYPE_SHORT);
         if (sNotificationManager != null) {
             int r = com.vivo.push.p.a().r();
             if (r == 0) {
@@ -279,7 +280,7 @@ public class NotifyAdapterUtil {
         intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
         intent.putExtra("command_type", "reflect_receiver");
         new com.vivo.push.b.r(packageName, j, insideNotificationItem).b(intent);
-        builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456));
+        builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, Label.FORWARD_REFERENCE_TYPE_SHORT));
         Notification build = builder.build();
         int r = com.vivo.push.p.a().r();
         NotificationManager notificationManager = sNotificationManager;

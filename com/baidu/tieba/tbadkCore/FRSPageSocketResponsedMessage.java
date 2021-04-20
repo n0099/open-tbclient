@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import d.b.b.e.m.b;
-import d.b.i0.c3.e;
-import d.b.i0.c3.m;
+import d.b.c.e.m.b;
+import d.b.i0.d3.e;
+import d.b.i0.d3.m;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, FrsPageResIdl> {
     public int mCategoryId;
     public int mIsGood;

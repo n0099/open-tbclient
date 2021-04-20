@@ -8,7 +8,7 @@ import java.util.Map;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, d> f11638a = new HashMap();
+    public static Map<String, d> f11299a = new HashMap();
 
     public static void a(Context context, int i, File file, File file2) {
         if (file != null) {
@@ -22,12 +22,12 @@ public final class c {
                     sb.append(", b=");
                     sb.append(file2);
                     b.a();
-                    if (f11638a.containsKey(file.getAbsolutePath())) {
+                    if (f11299a.containsKey(file.getAbsolutePath())) {
                         return;
                     }
                     d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
                     dVar.startWatching();
-                    f11638a.put(file.getAbsolutePath(), dVar);
+                    f11299a.put(file.getAbsolutePath(), dVar);
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.g.d.a();
@@ -42,10 +42,10 @@ public final class c {
         try {
             new StringBuilder("f=").append(file.getAbsolutePath());
             b.a();
-            d dVar = f11638a.get(file.getAbsolutePath());
+            d dVar = f11299a.get(file.getAbsolutePath());
             if (dVar != null) {
                 dVar.stopWatching();
-                f11638a.remove(file.getAbsolutePath());
+                f11299a.remove(file.getAbsolutePath());
                 dVar.a();
             }
         } catch (Throwable unused) {

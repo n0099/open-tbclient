@@ -10,23 +10,23 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadInfo f67036c;
+    public final DownloadInfo f68029c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.o.a.e.b.j.a f67038e;
+    public final d.o.a.e.b.j.a f68031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.o.a.e.b.k.f f67039f;
+    public final d.o.a.e.b.k.f f68032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f67040g;
+    public final c f68033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseException f67041h;
+    public BaseException f68034h;
     public final boolean m;
     public final long n;
     public final long o;
@@ -34,10 +34,10 @@ public class g {
     public long q;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<k> f67034a = new LinkedList();
+    public final List<k> f68027a = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<k> f67035b = new ArrayList();
+    public final List<k> f68028b = new ArrayList();
     public volatile boolean i = false;
     public volatile boolean j = false;
     public volatile boolean k = false;
@@ -45,25 +45,25 @@ public class g {
     public volatile long s = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.o.a.e.b.g.j f67037d = d.o.a.e.b.g.d.I0();
+    public final d.o.a.e.b.g.j f68030d = d.o.a.e.b.g.d.I0();
     public final d.o.a.e.b.a.a l = d.o.a.e.b.a.a.c();
 
     public g(DownloadInfo downloadInfo, d.o.a.e.b.k.f fVar, c cVar) {
-        this.f67036c = downloadInfo;
-        this.f67039f = fVar;
-        this.f67040g = cVar;
+        this.f68029c = downloadInfo;
+        this.f68032f = fVar;
+        this.f68033g = cVar;
         d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(downloadInfo.c0());
-        this.f67038e = d2;
+        this.f68031e = d2;
         boolean z = d2.b("sync_strategy", 0) == 1;
         this.m = z;
         if (z) {
-            this.n = Math.max(this.f67038e.b("sync_interval_ms_fg", 5000), 500L);
-            this.o = Math.max(this.f67038e.b("sync_interval_ms_bg", 1000), 500L);
+            this.n = Math.max(this.f68031e.b("sync_interval_ms_fg", 5000), 500L);
+            this.o = Math.max(this.f68031e.b("sync_interval_ms_bg", 1000), 500L);
         } else {
             this.n = 0L;
             this.o = 0L;
         }
-        this.p = this.f67038e.m("monitor_rw") == 1;
+        this.p = this.f68031e.m("monitor_rw") == 1;
     }
 
     public void a() {
@@ -81,7 +81,7 @@ public class g {
             }
             return;
         }
-        long E = this.f67036c.E() - this.r;
+        long E = this.f68029c.E() - this.r;
         if (z || h(E, j2)) {
             k();
             this.s = j;
@@ -131,10 +131,10 @@ public class g {
             return;
         }
         d.o.a.e.b.o.d.e();
-        this.f67041h = null;
-        downloadInfo = this.f67036c;
-        d.o.a.e.b.k.f fVar = this.f67039f;
-        c cVar = this.f67040g;
+        this.f68034h = null;
+        downloadInfo = this.f68029c;
+        d.o.a.e.b.k.f fVar = this.f68032f;
+        c cVar = this.f68033g;
         E = downloadInfo.E();
         nanoTime = System.nanoTime();
         z = this.p;
@@ -158,7 +158,7 @@ public class g {
                             i2 = i3;
                             j4 = j7;
                             try {
-                                this.f67041h = e;
+                                this.f68034h = e;
                                 throw e;
                             } catch (Throwable th6) {
                                 th = th6;
@@ -177,12 +177,12 @@ public class g {
                             j2 = j5;
                             i = i3;
                             j3 = j7;
-                            if (!this.f67038e.l("ignore_base_ex_on_stop_status")) {
+                            if (!this.f68031e.l("ignore_base_ex_on_stop_status")) {
                             }
                             if (d.o.a.e.b.c.a.e()) {
                             }
                             d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                            this.f67041h = e;
+                            this.f68034h = e;
                             throw e;
                         } catch (Throwable th7) {
                             th = th7;
@@ -205,10 +205,10 @@ public class g {
                         }
                         j2 = j5;
                         try {
-                            int i4 = a2.f67024c;
+                            int i4 = a2.f68017c;
                             if (i4 == -1) {
                                 try {
-                                    d(a2.f67023b);
+                                    d(a2.f68016b);
                                     cVar.a(a2);
                                     j5 = j2;
                                 } catch (p e4) {
@@ -216,13 +216,13 @@ public class g {
                                     i2 = i3;
                                     j4 = j7;
                                     j5 = j2;
-                                    this.f67041h = e;
+                                    this.f68034h = e;
                                     throw e;
                                 } catch (BaseException e5) {
                                     e = e5;
                                     i = i3;
                                     j3 = j7;
-                                    if (!this.f67038e.l("ignore_base_ex_on_stop_status") && (this.j || this.k)) {
+                                    if (!this.f68031e.l("ignore_base_ex_on_stop_status") && (this.j || this.k)) {
                                         if (i > 0) {
                                             try {
                                                 fVar.b(i);
@@ -236,12 +236,12 @@ public class g {
                                                 th3 = th8;
                                                 d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite: finally sync, e = " + th3);
                                                 synchronized (this) {
-                                                    l(this.f67034a);
-                                                    this.f67034a.clear();
+                                                    l(this.f68027a);
+                                                    this.f68027a.clear();
                                                 }
-                                                d.o.a.e.b.e.a.f(this.f67038e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f67041h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j3, this.q, null);
+                                                d.o.a.e.b.e.a.f(this.f68031e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f68034h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j3, this.q, null);
                                                 if (th3 != null) {
-                                                    if (!this.j && !this.k && this.f67041h == null) {
+                                                    if (!this.j && !this.k && this.f68034h == null) {
                                                         z2 = false;
                                                     }
                                                     if (z2) {
@@ -251,7 +251,7 @@ public class g {
                                                         d.o.a.e.b.l.e.A(th3, "loopAndWrite_finally");
                                                         throw null;
                                                     } catch (BaseException e6) {
-                                                        this.f67041h = e6;
+                                                        this.f68034h = e6;
                                                         throw e6;
                                                     }
                                                 }
@@ -266,7 +266,7 @@ public class g {
                                             e.printStackTrace();
                                         }
                                         d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                        this.f67041h = e;
+                                        this.f68034h = e;
                                         throw e;
                                     }
                                 } catch (Throwable th9) {
@@ -282,7 +282,7 @@ public class g {
                                             d.o.a.e.b.l.e.A(th, "loopAndWrite");
                                             throw null;
                                         } catch (BaseException e7) {
-                                            this.f67041h = e7;
+                                            this.f68034h = e7;
                                             throw e7;
                                         }
                                     }
@@ -293,12 +293,12 @@ public class g {
                                             th2 = th10;
                                             d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite: finally sync, e = " + th2);
                                             synchronized (this) {
-                                                l(this.f67034a);
-                                                this.f67034a.clear();
+                                                l(this.f68027a);
+                                                this.f68027a.clear();
                                             }
-                                            d.o.a.e.b.e.a.f(this.f67038e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f67041h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
+                                            d.o.a.e.b.e.a.f(this.f68031e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f68034h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
                                             if (th2 != null) {
-                                                if (!this.j && !this.k && this.f67041h == null) {
+                                                if (!this.j && !this.k && this.f68034h == null) {
                                                     z2 = false;
                                                 }
                                                 if (z2) {
@@ -308,7 +308,7 @@ public class g {
                                                     d.o.a.e.b.l.e.A(th2, "loopAndWrite_finally");
                                                     throw null;
                                                 } catch (BaseException e8) {
-                                                    this.f67041h = e8;
+                                                    this.f68034h = e8;
                                                     throw e8;
                                                 }
                                             }
@@ -323,7 +323,7 @@ public class g {
                                 if (z) {
                                     j6 = System.nanoTime();
                                 }
-                                a2.f67023b.b(a2);
+                                a2.f68016b.b(a2);
                                 if (z) {
                                     j7 += System.nanoTime() - j6;
                                 }
@@ -343,18 +343,18 @@ public class g {
                                             e = e9;
                                             i2 = i3;
                                             j5 = j2;
-                                            this.f67041h = e;
+                                            this.f68034h = e;
                                             throw e;
                                         } catch (BaseException e10) {
                                             e = e10;
                                             i = i3;
                                             j3 = j4;
-                                            if (!this.f67038e.l("ignore_base_ex_on_stop_status")) {
+                                            if (!this.f68031e.l("ignore_base_ex_on_stop_status")) {
                                             }
                                             if (d.o.a.e.b.c.a.e()) {
                                             }
                                             d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                            this.f67041h = e;
+                                            this.f68034h = e;
                                             throw e;
                                         } catch (Throwable th11) {
                                             th = th11;
@@ -382,7 +382,7 @@ public class g {
                                                 long j9 = j6;
                                                 try {
                                                     b(uptimeMillis, fVar.b(i3));
-                                                    if (!d.o.a.e.b.o.d.f67231f) {
+                                                    if (!d.o.a.e.b.o.d.f68224f) {
                                                         if (!downloadInfo.K1()) {
                                                             if (downloadInfo.l1() && downloadInfo.L1()) {
                                                                 throw new com.ss.android.socialbase.downloader.exception.e();
@@ -401,18 +401,18 @@ public class g {
                                                     e = e11;
                                                     j5 = j2;
                                                     i2 = 0;
-                                                    this.f67041h = e;
+                                                    this.f68034h = e;
                                                     throw e;
                                                 } catch (BaseException e12) {
                                                     e = e12;
                                                     j3 = j4;
                                                     i = 0;
-                                                    if (!this.f67038e.l("ignore_base_ex_on_stop_status")) {
+                                                    if (!this.f68031e.l("ignore_base_ex_on_stop_status")) {
                                                     }
                                                     if (d.o.a.e.b.c.a.e()) {
                                                     }
                                                     d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                                    this.f67041h = e;
+                                                    this.f68034h = e;
                                                     throw e;
                                                 } catch (Throwable th12) {
                                                     th = th12;
@@ -431,18 +431,18 @@ public class g {
                                             e = e13;
                                             i2 = i3;
                                             j5 = j2;
-                                            this.f67041h = e;
+                                            this.f68034h = e;
                                             throw e;
                                         } catch (BaseException e14) {
                                             e = e14;
                                             i = i3;
                                             j3 = j4;
-                                            if (!this.f67038e.l("ignore_base_ex_on_stop_status")) {
+                                            if (!this.f68031e.l("ignore_base_ex_on_stop_status")) {
                                             }
                                             if (d.o.a.e.b.c.a.e()) {
                                             }
                                             d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                                            this.f67041h = e;
+                                            this.f68034h = e;
                                             throw e;
                                         } catch (Throwable th13) {
                                             th = th13;
@@ -477,12 +477,12 @@ public class g {
                             e = e18;
                             i = i3;
                             j3 = j7;
-                            if (!this.f67038e.l("ignore_base_ex_on_stop_status")) {
+                            if (!this.f68031e.l("ignore_base_ex_on_stop_status")) {
                             }
                             if (d.o.a.e.b.c.a.e()) {
                             }
                             d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite:  BaseException e = " + e);
-                            this.f67041h = e;
+                            this.f68034h = e;
                             throw e;
                         } catch (Throwable th15) {
                             th = th15;
@@ -528,12 +528,12 @@ public class g {
                 }
                 th4 = null;
                 synchronized (this) {
-                    l(this.f67034a);
-                    this.f67034a.clear();
+                    l(this.f68027a);
+                    this.f68027a.clear();
                 }
-                d.o.a.e.b.e.a.f(this.f67038e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f67041h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
+                d.o.a.e.b.e.a.f(this.f68031e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f68034h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j, this.q, null);
                 if (th4 != null) {
-                    if (!this.j && !this.k && this.f67041h == null) {
+                    if (!this.j && !this.k && this.f68034h == null) {
                         z2 = false;
                     }
                     if (!z2) {
@@ -541,7 +541,7 @@ public class g {
                             d.o.a.e.b.l.e.A(th4, "loopAndWrite_finally");
                             throw null;
                         } catch (BaseException e21) {
-                            this.f67041h = e21;
+                            this.f68034h = e21;
                             throw e21;
                         }
                     }
@@ -567,12 +567,12 @@ public class g {
                 th5 = th20;
                 d.o.a.e.b.c.a.i("MultiSegmentWriter", "loopAndWrite: finally sync, e = " + th5);
                 synchronized (this) {
-                    l(this.f67034a);
-                    this.f67034a.clear();
+                    l(this.f68027a);
+                    this.f68027a.clear();
                 }
-                d.o.a.e.b.e.a.f(this.f67038e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f67041h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j4, this.q, null);
+                d.o.a.e.b.e.a.f(this.f68031e, downloadInfo, downloadInfo.T0(), null, this.j, this.k, this.f68034h, downloadInfo.E() - E, System.nanoTime() - nanoTime, z, j2, j4, this.q, null);
                 if (th5 != null) {
-                    if (!this.j && !this.k && this.f67041h == null) {
+                    if (!this.j && !this.k && this.f68034h == null) {
                         z2 = false;
                     }
                     if (z2) {
@@ -582,7 +582,7 @@ public class g {
                         d.o.a.e.b.l.e.A(th5, "loopAndWrite_finally");
                         throw null;
                     } catch (BaseException e24) {
-                        this.f67041h = e24;
+                        this.f68034h = e24;
                         throw e24;
                     }
                 }
@@ -596,13 +596,13 @@ public class g {
 
     public final void d(e eVar) {
         synchronized (this) {
-            this.f67035b.add((k) eVar);
+            this.f68028b.add((k) eVar);
         }
     }
 
     public void e(k kVar) {
         synchronized (this) {
-            this.f67034a.add(kVar);
+            this.f68027a.add(kVar);
         }
     }
 
@@ -643,10 +643,10 @@ public class g {
     public final void k() throws IOException {
         boolean z = this.p;
         long nanoTime = z ? System.nanoTime() : 0L;
-        DownloadInfo downloadInfo = this.f67036c;
-        d.o.a.e.b.g.j jVar = this.f67037d;
-        List<k> list = this.f67034a;
-        List<k> list2 = this.f67035b;
+        DownloadInfo downloadInfo = this.f68029c;
+        d.o.a.e.b.g.j jVar = this.f68030d;
+        List<k> list = this.f68027a;
+        List<k> list2 = this.f68028b;
         Map<Long, i> l = jVar.l(downloadInfo.c0());
         if (l == null) {
             l = new HashMap<>(4);

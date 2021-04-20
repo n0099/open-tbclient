@@ -14,72 +14,72 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f34947b;
+    public View f35236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ap f34948c;
+    public final ap f35237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f34949d;
+    public final AtomicBoolean f35238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34950e;
+    public boolean f35239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34951f;
+    public boolean f35240f;
 
     public j(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.d dVar) {
         super(context, adTemplate, dVar);
-        this.f34948c = new ap(this);
-        this.f34949d = new AtomicBoolean(true);
-        this.f34951f = true;
-        this.f34947b = this;
+        this.f35237c = new ap(this);
+        this.f35238d = new AtomicBoolean(true);
+        this.f35240f = true;
+        this.f35236b = this;
     }
 
     private void n() {
-        if (this.f34949d.getAndSet(false)) {
+        if (this.f35238d.getAndSet(false)) {
             com.kwad.sdk.core.d.a.b("FeedVideoPlayerController", "onViewAttached");
-            this.f34948c.sendEmptyMessage(1);
+            this.f35237c.sendEmptyMessage(1);
         }
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 1) {
-            if (!ao.a(this.f34947b, 30)) {
+            if (!ao.a(this.f35236b, 30)) {
                 e();
-            } else if (!this.f34950e) {
+            } else if (!this.f35239e) {
                 d();
             }
-            this.f34948c.sendEmptyMessageDelayed(1, 500L);
+            this.f35237c.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
     public void j() {
-        if (this.f34949d.getAndSet(true)) {
+        if (this.f35238d.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.b("FeedVideoPlayerController", "onViewDetached");
-        this.f34948c.removeCallbacksAndMessages(null);
-        if (this.f34951f) {
+        this.f35237c.removeCallbacksAndMessages(null);
+        if (this.f35240f) {
             f();
         } else {
-            this.f34151a.c();
+            this.f34440a.c();
         }
     }
 
     public void k() {
-        this.f34151a.c();
-        this.f34950e = true;
+        this.f34440a.c();
+        this.f35239e = true;
     }
 
     public void l() {
         d();
-        this.f34950e = false;
+        this.f35239e = false;
     }
 
     public void m() {
-        this.f34950e = false;
+        this.f35239e = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -121,6 +121,6 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
     }
 
     public void setAutoRelease(boolean z) {
-        this.f34951f = z;
+        this.f35240f = z;
     }
 }

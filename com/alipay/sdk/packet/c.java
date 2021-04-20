@@ -9,13 +9,13 @@ import java.util.Locale;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1911a;
+    public boolean f1936a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1912b = n.a(24);
+    public String f1937b = n.a(24);
 
     public c(boolean z) {
-        this.f1911a = z;
+        this.f1936a = z;
     }
 
     public static byte[] b(String str, byte[] bArr) {
@@ -36,8 +36,8 @@ public final class c {
                 z = false;
             }
         }
-        if (this.f1911a) {
-            a2 = a(bytes, a(this.f1912b, com.alipay.sdk.cons.a.f1845c), a(this.f1912b, bytes2));
+        if (this.f1936a) {
+            a2 = a(bytes, a(this.f1937b, com.alipay.sdk.cons.a.f1870c), a(this.f1937b, bytes2));
         } else {
             a2 = a(bytes, bytes2);
         }
@@ -73,8 +73,8 @@ public final class c {
                     if (a2 > 0) {
                         byte[] bArr4 = new byte[a2];
                         byteArrayInputStream.read(bArr4);
-                        if (this.f1911a) {
-                            bArr4 = b(this.f1912b, bArr4);
+                        if (this.f1936a) {
+                            bArr4 = b(this.f1937b, bArr4);
                         }
                         if (dVar.a()) {
                             bArr4 = com.alipay.sdk.encrypt.c.b(bArr4);

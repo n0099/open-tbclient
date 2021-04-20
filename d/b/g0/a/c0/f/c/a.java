@@ -26,41 +26,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements Runnable {
-    public static final boolean l = k.f45051a;
+    public static final boolean l = k.f45443a;
     public static int m;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f43686e;
+    public InputStream f44078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OutputStream f43687f;
+    public OutputStream f44079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.g0.a.c0.f.d.a f43688g;
+    public d.b.g0.a.c0.f.d.a f44080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinkedBlockingQueue<String> f43689h = new LinkedBlockingQueue<>();
+    public LinkedBlockingQueue<String> f44081h = new LinkedBlockingQueue<>();
     public InspectorNativeClient i;
     public d.b.g0.g.i.a j;
     public a.b k;
 
     /* renamed from: d.b.g0.a.c0.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0625a implements a.InterfaceC0629a {
+    public class C0637a implements a.InterfaceC0641a {
 
         /* renamed from: d.b.g0.a.c0.f.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0626a implements Runnable {
-            public RunnableC0626a() {
+        public class RunnableC0638a implements Runnable {
+            public RunnableC0638a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                String str = (String) a.this.f43689h.poll();
+                String str = (String) a.this.f44081h.poll();
                 while (str != null) {
                     a.this.i.dispatchProtocolMessage(str);
-                    C0625a.this.e(str);
-                    str = (String) a.this.f43689h.poll();
+                    C0637a.this.e(str);
+                    str = (String) a.this.f44081h.poll();
                 }
             }
         }
@@ -79,22 +79,22 @@ public class a implements Runnable {
             }
         }
 
-        public C0625a() {
+        public C0637a() {
         }
 
-        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0629a
+        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0641a
         public void a(WebSocketFrame webSocketFrame) {
-            a.this.f43689h.offer(webSocketFrame.g());
-            a.this.j.postOnJSThread(new RunnableC0626a());
+            a.this.f44081h.offer(webSocketFrame.g());
+            a.this.j.postOnJSThread(new RunnableC0638a());
         }
 
-        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0629a
+        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0641a
         public void b(IOException iOException) {
             d.b.g0.a.c0.c.c("ClientHandler", "V8 inspector exception", iOException);
             a.this.l();
         }
 
-        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0629a
+        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0641a
         public void c() {
             d.b.g0.a.c0.c.g("ClientHandler", "V8 inspector opened");
             d.b.g0.a.e0.o.a N = d.b.g0.a.e0.w.d.L().N();
@@ -106,7 +106,7 @@ public class a implements Runnable {
                     a.this.i.destroy();
                 }
                 a aVar = a.this;
-                aVar.i = aVar.j.m0(new b());
+                aVar.i = aVar.j.n0(new b());
                 int unused = a.m = 1;
                 return;
             }
@@ -133,7 +133,7 @@ public class a implements Runnable {
             }
         }
 
-        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0629a
+        @Override // d.b.g0.a.c0.f.d.a.InterfaceC0641a
         public void onClose() {
             d.b.g0.a.c0.c.g("ClientHandler", "V8 inspector closed");
             a.this.l();
@@ -151,7 +151,7 @@ public class a implements Runnable {
                 Log.d("ClientHandler", "getInspectorMessage");
             }
             try {
-                return (String) a.this.f43689h.take();
+                return (String) a.this.f44081h.take();
             } catch (InterruptedException e2) {
                 if (a.l) {
                     Log.e("ClientHandler", "awaitMessage on Debugger", e2);
@@ -164,7 +164,7 @@ public class a implements Runnable {
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                a.this.f43688g.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
+                a.this.f44080g.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
             } catch (Exception unused) {
                 if (a.l) {
                     Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
@@ -174,8 +174,8 @@ public class a implements Runnable {
     }
 
     public a(InputStream inputStream, OutputStream outputStream) {
-        this.f43686e = inputStream;
-        this.f43687f = outputStream;
+        this.f44078e = inputStream;
+        this.f44079f = outputStream;
     }
 
     public static String n(String str) {
@@ -190,27 +190,27 @@ public class a implements Runnable {
     }
 
     public void l() {
-        LinkedBlockingQueue<String> linkedBlockingQueue = this.f43689h;
+        LinkedBlockingQueue<String> linkedBlockingQueue = this.f44081h;
         if (linkedBlockingQueue != null) {
             linkedBlockingQueue.clear();
-            this.f43689h = null;
+            this.f44081h = null;
         }
         InspectorNativeClient inspectorNativeClient = this.i;
         if (inspectorNativeClient != null) {
             inspectorNativeClient.destroy();
             this.i = null;
         }
-        InputStream inputStream = this.f43686e;
+        InputStream inputStream = this.f44078e;
         if (inputStream != null) {
             d.b.g0.p.d.a(inputStream);
-            this.f43686e = null;
+            this.f44078e = null;
         }
-        OutputStream outputStream = this.f43687f;
+        OutputStream outputStream = this.f44079f;
         if (outputStream != null) {
             d.b.g0.p.d.a(outputStream);
-            this.f43687f = null;
+            this.f44079f = null;
         }
-        this.f43688g = null;
+        this.f44080g = null;
         this.j = null;
         m = 3;
     }
@@ -223,13 +223,13 @@ public class a implements Runnable {
             }
             StringTokenizer stringTokenizer = new StringTokenizer(readLine);
             if (stringTokenizer.hasMoreTokens()) {
-                aVar.f43712b = stringTokenizer.nextToken();
+                aVar.f44104b = stringTokenizer.nextToken();
                 if (stringTokenizer.hasMoreTokens()) {
-                    aVar.f43713c = n(stringTokenizer.nextToken());
+                    aVar.f44105c = n(stringTokenizer.nextToken());
                     if (stringTokenizer.hasMoreTokens()) {
-                        aVar.f43714d = stringTokenizer.nextToken();
+                        aVar.f44106d = stringTokenizer.nextToken();
                     } else {
-                        aVar.f43714d = "HTTP/1.1";
+                        aVar.f44106d = "HTTP/1.1";
                         if (l) {
                             Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
                         }
@@ -241,7 +241,7 @@ public class a implements Runnable {
                         }
                         int indexOf = readLine2.indexOf(58);
                         if (indexOf >= 0) {
-                            aVar.f43711a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
+                            aVar.f44103a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
                         }
                         readLine2 = bufferedReader.readLine();
                     }
@@ -267,19 +267,19 @@ public class a implements Runnable {
     public void run() {
         try {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f43686e));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f44078e));
                 c.a aVar = new c.a();
                 m(bufferedReader, aVar);
-                d.a(aVar).e(this.f43687f);
-                if (aVar.f43715e) {
+                d.a(aVar).e(this.f44079f);
+                if (aVar.f44107e) {
                     if (m != 0 && m != 3) {
                         d.b.g0.a.q1.b.f.d.e(d.b.g0.a.w0.a.c(), h.aiapps_debug_inspect_doing).C();
                         return;
                     }
                     d.b.g0.a.c0.f.d.a aVar2 = new d.b.g0.a.c0.f.d.a();
-                    this.f43688g = aVar2;
-                    aVar2.k(new C0625a());
-                    this.f43688g.h(this.f43686e, this.f43687f);
+                    this.f44080g = aVar2;
+                    aVar2.k(new C0637a());
+                    this.f44080g.h(this.f44078e, this.f44079f);
                 }
             } catch (RuntimeException e2) {
                 if (l) {
@@ -287,8 +287,8 @@ public class a implements Runnable {
                 }
             }
         } finally {
-            d.b.g0.p.d.a(this.f43686e);
-            d.b.g0.p.d.a(this.f43687f);
+            d.b.g0.p.d.a(this.f44078e);
+            d.b.g0.p.d.a(this.f44079f);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
     public PushMessage(int i, GroupNewsPojo groupNewsPojo) {
         super(i, groupNewsPojo);

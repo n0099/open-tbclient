@@ -9,24 +9,24 @@ import java.util.Map;
 public class g<T, Y> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<T, Y> f35221a = new LinkedHashMap(100, 0.75f, true);
+    public final Map<T, Y> f35510a = new LinkedHashMap(100, 0.75f, true);
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f35222b;
+    public final long f35511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f35223c;
+    public long f35512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f35224d;
+    public long f35513d;
 
     public g(long j) {
-        this.f35222b = j;
-        this.f35223c = j;
+        this.f35511b = j;
+        this.f35512c = j;
     }
 
     private void c() {
-        a(this.f35223c);
+        a(this.f35512c);
     }
 
     public int a(@Nullable Y y) {
@@ -38,11 +38,11 @@ public class g<T, Y> {
     }
 
     public synchronized void a(long j) {
-        while (this.f35224d > j) {
-            Iterator<Map.Entry<T, Y>> it = this.f35221a.entrySet().iterator();
+        while (this.f35513d > j) {
+            Iterator<Map.Entry<T, Y>> it = this.f35510a.entrySet().iterator();
             Map.Entry<T, Y> next = it.next();
             Y value = next.getValue();
-            this.f35224d -= a((g<T, Y>) value);
+            this.f35513d -= a((g<T, Y>) value);
             T key = next.getKey();
             it.remove();
             a(key, value);
@@ -53,27 +53,27 @@ public class g<T, Y> {
     }
 
     public synchronized long b() {
-        return this.f35223c;
+        return this.f35512c;
     }
 
     @Nullable
     public synchronized Y b(@NonNull T t) {
-        return this.f35221a.get(t);
+        return this.f35510a.get(t);
     }
 
     @Nullable
     public synchronized Y b(@NonNull T t, @Nullable Y y) {
         long a2 = a((g<T, Y>) y);
-        if (a2 >= this.f35223c) {
+        if (a2 >= this.f35512c) {
             a(t, y);
             return null;
         }
         if (y != null) {
-            this.f35224d += a2;
+            this.f35513d += a2;
         }
-        Y put = this.f35221a.put(t, y);
+        Y put = this.f35510a.put(t, y);
         if (put != null) {
-            this.f35224d -= a((g<T, Y>) put);
+            this.f35513d -= a((g<T, Y>) put);
             if (!put.equals(y)) {
                 a(t, put);
             }
@@ -85,9 +85,9 @@ public class g<T, Y> {
     @Nullable
     public synchronized Y c(@NonNull T t) {
         Y remove;
-        remove = this.f35221a.remove(t);
+        remove = this.f35510a.remove(t);
         if (remove != null) {
-            this.f35224d -= a((g<T, Y>) remove);
+            this.f35513d -= a((g<T, Y>) remove);
         }
         return remove;
     }

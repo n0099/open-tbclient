@@ -24,30 +24,30 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f47752f = k.f45051a;
+    public static final boolean f48144f = k.f45443a;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f47753g;
+    public static volatile a f48145g;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.f.f.b f47754a = new d.b.g0.f.f.b();
+    public d.b.g0.f.f.b f48146a = new d.b.g0.f.f.b();
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.f.f.b f47755b = new d.b.g0.f.f.b();
+    public d.b.g0.f.f.b f48147b = new d.b.g0.f.f.b();
 
     /* renamed from: c  reason: collision with root package name */
-    public DownloadManager f47756c;
+    public DownloadManager f48148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.f.f.d.c f47757d;
+    public d.b.g0.f.f.d.c f48149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f47758e;
+    public JSONObject f48150e;
 
     /* renamed from: d.b.g0.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0940a implements DownloadManager.OnProgressChangeListener {
-        public C0940a(a aVar) {
+    public class C0952a implements DownloadManager.OnProgressChangeListener {
+        public C0952a(a aVar) {
         }
 
         @Override // com.baidu.down.manage.DownloadManager.OnProgressChangeListener
@@ -60,14 +60,14 @@ public class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47759e;
+        public final /* synthetic */ String f48151e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47760f;
+        public final /* synthetic */ String f48152f;
 
         public b(String str, String str2) {
-            this.f47759e = str;
-            this.f47760f = str2;
+            this.f48151e = str;
+            this.f48152f = str2;
         }
 
         @Override // java.lang.Runnable
@@ -75,13 +75,13 @@ public class a {
             if (g.a().b()) {
                 return;
             }
-            if (a.f47752f) {
+            if (a.f48144f) {
                 Log.d("GameCenterAppManager", "start InstallAntiBlockingActivity");
             }
             Intent intent = new Intent(AppRuntime.getAppContext(), InstallAntiBlockingActivity.class);
-            intent.putExtra("type", this.f47759e);
-            intent.putExtra(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.f47760f);
-            intent.putExtra(InstallAntiBlockingActivity.KEY_UBC_PARAMS, a.this.f47758e.toString());
+            intent.putExtra("type", this.f48151e);
+            intent.putExtra("packageName", this.f48152f);
+            intent.putExtra(InstallAntiBlockingActivity.KEY_UBC_PARAMS, a.this.f48150e.toString());
             intent.setFlags(276824064);
             d.b.g0.a.i2.e.f(AppRuntime.getAppContext(), intent);
         }
@@ -92,29 +92,29 @@ public class a {
 
         /* renamed from: d.b.g0.f.f.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0941a implements d.b.g0.f.f.f.b {
+        public class C0953a implements d.b.g0.f.f.f.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f47763a;
+            public final /* synthetic */ String f48155a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Download f47764b;
+            public final /* synthetic */ Download f48156b;
 
-            public C0941a(String str, Download download) {
-                this.f47763a = str;
-                this.f47764b = download;
+            public C0953a(String str, Download download) {
+                this.f48155a = str;
+                this.f48156b = download;
             }
 
             @Override // d.b.g0.f.f.f.b
             public void a(d.b.g0.f.f.g.b bVar) {
                 if (bVar != null) {
                     if (bVar.d()) {
-                        a.this.f47754a.b(this.f47763a, new d.b.g0.f.f.g.c(this.f47764b));
+                        a.this.f48146a.b(this.f48155a, new d.b.g0.f.f.g.c(this.f48156b));
                     } else {
-                        a.this.f47754a.b(this.f47763a, bVar);
+                        a.this.f48146a.b(this.f48155a, bVar);
                     }
                 }
-                a.this.v(this.f47763a);
+                a.this.v(this.f48155a);
             }
         }
 
@@ -127,23 +127,23 @@ public class a {
                 return;
             }
             String valueOf = String.valueOf(download.getId());
-            if (a.f47752f) {
+            if (a.f48144f) {
                 Log.d("GameCenterAppManager", "onStateChanged downloadId = " + j + ",eventType:" + valueOf + ",download = " + download);
             }
             if (download.getState() == Download.DownloadState.FINISH) {
-                d.b.g0.f.f.h.c.a(download.getKeyByUser(), "startDownload", "success", null, new d.b.g0.f.f.h.a(a.this.f47758e));
+                d.b.g0.f.f.h.c.a(download.getKeyByUser(), "startDownload", "success", null, new d.b.g0.f.f.h.a(a.this.f48150e));
             }
-            if (a.this.f47754a.d(valueOf)) {
-                int i = e.f47766a[download.getState().ordinal()];
+            if (a.this.f48146a.d(valueOf)) {
+                int i = e.f48158a[download.getState().ordinal()];
                 if (i == 1) {
-                    a.this.f47757d.f();
-                    new d.b.g0.f.f.e.c(download, a.this.f47758e).c(new C0941a(valueOf, download));
+                    a.this.f48149d.f();
+                    new d.b.g0.f.f.e.c(download, a.this.f48150e).c(new C0953a(valueOf, download));
                 } else if (i == 2) {
-                    a.this.f47754a.b(valueOf, new d.b.g0.f.f.g.a(31015, "download is canceled"));
+                    a.this.f48146a.b(valueOf, new d.b.g0.f.f.g.a(31015, "download is canceled"));
                     a.this.v(valueOf);
                 } else if (i != 3) {
                 } else {
-                    a.this.f47754a.b(valueOf, new d.b.g0.f.f.g.a(download.getFailedType().intValue(), TextUtils.isEmpty(download.getFailedReason()) ? "download is failed" : download.getFailedReason()));
+                    a.this.f48146a.b(valueOf, new d.b.g0.f.f.g.a(download.getFailedType().intValue(), TextUtils.isEmpty(download.getFailedReason()) ? "download is failed" : download.getFailedReason()));
                     a.this.v(valueOf);
                 }
             }
@@ -164,11 +164,11 @@ public class a {
             if (TextUtils.isEmpty(schemeSpecificPart)) {
                 return;
             }
-            if (a.f47752f) {
+            if (a.f48144f) {
                 Log.d("GameCenterAppManager", "AddPackageReceiver packageName = " + schemeSpecificPart);
             }
             a.this.m(schemeSpecificPart);
-            a.this.f47755b.b(schemeSpecificPart, new d.b.g0.f.f.g.c((String) null));
+            a.this.f48147b.b(schemeSpecificPart, new d.b.g0.f.f.g.c((String) null));
             a.this.u(schemeSpecificPart, null);
         }
     }
@@ -177,21 +177,21 @@ public class a {
     public static /* synthetic */ class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47766a;
+        public static final /* synthetic */ int[] f48158a;
 
         static {
             int[] iArr = new int[Download.DownloadState.values().length];
-            f47766a = iArr;
+            f48158a = iArr;
             try {
                 iArr[Download.DownloadState.FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47766a[Download.DownloadState.CANCEL.ordinal()] = 2;
+                f48158a[Download.DownloadState.CANCEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47766a[Download.DownloadState.FAILED.ordinal()] = 3;
+                f48158a[Download.DownloadState.FAILED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -209,27 +209,27 @@ public class a {
 
     public a() {
         DownloadManager downloadManager = DownloadManager.getInstance(AppRuntime.getAppContext());
-        this.f47756c = downloadManager;
+        this.f48148c = downloadManager;
         d.b.g0.f.f.d.c cVar = new d.b.g0.f.f.d.c(downloadManager);
-        this.f47757d = cVar;
+        this.f48149d = cVar;
         cVar.e();
-        this.f47757d.l();
+        this.f48149d.l();
         t();
         s();
-        if (f47752f) {
-            this.f47756c.registerOnProgressChangeListener(new C0940a(this));
+        if (f48144f) {
+            this.f48148c.registerOnProgressChangeListener(new C0952a(this));
         }
     }
 
     public static a l() {
-        if (f47753g == null) {
+        if (f48145g == null) {
             synchronized (a.class) {
-                if (f47753g == null) {
-                    f47753g = new a();
+                if (f48145g == null) {
+                    f48145g = new a();
                 }
             }
         }
-        return f47753g;
+        return f48145g;
     }
 
     public final boolean h() {
@@ -237,7 +237,7 @@ public class a {
     }
 
     public synchronized void i() {
-        this.f47757d.d();
+        this.f48149d.d();
     }
 
     public boolean j(String str) {
@@ -249,7 +249,7 @@ public class a {
             try {
                 return file.delete();
             } catch (SecurityException e2) {
-                if (f47752f) {
+                if (f48144f) {
                     e2.printStackTrace();
                 }
             }
@@ -263,9 +263,9 @@ public class a {
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new d.b.g0.f.f.g.a(31007, "invalid params"));
         } else {
-            Collection<Download> o = this.f47757d.o(str);
+            Collection<Download> o = this.f48149d.o(str);
             if (o != null && !o.isEmpty()) {
-                this.f47757d.h(o);
+                this.f48149d.h(o);
                 bVar.a(new d.b.g0.f.f.g.c(o));
                 return;
             }
@@ -274,8 +274,8 @@ public class a {
     }
 
     public final void m(String str) {
-        if (this.f47757d.c(str)) {
-            d.b.g0.f.f.h.c.a(str, "installApp", "success", null, new d.b.g0.f.f.h.a(this.f47758e));
+        if (this.f48149d.c(str)) {
+            d.b.g0.f.f.h.c.a(str, "installApp", "success", null, new d.b.g0.f.f.h.a(this.f48150e));
         }
     }
 
@@ -287,7 +287,7 @@ public class a {
             aVar.a(new d.b.g0.f.f.g.a(31007, "invalid params"));
             return null;
         } else {
-            Download p = this.f47757d.p(str);
+            Download p = this.f48149d.p(str);
             if (p == null) {
                 aVar.a(new d.b.g0.f.f.g.a(31008, "download is not exist"));
                 return null;
@@ -298,12 +298,12 @@ public class a {
             String realDownloadDir = p.getRealDownloadDir();
             String fileName = p.getFileName();
             String keyByUser = p.getKeyByUser();
-            if (f47752f) {
+            if (f48144f) {
                 Log.d("GameCenterAppManager", "installApp packageName:" + keyByUser + ",fileDir:" + realDownloadDir + ",fileName:" + fileName);
             }
             if (TextUtils.isEmpty(keyByUser) || TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
                 aVar.a(new d.b.g0.f.f.g.a(31001, "database no package or file name"));
-                this.f47757d.g(str);
+                this.f48149d.g(str);
             }
             String str2 = realDownloadDir + File.separator + fileName;
             if (d.b.g0.f.f.e.a.g(AppRuntime.getAppContext(), keyByUser)) {
@@ -316,11 +316,11 @@ public class a {
             if (file.isFile() && file.exists()) {
                 aVar.setPackageName(keyByUser);
                 aVar.b(str2);
-                this.f47755b.a(keyByUser, aVar);
+                this.f48147b.a(keyByUser, aVar);
                 if (!d.b.g0.f.f.e.a.i(str2)) {
                     u(keyByUser, aVar);
                     aVar.a(new d.b.g0.f.f.g.a(31004, "apk install fail"));
-                    this.f47757d.g(str);
+                    this.f48149d.g(str);
                 } else {
                     long length = ((file.length() / DownloadStrategy.FOUR_CONNECTION_UPPER_LIMIT) + 1) * 1000;
                     String c2 = d.b.g0.f.f.e.a.c();
@@ -331,13 +331,13 @@ public class a {
                 return keyByUser;
             }
             aVar.a(new d.b.g0.f.f.g.a(31002, "file is not exist"));
-            this.f47757d.g(str);
+            this.f48149d.g(str);
             return null;
         }
     }
 
     public void o() {
-        this.f47757d.l();
+        this.f48149d.l();
     }
 
     public void p(String str, @NonNull d.b.g0.f.f.f.b bVar) {
@@ -346,13 +346,13 @@ public class a {
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new d.b.g0.f.f.g.a(31007, "invalid params"));
         } else {
-            Download p = this.f47757d.p(str);
+            Download p = this.f48149d.p(str);
             if (p == null) {
                 bVar.a(new d.b.g0.f.f.g.a(31008, "download is not exist"));
             } else if (p.getState() != Download.DownloadState.WAITING && p.getState() != Download.DownloadState.DOWNLOADING) {
                 bVar.a(new d.b.g0.f.f.g.a(31013, "download is not started"));
             } else {
-                this.f47756c.pause(p.getId().longValue());
+                this.f48148c.pause(p.getId().longValue());
                 bVar.a(new d.b.g0.f.f.g.c(p));
             }
         }
@@ -363,7 +363,7 @@ public class a {
             bVar.a(new d.b.g0.f.f.g.a(31006, "is not in main process"));
             return;
         }
-        Collection<Download> m = this.f47757d.m();
+        Collection<Download> m = this.f48149d.m();
         if (m != null && !m.isEmpty()) {
             bVar.a(new d.b.g0.f.f.g.c(m));
         } else {
@@ -377,7 +377,7 @@ public class a {
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new d.b.g0.f.f.g.a(31007, "invalid params"));
         } else {
-            Download p = this.f47757d.p(str);
+            Download p = this.f48149d.p(str);
             if (p == null) {
                 bVar.a(new d.b.g0.f.f.g.a(31008, "download is not exist"));
             } else {
@@ -394,25 +394,25 @@ public class a {
     }
 
     public final void t() {
-        this.f47756c.registerOnStateChangeListener(new c());
+        this.f48148c.registerOnStateChangeListener(new c());
     }
 
     public void u(String str, d.b.g0.f.f.f.b bVar) {
-        this.f47755b.g(str, bVar);
+        this.f48147b.g(str, bVar);
     }
 
     public final void v(String str) {
-        this.f47754a.f(str);
+        this.f48146a.f(str);
     }
 
     public void w() {
-        Collection<Download> q = this.f47757d.q();
+        Collection<Download> q = this.f48149d.q();
         if (q == null || q.isEmpty()) {
             return;
         }
         for (Download download : q) {
-            this.f47754a.a(String.valueOf(download.getId()), new f(this));
-            d.b.g0.f.f.h.c.a(download.getKeyByUser(), "resumeAllDownload", "success", null, new d.b.g0.f.f.h.a(this.f47758e));
+            this.f48146a.a(String.valueOf(download.getId()), new f(this));
+            d.b.g0.f.f.h.c.a(download.getKeyByUser(), "resumeAllDownload", "success", null, new d.b.g0.f.f.h.a(this.f48150e));
         }
     }
 
@@ -424,21 +424,21 @@ public class a {
         } else if (TextUtils.isEmpty(str)) {
             bVar.a(new d.b.g0.f.f.g.a(31007, "invalid params"));
         } else {
-            Download p = this.f47757d.p(str);
+            Download p = this.f48149d.p(str);
             if (p == null) {
                 bVar.a(new d.b.g0.f.f.g.a(31008, "download is not exist"));
             } else if (p.getState() == Download.DownloadState.FINISH) {
                 bVar.a(new d.b.g0.f.f.g.a(31012, "download is finished"));
             } else {
-                this.f47754a.a(String.valueOf(p.getId()), bVar);
-                this.f47756c.resume(p.getId().longValue());
+                this.f48146a.a(String.valueOf(p.getId()), bVar);
+                this.f48148c.resume(p.getId().longValue());
             }
         }
     }
 
     public void y(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f47758e = jSONObject;
+            this.f48150e = jSONObject;
         }
     }
 
@@ -452,15 +452,15 @@ public class a {
                 bVar.a(new d.b.g0.f.f.g.a(31005, "apk is already installed"));
                 return;
             }
-            this.f47757d.g(str);
+            this.f48149d.g(str);
             d.b.g0.f.f.d.a aVar = new d.b.g0.f.f.d.a();
             aVar.g(str);
             aVar.f(str2);
             aVar.a(str3);
             Download b2 = aVar.b();
-            this.f47756c.start(b2);
+            this.f48148c.start(b2);
             if (b2.getId() != null) {
-                this.f47754a.a(String.valueOf(b2.getId()), bVar);
+                this.f48146a.a(String.valueOf(b2.getId()), bVar);
             }
         } else {
             bVar.a(new d.b.g0.f.f.g.a(31007, "invalid params"));

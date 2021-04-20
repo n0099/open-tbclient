@@ -7,17 +7,17 @@ import android.widget.ImageView;
 public final class ch implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f23117a;
+    public final /* synthetic */ cg f22802a;
 
     public ch(cg cgVar) {
-        this.f23117a = cgVar;
+        this.f22802a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         try {
-            FeedbackInputActivity.f23015a = com.baidu.ufosdk.f.i.a(((ImageView) view).getDrawable());
-            this.f23117a.f23115a.startActivity(new Intent(this.f23117a.f23115a, FeedbackImageViewFlipperActivity.class));
+            FeedbackInputActivity.f22700a = com.baidu.ufosdk.f.i.a(((ImageView) view).getDrawable());
+            this.f22802a.f22800a.startActivity(new Intent(this.f22802a.f22800a, FeedbackImageViewFlipperActivity.class));
         } catch (Exception unused) {
         }
     }

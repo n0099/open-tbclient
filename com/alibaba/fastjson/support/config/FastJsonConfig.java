@@ -2,22 +2,25 @@ package com.alibaba.fastjson.support.config;
 
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
+import com.alibaba.fastjson.parser.deserializer.ParseProcess;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.util.IOUtils;
 import java.nio.charset.Charset;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FastJsonConfig {
     public Map<Class<?>, SerializeFilter> classSerializeFilters;
     public String dateFormat;
-    public boolean writeContentLength = true;
-    public Charset charset = Charset.forName("UTF-8");
+    public ParseProcess parseProcess;
+    public Charset charset = IOUtils.UTF8;
     public SerializeConfig serializeConfig = SerializeConfig.getGlobalInstance();
-    public ParserConfig parserConfig = new ParserConfig();
+    public ParserConfig parserConfig = ParserConfig.getGlobalInstance();
     public SerializerFeature[] serializerFeatures = {SerializerFeature.BrowserSecure};
     public SerializeFilter[] serializeFilters = new SerializeFilter[0];
     public Feature[] features = new Feature[0];
+    public boolean writeContentLength = true;
 
     public Charset getCharset() {
         return this.charset;
@@ -33,6 +36,10 @@ public class FastJsonConfig {
 
     public Feature[] getFeatures() {
         return this.features;
+    }
+
+    public ParseProcess getParseProcess() {
+        return this.parseProcess;
     }
 
     public ParserConfig getParserConfig() {
@@ -75,6 +82,10 @@ public class FastJsonConfig {
 
     public void setFeatures(Feature... featureArr) {
         this.features = featureArr;
+    }
+
+    public void setParseProcess(ParseProcess parseProcess) {
+        this.parseProcess = parseProcess;
     }
 
     public void setParserConfig(ParserConfig parserConfig) {

@@ -11,31 +11,31 @@ import java.io.InputStream;
 public class a<Data> implements n<Uri, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f35274a = 22;
+    public static final int f35563a = 22;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AssetManager f35275b;
+    public final AssetManager f35564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final InterfaceC0411a<Data> f35276c;
+    public final InterfaceC0425a<Data> f35565c;
 
     /* renamed from: com.kwad.sdk.glide.load.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0411a<Data> {
+    public interface InterfaceC0425a<Data> {
         com.kwad.sdk.glide.load.a.d<Data> a(AssetManager assetManager, String str);
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements InterfaceC0411a<ParcelFileDescriptor>, o<Uri, ParcelFileDescriptor> {
+    public static class b implements InterfaceC0425a<ParcelFileDescriptor>, o<Uri, ParcelFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AssetManager f35282a;
+        public final AssetManager f35571a;
 
         public b(AssetManager assetManager) {
-            this.f35282a = assetManager;
+            this.f35571a = assetManager;
         }
 
-        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC0411a
+        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC0425a
         public com.kwad.sdk.glide.load.a.d<ParcelFileDescriptor> a(AssetManager assetManager, String str) {
             return new com.kwad.sdk.glide.load.a.h(assetManager, str);
         }
@@ -43,21 +43,21 @@ public class a<Data> implements n<Uri, Data> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, ParcelFileDescriptor> a(r rVar) {
-            return new a(this.f35282a, this);
+            return new a(this.f35571a, this);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements InterfaceC0411a<InputStream>, o<Uri, InputStream> {
+    public static class c implements InterfaceC0425a<InputStream>, o<Uri, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AssetManager f35284a;
+        public final AssetManager f35573a;
 
         public c(AssetManager assetManager) {
-            this.f35284a = assetManager;
+            this.f35573a = assetManager;
         }
 
-        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC0411a
+        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC0425a
         public com.kwad.sdk.glide.load.a.d<InputStream> a(AssetManager assetManager, String str) {
             return new com.kwad.sdk.glide.load.a.m(assetManager, str);
         }
@@ -65,19 +65,19 @@ public class a<Data> implements n<Uri, Data> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, InputStream> a(r rVar) {
-            return new a(this.f35284a, this);
+            return new a(this.f35573a, this);
         }
     }
 
-    public a(AssetManager assetManager, InterfaceC0411a<Data> interfaceC0411a) {
-        this.f35275b = assetManager;
-        this.f35276c = interfaceC0411a;
+    public a(AssetManager assetManager, InterfaceC0425a<Data> interfaceC0425a) {
+        this.f35564b = assetManager;
+        this.f35565c = interfaceC0425a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), this.f35276c.a(this.f35275b, uri.toString().substring(f35274a)));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), this.f35565c.a(this.f35564b, uri.toString().substring(f35563a)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -14,6 +14,7 @@ import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.content.FileProvider;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,16 +26,16 @@ import org.xmlpull.v1.XmlPullParserException;
 public class GDTFileProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f38253a = {"_display_name", "_size"};
+    public static final String[] f38542a = {"_display_name", "_size"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f38254b = new File("/");
+    public static final File f38543b = new File("/");
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, a> f38255c = new HashMap<>();
+    public static HashMap<String, a> f38544c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public a f38256d;
+    public a f38545d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -47,13 +48,13 @@ public class GDTFileProvider extends ContentProvider {
     public static class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f38257a;
+        public final String f38546a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f38258b = new HashMap<>();
+        public final HashMap<String, File> f38547b = new HashMap<>();
 
         public b(String str) {
-            this.f38257a = str;
+            this.f38546a = str;
         }
 
         @Override // com.qq.e.comm.GDTFileProvider.a
@@ -61,7 +62,7 @@ public class GDTFileProvider extends ContentProvider {
             try {
                 String canonicalPath = file.getCanonicalPath();
                 Map.Entry<String, File> entry = null;
-                for (Map.Entry<String, File> entry2 : this.f38258b.entrySet()) {
+                for (Map.Entry<String, File> entry2 : this.f38547b.entrySet()) {
                     String path = entry2.getValue().getPath();
                     if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                         entry = entry2;
@@ -77,7 +78,7 @@ public class GDTFileProvider extends ContentProvider {
                     length++;
                 }
                 String substring = canonicalPath.substring(length);
-                return new Uri.Builder().scheme("content").authority(this.f38257a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.f38546a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
             } catch (IOException unused) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }
@@ -89,7 +90,7 @@ public class GDTFileProvider extends ContentProvider {
             int indexOf = encodedPath.indexOf(47, 1);
             String decode = Uri.decode(encodedPath.substring(1, indexOf));
             String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-            File file = this.f38258b.get(decode);
+            File file = this.f38547b.get(decode);
             if (file == null) {
                 throw new IllegalArgumentException("Unable to find configured root for " + uri);
             }
@@ -110,7 +111,7 @@ public class GDTFileProvider extends ContentProvider {
                 throw new IllegalArgumentException("Name must not be empty");
             }
             try {
-                this.f38258b.put(str, file.getCanonicalFile());
+                this.f38547b.put(str, file.getCanonicalFile());
             } catch (IOException e2) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
             }
@@ -119,8 +120,8 @@ public class GDTFileProvider extends ContentProvider {
 
     public static a a(Context context, String str) {
         b bVar;
-        synchronized (f38255c) {
-            a aVar = f38255c.get(str);
+        synchronized (f38544c) {
+            a aVar = f38544c.get(str);
             bVar = aVar;
             if (aVar == null) {
                 try {
@@ -139,7 +140,7 @@ public class GDTFileProvider extends ContentProvider {
                             String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                             String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                             if ("root-path".equals(name)) {
-                                file = f38254b;
+                                file = f38543b;
                             } else if ("files-path".equals(name)) {
                                 file = context.getFilesDir();
                             } else if ("cache-path".equals(name)) {
@@ -168,7 +169,7 @@ public class GDTFileProvider extends ContentProvider {
                         }
                     }
                     loadXmlMetaData.close();
-                    f38255c.put(str, bVar2);
+                    f38544c.put(str, bVar2);
                     bVar = bVar2;
                 } catch (IOException e2) {
                     throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
@@ -212,17 +213,17 @@ public class GDTFileProvider extends ContentProvider {
         if (!providerInfo.grantUriPermissions) {
             throw new SecurityException("Provider must grant uri permissions");
         }
-        this.f38256d = a(context, providerInfo.authority);
+        this.f38545d = a(context, providerInfo.authority);
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        return this.f38256d.a(uri).delete() ? 1 : 0;
+        return this.f38545d.a(uri).delete() ? 1 : 0;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        File a2 = this.f38256d.a(uri);
+        File a2 = this.f38545d.a(uri);
         int lastIndexOf = a2.getName().lastIndexOf(46);
         if (lastIndexOf >= 0) {
             String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(a2.getName().substring(lastIndexOf + 1));
@@ -244,9 +245,9 @@ public class GDTFileProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         int i;
-        File a2 = this.f38256d.a(uri);
-        if (r.f7664a.equals(str)) {
-            i = 268435456;
+        File a2 = this.f38545d.a(uri);
+        if (r.f7699a.equals(str)) {
+            i = Label.FORWARD_REFERENCE_TYPE_SHORT;
         } else if ("w".equals(str) || "wt".equals(str)) {
             i = 738197504;
         } else if ("wa".equals(str)) {
@@ -264,9 +265,9 @@ public class GDTFileProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         int i;
-        File a2 = this.f38256d.a(uri);
+        File a2 = this.f38545d.a(uri);
         if (strArr == null) {
-            strArr = f38253a;
+            strArr = f38542a;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];

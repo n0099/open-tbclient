@@ -30,16 +30,16 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     public static BdUniqueId[][] R;
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f62197e;
+    public a2 f63772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62198f;
+    public String f63773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62199g;
+    public String f63774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62200h;
+    public int f63775h;
     public String i;
     public String j;
     public String l;
@@ -96,11 +96,11 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public int E() {
-        return this.f62200h;
+        return this.f63775h;
     }
 
     public String F() {
-        return this.f62199g;
+        return this.f63774g;
     }
 
     public StatisticItem G(String str) {
@@ -127,7 +127,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
         if (n == null || str.length() == 0) {
             return null;
         }
-        StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(n.c0())).param("tid", String.valueOf(n.w1())).param("nid", n.L0()).param("obj_id", B()).param("obj_param1", O()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_source", F()).param("obj_locate", E()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, d.b.i0.x.m.e()).param("ab_tag", z()).param(TiebaStatic.Params.IS_ZP, n.C2() ? 1 : 0);
+        StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(n.c0())).param("tid", String.valueOf(n.w1())).param("nid", n.L0()).param("obj_id", B()).param("obj_param1", O()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_source", F()).param("obj_locate", E()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, d.b.i0.x.m.e()).param("ab_tag", z()).param(TiebaStatic.Params.IS_ZP, n.D2() ? 1 : 0);
         if (!z) {
             param.param("obj_type", J());
         } else {
@@ -138,7 +138,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
             }
             param.param(TiebaStatic.Params.IS_VERTICAL, D().intValue());
         }
-        if (n.z1() != null && n.z1().J() != null && n.z1().J().u() != null && n.z1().J().u().size() > 0) {
+        if (n.z1() != null && n.z1().K() != null && n.z1().K().u() != null && n.z1().K().u().size() > 0) {
             param.param(TiebaStatic.Params.OBJ_TO, n.z1().N ? 2 : 1);
         }
         return param;
@@ -180,7 +180,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public String O() {
-        return this.f62198f;
+        return this.f63773f;
     }
 
     public boolean P() {
@@ -204,11 +204,11 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public void U(int i) {
-        this.f62200h = i;
+        this.f63775h = i;
     }
 
     public void V(String str) {
-        this.f62199g = str;
+        this.f63774g = str;
     }
 
     public void W(int i) {
@@ -220,7 +220,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
     }
 
     public void Y(String str) {
-        this.f62198f = str;
+        this.f63773f = str;
     }
 
     @Override // d.b.h0.r.q.a
@@ -234,8 +234,8 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
         v0Var.k(n().c0());
         v0Var.m(n().L0());
         v0Var.j(this.feedBackReasonMap);
-        v0Var.j = this.f62198f;
-        v0Var.k = this.f62199g;
+        v0Var.j = this.f63773f;
+        v0Var.k = this.f63774g;
         v0Var.l = this.m;
         v0Var.m = n().Z;
         return v0Var;
@@ -256,7 +256,7 @@ public abstract class b extends d.b.h0.r.q.a implements PreLoadImageProvider {
 
     @Override // d.b.h0.r.q.a
     public String j() {
-        return this.f62199g + "#" + this.f62200h + "#" + this.i;
+        return this.f63774g + "#" + this.f63775h + "#" + this.i;
     }
 
     @Override // d.b.h0.r.q.a

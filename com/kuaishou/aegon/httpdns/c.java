@@ -3,10 +3,10 @@ package com.kuaishou.aegon.httpdns;
 public final /* synthetic */ class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31622a;
+    public final String f31911a;
 
     public c(String str) {
-        this.f31622a = str;
+        this.f31911a = str;
     }
 
     public static Runnable a(String str) {
@@ -15,6 +15,6 @@ public final /* synthetic */ class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        HttpDnsResolver.nativeSetJsonConfig(this.f31622a);
+        HttpDnsResolver.nativeSetJsonConfig(this.f31911a);
     }
 }

@@ -21,22 +21,22 @@ import okio.BufferedSource;
 public class j<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f48967a;
+    public e f49359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f<T> f48968b;
+    public f<T> f49360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f48969c;
+    public AtomicBoolean f49361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f48970d;
+    public T f49362d;
 
     public j(f<T> fVar) {
-        this.f48968b = fVar;
-        this.f48967a = fVar.f48954e;
-        this.f48970d = fVar.f48955f;
-        this.f48969c = fVar.f48957h;
+        this.f49360b = fVar;
+        this.f49359a = fVar.f49346e;
+        this.f49362d = fVar.f49347f;
+        this.f49361c = fVar.f49349h;
     }
 
     public final boolean a(InputStream inputStream, OutputStream outputStream, long j) throws IOException {
@@ -44,7 +44,7 @@ public class j<T> {
         byte[] bArr = new byte[32768];
         long j2 = 0;
         int i2 = 0;
-        while (!this.f48969c.get() && i2 != -1) {
+        while (!this.f49361c.get() && i2 != -1) {
             if (j > 0) {
                 if (j2 >= j) {
                     break;
@@ -56,45 +56,45 @@ public class j<T> {
             if (i2 > 0) {
                 outputStream.write(bArr, 0, i2);
                 j2 += i2;
-                this.f48967a.f48953b.f48918b = j2;
-                this.f48968b.k();
+                this.f49359a.f49345b.f49310b = j2;
+                this.f49360b.k();
             }
         }
-        if (d.b.g0.l.f.f48889a) {
-            Log.i("PMSTaskProcessor", "copyStream: mCanceled=" + this.f48969c.get() + ", readed=" + j2 + ",totalBytes" + j);
+        if (d.b.g0.l.f.f49281a) {
+            Log.i("PMSTaskProcessor", "copyStream: mCanceled=" + this.f49361c.get() + ", readed=" + j2 + ",totalBytes" + j);
         }
         return j2 == j;
     }
 
     public void b() {
-        if (this.f48969c.get()) {
+        if (this.f49361c.get()) {
             return;
         }
         if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
-            this.f48967a.f48952a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-        } else if (!this.f48968b.c()) {
-            this.f48967a.f48952a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_PATH, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_CREATEFILE);
+            this.f49359a.f49344a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+        } else if (!this.f49360b.c()) {
+            this.f49359a.f49344a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_PATH, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_CREATEFILE);
         } else {
-            GetRequest.GetRequestBuilder url = d.b.g0.k.e.a.f().getRequest().url(this.f48967a.f48953b.n);
-            this.f48968b.o();
+            GetRequest.GetRequestBuilder url = d.b.g0.k.e.a.f().getRequest().url(this.f49359a.f49345b.n);
+            this.f49360b.o();
             Response response = null;
             try {
                 try {
                     response = url.build().executeSync();
                     int code = response.code();
                     int d2 = d(response, code);
-                    if (this.f48967a.f48952a.f48914a != d2) {
-                        this.f48967a.f48952a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                        if (d.b.g0.l.f.f48889a) {
-                            Log.w("PMSTaskProcessor", "mismatch errorCode:" + d2 + "!=" + this.f48967a.f48952a.f48914a + " HTTP-ErrorCode:" + code);
+                    if (this.f49359a.f49344a.f49306a != d2) {
+                        this.f49359a.f49344a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+                        if (d.b.g0.l.f.f49281a) {
+                            Log.w("PMSTaskProcessor", "mismatch errorCode:" + d2 + "!=" + this.f49359a.f49344a.f49306a + " HTTP-ErrorCode:" + code);
                         }
                     }
                 } catch (Exception e2) {
-                    if (d.b.g0.l.f.f48889a) {
+                    if (d.b.g0.l.f.f49281a) {
                         Log.e("PMSTaskProcessor", e2.toString());
                         e2.printStackTrace();
                     }
-                    this.f48967a.f48952a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+                    this.f49359a.f49344a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
                 }
             } finally {
                 d.b.g0.p.d.a(response);
@@ -104,71 +104,71 @@ public class j<T> {
 
     public final boolean c(@NonNull String str) {
         if (!new File(str).exists()) {
-            this.f48967a.f48952a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, d.b.g0.l.r.d.a("local file save failed:", str)));
+            this.f49359a.f49344a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, d.b.g0.l.r.d.a("local file save failed:", str)));
             return false;
         }
-        String str2 = this.f48967a.f48953b.l;
+        String str2 = this.f49359a.f49345b.l;
         String b2 = d.b.g0.l.r.b.b(new File(str), true);
         if (str2 != null && b2 != null) {
             String upperCase = str2.toUpperCase();
             if (upperCase.equals(b2)) {
                 return true;
             }
-            this.f48967a.f48952a = new d.b.g0.l.k.a(2202, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5 + d.b.g0.l.r.d.a("server:", upperCase, ",local", b2));
+            this.f49359a.f49344a = new d.b.g0.l.k.a(2202, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5 + d.b.g0.l.r.d.a("server:", upperCase, ",local", b2));
             return false;
         }
-        this.f48967a.f48952a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, d.b.g0.l.r.d.a("server:", str2, ",local", b2)));
+        this.f49359a.f49344a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, d.b.g0.l.r.d.a("server:", str2, ",local", b2)));
         return false;
     }
 
     public final int d(Response response, int i) {
-        if (d.b.g0.l.f.f48889a) {
-            Log.d("PMSTaskProcessor", "download " + this.f48967a.f48953b.n + "response code:" + response.code());
+        if (d.b.g0.l.f.f49281a) {
+            Log.d("PMSTaskProcessor", "download " + this.f49359a.f49345b.n + "response code:" + response.code());
         }
-        this.f48967a.f48952a = null;
+        this.f49359a.f49344a = null;
         if (i >= 200 && i <= 300) {
             ResponseBody body = response.body();
             if (body != null) {
                 long contentLength = body.contentLength();
-                if (d.b.g0.l.f.f48889a) {
-                    Log.d("PMSTaskProcessor", "currentSize:" + this.f48967a.f48953b.f48918b + ",totalBytes:" + this.f48967a.f48953b.k + ",Content-Length:" + contentLength);
+                if (d.b.g0.l.f.f49281a) {
+                    Log.d("PMSTaskProcessor", "currentSize:" + this.f49359a.f49345b.f49310b + ",totalBytes:" + this.f49359a.f49345b.k + ",Content-Length:" + contentLength);
                 }
-                if (!this.f48968b.i(this.f48967a.f48953b.k)) {
-                    this.f48967a.f48952a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_CREATEFILE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NOSPACE);
-                    return this.f48967a.f48952a.f48914a;
+                if (!this.f49360b.i(this.f49359a.f49345b.k)) {
+                    this.f49359a.f49344a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_CREATEFILE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NOSPACE);
+                    return this.f49359a.f49344a.f49306a;
                 }
                 try {
                     if (e(body, contentLength)) {
-                        this.f48967a.f48952a = new d.b.g0.l.k.a(2200, ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS);
-                        return this.f48967a.f48952a.f48914a;
+                        this.f49359a.f49344a = new d.b.g0.l.k.a(2200, ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS);
+                        return this.f49359a.f49344a.f49306a;
                     }
                 } catch (IOException e2) {
-                    if (d.b.g0.l.f.f48889a) {
+                    if (d.b.g0.l.f.f49281a) {
                         e2.printStackTrace();
                     }
-                    this.f48967a.f48952a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_NOSPACE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE);
-                    return this.f48967a.f48952a.f48914a;
+                    this.f49359a.f49344a = new d.b.g0.l.k.a(ErrorConstant.Code.DOWNLOAD_ERROR_NOSPACE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE);
+                    return this.f49359a.f49344a.f49306a;
                 }
             }
-            e eVar = this.f48967a;
-            if (eVar.f48952a == null) {
-                eVar.f48952a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+            e eVar = this.f49359a;
+            if (eVar.f49344a == null) {
+                eVar.f49344a = new d.b.g0.l.k.a(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
             }
-            return this.f48967a.f48952a.f48914a;
+            return this.f49359a.f49344a.f49306a;
         }
-        this.f48967a.f48952a = new d.b.g0.l.k.a(2104, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION);
-        return this.f48967a.f48952a.f48914a;
+        this.f49359a.f49344a = new d.b.g0.l.k.a(2104, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION);
+        return this.f49359a.f49344a.f49306a;
     }
 
     public final boolean e(ResponseBody responseBody, long j) throws IOException {
-        c<T> cVar = this.f48968b.i;
+        c<T> cVar = this.f49360b.i;
         ReadableByteChannel readableByteChannel = null;
         try {
-            T t = this.f48970d;
+            T t = this.f49362d;
             BufferedSource source = responseBody.source();
-            d.b.g0.l.k.a f2 = cVar.f(t, source, this.f48968b.f48956g, j);
-            if (f2.f48914a == 2302) {
-                if (f(Channels.newInputStream(source), new FileOutputStream(this.f48968b.f48956g), j) && c(this.f48967a.f48953b.f48917a)) {
+            d.b.g0.l.k.a f2 = cVar.f(t, source, this.f49360b.f49348g, j);
+            if (f2.f49306a == 2302) {
+                if (f(Channels.newInputStream(source), new FileOutputStream(this.f49360b.f49348g), j) && c(this.f49359a.f49345b.f49309a)) {
                     if (source != null && source.isOpen()) {
                         d.b.g0.p.d.a(source);
                     }
@@ -178,15 +178,15 @@ public class j<T> {
                     d.b.g0.p.d.a(source);
                 }
                 return false;
-            } else if (f2.f48914a == 2300) {
-                this.f48967a.f48953b.f48918b = j;
-                this.f48968b.k();
+            } else if (f2.f49306a == 2300) {
+                this.f49359a.f49345b.f49310b = j;
+                this.f49360b.k();
                 if (source != null && source.isOpen()) {
                     d.b.g0.p.d.a(source);
                 }
                 return true;
             } else {
-                this.f48967a.f48952a = f2;
+                this.f49359a.f49344a = f2;
                 if (source != null && source.isOpen()) {
                     d.b.g0.p.d.a(source);
                 }
@@ -205,7 +205,7 @@ public class j<T> {
             try {
                 return a(inputStream, outputStream, j);
             } catch (IOException e2) {
-                if (d.b.g0.l.f.f48889a) {
+                if (d.b.g0.l.f.f49281a) {
                     Log.e("PMSTaskProcessor", "safeCopyStream: " + e2.getMessage());
                 }
                 d.b.g0.p.d.a(inputStream);

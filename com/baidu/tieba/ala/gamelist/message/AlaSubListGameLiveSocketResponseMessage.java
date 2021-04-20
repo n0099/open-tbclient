@@ -46,7 +46,7 @@ public class AlaSubListGameLiveSocketResponseMessage extends SocketResponsedMess
         for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
             if (threadInfo.thread_type.intValue() == 49) {
                 a2 a2Var = new a2();
-                a2Var.Q2(threadInfo);
+                a2Var.R2(threadInfo);
                 this.threadList.add(a2Var);
             }
         }

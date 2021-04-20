@@ -6,21 +6,21 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5138a = "BaseActivity";
+    public static final String f5173a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f5139b = null;
+    public Handler f5174b = null;
     public BeanActivity mAct;
 
     private Handler a() {
-        if (this.f5139b == null) {
-            this.f5139b = new Handler(getMainLooper());
+        if (this.f5174b == null) {
+            this.f5174b = new Handler(getMainLooper());
         }
-        return this.f5139b;
+        return this.f5174b;
     }
 
     public void handleFailure(int i, int i2, String str) {

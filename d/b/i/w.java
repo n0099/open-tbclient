@@ -22,11 +22,11 @@ public class w extends d.b.i.a<d.b.h0.r.q.a> {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             if (w.this.k != null && w.this.k.n() != null) {
                 d.b.i0.x.m.a(w.this.k.n().o0());
-                d.b.i0.x.m.l(w.this.j.f4425e, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(w.this.j.f4426f, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(w.this.j.f4460e, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(w.this.j.f4461f, w.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -57,7 +57,7 @@ public class w extends d.b.i.a<d.b.h0.r.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.l != i) {
             SkinManager.setBackgroundResource(g(), R.drawable.addresslist_item_bg);
-            this.j.f4428h.b();
+            this.j.f4463h.b();
         }
         this.l = i;
     }
@@ -71,14 +71,14 @@ public class w extends d.b.i.a<d.b.h0.r.q.a> {
         this.j.a(aVar);
     }
 
-    public void r(d.b.b.e.k.b<TbImageView> bVar) {
+    public void r(d.b.c.e.k.b<TbImageView> bVar) {
         MultiImgLayout multiImgLayout = this.j;
         if (multiImgLayout != null) {
             multiImgLayout.setConstrainImagePool(bVar);
         }
     }
 
-    public void s(d.b.b.e.k.b<ConstrainImageLayout> bVar) {
+    public void s(d.b.c.e.k.b<ConstrainImageLayout> bVar) {
         MultiImgLayout multiImgLayout = this.j;
         if (multiImgLayout != null) {
             multiImgLayout.setConstrainLayoutPool(bVar);
@@ -97,7 +97,7 @@ public class w extends d.b.i.a<d.b.h0.r.q.a> {
         this.j.setNeedFrsTabName(z);
     }
 
-    public void w(d.b.b.j.c.b bVar) {
+    public void w(d.b.c.j.c.b bVar) {
         this.j.setPreloadSizeReadyCallback(bVar);
     }
 }

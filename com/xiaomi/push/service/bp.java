@@ -18,19 +18,19 @@ import com.xiaomi.push.iq;
 /* loaded from: classes7.dex */
 public class bp {
     public static iq a(Context context, ib ibVar) {
-        if (ibVar.m439b()) {
+        if (ibVar.m443b()) {
             return null;
         }
-        byte[] m437a = ibVar.m437a();
+        byte[] m441a = ibVar.m441a();
         iq a2 = a(ibVar.a(), ibVar.f636b);
         if (a2 != null) {
-            ip.a(a2, m437a);
+            ip.a(a2, m441a);
         }
         return a2;
     }
 
     public static iq a(hf hfVar, boolean z) {
-        switch (bq.f41011a[hfVar.ordinal()]) {
+        switch (bq.f41300a[hfVar.ordinal()]) {
             case 1:
                 return new ig();
             case 2:

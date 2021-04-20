@@ -6,25 +6,25 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f49022e = new a(200, PeerConnectionClient.HD_VIDEO_HEIGHT, 10, 168);
+    public static final a f49414e = new a(200, PeerConnectionClient.HD_VIDEO_HEIGHT, 10, 168);
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f49023a;
+    public final int f49415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f49024b;
+    public final int f49416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f49025c;
+    public final int f49417c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f49026d;
+    public final int f49418d;
 
     public a(int i, int i2, int i3, int i4) {
-        this.f49023a = i;
-        this.f49024b = i2;
-        this.f49025c = i3;
-        this.f49026d = i4;
+        this.f49415a = i;
+        this.f49416b = i2;
+        this.f49417c = i3;
+        this.f49418d = i4;
     }
 
     public static a a(JSONObject jSONObject) {

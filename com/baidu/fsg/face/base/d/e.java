@@ -15,25 +15,25 @@ import java.io.IOException;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5609a = 480;
+    public static final int f5644a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5610b = 480;
+    public static final int f5645b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5611c = 192;
+    public static final int f5646c = 192;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5612d = 728;
+    public static final int f5647d = 728;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5613e = 750;
+    public static final int f5648e = 750;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5614f = 1335;
+    public static final int f5649f = 1335;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5615g = "LivenessFaceUtil";
+    public static final String f5650g = "LivenessFaceUtil";
 
     public static void a(int[] iArr, Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
@@ -71,7 +71,7 @@ public class e {
     }
 
     public static boolean b(b bVar) {
-        return (bVar == null || bVar.f5602a == null || bVar.f5603b == null) ? false : true;
+        return (bVar == null || bVar.f5637a == null || bVar.f5638b == null) ? false : true;
     }
 
     public static boolean c(int[] iArr, b bVar) {
@@ -98,37 +98,37 @@ public class e {
     public static Rect a(b bVar) {
         Rect rect = new Rect();
         if (b(bVar)) {
-            int i = bVar.f5602a.left;
-            Rect rect2 = bVar.f5603b;
+            int i = bVar.f5637a.left;
+            Rect rect2 = bVar.f5638b;
             int i2 = rect2.left;
             if (i - i2 < 0) {
                 rect.left = 0;
             } else {
-                rect.left = (int) (((i - i2) / rect2.width()) * bVar.f5605d);
+                rect.left = (int) (((i - i2) / rect2.width()) * bVar.f5640d);
             }
-            int i3 = bVar.f5602a.top;
-            Rect rect3 = bVar.f5603b;
+            int i3 = bVar.f5637a.top;
+            Rect rect3 = bVar.f5638b;
             int i4 = rect3.top;
             if (i3 > i4) {
                 rect.top = 0;
             } else {
-                rect.top = (int) (((i4 - i3) / rect3.height()) * bVar.f5604c);
+                rect.top = (int) (((i4 - i3) / rect3.height()) * bVar.f5639c);
             }
-            int i5 = bVar.f5602a.right;
-            Rect rect4 = bVar.f5603b;
+            int i5 = bVar.f5637a.right;
+            Rect rect4 = bVar.f5638b;
             int i6 = rect4.right;
             if (i5 > i6) {
-                rect.right = bVar.f5605d;
+                rect.right = bVar.f5640d;
             } else {
-                rect.right = bVar.f5605d - ((int) (((i6 - i5) / rect4.width()) * bVar.f5605d));
+                rect.right = bVar.f5640d - ((int) (((i6 - i5) / rect4.width()) * bVar.f5640d));
             }
-            int i7 = bVar.f5602a.bottom;
-            Rect rect5 = bVar.f5603b;
+            int i7 = bVar.f5637a.bottom;
+            Rect rect5 = bVar.f5638b;
             int i8 = rect5.bottom;
             if (i7 > i8) {
-                rect.bottom = bVar.f5604c;
+                rect.bottom = bVar.f5639c;
             } else {
-                rect.bottom = bVar.f5604c - ((int) (((i8 - i7) / rect5.height()) * bVar.f5604c));
+                rect.bottom = bVar.f5639c - ((int) (((i8 - i7) / rect5.height()) * bVar.f5639c));
             }
             return rect;
         }

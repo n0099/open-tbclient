@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.tabfeed.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.z0.i.e.a;
+import d.b.i0.a1.i.e.a;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public a tabFeedData;
 

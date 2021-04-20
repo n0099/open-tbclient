@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import com.baidu.rtc.PeerConnectionClient;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class LocalViewSize {

@@ -3,14 +3,14 @@ package com.baidu.webkit.internal;
 public final class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f26868a;
+    public final /* synthetic */ long f26553a;
 
     public a(long j) {
-        this.f26868a = j;
+        this.f26553a = j;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        ApisInteractWithMario.setMessageChannalFunctoinTable(this.f26868a);
+        ApisInteractWithMario.setMessageChannalFunctoinTable(this.f26553a);
     }
 }

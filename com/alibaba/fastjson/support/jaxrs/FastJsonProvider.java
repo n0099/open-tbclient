@@ -8,6 +8,8 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.nio.charset.Charset;
@@ -19,6 +21,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.StreamingOutput;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
@@ -29,6 +33,8 @@ import javax.ws.rs.ext.Providers;
 @Consumes({"*/*"})
 /* loaded from: classes.dex */
 public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyWriter<Object> {
+    public static final Class<?>[] DEFAULT_UNREADABLES = {InputStream.class, Reader.class};
+    public static final Class<?>[] DEFAULT_UNWRITABLES = {InputStream.class, OutputStream.class, Writer.class, StreamingOutput.class, Response.class};
     @Deprecated
     public Charset charset;
     public Class<?>[] clazzes;
@@ -87,8 +93,20 @@ public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyW
         return true;
     }
 
+    public boolean isAssignableFrom(Class<?> cls, Class<?>[] clsArr) {
+        if (cls == null) {
+            return false;
+        }
+        for (Class<?> cls2 : clsArr) {
+            if (cls2.isAssignableFrom(cls)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean isReadable(Class<?> cls, Type type, Annotation[] annotationArr, MediaType mediaType) {
-        if (hasMatchingMediaType(mediaType)) {
+        if (hasMatchingMediaType(mediaType) && isAssignableFrom(cls, DEFAULT_UNREADABLES)) {
             return isValidType(cls, annotationArr);
         }
         return false;
@@ -111,7 +129,7 @@ public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyW
     }
 
     public boolean isWriteable(Class<?> cls, Type type, Annotation[] annotationArr, MediaType mediaType) {
-        if (hasMatchingMediaType(mediaType)) {
+        if (hasMatchingMediaType(mediaType) && isAssignableFrom(cls, DEFAULT_UNWRITABLES)) {
             return isValidType(cls, annotationArr);
         }
         return false;
@@ -134,9 +152,9 @@ public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyW
     public Object readFrom(Class<Object> cls, Type type, Annotation[] annotationArr, MediaType mediaType, MultivaluedMap<String, String> multivaluedMap, InputStream inputStream) throws IOException, WebApplicationException {
         try {
             FastJsonConfig locateConfigProvider = locateConfigProvider(cls, mediaType);
-            return JSON.parseObject(inputStream, locateConfigProvider.getCharset(), type, locateConfigProvider.getFeatures());
+            return JSON.parseObject(inputStream, locateConfigProvider.getCharset(), type, locateConfigProvider.getParserConfig(), locateConfigProvider.getParseProcess(), JSON.DEFAULT_PARSER_FEATURE, locateConfigProvider.getFeatures());
         } catch (JSONException e2) {
-            throw new WebApplicationException("JSON parse error: " + e2.getMessage(), e2);
+            throw new WebApplicationException(e2);
         }
     }
 
@@ -184,10 +202,10 @@ public class FastJsonProvider implements MessageBodyReader<Object>, MessageBodyW
             locateConfigProvider.setSerializerFeatures(serializerFeatureArr);
         }
         try {
-            JSON.writeJSONString(outputStream, locateConfigProvider.getCharset(), obj, locateConfigProvider.getSerializeConfig(), locateConfigProvider.getSerializeFilters(), locateConfigProvider.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, locateConfigProvider.getSerializerFeatures());
+            JSON.writeJSONStringWithFastJsonConfig(outputStream, locateConfigProvider.getCharset(), obj, locateConfigProvider.getSerializeConfig(), locateConfigProvider.getSerializeFilters(), locateConfigProvider.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE, locateConfigProvider.getSerializerFeatures());
             outputStream.flush();
         } catch (JSONException e2) {
-            throw new WebApplicationException("Could not write JSON: " + e2.getMessage(), e2);
+            throw new WebApplicationException(e2);
         }
     }
 

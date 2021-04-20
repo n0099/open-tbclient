@@ -1,120 +1,124 @@
 package d.b.i0.t3;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import d.b.c.e.p.k;
+import d.b.h0.s.c.i0;
+import d.b.i0.t3.b;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class c extends LinkMovementMethod {
-
-    /* renamed from: f  reason: collision with root package name */
-    public static c f61149f;
+public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.b1.m.f f61150a;
+    public String f62615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61151b;
+    public String f62616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61152c;
+    public boolean f62617c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61153d;
+    public b.a f62618d = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61154e = -1;
+    public CustomMessageListener f62619e = new b(2001371);
 
-    public static c a() {
-        if (f61149f == null) {
-            f61149f = new c();
+    /* loaded from: classes5.dex */
+    public class a implements b.a {
+        public a() {
         }
-        return f61149f;
+
+        @Override // d.b.i0.t3.b.a
+        public void a(boolean z, String str, String str2) {
+            c.this.f62617c = false;
+            if (z) {
+                c.this.f62616b = str;
+                d.b.h0.r.d0.b.j().x("key_video_splash_path", c.this.f62616b);
+                c.this.f62615a = str2;
+                d.b.h0.r.d0.b.j().x("key_video_splash_url", c.this.f62615a);
+            }
+        }
     }
 
-    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
-        return Math.abs(f4 - f2) <= 100.0f && Math.abs(f5 - f3) <= 100.0f && j2 - j >= j3;
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            String p = d.b.h0.r.d0.b.j().p("key_video_splash_config", "");
+            i0 i0Var = new i0();
+            i0Var.g(p);
+            c.this.n(i0Var.f());
+        }
     }
 
-    public final d.b.h0.b1.m.f b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        if (motionEvent != null && motionEvent.getAction() != 3) {
-            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-            int scrollX = x + textView.getScrollX();
-            int scrollY = y + textView.getScrollY();
-            try {
-                Layout layout = textView.getLayout();
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                d.b.h0.b1.m.f[] fVarArr = (d.b.h0.b1.m.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, d.b.h0.b1.m.f.class);
-                if (fVarArr == null || fVarArr.length <= 0 || fVarArr[0] == null) {
-                    return null;
-                }
-                return fVarArr[0];
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return this.f61150a;
-            }
-        }
-        return this.f61150a;
+    public c() {
+        j();
     }
 
-    public void d(int i) {
-        this.f61154e = i;
+    public void g() {
+        if (k.isEmpty(h())) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(h()));
+        this.f62616b = null;
+        d.b.h0.r.d0.b.j().x("key_video_splash_path", this.f62616b);
+        this.f62615a = null;
+        d.b.h0.r.d0.b.j().x("key_video_splash_url", this.f62615a);
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        d.b.h0.b1.m.f b2 = b(textView, spannable, motionEvent);
-        if (b2 == null && motionEvent.getAction() == 0) {
-            try {
-                return super.onTouchEvent(textView, spannable, motionEvent);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return true;
-            }
+    public final String h() {
+        return TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/videosplash";
+    }
+
+    public String i() {
+        return this.f62616b;
+    }
+
+    public final void j() {
+        this.f62617c = false;
+        this.f62615a = d.b.h0.r.d0.b.j().p("key_video_splash_url", null);
+        this.f62616b = d.b.h0.r.d0.b.j().p("key_video_splash_path", null);
+        MessageManager.getInstance().registerListener(this.f62619e);
+    }
+
+    public final boolean k(String str) {
+        return (k.isEmpty(str) || str.equals(this.f62615a)) ? false : true;
+    }
+
+    public boolean l() {
+        if (this.f62617c || k.isEmpty(i())) {
+            return false;
         }
-        if (b2 != null) {
-            this.f61150a = b2;
-        }
-        int i = this.f61154e;
-        if (i > -1) {
-            this.f61150a.g(i);
-        }
-        if (motionEvent.getAction() == 0) {
-            this.f61151b = (int) motionEvent.getX();
-            this.f61152c = (int) motionEvent.getY();
-            this.f61153d = System.currentTimeMillis();
-            d.b.h0.b1.m.f fVar = this.f61150a;
-            if (fVar != null) {
-                fVar.h(1);
-                Selection.setSelection(spannable, spannable.getSpanStart(this.f61150a), spannable.getSpanEnd(this.f61150a));
-            }
-            textView.invalidate();
-        } else if (motionEvent.getAction() == 2) {
-            if (this.f61150a != null && (Math.abs(this.f61151b - motionEvent.getX()) > 20.0f || Math.abs(this.f61152c - motionEvent.getY()) > 20.0f)) {
-                this.f61150a.h(2);
-                textView.invalidate();
-                Selection.removeSelection(spannable);
-            }
-        } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            d.b.h0.b1.m.f fVar2 = this.f61150a;
-            if (fVar2 != null) {
-                fVar2.h(2);
-                textView.invalidate();
-                Selection.removeSelection(spannable);
-            }
-            if (c(this.f61151b, this.f61152c, motionEvent.getX(), motionEvent.getY(), this.f61153d, System.currentTimeMillis(), 500L)) {
-                return true;
-            }
-        }
-        try {
-            return super.onTouchEvent(textView, spannable, motionEvent);
-        } catch (Exception e3) {
-            BdLog.e(e3);
+        if (new File(i()).exists()) {
             return true;
+        }
+        this.f62616b = null;
+        d.b.h0.r.d0.b.j().x("key_video_splash_path", this.f62616b);
+        this.f62615a = null;
+        d.b.h0.r.d0.b.j().x("key_video_splash_url", this.f62615a);
+        return false;
+    }
+
+    public final void m(String str) {
+        this.f62617c = true;
+        new d.b.i0.t3.b(h(), str, this.f62618d).execute(new Void[0]);
+    }
+
+    public final void n(String str) {
+        if ((d.b.h0.r.d0.b.j().k("key_video_splash_switch", 0) == 1) && !this.f62617c && k(str)) {
+            m(str);
         }
     }
 }

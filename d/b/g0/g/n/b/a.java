@@ -10,34 +10,34 @@ import d.b.g0.a.k;
 import d.b.g0.l.k.d;
 /* loaded from: classes3.dex */
 public class a extends l {
-    public static final boolean o = k.f45051a;
+    public static final boolean o = k.f45443a;
 
     public a(b<Exception> bVar) {
         super(bVar);
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public int U() {
+    public int T() {
         return 1;
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public PMSDownloadType V() {
+    public PMSDownloadType U() {
         return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public String W() {
+    public String V() {
         return d.b.g0.a.e0.p.r.a.f();
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public String X() {
+    public String W() {
         return d.b.g0.a.e0.p.r.a.e();
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public d.b.g0.a.f2.a b0(d.b.g0.l.k.b bVar) {
+    public d.b.g0.a.f2.a a0(d.b.g0.l.k.b bVar) {
         if (bVar == null) {
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
             aVar.j(14L);
@@ -46,9 +46,9 @@ public class a extends l {
             return aVar;
         }
         d.b.g0.a.l0.h.a aVar2 = new d.b.g0.a.l0.h.a();
-        aVar2.f45154a = bVar.j;
-        aVar2.f45155b = bVar.f48917a;
-        aVar2.f45156c = bVar.m;
+        aVar2.f45546a = bVar.j;
+        aVar2.f45547b = bVar.f49309a;
+        aVar2.f45548c = bVar.m;
         if (d.b.g0.a.l0.b.a(1, aVar2) == null) {
             if (o) {
                 Log.i("SwanGameUpdateCoreCallback", "小游戏Extension包解压成功");
@@ -64,7 +64,7 @@ public class a extends l {
     }
 
     @Override // d.b.g0.a.e0.p.l
-    public d.b.g0.a.f2.a c0(d dVar) {
+    public d.b.g0.a.f2.a b0(d dVar) {
         if (dVar == null) {
             d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
             aVar.j(13L);
@@ -72,8 +72,8 @@ public class a extends l {
             aVar.c("小游戏GameCore包 Framework null");
             return aVar;
         }
-        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f48917a, dVar.m, 1);
-        d.b.g0.p.d.g(dVar.f48917a);
+        a.b c2 = d.b.g0.a.b2.f.a.c(dVar.j, dVar.f49309a, dVar.m, 1);
+        d.b.g0.p.d.g(dVar.f49309a);
         if (c2.c()) {
             if (o) {
                 Log.d("SwanGameUpdateCoreCallback", "小游戏GameCore解压成功");

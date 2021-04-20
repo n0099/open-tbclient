@@ -11,22 +11,22 @@ import d.o.a.e.a.d;
 import d.o.a.e.a.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f66861a = "c";
+    public static final String f67854a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<d.p> f66862b = new ArrayList();
+    public static List<d.p> f67855b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.socialbase.appdownloader.view.a f66863c;
+    public static com.ss.android.socialbase.appdownloader.view.a f67856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AlertDialog f66864d;
+    public static AlertDialog f67857d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements DialogInterface.OnKeyListener {
         @Override // android.content.DialogInterface.OnKeyListener
         public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -40,7 +40,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements DialogInterface.OnClickListener {
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -49,25 +49,25 @@ public class c {
     }
 
     /* renamed from: d.o.a.e.a.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class DialogInterface$OnClickListenerC1842c implements DialogInterface.OnClickListener {
+    /* loaded from: classes6.dex */
+    public static class DialogInterface$OnClickListenerC1877c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f66865e;
+        public final /* synthetic */ Activity f67858e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.p f66866f;
+        public final /* synthetic */ d.p f67859f;
 
-        public DialogInterface$OnClickListenerC1842c(Activity activity, d.p pVar) {
-            this.f66865e = activity;
-            this.f66866f = pVar;
+        public DialogInterface$OnClickListenerC1877c(Activity activity, d.p pVar) {
+            this.f67858e = activity;
+            this.f67859f = pVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            c.e(this.f66865e, this.f66866f);
+            c.e(this.f67858e, this.f67859f);
             dialogInterface.cancel();
-            AlertDialog unused = c.f66864d = null;
+            AlertDialog unused = c.f67857d = null;
         }
     }
 
@@ -87,9 +87,9 @@ public class c {
                     int a3 = l.a(d.o.a.e.b.g.d.l(), "tt_appdownloader_notification_request_message");
                     int a4 = l.a(d.o.a.e.b.g.d.l(), "tt_appdownloader_notification_request_btn_yes");
                     int a5 = l.a(d.o.a.e.b.g.d.l(), "tt_appdownloader_notification_request_btn_no");
-                    f66862b.add(pVar);
-                    if (f66864d == null || !f66864d.isShowing()) {
-                        f66864d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface$OnClickListenerC1842c(activity, pVar)).setNegativeButton(a5, new b()).setOnKeyListener(new a()).setCancelable(false).show();
+                    f67855b.add(pVar);
+                    if (f67857d == null || !f67857d.isShowing()) {
+                        f67857d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface$OnClickListenerC1877c(activity, pVar)).setNegativeButton(a5, new b()).setOnKeyListener(new a()).setCancelable(false).show();
                     }
                     return;
                 }
@@ -101,11 +101,11 @@ public class c {
     public static synchronized void c(boolean z) {
         synchronized (c.class) {
             try {
-                if (f66864d != null) {
-                    f66864d.cancel();
-                    f66864d = null;
+                if (f67857d != null) {
+                    f67857d.cancel();
+                    f67857d = null;
                 }
-                for (d.p pVar : f66862b) {
+                for (d.p pVar : f67855b) {
                     if (pVar != null) {
                         if (z) {
                             pVar.a();
@@ -134,14 +134,14 @@ public class c {
             try {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
-                    com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f66861a);
-                    f66863c = aVar;
+                    com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f67854a);
+                    f67856c = aVar;
                     if (aVar == null) {
-                        f66863c = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(f66863c, f66861a).commitAllowingStateLoss();
+                        f67856c = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(f67856c, f67854a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    f66863c.a();
+                    f67856c.a();
                     return;
                 }
             } catch (Throwable th) {

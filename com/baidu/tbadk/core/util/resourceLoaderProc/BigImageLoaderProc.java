@@ -7,7 +7,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.tieba.R;
-import d.b.b.e.a.d;
-import d.b.b.e.a.f.c;
-import d.b.b.e.l.b;
-import d.b.b.e.l.e;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.b.j.d.a;
+import d.b.c.e.a.d;
+import d.b.c.e.a.f.c;
+import d.b.c.e.l.b;
+import d.b.c.e.l.e;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
+import d.b.c.j.d.a;
 import d.b.h0.z0.o;
 import java.io.File;
 import java.io.InputStream;
@@ -66,7 +66,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f41848a = diskCancelWorker;
+            bVar.f42345a = diskCancelWorker;
         }
         if (d.g().a(newDiskPicOperate)) {
             int i = j.H() ? 500 : 2000;
@@ -95,7 +95,7 @@ public class BigImageLoaderProc implements e<a> {
             if (split2.length > 3) {
                 try {
                     for (String str2 : URLDecoder.decode(split2[split2.length - 3], "utf-8").split(";")) {
-                        if (str2.startsWith(IXAdRequestInfo.COST_NAME)) {
+                        if (str2.startsWith(IAdRequestParam.COST_NAME)) {
                             String[] split3 = str2.split("=");
                             if (Integer.valueOf(split3[split3.length - 1]).intValue() <= 50) {
                                 return false;
@@ -178,7 +178,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f41848a = diskCancelWorker;
+            bVar.f42345a = diskCancelWorker;
         }
         d.g().a(newDiskPicOperate);
     }
@@ -189,19 +189,19 @@ public class BigImageLoaderProc implements e<a> {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public int getAsyncTaskPriority() {
         return 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         return null;
     }
@@ -210,7 +210,7 @@ public class BigImageLoaderProc implements e<a> {
         return this.procType;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
@@ -218,22 +218,22 @@ public class BigImageLoaderProc implements e<a> {
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         boolean booleanValue = Boolean.valueOf(String.valueOf(objArr[0])).booleanValue();
         byte[] bArr = (byte[]) objArr[1];
         Bitmap Bytes2Bitmap = bArr != null ? BitmapHelper.Bytes2Bitmap(bArr) : null;
         if (Bytes2Bitmap == null) {
             if (booleanValue && str.startsWith("/")) {
-                Bytes2Bitmap = d.b.b.e.p.d.d().c(str);
+                Bytes2Bitmap = d.b.c.e.p.d.d().c(str);
                 if (Bytes2Bitmap != null && bArr == null) {
-                    bArr = d.b.b.e.p.d.d().a(Bytes2Bitmap, 100);
+                    bArr = d.b.c.e.p.d.d().a(Bytes2Bitmap, 100);
                 }
             } else {
                 bArr = getFromLocalData(str, bVar);
@@ -251,7 +251,7 @@ public class BigImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     /* JADX WARN: Removed duplicated region for block: B:32:0x00ce  */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -284,7 +284,7 @@ public class BigImageLoaderProc implements e<a> {
                     z = true;
                     webClient = new WebClient();
                     if (bVar != null) {
-                        bVar.f41848a = webClient;
+                        bVar.f42345a = webClient;
                     }
                     downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
                     needCache = webClient.needCache();
@@ -295,8 +295,8 @@ public class BigImageLoaderProc implements e<a> {
                     if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                         try {
                             InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                            downloadImageBytes = d.b.b.e.j.b.b.d(openRawResource);
-                            d.b.b.e.m.a.c(openRawResource);
+                            downloadImageBytes = d.b.c.e.j.b.b.d(openRawResource);
+                            d.b.c.e.m.a.c(openRawResource);
                         } catch (Throwable th) {
                             BdLog.e(th);
                             return null;
@@ -335,8 +335,8 @@ public class BigImageLoaderProc implements e<a> {
             }
             if (webClient.responseCode == 302) {
                 InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                downloadImageBytes = d.b.b.e.j.b.b.d(openRawResource2);
-                d.b.b.e.m.a.c(openRawResource2);
+                downloadImageBytes = d.b.c.e.j.b.b.d(openRawResource2);
+                d.b.c.e.m.a.c(openRawResource2);
             }
             if (!webClient.IsRequestSuccess()) {
             }

@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.p;
-import f.a.t.b;
+import f.b.o;
+import f.b.p;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -29,7 +29,7 @@ public abstract class ObservableSampleTimed$SampleTimedObserver<T> extends Atomi
 
     public abstract void complete();
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         cancelTimer();
         this.s.dispose();
@@ -42,29 +42,29 @@ public abstract class ObservableSampleTimed$SampleTimedObserver<T> extends Atomi
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.s.isDisposed();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         cancelTimer();
         complete();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         cancelTimer();
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         lazySet(t);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

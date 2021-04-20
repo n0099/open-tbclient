@@ -7,13 +7,13 @@ import java.util.List;
 public class c extends BaseCardInfo {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f60534f = BdUniqueId.gen();
+    public static final BdUniqueId f62098f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f60535e;
+    public List<b> f62099e;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f60534f;
+        return f62098f;
     }
 }

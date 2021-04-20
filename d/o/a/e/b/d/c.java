@@ -2,34 +2,34 @@ package d.o.a.e.b.d;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f66953a = "";
+    public static volatile String f67946a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f66954b = "";
+    public static volatile String f67947b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f66955c = "";
+    public static volatile String f67948c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f66956d = 512000;
+    public static long f67949d = 512000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f66957e = 50;
+    public static long f67950e = 50;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f66958f = 5242880;
+    public static long f67951f = 5242880;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final JSONObject f66959g = new JSONObject();
+    public static final JSONObject f67952g = new JSONObject();
 
     public static void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        f66953a = str;
+        f67946a = str;
     }
 }

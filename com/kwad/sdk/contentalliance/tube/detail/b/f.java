@@ -8,16 +8,16 @@ import java.util.Set;
 public class f extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.tube.b f33207b;
+    public com.kwad.sdk.contentalliance.tube.b f33496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<b.a> f33208c;
+    public Set<b.a> f33497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a f33209d = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.f.1
+    public b.a f33498d = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.f.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
-            for (b.a aVar : f.this.f33208c) {
+            for (b.a aVar : f.this.f33497c) {
                 aVar.a(z);
             }
         }
@@ -25,7 +25,7 @@ public class f extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, int i, String str) {
             com.kwad.sdk.core.d.a.a("TubeFeedUpdatePresenter", "tube/feed isLoadMore" + z + " code=" + i + " msg=" + str);
-            for (b.a aVar : f.this.f33208c) {
+            for (b.a aVar : f.this.f33497c) {
                 aVar.a(z, i, str);
             }
         }
@@ -33,45 +33,45 @@ public class f extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
             com.kwad.sdk.core.d.a.a("TubeFeedUpdatePresenter", "tube/feed OK");
-            for (b.a aVar : f.this.f33208c) {
+            for (b.a aVar : f.this.f33497c) {
                 aVar.a(z, adResultData);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void b(boolean z) {
-            for (b.a aVar : f.this.f33208c) {
+            for (b.a aVar : f.this.f33497c) {
                 aVar.b(z);
             }
         }
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.tube.detail.a f33210e = new com.kwad.sdk.contentalliance.tube.detail.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.f.2
+    public com.kwad.sdk.contentalliance.tube.detail.a f33499e = new com.kwad.sdk.contentalliance.tube.detail.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.f.2
         @Override // com.kwad.sdk.contentalliance.tube.detail.a
         public void a(long j) {
             com.kwad.sdk.core.d.a.a("TubeFeedUpdatePresenter", "onLoadMore to load feed");
-            f.this.f33207b.a(true, j);
+            f.this.f33496b.a(true, j);
         }
     };
 
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.tube.detail.a.b bVar = ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a;
-        this.f33208c = bVar.f33162d;
-        com.kwad.sdk.contentalliance.tube.b bVar2 = new com.kwad.sdk.contentalliance.tube.b(bVar.f33164f, bVar.f33160b.getTubeId(), this.f33209d);
-        this.f33207b = bVar2;
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33165g = bVar2;
+        com.kwad.sdk.contentalliance.tube.detail.a.b bVar = ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33447a;
+        this.f33497c = bVar.f33451d;
+        com.kwad.sdk.contentalliance.tube.b bVar2 = new com.kwad.sdk.contentalliance.tube.b(bVar.f33453f, bVar.f33449b.getTubeId(), this.f33498d);
+        this.f33496b = bVar2;
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33447a.f33454g = bVar2;
         bVar2.a(false, 0L);
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33163e.add(this.f33210e);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33447a.f33452e.add(this.f33499e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33163e.remove(this.f33210e);
-        this.f33207b.a();
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33447a.f33452e.remove(this.f33499e);
+        this.f33496b.a();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

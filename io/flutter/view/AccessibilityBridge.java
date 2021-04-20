@@ -27,6 +27,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.customview.widget.ExploreByTouchHelper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import f.a.d.b;
 import io.flutter.embedding.engine.systemchannels.AccessibilityChannel;
 import io.flutter.plugin.platform.PlatformViewsAccessibilityDelegate;
 import io.flutter.util.Predicate;
@@ -645,6 +646,10 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         this.accessibilityViewEmbedder = new AccessibilityViewEmbedder(view, 65536);
     }
 
+    public static /* synthetic */ boolean a(SemanticsNode semanticsNode, SemanticsNode semanticsNode2) {
+        return semanticsNode2 == semanticsNode;
+    }
+
     private AccessibilityEvent createTextChangedEvent(int i, String str, String str2) {
         AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(i, 16);
         obtainAccessibilityEvent.setBeforeText(str);
@@ -710,10 +715,6 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             sendAccessibilityEvent(semanticsNode.id, 256);
         }
         this.hoveredObject = hitTest;
-    }
-
-    public static final /* synthetic */ boolean lambda$shouldSetCollectionInfo$0$AccessibilityBridge(SemanticsNode semanticsNode, SemanticsNode semanticsNode2) {
-        return semanticsNode2 == semanticsNode;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -790,18 +791,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     private boolean shouldSetCollectionInfo(final SemanticsNode semanticsNode) {
-        return semanticsNode.scrollChildren > 0 && (SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, new Predicate(semanticsNode) { // from class: io.flutter.view.AccessibilityBridge$$Lambda$0
-            public final AccessibilityBridge.SemanticsNode arg$1;
-
-            {
-                this.arg$1 = semanticsNode;
-            }
-
+        return semanticsNode.scrollChildren > 0 && (SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, new Predicate() { // from class: f.a.d.a
             @Override // io.flutter.util.Predicate
-            public boolean test(Object obj) {
-                return AccessibilityBridge.lambda$shouldSetCollectionInfo$0$AccessibilityBridge(this.arg$1, (AccessibilityBridge.SemanticsNode) obj);
+            public final boolean test(Object obj) {
+                return AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj);
             }
-        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, AccessibilityBridge$$Lambda$1.$instance));
+        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f68450a));
     }
 
     private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {

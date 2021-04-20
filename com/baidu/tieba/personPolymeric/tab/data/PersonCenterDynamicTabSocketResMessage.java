@@ -10,7 +10,7 @@ import tbclient.GetShoubaiThreadList.DataRes;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.GetShoubaiThreadList.PageInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessage {
     public long mCursor;
     public boolean mHasMore;
@@ -42,7 +42,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
         for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
             if (threadInfo != null) {
                 a2 a2Var = new a2();
-                a2Var.Q2(threadInfo);
+                a2Var.R2(threadInfo);
                 this.mThreadDataList.add(a2Var);
             }
         }

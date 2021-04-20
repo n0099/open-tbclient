@@ -5,7 +5,7 @@ import h.f;
 import h.j;
 import h.k;
 import h.o.a.a;
-import h.o.a.n;
+import h.o.a.o;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -19,15 +19,15 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
     public volatile boolean done;
     public Throwable error;
     public final K key;
-    public final n<?, K, T> parent;
+    public final o<?, K, T> parent;
     public final Queue<Object> queue = new ConcurrentLinkedQueue();
     public final AtomicBoolean cancelled = new AtomicBoolean();
     public final AtomicReference<j<? super T>> actual = new AtomicReference<>();
     public final AtomicBoolean once = new AtomicBoolean();
     public final AtomicLong requested = new AtomicLong();
 
-    public OperatorGroupBy$State(int i, n<?, K, T> nVar, K k, boolean z) {
-        this.parent = nVar;
+    public OperatorGroupBy$State(int i, o<?, K, T> oVar, K k, boolean z) {
+        this.parent = oVar;
         this.key = k;
         this.delayError = z;
     }
@@ -103,7 +103,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (j != Long.MAX_VALUE) {
                         a.g(this.requested, j2);
                     }
-                    this.parent.f67779e.request(j2);
+                    this.parent.f68790e.request(j2);
                 }
             }
             i = addAndGet(-i);

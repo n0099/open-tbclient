@@ -5,15 +5,15 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.squareup.wire.Wire;
-import d.b.b.j.e.n;
-import d.b.i0.z0.j.b.c.a;
-import d.b.i0.z0.j.b.c.c;
+import d.b.c.j.e.n;
+import d.b.i0.a1.j.b.c.a;
+import d.b.i0.a1.j.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public List<n> mTopicDataList;
 
@@ -47,13 +47,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 aVar.a0(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f63367e = R.dimen.tbds1;
-                cVar.f63368f = R.color.CAM_X0203;
+                cVar.f52986e = R.dimen.tbds1;
+                cVar.f52987f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i2++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f63367e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f52986e = 0;
     }
 }

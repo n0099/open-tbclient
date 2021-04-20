@@ -17,38 +17,38 @@ import java.util.Scanner;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9431a;
+    public static String f8989a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9432b;
+    public static String f8990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f9433c;
+    public static String f8991c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f9434d;
+    public static int f8992d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f9435e;
+    public static int f8993e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f9436f;
+    public static int f8994f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f9437h;
+    public static volatile b f8995h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9438g = false;
+    public boolean f8996g = false;
 
     public static b a() {
-        if (f9437h == null) {
+        if (f8995h == null) {
             synchronized (b.class) {
-                if (f9437h == null) {
-                    f9437h = new b();
+                if (f8995h == null) {
+                    f8995h = new b();
                 }
             }
         }
-        return f9437h;
+        return f8995h;
     }
 
     private boolean a(long j) {
@@ -75,7 +75,7 @@ public final class b {
                     if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str)) && b(str)) {
                         arrayList.add(str);
                         if (a(a(str))) {
-                            f9431a = str;
+                            f8989a = str;
                             return;
                         }
                     }
@@ -97,7 +97,7 @@ public final class b {
                             }
                         }
                         if (!z && b(absolutePath) && a(a(absolutePath))) {
-                            f9431a = absolutePath;
+                            f8989a = absolutePath;
                             return;
                         }
                     }
@@ -163,14 +163,14 @@ public final class b {
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
                 if (a(a(absolutePath))) {
-                    f9431a = absolutePath;
+                    f8989a = absolutePath;
                     return;
                 }
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite() && a(a(absolutePath))) {
-                            f9431a = absolutePath;
+                            f8989a = absolutePath;
                             return;
                         }
                     }
@@ -184,10 +184,10 @@ public final class b {
     }
 
     public void a(Context context) {
-        if (this.f9438g) {
+        if (this.f8996g) {
             return;
         }
-        this.f9438g = true;
+        this.f8996g = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 b(context);
@@ -197,28 +197,28 @@ public final class b {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        String str = f9431a;
+        String str = f8989a;
         if (str != null && !str.equals("")) {
-            f9432b = f9431a + File.separator + "BaiduPanoSDK" + File.separator + SapiOptions.q;
-            f9433c = context.getCacheDir().getAbsolutePath();
-            f9434d = 20971520;
-            f9435e = 52428800;
-            f9436f = 5242880;
+            f8990b = f8989a + File.separator + "BaiduPanoSDK" + File.separator + SapiOptions.q;
+            f8991c = context.getCacheDir().getAbsolutePath();
+            f8992d = 20971520;
+            f8993e = 52428800;
+            f8994f = 5242880;
             return;
         }
         if (context.getCacheDir() != null) {
-            f9432b = context.getCacheDir().getAbsolutePath();
+            f8990b = context.getCacheDir().getAbsolutePath();
         } else {
-            f9432b = "";
+            f8990b = "";
         }
-        f9433c = "";
-        f9434d = 10485760;
-        f9435e = 10485760;
-        f9436f = 5242880;
+        f8991c = "";
+        f8992d = 10485760;
+        f8993e = 10485760;
+        f8994f = 5242880;
     }
 
     public static String b() {
-        return f9432b + File.separator + "cacheNet";
+        return f8990b + File.separator + "cacheNet";
     }
 
     @SuppressLint({"NewApi"})

@@ -2,11 +2,11 @@ package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f30708a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static char[] f30393a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String a(byte[] bArr) {
         if (bArr == null) {
@@ -16,7 +16,7 @@ public class s {
         int i = 0;
         for (byte b2 : bArr) {
             int i2 = i + 1;
-            char[] cArr2 = f30708a;
+            char[] cArr2 = f30393a;
             cArr[i] = cArr2[(b2 >>> 4) & 15];
             i = i2 + 1;
             cArr[i2] = cArr2[b2 & 15];

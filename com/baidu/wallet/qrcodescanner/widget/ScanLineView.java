@@ -14,31 +14,31 @@ import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
 public class ScanLineView extends FrameLayout {
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f26779d = 50.0f;
+    public static float f26464d = 50.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f26780e = 1800;
+    public static int f26465e = 1800;
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f26781f = 50.0f;
+    public static float f26466f = 50.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f26782a;
+    public ImageView f26467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f26783b;
+    public a f26468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26784c;
+    public int f26469c;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26785g;
+    public int f26470g;
 
     /* loaded from: classes5.dex */
     public class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f26786a = true;
+        public boolean f26471a = true;
 
         public a() {
         }
@@ -47,44 +47,44 @@ public class ScanLineView extends FrameLayout {
         public void dispatchMessage(Message message) {
             int i;
             int i2;
-            int left = ScanLineView.this.f26782a.getLeft();
-            int top = ScanLineView.this.f26782a.getTop();
-            int right = ScanLineView.this.f26782a.getRight();
-            int bottom = ScanLineView.this.f26782a.getBottom();
-            ScanLineView.this.f26782a.getWidth();
-            ScanLineView.this.f26782a.getHeight();
-            if (this.f26786a) {
-                ScanLineView.this.f26782a.setBackgroundResource(ResUtils.drawable(ScanLineView.this.getContext(), "wallet_qrscanner_line_down"));
-                i = top + ScanLineView.this.f26784c;
-                i2 = bottom + ScanLineView.this.f26784c;
+            int left = ScanLineView.this.f26467a.getLeft();
+            int top = ScanLineView.this.f26467a.getTop();
+            int right = ScanLineView.this.f26467a.getRight();
+            int bottom = ScanLineView.this.f26467a.getBottom();
+            ScanLineView.this.f26467a.getWidth();
+            ScanLineView.this.f26467a.getHeight();
+            if (this.f26471a) {
+                ScanLineView.this.f26467a.setBackgroundResource(ResUtils.drawable(ScanLineView.this.getContext(), "wallet_qrscanner_line_down"));
+                i = top + ScanLineView.this.f26469c;
+                i2 = bottom + ScanLineView.this.f26469c;
             } else {
-                ScanLineView.this.f26782a.setBackgroundResource(ResUtils.drawable(ScanLineView.this.getContext(), "wallet_qrscanner_line_up"));
-                i = top - ScanLineView.this.f26784c;
-                i2 = bottom - ScanLineView.this.f26784c;
+                ScanLineView.this.f26467a.setBackgroundResource(ResUtils.drawable(ScanLineView.this.getContext(), "wallet_qrscanner_line_up"));
+                i = top - ScanLineView.this.f26469c;
+                i2 = bottom - ScanLineView.this.f26469c;
             }
             int i3 = 0;
             if (i2 < 0) {
-                i = -ScanLineView.this.f26782a.getHeight();
-                this.f26786a = true;
+                i = -ScanLineView.this.f26467a.getHeight();
+                this.f26471a = true;
                 i2 = 0;
             }
             if (i > ScanLineView.this.getHeight()) {
-                i = -ScanLineView.this.f26782a.getHeight();
-                this.f26786a = true;
+                i = -ScanLineView.this.f26467a.getHeight();
+                this.f26471a = true;
             } else {
                 i3 = i2;
             }
-            ScanLineView.this.f26782a.layout(left, i, right, i3);
+            ScanLineView.this.f26467a.layout(left, i, right, i3);
             removeCallbacksAndMessages(null);
-            sendEmptyMessageDelayed(1, ScanLineView.this.f26785g);
+            sendEmptyMessageDelayed(1, ScanLineView.this.f26470g);
             super.dispatchMessage(message);
         }
     }
 
     public ScanLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26784c = 1;
-        this.f26785g = (int) (f26780e / f26781f);
+        this.f26469c = 1;
+        this.f26470g = (int) (f26465e / f26466f);
         a();
     }
 
@@ -104,37 +104,37 @@ public class ScanLineView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f26784c = (int) ((getMeasuredHeight() + DisplayUtils.dip2px(getContext(), 100.0f)) / f26779d);
+        this.f26469c = (int) ((getMeasuredHeight() + DisplayUtils.dip2px(getContext(), 100.0f)) / f26464d);
     }
 
     public void start() {
-        if (this.f26783b == null) {
-            this.f26783b = new a();
+        if (this.f26468b == null) {
+            this.f26468b = new a();
         }
-        this.f26783b.removeCallbacksAndMessages(null);
-        this.f26783b.sendEmptyMessageDelayed(1, 1000L);
+        this.f26468b.removeCallbacksAndMessages(null);
+        this.f26468b.sendEmptyMessageDelayed(1, 1000L);
     }
 
     public void stop() {
-        if (this.f26783b == null) {
-            this.f26783b = new a();
+        if (this.f26468b == null) {
+            this.f26468b = new a();
         }
-        this.f26783b.removeCallbacksAndMessages(null);
+        this.f26468b.removeCallbacksAndMessages(null);
     }
 
     private void a() {
         ImageView imageView = new ImageView(getContext());
-        this.f26782a = imageView;
+        this.f26467a = imageView;
         imageView.setBackgroundResource(ResUtils.drawable(getContext(), "wallet_qrscanner_line_down"));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 100.0f));
         layoutParams.topMargin = -DisplayUtils.dip2px(getContext(), 100.0f);
-        addView(this.f26782a, layoutParams);
+        addView(this.f26467a, layoutParams);
     }
 
     public ScanLineView(Context context) {
         super(context);
-        this.f26784c = 1;
-        this.f26785g = (int) (f26780e / f26781f);
+        this.f26469c = 1;
+        this.f26470g = (int) (f26465e / f26466f);
         a();
     }
 }

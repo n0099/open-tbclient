@@ -10,43 +10,43 @@ import java.lang.ref.WeakReference;
 public class d extends ImageSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49828e;
+    public int f50221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49829f;
+    public int f50222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49830g;
+    public int f50223g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<Drawable> f49831h;
+    public WeakReference<Drawable> f50224h;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.f49828e = 0;
+        this.f50221e = 0;
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f49831h;
+        WeakReference<Drawable> weakReference = this.f50224h;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.f49831h = new WeakReference<>(drawable2);
+            this.f50224h = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
     }
 
     public void b(int i) {
-        this.f49829f = i;
+        this.f50222f = i;
     }
 
     public void c(int i) {
-        this.f49830g = i;
+        this.f50223g = i;
     }
 
     public void d(int i) {
-        this.f49828e = i;
+        this.f50221e = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -56,7 +56,7 @@ public class d extends ImageSpan {
             return;
         }
         canvas.save();
-        canvas.translate(f2 + this.f49829f, ((((i5 - i3) - a2.getBounds().bottom) / 2) + i3) - this.f49828e);
+        canvas.translate(f2 + this.f50222f, ((((i5 - i3) - a2.getBounds().bottom) / 2) + i3) - this.f50221e);
         a2.draw(canvas);
         canvas.restore();
     }
@@ -80,6 +80,6 @@ public class d extends ImageSpan {
             fontMetricsInt.bottom = i6;
             fontMetricsInt.descent = i6;
         }
-        return bounds.right + this.f49829f + this.f49830g;
+        return bounds.right + this.f50222f + this.f50223g;
     }
 }

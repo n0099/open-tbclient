@@ -3,14 +3,14 @@ package com.baidu.tieba.setting.officialAccountPush;
 import android.os.Parcel;
 import android.os.Parcelable;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfficialAccountPushInfo implements Parcelable {
     public static final Parcelable.Creator<OfficialAccountPushInfo> CREATOR = new a();
     public int is_on;
     public String name;
     public long uid;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<OfficialAccountPushInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PostSearchActivityStatic {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Void> run(CustomMessage<String> customMessage) {
@@ -24,19 +24,19 @@ public class PostSearchActivityStatic {
             if (StringUtils.isNull(data)) {
                 return null;
             }
-            d.b.i0.c3.n0.a.q(data);
+            d.b.i0.d3.n0.a.q(data);
             return new CustomResponsedMessage<>(2009003);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Void> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Void> run(CustomMessage<Void> customMessage) {
             if (customMessage == null) {
                 return null;
             }
-            d.b.i0.c3.n0.a.d();
+            d.b.i0.d3.n0.a.d();
             return new CustomResponsedMessage<>(2009004);
         }
     }

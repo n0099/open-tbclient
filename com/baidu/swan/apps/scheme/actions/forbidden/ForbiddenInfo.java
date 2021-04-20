@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import d.b.g0.a.y0.e.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new a();
     public static final int ENABLE_SLIDING_DEFAULT_FLAG = 0;
@@ -16,7 +16,7 @@ public class ForbiddenInfo implements Parcelable {
     public String launchPath;
     public String launchSource;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<ForbiddenInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

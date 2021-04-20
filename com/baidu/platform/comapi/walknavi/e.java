@@ -3,19 +3,19 @@ package com.baidu.platform.comapi.walknavi;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f10040a;
+    public final /* synthetic */ String f9598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f10041b;
+    public final /* synthetic */ b f9599b;
 
     public e(b bVar, String str) {
-        this.f10041b = bVar;
-        this.f10040a = str;
+        this.f9599b = bVar;
+        this.f9598a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f10041b.F().setInitialState(this.f10040a);
-        this.f10041b.F().runCurrentState();
+        this.f9599b.F().setInitialState(this.f9598a);
+        this.f9599b.F().runCurrentState();
     }
 }

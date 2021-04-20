@@ -17,10 +17,10 @@ import java.util.List;
 public class f implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapRegionDecoder f43463a;
+    public BitmapRegionDecoder f43855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f43464b = new Object();
+    public final Object f43856b = new Object();
 
     @Override // d.b.g0.a.b1.e.d.d
     public Point a(Context context, Bitmap bitmap) throws Exception {
@@ -28,9 +28,9 @@ public class f implements d {
         try {
             inputStream = b(bitmap);
             try {
-                this.f43463a = BitmapRegionDecoder.newInstance(inputStream, false);
+                this.f43855a = BitmapRegionDecoder.newInstance(inputStream, false);
                 d.b.g0.p.d.a(inputStream);
-                return new Point(this.f43463a.getWidth(), this.f43463a.getHeight());
+                return new Point(this.f43855a.getWidth(), this.f43855a.getHeight());
             } catch (Throwable th) {
                 th = th;
                 d.b.g0.p.d.a(inputStream);
@@ -58,11 +58,11 @@ public class f implements d {
     @Override // d.b.g0.a.b1.e.d.d
     public Bitmap decodeRegion(Rect rect, int i) {
         Bitmap decodeRegion;
-        synchronized (this.f43464b) {
+        synchronized (this.f43856b) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inSampleSize = i;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
-            decodeRegion = this.f43463a.decodeRegion(rect, options);
+            decodeRegion = this.f43855a.decodeRegion(rect, options);
             if (decodeRegion == null) {
                 throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
             }
@@ -96,31 +96,31 @@ public class f implements d {
                 }
                 i = 0;
             }
-            this.f43463a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
+            this.f43855a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
         } else if (uri2.startsWith("file:///android_asset/")) {
-            this.f43463a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+            this.f43855a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
         } else if (uri2.startsWith("file://")) {
-            this.f43463a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+            this.f43855a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
         } else {
             InputStream inputStream = null;
             try {
                 inputStream = context.getContentResolver().openInputStream(uri);
-                this.f43463a = BitmapRegionDecoder.newInstance(inputStream, false);
+                this.f43855a = BitmapRegionDecoder.newInstance(inputStream, false);
             } finally {
                 d.b.g0.p.d.a(inputStream);
             }
         }
-        return new Point(this.f43463a.getWidth(), this.f43463a.getHeight());
+        return new Point(this.f43855a.getWidth(), this.f43855a.getHeight());
     }
 
     @Override // d.b.g0.a.b1.e.d.d
     public boolean isReady() {
-        BitmapRegionDecoder bitmapRegionDecoder = this.f43463a;
+        BitmapRegionDecoder bitmapRegionDecoder = this.f43855a;
         return (bitmapRegionDecoder == null || bitmapRegionDecoder.isRecycled()) ? false : true;
     }
 
     @Override // d.b.g0.a.b1.e.d.d
     public void recycle() {
-        this.f43463a.recycle();
+        this.f43855a.recycle();
     }
 }

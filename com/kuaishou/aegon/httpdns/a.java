@@ -5,10 +5,10 @@ import java.util.List;
 public final /* synthetic */ class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List f31620a;
+    public final List f31909a;
 
     public a(List list) {
-        this.f31620a = list;
+        this.f31909a = list;
     }
 
     public static Runnable a(List list) {
@@ -17,6 +17,6 @@ public final /* synthetic */ class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        HttpDnsResolver.nativeIncreasePriority((String[]) this.f31620a.toArray(new String[0]));
+        HttpDnsResolver.nativeIncreasePriority((String[]) this.f31909a.toArray(new String[0]));
     }
 }

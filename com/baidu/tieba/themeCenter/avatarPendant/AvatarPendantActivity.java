@@ -20,9 +20,9 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import d.b.h0.t.m;
-import d.b.i0.i3.d.c;
-import d.b.i0.i3.h.e;
+import d.b.h0.t.n;
+import d.b.i0.j3.d.c;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvatarPendantModel.b, View.OnClickListener {
@@ -40,7 +40,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, e eVar, List<d.b.i0.i3.d.a> list) {
+        public void a(int i, String str, e eVar, List<d.b.i0.j3.d.a> list) {
             AvatarPendantActivity avatarPendantActivity = AvatarPendantActivity.this;
             avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.h());
             if (i == 0) {
@@ -78,7 +78,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (dressItemData == null) {
             return "";
         }
-        List<d.b.i0.i3.d.a> x = this.mModel.x();
+        List<d.b.i0.j3.d.a> x = this.mModel.x();
         if (x != null && x.size() > 0) {
             int size = x.size();
             for (int i = 0; i < size; i++) {
@@ -157,7 +157,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         this.mModel.y();
     }
 
-    @Override // d.b.i0.i3.d.c.a
+    @Override // d.b.i0.j3.d.c.a
     public void onItemClick(DressItemData dressItemData) {
         if (checkLogin() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.mHasListData) {
             this.mCurrentCategory = getCurrentCategory(dressItemData);
@@ -182,7 +182,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             showErrorDialog(i2, str, i);
             return;
         }
-        List<d.b.i0.i3.d.a> x = this.mModel.x();
+        List<d.b.i0.j3.d.a> x = this.mModel.x();
         if (x == null || x.size() <= 0) {
             return;
         }
@@ -207,11 +207,11 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                 }
             }
         }
-        m mVar = new m();
-        mVar.e(j);
-        mVar.d(str2);
+        n nVar = new n();
+        nVar.e(j);
+        nVar.d(str2);
         this.mView.l(this.mModel.x());
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, mVar));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, nVar));
     }
 
     public void showErrorDialog(int i, String str, int i2) {
@@ -219,10 +219,10 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i == d.b.i0.i3.c.f56219a) {
-            d.b.i0.i3.b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-        } else if (i == d.b.i0.i3.c.f56220b) {
-            d.b.i0.i3.b.c(getPageContext(), 7, str, i3);
+        if (i == d.b.i0.j3.c.f57666a) {
+            d.b.i0.j3.b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+        } else if (i == d.b.i0.j3.c.f57667b) {
+            d.b.i0.j3.b.c(getPageContext(), 7, str, i3);
         }
     }
 }

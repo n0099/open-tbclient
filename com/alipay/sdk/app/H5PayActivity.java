@@ -9,25 +9,25 @@ import com.facebook.cache.disk.DefaultDiskStorage;
 public class H5PayActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.alipay.sdk.widget.g f1769a;
+    public com.alipay.sdk.widget.g f1794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1770b;
+    public String f1795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1771c;
+    public String f1796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1772d;
+    public String f1797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1773e;
+    public String f1798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1774f;
+    public boolean f1799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1775g;
+    public String f1800g;
 
     private void b() {
         try {
@@ -38,7 +38,7 @@ public class H5PayActivity extends Activity {
     }
 
     public void a() {
-        Object obj = PayTask.f1786a;
+        Object obj = PayTask.f1811a;
         synchronized (obj) {
             try {
                 obj.notify();
@@ -55,7 +55,7 @@ public class H5PayActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        com.alipay.sdk.widget.g gVar = this.f1769a;
+        com.alipay.sdk.widget.g gVar = this.f1794a;
         if (gVar instanceof com.alipay.sdk.widget.h) {
             gVar.b();
             return;
@@ -79,30 +79,30 @@ public class H5PayActivity extends Activity {
         try {
             Bundle extras = getIntent().getExtras();
             String string = extras.getString("url", null);
-            this.f1770b = string;
+            this.f1795b = string;
             if (!n.f(string)) {
                 finish();
                 return;
             }
-            this.f1772d = extras.getString("cookie", null);
-            this.f1771c = extras.getString("method", null);
-            this.f1773e = extras.getString("title", null);
-            this.f1775g = extras.getString("version", "v1");
-            this.f1774f = extras.getBoolean("backisexit", false);
+            this.f1797d = extras.getString("cookie", null);
+            this.f1796c = extras.getString("method", null);
+            this.f1798e = extras.getString("title", null);
+            this.f1800g = extras.getString("version", "v1");
+            this.f1799f = extras.getBoolean("backisexit", false);
             try {
-                if (DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX.equals(this.f1775g)) {
+                if (DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX.equals(this.f1800g)) {
                     com.alipay.sdk.widget.j jVar = new com.alipay.sdk.widget.j(this);
                     setContentView(jVar);
-                    jVar.a(this.f1773e, this.f1771c, this.f1774f);
-                    jVar.a(this.f1770b);
-                    this.f1769a = jVar;
+                    jVar.a(this.f1798e, this.f1796c, this.f1799f);
+                    jVar.a(this.f1795b);
+                    this.f1794a = jVar;
                     return;
                 }
                 com.alipay.sdk.widget.h hVar = new com.alipay.sdk.widget.h(this);
-                this.f1769a = hVar;
+                this.f1794a = hVar;
                 setContentView(hVar);
-                this.f1769a.a(this.f1770b, this.f1772d);
-                this.f1769a.a(this.f1770b);
+                this.f1794a.a(this.f1795b, this.f1797d);
+                this.f1794a.a(this.f1795b);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a("biz", "GetInstalledAppEx", th);
                 finish();
@@ -115,6 +115,6 @@ public class H5PayActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.f1769a.a();
+        this.f1794a.a();
     }
 }

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.crabsdk.CrabSDK;
 import com.baidu.crabsdk.OnUploadFilesCallback;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
 import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
@@ -45,7 +45,7 @@ public final class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
-            jSONObject.put("appKey", com.baidu.crabsdk.a.f4638d);
+            jSONObject.put("appKey", com.baidu.crabsdk.a.f4673d);
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.a());
             jSONObject.put("uname", t.g());
@@ -59,14 +59,14 @@ public final class j {
             jSONObject.put("appVC", p.d());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("brand", Build.BRAND);
-            jSONObject.put(IXAdRequestInfo.OS, "Android");
+            jSONObject.put(IAdRequestParam.OS, "Android");
             jSONObject.put("osVN", Build.VERSION.RELEASE);
             jSONObject.put("osVC", Build.VERSION.SDK_INT);
             jSONObject.put("startupTime", a.g());
             jSONObject.put("curPage", a.i());
             jSONObject.put("locale", i.b());
             jSONObject.put("cuid", h.c());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f4636b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f4671b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

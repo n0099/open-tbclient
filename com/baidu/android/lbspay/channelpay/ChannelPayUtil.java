@@ -6,6 +6,7 @@ import com.baidu.android.lbspay.channelpay.fast.ChannelFastPay;
 import com.baidu.android.lbspay.channelpay.wxpay.ChannelWXPay;
 import com.baidu.android.lbspay.presenter.LBSTransAuthPresenter;
 import com.baidu.android.lbspay.utils.PayMode;
+import com.baidu.android.util.io.PathUtils;
 import com.baidu.wallet.core.utils.LogUtil;
 /* loaded from: classes.dex */
 public class ChannelPayUtil {
@@ -73,7 +74,7 @@ public class ChannelPayUtil {
                             }
                             return "wxpay";
                         }
-                        return "baidu";
+                        return PathUtils.DIRCTORY_BAIDU;
                     }
                     return "fast_pay";
                 }

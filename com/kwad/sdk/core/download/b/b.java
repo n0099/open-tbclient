@@ -27,30 +27,30 @@ import org.json.JSONObject;
 public class b implements com.kwad.sdk.core.download.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f33571a;
+    public Handler f33860a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f33572b;
+    public AdTemplate f33861b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f33573c;
+    public AdInfo f33862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f33574d;
+    public JSONObject f33863d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33575e;
+    public long f33864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f33576f;
+    public boolean f33865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33577g;
+    public boolean f33866g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f33578h;
+    public boolean f33867h;
     public HashSet<KsAppDownloadListener> i;
 
     /* renamed from: com.kwad.sdk.core.download.b.b$5  reason: invalid class name */
@@ -58,57 +58,57 @@ public class b implements com.kwad.sdk.core.download.d {
     public static /* synthetic */ class AnonymousClass5 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f33583a;
+        public static final /* synthetic */ int[] f33872a;
 
         static {
             int[] iArr = new int[DOWNLOADSTAUS.values().length];
-            f33583a = iArr;
+            f33872a = iArr;
             try {
                 iArr[DOWNLOADSTAUS.UNKNOWN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.START.ordinal()] = 2;
+                f33872a[DOWNLOADSTAUS.START.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.DOWNLOADING.ordinal()] = 3;
+                f33872a[DOWNLOADSTAUS.DOWNLOADING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.PROGRESS.ordinal()] = 4;
+                f33872a[DOWNLOADSTAUS.PROGRESS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.PAUSED.ordinal()] = 5;
+                f33872a[DOWNLOADSTAUS.PAUSED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.FAILED.ordinal()] = 6;
+                f33872a[DOWNLOADSTAUS.FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.FINISHED.ordinal()] = 7;
+                f33872a[DOWNLOADSTAUS.FINISHED.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.INSTALL.ordinal()] = 8;
+                f33872a[DOWNLOADSTAUS.INSTALL.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.INSTALL_FINSHED.ordinal()] = 9;
+                f33872a[DOWNLOADSTAUS.INSTALL_FINSHED.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.INSTALL_FAILED.ordinal()] = 10;
+                f33872a[DOWNLOADSTAUS.INSTALL_FAILED.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.CANCELLED.ordinal()] = 11;
+                f33872a[DOWNLOADSTAUS.CANCELLED.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f33583a[DOWNLOADSTAUS.DELETED.ordinal()] = 12;
+                f33872a[DOWNLOADSTAUS.DELETED.ordinal()] = 12;
             } catch (NoSuchFieldError unused12) {
             }
         }
@@ -127,17 +127,17 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     public b(@NonNull AdTemplate adTemplate, JSONObject jSONObject, KsAppDownloadListener ksAppDownloadListener) {
-        this.f33571a = new Handler(Looper.getMainLooper());
+        this.f33860a = new Handler(Looper.getMainLooper());
         this.i = new HashSet<>();
-        this.f33572b = adTemplate;
-        this.f33573c = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        this.f33574d = jSONObject;
+        this.f33861b = adTemplate;
+        this.f33862c = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.f33863d = jSONObject;
         if (ksAppDownloadListener != null) {
             a(ksAppDownloadListener);
         }
-        DownloadStatusManager.a().a(this, this.f33572b);
-        DownloadStatusManager.a().a(this.f33572b);
-        this.f33578h = com.kwad.sdk.core.response.b.c.j(this.f33572b).downloadSafeInfo.downloadPauseEnable;
+        DownloadStatusManager.a().a(this, this.f33861b);
+        DownloadStatusManager.a().a(this.f33861b);
+        this.f33867h = com.kwad.sdk.core.response.b.c.j(this.f33861b).downloadSafeInfo.downloadPauseEnable;
     }
 
     public static void a(b bVar, boolean z) {
@@ -147,14 +147,14 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     private void a(boolean z) {
-        this.f33577g = z;
+        this.f33866g = z;
     }
 
     private void b(Context context) {
-        String str = this.f33573c.adConversionInfo.marketUrl;
+        String str = this.f33862c.adConversionInfo.marketUrl;
         com.kwad.sdk.core.d.a.b("ApkDownloadHelper", "Market URL Schema=" + str);
-        if (!TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f33573c.adBaseInfo.appPackageName) : false) {
-            com.kwad.sdk.core.report.b.j(this.f33572b);
+        if (!TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f33862c.adBaseInfo.appPackageName) : false) {
+            com.kwad.sdk.core.report.b.j(this.f33861b);
         } else if (c(context)) {
         } else {
             j();
@@ -162,17 +162,17 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     private boolean c(Context context) {
-        if (context == null || com.kwad.sdk.core.download.a.b.a() || this.f33573c.status == DOWNLOADSTAUS.PAUSED || !com.kwad.sdk.core.download.a.b.b(context, this.f33572b)) {
+        if (context == null || com.kwad.sdk.core.download.a.b.a() || this.f33862c.status == DOWNLOADSTAUS.PAUSED || !com.kwad.sdk.core.download.a.b.b(context, this.f33861b)) {
             return false;
         }
-        return com.kwad.sdk.core.download.a.b.a(context, this.f33572b);
+        return com.kwad.sdk.core.download.a.b.a(context, this.f33861b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(@NonNull KsAppDownloadListener ksAppDownloadListener) {
-        AdInfo adInfo = this.f33573c;
+        AdInfo adInfo = this.f33862c;
         int i = adInfo.progress;
-        switch (AnonymousClass5.f33583a[adInfo.status.ordinal()]) {
+        switch (AnonymousClass5.f33872a[adInfo.status.ordinal()]) {
             case 1:
                 ksAppDownloadListener.onIdle();
                 return;
@@ -211,7 +211,7 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     private void g() {
-        this.f33571a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.3
+        this.f33860a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.3
             @Override // java.lang.Runnable
             public void run() {
                 Iterator it = b.this.i.iterator();
@@ -227,47 +227,47 @@ public class b implements com.kwad.sdk.core.download.d {
 
     private void h() {
         AdDownloadProxy proxyForDownload;
-        String str = this.f33573c.adBaseInfo.appPackageName;
+        String str = this.f33862c.adBaseInfo.appPackageName;
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
         }
         if (y.a(context, str)) {
-            this.f33573c.status = DOWNLOADSTAUS.INSTALL_FINSHED;
+            this.f33862c.status = DOWNLOADSTAUS.INSTALL_FINSHED;
             return;
         }
-        AdInfo adInfo = this.f33573c;
+        AdInfo adInfo = this.f33862c;
         if (adInfo.status == DOWNLOADSTAUS.INSTALL_FINSHED) {
             adInfo.status = DOWNLOADSTAUS.UNKNOWN;
             adInfo.progress = 0;
         }
-        AdInfo adInfo2 = this.f33573c;
+        AdInfo adInfo2 = this.f33862c;
         if (adInfo2.status == DOWNLOADSTAUS.FINISHED) {
             String str2 = adInfo2.downloadFilePath;
             if (TextUtils.isEmpty(str2) || !new File(str2).exists()) {
-                AdInfo adInfo3 = this.f33573c;
+                AdInfo adInfo3 = this.f33862c;
                 adInfo3.status = DOWNLOADSTAUS.UNKNOWN;
                 adInfo3.progress = 0;
             }
         }
-        if (this.f33573c.status != DOWNLOADSTAUS.UNKNOWN || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+        if (this.f33862c.status != DOWNLOADSTAUS.UNKNOWN || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
             return;
         }
-        String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transfrom(this.f33573c));
+        String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transfrom(this.f33862c));
         if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
             return;
         }
-        AdInfo adInfo4 = this.f33573c;
+        AdInfo adInfo4 = this.f33862c;
         adInfo4.downloadFilePath = downloadFilePath;
         adInfo4.status = DOWNLOADSTAUS.FINISHED;
     }
 
     private boolean i() {
-        String str = this.f33573c.adConversionInfo.marketUrl;
+        String str = this.f33862c.adConversionInfo.marketUrl;
         com.kwad.sdk.core.d.a.b("ApkDownloadHelper", "isMarKet URL Schema=" + str);
-        boolean a2 = !TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f33573c.adBaseInfo.appPackageName) : false;
+        boolean a2 = !TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f33862c.adBaseInfo.appPackageName) : false;
         if (a2) {
-            com.kwad.sdk.core.report.b.j(this.f33572b);
+            com.kwad.sdk.core.report.b.j(this.f33861b);
         }
         return a2;
     }
@@ -278,7 +278,7 @@ public class b implements com.kwad.sdk.core.download.d {
             return;
         }
         if (com.ksad.download.d.b.a(context)) {
-            com.kwad.sdk.core.download.e.a(context, this.f33573c);
+            com.kwad.sdk.core.download.e.a(context, this.f33862c);
         } else {
             com.kwad.sdk.core.d.a.d("ApkDownloadHelper", "no network while download app");
         }
@@ -289,22 +289,22 @@ public class b implements com.kwad.sdk.core.download.d {
         if (context == null) {
             return;
         }
-        com.kwad.sdk.core.download.e.a(context, this.f33573c.downloadId);
+        com.kwad.sdk.core.download.e.a(context, this.f33862c.downloadId);
     }
 
     @Override // com.kwad.sdk.core.download.d
     public String a() {
-        return this.f33573c.downloadId;
+        return this.f33862c.downloadId;
     }
 
     public void a(int i) {
-        this.f33572b.downloadSource = i;
+        this.f33861b.downloadSource = i;
     }
 
     public void a(Context context) {
-        this.f33576f = false;
+        this.f33865f = false;
         h();
-        switch (AnonymousClass5.f33583a[this.f33573c.status.ordinal()]) {
+        switch (AnonymousClass5.f33872a[this.f33862c.status.ordinal()]) {
             case 1:
             case 2:
             case 5:
@@ -315,7 +315,7 @@ public class b implements com.kwad.sdk.core.download.d {
                 break;
             case 3:
             case 4:
-                if (this.f33577g && this.f33578h) {
+                if (this.f33866g && this.f33867h) {
                     k();
                     break;
                 }
@@ -329,7 +329,7 @@ public class b implements com.kwad.sdk.core.download.d {
                 d();
                 break;
         }
-        this.f33577g = false;
+        this.f33866g = false;
     }
 
     @UiThread
@@ -344,14 +344,14 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str) {
-        this.f33573c.status = DOWNLOADSTAUS.INSTALLING;
+        this.f33862c.status = DOWNLOADSTAUS.INSTALLING;
         g();
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, int i, int i2, int i3) {
-        if (this.f33573c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f33573c;
+        if (this.f33862c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f33862c;
             adInfo.status = DOWNLOADSTAUS.PROGRESS;
             adInfo.progress = i;
             adInfo.soFarBytes = i2;
@@ -363,80 +363,80 @@ public class b implements com.kwad.sdk.core.download.d {
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, int i, f fVar) {
         if (fVar.b()) {
-            com.kwad.sdk.core.report.b.d(this.f33572b);
+            com.kwad.sdk.core.report.b.d(this.f33861b);
             fVar.a();
         }
         com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.2
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.home.download.a.a().b(b.this.f33572b);
-                com.kwad.sdk.home.download.a.a().c(b.this.f33572b);
+                com.kwad.sdk.home.download.a.a().b(b.this.f33861b);
+                com.kwad.sdk.home.download.a.a().c(b.this.f33861b);
             }
         });
-        com.kwad.sdk.core.a.a().d(com.kwad.sdk.core.response.b.c.j(this.f33572b).downloadId);
-        this.f33573c.status = DOWNLOADSTAUS.INSTALL_FINSHED;
+        com.kwad.sdk.core.a.a().d(com.kwad.sdk.core.response.b.c.j(this.f33861b).downloadId);
+        this.f33862c.status = DOWNLOADSTAUS.INSTALL_FINSHED;
         g();
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, int i, String str2, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            this.f33573c.status = DOWNLOADSTAUS.FAILED;
+        if (this.f33862c.downloadId.equals(str)) {
+            this.f33862c.status = DOWNLOADSTAUS.FAILED;
             g();
             if (fVar.b()) {
                 b.a aVar = new b.a(i, str2);
-                com.kwad.sdk.core.report.b.a(this.f33572b, aVar);
-                com.kwad.sdk.core.report.e.d(this.f33572b, this.f33573c.adConversionInfo.appDownloadUrl, aVar.toJson().toString());
+                com.kwad.sdk.core.report.b.a(this.f33861b, aVar);
+                com.kwad.sdk.core.report.e.d(this.f33861b, this.f33862c.adConversionInfo.appDownloadUrl, aVar.toJson().toString());
                 fVar.a();
             }
-            if (this.f33573c.adConversionInfo.retryH5TimeStep <= 0 || this.f33576f) {
+            if (this.f33862c.adConversionInfo.retryH5TimeStep <= 0 || this.f33865f) {
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.f33575e;
-            AdInfo adInfo = this.f33573c;
+            long currentTimeMillis = System.currentTimeMillis() - this.f33864e;
+            AdInfo adInfo = this.f33862c;
             if (currentTimeMillis >= adInfo.adConversionInfo.retryH5TimeStep || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.B(adInfo))) {
                 return;
             }
-            AdWebViewActivityProxy.launch(KsAdSDKImpl.get().getContext(), this.f33572b);
-            this.f33576f = true;
+            AdWebViewActivityProxy.launch(KsAdSDKImpl.get().getContext(), this.f33861b);
+            this.f33865f = true;
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            if (this.f33573c.status != DOWNLOADSTAUS.START) {
+        if (this.f33862c.downloadId.equals(str)) {
+            if (this.f33862c.status != DOWNLOADSTAUS.START) {
                 if (fVar.b()) {
-                    com.kwad.sdk.core.report.b.b(this.f33572b);
+                    com.kwad.sdk.core.report.b.b(this.f33861b);
                     fVar.a();
                 }
-                this.f33575e = System.currentTimeMillis();
+                this.f33864e = System.currentTimeMillis();
             }
-            this.f33573c.status = DOWNLOADSTAUS.START;
+            this.f33862c.status = DOWNLOADSTAUS.START;
             g();
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, String str2, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f33573c;
+        if (this.f33862c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f33862c;
             adInfo.downloadFilePath = str2;
             adInfo.progress = 100;
-            if (adInfo.status != DOWNLOADSTAUS.FINISHED && !this.f33572b.mDownloadFinishReported) {
+            if (adInfo.status != DOWNLOADSTAUS.FINISHED && !this.f33861b.mDownloadFinishReported) {
                 com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.home.download.a.a().a(b.this.f33572b);
+                        com.kwad.sdk.home.download.a.a().a(b.this.f33861b);
                     }
                 });
                 if (fVar.b()) {
-                    com.kwad.sdk.core.report.b.e(this.f33572b, this.f33574d);
+                    com.kwad.sdk.core.report.b.e(this.f33861b, this.f33863d);
                     fVar.a();
                 }
-                this.f33572b.mDownloadFinishReported = true;
+                this.f33861b.mDownloadFinishReported = true;
             }
-            this.f33573c.status = DOWNLOADSTAUS.FINISHED;
+            this.f33862c.status = DOWNLOADSTAUS.FINISHED;
             g();
             ApkCacheManager.a().b();
         }
@@ -444,7 +444,7 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public String b() {
-        return this.f33573c.adBaseInfo.appPackageName;
+        return this.f33862c.adBaseInfo.appPackageName;
     }
 
     public void b(KsAppDownloadListener ksAppDownloadListener) {
@@ -456,20 +456,20 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void b(String str) {
-        if (this.f33573c.downloadId.equals(str)) {
-            this.f33573c.status = DOWNLOADSTAUS.INSTALL_FAILED;
+        if (this.f33862c.downloadId.equals(str)) {
+            this.f33862c.status = DOWNLOADSTAUS.INSTALL_FAILED;
             g();
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void b(String str, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            if (this.f33573c.status != DOWNLOADSTAUS.PAUSED && fVar.b()) {
-                com.kwad.sdk.core.report.b.c(this.f33572b, this.f33574d);
+        if (this.f33862c.downloadId.equals(str)) {
+            if (this.f33862c.status != DOWNLOADSTAUS.PAUSED && fVar.b()) {
+                com.kwad.sdk.core.report.b.c(this.f33861b, this.f33863d);
                 fVar.a();
             }
-            this.f33573c.status = DOWNLOADSTAUS.PAUSED;
+            this.f33862c.status = DOWNLOADSTAUS.PAUSED;
             g();
         }
     }
@@ -484,18 +484,18 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void c(String str, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            if (this.f33573c.status != DOWNLOADSTAUS.DOWNLOADING && fVar.b()) {
-                com.kwad.sdk.core.report.b.d(this.f33572b, this.f33574d);
+        if (this.f33862c.downloadId.equals(str)) {
+            if (this.f33862c.status != DOWNLOADSTAUS.DOWNLOADING && fVar.b()) {
+                com.kwad.sdk.core.report.b.d(this.f33861b, this.f33863d);
                 fVar.a();
             }
-            this.f33573c.status = DOWNLOADSTAUS.DOWNLOADING;
+            this.f33862c.status = DOWNLOADSTAUS.DOWNLOADING;
             g();
         }
     }
 
     public boolean c() {
-        int i = AnonymousClass5.f33583a[this.f33573c.status.ordinal()];
+        int i = AnonymousClass5.f33872a[this.f33862c.status.ordinal()];
         if (i != 1 && i != 2) {
             switch (i) {
                 case 5:
@@ -519,16 +519,16 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     public void d() {
-        String str = this.f33573c.adBaseInfo.appPackageName;
+        String str = this.f33862c.adBaseInfo.appPackageName;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
             com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.kwad.sdk.home.download.a.a().d(b.this.f33572b);
+                    com.kwad.sdk.home.download.a.a().d(b.this.f33861b);
                 }
             });
-            com.kwad.sdk.core.report.b.f(this.f33572b);
+            com.kwad.sdk.core.report.b.f(this.f33861b);
             y.b(context, str);
             return;
         }
@@ -537,21 +537,21 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void d(String str, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            if (this.f33573c.status != DOWNLOADSTAUS.CANCELLED && fVar.b()) {
-                com.kwad.sdk.core.report.b.f(this.f33572b, this.f33574d);
+        if (this.f33862c.downloadId.equals(str)) {
+            if (this.f33862c.status != DOWNLOADSTAUS.CANCELLED && fVar.b()) {
+                com.kwad.sdk.core.report.b.f(this.f33861b, this.f33863d);
                 fVar.a();
             }
-            this.f33573c.status = DOWNLOADSTAUS.CANCELLED;
+            this.f33862c.status = DOWNLOADSTAUS.CANCELLED;
             g();
         }
     }
 
     public void e() {
-        String str = this.f33573c.downloadFilePath;
+        String str = this.f33862c.downloadFilePath;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
-            com.kwad.sdk.core.report.b.g(this.f33572b);
+            com.kwad.sdk.core.report.b.g(this.f33861b);
             KsAdSDKImpl.get().getProxyForAdInstall().installApp(context, str);
             return;
         }
@@ -560,12 +560,12 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void e(String str, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
+        if (this.f33862c.downloadId.equals(str)) {
             if (fVar.b()) {
-                com.kwad.sdk.core.report.b.g(this.f33572b);
+                com.kwad.sdk.core.report.b.g(this.f33861b);
                 fVar.a();
             }
-            this.f33573c.status = DOWNLOADSTAUS.INSTALL;
+            this.f33862c.status = DOWNLOADSTAUS.INSTALL;
             g();
         }
     }
@@ -580,8 +580,8 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void f(String str, f fVar) {
-        if (this.f33573c.downloadId.equals(str)) {
-            com.kwad.sdk.core.report.b.e(this.f33572b);
+        if (this.f33862c.downloadId.equals(str)) {
+            com.kwad.sdk.core.report.b.e(this.f33861b);
         }
     }
 }

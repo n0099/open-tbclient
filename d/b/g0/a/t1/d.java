@@ -1,17 +1,17 @@
 package d.b.g0.a.t1;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f46245a;
+    public static volatile c f46637a;
 
     public static synchronized c a() {
         c cVar;
         synchronized (d.class) {
-            if (f46245a == null) {
-                f46245a = new c();
+            if (f46637a == null) {
+                f46637a = new c();
             }
-            cVar = f46245a;
+            cVar = f46637a;
         }
         return cVar;
     }

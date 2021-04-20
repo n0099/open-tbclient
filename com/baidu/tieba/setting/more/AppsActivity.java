@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import d.b.b.e.m.h;
-/* loaded from: classes5.dex */
+import d.b.c.e.m.h;
+/* loaded from: classes4.dex */
 public class AppsActivity extends BaseActivity<AppsActivity> {
     public static final long PULL_INVERVAL = 86400000;
     public String mUrl = null;
@@ -31,7 +31,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     public RelativeLayout mTitle = null;
     public TextView mTitleText = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -42,7 +42,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -53,7 +53,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -64,54 +64,39 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends BdAsyncTask<Object, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f21011a = null;
+        public NetWork f20696a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21012b;
+        public String f20697b;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f21014e;
+            public final /* synthetic */ String f20699e;
 
             public a(d dVar, String str) {
-                this.f21014e = str;
+                this.f20699e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                TbadkCoreApplication.getInst().cashNoAccountData(this.f21014e, 7);
+                TbadkCoreApplication.getInst().cashNoAccountData(this.f20699e, 7);
             }
         }
 
         public d(String str) {
-            this.f21012b = null;
-            this.f21012b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Object... objArr) {
-            String str = this.f21012b;
-            if (str == null) {
-                return null;
-            }
-            NetWork netWork = new NetWork(str);
-            this.f21011a = netWork;
-            netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
-            this.f21011a.addPostData("client", "android");
-            return this.f21011a.postNetData();
+            this.f20697b = null;
+            this.f20697b = str;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f21011a;
+            NetWork netWork = this.f20696a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -129,9 +114,23 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(Object... objArr) {
+            String str = this.f20697b;
+            if (str == null) {
+                return null;
+            }
+            NetWork netWork = new NetWork(str);
+            this.f20696a = netWork;
+            netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
+            this.f20696a.addPostData("client", "android");
+            return this.f20696a.postNetData();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             AppsActivity.this.mProcess.setVisibility(8);
-            NetWork netWork = this.f21011a;
+            NetWork netWork = this.f20696a;
             if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
                 if (!AppsActivity.this.loadCacheData() && str == null) {
                     AppsActivity.this.mWebView.setVisibility(8);
@@ -144,7 +143,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                 return;
             }
             h.a().b(new a(this, str));
-            d.b.h0.r.d0.b.i().v("app_inverval", System.currentTimeMillis());
+            d.b.h0.r.d0.b.j().w("app_inverval", System.currentTimeMillis());
             AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.K, "utf-8", "");
         }
     }
@@ -155,7 +154,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         } else {
             this.mUrl = getIntent().getStringExtra("url");
         }
-        if (System.currentTimeMillis() - d.b.h0.r.d0.b.i().k("app_inverval", 0L) > 86400000) {
+        if (System.currentTimeMillis() - d.b.h0.r.d0.b.j().l("app_inverval", 0L) > 86400000) {
             refresh();
         } else if (loadCacheData()) {
         } else {

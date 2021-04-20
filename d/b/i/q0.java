@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
 /* loaded from: classes.dex */
 public class q0 extends c implements p<a2>, q {
-    public static final int k = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    public static final int k = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     public UnfollowedDecorView i;
     public Align j;
 
@@ -51,9 +51,9 @@ public class q0 extends c implements p<a2>, q {
             this.i.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
             int i = k;
-            int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int g3 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int g3 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g4 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
             layoutParams3.addRule(11);
             layoutParams3.addRule(12);
@@ -71,7 +71,7 @@ public class q0 extends c implements p<a2>, q {
         if (aVar.isSupportTop()) {
             k(Align.ALIGN_RIGHT_TOP);
         } else if (aVar.isSupportBottom()) {
-            k0 k0Var = this.f51771h;
+            k0 k0Var = this.f52195h;
             if (k0Var != null) {
                 k0Var.n(this);
             }

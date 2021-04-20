@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.annotation.JSONCreator;
@@ -13,10 +14,13 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -37,6 +41,10 @@ public class JavaBeanInfo {
     public final Method factoryMethod;
     public final FieldInfo[] fields;
     public final JSONType jsonType;
+
+    /* renamed from: kotlin  reason: collision with root package name */
+    public boolean f1649kotlin;
+    public Constructor<?> kotlinDefaultConstructor;
     public String[] orders;
     public final int parserFeatures;
     public final FieldInfo[] sortedFields;
@@ -44,7 +52,6 @@ public class JavaBeanInfo {
     public final String typeName;
 
     public JavaBeanInfo(Class<?> cls, Class<?> cls2, Constructor<?> constructor, Constructor<?> constructor2, Method method, Method method2, JSONType jSONType, List<FieldInfo> list) {
-        boolean z;
         JSONField jSONField;
         FieldInfo[] fieldInfoArr;
         String[] strArr;
@@ -77,6 +84,7 @@ public class JavaBeanInfo {
         list.toArray(fieldInfoArr2);
         FieldInfo[] fieldInfoArr3 = this.fields;
         FieldInfo[] fieldInfoArr4 = new FieldInfo[fieldInfoArr3.length];
+        boolean z = false;
         if (this.orders != null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap(list.size());
             for (FieldInfo fieldInfo : this.fields) {
@@ -108,52 +116,56 @@ public class JavaBeanInfo {
             this.defaultConstructorParameterSize = 0;
         }
         if (constructor2 != null) {
-            Class<?>[] parameterTypes = constructor2.getParameterTypes();
-            this.creatorConstructorParameterTypes = parameterTypes;
-            if (parameterTypes.length == this.fields.length) {
-                int i2 = 0;
-                while (true) {
-                    Type[] typeArr = this.creatorConstructorParameterTypes;
-                    if (i2 >= typeArr.length) {
-                        z = true;
-                        break;
-                    } else if (typeArr[i2] != this.fields[i2].fieldClass) {
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-            }
-            z = false;
-            if (z) {
-                return;
-            }
-            if (TypeUtils.isKotlin(cls)) {
+            this.creatorConstructorParameterTypes = constructor2.getParameterTypes();
+            boolean isKotlin = TypeUtils.isKotlin(cls);
+            this.f1649kotlin = isKotlin;
+            if (isKotlin) {
                 this.creatorConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
-                Annotation[][] parameterAnnotations = constructor2.getParameterAnnotations();
-                for (int i3 = 0; i3 < this.creatorConstructorParameters.length && i3 < parameterAnnotations.length; i3++) {
-                    Annotation[] annotationArr = parameterAnnotations[i3];
+                try {
+                    this.kotlinDefaultConstructor = cls.getConstructor(new Class[0]);
+                } catch (Throwable unused) {
+                }
+                Annotation[][] parameterAnnotations = TypeUtils.getParameterAnnotations(constructor2);
+                for (int i2 = 0; i2 < this.creatorConstructorParameters.length && i2 < parameterAnnotations.length; i2++) {
+                    Annotation[] annotationArr = parameterAnnotations[i2];
                     int length = annotationArr.length;
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i4 >= length) {
+                        if (i3 >= length) {
                             jSONField = null;
                             break;
                         }
-                        Annotation annotation = annotationArr[i4];
+                        Annotation annotation = annotationArr[i3];
                         if (annotation instanceof JSONField) {
                             jSONField = (JSONField) annotation;
                             break;
                         }
-                        i4++;
+                        i3++;
                     }
                     if (jSONField != null) {
                         String name = jSONField.name();
                         if (name.length() > 0) {
-                            this.creatorConstructorParameters[i3] = name;
+                            this.creatorConstructorParameters[i2] = name;
                         }
                     }
                 }
+                return;
+            }
+            if (this.creatorConstructorParameterTypes.length == this.fields.length) {
+                int i4 = 0;
+                while (true) {
+                    Type[] typeArr = this.creatorConstructorParameterTypes;
+                    if (i4 >= typeArr.length) {
+                        z = true;
+                        break;
+                    } else if (typeArr[i4] != this.fields[i4].fieldClass) {
+                        break;
+                    } else {
+                        i4++;
+                    }
+                }
+            }
+            if (z) {
                 return;
             }
             this.creatorConstructorParameters = ASMUtils.lookupParameterNames(constructor2);
@@ -165,14 +177,14 @@ public class JavaBeanInfo {
             FieldInfo fieldInfo2 = list.get(size);
             if (fieldInfo2.name.equals(fieldInfo.name) && (!fieldInfo2.getOnly || fieldInfo.getOnly)) {
                 if (fieldInfo2.fieldClass.isAssignableFrom(fieldInfo.fieldClass)) {
-                    list.remove(size);
-                } else if (fieldInfo2.compareTo(fieldInfo) >= 0) {
-                    return false;
+                    list.set(size, fieldInfo);
+                    return true;
+                } else if (fieldInfo2.compareTo(fieldInfo) < 0) {
+                    list.set(size, fieldInfo);
+                    return true;
                 } else {
-                    list.remove(size);
+                    return false;
                 }
-                list.add(fieldInfo);
-                return true;
             }
         }
         list.add(fieldInfo);
@@ -180,11 +192,43 @@ public class JavaBeanInfo {
     }
 
     public static JavaBeanInfo build(Class<?> cls, Type type, PropertyNamingStrategy propertyNamingStrategy) {
-        return build(cls, type, propertyNamingStrategy, false, TypeUtils.compatibleWithJavaBean);
+        return build(cls, type, propertyNamingStrategy, false, TypeUtils.compatibleWithJavaBean, false);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x004b, code lost:
-        if ((java.util.Map.class.isAssignableFrom(r5) || java.util.Collection.class.isAssignableFrom(r5) || java.util.concurrent.atomic.AtomicLong.class.equals(r5) || java.util.concurrent.atomic.AtomicInteger.class.equals(r5) || java.util.concurrent.atomic.AtomicBoolean.class.equals(r5)) == false) goto L5;
+    public static Map<TypeVariable, Type> buildGenericInfo(Class<?> cls) {
+        Class<? super Object> superclass = cls.getSuperclass();
+        HashMap hashMap = null;
+        if (superclass == null) {
+            return null;
+        }
+        while (true) {
+            Class<? super Object> cls2 = superclass;
+            Class<?> cls3 = cls;
+            cls = cls2;
+            if (cls == null || cls == Object.class) {
+                break;
+            }
+            if (cls3.getGenericSuperclass() instanceof ParameterizedType) {
+                Type[] actualTypeArguments = ((ParameterizedType) cls3.getGenericSuperclass()).getActualTypeArguments();
+                TypeVariable<Class<?>>[] typeParameters = cls.getTypeParameters();
+                for (int i = 0; i < actualTypeArguments.length; i++) {
+                    if (hashMap == null) {
+                        hashMap = new HashMap();
+                    }
+                    if (hashMap.containsKey(actualTypeArguments[i])) {
+                        hashMap.put(typeParameters[i], hashMap.get(actualTypeArguments[i]));
+                    } else {
+                        hashMap.put(typeParameters[i], actualTypeArguments[i]);
+                    }
+                }
+            }
+            superclass = cls.getSuperclass();
+        }
+        return hashMap;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0055, code lost:
+        if ((java.util.Map.class.isAssignableFrom(r2) || java.util.Collection.class.isAssignableFrom(r2) || java.util.concurrent.atomic.AtomicLong.class.equals(r2) || java.util.concurrent.atomic.AtomicInteger.class.equals(r2) || java.util.concurrent.atomic.AtomicBoolean.class.equals(r2)) == false) goto L5;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -193,7 +237,13 @@ public class JavaBeanInfo {
         int i;
         int i2;
         int i3;
-        for (Field field : fieldArr) {
+        int i4;
+        int i5;
+        Map<TypeVariable, Type> buildGenericInfo = buildGenericInfo(cls);
+        int length = fieldArr.length;
+        int i6 = 0;
+        while (i6 < length) {
+            Field field = fieldArr[i6];
             int modifiers = field.getModifiers();
             if ((modifiers & 8) == 0) {
                 boolean z = true;
@@ -202,18 +252,16 @@ public class JavaBeanInfo {
                 }
                 Iterator<FieldInfo> it = list.iterator();
                 while (true) {
-                    if (it.hasNext()) {
-                        if (it.next().name.equals(field.getName())) {
-                            break;
-                        }
-                    } else {
+                    if (!it.hasNext()) {
                         z = false;
+                        break;
+                    } else if (it.next().name.equals(field.getName())) {
                         break;
                     }
                 }
                 if (!z) {
                     String name = field.getName();
-                    JSONField jSONField = (JSONField) field.getAnnotation(JSONField.class);
+                    JSONField jSONField = (JSONField) TypeUtils.getAnnotation(field, JSONField.class);
                     if (jSONField == null) {
                         i = 0;
                         i2 = 0;
@@ -232,9 +280,17 @@ public class JavaBeanInfo {
                     if (propertyNamingStrategy != null) {
                         name = propertyNamingStrategy.translate(name);
                     }
-                    add(list, new FieldInfo(name, null, field, cls, type, i, i2, i3, null, jSONField, null));
+                    i4 = i6;
+                    i5 = length;
+                    add(list, new FieldInfo(name, null, field, cls, type, i, i2, i3, null, jSONField, null, buildGenericInfo));
+                    i6 = i4 + 1;
+                    length = i5;
                 }
             }
+            i4 = i6;
+            i5 = length;
+            i6 = i4 + 1;
+            length = i5;
         }
     }
 
@@ -257,7 +313,7 @@ public class JavaBeanInfo {
             return constructor;
         }
         for (Constructor constructor3 : constructorArr) {
-            Annotation[][] parameterAnnotations = constructor3.getParameterAnnotations();
+            Annotation[][] parameterAnnotations = TypeUtils.getParameterAnnotations(constructor3);
             if (parameterAnnotations.length != 0) {
                 int length = parameterAnnotations.length;
                 int i = 0;
@@ -329,15 +385,23 @@ public class JavaBeanInfo {
         return constructor;
     }
 
-    public static Method getFactoryMethod(Class<?> cls, Method[] methodArr) {
+    public static Method getFactoryMethod(Class<?> cls, Method[] methodArr, boolean z) {
         Method method = null;
         for (Method method2 : methodArr) {
-            if (Modifier.isStatic(method2.getModifiers()) && cls.isAssignableFrom(method2.getReturnType()) && ((JSONCreator) method2.getAnnotation(JSONCreator.class)) != null) {
+            if (Modifier.isStatic(method2.getModifiers()) && cls.isAssignableFrom(method2.getReturnType()) && ((JSONCreator) TypeUtils.getAnnotation(method2, JSONCreator.class)) != null) {
                 if (method != null) {
                     throw new JSONException("multi-JSONCreator");
                 }
                 method = method2;
             }
+        }
+        if (method == null && z) {
+            for (Method method3 : methodArr) {
+                if (TypeUtils.isJacksonCreator(method3)) {
+                    return method3;
+                }
+            }
+            return method;
         }
         return method;
     }
@@ -355,881 +419,8 @@ public class JavaBeanInfo {
         return null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:394:0x0928, code lost:
-        if (r1.deserialize() == false) goto L254;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x02bb  */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x02c1  */
-    /* JADX WARN: Removed duplicated region for block: B:255:0x05ab  */
-    /* JADX WARN: Removed duplicated region for block: B:336:0x078a  */
-    /* JADX WARN: Removed duplicated region for block: B:346:0x07fc  */
-    /* JADX WARN: Removed duplicated region for block: B:350:0x080d  */
-    /* JADX WARN: Removed duplicated region for block: B:356:0x0860  */
-    /* JADX WARN: Removed duplicated region for block: B:419:0x0848 A[EDGE_INSN: B:419:0x0848->B:354:0x0848 ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static JavaBeanInfo build(Class<?> cls, Type type, PropertyNamingStrategy propertyNamingStrategy, boolean z, boolean z2) {
-        Constructor<?> defaultConstructor;
-        Constructor<?> constructor;
-        ArrayList arrayList;
-        PropertyNamingStrategy propertyNamingStrategy2;
-        JSONType jSONType;
-        Class<String> cls2;
-        Class<?> cls3;
-        Method[] methodArr;
-        Field[] fieldArr;
-        Constructor<?> constructor2;
-        Method method;
-        PropertyNamingStrategy propertyNamingStrategy3;
-        Field[] fieldArr2;
-        Method method2;
-        Class<?> cls4;
-        String str;
-        char c2;
-        int length;
-        int i;
-        int i2;
-        int length2;
-        int i3;
-        JSONField jSONField;
-        String str2;
-        Field[] fieldArr3;
-        Field[] fieldArr4;
-        int i4;
-        int i5;
-        Method[] methodArr2;
-        Class<?> cls5;
-        int i6;
-        int i7;
-        Class<?> cls6;
-        Method[] methodArr3;
-        String str3;
-        Class<String> cls7;
-        String decapitalize;
-        Field[] fieldArr5;
-        Field field;
-        Field[] fieldArr6;
-        int i8;
-        JSONField jSONField2;
-        int i9;
-        PropertyNamingStrategy propertyNamingStrategy4;
-        PropertyNamingStrategy propertyNamingStrategy5;
-        int i10;
-        int i11;
-        Method[] methodArr4;
-        String str4;
-        Class<?> cls8;
-        String str5;
-        Method method3;
-        Field[] fieldArr7;
-        int i12;
-        int i13;
-        int i14;
-        String str6;
-        StringBuilder sb;
-        String str7;
-        Field[] fieldArr8;
-        String str8;
-        Class<String> cls9;
-        Class<?> cls10;
-        Class<?> cls11;
-        Class<String> cls12;
-        String[] strArr;
-        Constructor<?>[] constructorArr;
-        int i15;
-        String[] lookupParameterNames;
-        JSONField jSONField3;
-        int ordinal;
-        int of;
-        int of2;
-        JSONField jSONField4;
-        JSONField jSONField5;
-        PropertyNamingStrategy naming;
-        Class<String> cls13 = String.class;
-        Class<?> cls14 = Object.class;
-        JSONType jSONType2 = (JSONType) TypeUtils.getAnnotation(cls, JSONType.class);
-        PropertyNamingStrategy propertyNamingStrategy6 = (jSONType2 == null || (naming = jSONType2.naming()) == null || naming == PropertyNamingStrategy.CamelCase) ? propertyNamingStrategy : naming;
-        Class<?> builderClass = getBuilderClass(cls, jSONType2);
-        Field[] declaredFields = cls.getDeclaredFields();
-        Method[] methods = cls.getMethods();
-        boolean isKotlin = TypeUtils.isKotlin(cls);
-        Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
-        if (!isKotlin || declaredConstructors.length == 1) {
-            if (builderClass == null) {
-                defaultConstructor = getDefaultConstructor(cls, declaredConstructors);
-            } else {
-                defaultConstructor = getDefaultConstructor(builderClass, builderClass.getDeclaredConstructors());
-            }
-            constructor = defaultConstructor;
-        } else {
-            constructor = null;
-        }
-        Method method4 = null;
-        ArrayList arrayList2 = new ArrayList();
-        if (z) {
-            for (Class<?> cls15 = cls; cls15 != null; cls15 = cls15.getSuperclass()) {
-                computeFields(cls, type, propertyNamingStrategy6, arrayList2, cls15.getDeclaredFields());
-            }
-            return new JavaBeanInfo(cls, builderClass, constructor, null, null, null, jSONType2, arrayList2);
-        }
-        boolean z3 = cls.isInterface() || Modifier.isAbstract(cls.getModifiers());
-        if ((constructor == null && builderClass == null) || z3) {
-            constructor2 = getCreatorConstructor(declaredConstructors);
-            propertyNamingStrategy2 = propertyNamingStrategy6;
-            if (constructor2 != null && !z3) {
-                TypeUtils.setAccessible(constructor2);
-                Class<?>[] parameterTypes = constructor2.getParameterTypes();
-                if (parameterTypes.length > 0) {
-                    Annotation[][] parameterAnnotations = constructor2.getParameterAnnotations();
-                    int i16 = 0;
-                    while (i16 < parameterTypes.length) {
-                        Annotation[] annotationArr = parameterAnnotations[i16];
-                        int length3 = annotationArr.length;
-                        int i17 = 0;
-                        while (true) {
-                            if (i17 >= length3) {
-                                jSONField5 = null;
-                                break;
-                            }
-                            Annotation annotation = annotationArr[i17];
-                            Annotation[] annotationArr2 = annotationArr;
-                            if (annotation instanceof JSONField) {
-                                jSONField5 = (JSONField) annotation;
-                                break;
-                            }
-                            i17++;
-                            annotationArr = annotationArr2;
-                        }
-                        if (jSONField5 != null) {
-                            ArrayList arrayList3 = arrayList2;
-                            add(arrayList3, new FieldInfo(jSONField5.name(), cls, parameterTypes[i16], constructor2.getGenericParameterTypes()[i16], TypeUtils.getField(cls, jSONField5.name(), declaredFields), jSONField5.ordinal(), SerializerFeature.of(jSONField5.serialzeFeatures()), Feature.of(jSONField5.parseFeatures())));
-                            i16++;
-                            declaredFields = declaredFields;
-                            arrayList2 = arrayList3;
-                            methods = methods;
-                            cls14 = cls14;
-                            cls13 = cls13;
-                            jSONType2 = jSONType2;
-                            parameterTypes = parameterTypes;
-                        } else {
-                            throw new JSONException("illegal json creator");
-                        }
-                    }
-                }
-                arrayList = arrayList2;
-                jSONType = jSONType2;
-                cls9 = cls13;
-                cls10 = cls14;
-                methodArr = methods;
-                fieldArr = declaredFields;
-                method = null;
-            } else {
-                arrayList = arrayList2;
-                jSONType = jSONType2;
-                cls9 = cls13;
-                cls10 = cls14;
-                methodArr = methods;
-                fieldArr = declaredFields;
-                method = getFactoryMethod(cls, methodArr);
-                if (method != null) {
-                    TypeUtils.setAccessible(method);
-                    Class<?>[] parameterTypes2 = method.getParameterTypes();
-                    if (parameterTypes2.length > 0) {
-                        Annotation[][] parameterAnnotations2 = method.getParameterAnnotations();
-                        int i18 = 0;
-                        while (i18 < parameterTypes2.length) {
-                            Annotation[] annotationArr3 = parameterAnnotations2[i18];
-                            int length4 = annotationArr3.length;
-                            int i19 = 0;
-                            while (true) {
-                                if (i19 >= length4) {
-                                    jSONField4 = null;
-                                    break;
-                                }
-                                Annotation annotation2 = annotationArr3[i19];
-                                if (annotation2 instanceof JSONField) {
-                                    jSONField4 = (JSONField) annotation2;
-                                    break;
-                                }
-                                i19++;
-                            }
-                            if (jSONField4 != null) {
-                                add(arrayList, new FieldInfo(jSONField4.name(), cls, parameterTypes2[i18], method.getGenericParameterTypes()[i18], TypeUtils.getField(cls, jSONField4.name(), fieldArr), jSONField4.ordinal(), SerializerFeature.of(jSONField4.serialzeFeatures()), Feature.of(jSONField4.parseFeatures())));
-                                i18++;
-                                parameterAnnotations2 = parameterAnnotations2;
-                                parameterTypes2 = parameterTypes2;
-                            } else {
-                                throw new JSONException("illegal json creator");
-                            }
-                        }
-                        return new JavaBeanInfo(cls, builderClass, null, null, method, null, jSONType, arrayList);
-                    }
-                } else if (!z3) {
-                    String name = cls.getName();
-                    if (isKotlin && declaredConstructors.length > 0) {
-                        String[] koltinConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
-                        Constructor<?> koltinConstructor = TypeUtils.getKoltinConstructor(declaredConstructors);
-                        TypeUtils.setAccessible(koltinConstructor);
-                        constructor2 = koltinConstructor;
-                        strArr = koltinConstructorParameters;
-                        cls11 = cls10;
-                        cls12 = cls9;
-                    } else {
-                        int length5 = declaredConstructors.length;
-                        String[] strArr2 = null;
-                        int i20 = 0;
-                        while (true) {
-                            if (i20 >= length5) {
-                                cls11 = cls10;
-                                cls12 = cls9;
-                                strArr = strArr2;
-                                break;
-                            }
-                            Constructor<?> constructor3 = declaredConstructors[i20];
-                            Class<?>[] parameterTypes3 = constructor3.getParameterTypes();
-                            if (name.equals("org.springframework.security.web.authentication.WebAuthenticationDetails") && parameterTypes3.length == 2) {
-                                cls12 = cls9;
-                                if (parameterTypes3[0] == cls12 && parameterTypes3[1] == cls12) {
-                                    constructor3.setAccessible(true);
-                                    strArr = ASMUtils.lookupParameterNames(constructor3);
-                                    constructor2 = constructor3;
-                                    cls11 = cls10;
-                                    break;
-                                }
-                            } else {
-                                cls12 = cls9;
-                            }
-                            if (name.equals("org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken") && parameterTypes3.length == 3) {
-                                cls11 = cls10;
-                                constructorArr = declaredConstructors;
-                                if (parameterTypes3[0] == cls11 && parameterTypes3[1] == cls11 && parameterTypes3[2] == Collection.class) {
-                                    constructor3.setAccessible(true);
-                                    strArr = new String[]{"principal", "credentials", "authorities"};
-                                    constructor2 = constructor3;
-                                    break;
-                                }
-                            } else {
-                                cls11 = cls10;
-                                constructorArr = declaredConstructors;
-                            }
-                            if (name.equals("org.springframework.security.core.authority.SimpleGrantedAuthority")) {
-                                i15 = 1;
-                                if (parameterTypes3.length == 1 && parameterTypes3[0] == cls12) {
-                                    strArr = new String[]{"authority"};
-                                    constructor2 = constructor3;
-                                    break;
-                                }
-                            } else {
-                                i15 = 1;
-                            }
-                            if (((constructor3.getModifiers() & i15) != 0) && (lookupParameterNames = ASMUtils.lookupParameterNames(constructor3)) != null && lookupParameterNames.length != 0 && (constructor2 == null || strArr2 == null || lookupParameterNames.length > strArr2.length)) {
-                                strArr2 = lookupParameterNames;
-                                constructor2 = constructor3;
-                            }
-                            i20++;
-                            cls9 = cls12;
-                            declaredConstructors = constructorArr;
-                            cls10 = cls11;
-                        }
-                        Class<?>[] parameterTypes4 = strArr == null ? constructor2.getParameterTypes() : null;
-                        if (strArr == null && parameterTypes4.length == strArr.length) {
-                            Annotation[][] parameterAnnotations3 = constructor2.getParameterAnnotations();
-                            int i21 = 0;
-                            while (i21 < parameterTypes4.length) {
-                                Annotation[] annotationArr4 = parameterAnnotations3[i21];
-                                String str9 = strArr[i21];
-                                int length6 = annotationArr4.length;
-                                int i22 = 0;
-                                while (true) {
-                                    if (i22 >= length6) {
-                                        jSONField3 = null;
-                                        break;
-                                    }
-                                    int i23 = length6;
-                                    Annotation annotation3 = annotationArr4[i22];
-                                    Annotation[] annotationArr5 = annotationArr4;
-                                    if (annotation3 instanceof JSONField) {
-                                        jSONField3 = (JSONField) annotation3;
-                                        break;
-                                    }
-                                    i22++;
-                                    length6 = i23;
-                                    annotationArr4 = annotationArr5;
-                                }
-                                Class<?> cls16 = parameterTypes4[i21];
-                                Type type2 = constructor2.getGenericParameterTypes()[i21];
-                                Field field2 = TypeUtils.getField(cls, str9, fieldArr);
-                                if (field2 != null && jSONField3 == null) {
-                                    jSONField3 = (JSONField) field2.getAnnotation(JSONField.class);
-                                }
-                                if (jSONField3 == null) {
-                                    if ("org.springframework.security.core.userdetails.User".equals(name) && "password".equals(str9)) {
-                                        of2 = Feature.InitStringFieldAsEmpty.mask;
-                                        ordinal = 0;
-                                        of = 0;
-                                    } else {
-                                        ordinal = 0;
-                                        of = 0;
-                                        of2 = 0;
-                                    }
-                                } else {
-                                    String name2 = jSONField3.name();
-                                    if (name2.length() != 0) {
-                                        str9 = name2;
-                                    }
-                                    ordinal = jSONField3.ordinal();
-                                    of = SerializerFeature.of(jSONField3.serialzeFeatures());
-                                    of2 = Feature.of(jSONField3.parseFeatures());
-                                }
-                                add(arrayList, new FieldInfo(str9, cls, cls16, type2, field2, ordinal, of, of2));
-                                i21++;
-                                strArr = strArr;
-                                parameterTypes4 = parameterTypes4;
-                                name = name;
-                                cls11 = cls11;
-                                cls12 = cls12;
-                            }
-                            cls3 = cls11;
-                            cls2 = cls12;
-                            if (!isKotlin && !cls.getName().equals("javax.servlet.http.Cookie")) {
-                                return new JavaBeanInfo(cls, builderClass, null, constructor2, null, null, jSONType, arrayList);
-                            }
-                        } else {
-                            throw new JSONException("default constructor not found. " + cls);
-                        }
-                    }
-                    if (strArr == null) {
-                    }
-                    if (strArr == null) {
-                    }
-                    throw new JSONException("default constructor not found. " + cls);
-                }
-            }
-            cls3 = cls10;
-            cls2 = cls9;
-        } else {
-            arrayList = arrayList2;
-            propertyNamingStrategy2 = propertyNamingStrategy6;
-            jSONType = jSONType2;
-            cls2 = cls13;
-            cls3 = cls14;
-            methodArr = methods;
-            fieldArr = declaredFields;
-            constructor2 = null;
-            method = null;
-        }
-        if (constructor != null) {
-            TypeUtils.setAccessible(constructor);
-        }
-        String str10 = "set";
-        if (builderClass != null) {
-            JSONPOJOBuilder jSONPOJOBuilder = (JSONPOJOBuilder) builderClass.getAnnotation(JSONPOJOBuilder.class);
-            String withPrefix = jSONPOJOBuilder != null ? jSONPOJOBuilder.withPrefix() : null;
-            String str11 = (withPrefix == null || withPrefix.length() == 0) ? "with" : "with";
-            Method[] methods2 = builderClass.getMethods();
-            int length7 = methods2.length;
-            int i24 = 0;
-            while (i24 < length7) {
-                Method method5 = methods2[i24];
-                if (!Modifier.isStatic(method5.getModifiers()) && method5.getReturnType().equals(builderClass)) {
-                    JSONField jSONField6 = (JSONField) method5.getAnnotation(JSONField.class);
-                    if (jSONField6 == null) {
-                        jSONField6 = TypeUtils.getSuperMethodAnnotation(cls, method5);
-                    }
-                    JSONField jSONField7 = jSONField6;
-                    if (jSONField7 == null) {
-                        propertyNamingStrategy5 = propertyNamingStrategy2;
-                        i10 = i24;
-                        i11 = length7;
-                        methodArr4 = methods2;
-                        str4 = str11;
-                        cls8 = builderClass;
-                        str5 = str10;
-                        method3 = method;
-                        fieldArr7 = fieldArr;
-                        i12 = 0;
-                        i13 = 0;
-                        i14 = 0;
-                    } else if (jSONField7.deserialize()) {
-                        int ordinal2 = jSONField7.ordinal();
-                        int of3 = SerializerFeature.of(jSONField7.serialzeFeatures());
-                        int of4 = Feature.of(jSONField7.parseFeatures());
-                        if (jSONField7.name().length() != 0) {
-                            i10 = i24;
-                            i11 = length7;
-                            methodArr4 = methods2;
-                            cls8 = builderClass;
-                            propertyNamingStrategy5 = propertyNamingStrategy2;
-                            method3 = method;
-                            add(arrayList, new FieldInfo(jSONField7.name(), method5, null, cls, type, ordinal2, of3, of4, jSONField7, null, null));
-                            fieldArr8 = fieldArr;
-                            str7 = str11;
-                            str8 = str10;
-                            i24 = i10 + 1;
-                            str10 = str8;
-                            str11 = str7;
-                            fieldArr = fieldArr8;
-                            length7 = i11;
-                            methods2 = methodArr4;
-                            builderClass = cls8;
-                            method = method3;
-                            propertyNamingStrategy2 = propertyNamingStrategy5;
-                        } else {
-                            propertyNamingStrategy5 = propertyNamingStrategy2;
-                            i10 = i24;
-                            i11 = length7;
-                            methodArr4 = methods2;
-                            str4 = str11;
-                            cls8 = builderClass;
-                            str5 = str10;
-                            method3 = method;
-                            fieldArr7 = fieldArr;
-                            i12 = ordinal2;
-                            i13 = of3;
-                            i14 = of4;
-                        }
-                    }
-                    String name3 = method5.getName();
-                    String str12 = str5;
-                    if (name3.startsWith(str12) && name3.length() > 3) {
-                        sb = new StringBuilder(name3.substring(3));
-                        str6 = str4;
-                    } else {
-                        str6 = str4;
-                        if (name3.startsWith(str6) && name3.length() > str6.length()) {
-                            sb = new StringBuilder(name3.substring(str6.length()));
-                        }
-                        str7 = str6;
-                        fieldArr8 = fieldArr7;
-                        str8 = str12;
-                        i24 = i10 + 1;
-                        str10 = str8;
-                        str11 = str7;
-                        fieldArr = fieldArr8;
-                        length7 = i11;
-                        methods2 = methodArr4;
-                        builderClass = cls8;
-                        method = method3;
-                        propertyNamingStrategy2 = propertyNamingStrategy5;
-                    }
-                    char charAt = sb.charAt(0);
-                    if (Character.isUpperCase(charAt)) {
-                        sb.setCharAt(0, Character.toLowerCase(charAt));
-                        str7 = str6;
-                        fieldArr8 = fieldArr7;
-                        str8 = str12;
-                        add(arrayList, new FieldInfo(sb.toString(), method5, null, cls, type, i12, i13, i14, jSONField7, null, null));
-                        i24 = i10 + 1;
-                        str10 = str8;
-                        str11 = str7;
-                        fieldArr = fieldArr8;
-                        length7 = i11;
-                        methods2 = methodArr4;
-                        builderClass = cls8;
-                        method = method3;
-                        propertyNamingStrategy2 = propertyNamingStrategy5;
-                    }
-                    str7 = str6;
-                    fieldArr8 = fieldArr7;
-                    str8 = str12;
-                    i24 = i10 + 1;
-                    str10 = str8;
-                    str11 = str7;
-                    fieldArr = fieldArr8;
-                    length7 = i11;
-                    methods2 = methodArr4;
-                    builderClass = cls8;
-                    method = method3;
-                    propertyNamingStrategy2 = propertyNamingStrategy5;
-                }
-                propertyNamingStrategy5 = propertyNamingStrategy2;
-                i10 = i24;
-                i11 = length7;
-                methodArr4 = methods2;
-                str7 = str11;
-                cls8 = builderClass;
-                fieldArr8 = fieldArr;
-                method3 = method;
-                str8 = str10;
-                i24 = i10 + 1;
-                str10 = str8;
-                str11 = str7;
-                fieldArr = fieldArr8;
-                length7 = i11;
-                methods2 = methodArr4;
-                builderClass = cls8;
-                method = method3;
-                propertyNamingStrategy2 = propertyNamingStrategy5;
-            }
-            propertyNamingStrategy3 = propertyNamingStrategy2;
-            fieldArr2 = fieldArr;
-            method2 = method;
-            cls4 = builderClass;
-            str = str10;
-            if (cls4 != null) {
-                JSONPOJOBuilder jSONPOJOBuilder2 = (JSONPOJOBuilder) cls4.getAnnotation(JSONPOJOBuilder.class);
-                String buildMethod = jSONPOJOBuilder2 != null ? jSONPOJOBuilder2.buildMethod() : null;
-                c2 = 0;
-                try {
-                    method4 = cls4.getMethod((buildMethod == null || buildMethod.length() == 0) ? "build" : "build", new Class[0]);
-                } catch (NoSuchMethodException | SecurityException unused) {
-                }
-                if (method4 == null) {
-                    try {
-                        method4 = cls4.getMethod("create", new Class[0]);
-                    } catch (NoSuchMethodException | SecurityException unused2) {
-                    }
-                }
-                if (method4 != null) {
-                    TypeUtils.setAccessible(method4);
-                    length = methodArr.length;
-                    i = 0;
-                    while (true) {
-                        i2 = 4;
-                        if (i < length) {
-                            break;
-                        }
-                        Method method6 = methodArr[i];
-                        int i25 = 0;
-                        int i26 = 0;
-                        int i27 = 0;
-                        String name4 = method6.getName();
-                        if (!Modifier.isStatic(method6.getModifiers())) {
-                            Class<?> returnType = method6.getReturnType();
-                            if (returnType.equals(Void.TYPE) || returnType.equals(method6.getDeclaringClass())) {
-                                Class<?> cls17 = cls3;
-                                if (method6.getDeclaringClass() != cls17) {
-                                    Class<?>[] parameterTypes5 = method6.getParameterTypes();
-                                    if (parameterTypes5.length != 0 && parameterTypes5.length <= 2) {
-                                        JSONField jSONField8 = (JSONField) method6.getAnnotation(JSONField.class);
-                                        if (jSONField8 == null || parameterTypes5.length != 2) {
-                                            cls5 = cls17;
-                                            i6 = i;
-                                            i7 = length;
-                                            cls6 = cls4;
-                                            cls7 = cls2;
-                                        } else {
-                                            Class<?> cls18 = cls4;
-                                            Class<String> cls19 = cls2;
-                                            if (parameterTypes5[c2] == cls19 && parameterTypes5[1] == cls17) {
-                                                cls5 = cls17;
-                                                i6 = i;
-                                                i7 = length;
-                                                cls7 = cls19;
-                                                cls6 = cls18;
-                                                add(arrayList, new FieldInfo("", method6, null, cls, type, 0, 0, 0, jSONField8, null, null));
-                                                methodArr3 = methodArr;
-                                                str3 = str;
-                                                propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                i = i6 + 1;
-                                                propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                methodArr = methodArr3;
-                                                cls4 = cls6;
-                                                length = i7;
-                                                cls2 = cls7;
-                                                str = str3;
-                                                c2 = 0;
-                                                cls3 = cls5;
-                                            } else {
-                                                cls5 = cls17;
-                                                i6 = i;
-                                                i7 = length;
-                                                cls7 = cls19;
-                                                cls6 = cls18;
-                                            }
-                                        }
-                                        if (parameterTypes5.length == 1) {
-                                            JSONField superMethodAnnotation = jSONField8 == null ? TypeUtils.getSuperMethodAnnotation(cls, method6) : jSONField8;
-                                            if (superMethodAnnotation != null || name4.length() >= 4) {
-                                                if (superMethodAnnotation == null) {
-                                                    methodArr3 = methodArr;
-                                                } else if (superMethodAnnotation.deserialize()) {
-                                                    i25 = superMethodAnnotation.ordinal();
-                                                    int of5 = SerializerFeature.of(superMethodAnnotation.serialzeFeatures());
-                                                    int of6 = Feature.of(superMethodAnnotation.parseFeatures());
-                                                    if (superMethodAnnotation.name().length() != 0) {
-                                                        methodArr3 = methodArr;
-                                                        add(arrayList, new FieldInfo(superMethodAnnotation.name(), method6, null, cls, type, i25, of5, of6, superMethodAnnotation, null, null));
-                                                        str3 = str;
-                                                        propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                        i = i6 + 1;
-                                                        propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                        methodArr = methodArr3;
-                                                        cls4 = cls6;
-                                                        length = i7;
-                                                        cls2 = cls7;
-                                                        str = str3;
-                                                        c2 = 0;
-                                                        cls3 = cls5;
-                                                    } else {
-                                                        methodArr3 = methodArr;
-                                                        i26 = of5;
-                                                        i27 = of6;
-                                                    }
-                                                }
-                                                if (superMethodAnnotation != null || name4.startsWith(str)) {
-                                                    char charAt2 = name4.charAt(3);
-                                                    if (Character.isUpperCase(charAt2) || charAt2 > 512) {
-                                                        decapitalize = TypeUtils.compatibleWithJavaBean ? TypeUtils.decapitalize(name4.substring(3)) : Character.toLowerCase(name4.charAt(3)) + name4.substring(4);
-                                                    } else if (charAt2 == '_') {
-                                                        decapitalize = name4.substring(4);
-                                                        fieldArr5 = fieldArr2;
-                                                        field = TypeUtils.getField(cls, decapitalize, fieldArr5);
-                                                        if (field == null && parameterTypes5[0] == Boolean.TYPE) {
-                                                            field = TypeUtils.getField(cls, "is" + Character.toUpperCase(decapitalize.charAt(0)) + decapitalize.substring(1), fieldArr5);
-                                                        }
-                                                        if (field == null) {
-                                                            JSONField jSONField9 = (JSONField) field.getAnnotation(JSONField.class);
-                                                            if (jSONField9 == null) {
-                                                                str3 = str;
-                                                                fieldArr6 = fieldArr5;
-                                                                i8 = i26;
-                                                                jSONField2 = jSONField9;
-                                                            } else if (jSONField9.deserialize()) {
-                                                                i25 = jSONField9.ordinal();
-                                                                i8 = SerializerFeature.of(jSONField9.serialzeFeatures());
-                                                                int of7 = Feature.of(jSONField9.parseFeatures());
-                                                                if (jSONField9.name().length() != 0) {
-                                                                    str3 = str;
-                                                                    add(arrayList, new FieldInfo(jSONField9.name(), method6, field, cls, type, i25, i8, of7, superMethodAnnotation, jSONField9, null));
-                                                                    fieldArr2 = fieldArr5;
-                                                                    propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                                    i = i6 + 1;
-                                                                    propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                                    methodArr = methodArr3;
-                                                                    cls4 = cls6;
-                                                                    length = i7;
-                                                                    cls2 = cls7;
-                                                                    str = str3;
-                                                                    c2 = 0;
-                                                                    cls3 = cls5;
-                                                                } else {
-                                                                    str3 = str;
-                                                                    fieldArr6 = fieldArr5;
-                                                                    i9 = of7;
-                                                                    jSONField2 = jSONField9;
-                                                                    propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                                    if (propertyNamingStrategy4 != null) {
-                                                                        decapitalize = propertyNamingStrategy4.translate(decapitalize);
-                                                                    }
-                                                                    fieldArr2 = fieldArr6;
-                                                                    add(arrayList, new FieldInfo(decapitalize, method6, field, cls, type, i25, i8, i9, superMethodAnnotation, jSONField2, null));
-                                                                    i = i6 + 1;
-                                                                    propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                                    methodArr = methodArr3;
-                                                                    cls4 = cls6;
-                                                                    length = i7;
-                                                                    cls2 = cls7;
-                                                                    str = str3;
-                                                                    c2 = 0;
-                                                                    cls3 = cls5;
-                                                                }
-                                                            } else {
-                                                                fieldArr2 = fieldArr5;
-                                                            }
-                                                        } else {
-                                                            str3 = str;
-                                                            fieldArr6 = fieldArr5;
-                                                            i8 = i26;
-                                                            jSONField2 = null;
-                                                        }
-                                                        i9 = i27;
-                                                        propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                        if (propertyNamingStrategy4 != null) {
-                                                        }
-                                                        fieldArr2 = fieldArr6;
-                                                        add(arrayList, new FieldInfo(decapitalize, method6, field, cls, type, i25, i8, i9, superMethodAnnotation, jSONField2, null));
-                                                        i = i6 + 1;
-                                                        propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                        methodArr = methodArr3;
-                                                        cls4 = cls6;
-                                                        length = i7;
-                                                        cls2 = cls7;
-                                                        str = str3;
-                                                        c2 = 0;
-                                                        cls3 = cls5;
-                                                    } else if (charAt2 == 'f') {
-                                                        decapitalize = name4.substring(3);
-                                                    } else if (name4.length() >= 5 && Character.isUpperCase(name4.charAt(4))) {
-                                                        decapitalize = TypeUtils.decapitalize(name4.substring(3));
-                                                    }
-                                                    fieldArr5 = fieldArr2;
-                                                    field = TypeUtils.getField(cls, decapitalize, fieldArr5);
-                                                    if (field == null) {
-                                                        field = TypeUtils.getField(cls, "is" + Character.toUpperCase(decapitalize.charAt(0)) + decapitalize.substring(1), fieldArr5);
-                                                    }
-                                                    if (field == null) {
-                                                    }
-                                                    i9 = i27;
-                                                    propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                    if (propertyNamingStrategy4 != null) {
-                                                    }
-                                                    fieldArr2 = fieldArr6;
-                                                    add(arrayList, new FieldInfo(decapitalize, method6, field, cls, type, i25, i8, i9, superMethodAnnotation, jSONField2, null));
-                                                    i = i6 + 1;
-                                                    propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                    methodArr = methodArr3;
-                                                    cls4 = cls6;
-                                                    length = i7;
-                                                    cls2 = cls7;
-                                                    str = str3;
-                                                    c2 = 0;
-                                                    cls3 = cls5;
-                                                }
-                                                str3 = str;
-                                                propertyNamingStrategy4 = propertyNamingStrategy3;
-                                                i = i6 + 1;
-                                                propertyNamingStrategy3 = propertyNamingStrategy4;
-                                                methodArr = methodArr3;
-                                                cls4 = cls6;
-                                                length = i7;
-                                                cls2 = cls7;
-                                                str = str3;
-                                                c2 = 0;
-                                                cls3 = cls5;
-                                            }
-                                        }
-                                        methodArr3 = methodArr;
-                                        str3 = str;
-                                        propertyNamingStrategy4 = propertyNamingStrategy3;
-                                        i = i6 + 1;
-                                        propertyNamingStrategy3 = propertyNamingStrategy4;
-                                        methodArr = methodArr3;
-                                        cls4 = cls6;
-                                        length = i7;
-                                        cls2 = cls7;
-                                        str = str3;
-                                        c2 = 0;
-                                        cls3 = cls5;
-                                    }
-                                }
-                                cls5 = cls17;
-                                i6 = i;
-                                i7 = length;
-                                cls6 = cls4;
-                                methodArr3 = methodArr;
-                                str3 = str;
-                                cls7 = cls2;
-                                propertyNamingStrategy4 = propertyNamingStrategy3;
-                                i = i6 + 1;
-                                propertyNamingStrategy3 = propertyNamingStrategy4;
-                                methodArr = methodArr3;
-                                cls4 = cls6;
-                                length = i7;
-                                cls2 = cls7;
-                                str = str3;
-                                c2 = 0;
-                                cls3 = cls5;
-                            }
-                        }
-                        i6 = i;
-                        i7 = length;
-                        cls6 = cls4;
-                        methodArr3 = methodArr;
-                        str3 = str;
-                        cls5 = cls3;
-                        cls7 = cls2;
-                        propertyNamingStrategy4 = propertyNamingStrategy3;
-                        i = i6 + 1;
-                        propertyNamingStrategy3 = propertyNamingStrategy4;
-                        methodArr = methodArr3;
-                        cls4 = cls6;
-                        length = i7;
-                        cls2 = cls7;
-                        str = str3;
-                        c2 = 0;
-                        cls3 = cls5;
-                    }
-                    Class<?> cls20 = cls4;
-                    PropertyNamingStrategy propertyNamingStrategy7 = propertyNamingStrategy3;
-                    int i28 = 3;
-                    computeFields(cls, type, propertyNamingStrategy7, arrayList, cls.getFields());
-                    Method[] methods3 = cls.getMethods();
-                    length2 = methods3.length;
-                    i3 = 0;
-                    while (i3 < length2) {
-                        Method method7 = methods3[i3];
-                        String name5 = method7.getName();
-                        if (name5.length() >= i2 && !Modifier.isStatic(method7.getModifiers()) && cls20 == null && name5.startsWith("get") && Character.isUpperCase(name5.charAt(i28)) && method7.getParameterTypes().length == 0 && ((Collection.class.isAssignableFrom(method7.getReturnType()) || Map.class.isAssignableFrom(method7.getReturnType()) || AtomicBoolean.class == method7.getReturnType() || AtomicInteger.class == method7.getReturnType() || AtomicLong.class == method7.getReturnType()) && ((jSONField = (JSONField) method7.getAnnotation(JSONField.class)) == null || !jSONField.deserialize()))) {
-                            if (jSONField != null && jSONField.name().length() > 0) {
-                                str2 = jSONField.name();
-                                fieldArr3 = fieldArr2;
-                            } else {
-                                str2 = Character.toLowerCase(name5.charAt(i28)) + name5.substring(i2);
-                                fieldArr3 = fieldArr2;
-                                Field field3 = TypeUtils.getField(cls, str2, fieldArr3);
-                                if (field3 != null) {
-                                    JSONField jSONField10 = (JSONField) field3.getAnnotation(JSONField.class);
-                                    if (jSONField10 != null) {
-                                    }
-                                }
-                            }
-                            if (getField(arrayList, str2) == null) {
-                                if (propertyNamingStrategy7 != null) {
-                                    str2 = propertyNamingStrategy7.translate(str2);
-                                }
-                                fieldArr4 = fieldArr3;
-                                i4 = i3;
-                                i5 = length2;
-                                methodArr2 = methods3;
-                                add(arrayList, new FieldInfo(str2, method7, null, cls, type, 0, 0, 0, jSONField, null, null));
-                            }
-                            fieldArr4 = fieldArr3;
-                            i4 = i3;
-                            i5 = length2;
-                            methodArr2 = methods3;
-                        } else {
-                            i5 = length2;
-                            methodArr2 = methods3;
-                            fieldArr4 = fieldArr2;
-                            i4 = i3;
-                        }
-                        i3 = i4 + 1;
-                        methods3 = methodArr2;
-                        length2 = i5;
-                        fieldArr2 = fieldArr4;
-                        i2 = 4;
-                        i28 = 3;
-                    }
-                    return new JavaBeanInfo(cls, cls20, constructor, constructor2, method2, method4, jSONType, arrayList);
-                }
-                throw new JSONException("buildMethod not found.");
-            }
-        } else {
-            propertyNamingStrategy3 = propertyNamingStrategy2;
-            fieldArr2 = fieldArr;
-            method2 = method;
-            cls4 = builderClass;
-            str = "set";
-        }
-        c2 = 0;
-        length = methodArr.length;
-        i = 0;
-        while (true) {
-            i2 = 4;
-            if (i < length) {
-            }
-            i = i6 + 1;
-            propertyNamingStrategy3 = propertyNamingStrategy4;
-            methodArr = methodArr3;
-            cls4 = cls6;
-            length = i7;
-            cls2 = cls7;
-            str = str3;
-            c2 = 0;
-            cls3 = cls5;
-        }
-        Class<?> cls202 = cls4;
-        PropertyNamingStrategy propertyNamingStrategy72 = propertyNamingStrategy3;
-        int i282 = 3;
-        computeFields(cls, type, propertyNamingStrategy72, arrayList, cls.getFields());
-        Method[] methods32 = cls.getMethods();
-        length2 = methods32.length;
-        i3 = 0;
-        while (i3 < length2) {
-        }
-        return new JavaBeanInfo(cls, cls202, constructor, constructor2, method2, method4, jSONType, arrayList);
+        return build(cls, type, propertyNamingStrategy, z, z2, false);
     }
 
     public static Class<?> getBuilderClass(Class<?> cls, JSONType jSONType) {
@@ -1241,5 +432,1112 @@ public class JavaBeanInfo {
             return null;
         }
         return builder;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:400:0x0881, code lost:
+        if (r3 == null) goto L266;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x0272  */
+    /* JADX WARN: Removed duplicated region for block: B:183:0x0339  */
+    /* JADX WARN: Removed duplicated region for block: B:184:0x033f  */
+    /* JADX WARN: Removed duplicated region for block: B:275:0x05b6  */
+    /* JADX WARN: Removed duplicated region for block: B:411:0x08c2  */
+    /* JADX WARN: Removed duplicated region for block: B:418:0x08f4  */
+    /* JADX WARN: Removed duplicated region for block: B:429:0x096f  */
+    /* JADX WARN: Removed duplicated region for block: B:432:0x0982  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00c8  */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x01c5  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static JavaBeanInfo build(Class<?> cls, Type type, PropertyNamingStrategy propertyNamingStrategy, boolean z, boolean z2, boolean z3) {
+        Constructor<?> defaultConstructor;
+        Constructor<?> constructor;
+        ArrayList arrayList;
+        Method[] methodArr;
+        Class<?> cls2;
+        Class<?> cls3;
+        Field[] fieldArr;
+        Constructor<?> constructor2;
+        PropertyNamingStrategy propertyNamingStrategy2;
+        String str;
+        JSONType jSONType;
+        Field[] fieldArr2;
+        Class<String> cls4;
+        Class<?> cls5;
+        Class<?> cls6;
+        ArrayList arrayList2;
+        String str2;
+        int i;
+        JSONField jSONField;
+        String propertyNameByMethodName;
+        Field[] fieldArr3;
+        Field field;
+        Field[] fieldArr4;
+        int i2;
+        String str3;
+        int i3;
+        Method[] methodArr2;
+        PropertyNamingStrategy propertyNamingStrategy3;
+        int i4;
+        Class<?> cls7;
+        Class<String> cls8;
+        int i5;
+        Class<?> cls9;
+        int i6;
+        ArrayList arrayList3;
+        int i7;
+        Class<?> cls10;
+        Field[] fieldArr5;
+        String propertyNameByMethodName2;
+        Field field2;
+        Field[] fieldArr6;
+        String str4;
+        Method[] methodArr3;
+        PropertyNamingStrategy propertyNamingStrategy4;
+        JSONField jSONField2;
+        int i8;
+        PropertyNamingStrategy propertyNamingStrategy5;
+        PropertyNamingStrategy propertyNamingStrategy6;
+        int i9;
+        int i10;
+        Method[] methodArr4;
+        String str5;
+        Class<?> cls11;
+        String str6;
+        JSONType jSONType2;
+        Field[] fieldArr7;
+        Class<?> cls12;
+        ArrayList arrayList4;
+        int i11;
+        int i12;
+        int i13;
+        String str7;
+        StringBuilder sb;
+        String str8;
+        String str9;
+        Class<String> cls13;
+        char charAt;
+        ArrayList arrayList5;
+        Constructor<?> constructor3;
+        Class<?> cls14;
+        Class<?> cls15;
+        String[] strArr;
+        String[] lookupParameterNames;
+        String[] strArr2;
+        JSONField jSONField3;
+        int of;
+        int i14;
+        int i15;
+        JSONField jSONField4;
+        String str10;
+        int i16;
+        int i17;
+        int i18;
+        Annotation[][] annotationArr;
+        JSONField jSONField5;
+        Field field3;
+        String str11;
+        int i19;
+        int i20;
+        int i21;
+        Field field4;
+        Field field5;
+        String[] strArr3;
+        Constructor<?> creatorConstructor;
+        PropertyNamingStrategy naming;
+        Class<?> cls16 = cls;
+        boolean z4 = z3;
+        Class<String> cls17 = String.class;
+        Class<?> cls18 = Object.class;
+        JSONType jSONType3 = (JSONType) TypeUtils.getAnnotation(cls16, JSONType.class);
+        PropertyNamingStrategy propertyNamingStrategy7 = (jSONType3 == null || (naming = jSONType3.naming()) == null || naming == PropertyNamingStrategy.CamelCase) ? propertyNamingStrategy : naming;
+        Class<?> builderClass = getBuilderClass(cls16, jSONType3);
+        Field[] declaredFields = cls.getDeclaredFields();
+        Method[] methods = cls.getMethods();
+        Map<TypeVariable, Type> buildGenericInfo = buildGenericInfo(cls);
+        boolean isKotlin = TypeUtils.isKotlin(cls);
+        Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
+        if (!isKotlin || declaredConstructors.length == 1) {
+            if (builderClass == null) {
+                defaultConstructor = getDefaultConstructor(cls16, declaredConstructors);
+            } else {
+                defaultConstructor = getDefaultConstructor(builderClass, builderClass.getDeclaredConstructors());
+            }
+            constructor = defaultConstructor;
+        } else {
+            constructor = null;
+        }
+        Method method = null;
+        Method method2 = null;
+        ArrayList arrayList6 = new ArrayList();
+        if (z) {
+            for (Class<?> cls19 = cls16; cls19 != null; cls19 = cls19.getSuperclass()) {
+                computeFields(cls16, type, propertyNamingStrategy7, arrayList6, cls19.getDeclaredFields());
+            }
+            if (constructor != null) {
+                TypeUtils.setAccessible(constructor);
+            }
+            return new JavaBeanInfo(cls, builderClass, constructor, null, null, null, jSONType3, arrayList6);
+        }
+        boolean z5 = cls.isInterface() || Modifier.isAbstract(cls.getModifiers());
+        PropertyNamingStrategy propertyNamingStrategy8 = propertyNamingStrategy7;
+        if ((constructor == null && builderClass == null) || z5) {
+            Type mixInAnnotations = JSON.getMixInAnnotations(cls);
+            if ((mixInAnnotations instanceof Class) && (creatorConstructor = getCreatorConstructor(((Class) mixInAnnotations).getConstructors())) != null) {
+                try {
+                    constructor3 = cls16.getConstructor(creatorConstructor.getParameterTypes());
+                } catch (NoSuchMethodException unused) {
+                }
+                if (constructor3 == null) {
+                    constructor3 = getCreatorConstructor(declaredConstructors);
+                }
+                constructor2 = constructor3;
+                if (constructor2 == null && !z5) {
+                    TypeUtils.setAccessible(constructor2);
+                    Class<?>[] parameterTypes = constructor2.getParameterTypes();
+                    if (parameterTypes.length > 0) {
+                        Annotation[][] parameterAnnotations = TypeUtils.getParameterAnnotations(constructor2);
+                        String[] strArr4 = null;
+                        int i22 = 0;
+                        while (i22 < parameterTypes.length && i22 < parameterAnnotations.length) {
+                            Annotation[] annotationArr2 = parameterAnnotations[i22];
+                            int length = annotationArr2.length;
+                            int i23 = 0;
+                            while (true) {
+                                annotationArr = parameterAnnotations;
+                                if (i23 >= length) {
+                                    jSONField5 = null;
+                                    break;
+                                }
+                                Annotation annotation = annotationArr2[i23];
+                                Annotation[] annotationArr3 = annotationArr2;
+                                if (annotation instanceof JSONField) {
+                                    jSONField5 = (JSONField) annotation;
+                                    break;
+                                }
+                                i23++;
+                                parameterAnnotations = annotationArr;
+                                annotationArr2 = annotationArr3;
+                            }
+                            Class<?> cls20 = parameterTypes[i22];
+                            Type type2 = constructor2.getGenericParameterTypes()[i22];
+                            if (jSONField5 != null) {
+                                field3 = TypeUtils.getField(cls16, jSONField5.name(), declaredFields);
+                                i19 = jSONField5.ordinal();
+                                i20 = SerializerFeature.of(jSONField5.serialzeFeatures());
+                                i21 = Feature.of(jSONField5.parseFeatures());
+                                str11 = jSONField5.name();
+                            } else {
+                                field3 = null;
+                                str11 = null;
+                                i19 = 0;
+                                i20 = 0;
+                                i21 = 0;
+                            }
+                            if (str11 == null || str11.length() == 0) {
+                                if (strArr4 == null) {
+                                    strArr4 = ASMUtils.lookupParameterNames(constructor2);
+                                }
+                                str11 = strArr4[i22];
+                            }
+                            if (field3 == null) {
+                                if (strArr4 == null) {
+                                    if (isKotlin) {
+                                        strArr4 = TypeUtils.getKoltinConstructorParameters(cls);
+                                    } else {
+                                        strArr4 = ASMUtils.lookupParameterNames(constructor2);
+                                    }
+                                }
+                                field4 = field3;
+                                if (strArr4.length > i22) {
+                                    strArr3 = strArr4;
+                                    field5 = TypeUtils.getField(cls16, strArr4[i22], declaredFields);
+                                    ArrayList arrayList7 = arrayList6;
+                                    add(arrayList7, new FieldInfo(str11, cls, cls20, type2, field5, i19, i20, i21));
+                                    i22++;
+                                    arrayList6 = arrayList7;
+                                    declaredFields = declaredFields;
+                                    methods = methods;
+                                    parameterAnnotations = annotationArr;
+                                    cls18 = cls18;
+                                    builderClass = builderClass;
+                                    strArr4 = strArr3;
+                                    parameterTypes = parameterTypes;
+                                }
+                            } else {
+                                field4 = field3;
+                            }
+                            field5 = field4;
+                            strArr3 = strArr4;
+                            ArrayList arrayList72 = arrayList6;
+                            add(arrayList72, new FieldInfo(str11, cls, cls20, type2, field5, i19, i20, i21));
+                            i22++;
+                            arrayList6 = arrayList72;
+                            declaredFields = declaredFields;
+                            methods = methods;
+                            parameterAnnotations = annotationArr;
+                            cls18 = cls18;
+                            builderClass = builderClass;
+                            strArr4 = strArr3;
+                            parameterTypes = parameterTypes;
+                        }
+                    }
+                    arrayList = arrayList6;
+                    methodArr = methods;
+                    cls2 = builderClass;
+                    cls14 = cls18;
+                    fieldArr = declaredFields;
+                } else {
+                    arrayList = arrayList6;
+                    methodArr = methods;
+                    cls2 = builderClass;
+                    cls14 = cls18;
+                    fieldArr = declaredFields;
+                    method2 = getFactoryMethod(cls16, methodArr, z4);
+                    if (method2 == null) {
+                        TypeUtils.setAccessible(method2);
+                        Class<?>[] parameterTypes2 = method2.getParameterTypes();
+                        if (parameterTypes2.length > 0) {
+                            Annotation[][] parameterAnnotations2 = TypeUtils.getParameterAnnotations(method2);
+                            String[] strArr5 = null;
+                            int i24 = 0;
+                            while (i24 < parameterTypes2.length) {
+                                Annotation[] annotationArr4 = parameterAnnotations2[i24];
+                                int length2 = annotationArr4.length;
+                                int i25 = 0;
+                                while (true) {
+                                    if (i25 >= length2) {
+                                        jSONField4 = null;
+                                        break;
+                                    }
+                                    Annotation annotation2 = annotationArr4[i25];
+                                    if (annotation2 instanceof JSONField) {
+                                        jSONField4 = (JSONField) annotation2;
+                                        break;
+                                    }
+                                    i25++;
+                                }
+                                if (jSONField4 == null && (!z4 || !TypeUtils.isJacksonCreator(method2))) {
+                                    throw new JSONException("illegal json creator");
+                                }
+                                if (jSONField4 != null) {
+                                    str10 = jSONField4.name();
+                                    i16 = jSONField4.ordinal();
+                                    i17 = SerializerFeature.of(jSONField4.serialzeFeatures());
+                                    i18 = Feature.of(jSONField4.parseFeatures());
+                                } else {
+                                    str10 = null;
+                                    i16 = 0;
+                                    i17 = 0;
+                                    i18 = 0;
+                                }
+                                if (str10 == null || str10.length() == 0) {
+                                    if (strArr5 == null) {
+                                        strArr5 = ASMUtils.lookupParameterNames(method2);
+                                    }
+                                    str10 = strArr5[i24];
+                                }
+                                String[] strArr6 = strArr5;
+                                add(arrayList, new FieldInfo(str10, cls, parameterTypes2[i24], method2.getGenericParameterTypes()[i24], TypeUtils.getField(cls16, str10, fieldArr), i16, i17, i18));
+                                i24++;
+                                z4 = z3;
+                                strArr5 = strArr6;
+                                parameterTypes2 = parameterTypes2;
+                            }
+                            return new JavaBeanInfo(cls, cls2, null, null, method2, null, jSONType3, arrayList);
+                        }
+                    } else if (!z5) {
+                        String name = cls.getName();
+                        if (isKotlin && declaredConstructors.length > 0) {
+                            String[] koltinConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
+                            Constructor<?> kotlinConstructor = TypeUtils.getKotlinConstructor(declaredConstructors, koltinConstructorParameters);
+                            TypeUtils.setAccessible(kotlinConstructor);
+                            constructor2 = kotlinConstructor;
+                            strArr = koltinConstructorParameters;
+                        } else {
+                            int length3 = declaredConstructors.length;
+                            String[] strArr7 = null;
+                            int i26 = 0;
+                            while (i26 < length3) {
+                                Constructor<?> constructor4 = declaredConstructors[i26];
+                                Class<?>[] parameterTypes3 = constructor4.getParameterTypes();
+                                if (name.equals("org.springframework.security.web.authentication.WebAuthenticationDetails")) {
+                                    if (parameterTypes3.length == 2 && parameterTypes3[0] == cls17 && parameterTypes3[1] == cls17) {
+                                        constructor4.setAccessible(true);
+                                        strArr = ASMUtils.lookupParameterNames(constructor4);
+                                        constructor2 = constructor4;
+                                    }
+                                } else if (name.equals("org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken")) {
+                                    if (parameterTypes3.length == 3) {
+                                        cls15 = cls14;
+                                        if (parameterTypes3[0] == cls15 && parameterTypes3[1] == cls15 && parameterTypes3[2] == Collection.class) {
+                                            constructor4.setAccessible(true);
+                                            strArr2 = new String[]{"principal", "credentials", "authorities"};
+                                            strArr = strArr2;
+                                            constructor2 = constructor4;
+                                            break;
+                                        }
+                                        i26++;
+                                        cls14 = cls15;
+                                    }
+                                } else {
+                                    cls15 = cls14;
+                                    if (name.equals("org.springframework.security.core.authority.SimpleGrantedAuthority")) {
+                                        if (parameterTypes3.length == 1 && parameterTypes3[0] == cls17) {
+                                            strArr2 = new String[]{"authority"};
+                                            strArr = strArr2;
+                                            constructor2 = constructor4;
+                                            break;
+                                        }
+                                    } else if (((constructor4.getModifiers() & 1) != 0) && (lookupParameterNames = ASMUtils.lookupParameterNames(constructor4)) != null && lookupParameterNames.length != 0 && (constructor2 == null || strArr7 == null || lookupParameterNames.length > strArr7.length)) {
+                                        constructor2 = constructor4;
+                                        strArr7 = lookupParameterNames;
+                                    }
+                                    i26++;
+                                    cls14 = cls15;
+                                }
+                                cls15 = cls14;
+                                i26++;
+                                cls14 = cls15;
+                            }
+                            cls15 = cls14;
+                            strArr = strArr7;
+                            Class<?>[] parameterTypes4 = strArr == null ? constructor2.getParameterTypes() : null;
+                            if (strArr == null && parameterTypes4.length == strArr.length) {
+                                Annotation[][] parameterAnnotations3 = TypeUtils.getParameterAnnotations(constructor2);
+                                int i27 = 0;
+                                while (i27 < parameterTypes4.length) {
+                                    Annotation[] annotationArr5 = parameterAnnotations3[i27];
+                                    String str12 = strArr[i27];
+                                    int length4 = annotationArr5.length;
+                                    int i28 = 0;
+                                    while (true) {
+                                        if (i28 >= length4) {
+                                            jSONField3 = null;
+                                            break;
+                                        }
+                                        Annotation annotation3 = annotationArr5[i28];
+                                        Annotation[] annotationArr6 = annotationArr5;
+                                        if (annotation3 instanceof JSONField) {
+                                            jSONField3 = (JSONField) annotation3;
+                                            break;
+                                        }
+                                        i28++;
+                                        annotationArr5 = annotationArr6;
+                                    }
+                                    Class<?> cls21 = parameterTypes4[i27];
+                                    Type type3 = constructor2.getGenericParameterTypes()[i27];
+                                    Field field6 = TypeUtils.getField(cls16, str12, fieldArr);
+                                    if (field6 != null && jSONField3 == null) {
+                                        jSONField3 = (JSONField) TypeUtils.getAnnotation(field6, JSONField.class);
+                                    }
+                                    if (jSONField3 == null) {
+                                        if ("org.springframework.security.core.userdetails.User".equals(name) && "password".equals(str12)) {
+                                            of = Feature.InitStringFieldAsEmpty.mask;
+                                            i15 = 0;
+                                            i14 = 0;
+                                        } else {
+                                            i15 = 0;
+                                            i14 = 0;
+                                            of = 0;
+                                        }
+                                    } else {
+                                        String name2 = jSONField3.name();
+                                        if (name2.length() != 0) {
+                                            str12 = name2;
+                                        }
+                                        int ordinal = jSONField3.ordinal();
+                                        int of2 = SerializerFeature.of(jSONField3.serialzeFeatures());
+                                        of = Feature.of(jSONField3.parseFeatures());
+                                        i14 = of2;
+                                        i15 = ordinal;
+                                    }
+                                    add(arrayList, new FieldInfo(str12, cls, cls21, type3, field6, i15, i14, of));
+                                    i27++;
+                                    name = name;
+                                    strArr = strArr;
+                                    parameterTypes4 = parameterTypes4;
+                                    cls15 = cls15;
+                                }
+                                cls3 = cls15;
+                                if (!isKotlin && !cls.getName().equals("javax.servlet.http.Cookie")) {
+                                    return new JavaBeanInfo(cls, cls2, null, constructor2, null, null, jSONType3, arrayList);
+                                }
+                            } else {
+                                throw new JSONException("default constructor not found. " + cls16);
+                            }
+                        }
+                        cls15 = cls14;
+                        if (strArr == null) {
+                        }
+                        if (strArr == null) {
+                        }
+                        throw new JSONException("default constructor not found. " + cls16);
+                    }
+                }
+                cls3 = cls14;
+            }
+            constructor3 = null;
+            if (constructor3 == null) {
+            }
+            constructor2 = constructor3;
+            if (constructor2 == null) {
+            }
+            arrayList = arrayList6;
+            methodArr = methods;
+            cls2 = builderClass;
+            cls14 = cls18;
+            fieldArr = declaredFields;
+            method2 = getFactoryMethod(cls16, methodArr, z4);
+            if (method2 == null) {
+            }
+            cls3 = cls14;
+        } else {
+            arrayList = arrayList6;
+            methodArr = methods;
+            cls2 = builderClass;
+            cls3 = cls18;
+            fieldArr = declaredFields;
+            constructor2 = null;
+        }
+        if (constructor != null) {
+            TypeUtils.setAccessible(constructor);
+        }
+        String str13 = "set";
+        Class<?> cls22 = cls2;
+        if (cls22 != null) {
+            JSONPOJOBuilder jSONPOJOBuilder = (JSONPOJOBuilder) TypeUtils.getAnnotation(cls22, JSONPOJOBuilder.class);
+            String withPrefix = jSONPOJOBuilder != null ? jSONPOJOBuilder.withPrefix() : null;
+            if (withPrefix == null) {
+                withPrefix = "with";
+            }
+            String str14 = withPrefix;
+            Method[] methods2 = cls22.getMethods();
+            int length5 = methods2.length;
+            int i29 = 0;
+            while (i29 < length5) {
+                Method method3 = methods2[i29];
+                if (!Modifier.isStatic(method3.getModifiers()) && method3.getReturnType().equals(cls22)) {
+                    JSONField jSONField6 = (JSONField) TypeUtils.getAnnotation(method3, JSONField.class);
+                    if (jSONField6 == null) {
+                        jSONField6 = TypeUtils.getSuperMethodAnnotation(cls16, method3);
+                    }
+                    JSONField jSONField7 = jSONField6;
+                    if (jSONField7 == null) {
+                        propertyNamingStrategy6 = propertyNamingStrategy8;
+                        i9 = i29;
+                        i10 = length5;
+                        methodArr4 = methods2;
+                        str5 = str14;
+                        cls11 = cls22;
+                        str6 = str13;
+                        jSONType2 = jSONType3;
+                        fieldArr7 = fieldArr;
+                        cls12 = cls3;
+                        arrayList4 = arrayList;
+                        i11 = 0;
+                        i12 = 0;
+                        i13 = 0;
+                    } else if (jSONField7.deserialize()) {
+                        int ordinal2 = jSONField7.ordinal();
+                        int of3 = SerializerFeature.of(jSONField7.serialzeFeatures());
+                        int of4 = Feature.of(jSONField7.parseFeatures());
+                        if (jSONField7.name().length() != 0) {
+                            i9 = i29;
+                            i10 = length5;
+                            methodArr4 = methods2;
+                            cls11 = cls22;
+                            propertyNamingStrategy6 = propertyNamingStrategy8;
+                            jSONType2 = jSONType3;
+                            fieldArr7 = fieldArr;
+                            cls12 = cls3;
+                            arrayList4 = arrayList;
+                            add(arrayList4, new FieldInfo(jSONField7.name(), method3, null, cls, type, ordinal2, of3, of4, jSONField7, null, null, buildGenericInfo));
+                            str8 = str14;
+                            cls13 = cls17;
+                            str9 = str13;
+                            arrayList5 = arrayList4;
+                            i29 = i9 + 1;
+                            cls3 = cls12;
+                            arrayList = arrayList5;
+                            cls17 = cls13;
+                            jSONType3 = jSONType2;
+                            str14 = str8;
+                            length5 = i10;
+                            methods2 = methodArr4;
+                            cls22 = cls11;
+                            propertyNamingStrategy8 = propertyNamingStrategy6;
+                            fieldArr = fieldArr7;
+                            str13 = str9;
+                            cls16 = cls;
+                        } else {
+                            propertyNamingStrategy6 = propertyNamingStrategy8;
+                            i9 = i29;
+                            i10 = length5;
+                            methodArr4 = methods2;
+                            str5 = str14;
+                            cls11 = cls22;
+                            str6 = str13;
+                            jSONType2 = jSONType3;
+                            fieldArr7 = fieldArr;
+                            cls12 = cls3;
+                            arrayList4 = arrayList;
+                            i11 = ordinal2;
+                            i12 = of3;
+                            i13 = of4;
+                        }
+                    }
+                    String name3 = method3.getName();
+                    String str15 = str6;
+                    if (name3.startsWith(str15) && name3.length() > 3) {
+                        sb = new StringBuilder(name3.substring(3));
+                        str7 = str5;
+                        charAt = sb.charAt(0);
+                        if (str7.length() != 0 || Character.isUpperCase(charAt)) {
+                            sb.setCharAt(0, Character.toLowerCase(charAt));
+                            str8 = str7;
+                            str9 = str15;
+                            cls13 = cls17;
+                            arrayList5 = arrayList4;
+                            add(arrayList5, new FieldInfo(sb.toString(), method3, null, cls, type, i11, i12, i13, jSONField7, null, null, buildGenericInfo));
+                            i29 = i9 + 1;
+                            cls3 = cls12;
+                            arrayList = arrayList5;
+                            cls17 = cls13;
+                            jSONType3 = jSONType2;
+                            str14 = str8;
+                            length5 = i10;
+                            methods2 = methodArr4;
+                            cls22 = cls11;
+                            propertyNamingStrategy8 = propertyNamingStrategy6;
+                            fieldArr = fieldArr7;
+                            str13 = str9;
+                            cls16 = cls;
+                        }
+                        str8 = str7;
+                        str9 = str15;
+                        cls13 = cls17;
+                        arrayList5 = arrayList4;
+                        i29 = i9 + 1;
+                        cls3 = cls12;
+                        arrayList = arrayList5;
+                        cls17 = cls13;
+                        jSONType3 = jSONType2;
+                        str14 = str8;
+                        length5 = i10;
+                        methods2 = methodArr4;
+                        cls22 = cls11;
+                        propertyNamingStrategy8 = propertyNamingStrategy6;
+                        fieldArr = fieldArr7;
+                        str13 = str9;
+                        cls16 = cls;
+                    }
+                    if (str5.length() == 0) {
+                        sb = new StringBuilder(name3);
+                        str7 = str5;
+                        charAt = sb.charAt(0);
+                        if (str7.length() != 0) {
+                        }
+                        sb.setCharAt(0, Character.toLowerCase(charAt));
+                        str8 = str7;
+                        str9 = str15;
+                        cls13 = cls17;
+                        arrayList5 = arrayList4;
+                        add(arrayList5, new FieldInfo(sb.toString(), method3, null, cls, type, i11, i12, i13, jSONField7, null, null, buildGenericInfo));
+                        i29 = i9 + 1;
+                        cls3 = cls12;
+                        arrayList = arrayList5;
+                        cls17 = cls13;
+                        jSONType3 = jSONType2;
+                        str14 = str8;
+                        length5 = i10;
+                        methods2 = methodArr4;
+                        cls22 = cls11;
+                        propertyNamingStrategy8 = propertyNamingStrategy6;
+                        fieldArr = fieldArr7;
+                        str13 = str9;
+                        cls16 = cls;
+                    } else {
+                        str7 = str5;
+                        if (name3.startsWith(str7) && name3.length() > str7.length()) {
+                            sb = new StringBuilder(name3.substring(str7.length()));
+                            charAt = sb.charAt(0);
+                            if (str7.length() != 0) {
+                            }
+                            sb.setCharAt(0, Character.toLowerCase(charAt));
+                            str8 = str7;
+                            str9 = str15;
+                            cls13 = cls17;
+                            arrayList5 = arrayList4;
+                            add(arrayList5, new FieldInfo(sb.toString(), method3, null, cls, type, i11, i12, i13, jSONField7, null, null, buildGenericInfo));
+                            i29 = i9 + 1;
+                            cls3 = cls12;
+                            arrayList = arrayList5;
+                            cls17 = cls13;
+                            jSONType3 = jSONType2;
+                            str14 = str8;
+                            length5 = i10;
+                            methods2 = methodArr4;
+                            cls22 = cls11;
+                            propertyNamingStrategy8 = propertyNamingStrategy6;
+                            fieldArr = fieldArr7;
+                            str13 = str9;
+                            cls16 = cls;
+                        }
+                        str8 = str7;
+                        str9 = str15;
+                        cls13 = cls17;
+                        arrayList5 = arrayList4;
+                        i29 = i9 + 1;
+                        cls3 = cls12;
+                        arrayList = arrayList5;
+                        cls17 = cls13;
+                        jSONType3 = jSONType2;
+                        str14 = str8;
+                        length5 = i10;
+                        methods2 = methodArr4;
+                        cls22 = cls11;
+                        propertyNamingStrategy8 = propertyNamingStrategy6;
+                        fieldArr = fieldArr7;
+                        str13 = str9;
+                        cls16 = cls;
+                    }
+                }
+                propertyNamingStrategy6 = propertyNamingStrategy8;
+                i9 = i29;
+                i10 = length5;
+                methodArr4 = methods2;
+                str8 = str14;
+                cls11 = cls22;
+                str9 = str13;
+                jSONType2 = jSONType3;
+                fieldArr7 = fieldArr;
+                cls13 = cls17;
+                cls12 = cls3;
+                arrayList5 = arrayList;
+                i29 = i9 + 1;
+                cls3 = cls12;
+                arrayList = arrayList5;
+                cls17 = cls13;
+                jSONType3 = jSONType2;
+                str14 = str8;
+                length5 = i10;
+                methods2 = methodArr4;
+                cls22 = cls11;
+                propertyNamingStrategy8 = propertyNamingStrategy6;
+                fieldArr = fieldArr7;
+                str13 = str9;
+                cls16 = cls;
+            }
+            propertyNamingStrategy2 = propertyNamingStrategy8;
+            str = str13;
+            jSONType = jSONType3;
+            fieldArr2 = fieldArr;
+            cls4 = cls17;
+            cls5 = cls3;
+            cls6 = cls22;
+            arrayList2 = arrayList;
+            if (cls6 != null) {
+                JSONPOJOBuilder jSONPOJOBuilder2 = (JSONPOJOBuilder) TypeUtils.getAnnotation(cls6, JSONPOJOBuilder.class);
+                String buildMethod = jSONPOJOBuilder2 != null ? jSONPOJOBuilder2.buildMethod() : null;
+                try {
+                    method = cls6.getMethod((buildMethod == null || buildMethod.length() == 0) ? "build" : "build", new Class[0]);
+                } catch (NoSuchMethodException | SecurityException unused2) {
+                }
+                if (method == null) {
+                    try {
+                        method = cls6.getMethod("create", new Class[0]);
+                    } catch (NoSuchMethodException | SecurityException unused3) {
+                    }
+                }
+                if (method != null) {
+                    TypeUtils.setAccessible(method);
+                } else {
+                    throw new JSONException("buildMethod not found.");
+                }
+            }
+        } else {
+            propertyNamingStrategy2 = propertyNamingStrategy8;
+            str = "set";
+            jSONType = jSONType3;
+            fieldArr2 = fieldArr;
+            cls4 = cls17;
+            cls5 = cls3;
+            cls6 = cls22;
+            arrayList2 = arrayList;
+        }
+        int length6 = methodArr.length;
+        int i30 = 0;
+        while (true) {
+            str2 = "get";
+            i = 4;
+            if (i30 >= length6) {
+                break;
+            }
+            Method method4 = methodArr[i30];
+            int i31 = 0;
+            int i32 = 0;
+            int i33 = 0;
+            String name4 = method4.getName();
+            if (!Modifier.isStatic(method4.getModifiers())) {
+                Class<?> returnType = method4.getReturnType();
+                if ((returnType.equals(Void.TYPE) || returnType.equals(method4.getDeclaringClass())) && method4.getDeclaringClass() != cls5) {
+                    Class<?>[] parameterTypes5 = method4.getParameterTypes();
+                    if (parameterTypes5.length != 0 && parameterTypes5.length <= 2) {
+                        JSONField jSONField8 = (JSONField) TypeUtils.getAnnotation(method4, JSONField.class);
+                        if (jSONField8 == null || parameterTypes5.length != 2) {
+                            i4 = i30;
+                            cls7 = cls6;
+                            cls8 = cls4;
+                            i5 = length6;
+                        } else {
+                            Class<String> cls23 = cls4;
+                            if (parameterTypes5[0] == cls23 && parameterTypes5[1] == cls5) {
+                                cls8 = cls23;
+                                i4 = i30;
+                                i5 = length6;
+                                cls7 = cls6;
+                                add(arrayList2, new FieldInfo("", method4, null, cls, type, 0, 0, 0, jSONField8, null, null, buildGenericInfo));
+                                cls9 = cls5;
+                                methodArr3 = methodArr;
+                                propertyNamingStrategy4 = propertyNamingStrategy2;
+                                fieldArr6 = fieldArr2;
+                                str4 = str;
+                                i30 = i4 + 1;
+                                propertyNamingStrategy2 = propertyNamingStrategy4;
+                                length6 = i5;
+                                cls6 = cls7;
+                                cls4 = cls8;
+                                cls5 = cls9;
+                                methodArr = methodArr3;
+                                str = str4;
+                                fieldArr2 = fieldArr6;
+                            } else {
+                                cls8 = cls23;
+                                i4 = i30;
+                                i5 = length6;
+                                cls7 = cls6;
+                            }
+                        }
+                        if (parameterTypes5.length == 1) {
+                            cls9 = cls5;
+                            if (jSONField8 == null) {
+                                jSONField8 = TypeUtils.getSuperMethodAnnotation(cls, method4);
+                            }
+                            if (jSONField8 != null || name4.length() >= 4) {
+                                if (jSONField8 == null) {
+                                    i6 = 1;
+                                } else if (jSONField8.deserialize()) {
+                                    i31 = jSONField8.ordinal();
+                                    i32 = SerializerFeature.of(jSONField8.serialzeFeatures());
+                                    int of5 = Feature.of(jSONField8.parseFeatures());
+                                    if (jSONField8.name().length() != 0) {
+                                        add(arrayList2, new FieldInfo(jSONField8.name(), method4, null, cls, type, i31, i32, of5, jSONField8, null, null, buildGenericInfo));
+                                    } else {
+                                        i6 = 1;
+                                        i33 = of5;
+                                    }
+                                }
+                                String str16 = str;
+                                if ((jSONField8 != null || name4.startsWith(str16)) && cls7 == null) {
+                                    char charAt2 = name4.charAt(3);
+                                    if (isKotlin) {
+                                        arrayList3 = new ArrayList();
+                                        for (int i34 = 0; i34 < methodArr.length; i34++) {
+                                            if (methodArr[i34].getName().startsWith("get")) {
+                                                arrayList3.add(methodArr[i34].getName());
+                                            }
+                                        }
+                                    } else {
+                                        arrayList3 = null;
+                                    }
+                                    if (Character.isUpperCase(charAt2) || charAt2 > 512) {
+                                        i7 = 1;
+                                        cls10 = cls;
+                                        fieldArr5 = fieldArr2;
+                                        if (isKotlin) {
+                                            propertyNameByMethodName2 = TypeUtils.getPropertyNameByMethodName("g" + name4.substring(1));
+                                        } else if (TypeUtils.compatibleWithJavaBean) {
+                                            propertyNameByMethodName2 = TypeUtils.decapitalize(name4.substring(3));
+                                        } else {
+                                            propertyNameByMethodName2 = TypeUtils.getPropertyNameByMethodName(name4);
+                                        }
+                                    } else {
+                                        if (charAt2 != '_') {
+                                            i7 = 1;
+                                            cls10 = cls;
+                                            fieldArr5 = fieldArr2;
+                                            if (charAt2 == 'f') {
+                                                propertyNameByMethodName2 = name4.substring(3);
+                                            } else if (name4.length() >= 5 && Character.isUpperCase(name4.charAt(4))) {
+                                                propertyNameByMethodName2 = TypeUtils.decapitalize(name4.substring(3));
+                                            } else {
+                                                propertyNameByMethodName2 = name4.substring(3);
+                                                field2 = TypeUtils.getField(cls10, propertyNameByMethodName2, fieldArr5);
+                                            }
+                                        } else if (isKotlin) {
+                                            propertyNameByMethodName2 = arrayList3.contains("g" + name4.substring(i6)) ? name4.substring(3) : "is" + name4.substring(3);
+                                            i7 = 1;
+                                            cls10 = cls;
+                                            fieldArr5 = fieldArr2;
+                                            field2 = TypeUtils.getField(cls10, propertyNameByMethodName2, fieldArr5);
+                                        } else {
+                                            i7 = 1;
+                                            cls10 = cls;
+                                            fieldArr5 = fieldArr2;
+                                            String substring = name4.substring(4);
+                                            Field field7 = TypeUtils.getField(cls10, substring, fieldArr5);
+                                            if (field7 != null || (field7 = TypeUtils.getField(cls10, (propertyNameByMethodName2 = name4.substring(3)), fieldArr5)) == null) {
+                                                propertyNameByMethodName2 = substring;
+                                            }
+                                            field2 = field7;
+                                        }
+                                        if (field2 == null) {
+                                            field2 = TypeUtils.getField(cls10, propertyNameByMethodName2, fieldArr5);
+                                        }
+                                        if (field2 == null && parameterTypes5[0] == Boolean.TYPE) {
+                                            field2 = TypeUtils.getField(cls10, "is" + Character.toUpperCase(propertyNameByMethodName2.charAt(0)) + propertyNameByMethodName2.substring(i7), fieldArr5);
+                                        }
+                                        if (field2 == null) {
+                                            JSONField jSONField9 = (JSONField) TypeUtils.getAnnotation(field2, JSONField.class);
+                                            if (jSONField9 != null) {
+                                                if (jSONField9.deserialize()) {
+                                                    i31 = jSONField9.ordinal();
+                                                    i32 = SerializerFeature.of(jSONField9.serialzeFeatures());
+                                                    i8 = Feature.of(jSONField9.parseFeatures());
+                                                    if (jSONField9.name().length() != 0) {
+                                                        fieldArr6 = fieldArr5;
+                                                        methodArr3 = methodArr;
+                                                        str4 = str16;
+                                                        add(arrayList2, new FieldInfo(jSONField9.name(), method4, field2, cls, type, i31, i32, i8, jSONField8, jSONField9, null, buildGenericInfo));
+                                                        propertyNamingStrategy4 = propertyNamingStrategy2;
+                                                        i30 = i4 + 1;
+                                                        propertyNamingStrategy2 = propertyNamingStrategy4;
+                                                        length6 = i5;
+                                                        cls6 = cls7;
+                                                        cls4 = cls8;
+                                                        cls5 = cls9;
+                                                        methodArr = methodArr3;
+                                                        str = str4;
+                                                        fieldArr2 = fieldArr6;
+                                                    } else {
+                                                        fieldArr6 = fieldArr5;
+                                                        str4 = str16;
+                                                        methodArr3 = methodArr;
+                                                    }
+                                                }
+                                                fieldArr6 = fieldArr5;
+                                                str4 = str16;
+                                                methodArr3 = methodArr;
+                                                propertyNamingStrategy4 = propertyNamingStrategy2;
+                                            } else {
+                                                fieldArr6 = fieldArr5;
+                                                str4 = str16;
+                                                methodArr3 = methodArr;
+                                                i8 = i33;
+                                            }
+                                            jSONField2 = jSONField9;
+                                        } else {
+                                            fieldArr6 = fieldArr5;
+                                            str4 = str16;
+                                            methodArr3 = methodArr;
+                                            jSONField2 = null;
+                                            i8 = i33;
+                                        }
+                                        propertyNamingStrategy5 = propertyNamingStrategy2;
+                                        if (propertyNamingStrategy5 != null) {
+                                            propertyNameByMethodName2 = propertyNamingStrategy5.translate(propertyNameByMethodName2);
+                                        }
+                                        propertyNamingStrategy4 = propertyNamingStrategy5;
+                                        add(arrayList2, new FieldInfo(propertyNameByMethodName2, method4, field2, cls, type, i31, i32, i8, jSONField8, jSONField2, null, buildGenericInfo));
+                                        i30 = i4 + 1;
+                                        propertyNamingStrategy2 = propertyNamingStrategy4;
+                                        length6 = i5;
+                                        cls6 = cls7;
+                                        cls4 = cls8;
+                                        cls5 = cls9;
+                                        methodArr = methodArr3;
+                                        str = str4;
+                                        fieldArr2 = fieldArr6;
+                                    }
+                                    field2 = null;
+                                    if (field2 == null) {
+                                    }
+                                    if (field2 == null) {
+                                        field2 = TypeUtils.getField(cls10, "is" + Character.toUpperCase(propertyNameByMethodName2.charAt(0)) + propertyNameByMethodName2.substring(i7), fieldArr5);
+                                    }
+                                    if (field2 == null) {
+                                    }
+                                    propertyNamingStrategy5 = propertyNamingStrategy2;
+                                    if (propertyNamingStrategy5 != null) {
+                                    }
+                                    propertyNamingStrategy4 = propertyNamingStrategy5;
+                                    add(arrayList2, new FieldInfo(propertyNameByMethodName2, method4, field2, cls, type, i31, i32, i8, jSONField8, jSONField2, null, buildGenericInfo));
+                                    i30 = i4 + 1;
+                                    propertyNamingStrategy2 = propertyNamingStrategy4;
+                                    length6 = i5;
+                                    cls6 = cls7;
+                                    cls4 = cls8;
+                                    cls5 = cls9;
+                                    methodArr = methodArr3;
+                                    str = str4;
+                                    fieldArr2 = fieldArr6;
+                                } else {
+                                    str4 = str16;
+                                    methodArr3 = methodArr;
+                                    propertyNamingStrategy4 = propertyNamingStrategy2;
+                                    fieldArr6 = fieldArr2;
+                                }
+                                i30 = i4 + 1;
+                                propertyNamingStrategy2 = propertyNamingStrategy4;
+                                length6 = i5;
+                                cls6 = cls7;
+                                cls4 = cls8;
+                                cls5 = cls9;
+                                methodArr = methodArr3;
+                                str = str4;
+                                fieldArr2 = fieldArr6;
+                            }
+                            methodArr3 = methodArr;
+                            propertyNamingStrategy4 = propertyNamingStrategy2;
+                            fieldArr6 = fieldArr2;
+                            str4 = str;
+                            i30 = i4 + 1;
+                            propertyNamingStrategy2 = propertyNamingStrategy4;
+                            length6 = i5;
+                            cls6 = cls7;
+                            cls4 = cls8;
+                            cls5 = cls9;
+                            methodArr = methodArr3;
+                            str = str4;
+                            fieldArr2 = fieldArr6;
+                        }
+                        cls9 = cls5;
+                        methodArr3 = methodArr;
+                        propertyNamingStrategy4 = propertyNamingStrategy2;
+                        fieldArr6 = fieldArr2;
+                        str4 = str;
+                        i30 = i4 + 1;
+                        propertyNamingStrategy2 = propertyNamingStrategy4;
+                        length6 = i5;
+                        cls6 = cls7;
+                        cls4 = cls8;
+                        cls5 = cls9;
+                        methodArr = methodArr3;
+                        str = str4;
+                        fieldArr2 = fieldArr6;
+                    }
+                }
+            }
+            i4 = i30;
+            cls7 = cls6;
+            cls9 = cls5;
+            methodArr3 = methodArr;
+            cls8 = cls4;
+            propertyNamingStrategy4 = propertyNamingStrategy2;
+            fieldArr6 = fieldArr2;
+            str4 = str;
+            i5 = length6;
+            i30 = i4 + 1;
+            propertyNamingStrategy2 = propertyNamingStrategy4;
+            length6 = i5;
+            cls6 = cls7;
+            cls4 = cls8;
+            cls5 = cls9;
+            methodArr = methodArr3;
+            str = str4;
+            fieldArr2 = fieldArr6;
+        }
+        Class<?> cls24 = cls6;
+        Field[] fieldArr8 = fieldArr2;
+        PropertyNamingStrategy propertyNamingStrategy9 = propertyNamingStrategy2;
+        Class<?> cls25 = cls;
+        computeFields(cls25, type, propertyNamingStrategy9, arrayList2, cls.getFields());
+        Method[] methods3 = cls.getMethods();
+        int length7 = methods3.length;
+        int i35 = 0;
+        while (i35 < length7) {
+            Method method5 = methods3[i35];
+            String name5 = method5.getName();
+            if (name5.length() >= i && !Modifier.isStatic(method5.getModifiers()) && cls24 == null && name5.startsWith(str2) && Character.isUpperCase(name5.charAt(3)) && method5.getParameterTypes().length == 0 && ((Collection.class.isAssignableFrom(method5.getReturnType()) || Map.class.isAssignableFrom(method5.getReturnType()) || AtomicBoolean.class == method5.getReturnType() || AtomicInteger.class == method5.getReturnType() || AtomicLong.class == method5.getReturnType()) && ((jSONField = (JSONField) TypeUtils.getAnnotation(method5, JSONField.class)) == null || !jSONField.deserialize()))) {
+                if (jSONField != null && jSONField.name().length() > 0) {
+                    propertyNameByMethodName = jSONField.name();
+                    field = null;
+                    fieldArr3 = fieldArr8;
+                } else {
+                    propertyNameByMethodName = TypeUtils.getPropertyNameByMethodName(name5);
+                    fieldArr3 = fieldArr8;
+                    Field field8 = TypeUtils.getField(cls25, propertyNameByMethodName, fieldArr3);
+                    if (field8 != null) {
+                        JSONField jSONField10 = (JSONField) TypeUtils.getAnnotation(field8, JSONField.class);
+                        if (jSONField10 == null || jSONField10.deserialize()) {
+                            if (Collection.class.isAssignableFrom(method5.getReturnType()) || Map.class.isAssignableFrom(method5.getReturnType())) {
+                                field = field8;
+                            }
+                        }
+                        fieldArr4 = fieldArr3;
+                        i2 = i35;
+                        str3 = str2;
+                        i3 = length7;
+                        methodArr2 = methods3;
+                        propertyNamingStrategy3 = propertyNamingStrategy9;
+                    }
+                    field = null;
+                }
+                if (propertyNamingStrategy9 != null) {
+                    propertyNameByMethodName = propertyNamingStrategy9.translate(propertyNameByMethodName);
+                }
+                String str17 = propertyNameByMethodName;
+                if (getField(arrayList2, str17) == null) {
+                    fieldArr4 = fieldArr3;
+                    i2 = i35;
+                    str3 = str2;
+                    i3 = length7;
+                    methodArr2 = methods3;
+                    propertyNamingStrategy3 = propertyNamingStrategy9;
+                    add(arrayList2, new FieldInfo(str17, method5, field, cls, type, 0, 0, 0, jSONField, null, null, buildGenericInfo));
+                    i35 = i2 + 1;
+                    propertyNamingStrategy9 = propertyNamingStrategy3;
+                    length7 = i3;
+                    str2 = str3;
+                    methods3 = methodArr2;
+                    fieldArr8 = fieldArr4;
+                    i = 4;
+                    cls25 = cls;
+                }
+                fieldArr4 = fieldArr3;
+                i2 = i35;
+                str3 = str2;
+                i3 = length7;
+                methodArr2 = methods3;
+                propertyNamingStrategy3 = propertyNamingStrategy9;
+            } else {
+                i2 = i35;
+                str3 = str2;
+                i3 = length7;
+                methodArr2 = methods3;
+                propertyNamingStrategy3 = propertyNamingStrategy9;
+                fieldArr4 = fieldArr8;
+            }
+            i35 = i2 + 1;
+            propertyNamingStrategy9 = propertyNamingStrategy3;
+            length7 = i3;
+            str2 = str3;
+            methods3 = methodArr2;
+            fieldArr8 = fieldArr4;
+            i = 4;
+            cls25 = cls;
+        }
+        PropertyNamingStrategy propertyNamingStrategy10 = propertyNamingStrategy9;
+        Field[] fieldArr9 = fieldArr8;
+        if (arrayList2.size() == 0) {
+            if (TypeUtils.isXmlField(cls) ? true : z) {
+                for (Class<?> cls26 = cls; cls26 != null; cls26 = cls26.getSuperclass()) {
+                    computeFields(cls, type, propertyNamingStrategy10, arrayList2, fieldArr9);
+                }
+            }
+        }
+        return new JavaBeanInfo(cls, cls24, constructor, constructor2, method2, method, jSONType, arrayList2);
     }
 }

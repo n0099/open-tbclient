@@ -16,28 +16,28 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f48937a;
+    public c f49329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BlockingQueue<Runnable> f48938b;
+    public BlockingQueue<Runnable> f49330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f48939c;
+    public ThreadPoolExecutor f49331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f48940d;
+    public f f49332d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f48941e = new AtomicBoolean(false);
+    public AtomicBoolean f49333e = new AtomicBoolean(false);
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.l.l.h.f.b f48942f;
+    public d.b.g0.l.l.h.f.b f49334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public l f48943g;
+    public l f49335g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.l.l.h.f.a f48944h;
+    public d.b.g0.l.l.h.f.a f49336h;
 
     /* loaded from: classes3.dex */
     public class a implements d.b.g0.l.l.h.f.b {
@@ -46,21 +46,21 @@ public class b {
 
         @Override // d.b.g0.l.l.h.f.b
         public <T> void a(f<T> fVar) {
-            b.this.f48940d = fVar;
+            b.this.f49332d = fVar;
         }
 
         @Override // d.b.g0.l.l.h.f.b
         public <T> void b(f<T> fVar) {
-            if (b.this.f48940d == fVar) {
-                b.this.f48940d = null;
+            if (b.this.f49332d == fVar) {
+                b.this.f49332d = null;
             }
         }
     }
 
     /* renamed from: d.b.g0.l.l.h.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1019b implements d.b.g0.l.l.h.f.a {
-        public C1019b() {
+    public class C1031b implements d.b.g0.l.l.h.f.a {
+        public C1031b() {
         }
 
         @Override // d.b.g0.l.l.h.f.a
@@ -71,48 +71,48 @@ public class b {
 
     public b() {
         a aVar = new a();
-        this.f48942f = aVar;
-        this.f48943g = new l(aVar);
-        this.f48944h = new C1019b();
-        this.f48937a = new c();
-        this.f48938b = new LinkedBlockingQueue();
-        this.f48939c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.f48938b);
-        c(this.f48937a);
+        this.f49334f = aVar;
+        this.f49335g = new l(aVar);
+        this.f49336h = new C1031b();
+        this.f49329a = new c();
+        this.f49330b = new LinkedBlockingQueue();
+        this.f49331c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.f49330b);
+        c(this.f49329a);
     }
 
     public void c(d.b.g0.l.l.h.f.b bVar) {
-        this.f48943g.c(bVar);
+        this.f49335g.c(bVar);
     }
 
     public synchronized Runnable d(boolean z) {
-        if (this.f48937a != null) {
+        if (this.f49329a != null) {
             if (z) {
-                return this.f48937a.g();
+                return this.f49329a.g();
             }
-            return this.f48937a.i();
+            return this.f49329a.i();
         }
         return null;
     }
 
     public synchronized boolean e(String str) {
-        if (this.f48940d == null) {
+        if (this.f49332d == null) {
             return false;
         }
-        Object f2 = this.f48940d.f();
+        Object f2 = this.f49332d.f();
         if (f2 instanceof d.b.g0.l.k.f) {
             d.b.g0.l.k.f fVar = (d.b.g0.l.k.f) f2;
-            if (d.b.g0.l.f.f48889a) {
-                Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.f48923g + ", checking id: " + str);
+            if (d.b.g0.l.f.f49281a) {
+                Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.f49315g + ", checking id: " + str);
             }
-            return TextUtils.equals(fVar.f48923g, str);
-        } else if (f2 instanceof a.C1020a) {
-            a.C1020a c1020a = (a.C1020a) f2;
-            if (d.b.g0.l.f.f48889a) {
-                Log.v("PMSThreadQueue", "Current Item appId: " + c1020a.f48978b + ", checking id: " + str);
+            return TextUtils.equals(fVar.f49315g, str);
+        } else if (f2 instanceof a.C1032a) {
+            a.C1032a c1032a = (a.C1032a) f2;
+            if (d.b.g0.l.f.f49281a) {
+                Log.v("PMSThreadQueue", "Current Item appId: " + c1032a.f49370b + ", checking id: " + str);
             }
-            return TextUtils.equals(c1020a.f48978b, str);
+            return TextUtils.equals(c1032a.f49370b, str);
         } else {
-            if (d.b.g0.l.f.f48889a) {
+            if (d.b.g0.l.f.f49281a) {
                 Log.v("PMSThreadQueue", "Current model type not match: " + f2.getClass().getSimpleName());
             }
             return false;
@@ -120,28 +120,28 @@ public class b {
     }
 
     public synchronized boolean f(String str) {
-        Iterator<f> f2 = this.f48937a.f();
+        Iterator<f> f2 = this.f49329a.f();
         while (f2.hasNext()) {
             f next = f2.next();
             if (next != null) {
                 Object f3 = next.f();
                 if (f3 instanceof d.b.g0.l.k.f) {
                     d.b.g0.l.k.f fVar = (d.b.g0.l.k.f) f3;
-                    if (d.b.g0.l.f.f48889a) {
-                        Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.f48923g + ", checking id: " + str);
+                    if (d.b.g0.l.f.f49281a) {
+                        Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.f49315g + ", checking id: " + str);
                     }
-                    if (TextUtils.equals(fVar.f48923g, str)) {
+                    if (TextUtils.equals(fVar.f49315g, str)) {
                         return true;
                     }
-                } else if (f3 instanceof a.C1020a) {
-                    a.C1020a c1020a = (a.C1020a) f3;
-                    if (d.b.g0.l.f.f48889a) {
-                        Log.v("PMSThreadQueue", "Queue Item appId: " + c1020a.f48978b + ", checking id: " + str);
+                } else if (f3 instanceof a.C1032a) {
+                    a.C1032a c1032a = (a.C1032a) f3;
+                    if (d.b.g0.l.f.f49281a) {
+                        Log.v("PMSThreadQueue", "Queue Item appId: " + c1032a.f49370b + ", checking id: " + str);
                     }
-                    if (TextUtils.equals(c1020a.f48978b, str)) {
+                    if (TextUtils.equals(c1032a.f49370b, str)) {
                         return true;
                     }
-                } else if (d.b.g0.l.f.f48889a) {
+                } else if (d.b.g0.l.f.f49281a) {
                     Log.v("PMSThreadQueue", "Queue model type not match: " + f3.getClass().getSimpleName());
                 }
             }
@@ -150,11 +150,11 @@ public class b {
     }
 
     public synchronized <T> void g(f<T> fVar) {
-        this.f48937a.h(fVar);
-        if (d.b.g0.l.f.f48889a) {
+        this.f49329a.h(fVar);
+        if (d.b.g0.l.f.f49281a) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.f48937a);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.f48938b);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.f49329a);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.f49330b);
         }
     }
 
@@ -164,12 +164,12 @@ public class b {
     }
 
     public void i(d.b.g0.l.l.h.f.b bVar) {
-        this.f48943g.d(bVar);
+        this.f49335g.d(bVar);
     }
 
     public synchronized void j() {
-        if (this.f48938b.size() < 1) {
-            this.f48939c.execute(new g(this.f48941e, this.f48943g, this.f48944h));
+        if (this.f49330b.size() < 1) {
+            this.f49331c.execute(new g(this.f49333e, this.f49335g, this.f49336h));
         }
     }
 }

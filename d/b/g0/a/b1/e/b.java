@@ -11,37 +11,37 @@ import java.net.URLDecoder;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f43454a;
+    public final Uri f43846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Bitmap f43455b;
+    public final Bitmap f43847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Integer f43456c;
+    public final Integer f43848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43457d;
+    public boolean f43849d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43458e;
+    public int f43850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43459f;
+    public int f43851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f43460g;
+    public Rect f43852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43461h;
+    public boolean f43853h;
 
     public b(Bitmap bitmap, boolean z) {
-        this.f43455b = bitmap;
-        this.f43454a = null;
-        this.f43456c = null;
-        this.f43457d = false;
-        this.f43458e = bitmap.getWidth();
-        this.f43459f = bitmap.getHeight();
-        this.f43461h = z;
+        this.f43847b = bitmap;
+        this.f43846a = null;
+        this.f43848c = null;
+        this.f43849d = false;
+        this.f43850e = bitmap.getWidth();
+        this.f43851f = bitmap.getHeight();
+        this.f43853h = z;
     }
 
     public static b a(String str) {
@@ -76,39 +76,39 @@ public final class b {
     }
 
     public final Bitmap c() {
-        return this.f43455b;
+        return this.f43847b;
     }
 
     public final Integer d() {
-        return this.f43456c;
+        return this.f43848c;
     }
 
     public final int e() {
-        return this.f43459f;
+        return this.f43851f;
     }
 
     public final Rect f() {
-        return this.f43460g;
+        return this.f43852g;
     }
 
     public final int g() {
-        return this.f43458e;
+        return this.f43850e;
     }
 
     public final boolean h() {
-        return this.f43457d;
+        return this.f43849d;
     }
 
     public final Uri i() {
-        return this.f43454a;
+        return this.f43846a;
     }
 
     public final boolean j() {
-        return this.f43461h;
+        return this.f43853h;
     }
 
     public b l(boolean z) {
-        this.f43457d = z;
+        this.f43849d = z;
         return this;
     }
 
@@ -130,16 +130,16 @@ public final class b {
             } catch (UnsupportedEncodingException unused) {
             }
         }
-        this.f43455b = null;
-        this.f43454a = uri;
-        this.f43456c = null;
-        this.f43457d = true;
+        this.f43847b = null;
+        this.f43846a = uri;
+        this.f43848c = null;
+        this.f43849d = true;
     }
 
     public b(int i) {
-        this.f43455b = null;
-        this.f43454a = null;
-        this.f43456c = Integer.valueOf(i);
-        this.f43457d = true;
+        this.f43847b = null;
+        this.f43846a = null;
+        this.f43848c = Integer.valueOf(i);
+        this.f43849d = true;
     }
 }

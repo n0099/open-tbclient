@@ -11,24 +11,24 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
-    public d.b.i0.g1.c.a mCallback = new a();
+    public d.b.i0.h1.c.a mCallback = new a();
     public int mFrom;
     public LabelSettingModel mModel;
-    public d.b.i0.g1.d.b mView;
+    public d.b.i0.h1.d.b mView;
 
-    /* loaded from: classes3.dex */
-    public class a implements d.b.i0.g1.c.a {
+    /* loaded from: classes4.dex */
+    public class a implements d.b.i0.h1.c.a {
         public a() {
         }
 
-        @Override // d.b.i0.g1.c.a
-        public void callback(LabelRequestEnum labelRequestEnum, d.b.i0.g1.b.b bVar, int i) {
-            int i2 = b.f18481a[labelRequestEnum.ordinal()];
+        @Override // d.b.i0.h1.c.a
+        public void callback(LabelRequestEnum labelRequestEnum, d.b.i0.h1.b.b bVar, int i) {
+            int i2 = b.f18158a[labelRequestEnum.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2 && i == 0) {
-                    d.b.h0.r.d0.b.i().s("set_recommend_label", true);
+                    d.b.h0.r.d0.b.j().t("set_recommend_label", true);
                     LabelRecommendActivity.this.statisticSubSuccess();
                     LabelRecommendActivity.this.finish();
                     return;
@@ -47,30 +47,30 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.mView.c(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
         }
 
-        @Override // d.b.i0.g1.c.a
+        @Override // d.b.i0.h1.c.a
         public void getLabel() {
         }
 
-        @Override // d.b.i0.g1.c.a
+        @Override // d.b.i0.h1.c.a
         public void subLabel(List<Integer> list) {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f18481a;
+        public static final /* synthetic */ int[] f18158a;
 
         static {
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f18481a = iArr;
+            f18158a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f18481a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f18158a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -114,7 +114,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.b.i0.g1.d.b bVar = new d.b.i0.g1.d.b(this);
+        d.b.i0.h1.d.b bVar = new d.b.i0.h1.d.b(this);
         this.mView = bVar;
         bVar.k(this);
         LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
@@ -125,7 +125,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         }
         TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.mFrom));
         loadData();
-        d.b.h0.r.d0.b.i().s("show_recommend_label", true);
+        d.b.h0.r.d0.b.j().t("show_recommend_label", true);
     }
 
     @Override // com.baidu.tbadk.BaseActivity

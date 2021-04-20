@@ -1,7 +1,7 @@
 package io.reactivex.internal.observers;
 
-import f.a.a0.a;
-import f.a.o;
+import f.b.a0.a;
+import f.b.o;
 /* loaded from: classes7.dex */
 public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static final int DISPOSED = 4;
@@ -17,7 +17,7 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         this.actual = oVar;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public final void clear() {
         lazySet(32);
         this.value = null;
@@ -41,7 +41,7 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         }
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public void dispose() {
         set(4);
         this.value = null;
@@ -56,17 +56,17 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         this.actual.onError(th);
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public final boolean isDisposed() {
         return get() == 4;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public final boolean isEmpty() {
         return get() != 16;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
     public final T poll() throws Exception {
         if (get() == 16) {
             T t = this.value;
@@ -77,7 +77,7 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         return null;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.c
+    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.c
     public final int requestFusion(int i) {
         if ((i & 2) != 0) {
             lazySet(8);

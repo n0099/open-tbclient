@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import d.b.g0.a.d;
@@ -26,9 +27,9 @@ import d.b.g0.a.i2.e;
 import d.b.g0.a.k;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String KEY_FOR_BUILDER = "BOX_ACTIVITY_DIALOG_FOR_BUILDER";
     public static final String KEY_FROM = "BOX_ACTIVITY_DIALOG_FROM";
     public static final String KEY_NIGHT_MODE = "BOX_ACTIVITY_DIALOG_NIGHT_MODE";
@@ -51,7 +52,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public SwanAppScrollView mScrollView;
     public TextView mTitle;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -66,7 +67,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -81,34 +82,34 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public static HashMap<String, c> t = new HashMap<>();
         public static ArrayList u = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12597a;
+        public String f12258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f12598b;
+        public CharSequence f12259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12599c;
+        public String f12260c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12600d;
+        public String f12261d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f12601e;
+        public View f12262e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Drawable f12602f;
+        public Drawable f12263f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f12603g;
+        public boolean f12264g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12604h;
+        public int f12265h;
         public Bundle i;
         public DialogInterface.OnClickListener j;
         public DialogInterface.OnClickListener k;
@@ -121,14 +122,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public Object r;
         public boolean s;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f12605e;
+            public final /* synthetic */ boolean f12266e;
 
             public a(boolean z) {
-                this.f12605e = z;
+                this.f12266e = z;
             }
 
             @Override // java.lang.Runnable
@@ -138,7 +139,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     c.this.o = BaseActivityDialog.class;
                 }
                 Intent intent = new Intent(appContext, c.this.o);
-                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f12605e);
+                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f12266e);
                 String valueOf = String.valueOf(intent.hashCode());
                 intent.putExtra(BaseActivityDialog.KEY_FOR_BUILDER, valueOf);
                 if (!TextUtils.isEmpty(c.this.q)) {
@@ -148,23 +149,23 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     intent.putExtras(c.this.i);
                 }
                 c.s(valueOf, c.this);
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 e.f(appContext, intent);
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public DialogInterface f12607a;
+            public DialogInterface f12268a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f12608b;
+            public int f12269b;
 
             public b(DialogInterface dialogInterface, int i) {
-                this.f12607a = dialogInterface;
-                this.f12608b = i;
+                this.f12268a = dialogInterface;
+                this.f12269b = i;
             }
         }
 
@@ -198,7 +199,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c B(String str) {
-            this.f12597a = str;
+            this.f12258a = str;
             return this;
         }
 
@@ -215,14 +216,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
             DialogInterface.OnClickListener onClickListener = null;
-            int i = bVar.f12608b;
+            int i = bVar.f12269b;
             if (i == -2) {
                 onClickListener = this.k;
             } else if (i == -1) {
                 onClickListener = this.j;
             }
             if (onClickListener != null) {
-                onClickListener.onClick(bVar.f12607a, bVar.f12608b);
+                onClickListener.onClick(bVar.f12268a, bVar.f12269b);
             }
         }
 
@@ -232,8 +233,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.k = null;
             this.l = null;
             this.m = null;
-            this.f12601e = null;
-            this.f12602f = null;
+            this.f12262e = null;
+            this.f12263f = null;
         }
 
         public c t(int i) {
@@ -242,7 +243,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c u(String str) {
-            this.f12598b = str;
+            this.f12259b = str;
             return this;
         }
 
@@ -252,7 +253,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c w(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f12600d = str;
+            this.f12261d = str;
             this.k = onClickListener;
             return this;
         }
@@ -268,13 +269,13 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public c z(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f12599c = str;
+            this.f12260c = str;
             this.j = onClickListener;
             return this;
         }
 
         public c(Class<? extends Activity> cls) {
-            this.f12603g = true;
+            this.f12264g = true;
             this.p = -1;
             this.n = AppRuntime.getAppContext();
             this.o = cls;
@@ -501,14 +502,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         if (cVar == null) {
             return;
         }
-        setTitle(cVar.f12597a);
-        setIcon(cVar.f12602f);
-        setMessage(cVar.f12598b);
-        setView(cVar.f12601e);
-        setPositiveEnable(cVar.f12603g);
-        setPositiveTextColor(cVar.f12604h);
-        setPositiveButton(cVar.f12599c);
-        setNegativeButton(cVar.f12600d);
+        setTitle(cVar.f12258a);
+        setIcon(cVar.f12263f);
+        setMessage(cVar.f12259b);
+        setView(cVar.f12262e);
+        setPositiveEnable(cVar.f12264g);
+        setPositiveTextColor(cVar.f12265h);
+        setPositiveButton(cVar.f12260c);
+        setNegativeButton(cVar.f12261d);
         setBtnsPanlVisible(cVar.s);
     }
 

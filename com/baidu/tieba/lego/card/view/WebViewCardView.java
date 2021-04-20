@@ -23,10 +23,10 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebViewCardView extends BaseCardView<WebViewCard> {
     public static boolean w = true;
     public boolean r;
@@ -35,7 +35,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     public XiubaTbJsBridge u;
     public final CustomMessageListener v;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends WebChromeClient {
         public a() {
         }
@@ -46,7 +46,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnTouchListener {
         public b() {
         }
@@ -60,7 +60,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements BaseWebView.d {
         public c() {
         }
@@ -72,7 +72,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -169,7 +169,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.t, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.b.i0.i1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.b.i0.j1.o.l.e
     public void l(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null) {
             return;

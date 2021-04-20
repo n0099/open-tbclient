@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SendMessageToWX {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public static final int FAV_CONTENT_LENGTH_LIMIT = 26214400;
         public static final String TAG = "MicroMsg.SDK.SendMessageToWX.Req";
@@ -72,7 +72,7 @@ public class SendMessageToWX {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

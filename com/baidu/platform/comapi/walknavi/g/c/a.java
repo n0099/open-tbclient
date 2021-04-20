@@ -3,22 +3,22 @@ package com.baidu.platform.comapi.walknavi.g.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10124a = -1;
+    public static int f9682a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f10125b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
+    public static final int[] f9683b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0127a {
+    public class C0126a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f10126a;
+        public int f9684a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10127b;
+        public int f9685b;
 
-        public C0127a() {
+        public C0126a() {
         }
     }
 
@@ -26,7 +26,7 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f10129a = new a();
+        public static final a f9687a = new a();
     }
 
     /* loaded from: classes2.dex */
@@ -35,26 +35,26 @@ public class a {
     }
 
     public static a a() {
-        return b.f10129a;
+        return b.f9687a;
     }
 
-    private C0127a b(int i) {
-        C0127a c0127a = new C0127a();
+    private C0126a b(int i) {
+        C0126a c0126a = new C0126a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
-            int[] iArr = f10125b;
+            int[] iArr = f9683b;
             if (i3 >= iArr.length) {
                 break;
             } else if (i2 >= iArr[i3] && i2 % iArr[i3] == 0) {
-                c0127a.f10126a = c(iArr[i3]);
-                c0127a.f10127b = i2 / f10125b[i3];
+                c0126a.f9684a = c(iArr[i3]);
+                c0126a.f9685b = i2 / f9683b[i3];
                 break;
             } else {
                 i3++;
             }
         }
-        return c0127a;
+        return c0126a;
     }
 
     private int c(int i) {
@@ -169,9 +169,9 @@ public class a {
                 i2 = 9;
             } else if (i < 90 || i >= 100) {
                 if (i >= 100) {
-                    C0127a b2 = b(i);
-                    i2 = b2.f10126a;
-                    i3 = b2.f10127b;
+                    C0126a b2 = b(i);
+                    i2 = b2.f9684a;
+                    i3 = b2.f9685b;
                 }
                 i2 = -1;
             } else {
@@ -190,9 +190,9 @@ public class a {
                 i3 = i4;
             }
         }
-        if (f10124a != i2) {
+        if (f9682a != i2) {
             cVar.a(i2, i3);
         }
-        f10124a = i2;
+        f9682a = i2;
     }
 }

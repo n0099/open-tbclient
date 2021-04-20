@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
@@ -35,31 +36,31 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTDelegateActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f27377a;
+    public Intent f27062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlertDialog f27378b;
+    public AlertDialog f27063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTAdDislike f27379c;
+    public TTAdDislike f27064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f27380d;
+    public e f27065d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f27381e;
+    public d f27066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.widget.a f27382f;
+    public com.bytedance.sdk.openadsdk.core.widget.a f27067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f27383g;
+    public b f27068g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends g {
         public a(String str) {
             super(str);
@@ -73,10 +74,10 @@ public class TTDelegateActivity extends Activity {
     }
 
     private void c(String str) {
-        if (str != null && this.f27379c == null) {
+        if (str != null && this.f27064c == null) {
             try {
                 com.bytedance.sdk.openadsdk.dislike.b bVar = new com.bytedance.sdk.openadsdk.dislike.b(this, c.a(new JSONObject(str)));
-                this.f27379c = bVar;
+                this.f27064c = bVar;
                 bVar.setDislikeInteractionCallback(new TTAdDislike.DislikeInteractionCallback() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.12
                     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
                     public void onCancel() {
@@ -96,7 +97,7 @@ public class TTDelegateActivity extends Activity {
                 e2.printStackTrace();
             }
         }
-        TTAdDislike tTAdDislike = this.f27379c;
+        TTAdDislike tTAdDislike = this.f27064c;
         if (tTAdDislike != null) {
             tTAdDislike.showDislikeDialog(0);
         }
@@ -106,7 +107,7 @@ public class TTDelegateActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         a();
-        this.f27377a = getIntent();
+        this.f27062a = getIntent();
         if (p.a() == null) {
             p.a(this);
         }
@@ -116,17 +117,17 @@ public class TTDelegateActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         try {
-            if (this.f27378b != null && this.f27378b.isShowing()) {
-                this.f27378b.dismiss();
+            if (this.f27063b != null && this.f27063b.isShowing()) {
+                this.f27063b.dismiss();
             }
-            if (this.f27381e != null && this.f27381e.isShowing()) {
-                this.f27381e.dismiss();
+            if (this.f27066e != null && this.f27066e.isShowing()) {
+                this.f27066e.dismiss();
             }
-            if (this.f27382f != null && this.f27382f.isShowing()) {
-                this.f27382f.dismiss();
+            if (this.f27067f != null && this.f27067f.isShowing()) {
+                this.f27067f.dismiss();
             }
-            if (this.f27383g != null && this.f27383g.isShowing()) {
-                this.f27383g.dismiss();
+            if (this.f27068g != null && this.f27068g.isShowing()) {
+                this.f27068g.dismiss();
             }
         } catch (Throwable unused) {
         }
@@ -141,7 +142,7 @@ public class TTDelegateActivity extends Activity {
         }
         try {
             setIntent(intent);
-            this.f27377a = intent;
+            this.f27062a = intent;
         } catch (Throwable unused) {
         }
     }
@@ -163,12 +164,12 @@ public class TTDelegateActivity extends Activity {
 
     private void b() {
         try {
-            if (this.f27377a == null) {
+            if (this.f27062a == null) {
                 return;
             }
-            int intExtra = this.f27377a.getIntExtra("type", 0);
-            String stringExtra = this.f27377a.getStringExtra("app_download_url");
-            this.f27377a.getStringExtra(DpStatConstants.KEY_APP_NAME);
+            int intExtra = this.f27062a.getIntExtra("type", 0);
+            String stringExtra = this.f27062a.getStringExtra("app_download_url");
+            this.f27062a.getStringExtra(DpStatConstants.KEY_APP_NAME);
             switch (intExtra) {
                 case 1:
                     break;
@@ -176,28 +177,28 @@ public class TTDelegateActivity extends Activity {
                     c();
                     break;
                 case 3:
-                    a(stringExtra, this.f27377a.getStringExtra("dialog_title_key"), this.f27377a.getStringExtra("dialog_content_key"));
+                    a(stringExtra, this.f27062a.getStringExtra("dialog_title_key"), this.f27062a.getStringExtra("dialog_content_key"));
                     break;
                 case 4:
-                    b(this.f27377a.getStringExtra("permission_id_key"), this.f27377a.getStringArrayExtra("permission_content_key"));
+                    b(this.f27062a.getStringExtra("permission_id_key"), this.f27062a.getStringArrayExtra("permission_content_key"));
                     break;
                 case 5:
-                    a(stringExtra, this.f27377a.getStringExtra("dialog_title_key"), this.f27377a.getStringExtra("dialog_content_key"), this.f27377a.getStringExtra("dialog_btn_yes_key"), this.f27377a.getStringExtra("dialog_btn_no_key"));
+                    a(stringExtra, this.f27062a.getStringExtra("dialog_title_key"), this.f27062a.getStringExtra("dialog_content_key"), this.f27062a.getStringExtra("dialog_btn_yes_key"), this.f27062a.getStringExtra("dialog_btn_no_key"));
                     break;
                 case 6:
-                    c(this.f27377a.getStringExtra("materialmeta"));
+                    c(this.f27062a.getStringExtra("materialmeta"));
                     break;
                 case 7:
-                    if (this.f27377a != null) {
-                        a(this.f27377a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27377a.getStringExtra("dialog_title_key"), this.f27377a.getStringExtra("dialog_app_manage_model_icon_url"), this.f27377a.getBooleanExtra("dialog_app_detail_is_download_type", false));
+                    if (this.f27062a != null) {
+                        a(this.f27062a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27062a.getStringExtra("dialog_title_key"), this.f27062a.getStringExtra("dialog_app_manage_model_icon_url"), this.f27062a.getBooleanExtra("dialog_app_detail_is_download_type", false));
                         break;
                     }
                     break;
                 case 8:
-                    a(this.f27377a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27377a.getStringExtra("dialog_title_key"), this.f27377a.getBooleanExtra("dialog_app_detail_is_download_type", false));
+                    a(this.f27062a.getStringExtra("dialog_app_manage_model"), stringExtra, this.f27062a.getStringExtra("dialog_title_key"), this.f27062a.getBooleanExtra("dialog_app_detail_is_download_type", false));
                     break;
                 case 9:
-                    b(this.f27377a.getStringExtra("dialog_app_manage_model"));
+                    b(this.f27062a.getStringExtra("dialog_app_manage_model"));
                     break;
                 default:
                     finish();
@@ -210,7 +211,7 @@ public class TTDelegateActivity extends Activity {
 
     public static void a(String str, String[] strArr) {
         Intent intent = new Intent(p.a(), TTDelegateActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("type", 4);
         intent.putExtra("permission_id_key", str);
         intent.putExtra("permission_content_key", strArr);
@@ -278,7 +279,7 @@ public class TTDelegateActivity extends Activity {
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("type", 3);
         intent.putExtra("app_download_url", str);
@@ -293,7 +294,7 @@ public class TTDelegateActivity extends Activity {
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("type", 7);
         intent.putExtra("app_download_url", str);
@@ -310,7 +311,7 @@ public class TTDelegateActivity extends Activity {
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("type", 8);
         intent.putExtra("app_download_url", str);
@@ -322,18 +323,18 @@ public class TTDelegateActivity extends Activity {
 
     private void b(String str) {
         try {
-            if (this.f27383g != null) {
-                this.f27383g.dismiss();
+            if (this.f27068g != null) {
+                this.f27068g.dismiss();
             }
             com.bytedance.sdk.openadsdk.core.widget.b bVar = new com.bytedance.sdk.openadsdk.core.widget.b(this, str);
-            this.f27383g = bVar;
+            this.f27068g = bVar;
             bVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.10
                 @Override // com.bytedance.sdk.openadsdk.core.widget.b.a
                 public void a(Dialog dialog) {
                     TTDelegateActivity.this.finish();
                 }
             });
-            this.f27383g.show();
+            this.f27068g.show();
         } catch (Throwable unused) {
         }
     }
@@ -341,32 +342,32 @@ public class TTDelegateActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final String str, final String str2, String str3, boolean z) {
         try {
-            if (this.f27382f != null) {
-                this.f27382f.dismiss();
+            if (this.f27067f != null) {
+                this.f27067f.dismiss();
             }
             com.bytedance.sdk.openadsdk.core.widget.a aVar = new com.bytedance.sdk.openadsdk.core.widget.a(this, str);
-            this.f27382f = aVar;
-            aVar.a(str3).a(new a.InterfaceC0315a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.11
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0315a
+            this.f27067f = aVar;
+            aVar.a(str3).a(new a.InterfaceC0317a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.11
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0317a
                 public void a(Dialog dialog) {
                     com.bytedance.sdk.openadsdk.utils.g.a(str2);
                     TTDelegateActivity.this.finish();
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0315a
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0317a
                 public void b(Dialog dialog) {
-                    if (TTDelegateActivity.this.f27382f != null) {
-                        TTDelegateActivity.this.f27382f.dismiss();
+                    if (TTDelegateActivity.this.f27067f != null) {
+                        TTDelegateActivity.this.f27067f.dismiss();
                     }
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0315a
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0317a
                 public void c(Dialog dialog) {
                     TTDelegateActivity.this.a(str);
                 }
             });
-            this.f27382f.a(z);
-            this.f27382f.show();
+            this.f27067f.a(z);
+            this.f27067f.show();
         } catch (Throwable unused) {
         }
     }
@@ -377,7 +378,7 @@ public class TTDelegateActivity extends Activity {
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("type", 9);
         intent.putExtra("dialog_app_manage_model", str);
@@ -420,7 +421,7 @@ public class TTDelegateActivity extends Activity {
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("type", 5);
         intent.putExtra("app_download_url", str);
@@ -437,7 +438,7 @@ public class TTDelegateActivity extends Activity {
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra("type", 6);
         intent.putExtra("materialmeta", lVar.aL().toString());
@@ -470,7 +471,7 @@ public class TTDelegateActivity extends Activity {
                     str5 = str3;
                 }
             }
-            if (this.f27381e == null || !this.f27381e.isShowing()) {
+            if (this.f27066e == null || !this.f27066e.isShowing()) {
                 d a2 = new d(this).a(str5).b(str7).c(str4).d(str6).a(new d.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.7
                     @Override // com.bytedance.sdk.openadsdk.core.widget.d.a
                     public void a(Dialog dialog) {
@@ -494,7 +495,7 @@ public class TTDelegateActivity extends Activity {
                         TTDelegateActivity.this.a(str);
                     }
                 });
-                this.f27381e = a2;
+                this.f27066e = a2;
                 a2.show();
             }
         } catch (Throwable unused) {
@@ -503,29 +504,29 @@ public class TTDelegateActivity extends Activity {
 
     private void a(final String str, final String str2, String str3, boolean z) {
         try {
-            if (this.f27382f == null || !this.f27382f.isShowing()) {
+            if (this.f27067f == null || !this.f27067f.isShowing()) {
                 com.bytedance.sdk.openadsdk.core.widget.a aVar = new com.bytedance.sdk.openadsdk.core.widget.a(this, str);
-                this.f27382f = aVar;
-                aVar.a(str3).a(new a.InterfaceC0315a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.8
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0315a
+                this.f27067f = aVar;
+                aVar.a(str3).a(new a.InterfaceC0317a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.8
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0317a
                     public void a(Dialog dialog) {
                         com.bytedance.sdk.openadsdk.utils.g.a(str2);
                         TTDelegateActivity.this.finish();
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0315a
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0317a
                     public void b(Dialog dialog) {
                         com.bytedance.sdk.openadsdk.utils.g.c(str2);
                         TTDelegateActivity.this.finish();
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0315a
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC0317a
                     public void c(Dialog dialog) {
                         TTDelegateActivity.this.a(str);
                     }
                 });
-                this.f27382f.a(z);
-                this.f27382f.show();
+                this.f27067f.a(z);
+                this.f27067f.show();
             }
         } catch (Throwable unused) {
         }
@@ -534,31 +535,31 @@ public class TTDelegateActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         try {
-            if (this.f27383g != null) {
-                this.f27383g.dismiss();
+            if (this.f27068g != null) {
+                this.f27068g.dismiss();
             }
             com.bytedance.sdk.openadsdk.core.widget.b bVar = new com.bytedance.sdk.openadsdk.core.widget.b(this, str);
-            this.f27383g = bVar;
+            this.f27068g = bVar;
             bVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.9
                 @Override // com.bytedance.sdk.openadsdk.core.widget.b.a
                 public void a(Dialog dialog) {
-                    if (TTDelegateActivity.this.f27383g != null) {
-                        TTDelegateActivity.this.f27383g.dismiss();
+                    if (TTDelegateActivity.this.f27068g != null) {
+                        TTDelegateActivity.this.f27068g.dismiss();
                     }
                 }
             });
-            this.f27383g.show();
+            this.f27068g.show();
         } catch (Throwable unused) {
         }
     }
 
     private void a(final String str, String str2, String str3, String str4, String str5) {
-        AlertDialog alertDialog = this.f27378b;
+        AlertDialog alertDialog = this.f27063b;
         if (alertDialog != null) {
             alertDialog.dismiss();
         }
-        if (this.f27380d == null) {
-            this.f27380d = new e(this).a(str2).b(str3).c(str4).d(str5).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.14
+        if (this.f27065d == null) {
+            this.f27065d = new e(this).a(str2).b(str3).c(str4).d(str5).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.14
                 @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
                 public void a(Dialog dialog) {
                     com.bytedance.sdk.openadsdk.utils.g.a(str);
@@ -578,10 +579,10 @@ public class TTDelegateActivity extends Activity {
                 }
             });
         }
-        if (!this.f27380d.isShowing()) {
-            this.f27380d.show();
+        if (!this.f27065d.isShowing()) {
+            this.f27065d.show();
         }
-        this.f27378b = this.f27380d;
+        this.f27063b = this.f27065d;
     }
 
     private void a(final String str, String str2, String str3) {
@@ -615,18 +616,18 @@ public class TTDelegateActivity extends Activity {
 
     private void a(String str, String str2, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2, DialogInterface.OnCancelListener onCancelListener) {
         try {
-            if (this.f27378b == null) {
-                this.f27378b = new AlertDialog.Builder(this, ad.g(this, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).create();
+            if (this.f27063b == null) {
+                this.f27063b = new AlertDialog.Builder(this, ad.g(this, Build.VERSION.SDK_INT >= 21 ? "Theme.Dialog.TTDownload" : "Theme.Dialog.TTDownloadOld")).create();
             }
-            this.f27378b.setTitle(String.valueOf(str));
-            this.f27378b.setMessage(String.valueOf(str2));
-            this.f27378b.setButton(-1, ad.a(this, "tt_label_ok"), onClickListener);
-            this.f27378b.setButton(-2, ad.a(this, "tt_label_cancel"), onClickListener2);
-            this.f27378b.setOnCancelListener(onCancelListener);
-            if (this.f27378b.isShowing()) {
+            this.f27063b.setTitle(String.valueOf(str));
+            this.f27063b.setMessage(String.valueOf(str2));
+            this.f27063b.setButton(-1, ad.a(this, "tt_label_ok"), onClickListener);
+            this.f27063b.setButton(-2, ad.a(this, "tt_label_cancel"), onClickListener2);
+            this.f27063b.setOnCancelListener(onCancelListener);
+            if (this.f27063b.isShowing()) {
                 return;
             }
-            this.f27378b.show();
+            this.f27063b.show();
         } catch (Exception e2) {
             e2.printStackTrace();
         }

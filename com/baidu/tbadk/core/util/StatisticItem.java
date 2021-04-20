@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util;
 
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -18,6 +18,15 @@ public class StatisticItem {
 
     private void setParams(List<Object> list) {
         this.params = list;
+    }
+
+    public StatisticItem addParam(String str, String str2) {
+        int index = getIndex(str);
+        if (index > 0) {
+            this.params.set(index, str2);
+            return this;
+        }
+        return param(str, str2);
     }
 
     public StatisticItem copy() {
@@ -40,6 +49,13 @@ public class StatisticItem {
 
     public int getContentHashCode() {
         return this.params.hashCode();
+    }
+
+    public int getIndex(String str) {
+        if (hasParam(str)) {
+            return this.params.indexOf(str) + 1;
+        }
+        return -1;
     }
 
     public String getKey() {
@@ -88,15 +104,42 @@ public class StatisticItem {
         return this;
     }
 
+    public StatisticItem addParam(String str, int i) {
+        int index = getIndex(str);
+        if (index > 0) {
+            this.params.set(index, Integer.valueOf(i));
+            return this;
+        }
+        return param(str, i);
+    }
+
     public StatisticItem param(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;
     }
 
+    public StatisticItem addParam(String str, long j) {
+        int index = getIndex(str);
+        if (index > 0) {
+            this.params.set(index, Long.valueOf(j));
+            return this;
+        }
+        return param(str, j);
+    }
+
     public StatisticItem param(String str, double d2) {
         this.params.add(str);
         this.params.add(Double.valueOf(d2));
         return this;
+    }
+
+    public StatisticItem addParam(String str, double d2) {
+        int index = getIndex(str);
+        if (index > 0) {
+            this.params.set(index, Double.valueOf(d2));
+            return this;
+        }
+        return param(str, d2);
     }
 }

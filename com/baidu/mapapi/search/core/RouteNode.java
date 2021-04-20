@@ -8,21 +8,21 @@ public class RouteNode implements Parcelable {
     public static final Parcelable.Creator<RouteNode> CREATOR = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7160a;
+    public String f7195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7161b;
+    public LatLng f7196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7162c;
+    public String f7197c;
 
     public RouteNode() {
     }
 
     public RouteNode(Parcel parcel) {
-        this.f7160a = parcel.readString();
-        this.f7161b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7162c = parcel.readString();
+        this.f7195a = parcel.readString();
+        this.f7196b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7197c = parcel.readString();
     }
 
     public static RouteNode location(LatLng latLng) {
@@ -44,33 +44,33 @@ public class RouteNode implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.f7161b;
+        return this.f7196b;
     }
 
     public String getTitle() {
-        return this.f7160a;
+        return this.f7195a;
     }
 
     public String getUid() {
-        return this.f7162c;
+        return this.f7197c;
     }
 
     public void setLocation(LatLng latLng) {
-        this.f7161b = latLng;
+        this.f7196b = latLng;
     }
 
     public void setTitle(String str) {
-        this.f7160a = str;
+        this.f7195a = str;
     }
 
     public void setUid(String str) {
-        this.f7162c = str;
+        this.f7197c = str;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f7160a);
-        parcel.writeValue(this.f7161b);
-        parcel.writeString(this.f7162c);
+        parcel.writeString(this.f7195a);
+        parcel.writeValue(this.f7196b);
+        parcel.writeString(this.f7197c);
     }
 }

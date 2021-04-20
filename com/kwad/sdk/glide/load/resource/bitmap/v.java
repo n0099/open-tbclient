@@ -19,27 +19,27 @@ import java.security.MessageDigest;
 public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Long> f35698a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
+    public static final com.kwad.sdk.glide.load.d<Long> f35987a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f35704a = ByteBuffer.allocate(8);
+        public final ByteBuffer f35993a = ByteBuffer.allocate(8);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Long l, @NonNull MessageDigest messageDigest) {
             messageDigest.update(bArr);
-            synchronized (this.f35704a) {
-                this.f35704a.position(0);
-                messageDigest.update(this.f35704a.putLong(l.longValue()).array());
+            synchronized (this.f35993a) {
+                this.f35993a.position(0);
+                messageDigest.update(this.f35993a.putLong(l.longValue()).array());
             }
         }
     });
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Integer> f35699b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
+    public static final com.kwad.sdk.glide.load.d<Integer> f35988b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f35705a = ByteBuffer.allocate(4);
+        public final ByteBuffer f35994a = ByteBuffer.allocate(4);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
@@ -48,24 +48,24 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
                 return;
             }
             messageDigest.update(bArr);
-            synchronized (this.f35705a) {
-                this.f35705a.position(0);
-                messageDigest.update(this.f35705a.putInt(num.intValue()).array());
+            synchronized (this.f35994a) {
+                this.f35994a.position(0);
+                messageDigest.update(this.f35994a.putInt(num.intValue()).array());
             }
         }
     });
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f35700c = new b();
+    public static final b f35989c = new b();
 
     /* renamed from: d  reason: collision with root package name */
-    public final c<T> f35701d;
+    public final c<T> f35990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35702e;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b f35703f;
+    public final b f35992f;
 
     /* loaded from: classes6.dex */
     public static final class a implements c<AssetFileDescriptor> {
@@ -103,14 +103,14 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
     }
 
     public v(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, c<T> cVar) {
-        this(eVar, cVar, f35700c);
+        this(eVar, cVar, f35989c);
     }
 
     @VisibleForTesting
     public v(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, c<T> cVar, b bVar) {
-        this.f35702e = eVar;
-        this.f35701d = cVar;
-        this.f35703f = bVar;
+        this.f35991e = eVar;
+        this.f35990d = cVar;
+        this.f35992f = bVar;
     }
 
     public static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i) {
@@ -119,7 +119,7 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     @Nullable
     public static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
-        Bitmap b2 = (Build.VERSION.SDK_INT < 27 || i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.f35641f) ? null : b(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
+        Bitmap b2 = (Build.VERSION.SDK_INT < 27 || i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.f35930f) ? null : b(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
         return b2 == null ? a(mediaMetadataRetriever, j, i) : b2;
     }
 
@@ -154,26 +154,26 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     @Override // com.kwad.sdk.glide.load.f
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(@NonNull T t, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        long longValue = ((Long) eVar.a(f35698a)).longValue();
+        long longValue = ((Long) eVar.a(f35987a)).longValue();
         if (longValue < 0 && longValue != -1) {
             throw new IllegalArgumentException("Requested frame must be non-negative, or DEFAULT_FRAME, given: " + longValue);
         }
-        Integer num = (Integer) eVar.a(f35699b);
+        Integer num = (Integer) eVar.a(f35988b);
         if (num == null) {
             num = 2;
         }
-        DownsampleStrategy downsampleStrategy = (DownsampleStrategy) eVar.a(DownsampleStrategy.f35643h);
+        DownsampleStrategy downsampleStrategy = (DownsampleStrategy) eVar.a(DownsampleStrategy.f35932h);
         if (downsampleStrategy == null) {
-            downsampleStrategy = DownsampleStrategy.f35642g;
+            downsampleStrategy = DownsampleStrategy.f35931g;
         }
         DownsampleStrategy downsampleStrategy2 = downsampleStrategy;
-        MediaMetadataRetriever a2 = this.f35703f.a();
+        MediaMetadataRetriever a2 = this.f35992f.a();
         try {
             try {
-                this.f35701d.a(a2, t);
+                this.f35990d.a(a2, t);
                 Bitmap a3 = a(a2, longValue, num.intValue(), i, i2, downsampleStrategy2);
                 a2.release();
-                return com.kwad.sdk.glide.load.resource.bitmap.d.a(a3, this.f35702e);
+                return com.kwad.sdk.glide.load.resource.bitmap.d.a(a3, this.f35991e);
             } catch (RuntimeException e2) {
                 throw new IOException(e2);
             }

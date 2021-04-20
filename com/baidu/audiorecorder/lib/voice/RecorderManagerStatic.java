@@ -14,7 +14,7 @@ public class RecorderManagerStatic {
     /* loaded from: classes.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Activity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.c3.p0.a> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<d.b.i0.d3.p0.a> run(CustomMessage<Activity> customMessage) {
             return new CustomResponsedMessage<>(2001271, d.b.f.a.a.e.n());
         }
     }

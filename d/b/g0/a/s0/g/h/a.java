@@ -7,7 +7,7 @@ public interface a extends c {
 
     /* renamed from: d.b.g0.a.s0.g.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0786a {
+    public interface InterfaceC0798a {
     }
 
     void D(int i, int i2, int i3, int i4);
@@ -26,5 +26,5 @@ public interface a extends c {
 
     void v(int i, int i2);
 
-    void w(@NonNull InterfaceC0786a interfaceC0786a);
+    void w(@NonNull InterfaceC0798a interfaceC0798a);
 }

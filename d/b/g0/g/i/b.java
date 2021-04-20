@@ -7,15 +7,15 @@ import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 /* loaded from: classes3.dex */
 public interface b extends JSRuntime, d.b.g0.a.e0.k.a, TypedCallbackHandler {
-    void N(String str, String str2);
+    void S(String str, String str2);
 
-    d.b.g0.g.i.l.b V();
+    d.b.g0.g.i.l.b W();
 
     EventTarget Z();
 
     d.b.g0.g.i.k.a a0();
 
-    JsSerializeValue d0(byte[] bArr, boolean z);
+    JsSerializeValue e0(byte[] bArr, boolean z);
 
     String getInitBasePath();
 

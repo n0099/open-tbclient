@@ -4,7 +4,7 @@ import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 /* loaded from: classes2.dex */
 public class c {
     public static String a(RouteGuideKind routeGuideKind) {
-        switch (d.f10275a[routeGuideKind.ordinal()]) {
+        switch (d.f9833a[routeGuideKind.ordinal()]) {
             case 1:
                 return "wn_turn_front.png";
             case 2:
@@ -87,7 +87,7 @@ public class c {
     }
 
     public static String b(RouteGuideKind routeGuideKind) {
-        switch (d.f10275a[routeGuideKind.ordinal()]) {
+        switch (d.f9833a[routeGuideKind.ordinal()]) {
             case 1:
                 return "bn_turn_front.png";
             case 2:

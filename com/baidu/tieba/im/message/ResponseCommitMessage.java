@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ResponseCommitMessage extends SocketResponsedMessage {
     public String groupId;
     public BlockPopInfoData mBlockPopInfoData;

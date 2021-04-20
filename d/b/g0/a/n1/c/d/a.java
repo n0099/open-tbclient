@@ -9,11 +9,11 @@ import d.b.g0.a.n1.c.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45373a = k.f45051a;
+    public static final boolean f45765a = k.f45443a;
 
     public static void a(Message message) {
         Bundle bundle;
-        if (f45373a) {
+        if (f45765a) {
             Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
         }
         int i = message.arg1;
@@ -48,7 +48,7 @@ public class a {
     public static void c(Message message) {
         Object obj = message.obj;
         if (!(obj instanceof Bundle)) {
-            if (f45373a) {
+            if (f45765a) {
                 throw new RuntimeException("delegation msg obj is not a bundle");
             }
             return;
@@ -62,7 +62,7 @@ public class a {
     public static void d(Message message) {
         Object obj = message.obj;
         if (!(obj instanceof Bundle)) {
-            if (f45373a) {
+            if (f45765a) {
                 throw new RuntimeException("delegation msg obj is not a bundle");
             }
             return;

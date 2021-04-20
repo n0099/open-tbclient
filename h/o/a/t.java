@@ -1,99 +1,127 @@
 package h.o.a;
 
 import h.d;
+import h.g;
 /* loaded from: classes7.dex */
-public final class t<T> implements d.b<T, T> {
+public final class t<T> implements d.a<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.g<? super T, ? super Integer, Boolean> f67807e;
+    public final h.g f68807e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final h.d<T> f68808f;
 
     /* loaded from: classes7.dex */
-    public class a implements h.n.g<T, Integer, Boolean> {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h.n.f f67808a;
-
-        public a(h.n.f fVar) {
-            this.f67808a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.g
-        /* renamed from: b */
-        public Boolean a(T t, Integer num) {
-            return (Boolean) this.f67808a.call(t);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends h.j<T> {
+    public class a implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f67809e;
+        public final /* synthetic */ h.j f68809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f67810f;
+        public final /* synthetic */ g.a f68810f;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.j f67811g;
+        /* renamed from: h.o.a.t$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C1906a extends h.j<T> {
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(h.j jVar, boolean z, h.j jVar2) {
-            super(jVar, z);
-            this.f67811g = jVar2;
-        }
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Thread f68812e;
 
-        @Override // h.e
-        public void onCompleted() {
-            if (this.f67810f) {
-                return;
-            }
-            this.f67811g.onCompleted();
-        }
+            /* renamed from: h.o.a.t$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class C1907a implements h.f {
 
-        @Override // h.e
-        public void onError(Throwable th) {
-            if (this.f67810f) {
-                return;
-            }
-            this.f67811g.onError(th);
-        }
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ h.f f68814e;
 
-        @Override // h.e
-        public void onNext(T t) {
-            try {
-                h.n.g<? super T, ? super Integer, Boolean> gVar = t.this.f67807e;
-                int i = this.f67809e;
-                this.f67809e = i + 1;
-                if (gVar.a(t, Integer.valueOf(i)).booleanValue()) {
-                    this.f67811g.onNext(t);
-                    return;
+                /* renamed from: h.o.a.t$a$a$a$a  reason: collision with other inner class name */
+                /* loaded from: classes7.dex */
+                public class C1908a implements h.n.a {
+
+                    /* renamed from: e  reason: collision with root package name */
+                    public final /* synthetic */ long f68816e;
+
+                    public C1908a(long j) {
+                        this.f68816e = j;
+                    }
+
+                    @Override // h.n.a
+                    public void call() {
+                        C1907a.this.f68814e.request(this.f68816e);
+                    }
                 }
-                this.f67810f = true;
-                this.f67811g.onCompleted();
-                unsubscribe();
-            } catch (Throwable th) {
-                this.f67810f = true;
-                h.m.a.g(th, this.f67811g, t);
-                unsubscribe();
+
+                public C1907a(h.f fVar) {
+                    this.f68814e = fVar;
+                }
+
+                @Override // h.f
+                public void request(long j) {
+                    if (C1906a.this.f68812e == Thread.currentThread()) {
+                        this.f68814e.request(j);
+                    } else {
+                        a.this.f68810f.b(new C1908a(j));
+                    }
+                }
             }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C1906a(h.j jVar, Thread thread) {
+                super(jVar);
+                this.f68812e = thread;
+            }
+
+            @Override // h.e
+            public void onCompleted() {
+                try {
+                    a.this.f68809e.onCompleted();
+                } finally {
+                    a.this.f68810f.unsubscribe();
+                }
+            }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                try {
+                    a.this.f68809e.onError(th);
+                } finally {
+                    a.this.f68810f.unsubscribe();
+                }
+            }
+
+            @Override // h.e
+            public void onNext(T t) {
+                a.this.f68809e.onNext(t);
+            }
+
+            @Override // h.j
+            public void setProducer(h.f fVar) {
+                a.this.f68809e.setProducer(new C1907a(fVar));
+            }
+        }
+
+        public a(h.j jVar, g.a aVar) {
+            this.f68809e = jVar;
+            this.f68810f = aVar;
+        }
+
+        @Override // h.n.a
+        public void call() {
+            t.this.f68808f.L(new C1906a(this.f68809e, Thread.currentThread()));
         }
     }
 
-    public t(h.n.f<? super T, Boolean> fVar) {
-        this(new a(fVar));
+    public t(h.d<T> dVar, h.g gVar) {
+        this.f68807e = gVar;
+        this.f68808f = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // h.n.f
+    @Override // h.n.b
     /* renamed from: a */
-    public h.j<? super T> call(h.j<? super T> jVar) {
-        b bVar = new b(jVar, false, jVar);
-        jVar.add(bVar);
-        return bVar;
-    }
-
-    public t(h.n.g<? super T, ? super Integer, Boolean> gVar) {
-        this.f67807e = gVar;
+    public void call(h.j<? super T> jVar) {
+        g.a createWorker = this.f68807e.createWorker();
+        jVar.add(createWorker);
+        createWorker.b(new a(jVar, createWorker));
     }
 }

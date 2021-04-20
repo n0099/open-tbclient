@@ -26,6 +26,34 @@ public class TypeReference<T> {
         this.type = type2;
     }
 
+    private Type handlerParameterizedType(ParameterizedType parameterizedType, Type[] typeArr, int i) {
+        Class<?> cls = getClass();
+        Type rawType = parameterizedType.getRawType();
+        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+        for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
+            if ((actualTypeArguments[i2] instanceof TypeVariable) && i < typeArr.length) {
+                actualTypeArguments[i2] = typeArr[i];
+                i++;
+            }
+            if (actualTypeArguments[i2] instanceof GenericArrayType) {
+                actualTypeArguments[i2] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i2]);
+            }
+            if (actualTypeArguments[i2] instanceof ParameterizedType) {
+                actualTypeArguments[i2] = handlerParameterizedType((ParameterizedType) actualTypeArguments[i2], typeArr, i);
+            }
+        }
+        return new ParameterizedTypeImpl(actualTypeArguments, cls, rawType);
+    }
+
+    public static Type intern(ParameterizedTypeImpl parameterizedTypeImpl) {
+        Type type = classTypeCache.get(parameterizedTypeImpl);
+        if (type == null) {
+            classTypeCache.putIfAbsent(parameterizedTypeImpl, parameterizedTypeImpl);
+            return classTypeCache.get(parameterizedTypeImpl);
+        }
+        return type;
+    }
+
     public Type getType() {
         return this.type;
     }
@@ -43,6 +71,9 @@ public class TypeReference<T> {
             }
             if (actualTypeArguments[i2] instanceof GenericArrayType) {
                 actualTypeArguments[i2] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i2]);
+            }
+            if (actualTypeArguments[i2] instanceof ParameterizedType) {
+                actualTypeArguments[i2] = handlerParameterizedType((ParameterizedType) actualTypeArguments[i2], typeArr, i);
             }
         }
         ParameterizedTypeImpl parameterizedTypeImpl = new ParameterizedTypeImpl(actualTypeArguments, cls, rawType);

@@ -10,8 +10,8 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
-import d.b.b.a.h;
-import d.b.b.h.j.g.d;
+import d.b.c.a.h;
+import d.b.c.h.j.g.d;
 /* loaded from: classes.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public String mPackageName;

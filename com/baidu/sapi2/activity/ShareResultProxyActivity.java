@@ -21,35 +21,35 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11063g = "ShareResultProxyActivity";
+    public static final String f10647g = "ShareResultProxyActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11064a;
+    public String f10648a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11065b;
+    public String f10649b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11066c;
+    public String f10650c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11067d;
+    public String f10651d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f11068e;
+    public ArrayList<PassNameValuePair> f10652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11069f;
+    public String f10653f;
 
     private void a() {
         Intent intent = getIntent();
-        this.f11064a = intent.getStringExtra(KEY_PKG);
-        this.f11065b = intent.getStringExtra("key_url");
-        this.f11066c = intent.getStringExtra(KEY_TRACE_ID);
-        this.f11067d = intent.getStringExtra("key_session_id");
-        this.f11068e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-        this.f11069f = intent.getStringExtra("key_version");
-        new a().a(this, this.f11064a, this.f11065b, this.f11066c, this.f11067d, this.f11068e, this.f11069f, "product");
+        this.f10648a = intent.getStringExtra(KEY_PKG);
+        this.f10649b = intent.getStringExtra("key_url");
+        this.f10650c = intent.getStringExtra(KEY_TRACE_ID);
+        this.f10651d = intent.getStringExtra("key_session_id");
+        this.f10652e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+        this.f10653f = intent.getStringExtra("key_version");
+        new a().a(this, this.f10648a, this.f10649b, this.f10650c, this.f10651d, this.f10652e, this.f10653f, "product");
     }
 
     @Override // android.app.Activity

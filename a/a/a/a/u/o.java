@@ -1,46 +1,13 @@
 package a.a.a.a.u;
 
-import a.a.a.a.s.e;
-import android.util.Pair;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdResultData;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-public class o extends c {
-    public o(e.a aVar) {
-        super(aVar);
-    }
+public class o {
 
-    @Override // a.a.a.a.u.c
-    public Pair<p, JSONObject> c(Object obj) {
-        List<AdTemplate> list;
-        AdInfo adInfo;
-        JSONObject jSONObject;
-        try {
-            Field declaredField = obj.getClass().getDeclaredField("a");
-            declaredField.setAccessible(true);
-            Object obj2 = declaredField.get(obj);
-            if (obj2 != null && (obj2 instanceof AdResultData) && (list = ((AdResultData) obj2).adTemplateList) != null && !list.isEmpty()) {
-                AdTemplate adTemplate = list.get(0);
-                List<AdInfo> list2 = adTemplate == null ? null : adTemplate.adInfoList;
-                if (list2 == null || list2.isEmpty() || (adInfo = list2.get(0)) == null) {
-                    return null;
-                }
-                try {
-                    jSONObject = new JSONObject(a.a.a.a.a.a(adInfo));
-                } catch (JSONException unused) {
-                    jSONObject = null;
-                }
-                return new Pair<>(a.a.a.a.a.a(adInfo), jSONObject);
-            }
-            return null;
-        } catch (Exception e2) {
-            a.a.a.a.v.d.a(e2);
-            return null;
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public final boolean f1343a;
+
+    public o(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13) {
+        this.f1343a = !TextUtils.isEmpty(str12);
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.webkit.logsdk.d;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f27011a;
+    public static final int f26696a;
 
     static {
-        f27011a = com.baidu.webkit.logsdk.a.f26956a ? 3 : 20;
+        f26696a = com.baidu.webkit.logsdk.a.f26641a ? 3 : 20;
     }
 }

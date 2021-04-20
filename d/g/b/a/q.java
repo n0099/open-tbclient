@@ -12,18 +12,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class q implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Activity f66082e;
+    public final /* synthetic */ Activity f66927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ m f66083f;
+    public final /* synthetic */ m f66928f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ l f66084g;
+    public final /* synthetic */ l f66929g;
 
     public q(l lVar, Activity activity, m mVar) {
-        this.f66084g = lVar;
-        this.f66082e = activity;
-        this.f66083f = mVar;
+        this.f66929g = lVar;
+        this.f66927e = activity;
+        this.f66928f = mVar;
     }
 
     @Override // java.lang.Runnable
@@ -32,16 +32,16 @@ public final class q implements Runnable {
         Bundle l;
         try {
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            aVar = this.f66084g.f66069d;
-            String str = this.f66082e.getApplicationInfo().packageName;
-            l lVar = this.f66084g;
+            aVar = this.f66929g.f66914d;
+            String str = this.f66927e.getApplicationInfo().packageName;
+            l lVar = this.f66929g;
             l = l.l();
             aVar.a(str, Collections.singletonList(l), new Bundle(), new x(this, atomicBoolean));
             new Handler().postDelayed(new r(this, atomicBoolean), 3000L);
         } catch (RemoteException e2) {
             Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e2);
-            l lVar2 = this.f66084g;
-            l.n(this.f66082e, this.f66083f);
+            l lVar2 = this.f66929g;
+            l.n(this.f66927e, this.f66928f);
         }
     }
 }

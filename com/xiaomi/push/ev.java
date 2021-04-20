@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes7.dex */
 public enum ev {
-    COMMAND_REGISTER(MiPushClient.COMMAND_REGISTER),
-    COMMAND_UNREGISTER(MiPushClient.COMMAND_UNREGISTER),
+    COMMAND_REGISTER("register"),
+    COMMAND_UNREGISTER("unregister"),
     COMMAND_SET_ALIAS(MiPushClient.COMMAND_SET_ALIAS),
     COMMAND_UNSET_ALIAS(MiPushClient.COMMAND_UNSET_ALIAS),
     COMMAND_SET_ACCOUNT(MiPushClient.COMMAND_SET_ACCOUNT),

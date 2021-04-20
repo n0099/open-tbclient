@@ -23,21 +23,21 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
 
     /* renamed from: d.b.g0.a.a0.c.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0591a implements Animator.AnimatorListener {
+    public class C0603a implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f43118e;
+        public final /* synthetic */ b f43510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f43119f;
+        public final /* synthetic */ JSONObject f43511f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f43120g;
+        public final /* synthetic */ LottieAnimationView f43512g;
 
-        public C0591a(a aVar, b bVar, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
-            this.f43118e = bVar;
-            this.f43119f = jSONObject;
-            this.f43120g = lottieAnimationView;
+        public C0603a(a aVar, b bVar, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
+            this.f43510e = bVar;
+            this.f43511f = jSONObject;
+            this.f43512g = lottieAnimationView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -46,9 +46,9 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            b bVar = this.f43118e;
-            d.b.g0.a.j2.f.c.a.d(bVar.f43114g, bVar.f43113f, "animateview", "ended", this.f43119f);
-            c.g("Component-AnimationView", "progress: " + this.f43120g.getProgress());
+            b bVar = this.f43510e;
+            d.b.g0.a.j2.f.c.a.d(bVar.f43506g, bVar.f43505f, "animateview", "ended", this.f43511f);
+            c.g("Component-AnimationView", "progress: " + this.f43512g.getProgress());
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -72,16 +72,16 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
             jSONObject.put("json", str);
             jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
         } catch (Exception e2) {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 e2.printStackTrace();
             }
         }
         String jSONObject2 = jSONObject.toString();
-        if (d.b.g0.a.a0.b.a.f43100h && TextUtils.isEmpty(jSONObject2)) {
+        if (d.b.g0.a.a0.b.a.f43492h && TextUtils.isEmpty(jSONObject2)) {
             Log.d("Component-AnimationView", "reportLottieAnimationCrash: empty");
             return;
         }
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
         }
         c.b bVar = new c.b(10009);
@@ -94,16 +94,16 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.f43114g);
+            jSONObject.put("wvID", bVar.f43506g);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.f43113f);
+            jSONObject2.putOpt("animationViewId", bVar.f43505f);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e2) {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 e2.printStackTrace();
             }
         }
-        lottieAnimationView.addAnimatorListener(new C0591a(this, bVar, jSONObject, lottieAnimationView));
+        lottieAnimationView.addAnimatorListener(new C0603a(this, bVar, jSONObject, lottieAnimationView));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
             b bVar = (b) n();
             lottieAnimationView.loop(bVar.y);
             lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-            lottieAnimationView.setAnimationFromJson(this.i, bVar.f43113f);
+            lottieAnimationView.setAnimationFromJson(this.i, bVar.f43505f);
             if (bVar.z) {
                 lottieAnimationView.playAnimation();
             }
@@ -146,7 +146,7 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
 
     public final void Y(@NonNull LottieAnimationView lottieAnimationView, @NonNull b bVar) {
         if (t()) {
-            if (d.b.g0.a.a0.b.a.f43100h) {
+            if (d.b.g0.a.a0.b.a.f43492h) {
                 Log.d("Component-AnimationView", "renderAction");
             }
             String str = bVar.A;
@@ -165,7 +165,7 @@ public final class a extends d.b.g0.a.a0.a.d.a<LottieAnimationView, b> {
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: Z */
     public void S(@NonNull LottieAnimationView lottieAnimationView, @NonNull b bVar) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-AnimationView", "renderBackground");
         }
         lottieAnimationView.setColorFilter(new PorterDuffColorFilter(bVar.o, PorterDuff.Mode.ADD));

@@ -5,7 +5,7 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class ac extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36129h;
+    public int f36418h;
     public int i;
     public int j;
     public int k;
@@ -18,14 +18,14 @@ public class ac extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f36140a != 7) {
+        if (dVar.f36429a != 7) {
             throw new PngjException("bad chunk " + dVar);
         }
-        this.f36129h = com.kwad.sdk.pngencrypt.n.b(dVar.f36143d, 0);
-        this.i = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, 2);
-        this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, 3);
-        this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, 4);
-        this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, 5);
-        this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, 6);
+        this.f36418h = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, 0);
+        this.i = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, 2);
+        this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, 3);
+        this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, 4);
+        this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, 5);
+        this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, 6);
     }
 }

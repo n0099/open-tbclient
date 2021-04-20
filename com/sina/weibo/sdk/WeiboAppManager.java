@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WeiboAppManager {
     public static final String SDK_INT_FILE_NAME = "weibo_for_sdk.json";
     public static final String TAG = "com.sina.weibo.sdk.WeiboAppManager";

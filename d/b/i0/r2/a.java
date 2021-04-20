@@ -1,375 +1,258 @@
 package d.b.i0.r2;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.tbadkCore.data.AppData;
-import d.b.h0.r.q.m0;
+import android.content.Intent;
+import android.net.Uri;
+import com.alibaba.fastjson.asm.Label;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
+import d.b.c.e.m.g;
+import d.b.c.e.p.l;
+import d.b.i0.f2.e;
+import d.b.i0.u3.h;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.GoodsInfo;
-/* loaded from: classes5.dex */
+import java.util.Date;
+/* loaded from: classes3.dex */
 public class a {
 
+    /* renamed from: c  reason: collision with root package name */
+    public static a f61293c;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f61294a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public e f61295b;
+
     /* renamed from: d.b.i0.r2.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1504a implements Comparator<m0> {
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(m0 m0Var, m0 m0Var2) {
-            if (m0Var.c() && m0Var2.c()) {
-                return m0Var.i() - m0Var2.i();
+    /* loaded from: classes3.dex */
+    public class C1554a implements h.g {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TbPageContext f61296a;
+
+        public C1554a(TbPageContext tbPageContext) {
+            this.f61296a = tbPageContext;
+        }
+
+        @Override // d.b.i0.u3.h.g
+        public void a(int i) {
+            if (a.this.f61295b == null) {
+                return;
             }
-            if (m0Var.c() || m0Var2.c()) {
-                return m0Var.c() ? -1 : 1;
-            }
-            return (m0Var.d() == null ? -1 : a.f(m0Var.d())) - (m0Var2.d() != null ? a.f(m0Var2.d()) : -1);
+            a.this.f61295b.dismiss();
+            a.this.f61295b = null;
+            a.this.f61294a = i;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", a.this.f61294a));
+            a.this.o(this.f61296a);
         }
     }
 
-    public static Set<d.b.b.j.e.n> a(List<d.b.b.j.e.n> list, int i, String str) {
-        AdvertAppInfo d2;
-        AdvertAppInfo d3;
-        HashSet hashSet = new HashSet();
-        if (d.b.i0.i1.o.k.a.e(list)) {
-            return hashSet;
+    /* loaded from: classes3.dex */
+    public class b implements h.e {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TbPageContext f61298a;
+
+        public b(TbPageContext tbPageContext) {
+            this.f61298a = tbPageContext;
         }
-        Set<d.b.b.j.e.n> a2 = d.b.i0.r2.b0.a.a(str);
-        if (a2 == null) {
-            a2 = new HashSet();
-        }
-        for (d.b.b.j.e.n nVar : list) {
-            if (nVar != null) {
-                for (d.b.b.j.e.n nVar2 : a2) {
-                    if ((nVar instanceof m0) && (d3 = ((m0) nVar).d()) != null && nVar2.hashCode() == d3.hashCode()) {
-                        d3.Y3 = ((AdvertAppInfo) nVar2).Y3;
-                    }
-                }
-                if ((nVar instanceof m0) && (d2 = ((m0) nVar).d()) != null && d2.Y3 == null) {
-                    d.b.h0.r.q.d dVar = new d.b.h0.r.q.d();
-                    d2.Y3 = dVar;
-                    dVar.f50749a = str;
-                    dVar.f50750b = i;
-                    dVar.f50756h = d2.T3;
-                    dVar.i = false;
-                    hashSet.add(d2);
-                }
+
+        @Override // d.b.i0.u3.h.e
+        public void onClick() {
+            if (a.this.f61295b == null) {
+                return;
             }
+            a.this.f61295b.dismiss();
+            a.this.f61295b = null;
+            if (a.this.f61294a == 1 || a.this.f61294a == 2) {
+                a.this.h(this.f61298a);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
+                return;
+            }
+            a.this.i(this.f61298a);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
         }
-        a2.addAll(hashSet);
-        d.b.i0.r2.b0.a.b(str, a2);
-        return hashSet;
     }
 
-    public static int b(@NonNull List<d.b.b.j.e.n> list) {
-        int j = d.b.i0.i1.o.k.a.j(list);
-        if (d.b.i0.i1.o.k.a.e(list)) {
-            return j;
+    /* loaded from: classes3.dex */
+    public class c implements h.d {
+        public c() {
         }
-        boolean z = true;
-        int j2 = d.b.i0.i1.o.k.a.j(list) - 1;
-        int i = 0;
-        while (true) {
-            if (j2 < 0) {
-                z = false;
-                break;
-            } else if (d.b.i0.i1.o.k.a.d(list, j2) instanceof m0) {
-                break;
+
+        @Override // d.b.i0.u3.h.d
+        public void onClick() {
+            if (a.this.f61295b == null) {
+                return;
+            }
+            a.this.f61295b.dismiss();
+            a.this.f61295b = null;
+            if (a.this.f61294a != 1 && a.this.f61294a != 2) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
             } else {
-                i++;
-                j2--;
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_CANCEL));
             }
         }
-        return z ? i : j;
     }
 
-    public static void c(List<d.b.b.j.e.n> list) {
-        if (d.b.i0.i1.o.k.a.e(list)) {
+    public static a g() {
+        if (f61293c == null) {
+            synchronized (a.class) {
+                if (f61293c == null) {
+                    f61293c = new a();
+                }
+            }
+        }
+        return f61293c;
+    }
+
+    public final void h(TbPageContext tbPageContext) {
+        if (tbPageContext == null) {
             return;
         }
-        Iterator<d.b.b.j.e.n> it = list.iterator();
-        while (it.hasNext()) {
-            if (it.next() instanceof m0) {
-                it.remove();
-            }
+        UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
+    }
+
+    public final void i(TbPageContext tbPageContext) {
+        try {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + TbadkCoreApplication.getInst().getPackageName()));
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            tbPageContext.getContext().startActivity(intent);
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    public static void d(String str, List list) {
-        String str2;
-        if (TextUtils.isEmpty(str) || d.b.i0.i1.o.k.a.e(list)) {
+    public void j() {
+        String version = TbConfig.getVersion();
+        if (version.equals(d.b.h0.r.d0.b.j().p("key_rate_version", ""))) {
             return;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            Object next = it.next();
-            boolean z = next instanceof m0;
-            if (z || (next instanceof App)) {
-                if (next instanceof App) {
-                    str2 = ((App) next).id;
-                } else {
-                    if (z) {
-                        m0 m0Var = (m0) next;
-                        if (m0Var.d() != null) {
-                            str2 = m0Var.d().E3;
-                        }
-                    }
-                    str2 = "";
-                }
-                if (TextUtils.equals(str, str2)) {
-                    it.remove();
-                }
-            }
-        }
+        d.b.h0.r.d0.b.j().x("key_rate_version", version);
+        d.b.h0.r.d0.b.j().w("key_rate_version_time", new Date().getTime());
     }
 
-    public static String e(List<d.b.b.j.e.n> list, boolean z) {
-        m0 m0Var;
-        StringBuilder sb = new StringBuilder();
-        if (!z && !d.b.i0.i1.o.k.a.e(list)) {
-            int i = 0;
-            for (int j = d.b.i0.i1.o.k.a.j(list) - 1; j >= 0 && i < 6; j--) {
-                if ((d.b.i0.i1.o.k.a.d(list, j) instanceof m0) && (m0Var = (m0) d.b.i0.i1.o.k.a.d(list, j)) != null && !l(m0Var.d())) {
-                    sb.append(m0Var.i() + 1);
-                    sb.append(",");
-                    i++;
-                }
-            }
-            if (sb.length() <= 1) {
-                return sb.toString();
-            }
-            sb.deleteCharAt(sb.length() - 1);
-            return sb.toString();
+    public final void k(TbPageContext tbPageContext) {
+        if (tbPageContext == null || TbConfig.getVersionType() == 2) {
+            return;
         }
-        return sb.toString();
+        if (Long.valueOf(new Date().getTime()).longValue() - d.b.h0.r.d0.b.j().l("key_rate_version_time", 0L) < 86400000) {
+            return;
+        }
+        String version = TbConfig.getVersion();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        if (j.g("key_rate_same_version_is_score" + version + currentAccount, false)) {
+            return;
+        }
+        d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+        j2.t("key_rate_same_version_is_score" + version + currentAccount, true);
+        n(tbPageContext);
     }
 
-    public static int f(AdvertAppInfo advertAppInfo) {
-        if (advertAppInfo == null) {
-            return 0;
+    public void l(TbPageContext tbPageContext) {
+        if (tbPageContext == null) {
+            return;
         }
-        if (TextUtils.isEmpty(advertAppInfo.K3)) {
-            return -1;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        int k = j.k("key_rate_like_count" + currentAccount, 0) + 1;
+        if (k < 3) {
+            if (k == 1) {
+                Long valueOf = Long.valueOf(new Date().getTime());
+                d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+                j2.w("key_rate_first_like_time" + currentAccount, valueOf.longValue());
+                d.b.h0.r.d0.b j3 = d.b.h0.r.d0.b.j();
+                j3.v("key_rate_like_count" + currentAccount, k);
+                return;
+            }
+            d.b.h0.r.d0.b j4 = d.b.h0.r.d0.b.j();
+            j4.v("key_rate_like_count" + currentAccount, k);
+            return;
         }
-        return d.b.b.e.m.b.d(advertAppInfo.K3, -1);
+        d.b.h0.r.d0.b j5 = d.b.h0.r.d0.b.j();
+        if (Long.valueOf(new Date().getTime()).longValue() - j5.l("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
+            d.b.h0.r.d0.b j6 = d.b.h0.r.d0.b.j();
+            j6.v("key_rate_like_count" + currentAccount, 0);
+            k(tbPageContext);
+            return;
+        }
+        d.b.h0.r.d0.b j7 = d.b.h0.r.d0.b.j();
+        j7.v("key_rate_like_count" + currentAccount, 0);
     }
 
-    public static List<m0> g(List<App> list, String str) {
+    public void m(TbPageContext tbPageContext) {
+        if (tbPageContext == null) {
+            return;
+        }
+        k(tbPageContext);
+    }
+
+    public void n(TbPageContext tbPageContext) {
+        if (tbPageContext == null) {
+            return;
+        }
+        h hVar = new h(tbPageContext.getContext());
+        hVar.y(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
+        hVar.o(8);
+        hVar.s(0);
+        int g2 = l.g(tbPageContext.getContext(), R.dimen.ds86);
+        int g3 = l.g(tbPageContext.getContext(), R.dimen.ds138);
+        int g4 = l.g(tbPageContext.getContext(), R.dimen.ds27);
+        hVar.x(R.dimen.ds28);
+        hVar.w(0, g2, 0, g4);
+        hVar.q(0, 0, 0, g3);
+        hVar.p(true);
+        hVar.v(new C1554a(tbPageContext));
+        e eVar = new e(tbPageContext.getContext(), hVar.j());
+        this.f61295b = eVar;
+        eVar.a(0.7f);
+        g.j(this.f61295b, tbPageContext);
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
+    }
+
+    public void o(TbPageContext tbPageContext) {
+        h.c cVar;
+        if (tbPageContext == null) {
+            return;
+        }
+        h hVar = new h(tbPageContext.getContext());
+        int i = this.f61294a;
+        if (i != 1 && i != 2) {
+            hVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
+            cVar = new h.c(tbPageContext.getContext().getString(R.string.go_score), hVar);
+        } else {
+            hVar.y(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
+            cVar = new h.c(tbPageContext.getContext().getString(R.string.go_feedback), hVar);
+        }
         ArrayList arrayList = new ArrayList();
-        if (d.b.i0.i1.o.k.a.e(list)) {
-            return arrayList;
-        }
-        Log.e("frs", "src ad list size " + list.size());
-        for (App app : list) {
-            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-            advertAppInfo.F4(app);
-            advertAppInfo.c4 = str;
-            int k = k(advertAppInfo);
-            if (k != 0) {
-                p(advertAppInfo, k);
-            } else {
-                arrayList.add(advertAppInfo);
-            }
-        }
-        Log.e("frs", "src ad jiaoyan size " + arrayList.size());
-        return arrayList;
-    }
-
-    public static int h(@NonNull App app) {
-        List<GoodsInfo> list = app.goods_info;
-        if (list == null) {
-            return -1001;
-        }
-        for (GoodsInfo goodsInfo : list) {
-            if (goodsInfo != null) {
-                return goodsInfo.goods_style.intValue();
-            }
-        }
-        return -1001;
-    }
-
-    public static boolean i(App app, BannerList bannerList) {
-        if (app != null && bannerList != null) {
-            if (n(app, bannerList.pb_banner_ad)) {
-                return true;
-            }
-            List<App> list = bannerList.video_recommend_ad;
-            if (!d.b.i0.i1.o.k.a.e(list)) {
-                for (App app2 : list) {
-                    if (n(app, app2)) {
-                        return true;
-                    }
-                }
-            }
-            List<App> list2 = bannerList.app;
-            if (!d.b.i0.i1.o.k.a.e(list2)) {
-                for (App app3 : list2) {
-                    if (n(app, app3)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public static List<m0> j(List<m0> list, List<d.b.b.j.e.n> list2, int i) {
-        ArrayList arrayList = new ArrayList();
-        if (d.b.i0.i1.o.k.a.e(list)) {
-            return arrayList;
-        }
-        r(list);
-        int i2 = 0;
-        for (int i3 = 0; i3 < list.size(); i3++) {
-            m0 m0Var = (m0) d.b.i0.i1.o.k.a.d(list, i3);
-            if (m0Var != null && m0Var.d() != null) {
-                int j = d.b.i0.i1.o.k.a.j(list2);
-                int f2 = f(m0Var.d()) - 1;
-                if (f2 < 0) {
-                    q(m0Var.d());
-                } else {
-                    int i4 = m0Var.c() ? m0Var.i() : f2 + i;
-                    if (i4 > j) {
-                        q(m0Var.d());
-                    } else {
-                        m0Var.setPosition(i4);
-                        d.b.i0.i1.o.k.a.b(list2, m0Var, i4);
-                        arrayList.add(m0Var);
-                    }
-                }
-            }
-        }
-        while (i < d.b.i0.i1.o.k.a.j(list2)) {
-            d.b.b.j.e.n nVar = list2.get(i);
-            if (nVar instanceof m0) {
-                i2++;
-            } else if (nVar instanceof BaseCardInfo) {
-                ((BaseCardInfo) nVar).position += i2;
-            }
-            i++;
-        }
-        return arrayList;
-    }
-
-    public static int k(@Nullable AdvertAppInfo advertAppInfo) {
-        int D4 = advertAppInfo.D4();
-        if (f(advertAppInfo) < 0) {
-            return 23;
-        }
-        return D4;
-    }
-
-    public static boolean l(AdvertAppInfo advertAppInfo) {
-        return advertAppInfo == null || advertAppInfo.getType() == AdvertAppInfo.h4 || advertAppInfo.getType() == AdvertAppInfo.i4 || advertAppInfo.getType() == AdvertAppInfo.j4;
-    }
-
-    public static boolean m(@NonNull App app) {
-        List<GoodsInfo> list = app.goods_info;
-        if (list == null) {
-            return false;
-        }
-        for (GoodsInfo goodsInfo : list) {
-            if (goodsInfo != null && goodsInfo.goods_style.intValue() == 1001) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean n(App app, App app2) {
-        String str;
-        String str2;
-        if (app != null && app2 != null && !d.b.i0.i1.o.k.a.e(app.goods_info) && !d.b.i0.i1.o.k.a.e(app2.goods_info)) {
-            Iterator<GoodsInfo> it = app.goods_info.iterator();
-            while (true) {
-                str = null;
-                if (!it.hasNext()) {
-                    str2 = null;
-                    break;
-                }
-                GoodsInfo next = it.next();
-                if (next != null) {
-                    str2 = next.lego_card;
-                    break;
-                }
-            }
-            Iterator<GoodsInfo> it2 = app2.goods_info.iterator();
-            while (true) {
-                if (!it2.hasNext()) {
-                    break;
-                }
-                GoodsInfo next2 = it2.next();
-                if (next2 != null) {
-                    str = next2.lego_card;
-                    break;
-                }
-            }
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                try {
-                    if (TextUtils.equals(new JSONObject(str2).optString("download_key"), new JSONObject(str).optString("download_key"))) {
-                        return true;
-                    }
-                } catch (JSONException unused) {
-                }
-            }
-        }
-        return false;
-    }
-
-    public static boolean o(@NonNull App app) {
-        List<GoodsInfo> list = app.goods_info;
-        if (list == null) {
-            return false;
-        }
-        for (GoodsInfo goodsInfo : list) {
-            if (goodsInfo != null && !TextUtils.isEmpty(goodsInfo.lego_card)) {
-                try {
-                    JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("vertical_video_style");
-                    if (optJSONObject != null && !TextUtils.isEmpty(optJSONObject.optString("bottom_picture", ""))) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-        return false;
-    }
-
-    public static void p(AdvertAppInfo advertAppInfo, int i) {
-        AppData appData;
-        d.b.i0.r2.b0.e.b().d(d.b.i0.r2.b0.h.i(advertAppInfo, 5, 1, i));
-        if (advertAppInfo == null || (appData = advertAppInfo.e4) == null) {
-            return;
-        }
-        appData.mDiscardReason = i;
-    }
-
-    public static void q(AdvertAppInfo advertAppInfo) {
-        p(advertAppInfo, 23);
-    }
-
-    public static void r(List<m0> list) {
-        Collections.sort(list, new C1504a());
-    }
-
-    public static void s(List<d.b.b.j.e.n> list) {
-        for (int i = 0; i < d.b.i0.i1.o.k.a.j(list); i++) {
-            if (d.b.i0.i1.o.k.a.d(list, i) instanceof m0) {
-                ((m0) d.b.i0.i1.o.k.a.d(list, i)).setPosition(i);
-            }
+        arrayList.add(cVar);
+        hVar.r(this.f61294a);
+        hVar.s(0);
+        hVar.o(0);
+        hVar.p(false);
+        l.g(tbPageContext.getContext(), R.dimen.ds42);
+        int g2 = l.g(tbPageContext.getContext(), R.dimen.ds32);
+        l.g(tbPageContext.getContext(), R.dimen.ds51);
+        hVar.w(0, l.g(tbPageContext.getContext(), R.dimen.ds21), 0, 0);
+        hVar.q(0, g2, 0, g2);
+        cVar.h(new b(tbPageContext));
+        hVar.u(new c());
+        hVar.t(arrayList);
+        e eVar = new e(tbPageContext.getContext(), hVar.j());
+        this.f61295b = eVar;
+        eVar.a(0.7f);
+        g.j(this.f61295b, tbPageContext);
+        int i2 = this.f61294a;
+        if (i2 != 1 && i2 != 2) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));
+        } else {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_DIALOG_SHOW));
         }
     }
 }

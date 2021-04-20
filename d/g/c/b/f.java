@@ -1,60 +1,17 @@
 package d.g.c.b;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import com.google.common.collect.ImmutableMap;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes6.dex */
-public class f {
-    public static String a(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        return "M/d/yy";
-                    }
-                    throw new IllegalArgumentException("Unknown DateFormat style: " + i);
-                }
-                return "MMM d, y";
-            }
-            return "MMMM d, y";
-        }
-        return "EEEE, MMMM d, y";
-    }
+public interface f<K, V> extends c<K, V>, d.g.c.a.g<K, V> {
+    @Deprecated
+    V apply(K k);
 
-    public static String b(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        return "M/d/yy";
-                    }
-                    throw new IllegalArgumentException("Unknown DateFormat style: " + i);
-                }
-                return "MMM d, yyyy";
-            }
-            return "MMMM d, yyyy";
-        }
-        return "EEEE, MMMM d, yyyy";
-    }
+    V get(K k) throws ExecutionException;
 
-    public static String c(int i) {
-        if (i == 0 || i == 1) {
-            return "h:mm:ss a z";
-        }
-        if (i != 2) {
-            if (i == 3) {
-                return "h:mm a";
-            }
-            throw new IllegalArgumentException("Unknown DateFormat style: " + i);
-        }
-        return "h:mm:ss a";
-    }
+    ImmutableMap<K, V> getAll(Iterable<? extends K> iterable) throws ExecutionException;
 
-    public static DateFormat d(int i) {
-        return new SimpleDateFormat(a(i), Locale.US);
-    }
+    V getUnchecked(K k);
 
-    public static DateFormat e(int i, int i2) {
-        return new SimpleDateFormat(b(i) + " " + c(i2), Locale.US);
-    }
+    void refresh(K k);
 }

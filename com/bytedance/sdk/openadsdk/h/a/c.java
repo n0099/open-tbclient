@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.h.a;
 
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.bytedance.sdk.openadsdk.core.k;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.h.a.c;
@@ -9,36 +9,36 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.x;
 import com.bytedance.sdk.openadsdk.utils.y;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c<T extends c> implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29419a;
+    public String f29104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29420b;
+    public String f29105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29421c;
+    public String f29106c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29423e;
+    public String f29108e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29426h;
+    public String f29111h;
     public String j;
     public String k;
     public String l;
     public String m;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29422d = "3.4.5.5";
+    public String f29107d = "3.4.5.5";
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29424f = System.currentTimeMillis() / 1000;
+    public long f29109f = System.currentTimeMillis() / 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29425g = 0;
+    public int f29110g = 0;
     public int i = 0;
 
     public static c<c> b() {
@@ -48,7 +48,7 @@ public class c<T extends c> implements a {
     private JSONObject p() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(IXAdRequestInfo.OS, 1);
+            jSONObject.put(IAdRequestParam.OS, 1);
             jSONObject.put("imei", k.d(p.a()));
             jSONObject.put("oaid", y.a());
         } catch (Exception unused) {
@@ -88,7 +88,7 @@ public class c<T extends c> implements a {
                 jSONObject.put("adtype", j());
             }
             if (!TextUtils.isEmpty(k())) {
-                jSONObject.put("req_id", k());
+                jSONObject.put(IAdRequestParam.REQ_ID, k());
             }
             jSONObject.put("error_code", l());
             if (!TextUtils.isEmpty(m())) {
@@ -115,7 +115,7 @@ public class c<T extends c> implements a {
     }
 
     public String c() {
-        return this.f29419a;
+        return this.f29104a;
     }
 
     public String d() {
@@ -123,31 +123,31 @@ public class c<T extends c> implements a {
     }
 
     public String e() {
-        return this.f29420b;
+        return this.f29105b;
     }
 
     public String f() {
-        return this.f29421c;
+        return this.f29106c;
     }
 
     public String g() {
-        return this.f29422d;
+        return this.f29107d;
     }
 
     public String h() {
-        return this.f29423e;
+        return this.f29108e;
     }
 
     public long i() {
-        return this.f29424f;
+        return this.f29109f;
     }
 
     public int j() {
-        return this.f29425g;
+        return this.f29110g;
     }
 
     public String k() {
-        return this.f29426h;
+        return this.f29111h;
     }
 
     public int l() {
@@ -172,22 +172,22 @@ public class c<T extends c> implements a {
     }
 
     public T c(String str) {
-        this.f29420b = str;
+        this.f29105b = str;
         return q();
     }
 
     public T d(String str) {
-        this.f29421c = str;
+        this.f29106c = str;
         return q();
     }
 
     public T e(String str) {
-        this.f29422d = str;
+        this.f29107d = str;
         return q();
     }
 
     public T f(String str) {
-        this.f29426h = str;
+        this.f29111h = str;
         return q();
     }
 
@@ -212,17 +212,17 @@ public class c<T extends c> implements a {
     }
 
     public T c(long j) {
-        this.f29424f = j;
+        this.f29109f = j;
         return q();
     }
 
     public T a(String str) {
-        this.f29419a = str;
+        this.f29104a = str;
         return q();
     }
 
     public T a(int i) {
-        this.f29425g = i;
+        this.f29110g = i;
         return q();
     }
 }

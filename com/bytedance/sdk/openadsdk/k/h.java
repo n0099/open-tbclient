@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RandomAccessFile f29705a;
+    public final RandomAccessFile f29390a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends Exception {
         public a(Throwable th) {
             super(th);
@@ -19,7 +19,7 @@ public class h {
 
     public h(File file, String str) throws a {
         try {
-            this.f29705a = new RandomAccessFile(file, str);
+            this.f29390a = new RandomAccessFile(file, str);
         } catch (FileNotFoundException e2) {
             throw new a(e2);
         }
@@ -27,7 +27,7 @@ public class h {
 
     public void a(long j) throws a {
         try {
-            this.f29705a.seek(j);
+            this.f29390a.seek(j);
         } catch (IOException e2) {
             throw new a(e2);
         }
@@ -35,7 +35,7 @@ public class h {
 
     public void a(byte[] bArr, int i, int i2) throws a {
         try {
-            this.f29705a.write(bArr, i, i2);
+            this.f29390a.write(bArr, i, i2);
         } catch (IOException e2) {
             throw new a(e2);
         }
@@ -43,13 +43,13 @@ public class h {
 
     public int a(byte[] bArr) throws a {
         try {
-            return this.f29705a.read(bArr);
+            return this.f29390a.read(bArr);
         } catch (IOException e2) {
             throw new a(e2);
         }
     }
 
     public void a() {
-        com.bytedance.sdk.openadsdk.k.g.d.a(this.f29705a);
+        com.bytedance.sdk.openadsdk.k.g.d.a(this.f29390a);
     }
 }

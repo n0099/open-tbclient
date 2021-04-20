@@ -17,16 +17,16 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public static final int k = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13250e;
+    public int f12911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IconType f13251f;
+    public IconType f12912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13252g;
+    public int f12913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13253h;
+    public int f12914h;
     public int i;
     public int j;
 
@@ -38,9 +38,9 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     }
 
     public EMRichTextAnyIconSpan(int i, int i2, IconType iconType) {
-        this.f13250e = i;
-        this.f13251f = iconType;
-        this.f13252g = i2;
+        this.f12911e = i;
+        this.f12912f = iconType;
+        this.f12913g = i2;
         b(k);
     }
 
@@ -58,25 +58,25 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     }
 
     public void d(int i) {
-        this.f13253h = i;
+        this.f12914h = i;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
         Drawable drawable;
         float dimenPixelSize;
-        IconType iconType = this.f13251f;
+        IconType iconType = this.f12912f;
         if (iconType == IconType.WEBP) {
-            drawable = WebPManager.getPureDrawable(this.f13250e, SkinManager.getColor(this.f13252g), WebPManager.ResourceStateType.NORMAL_PRESS);
+            drawable = WebPManager.getPureDrawable(this.f12911e, SkinManager.getColor(this.f12913g), WebPManager.ResourceStateType.NORMAL_PRESS);
         } else if (iconType == IconType.SVG) {
-            drawable = SvgManager.getInstance().getPureDrawable(this.f13250e, this.f13252g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            drawable = SvgManager.getInstance().getPureDrawable(this.f12911e, this.f12913g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            drawable = SkinManager.getDrawable(this.f13250e);
+            drawable = SkinManager.getDrawable(this.f12911e);
         }
         if (drawable == null) {
             return;
         }
-        int i6 = this.f13253h;
+        int i6 = this.f12914h;
         drawable.setBounds(0, 0, i6, i6);
         canvas.save();
         float f3 = f2 + this.i;
@@ -94,9 +94,9 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        if (this.f13253h == 0) {
-            this.f13253h = (int) paint.getTextSize();
+        if (this.f12914h == 0) {
+            this.f12914h = (int) paint.getTextSize();
         }
-        return this.i + this.j + this.f13253h;
+        return this.i + this.j + this.f12914h;
     }
 }

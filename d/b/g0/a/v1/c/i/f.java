@@ -17,16 +17,16 @@ import d.b.g0.a.t.c.a.b;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends h<d> {
-    public static final boolean q = k.f45051a;
+    public static final boolean q = k.f45443a;
     public final Activity l;
     public b.c m;
     public c n = new c(Looper.getMainLooper(), this);
     public Bundle o;
     public String p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends d.b.g0.a.v1.c.d implements d.b.g0.a.m.a {
         public b() {
         }
@@ -43,8 +43,8 @@ public class f extends h<d> {
                 z.f(fVar.l, fVar.o, this);
             } else {
                 b.c cVar = f.this.m;
-                if (cVar != null && cVar.f45945a) {
-                    long j = cVar.f45946b;
+                if (cVar != null && cVar.f46337a) {
+                    long j = cVar.f46338b;
                     if (f.q) {
                         Log.d("LoginRequest", "send timeout " + j + "ms msg");
                     }
@@ -73,15 +73,15 @@ public class f extends h<d> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<f> f46825a;
+        public WeakReference<f> f47217a;
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f fVar = this.f46825a.get();
+            f fVar = this.f47217a.get();
             if (fVar != null && message.what == 1) {
                 if (f.q) {
                     Log.d("LoginRequest", "handleMessage: timeout");
@@ -93,22 +93,22 @@ public class f extends h<d> {
 
         public c(Looper looper, f fVar) {
             super(looper);
-            this.f46825a = new WeakReference<>(fVar);
+            this.f47217a = new WeakReference<>(fVar);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f46826a;
+        public final String f47218a;
 
         public String toString() {
-            return String.format("Result code(%s)", this.f46826a);
+            return String.format("Result code(%s)", this.f47218a);
         }
 
         public d(String str) {
-            this.f46826a = str == null ? "" : str;
+            this.f47218a = str == null ? "" : str;
         }
     }
 
@@ -154,9 +154,9 @@ public class f extends h<d> {
         JSONObject jSONObject = new JSONObject();
         try {
             boolean isEmpty = TextUtils.isEmpty(this.p);
-            jSONObject.put("ma_id", isEmpty ? G().f45740f : this.p);
+            jSONObject.put("ma_id", isEmpty ? G().f46132f : this.p);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(com.alipay.sdk.cons.b.f1858h, isEmpty ? G().B() : this.p);
+            jSONObject2.put(com.alipay.sdk.cons.b.f1883h, isEmpty ? G().B() : this.p);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", d.b.g0.a.v1.c.c.g());
             String x = d.b.g0.a.w0.a.l().x();

@@ -37,8 +37,8 @@ public class w implements p0 {
             return null;
         }
         if (d.b.g0.a.e0.u.a.b()) {
-            return d.b.g0.a.e0.u.a.f44286a + File.separator + "libcom.baidu.zeus.so";
+            return d.b.g0.a.e0.u.a.f44678a + File.separator + "libcom.baidu.zeus.so";
         }
-        return d.b.g0.a.e0.u.a.f44288c + File.separator + "libcom.baidu.zeus.so";
+        return d.b.g0.a.e0.u.a.f44680c + File.separator + "libcom.baidu.zeus.so";
     }
 }

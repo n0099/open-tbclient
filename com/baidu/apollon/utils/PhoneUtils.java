@@ -55,16 +55,16 @@ import org.json.JSONObject;
 public final class PhoneUtils {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3973e = "PhoneUtils";
+    public static final String f4008e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3974f = "_pay.preferences";
+    public static final String f4009f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3975g = "cuid_1";
+    public static final String f4010g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3976h = "cuid_2";
+    public static final String f4011h = "cuid_2";
     public static final String i = "wime";
     public static final String j = "identity_code";
     public static final String k = "phone_number";
@@ -80,16 +80,16 @@ public final class PhoneUtils {
     public static ArrayList<String> q = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f3969a = Pattern.compile("((\\d|[A-F]){32}).*");
+    public static final Pattern f4004a = Pattern.compile("((\\d|[A-F]){32}).*");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f3970b = Pattern.compile("((\\d|[a-f]){32}).*");
+    public static final Pattern f4005b = Pattern.compile("((\\d|[a-f]){32}).*");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f3971c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+    public static final Pattern f4006c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f3972d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+    public static final Pattern f4007d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
 
     /* loaded from: classes.dex */
     public static class CPUInfo {
@@ -102,10 +102,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f3977a = "processor";
+        public static final String f4012a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f3978b = "features";
+        public static final String f4013b = "features";
         public String processor = "";
         public String features = "";
 
@@ -221,11 +221,11 @@ public final class PhoneUtils {
         if (cuid == null) {
             return null;
         }
-        if (f3971c.matcher(cuid).matches()) {
+        if (f4006c.matcher(cuid).matches()) {
             str2 = matcher.group(1) + matcher.group(3);
         }
         if (str2 == null) {
-            if (f3972d.matcher(cuid).matches()) {
+            if (f4007d.matcher(cuid).matches()) {
                 str = matcher2.group(1) + matcher2.group(3);
             } else {
                 str = "";
@@ -606,10 +606,10 @@ public final class PhoneUtils {
         if (deviceID == null) {
             return null;
         }
-        Matcher matcher = f3969a.matcher(deviceID);
+        Matcher matcher = f4004a.matcher(deviceID);
         String group = matcher.matches() ? matcher.group(1) : null;
         if (group == null) {
-            Matcher matcher2 = f3970b.matcher(deviceID);
+            Matcher matcher2 = f4005b.matcher(deviceID);
             return matcher2.matches() ? matcher2.group(1) : "";
         }
         return group;

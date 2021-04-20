@@ -8,45 +8,45 @@ import java.util.StringTokenizer;
 public final class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static Hashtable f67541e;
+    public static Hashtable f68547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Object[] f67542f;
+    public static Object[] f68548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static /* synthetic */ Class f67543g;
+    public static /* synthetic */ Class f68549g;
 
     /* renamed from: a  reason: collision with root package name */
-    public Class f67544a;
+    public Class f68550a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ClassLoader f67545b;
+    public ClassLoader f68551b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67546c;
+    public String f68552c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67547d = 0;
+    public int f68553d = 0;
 
     static {
         Hashtable hashtable = new Hashtable();
-        f67541e = hashtable;
+        f68547e = hashtable;
         hashtable.put("void", Void.TYPE);
-        f67541e.put("boolean", Boolean.TYPE);
-        f67541e.put("byte", Byte.TYPE);
-        f67541e.put("char", Character.TYPE);
-        f67541e.put("short", Short.TYPE);
-        f67541e.put("int", Integer.TYPE);
-        f67541e.put("long", Long.TYPE);
-        f67541e.put("float", Float.TYPE);
-        f67541e.put("double", Double.TYPE);
-        f67542f = new Object[0];
+        f68547e.put("boolean", Boolean.TYPE);
+        f68547e.put("byte", Byte.TYPE);
+        f68547e.put("char", Character.TYPE);
+        f68547e.put("short", Short.TYPE);
+        f68547e.put("int", Integer.TYPE);
+        f68547e.put("long", Long.TYPE);
+        f68547e.put("float", Float.TYPE);
+        f68547e.put("double", Double.TYPE);
+        f68548f = new Object[0];
     }
 
     public b(String str, Class cls) {
-        this.f67546c = str;
-        this.f67544a = cls;
-        this.f67545b = cls.getClassLoader();
+        this.f68552c = str;
+        this.f68550a = cls;
+        this.f68551b = cls.getClassLoader();
     }
 
     public static /* synthetic */ Class a(String str) {
@@ -61,7 +61,7 @@ public final class b {
         if (str.equals("*")) {
             return null;
         }
-        Class cls = (Class) f67541e.get(str);
+        Class cls = (Class) f68547e.get(str);
         if (cls != null) {
             return cls;
         }
@@ -71,36 +71,36 @@ public final class b {
             }
             return Class.forName(str, false, classLoader);
         } catch (ClassNotFoundException unused) {
-            Class cls2 = f67543g;
+            Class cls2 = f68549g;
             if (cls2 == null) {
                 Class a2 = a("java.lang.ClassNotFoundException");
-                f67543g = a2;
+                f68549g = a2;
                 return a2;
             }
             return cls2;
         }
     }
 
-    public static g.a.a.a c(a.InterfaceC1859a interfaceC1859a, Object obj, Object obj2) {
-        return new c(interfaceC1859a, obj, obj2, f67542f);
+    public static g.a.a.a c(a.InterfaceC1894a interfaceC1894a, Object obj, Object obj2) {
+        return new c(interfaceC1894a, obj, obj2, f68548f);
     }
 
-    public static g.a.a.a d(a.InterfaceC1859a interfaceC1859a, Object obj, Object obj2, Object obj3) {
-        return new c(interfaceC1859a, obj, obj2, new Object[]{obj3});
+    public static g.a.a.a d(a.InterfaceC1894a interfaceC1894a, Object obj, Object obj2, Object obj3) {
+        return new c(interfaceC1894a, obj, obj2, new Object[]{obj3});
     }
 
-    public static g.a.a.a e(a.InterfaceC1859a interfaceC1859a, Object obj, Object obj2, Object[] objArr) {
-        return new c(interfaceC1859a, obj, obj2, objArr);
+    public static g.a.a.a e(a.InterfaceC1894a interfaceC1894a, Object obj, Object obj2, Object[] objArr) {
+        return new c(interfaceC1894a, obj, obj2, objArr);
     }
 
     public g.a.a.c.a f(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         int parseInt = Integer.parseInt(str, 16);
-        Class b2 = b(str3, this.f67545b);
+        Class b2 = b(str3, this.f68551b);
         StringTokenizer stringTokenizer = new StringTokenizer(str4, ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i = 0; i < countTokens; i++) {
-            clsArr[i] = b(stringTokenizer.nextToken(), this.f67545b);
+            clsArr[i] = b(stringTokenizer.nextToken(), this.f68551b);
         }
         StringTokenizer stringTokenizer2 = new StringTokenizer(str5, ":");
         int countTokens2 = stringTokenizer2.countTokens();
@@ -112,18 +112,18 @@ public final class b {
         int countTokens3 = stringTokenizer3.countTokens();
         Class[] clsArr2 = new Class[countTokens3];
         for (int i3 = 0; i3 < countTokens3; i3++) {
-            clsArr2[i3] = b(stringTokenizer3.nextToken(), this.f67545b);
+            clsArr2[i3] = b(stringTokenizer3.nextToken(), this.f68551b);
         }
-        return new e(parseInt, str2, b2, clsArr, strArr, clsArr2, b(str7, this.f67545b));
+        return new e(parseInt, str2, b2, clsArr, strArr, clsArr2, b(str7, this.f68551b));
     }
 
-    public a.InterfaceC1859a g(String str, g.a.a.b bVar, int i) {
-        int i2 = this.f67547d;
-        this.f67547d = i2 + 1;
+    public a.InterfaceC1894a g(String str, g.a.a.b bVar, int i) {
+        int i2 = this.f68553d;
+        this.f68553d = i2 + 1;
         return new c.a(i2, str, bVar, h(i, -1));
     }
 
     public g.a.a.c.b h(int i, int i2) {
-        return new g(this.f67544a, this.f67546c, i);
+        return new g(this.f68550a, this.f68552c, i);
     }
 }

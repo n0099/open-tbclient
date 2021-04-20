@@ -42,16 +42,16 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public final Animation M;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2444e;
+    public int f2479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f2445f;
+    public View f2480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k f2446g;
+    public k f2481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2447h;
+    public boolean f2482h;
     public int i;
     public float j;
     public float k;
@@ -80,7 +80,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         @SuppressLint({"NewApi"})
         public void onAnimationEnd(Animation animation) {
             BdSwipeRefreshLayout bdSwipeRefreshLayout = BdSwipeRefreshLayout.this;
-            if (bdSwipeRefreshLayout.f2447h) {
+            if (bdSwipeRefreshLayout.f2482h) {
                 bdSwipeRefreshLayout.w();
                 BdSwipeRefreshLayout bdSwipeRefreshLayout2 = BdSwipeRefreshLayout.this;
                 bdSwipeRefreshLayout2.q = bdSwipeRefreshLayout2.y.getView().getTop();
@@ -193,68 +193,68 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class h implements i {
 
         /* renamed from: e  reason: collision with root package name */
-        public BdCircleImageView f2455e;
+        public BdCircleImageView f2490e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.b.b.j.k.a f2456f;
+        public d.b.c.j.k.a f2491f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Animation f2457g;
+        public Animation f2492g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Animation f2458h;
+        public Animation f2493h;
 
         /* loaded from: classes.dex */
         public class a extends Animation {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f2459e;
+            public final /* synthetic */ int f2494e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f2460f;
+            public final /* synthetic */ int f2495f;
 
             public a(int i, int i2) {
-                this.f2459e = i;
-                this.f2460f = i2;
+                this.f2494e = i;
+                this.f2495f = i2;
             }
 
             @Override // android.view.animation.Animation
             public void applyTransformation(float f2, Transformation transformation) {
-                d.b.b.j.k.a aVar = h.this.f2456f;
-                int i = this.f2459e;
-                aVar.setAlpha((int) (i + ((this.f2460f - i) * f2)));
+                d.b.c.j.k.a aVar = h.this.f2491f;
+                int i = this.f2494e;
+                aVar.setAlpha((int) (i + ((this.f2495f - i) * f2)));
             }
         }
 
         public h(Context context) {
-            this.f2455e = new BdCircleImageView(BdSwipeRefreshLayout.this.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            d.b.b.j.k.a aVar = new d.b.b.j.k.a(context, this.f2455e);
-            this.f2456f = aVar;
+            this.f2490e = new BdCircleImageView(BdSwipeRefreshLayout.this.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            d.b.c.j.k.a aVar = new d.b.c.j.k.a(context, this.f2490e);
+            this.f2491f = aVar;
             aVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            this.f2455e.setImageDrawable(this.f2456f);
-            this.f2455e.setVisibility(8);
+            this.f2490e.setImageDrawable(this.f2491f);
+            this.f2490e.setVisibility(8);
         }
 
         public void a(@ColorInt int i) {
-            this.f2455e.setBackgroundColor(i);
-            this.f2456f.e(i);
+            this.f2490e.setBackgroundColor(i);
+            this.f2491f.e(i);
         }
 
         public void b(@ColorInt int... iArr) {
-            this.f2456f.f(iArr);
+            this.f2491f.f(iArr);
         }
 
         public void c(int i) {
-            this.f2455e.setImageDrawable(null);
-            this.f2456f.n(i);
-            this.f2455e.setImageDrawable(this.f2456f);
+            this.f2490e.setImageDrawable(null);
+            this.f2491f.n(i);
+            this.f2490e.setImageDrawable(this.f2491f);
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public void d() {
-            this.f2456f.setAlpha(76);
-            this.f2456f.l(true);
-            if (this.f2456f.getAlpha() <= 76 || BdSwipeRefreshLayout.this.q(this.f2457g)) {
+            this.f2491f.setAlpha(76);
+            this.f2491f.l(true);
+            if (this.f2491f.getAlpha() <= 76 || BdSwipeRefreshLayout.this.q(this.f2492g)) {
                 return;
             }
             o();
@@ -262,7 +262,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public void e() {
-            if (this.f2456f.getAlpha() >= 255 || BdSwipeRefreshLayout.this.q(this.f2458h)) {
+            if (this.f2491f.getAlpha() >= 255 || BdSwipeRefreshLayout.this.q(this.f2493h)) {
                 return;
             }
             n();
@@ -270,9 +270,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public void f(float f2, float f3) {
-            this.f2456f.j(0.0f, Math.min(0.8f, f2 * 0.8f));
-            this.f2456f.d(Math.min(1.0f, f2));
-            this.f2456f.g((((f2 * 0.4f) - 0.25f) + (f3 * 2.0f)) * 0.5f);
+            this.f2491f.j(0.0f, Math.min(0.8f, f2 * 0.8f));
+            this.f2491f.d(Math.min(1.0f, f2));
+            this.f2491f.g((((f2 * 0.4f) - 0.25f) + (f3 * 2.0f)) * 0.5f);
         }
 
         @SuppressLint({"NewApi"})
@@ -282,9 +282,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
             a aVar = new a(i, i2);
             aVar.setDuration(300L);
-            this.f2455e.setAnimationListener(null);
-            this.f2455e.clearAnimation();
-            this.f2455e.startAnimation(aVar);
+            this.f2490e.setAnimationListener(null);
+            this.f2490e.clearAnimation();
+            this.f2490e.startAnimation(aVar);
             return aVar;
         }
 
@@ -295,7 +295,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public View getView() {
-            return this.f2455e;
+            return this.f2490e;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -305,27 +305,27 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public void m() {
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f2456f.setAlpha(255);
+                this.f2491f.setAlpha(255);
             }
-            this.f2456f.d(0.0f);
-            this.f2456f.setAlpha(255);
-            this.f2456f.start();
+            this.f2491f.d(0.0f);
+            this.f2491f.setAlpha(255);
+            this.f2491f.start();
         }
 
         @SuppressLint({"NewApi"})
         public final void n() {
-            this.f2458h = g(this.f2456f.getAlpha(), 255);
+            this.f2493h = g(this.f2491f.getAlpha(), 255);
         }
 
         @SuppressLint({"NewApi"})
         public final void o() {
-            this.f2457g = g(this.f2456f.getAlpha(), 76);
+            this.f2492g = g(this.f2491f.getAlpha(), 76);
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public void onFinish() {
-            this.f2456f.j(0.0f, 0.0f);
-            this.f2456f.stop();
+            this.f2491f.j(0.0f, 0.0f);
+            this.f2491f.stop();
         }
     }
 
@@ -374,7 +374,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void A(int i2, boolean z, String str) {
         this.y.getView().bringToFront();
         ViewCompat.offsetTopAndBottom(this.y.getView(), i2);
-        View view = this.f2445f;
+        View view = this.f2480f;
         if (view != null) {
             ViewCompat.offsetTopAndBottom(view, i2);
         }
@@ -506,17 +506,17 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public boolean i() {
         j jVar = this.J;
         if (jVar != null) {
-            return jVar.a(this, this.f2445f);
+            return jVar.a(this, this.f2480f);
         }
         if (Build.VERSION.SDK_INT < 14) {
-            View view = this.f2445f;
+            View view = this.f2480f;
             if (!(view instanceof AbsListView)) {
-                return ViewCompat.canScrollVertically(view, -1) || this.f2445f.getScrollY() > 0;
+                return ViewCompat.canScrollVertically(view, -1) || this.f2480f.getScrollY() > 0;
             }
             AbsListView absListView = (AbsListView) view;
             return absListView.getChildCount() > 0 && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop());
         }
-        return ViewCompat.canScrollVertically(this.f2445f, -1);
+        return ViewCompat.canScrollVertically(this.f2480f, -1);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
@@ -525,7 +525,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public final void j() {
-        this.f2444e = 3;
+        this.f2479e = 3;
         this.y.j();
         postDelayed(new g(), this.y.getCompleteAnimTime());
     }
@@ -537,11 +537,11 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public final void l() {
-        if (this.f2445f == null) {
+        if (this.f2480f == null) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (!childAt.equals(this.y.getView())) {
-                    this.f2445f = childAt;
+                    this.f2480f = childAt;
                     return;
                 }
             }
@@ -549,7 +549,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public final void m() {
-        this.f2444e = 4;
+        this.f2479e = 4;
         this.y.getView().clearAnimation();
         this.y.onFinish();
     }
@@ -559,13 +559,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             z(true, true);
             return;
         }
-        this.f2447h = false;
+        this.f2482h = false;
         h(this.q, this.v ? null : new c());
     }
 
     public void o() {
         l();
-        this.f2447h = false;
+        this.f2482h = false;
         t(1.0f);
         y();
     }
@@ -623,10 +623,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         if (getChildCount() == 0) {
             return;
         }
-        if (this.f2445f == null) {
+        if (this.f2480f == null) {
             l();
         }
-        View view = this.f2445f;
+        View view = this.f2480f;
         if (view == null) {
             return;
         }
@@ -644,10 +644,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        if (this.f2445f == null) {
+        if (this.f2480f == null) {
             l();
         }
-        View view = this.f2445f;
+        View view = this.f2480f;
         if (view == null) {
             return;
         }
@@ -665,7 +665,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedFling(View view, float f2, float f3, boolean z) {
         int i2;
-        int i3 = this.f2444e;
+        int i3 = this.f2479e;
         if ((i3 == 3 || i3 == 2) && f3 > 0.0f && (i2 = this.q) > this.C) {
             h(i2, null);
         }
@@ -674,7 +674,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedPreFling(View view, float f2, float f3) {
-        int i2 = this.f2444e;
+        int i2 = this.f2479e;
         if (i2 == 3 || i2 == 2 || this.y.getView() == null || this.y.getView().getBottom() <= 0) {
             return dispatchNestedPreFling(f2, f3);
         }
@@ -706,7 +706,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             iArr[1] = iArr[1] + iArr2[1];
         }
         int i4 = i3 - iArr[1];
-        if ((r() || this.f2444e == 3) && Math.abs(i4) > 0) {
+        if ((r() || this.f2479e == 3) && Math.abs(i4) > 0) {
             if ((i4 <= 0 || this.q <= this.C) && (i4 >= 0 || this.q >= this.C + this.D || i())) {
                 return;
             }
@@ -719,7 +719,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
         dispatchNestedScroll(i2, i3, i4, i5, this.o);
         int i6 = i5 + this.o[1];
-        if (i6 >= 0 || i() || this.f2447h) {
+        if (i6 >= 0 || i() || this.f2482h) {
             return;
         }
         float abs = this.k + Math.abs(i6);
@@ -758,7 +758,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         if (this.w && actionMasked == 0) {
             this.w = false;
         }
-        if (!isEnabled() || this.w || i() || this.f2447h || this.p) {
+        if (!isEnabled() || this.w || i() || this.f2482h || this.p) {
             return false;
         }
         if (actionMasked == 0) {
@@ -814,13 +814,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public boolean r() {
-        return this.f2447h;
+        return this.f2482h;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 || !(this.f2445f instanceof AbsListView)) {
-            View view = this.f2445f;
+        if (Build.VERSION.SDK_INT >= 21 || !(this.f2480f instanceof AbsListView)) {
+            View view = this.f2480f;
             if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
                 super.requestDisallowInterceptTouchEvent(z);
             }
@@ -847,11 +847,11 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         if (this.v) {
             setAnimationProgress(Math.min(1.0f, f2 / this.j));
         }
-        if (!this.f2447h && (i2 = this.f2444e) != 3) {
+        if (!this.f2482h && (i2 = this.f2479e) != 3) {
             int i4 = this.C;
             int i5 = this.q;
             if (i4 >= i5 || i5 >= i4 + this.D) {
-                if (this.q >= this.C + this.D && this.f2444e != 1) {
+                if (this.q >= this.C + this.D && this.f2479e != 1) {
                     x();
                 }
             } else if (i2 != 0) {
@@ -911,7 +911,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public void setOnRefreshListener(k kVar) {
-        this.f2446g = kVar;
+        this.f2481g = kVar;
     }
 
     @Deprecated
@@ -932,7 +932,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public void setProgressView(i iVar) {
         i iVar2;
-        if (iVar == null || iVar.getView() == null || iVar == (iVar2 = this.y) || this.f2444e != 4) {
+        if (iVar == null || iVar.getView() == null || iVar == (iVar2 = this.y) || this.f2479e != 4) {
             return;
         }
         removeView(iVar2.getView());
@@ -953,11 +953,11 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         this.D = i3;
         this.I = true;
         y();
-        this.f2447h = false;
+        this.f2482h = false;
     }
 
     public void setRefreshing(boolean z) {
-        if (z && this.f2447h != z) {
+        if (z && this.f2482h != z) {
             z(z, false);
         } else {
             z(z, false);
@@ -999,22 +999,22 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public final void v() {
-        this.f2444e = 0;
+        this.f2479e = 0;
         this.y.d();
     }
 
     public final void w() {
         k kVar;
-        this.f2444e = 2;
+        this.f2479e = 2;
         this.y.m();
-        if (!this.G || (kVar = this.f2446g) == null) {
+        if (!this.G || (kVar = this.f2481g) == null) {
             return;
         }
         kVar.onRefresh();
     }
 
     public final void x() {
-        this.f2444e = 1;
+        this.f2479e = 1;
         this.y.e();
     }
 
@@ -1031,10 +1031,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     }
 
     public final void z(boolean z, boolean z2) {
-        if (this.f2447h != z) {
+        if (this.f2482h != z) {
             this.G = z2;
             l();
-            this.f2447h = z;
+            this.f2482h = z;
             if (z) {
                 g(this.q, this.K);
             } else {
@@ -1045,8 +1045,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public BdSwipeRefreshLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2444e = 4;
-        this.f2447h = false;
+        this.f2479e = 4;
+        this.f2482h = false;
         this.j = -1.0f;
         this.n = new int[2];
         this.o = new int[2];

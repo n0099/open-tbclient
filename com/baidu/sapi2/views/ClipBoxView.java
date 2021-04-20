@@ -45,28 +45,28 @@ public class ClipBoxView extends View {
     public boolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f11531a;
+    public Paint f11115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f11532b;
+    public Paint f11116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11533c;
+    public int f11117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11534d;
+    public int f11118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f11535e;
+    public RectF f11119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f11536f;
+    public RectF f11120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f11537g;
+    public float f11121g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f11538h;
+    public float f11122h;
     public int i;
     public int j;
     public int k;
@@ -113,30 +113,30 @@ public class ClipBoxView extends View {
         }
         int i = this.l;
         if (i == 1) {
-            float x = motionEvent.getX() - this.f11535e.left;
+            float x = motionEvent.getX() - this.f11119e.left;
             float y = motionEvent.getY();
-            RectF rectF = this.f11535e;
+            RectF rectF = this.f11119e;
             float f2 = rectF.top;
             float f3 = (x + (y - f2)) / 2.0f;
             b(rectF.left + f3, f2 + f3, rectF.right, rectF.bottom);
         } else if (i == 2) {
-            float x2 = this.f11535e.right - motionEvent.getX();
+            float x2 = this.f11119e.right - motionEvent.getX();
             float y2 = motionEvent.getY();
-            RectF rectF2 = this.f11535e;
+            RectF rectF2 = this.f11119e;
             float f4 = rectF2.top;
             float f5 = (x2 + (y2 - f4)) / 2.0f;
             b(rectF2.left, f4 + f5, rectF2.right - f5, rectF2.bottom);
         } else if (i == 3) {
             float x3 = motionEvent.getX();
-            RectF rectF3 = this.f11535e;
+            RectF rectF3 = this.f11119e;
             float y3 = ((x3 - rectF3.left) + (rectF3.bottom - motionEvent.getY())) / 2.0f;
-            RectF rectF4 = this.f11535e;
+            RectF rectF4 = this.f11119e;
             b(rectF4.left + y3, rectF4.top, rectF4.right, rectF4.bottom - y3);
         } else if (i != 4) {
             return false;
         } else {
-            float x4 = ((this.f11535e.right - motionEvent.getX()) + (this.f11535e.bottom - motionEvent.getY())) / 2.0f;
-            RectF rectF5 = this.f11535e;
+            float x4 = ((this.f11119e.right - motionEvent.getX()) + (this.f11119e.bottom - motionEvent.getY())) / 2.0f;
+            RectF rectF5 = this.f11119e;
             b(rectF5.left, rectF5.top, rectF5.right - x4, rectF5.bottom - x4);
         }
         return true;
@@ -145,21 +145,21 @@ public class ClipBoxView extends View {
     @TargetApi(11)
     private void d() {
         setLayerType(1, null);
-        this.f11531a = new Paint();
-        this.f11532b = new Paint();
-        this.f11531a.setColor(-1);
-        this.f11531a.setStyle(Paint.Style.STROKE);
-        this.f11531a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
-        this.f11531a.setAntiAlias(true);
-        this.f11532b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.f11532b.setAntiAlias(true);
-        this.f11533c = SapiUtils.dip2px(getContext(), 20.0f);
-        this.f11534d = SapiUtils.dip2px(getContext(), 4.0f);
+        this.f11115a = new Paint();
+        this.f11116b = new Paint();
+        this.f11115a.setColor(-1);
+        this.f11115a.setStyle(Paint.Style.STROKE);
+        this.f11115a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+        this.f11115a.setAntiAlias(true);
+        this.f11116b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f11116b.setAntiAlias(true);
+        this.f11117c = SapiUtils.dip2px(getContext(), 20.0f);
+        this.f11118d = SapiUtils.dip2px(getContext(), 4.0f);
         this.i = SapiUtils.dip2px(getContext(), this.i);
         this.k = SapiUtils.dip2px(getContext(), this.k);
         this.m = SapiUtils.dip2px(getContext(), this.m);
-        this.f11535e = new RectF();
-        this.f11536f = new RectF();
+        this.f11119e = new RectF();
+        this.f11120f = new RectF();
         this.E = H;
         this.F = true;
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -178,7 +178,7 @@ public class ClipBoxView extends View {
 
     public Rect getmFrameRectF() {
         Rect rect = new Rect();
-        RectF rectF = this.f11535e;
+        RectF rectF = this.f11119e;
         rect.left = (int) rectF.left;
         rect.right = (int) rectF.right;
         rect.top = (int) rectF.top;
@@ -190,7 +190,7 @@ public class ClipBoxView extends View {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int argb = Color.argb(180, 0, 0, 0);
-        this.f11531a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+        this.f11115a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
         canvas.drawColor(argb);
         b(canvas);
         if (this.n == 1.0f) {
@@ -198,7 +198,7 @@ public class ClipBoxView extends View {
             this.D = false;
             this.n = 0.0f;
         }
-        canvas.drawRect(this.f11535e, this.f11532b);
+        canvas.drawRect(this.f11119e, this.f11116b);
         if (this.D) {
             a(canvas);
         }
@@ -212,7 +212,7 @@ public class ClipBoxView extends View {
         int i6 = i - (i5 * 2);
         int i7 = (i2 - i6) / 2;
         this.j = i7;
-        RectF rectF = this.f11535e;
+        RectF rectF = this.f11119e;
         float f2 = i5;
         rectF.left = f2;
         float f3 = i7;
@@ -251,55 +251,55 @@ public class ClipBoxView extends View {
             return false;
         }
         this.D = true;
-        this.f11536f.set(motionEvent.getX() - this.f11533c, motionEvent.getY() - this.f11533c, motionEvent.getX() + this.f11533c, motionEvent.getY() + this.f11533c);
-        RectF rectF = this.f11536f;
-        RectF rectF2 = this.f11535e;
+        this.f11120f.set(motionEvent.getX() - this.f11117c, motionEvent.getY() - this.f11117c, motionEvent.getX() + this.f11117c, motionEvent.getY() + this.f11117c);
+        RectF rectF = this.f11120f;
+        RectF rectF2 = this.f11119e;
         if (rectF.contains(rectF2.left, rectF2.top)) {
             this.l = 1;
             return true;
         }
-        RectF rectF3 = this.f11536f;
-        RectF rectF4 = this.f11535e;
+        RectF rectF3 = this.f11120f;
+        RectF rectF4 = this.f11119e;
         if (rectF3.contains(rectF4.right, rectF4.top)) {
             this.l = 2;
             return true;
         }
-        RectF rectF5 = this.f11536f;
-        RectF rectF6 = this.f11535e;
+        RectF rectF5 = this.f11120f;
+        RectF rectF6 = this.f11119e;
         if (rectF5.contains(rectF6.left, rectF6.bottom)) {
             this.l = 3;
             return true;
         }
-        RectF rectF7 = this.f11536f;
-        RectF rectF8 = this.f11535e;
+        RectF rectF7 = this.f11120f;
+        RectF rectF8 = this.f11119e;
         if (rectF7.contains(rectF8.right, rectF8.bottom)) {
             this.l = 4;
             return true;
         }
-        RectF rectF9 = this.f11536f;
-        RectF rectF10 = this.f11535e;
+        RectF rectF9 = this.f11120f;
+        RectF rectF10 = this.f11119e;
         float f2 = rectF10.left;
         float f3 = rectF10.top;
         if (rectF9.intersect(f2, f3, rectF10.right, f3)) {
             this.l = 5;
             return true;
         }
-        RectF rectF11 = this.f11536f;
-        RectF rectF12 = this.f11535e;
+        RectF rectF11 = this.f11120f;
+        RectF rectF12 = this.f11119e;
         float f4 = rectF12.left;
         if (rectF11.intersect(f4, rectF12.top, f4, rectF12.bottom)) {
             this.l = 6;
             return true;
         }
-        RectF rectF13 = this.f11536f;
-        RectF rectF14 = this.f11535e;
+        RectF rectF13 = this.f11120f;
+        RectF rectF14 = this.f11119e;
         float f5 = rectF14.right;
         if (rectF13.intersect(f5, rectF14.top, f5, rectF14.bottom)) {
             this.l = 7;
             return true;
         }
-        RectF rectF15 = this.f11536f;
-        RectF rectF16 = this.f11535e;
+        RectF rectF15 = this.f11120f;
+        RectF rectF16 = this.f11119e;
         float f6 = rectF16.left;
         float f7 = rectF16.bottom;
         if (rectF15.intersect(f6, f7, rectF16.right, f7)) {
@@ -318,38 +318,38 @@ public class ClipBoxView extends View {
             case 1:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
-                RectF rectF = this.f11535e;
+                RectF rectF = this.f11119e;
                 b(x, y, rectF.right, rectF.bottom);
                 return true;
             case 2:
-                b(this.f11535e.left, motionEvent.getY(), motionEvent.getX(), this.f11535e.bottom);
+                b(this.f11119e.left, motionEvent.getY(), motionEvent.getX(), this.f11119e.bottom);
                 return true;
             case 3:
                 float x2 = motionEvent.getX();
-                RectF rectF2 = this.f11535e;
+                RectF rectF2 = this.f11119e;
                 b(x2, rectF2.top, rectF2.right, motionEvent.getY());
                 return true;
             case 4:
-                RectF rectF3 = this.f11535e;
+                RectF rectF3 = this.f11119e;
                 b(rectF3.left, rectF3.top, motionEvent.getX(), motionEvent.getY());
                 return true;
             case 5:
-                float f2 = this.f11535e.left;
+                float f2 = this.f11119e.left;
                 float y2 = motionEvent.getY();
-                RectF rectF4 = this.f11535e;
+                RectF rectF4 = this.f11119e;
                 b(f2, y2, rectF4.right, rectF4.bottom);
                 return true;
             case 6:
                 float x3 = motionEvent.getX();
-                RectF rectF5 = this.f11535e;
+                RectF rectF5 = this.f11119e;
                 b(x3, rectF5.top, rectF5.right, rectF5.bottom);
                 return true;
             case 7:
-                RectF rectF6 = this.f11535e;
-                b(rectF6.left, rectF6.top, motionEvent.getX(), this.f11535e.bottom);
+                RectF rectF6 = this.f11119e;
+                b(rectF6.left, rectF6.top, motionEvent.getX(), this.f11119e.bottom);
                 return true;
             case 8:
-                RectF rectF7 = this.f11535e;
+                RectF rectF7 = this.f11119e;
                 b(rectF7.left, rectF7.top, rectF7.right, motionEvent.getY());
                 return true;
             default:
@@ -381,21 +381,21 @@ public class ClipBoxView extends View {
     }
 
     public void a(Canvas canvas) {
-        RectF rectF = this.f11535e;
+        RectF rectF = this.f11119e;
         float f2 = rectF.left;
         float f3 = rectF.top;
         float f4 = rectF.right;
         float f5 = rectF.bottom;
         float f6 = (f5 - f3) / 3.0f;
         float f7 = f3 + f6;
-        canvas.drawLine(f2, f7, f4, f7, this.f11531a);
+        canvas.drawLine(f2, f7, f4, f7, this.f11115a);
         float f8 = f3 + (f6 * 2.0f);
-        canvas.drawLine(f2, f8, f4, f8, this.f11531a);
+        canvas.drawLine(f2, f8, f4, f8, this.f11115a);
         float f9 = (f4 - f2) / 3.0f;
         float f10 = f2 + f9;
-        canvas.drawLine(f10, f3, f10, f5, this.f11531a);
+        canvas.drawLine(f10, f3, f10, f5, this.f11115a);
         float f11 = f2 + (f9 * 2.0f);
-        canvas.drawLine(f11, f3, f11, f5, this.f11531a);
+        canvas.drawLine(f11, f3, f11, f5, this.f11115a);
     }
 
     private void a(float f2, float f3, float f4, float f5) {
@@ -411,18 +411,18 @@ public class ClipBoxView extends View {
         this.s = f5 - this.v;
         this.p = this.w - f2;
         this.r = f4 - this.x;
-        this.f11535e.set(f2, f3, f4, f5);
+        this.f11119e.set(f2, f3, f4, f5);
     }
 
     private void b(float f2, float f3, float f4, float f5) {
         if (f5 - f3 < 50.0f) {
-            RectF rectF = this.f11535e;
+            RectF rectF = this.f11119e;
             float f6 = rectF.top;
             f5 = rectF.bottom;
             f3 = f6;
         }
         if (f4 - f2 < 50.0f) {
-            RectF rectF2 = this.f11535e;
+            RectF rectF2 = this.f11119e;
             float f7 = rectF2.left;
             f4 = rectF2.right;
             f2 = f7;
@@ -432,54 +432,54 @@ public class ClipBoxView extends View {
     }
 
     private void c(Canvas canvas) {
-        this.f11531a.setStrokeWidth(this.f11534d);
-        RectF rectF = this.f11535e;
+        this.f11115a.setStrokeWidth(this.f11118d);
+        RectF rectF = this.f11119e;
         float f2 = rectF.left;
         float f3 = rectF.top;
-        canvas.drawLine(f2 - this.k, f3, f2 + this.f11533c, f3, this.f11531a);
-        RectF rectF2 = this.f11535e;
+        canvas.drawLine(f2 - this.k, f3, f2 + this.f11117c, f3, this.f11115a);
+        RectF rectF2 = this.f11119e;
         float f4 = rectF2.left;
         float f5 = rectF2.top;
-        canvas.drawLine(f4, f5, f4, f5 + this.f11533c, this.f11531a);
-        RectF rectF3 = this.f11535e;
+        canvas.drawLine(f4, f5, f4, f5 + this.f11117c, this.f11115a);
+        RectF rectF3 = this.f11119e;
         float f6 = rectF3.right;
         float f7 = rectF3.top;
-        canvas.drawLine(f6 + this.k, f7, f6 - this.f11533c, f7, this.f11531a);
-        RectF rectF4 = this.f11535e;
+        canvas.drawLine(f6 + this.k, f7, f6 - this.f11117c, f7, this.f11115a);
+        RectF rectF4 = this.f11119e;
         float f8 = rectF4.right;
         float f9 = rectF4.top;
-        canvas.drawLine(f8, f9, f8, f9 + this.f11533c, this.f11531a);
-        RectF rectF5 = this.f11535e;
+        canvas.drawLine(f8, f9, f8, f9 + this.f11117c, this.f11115a);
+        RectF rectF5 = this.f11119e;
         float f10 = rectF5.left;
         float f11 = rectF5.bottom;
-        canvas.drawLine(f10 - this.k, f11, f10 + this.f11533c, f11, this.f11531a);
-        RectF rectF6 = this.f11535e;
+        canvas.drawLine(f10 - this.k, f11, f10 + this.f11117c, f11, this.f11115a);
+        RectF rectF6 = this.f11119e;
         float f12 = rectF6.left;
         float f13 = rectF6.bottom;
-        canvas.drawLine(f12, f13, f12, f13 - this.f11533c, this.f11531a);
-        RectF rectF7 = this.f11535e;
+        canvas.drawLine(f12, f13, f12, f13 - this.f11117c, this.f11115a);
+        RectF rectF7 = this.f11119e;
         float f14 = rectF7.right;
         float f15 = rectF7.bottom;
-        canvas.drawLine(f14 + this.k, f15, f14 - this.f11533c, f15, this.f11531a);
-        RectF rectF8 = this.f11535e;
+        canvas.drawLine(f14 + this.k, f15, f14 - this.f11117c, f15, this.f11115a);
+        RectF rectF8 = this.f11119e;
         float f16 = rectF8.right;
         float f17 = rectF8.bottom;
-        canvas.drawLine(f16, f17, f16, f17 - this.f11533c, this.f11531a);
+        canvas.drawLine(f16, f17, f16, f17 - this.f11117c, this.f11115a);
     }
 
     private void b(Canvas canvas) {
         if (this.t) {
-            RectF rectF = this.f11535e;
+            RectF rectF = this.f11119e;
             float f2 = this.w;
             float f3 = this.n;
             rectF.left = f2 - (this.p * f3);
             rectF.top = this.u - (this.q * f3);
             rectF.right = this.x + (this.r * f3);
             rectF.bottom = this.v + (f3 * this.s);
-            canvas.drawRect(rectF, this.f11531a);
+            canvas.drawRect(rectF, this.f11115a);
             return;
         }
-        canvas.drawRect(this.f11535e, this.f11531a);
+        canvas.drawRect(this.f11119e, this.f11115a);
     }
 
     private void a(float f2, float f3, float f4, float f5, float f6) {
@@ -511,7 +511,7 @@ public class ClipBoxView extends View {
         this.s = f5 - this.v;
         this.p = this.w - f2;
         this.r = f4 - this.x;
-        this.f11535e.set(f2, f3, f4, f5);
+        this.f11119e.set(f2, f3, f4, f5);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -521,13 +521,13 @@ public class ClipBoxView extends View {
             return;
         }
         float f2 = ((this.y - 1.0f) / 20.0f) + 1.0f;
-        zoomImageView.f11589e.postTranslate(this.B / 20.0f, this.C / 20.0f);
-        Matrix matrix = zoomImageView.f11589e;
-        RectF rectF = this.f11535e;
+        zoomImageView.f11173e.postTranslate(this.B / 20.0f, this.C / 20.0f);
+        Matrix matrix = zoomImageView.f11173e;
+        RectF rectF = this.f11119e;
         matrix.postScale(f2, f2, (rectF.left + rectF.right) / 2.0f, (rectF.top + rectF.bottom) / 2.0f);
-        RectF rectF2 = this.f11535e;
+        RectF rectF2 = this.f11119e;
         zoomImageView.a((rectF2.left + rectF2.right) / 2.0f, (rectF2.top + rectF2.bottom) / 2.0f);
-        zoomImageView.setImageMatrix(zoomImageView.f11589e);
+        zoomImageView.setImageMatrix(zoomImageView.f11173e);
     }
 
     @TargetApi(11)
@@ -535,7 +535,7 @@ public class ClipBoxView extends View {
         int i;
         int i2;
         int width = getWidth() - (this.i * 2);
-        RectF rectF = this.f11535e;
+        RectF rectF = this.f11119e;
         float f2 = rectF.right;
         float f3 = rectF.left;
         float f4 = f2 - f3;
@@ -549,16 +549,16 @@ public class ClipBoxView extends View {
             this.x = f2;
             float f8 = (f2 - f3) / (f7 - f6);
             this.z = f5 / f4;
-            RectF rectF2 = this.f11535e;
+            RectF rectF2 = this.f11119e;
             float height = (getHeight() - (this.m * 2)) / (rectF2.bottom - rectF2.top);
             this.A = height;
             float min = Math.min(this.z, height);
             this.y = min;
             float f9 = min - 1.0f;
             float f10 = f9 <= 1.0f ? f9 : 1.0f;
-            RectF rectF3 = this.f11535e;
+            RectF rectF3 = this.f11119e;
             this.B = ((getWidth() / 2) - ((rectF3.left + rectF3.right) / 2.0f)) * f10;
-            RectF rectF4 = this.f11535e;
+            RectF rectF4 = this.f11119e;
             float f11 = rectF4.top;
             float f12 = rectF4.bottom;
             this.C = ((getHeight() / 2) - ((f11 + f12) / 2.0f)) * f10;
@@ -587,7 +587,7 @@ public class ClipBoxView extends View {
 
     private boolean a(MotionEvent motionEvent) {
         int width = getWidth() - (this.i * 2);
-        RectF rectF = this.f11535e;
+        RectF rectF = this.f11119e;
         float f2 = width;
         if (rectF.right - rectF.left < f2 || rectF.bottom - rectF.top < f2) {
             return false;

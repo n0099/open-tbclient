@@ -5,21 +5,21 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 /* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f50247d;
+    public static e f50654d;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50249b;
+    public int f50656b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50248a = false;
+    public boolean f50655a = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50250c = false;
+    public boolean f50657c = false;
 
     /* loaded from: classes3.dex */
     public class a extends d.b.h0.k0.b {
@@ -44,7 +44,7 @@ public class e {
 
         @Override // d.b.h0.k0.b
         public int getMaxCost() {
-            return e.this.f50249b;
+            return e.this.f50656b;
         }
 
         @Override // d.b.h0.k0.b
@@ -54,49 +54,49 @@ public class e {
     }
 
     public static e b() {
-        if (f50247d == null) {
+        if (f50654d == null) {
             synchronized (e.class) {
-                if (f50247d == null) {
-                    f50247d = new e();
+                if (f50654d == null) {
+                    f50654d = new e();
                 }
             }
         }
-        return f50247d;
+        return f50654d;
     }
 
     public int c() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return d.b.h0.r.d0.b.i().j("page_stay_max_cost", 0);
+            return d.b.h0.r.d0.b.j().k("page_stay_max_cost", 0);
         }
-        return this.f50249b;
+        return this.f50656b;
     }
 
     public boolean d() {
-        return this.f50248a;
+        return this.f50655a;
     }
 
     public boolean e() {
-        return this.f50250c;
+        return this.f50657c;
     }
 
     public void f(int i) {
-        this.f50249b = i;
-        d.b.h0.r.d0.b.i().u("page_stay_max_cost", this.f50249b);
+        this.f50656b = i;
+        d.b.h0.r.d0.b.j().v("page_stay_max_cost", this.f50656b);
     }
 
     public void g(boolean z) {
-        this.f50248a = z;
+        this.f50655a = z;
     }
 
     public void h(boolean z) {
-        this.f50250c = z;
+        this.f50657c = z;
     }
 
     public void i(Context context, d dVar, d.b.h0.k0.b bVar) {
         if (dVar == null || StringUtils.isNull(dVar.c())) {
             return;
         }
-        if (dVar.f50239a) {
+        if (dVar.f50646a) {
             if (bVar == null) {
                 bVar = new a(this);
             }

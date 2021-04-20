@@ -12,13 +12,13 @@ import java.util.List;
 public class ae extends PayBaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25490a;
+    public String f25175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25491b;
+    public String f25176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25492c;
+    public String f25177c;
 
     public <T> ae(Context context) {
         super(context);
@@ -32,11 +32,11 @@ public class ae extends PayBaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("new_passfree_status", this.f25491b));
-        arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25492c));
-        if (!TextUtils.isEmpty(this.f25490a)) {
+        arrayList.add(new RestNameValuePair("new_passfree_status", this.f25176b));
+        arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25177c));
+        if (!TextUtils.isEmpty(this.f25175a)) {
             String seed = PasswordController.getSeed();
-            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25490a, seed)));
+            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25175a, seed)));
             arrayList.add(new RestNameValuePair("pwd_seed", SafePay.getInstance().encryptProxy(seed)));
         }
         return arrayList;

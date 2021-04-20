@@ -17,10 +17,10 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f56481a = new a();
+    public static a f57887a = new a();
 
     public static a c() {
-        return f56481a;
+        return f57887a;
     }
 
     public final boolean a(String str) {
@@ -31,7 +31,7 @@ public class a {
         if (myEmotionGroupData == null) {
             return false;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
             return true;
@@ -46,7 +46,7 @@ public class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
             try {
@@ -59,7 +59,7 @@ public class a {
                     mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
                     return null;
                 } finally {
-                    d.b.b.e.p.m.a(cursor);
+                    d.b.c.e.p.m.a(cursor);
                 }
             }
         } catch (Throwable th2) {
@@ -73,7 +73,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Cursor cursor = null;
         try {
             cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
@@ -83,36 +83,36 @@ public class a {
                 mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
                 return false;
             } finally {
-                d.b.b.e.p.m.a(cursor);
+                d.b.c.e.p.m.a(cursor);
             }
         }
     }
 
-    public int f(d.b.i0.x1.f.a aVar) {
-        List<d.b.i0.x1.f.b> list;
-        if (aVar == null || (list = aVar.f62372e) == null || list.size() == 0) {
+    public int f(d.b.i0.y1.f.a aVar) {
+        List<d.b.i0.y1.f.b> list;
+        if (aVar == null || (list = aVar.f64057e) == null || list.size() == 0) {
             return 0;
         }
-        String str = ".emotions/" + aVar.f62368a;
+        String str = ".emotions/" + aVar.f64053a;
         g k = g.k();
-        List<d.b.i0.x1.f.b> list2 = aVar.f62372e;
+        List<d.b.i0.y1.f.b> list2 = aVar.f64057e;
         int i = 0;
         for (int i2 = 0; i2 < list2.size(); i2++) {
-            d.b.i0.x1.f.b bVar = list2.get(i2);
-            if (a(str + "/" + bVar.f62375g)) {
-                if (a(str + "/" + bVar.f62376h)) {
+            d.b.i0.y1.f.b bVar = list2.get(i2);
+            if (a(str + "/" + bVar.f64060g)) {
+                if (a(str + "/" + bVar.f64061h)) {
                     StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                    sb.append(aVar.f62368a + "_" + bVar.f62374f);
+                    sb.append(aVar.f64053a + "_" + bVar.f64059f);
                     sb.append(",");
                     sb.append(bVar.j);
                     sb.append(",");
                     sb.append(bVar.i);
                     sb.append(",");
-                    String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + d.b.b.e.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                    boolean isGif = FileHelper.isGif(str, bVar.f62375g);
-                    b.g(aVar.f62368a, bVar.f62376h, b.c(str2, true, false));
-                    b.g(aVar.f62368a, bVar.f62375g, b.c(str2, false, isGif));
-                    if (k.d(str2, aVar.f62368a, i2 + 1)) {
+                    String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + d.b.c.e.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
+                    boolean isGif = FileHelper.isGif(str, bVar.f64060g);
+                    b.g(aVar.f64053a, bVar.f64061h, b.c(str2, true, false));
+                    b.g(aVar.f64053a, bVar.f64060g, b.c(str2, false, isGif));
+                    if (k.d(str2, aVar.f64053a, i2 + 1)) {
                         i++;
                     }
                 }

@@ -10,14 +10,14 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import d.b.b.c.e.c.a;
-import d.b.b.e.m.b;
-import d.b.b.j.e.n;
+import d.b.c.c.e.c.a;
+import d.b.c.e.m.b;
+import d.b.c.j.e.n;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ChatMessage extends TbSocketMessage implements a, n {
     public long bornTime;
     public transient MsgCacheData cacheData;
@@ -277,7 +277,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return this.toUserInfo;
     }
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         int i = this.msgType;
         if (i == 11) {
@@ -331,7 +331,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return this.mIsPushForOperateAccount;
     }
 
-    @Override // d.b.b.c.e.c.a
+    @Override // d.b.c.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
             ChatMessage chatMessage = (ChatMessage) socketMessage;

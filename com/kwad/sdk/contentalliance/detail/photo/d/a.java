@@ -7,29 +7,29 @@ import com.kwad.sdk.mvp.Presenter;
 public abstract class a<T extends View> extends Presenter implements com.kwad.sdk.contentalliance.detail.photo.f.d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f32258a = null;
+    public c f32547a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f32259b = null;
+    public T f32548b = null;
 
     private T f() {
-        if (this.f32259b == null) {
-            this.f32259b = g();
+        if (this.f32548b == null) {
+            this.f32548b = g();
         }
-        return this.f32259b;
+        return this.f32548b;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32258a = (c) n();
-        this.f32259b.setOnClickListener(this);
+        this.f32547a = (c) n();
+        this.f32548b.setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32259b.setOnClickListener(null);
+        this.f32548b.setOnClickListener(null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

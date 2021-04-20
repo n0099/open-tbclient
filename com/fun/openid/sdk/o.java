@@ -43,17 +43,17 @@ public final class o extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i != 4) {
                 parse = null;
-                query = nVar.f30853a.getContentResolver().query(parse, null, null, null, null);
+                query = nVar.f30526a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 } else {
                     Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                p.f30860g = r2;
-                Context context = p.f30854a;
-                synchronized (p.f30857d) {
-                    p.f30857d.notify();
+                p.f30533g = r2;
+                Context context = p.f30527a;
+                synchronized (p.f30530d) {
+                    p.f30530d.notify();
                 }
                 return;
             } else {
@@ -66,12 +66,12 @@ public final class o extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = nVar.f30853a.getContentResolver().query(parse, null, null, null, null);
+        query = nVar.f30526a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
-        p.f30860g = r2;
-        Context context2 = p.f30854a;
-        synchronized (p.f30857d) {
+        p.f30533g = r2;
+        Context context2 = p.f30527a;
+        synchronized (p.f30530d) {
         }
     }
 }

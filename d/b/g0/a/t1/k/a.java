@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/abTestConfig");
@@ -27,7 +27,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 != null && context != null) {
                 JSONObject optJSONObject = a2.optJSONObject("abtest");

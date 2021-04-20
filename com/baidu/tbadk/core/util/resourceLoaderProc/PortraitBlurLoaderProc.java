@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import d.b.b.j.d.a;
+import d.b.c.j.d.a;
 /* loaded from: classes3.dex */
 public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     public PortraitBlurLoaderProc(boolean z, boolean z2, int i) {

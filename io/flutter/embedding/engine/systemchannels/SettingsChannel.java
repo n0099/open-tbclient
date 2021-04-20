@@ -1,7 +1,7 @@
 package io.flutter.embedding.engine.systemchannels;
 
 import androidx.annotation.NonNull;
-import com.baidu.mobads.production.cpu.CPUWebAdRequestParam;
+import com.baidu.tbadk.core.util.SkinManager;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
@@ -55,8 +55,8 @@ public class SettingsChannel {
 
     /* loaded from: classes7.dex */
     public enum PlatformBrightness {
-        light(CPUWebAdRequestParam.LIGHT_MODE),
-        dark("dark");
+        light("light"),
+        dark(SkinManager.SKIN_TYPE_STR_DARK);
         
         @NonNull
         public String name;

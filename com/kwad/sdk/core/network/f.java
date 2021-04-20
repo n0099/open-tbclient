@@ -5,28 +5,28 @@ import com.baidu.wallet.base.widget.CustomerServiceMenu;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f33869a = new f(40001, "网络错误");
+    public static f f34158a = new f(40001, "网络错误");
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f33870b = new f(40002, "数据解析错误");
+    public static f f34159b = new f(40002, "数据解析错误");
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f33871c = new f(40003, "广告数据为空");
+    public static f f34160c = new f(40003, "广告数据为空");
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f33872d = new f(40004, "视频资源缓存失败");
+    public static f f34161d = new f(40004, "视频资源缓存失败");
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f33873e = new f(40005, "网络超时");
+    public static f f34162e = new f(40005, "网络超时");
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f33874f = new f(40007, "图片下载失败");
+    public static f f34163f = new f(40007, "图片下载失败");
 
     /* renamed from: g  reason: collision with root package name */
-    public static f f33875g = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
+    public static f f34164g = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
 
     /* renamed from: h  reason: collision with root package name */
-    public static f f33876h = new f(100007, "复制链接失败，请稍后重试");
+    public static f f34165h = new f(100007, "复制链接失败，请稍后重试");
     public static f i = new f(100008, "内容有点敏感，不可以发送哦");
     public static f j = new f(130001, "数据不存在");
     public int k;

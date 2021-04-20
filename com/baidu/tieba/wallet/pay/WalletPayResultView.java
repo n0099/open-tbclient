@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
-import d.b.b.a.d;
-import d.b.b.e.p.l;
+import d.b.c.a.d;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public BaseActivity mActivity;
@@ -126,7 +126,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
         }
     }
 
-    @Override // d.b.b.a.d
+    @Override // d.b.c.a.d
     public void destroy() {
         LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = this.mRootLayout;
         if (linearLayoutDetectsSoftKeyboard != null) {

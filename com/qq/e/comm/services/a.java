@@ -3,7 +3,7 @@ package com.qq.e.comm.services;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
@@ -31,13 +31,13 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f38387a = new a();
+    public static final a f38676a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Boolean f38388b = Boolean.FALSE;
+    public volatile Boolean f38677b = Boolean.FALSE;
 
     public static a a() {
-        return f38387a;
+        return f38676a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0005 */
@@ -59,13 +59,13 @@ public class a {
             JSONObject jSONObject4 = new JSONObject();
             if (deviceStatus != null) {
                 jSONObject4.putOpt("did", deviceStatus.getPlainDid());
-                jSONObject4.putOpt(IXAdRequestInfo.TEST_MODE, deviceStatus.model);
+                jSONObject4.putOpt("md", deviceStatus.model);
                 jSONObject4.putOpt("lg", deviceStatus.getLanguage());
                 jSONObject4.putOpt("w", Integer.valueOf(deviceStatus.getDeviceWidth()));
                 jSONObject4.putOpt("h", Integer.valueOf(deviceStatus.getDeviceHeight()));
                 jSONObject4.putOpt(Config.DEVICE_ID_SEC, Integer.valueOf(deviceStatus.getDeviceDensity()));
                 jSONObject4.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));
-                jSONObject4.putOpt(IXAdRequestInfo.OS, "android");
+                jSONObject4.putOpt(IAdRequestParam.OS, "android");
                 jSONObject4.putOpt("op", deviceStatus.getOperator());
                 jSONObject4.putOpt("mf", Build.MANUFACTURER);
             }
@@ -111,11 +111,11 @@ public class a {
     }
 
     public final void a(Context context, SM sm, final PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        if (this.f38388b.booleanValue()) {
+        if (this.f38677b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f38388b.booleanValue()) {
+            if (this.f38677b.booleanValue()) {
                 return;
             }
             String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
@@ -190,7 +190,7 @@ public class a {
                     }
                 }
             });
-            this.f38388b = Boolean.TRUE;
+            this.f38677b = Boolean.TRUE;
         }
     }
 }

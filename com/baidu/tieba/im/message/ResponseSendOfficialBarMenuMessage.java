@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.SendMenuMsg.SendMenuMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSendOfficialBarMenuMessage extends SocketResponsedMessage {
     public ResponseSendOfficialBarMenuMessage() {
         super(208003);

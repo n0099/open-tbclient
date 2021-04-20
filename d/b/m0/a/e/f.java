@@ -3,53 +3,53 @@ package d.b.m0.a.e;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64074a = true;
+    public static boolean f64802a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f64075b = 30000;
+    public static long f64803b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f64076c = 0;
+    public static long f64804c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f64077d = 0;
+    public static long f64805d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f64078e = false;
+    public static boolean f64806e = false;
 
     public static long a() {
-        return f64075b;
+        return f64803b;
     }
 
     public static void b(long j) {
-        f64075b = j;
+        f64803b = j;
     }
 
     public static long c() {
-        return f64076c;
+        return f64804c;
     }
 
     public static boolean d() {
-        return f64074a;
+        return f64802a;
     }
 
     public static long e() {
-        return f64077d;
+        return f64805d;
     }
 
     public static void f(long j) {
-        f64076c = j;
+        f64804c = j;
     }
 
     public static void g(boolean z) {
-        f64078e = z;
+        f64806e = z;
     }
 
     public static void h(long j) {
-        f64077d = j;
+        f64805d = j;
     }
 
     public static boolean i() {
-        return f64078e;
+        return f64806e;
     }
 }

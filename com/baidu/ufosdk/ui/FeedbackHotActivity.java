@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tieba.R;
 import com.baidu.ufosdk.ResumeCallBack;
 import com.baidu.ufosdk.UfoSDK;
@@ -33,10 +33,10 @@ import org.json.JSONObject;
 public class FeedbackHotActivity extends Activity {
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f23011g;
+    public RelativeLayout f22696g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f23012h;
+    public LinearLayout f22697h;
     public ImageView i;
     public WebView j;
     public Button k;
@@ -46,22 +46,22 @@ public class FeedbackHotActivity extends Activity {
     public Timer q;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f23005a = R.id.BLOCK;
+    public final int f22690a = R.id.BLOCK;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f23006b = R.id.BOTH;
+    public final int f22691b = R.id.BOTH;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f23007c = R.id.BOTTOM;
+    public final int f22692c = R.id.BOTTOM;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f23008d = R.id.Backward;
+    public final int f22693d = R.id.Backward;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f23009e = R.id.CTRL;
+    public final int f22694e = R.id.CTRL;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f23010f = "UfoCacheFile";
+    public final String f22695f = "UfoCacheFile";
     public String o = "";
     public String p = "";
     @SuppressLint({"NewApi", "HandlerLeak"})
@@ -116,7 +116,7 @@ public class FeedbackHotActivity extends Activity {
         this.r.obtainMessage(0).sendToTarget();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(IXAdRequestInfo.OS, "android");
+            jSONObject.put(IAdRequestParam.OS, "android");
             jSONObject.put("appvn", com.baidu.ufosdk.b.e.b());
             jSONObject.put("devid", UfoSDK.devid);
             jSONObject.put("osvn", Build.VERSION.RELEASE);
@@ -191,14 +191,14 @@ public class FeedbackHotActivity extends Activity {
         com.baidu.ufosdk.f.r.a(this, getWindow());
         com.baidu.ufosdk.f.r.a(getWindow(), com.baidu.ufosdk.b.L);
         RelativeLayout relativeLayout = new RelativeLayout(this);
-        this.f23011g = relativeLayout;
+        this.f22696g = relativeLayout;
         relativeLayout.setFitsSystemWindows(true);
-        this.f23011g.setId(R.id.Backward);
+        this.f22696g.setId(R.id.Backward);
         RelativeLayout relativeLayout2 = new RelativeLayout(this);
         relativeLayout2.setId(R.id.BOTTOM);
-        this.f23011g.setBackgroundColor(com.baidu.ufosdk.b.z);
+        this.f22696g.setBackgroundColor(com.baidu.ufosdk.b.z);
         LinearLayout linearLayout = new LinearLayout(this);
-        this.f23012h = linearLayout;
+        this.f22697h = linearLayout;
         linearLayout.setOrientation(1);
         ImageView imageView = new ImageView(this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
@@ -207,7 +207,7 @@ public class FeedbackHotActivity extends Activity {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f23012h.addView(imageView, layoutParams);
+        this.f22697h.addView(imageView, layoutParams);
         TextView textView = new TextView(this);
         this.m = textView;
         textView.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
@@ -215,7 +215,7 @@ public class FeedbackHotActivity extends Activity {
         this.m.setTextColor(com.baidu.ufosdk.b.x);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         com.baidu.ufosdk.f.i.a(getApplicationContext(), this.m);
-        this.f23012h.addView(this.m, layoutParams2);
+        this.f22697h.addView(this.m, layoutParams2);
         Button button = new Button(this);
         this.k = button;
         button.setText(com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_DATALINE));
@@ -228,12 +228,12 @@ public class FeedbackHotActivity extends Activity {
         }
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
         layoutParams3.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-        this.f23012h.addView(this.k, layoutParams3);
+        this.f22697h.addView(this.k, layoutParams3);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams4.addRule(13);
-        this.f23011g.addView(this.f23012h, layoutParams4);
-        this.f23012h.setGravity(17);
-        this.f23012h.setVisibility(8);
+        this.f22696g.addView(this.f22697h, layoutParams4);
+        this.f22697h.setGravity(17);
+        this.f22697h.setVisibility(8);
         LinearLayout linearLayout2 = new LinearLayout(this);
         linearLayout2.setOrientation(0);
         linearLayout2.setGravity(16);
@@ -271,27 +271,27 @@ public class FeedbackHotActivity extends Activity {
         relativeLayout2.addView(this.n, layoutParams8);
         RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
         layoutParams9.addRule(10);
-        this.f23011g.addView(relativeLayout2, layoutParams9);
+        this.f22696g.addView(relativeLayout2, layoutParams9);
         View view = new View(this);
         view.setId(R.id.CTRL);
         view.setBackgroundColor(-2894893);
         RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
         layoutParams10.addRule(3, relativeLayout2.getId());
-        this.f23011g.addView(view, layoutParams10);
+        this.f22696g.addView(view, layoutParams10);
         WebView webView = new WebView(this);
         this.j = webView;
         webView.setBackgroundColor(com.baidu.ufosdk.b.z);
         RelativeLayout.LayoutParams layoutParams11 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams11.addRule(12);
         layoutParams11.addRule(3, view.getId());
-        this.f23011g.addView(this.j, layoutParams11);
+        this.f22696g.addView(this.j, layoutParams11);
         new RelativeLayout.LayoutParams(-1, -1);
-        this.f23011g.setLayoutParams(layoutParams6);
-        setContentView(this.f23011g);
+        this.f22696g.setLayoutParams(layoutParams6);
+        setContentView(this.f22696g);
         this.l = com.baidu.ufosdk.f.i.b(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_JOININ_GROUP));
         RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams12.addRule(13);
-        this.f23011g.addView(this.l, layoutParams12);
+        this.f22696g.addView(this.l, layoutParams12);
         WebSettings settings = this.j.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
@@ -301,7 +301,7 @@ public class FeedbackHotActivity extends Activity {
         if (com.baidu.ufosdk.b.d.b(getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(getApplicationContext()).contains("NONE")) {
             this.l.setVisibility(8);
         } else {
-            this.f23012h.setVisibility(8);
+            this.f22697h.setVisibility(8);
             this.j.setVisibility(0);
         }
         this.j.setWebViewClient(new bc(this, (byte) 0));

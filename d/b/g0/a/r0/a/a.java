@@ -18,23 +18,23 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45704a = k.f45051a;
+    public static final boolean f46096a = k.f45443a;
 
     /* renamed from: d.b.g0.a.r0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0775a implements w.a {
+    public class C0787a implements w.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f45705a;
+        public final /* synthetic */ File f46097a;
 
-        public C0775a(File file) {
-            this.f45705a = file;
+        public C0787a(File file) {
+            this.f46097a = file;
         }
 
         @Override // d.b.g0.a.p.c.w.a
         public void onResult(String str) {
-            if (!k.f45051a) {
-                d.w(this.f45705a);
+            if (!k.f45443a) {
+                d.w(this.f46097a);
             }
             a aVar = a.this;
             aVar.p("upload file: done. feedback data = " + str);
@@ -45,15 +45,15 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f45707a = new a(null);
+        public static final a f46099a = new a(null);
     }
 
-    public /* synthetic */ a(C0775a c0775a) {
+    public /* synthetic */ a(C0787a c0787a) {
         this();
     }
 
     public static a n() {
-        return b.f45707a;
+        return b.f46099a;
     }
 
     public boolean a(String str) {
@@ -61,11 +61,11 @@ public class a {
     }
 
     public boolean b(String str, File file) {
-        File q = q(str, file, d.b.g0.a.r0.a.d.a.f45718h);
+        File q = q(str, file, d.b.g0.a.r0.a.d.a.f46110h);
         if (q == null) {
             return false;
         }
-        File file2 = new File(d.b.g0.a.r0.a.d.a.f45711a, str);
+        File file2 = new File(d.b.g0.a.r0.a.d.a.f46103a, str);
         if (file2.exists()) {
             File file3 = new File(q, str);
             d.h(file3);
@@ -114,8 +114,8 @@ public class a {
 
     public final void g(Context context, String str, File file) {
         boolean i = i(str, file);
-        boolean b2 = b(d.b.g0.a.r0.a.d.a.f45712b, file);
-        boolean b3 = b(d.b.g0.a.r0.a.d.a.f45713c, file);
+        boolean b2 = b(d.b.g0.a.r0.a.d.a.f46104b, file);
+        boolean b3 = b(d.b.g0.a.r0.a.d.a.f46105c, file);
         boolean e2 = e(context, str, file);
         boolean c2 = c(str, file);
         boolean a2 = a(str);
@@ -129,7 +129,7 @@ public class a {
             return null;
         }
         p("cloneFilesAndMakeZip start, appKey = " + str);
-        File file = new File(d.b.g0.a.r0.a.d.a.f45716f + str);
+        File file = new File(d.b.g0.a.r0.a.d.a.f46108f + str);
         if (!l(file)) {
             p("delete old tmp dir failed");
             return null;
@@ -151,11 +151,11 @@ public class a {
     }
 
     public boolean i(String str, File file) {
-        File q = q(str, file, d.b.g0.a.r0.a.d.a.f45717g);
+        File q = q(str, file, d.b.g0.a.r0.a.d.a.f46109g);
         if (q == null) {
             return false;
         }
-        File file2 = new File(d.b.g0.a.r0.a.d.a.f45711a, str);
+        File file2 = new File(d.b.g0.a.r0.a.d.a.f46103a, str);
         if (file2.exists()) {
             File file3 = new File(q, str);
             d.h(file3);
@@ -214,7 +214,7 @@ public class a {
     }
 
     public void p(String str) {
-        if (TextUtils.isEmpty(str) || !f45704a) {
+        if (TextUtils.isEmpty(str) || !f46096a) {
             return;
         }
         Log.d("SwanAppCloneModule", str);
@@ -234,14 +234,14 @@ public class a {
     public boolean r(File file, String str) {
         String[] list;
         if (file != null && file.exists()) {
-            File file2 = new File(d.b.g0.a.r0.a.d.a.f45711a, str);
+            File file2 = new File(d.b.g0.a.r0.a.d.a.f46103a, str);
             String str2 = (!file2.exists() || (list = file2.list()) == null || list.length <= 0) ? "-1" : list[0];
             p("upload file: ready");
             w q = d.b.g0.a.w0.a.q();
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("aiappid", str);
             hashMap.put("aiappversion", str2);
-            q.c(hashMap, file, new C0775a(file));
+            q.c(hashMap, file, new C0787a(file));
             return true;
         }
         p("no zip file");

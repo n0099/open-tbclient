@@ -2,56 +2,56 @@ package com.bytedance.sdk.openadsdk.core.d;
 
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28106a;
+    public String f27791a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28107b;
+    public String f27792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28108c;
+    public String f27793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28109d;
+    public int f27794d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28110e;
+    public int f27795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28111f;
+    public int f27796f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28112g;
+    public String f27797g;
 
     public String a() {
-        return this.f28112g;
+        return this.f27797g;
     }
 
     public String b() {
-        return this.f28106a;
+        return this.f27791a;
     }
 
     public String c() {
-        return this.f28107b;
+        return this.f27792b;
     }
 
     public String d() {
-        return this.f28108c;
+        return this.f27793c;
     }
 
     public int e() {
-        return this.f28109d;
+        return this.f27794d;
     }
 
     public int f() {
-        return this.f28110e;
+        return this.f27795e;
     }
 
     public int g() {
-        return this.f28111f;
+        return this.f27796f;
     }
 
     public JSONObject h() {
@@ -70,30 +70,30 @@ public class b {
     }
 
     public void a(String str) {
-        this.f28112g = str;
+        this.f27797g = str;
     }
 
     public void b(String str) {
-        this.f28106a = str;
+        this.f27791a = str;
     }
 
     public void c(String str) {
-        this.f28107b = str;
+        this.f27792b = str;
     }
 
     public void d(String str) {
-        this.f28108c = str;
+        this.f27793c = str;
     }
 
     public void a(int i) {
-        this.f28109d = i;
+        this.f27794d = i;
     }
 
     public void b(int i) {
-        this.f28110e = i;
+        this.f27795e = i;
     }
 
     public void c(int i) {
-        this.f28111f = i;
+        this.f27796f = i;
     }
 }

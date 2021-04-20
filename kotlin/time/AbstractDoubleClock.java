@@ -26,13 +26,13 @@ public abstract class AbstractDoubleClock implements Clock {
 
         @Override // kotlin.time.ClockMark
         public double elapsedNow() {
-            return Duration.m1573minusLRDsOJo(DurationKt.toDuration(this.clock.read() - this.startedAt, this.clock.getUnit()), this.offset);
+            return Duration.m1577minusLRDsOJo(DurationKt.toDuration(this.clock.read() - this.startedAt, this.clock.getUnit()), this.offset);
         }
 
         @Override // kotlin.time.ClockMark
         /* renamed from: plus-LRDsOJo  reason: not valid java name */
-        public ClockMark mo1546plusLRDsOJo(double d2) {
-            return new DoubleClockMark(this.startedAt, this.clock, Duration.m1574plusLRDsOJo(this.offset, d2), null);
+        public ClockMark mo1550plusLRDsOJo(double d2) {
+            return new DoubleClockMark(this.startedAt, this.clock, Duration.m1578plusLRDsOJo(this.offset, d2), null);
         }
 
         public /* synthetic */ DoubleClockMark(double d2, AbstractDoubleClock abstractDoubleClock, double d3, DefaultConstructorMarker defaultConstructorMarker) {

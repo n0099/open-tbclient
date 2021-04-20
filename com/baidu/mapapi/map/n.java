@@ -9,16 +9,16 @@ import java.util.List;
 public class n<T extends a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f7082a;
+    public final g f7117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f7083b;
+    public final int f7118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<T> f7084c;
+    public List<T> f7119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n<T>> f7085d;
+    public List<n<T>> f7120d;
 
     /* loaded from: classes2.dex */
     public static abstract class a {
@@ -34,64 +34,64 @@ public class n<T extends a> {
     }
 
     public n(g gVar, int i) {
-        this.f7085d = null;
-        this.f7082a = gVar;
-        this.f7083b = i;
+        this.f7120d = null;
+        this.f7117a = gVar;
+        this.f7118b = i;
     }
 
     private void a() {
         ArrayList arrayList = new ArrayList(4);
-        this.f7085d = arrayList;
-        g gVar = this.f7082a;
-        arrayList.add(new n(gVar.f7069a, gVar.f7073e, gVar.f7070b, gVar.f7074f, this.f7083b + 1));
-        List<n<T>> list = this.f7085d;
-        g gVar2 = this.f7082a;
-        list.add(new n<>(gVar2.f7073e, gVar2.f7071c, gVar2.f7070b, gVar2.f7074f, this.f7083b + 1));
-        List<n<T>> list2 = this.f7085d;
-        g gVar3 = this.f7082a;
-        list2.add(new n<>(gVar3.f7069a, gVar3.f7073e, gVar3.f7074f, gVar3.f7072d, this.f7083b + 1));
-        List<n<T>> list3 = this.f7085d;
-        g gVar4 = this.f7082a;
-        list3.add(new n<>(gVar4.f7073e, gVar4.f7071c, gVar4.f7074f, gVar4.f7072d, this.f7083b + 1));
-        List<T> list4 = this.f7084c;
-        this.f7084c = null;
+        this.f7120d = arrayList;
+        g gVar = this.f7117a;
+        arrayList.add(new n(gVar.f7104a, gVar.f7108e, gVar.f7105b, gVar.f7109f, this.f7118b + 1));
+        List<n<T>> list = this.f7120d;
+        g gVar2 = this.f7117a;
+        list.add(new n<>(gVar2.f7108e, gVar2.f7106c, gVar2.f7105b, gVar2.f7109f, this.f7118b + 1));
+        List<n<T>> list2 = this.f7120d;
+        g gVar3 = this.f7117a;
+        list2.add(new n<>(gVar3.f7104a, gVar3.f7108e, gVar3.f7109f, gVar3.f7107d, this.f7118b + 1));
+        List<n<T>> list3 = this.f7120d;
+        g gVar4 = this.f7117a;
+        list3.add(new n<>(gVar4.f7108e, gVar4.f7106c, gVar4.f7109f, gVar4.f7107d, this.f7118b + 1));
+        List<T> list4 = this.f7119c;
+        this.f7119c = null;
         for (T t : list4) {
             a(t.a().x, t.a().y, t);
         }
     }
 
     private void a(double d2, double d3, T t) {
-        List<n<T>> list = this.f7085d;
+        List<n<T>> list = this.f7120d;
         if (list != null) {
-            g gVar = this.f7082a;
-            int i = (d3 > gVar.f7074f ? 1 : (d3 == gVar.f7074f ? 0 : -1));
-            int i2 = (d2 > gVar.f7073e ? 1 : (d2 == gVar.f7073e ? 0 : -1));
+            g gVar = this.f7117a;
+            int i = (d3 > gVar.f7109f ? 1 : (d3 == gVar.f7109f ? 0 : -1));
+            int i2 = (d2 > gVar.f7108e ? 1 : (d2 == gVar.f7108e ? 0 : -1));
             list.get(i < 0 ? i2 < 0 ? 0 : 1 : i2 < 0 ? 2 : 3).a(d2, d3, t);
             return;
         }
-        if (this.f7084c == null) {
-            this.f7084c = new ArrayList();
+        if (this.f7119c == null) {
+            this.f7119c = new ArrayList();
         }
-        this.f7084c.add(t);
-        if (this.f7084c.size() <= 40 || this.f7083b >= 40) {
+        this.f7119c.add(t);
+        if (this.f7119c.size() <= 40 || this.f7118b >= 40) {
             return;
         }
         a();
     }
 
     private void a(g gVar, Collection<T> collection) {
-        if (this.f7082a.a(gVar)) {
-            List<n<T>> list = this.f7085d;
+        if (this.f7117a.a(gVar)) {
+            List<n<T>> list = this.f7120d;
             if (list != null) {
                 for (n<T> nVar : list) {
                     nVar.a(gVar, collection);
                 }
-            } else if (this.f7084c != null) {
-                if (gVar.b(this.f7082a)) {
-                    collection.addAll(this.f7084c);
+            } else if (this.f7119c != null) {
+                if (gVar.b(this.f7117a)) {
+                    collection.addAll(this.f7119c);
                     return;
                 }
-                for (T t : this.f7084c) {
+                for (T t : this.f7119c) {
                     if (gVar.a(t.a())) {
                         collection.add(t);
                     }
@@ -108,7 +108,7 @@ public class n<T extends a> {
 
     public void a(T t) {
         Point a2 = t.a();
-        if (this.f7082a.a(a2.x, a2.y)) {
+        if (this.f7117a.a(a2.x, a2.y)) {
             a(a2.x, a2.y, t);
         }
     }

@@ -10,7 +10,7 @@ import d.b.h0.w.v.c.c;
 public class KPSwitchRootLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13880e;
+    public c f13541e;
 
     public KPSwitchRootLinearLayout(Context context) {
         super(context);
@@ -18,12 +18,12 @@ public class KPSwitchRootLinearLayout extends LinearLayout {
     }
 
     public final void a() {
-        this.f13880e = new c(this);
+        this.f13541e = new c(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        this.f13880e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.f13541e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 

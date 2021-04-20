@@ -16,10 +16,21 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 /* loaded from: classes.dex */
 public class DefaultFieldDeserializer extends FieldDeserializer {
+    public boolean customDeserilizer;
     public ObjectDeserializer fieldValueDeserilizer;
 
     public DefaultFieldDeserializer(ParserConfig parserConfig, Class<?> cls, FieldInfo fieldInfo) {
         super(cls, fieldInfo);
+        boolean z = false;
+        this.customDeserilizer = false;
+        JSONField annotation = fieldInfo.getAnnotation();
+        if (annotation != null) {
+            Class<?> deserializeUsing = annotation.deserializeUsing();
+            if (deserializeUsing != null && deserializeUsing != Void.class) {
+                z = true;
+            }
+            this.customDeserilizer = z;
+        }
     }
 
     @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
@@ -73,9 +84,9 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
             deserialze = ((JavaBeanDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo.name, i);
         } else {
             FieldInfo fieldInfo2 = this.fieldInfo;
-            String str = fieldInfo2.format;
-            if (str != null && (objectDeserializer instanceof ContextObjectDeserializer)) {
-                deserialze = ((ContextObjectDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo2.name, str, fieldInfo2.parserFeatures);
+            if ((fieldInfo2.format != null || fieldInfo2.parserFeatures != 0) && (objectDeserializer instanceof ContextObjectDeserializer)) {
+                FieldInfo fieldInfo3 = this.fieldInfo;
+                deserialze = ((ContextObjectDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo3.name, fieldInfo3.format, fieldInfo3.parserFeatures);
             } else {
                 deserialze = objectDeserializer.deserialze(defaultJSONParser, type3, this.fieldInfo.name);
             }

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends a<d.b.g0.a.a1.c.c> {
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public static c d() {

@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Process;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static String a(Context context) {
         try {

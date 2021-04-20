@@ -7,39 +7,39 @@ import android.os.Build;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f11745a;
+    public SharedPreferences f11406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f11746b;
+    public SharedPreferences.Editor f11407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f11747c;
+    public Context f11408c;
 
     public g(Context context) {
         try {
-            this.f11747c = context;
+            this.f11408c = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 0);
-            this.f11745a = sharedPreferences;
-            this.f11746b = sharedPreferences.edit();
+            this.f11406a = sharedPreferences;
+            this.f11407b = sharedPreferences.edit();
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
     }
 
     public final String a() {
-        return this.f11745a.getString("xytk", "");
+        return this.f11406a.getString("xytk", "");
     }
 
     public final String b() {
-        return this.f11745a.getString("xytk_m", "");
+        return this.f11406a.getString("xytk_m", "");
     }
 
     public final void a(String str) {
-        this.f11746b.putString("xytk_m", str);
+        this.f11407b.putString("xytk_m", str);
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f11746b.apply();
+            this.f11407b.apply();
         } else {
-            this.f11746b.commit();
+            this.f11407b.commit();
         }
     }
 }

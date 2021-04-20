@@ -9,7 +9,7 @@ import d.b.g0.a.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43180a = k.f45051a;
+    public static final boolean f43572a = k.f45443a;
 
     public static void a(@NonNull String str, @NonNull String str2) {
         b(str, str2, null);
@@ -21,13 +21,13 @@ public class a {
         }
         if (th == null) {
             c.b(str, str2);
-            if (f43180a) {
+            if (f43572a) {
                 throw new RuntimeException(str2);
             }
             return;
         }
         c.c(str, str2, th);
-        if (f43180a) {
+        if (f43572a) {
             throw new RuntimeException(str2, th);
         }
     }

@@ -29,26 +29,26 @@ public class a extends a0 {
 
     /* renamed from: d.b.i0.s.b.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1529a extends ResponseCallback {
+    public class C1568a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f60096a;
+        public final /* synthetic */ String f61397a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f60097b;
+        public final /* synthetic */ CallbackHandler f61398b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f60098c;
+        public final /* synthetic */ e f61399c;
 
-        public C1529a(String str, CallbackHandler callbackHandler, e eVar) {
-            this.f60096a = str;
-            this.f60097b = callbackHandler;
-            this.f60098c = eVar;
+        public C1568a(String str, CallbackHandler callbackHandler, e eVar) {
+            this.f61397a = str;
+            this.f61398b = callbackHandler;
+            this.f61399c = eVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f60097b.handleSchemeDispatchCallback(this.f60096a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            this.f61398b.handleSchemeDispatchCallback(this.f61397a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -57,7 +57,7 @@ public class a extends a0 {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            a.this.n(response, this.f60096a, this.f60097b, this.f60098c);
+            a.this.n(response, this.f61397a, this.f61398b, this.f61399c);
             return response;
         }
     }
@@ -112,7 +112,7 @@ public class a extends a0 {
             schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
         }
         buildUpon.scheme(schemeHead);
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.i("NavigateToSmartProgram", buildUpon.build().toString());
         }
         return buildUpon.build();
@@ -123,17 +123,17 @@ public class a extends a0 {
             String a2 = b.a(k0.n());
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put(com.alipay.sdk.cons.b.f1858h, str);
+                jSONObject2.put(com.alipay.sdk.cons.b.f1883h, str);
                 jSONObject2.put("srcAppPage", a2);
                 jSONObject2.put("params", jSONObject);
                 String H = d.b.g0.a.w0.a.l().H();
                 Request build = new Request.Builder().url(H).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                 }
                 return build;
             } catch (Exception e2) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     e2.printStackTrace();
                 }
             }
@@ -142,10 +142,10 @@ public class a extends a0 {
     }
 
     public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, e eVar) {
-        d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(d.b.g0.a.w0.a.l().H(), requestBody, new C1529a(str, callbackHandler, eVar));
-        aVar.f48884f = true;
-        aVar.f48885g = false;
-        aVar.f48886h = true;
+        d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(d.b.g0.a.w0.a.l().H(), requestBody, new C1568a(str, callbackHandler, eVar));
+        aVar.f49276f = true;
+        aVar.f49277g = false;
+        aVar.f49278h = true;
         d.b.g0.k.e.a.f().e(aVar);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
@@ -169,7 +169,7 @@ public class a extends a0 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
             }
         } catch (Exception e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("NavigateToSmartProgram", e2.getMessage());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

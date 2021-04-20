@@ -2,14 +2,14 @@ package com.bytedance.sdk.openadsdk.core.video.e;
 
 import android.os.Build;
 import com.bytedance.sdk.openadsdk.core.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static void a(com.bytedance.sdk.openadsdk.k.f.b bVar) {
         if (Build.VERSION.SDK_INT >= 23) {
             com.bytedance.sdk.openadsdk.video.b.a aVar = new com.bytedance.sdk.openadsdk.video.b.a();
-            aVar.b(bVar.f29683c);
-            aVar.a(bVar.f29681a);
-            aVar.a(bVar.f29682b);
+            aVar.b(bVar.f29368c);
+            aVar.a(bVar.f29366a);
+            aVar.a(bVar.f29367b);
             com.bytedance.sdk.openadsdk.video.a.b.a.a(p.a(), aVar);
             return;
         }

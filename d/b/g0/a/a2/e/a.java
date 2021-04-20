@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.k.a0;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/clearStorage");
@@ -19,7 +19,7 @@ public class a extends a0 {
             return false;
         }
         eVar.S().g().edit().clear().apply();
-        d.b.g0.a.f2.d.f44467h.b();
+        d.b.g0.a.f2.d.f44859h.b();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

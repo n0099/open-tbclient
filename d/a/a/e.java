@@ -4,187 +4,227 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.JsonReader;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.annotation.WorkerThread;
+import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import d.a.a.u.t;
+import d.a.a.w.t;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import okio.Okio;
 /* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, l<d.a.a.d>> f41135a = new HashMap();
+    public static final Map<String, m<d.a.a.d>> f41423a = new HashMap();
 
     /* loaded from: classes.dex */
-    public static class a implements h<Throwable> {
+    public class a implements d.a.a.h<d.a.a.d> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41136a;
+        public final /* synthetic */ String f41424a;
 
         public a(String str) {
-            this.f41136a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.a.h
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            e.f41135a.remove(this.f41136a);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class b implements Callable<k<d.a.a.d>> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41137e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41138f;
-
-        public b(Context context, String str) {
-            this.f41137e = context;
-            this.f41138f = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public k<d.a.a.d> call() {
-            return e.e(this.f41137e, this.f41138f);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class c implements Callable<k<d.a.a.d>> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41139e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f41140f;
-
-        public c(Context context, int i) {
-            this.f41139e = context;
-            this.f41140f = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public k<d.a.a.d> call() {
-            return e.l(this.f41139e, this.f41140f);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class d implements Callable<k<d.a.a.d>> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InputStream f41141e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41142f;
-
-        public d(InputStream inputStream, String str) {
-            this.f41141e = inputStream;
-            this.f41142f = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public k<d.a.a.d> call() {
-            return e.g(this.f41141e, this.f41142f);
-        }
-    }
-
-    /* renamed from: d.a.a.e$e  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class CallableC0526e implements Callable<k<d.a.a.d>> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsonReader f41143e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41144f;
-
-        public CallableC0526e(JsonReader jsonReader, String str) {
-            this.f41143e = jsonReader;
-            this.f41144f = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public k<d.a.a.d> call() {
-            return e.j(this.f41143e, this.f41144f);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class f implements Callable<k<d.a.a.d>> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.a.d f41145e;
-
-        public f(d.a.a.d dVar) {
-            this.f41145e = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public k<d.a.a.d> call() {
-            Log.d("Gabe", "call\treturning from cache");
-            return new k<>(this.f41145e);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class g implements h<d.a.a.d> {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41146a;
-
-        public g(String str) {
-            this.f41146a = str;
+            this.f41424a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.a.h
         /* renamed from: a */
         public void onResult(d.a.a.d dVar) {
-            if (this.f41146a != null) {
-                d.a.a.s.g.b().c(this.f41146a, dVar);
-            }
-            e.f41135a.remove(this.f41146a);
+            e.f41423a.remove(this.f41424a);
         }
     }
 
-    public static l<d.a.a.d> b(@Nullable String str, Callable<k<d.a.a.d>> callable) {
-        d.a.a.d a2 = d.a.a.s.g.b().a(str);
+    /* loaded from: classes.dex */
+    public class b implements d.a.a.h<Throwable> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f41425a;
+
+        public b(String str) {
+            this.f41425a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.a.h
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            e.f41423a.remove(this.f41425a);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements Callable<l<d.a.a.d>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f41426e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f41427f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f41428g;
+
+        public c(Context context, String str, String str2) {
+            this.f41426e = context;
+            this.f41427f = str;
+            this.f41428g = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public l<d.a.a.d> call() {
+            return d.a.a.v.b.e(this.f41426e, this.f41427f, this.f41428g);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d implements Callable<l<d.a.a.d>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f41429e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f41430f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f41431g;
+
+        public d(Context context, String str, String str2) {
+            this.f41429e = context;
+            this.f41430f = str;
+            this.f41431g = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public l<d.a.a.d> call() {
+            return e.g(this.f41429e, this.f41430f, this.f41431g);
+        }
+    }
+
+    /* renamed from: d.a.a.e$e  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class CallableC0540e implements Callable<l<d.a.a.d>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ WeakReference f41432e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Context f41433f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ int f41434g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ String f41435h;
+
+        public CallableC0540e(WeakReference weakReference, Context context, int i, String str) {
+            this.f41432e = weakReference;
+            this.f41433f = context;
+            this.f41434g = i;
+            this.f41435h = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public l<d.a.a.d> call() {
+            Context context = (Context) this.f41432e.get();
+            if (context == null) {
+                context = this.f41433f;
+            }
+            return e.p(context, this.f41434g, this.f41435h);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class f implements Callable<l<d.a.a.d>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ InputStream f41436e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f41437f;
+
+        public f(InputStream inputStream, String str) {
+            this.f41436e = inputStream;
+            this.f41437f = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public l<d.a.a.d> call() {
+            return e.i(this.f41436e, this.f41437f);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class g implements Callable<l<d.a.a.d>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ZipInputStream f41438e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f41439f;
+
+        public g(ZipInputStream zipInputStream, String str) {
+            this.f41438e = zipInputStream;
+            this.f41439f = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public l<d.a.a.d> call() {
+            return e.t(this.f41438e, this.f41439f);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class h implements Callable<l<d.a.a.d>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.a.d f41440e;
+
+        public h(d.a.a.d dVar) {
+            this.f41440e = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public l<d.a.a.d> call() {
+            return new l<>(this.f41440e);
+        }
+    }
+
+    public static m<d.a.a.d> b(@Nullable String str, Callable<l<d.a.a.d>> callable) {
+        d.a.a.d a2 = str == null ? null : d.a.a.u.f.b().a(str);
         if (a2 != null) {
-            return new l<>(new f(a2));
+            return new m<>(new h(a2));
         }
-        if (f41135a.containsKey(str)) {
-            return f41135a.get(str);
+        if (str != null && f41423a.containsKey(str)) {
+            return f41423a.get(str);
         }
-        l<d.a.a.d> lVar = new l<>(callable);
-        lVar.h(new g(str));
-        lVar.g(new a(str));
-        f41135a.put(str, lVar);
-        return lVar;
+        m<d.a.a.d> mVar = new m<>(callable);
+        if (str != null) {
+            mVar.f(new a(str));
+            mVar.e(new b(str));
+            f41423a.put(str, mVar);
+        }
+        return mVar;
     }
 
     @Nullable
@@ -197,125 +237,180 @@ public class e {
         return null;
     }
 
-    public static l<d.a.a.d> d(Context context, String str) {
-        return b(str, new b(context.getApplicationContext(), str));
+    public static m<d.a.a.d> d(Context context, String str) {
+        return e(context, str, "asset_" + str);
+    }
+
+    public static m<d.a.a.d> e(Context context, String str, @Nullable String str2) {
+        return b(str2, new d(context.getApplicationContext(), str, str2));
     }
 
     @WorkerThread
-    public static k<d.a.a.d> e(Context context, String str) {
+    public static l<d.a.a.d> f(Context context, String str) {
+        return g(context, str, "asset_" + str);
+    }
+
+    @WorkerThread
+    public static l<d.a.a.d> g(Context context, String str, @Nullable String str2) {
         try {
-            String str2 = "asset_" + str;
             if (str.endsWith(".zip")) {
-                return n(new ZipInputStream(context.getAssets().open(str)), str2);
+                return t(new ZipInputStream(context.getAssets().open(str)), str2);
             }
-            return g(context.getAssets().open(str), str2);
+            return i(context.getAssets().open(str), str2);
         } catch (IOException e2) {
-            return new k<>(e2);
+            return new l<>(e2);
         }
     }
 
-    public static l<d.a.a.d> f(InputStream inputStream, @Nullable String str) {
-        return b(str, new d(inputStream, str));
+    public static m<d.a.a.d> h(InputStream inputStream, @Nullable String str) {
+        return b(str, new f(inputStream, str));
     }
 
     @WorkerThread
-    public static k<d.a.a.d> g(InputStream inputStream, @Nullable String str) {
-        return h(inputStream, str, true);
+    public static l<d.a.a.d> i(InputStream inputStream, @Nullable String str) {
+        return j(inputStream, str, true);
     }
 
     @WorkerThread
-    public static k<d.a.a.d> h(InputStream inputStream, @Nullable String str, boolean z) {
+    public static l<d.a.a.d> j(InputStream inputStream, @Nullable String str, boolean z) {
         try {
-            return j(new JsonReader(new InputStreamReader(inputStream)), str);
+            return k(JsonReader.A(Okio.buffer(Okio.source(inputStream))), str);
         } finally {
             if (z) {
-                d.a.a.v.f.c(inputStream);
+                d.a.a.x.h.c(inputStream);
             }
         }
     }
 
-    public static l<d.a.a.d> i(JsonReader jsonReader, @Nullable String str) {
-        return b(str, new CallableC0526e(jsonReader, str));
+    @WorkerThread
+    public static l<d.a.a.d> k(JsonReader jsonReader, @Nullable String str) {
+        return l(jsonReader, str, true);
     }
 
-    @WorkerThread
-    public static k<d.a.a.d> j(JsonReader jsonReader, @Nullable String str) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    public static l<d.a.a.d> l(JsonReader jsonReader, @Nullable String str, boolean z) {
         try {
-            d.a.a.d a2 = t.a(jsonReader);
-            d.a.a.s.g.b().c(str, a2);
-            return new k<>(a2);
-        } catch (Exception e2) {
-            return new k<>(e2);
+            try {
+                d.a.a.d a2 = t.a(jsonReader);
+                if (str != null) {
+                    d.a.a.u.f.b().c(str, a2);
+                }
+                l<d.a.a.d> lVar = new l<>(a2);
+                if (z) {
+                    d.a.a.x.h.c(jsonReader);
+                }
+                return lVar;
+            } catch (Exception e2) {
+                l<d.a.a.d> lVar2 = new l<>(e2);
+                if (z) {
+                    d.a.a.x.h.c(jsonReader);
+                }
+                return lVar2;
+            }
+        } catch (Throwable th) {
+            if (z) {
+                d.a.a.x.h.c(jsonReader);
+            }
+            throw th;
         }
     }
 
-    public static l<d.a.a.d> k(Context context, @RawRes int i) {
-        return b(p(i), new c(context.getApplicationContext(), i));
+    public static m<d.a.a.d> m(Context context, @RawRes int i) {
+        return n(context, i, w(context, i));
+    }
+
+    public static m<d.a.a.d> n(Context context, @RawRes int i, @Nullable String str) {
+        return b(str, new CallableC0540e(new WeakReference(context), context.getApplicationContext(), i, str));
     }
 
     @WorkerThread
-    public static k<d.a.a.d> l(Context context, @RawRes int i) {
+    public static l<d.a.a.d> o(Context context, @RawRes int i) {
+        return p(context, i, w(context, i));
+    }
+
+    @WorkerThread
+    public static l<d.a.a.d> p(Context context, @RawRes int i, @Nullable String str) {
         try {
-            return g(context.getResources().openRawResource(i), p(i));
+            return i(context.getResources().openRawResource(i), str);
         } catch (Resources.NotFoundException e2) {
-            return new k<>(e2);
+            return new l<>(e2);
         }
     }
 
-    public static l<d.a.a.d> m(Context context, String str) {
-        return d.a.a.t.b.b(context, str);
+    public static m<d.a.a.d> q(Context context, String str) {
+        return r(context, str, "url_" + str);
+    }
+
+    public static m<d.a.a.d> r(Context context, String str, @Nullable String str2) {
+        return b(str2, new c(context, str, str2));
+    }
+
+    public static m<d.a.a.d> s(ZipInputStream zipInputStream, @Nullable String str) {
+        return b(str, new g(zipInputStream, str));
     }
 
     @WorkerThread
-    public static k<d.a.a.d> n(ZipInputStream zipInputStream, @Nullable String str) {
+    public static l<d.a.a.d> t(ZipInputStream zipInputStream, @Nullable String str) {
         try {
-            return o(zipInputStream, str);
+            return u(zipInputStream, str);
         } finally {
-            d.a.a.v.f.c(zipInputStream);
+            d.a.a.x.h.c(zipInputStream);
         }
     }
 
     @WorkerThread
-    public static k<d.a.a.d> o(ZipInputStream zipInputStream, @Nullable String str) {
+    public static l<d.a.a.d> u(ZipInputStream zipInputStream, @Nullable String str) {
+        String[] split;
         HashMap hashMap = new HashMap();
         try {
             ZipEntry nextEntry = zipInputStream.getNextEntry();
             d.a.a.d dVar = null;
             while (nextEntry != null) {
-                if (nextEntry.getName().contains("__MACOSX")) {
+                String name = nextEntry.getName();
+                if (name.contains("__MACOSX")) {
                     zipInputStream.closeEntry();
                 } else if (nextEntry.getName().contains(".json")) {
-                    dVar = h(zipInputStream, str, false).b();
-                } else if (nextEntry.getName().contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)) {
-                    String[] split = nextEntry.getName().split("/");
-                    hashMap.put(split[split.length - 1], BitmapFactory.decodeStream(zipInputStream));
+                    dVar = l(JsonReader.A(Okio.buffer(Okio.source(zipInputStream))), null, false).b();
                 } else {
-                    zipInputStream.closeEntry();
+                    if (!name.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !name.contains(".webp")) {
+                        zipInputStream.closeEntry();
+                    }
+                    hashMap.put(name.split("/")[split.length - 1], BitmapFactory.decodeStream(zipInputStream));
                 }
                 nextEntry = zipInputStream.getNextEntry();
             }
             if (dVar == null) {
-                return new k<>(new IllegalArgumentException("Unable to parse composition"));
+                return new l<>(new IllegalArgumentException("Unable to parse composition"));
             }
             for (Map.Entry entry : hashMap.entrySet()) {
                 d.a.a.g c2 = c(dVar, (String) entry.getKey());
                 if (c2 != null) {
-                    c2.e((Bitmap) entry.getValue());
+                    c2.g(d.a.a.x.h.l((Bitmap) entry.getValue(), c2.f(), c2.d()));
                 }
             }
             for (Map.Entry<String, d.a.a.g> entry2 : dVar.i().entrySet()) {
                 if (entry2.getValue().a() == null) {
-                    return new k<>(new IllegalStateException("There is no image for " + entry2.getValue().c()));
+                    return new l<>(new IllegalStateException("There is no image for " + entry2.getValue().c()));
                 }
             }
-            d.a.a.s.g.b().c(str, dVar);
-            return new k<>(dVar);
+            if (str != null) {
+                d.a.a.u.f.b().c(str, dVar);
+            }
+            return new l<>(dVar);
         } catch (IOException e2) {
-            return new k<>(e2);
+            return new l<>(e2);
         }
     }
 
-    public static String p(@RawRes int i) {
-        return "rawRes_" + i;
+    public static boolean v(Context context) {
+        return (context.getResources().getConfiguration().uiMode & 48) == 32;
+    }
+
+    public static String w(Context context, @RawRes int i) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("rawRes");
+        sb.append(v(context) ? "_night_" : "_day_");
+        sb.append(i);
+        return sb.toString();
     }
 }

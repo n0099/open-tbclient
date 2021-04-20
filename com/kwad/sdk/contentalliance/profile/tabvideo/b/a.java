@@ -15,71 +15,71 @@ import com.kwad.sdk.utils.v;
 public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f32923a;
+    public d f33212a;
 
     /* renamed from: c  reason: collision with root package name */
-    public c<AdTemplate, ?> f32924c;
+    public c<AdTemplate, ?> f33213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<?, AdTemplate> f32925d;
+    public com.kwad.sdk.lib.b.c<?, AdTemplate> f33214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KSProfilePageLoadingView f32926e;
+    public KSProfilePageLoadingView f33215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.widget.d f32927f;
+    public com.kwad.sdk.contentalliance.widget.d f33216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public KSPageLoadingView.a f32928g = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.1
+    public KSPageLoadingView.a f33217g = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.1
         @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
         public void a() {
-            if (a.this.f32925d != null) {
-                a.this.f32925d.k();
+            if (a.this.f33214d != null) {
+                a.this.f33214d.k();
             }
         }
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public f f32929h = new g() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.2
+    public f f33218h = new g() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.2
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void a(boolean z, int i, String str) {
-            a.this.f32926e.a();
+            a.this.f33215e.a();
             if (z) {
-                if (a.this.f32924c.i()) {
-                    if (v.a(a.this.f32926e.getContext())) {
-                        a.this.f32926e.d();
+                if (a.this.f33213c.i()) {
+                    if (v.a(a.this.f33215e.getContext())) {
+                        a.this.f33215e.d();
                     } else {
-                        a.this.f32926e.c();
+                        a.this.f33215e.c();
                     }
                 }
-            } else if (com.kwad.sdk.core.network.f.f33869a.k == i) {
+            } else if (com.kwad.sdk.core.network.f.f34158a.k == i) {
                 p.a(a.this.o());
             } else {
                 p.b(a.this.o());
             }
-            a.this.f32927f.a(a.this.f32925d.j());
+            a.this.f33216f.a(a.this.f33214d.j());
         }
 
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void a(boolean z, boolean z2) {
             if (!z) {
-                a.this.f32927f.a();
-            } else if (a.this.f32924c.i()) {
-                a.this.f32926e.b();
+                a.this.f33216f.a();
+            } else if (a.this.f33213c.i()) {
+                a.this.f33215e.b();
             }
         }
 
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void b(boolean z, boolean z2) {
-            a.this.f32926e.a();
+            a.this.f33215e.a();
             if (z) {
-                if (a.this.f32924c.i()) {
-                    a.this.f32926e.d();
-                } else if (!a.this.f32923a.d(a.this.f32927f)) {
-                    a.this.f32923a.c(a.this.f32927f);
+                if (a.this.f33213c.i()) {
+                    a.this.f33215e.d();
+                } else if (!a.this.f33212a.d(a.this.f33216f)) {
+                    a.this.f33212a.c(a.this.f33216f);
                 }
             }
-            a.this.f32927f.a(a.this.f32925d.j());
+            a.this.f33216f.a(a.this.f33214d.j());
         }
     };
 
@@ -87,26 +87,26 @@ public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        CallerContext callercontext = ((com.kwad.sdk.lib.a.a.a) this).f35902b;
-        com.kwad.sdk.lib.b.c cVar = callercontext.f35906g;
-        this.f32925d = cVar;
-        this.f32923a = callercontext.i;
-        this.f32924c = callercontext.f35907h;
-        cVar.a(this.f32929h);
-        this.f32926e.setRetryClickListener(this.f32928g);
+        CallerContext callercontext = ((com.kwad.sdk.lib.a.a.a) this).f36191b;
+        com.kwad.sdk.lib.b.c cVar = callercontext.f36195g;
+        this.f33214d = cVar;
+        this.f33212a = callercontext.i;
+        this.f33213c = callercontext.f36196h;
+        cVar.a(this.f33218h);
+        this.f33215e.setRetryClickListener(this.f33217g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32925d.b(this.f32929h);
-        this.f32926e.setRetryClickListener(null);
+        this.f33214d.b(this.f33218h);
+        this.f33215e.setRetryClickListener(null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32926e = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
-        this.f32927f = new com.kwad.sdk.contentalliance.widget.d(o(), false);
+        this.f33215e = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
+        this.f33216f = new com.kwad.sdk.contentalliance.widget.d(o(), false);
     }
 }

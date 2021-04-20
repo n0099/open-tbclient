@@ -7,24 +7,24 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f45844a;
+    public long f46236a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45845b;
+    public String f46237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45846c;
+    public String f46238c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45847d;
+    public int f46239d;
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("userId", this.f45844a);
-            jSONObject.put("displayName", this.f45845b);
-            jSONObject.put(Config.EVENT_ATTR, this.f45846c);
-            jSONObject.put("role", this.f45847d);
+            jSONObject.put("userId", this.f46236a);
+            jSONObject.put("displayName", this.f46237b);
+            jSONObject.put(Config.EVENT_ATTR, this.f46238c);
+            jSONObject.put("role", this.f46239d);
             return jSONObject;
         } catch (JSONException unused) {
             return null;

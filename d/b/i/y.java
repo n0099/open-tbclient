@@ -19,13 +19,13 @@ public class y extends d.b.i.a<d.b.h0.r.q.a> {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             if (y.this.k != null && y.this.k.n() != null) {
                 d.b.i0.x.m.a(y.this.k.n().o0());
                 y yVar = y.this;
-                d.b.i0.x.m.l(yVar.j.f4478e, yVar.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(yVar.j.f4513e, yVar.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 y yVar2 = y.this;
-                d.b.i0.x.m.l(yVar2.j.f4479f, yVar2.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(yVar2.j.f4514f, yVar2.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }

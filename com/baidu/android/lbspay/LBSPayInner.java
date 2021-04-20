@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.alipay.sdk.app.PayTask;
 import com.baidu.android.lbspay.activity.LBSTransActivity;
 import com.baidu.android.lbspay.activity.LBSTransCashierActivity;
@@ -59,7 +60,7 @@ public class LBSPayInner {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayInner f2558a = new LBSPayInner();
+        public static LBSPayInner f2593a = new LBSPayInner();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,7 +74,7 @@ public class LBSPayInner {
     }
 
     public static LBSPayInner getInstance() {
-        return a.f2558a;
+        return a.f2593a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -115,7 +116,7 @@ public class LBSPayInner {
             activity.overridePendingTransition(0, 0);
             return;
         }
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.getApplicationContext().startActivity(intent);
     }
 

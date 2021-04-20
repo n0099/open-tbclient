@@ -7,11 +7,11 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30377a;
+    public static String f30062a;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x004c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0071 */
@@ -132,10 +132,10 @@ public class aj {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f30377a)) {
-            f30377a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
+        if (TextUtils.isEmpty(f30062a)) {
+            f30062a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
         }
-        return f30377a;
+        return f30062a;
     }
 
     public static boolean a() {

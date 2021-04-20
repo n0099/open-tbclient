@@ -18,8 +18,8 @@ import d.b.i0.m.f;
 import d.b.i0.x.b0;
 import d.b.i0.x.e0.j;
 import d.b.i0.x.k;
-/* loaded from: classes3.dex */
-public class HomePageAlaLiveThreadAdapter extends d.b.b.j.e.a<j, HomePageAlaLiveThreadViewHolder> implements f {
+/* loaded from: classes4.dex */
+public class HomePageAlaLiveThreadAdapter extends d.b.c.j.e.a<j, HomePageAlaLiveThreadViewHolder> implements f {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public k o;
@@ -27,29 +27,29 @@ public class HomePageAlaLiveThreadAdapter extends d.b.b.j.e.a<j, HomePageAlaLive
     public String q;
     public b0<j> r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public k f17257a;
+        public k f16934a;
 
         public HomePageAlaLiveThreadViewHolder(k kVar) {
             super(kVar.m());
-            this.f17257a = kVar;
+            this.f16934a = kVar;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends b0<j> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:20:0x00c4, code lost:
-            if (r7.getId() == r6.f17258b.o.O().getId()) goto L9;
+            if (r7.getId() == r6.f16935b.o.O().getId()) goto L9;
          */
         /* JADX WARN: Code restructure failed: missing block: B:25:0x00e5, code lost:
-            if (r7.getId() == r6.f17258b.o.P().getId()) goto L9;
+            if (r7.getId() == r6.f16935b.o.P().getId()) goto L9;
          */
         @Override // d.b.i0.x.b0
         /* renamed from: d */
@@ -97,7 +97,7 @@ public class HomePageAlaLiveThreadAdapter extends d.b.b.j.e.a<j, HomePageAlaLive
                 i = 1;
             }
             if (i != 0) {
-                d.b.i0.z0.g.m.a.a(jVar.f62197e, HomePageAlaLiveThreadAdapter.this.m, jVar.E(), i);
+                d.b.i0.a1.g.m.a.a(jVar.f63772e, HomePageAlaLiveThreadAdapter.this.m, jVar.E(), i);
             }
         }
     }
@@ -135,7 +135,7 @@ public class HomePageAlaLiveThreadAdapter extends d.b.b.j.e.a<j, HomePageAlaLive
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public HomePageAlaLiveThreadViewHolder R(ViewGroup viewGroup) {
         k kVar = new k(this.n, this.m);
@@ -149,18 +149,18 @@ public class HomePageAlaLiveThreadAdapter extends d.b.b.j.e.a<j, HomePageAlaLive
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, j jVar, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
         jVar.U(jVar.position + 1);
-        k kVar = homePageAlaLiveThreadViewHolder.f17257a;
+        k kVar = homePageAlaLiveThreadViewHolder.f16934a;
         if (kVar instanceof e) {
             kVar.setPage(this.q);
         }
-        homePageAlaLiveThreadViewHolder.f17257a.Y(i + 1);
-        homePageAlaLiveThreadViewHolder.f17257a.n(jVar);
-        homePageAlaLiveThreadViewHolder.f17257a.q(this.r);
-        homePageAlaLiveThreadViewHolder.f17257a.B(this.p);
+        homePageAlaLiveThreadViewHolder.f16934a.Y(i + 1);
+        homePageAlaLiveThreadViewHolder.f16934a.n(jVar);
+        homePageAlaLiveThreadViewHolder.f16934a.q(this.r);
+        homePageAlaLiveThreadViewHolder.f16934a.B(this.p);
         if (jVar != null && jVar.n() != null) {
             int i2 = jVar.n().q1().live_type;
             String w1 = jVar.n().w1();
@@ -179,7 +179,7 @@ public class HomePageAlaLiveThreadAdapter extends d.b.b.j.e.a<j, HomePageAlaLive
             statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, jVar.E());
             TiebaStatic.log(statisticItem);
         }
-        d.b.i0.z0.g.m.a.c(jVar.f62197e, this.m, jVar.E());
+        d.b.i0.a1.g.m.a.c(jVar.f63772e, this.m, jVar.E());
         return homePageAlaLiveThreadViewHolder.a();
     }
 

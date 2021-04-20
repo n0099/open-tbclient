@@ -14,14 +14,14 @@ import d.o.a.a.a.a.h;
 import d.o.a.a.a.a.q;
 import d.o.a.d.n.k;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29190a;
+    public final WeakReference<Context> f28875a;
 
     public d(Context context) {
-        this.f29190a = new WeakReference<>(context);
+        this.f28875a = new WeakReference<>(context);
     }
 
     @Override // d.o.a.a.a.a.h

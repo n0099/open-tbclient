@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
@@ -22,7 +23,6 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
-import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -167,9 +167,9 @@ public final class PayCallBackManager implements NoProguard {
             intent.putExtra("payresult", str);
         }
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        intent.addFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+        intent.addFlags(536870912);
         intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
         isClientDead = false;
         context.startActivity(intent);

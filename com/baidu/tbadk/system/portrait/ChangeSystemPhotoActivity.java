@@ -27,7 +27,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +43,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public ArrayList<d.b.h0.u0.a.b> recommendPhotos = null;
     public int currentChoosedID = -1;
     public h mResetTask = null;
-    public d.b.b.j.d.a mPhotoData = null;
+    public d.b.c.j.d.a mPhotoData = null;
     public String currentUrl = null;
     public boolean needUpload = true;
-    public d.b.b.e.l.c<d.b.b.j.d.a> mCallback = new g();
+    public d.b.c.e.l.c<d.b.c.j.d.a> mCallback = new g();
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -160,13 +160,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     }
 
     /* loaded from: classes3.dex */
-    public class g extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public class g extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public g() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             super.onLoaded((g) aVar, str, i);
             if (aVar == null) {
                 return;
@@ -217,16 +217,16 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public class h extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14024a;
+        public NetWork f13685a;
 
         public h() {
-            this.f14024a = null;
+            this.f13685a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             ChangeSystemPhotoActivity.this.mResetTask = null;
-            NetWork netWork = this.f14024a;
+            NetWork netWork = this.f13685a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -243,10 +243,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Exception e2;
             String str;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
-            this.f14024a = netWork;
+            this.f13685a = netWork;
             try {
                 netWork.addPostData("pic", ChangeSystemPhotoActivity.this.mPhotoData.n());
-                str = this.f14024a.postMultiNetData();
+                str = this.f13685a.postMultiNetData();
             } catch (Exception e3) {
                 e2 = e3;
                 str = null;
@@ -257,7 +257,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 BdLog.e(e2.getMessage());
                 return str;
             }
-            if (this.f14024a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f13685a.getNetContext().getResponse().isRequestSuccess()) {
                 return str;
             }
             return null;
@@ -266,12 +266,12 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            if (this.f14024a != null) {
+            if (this.f13685a != null) {
                 d.b.h0.r.f0.a aVar = ChangeSystemPhotoActivity.this.mLoadingDialog;
                 if (aVar != null) {
                     aVar.h(false);
                 }
-                if (this.f14024a.getNetContext().getResponse().isRequestSuccess()) {
+                if (this.f13685a.getNetContext().getResponse().isRequestSuccess()) {
                     new d.b.h0.r.f0.c().c(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.currentUrl);
@@ -386,7 +386,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             return;
         }
         this.currentUrl = bVar.a();
-        d.b.b.e.l.d.h().k(bVar.a(), 10, this.mCallback, 0, 0, getUniqueId(), new Object[0]);
+        d.b.c.e.l.d.h().k(bVar.a(), 10, this.mCallback, 0, 0, getUniqueId(), new Object[0]);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921378, this.currentUrl));
     }
 

@@ -7,27 +7,27 @@ import android.widget.ImageButton;
 public class g implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f5514a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5549a;
 
     public g(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.f5514a = safeKeyBoardPopupWindow;
+        this.f5549a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         ImageButton imageButton;
         if (motionEvent.getAction() == 0) {
-            this.f5514a.d();
+            this.f5549a.d();
             return false;
         } else if (motionEvent.getAction() == 1) {
-            this.f5514a.c();
+            this.f5549a.c();
             return false;
         } else if (motionEvent.getAction() == 2) {
-            imageButton = this.f5514a.k;
+            imageButton = this.f5549a.k;
             if (imageButton.isPressed()) {
                 return false;
             }
-            this.f5514a.c();
+            this.f5549a.c();
             return false;
         } else {
             return false;

@@ -6,28 +6,28 @@ import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
 public final class RoleOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7349a = "RoleOptions";
+    public static final String f7384a = "RoleOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7350b;
+    public String f7385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7351c;
+    public int f7386c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7352d;
+    public String f7387d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7353e;
+    public String f7388e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SyncCoordinateConverter.CoordType f7354f;
+    public SyncCoordinateConverter.CoordType f7389f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LatLng f7355g;
+    public LatLng f7390g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7356h;
+    public String f7391h;
     public String i;
     public LatLng j;
     public String k;
@@ -37,18 +37,18 @@ public final class RoleOptions {
     public String o;
 
     public RoleOptions() {
-        this.f7350b = null;
-        this.f7351c = 0;
-        this.f7352d = null;
-        this.f7353e = null;
+        this.f7385b = null;
+        this.f7386c = 0;
+        this.f7387d = null;
+        this.f7388e = null;
         SyncCoordinateConverter.CoordType coordType = SyncCoordinateConverter.CoordType.BD09LL;
-        this.f7354f = coordType;
-        this.f7350b = null;
-        this.f7351c = 0;
-        this.f7352d = null;
-        this.f7353e = null;
-        this.f7355g = null;
-        this.f7356h = null;
+        this.f7389f = coordType;
+        this.f7385b = null;
+        this.f7386c = 0;
+        this.f7387d = null;
+        this.f7388e = null;
+        this.f7390g = null;
+        this.f7391h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -56,19 +56,19 @@ public final class RoleOptions {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.f7354f = coordType;
+        this.f7389f = coordType;
     }
 
     private LatLng a(LatLng latLng) {
-        return new SyncCoordinateConverter().from(this.f7354f).coord(latLng).convert();
+        return new SyncCoordinateConverter().from(this.f7389f).coord(latLng).convert();
     }
 
     public SyncCoordinateConverter.CoordType getCoordType() {
-        return this.f7354f;
+        return this.f7389f;
     }
 
     public String getDriverId() {
-        return this.f7352d;
+        return this.f7387d;
     }
 
     public LatLng getDriverPosition() {
@@ -96,15 +96,15 @@ public final class RoleOptions {
     }
 
     public String getOrderId() {
-        return this.f7350b;
+        return this.f7385b;
     }
 
     public int getRoleType() {
-        return this.f7351c;
+        return this.f7386c;
     }
 
     public LatLng getStartPosition() {
-        return this.f7355g;
+        return this.f7390g;
     }
 
     public String getStartPositionName() {
@@ -112,16 +112,16 @@ public final class RoleOptions {
     }
 
     public String getStartPositionPoiUid() {
-        return this.f7356h;
+        return this.f7391h;
     }
 
     public String getUserId() {
-        return this.f7353e;
+        return this.f7388e;
     }
 
     public RoleOptions setCoordType(SyncCoordinateConverter.CoordType coordType) {
         if (SyncCoordinateConverter.CoordType.BD09LL == coordType || SyncCoordinateConverter.CoordType.COMMON == coordType) {
-            this.f7354f = coordType;
+            this.f7389f = coordType;
             return this;
         }
         throw new IllegalArgumentException("CoordType only can be BD09LL or COMMON, please check!");
@@ -131,7 +131,7 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("driverId is null");
         }
-        this.f7352d = str;
+        this.f7387d = str;
         return this;
     }
 
@@ -140,7 +140,7 @@ public final class RoleOptions {
             this.m = null;
             return this;
         }
-        if (SyncCoordinateConverter.CoordType.COMMON == this.f7354f) {
+        if (SyncCoordinateConverter.CoordType.COMMON == this.f7389f) {
             latLng = a(latLng);
         }
         this.m = latLng;
@@ -159,7 +159,7 @@ public final class RoleOptions {
 
     public RoleOptions setEndPosition(LatLng latLng) {
         if (latLng != null) {
-            if (SyncCoordinateConverter.CoordType.COMMON == this.f7354f) {
+            if (SyncCoordinateConverter.CoordType.COMMON == this.f7389f) {
                 latLng = a(latLng);
             }
             this.j = latLng;
@@ -182,13 +182,13 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("orderId is null.");
         }
-        this.f7350b = str;
+        this.f7385b = str;
         return this;
     }
 
     public RoleOptions setRoleType(int i) {
         if (i == 0) {
-            this.f7351c = i;
+            this.f7386c = i;
             return this;
         }
         throw new IllegalArgumentException("role type is invalid: " + i);
@@ -196,10 +196,10 @@ public final class RoleOptions {
 
     public RoleOptions setStartPosition(LatLng latLng) {
         if (latLng != null) {
-            if (SyncCoordinateConverter.CoordType.COMMON == this.f7354f) {
+            if (SyncCoordinateConverter.CoordType.COMMON == this.f7389f) {
                 latLng = a(latLng);
             }
-            this.f7355g = latLng;
+            this.f7390g = latLng;
             return this;
         }
         throw new IllegalArgumentException("StartPosition is null, must be applied!");
@@ -211,7 +211,7 @@ public final class RoleOptions {
     }
 
     public RoleOptions setStartPositionPoiUid(String str) {
-        this.f7356h = str;
+        this.f7391h = str;
         return this;
     }
 
@@ -219,7 +219,7 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("user id is null");
         }
-        this.f7353e = str;
+        this.f7388e = str;
         return this;
     }
 }

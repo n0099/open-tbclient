@@ -2,7 +2,7 @@ package com.baidu.apollon.statusbar;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 /* loaded from: classes.dex */
 public class ImmersiveOSUtils {
     public static final String FLYME = "flyme";
@@ -65,7 +65,7 @@ public class ImmersiveOSUtils {
             return false;
         }
         try {
-            if (flymeOSVersion.toLowerCase().contains(IXAdRequestInfo.OS)) {
+            if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
                 intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
             } else {
                 intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
@@ -83,7 +83,7 @@ public class ImmersiveOSUtils {
             return false;
         }
         try {
-            if (flymeOSVersion.toLowerCase().contains(IXAdRequestInfo.OS)) {
+            if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
                 intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
             } else {
                 intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();

@@ -11,7 +11,7 @@ import android.widget.AbsListView;
 import android.widget.Scroller;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.R$styleable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BdPersonListView extends BdTypeListView {
     public static int i0 = 1;
     public final Context N;
@@ -33,7 +33,7 @@ public class BdPersonListView extends BdTypeListView {
     public boolean g0;
     public boolean h0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -42,22 +42,22 @@ public class BdPersonListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f20235a;
+        public int f19927a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20236b;
+        public int f19928b;
 
         public b(int i, int i2, int i3, int i4) {
-            this.f20235a = i2;
-            this.f20236b = i4;
+            this.f19927a = i2;
+            this.f19928b = i4;
         }
 
         public int a(float f2) {
-            return (int) (this.f20235a + (f2 / 2.5f));
+            return (int) (this.f19927a + (f2 / 2.5f));
         }
     }
 
@@ -91,13 +91,13 @@ public class BdPersonListView extends BdTypeListView {
         if (this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f20236b - (this.d0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f19928b - (this.d0 / 2)) {
             J();
         } else {
             this.e0.a();
         }
-        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f20235a - this.Q.getHeight(), 200);
-        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f20235a - this.R.getHeight(), 200);
+        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f19927a - this.Q.getHeight(), 200);
+        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f19927a - this.R.getHeight(), 200);
         invalidate();
         this.W = false;
     }
@@ -144,7 +144,7 @@ public class BdPersonListView extends BdTypeListView {
                             if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                 int a2 = this.U.a(this.T - this.S);
                                 b bVar = this.U;
-                                if (a2 > bVar.f20235a && a2 <= bVar.f20236b) {
+                                if (a2 > bVar.f19927a && a2 <= bVar.f19928b) {
                                     this.W = true;
                                     this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                     if (this.R != null) {
@@ -155,12 +155,12 @@ public class BdPersonListView extends BdTypeListView {
                                             this.R.setLayoutParams(layoutParams);
                                         }
                                     }
-                                    I(a2 - this.U.f20235a);
+                                    I(a2 - this.U.f19927a);
                                 } else {
                                     b bVar2 = this.U;
-                                    if (a2 <= bVar2.f20235a) {
+                                    if (a2 <= bVar2.f19927a) {
                                         this.W = false;
-                                    } else if (a2 > bVar2.f20236b) {
+                                    } else if (a2 > bVar2.f19928b) {
                                         this.W = true;
                                     } else {
                                         this.W = false;

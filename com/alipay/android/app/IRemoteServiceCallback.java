@@ -20,10 +20,10 @@ public interface IRemoteServiceCallback extends IInterface {
         public static class a implements IRemoteServiceCallback {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1628a;
+            public IBinder f1653a;
 
             public a(IBinder iBinder) {
-                this.f1628a = iBinder;
+                this.f1653a = iBinder;
             }
 
             public String a() {
@@ -32,7 +32,7 @@ public interface IRemoteServiceCallback extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1628a;
+                return this.f1653a;
             }
 
             @Override // com.alipay.android.app.IRemoteServiceCallback
@@ -41,7 +41,7 @@ public interface IRemoteServiceCallback extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.f1628a.transact(3, obtain, obtain2, 0);
+                    this.f1653a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -58,7 +58,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(z ? 1 : 0);
                     obtain.writeString(str);
-                    this.f1628a.transact(2, obtain, obtain2, 0);
+                    this.f1653a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -81,7 +81,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f1628a.transact(1, obtain, obtain2, 0);
+                    this.f1653a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

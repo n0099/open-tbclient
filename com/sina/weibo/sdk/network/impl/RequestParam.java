@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestParam implements IRequestParam {
     public static final String KEY_PARAM_BODY_BYTE_ARRAY = "body_byte_array";
     public Context appContext;
@@ -28,7 +28,7 @@ public class RequestParam implements IRequestParam {
     public Map<String, IRequestParam.ValuePart<File>> files = new HashMap();
     public Map<String, byte[]> byteArrays = new HashMap();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public Context appContext;
         public String shortUrl;

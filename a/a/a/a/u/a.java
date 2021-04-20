@@ -5,7 +5,7 @@ public interface a {
 
     void a(Object obj, String str);
 
-    p b(Object obj);
+    o b(Object obj);
 
     void b(Object obj, String str);
 }

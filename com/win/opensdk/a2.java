@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +18,7 @@ import org.json.JSONException;
 public class a2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39866a;
+    public static String f40155a;
 
     public static boolean a(Context context, Uri uri) {
         try {
@@ -30,7 +31,7 @@ public class a2 {
     public static void b(Context context, Uri uri) {
         String str;
         Intent intent = new Intent("android.intent.action.VIEW", uri);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         uri.getScheme();
         if (d2.a(uri)) {
             str = "com.huawei.appmarket";
@@ -41,7 +42,7 @@ public class a2 {
             } catch (URISyntaxException e2) {
                 e2.printStackTrace();
             }
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent);
         } else {
             str = "com.android.vending";
@@ -62,7 +63,7 @@ public class a2 {
         String b2;
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(uri);
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         String str = null;
         boolean z = false;
         try {

@@ -10,10 +10,10 @@ import javax.net.ssl.X509TrustManager;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509TrustManager f3510a = b();
+    public static final X509TrustManager f3545a = b();
 
     public static X509TrustManager a() {
-        return f3510a;
+        return f3545a;
     }
 
     public static X509TrustManager b() {

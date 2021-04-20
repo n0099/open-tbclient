@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.b.a;
-import f.a.x.c.f;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.b.a;
+import f.b.x.c.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.InnerQueuedObserver;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -13,7 +13,7 @@ import io.reactivex.internal.util.ErrorMode;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements o<T>, b, f.a.x.d.b<R> {
+public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements o<T>, b, f.b.x.d.b<R> {
     public static final long serialVersionUID = 8080567949447303262L;
     public int activeCount;
     public final o<? super R> actual;
@@ -21,7 +21,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
     public InnerQueuedObserver<R> current;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68060d;
+    public b f69066d;
     public volatile boolean done;
     public final ErrorMode errorMode;
     public final h<? super T, ? extends n<? extends R>> mapper;
@@ -40,7 +40,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
         this.errorMode = errorMode;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.cancelled = true;
         if (getAndIncrement() == 0) {
@@ -63,7 +63,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
         }
     }
 
-    @Override // f.a.x.d.b
+    @Override // f.b.x.d.b
     public void drain() {
         R poll;
         boolean z;
@@ -101,8 +101,8 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
                         nVar.subscribe(innerQueuedObserver);
                         i2++;
                     } catch (Throwable th) {
-                        f.a.u.a.a(th);
-                        this.f68060d.dispose();
+                        f.b.u.a.a(th);
+                        this.f69066d.dispose();
                         fVar.clear();
                         disposeAll();
                         this.error.addThrowable(th);
@@ -162,7 +162,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
                             poll = queue.poll();
                             z = poll == null;
                         } catch (Throwable th2) {
-                            f.a.u.a.a(th2);
+                            f.b.u.a.a(th2);
                             this.error.addThrowable(th2);
                             this.current = null;
                             this.activeCount--;
@@ -186,53 +186,53 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
         }
     }
 
-    @Override // f.a.x.d.b
+    @Override // f.b.x.d.b
     public void innerComplete(InnerQueuedObserver<R> innerQueuedObserver) {
         innerQueuedObserver.setDone();
         drain();
     }
 
-    @Override // f.a.x.d.b
+    @Override // f.b.x.d.b
     public void innerError(InnerQueuedObserver<R> innerQueuedObserver, Throwable th) {
         if (this.error.addThrowable(th)) {
             if (this.errorMode == ErrorMode.IMMEDIATE) {
-                this.f68060d.dispose();
+                this.f69066d.dispose();
             }
             innerQueuedObserver.setDone();
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.x.d.b
+    @Override // f.b.x.d.b
     public void innerNext(InnerQueuedObserver<R> innerQueuedObserver, R r) {
         innerQueuedObserver.queue().offer(r);
         drain();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.done = true;
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.error.addThrowable(th)) {
             this.done = true;
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.sourceMode == 0) {
             this.queue.offer(t);
@@ -240,12 +240,12 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68060d, bVar)) {
-            this.f68060d = bVar;
-            if (bVar instanceof f.a.x.c.b) {
-                f.a.x.c.b bVar2 = (f.a.x.c.b) bVar;
+        if (DisposableHelper.validate(this.f69066d, bVar)) {
+            this.f69066d = bVar;
+            if (bVar instanceof f.b.x.c.b) {
+                f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
                 int requestFusion = bVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.sourceMode = requestFusion;
@@ -261,7 +261,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
                     return;
                 }
             }
-            this.queue = new f.a.x.f.a(this.prefetch);
+            this.queue = new f.b.x.f.a(this.prefetch);
             this.actual.onSubscribe(this);
         }
     }

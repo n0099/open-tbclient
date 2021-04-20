@@ -12,27 +12,27 @@ import com.mcs.aidl.IMcsSdkService;
 public final class d implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Intent f31085a;
+    public final /* synthetic */ Intent f31374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PushManager f31086b;
+    public final /* synthetic */ PushManager f31375b;
 
     public d(PushManager pushManager, Intent intent) {
-        this.f31086b = pushManager;
-        this.f31085a = intent;
+        this.f31375b = pushManager;
+        this.f31374a = intent;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Context context;
         Bundle bundle = new Bundle();
-        bundle.putAll(this.f31085a.getExtras());
+        bundle.putAll(this.f31374a.getExtras());
         try {
             IMcsSdkService.Stub.asInterface(iBinder).process(bundle);
         } catch (Exception e2) {
             LogUtil.d("bindMcsService exception:" + e2);
         }
-        context = this.f31086b.mContext;
+        context = this.f31375b.mContext;
         context.unbindService(this);
     }
 

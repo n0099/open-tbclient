@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.b.i0.d1.w.c;
+import d.b.i0.e1.w.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     public boolean checkParam() {
         UserData user;
@@ -48,7 +48,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0027, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.b.e.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.c.e.h.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -5,5 +5,5 @@ import org.json.JSONObject;
 public interface c {
     void e(JSONObject jSONObject);
 
-    void n();
+    void handle();
 }

@@ -8,17 +8,17 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f45059c = k.f45051a;
+    public static final boolean f45451c = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f45060a;
+    public final String f45452a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f45061b;
+    public final String f45453b;
 
     public d(String str, String str2) {
-        this.f45060a = str;
-        this.f45061b = str2;
+        this.f45452a = str;
+        this.f45453b = str2;
     }
 
     public static d a(String str) {
@@ -26,7 +26,7 @@ public final class d {
             JSONObject jSONObject = new JSONObject(str);
             return new d(jSONObject.optString("webviewid"), jSONObject.optString("message"));
         } catch (JSONException e2) {
-            if (f45059c) {
+            if (f45451c) {
                 Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e2));
                 return null;
             }

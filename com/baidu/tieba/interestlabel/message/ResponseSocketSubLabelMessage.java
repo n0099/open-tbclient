@@ -3,7 +3,7 @@ package com.baidu.tieba.interestlabel.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.SubTagList.SubTagListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketSubLabelMessage extends SocketResponsedMessage {
     public ResponseSocketSubLabelMessage() {
         super(309468);

@@ -16,64 +16,64 @@ import d.b.g0.a.t1.k.a0;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46427e;
+        public final /* synthetic */ Context f46819e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46428f;
+        public final /* synthetic */ CallbackHandler f46820f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46429g;
+        public final /* synthetic */ UnitedSchemeEntity f46821g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46430h;
+        public final /* synthetic */ String f46822h;
         public final /* synthetic */ int i;
         public final /* synthetic */ boolean j;
 
         public a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, boolean z) {
-            this.f46427e = context;
-            this.f46428f = callbackHandler;
-            this.f46429g = unitedSchemeEntity;
-            this.f46430h = str;
+            this.f46819e = context;
+            this.f46820f = callbackHandler;
+            this.f46821g = unitedSchemeEntity;
+            this.f46822h = str;
             this.i = i;
             this.j = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.r(this.f46427e, this.f46428f, this.f46429g, this.f46430h, this.i, this.j);
+            e.this.r(this.f46819e, this.f46820f, this.f46821g, this.f46822h, this.i, this.j);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46431e;
+        public final /* synthetic */ Context f46823e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46432f;
+        public final /* synthetic */ CallbackHandler f46824f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46433g;
+        public final /* synthetic */ UnitedSchemeEntity f46825g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46434h;
+        public final /* synthetic */ String f46826h;
         public final /* synthetic */ int i;
         public final /* synthetic */ Drawable j;
         public final /* synthetic */ boolean k;
 
         public b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, Drawable drawable, boolean z) {
-            this.f46431e = context;
-            this.f46432f = callbackHandler;
-            this.f46433g = unitedSchemeEntity;
-            this.f46434h = str;
+            this.f46823e = context;
+            this.f46824f = callbackHandler;
+            this.f46825g = unitedSchemeEntity;
+            this.f46826h = str;
             this.i = i;
             this.j = drawable;
             this.k = z;
@@ -81,65 +81,65 @@ public class e extends a0 {
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.p(this.f46431e, this.f46432f, this.f46433g, this.f46434h, this.i, this.j, this.k);
+            e.this.p(this.f46823e, this.f46824f, this.f46825g, this.f46826h, this.i, this.j, this.k);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46435e;
+        public final /* synthetic */ Context f46827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46436f;
+        public final /* synthetic */ CallbackHandler f46828f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46437g;
+        public final /* synthetic */ UnitedSchemeEntity f46829g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46438h;
+        public final /* synthetic */ String f46830h;
         public final /* synthetic */ int i;
         public final /* synthetic */ boolean j;
 
         public c(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, boolean z) {
-            this.f46435e = context;
-            this.f46436f = callbackHandler;
-            this.f46437g = unitedSchemeEntity;
-            this.f46438h = str;
+            this.f46827e = context;
+            this.f46828f = callbackHandler;
+            this.f46829g = unitedSchemeEntity;
+            this.f46830h = str;
             this.i = i;
             this.j = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.q(this.f46435e, this.f46436f, this.f46437g, this.f46438h, this.i, this.j);
+            e.this.q(this.f46827e, this.f46828f, this.f46829g, this.f46830h, this.i, this.j);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46439e;
+        public final /* synthetic */ Context f46831e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46440f;
+        public final /* synthetic */ CallbackHandler f46832f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46441g;
+        public final /* synthetic */ UnitedSchemeEntity f46833g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46442h;
+        public final /* synthetic */ String f46834h;
         public final /* synthetic */ int i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
 
         public d(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i, String str2, String str3) {
-            this.f46439e = context;
-            this.f46440f = callbackHandler;
-            this.f46441g = unitedSchemeEntity;
-            this.f46442h = str;
+            this.f46831e = context;
+            this.f46832f = callbackHandler;
+            this.f46833g = unitedSchemeEntity;
+            this.f46834h = str;
             this.i = i;
             this.j = str2;
             this.k = str3;
@@ -147,31 +147,31 @@ public class e extends a0 {
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.o(this.f46439e, this.f46440f, this.f46441g, this.f46442h, this.i, this.j, this.k);
+            e.this.o(this.f46831e, this.f46832f, this.f46833g, this.f46834h, this.i, this.j, this.k);
         }
     }
 
     /* renamed from: d.b.g0.a.t1.k.j0.e$e  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0840e implements d.a {
+    /* loaded from: classes3.dex */
+    public class C0852e implements d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46443a;
+        public final /* synthetic */ String f46835a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46444b;
+        public final /* synthetic */ CallbackHandler f46836b;
 
-        public C0840e(e eVar, String str, CallbackHandler callbackHandler) {
-            this.f46443a = str;
-            this.f46444b = callbackHandler;
+        public C0852e(e eVar, String str, CallbackHandler callbackHandler) {
+            this.f46835a = str;
+            this.f46836b = callbackHandler;
         }
 
         @Override // d.b.g0.a.q1.b.f.d.a
         public void a() {
-            if (TextUtils.isEmpty(this.f46443a)) {
+            if (TextUtils.isEmpty(this.f46835a)) {
                 return;
             }
-            this.f46444b.handleSchemeDispatchCallback(this.f46443a, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f46836b.handleSchemeDispatchCallback(this.f46835a, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
@@ -183,7 +183,7 @@ public class e extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         char c2;
         if (eVar != null && eVar.Z()) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("ShowToastAction", "ShowToastAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
@@ -210,7 +210,7 @@ public class e extends a0 {
                 boolean optBoolean = jSONObject.optBoolean("mask");
                 String optString3 = jSONObject.optString("image", "-1");
                 Drawable E = h.E(context, optString3, eVar);
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.e("ShowToastAction", "imagepath = " + optString3);
                 }
                 if (!TextUtils.equals(optString3, "-1") && E == null && TextUtils.equals(optString, "2")) {
@@ -267,7 +267,7 @@ public class e extends a0 {
                     return true;
                 } catch (JSONException e2) {
                     e = e2;
-                    if (a0.f46288b) {
+                    if (a0.f46680b) {
                         e.printStackTrace();
                     }
                     d.b.g0.a.c0.c.b("ShowToastAction", "json exception");
@@ -285,7 +285,7 @@ public class e extends a0 {
     }
 
     public final void n(UnitedSchemeEntity unitedSchemeEntity) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.w("ShowToastAction", "the toast type is unknown");
         }
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
@@ -296,7 +296,7 @@ public class e extends a0 {
         d2.p(str);
         d2.j(str2);
         d2.k(i);
-        d2.s(new C0840e(this, str3, callbackHandler));
+        d2.s(new C0852e(this, str3, callbackHandler));
         d2.t();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }

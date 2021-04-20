@@ -19,7 +19,7 @@ public final class RunSuspend implements Continuation<Unit> {
                 if (result == null) {
                     wait();
                 } else {
-                    ResultKt.throwOnFailure(result.m637unboximpl());
+                    ResultKt.throwOnFailure(result.m641unboximpl());
                 }
             }
         }
@@ -37,7 +37,7 @@ public final class RunSuspend implements Continuation<Unit> {
     @Override // kotlin.coroutines.Continuation
     public void resumeWith(Object obj) {
         synchronized (this) {
-            this.result = Result.m627boximpl(obj);
+            this.result = Result.m631boximpl(obj);
             notifyAll();
             Unit unit = Unit.INSTANCE;
         }

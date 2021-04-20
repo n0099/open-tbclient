@@ -3,71 +3,71 @@ package com.bytedance.sdk.openadsdk;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FilterWord {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27262a;
+    public String f26947a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27263b;
+    public String f26948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27264c;
+    public boolean f26949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<FilterWord> f27265d;
+    public List<FilterWord> f26950d;
 
     public FilterWord(String str, String str2) {
-        this.f27262a = str;
-        this.f27263b = str2;
+        this.f26947a = str;
+        this.f26948b = str2;
     }
 
     public void addOption(FilterWord filterWord) {
         if (filterWord == null) {
             return;
         }
-        if (this.f27265d == null) {
-            this.f27265d = new ArrayList();
+        if (this.f26950d == null) {
+            this.f26950d = new ArrayList();
         }
-        this.f27265d.add(filterWord);
+        this.f26950d.add(filterWord);
     }
 
     public String getId() {
-        return this.f27262a;
+        return this.f26947a;
     }
 
     public boolean getIsSelected() {
-        return this.f27264c;
+        return this.f26949c;
     }
 
     public String getName() {
-        return this.f27263b;
+        return this.f26948b;
     }
 
     public List<FilterWord> getOptions() {
-        return this.f27265d;
+        return this.f26950d;
     }
 
     public boolean hasSecondOptions() {
-        List<FilterWord> list = this.f27265d;
+        List<FilterWord> list = this.f26950d;
         return (list == null || list.isEmpty()) ? false : true;
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f27262a) || TextUtils.isEmpty(this.f27263b)) ? false : true;
+        return (TextUtils.isEmpty(this.f26947a) || TextUtils.isEmpty(this.f26948b)) ? false : true;
     }
 
     public void setId(String str) {
-        this.f27262a = str;
+        this.f26947a = str;
     }
 
     public void setIsSelected(boolean z) {
-        this.f27264c = z;
+        this.f26949c = z;
     }
 
     public void setName(String str) {
-        this.f27263b = str;
+        this.f26948b = str;
     }
 
     public FilterWord() {

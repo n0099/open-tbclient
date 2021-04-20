@@ -2,7 +2,7 @@ package d.c.d.b.h;
 
 import d.c.d.b.h.j;
 import d.c.d.b.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static long a(int i) {
         String[] k = l.e.k("/proc/self/task/" + i + "/stat");

@@ -8,14 +8,14 @@ public abstract class a<T extends d.b.g0.a.l0.h.c.a> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public T f45085a;
+    public T f45477a;
 
     public a(@NonNull T t) {
-        this.f45085a = t;
+        this.f45477a = t;
     }
 
     public File a() {
-        return this.f45085a.e();
+        return this.f45477a.e();
     }
 
     @NonNull

@@ -6,10 +6,10 @@ import android.widget.RelativeLayout;
 public class g implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f10097a;
+    public final /* synthetic */ c f9655a;
 
     public g(c cVar) {
-        this.f10097a = cVar;
+        this.f9655a = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,15 +19,15 @@ public class g implements Animation.AnimationListener {
         RelativeLayout relativeLayout3;
         RelativeLayout relativeLayout4;
         RelativeLayout relativeLayout5;
-        relativeLayout = this.f10097a.y;
+        relativeLayout = this.f9655a.y;
         relativeLayout.clearAnimation();
-        relativeLayout2 = this.f10097a.y;
+        relativeLayout2 = this.f9655a.y;
         relativeLayout2.setVisibility(8);
-        relativeLayout3 = this.f10097a.H;
+        relativeLayout3 = this.f9655a.H;
         relativeLayout3.clearAnimation();
-        relativeLayout4 = this.f10097a.H;
+        relativeLayout4 = this.f9655a.H;
         relativeLayout4.setVisibility(8);
-        relativeLayout5 = this.f10097a.I;
+        relativeLayout5 = this.f9655a.I;
         relativeLayout5.setVisibility(0);
     }
 

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.HttpsConnSwitch;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 /* loaded from: classes4.dex */
 public class b {
 

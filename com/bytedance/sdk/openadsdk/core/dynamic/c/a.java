@@ -5,7 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.bytedance.sdk.openadsdk.core.aa;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.core.dynamic.d.c;
@@ -15,28 +15,28 @@ import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.t;
 import com.bytedance.sdk.openadsdk.utils.u;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f28291e;
+    public static String f27976e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28292a;
+    public Context f27977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f28293b;
+    public SSWebView f27978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28294c;
+    public String f27979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f28295d;
+    public c f27980d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0307a {
-        public C0307a() {
+    /* loaded from: classes5.dex */
+    public class C0309a {
+        public C0309a() {
         }
 
         @JavascriptInterface
@@ -95,9 +95,9 @@ public class a {
         public String jsCoreGlobal() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28292a)));
-                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28292a)));
-                jSONObject.put(IXAdRequestInfo.OS, "Android");
+                jSONObject.put("width", al.b(p.a(), al.c(a.this.f27977a)));
+                jSONObject.put("height", al.b(p.a(), al.d(a.this.f27977a)));
+                jSONObject.put(IAdRequestParam.OS, "Android");
             } catch (Exception unused) {
             }
             return jSONObject.toString();
@@ -110,33 +110,33 @@ public class a {
     }
 
     public a(@NonNull Context context) {
-        this.f28292a = context;
-        SSWebView sSWebView = new SSWebView(this.f28292a);
-        this.f28293b = sSWebView;
+        this.f27977a = context;
+        SSWebView sSWebView = new SSWebView(this.f27977a);
+        this.f27978b = sSWebView;
         if (Build.VERSION.SDK_INT >= 19) {
-            sSWebView.addJavascriptInterface(new C0307a(), "JS_DYNAMIC_LAYOUT_OBJ");
+            sSWebView.addJavascriptInterface(new C0309a(), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f28293b.loadUrl("about:blank");
+        this.f27978b.loadUrl("about:blank");
         a();
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f28291e)) {
+        if (TextUtils.isEmpty(f27976e)) {
             return null;
         }
-        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28291e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f27976e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
     }
 
     private void d() {
-        aa.a(this.f28292a, this.f28293b);
-        aa.a(this.f28293b);
-        this.f28293b = null;
+        aa.a(this.f27977a, this.f27978b);
+        aa.a(this.f27978b);
+        this.f27978b = null;
     }
 
     public void b(String str) {
         c cVar;
-        this.f28294c = str;
-        if (TextUtils.isEmpty(f28291e) && (cVar = this.f28295d) != null) {
+        this.f27979c = str;
+        if (TextUtils.isEmpty(f27976e) && (cVar = this.f27980d) != null) {
             cVar.a(null);
             d();
         }
@@ -144,7 +144,7 @@ public class a {
     }
 
     public static void a(String str) {
-        f28291e = str;
+        f27976e = str;
     }
 
     private void a() {
@@ -152,15 +152,15 @@ public class a {
         if (TextUtils.isEmpty(c2)) {
             return;
         }
-        t.a(this.f28293b, c2);
+        t.a(this.f27978b, c2);
     }
 
     private void b() {
-        t.a(this.f28293b, "javascript:var res = getLayoutInfo(" + this.f28294c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        t.a(this.f27978b, "javascript:var res = getLayoutInfo(" + this.f27979c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
     }
 
     public void a(c cVar) {
-        this.f28295d = cVar;
+        this.f27980d = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,7 +171,7 @@ public class a {
         } catch (Exception unused) {
             fVar = null;
         }
-        c cVar = this.f28295d;
+        c cVar = this.f27980d;
         if (cVar != null) {
             cVar.a(fVar);
         }

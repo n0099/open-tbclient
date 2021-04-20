@@ -10,28 +10,28 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67288a;
+    public Context f68281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.a.b f67289b;
+    public com.yxcorp.kuaishou.addfp.a.b.a.b f68282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f67290c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f68283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f67291d = new CountDownLatch(1);
+    public CountDownLatch f68284d = new CountDownLatch(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f67292e = new b(this);
+    public ServiceConnection f68285e = new b(this);
 
     public a(Context context) {
-        this.f67288a = context;
+        this.f68281a = context;
     }
 
     public final void b() {
         Context context;
-        ServiceConnection serviceConnection = this.f67292e;
-        if (serviceConnection == null || (context = this.f67288a) == null) {
+        ServiceConnection serviceConnection = this.f68285e;
+        if (serviceConnection == null || (context = this.f68281a) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -39,17 +39,17 @@ public final class a {
 
     public final void c(com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.f67290c = bVar;
+            this.f68283c = bVar;
             Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
             ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
             Intent intent2 = new Intent(intent);
             intent2.setComponent(componentName);
-            if (!this.f67288a.bindService(intent2, this.f67292e, 1)) {
+            if (!this.f68281a.bindService(intent2, this.f68285e, 1)) {
                 d(false);
                 return;
             }
-            this.f67291d.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.f67289b != null) {
+            this.f68284d.await(2000L, TimeUnit.MILLISECONDS);
+            if (this.f68282b != null) {
                 d(true);
             } else {
                 d(false);
@@ -62,9 +62,9 @@ public final class a {
     public final void d(boolean z) {
         try {
             if (z) {
-                this.f67290c.a(this.f67289b);
+                this.f68283c.a(this.f68282b);
             } else {
-                this.f67290c.e();
+                this.f68283c.e();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

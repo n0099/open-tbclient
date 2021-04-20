@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.d1.g.a;
+import d.b.i0.e1.g.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

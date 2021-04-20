@@ -14,6 +14,7 @@ public class CmdConfigHttp {
     public static final int CMD_ADD_POLL_POST = 1003468;
     public static final int CMD_ADD_SUB_COMMENT = 1003380;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
+    public static final int CMD_AD_ASYNC_BATCH_REQUEST = 1003491;
     public static final int CMD_AD_CLOSE = 1003322;
     public static final int CMD_AD_UPLOAD = 1003062;
     public static final int CMD_AFD_REQUEST_ASYNC = 1003397;
@@ -211,6 +212,7 @@ public class CmdConfigHttp {
     public static final int CMD_RECOMMEND_FORUM = 1003428;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
     public static final int CMD_RECOMMEND_TEST_CLOSE = 1003429;
+    public static final int CMD_RELATE_REC_THREAD = 1003490;
     public static final int CMD_RELEVANCE_ITEM_SEARCH = 1003482;
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;

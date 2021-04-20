@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.t.b;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.ArrayDeque;
 /* loaded from: classes7.dex */
@@ -17,7 +17,7 @@ public final class ObservableTakeLast$TakeLastObserver<T> extends ArrayDeque<T> 
         this.count = i;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (this.cancelled) {
             return;
@@ -26,12 +26,12 @@ public final class ObservableTakeLast$TakeLastObserver<T> extends ArrayDeque<T> 
         this.s.dispose();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.cancelled;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         o<? super T> oVar = this.actual;
         while (!this.cancelled) {
@@ -47,12 +47,12 @@ public final class ObservableTakeLast$TakeLastObserver<T> extends ArrayDeque<T> 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.count == size()) {
             poll();
@@ -60,7 +60,7 @@ public final class ObservableTakeLast$TakeLastObserver<T> extends ArrayDeque<T> 
         offer(t);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

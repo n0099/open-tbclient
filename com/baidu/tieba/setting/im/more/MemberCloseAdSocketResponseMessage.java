@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CloseAd.CloseAdResIdl;
 import tbclient.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage {
     public CloseAdData mData;
 

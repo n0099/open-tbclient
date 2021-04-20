@@ -4,7 +4,7 @@ import android.app.ActivityManager;
 import android.os.Build;
 import com.baidu.tbadk.TbConfig;
 import com.facebook.common.internal.Supplier;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static final int MAX_CACHE_ENTRIES = 256;
     public static final int MAX_CACHE_ENTRY_SIZE = Integer.MAX_VALUE;

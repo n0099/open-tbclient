@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.chosen.net;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
 import com.squareup.wire.Wire;
-import d.b.b.e.d.l;
-import d.b.i0.c2.g.c.a;
+import d.b.c.e.d.l;
+import d.b.i0.d2.g.c.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ExcPbPage.DataRes;
@@ -14,7 +14,7 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ChosenPbSocketResponse extends SocketResponsedMessage implements a {
     public List<Post> postList;
     public ExcellentPbThreadInfo threadInfo;
@@ -25,37 +25,37 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
         super(309093);
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public int getErroCode() {
         return getError();
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public String getErrorText() {
         return getErrorString();
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public List<Post> getPostList() {
         return this.postList;
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         return this.threadInfo;
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public UserInfo getUserInfo() {
         return this.userInfo;
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public List<User> getUserList() {
         return this.userList;
     }
 
-    @Override // d.b.i0.c2.g.c.a
+    @Override // d.b.i0.d2.g.c.a
     public boolean isEmpty() {
         List<ExcContent> list;
         ExcellentPbThreadInfo excellentPbThreadInfo = this.threadInfo;

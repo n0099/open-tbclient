@@ -38,11 +38,11 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
-        return m1507containsVKZWuLQ(uLong.m825unboximpl());
+        return m1511containsVKZWuLQ(uLong.m829unboximpl());
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m1507containsVKZWuLQ(long j) {
+    public boolean m1511containsVKZWuLQ(long j) {
         return UnsignedKt.ulongCompare(getFirst(), j) <= 0 && UnsignedKt.ulongCompare(j, getLast()) <= 0;
     }
 
@@ -64,7 +64,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (isEmpty()) {
             return -1;
         }
-        return ((int) ULong.m782constructorimpl(getLast() ^ ULong.m782constructorimpl(getLast() >>> 32))) + (((int) ULong.m782constructorimpl(getFirst() ^ ULong.m782constructorimpl(getFirst() >>> 32))) * 31);
+        return ((int) ULong.m786constructorimpl(getLast() ^ ULong.m786constructorimpl(getLast() >>> 32))) + (((int) ULong.m786constructorimpl(getFirst() ^ ULong.m786constructorimpl(getFirst() >>> 32))) * 31);
     }
 
     @Override // kotlin.ranges.ULongProgression, kotlin.ranges.ClosedRange
@@ -74,7 +74,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
 
     @Override // kotlin.ranges.ULongProgression
     public String toString() {
-        return ULong.m819toStringimpl(getFirst()) + IStringUtil.TOP_PATH + ULong.m819toStringimpl(getLast());
+        return ULong.m823toStringimpl(getFirst()) + IStringUtil.TOP_PATH + ULong.m823toStringimpl(getLast());
     }
 
     public /* synthetic */ ULongRange(long j, long j2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -84,12 +84,12 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.ranges.ClosedRange
     public ULong getEndInclusive() {
-        return ULong.m776boximpl(getLast());
+        return ULong.m780boximpl(getLast());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.ranges.ClosedRange
     public ULong getStart() {
-        return ULong.m776boximpl(getFirst());
+        return ULong.m780boximpl(getFirst());
     }
 }

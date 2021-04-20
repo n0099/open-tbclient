@@ -35,9 +35,9 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
-import d.b.a0.a.e;
-import d.b.a0.a.f;
-import d.b.a0.a.g;
+import d.b.x.a.e;
+import d.b.x.a.f;
+import d.b.x.a.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -410,7 +410,7 @@ public class LoginActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountType accountType, boolean z2) {
         com.baidu.sapi2.utils.c cVar = new com.baidu.sapi2.utils.c();
-        cVar.a(com.baidu.sapi2.utils.c.f11442a + SapiUtils.getLastLoginType());
+        cVar.a(com.baidu.sapi2.utils.c.f11026a + SapiUtils.getLastLoginType());
         if (this.s == 2003) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             Intent intent = new Intent();

@@ -3,57 +3,57 @@ package com.xiaomi.push;
 public /* synthetic */ class cz {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40344a;
+    public static final /* synthetic */ int[] f40633a;
 
     static {
         int[] iArr = new int[hf.values().length];
-        f40344a = iArr;
+        f40633a = iArr;
         try {
             iArr[hf.Registration.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40344a[hf.UnRegistration.ordinal()] = 2;
+            f40633a[hf.UnRegistration.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f40344a[hf.Subscription.ordinal()] = 3;
+            f40633a[hf.Subscription.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40344a[hf.UnSubscription.ordinal()] = 4;
+            f40633a[hf.UnSubscription.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f40344a[hf.SendMessage.ordinal()] = 5;
+            f40633a[hf.SendMessage.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f40344a[hf.AckMessage.ordinal()] = 6;
+            f40633a[hf.AckMessage.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f40344a[hf.SetConfig.ordinal()] = 7;
+            f40633a[hf.SetConfig.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f40344a[hf.ReportFeedback.ordinal()] = 8;
+            f40633a[hf.ReportFeedback.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f40344a[hf.MultiConnectionBroadcast.ordinal()] = 9;
+            f40633a[hf.MultiConnectionBroadcast.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f40344a[hf.MultiConnectionResult.ordinal()] = 10;
+            f40633a[hf.MultiConnectionResult.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
         try {
-            f40344a[hf.Notification.ordinal()] = 11;
+            f40633a[hf.Notification.ordinal()] = 11;
         } catch (NoSuchFieldError unused11) {
         }
         try {
-            f40344a[hf.Command.ordinal()] = 12;
+            f40633a[hf.Command.ordinal()] = 12;
         } catch (NoSuchFieldError unused12) {
         }
     }

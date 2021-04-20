@@ -41,7 +41,7 @@ import com.baidu.tieba.R;
 import d.b.h0.b0.a;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public static final String ACCOUNTDATA = "account_data";
     public static String CHANGE_FLAG = "change";
@@ -95,7 +95,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public boolean needUpload = true;
     public boolean needPaste = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
         public a() {
         }
@@ -106,7 +106,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements DragImageView.k {
         public b() {
         }
@@ -120,7 +120,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements DragImageView.j {
         public c() {
         }
@@ -134,7 +134,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public d() {
         }
@@ -146,7 +146,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -161,7 +161,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -173,10 +173,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a implements a.d {
             public a() {
             }
@@ -216,7 +216,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                         intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
                         if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(EditHeadActivity.this.fromWhere)) {
                             Intent intent2 = new Intent();
-                            intent2.setAction(EditHeadActivity.FLUTTER_ACTION);
+                            intent2.setAction("com.tieba.action.ImagePickerPlugin");
                             intent2.putExtra("pic_info", photoUrlData);
                             EditHeadActivity.this.sendBroadcast(intent2);
                         }
@@ -263,7 +263,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class h implements CompoundButton.OnCheckedChangeListener {
         public h() {
         }
@@ -280,7 +280,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class i implements View.OnClickListener {
         public i() {
         }
@@ -297,70 +297,70 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class j extends BdAsyncTask<String, Void, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20287a;
+        public String f19979a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f20288b;
+        public Bitmap f19980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Boolean f20289c;
+        public Boolean f19981c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f20290d;
+        public Boolean f19982d;
 
         public j() {
             Boolean bool = Boolean.FALSE;
-            this.f20289c = bool;
-            this.f20290d = bool;
+            this.f19981c = bool;
+            this.f19982d = bool;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Bitmap doInBackground(String... strArr) {
-            this.f20287a = strArr[0];
+            this.f19979a = strArr[0];
             if (EditHeadActivity.this.mBitmap == null && EditHeadActivity.this.mPreparedBitmap == null) {
                 return null;
             }
-            if (!this.f20287a.equals("0") && !this.f20287a.equals("1")) {
-                if (this.f20287a.equals("2") || this.f20287a.equals("3")) {
-                    this.f20290d = Boolean.TRUE;
+            if (!this.f19979a.equals("0") && !this.f19979a.equals("1")) {
+                if (this.f19979a.equals("2") || this.f19979a.equals("3")) {
+                    this.f19982d = Boolean.TRUE;
                 }
             } else {
-                this.f20289c = Boolean.TRUE;
+                this.f19981c = Boolean.TRUE;
             }
-            if (this.f20289c.booleanValue() || this.f20290d.booleanValue()) {
+            if (this.f19981c.booleanValue() || this.f19982d.booleanValue()) {
                 if (EditHeadActivity.this.mPreparedBitmap != null) {
-                    this.f20288b = EditHeadActivity.this.mPreparedBitmap.copy(EditHeadActivity.this.mPreparedBitmap.getConfig(), true);
+                    this.f19980b = EditHeadActivity.this.mPreparedBitmap.copy(EditHeadActivity.this.mPreparedBitmap.getConfig(), true);
                 } else {
-                    this.f20288b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
+                    this.f19980b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
                 }
             } else {
-                this.f20288b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
+                this.f19980b = EditHeadActivity.this.mBitmap.copy(EditHeadActivity.this.mBitmap.getConfig(), true);
             }
-            if (this.f20289c.booleanValue()) {
-                this.f20288b = BitmapHelper.rotateBitmap(this.f20288b, Integer.parseInt(this.f20287a));
-            } else if (this.f20290d.booleanValue()) {
-                this.f20288b = BitmapHelper.reversalBitmap(this.f20288b, Integer.parseInt(this.f20287a));
+            if (this.f19981c.booleanValue()) {
+                this.f19980b = BitmapHelper.rotateBitmap(this.f19980b, Integer.parseInt(this.f19979a));
+            } else if (this.f19982d.booleanValue()) {
+                this.f19980b = BitmapHelper.reversalBitmap(this.f19980b, Integer.parseInt(this.f19979a));
             }
-            return this.f20288b;
+            return this.f19980b;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            Bitmap bitmap = this.f20288b;
+            Bitmap bitmap = this.f19980b;
             if (bitmap != null && !bitmap.isRecycled()) {
                 Bitmap bitmap2 = EditHeadActivity.this.mPreparedBitmap;
-                Bitmap bitmap3 = this.f20288b;
+                Bitmap bitmap3 = this.f19980b;
                 if (bitmap2 != bitmap3) {
                     bitmap3.recycle();
                 }
             }
-            this.f20288b = null;
+            this.f19980b = null;
             EditHeadActivity.this.mProgress.h(false);
             EditHeadActivity.this.mTitleRightButton.setClickable(true);
             super.cancel(true);
@@ -381,18 +381,18 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
-            if (this.f20289c.booleanValue() || this.f20290d.booleanValue()) {
+            if (this.f19981c.booleanValue() || this.f19982d.booleanValue()) {
                 EditHeadActivity.this.mImage.setImageBitmap(bitmap);
                 if (EditHeadActivity.this.mBitmap.getWidth() > 1800 || EditHeadActivity.this.mBitmap.getHeight() > 1800) {
                     EditHeadActivity editHeadActivity = EditHeadActivity.this;
                     editHeadActivity.mBitmap = BitmapHelper.resizeBitmap(editHeadActivity.mBitmap, 1800);
                 }
-                if (this.f20289c.booleanValue()) {
+                if (this.f19981c.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = EditHeadActivity.this;
-                    editHeadActivity2.mBitmap = BitmapHelper.rotateBitmap(editHeadActivity2.mBitmap, Integer.parseInt(this.f20287a));
-                } else if (this.f20290d.booleanValue()) {
+                    editHeadActivity2.mBitmap = BitmapHelper.rotateBitmap(editHeadActivity2.mBitmap, Integer.parseInt(this.f19979a));
+                } else if (this.f19982d.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = EditHeadActivity.this;
-                    editHeadActivity3.mBitmap = BitmapHelper.reversalBitmap(editHeadActivity3.mBitmap, Integer.parseInt(this.f20287a));
+                    editHeadActivity3.mBitmap = BitmapHelper.reversalBitmap(editHeadActivity3.mBitmap, Integer.parseInt(this.f19979a));
                 }
             } else {
                 EditHeadActivity.this.mImage.m0(bitmap);
@@ -404,7 +404,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class k extends BdAsyncTask<Object, Integer, Bitmap> {
         public k() {
         }
@@ -480,7 +480,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class l extends BroadcastReceiver {
         public l() {
         }
@@ -503,21 +503,21 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class m extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20293a;
+        public NetWork f19985a;
 
         public m() {
-            this.f20293a = null;
+            this.f19985a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             EditHeadActivity.this.closeLoadingDialog();
             EditHeadActivity.this.mHeadModifyTask = null;
-            NetWork netWork = this.f20293a;
+            NetWork netWork = this.f19985a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -536,7 +536,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Exception e2;
             String str;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
-            this.f20293a = netWork;
+            this.f19985a = netWork;
             try {
                 str = netWork.uploadImage(TbConfig.PERSON_HEAD_FILE);
             } catch (Exception e3) {
@@ -549,7 +549,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 BdLog.e(e2.getMessage());
                 return str;
             }
-            if (this.f20293a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f19985a.getNetContext().getResponse().isRequestSuccess()) {
                 return str;
             }
             return null;
@@ -559,7 +559,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             EditHeadActivity.this.closeLoadingDialog();
-            NetWork netWork = this.f20293a;
+            NetWork netWork = this.f19985a;
             if (netWork != null) {
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     Intent intent = new Intent();
@@ -567,7 +567,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     EditHeadActivity.this.setResult(-1, intent);
                     if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(EditHeadActivity.this.fromWhere)) {
                         Intent intent2 = new Intent();
-                        intent2.setAction(EditHeadActivity.FLUTTER_ACTION);
+                        intent2.setAction("com.tieba.action.ImagePickerPlugin");
                         intent2.putExtra("isHeadImage", true);
                         EditHeadActivity.this.sendBroadcast(intent2);
                     }
@@ -576,7 +576,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     editHeadActivity.showToast(editHeadActivity.getPageContext().getString(R.string.upload_head_ok));
                     return;
                 }
-                EditHeadActivity.this.showToast(this.f20293a.getErrorString());
+                EditHeadActivity.this.showToast(this.f19985a.getErrorString());
             }
         }
 
@@ -626,7 +626,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
         this.mImagePreview = (ImageView) findViewById(R.id.preview_image);
         this.mPreviewLayout = (FrameLayout) findViewById(R.id.preview_layout);
-        int[] p = d.b.b.e.p.l.p(getPageContext().getPageActivity());
+        int[] p = d.b.c.e.p.l.p(getPageContext().getPageActivity());
         this.mPreviewLayout.setY((int) (((p[1] - p[0]) * 0.4d) + p[0] + getResources().getDimensionPixelSize(R.dimen.ds74)));
         EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.image);
         this.mImage = editHeadsImageView;

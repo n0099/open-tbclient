@@ -6,10 +6,10 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.R;
-import d.b.b.e.a.d;
-import d.b.b.e.a.f.c;
-import d.b.b.e.l.b;
-import d.b.b.e.p.l;
+import d.b.c.e.a.d;
+import d.b.c.e.a.f.c;
+import d.b.c.e.l.b;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class SimpleLoaderProc extends AbstractImageLoaderProc {
     public boolean mIsForceLoad;
@@ -85,7 +85,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return this.mIsFromCDN;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.b.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
     public boolean isNeedLoad() {
         if (this.mIsForceLoad) {
             return true;
@@ -123,7 +123,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f41848a = diskCancelWorker;
+            bVar.f42345a = diskCancelWorker;
         }
     }
 }

@@ -12,10 +12,10 @@ import com.baidu.apollon.utils.ResUtils;
 public class BankCardErrorMsgView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f26343a;
+    public TextView f26028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26344b;
+    public TextView f26029b;
 
     public BankCardErrorMsgView(Context context) {
         super(context);
@@ -24,17 +24,17 @@ public class BankCardErrorMsgView extends LinearLayout {
 
     private void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "wallet_cashdesk_bindcard_errormsg_view"), this);
-        this.f26343a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
-        this.f26344b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
+        this.f26028a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
+        this.f26029b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
     }
 
     public void showErrorLayout(CharSequence charSequence, CharSequence charSequence2) {
-        TextView textView = this.f26343a;
+        TextView textView = this.f26028a;
         TextUtils.isEmpty(charSequence);
         textView.setVisibility(8);
-        this.f26343a.setText(charSequence);
-        this.f26344b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
-        this.f26344b.setText(charSequence2);
+        this.f26028a.setText(charSequence);
+        this.f26029b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
+        this.f26029b.setText(charSequence2);
     }
 
     public BankCardErrorMsgView(Context context, AttributeSet attributeSet) {

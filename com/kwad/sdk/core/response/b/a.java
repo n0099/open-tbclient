@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.CommonUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.core.response.model.AdInfo;
@@ -270,7 +271,7 @@ public class a {
     }
 
     public static String a() {
-        return "继续下载";
+        return CommonUtils.DIALOG_POS_TEXT;
     }
 
     @SuppressLint({"DefaultLocale"})

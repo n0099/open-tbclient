@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,16 +16,16 @@ import java.util.Map;
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54220a;
+    public boolean f55103a;
 
     public c(boolean z) {
-        this.f54220a = z;
+        this.f55103a = z;
         setPriority(4);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x027e  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x02aa  */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x027f  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x02ab  */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     /*
@@ -37,7 +37,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb;
         l<String> c2 = BdCacheService.l().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.f54220a) {
+        if (this.f55103a) {
             String str2 = c2.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -75,11 +75,11 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             sb2.append(str3);
         }
         String str4 = "http://" + a2 + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
-        d.b.b.e.j.a.e eVar = new d.b.b.e.j.a.e();
-        d.b.b.e.j.a.c cVar = new d.b.b.e.j.a.c(eVar);
+        d.b.c.e.j.a.e eVar = new d.b.c.e.j.a.e();
+        d.b.c.e.j.a.c cVar = new d.b.c.e.j.a.c(eVar);
         eVar.b().s(str4);
         cVar.e(-1, -1, -1);
-        byte[] bArr = eVar.c().f41804h;
+        byte[] bArr = eVar.c().f42301h;
         if (bArr != null) {
             try {
                 str = new String(bArr, "UTF-8");
@@ -126,13 +126,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 publishProgress(hashMap3);
                 c2.g("dnsproxycachedata", str);
                 if (!TextUtils.isEmpty(message)) {
-                    d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("workflow", "dnsproxy_get");
                     statsItem.c("issuc", Boolean.TRUE);
                     statsItem.b("comment", sb == null ? "" : sb.toString());
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 } else {
-                    d.b.b.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    d.b.c.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem2.b("workflow", "dnsproxy_get");
                     statsItem2.c("issuc", Boolean.FALSE);
                     statsItem2.b("comment", message);
@@ -145,17 +145,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
             }
         } else if (eVar.a() != null) {
-            message = eVar.a().f41785h;
+            message = eVar.a().f42282h;
         } else {
             StringBuilder sb4 = new StringBuilder();
-            List<d.b.b.e.j.a.d> d2 = eVar.d();
+            List<d.b.c.e.j.a.d> d2 = eVar.d();
             if (d2 != null) {
-                for (d.b.b.e.j.a.d dVar : d2) {
-                    if (dVar != null && !TextUtils.isEmpty(dVar.f41785h)) {
+                for (d.b.c.e.j.a.d dVar : d2) {
+                    if (dVar != null && !TextUtils.isEmpty(dVar.f42282h)) {
                         if (sb4.length() > 0) {
                             sb4.append(",");
                         }
-                        sb4.append(dVar.f41785h);
+                        sb4.append(dVar.f42282h);
                     }
                 }
             }

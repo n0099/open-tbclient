@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
@@ -9,6 +10,8 @@ import java.lang.reflect.Type;
 import java.math.BigInteger;
 /* loaded from: classes.dex */
 public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
+    public static final BigInteger LOW = BigInteger.valueOf(-9007199254740991L);
+    public static final BigInteger HIGH = BigInteger.valueOf(9007199254740991L);
     public static final BigIntegerCodec instance = new BigIntegerCodec();
 
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
@@ -26,8 +29,14 @@ public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullNumberAsZero);
+            return;
+        }
+        BigInteger bigInteger = (BigInteger) obj;
+        String bigInteger2 = bigInteger.toString();
+        if (bigInteger2.length() >= 16 && SerializerFeature.isEnabled(i, serializeWriter.features, SerializerFeature.BrowserCompatible) && (bigInteger.compareTo(LOW) < 0 || bigInteger.compareTo(HIGH) > 0)) {
+            serializeWriter.writeString(bigInteger2);
         } else {
-            serializeWriter.write(((BigInteger) obj).toString());
+            serializeWriter.write(bigInteger2);
         }
     }
 
@@ -36,7 +45,10 @@ public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
         if (jSONLexer.token() == 2) {
             String numberString = jSONLexer.numberString();
             jSONLexer.nextToken(16);
-            return (T) new BigInteger(numberString);
+            if (numberString.length() <= 65535) {
+                return (T) new BigInteger(numberString);
+            }
+            throw new JSONException("decimal overflow");
         }
         Object parse = defaultJSONParser.parse();
         if (parse == null) {

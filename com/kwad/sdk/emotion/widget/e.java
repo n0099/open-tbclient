@@ -12,19 +12,19 @@ import java.lang.ref.WeakReference;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<TextView> f34705a;
+    public final WeakReference<TextView> f34994a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34708d = 1;
+    public int f34997d = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34706b = false;
+    public boolean f34995b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34707c = true;
+    public boolean f34996c = true;
 
     public e(@NonNull TextView textView) {
-        this.f34705a = new WeakReference<>(textView);
+        this.f34994a = new WeakReference<>(textView);
     }
 
     public abstract void a(Editable editable);

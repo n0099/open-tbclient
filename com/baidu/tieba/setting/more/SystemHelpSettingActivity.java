@@ -17,14 +17,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.SystemHelpSettingModel;
 import d.b.h0.r.s.a;
-import d.b.i0.u2.c.h;
-/* loaded from: classes5.dex */
+import d.b.i0.v2.c.h;
+/* loaded from: classes4.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
     public d.b.h0.r.s.a mBdAlertDialog;
     public h mView = null;
     public SystemHelpSettingModel mModel = null;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
         public a() {
             super();
@@ -46,7 +46,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -60,7 +60,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public c() {
         }
@@ -71,7 +71,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements a.e {
         public d() {
         }
@@ -85,7 +85,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements a.e {
         public e() {
         }
@@ -96,7 +96,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements a.e {
         public f() {
         }
@@ -131,9 +131,9 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             }
         } else if (view == this.mView.l()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                d.b.h0.r.d0.b.i().s("prefs_save_paled_video", true);
+                d.b.h0.r.d0.b.j().t("prefs_save_paled_video", true);
             } else {
-                d.b.h0.r.d0.b.i().s("prefs_save_paled_video", false);
+                d.b.h0.r.d0.b.j().t("prefs_save_paled_video", false);
             }
         }
     }
@@ -181,7 +181,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         } else {
             this.mView.i().f();
         }
-        if (d.b.h0.r.d0.b.i().g("prefs_save_paled_video", true)) {
+        if (d.b.h0.r.d0.b.j().g("prefs_save_paled_video", true)) {
             this.mView.l().i();
         } else {
             this.mView.l().f();

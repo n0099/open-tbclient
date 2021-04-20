@@ -6,10 +6,10 @@ import java.security.MessageDigest;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10014a = "com.baidu.platform.comapi.walknavi.d.a.g.k";
+    public static final String f9572a = "com.baidu.platform.comapi.walknavi.d.a.g.k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10015b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
+    public static String f9573b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
 
     public static String a(String str) {
         try {

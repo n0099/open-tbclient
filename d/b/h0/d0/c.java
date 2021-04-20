@@ -17,28 +17,28 @@ import com.baidu.tieba.R;
 public class c extends d.b.h0.d0.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public NestedScrollView f50092a;
+    public NestedScrollView f50485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f50093b;
+    public LinearLayout f50486b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbImageView f50094c;
+    public TbImageView f50487c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f50095d;
+    public TextView f50488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f50096e;
+    public TextView f50489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f50097f;
+    public TBSpecificationBtn f50490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f50098g;
+    public LinearLayout f50491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50099h;
+    public int f50492h;
     public Rect i;
 
     /* loaded from: classes3.dex */
@@ -54,49 +54,49 @@ public class c extends d.b.h0.d0.a {
 
     public c(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
-        this.f50099h = 0;
+        this.f50492h = 0;
         this.i = new Rect();
-        this.f50092a = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
-        this.f50093b = (LinearLayout) this.attachedView.findViewById(R.id.container);
-        this.f50094c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.f50095d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.f50096e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.f50098g = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.f50097f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.f50485a = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
+        this.f50486b = (LinearLayout) this.attachedView.findViewById(R.id.container);
+        this.f50487c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.f50488d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.f50489e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.f50491g = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.f50490f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
         d.b.h0.r.f0.m.a aVar = new d.b.h0.r.f0.m.a();
-        this.f50097f.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.f50097f.setTextSize(R.dimen.tbds42);
-        this.f50097f.setConfig(aVar);
-        this.f50097f.setOnClickListener(onClickListener);
+        this.f50490f.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.f50490f.setTextSize(R.dimen.tbds42);
+        this.f50490f.setConfig(aVar);
+        this.f50490f.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
     }
 
     public void a(int i) {
-        if (this.f50099h <= 0) {
-            this.f50099h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        if (this.f50492h <= 0) {
+            this.f50492h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        NestedScrollView nestedScrollView = this.f50092a;
+        NestedScrollView nestedScrollView = this.f50485a;
         if (nestedScrollView == null) {
             return;
         }
         if (i == 0) {
             nestedScrollView.post(new a());
         }
-        if (this.f50092a.getLocalVisibleRect(this.i)) {
+        if (this.f50485a.getLocalVisibleRect(this.i)) {
             int i2 = this.i.bottom;
-            int abs = Math.abs(this.f50093b.getTop());
-            int abs2 = i2 - Math.abs(this.f50093b.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.f50093b.getLayoutParams();
+            int abs = Math.abs(this.f50486b.getTop());
+            int abs2 = i2 - Math.abs(this.f50486b.getBottom());
+            ViewGroup.LayoutParams layoutParams = this.f50486b.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                int i3 = this.f50099h;
+                int i3 = this.f50492h;
                 if (abs < i3) {
                     marginLayoutParams.topMargin = i3;
-                    this.f50093b.setLayoutParams(marginLayoutParams);
+                    this.f50486b.setLayoutParams(marginLayoutParams);
                 } else if (abs == i3) {
                     if (abs2 > i3) {
                         marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
-                        this.f50093b.setLayoutParams(marginLayoutParams);
+                        this.f50486b.setLayoutParams(marginLayoutParams);
                     }
                 } else if (abs > i3) {
                     if (abs2 < i3) {
@@ -106,7 +106,7 @@ public class c extends d.b.h0.d0.a {
                     } else if (abs2 > i3) {
                         marginLayoutParams.topMargin = (abs + abs2) / 2;
                     }
-                    this.f50093b.setLayoutParams(marginLayoutParams);
+                    this.f50486b.setLayoutParams(marginLayoutParams);
                 }
             }
         }
@@ -120,38 +120,38 @@ public class c extends d.b.h0.d0.a {
         if (str == null) {
             return;
         }
-        this.f50097f.setText(str);
+        this.f50490f.setText(str);
     }
 
     public void d(String str) {
         if (str == null) {
-            this.f50095d.setVisibility(8);
+            this.f50488d.setVisibility(8);
             return;
         }
-        this.f50095d.setVisibility(0);
-        this.f50095d.setText(str);
+        this.f50488d.setVisibility(0);
+        this.f50488d.setText(str);
     }
 
     public void e(String str) {
         if (str == null) {
             return;
         }
-        this.f50096e.setText(str);
+        this.f50489e.setText(str);
     }
 
     public void f() {
-        this.f50097f.setVisibility(0);
-        this.f50096e.setVisibility(0);
-        SkinManager.setViewTextColor(this.f50095d, R.color.CAM_X0109, 1);
+        this.f50490f.setVisibility(0);
+        this.f50489e.setVisibility(0);
+        SkinManager.setViewTextColor(this.f50488d, R.color.CAM_X0109, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setImageResource(this.f50094c, R.drawable.new_pic_emotion_08);
-        SkinManager.setViewTextColor(this.f50095d, R.color.CAM_X0109, 1, skinType);
-        SkinManager.setViewTextColor(this.f50096e, R.color.CAM_X0107, 1, skinType);
+        SkinManager.setImageResource(this.f50487c, R.drawable.new_pic_emotion_08);
+        SkinManager.setViewTextColor(this.f50488d, R.color.CAM_X0109, 1, skinType);
+        SkinManager.setViewTextColor(this.f50489e, R.color.CAM_X0107, 1, skinType);
         SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
-        TBSpecificationBtn tBSpecificationBtn = this.f50097f;
+        TBSpecificationBtn tBSpecificationBtn = this.f50490f;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.k();
         }
@@ -166,6 +166,6 @@ public class c extends d.b.h0.d0.a {
     @Override // d.b.h0.d0.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.f50094c.setImageResource(0);
+        this.f50487c.setImageResource(0);
     }
 }

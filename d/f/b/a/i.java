@@ -7,13 +7,13 @@ import java.util.LinkedHashMap;
 public class i extends a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final LinkedHashMap<Long, String> f66030f = new LinkedHashMap<>();
+    public static final LinkedHashMap<Long, String> f66875f = new LinkedHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66031d;
+    public int f66876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread f66032e;
+    public Thread f66877e;
 
     public i(Thread thread, long j) {
         this(thread, 100, j);
@@ -22,24 +22,24 @@ public class i extends a {
     @Override // d.f.b.a.a
     public void b() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.f66032e.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.f66877e.getStackTrace()) {
             sb.append(stackTraceElement.toString());
             sb.append(Part.CRLF);
         }
-        synchronized (f66030f) {
-            if (f66030f.size() == this.f66031d && this.f66031d > 0) {
-                f66030f.remove(f66030f.keySet().iterator().next());
+        synchronized (f66875f) {
+            if (f66875f.size() == this.f66876d && this.f66876d > 0) {
+                f66875f.remove(f66875f.keySet().iterator().next());
             }
-            f66030f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            f66875f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 
     public ArrayList<String> e(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (f66030f) {
-            for (Long l : f66030f.keySet()) {
+        synchronized (f66875f) {
+            for (Long l : f66875f.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(d.f.b.a.j.a.x.format(l) + Part.CRLF + Part.CRLF + f66030f.get(l));
+                    arrayList.add(d.f.b.a.j.a.x.format(l) + Part.CRLF + Part.CRLF + f66875f.get(l));
                 }
             }
         }
@@ -48,8 +48,8 @@ public class i extends a {
 
     public i(Thread thread, int i, long j) {
         super(j);
-        this.f66031d = 100;
-        this.f66032e = thread;
-        this.f66031d = i;
+        this.f66876d = 100;
+        this.f66877e = thread;
+        this.f66876d = i;
     }
 }

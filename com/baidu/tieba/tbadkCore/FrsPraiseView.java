@@ -16,20 +16,20 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.h0.z0.v;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsPraiseView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21309e;
+    public Context f20994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21310f;
+    public View f20995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21311g;
+    public TextView f20996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21312h;
+    public TextView f20997h;
     public TextView i;
     public PraiseData j;
     public String k;
@@ -37,18 +37,18 @@ public class FrsPraiseView extends LinearLayout {
     public boolean m;
     public boolean n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.b(new PraiseListActivityConfig(FrsPraiseView.this.f21309e, FrsPraiseView.this.k, FrsPraiseView.this.l, FrsPraiseView.this.j != null ? FrsPraiseView.this.j.getTitle() : "", FrsPraiseView.this.m));
+            v.b(new PraiseListActivityConfig(FrsPraiseView.this.f20994e, FrsPraiseView.this.k, FrsPraiseView.this.l, FrsPraiseView.this.j != null ? FrsPraiseView.this.j.getTitle() : "", FrsPraiseView.this.m));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -59,11 +59,11 @@ public class FrsPraiseView extends LinearLayout {
             if (metaData == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.f21309e).createNormalConfig(d.b.b.e.m.b.f(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.f20994e).createNormalConfig(d.b.c.e.m.b.f(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -74,7 +74,7 @@ public class FrsPraiseView extends LinearLayout {
             if (metaData == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.f21309e).createNormalConfig(d.b.b.e.m.b.f(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.f20994e).createNormalConfig(d.b.c.e.m.b.f(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -87,19 +87,19 @@ public class FrsPraiseView extends LinearLayout {
     public final void f(boolean z) {
         long num = this.j.getNum();
         this.i.setVisibility(8);
-        this.f21312h.setVisibility(8);
+        this.f20997h.setVisibility(8);
         if (num > 0) {
             ArrayList<MetaData> user = this.j.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.f21312h.setVisibility(0);
-                        this.f21312h.setText(g(user.get(0).getName_show()));
+                        this.f20997h.setVisibility(0);
+                        this.f20997h.setText(g(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.f21312h.setVisibility(0);
-                        this.f21312h.setText(g(user.get(0).getName_show()));
+                        this.f20997h.setVisibility(0);
+                        this.f20997h.setText(g(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
                         this.i.setVisibility(0);
@@ -109,13 +109,13 @@ public class FrsPraiseView extends LinearLayout {
                 }
             }
             if (num <= 2) {
-                this.f21311g.setText(this.f21309e.getString(R.string.common_praise_view_text));
+                this.f20996g.setText(this.f20994e.getString(R.string.common_praise_view_text));
             } else if (num <= 999999) {
-                TextView textView2 = this.f21311g;
-                textView2.setText(this.f21309e.getString(R.string.etc) + num + this.f21309e.getString(R.string.common_praise_view_text2));
+                TextView textView2 = this.f20996g;
+                textView2.setText(this.f20994e.getString(R.string.etc) + num + this.f20994e.getString(R.string.common_praise_view_text2));
             } else {
-                TextView textView3 = this.f21311g;
-                textView3.setText(this.f21309e.getString(R.string.etc) + "999999+" + this.f21309e.getString(R.string.common_praise_view_text2));
+                TextView textView3 = this.f20996g;
+                textView3.setText(this.f20994e.getString(R.string.etc) + "999999+" + this.f20994e.getString(R.string.common_praise_view_text2));
             }
         }
     }
@@ -125,34 +125,34 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     public final void h() {
-        View inflate = View.inflate(this.f21309e, R.layout.frs_item_praise, this);
-        this.f21310f = inflate;
-        this.f21311g = (TextView) inflate.findViewById(R.id.frs_go_praise_list_num);
-        this.f21312h = (TextView) this.f21310f.findViewById(R.id.frs_praise_user_name_text1);
-        this.i = (TextView) this.f21310f.findViewById(R.id.frs_praise_user_name_text2);
+        View inflate = View.inflate(this.f20994e, R.layout.frs_item_praise, this);
+        this.f20995f = inflate;
+        this.f20996g = (TextView) inflate.findViewById(R.id.frs_go_praise_list_num);
+        this.f20997h = (TextView) this.f20995f.findViewById(R.id.frs_praise_user_name_text1);
+        this.i = (TextView) this.f20995f.findViewById(R.id.frs_praise_user_name_text2);
         setOnClickListener(new a());
         this.i.setOnClickListener(new b());
-        this.f21312h.setOnClickListener(new c());
+        this.f20997h.setOnClickListener(new c());
     }
 
     public void i(int i) {
         if (this.m) {
             if (this.n) {
-                SkinManager.setBackgroundResource(this.f21310f, R.drawable.praise_video_selector);
-                SkinManager.setViewTextColor(this.f21311g, R.color.CAM_X0108, 1);
-                SkinManager.setViewTextColor(this.f21312h, R.color.CAM_X0304, 1);
+                SkinManager.setBackgroundResource(this.f20995f, R.drawable.praise_video_selector);
+                SkinManager.setViewTextColor(this.f20996g, R.color.CAM_X0108, 1);
+                SkinManager.setViewTextColor(this.f20997h, R.color.CAM_X0304, 1);
                 SkinManager.setViewTextColor(this.i, R.color.CAM_X0304, 1);
                 return;
             }
-            SkinManager.setBackgroundResource(this.f21310f, R.drawable.praise_head_selector);
-            SkinManager.setViewTextColor(this.f21311g, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f21312h, R.color.CAM_X0304, 1);
+            SkinManager.setBackgroundResource(this.f20995f, R.drawable.praise_head_selector);
+            SkinManager.setViewTextColor(this.f20996g, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f20997h, R.color.CAM_X0304, 1);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0304, 1);
             return;
         }
-        SkinManager.setBackgroundResource(this.f21310f, R.drawable.praise_view_btn_color);
-        SkinManager.setViewTextColor(this.f21311g, R.color.CAM_X0109, 1);
-        SkinManager.setViewTextColor(this.f21312h, R.color.CAM_X0108, 1);
+        SkinManager.setBackgroundResource(this.f20995f, R.drawable.praise_view_btn_color);
+        SkinManager.setViewTextColor(this.f20996g, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(this.f20997h, R.color.CAM_X0108, 1);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0108, 1);
     }
 
@@ -179,7 +179,7 @@ public class FrsPraiseView extends LinearLayout {
         this.m = false;
         this.n = false;
         setOrientation(0);
-        this.f21309e = context;
+        this.f20994e = context;
         h();
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class a {
     public static final float G = l.h(TbadkCoreApplication.getInst());
@@ -17,28 +17,28 @@ public class a {
     public boolean s;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f49947a = 0.0f;
+    public float f50340a = 0.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f49948b = 0.0f;
+    public float f50341b = 0.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49949c = 0;
+    public int f50342c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49950d = 0;
+    public int f50343d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f49951e = 15.0f;
+    public float f50344e = 15.0f;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49952f = false;
+    public boolean f50345f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49953g = -1;
+    public int f50346g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49954h = -1;
+    public int f50347h = -1;
     public int i = -16777216;
     public int j = 200;
     public int k = 200;
@@ -63,13 +63,13 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.f49947a = aVar.f49947a;
-        this.f49948b = aVar.f49948b;
-        this.f49949c = aVar.f49949c;
-        this.f49950d = aVar.f49950d;
-        this.f49951e = aVar.f49951e;
-        this.f49953g = aVar.f49953g;
-        this.f49954h = aVar.f49954h;
+        this.f50340a = aVar.f50340a;
+        this.f50341b = aVar.f50341b;
+        this.f50342c = aVar.f50342c;
+        this.f50343d = aVar.f50343d;
+        this.f50344e = aVar.f50344e;
+        this.f50346g = aVar.f50346g;
+        this.f50347h = aVar.f50347h;
         this.i = aVar.i;
         this.j = aVar.j;
         this.k = aVar.k;
@@ -85,25 +85,25 @@ public class a {
         this.w = aVar.w;
         this.x = aVar.x;
         this.y = aVar.y;
-        this.z = aVar.f49950d;
+        this.z = aVar.f50343d;
         this.A = aVar.A;
         this.C = aVar.C;
     }
 
     public void b(TypedArray typedArray) {
-        this.f49950d = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_segmentMargin, 0);
-        this.f49949c = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textPadding, 0);
-        this.f49947a = typedArray.getFloat(R$styleable.TbRichTextView_tbLineSpacing, 1.12f);
-        this.f49951e = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textSize, (int) this.f49951e);
+        this.f50343d = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_segmentMargin, 0);
+        this.f50342c = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textPadding, 0);
+        this.f50340a = typedArray.getFloat(R$styleable.TbRichTextView_tbLineSpacing, 1.12f);
+        this.f50344e = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textSize, (int) this.f50344e);
         this.i = typedArray.getColor(R$styleable.TbRichTextView_textColor, this.i);
         this.j = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageWidth, this.j);
         this.k = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageHeight, this.k);
         this.l = typedArray.getResourceId(R$styleable.TbRichTextView_defaultImage, 0);
-        this.f49953g = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceWidth, this.f49953g);
-        this.f49954h = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceHeight, this.f49954h);
+        this.f50346g = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceWidth, this.f50346g);
+        this.f50347h = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceHeight, this.f50347h);
         this.m = typedArray.getResourceId(R$styleable.TbRichTextView_videoImage, 0);
         this.n = typedArray.getBoolean(R$styleable.TbRichTextView_singleLine, false);
-        this.z = this.f49950d;
+        this.z = this.f50343d;
     }
 
     public boolean c() {
@@ -152,8 +152,8 @@ public class a {
     }
 
     public void i(int i, int i2) {
-        this.f49953g = i;
-        this.f49954h = i2;
+        this.f50346g = i;
+        this.f50347h = i2;
     }
 
     public void j(int i) {
@@ -173,12 +173,12 @@ public class a {
     }
 
     public void n(float f2) {
-        this.f49947a = f2;
+        this.f50340a = f2;
     }
 
     public void o(float f2, float f3) {
-        this.f49947a = f3;
-        this.f49948b = f2;
+        this.f50340a = f3;
+        this.f50341b = f2;
     }
 
     public void p(int i) {
@@ -195,7 +195,7 @@ public class a {
     }
 
     public void s(int i) {
-        this.f49950d = i;
+        this.f50343d = i;
     }
 
     public void t() {
@@ -207,7 +207,7 @@ public class a {
     }
 
     public void v(int i) {
-        this.f49951e = i;
+        this.f50344e = i;
     }
 
     public void w(boolean z) {

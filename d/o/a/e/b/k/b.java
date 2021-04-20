@@ -8,20 +8,20 @@ import d.o.a.e.b.g.j;
 import d.o.a.e.b.o.k;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.b f67090e;
+    public com.ss.android.socialbase.downloader.model.b f68083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.b f67091f;
+    public com.ss.android.socialbase.downloader.model.b f68084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.o.a.e.b.g.f f67092g;
+    public d.o.a.e.b.g.f f68085g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadInfo f67093h;
+    public DownloadInfo f68086h;
     public final f i;
     public k j;
     public j k;
@@ -31,25 +31,25 @@ public class b implements Runnable {
 
     public b(com.ss.android.socialbase.downloader.model.b bVar, d.o.a.e.b.n.a aVar, f fVar) {
         this.n = false;
-        this.f67091f = bVar;
+        this.f68084f = bVar;
         if (aVar != null) {
-            this.f67093h = aVar.H();
+            this.f68086h = aVar.H();
         }
         this.i = fVar;
         this.k = d.o.a.e.b.g.d.I0();
-        this.f67091f.f(this);
+        this.f68084f.f(this);
     }
 
     public void a() {
         this.l = true;
-        d.o.a.e.b.g.f fVar = this.f67092g;
+        d.o.a.e.b.g.f fVar = this.f68085g;
         if (fVar != null) {
             fVar.h();
         }
     }
 
     public void b(long j, long j2) {
-        d.o.a.e.b.g.f fVar = this.f67092g;
+        d.o.a.e.b.g.f fVar = this.f68085g;
         if (fVar == null) {
             return;
         }
@@ -116,10 +116,10 @@ public class b implements Runnable {
                     try {
                         try {
                             if (!this.n) {
-                                List<com.ss.android.socialbase.downloader.model.c> q = d.o.a.e.b.l.e.q(this.f67093h.S(), this.f67093h.U0(), j3, j4);
+                                List<com.ss.android.socialbase.downloader.model.c> q = d.o.a.e.b.l.e.q(this.f68086h.S(), this.f68086h.U0(), j3, j4);
                                 q.add(new com.ss.android.socialbase.downloader.model.c("Chunk-Index", String.valueOf(bVar.F())));
-                                d.o.a.e.b.l.e.B(q, this.f67093h);
-                                this.j = d.o.a.e.b.g.d.x(this.f67093h.A1(), this.f67093h.j0(), f3, q);
+                                d.o.a.e.b.l.e.B(q, this.f68086h);
+                                this.j = d.o.a.e.b.g.d.x(this.f68086h.A1(), this.f68086h.j0(), f3, q);
                             }
                             if (this.j != null) {
                                 try {
@@ -169,16 +169,16 @@ public class b implements Runnable {
                                 j = A2;
                                 try {
                                     try {
-                                        this.f67092g = new d.o.a.e.b.g.f(this.f67093h, f3, this.j, bVar, this.i);
+                                        this.f68085g = new d.o.a.e.b.g.f(this.f68086h, f3, this.j, bVar, this.i);
                                         if (bVar2 != null) {
                                             long n = bVar2.n(false);
                                             if (j4 != 0 && j4 >= j3) {
                                                 n = (j4 - j3) + 1;
                                             }
-                                            this.f67092g.e(bVar2.A(), bVar2.C(), n);
+                                            this.f68085g.e(bVar2.A(), bVar2.C(), n);
                                         }
                                         try {
-                                            this.f67092g.k();
+                                            this.f68085g.k();
                                             return true;
                                         } catch (BaseException e5) {
                                             e = e5;
@@ -195,12 +195,12 @@ public class b implements Runnable {
                                                     return z;
                                                 }
                                                 if (z2) {
-                                                    if (this.f67092g != null) {
+                                                    if (this.f68085g != null) {
                                                         if (d.o.a.e.b.l.a.a(32)) {
-                                                            j2 = this.f67092g.a() - this.f67092g.l();
+                                                            j2 = this.f68085g.a() - this.f68085g.l();
                                                             int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                                                             if (i > 0) {
-                                                                c(bVar, this.f67092g.l());
+                                                                c(bVar, this.f68085g.l());
                                                             } else if (i < 0) {
                                                             }
                                                             if (!d.o.a.e.b.l.a.a(16)) {
@@ -215,7 +215,7 @@ public class b implements Runnable {
                                                             g();
                                                         } else {
                                                             long j6 = j;
-                                                            j5 = this.f67092g.a() - j6;
+                                                            j5 = this.f68085g.a() - j6;
                                                             c(bVar, j6);
                                                         }
                                                     } else {
@@ -228,7 +228,7 @@ public class b implements Runnable {
                                                 }
                                                 if (f2 != com.ss.android.socialbase.downloader.exception.g.RETURN) {
                                                 }
-                                            } else if (this.f67093h.z1() && !this.f67093h.i1() && this.f67093h.B() > 1 && d.o.a.e.b.l.e.J(e, this.f67093h)) {
+                                            } else if (this.f68086h.z1() && !this.f68086h.i1() && this.f68086h.B() > 1 && d.o.a.e.b.l.e.J(e, this.f68086h)) {
                                                 this.i.d(e);
                                                 return z;
                                             } else {
@@ -286,14 +286,14 @@ public class b implements Runnable {
 
     public void e() {
         this.m = true;
-        d.o.a.e.b.g.f fVar = this.f67092g;
+        d.o.a.e.b.g.f fVar = this.f68085g;
         if (fVar != null) {
             fVar.j();
         }
     }
 
     public final String f() {
-        return this.f67093h.C();
+        return this.f68086h.C();
     }
 
     public final void g() {
@@ -309,7 +309,7 @@ public class b implements Runnable {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x0017, code lost:
-        r3.f67090e.i(false);
+        r3.f68083e.i(false);
      */
     @Override // java.lang.Runnable
     @SuppressLint({"DefaultLocale"})
@@ -318,17 +318,17 @@ public class b implements Runnable {
     */
     public void run() {
         Process.setThreadPriority(10);
-        this.f67090e = this.f67091f;
+        this.f68083e = this.f68084f;
         while (true) {
             try {
-                this.f67090e.f(this);
-                if (!d(this.f67090e)) {
+                this.f68083e.f(this);
+                if (!d(this.f68083e)) {
                     break;
                 }
-                this.f67090e.i(false);
+                this.f68083e.i(false);
                 if (!h()) {
-                    this.f67090e = this.i.a(this.f67090e.F());
-                    if (h() || this.f67090e == null) {
+                    this.f68083e = this.i.a(this.f68083e.F());
+                    if (h() || this.f68083e == null) {
                         break;
                     }
                     Thread.sleep(50L);
@@ -336,7 +336,7 @@ public class b implements Runnable {
                     break;
                 }
             } finally {
-                com.ss.android.socialbase.downloader.model.b bVar = this.f67090e;
+                com.ss.android.socialbase.downloader.model.b bVar = this.f68083e;
                 if (bVar != null) {
                     bVar.i(false);
                 }

@@ -5,14 +5,14 @@ import java.util.concurrent.Executor;
 public class g implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f9372a;
+    public final /* synthetic */ f f8930a;
 
     public g(f fVar) {
-        this.f9372a = fVar;
+        this.f8930a = fVar;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.f9372a.f9366a.execute(runnable);
+        this.f8930a.f8924a.execute(runnable);
     }
 }

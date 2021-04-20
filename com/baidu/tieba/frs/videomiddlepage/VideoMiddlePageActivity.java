@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
-import d.b.b.e.m.b;
-import d.b.b.e.p.k;
+import d.b.c.e.m.b;
+import d.b.c.e.p.k;
 import d.b.h0.k0.d;
-import d.b.i0.o3.c;
+import d.b.i0.p3.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {

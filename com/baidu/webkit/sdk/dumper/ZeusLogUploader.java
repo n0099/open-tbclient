@@ -343,7 +343,7 @@ public final class ZeusLogUploader {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: boolean */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00d6: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00d7: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
     /* JADX WARN: Multi-variable type inference failed */
     public static boolean doUpload(byte[] bArr, String str, boolean z, String str2, StringBuffer stringBuffer) {
         String str3;

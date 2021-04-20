@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1361a = Pattern.compile("(\\$\\d+)+$");
+    public static final Pattern f1347a = Pattern.compile("(\\$\\d+)+$");
 
     public static void a() {
         a(null, 3, null, new Object[0]);
@@ -33,7 +33,7 @@ public final class d {
                     str = String.format(str, objArr);
                 }
                 String className = stackTrace[2].getClassName();
-                Matcher matcher = f1361a.matcher(className);
+                Matcher matcher = f1347a.matcher(className);
                 String str2 = "";
                 if (matcher.find()) {
                     className = matcher.replaceAll("");

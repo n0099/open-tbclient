@@ -3,32 +3,32 @@ package com.baidu.tieba.im.chat.officialBar;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.b.e.d.l;
-import d.b.b.e.p.k;
+import d.b.c.e.d.l;
+import d.b.c.e.p.k;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public List<a> msg;
     public int msgCount;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17882a;
+        public String f17559a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17883b;
+        public int f17560b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17884c;
+        public String f17561c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17885d;
+        public int f17562d;
     }
 
     public ResponseHistoryMessage() {
@@ -59,10 +59,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aVar.f17882a = k.getDateStringMouth(date);
-                    aVar.f17883b = msgInfo.type.intValue();
-                    aVar.f17884c = msgInfo.content;
-                    aVar.f17885d = msgInfo.id.intValue();
+                    aVar.f17559a = k.getDateStringMouth(date);
+                    aVar.f17560b = msgInfo.type.intValue();
+                    aVar.f17561c = msgInfo.content;
+                    aVar.f17562d = msgInfo.id.intValue();
                     this.msg.add(aVar);
                 }
             }

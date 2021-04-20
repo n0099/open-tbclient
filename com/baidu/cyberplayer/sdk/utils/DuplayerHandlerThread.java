@@ -10,36 +10,36 @@ public class DuplayerHandlerThread extends HandlerThread {
     public static final String TAG = "DuplayerHandlerThread";
 
     /* renamed from: a  reason: collision with root package name */
-    public long f5085a;
+    public long f5120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f5086b;
+    public volatile int f5121b;
 
     public DuplayerHandlerThread(String str) {
         super(str);
-        this.f5086b = 0;
-        this.f5085a = -1L;
+        this.f5121b = 0;
+        this.f5120a = -1L;
     }
 
     public DuplayerHandlerThread(String str, int i) {
         super(str, i);
-        this.f5086b = 0;
-        this.f5085a = -1L;
+        this.f5121b = 0;
+        this.f5120a = -1L;
     }
 
     public long getIdleBeginTime() {
-        return this.f5085a;
+        return this.f5120a;
     }
 
     public int getRunState() {
-        return this.f5086b;
+        return this.f5121b;
     }
 
     public void setIdleBeginTime(long j) {
-        this.f5085a = j;
+        this.f5120a = j;
     }
 
     public void setRunState(int i) {
-        this.f5086b = i;
+        this.f5121b = i;
     }
 }

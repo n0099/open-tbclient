@@ -10,7 +10,7 @@ import d.b.g0.a.k;
 import d.b.g0.m.a.d.f;
 /* loaded from: classes2.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static final boolean B = k.f45051a;
+    public static final boolean B = k.f45443a;
     public boolean A;
     public a z;
 
@@ -35,7 +35,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public T j(Context context, AttributeSet attributeSet) {
-        return getRefreshableFactory().G(context);
+        return getRefreshableFactory().H(context);
     }
 
     @Override // android.view.View

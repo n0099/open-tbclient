@@ -4,8 +4,8 @@ import android.view.View;
 import d.b.h0.r.q.a;
 import d.b.i.k0;
 import d.b.i.s0;
-import d.b.i0.i2.e;
-import d.b.i0.i2.o;
+import d.b.i0.j2.e;
+import d.b.i0.j2.o;
 /* loaded from: classes.dex */
 public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T> implements e {
     public s0 n;
@@ -18,7 +18,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         }
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public boolean D() {
         s0 s0Var = this.n;
         if (s0Var == null) {
@@ -27,7 +27,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return s0Var.D();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public int getCurrentPosition() {
         s0 s0Var = this.n;
         if (s0Var == null) {
@@ -36,7 +36,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return s0Var.getCurrentPosition();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public String getPlayUrl() {
         s0 s0Var = this.n;
         if (s0Var == null) {
@@ -45,7 +45,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return s0Var.getPlayUrl();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public View getVideoContainer() {
         s0 s0Var = this.n;
         if (s0Var == null) {
@@ -54,7 +54,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return s0Var.getVideoContainer();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public boolean isPlayStarted() {
         s0 s0Var = this.n;
         if (s0Var == null) {
@@ -63,7 +63,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return s0Var.isPlayStarted();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public boolean isPlaying() {
         s0 s0Var = this.n;
         if (s0Var == null) {
@@ -72,7 +72,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         return s0Var.isPlaying();
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public void startPlay() {
         s0 s0Var = this.n;
         if (s0Var != null) {
@@ -80,7 +80,7 @@ public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T
         }
     }
 
-    @Override // d.b.i0.i2.e
+    @Override // d.b.i0.j2.e
     public void stopPlay() {
         s0 s0Var = this.n;
         if (s0Var != null) {

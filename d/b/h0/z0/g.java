@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.annotation.RequiresApi;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 /* loaded from: classes3.dex */
@@ -16,11 +17,11 @@ public class g {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f51692a = new g();
+        public static g f52116a = new g();
     }
 
     public static g c() {
-        return b.f51692a;
+        return b.f52116a;
     }
 
     public String a() {
@@ -64,7 +65,7 @@ public class g {
                         stringBuffer.deleteCharAt(stringBuffer.length() - 1);
                     }
                     str = stringBuffer.toString();
-                    if ("wlan0".equals(nextElement.getName())) {
+                    if (NetworkInfoUtils.NETWORK_NAME.equals(nextElement.getName())) {
                         return str;
                     }
                 }

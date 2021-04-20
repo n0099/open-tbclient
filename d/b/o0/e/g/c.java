@@ -7,29 +7,29 @@ import d.b.o0.e.f.d;
 public class c extends d {
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f64222h = "XMUnionID";
+    public static String f64935h = "XMUnionID";
     public static boolean i = d.b.o0.e.a.e();
 
     public c(Context context) {
         super(context);
         if (i) {
-            Log.e(f64222h, "xiaomi XMUnionID !!");
+            Log.e(f64935h, "xiaomi XMUnionID !!");
         }
-        this.f64215d = "";
-        this.f64213b = false;
-        this.f64214c = false;
-        this.f64218g = -200;
+        this.f64928d = "";
+        this.f64926b = false;
+        this.f64927c = false;
+        this.f64931g = -200;
     }
 
     @Override // d.b.o0.e.f.c
     public d.b.o0.e.f.c d() {
         try {
-            this.f64214c = d.k.b.a.b();
-            this.f64215d = d.k.b.a.a(this.f64212a);
-            this.f64218g = 0;
+            this.f64927c = d.k.b.a.b();
+            this.f64928d = d.k.b.a.a(this.f64925a);
+            this.f64931g = 0;
         } catch (Exception e2) {
             if (i) {
-                Log.e(f64222h, "xiaomi init4UnionId error", e2);
+                Log.e(f64935h, "xiaomi init4UnionId error", e2);
             }
         }
         return this;

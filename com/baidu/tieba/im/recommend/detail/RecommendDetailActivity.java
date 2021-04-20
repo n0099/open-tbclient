@@ -9,17 +9,17 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.d, BdSwitchView.b {
     public static final String RECOMMEND_DETAIL_URL = "c/u/user/bigvip";
     public RecommendDetailModel mModel;
     public long mUserId;
     public String mUserName;
-    public d.b.i0.d1.q.a.b mView;
+    public d.b.i0.e1.q.a.b mView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -30,7 +30,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -87,7 +87,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.d1.q.a.b bVar = this.mView;
+        d.b.i0.e1.q.a.b bVar = this.mView;
         if (bVar != null) {
             bVar.d(i);
         }
@@ -96,7 +96,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.b.i0.d1.q.a.b(this);
+        this.mView = new d.b.i0.e1.q.a.b(this);
         this.mModel = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
         checkIsShowAcceptSwitch();
@@ -137,7 +137,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.d
     public void onSuccess(UserInfoBigVip userInfoBigVip, boolean z) {
-        d.b.i0.d1.q.a.b bVar = this.mView;
+        d.b.i0.e1.q.a.b bVar = this.mView;
         if (bVar == null || userInfoBigVip == null) {
             return;
         }

@@ -1,25 +1,23 @@
 package com.alibaba.fastjson.serializer;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.PropertyNamingStrategy;
-import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
-import java.lang.reflect.WildcardType;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 /* loaded from: classes.dex */
 public class JavaBeanSerializer extends SerializeFilterable implements ObjectSerializer {
     public SerializeBeanInfo beanInfo;
@@ -63,6 +61,17 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
 
     public BeanContext getBeanContext(int i) {
         return this.sortedGetters[i].fieldContext;
+    }
+
+    public Set<String> getFieldNames(Object obj) throws Exception {
+        FieldSerializer[] fieldSerializerArr;
+        HashSet hashSet = new HashSet();
+        for (FieldSerializer fieldSerializer : this.sortedGetters) {
+            if (fieldSerializer.getPropertyValueDirect(obj) != null) {
+                hashSet.add(fieldSerializer.fieldInfo.name);
+            }
+        }
+        return hashSet;
     }
 
     public FieldSerializer getFieldSerializer(String str) {
@@ -115,7 +124,21 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         FieldSerializer[] fieldSerializerArr;
         LinkedHashMap linkedHashMap = new LinkedHashMap(this.sortedGetters.length);
         for (FieldSerializer fieldSerializer : this.sortedGetters) {
-            linkedHashMap.put(fieldSerializer.fieldInfo.name, fieldSerializer.getPropertyValue(obj));
+            boolean isEnabled = SerializerFeature.isEnabled(fieldSerializer.features, SerializerFeature.SkipTransientField);
+            FieldInfo fieldInfo = fieldSerializer.fieldInfo;
+            if (!isEnabled || fieldInfo == null || !fieldInfo.fieldTransient) {
+                FieldInfo fieldInfo2 = fieldSerializer.fieldInfo;
+                if (fieldInfo2.unwrapped) {
+                    Object json = JSON.toJSON(fieldSerializer.getPropertyValue(obj));
+                    if (json instanceof Map) {
+                        linkedHashMap.putAll((Map) json);
+                    } else {
+                        linkedHashMap.put(fieldSerializer.fieldInfo.name, fieldSerializer.getPropertyValue(obj));
+                    }
+                } else {
+                    linkedHashMap.put(fieldInfo2.name, fieldSerializer.getPropertyValue(obj));
+                }
+            }
         }
         return linkedHashMap;
     }
@@ -140,6 +163,10 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             }
         }
         return i;
+    }
+
+    public Class<?> getType() {
+        return this.beanInfo.beanType;
     }
 
     public boolean isWriteAsArray(JSONSerializer jSONSerializer) {
@@ -235,430 +262,902 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         return ((this.beanInfo.features & i2) == 0 && !jSONSerializer.out.beanToArray && (i & i2) == 0) ? false : true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x00ea, code lost:
-        if (r10.fieldTransient != false) goto L57;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:257:0x0352 A[Catch: Exception -> 0x0396, all -> 0x03cf, TryCatch #6 {Exception -> 0x0396, blocks: (B:64:0x00de, B:75:0x00f8, B:77:0x00fe, B:80:0x0108, B:91:0x0127, B:271:0x037a, B:94:0x0130, B:102:0x014c, B:107:0x016f, B:109:0x017d, B:113:0x0186, B:115:0x0194, B:118:0x019b, B:120:0x01a3, B:122:0x01b1, B:125:0x01b7, B:127:0x01bf, B:129:0x01cd, B:132:0x01d3, B:134:0x01d7, B:138:0x01e4, B:140:0x01e8, B:142:0x01f1, B:144:0x01fc, B:146:0x0202, B:148:0x0206, B:151:0x0211, B:153:0x0215, B:155:0x0219, B:158:0x0224, B:160:0x0228, B:162:0x022c, B:165:0x0237, B:167:0x023b, B:169:0x023f, B:172:0x024d, B:174:0x0251, B:176:0x0255, B:179:0x0262, B:181:0x0266, B:183:0x026a, B:186:0x0278, B:188:0x027c, B:190:0x0280, B:194:0x028c, B:196:0x0290, B:198:0x0294, B:201:0x02a1, B:203:0x02ac, B:207:0x02b5, B:209:0x02bb, B:250:0x0340, B:252:0x0344, B:254:0x0348, B:257:0x0352, B:259:0x035a, B:260:0x0362, B:262:0x0368, B:214:0x02c6, B:215:0x02c9, B:217:0x02cf, B:220:0x02d5, B:224:0x02e7, B:227:0x02ef, B:230:0x02f9, B:232:0x0302, B:235:0x030c, B:236:0x0310, B:237:0x0316, B:239:0x031d, B:240:0x0321, B:241:0x0325, B:243:0x0329, B:245:0x032d, B:248:0x0339, B:249:0x033d, B:221:0x02df), top: B:323:0x00de }] */
-    /* JADX WARN: Removed duplicated region for block: B:270:0x0377  */
-    /* JADX WARN: Removed duplicated region for block: B:280:0x03ab  */
-    /* JADX WARN: Removed duplicated region for block: B:287:0x03c5 A[Catch: all -> 0x03cf, Exception -> 0x03d3, TRY_LEAVE, TryCatch #7 {Exception -> 0x03d3, blocks: (B:281:0x03ad, B:283:0x03b5, B:285:0x03bd, B:287:0x03c5), top: B:325:0x03ad }] */
-    /* JADX WARN: Removed duplicated region for block: B:304:0x0401 A[Catch: all -> 0x0439, TryCatch #5 {all -> 0x0439, blocks: (B:301:0x03e1, B:304:0x0401, B:305:0x0415, B:307:0x041b, B:308:0x0433, B:309:0x0438), top: B:321:0x03e1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:307:0x041b A[Catch: all -> 0x0439, TryCatch #5 {all -> 0x0439, blocks: (B:301:0x03e1, B:304:0x0401, B:305:0x0415, B:307:0x041b, B:308:0x0433, B:309:0x0438), top: B:321:0x03e1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:317:0x00d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:321:0x03e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:332:0x0383 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00ab  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00bf  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00c1  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i, boolean z) throws IOException {
-        FieldSerializer[] fieldSerializerArr;
-        SerialContext serialContext;
-        Object obj3;
-        boolean z2;
-        int i2;
-        FieldSerializer[] fieldSerializerArr2;
-        SerialContext serialContext2;
-        String str;
-        int i3;
-        char c2;
-        char c3;
-        boolean z3;
-        Map map;
-        boolean z4;
-        Object obj4 = obj;
-        Type type2 = type;
-        SerializeWriter serializeWriter = jSONSerializer.out;
-        if (obj4 == null) {
-            serializeWriter.writeNull();
-        } else if (writeReference(jSONSerializer, obj4, i)) {
-        } else {
-            if (serializeWriter.sortField) {
-                fieldSerializerArr = this.sortedGetters;
-            } else {
-                fieldSerializerArr = this.getters;
-            }
-            FieldSerializer[] fieldSerializerArr3 = fieldSerializerArr;
-            SerialContext serialContext3 = jSONSerializer.context;
-            if (!this.beanInfo.beanType.isEnum()) {
-                jSONSerializer.setContext(serialContext3, obj, obj2, this.beanInfo.features, i);
-            }
-            boolean isWriteAsArray = isWriteAsArray(jSONSerializer, i);
-            char c4 = isWriteAsArray ? '[' : '{';
-            char c5 = isWriteAsArray ? ']' : '}';
-            if (!z) {
-                try {
-                    try {
-                        serializeWriter.append(c4);
-                    } catch (Exception e2) {
-                        e = e2;
-                        obj3 = obj4;
-                        serialContext = serialContext3;
-                        String str2 = "write javaBean error, fastjson version 1.2.41";
-                        if (obj3 != null) {
-                        }
-                        if (obj2 != null) {
-                        }
-                        if (e.getMessage() != null) {
-                        }
-                        throw new JSONException(str2, e);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    serialContext = serialContext3;
-                    jSONSerializer.context = serialContext;
-                    throw th;
-                }
-            }
-            if (fieldSerializerArr3.length > 0 && serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
-                jSONSerializer.incrementIndent();
-                jSONSerializer.println();
-            }
-            try {
-                if ((this.beanInfo.features & SerializerFeature.WriteClassName.mask) != 0 || (i & SerializerFeature.WriteClassName.mask) != 0 || jSONSerializer.isWriteClassName(type2, obj4)) {
-                    Class<?> cls = obj.getClass();
-                    if (cls != ((cls == type2 || !(type2 instanceof WildcardType)) ? type2 : TypeUtils.getClass(type))) {
-                        writeClassName(jSONSerializer, this.beanInfo.typeKey, obj4);
-                        z2 = true;
-                        char c6 = !z2 ? ',' : (char) 0;
-                        boolean z5 = (serializeWriter.quoteFieldNames || serializeWriter.useSingleQuotes) ? false : true;
-                        boolean z6 = writeBefore(jSONSerializer, obj4, c6) != ',';
-                        boolean isEnabled = serializeWriter.isEnabled(SerializerFeature.SkipTransientField);
-                        boolean isEnabled2 = serializeWriter.isEnabled(SerializerFeature.IgnoreNonFieldGetter);
-                        boolean z7 = z6;
-                        i2 = 0;
-                        while (i2 < fieldSerializerArr3.length) {
-                            try {
-                                FieldSerializer fieldSerializer = fieldSerializerArr3[i2];
-                                Field field = fieldSerializer.fieldInfo.field;
-                                FieldInfo fieldInfo = fieldSerializer.fieldInfo;
-                                serialContext2 = serialContext3;
-                                try {
-                                    try {
-                                        String str3 = fieldInfo.name;
-                                        FieldSerializer[] fieldSerializerArr4 = fieldSerializerArr3;
-                                        Class<?> cls2 = fieldInfo.fieldClass;
-                                        if (isEnabled && field != null) {
-                                            try {
-                                            } catch (Exception e3) {
-                                                e = e3;
-                                                obj3 = obj4;
-                                                serialContext = serialContext2;
-                                                String str22 = "write javaBean error, fastjson version 1.2.41";
-                                                if (obj3 != null) {
-                                                    try {
-                                                        str22 = "write javaBean error, fastjson version 1.2.41, class " + obj.getClass().getName();
-                                                    } catch (Throwable th2) {
-                                                        th = th2;
-                                                        jSONSerializer.context = serialContext;
-                                                        throw th;
-                                                    }
-                                                }
-                                                if (obj2 != null) {
-                                                    str22 = str22 + ", fieldName : " + obj2;
-                                                }
-                                                if (e.getMessage() != null) {
-                                                    str22 = str22 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e.getMessage();
-                                                }
-                                                throw new JSONException(str22, e);
-                                            }
-                                        }
-                                        if ((!isEnabled2 || field != null) && applyName(jSONSerializer, obj4, str3) && applyLabel(jSONSerializer, fieldInfo.label) && (this.beanInfo.typeKey == null || !str3.equals(this.beanInfo.typeKey) || !jSONSerializer.isWriteClassName(type2, obj4))) {
-                                            try {
-                                                str = fieldSerializer.getPropertyValueDirect(obj4);
-                                            } catch (InvocationTargetException e4) {
-                                                if (!serializeWriter.isEnabled(SerializerFeature.IgnoreErrorGetter)) {
-                                                    throw e4;
-                                                }
-                                                str = null;
-                                            }
-                                            if (apply(jSONSerializer, obj4, str3, str)) {
-                                                if (cls2 == String.class && "trim".equals(fieldInfo.format) && str != null) {
-                                                    str = ((String) str).trim();
-                                                }
-                                                String processKey = processKey(jSONSerializer, obj4, str3, str);
-                                                i3 = i2;
-                                                c2 = c5;
-                                                Object processValue = processValue(jSONSerializer, fieldSerializer.fieldContext, obj, str3, str);
-                                                if (processValue == null && !isWriteAsArray) {
-                                                    if (cls2 != Boolean.class) {
-                                                        if (cls2 == String.class) {
-                                                            int i4 = SerializerFeature.WriteNullStringAsEmpty.mask | SerializerFeature.WriteMapNullValue.mask;
-                                                            if ((fieldInfo.serialzeFeatures & i4) == 0 && (i4 & serializeWriter.features) == 0) {
-                                                            }
-                                                        } else if (Number.class.isAssignableFrom(cls2)) {
-                                                            int i5 = SerializerFeature.WriteNullNumberAsZero.mask | SerializerFeature.WriteMapNullValue.mask;
-                                                            if ((fieldInfo.serialzeFeatures & i5) == 0 && (i5 & serializeWriter.features) == 0) {
-                                                            }
-                                                        } else if (Collection.class.isAssignableFrom(cls2)) {
-                                                            int i6 = SerializerFeature.WriteNullListAsEmpty.mask | SerializerFeature.WriteMapNullValue.mask;
-                                                            if ((fieldInfo.serialzeFeatures & i6) == 0 && (i6 & serializeWriter.features) == 0) {
-                                                            }
-                                                        } else if (!fieldSerializer.writeNull && !serializeWriter.isEnabled(SerializerFeature.WriteMapNullValue.mask)) {
-                                                        }
-                                                    } else {
-                                                        int i7 = SerializerFeature.WriteNullBooleanAsFalse.mask | SerializerFeature.WriteMapNullValue.mask;
-                                                        if ((fieldInfo.serialzeFeatures & i7) == 0 && (i7 & serializeWriter.features) == 0) {
-                                                        }
-                                                    }
-                                                    i2 = i3 + 1;
-                                                    obj4 = obj;
-                                                    type2 = type;
-                                                    serialContext3 = serialContext2;
-                                                    fieldSerializerArr3 = fieldSerializerArr4;
-                                                    c5 = c2;
-                                                }
-                                                if (processValue != null && (serializeWriter.notWriteDefaultValue || (fieldInfo.serialzeFeatures & SerializerFeature.NotWriteDefaultValue.mask) != 0 || (this.beanInfo.features & SerializerFeature.NotWriteDefaultValue.mask) != 0)) {
-                                                    Class<?> cls3 = fieldInfo.fieldClass;
-                                                    if (cls3 != Byte.TYPE || !(processValue instanceof Byte) || ((Byte) processValue).byteValue() != 0) {
-                                                        if (cls3 != Short.TYPE || !(processValue instanceof Short) || ((Short) processValue).shortValue() != 0) {
-                                                            if (cls3 != Integer.TYPE || !(processValue instanceof Integer) || ((Integer) processValue).intValue() != 0) {
-                                                                if (cls3 != Long.TYPE || !(processValue instanceof Long) || ((Long) processValue).longValue() != 0) {
-                                                                    if ((cls3 != Float.TYPE || !(processValue instanceof Float) || ((Float) processValue).floatValue() != 0.0f) && (cls3 != Double.TYPE || !(processValue instanceof Double) || ((Double) processValue).doubleValue() != 0.0d)) {
-                                                                        if (cls3 == Boolean.TYPE && (processValue instanceof Boolean) && !((Boolean) processValue).booleanValue()) {
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                            i2 = i3 + 1;
-                                                            obj4 = obj;
-                                                            type2 = type;
-                                                            serialContext3 = serialContext2;
-                                                            fieldSerializerArr3 = fieldSerializerArr4;
-                                                            c5 = c2;
-                                                        }
-                                                        i2 = i3 + 1;
-                                                        obj4 = obj;
-                                                        type2 = type;
-                                                        serialContext3 = serialContext2;
-                                                        fieldSerializerArr3 = fieldSerializerArr4;
-                                                        c5 = c2;
-                                                    }
-                                                    i2 = i3 + 1;
-                                                    obj4 = obj;
-                                                    type2 = type;
-                                                    serialContext3 = serialContext2;
-                                                    fieldSerializerArr3 = fieldSerializerArr4;
-                                                    c5 = c2;
-                                                }
-                                                if (z7) {
-                                                    if (!fieldInfo.unwrapped || !(processValue instanceof Map) || ((Map) processValue).size() != 0) {
-                                                        serializeWriter.write(44);
-                                                        if (serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
-                                                            jSONSerializer.println();
-                                                        }
-                                                    }
-                                                    i2 = i3 + 1;
-                                                    obj4 = obj;
-                                                    type2 = type;
-                                                    serialContext3 = serialContext2;
-                                                    fieldSerializerArr3 = fieldSerializerArr4;
-                                                    c5 = c2;
-                                                }
-                                                if (processKey != str3) {
-                                                    if (!isWriteAsArray) {
-                                                        serializeWriter.writeFieldName(processKey, true);
-                                                    }
-                                                    jSONSerializer.write(processValue);
-                                                } else if (str != processValue) {
-                                                    if (!isWriteAsArray) {
-                                                        fieldSerializer.writePrefix(jSONSerializer);
-                                                    }
-                                                    jSONSerializer.write(processValue);
-                                                } else {
-                                                    if (isWriteAsArray || fieldInfo.unwrapped) {
-                                                        c3 = 0;
-                                                    } else if (z5) {
-                                                        c3 = 0;
-                                                        serializeWriter.write(fieldInfo.name_chars, 0, fieldInfo.name_chars.length);
-                                                    } else {
-                                                        c3 = 0;
-                                                        fieldSerializer.writePrefix(jSONSerializer);
-                                                    }
-                                                    if (!isWriteAsArray) {
-                                                        JSONField annotation = fieldInfo.getAnnotation();
-                                                        if (cls2 == String.class && (annotation == null || annotation.serializeUsing() == Void.class)) {
-                                                            if (processValue == null) {
-                                                                if ((serializeWriter.features & SerializerFeature.WriteNullStringAsEmpty.mask) == 0 && (fieldSerializer.features & SerializerFeature.WriteNullStringAsEmpty.mask) == 0) {
-                                                                    serializeWriter.writeNull();
-                                                                }
-                                                                serializeWriter.writeString("");
-                                                            } else {
-                                                                String str4 = (String) processValue;
-                                                                if (serializeWriter.useSingleQuotes) {
-                                                                    serializeWriter.writeStringWithSingleQuote(str4);
-                                                                } else {
-                                                                    serializeWriter.writeStringWithDoubleQuote(str4, c3);
-                                                                }
-                                                            }
-                                                        } else if (fieldInfo.unwrapped && (processValue instanceof Map) && ((Map) processValue).size() == 0) {
-                                                            z7 = false;
-                                                            i2 = i3 + 1;
-                                                            obj4 = obj;
-                                                            type2 = type;
-                                                            serialContext3 = serialContext2;
-                                                            fieldSerializerArr3 = fieldSerializerArr4;
-                                                            c5 = c2;
-                                                        } else {
-                                                            fieldSerializer.writeValue(jSONSerializer, processValue);
-                                                        }
-                                                    } else {
-                                                        fieldSerializer.writeValue(jSONSerializer, processValue);
-                                                    }
-                                                    if (fieldInfo.unwrapped && (processValue instanceof Map)) {
-                                                        map = (Map) processValue;
-                                                        if (map.size() != 0) {
-                                                            if (!jSONSerializer.isEnabled(SerializerFeature.WriteMapNullValue)) {
-                                                                Iterator it = map.values().iterator();
-                                                                while (true) {
-                                                                    if (!it.hasNext()) {
-                                                                        z4 = false;
-                                                                        break;
-                                                                    } else if (it.next() != null) {
-                                                                        z4 = true;
-                                                                        break;
-                                                                    }
-                                                                }
-                                                                if (!z4) {
-                                                                }
-                                                            }
-                                                        }
-                                                        z3 = true;
-                                                        if (z3) {
-                                                            z7 = true;
-                                                        }
-                                                        i2 = i3 + 1;
-                                                        obj4 = obj;
-                                                        type2 = type;
-                                                        serialContext3 = serialContext2;
-                                                        fieldSerializerArr3 = fieldSerializerArr4;
-                                                        c5 = c2;
-                                                    }
-                                                    z3 = false;
-                                                    if (z3) {
-                                                    }
-                                                    i2 = i3 + 1;
-                                                    obj4 = obj;
-                                                    type2 = type;
-                                                    serialContext3 = serialContext2;
-                                                    fieldSerializerArr3 = fieldSerializerArr4;
-                                                    c5 = c2;
-                                                }
-                                                if (fieldInfo.unwrapped) {
-                                                    map = (Map) processValue;
-                                                    if (map.size() != 0) {
-                                                    }
-                                                    z3 = true;
-                                                    if (z3) {
-                                                    }
-                                                    i2 = i3 + 1;
-                                                    obj4 = obj;
-                                                    type2 = type;
-                                                    serialContext3 = serialContext2;
-                                                    fieldSerializerArr3 = fieldSerializerArr4;
-                                                    c5 = c2;
-                                                }
-                                                z3 = false;
-                                                if (z3) {
-                                                }
-                                                i2 = i3 + 1;
-                                                obj4 = obj;
-                                                type2 = type;
-                                                serialContext3 = serialContext2;
-                                                fieldSerializerArr3 = fieldSerializerArr4;
-                                                c5 = c2;
-                                            }
-                                        }
-                                        i3 = i2;
-                                        c2 = c5;
-                                        i2 = i3 + 1;
-                                        obj4 = obj;
-                                        type2 = type;
-                                        serialContext3 = serialContext2;
-                                        fieldSerializerArr3 = fieldSerializerArr4;
-                                        c5 = c2;
-                                    } catch (Exception e5) {
-                                        e = e5;
-                                        obj3 = obj;
-                                    }
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    serialContext = serialContext2;
-                                    jSONSerializer.context = serialContext;
-                                    throw th;
-                                }
-                            } catch (Exception e6) {
-                                e = e6;
-                                obj3 = obj;
-                                serialContext = serialContext3;
-                                String str222 = "write javaBean error, fastjson version 1.2.41";
-                                if (obj3 != null) {
-                                }
-                                if (obj2 != null) {
-                                }
-                                if (e.getMessage() != null) {
-                                }
-                                throw new JSONException(str222, e);
-                            }
-                        }
-                        char c7 = c5;
-                        fieldSerializerArr2 = fieldSerializerArr3;
-                        serialContext2 = serialContext3;
-                        obj3 = obj;
-                        writeAfter(jSONSerializer, obj3, z7 ? ',' : (char) 0);
-                        if (fieldSerializerArr2.length > 0 && serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
-                            jSONSerializer.decrementIdent();
-                            jSONSerializer.println();
-                        }
-                        if (!z) {
-                            serializeWriter.append(c7);
-                        }
-                        jSONSerializer.context = serialContext2;
-                        return;
-                    }
-                }
-                writeAfter(jSONSerializer, obj3, z7 ? ',' : (char) 0);
-                if (fieldSerializerArr2.length > 0) {
-                    jSONSerializer.decrementIdent();
-                    jSONSerializer.println();
-                }
-                if (!z) {
-                }
-                jSONSerializer.context = serialContext2;
-                return;
-            } catch (Exception e7) {
-                e = e7;
-                serialContext = serialContext2;
-                String str2222 = "write javaBean error, fastjson version 1.2.41";
-                if (obj3 != null) {
-                }
-                if (obj2 != null) {
-                }
-                if (e.getMessage() != null) {
-                }
-                throw new JSONException(str2222, e);
-            }
-            z2 = false;
-            if (!z2) {
-            }
-            if (serializeWriter.quoteFieldNames) {
-            }
-            if (writeBefore(jSONSerializer, obj4, c6) != ',') {
-            }
-            boolean isEnabled3 = serializeWriter.isEnabled(SerializerFeature.SkipTransientField);
-            boolean isEnabled22 = serializeWriter.isEnabled(SerializerFeature.IgnoreNonFieldGetter);
-            boolean z72 = z6;
-            i2 = 0;
-            while (i2 < fieldSerializerArr3.length) {
-            }
-            char c72 = c5;
-            fieldSerializerArr2 = fieldSerializerArr3;
-            serialContext2 = serialContext3;
-            obj3 = obj;
-        }
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:428:0x05d6
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public void write(com.alibaba.fastjson.serializer.JSONSerializer r36, java.lang.Object r37, java.lang.Object r38, java.lang.reflect.Type r39, int r40, boolean r41) throws java.io.IOException {
+        /*
+            r35 = this;
+            r8 = r35
+            r9 = r36
+            r10 = r37
+            r11 = r38
+            r12 = r39
+            r13 = r40
+            java.lang.Class<java.lang.String> r14 = java.lang.String.class
+            com.alibaba.fastjson.serializer.SerializeWriter r15 = r9.out
+            if (r10 != 0) goto L16
+            r15.writeNull()
+            return
+        L16:
+            boolean r1 = r8.writeReference(r9, r10, r13)
+            if (r1 == 0) goto L1d
+            return
+        L1d:
+            boolean r1 = r15.sortField
+            if (r1 == 0) goto L24
+            com.alibaba.fastjson.serializer.FieldSerializer[] r1 = r8.sortedGetters
+            goto L26
+        L24:
+            com.alibaba.fastjson.serializer.FieldSerializer[] r1 = r8.getters
+        L26:
+            r7 = r1
+            com.alibaba.fastjson.serializer.SerialContext r6 = r9.context
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo
+            java.lang.Class<?> r1 = r1.beanType
+            boolean r1 = r1.isEnum()
+            if (r1 != 0) goto L45
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo
+            int r5 = r1.features
+            r1 = r36
+            r2 = r6
+            r3 = r37
+            r4 = r38
+            r11 = r6
+            r6 = r40
+            r1.setContext(r2, r3, r4, r5, r6)
+            goto L46
+        L45:
+            r11 = r6
+        L46:
+            boolean r16 = r8.isWriteAsArray(r9, r13)
+            if (r16 == 0) goto L4f
+            r1 = 91
+            goto L51
+        L4f:
+            r1 = 123(0x7b, float:1.72E-43)
+        L51:
+            if (r16 == 0) goto L58
+            r2 = 93
+            r6 = 93
+            goto L5c
+        L58:
+            r2 = 125(0x7d, float:1.75E-43)
+            r6 = 125(0x7d, float:1.75E-43)
+        L5c:
+            r17 = 0
+            if (r41 != 0) goto L6a
+            r15.append(r1)     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            goto L6a
+        L64:
+            r0 = move-exception
+            r3 = r0
+            r1 = r10
+            r2 = r11
+            goto L523
+        L6a:
+            int r1 = r7.length     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            if (r1 <= 0) goto L7b
+            com.alibaba.fastjson.serializer.SerializerFeature r1 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            boolean r1 = r15.isEnabled(r1)     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            if (r1 == 0) goto L7b
+            r36.incrementIndent()     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            r36.println()     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+        L7b:
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            int r1 = r1.features     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            int r2 = r2.mask     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            r1 = r1 & r2
+            if (r1 != 0) goto L93
+            com.alibaba.fastjson.serializer.SerializerFeature r1 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            int r1 = r1.mask     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            r1 = r1 & r13
+            if (r1 != 0) goto L93
+            boolean r1 = r9.isWriteClassName(r12, r10)     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            if (r1 == 0) goto Lae
+        L93:
+            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            if (r1 == r12) goto La2
+            boolean r2 = r12 instanceof java.lang.reflect.WildcardType     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            if (r2 == 0) goto La2
+            java.lang.Class r2 = com.alibaba.fastjson.util.TypeUtils.getClass(r39)     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            goto La3
+        La2:
+            r2 = r12
+        La3:
+            if (r1 == r2) goto Lae
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            java.lang.String r1 = r1.typeKey     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            r8.writeClassName(r9, r1, r10)     // Catch: java.lang.Exception -> L64 java.lang.Throwable -> L51a
+            r1 = 1
+            goto Laf
+        Lae:
+            r1 = 0
+        Laf:
+            r3 = 44
+            if (r1 == 0) goto Lb6
+            r1 = 44
+            goto Lb7
+        Lb6:
+            r1 = 0
+        Lb7:
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            boolean r18 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            char r1 = r8.writeBefore(r9, r10, r1)     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            if (r1 != r3) goto Lc5
+            r1 = 1
+            goto Lc6
+        Lc5:
+            r1 = 0
+        Lc6:
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.SkipTransientField     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            boolean r19 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.IgnoreNonFieldGetter     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            boolean r20 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51a java.lang.Exception -> L51f
+            r21 = r1
+            r1 = r17
+            r2 = 0
+        Ld7:
+            int r3 = r7.length     // Catch: java.lang.Exception -> L511 java.lang.Throwable -> L51a
+            if (r2 >= r3) goto L4cf
+            r3 = r7[r2]     // Catch: java.lang.Exception -> L4c7 java.lang.Throwable -> L51a
+            com.alibaba.fastjson.util.FieldInfo r4 = r3.fieldInfo     // Catch: java.lang.Exception -> L4c7 java.lang.Throwable -> L51a
+            java.lang.reflect.Field r4 = r4.field     // Catch: java.lang.Exception -> L4c7 java.lang.Throwable -> L51a
+            com.alibaba.fastjson.util.FieldInfo r13 = r3.fieldInfo     // Catch: java.lang.Exception -> L4c7 java.lang.Throwable -> L51a
+            r24 = r11
+            java.lang.String r11 = r13.name     // Catch: java.lang.Exception -> L4be java.lang.Throwable -> L507
+            r25 = r7
+            java.lang.Class<?> r7 = r13.fieldClass     // Catch: java.lang.Exception -> L4be java.lang.Throwable -> L507
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4be java.lang.Throwable -> L507
+            r27 = r1
+            int r1 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r28 = r2
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.UseSingleQuotes     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r29 = com.alibaba.fastjson.serializer.SerializerFeature.isEnabled(r5, r1, r2)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r1 = r15.quoteFieldNames     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r1 == 0) goto L101
+            if (r29 != 0) goto L101
+            r30 = 1
+            goto L103
+        L101:
+            r30 = 0
+        L103:
+            if (r19 == 0) goto L111
+            if (r13 == 0) goto L111
+            boolean r1 = r13.fieldTransient     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            if (r1 == 0) goto L111
+            goto L115
+        L10c:
+            r0 = move-exception
+            r3 = r0
+            r1 = r10
+            goto L4c4
+        L111:
+            if (r20 == 0) goto L11f
+            if (r4 != 0) goto L11f
+        L115:
+            r33 = r6
+            r34 = r25
+        L119:
+            r3 = 44
+            r5 = 1
+            r7 = 0
+            goto L4aa
+        L11f:
+            boolean r1 = r8.applyName(r9, r10, r11)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r1 == 0) goto L130
+            java.lang.String r1 = r13.label     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            boolean r1 = r8.applyLabel(r9, r1)     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            if (r1 != 0) goto L12e
+            goto L130
+        L12e:
+            r1 = 0
+            goto L133
+        L130:
+            if (r16 == 0) goto L115
+            r1 = 1
+        L133:
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r2 = r8.beanInfo     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            java.lang.String r2 = r2.typeKey     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L14a
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r2 = r8.beanInfo     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            java.lang.String r2 = r2.typeKey     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            boolean r2 = r11.equals(r2)     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            if (r2 == 0) goto L14a
+            boolean r2 = r9.isWriteClassName(r12, r10)     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            if (r2 == 0) goto L14a
+            goto L115
+        L14a:
+            if (r1 == 0) goto L14f
+        L14c:
+            r1 = r17
+            goto L161
+        L14f:
+            java.lang.Object r1 = r3.getPropertyValueDirect(r10)     // Catch: java.lang.Exception -> L10c java.lang.reflect.InvocationTargetException -> L154 java.lang.Throwable -> L507
+            goto L161
+        L154:
+            r0 = move-exception
+            r1 = r0
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.IgnoreErrorGetter     // Catch: java.lang.Exception -> L4a1 java.lang.Throwable -> L507
+            boolean r2 = r15.isEnabled(r2)     // Catch: java.lang.Exception -> L4a1 java.lang.Throwable -> L507
+            if (r2 == 0) goto L49d
+            r27 = r3
+            goto L14c
+        L161:
+            boolean r2 = r8.apply(r9, r10, r11, r1)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 != 0) goto L16c
+            r33 = r6
+            r34 = r25
+            goto L119
+        L16c:
+            if (r7 != r14) goto L180
+            java.lang.String r2 = "trim"
+            java.lang.String r4 = r13.format     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            boolean r2 = r2.equals(r4)     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            if (r2 == 0) goto L180
+            if (r1 == 0) goto L180
+            java.lang.String r1 = (java.lang.String) r1     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+            java.lang.String r1 = r1.trim()     // Catch: java.lang.Exception -> L10c java.lang.Throwable -> L507
+        L180:
+            r5 = r1
+            java.lang.String r4 = r8.processKey(r9, r10, r11, r5)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.BeanContext r2 = r3.fieldContext     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r1 = r35
+            r31 = r2
+            r2 = r36
+            r12 = r3
+            r10 = 44
+            r3 = r31
+            r32 = r4
+            r22 = 0
+            r4 = r37
+            r23 = r5
+            r5 = r11
+            r33 = r6
+            r6 = r23
+            r10 = r7
+            r34 = r25
+            r7 = r40
+            java.lang.Object r1 = r1.processValue(r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            java.lang.String r2 = ""
+            if (r1 != 0) goto L2be
+            int r3 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.annotation.JSONField r4 = r13.getAnnotation()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r5 = r8.beanInfo     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.annotation.JSONType r5 = r5.jsonType     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r5 == 0) goto L1c5
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r5 = r8.beanInfo     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.annotation.JSONType r5 = r5.jsonType     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature[] r5 = r5.serialzeFeatures()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r5 = com.alibaba.fastjson.serializer.SerializerFeature.of(r5)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 | r5
+        L1c5:
+            if (r4 == 0) goto L1d7
+            java.lang.String r5 = r4.defaultValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r5 = r2.equals(r5)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r5 != 0) goto L1d7
+            java.lang.String r1 = r4.defaultValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L1d7:
+            java.lang.Class<java.lang.Boolean> r4 = java.lang.Boolean.class
+            if (r10 != r4) goto L209
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullBooleanAsFalse     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 | r4
+            if (r16 != 0) goto L1f1
+            r6 = r3 & r5
+            if (r6 != 0) goto L1f1
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 & r6
+            if (r5 != 0) goto L1f1
+            goto L379
+        L1f1:
+            r5 = r3 & r4
+            if (r5 == 0) goto L1f9
+            java.lang.Boolean r1 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L1f9:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r4 = r4 & r5
+            if (r4 == 0) goto L2be
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 != 0) goto L2be
+            java.lang.Boolean r1 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L209:
+            if (r10 != r14) goto L235
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 | r4
+            if (r16 != 0) goto L221
+            r6 = r3 & r5
+            if (r6 != 0) goto L221
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 & r6
+            if (r5 != 0) goto L221
+            goto L379
+        L221:
+            r5 = r3 & r4
+            if (r5 == 0) goto L228
+        L225:
+            r1 = r2
+            goto L2be
+        L228:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r4 = r4 & r5
+            if (r4 == 0) goto L2be
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 != 0) goto L2be
+            goto L225
+        L235:
+            java.lang.Class<java.lang.Number> r4 = java.lang.Number.class
+            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L26d
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullNumberAsZero     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 | r4
+            if (r16 != 0) goto L253
+            r6 = r3 & r5
+            if (r6 != 0) goto L253
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 & r6
+            if (r5 != 0) goto L253
+            goto L379
+        L253:
+            r5 = r3 & r4
+            if (r5 == 0) goto L25c
+            java.lang.Integer r1 = java.lang.Integer.valueOf(r22)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L25c:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r4 = r4 & r5
+            if (r4 == 0) goto L2be
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 != 0) goto L2be
+            java.lang.Integer r1 = java.lang.Integer.valueOf(r22)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L26d:
+            java.lang.Class<java.util.Collection> r4 = java.util.Collection.class
+            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L2a5
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullListAsEmpty     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 | r4
+            if (r16 != 0) goto L28b
+            r6 = r3 & r5
+            if (r6 != 0) goto L28b
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = r5 & r6
+            if (r5 != 0) goto L28b
+            goto L379
+        L28b:
+            r5 = r3 & r4
+            if (r5 == 0) goto L294
+            java.util.List r1 = java.util.Collections.emptyList()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L294:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r4 = r4 & r5
+            if (r4 == 0) goto L2be
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 != 0) goto L2be
+            java.util.List r1 = java.util.Collections.emptyList()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L2be
+        L2a5:
+            if (r16 != 0) goto L2be
+            boolean r4 = r12.writeNull     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 != 0) goto L2be
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r4 = r15.isEnabled(r4)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 != 0) goto L2be
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 != 0) goto L2be
+            goto L379
+        L2be:
+            if (r1 == 0) goto L366
+            boolean r3 = r15.notWriteDefaultValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != 0) goto L2d8
+            int r3 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.NotWriteDefaultValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 != 0) goto L2d8
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r3 = r8.beanInfo     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r3 = r3.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.NotWriteDefaultValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r3 = r3 & r4
+            if (r3 == 0) goto L366
+        L2d8:
+            java.lang.Class<?> r3 = r13.fieldClass     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            java.lang.Class r4 = java.lang.Byte.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L2ed
+            boolean r4 = r1 instanceof java.lang.Byte     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L2ed
+            r4 = r1
+            java.lang.Byte r4 = (java.lang.Byte) r4     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            byte r4 = r4.byteValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 != 0) goto L2ed
+            goto L379
+        L2ed:
+            java.lang.Class r4 = java.lang.Short.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L300
+            boolean r4 = r1 instanceof java.lang.Short     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L300
+            r4 = r1
+            java.lang.Short r4 = (java.lang.Short) r4     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            short r4 = r4.shortValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 != 0) goto L300
+            goto L379
+        L300:
+            java.lang.Class r4 = java.lang.Integer.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L313
+            boolean r4 = r1 instanceof java.lang.Integer     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L313
+            r4 = r1
+            java.lang.Integer r4 = (java.lang.Integer) r4     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r4 = r4.intValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 != 0) goto L313
+            goto L379
+        L313:
+            java.lang.Class r4 = java.lang.Long.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L329
+            boolean r4 = r1 instanceof java.lang.Long     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L329
+            r4 = r1
+            java.lang.Long r4 = (java.lang.Long) r4     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            long r4 = r4.longValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r6 = 0
+            int r26 = (r4 > r6 ? 1 : (r4 == r6 ? 0 : -1))
+            if (r26 != 0) goto L329
+            goto L379
+        L329:
+            java.lang.Class r4 = java.lang.Float.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L33e
+            boolean r4 = r1 instanceof java.lang.Float     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L33e
+            r4 = r1
+            java.lang.Float r4 = (java.lang.Float) r4     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            float r4 = r4.floatValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r5 = 0
+            int r4 = (r4 > r5 ? 1 : (r4 == r5 ? 0 : -1))
+            if (r4 != 0) goto L33e
+            goto L379
+        L33e:
+            java.lang.Class r4 = java.lang.Double.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L354
+            boolean r4 = r1 instanceof java.lang.Double     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L354
+            r4 = r1
+            java.lang.Double r4 = (java.lang.Double) r4     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            double r4 = r4.doubleValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r6 = 0
+            int r26 = (r4 > r6 ? 1 : (r4 == r6 ? 0 : -1))
+            if (r26 != 0) goto L354
+            goto L379
+        L354:
+            java.lang.Class r4 = java.lang.Boolean.TYPE     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != r4) goto L366
+            boolean r3 = r1 instanceof java.lang.Boolean     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 == 0) goto L366
+            r3 = r1
+            java.lang.Boolean r3 = (java.lang.Boolean) r3     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r3 = r3.booleanValue()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != 0) goto L366
+            goto L379
+        L366:
+            if (r21 == 0) goto L38c
+            boolean r3 = r13.unwrapped     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 == 0) goto L37b
+            boolean r3 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 == 0) goto L37b
+            r3 = r1
+            java.util.Map r3 = (java.util.Map) r3     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r3 = r3.size()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r3 != 0) goto L37b
+        L379:
+            goto L119
+        L37b:
+            r3 = 44
+            r15.write(r3)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r4 = r15.isEnabled(r4)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r4 == 0) goto L38e
+            r36.println()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L38e
+        L38c:
+            r3 = 44
+        L38e:
+            r4 = r32
+            if (r4 == r11) goto L3a0
+            if (r16 != 0) goto L399
+            r5 = 1
+            r15.writeFieldName(r4, r5)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L39a
+        L399:
+            r5 = 1
+        L39a:
+            r9.write(r1)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+        L39d:
+            r7 = 0
+            goto L461
+        L3a0:
+            r4 = r23
+            r5 = 1
+            if (r4 == r1) goto L3ae
+            if (r16 != 0) goto L3aa
+            r12.writePrefix(r9)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+        L3aa:
+            r9.write(r1)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L39d
+        L3ae:
+            if (r16 != 0) goto L3ea
+            java.lang.Class<java.util.Map> r4 = java.util.Map.class
+            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r6 = r10.isPrimitive()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r6 != 0) goto L3c8
+            java.lang.String r6 = r10.getName()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            java.lang.String r7 = "java."
+            boolean r6 = r6.startsWith(r7)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r6 == 0) goto L3cc
+        L3c8:
+            java.lang.Class<java.lang.Object> r6 = java.lang.Object.class
+            if (r10 != r6) goto L3ce
+        L3cc:
+            r6 = 1
+            goto L3cf
+        L3ce:
+            r6 = 0
+        L3cf:
+            if (r18 != 0) goto L3d9
+            boolean r7 = r13.unwrapped     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r7 == 0) goto L3d9
+            if (r4 != 0) goto L3ea
+            if (r6 != 0) goto L3ea
+        L3d9:
+            if (r30 == 0) goto L3e5
+            char[] r4 = r13.name_chars     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            char[] r6 = r13.name_chars     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r6 = r6.length     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r7 = 0
+            r15.write(r4, r7, r6)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L3eb
+        L3e5:
+            r7 = 0
+            r12.writePrefix(r9)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L3eb
+        L3ea:
+            r7 = 0
+        L3eb:
+            if (r16 != 0) goto L45e
+            com.alibaba.fastjson.annotation.JSONField r4 = r13.getAnnotation()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r10 != r14) goto L444
+            if (r4 == 0) goto L3fd
+            java.lang.Class r4 = r4.serializeUsing()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            java.lang.Class<java.lang.Void> r6 = java.lang.Void.class
+            if (r4 != r6) goto L444
+        L3fd:
+            if (r1 != 0) goto L437
+            int r4 = r12.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r6 = r8.beanInfo     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.annotation.JSONType r6 = r6.jsonType     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r6 == 0) goto L414
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r6 = r8.beanInfo     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.annotation.JSONType r6 = r6.jsonType     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature[] r6 = r6.serialzeFeatures()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r6 = com.alibaba.fastjson.serializer.SerializerFeature.of(r6)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r4 = r4 | r6
+        L414:
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            com.alibaba.fastjson.serializer.SerializerFeature r10 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r10 = r10.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r6 = r6 & r10
+            if (r6 == 0) goto L428
+            com.alibaba.fastjson.serializer.SerializerFeature r6 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r6 = r6.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r6 = r6 & r4
+            if (r6 != 0) goto L428
+            r15.writeString(r2)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L461
+        L428:
+            com.alibaba.fastjson.serializer.SerializerFeature r6 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r6 = r6.mask     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            r4 = r4 & r6
+            if (r4 == 0) goto L433
+            r15.writeString(r2)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L461
+        L433:
+            r15.writeNull()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L461
+        L437:
+            r2 = r1
+            java.lang.String r2 = (java.lang.String) r2     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r29 == 0) goto L440
+            r15.writeStringWithSingleQuote(r2)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L461
+        L440:
+            r15.writeStringWithDoubleQuote(r2, r7)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L461
+        L444:
+            boolean r2 = r13.unwrapped     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L45a
+            boolean r2 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L45a
+            r2 = r1
+            java.util.Map r2 = (java.util.Map) r2     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r2 = r2.size()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 != 0) goto L45a
+            r1 = r27
+            r21 = 0
+            goto L4ac
+        L45a:
+            r12.writeValue(r9, r1)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            goto L461
+        L45e:
+            r12.writeValue(r9, r1)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+        L461:
+            boolean r2 = r13.unwrapped     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L495
+            boolean r2 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L495
+            java.util.Map r1 = (java.util.Map) r1     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            int r2 = r1.size()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 != 0) goto L473
+        L471:
+            r1 = 1
+            goto L496
+        L473:
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            boolean r2 = r9.isEnabled(r2)     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 != 0) goto L495
+            java.util.Collection r1 = r1.values()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            java.util.Iterator r1 = r1.iterator()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+        L483:
+            boolean r2 = r1.hasNext()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L491
+            java.lang.Object r2 = r1.next()     // Catch: java.lang.Exception -> L4bc java.lang.Throwable -> L507
+            if (r2 == 0) goto L483
+            r1 = 1
+            goto L492
+        L491:
+            r1 = 0
+        L492:
+            if (r1 != 0) goto L495
+            goto L471
+        L495:
+            r1 = 0
+        L496:
+            if (r1 != 0) goto L4aa
+            r1 = r27
+            r21 = 1
+            goto L4ac
+        L49d:
+            r12 = r3
+            throw r1     // Catch: java.lang.Exception -> L49f java.lang.Throwable -> L507
+        L49f:
+            r0 = move-exception
+            goto L4a3
+        L4a1:
+            r0 = move-exception
+            r12 = r3
+        L4a3:
+            r1 = r37
+            r3 = r0
+            r2 = r24
+            goto L525
+        L4aa:
+            r1 = r27
+        L4ac:
+            int r2 = r28 + 1
+            r10 = r37
+            r12 = r39
+            r13 = r40
+            r11 = r24
+            r6 = r33
+            r7 = r34
+            goto Ld7
+        L4bc:
+            r0 = move-exception
+            goto L4c1
+        L4be:
+            r0 = move-exception
+            r27 = r1
+        L4c1:
+            r1 = r37
+        L4c3:
+            r3 = r0
+        L4c4:
+            r2 = r24
+            goto L517
+        L4c7:
+            r0 = move-exception
+            r27 = r1
+            r1 = r37
+            r3 = r0
+            r2 = r11
+            goto L517
+        L4cf:
+            r27 = r1
+            r33 = r6
+            r34 = r7
+            r24 = r11
+            r3 = 44
+            r7 = 0
+            r1 = r37
+            if (r21 == 0) goto L4e1
+            r4 = 44
+            goto L4e2
+        L4e1:
+            r4 = 0
+        L4e2:
+            r8.writeAfter(r9, r1, r4)     // Catch: java.lang.Throwable -> L507 java.lang.Exception -> L50d
+            r2 = r34
+            int r2 = r2.length     // Catch: java.lang.Throwable -> L507 java.lang.Exception -> L50d
+            if (r2 <= 0) goto L4fb
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L4f9 java.lang.Throwable -> L507
+            boolean r2 = r15.isEnabled(r2)     // Catch: java.lang.Exception -> L4f9 java.lang.Throwable -> L507
+            if (r2 == 0) goto L4fb
+            r36.decrementIdent()     // Catch: java.lang.Exception -> L4f9 java.lang.Throwable -> L507
+            r36.println()     // Catch: java.lang.Exception -> L4f9 java.lang.Throwable -> L507
+            goto L4fb
+        L4f9:
+            r0 = move-exception
+            goto L4c3
+        L4fb:
+            if (r41 != 0) goto L502
+            r2 = r33
+            r15.append(r2)     // Catch: java.lang.Exception -> L4f9 java.lang.Throwable -> L507
+        L502:
+            r2 = r24
+            r9.context = r2
+            return
+        L507:
+            r0 = move-exception
+            r1 = r0
+            r5 = r24
+            goto L5d9
+        L50d:
+            r0 = move-exception
+            r2 = r24
+            goto L516
+        L511:
+            r0 = move-exception
+            r27 = r1
+            r1 = r10
+            r2 = r11
+        L516:
+            r3 = r0
+        L517:
+            r12 = r27
+            goto L525
+        L51a:
+            r0 = move-exception
+            r1 = r0
+            r5 = r11
+            goto L5d9
+        L51f:
+            r0 = move-exception
+            r1 = r10
+            r2 = r11
+            r3 = r0
+        L523:
+            r12 = r17
+        L525:
+            java.lang.String r4 = "write javaBean error, fastjson version 1.2.75"
+            if (r1 == 0) goto L54b
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L546
+            r5.<init>()     // Catch: java.lang.Throwable -> L546
+            r5.append(r4)     // Catch: java.lang.Throwable -> L546
+            java.lang.String r4 = ", class "
+            r5.append(r4)     // Catch: java.lang.Throwable -> L546
+            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L546
+            java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L546
+            r5.append(r1)     // Catch: java.lang.Throwable -> L546
+            java.lang.String r4 = r5.toString()     // Catch: java.lang.Throwable -> L546
+            goto L54b
+        L546:
+            r0 = move-exception
+            r1 = r0
+            r5 = r2
+            goto L5d9
+        L54b:
+            java.lang.String r1 = ", fieldName : "
+            r5 = r2
+            r2 = r38
+            if (r2 == 0) goto L568
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L565
+            r6.<init>()     // Catch: java.lang.Throwable -> L565
+            r6.append(r4)     // Catch: java.lang.Throwable -> L565
+            r6.append(r1)     // Catch: java.lang.Throwable -> L565
+            r6.append(r2)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r4 = r6.toString()     // Catch: java.lang.Throwable -> L565
+            goto L5a5
+        L565:
+            r0 = move-exception
+            goto L5d8
+        L568:
+            if (r12 == 0) goto L5a5
+            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L565
+            if (r2 == 0) goto L5a5
+            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L565
+            java.lang.reflect.Method r6 = r2.method     // Catch: java.lang.Throwable -> L565
+            if (r6 == 0) goto L58f
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L565
+            r1.<init>()     // Catch: java.lang.Throwable -> L565
+            r1.append(r4)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r4 = ", method : "
+            r1.append(r4)     // Catch: java.lang.Throwable -> L565
+            java.lang.reflect.Method r2 = r2.method     // Catch: java.lang.Throwable -> L565
+            java.lang.String r2 = r2.getName()     // Catch: java.lang.Throwable -> L565
+            r1.append(r2)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L565
+            goto L5a5
+        L58f:
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L565
+            r2.<init>()     // Catch: java.lang.Throwable -> L565
+            r2.append(r4)     // Catch: java.lang.Throwable -> L565
+            r2.append(r1)     // Catch: java.lang.Throwable -> L565
+            com.alibaba.fastjson.util.FieldInfo r1 = r12.fieldInfo     // Catch: java.lang.Throwable -> L565
+            java.lang.String r1 = r1.name     // Catch: java.lang.Throwable -> L565
+            r2.append(r1)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r4 = r2.toString()     // Catch: java.lang.Throwable -> L565
+        L5a5:
+            java.lang.String r1 = r3.getMessage()     // Catch: java.lang.Throwable -> L565
+            if (r1 == 0) goto L5c3
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L565
+            r1.<init>()     // Catch: java.lang.Throwable -> L565
+            r1.append(r4)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r2 = ", "
+            r1.append(r2)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r2 = r3.getMessage()     // Catch: java.lang.Throwable -> L565
+            r1.append(r2)     // Catch: java.lang.Throwable -> L565
+            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L565
+        L5c3:
+            boolean r1 = r3 instanceof java.lang.reflect.InvocationTargetException     // Catch: java.lang.Throwable -> L565
+            if (r1 == 0) goto L5cb
+            java.lang.Throwable r17 = r3.getCause()     // Catch: java.lang.Throwable -> L565
+        L5cb:
+            if (r17 != 0) goto L5ce
+            goto L5d0
+        L5ce:
+            r3 = r17
+        L5d0:
+            com.alibaba.fastjson.JSONException r1 = new com.alibaba.fastjson.JSONException     // Catch: java.lang.Throwable -> L565
+            r1.<init>(r4, r3)     // Catch: java.lang.Throwable -> L565
+            throw r1     // Catch: java.lang.Throwable -> L565
+        L5d6:
+            r0 = move-exception
+            r5 = r2
+        L5d8:
+            r1 = r0
+        L5d9:
+            r9.context = r5
+            throw r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.alibaba.fastjson.serializer.JavaBeanSerializer.write(com.alibaba.fastjson.serializer.JSONSerializer, java.lang.Object, java.lang.Object, java.lang.reflect.Type, int, boolean):void");
     }
 
     public JavaBeanSerializer(Class<?> cls, Map<String, String> map) {
@@ -667,31 +1166,51 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
 
     public JavaBeanSerializer(SerializeBeanInfo serializeBeanInfo) {
         FieldSerializer[] fieldSerializerArr;
+        boolean z;
         this.beanInfo = serializeBeanInfo;
         this.sortedGetters = new FieldSerializer[serializeBeanInfo.sortedFields.length];
         int i = 0;
-        int i2 = 0;
         while (true) {
             fieldSerializerArr = this.sortedGetters;
-            if (i2 >= fieldSerializerArr.length) {
+            if (i >= fieldSerializerArr.length) {
                 break;
             }
-            fieldSerializerArr[i2] = new FieldSerializer(serializeBeanInfo.beanType, serializeBeanInfo.sortedFields[i2]);
-            i2++;
+            fieldSerializerArr[i] = new FieldSerializer(serializeBeanInfo.beanType, serializeBeanInfo.sortedFields[i]);
+            i++;
         }
         FieldInfo[] fieldInfoArr = serializeBeanInfo.fields;
         if (fieldInfoArr == serializeBeanInfo.sortedFields) {
             this.getters = fieldSerializerArr;
-            return;
-        }
-        this.getters = new FieldSerializer[fieldInfoArr.length];
-        while (true) {
-            FieldSerializer[] fieldSerializerArr2 = this.getters;
-            if (i >= fieldSerializerArr2.length) {
-                return;
+        } else {
+            this.getters = new FieldSerializer[fieldInfoArr.length];
+            int i2 = 0;
+            while (true) {
+                if (i2 >= this.getters.length) {
+                    z = false;
+                    break;
+                }
+                FieldSerializer fieldSerializer = getFieldSerializer(serializeBeanInfo.fields[i2].name);
+                if (fieldSerializer == null) {
+                    z = true;
+                    break;
+                } else {
+                    this.getters[i2] = fieldSerializer;
+                    i2++;
+                }
             }
-            fieldSerializerArr2[i] = getFieldSerializer(serializeBeanInfo.fields[i].name);
-            i++;
+            if (z) {
+                FieldSerializer[] fieldSerializerArr2 = this.sortedGetters;
+                System.arraycopy(fieldSerializerArr2, 0, this.getters, 0, fieldSerializerArr2.length);
+            }
+        }
+        JSONType jSONType = serializeBeanInfo.jsonType;
+        if (jSONType != null) {
+            for (Class<? extends SerializeFilter> cls : jSONType.serialzeFilters()) {
+                try {
+                    addFilter(cls.getConstructor(new Class[0]).newInstance(new Object[0]));
+                } catch (Exception unused) {
+                }
+            }
         }
     }
 

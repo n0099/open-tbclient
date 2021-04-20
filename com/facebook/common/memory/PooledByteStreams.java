@@ -5,7 +5,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PooledByteStreams {
     public static final int DEFAULT_TEMP_BUF_SIZE = 16384;
     public final ByteArrayPool mByteArrayPool;

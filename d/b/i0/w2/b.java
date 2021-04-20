@@ -1,80 +1,68 @@
 package d.b.i0.w2;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.sharewrite.ForumPrefixResponsedMessage;
-/* loaded from: classes5.dex */
-public class b {
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import d.b.h0.s.g.d;
+/* loaded from: classes4.dex */
+public class b implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final InterfaceC1651b f62161a;
+    public Context f63713a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f62162b;
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (b.this.f62161a == null) {
-                return;
-            }
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                b.this.f62161a.onFailure();
-                return;
-            }
-            int statusCode = httpResponsedMessage.getStatusCode();
-            int error = httpResponsedMessage.getError();
-            if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
-                ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                b.this.f62161a.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
-            }
-        }
+    public b(Context context, d.b.h0.s.g.c cVar) {
+        this.f63713a = null;
+        this.f63713a = context;
     }
 
-    /* renamed from: d.b.i0.w2.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1651b {
-        void a(boolean z, PostPrefixData postPrefixData);
-
-        void onFailure();
+    @Override // d.b.h0.s.g.d
+    public void a(ShareItem shareItem, int i, boolean z) {
+        b(shareItem, i);
     }
 
-    public b(BaseActivity baseActivity, InterfaceC1651b interfaceC1651b) {
-        this.f62162b = baseActivity;
-        this.f62161a = interfaceC1651b;
-        c();
-    }
-
-    public void b(String str) {
-        if (this.f62162b == null) {
+    public final void b(ShareItem shareItem, int i) {
+        if (this.f63713a == null || shareItem == null) {
             return;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
-        httpMessage.addParam("fname", str);
-        this.f62162b.sendMessage(httpMessage);
-    }
-
-    public void c() {
-        if (this.f62162b == null) {
-            return;
+        IntentConfig intentConfig = new IntentConfig(this.f63713a);
+        ShareEntity shareEntity = new ShareEntity();
+        shareEntity.E(shareItem.r);
+        shareEntity.s(shareItem.s);
+        shareEntity.A(shareItem.Q);
+        int i2 = shareItem.L;
+        shareEntity.v(i2 == 2 || i2 == 6 || i2 == 8);
+        shareEntity.u(shareItem.v);
+        shareEntity.canShareBySmartApp = shareItem.d0;
+        String str = shareItem.t;
+        if (i == 6 && !StringUtils.isNull(shareItem.u)) {
+            str = shareItem.u;
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/f/forum/getprefix");
-        tbHttpMessageTask.setResponsedClass(ForumPrefixResponsedMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        this.f62162b.registerListener(new a(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
+        shareEntity.w(str);
+        shareEntity.x(shareItem.x);
+        shareEntity.y(shareItem.A);
+        shareEntity.B(i);
+        shareEntity.C(shareItem.d());
+        shareEntity.z(shareItem.V);
+        shareEntity.D(shareItem.J);
+        shareEntity.H(shareItem.p);
+        shareEntity.F(shareItem.y);
+        shareEntity.topic = shareItem.N;
+        if (i == 6 && !StringUtils.isNull(shareItem.P)) {
+            shareEntity.topic = shareItem.O + shareItem.P;
+            shareEntity.s("");
+        }
+        shareEntity.taskCompleteId = shareItem.R;
+        shareEntity.diskPicOperate = shareItem.z;
+        shareEntity.t(shareItem.i0);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("extra_share_data", shareEntity);
+        bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+        intentConfig.getIntent().putExtras(bundle);
+        intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
     }
 }

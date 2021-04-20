@@ -1,36 +1,34 @@
 package d.a.a.u;
 
-import android.graphics.Color;
-import android.util.JsonReader;
-import android.util.JsonToken;
-import java.io.IOException;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.collection.LruCache;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
-public class f implements j0<Integer> {
+public class f {
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final f f41645b = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f41428a = new f();
+    public final LruCache<String, d.a.a.d> f41646a = new LruCache<>(20);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.a.u.j0
-    /* renamed from: b */
-    public Integer a(JsonReader jsonReader, float f2) throws IOException {
-        boolean z = jsonReader.peek() == JsonToken.BEGIN_ARRAY;
-        if (z) {
-            jsonReader.beginArray();
+    public static f b() {
+        return f41645b;
+    }
+
+    @Nullable
+    public d.a.a.d a(@Nullable String str) {
+        if (str == null) {
+            return null;
         }
-        double nextDouble = jsonReader.nextDouble();
-        double nextDouble2 = jsonReader.nextDouble();
-        double nextDouble3 = jsonReader.nextDouble();
-        double nextDouble4 = jsonReader.nextDouble();
-        if (z) {
-            jsonReader.endArray();
+        return this.f41646a.get(str);
+    }
+
+    public void c(@Nullable String str, d.a.a.d dVar) {
+        if (str == null) {
+            return;
         }
-        if (nextDouble <= 1.0d && nextDouble2 <= 1.0d && nextDouble3 <= 1.0d && nextDouble4 <= 1.0d) {
-            nextDouble *= 255.0d;
-            nextDouble2 *= 255.0d;
-            nextDouble3 *= 255.0d;
-            nextDouble4 *= 255.0d;
-        }
-        return Integer.valueOf(Color.argb((int) nextDouble4, (int) nextDouble, (int) nextDouble2, (int) nextDouble3));
+        this.f41646a.put(str, dVar);
     }
 }

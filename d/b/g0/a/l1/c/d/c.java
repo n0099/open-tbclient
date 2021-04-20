@@ -10,31 +10,31 @@ public class c extends d.b.g0.a.l1.c.d.a {
     public class a implements d.b.g0.a.n.a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.l1.c.c.a f45214a;
+        public final /* synthetic */ d.b.g0.a.l1.c.c.a f45606a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.n.b f45215b;
+        public final /* synthetic */ d.b.g0.a.e0.n.b f45607b;
 
         public a(c cVar, d.b.g0.a.l1.c.c.a aVar, d.b.g0.a.e0.n.b bVar) {
-            this.f45214a = aVar;
-            this.f45215b = bVar;
+            this.f45606a = aVar;
+            this.f45607b = bVar;
         }
 
         @Override // d.b.g0.a.n.a.b
         public void a(int i) {
             d.b.g0.a.l1.d.a.a("obtain address failure, errCode = " + i);
-            this.f45215b.a(this.f45214a);
+            this.f45607b.a(this.f45606a);
         }
 
         @Override // d.b.g0.a.n.a.b
         public void b(JSONObject jSONObject) {
             d.b.g0.a.l1.d.a.a("obtain address success");
-            d.b.g0.a.l1.c.c.a aVar = this.f45214a;
-            aVar.f45198d = true;
+            d.b.g0.a.l1.c.c.a aVar = this.f45606a;
+            aVar.f45590d = true;
             if (jSONObject != null) {
-                aVar.f45199e = jSONObject.toString();
+                aVar.f45591e = jSONObject.toString();
             }
-            this.f45215b.a(this.f45214a);
+            this.f45607b.a(this.f45606a);
         }
     }
 
@@ -50,8 +50,8 @@ public class c extends d.b.g0.a.l1.c.d.a {
 
     @Override // d.b.g0.a.l1.c.d.a
     public void o(SwanAppActivity swanAppActivity, String str, d.b.g0.a.l1.c.b.b bVar, d.b.g0.a.v1.d.a aVar, d.b.g0.a.e0.n.b<d.b.g0.a.l1.c.c.a> bVar2) {
-        d.b.g0.a.l1.c.c.a aVar2 = new d.b.g0.a.l1.c.c.a(bVar.f45192f);
-        aVar2.f45195a = bVar.f45191e;
+        d.b.g0.a.l1.c.c.a aVar2 = new d.b.g0.a.l1.c.c.a(bVar.f45584f);
+        aVar2.f45587a = bVar.f45583e;
         if (aVar != null && aVar.j.a() != LightappBusinessClient.SVC_ID_H5_TRANSERECORD) {
             d.b.g0.a.l1.d.a.a("obtain address detail");
             d.b.g0.a.w0.a.Q().a(swanAppActivity, str, str, new a(this, aVar2, bVar2));

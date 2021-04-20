@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultByteArrayPoolParams {
     public static final int DEFAULT_BUCKET_SIZE = 5;
     public static final int DEFAULT_IO_BUFFER_SIZE = 16384;

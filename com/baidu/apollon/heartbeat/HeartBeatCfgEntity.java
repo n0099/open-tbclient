@@ -69,9 +69,9 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
     public void storeResponse(Context context) {
         String json = JsonUtils.toJson(this);
         if (!TextUtils.isEmpty(json)) {
-            FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f3638b));
+            FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f3673b));
         }
-        c.a(context, c.f3664b, Calendar.getInstance().getTimeInMillis() / 1000);
+        c.a(context, c.f3699b, Calendar.getInstance().getTimeInMillis() / 1000);
     }
 
     public String toString() {

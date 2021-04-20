@@ -5,17 +5,17 @@ import android.content.DialogInterface;
 public class d implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f1809a;
+    public final /* synthetic */ c f1834a;
 
     public d(c cVar) {
-        this.f1809a = cVar;
+        this.f1834a = cVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f1809a.f1808c.f1801b = true;
+        this.f1834a.f1833c.f1826b = true;
         com.alipay.sdk.app.statistic.a.a("net", com.alipay.sdk.app.statistic.c.s, "1");
-        this.f1809a.f1807b.proceed();
+        this.f1834a.f1832b.proceed();
         dialogInterface.dismiss();
     }
 }

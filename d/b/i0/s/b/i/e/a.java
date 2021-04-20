@@ -7,19 +7,19 @@ import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.g0.a.k;
 import d.b.h0.l0.c;
 /* loaded from: classes4.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f60093a = k.f45051a;
+    public static final boolean f61394a = k.f45443a;
 
     /* renamed from: d.b.i0.s.b.i.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1528a implements d.b.i0.s.b.i.d.a {
-        public C1528a() {
+    public class C1567a implements d.b.i0.s.b.i.d.a {
+        public C1567a() {
         }
 
         @Override // d.b.i0.s.b.i.d.a
@@ -39,12 +39,12 @@ public class a extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
         if (this.mParams.isEmpty()) {
-            if (f60093a) {
+            if (f61394a) {
                 Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
             }
             return false;
         }
-        if (f60093a) {
+        if (f61394a) {
             Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
         }
         Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
@@ -56,7 +56,7 @@ public class a extends ActivityDelegation {
             aVar.mParams.putInt("type", 1);
             aVar.mParams.putString("orderInfo", this.mParams.getString("order_info"));
             aVar.b(getAgent());
-            aVar.c(new C1528a());
+            aVar.c(new C1567a());
             aVar.onExec();
             return false;
         } else {

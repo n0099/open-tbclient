@@ -105,7 +105,7 @@ public final class a {
         a.a.a.a.v.d.b(str, new Object[0]);
     }
 
-    public static a.a.a.a.u.p a(JSONObject jSONObject) {
+    public static a.a.a.a.u.o a(JSONObject jSONObject) {
         String str;
         String str2;
         String str3;
@@ -121,10 +121,10 @@ public final class a {
             str2 = null;
             str3 = null;
         }
-        return new a.a.a.a.u.p(jSONObject.optString("corporation_name"), jSONObject.optString(DocumentOpenUtil.TXT), jSONObject.optString("desc"), jSONObject.optString("img2"), str, str2, str3, jSONObject.optString("img"), null, jSONObject.optString("video"), jSONObject.optString("rl"), jSONObject.optString("customized_invoke_url"), null);
+        return new a.a.a.a.u.o(jSONObject.optString("corporation_name"), jSONObject.optString(DocumentOpenUtil.TXT), jSONObject.optString("desc"), jSONObject.optString("img2"), str, str2, str3, jSONObject.optString("img"), null, jSONObject.optString("video"), jSONObject.optString("rl"), jSONObject.optString("customized_invoke_url"), null);
     }
 
-    public static a.a.a.a.u.p a(AdInfo adInfo) {
+    public static a.a.a.a.u.o a(AdInfo adInfo) {
         String str;
         String str2;
         List<AdInfo.AdMaterialInfo.MaterialFeature> list;
@@ -164,6 +164,6 @@ public final class a {
             }
             str3 = sb.toString();
         }
-        return new a.a.a.a.u.p(str5, str6, str7, str11, str8, str9, str10, str3, str, str2, adBaseInfo.clickUrl, adConversionInfo.deeplinkUrl, adBaseInfo.convUrl);
+        return new a.a.a.a.u.o(str5, str6, str7, str11, str8, str9, str10, str3, str, str2, adBaseInfo.clickUrl, adConversionInfo.deeplinkUrl, adBaseInfo.convUrl);
     }
 }

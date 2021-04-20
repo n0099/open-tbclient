@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.e;
-import f.a.t.a;
-import f.a.w.h;
-import f.a.x.c.f;
-import f.a.x.e.a.g;
+import f.b.e;
+import f.b.t.a;
+import f.b.w.h;
+import f.b.x.c.f;
+import f.b.x.e.a.g;
 import g.d.b;
 import g.d.c;
 import g.d.d;
@@ -23,7 +23,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
     public volatile boolean cancelled;
     public final h<? super TLeft, ? extends b<TLeftEnd>> leftEnd;
     public int leftIndex;
-    public final f.a.w.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
+    public final f.b.w.c<? super TLeft, ? super TRight, ? extends R> resultSelector;
     public final h<? super TRight, ? extends b<TRightEnd>> rightEnd;
     public int rightIndex;
     public static final Integer LEFT_VALUE = 1;
@@ -32,13 +32,13 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
     public static final Integer RIGHT_CLOSE = 4;
     public final AtomicLong requested = new AtomicLong();
     public final a disposables = new a();
-    public final f.a.x.f.a<Object> queue = new f.a.x.f.a<>(e.a());
+    public final f.b.x.f.a<Object> queue = new f.b.x.f.a<>(e.a());
     public final Map<Integer, TLeft> lefts = new LinkedHashMap();
     public final Map<Integer, TRight> rights = new LinkedHashMap();
     public final AtomicReference<Throwable> error = new AtomicReference<>();
     public final AtomicInteger active = new AtomicInteger(2);
 
-    public FlowableJoin$JoinSubscription(c<? super R> cVar, h<? super TLeft, ? extends b<TLeftEnd>> hVar, h<? super TRight, ? extends b<TRightEnd>> hVar2, f.a.w.c<? super TLeft, ? super TRight, ? extends R> cVar2) {
+    public FlowableJoin$JoinSubscription(c<? super R> cVar, h<? super TLeft, ? extends b<TLeftEnd>> hVar, h<? super TRight, ? extends b<TRightEnd>> hVar2, f.b.w.c<? super TLeft, ? super TRight, ? extends R> cVar2) {
         this.actual = cVar;
         this.leftEnd = hVar;
         this.rightEnd = hVar2;
@@ -68,7 +68,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
         if (getAndIncrement() != 0) {
             return;
         }
-        f.a.x.f.a<Object> aVar = this.queue;
+        f.b.x.f.a<Object> aVar = this.queue;
         c<? super R> cVar = this.actual;
         boolean z = true;
         int i = 1;
@@ -101,7 +101,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
                     this.lefts.put(Integer.valueOf(i2), poll);
                     try {
                         b apply = this.leftEnd.apply(poll);
-                        f.a.x.b.a.b(apply, "The leftEnd returned a null Publisher");
+                        f.b.x.b.a.b(apply, "The leftEnd returned a null Publisher");
                         b bVar = apply;
                         FlowableGroupJoin$LeftRightEndSubscriber flowableGroupJoin$LeftRightEndSubscriber = new FlowableGroupJoin$LeftRightEndSubscriber(this, z, i2);
                         this.disposables.b(flowableGroupJoin$LeftRightEndSubscriber);
@@ -117,7 +117,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
                         for (TRight tright : this.rights.values()) {
                             try {
                                 Object obj = (R) this.resultSelector.apply(poll, tright);
-                                f.a.x.b.a.b(obj, "The resultSelector returned a null value");
+                                f.b.x.b.a.b(obj, "The resultSelector returned a null value");
                                 if (j2 != j) {
                                     cVar.onNext(obj);
                                     j2++;
@@ -134,7 +134,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
                             }
                         }
                         if (j2 != 0) {
-                            f.a.x.i.b.e(this.requested, j2);
+                            f.b.x.i.b.e(this.requested, j2);
                         }
                     } catch (Throwable th2) {
                         fail(th2, cVar, aVar);
@@ -146,7 +146,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
                     this.rights.put(Integer.valueOf(i3), poll);
                     try {
                         b apply2 = this.rightEnd.apply(poll);
-                        f.a.x.b.a.b(apply2, "The rightEnd returned a null Publisher");
+                        f.b.x.b.a.b(apply2, "The rightEnd returned a null Publisher");
                         b bVar2 = apply2;
                         FlowableGroupJoin$LeftRightEndSubscriber flowableGroupJoin$LeftRightEndSubscriber2 = new FlowableGroupJoin$LeftRightEndSubscriber(this, false, i3);
                         this.disposables.b(flowableGroupJoin$LeftRightEndSubscriber2);
@@ -162,7 +162,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
                         for (TLeft tleft : this.lefts.values()) {
                             try {
                                 Object obj2 = (R) this.resultSelector.apply(tleft, poll);
-                                f.a.x.b.a.b(obj2, "The resultSelector returned a null value");
+                                f.b.x.b.a.b(obj2, "The resultSelector returned a null value");
                                 if (j4 != j3) {
                                     cVar.onNext(obj2);
                                     j4++;
@@ -179,7 +179,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
                             }
                         }
                         if (j4 != 0) {
-                            f.a.x.i.b.e(this.requested, j4);
+                            f.b.x.i.b.e(this.requested, j4);
                         }
                     } catch (Throwable th4) {
                         fail(th4, cVar, aVar);
@@ -208,14 +208,14 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
     }
 
     public void fail(Throwable th, c<?> cVar, f<?> fVar) {
-        f.a.u.a.a(th);
+        f.b.u.a.a(th);
         ExceptionHelper.a(this.error, th);
         fVar.clear();
         cancelAll();
         errorAll(cVar);
     }
 
-    @Override // f.a.x.e.a.g
+    @Override // f.b.x.e.a.g
     public void innerClose(boolean z, FlowableGroupJoin$LeftRightEndSubscriber flowableGroupJoin$LeftRightEndSubscriber) {
         synchronized (this) {
             this.queue.l(z ? LEFT_CLOSE : RIGHT_CLOSE, flowableGroupJoin$LeftRightEndSubscriber);
@@ -223,33 +223,33 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
         drain();
     }
 
-    @Override // f.a.x.e.a.g
+    @Override // f.b.x.e.a.g
     public void innerCloseError(Throwable th) {
         if (ExceptionHelper.a(this.error, th)) {
             drain();
         } else {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         }
     }
 
-    @Override // f.a.x.e.a.g
+    @Override // f.b.x.e.a.g
     public void innerComplete(FlowableGroupJoin$LeftRightSubscriber flowableGroupJoin$LeftRightSubscriber) {
         this.disposables.c(flowableGroupJoin$LeftRightSubscriber);
         this.active.decrementAndGet();
         drain();
     }
 
-    @Override // f.a.x.e.a.g
+    @Override // f.b.x.e.a.g
     public void innerError(Throwable th) {
         if (ExceptionHelper.a(this.error, th)) {
             this.active.decrementAndGet();
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.x.e.a.g
+    @Override // f.b.x.e.a.g
     public void innerValue(boolean z, Object obj) {
         synchronized (this) {
             this.queue.l(z ? LEFT_VALUE : RIGHT_VALUE, obj);
@@ -260,7 +260,7 @@ public final class FlowableJoin$JoinSubscription<TLeft, TRight, TLeftEnd, TRight
     @Override // g.d.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
-            f.a.x.i.b.a(this.requested, j);
+            f.b.x.i.b.a(this.requested, j);
         }
     }
 }

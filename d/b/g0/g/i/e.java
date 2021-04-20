@@ -15,16 +15,16 @@ public class e extends d.b.g0.g.i.a {
         @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
         public V8Engine onCreateWorker() {
             f fVar = new f(e.this.getInitBasePath());
-            fVar.B0();
+            fVar.C0();
             fVar.u(new d.b.g0.g.i.k.b(fVar));
-            fVar.A0(new d.b.g0.g.i.k.c(fVar));
-            return fVar.h0();
+            fVar.B0(new d.b.g0.g.i.k.c(fVar));
+            return fVar.i0();
         }
     }
 
     public e(@NonNull String str, @NonNull d.b.g0.g.i.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         super(str, bVar, v8ThreadDelegatePolicy);
-        V8Engine v8Engine = this.f48160e;
+        V8Engine v8Engine = this.f48552e;
         if (v8Engine == null) {
             return;
         }
@@ -33,12 +33,12 @@ public class e extends d.b.g0.g.i.a {
 
     @Override // d.b.g0.g.i.a
     @NonNull
-    public EventTarget G() {
+    public EventTarget H() {
         return new d.b.g0.g.e.c(this);
     }
 
     @Override // d.b.g0.g.i.a
-    public EventTarget M() {
+    public EventTarget N() {
         return new d.b.g0.g.e.e.a(this);
     }
 

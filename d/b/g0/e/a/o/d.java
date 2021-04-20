@@ -2,9 +2,8 @@ package d.b.g0.e.a.o;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.core.Domains;
 import com.baidu.webkit.internal.ETAG;
 import d.b.g0.a.i2.h0;
@@ -26,74 +25,74 @@ public abstract class d {
     public static String q = "exps";
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f47659b;
+    public Context f48051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47660c;
+    public String f48052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47661d;
+    public String f48053d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47662e;
+    public String f48054e;
     public b i;
     public String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47658a = "https://mobads.baidu.com/cpro/ui/mads.php";
+    public String f48050a = "https://mobads.baidu.com/cpro/ui/mads.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47663f = "1";
+    public String f48055f = "1";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47664g = "2";
+    public String f48056g = "2";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47665h = "8.800201";
+    public String f48057h = "8.800201";
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47666a;
+        public static final /* synthetic */ int[] f48058a;
 
         static {
             int[] iArr = new int[SwanAppNetworkUtils.NetType.values().length];
-            f47666a = iArr;
+            f48058a = iArr;
             try {
                 iArr[SwanAppNetworkUtils.NetType.NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType.WIFI.ordinal()] = 2;
+                f48058a[SwanAppNetworkUtils.NetType.WIFI.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._2G.ordinal()] = 3;
+                f48058a[SwanAppNetworkUtils.NetType._2G.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._3G.ordinal()] = 4;
+                f48058a[SwanAppNetworkUtils.NetType._3G.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType._4G.ordinal()] = 5;
+                f48058a[SwanAppNetworkUtils.NetType._4G.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47666a[SwanAppNetworkUtils.NetType.UNKOWN.ordinal()] = 6;
+                f48058a[SwanAppNetworkUtils.NetType.UNKOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
     public d(Context context, b bVar) {
-        this.f47659b = context;
+        this.f48051b = context;
         this.i = bVar;
         if (bVar != null) {
-            this.f47660c = bVar.b();
-            this.f47661d = this.i.e();
-            this.f47662e = this.i.f();
+            this.f48052c = bVar.b();
+            this.f48053d = this.i.e();
+            this.f48054e = this.i.f();
         }
         if (k0.D()) {
             return;
@@ -109,33 +108,33 @@ public abstract class d {
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(h0.m(this.f47659b) / h0.j(this.f47659b))));
-            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(h0.l(this.f47659b) / h0.j(this.f47659b))));
+            hashMap.put(IAdRequestParam.QUERY_WIDTH, String.valueOf(Math.round(h0.m(this.f48051b) / h0.j(this.f48051b))));
+            hashMap.put(IAdRequestParam.QUERY_HEIGHT, String.valueOf(Math.round(h0.l(this.f48051b) / h0.j(this.f48051b))));
             hashMap.put("net", "" + f());
-            hashMap.put("n", this.f47663f);
-            hashMap.put("pk", this.f47662e);
-            hashMap.put("appid", this.f47661d);
-            hashMap.put("sw", "" + h0.m(this.f47659b));
-            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + h0.l(this.f47659b));
-            hashMap.put(IXAdRequestInfo.SN, "" + g());
-            hashMap.put(IXAdRequestInfo.OS, "android");
-            hashMap.put("apid", "" + this.f47660c);
-            hashMap.put("chid", "0");
+            hashMap.put("n", this.f48055f);
+            hashMap.put("pk", this.f48054e);
+            hashMap.put("appid", this.f48053d);
+            hashMap.put("sw", "" + h0.m(this.f48051b));
+            hashMap.put(IAdRequestParam.SCREEN_HEIGHT, "" + h0.l(this.f48051b));
+            hashMap.put(IAdRequestParam.SN, "" + g());
+            hashMap.put(IAdRequestParam.OS, "android");
+            hashMap.put("apid", "" + this.f48052c);
+            hashMap.put(IAdRequestParam.CHID, "0");
             String r = k0.r();
             if (r.equals("0")) {
                 r = "";
             }
             hashMap.put("imei", r);
             hashMap.put("cuid", d.b.g0.a.w0.a.O().c(d.b.g0.a.w0.a.c()));
-            hashMap.put(IXAdRequestInfo.OSV, d.b.g0.a.b0.c.g());
-            hashMap.put(IXAdRequestInfo.PHONE_TYPE, d.b.g0.a.b0.c.f());
+            hashMap.put(IAdRequestParam.OSV, d.b.g0.a.b0.c.g());
+            hashMap.put(IAdRequestParam.PHONE_TYPE, d.b.g0.a.b0.c.f());
             hashMap.put("app_ver", k0.z());
             String k2 = i0.k(d(), "BAIDUID");
             hashMap.put(ETAG.KEY_BAIDU_ID, (TextUtils.isEmpty(k2) || k2.split(":").length <= 0) ? "" : k2.split(":")[0]);
-            hashMap.put(IXAdRequestInfo.P_VER, this.f47665h);
-            hashMap.put("rpt", this.f47664g);
-            hashMap.put(BaiduWalletServiceProviderMap.PLUGIN_TAB, "2");
-            hashMap.put("req_id", "");
+            hashMap.put("p_ver", this.f48057h);
+            hashMap.put(IAdRequestParam.RPT, this.f48056g);
+            hashMap.put("tab", "2");
+            hashMap.put(IAdRequestParam.REQ_ID, "");
             d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
             String e2 = e();
             hashMap.put(q, e2);
@@ -202,7 +201,7 @@ public abstract class d {
     public abstract String e();
 
     public final int f() {
-        int i = a.f47666a[SwanAppNetworkUtils.f().ordinal()];
+        int i = a.f48058a[SwanAppNetworkUtils.f().ordinal()];
         if (i != 2) {
             if (i != 3) {
                 if (i != 4) {
@@ -221,7 +220,7 @@ public abstract class d {
     public final String g() {
         try {
             String r = k0.r();
-            return TextUtils.isEmpty(r) ? k0.A(this.f47659b) : r;
+            return TextUtils.isEmpty(r) ? k0.A(this.f48051b) : r;
         } catch (Exception unused) {
             return "";
         }
@@ -230,6 +229,6 @@ public abstract class d {
     public String h() {
         HashMap<String, String> b2 = b();
         b2.putAll(a());
-        return d.b.g0.e.a.q.c.a(this.f47658a, b2);
+        return d.b.g0.e.a.q.c.a(this.f48050a, b2);
     }
 }

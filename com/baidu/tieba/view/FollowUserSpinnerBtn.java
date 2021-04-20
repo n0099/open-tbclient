@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes5.dex */
 public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.b {
     public static final int t = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
@@ -25,16 +25,16 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
     public static final int v = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f22073e;
+    public FrameLayout f21758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f22074f;
+    public FrameLayout f21759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22075g;
+    public TextView f21760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22076h;
+    public ImageView f21761h;
     public Paint i;
     public int j;
     public int k;
@@ -51,15 +51,15 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22077e;
+        public final /* synthetic */ b f21762e;
 
         public a(b bVar) {
-            this.f22077e = bVar;
+            this.f21762e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b bVar = this.f22077e;
+            b bVar = this.f21762e;
             if (bVar != null) {
                 bVar.a(!FollowUserSpinnerBtn.this.p, false);
             }
@@ -103,8 +103,8 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
         super.draw(canvas);
         if (this.r) {
             this.i.setColor(SkinManager.getColor(this.j));
-            float right = this.f22073e.getRight();
-            canvas.drawLine(right, this.f22076h.getTop(), right, this.f22076h.getBottom(), this.i);
+            float right = this.f21758e.getRight();
+            canvas.drawLine(right, this.f21761h.getTop(), right, this.f21761h.getBottom(), this.i);
         }
     }
 
@@ -115,10 +115,10 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
     public final void g(Context context) {
         LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
         setOrientation(0);
-        this.f22073e = (FrameLayout) findViewById(R.id.leftBox);
-        this.f22074f = (FrameLayout) findViewById(R.id.rightBox);
-        this.f22075g = (TextView) findViewById(R.id.title);
-        this.f22076h = (ImageView) findViewById(R.id.arrow);
+        this.f21758e = (FrameLayout) findViewById(R.id.leftBox);
+        this.f21759f = (FrameLayout) findViewById(R.id.rightBox);
+        this.f21760g = (TextView) findViewById(R.id.title);
+        this.f21761h = (ImageView) findViewById(R.id.arrow);
         Paint paint = new Paint(1);
         this.i = paint;
         paint.setStyle(Paint.Style.STROKE);
@@ -129,19 +129,19 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
         this.j = R.color.CAM_X0105;
         Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
         this.o = pureDrawable;
-        this.f22076h.setImageDrawable(pureDrawable);
+        this.f21761h.setImageDrawable(pureDrawable);
     }
 
     public ImageView getArrow() {
-        return this.f22076h;
+        return this.f21761h;
     }
 
     public void h(int i) {
         setBackgroundColor(SkinManager.getColor(this.k));
-        SkinManager.setViewTextColor(this.f22075g, this.j);
+        SkinManager.setViewTextColor(this.f21760g, this.j);
         Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
         this.o = pureDrawable;
-        this.f22076h.setImageDrawable(pureDrawable);
+        this.f21761h.setImageDrawable(pureDrawable);
         invalidate();
     }
 
@@ -156,7 +156,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
             this.j = R.color.CAM_X0105;
             this.k = R.color.CAM_X0901;
         }
-        this.f22075g.setText(this.n);
+        this.f21760g.setText(this.n);
         requestLayout();
         h(0);
         if (this.r && !this.q && z && !this.p && (bVar = this.s) != null) {
@@ -175,26 +175,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.
 
     public void setOpenListener(b bVar) {
         this.s = bVar;
-        this.f22074f.setOnClickListener(new a(bVar));
+        this.f21759f.setOnClickListener(new a(bVar));
     }
 
     public void setShowPullBtn(boolean z) {
         this.r = z;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f22075g.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21760g.getLayoutParams();
         if (z) {
-            this.f22074f.setVisibility(0);
+            this.f21759f.setVisibility(0);
             layoutParams.leftMargin = u;
             layoutParams.rightMargin = v;
             layoutParams.gravity = 16;
             layoutParams.width = -2;
         } else {
-            this.f22074f.setVisibility(8);
+            this.f21759f.setVisibility(8);
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
             layoutParams.gravity = 17;
             layoutParams.width = t;
         }
-        this.f22075g.setLayoutParams(layoutParams);
+        this.f21760g.setLayoutParams(layoutParams);
         requestLayout();
     }
 

@@ -39,8 +39,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.ThreadSkinView;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.k;
 import d.b.h0.r.q.a2;
 import d.b.i0.x.m;
@@ -160,8 +160,8 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         this.p.getCommentContainer().setOnClickListener(this);
         this.p.hideDisagree();
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50763b = 2;
-        eVar.f50769h = 2;
+        eVar.f51170b = 2;
+        eVar.f51176h = 2;
         this.p.setAgreeStatisticData(eVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -170,8 +170,8 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         this.q.setShareReportFrom(1);
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.text_bottom_2);
         this.x = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this);
-        this.x.f13536f.getCommentContainer().setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f13197f.setOnClickListener(this);
+        this.x.f13197f.getCommentContainer().setOnClickListener(this);
         this.x.setFrom(2);
         this.x.setShareReportFrom(1);
         this.x.setSourceFromForPb(3);
@@ -324,7 +324,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             } else if (this.V.a() != null) {
                 this.V.a().setVisibility(8);
             }
-            ((a2) this.o).R2(false, true);
+            ((a2) this.o).S2(false, true);
             this.w.setData((a2) this.o);
             SpannableStringBuilder l1 = ((a2) this.o).l1();
             if (l1 != null && !StringUtils.isNull(l1.toString())) {
@@ -351,7 +351,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
                     String C0 = ((a2) this.o).C0();
                     String I0 = ((a2) this.o).I0();
                     if (UtilHelper.isDecimal(C0) && UtilHelper.isDecimal(I0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                        AppPosInfo c2 = d.b.i0.r2.a0.a.e().c();
+                        AppPosInfo c2 = d.b.i0.s2.d0.a.e().c();
                         String str2 = c2.latitude;
                         String str3 = c2.longitude;
                         if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && l.a(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(C0), Double.parseDouble(I0)) <= 50.0d) {
@@ -374,7 +374,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             this.L.setLayoutParams(layoutParams3);
             Y(R(1));
             Q((a2) this.o);
-            this.S.setVisibility((d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) ? 0 : 0);
+            this.S.setVisibility((d.b.i0.q0.b.e().g() || d.b.i0.q0.a.h().j()) ? 0 : 0);
             o(this.m, TbadkCoreApplication.getInst().getSkinType());
             S();
             this.G.playAnimation();
@@ -427,16 +427,16 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
     @Override // d.b.i0.x.b
     @SuppressLint({"ResourceAsColor"})
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             y(tbPageContext, i);
-            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.B);
-            a2.h(R.string.J_X06);
-            a2.d(R.color.CAM_X0205, R.color.CAM_X0206);
-            d.b.h0.r.u.c a3 = d.b.h0.r.u.c.a(this.E);
-            a3.f(R.dimen.L_X01);
-            a3.e(R.color.CAM_X0401);
-            a3.h(R.string.J_X05);
-            a3.c(R.color.CAM_X0611);
+            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.B);
+            d2.k(R.string.J_X06);
+            d2.g(R.color.CAM_X0205, R.color.CAM_X0206);
+            d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.E);
+            d3.i(R.dimen.L_X01);
+            d3.h(R.color.CAM_X0401);
+            d3.k(R.string.J_X05);
+            d3.f(R.color.CAM_X0611);
             float g2 = l.g(b(), R.dimen.tbds31);
             SkinManager.setBackgroundEndColorToAutoColor(this.J, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{g2, g2, g2, g2, g2, g2, g2, g2});
             SkinManager.setBackgroundColor(this.K, R.color.CAM_X0101);
@@ -448,7 +448,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             this.w.onChangeSkinType(l(), TbadkCoreApplication.getInst().getSkinType());
             this.F.setPlaceHolder(3);
             this.p.onChangeSkinType();
-            this.f62180e = i;
+            this.f63755e = i;
             ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.x;
             if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {
                 this.x.f();
@@ -466,10 +466,10 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) {
+        if (d.b.i0.q0.b.e().g() || d.b.i0.q0.a.h().j()) {
             return;
         }
-        if (view != this.B && view != this.p.getCommentContainer() && view != this.z && view != this.x.f13536f.getCommentContainer() && view != this.q.getCommentContainer() && view != this.M) {
+        if (view != this.B && view != this.p.getCommentContainer() && view != this.z && view != this.x.f13197f.getCommentContainer() && view != this.q.getCommentContainer() && view != this.M) {
             if (view.getId() == R.id.video_container) {
                 if (i() != null) {
                     i().a(view, this.o);
@@ -488,7 +488,7 @@ public class e extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         }
         T(b(), (a2) this.o);
         if (this.o != 0) {
-            if (view == this.p.getCommentContainer() || view == this.x.f13536f.getCommentContainer()) {
+            if (view == this.p.getCommentContainer() || view == this.x.f13197f.getCommentContainer()) {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 2);
                 statisticItem.param("obj_type", 5);

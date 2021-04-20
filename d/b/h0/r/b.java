@@ -3,28 +3,28 @@ package d.b.h0.r;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50419a;
+    public String f50826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50420b;
+    public int f50827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50421c;
+    public int f50828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50422d;
+    public int f50829d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50423e;
+    public int f50830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50424f;
+    public int f50831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50425g;
+    public int f50832g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50426h;
+    public int f50833h;
     public int i;
     public int j;
     public int k;
@@ -65,11 +65,11 @@ public class b {
     }
 
     public void G(String str) {
-        this.f50419a = str;
+        this.f50826a = str;
     }
 
     public void H(int i) {
-        this.f50426h = i;
+        this.f50833h = i;
     }
 
     public void I(int i) {
@@ -93,19 +93,19 @@ public class b {
     }
 
     public void N(int i) {
-        this.f50424f = i;
+        this.f50831f = i;
     }
 
     public void O(int i) {
-        this.f50425g = i;
+        this.f50832g = i;
     }
 
     public void P(int i) {
-        this.f50422d = i;
+        this.f50829d = i;
     }
 
     public void Q(int i) {
-        this.f50423e = i;
+        this.f50830e = i;
     }
 
     public void R(String str) {
@@ -118,11 +118,11 @@ public class b {
     }
 
     public int b() {
-        return this.f50420b;
+        return this.f50827b;
     }
 
     public int c() {
-        return this.f50421c;
+        return this.f50828c;
     }
 
     public int d() {
@@ -158,11 +158,11 @@ public class b {
     }
 
     public String l() {
-        return this.f50419a;
+        return this.f50826a;
     }
 
     public int m() {
-        return this.f50426h;
+        return this.f50833h;
     }
 
     public int n() {
@@ -186,11 +186,11 @@ public class b {
     }
 
     public int s() {
-        return this.f50424f;
+        return this.f50831f;
     }
 
     public int t() {
-        return this.f50425g;
+        return this.f50832g;
     }
 
     public String toString() {
@@ -198,19 +198,19 @@ public class b {
     }
 
     public int u() {
-        return this.f50422d;
+        return this.f50829d;
     }
 
     public int v() {
-        return this.f50423e;
+        return this.f50830e;
     }
 
     public void w(int i) {
-        this.f50420b = i;
+        this.f50827b = i;
     }
 
     public void x(int i) {
-        this.f50421c = i;
+        this.f50828c = i;
     }
 
     public void y(int i) {

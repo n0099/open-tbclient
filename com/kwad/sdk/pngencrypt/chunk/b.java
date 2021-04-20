@@ -13,25 +13,25 @@ import java.util.zip.InflaterInputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f36134a = a("IHDR");
+    public static final byte[] f36423a = a("IHDR");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f36135b = a("PLTE");
+    public static final byte[] f36424b = a("PLTE");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f36136c = a("IDAT");
+    public static final byte[] f36425c = a("IDAT");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f36137d = a("IEND");
+    public static final byte[] f36426d = a("IEND");
 
     /* renamed from: f  reason: collision with root package name */
-    public static byte[] f36139f = new byte[4096];
+    public static byte[] f36428f = new byte[4096];
 
     /* renamed from: e  reason: collision with root package name */
-    public static Pattern f36138e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+    public static Pattern f36427e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
 
     public static String a(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f36196a);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.f36485a);
     }
 
     public static String a(byte[] bArr, int i) {
@@ -39,7 +39,7 @@ public class b {
     }
 
     public static String a(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f36196a);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f36485a);
     }
 
     public static List<PngChunk> a(List<PngChunk> list, c cVar) {
@@ -53,18 +53,18 @@ public class b {
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
-        synchronized (f36139f) {
+        synchronized (f36428f) {
             while (true) {
-                int read = inputStream.read(f36139f);
+                int read = inputStream.read(f36428f);
                 if (read > 0) {
-                    outputStream.write(f36139f, 0, read);
+                    outputStream.write(f36428f, 0, read);
                 }
             }
         }
     }
 
     public static byte[] a(String str) {
-        return str.getBytes(com.kwad.sdk.pngencrypt.n.f36196a);
+        return str.getBytes(com.kwad.sdk.pngencrypt.n.f36485a);
     }
 
     public static byte[] a(byte[] bArr, int i, int i2, boolean z) {
@@ -86,11 +86,11 @@ public class b {
     }
 
     public static String b(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f36197b);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.f36486b);
     }
 
     public static String b(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f36197b);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f36486b);
     }
 
     public static boolean b(String str) {

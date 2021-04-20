@@ -1,162 +1,185 @@
 package d.b.n.a;
 
-import android.annotation.TargetApi;
+import android.app.Application;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.Choreographer;
-import com.baidu.crabsdk.sender.k;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.Deflater;
-import java.util.zip.DeflaterOutputStream;
-@TargetApi(16)
+import android.os.Build;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.common.others.java.Supplier;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.aperf.runtime.AperfRuntime;
+import com.baidu.searchbox.logsystem.basic.LogSystemServiceUtil;
+import com.baidu.searchbox.logsystem.basic.LokiService;
+import com.baidu.searchbox.logsystem.basic.eventhandler.DefaultProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.basic.util.SnapshotUtil;
+import com.baidu.searchbox.logsystem.logsys.CrashUtil;
+import com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig;
+import com.baidu.searchbox.logsystem.logsys.LogExtra;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
+import com.baidu.searchbox.logsystem.logsys.LogType;
+import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
+import com.baidu.searchbox.logsystem.util.LLog;
+import com.baidu.searchbox.logsystem.util.Utility;
+import com.baidu.searchbox.track.Track;
+import com.baidu.searchbox.track.ui.TrackUI;
+import java.io.File;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class b implements Choreographer.FrameCallback {
-    public static final b j = new b();
+public class b {
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f64119e = false;
+    /* renamed from: a  reason: collision with root package name */
+    public Supplier<List<ProcessEventSceneHandler>> f64847a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public long f64120f = 0;
+    /* renamed from: b  reason: collision with root package name */
+    public String f64848b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public long f64121g = 41666666;
+    /* renamed from: c  reason: collision with root package name */
+    public Context f64849c;
 
-    /* renamed from: h  reason: collision with root package name */
-    public long f64122h = 16666665;
-    public int i = 0;
+    /* renamed from: d  reason: collision with root package name */
+    public long f64850d;
 
-    public static /* synthetic */ void a(b bVar) {
-        Context context;
-        Map<String, Object> d2 = com.baidu.crabsdk.a.a.b().d();
-        if (d2 == null) {
-            com.baidu.crabsdk.c.a.d("no keyStack; blockRecord = null; not a block!!!");
-            return;
+    public b(@NonNull Context context) {
+        if (context instanceof Application) {
+            this.f64849c = context;
+        } else {
+            this.f64849c = context.getApplicationContext();
         }
-        com.baidu.crabsdk.c.a.c("^^ -BlockCanaryCore- ^^" + d2.toString());
-        context = com.baidu.crabsdk.a.c.f4655d;
-        byte[] bArr = null;
-        Map<String, Object> c2 = com.baidu.crabsdk.sender.g.c(context, null, true);
-        c2.putAll(d2);
-        com.baidu.crabsdk.sender.g.h(c2);
-        String h2 = com.baidu.crabsdk.sender.i.h(c2);
-        String h3 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4638d, UUID.randomUUID().toString());
-        String j2 = com.baidu.crabsdk.c.d.j(h2, h3);
-        try {
-            h3 = com.baidu.crabsdk.c.e.a(h3);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        this.f64848b = d.b.b0.b.a.a.b();
+        this.f64850d = System.currentTimeMillis();
+        if (Build.VERSION.SDK_INT <= 19) {
+            b();
         }
-        com.baidu.crabsdk.sender.h.l();
-        if (com.baidu.crabsdk.sender.h.a()) {
-            com.baidu.crabsdk.c.a.b("-BlockCanaryCore- switch on -  *^o^* doUploadBlock *^o^*");
-            if (!com.baidu.crabsdk.sender.h.i()) {
-                com.baidu.crabsdk.c.a.b("CrashSwitch.canBlockUploadToday() == false");
-                com.baidu.crabsdk.a.b.c().e();
-                bVar.d();
-                return;
-            }
-            if (j2 != null) {
-                try {
-                    if (j2.length() != 0) {
-                        if (com.baidu.crabsdk.a.H) {
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            DeflaterOutputStream deflaterOutputStream = new DeflaterOutputStream(byteArrayOutputStream, new Deflater(9, true));
-                            deflaterOutputStream.write(j2.getBytes("UTF-8"));
-                            deflaterOutputStream.close();
-                            bArr = byteArrayOutputStream.toByteArray();
-                        } else {
-                            bArr = j2.getBytes("UTF-8");
-                        }
-                    }
-                } catch (UnsupportedEncodingException e3) {
-                    e3.printStackTrace();
-                    return;
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                    return;
-                }
-            }
-            k.c(bArr, h3);
+    }
+
+    @NonNull
+    public final ForwardingProcessEventSceneHandler a() {
+        ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
+        if (Build.VERSION.SDK_INT > 19) {
+            forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
         }
+        Supplier<List<ProcessEventSceneHandler>> supplier = this.f64847a;
+        if (supplier != null && Build.VERSION.SDK_INT > 19) {
+            forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
+        }
+        return forwardingProcessEventSceneHandler;
     }
 
     public final void b() {
-        this.f64120f = 0L;
-        this.i = 0;
+        DefaultProcessEventSceneHandler.init();
+        LogType.init();
+        SnapshotUtil.init();
+        LogFile.init();
+        ProcessSnapshotType.init();
+        Utility.init();
+        LogPipelineSingleton.init();
+        LokiService.init();
+        LogExtra.init();
+        LogDiskStoreConfig.init();
+        CrashUtil.init();
+        LogSystemServiceUtil.init();
     }
 
-    public final void c() {
-        if (this.f64119e) {
-            return;
+    public void c(@NonNull Context context, @NonNull JSONObject jSONObject) {
+    }
+
+    public void d() {
+    }
+
+    public void e(@NonNull Context context) {
+    }
+
+    public void f(@NonNull String str, @NonNull String str2) {
+    }
+
+    public void g(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
+        LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
+    }
+
+    public final void h(@NonNull String str, @NonNull LogExtra logExtra) {
+        HashSet hashSet;
+        Set<LogFile> obtainProcessSnapShots;
+        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f64848b);
+        if (!obtainFileDirWithProcessName.exists()) {
+            obtainFileDirWithProcessName.mkdirs();
         }
-        this.f64119e = true;
-        b();
-        try {
-            if (Looper.getMainLooper() != Looper.myLooper()) {
-                new Handler(Looper.getMainLooper()).post(new d(this));
-                return;
+        JSONObject jSONObject = new JSONObject();
+        c(this.f64849c, jSONObject);
+        logExtra.mJSONAttach = jSONObject.toString();
+        ForwardingProcessEventSceneHandler a2 = a();
+        File file = null;
+        if (a2 != null) {
+            hashSet = new HashSet(5);
+            EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
+            Set<ProcessSnapshotType> requireGeneralSnapshots = a2.requireGeneralSnapshots(this.f64849c, eventObject);
+            if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f64849c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f64848b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+                hashSet.addAll(obtainProcessSnapShots);
             }
-            try {
-                Choreographer.getInstance().postFrameCallback(j);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            Set<LogFile> customizedSnapshots = a2.getCustomizedSnapshots(this.f64849c, obtainFileDirWithProcessName, eventObject);
+            if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
+                hashSet.addAll(customizedSnapshots);
             }
-        } catch (Exception e3) {
-            com.baidu.crabsdk.c.a.a("postFrameCallback error!!", e3);
-        }
-    }
-
-    public final void d() {
-        this.f64119e = false;
-        b();
-        if (Looper.getMainLooper() != Looper.myLooper()) {
-            new Handler(Looper.getMainLooper()).post(new e(this));
-            return;
-        }
-        try {
-            Choreographer.getInstance().removeFrameCallback(j);
-            com.baidu.crabsdk.c.a.b("stop FrameMonitor !!");
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    @Override // android.view.Choreographer.FrameCallback
-    public final void doFrame(long j2) {
-        ExecutorService executorService;
-        try {
-            if (this.f64120f != 0) {
-                long j3 = j2 - this.f64120f;
-                if (j3 > this.f64121g) {
-                    this.i = (int) (this.i + (j3 / this.f64122h));
-                } else if (this.i > 0) {
-                    if (this.i > 30) {
-                        com.baidu.crabsdk.c.a.c("^^ block skip frames = " + this.i + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.i * this.f64122h) + "ms");
-                        if (TimeUnit.NANOSECONDS.toMillis(this.i * this.f64122h) >= com.baidu.crabsdk.a.a.f4643g) {
-                            executorService = com.baidu.crabsdk.a.c.f4656e;
-                            executorService.execute(new c(this));
-                        }
-                        this.i = 1;
+            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f64849c, a2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+            if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
+                hashSet.add(obtainFragmentSnapShot);
+            }
+            if (LLog.sDebug) {
+                if (hashSet.size() > 0) {
+                    Log.d("loki-native-NativeCrashHandler", "uploadLogFiles.size() = " + hashSet.size());
+                    for (int i = 0; i < hashSet.size(); i++) {
                     }
-                    this.i--;
+                } else {
+                    Log.d("loki-native-NativeCrashHandler", "uploadLogFiles is null or uploadLogFiles.size() = 0");
                 }
             }
-            this.f64120f = j2;
-        } catch (Throwable th) {
-            com.baidu.crabsdk.c.a.d("doFrame:" + th.toString());
+        } else {
+            hashSet = null;
         }
+        e(this.f64849c);
+        if (hashSet != null) {
+            file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
+            if (LLog.sDebug && file != null) {
+                Log.d("loki-native-NativeCrashHandler", "pathNameKeeper = " + file.getAbsolutePath());
+            }
+        }
+        g(this.f64849c, str, file, logExtra);
+    }
+
+    public void i(@NonNull String str, int i, int i2) {
+        Log.d("loki-native-NativeCrashHandler", str);
+        LogExtra logExtra = new LogExtra();
+        TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+        if (lastTrackUI != null) {
+            if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                logExtra.mPage = lastTrackUI.getFragmentPage();
+            } else {
+                logExtra.mPage = lastTrackUI.getActivityPage();
+            }
+        }
+        logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
+        logExtra.mLaunchTime = String.valueOf(this.f64850d);
+        if (DeviceUtil.OSInfo.hasNougat()) {
+            logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
+        }
+        logExtra.mForeground = String.valueOf(Track.getInstance().isForeground());
+        logExtra.mTraceID = AperfRuntime.Runtime.getProcessUUID();
         try {
-            Choreographer.getInstance().postFrameCallback(j);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            h(str, logExtra);
+        } catch (Throwable th) {
+            if (LLog.sDebug) {
+                th.printStackTrace();
+            }
         }
     }
 }

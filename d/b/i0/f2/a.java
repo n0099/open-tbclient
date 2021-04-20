@@ -1,66 +1,62 @@
 package d.b.i0.f2;
-/* loaded from: classes5.dex */
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.img.ImageUploadResult;
+/* loaded from: classes3.dex */
 public class a {
 
-    /* renamed from: f  reason: collision with root package name */
-    public static a f54733f = new a();
+    /* loaded from: classes3.dex */
+    public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
 
-    /* renamed from: a  reason: collision with root package name */
-    public long f54734a = 0;
+        /* renamed from: a  reason: collision with root package name */
+        public String f55959a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public long f54735b = 0;
+        /* renamed from: b  reason: collision with root package name */
+        public c f55960b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public long f54736c = 0;
+        public b() {
+        }
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f54737d = 0;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            return new d.b.h0.b0.f("user_pics").j(FileHelper.getFileDireciory(this.f55959a), false);
+        }
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f54738e = 0;
-
-    public static a d() {
-        return f54733f;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            String str;
+            super.onPostExecute(imageUploadResult);
+            if (this.f55960b != null) {
+                int i = 0;
+                if (imageUploadResult != null) {
+                    i = imageUploadResult.error_code;
+                    str = imageUploadResult.error_msg;
+                } else {
+                    str = "";
+                }
+                this.f55960b.a(i, str, imageUploadResult);
+            }
+        }
     }
 
-    public long a() {
-        return this.f54736c;
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(int i, String str, ImageUploadResult imageUploadResult);
     }
 
-    public long b() {
-        return this.f54734a;
-    }
-
-    public long c() {
-        return this.f54735b;
-    }
-
-    public long e() {
-        return this.f54738e;
-    }
-
-    public long f() {
-        return this.f54737d;
-    }
-
-    public void g(long j) {
-        this.f54736c = j;
-    }
-
-    public void h(long j) {
-        this.f54734a = j;
-    }
-
-    public void i(long j) {
-        this.f54735b = j;
-    }
-
-    public void j(long j) {
-        this.f54738e = j;
-    }
-
-    public void k(long j) {
-        this.f54737d = j;
+    public void a(String str, c cVar) {
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        b bVar = new b();
+        bVar.f55959a = str;
+        bVar.f55960b = cVar;
+        bVar.execute("");
     }
 }

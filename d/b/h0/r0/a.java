@@ -3,13 +3,13 @@ package d.b.h0.r0;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import d.b.h0.z0.p;
 /* loaded from: classes3.dex */
-public class a extends d.b.b.c.f.c {
+public class a extends d.b.c.c.f.c {
     public a() {
         super(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.c.f.g
+    @Override // d.b.c.c.f.g
     /* renamed from: c */
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage == null) {

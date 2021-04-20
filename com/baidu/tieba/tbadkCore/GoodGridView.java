@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.view.BdGridView;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GoodGridView extends BdGridView {
     public GoodGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

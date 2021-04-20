@@ -8,6 +8,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,81 +22,81 @@ import com.baidu.tbadk.switchs.NetDeleteSwitch;
 import com.baidu.tbadk.switchs.NetTypeFixedSwitch;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.tieba.yunpush.BaiduYunPushMessageReceiver;
-import d.b.b.c.f.j;
-import d.b.b.e.p.l;
-import d.b.b.e.r.k;
+import d.b.c.c.f.j;
+import d.b.c.e.p.l;
+import d.b.c.e.r.k;
 import d.b.h0.r.l.a;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: f  reason: collision with root package name */
-    public static h f51448f;
+    public static h f51865f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51449a;
+    public int f51866a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.c.e.c.k.a f51450b = null;
+    public d.b.c.c.e.c.k.a f51867b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdateClientInfoMessage f51451c = null;
+    public UpdateClientInfoMessage f51868c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51452d = 0;
+    public int f51869d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.b.b.c.e.c.k.a f51453e = new a();
+    public final d.b.c.c.e.c.k.a f51870e = new a();
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.b.c.e.c.k.a {
+    public class a implements d.b.c.c.e.c.k.a {
         public a() {
         }
 
-        @Override // d.b.b.c.e.c.k.a
+        @Override // d.b.c.c.e.c.k.a
         public boolean a(int i, String str) {
             d.b.h0.c0.a.b(0, 2, 0, 0, 0);
-            if (h.this.f51450b != null) {
-                h.this.f51450b.a(i, str);
+            if (h.this.f51867b != null) {
+                h.this.f51867b.a(i, str);
             }
             return false;
         }
 
-        @Override // d.b.b.c.e.c.k.a
-        public void b(d.b.b.e.r.c cVar) {
-            if (h.this.f51450b != null) {
-                h.this.f51450b.b(cVar);
+        @Override // d.b.c.c.e.c.k.a
+        public void b(d.b.c.e.r.c cVar) {
+            if (h.this.f51867b != null) {
+                h.this.f51867b.b(cVar);
             }
         }
 
-        @Override // d.b.b.c.e.c.k.a
+        @Override // d.b.c.c.e.c.k.a
         public void c(String str) {
-            if (h.this.f51450b != null) {
-                h.this.f51450b.c(str);
+            if (h.this.f51867b != null) {
+                h.this.f51867b.c(str);
             }
         }
 
-        @Override // d.b.b.c.e.c.k.a
+        @Override // d.b.c.c.e.c.k.a
         public void d(k kVar) {
-            if (h.this.f51450b != null) {
-                h.this.f51450b.d(kVar);
+            if (h.this.f51867b != null) {
+                h.this.f51867b.d(kVar);
             }
         }
 
-        @Override // d.b.b.c.e.c.k.a
+        @Override // d.b.c.c.e.c.k.a
         public void g(Map<String, String> map) {
             d.b.h0.c0.a.b(0, 1, 0, 0, 0);
-            if (h.this.f51450b != null) {
-                h.this.f51450b.g(map);
+            if (h.this.f51867b != null) {
+                h.this.f51867b.g(map);
             }
-            d.b.b.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
+            d.b.c.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
             if (d.b.h0.m0.k.d().g() && h.b(h.this) < 10) {
-                d.b.b.c.e.c.i.e();
+                d.b.c.c.e.c.i.e();
             }
             d.b.h0.c0.a.b(1001, 0, 0, 3, 0);
             h hVar = h.this;
-            hVar.f51451c = hVar.i();
-            MessageManager.getInstance().sendMessage(h.this.f51451c);
+            hVar.f51868c = hVar.i();
+            MessageManager.getInstance().sendMessage(h.this.f51868c);
         }
     }
 
@@ -106,7 +107,7 @@ public class h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.c.f.g
+        @Override // d.b.c.c.f.g
         /* renamed from: c */
         public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
             long j;
@@ -125,11 +126,11 @@ public class h {
             }
             if (responseOnlineMessage.getError() != 0) {
                 h.this.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                d.b.b.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.f51449a);
+                d.b.c.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.f51866a);
                 return null;
             }
             h.this.m();
-            d.b.b.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.f51449a);
+            d.b.c.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.f51866a);
             return socketResponsedMessage;
         }
     }
@@ -139,22 +140,22 @@ public class h {
     }
 
     public static /* synthetic */ int b(h hVar) {
-        int i = hVar.f51452d + 1;
-        hVar.f51452d = i;
+        int i = hVar.f51869d + 1;
+        hVar.f51869d = i;
         return i;
     }
 
     public static synchronized h j() {
         h hVar;
         synchronized (h.class) {
-            if (f51448f == null) {
+            if (f51865f == null) {
                 synchronized (h.class) {
-                    if (f51448f == null) {
-                        f51448f = new h();
+                    if (f51865f == null) {
+                        f51865f = new h();
                     }
                 }
             }
-            hVar = f51448f;
+            hVar = f51865f;
         }
         return hVar;
     }
@@ -179,14 +180,14 @@ public class h {
             updateClientInfoMessage.addUserInfo("from", from);
         }
         if (NetTypeFixedSwitch.isOn()) {
-            updateClientInfoMessage.addUserInfo("net_type", String.valueOf(d.b.b.e.p.j.I()));
+            updateClientInfoMessage.addUserInfo("net_type", String.valueOf(d.b.c.e.p.j.I()));
         } else {
             String str = new NetWork().getNetContext().getRequest().getNetWorkParam().mNetType;
             if (str != null) {
                 updateClientInfoMessage.addUserInfo("net_type", str);
             }
         }
-        if (!NetDeleteSwitch.isOn() && (valueOf = String.valueOf(d.b.b.e.p.j.I())) != null) {
+        if (!NetDeleteSwitch.isOn() && (valueOf = String.valueOf(d.b.c.e.p.j.I())) != null) {
             updateClientInfoMessage.addUserInfo("net", valueOf);
         }
         updateClientInfoMessage.addUserInfo("cuid", TbadkCoreApplication.getInst().getCuid());
@@ -221,7 +222,7 @@ public class h {
                 a.b d2 = d.b.h0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
                 String a2 = d.b.h0.r.l.e.a(TbadkCoreApplication.getCurrentAccountInfo());
                 if (d2 != null) {
-                    updateClientInfoMessage.setBduss(d2.f50629a, a2);
+                    updateClientInfoMessage.setBduss(d2.f51036a, a2);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
                 }
@@ -236,9 +237,9 @@ public class h {
             updateClientInfoMessage.setPub_env(Integer.valueOf(d.b.h0.s.b.a.b().c()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            updateClientInfoMessage.setPub_env(Integer.valueOf(d.b.b.e.m.b.d(TbSingleton.getInstance().getPubEnvValue(), 0)));
+            updateClientInfoMessage.setPub_env(Integer.valueOf(d.b.c.e.m.b.d(TbSingleton.getInstance().getPubEnvValue(), 0)));
         }
-        updateClientInfoMessage.setSecretKey(d.b.b.c.e.c.j.d.a().c());
+        updateClientInfoMessage.setSecretKey(d.b.c.c.e.c.j.d.a().c());
         updateClientInfoMessage.addUserInfo("pversion", "1.0.3");
         if (TbadkCoreApplication.getInst().getCustomizedFilter() != null) {
             updateClientInfoMessage = TbadkCoreApplication.getInst().getCustomizedFilter().c(updateClientInfoMessage);
@@ -252,26 +253,27 @@ public class h {
         updateClientInfoMessage.addUserInfo("first_install_time", TbSingleton.getInstance().getAppFirstInstallTime() + "");
         updateClientInfoMessage.addUserInfo(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime() + "");
         updateClientInfoMessage.addUserInfo("event_day", TbSingleton.getInstance().getData());
+        updateClientInfoMessage.addUserInfo(IAdRequestParam.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
         return updateClientInfoMessage;
     }
 
     public void k() {
-        MessageManager.getInstance().getSocketClient().G(this.f51453e);
+        MessageManager.getInstance().getSocketClient().G(this.f51870e);
     }
 
     public boolean l() {
-        return this.f51449a >= 5;
+        return this.f51866a >= 5;
     }
 
     public final void m() {
-        this.f51449a = 0;
+        this.f51866a = 0;
         MessageManager.getInstance().getSocketClient().I();
         NoNetworkView.f();
         BdSocketLinkService.stopReConnStrategy("online succ");
     }
 
     public void n() {
-        this.f51449a++;
+        this.f51866a++;
         if (l()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.f();
@@ -283,7 +285,7 @@ public class h {
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 
-    public void p(d.b.b.c.e.c.k.a aVar) {
-        this.f51450b = aVar;
+    public void p(d.b.c.c.e.c.k.a aVar) {
+        this.f51867b = aVar;
     }
 }

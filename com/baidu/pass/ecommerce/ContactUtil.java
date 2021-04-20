@@ -3,6 +3,7 @@ package com.baidu.pass.ecommerce;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.pass.ecommerce.callback.GetContactCallback;
 import com.baidu.pass.ecommerce.result.GetContactResult;
 import com.baidu.pass.permissions.PassPermissions;
@@ -88,7 +89,7 @@ public class ContactUtil {
                     context2.startActivity(intent);
                     return;
                 }
-                intent.setFlags(268435456);
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 context.startActivity(intent);
             }
         });

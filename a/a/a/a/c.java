@@ -73,7 +73,7 @@ public class c implements k {
 
     public c(k kVar) {
         this.f1013a = kVar;
-        this.f1014b = kVar.b().f1336e * 60 * 1000;
+        this.f1014b = kVar.b().f1322e * 60 * 1000;
     }
 
     @Override // a.a.a.a.k
@@ -107,7 +107,7 @@ public class c implements k {
     }
 
     @Override // a.a.a.a.k
-    public a.a.a.a.u.p d() {
+    public a.a.a.a.u.o d() {
         return this.f1013a.d();
     }
 

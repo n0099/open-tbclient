@@ -6,7 +6,7 @@ import d.b.g0.a.k;
 /* loaded from: classes2.dex */
 public class e extends SwanAppSimpleH5Widget {
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public e(Context context) {
@@ -14,7 +14,7 @@ public class e extends SwanAppSimpleH5Widget {
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.g0.a.p.d.d
-    public String S() {
+    public String T() {
         return "ai_apps_ad_landing";
     }
 }

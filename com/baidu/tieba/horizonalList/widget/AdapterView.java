@@ -16,7 +16,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static final long INVALID_COL_ID = Long.MIN_VALUE;
     public static final int INVALID_POSITION = -1;
@@ -59,22 +59,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public int mSyncPosition;
     public long mSyncWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements ContextMenu.ContextMenuInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f17493a;
+        public View f17170a;
 
         public b(View view, int i, long j) {
-            this.f17493a = view;
+            this.f17170a = view;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends DataSetObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f17494a = null;
+        public Parcelable f17171a = null;
 
         public c() {
         }
@@ -86,11 +86,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             adapterView.mDataChanged = true;
             adapterView.mOldItemCount = adapterView.mItemCount;
             adapterView.mItemCount = adapterView.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f17494a) != null) {
+            if (AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f17171a) != null) {
                 AdapterView adapterView2 = AdapterView.this;
                 if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                     adapterView2.onRestoreInstanceState(parcelable);
-                    this.f17494a = null;
+                    this.f17171a = null;
                     AdapterView.this.checkFocus();
                     AdapterView.this.requestLayout();
                 }
@@ -105,7 +105,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView adapterView = AdapterView.this;
             adapterView.mDataChanged = true;
             if (adapterView.getAdapter().hasStableIds()) {
-                this.f17494a = AdapterView.this.onSaveInstanceState();
+                this.f17171a = AdapterView.this.onSaveInstanceState();
             }
             AdapterView adapterView2 = AdapterView.this;
             adapterView2.mOldItemCount = adapterView2.mItemCount;
@@ -120,24 +120,24 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         boolean a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(AdapterView<?> adapterView, View view, int i, long j);
 
         void b(AdapterView<?> adapterView);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements Runnable {
         public g() {
         }

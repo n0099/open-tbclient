@@ -1,5 +1,5 @@
 package d.o.a.e.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static int a() {
         return l.b("tt_appdownloader_notification_layout");

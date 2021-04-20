@@ -18,23 +18,23 @@ import com.win.opensdk.core.Info;
 public class S implements z2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public C2 f39786a;
+    public C2 f40075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public A2 f39787b;
+    public A2 f40076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f39788c;
+    public WebView f40077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39789d;
+    public boolean f40078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39790e;
+    public String f40079e;
 
     public S(Context context) {
         WebView webView = new WebView(context);
-        this.f39788c = webView;
+        this.f40077c = webView;
         webView.setScrollContainer(false);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
@@ -63,52 +63,52 @@ public class S implements z2 {
                 cookieManager.setAcceptThirdPartyCookies(webView, true);
             }
         }
-        this.f39788c.getSettings().setJavaScriptEnabled(true);
+        this.f40077c.getSettings().setJavaScriptEnabled(true);
         JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
-        this.f39788c.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.f39788c.setWebViewClient(new Q(this));
+        this.f40077c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.f40077c.setWebViewClient(new Q(this));
     }
 
     @Override // com.win.opensdk.z2
     public void a() {
-        WebView webView = this.f39788c;
+        WebView webView = this.f40077c;
         if (webView != null) {
             ViewGroup viewGroup = (ViewGroup) webView.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(this.f39788c);
+                viewGroup.removeView(this.f40077c);
             }
-            this.f39788c.removeAllViews();
-            this.f39788c.stopLoading();
-            this.f39788c.setWebChromeClient(null);
-            this.f39788c.setWebViewClient(null);
-            this.f39788c.destroy();
+            this.f40077c.removeAllViews();
+            this.f40077c.stopLoading();
+            this.f40077c.setWebChromeClient(null);
+            this.f40077c.setWebViewClient(null);
+            this.f40077c.destroy();
         }
-        if (this.f39787b != null) {
-            this.f39787b = null;
+        if (this.f40076b != null) {
+            this.f40076b = null;
         }
     }
 
     @Override // com.win.opensdk.z2
     public void a(A2 a2) {
-        this.f39787b = a2;
+        this.f40076b = a2;
     }
 
     @Override // com.win.opensdk.z2
     public void a(String str, Info info) {
         if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-            this.f39788c.loadUrl(str);
+            this.f40077c.loadUrl(str);
         } else {
-            this.f39788c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.K, "UTF-8", null);
+            this.f40077c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.K, "UTF-8", null);
         }
-        C2 c2 = this.f39786a;
+        C2 c2 = this.f40075a;
         if (c2 != null) {
             c2.a();
         }
-        this.f39788c.setOnTouchListener(new T(info, new P(this)));
+        this.f40077c.setOnTouchListener(new T(info, new P(this)));
     }
 
     @Override // com.win.opensdk.z2
     public View b() {
-        return this.f39788c;
+        return this.f40077c;
     }
 }

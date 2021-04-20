@@ -7,14 +7,14 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.setting.more.MoreActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21001e;
+    public HttpMessageListener f20686e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(GetFriendAndStrangerSwitchModel getFriendAndStrangerSwitchModel, int i) {
             super(i);
@@ -33,7 +33,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public GetFriendAndStrangerSwitchModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f21001e = aVar;
+        this.f20686e = aVar;
         registerListener(aVar);
         LoadData();
     }

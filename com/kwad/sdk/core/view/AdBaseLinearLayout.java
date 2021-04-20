@@ -12,10 +12,10 @@ import com.kwad.sdk.utils.s;
 public class AdBaseLinearLayout extends LinearLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final s.a f34225b = new s.a();
+    public static final s.a f34514b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f34226a;
+    public View.OnTouchListener f34515a;
 
     public AdBaseLinearLayout(Context context) {
         super(context);
@@ -31,26 +31,26 @@ public class AdBaseLinearLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        View.OnTouchListener onTouchListener = this.f34226a;
+        View.OnTouchListener onTouchListener = this.f34515a;
         if (onTouchListener != null) {
             onTouchListener.onTouch(this, motionEvent);
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            f34225b.a(getWidth(), getHeight());
-            f34225b.a(motionEvent.getX(), motionEvent.getY());
+            f34514b.a(getWidth(), getHeight());
+            f34514b.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f34225b.b(motionEvent.getX(), motionEvent.getY());
+            f34514b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return f34225b;
+        return f34514b;
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f34226a = onTouchListener;
+        this.f34515a = onTouchListener;
     }
 }

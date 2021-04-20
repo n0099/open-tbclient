@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public RelativeLayout contentRootView;
     public NavigationBar navigationBar;
@@ -21,7 +21,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public NoNetworkView noNetWorkView;
     public RelativeLayout rootView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

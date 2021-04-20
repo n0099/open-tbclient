@@ -6,21 +6,21 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import d.b.b.a.j;
-import d.b.b.e.q.f;
-import d.b.i0.c3.p0.a;
+import d.b.c.a.j;
+import d.b.c.e.q.f;
+import d.b.i0.d3.p0.a;
 /* loaded from: classes5.dex */
 public class VoiceButton extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f21428e;
+    public f f21113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21429f;
+    public boolean f21114f;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21429f = false;
+        this.f21114f = false;
     }
 
     public a getRecorderManager() {
@@ -37,7 +37,7 @@ public class VoiceButton extends ImageView {
         if (context instanceof VoiceManager.j) {
             return ((VoiceManager.j) context).getVoiceManager();
         }
-        if ((j.a(getContext()) instanceof d.b.b.a.f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+        if ((j.a(getContext()) instanceof d.b.c.a.f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
             return ((VoiceManager.j) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;
@@ -50,14 +50,14 @@ public class VoiceButton extends ImageView {
             if (recorderManager == null || !recorderManager.d()) {
                 return false;
             }
-            this.f21429f = recorderManager.c(this.f21428e, -1);
+            this.f21114f = recorderManager.c(this.f21113e, -1);
             setPressed(true);
         } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
             if (!isPressed()) {
                 setPressed(true);
             }
         } else {
-            if (this.f21429f && recorderManager != null) {
+            if (this.f21114f && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);
@@ -66,7 +66,7 @@ public class VoiceButton extends ImageView {
     }
 
     public void setRecorderView(f fVar) {
-        this.f21428e = fVar;
+        this.f21113e = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.b(fVar);

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.favordata.SwanFavorItemData;
@@ -57,7 +58,7 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         intent.setAction(SwanAppLauncherActivity.SWAN_APP_LAUNCH_ACTION);
         intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
         if (context instanceof Application) {
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtras(cVar.A());
         return intent;

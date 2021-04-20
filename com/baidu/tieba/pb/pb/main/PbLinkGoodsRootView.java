@@ -34,26 +34,26 @@ import com.baidu.tbadk.core.view.SingleLinkCardView;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
-import d.b.i0.c2.h.e;
+import d.b.i0.d2.h.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbLinkGoodsRootView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f19706e;
+    public c f19391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19707f;
+    public TextView f19392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f19708g;
+    public ImageView f19393g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f19709h;
+    public RelativeLayout f19394h;
     public ThreadForumEnterGoodsButton i;
     public Context j;
     public BdRecyclerView k;
@@ -70,7 +70,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     public VideoPbFragment v;
     public a2 w;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -81,26 +81,26 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public SingleLinkCardView f19711a;
+        public SingleLinkCardView f19396a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f19712b;
+        public View f19397b;
 
         public b(View view) {
             super(view);
-            this.f19712b = view.findViewById(R.id.mask_view);
-            this.f19711a = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
+            this.f19397b = view.findViewById(R.id.mask_view);
+            this.f19396a = (SingleLinkCardView) view.findViewById(R.id.pb_item_single_link_card);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends RecyclerView.Adapter {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
@@ -111,7 +111,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class b implements View.OnClickListener {
             public b() {
             }
@@ -123,20 +123,20 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView$c$c  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0217c implements View.OnClickListener {
+        /* loaded from: classes3.dex */
+        public class View$OnClickListenerC0219c implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f19717e;
+            public final /* synthetic */ int f19402e;
 
-            public View$OnClickListenerC0217c(int i) {
-                this.f19717e = i;
+            public View$OnClickListenerC0219c(int i) {
+                this.f19402e = i;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PbLinkGoodsRootView pbLinkGoodsRootView = PbLinkGoodsRootView.this;
-                pbLinkGoodsRootView.p((d.b.i0.x.e0.c) pbLinkGoodsRootView.q.get(this.f19717e));
+                pbLinkGoodsRootView.p((d.b.i0.x.e0.c) pbLinkGoodsRootView.q.get(this.f19402e));
             }
         }
 
@@ -155,21 +155,21 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 if (i >= PbLinkGoodsRootView.this.q.size() || PbLinkGoodsRootView.this.q.get(i) == null) {
                     return;
                 }
-                if (PbLinkGoodsRootView.this.u == null || PbLinkGoodsRootView.this.u.x4() || i != 2 || PbLinkGoodsRootView.this.q.size() <= 3) {
-                    if (PbLinkGoodsRootView.this.v == null || PbLinkGoodsRootView.this.v.S2() || i != 2 || PbLinkGoodsRootView.this.q.size() <= 3) {
-                        bVar.f19712b.setVisibility(8);
+                if (PbLinkGoodsRootView.this.u == null || PbLinkGoodsRootView.this.u.A4() || i != 2 || PbLinkGoodsRootView.this.q.size() <= 3) {
+                    if (PbLinkGoodsRootView.this.v == null || PbLinkGoodsRootView.this.v.U2() || i != 2 || PbLinkGoodsRootView.this.q.size() <= 3) {
+                        bVar.f19397b.setVisibility(8);
                     } else {
-                        bVar.f19712b.setOnClickListener(new b());
-                        bVar.f19712b.setVisibility(0);
-                        TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19712b);
+                        bVar.f19397b.setOnClickListener(new b());
+                        bVar.f19397b.setVisibility(0);
+                        TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19397b);
                     }
                 } else {
-                    bVar.f19712b.setOnClickListener(new a());
-                    bVar.f19712b.setVisibility(0);
-                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19712b);
+                    bVar.f19397b.setOnClickListener(new a());
+                    bVar.f19397b.setVisibility(0);
+                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(bVar.f19397b);
                 }
-                bVar.f19711a.a((d.b.i0.x.e0.c) PbLinkGoodsRootView.this.q.get(i));
-                bVar.f19711a.setOnClickListener(new View$OnClickListenerC0217c(i));
+                bVar.f19396a.a((d.b.i0.x.e0.c) PbLinkGoodsRootView.this.q.get(i));
+                bVar.f19396a.setOnClickListener(new View$OnClickListenerC0219c(i));
                 if (!(PbLinkGoodsRootView.this.q.get(i) instanceof PbLinkData) || PbLinkGoodsRootView.this.q.get(i) == null) {
                     if (PbLinkGoodsRootView.this.q.get(i) instanceof PbGoodsData) {
                         PbLinkGoodsRootView.this.o("c13961", 2);
@@ -196,7 +196,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         k(eVar, list, str, z);
         PbFragment pbFragment2 = this.u;
         if (pbFragment2 != null) {
-            l(pbFragment2.x4());
+            l(pbFragment2.A4());
         }
     }
 
@@ -205,7 +205,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         k(eVar, list, str, z);
         VideoPbFragment videoPbFragment2 = this.v;
         if (videoPbFragment2 != null) {
-            l(videoPbFragment2.S2());
+            l(videoPbFragment2.U2());
         }
     }
 
@@ -213,8 +213,8 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.q = list;
         a2 L = eVar.L();
         this.w = L;
-        L.x3(eVar.n());
-        this.w.t3(Long.valueOf(eVar.m()).longValue());
+        L.y3(eVar.n());
+        this.w.u3(Long.valueOf(eVar.m()).longValue());
         this.t = z;
         this.r = list.size();
         if (list.size() < 4) {
@@ -239,7 +239,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         int i2;
         if (z) {
             this.r = this.q.size();
-            TextView textView = this.f19707f;
+            TextView textView = this.f19392f;
             if (this.t) {
                 resources2 = getResources();
                 i2 = R.string.pb_first_goods_more_close;
@@ -253,7 +253,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             if (this.r > 3) {
                 this.r = 3;
             }
-            TextView textView2 = this.f19707f;
+            TextView textView2 = this.f19392f;
             if (this.t) {
                 resources = getResources();
                 i = R.string.pb_first_goods_more_open;
@@ -264,33 +264,33 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             textView2.setText(resources.getString(i));
             this.s = R.drawable.icon_pure_unfold12_svg;
         }
-        this.f19706e.notifyDataSetChanged();
+        this.f19391e.notifyDataSetChanged();
         setMarginTop(z);
-        SkinManager.setViewTextColor(this.f19707f, R.color.CAM_X0107);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19708g, this.s, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setViewTextColor(this.f19392f, R.color.CAM_X0107);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19393g, this.s, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public final void m() {
         PbFragment pbFragment = this.u;
         if (pbFragment != null) {
-            if (pbFragment.x4()) {
-                this.u.J5(false);
+            if (pbFragment.A4()) {
+                this.u.M5(false);
                 l(false);
                 return;
             }
-            this.u.J5(true);
+            this.u.M5(true);
             l(true);
             n();
             return;
         }
         VideoPbFragment videoPbFragment = this.v;
         if (videoPbFragment != null) {
-            if (videoPbFragment.S2()) {
-                this.v.m4(false);
+            if (videoPbFragment.U2()) {
+                this.v.A4(false);
                 l(false);
                 return;
             }
-            this.v.m4(true);
+            this.v.A4(true);
             l(true);
             n();
         }
@@ -378,17 +378,17 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.k = bdRecyclerView;
         bdRecyclerView.setNestedScrollingEnabled(false);
         this.l = (LinearLayout) findViewById(R.id.pb_more_post_rl);
-        this.f19707f = (TextView) findViewById(R.id.tv_post);
-        this.f19709h = (RelativeLayout) findViewById(R.id.rl_more_post);
-        this.f19708g = (ImageView) findViewById(R.id.iv_arrow);
+        this.f19392f = (TextView) findViewById(R.id.tv_post);
+        this.f19394h = (RelativeLayout) findViewById(R.id.rl_more_post);
+        this.f19393g = (ImageView) findViewById(R.id.iv_arrow);
         this.i = (ThreadForumEnterGoodsButton) findViewById(R.id.pb_tip_enter_button);
         this.m = l.g(this.j, R.dimen.tbds14);
         this.n = l.g(this.j, R.dimen.tbds44);
         this.o = l.g(this.j, R.dimen.tbds36);
         this.p = l.g(this.j, R.dimen.tbds22);
-        this.f19706e = new c();
+        this.f19391e = new c();
         this.k.setLayoutManager(new LinearLayoutManager(this.j));
-        this.k.setAdapter(this.f19706e);
-        this.f19709h.setOnClickListener(new a());
+        this.k.setAdapter(this.f19391e);
+        this.f19394h.setOnClickListener(new a());
     }
 }

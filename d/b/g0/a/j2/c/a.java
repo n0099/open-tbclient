@@ -5,49 +5,49 @@ import d.b.g0.a.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44966a;
+    public int f45358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44967b;
+    public int f45359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44968c;
+    public boolean f45360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44969d;
+    public boolean f45361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f44970e;
+    public boolean f45362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44971f;
+    public boolean f45363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44972g;
+    public boolean f45364g;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f44973a;
+        public int f45365a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44974b;
+        public int f45366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f44975c = true;
+        public boolean f45367c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f44976d = true;
+        public boolean f45368d = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f44977e = true;
+        public boolean f45369e = true;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f44978f = false;
+        public boolean f45370f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f44979g = true;
+        public boolean f45371g = true;
 
         public static b b() {
             return new b();
@@ -55,57 +55,57 @@ public class a {
 
         public a a() {
             a aVar = new a();
-            aVar.f44967b = this.f44974b;
-            aVar.f44968c = this.f44975c;
-            aVar.f44970e = this.f44977e;
-            aVar.f44969d = this.f44976d;
-            aVar.f44966a = this.f44973a;
-            aVar.f44971f = this.f44978f;
-            aVar.f44972g = this.f44979g;
+            aVar.f45359b = this.f45366b;
+            aVar.f45360c = this.f45367c;
+            aVar.f45362e = this.f45369e;
+            aVar.f45361d = this.f45368d;
+            aVar.f45358a = this.f45365a;
+            aVar.f45363f = this.f45370f;
+            aVar.f45364g = this.f45371g;
             return aVar;
         }
 
         public b c(boolean z) {
-            this.f44978f = z;
+            this.f45370f = z;
             return this;
         }
 
         public b d(boolean z) {
-            this.f44979g = z;
+            this.f45371g = z;
             return this;
         }
 
         public b e(int i) {
-            this.f44974b = i;
+            this.f45366b = i;
             return this;
         }
 
         public b f(int i) {
-            this.f44973a = i;
+            this.f45365a = i;
             return this;
         }
 
         public b g(boolean z) {
-            this.f44975c = z;
+            this.f45367c = z;
             return this;
         }
 
         public b h(boolean z) {
-            this.f44977e = z;
+            this.f45369e = z;
             return this;
         }
 
         public b i(boolean z) {
-            this.f44976d = z;
+            this.f45368d = z;
             return this;
         }
     }
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public a() {
-        this.f44972g = true;
+        this.f45364g = true;
     }
 }

@@ -8,7 +8,6 @@ import android.media.MediaFormat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
 import com.kwai.video.player.KsMediaMeta;
 import d.b.g0.a.k;
@@ -19,32 +18,32 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class a {
-    public static final boolean j = k.f45051a;
+    public static final boolean j = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaCodec f43507a;
+    public MediaCodec f43899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer[] f43508b;
+    public ByteBuffer[] f43900b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer[] f43509c;
+    public ByteBuffer[] f43901c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec.BufferInfo f43510d;
+    public MediaCodec.BufferInfo f43902d;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43513g;
+    public int f43905g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43514h;
+    public int f43906h;
     public String i;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f43512f = 0;
+    public long f43904f = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public ByteArrayOutputStream f43511e = new ByteArrayOutputStream();
+    public ByteArrayOutputStream f43903e = new ByteArrayOutputStream();
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x005f  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0060 A[Catch: IOException -> 0x00b2, TryCatch #0 {IOException -> 0x00b2, blocks: (B:6:0x0028, B:25:0x0060, B:27:0x0064, B:28:0x006b, B:30:0x0087, B:13:0x0041, B:16:0x004b, B:19:0x0055), top: B:35:0x0028 }] */
@@ -53,11 +52,11 @@ public class a {
     */
     public a(String str, int i, int i2, int i3) {
         char c2 = 0;
-        this.f43513g = 0;
-        this.f43514h = 0;
+        this.f43905g = 0;
+        this.f43906h = 0;
         this.i = "aac";
-        this.f43513g = i2;
-        this.f43514h = i;
+        this.f43905g = i2;
+        this.f43906h = i;
         if (TextUtils.isEmpty(str)) {
             this.i = "aac";
         } else {
@@ -87,15 +86,15 @@ public class a {
                     MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i2, i);
                     createAudioFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i3);
                     createAudioFormat.setInteger("aac-profile", 2);
-                    createAudioFormat.setInteger("max-input-size", LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP);
+                    createAudioFormat.setInteger("max-input-size", 102400);
                     if (d2 != null) {
                         MediaCodec createByCodecName = MediaCodec.createByCodecName(d2.getName());
-                        this.f43507a = createByCodecName;
+                        this.f43899a = createByCodecName;
                         createByCodecName.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-                        this.f43507a.start();
-                        this.f43508b = this.f43507a.getInputBuffers();
-                        this.f43509c = this.f43507a.getOutputBuffers();
-                        this.f43510d = new MediaCodec.BufferInfo();
+                        this.f43899a.start();
+                        this.f43900b = this.f43899a.getInputBuffers();
+                        this.f43901c = this.f43899a.getOutputBuffers();
+                        this.f43902d = new MediaCodec.BufferInfo();
                         return;
                     }
                     return;
@@ -151,7 +150,7 @@ public class a {
     }
 
     public final long b(long j2) {
-        int i = this.f43513g;
+        int i = this.f43905g;
         if (i == 0) {
             return 0L;
         }
@@ -189,19 +188,19 @@ public class a {
     }
 
     public final byte[] e(byte[] bArr) {
-        if (this.f43507a != null && bArr != null) {
+        if (this.f43899a != null && bArr != null) {
             if (j) {
                 Log.d("AudioRecorderManager", "start AAC encode");
             }
-            int dequeueInputBuffer = this.f43507a.dequeueInputBuffer(-1L);
+            int dequeueInputBuffer = this.f43899a.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.f43508b[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.f43900b[dequeueInputBuffer];
                 byteBuffer.clear();
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.f43507a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f43512f), 0);
-                    this.f43512f++;
+                    this.f43899a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f43904f), 0);
+                    this.f43904f++;
                 } catch (IllegalArgumentException | BufferOverflowException e2) {
                     if (j) {
                         e2.printStackTrace();
@@ -209,21 +208,21 @@ public class a {
                     return bArr;
                 }
             }
-            int dequeueOutputBuffer = this.f43507a.dequeueOutputBuffer(this.f43510d, 0L);
+            int dequeueOutputBuffer = this.f43899a.dequeueOutputBuffer(this.f43902d, 0L);
             while (dequeueOutputBuffer >= 0) {
-                MediaCodec.BufferInfo bufferInfo = this.f43510d;
+                MediaCodec.BufferInfo bufferInfo = this.f43902d;
                 int i = bufferInfo.size;
-                ByteBuffer byteBuffer2 = this.f43509c[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.f43901c[dequeueOutputBuffer];
                 try {
                     byteBuffer2.position(bufferInfo.offset);
-                    byteBuffer2.limit(this.f43510d.offset + i);
-                    byte[] c2 = c(i, 2, this.f43513g, this.f43514h);
+                    byteBuffer2.limit(this.f43902d.offset + i);
+                    byte[] c2 = c(i, 2, this.f43905g, this.f43906h);
                     try {
                         byteBuffer2.get(c2, 7, i);
-                        byteBuffer2.position(this.f43510d.offset);
-                        this.f43511e.write(c2);
-                        this.f43507a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                        dequeueOutputBuffer = this.f43507a.dequeueOutputBuffer(this.f43510d, 0L);
+                        byteBuffer2.position(this.f43902d.offset);
+                        this.f43903e.write(c2);
+                        this.f43899a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        dequeueOutputBuffer = this.f43899a.dequeueOutputBuffer(this.f43902d, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e3) {
                         if (j) {
                             e3.printStackTrace();
@@ -237,21 +236,21 @@ public class a {
                     return bArr;
                 }
             }
-            bArr = this.f43511e.toByteArray();
+            bArr = this.f43903e.toByteArray();
             try {
-                this.f43511e.flush();
+                this.f43903e.flush();
             } catch (IOException e5) {
                 if (j) {
                     e5.printStackTrace();
                 }
             }
-            this.f43511e.reset();
+            this.f43903e.reset();
         }
         return bArr;
     }
 
     public byte[] f(byte[] bArr) {
-        if (this.f43507a != null && bArr != null) {
+        if (this.f43899a != null && bArr != null) {
             String str = this.i;
             char c2 = 65535;
             int hashCode = str.hashCode();

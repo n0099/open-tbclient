@@ -1,9 +1,9 @@
 package io.reactivex.internal.subscribers;
 
-import f.a.g;
-import f.a.x.c.f;
-import f.a.x.h.a;
-import f.a.x.i.i;
+import f.b.g;
+import f.b.x.c.f;
+import f.b.x.h.a;
+import f.b.x.i.i;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -52,11 +52,11 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;

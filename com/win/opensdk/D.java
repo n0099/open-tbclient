@@ -5,15 +5,15 @@ import java.util.List;
 public class D {
 
     /* renamed from: a  reason: collision with root package name */
-    public List f39653a;
+    public List f39942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39654b;
+    public String f39943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39655c;
+    public String f39944c;
 
     public String a() {
-        return this.f39654b;
+        return this.f39943b;
     }
 }

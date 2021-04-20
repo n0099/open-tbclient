@@ -39,7 +39,7 @@ public class CookieJarImpl implements CookieJar {
         int i = 0;
         while (i < length) {
             int delimiterOffset = Util.delimiterOffset(str, i, length, ';');
-            int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, (char) a.f1897h);
+            int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, (char) a.f1922h);
             String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
             String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
             if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {

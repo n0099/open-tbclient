@@ -1,8 +1,8 @@
 package io.reactivex.internal.disposables;
 
-import f.a.t.b;
-import f.a.u.a;
-import f.a.w.f;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.w.f;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class CancellableDisposable extends AtomicReference<f> implements b {
@@ -12,7 +12,7 @@ public final class CancellableDisposable extends AtomicReference<f> implements b
         super(fVar);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         f andSet;
         if (get() == null || (andSet = getAndSet(null)) == null) {
@@ -22,11 +22,11 @@ public final class CancellableDisposable extends AtomicReference<f> implements b
             andSet.cancel();
         } catch (Exception e2) {
             a.a(e2);
-            f.a.a0.a.f(e2);
+            f.b.a0.a.f(e2);
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == null;
     }

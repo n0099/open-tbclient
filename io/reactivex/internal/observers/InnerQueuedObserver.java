@@ -1,9 +1,9 @@
 package io.reactivex.internal.observers;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.x.c.f;
-import f.a.x.i.i;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.c.f;
+import f.b.x.i.i;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -11,16 +11,16 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
     public static final long serialVersionUID = -5417183359794346637L;
     public volatile boolean done;
     public int fusionMode;
-    public final f.a.x.d.b<T> parent;
+    public final f.b.x.d.b<T> parent;
     public final int prefetch;
     public f<T> queue;
 
-    public InnerQueuedObserver(f.a.x.d.b<T> bVar, int i) {
+    public InnerQueuedObserver(f.b.x.d.b<T> bVar, int i) {
         this.parent = bVar;
         this.prefetch = i;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
@@ -29,7 +29,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
         return this.fusionMode;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
@@ -38,17 +38,17 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
         return this.done;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.parent.innerComplete(this);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         this.parent.innerError(this, th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.fusionMode == 0) {
             this.parent.innerNext(this, t);
@@ -57,11 +57,11 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.setOnce(this, bVar)) {
-            if (bVar instanceof f.a.x.c.b) {
-                f.a.x.c.b bVar2 = (f.a.x.c.b) bVar;
+            if (bVar instanceof f.b.x.c.b) {
+                f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
                 int requestFusion = bVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;

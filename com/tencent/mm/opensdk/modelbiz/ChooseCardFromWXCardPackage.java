@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ChooseCardFromWXCardPackage {
     public static final String TAG = "MicroMsg.ChooseCardFromWXCardPackage";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public String appId;
         public String canMultiSelect;
@@ -48,7 +48,7 @@ public class ChooseCardFromWXCardPackage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public String cardItemList;
 

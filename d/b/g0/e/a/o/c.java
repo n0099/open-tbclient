@@ -1,7 +1,6 @@
 package d.b.g0.e.a.o;
 
 import android.content.Context;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class c extends d {
@@ -24,7 +23,7 @@ public class c extends d {
         hashMap.put("act", this.u);
         hashMap.put("prod", this.r);
         hashMap.put("at", this.s);
-        hashMap.put(IXAdRequestInfo.FET, this.t);
+        hashMap.put("fet", this.t);
         if (this.i != null) {
             hashMap.put("w", "" + this.i.d());
             hashMap.put("h", "" + this.i.a());

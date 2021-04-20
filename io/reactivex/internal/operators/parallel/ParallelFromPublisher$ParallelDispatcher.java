@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.parallel;
 
-import f.a.g;
-import f.a.x.c.f;
-import f.a.x.i.b;
+import f.b.g;
+import f.b.x.c.f;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -32,21 +32,21 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
     public final class a implements d {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f68081e;
+        public final int f69087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f68082f;
+        public final int f69088f;
 
         public a(int i, int i2) {
-            this.f68081e = i;
-            this.f68082f = i2;
+            this.f69087e = i;
+            this.f69088f = i2;
         }
 
         @Override // g.d.d
         public void cancel() {
-            if (ParallelFromPublisher$ParallelDispatcher.this.requests.compareAndSet(this.f68081e + this.f68082f, 0L, 1L)) {
+            if (ParallelFromPublisher$ParallelDispatcher.this.requests.compareAndSet(this.f69087e + this.f69088f, 0L, 1L)) {
                 ParallelFromPublisher$ParallelDispatcher parallelFromPublisher$ParallelDispatcher = ParallelFromPublisher$ParallelDispatcher.this;
-                int i = this.f68082f;
+                int i = this.f69088f;
                 parallelFromPublisher$ParallelDispatcher.cancel(i + i);
             }
         }
@@ -57,12 +57,12 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
             if (SubscriptionHelper.validate(j)) {
                 AtomicLongArray atomicLongArray = ParallelFromPublisher$ParallelDispatcher.this.requests;
                 do {
-                    j2 = atomicLongArray.get(this.f68081e);
+                    j2 = atomicLongArray.get(this.f69087e);
                     if (j2 == Long.MAX_VALUE) {
                         return;
                     }
-                } while (!atomicLongArray.compareAndSet(this.f68081e, j2, b.c(j2, j)));
-                if (ParallelFromPublisher$ParallelDispatcher.this.subscriberCount.get() == this.f68082f) {
+                } while (!atomicLongArray.compareAndSet(this.f69087e, j2, b.c(j2, j)));
+                if (ParallelFromPublisher$ParallelDispatcher.this.subscriberCount.get() == this.f69088f) {
                     ParallelFromPublisher$ParallelDispatcher.this.drain();
                 }
             }
@@ -154,7 +154,7 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
                                 i5 = 0;
                             }
                         } catch (Throwable th2) {
-                            f.a.u.a.a(th2);
+                            f.b.u.a.a(th2);
                             this.s.cancel();
                             int length4 = cVarArr.length;
                             while (i4 < length4) {
@@ -228,7 +228,7 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
                         jArr[i] = j2 + 1;
                         i4 = 0;
                     } catch (Throwable th) {
-                        f.a.u.a.a(th);
+                        f.b.u.a.a(th);
                         this.s.cancel();
                         int length4 = cVarArr.length;
                         while (i3 < length4) {
@@ -284,12 +284,12 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
         drain();
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(7);
                 if (requestFusion == 1) {
                     this.sourceMode = requestFusion;

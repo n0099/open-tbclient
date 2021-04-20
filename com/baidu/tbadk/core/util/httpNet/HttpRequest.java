@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.f0.f;
 import d.b.h0.r.d0.b;
 import d.b.h0.r.l.c;
@@ -112,8 +112,8 @@ public class HttpRequest {
             }
             z = false;
         }
-        d.b.b.e.j.b.a.s(z);
-        d.b.b.e.j.b.a.n(a2);
+        d.b.c.e.j.b.a.s(z);
+        d.b.c.e.j.b.a.n(a2);
         if (this.mIsNeedTbs) {
             if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                 iNetWorkCore.addPostData(TBS, f.d());
@@ -127,7 +127,7 @@ public class HttpRequest {
         iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
         iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
         iNetWorkCore.addPostData("model", Build.MODEL);
-        if (b.i().j("android_safe_sdk_open", 0) == 1) {
+        if (b.j().k("android_safe_sdk_open", 0) == 1) {
             iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
         }
         iNetWorkCore.addPostData("active_timestamp", String.valueOf(TbSingleton.getInstance().getActiveTimeStamp()));

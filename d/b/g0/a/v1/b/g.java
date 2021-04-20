@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends a0 {
     public g(j jVar) {
         super(jVar, "/swanAPI/login");
@@ -19,7 +19,7 @@ public class g extends a0 {
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         if (eVar != null && eVar.Z()) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");

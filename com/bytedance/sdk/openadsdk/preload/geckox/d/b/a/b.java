@@ -4,20 +4,20 @@ import android.net.Uri;
 import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f30254d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f29939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f30255e;
+    public File f29940e;
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.f30254d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
-        this.f30255e = (File) objArr[1];
+        this.f29939d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+        this.f29940e = (File) objArr[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,12 +28,12 @@ public class b extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdateP
         UpdatePackage updatePackage = (UpdatePackage) pair.second;
         String uri = ((Uri) pair.first).toString();
         long length = updatePackage.getFullPackage().getLength();
-        File file = this.f30255e;
+        File file = this.f29940e;
         File file2 = new File(file, updatePackage.getAccessKey() + File.separator + updatePackage.getChannel() + File.separator + updatePackage.getVersion() + "--updating");
         file2.mkdirs();
-        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f30254d.a(), new File(file2, "res.zip"), length);
+        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f29939d.a(), new File(file2, "res.zip"), length);
         try {
-            this.f30254d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
+            this.f29939d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
             try {
                 return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
             } finally {

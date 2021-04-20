@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class s extends h {
-    public static final int m = d.b.b.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+    public static final int m = d.b.c.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
     public ItemCardView l;
 
     public s(Context context) {

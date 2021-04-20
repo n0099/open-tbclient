@@ -11,21 +11,21 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f46463a;
+        public final /* synthetic */ Activity f46855a;
 
         public a(p pVar, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
-            this.f46463a = activity;
+            this.f46855a = activity;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
     }
 
@@ -39,7 +39,7 @@ public class p extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else if (eVar.Z()) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");

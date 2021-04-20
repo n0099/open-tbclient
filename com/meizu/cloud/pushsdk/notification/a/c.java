@@ -20,19 +20,19 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
         AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
         if (appIconSetting != null) {
             if (appIconSetting.isDefaultLargeIcon()) {
-                PushNotificationBuilder pushNotificationBuilder = this.f37841b;
+                PushNotificationBuilder pushNotificationBuilder = this.f38130b;
                 if (pushNotificationBuilder != null && pushNotificationBuilder.getmLargIcon() != 0) {
-                    a2 = BitmapFactory.decodeResource(this.f37840a.getResources(), this.f37841b.getmLargIcon());
+                    a2 = BitmapFactory.decodeResource(this.f38129a.getResources(), this.f38130b.getmLargIcon());
                     str = "set largeIcon by resource id";
-                } else if (this.f37841b.getAppLargeIcon() != null) {
-                    a2 = this.f37841b.getAppLargeIcon();
+                } else if (this.f38130b.getAppLargeIcon() != null) {
+                    a2 = this.f38130b.getAppLargeIcon();
                     str = "set largeIcon by bitmap provided by user setting";
                 } else {
-                    a2 = a(this.f37840a, messageV3.getUploadDataPackageName());
+                    a2 = a(this.f38129a, messageV3.getUploadDataPackageName());
                     str = "set largeIcon by package default large icon";
                 }
                 d.j.a.a.a.d("AbstractPushNotification", str);
-            } else if (Thread.currentThread() == this.f37840a.getMainLooper().getThread()) {
+            } else if (Thread.currentThread() == this.f38129a.getMainLooper().getThread()) {
                 return;
             } else {
                 Bitmap a3 = a(appIconSetting.getLargeIconUrl());
@@ -41,7 +41,7 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
                     builder.setLargeIcon(a3);
                     return;
                 }
-                a2 = a(this.f37840a, messageV3.getUploadDataPackageName());
+                a2 = a(this.f38129a, messageV3.getUploadDataPackageName());
             }
             builder.setLargeIcon(a2);
         }

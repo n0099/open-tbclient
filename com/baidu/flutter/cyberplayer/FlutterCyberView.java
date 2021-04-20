@@ -34,7 +34,7 @@ public class FlutterCyberView extends CyberVideoView {
             if (FlutterCyberView.this.L != null) {
                 FlutterCyberView.this.L.onPrepared();
             }
-            if (!FlutterCyberView.this.J || (a2 = d.b.p.a.d.b().a(FlutterCyberView.this.K)) <= 0) {
+            if (!FlutterCyberView.this.J || (a2 = d.b.o.a.d.b().a(FlutterCyberView.this.K)) <= 0) {
                 return;
             }
             FlutterCyberView.this.seekTo(a2);
@@ -48,7 +48,7 @@ public class FlutterCyberView extends CyberVideoView {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
-            d.b.p.a.d.b().c(FlutterCyberView.this.K);
+            d.b.o.a.d.b().c(FlutterCyberView.this.K);
             if (FlutterCyberView.this.getCyberPlayer().isLooping() || FlutterCyberView.this.M == null) {
                 return;
             }
@@ -64,7 +64,7 @@ public class FlutterCyberView extends CyberVideoView {
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i, int i2, Object obj) {
             if (FlutterCyberView.this.getCurrentPosition() > 0 && FlutterCyberView.this.s()) {
-                d.b.p.a.d.b().d(FlutterCyberView.this.K, FlutterCyberView.this.getCurrentPosition());
+                d.b.o.a.d.b().d(FlutterCyberView.this.K, FlutterCyberView.this.getCurrentPosition());
             }
             if (FlutterCyberView.this.O != null) {
                 FlutterCyberView.this.O.onError(i, i2, obj);
@@ -170,7 +170,7 @@ public class FlutterCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
         if (isPlaying() && s()) {
-            d.b.p.a.d.b().d(this.K, getCurrentPositionSync());
+            d.b.o.a.d.b().d(this.K, getCurrentPositionSync());
         }
         try {
             if (this.I != null && this.I.isHeld()) {

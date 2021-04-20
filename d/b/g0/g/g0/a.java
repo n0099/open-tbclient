@@ -7,7 +7,7 @@ public class a {
         if (aVar != null && aVar.t().hasEventListener("deviceOrientationChange")) {
             JSEvent jSEvent = new JSEvent("deviceOrientationChange");
             jSEvent.data = new d.b.g0.g.g0.c.a(str);
-            aVar.c0(jSEvent);
+            aVar.d0(jSEvent);
         }
     }
 }

@@ -12,85 +12,85 @@ import d.b.g0.a.k;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44921a = k.f45051a;
+    public static final boolean f45313a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44922b;
+    public static final boolean f45314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f44923c;
+    public static volatile boolean f45315c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile C0709b f44924d;
+    public static volatile C0721b f45316d;
 
     /* renamed from: d.b.g0.a.j1.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0709b {
+    public static class C0721b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f44925a;
+        public final boolean f45317a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f44926b;
+        public final boolean f45318b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f44927c;
+        public final boolean f45319c;
 
-        public C0709b() {
+        public C0721b() {
             d.b.g0.a.w0.a.N().a();
             d.b.g0.a.w0.a.N().t();
             d.b.g0.a.w0.a.N().B();
-            this.f44925a = f.f();
-            this.f44926b = d.b.g0.a.o0.c.L();
-            this.f44927c = PullToRefreshBase.getNgWebViewHeightSwitch();
+            this.f45317a = f.f();
+            this.f45318b = d.b.g0.a.o0.c.L();
+            this.f45319c = PullToRefreshBase.getNgWebViewHeightSwitch();
         }
     }
 
     static {
-        f44922b = !ProcessUtils.isMainProcess() && d.b.g0.a.w0.a.N().A();
-        f44923c = false;
+        f45314b = !ProcessUtils.isMainProcess() && d.b.g0.a.w0.a.N().A();
+        f45315c = false;
     }
 
-    public static C0709b a() {
-        if (f44924d == null) {
-            synchronized (C0709b.class) {
-                if (f44924d == null) {
-                    f44924d = new C0709b();
-                    if (f44921a) {
+    public static C0721b a() {
+        if (f45316d == null) {
+            synchronized (C0721b.class) {
+                if (f45316d == null) {
+                    f45316d = new C0721b();
+                    if (f45313a) {
                         Log.d("SwanAbSwitchCache", "getAbSwitchHolder:init.");
                     }
                 }
             }
         }
-        return f44924d;
+        return f45316d;
     }
 
     public static boolean b() {
-        return a().f44926b;
+        return a().f45318b;
     }
 
     public static boolean c() {
-        return a().f44927c;
+        return a().f45319c;
     }
 
     public static boolean d() {
-        return a().f44925a;
+        return a().f45317a;
     }
 
     public static boolean e() {
-        return f44922b && f44923c && f44924d != null;
+        return f45314b && f45315c && f45316d != null;
     }
 
     public static void f() {
-        if (f44923c) {
+        if (f45315c) {
             return;
         }
-        if (f44921a) {
-            Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + f44922b);
+        if (f45313a) {
+            Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + f45314b);
         }
         h();
         g();
-        f44923c = true;
+        f45315c = true;
     }
 
     public static void g() {
@@ -99,7 +99,7 @@ public class b {
 
     public static void h() {
         a.b.b();
-        a.C0680a.b();
+        a.C0692a.b();
         d.b.g0.a.w0.a.N().K();
         d.b.g0.a.e0.s.a.e();
         d.b.g0.a.i2.b.j();
@@ -110,6 +110,6 @@ public class b {
     }
 
     public static boolean i() {
-        return f44923c;
+        return f45315c;
     }
 }

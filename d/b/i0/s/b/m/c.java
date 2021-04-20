@@ -7,25 +7,25 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f60110b;
+    public static volatile c f61411b;
 
     /* renamed from: a  reason: collision with root package name */
-    public IWXAPI f60111a;
+    public IWXAPI f61412a;
 
     public static c a() {
-        if (f60110b == null) {
+        if (f61411b == null) {
             synchronized (c.class) {
-                if (f60110b == null) {
-                    f60110b = new c();
+                if (f61411b == null) {
+                    f61411b = new c();
                 }
             }
         }
-        return f60110b;
+        return f61411b;
     }
 
     public void b(Context context) {
         IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
-        this.f60111a = createWXAPI;
+        this.f61412a = createWXAPI;
         createWXAPI.registerApp("wx7088ea0f777314d2");
     }
 }

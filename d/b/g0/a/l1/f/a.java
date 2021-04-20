@@ -6,33 +6,33 @@ import org.json.JSONObject;
 public class a implements Cloneable {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45223e;
+    public String f45615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45224f;
+    public String f45616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45225g;
+    public String f45617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45226h;
+    public int f45618h;
     public String i;
     public String j;
 
     public a(JSONObject jSONObject, int i) {
-        this.f45226h = 4;
+        this.f45618h = 4;
         if (jSONObject == null) {
             return;
         }
-        this.f45224f = jSONObject.optString("version");
-        this.f45225g = jSONObject.optString("provider");
+        this.f45616f = jSONObject.optString("version");
+        this.f45617g = jSONObject.optString("provider");
         this.i = jSONObject.optString("path");
         this.j = jSONObject.optString("config");
-        this.f45226h = i;
+        this.f45618h = i;
     }
 
     public boolean b() {
-        return (TextUtils.isEmpty(this.f45225g) || TextUtils.isEmpty(this.f45224f)) ? false : true;
+        return (TextUtils.isEmpty(this.f45617g) || TextUtils.isEmpty(this.f45616f)) ? false : true;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -40,6 +40,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "SwanPluginModel{pluginAlias='" + this.f45223e + "', pluginVersion='" + this.f45224f + "', pluginName='" + this.f45225g + "', pluginCategory=" + this.f45226h + ", pluginPath='" + this.i + "', pluginPagesConfigFileName='" + this.j + "'}";
+        return "SwanPluginModel{pluginAlias='" + this.f45615e + "', pluginVersion='" + this.f45616f + "', pluginName='" + this.f45617g + "', pluginCategory=" + this.f45618h + ", pluginPath='" + this.i + "', pluginPagesConfigFileName='" + this.j + "'}";
     }
 }

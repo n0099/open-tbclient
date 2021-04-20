@@ -12,29 +12,29 @@ import java.util.List;
 public class HomeRecommendView extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f24591a;
+    public ViewGroup f24276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f24592b;
+    public ViewGroup f24277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f24593c;
+    public List<BaseItemView> f24278c;
 
     public HomeRecommendView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24593c = new ArrayList();
+        this.f24278c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24593c;
+        return this.f24278c;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_recommend_layout"), this);
-        this.f24591a = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_left"));
-        this.f24592b = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_right"));
+        this.f24276a = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_left"));
+        this.f24277b = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_right"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -56,15 +56,15 @@ public class HomeRecommendView extends BaseItemLayout {
             homeRecommendItemView.setData(dataItemArr[0], getWalletInterface());
             HomeRecommendItemView homeRecommendItemView2 = new HomeRecommendItemView(getContext());
             homeRecommendItemView2.setData(dataItemArr[1], getWalletInterface());
-            this.f24591a.addView(homeRecommendItemView);
-            this.f24592b.addView(homeRecommendItemView2);
-            this.f24593c.add(homeRecommendItemView);
-            this.f24593c.add(homeRecommendItemView2);
+            this.f24276a.addView(homeRecommendItemView);
+            this.f24277b.addView(homeRecommendItemView2);
+            this.f24278c.add(homeRecommendItemView);
+            this.f24278c.add(homeRecommendItemView2);
         }
     }
 
     public HomeRecommendView(Context context) {
         super(context);
-        this.f24593c = new ArrayList();
+        this.f24278c = new ArrayList();
     }
 }

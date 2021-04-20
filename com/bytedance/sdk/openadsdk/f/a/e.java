@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.f.a;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class e<P, R> extends b<P, R> {
     @Nullable
     public abstract R a(@NonNull P p, @NonNull f fVar) throws Exception;

@@ -13,7 +13,7 @@ public class a extends d.b.g0.a.a0.b.b {
 
     /* renamed from: d.b.g0.a.x.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0879a {
+    public static class C0891a {
         public static String a(String str) {
             char c2;
             int hashCode = str.hashCode();
@@ -55,7 +55,7 @@ public class a extends d.b.g0.a.a0.b.b {
     }
 
     public String h() {
-        return C0879a.a(this.o);
+        return C0891a.a(this.o);
     }
 
     public int i() {

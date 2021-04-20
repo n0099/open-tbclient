@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.t.b;
-import f.a.u.a;
-import f.a.w.g;
+import f.b.r;
+import f.b.t.b;
+import f.b.u.a;
+import f.b.w.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -13,7 +13,7 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
     public final r<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68092d;
+    public b f69098d;
     public final g<? super U> disposer;
     public final boolean eager;
 
@@ -24,10 +24,10 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
         this.disposer = gVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
-        this.f68092d.dispose();
-        this.f68092d = DisposableHelper.DISPOSED;
+        this.f69098d.dispose();
+        this.f69098d = DisposableHelper.DISPOSED;
         disposeAfter();
     }
 
@@ -38,19 +38,19 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
                 this.disposer.accept(andSet);
             } catch (Throwable th) {
                 a.a(th);
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             }
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f68092d.isDisposed();
+        return this.f69098d.isDisposed();
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
-        this.f68092d = DisposableHelper.DISPOSED;
+        this.f69098d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -70,17 +70,17 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
         disposeAfter();
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68092d, bVar)) {
-            this.f68092d = bVar;
+        if (DisposableHelper.validate(this.f69098d, bVar)) {
+            this.f69098d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
-        this.f68092d = DisposableHelper.DISPOSED;
+        this.f69098d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {

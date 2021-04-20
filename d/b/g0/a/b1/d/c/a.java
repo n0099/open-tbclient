@@ -7,14 +7,14 @@ import android.widget.Scroller;
 public class a extends Scroller {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Interpolator f43420b = new animation.InterpolatorC0607a();
+    public static final Interpolator f43812b = new animation.InterpolatorC0619a();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43421a;
+    public boolean f43813a;
 
     /* renamed from: d.b.g0.a.b1.d.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class animation.InterpolatorC0607a implements Interpolator {
+    public static class animation.InterpolatorC0619a implements Interpolator {
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f2) {
             float f3 = f2 - 1.0f;
@@ -23,16 +23,16 @@ public class a extends Scroller {
     }
 
     public a(Context context) {
-        this(context, f43420b);
+        this(context, f43812b);
     }
 
     public void a(boolean z) {
-        this.f43421a = z;
+        this.f43813a = z;
     }
 
     @Override // android.widget.Scroller
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
-        if (this.f43421a) {
+        if (this.f43813a) {
             super.startScroll(i, i2, i3, i4, 0);
         } else {
             super.startScroll(i, i2, i3, i4, i5);

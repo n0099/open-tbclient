@@ -5,26 +5,26 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditorInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21326e;
+    public int f21011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21327f;
+    public int f21012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21328g;
+    public int f21013g;
 
     public EditorInfoView(Context context) {
         this(context, null);
     }
 
     public void a(int i) {
-        if (i != this.f21326e) {
+        if (i != this.f21011e) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-            this.f21326e = i;
+            this.f21011e = i;
         }
     }
 
@@ -40,11 +40,11 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21326e = 3;
-        this.f21327f = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.f21011e = 3;
+        this.f21012f = (int) context.getResources().getDimension(R.dimen.ds18);
         int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
-        this.f21328g = dimension;
-        int i2 = this.f21327f;
+        this.f21013g = dimension;
+        int i2 = this.f21012f;
         setPadding(i2, dimension, i2, dimension);
         setGravity(16);
         setSingleLine(true);

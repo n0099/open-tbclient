@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.b.g.b;
 import d.b.h0.r.q.a;
 import d.b.h0.r.q.a2;
@@ -27,16 +27,16 @@ import d.b.i0.x.m;
 public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnClickListener, q {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f4381e;
+    public TextView f4416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4382f;
+    public TextView f4417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f4383g;
+    public TbImageView f4418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f4384h;
+    public View f4419h;
     public a i;
     public float j;
     public float k;
@@ -53,29 +53,29 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setId(R.id.bjh_content);
         TextView textView = (TextView) findViewById(R.id.title);
-        this.f4381e = textView;
-        c a2 = c.a(textView);
-        a2.s(R.string.F_X01);
-        a2.r(R.dimen.T_X06);
-        this.f4381e.setOnClickListener(this);
+        this.f4416e = textView;
+        c d2 = c.d(textView);
+        d2.v(R.string.F_X01);
+        d2.u(R.dimen.T_X06);
+        this.f4416e.setOnClickListener(this);
         TextView textView2 = (TextView) findViewById(R.id.icon);
-        this.f4382f = textView2;
+        this.f4417f = textView2;
         textView2.setOnClickListener(this);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.cover_img);
-        this.f4383g = tbImageView;
+        this.f4418g = tbImageView;
         tbImageView.setPlaceHolder(3);
-        this.f4383g.setOnClickListener(this);
+        this.f4418g.setOnClickListener(this);
         View findViewById = findViewById(R.id.bottom_mask);
-        this.f4384h = findViewById;
+        this.f4419h = findViewById;
         findViewById.setOnClickListener(this);
-        if (this.f4383g.getLayoutParams() != null) {
-            this.f4383g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
+        if (this.f4418g.getLayoutParams() != null) {
+            this.f4418g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
         }
-        this.f4382f.setTranslationY(-this.k);
-        this.f4383g.setDrawCorner(true);
-        this.f4383g.setConrers(15);
-        this.f4383g.setRadiusById(R.string.J_X05);
-        b.k(this.f4381e, R.dimen.tbds7, R.dimen.tbds10);
+        this.f4417f.setTranslationY(-this.k);
+        this.f4418g.setDrawCorner(true);
+        this.f4418g.setConrers(15);
+        this.f4418g.setRadiusById(R.string.J_X05);
+        b.k(this.f4416e, R.dimen.tbds7, R.dimen.tbds10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,37 +92,37 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
             }
             n = originalThreadInfo.a();
         }
-        this.f4381e.setText(n.x1());
+        this.f4416e.setText(n.x1());
         if (StringUtils.isNull(n.R())) {
-            this.f4382f.setVisibility(8);
-            this.f4383g.setVisibility(8);
-            this.f4384h.setVisibility(8);
+            this.f4417f.setVisibility(8);
+            this.f4418g.setVisibility(8);
+            this.f4419h.setVisibility(8);
         } else {
-            this.f4382f.setVisibility(0);
-            this.f4383g.setVisibility(0);
-            this.f4384h.setVisibility(0);
-            this.f4383g.W(n.R(), 10, false);
+            this.f4417f.setVisibility(0);
+            this.f4418g.setVisibility(0);
+            this.f4419h.setVisibility(0);
+            this.f4418g.W(n.R(), 10, false);
         }
-        m.l(this.f4381e, n.o0(), this.f4383g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        m.l(this.f4416e, n.o0(), this.f4418g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
     public TextView getIcon() {
-        return this.f4382f;
+        return this.f4417f;
     }
 
     public TextView getTitle() {
-        return this.f4381e;
+        return this.f4416e;
     }
 
     @Override // d.b.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         a aVar = this.i;
         if (aVar != null && aVar.n() != null) {
-            m.l(this.f4381e, this.i.n().o0(), this.f4383g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.f4416e, this.i.n().o0(), this.f4418g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
-        SkinManager.setViewTextColor(this.f4382f, R.color.CAM_X0101);
-        TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.j).into(this.f4382f);
-        TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f4384h);
+        SkinManager.setViewTextColor(this.f4417f, R.color.CAM_X0101);
+        TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.j).into(this.f4417f);
+        TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f4419h);
     }
 
     @Override // android.view.View.OnClickListener

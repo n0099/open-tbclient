@@ -21,7 +21,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import d.b.i0.p0.i1.g;
+import d.b.i0.q0.i1.g;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -36,16 +36,16 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16667e;
+    public int f16328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16668f;
+    public String f16329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16669g;
+    public String f16330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16670h;
+    public String f16331h;
     public VideoSerializeVideoThreadInfo i;
     public boolean j;
     public b k;
@@ -141,8 +141,8 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int u(VideoMiddleModel videoMiddleModel) {
-        int i = videoMiddleModel.f16667e;
-        videoMiddleModel.f16667e = i - 1;
+        int i = videoMiddleModel.f16328e;
+        videoMiddleModel.f16328e = i - 1;
         return i;
     }
 
@@ -158,11 +158,11 @@ public class VideoMiddleModel extends BdBaseModel {
         }
         this.j = true;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-        httpMessage.addParam("tid", this.f16668f);
-        httpMessage.addParam("st_type", this.f16669g);
-        httpMessage.addParam("yuelaou_locate", this.f16670h);
-        int i = this.f16667e + 1;
-        this.f16667e = i;
+        httpMessage.addParam("tid", this.f16329f);
+        httpMessage.addParam("st_type", this.f16330g);
+        httpMessage.addParam("yuelaou_locate", this.f16331h);
+        int i = this.f16328e + 1;
+        this.f16328e = i;
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         httpMessage.addParam("user_view_data", v());
         if ("frs".equals(this.l)) {
@@ -224,18 +224,18 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public int w() {
-        return this.f16667e;
+        return this.f16328e;
     }
 
     public void x(String str) {
-        this.f16668f = str;
+        this.f16329f = str;
     }
 
     public void y(String str) {
-        this.f16670h = str;
+        this.f16331h = str;
     }
 
     public void z(String str) {
-        this.f16669g = str;
+        this.f16330g = str;
     }
 }

@@ -11,52 +11,52 @@ import java.io.File;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f43599d;
+    public static a f43991d;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43596a = k.f45051a;
+    public static final boolean f43988a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43597b = "";
+    public static String f43989b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43598c = "";
+    public static String f43990c = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f43600e = 0;
+    public static int f43992e = 0;
 
     public static String a() {
-        return f43597b;
+        return f43989b;
     }
 
     public static String b() {
-        if (f43599d != null) {
-            return f43599d.a() + File.separator + f43597b;
+        if (f43991d != null) {
+            return f43991d.a() + File.separator + f43989b;
         }
         return "";
     }
 
     public static String c() {
-        return f43598c;
+        return f43990c;
     }
 
     public static String d() {
-        if (f43599d != null) {
-            return f43599d.a() + File.separator + f43598c;
+        if (f43991d != null) {
+            return f43991d.a() + File.separator + f43990c;
         }
         return "";
     }
 
     public static boolean e() {
-        return f43600e == 2;
+        return f43992e == 2;
     }
 
     public static boolean f() {
-        return f43600e == 1;
+        return f43992e == 1;
     }
 
     public static void g(Bundle bundle) {
-        a aVar = f43599d;
+        a aVar = f43991d;
         if (aVar != null) {
             aVar.c(bundle);
         }
@@ -66,27 +66,27 @@ public class b {
         String i = u.i(bundle, "extraWSUrl");
         String i2 = u.i(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(i)) {
-            f43599d = new d();
-            f43600e = 1;
+            f43991d = new d();
+            f43992e = 1;
         } else if (!TextUtils.isEmpty(i2)) {
-            f43599d = new d.b.g0.a.c0.d.c.b();
-            f43600e = 2;
+            f43991d = new d.b.g0.a.c0.d.c.b();
+            f43992e = 2;
         } else {
-            if (f43596a) {
+            if (f43988a) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            f43600e = 0;
-            f43599d = null;
+            f43992e = 0;
+            f43991d = null;
             return;
         }
-        f43599d.b(bundle);
+        f43991d.b(bundle);
     }
 
     public static void i(String str) {
-        f43597b = str;
+        f43989b = str;
     }
 
     public static void j(String str) {
-        f43598c = str;
+        f43990c = str;
     }
 }

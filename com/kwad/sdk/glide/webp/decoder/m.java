@@ -12,17 +12,17 @@ public class m extends com.kwad.sdk.glide.load.resource.b.b<k> implements com.kw
 
     @Override // com.kwad.sdk.glide.load.resource.b.b, com.kwad.sdk.glide.load.engine.o
     public void b() {
-        ((k) this.f35634a).b().prepareToDraw();
+        ((k) this.f35923a).b().prepareToDraw();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return ((k) this.f35634a).a();
+        return ((k) this.f35923a).a();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public void d_() {
-        ((k) this.f35634a).stop();
-        ((k) this.f35634a).g();
+        ((k) this.f35923a).stop();
+        ((k) this.f35923a).g();
     }
 }

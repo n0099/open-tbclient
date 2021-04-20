@@ -9,13 +9,13 @@ import okio.BufferedSink;
 public final class d extends RequestBody {
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaType f44516a;
+    public MediaType f44908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FormBody f44517b;
+    public final FormBody f44909b;
 
     public d(FormBody formBody) {
-        this.f44517b = formBody;
+        this.f44909b = formBody;
     }
 
     public static d a(FormBody formBody, MediaType mediaType) {
@@ -25,22 +25,22 @@ public final class d extends RequestBody {
     }
 
     public void b(MediaType mediaType) {
-        this.f44516a = mediaType;
+        this.f44908a = mediaType;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
-        return this.f44517b.contentLength();
+        return this.f44909b.contentLength();
     }
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
-        MediaType mediaType = this.f44516a;
-        return mediaType == null ? this.f44517b.contentType() : mediaType;
+        MediaType mediaType = this.f44908a;
+        return mediaType == null ? this.f44909b.contentType() : mediaType;
     }
 
     @Override // okhttp3.RequestBody
     public void writeTo(BufferedSink bufferedSink) throws IOException {
-        this.f44517b.writeTo(bufferedSink);
+        this.f44909b.writeTo(bufferedSink);
     }
 }

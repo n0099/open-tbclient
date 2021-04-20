@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import d.b.b.j.e.p;
+import d.b.c.j.e.p;
 import d.b.i0.e.a.a;
 import d.b.i0.e.d;
 import d.b.i0.e.e.b;
@@ -20,27 +20,27 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0180a implements a.InterfaceC1224a {
-            public C0180a(a aVar) {
+        public class C0181a implements a.InterfaceC1249a {
+            public C0181a(a aVar) {
             }
 
-            @Override // d.b.i0.e.a.a.InterfaceC1224a
+            @Override // d.b.i0.e.a.a.InterfaceC1249a
             public void a(c cVar, View view) {
                 b a2 = h.a(cVar);
                 if (a2 != null) {
                     d dVar = new d();
-                    dVar.f54191a = 2;
+                    dVar.f55074a = 2;
                     dVar.b(view);
                     a2.dispatchInjectPluginMessage(dVar);
                 }
             }
 
-            @Override // d.b.i0.e.a.a.InterfaceC1224a
+            @Override // d.b.i0.e.a.a.InterfaceC1249a
             public void b(c cVar, View view) {
                 b a2 = h.a(cVar);
                 if (a2 != null) {
                     d dVar = new d();
-                    dVar.f54191a = 3;
+                    dVar.f55074a = 3;
                     dVar.b(view);
                     a2.dispatchInjectPluginMessage(dVar);
                 }
@@ -72,7 +72,7 @@ public class FrsBannerAdStatic {
                 if (!(injectPlugin instanceof d.b.i0.e.a.a)) {
                     return;
                 }
-                ((d.b.i0.e.a.a) injectPlugin).d(new C0180a(this));
+                ((d.b.i0.e.a.a) injectPlugin).d(new C0181a(this));
             }
             if (injectPlugin instanceof d.b.i0.e.a.a) {
                 d.b.i0.e.a.a aVar2 = (d.b.i0.e.a.a) injectPlugin;

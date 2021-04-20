@@ -11,10 +11,10 @@ import java.util.List;
 public class j0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51707a;
+    public boolean f52131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d.b.i0.x.e0.c> f51708b = new LinkedList();
+    public List<d.b.i0.x.e0.c> f52132b = new LinkedList();
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<d.b.i0.x.e0.c> {
@@ -33,23 +33,23 @@ public class j0 {
         if (!ListUtils.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 PbLinkData pbLinkData = list.get(i);
-                if (pbLinkData.urlType == 2 && !this.f51707a) {
-                    this.f51707a = true;
+                if (pbLinkData.urlType == 2 && !this.f52131a) {
+                    this.f52131a = true;
                 }
-                this.f51708b.add(pbLinkData);
+                this.f52132b.add(pbLinkData);
             }
         }
         if (!ListUtils.isEmpty(list2)) {
-            this.f51707a = true;
+            this.f52131a = true;
             for (int i2 = 0; i2 < list2.size(); i2++) {
-                this.f51708b.add(list2.get(i2));
+                this.f52132b.add(list2.get(i2));
             }
         }
-        Collections.sort(this.f51708b, new a(this));
-        return this.f51708b;
+        Collections.sort(this.f52132b, new a(this));
+        return this.f52132b;
     }
 
     public boolean b() {
-        return this.f51707a;
+        return this.f52131a;
     }
 }

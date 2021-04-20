@@ -10,22 +10,22 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGameSubNode;
-import d.b.b.e.k.b;
+import d.b.c.e.k.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class CardFrsGameRecommendGameLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameRecommendGameItemView> f15243e;
+    public b<CardFrsGameRecommendGameItemView> f14906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15244f;
+    public int f14907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15245g;
+    public int f14908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15246h;
+    public int f14909h;
     public final ViewGroup.OnHierarchyChangeListener i;
 
     /* loaded from: classes4.dex */
@@ -39,16 +39,16 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
-            if (!(view2 instanceof CardFrsGameRecommendGameItemView) || CardFrsGameRecommendGameLayout.this.f15243e == null) {
+            if (!(view2 instanceof CardFrsGameRecommendGameItemView) || CardFrsGameRecommendGameLayout.this.f14906e == null) {
                 return;
             }
-            CardFrsGameRecommendGameLayout.this.f15243e.e((CardFrsGameRecommendGameItemView) view2);
+            CardFrsGameRecommendGameLayout.this.f14906e.e((CardFrsGameRecommendGameItemView) view2);
         }
     }
 
     public CardFrsGameRecommendGameLayout(Context context) {
         super(context);
-        this.f15243e = null;
+        this.f14906e = null;
         this.i = new a();
         b();
     }
@@ -68,7 +68,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.f15244f;
+            layoutParams.leftMargin = this.f14907f;
         }
         cardFrsGameRecommendGameItemView.setLayoutParams(layoutParams);
     }
@@ -85,7 +85,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     }
 
     public int getChildItemWidth() {
-        return this.f15246h;
+        return this.f14909h;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -104,13 +104,13 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15246h = this.f15245g + this.f15244f;
+        this.f14909h = this.f14908g + this.f14907f;
         int i = 0;
         int childCount = getChildCount();
         while (i < childCount && i < list.size()) {
             if (getChildAt(i) instanceof CardFrsGameRecommendGameItemView) {
                 CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = (CardFrsGameRecommendGameItemView) getChildAt(i);
-                c(cardFrsGameRecommendGameItemView, i, this.f15245g);
+                c(cardFrsGameRecommendGameItemView, i, this.f14908g);
                 d(cardFrsGameRecommendGameItemView, list.get(i));
             }
             i++;
@@ -120,11 +120,11 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
             i++;
         }
         while (i < list.size()) {
-            CardFrsGameRecommendGameItemView b2 = this.f15243e.b();
+            CardFrsGameRecommendGameItemView b2 = this.f14906e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i, this.f15245g);
+            c(b2, i, this.f14908g);
             d(b2, list.get(i));
             addView(b2);
             i++;
@@ -132,30 +132,30 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     }
 
     public void setItemSpace(int i) {
-        this.f15244f = i;
+        this.f14907f = i;
     }
 
     public void setItemWidth(int i) {
-        this.f15245g = i;
+        this.f14908g = i;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
     }
 
     public void setViewPool(b<CardFrsGameRecommendGameItemView> bVar) {
-        this.f15243e = bVar;
+        this.f14906e = bVar;
     }
 
     public CardFrsGameRecommendGameLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15243e = null;
+        this.f14906e = null;
         this.i = new a();
         b();
     }
 
     public CardFrsGameRecommendGameLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15243e = null;
+        this.f14906e = null;
         this.i = new a();
         b();
     }

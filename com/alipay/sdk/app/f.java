@@ -5,14 +5,14 @@ import android.app.Activity;
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Activity f1811a;
+    public final /* synthetic */ Activity f1836a;
 
     public f(Activity activity) {
-        this.f1811a = activity;
+        this.f1836a = activity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1811a.finish();
+        this.f1836a.finish();
     }
 }

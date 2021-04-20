@@ -1,25 +1,21 @@
 package d.b.i0.w0;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import tbclient.GoodsWin;
 /* loaded from: classes4.dex */
-public class b extends d.b.b.c.f.c {
-    public b() {
-        super(0);
+public class b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Integer f63640a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f63641b;
+
+    public boolean a() {
+        return this.f63640a.intValue() == 1;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // d.b.b.c.f.g
-    public /* bridge */ /* synthetic */ HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        c(httpResponsedMessage2);
-        return httpResponsedMessage2;
-    }
-
-    public HttpResponsedMessage c(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.c(httpResponsedMessage.getCmd())) {
-            a.d();
-        }
-        return httpResponsedMessage;
+    public void b(GoodsWin goodsWin) {
+        this.f63640a = goodsWin.show;
+        this.f63641b = goodsWin.goods_url;
     }
 }

@@ -22,7 +22,7 @@ import com.kwad.sdk.utils.ao;
 public class ShootRefreshView extends View implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Property<ShootRefreshView, Float> f32970a = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.1
+    public static final Property<ShootRefreshView, Float> f33259a = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: a */
@@ -40,7 +40,7 @@ public class ShootRefreshView extends View implements d {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Property<ShootRefreshView, Float> f32971b = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.2
+    public static final Property<ShootRefreshView, Float> f33260b = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: a */
@@ -58,22 +58,22 @@ public class ShootRefreshView extends View implements d {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float f32972c = (float) Math.toDegrees(0.5235987901687622d);
+    public static final float f33261c = (float) Math.toDegrees(0.5235987901687622d);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float f32973d = (float) Math.sqrt(3.0d);
+    public static final float f33262d = (float) Math.sqrt(3.0d);
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f32974e;
+    public final Paint f33263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RectF f32975f;
+    public final RectF f33264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32976g;
+    public int f33265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32977h;
+    public int f33266h;
     public int i;
     public int j;
     public int k;
@@ -100,8 +100,8 @@ public class ShootRefreshView extends View implements d {
 
     public ShootRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f32974e = new Paint(1);
-        this.f32975f = new RectF();
+        this.f33263e = new Paint(1);
+        this.f33264f = new RectF();
         this.v = false;
         a(context, attributeSet);
         g();
@@ -130,38 +130,38 @@ public class ShootRefreshView extends View implements d {
         float f2;
         int i;
         canvas.save();
-        canvas.translate(this.f32977h, this.i);
+        canvas.translate(this.f33266h, this.i);
         if (this.s.isRunning()) {
             canvas.rotate(this.n - 90.0f);
-            Shader shader2 = this.f32974e.getShader();
+            Shader shader2 = this.f33263e.getShader();
             shader = this.q;
             if (shader2 != shader) {
-                paint = this.f32974e;
+                paint = this.f33263e;
             }
             f2 = this.u;
-            i = this.f32976g;
+            i = this.f33265g;
             if (f2 >= i * 2) {
                 this.t = 0.0f;
             } else {
                 this.t = ((f2 - (i * 2)) * 360.0f) / (i * 4.0f);
             }
-            this.f32974e.setAntiAlias(true);
-            this.f32974e.setStyle(Paint.Style.STROKE);
-            int i2 = this.f32976g;
-            canvas.drawArc(new RectF(0.0f - i2, 0.0f - i2, i2 + 0.0f, i2 + 0.0f), -90.0f, !this.v ? 360.0f : this.t, false, this.f32974e);
+            this.f33263e.setAntiAlias(true);
+            this.f33263e.setStyle(Paint.Style.STROKE);
+            int i2 = this.f33265g;
+            canvas.drawArc(new RectF(0.0f - i2, 0.0f - i2, i2 + 0.0f, i2 + 0.0f), -90.0f, !this.v ? 360.0f : this.t, false, this.f33263e);
             canvas.restore();
         }
-        paint = this.f32974e;
+        paint = this.f33263e;
         shader = null;
         paint.setShader(shader);
         f2 = this.u;
-        i = this.f32976g;
+        i = this.f33265g;
         if (f2 >= i * 2) {
         }
-        this.f32974e.setAntiAlias(true);
-        this.f32974e.setStyle(Paint.Style.STROKE);
-        int i22 = this.f32976g;
-        canvas.drawArc(new RectF(0.0f - i22, 0.0f - i22, i22 + 0.0f, i22 + 0.0f), -90.0f, !this.v ? 360.0f : this.t, false, this.f32974e);
+        this.f33263e.setAntiAlias(true);
+        this.f33263e.setStyle(Paint.Style.STROKE);
+        int i22 = this.f33265g;
+        canvas.drawArc(new RectF(0.0f - i22, 0.0f - i22, i22 + 0.0f, i22 + 0.0f), -90.0f, !this.v ? 360.0f : this.t, false, this.f33263e);
         canvas.restore();
     }
 
@@ -174,9 +174,9 @@ public class ShootRefreshView extends View implements d {
         Canvas canvas2;
         float pow2;
         Canvas canvas3 = canvas;
-        this.f32974e.setShader(null);
+        this.f33263e.setShader(null);
         canvas.save();
-        canvas3.translate(this.f32977h, this.i);
+        canvas3.translate(this.f33266h, this.i);
         canvas3.rotate(-this.p);
         int i2 = 0;
         while (i2 < 6) {
@@ -186,25 +186,25 @@ public class ShootRefreshView extends View implements d {
             if (f4 > 0.5235988f) {
                 double tan = Math.tan(f4);
                 double tan2 = Math.tan(this.o + 1.0471976f);
-                float f5 = f32973d;
+                float f5 = f33262d;
                 double d2 = (tan - tan2) * 2.0d;
-                int i3 = this.f32976g;
+                int i3 = this.f33265g;
                 i = i2;
                 pow = ((float) ((((2.0d * tan2) - tan) - ((f5 * tan) * tan2)) / d2)) * i3;
                 f2 = 0.0f;
                 f3 = -i3;
-                paint = this.f32974e;
+                paint = this.f33263e;
                 canvas2 = canvas;
                 pow2 = i3 * ((float) ((1.0d - (f5 * tan2)) / d2));
             } else {
                 i = i2;
                 double tan3 = Math.tan(f4);
-                pow = (float) (((Math.pow(tan3, 2.0d) - 1.0d) * this.f32976g) / (Math.pow(tan3, 2.0d) + 1.0d));
+                pow = (float) (((Math.pow(tan3, 2.0d) - 1.0d) * this.f33265g) / (Math.pow(tan3, 2.0d) + 1.0d));
                 f2 = 0.0f;
-                f3 = -this.f32976g;
-                paint = this.f32974e;
+                f3 = -this.f33265g;
+                paint = this.f33263e;
                 canvas2 = canvas;
-                pow2 = (float) (((tan3 * 2.0d) * this.f32976g) / (Math.pow(tan3, 2.0d) + 1.0d));
+                pow2 = (float) (((tan3 * 2.0d) * this.f33265g) / (Math.pow(tan3, 2.0d) + 1.0d));
             }
             canvas2.drawLine(f2, f3, pow2, pow, paint);
             canvas.restore();
@@ -215,9 +215,9 @@ public class ShootRefreshView extends View implements d {
     }
 
     private void g() {
-        this.f32974e.setStyle(Paint.Style.STROKE);
-        this.f32974e.setStrokeWidth(this.m);
-        this.f32974e.setColor(this.j);
+        this.f33263e.setStyle(Paint.Style.STROKE);
+        this.f33263e.setStrokeWidth(this.m);
+        this.f33263e.setColor(this.j);
     }
 
     private void h() {
@@ -247,9 +247,9 @@ public class ShootRefreshView extends View implements d {
                 ShootRefreshView.this.invalidate();
             }
         });
-        PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(f32970a, 0.5235988f, 1.2566371f);
-        Property<ShootRefreshView, Float> property = f32971b;
-        float f2 = f32972c;
+        PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(f33259a, 0.5235988f, 1.2566371f);
+        Property<ShootRefreshView, Float> property = f33260b;
+        float f2 = f33261c;
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this, ofFloat2, PropertyValuesHolder.ofFloat(property, -(f2 / 2.0f), (-(f2 / 2.0f)) - 120.0f));
         ofPropertyValuesHolder.setInterpolator(new DecelerateInterpolator());
         ofPropertyValuesHolder.setDuration(350L);
@@ -261,7 +261,7 @@ public class ShootRefreshView extends View implements d {
     @Override // com.kwad.sdk.contentalliance.refreshview.d
     public void a() {
         this.o = 1.2566371f;
-        this.p = (-(f32972c / 2.0f)) - 240.0f;
+        this.p = (-(f33261c / 2.0f)) - 240.0f;
         this.n = 0.0f;
         invalidate();
         this.v = false;
@@ -327,12 +327,12 @@ public class ShootRefreshView extends View implements d {
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.f32975f.set(getPaddingLeft() + 0, getPaddingTop() + 0, i - getPaddingRight(), i2 - getPaddingBottom());
-        RectF rectF = this.f32975f;
+        this.f33264f.set(getPaddingLeft() + 0, getPaddingTop() + 0, i - getPaddingRight(), i2 - getPaddingBottom());
+        RectF rectF = this.f33264f;
         int i5 = this.m;
         rectF.inset(i5, i5);
-        this.f32976g = (int) (Math.min(this.f32975f.width(), this.f32975f.height()) / 2.0f);
-        this.f32977h = (int) this.f32975f.centerX();
-        this.i = (int) this.f32975f.centerY();
+        this.f33265g = (int) (Math.min(this.f33264f.width(), this.f33264f.height()) / 2.0f);
+        this.f33266h = (int) this.f33264f.centerX();
+        this.i = (int) this.f33264f.centerY();
     }
 }

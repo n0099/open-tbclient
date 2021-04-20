@@ -12,13 +12,13 @@ import java.util.Locale;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f66014a = new Object();
+    public static final Object f66859a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f66015b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+    public static final SimpleDateFormat f66860b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f66016c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    public static final SimpleDateFormat f66861c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
@@ -29,7 +29,7 @@ public class f {
             if (g2 == null || g2.length <= 0) {
                 return;
             }
-            synchronized (f.f66014a) {
+            synchronized (f.f66859a) {
                 for (File file : g2) {
                     if (currentTimeMillis - file.lastModified() > 172800000) {
                         file.delete();
@@ -45,7 +45,7 @@ public class f {
 
     public static String c(String str) {
         String d2;
-        synchronized (f66014a) {
+        synchronized (f66859a) {
             d2 = d("looper", str);
         }
         return d2;
@@ -59,7 +59,7 @@ public class f {
         try {
             File c2 = c.c();
             currentTimeMillis = System.currentTimeMillis();
-            str3 = c2.getAbsolutePath() + "/" + str + "-" + f66015b.format(Long.valueOf(currentTimeMillis)) + ".log";
+            str3 = c2.getAbsolutePath() + "/" + str + "-" + f66860b.format(Long.valueOf(currentTimeMillis)) + ".log";
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
         } catch (Throwable th) {
             th = th;
@@ -68,7 +68,7 @@ public class f {
             bufferedWriter.write(Part.CRLF);
             bufferedWriter.write("**********************");
             bufferedWriter.write(Part.CRLF);
-            bufferedWriter.write(f66016c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+            bufferedWriter.write(f66861c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
             bufferedWriter.write(Part.CRLF);
             bufferedWriter.write(Part.CRLF);
             bufferedWriter.write(str2);

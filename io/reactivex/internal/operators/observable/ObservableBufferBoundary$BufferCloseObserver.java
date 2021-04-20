@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.a0.a;
-import f.a.o;
-import f.a.t.b;
+import f.b.a0.a;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicReference;
@@ -17,17 +17,17 @@ public final class ObservableBufferBoundary$BufferCloseObserver<T, C extends Col
         this.index = j;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         b bVar = get();
         DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
@@ -37,7 +37,7 @@ public final class ObservableBufferBoundary$BufferCloseObserver<T, C extends Col
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         b bVar = get();
         DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
@@ -49,7 +49,7 @@ public final class ObservableBufferBoundary$BufferCloseObserver<T, C extends Col
         a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(Object obj) {
         b bVar = get();
         DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
@@ -60,7 +60,7 @@ public final class ObservableBufferBoundary$BufferCloseObserver<T, C extends Col
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }

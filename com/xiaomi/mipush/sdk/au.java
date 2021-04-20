@@ -28,21 +28,21 @@ public class au {
     }
 
     public static void a(Context context, ie ieVar) {
-        com.xiaomi.channel.commonutils.logger.b.m51a("need to update local info with: " + ieVar.m447a());
-        String str = ieVar.m447a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
+        com.xiaomi.channel.commonutils.logger.b.m55a("need to update local info with: " + ieVar.m451a());
+        String str = ieVar.m451a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
         if (str != null) {
             MiPushClient.removeAcceptTime(context);
             String[] split = str.split("-");
             if (split.length == 2) {
                 MiPushClient.addAcceptTime(context, split[0], split[1]);
                 if ("00:00".equals(split[0]) && "00:00".equals(split[1])) {
-                    b.m92a(context).a(true);
+                    b.m96a(context).a(true);
                 } else {
-                    b.m92a(context).a(false);
+                    b.m96a(context).a(false);
                 }
             }
         }
-        String str2 = ieVar.m447a().get(Constants.EXTRA_KEY_ALIASES);
+        String str2 = ieVar.m451a().get(Constants.EXTRA_KEY_ALIASES);
         if (str2 != null) {
             MiPushClient.removeAllAliases(context);
             if (!"".equals(str2)) {
@@ -51,7 +51,7 @@ public class au {
                 }
             }
         }
-        String str4 = ieVar.m447a().get(Constants.EXTRA_KEY_TOPICS);
+        String str4 = ieVar.m451a().get(Constants.EXTRA_KEY_TOPICS);
         if (str4 != null) {
             MiPushClient.removeAllTopics(context);
             if (!"".equals(str4)) {
@@ -60,7 +60,7 @@ public class au {
                 }
             }
         }
-        String str6 = ieVar.m447a().get(Constants.EXTRA_KEY_ACCOUNTS);
+        String str6 = ieVar.m451a().get(Constants.EXTRA_KEY_ACCOUNTS);
         if (str6 != null) {
             MiPushClient.removeAllAccounts(context);
             if ("".equals(str6)) {

@@ -9,62 +9,62 @@ import java.io.File;
 public class ac extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1440a;
+    public final /* synthetic */ b f1426a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f1441b;
+    public final /* synthetic */ String f1427b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ File f1442c;
+    public final /* synthetic */ File f1428c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ File f1443d;
+    public final /* synthetic */ File f1429d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f1444e;
+    public final /* synthetic */ String f1430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ DownSoHelper f1445f;
+    public final /* synthetic */ DownSoHelper f1431f;
 
     public ac(DownSoHelper downSoHelper, b bVar, String str, File file, File file2, String str2) {
-        this.f1445f = downSoHelper;
-        this.f1440a = bVar;
-        this.f1441b = str;
-        this.f1442c = file;
-        this.f1443d = file2;
-        this.f1444e = str2;
+        this.f1431f = downSoHelper;
+        this.f1426a = bVar;
+        this.f1427b = str;
+        this.f1428c = file;
+        this.f1429d = file2;
+        this.f1430e = str2;
     }
 
     @Override // d.b.k.b.c.a
     public void onCompleted(String str) {
         try {
-            this.f1442c.renameTo(this.f1443d);
-            d.b.k.e.a.e(this.f1443d, this.f1444e);
-            this.f1445f.h(this.f1440a, this.f1441b, this.f1444e);
+            this.f1428c.renameTo(this.f1429d);
+            d.b.k.e.a.e(this.f1429d, this.f1430e);
+            this.f1431f.h(this.f1426a, this.f1427b, this.f1430e);
         } catch (Exception e2) {
             e2.printStackTrace();
-            d.b.k.e.a.b(this.f1443d.getAbsolutePath());
-            if (d.b.k.e.a.c(this.f1444e)) {
-                d.b.k.e.a.a(new File(this.f1444e));
+            d.b.k.e.a.b(this.f1429d.getAbsolutePath());
+            if (d.b.k.e.a.c(this.f1430e)) {
+                d.b.k.e.a.a(new File(this.f1430e));
             }
-            this.f1445f.e(this.f1440a, this.f1441b, 108, "unzip exception");
+            this.f1431f.e(this.f1426a, this.f1427b, 108, "unzip exception");
         }
     }
 
     @Override // d.b.k.b.c.a
     public void onFailed(DownloadException downloadException) {
         downloadException.printStackTrace();
-        d.b.k.e.a.b(this.f1442c.getAbsolutePath());
-        this.f1445f.e(this.f1440a, this.f1441b, downloadException.getErrorCode(), downloadException.getErrorMessage());
+        d.b.k.e.a.b(this.f1428c.getAbsolutePath());
+        this.f1431f.e(this.f1426a, this.f1427b, downloadException.getErrorCode(), downloadException.getErrorMessage());
     }
 
     @Override // d.b.k.b.c.a
     public void onProgress(long j, long j2, int i) {
-        this.f1445f.f(this.f1440a, this.f1441b, i);
+        this.f1431f.f(this.f1426a, this.f1427b, i);
     }
 
     @Override // d.b.k.b.c.a
     public void onStarted() {
-        this.f1445f.g(this.f1440a, this.f1441b);
+        this.f1431f.g(this.f1426a, this.f1427b);
     }
 }

@@ -19,22 +19,22 @@ import org.json.JSONObject;
 public class d extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public e f42959c;
+    public e f43351c;
 
     public d(Context context, Handler handler) {
         super(context, handler);
-        this.f42947b = context;
-        this.f42959c = e.a(context);
+        this.f43339b = context;
+        this.f43351c = e.a(context);
     }
 
     public String b() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", d.b.f0.l.d.l(this.f42947b));
-            jSONObject.put("1", d.b.f0.l.c.h(this.f42947b));
-            jSONObject.put("2", d.b.f0.g.b.a(this.f42947b));
-            jSONObject.put("3", d.b.f0.g.a.c(this.f42947b));
-            return c("q/1/qr", d.b.f0.l.c.c(this.f42947b, e(j(), jSONObject), "1077101"));
+            jSONObject.put("0", d.b.f0.l.d.l(this.f43339b));
+            jSONObject.put("1", d.b.f0.l.c.h(this.f43339b));
+            jSONObject.put("2", d.b.f0.g.b.a(this.f43339b));
+            jSONObject.put("3", d.b.f0.g.a.c(this.f43339b));
+            return c("q/1/qr", d.b.f0.l.c.c(this.f43339b, e(j(), jSONObject), "1077101"));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -44,11 +44,11 @@ public class d extends a {
     public String c(String str, JSONObject jSONObject) {
         try {
             byte[] f2 = d.b.f0.l.c.f();
-            String b2 = this.f42959c.b(str, URLEncoder.encode(Base64.encodeToString(d.b.f0.l.e.h(f2, g.b(d.b.f0.l.d.e(this.f42947b)).getBytes()), 0)));
+            String b2 = this.f43351c.b(str, URLEncoder.encode(Base64.encodeToString(d.b.f0.l.e.h(f2, g.b(d.b.f0.l.d.e(this.f43339b)).getBytes()), 0)));
             if (TextUtils.isEmpty(b2)) {
                 return "";
             }
-            String a2 = a(b2, this.f42959c.e(f2, jSONObject.toString()));
+            String a2 = a(b2, this.f43351c.e(f2, jSONObject.toString()));
             if (TextUtils.isEmpty(a2)) {
                 return "";
             }
@@ -56,7 +56,7 @@ public class d extends a {
             jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             String optString = jSONObject2.optString("skey");
             String optString2 = jSONObject2.optString("data");
-            return new String(d.b.f0.l.e.e(Base64.decode(optString2.getBytes(), 0), d.b.f0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(d.b.f0.l.d.e(this.f42947b)).getBytes())));
+            return new String(d.b.f0.l.e.e(Base64.decode(optString2.getBytes(), 0), d.b.f0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(d.b.f0.l.d.e(this.f43339b)).getBytes())));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -65,7 +65,7 @@ public class d extends a {
 
     public String d(JSONObject jSONObject, long j) {
         try {
-            return c("q/1/qmini", d.b.f0.l.c.c(this.f42947b, e(j(), jSONObject), "1077102"));
+            return c("q/1/qmini", d.b.f0.l.c.c(this.f43339b, e(j(), jSONObject), "1077102"));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -115,7 +115,7 @@ public class d extends a {
             j = j();
             j.put("27", Build.MANUFACTURER);
             j.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, Build.MODEL);
-            Pair<Integer, String[]> c2 = k.c(this.f42947b);
+            Pair<Integer, String[]> c2 = k.c(this.f43339b);
             if (c2 != null) {
                 j.put("20", c2.first);
                 Object[] objArr = (String[]) c2.second;
@@ -133,16 +133,16 @@ public class d extends a {
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }
-        return new JSONObject(c("q/1/qpre", d.b.f0.l.c.c(this.f42947b, e(j, jSONObject), "1077104"))).optInt("0", 0) == 0;
+        return new JSONObject(c("q/1/qpre", d.b.f0.l.c.c(this.f43339b, e(j, jSONObject), "1077104"))).optInt("0", 0) == 0;
     }
 
     public String h() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", this.f42947b.getPackageName());
-            jSONObject.put("6", d.b.f0.l.c.l(this.f42947b));
-            jSONObject.put("7", j.a(this.f42947b));
-            return c("q/1/qc", d.b.f0.l.c.c(this.f42947b, jSONObject, ""));
+            jSONObject.put("0", this.f43339b.getPackageName());
+            jSONObject.put("6", d.b.f0.l.c.l(this.f43339b));
+            jSONObject.put("7", j.a(this.f43339b));
+            return c("q/1/qc", d.b.f0.l.c.c(this.f43339b, jSONObject, ""));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -151,7 +151,7 @@ public class d extends a {
 
     public String i(JSONObject jSONObject, long j) {
         try {
-            return c("q/1/qv", d.b.f0.l.c.c(this.f42947b, e(j(), jSONObject), ""));
+            return c("q/1/qv", d.b.f0.l.c.c(this.f43339b, e(j(), jSONObject), ""));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -161,13 +161,13 @@ public class d extends a {
     public final JSONObject j() {
         JSONObject jSONObject = new JSONObject();
         try {
-            f(jSONObject, Constants.VIA_REPORT_TYPE_QQFAVORITES, d.b.f0.g.b.a(this.f42947b));
-            f(jSONObject, Constants.VIA_REPORT_TYPE_DATALINE, d.b.f0.l.d.i(this.f42947b));
-            f(jSONObject, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, d.b.f0.g.b.c(this.f42947b));
-            f(jSONObject, SoUtils.SO_EVENT_ID_DEFAULT, d.b.f0.g.b.b(this.f42947b));
-            f(jSONObject, "40", d.b.f0.g.a.d(this.f42947b));
-            f(jSONObject, "41", d.b.f0.g.a.a(this.f42947b));
-            f(jSONObject, "42", d.b.f0.g.a.b(this.f42947b));
+            f(jSONObject, Constants.VIA_REPORT_TYPE_QQFAVORITES, d.b.f0.g.b.a(this.f43339b));
+            f(jSONObject, Constants.VIA_REPORT_TYPE_DATALINE, d.b.f0.l.d.i(this.f43339b));
+            f(jSONObject, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, d.b.f0.g.b.c(this.f43339b));
+            f(jSONObject, SoUtils.SO_EVENT_ID_DEFAULT, d.b.f0.g.b.b(this.f43339b));
+            f(jSONObject, "40", d.b.f0.g.a.d(this.f43339b));
+            f(jSONObject, "41", d.b.f0.g.a.a(this.f43339b));
+            f(jSONObject, "42", d.b.f0.g.a.b(this.f43339b));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }

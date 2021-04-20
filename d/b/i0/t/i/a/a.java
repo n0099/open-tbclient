@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import d.b.h0.r.q.a2;
-import d.b.i0.c3.g;
-import d.b.i0.p0.k;
+import d.b.i0.d3.g;
+import d.b.i0.q0.k;
 import d.b.i0.x.z;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -22,7 +22,7 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
         this.w = "";
     }
 
-    @Override // d.b.i0.p0.k, d.b.b.j.e.a
+    @Override // d.b.i0.q0.k, d.b.c.j.e.a
     public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         u0(i, view, viewGroup, (g) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view;
@@ -38,7 +38,7 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: t0 */
     public FrsPageAlaInsertRecLiveHolder R(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
@@ -56,12 +56,12 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
         if (gVar != null) {
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            List<a2> list = gVar.f53353e;
+            List<a2> list = gVar.f54795e;
             if (list != null && list.get(0) != null) {
-                gVar.f53353e.get(0).M1 = (i + 1) - topThreadSize;
+                gVar.f54795e.get(0).M1 = (i + 1) - topThreadSize;
             }
-            frsPageAlaInsertRecLiveHolder.f15033a.a(this.w);
-            frsPageAlaInsertRecLiveHolder.f15033a.n(gVar);
+            frsPageAlaInsertRecLiveHolder.f14696a.a(this.w);
+            frsPageAlaInsertRecLiveHolder.f14696a.n(gVar);
         }
         return view;
     }

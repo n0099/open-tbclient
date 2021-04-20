@@ -6,10 +6,10 @@ import java.security.PrivilegedAction;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f67933a;
+    public static final int f68943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f67934b;
+    public static final boolean f68944b;
 
     /* loaded from: classes7.dex */
     public static class a implements PrivilegedAction<ClassLoader> {
@@ -23,12 +23,12 @@ public final class f {
 
     static {
         int d2 = d();
-        f67933a = d2;
-        f67934b = d2 != 0;
+        f68943a = d2;
+        f68944b = d2 != 0;
     }
 
     public static int a() {
-        return f67933a;
+        return f68943a;
     }
 
     public static ClassLoader b() {
@@ -39,7 +39,7 @@ public final class f {
     }
 
     public static boolean c() {
-        return f67934b;
+        return f68944b;
     }
 
     public static int d() {

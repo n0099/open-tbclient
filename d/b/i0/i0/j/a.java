@@ -6,21 +6,21 @@ import android.view.WindowManager;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f55623a;
+    public static a f56746a;
 
     public static a b() {
-        if (f55623a == null) {
+        if (f56746a == null) {
             synchronized (a.class) {
-                if (f55623a == null) {
-                    f55623a = new a();
+                if (f56746a == null) {
+                    f56746a = new a();
                 }
             }
         }
-        return f55623a;
+        return f56746a;
     }
 
     public void a() {
-        f55623a = null;
+        f56746a = null;
     }
 
     public void c(Context context, int i) {

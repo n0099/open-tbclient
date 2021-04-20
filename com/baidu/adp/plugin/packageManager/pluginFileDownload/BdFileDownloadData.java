@@ -1,6 +1,6 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 
-import d.b.b.h.j.e.a;
+import d.b.c.h.j.e.a;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class BdFileDownloadData implements Serializable {

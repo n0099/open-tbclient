@@ -7,10 +7,10 @@ import java.text.DecimalFormat;
 public class h implements com.baidu.platform.comapi.wnplatform.j.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f10287a;
+    public final /* synthetic */ f f9845a;
 
     public h(f fVar) {
-        this.f10287a = fVar;
+        this.f9845a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.b
@@ -19,11 +19,11 @@ public class h implements com.baidu.platform.comapi.wnplatform.j.b {
         int i;
         f.a();
         new DecimalFormat("######0.00");
-        double d2 = aVar.f10327d;
+        double d2 = aVar.f9885d;
         double h2 = com.baidu.platform.comapi.walknavi.b.a().G().h();
-        com.baidu.platform.comapi.walknavi.b.a().D().a(aVar.f10324a, aVar.f10325b, aVar.f10326c, d2, aVar.f10328e, aVar.f10329f);
+        com.baidu.platform.comapi.walknavi.b.a().D().a(aVar.f9882a, aVar.f9883b, aVar.f9884c, d2, aVar.f9886e, aVar.f9887f);
         if (com.baidu.platform.comapi.walknavi.b.a().G().j() != null) {
-            double d3 = aVar.f10327d - h2;
+            double d3 = aVar.f9885d - h2;
             com.baidu.platform.comapi.walknavi.d.e c2 = com.baidu.platform.comapi.walknavi.d.e.c();
             double a2 = l.a(j.overlook);
             if (d3 < 0.0d) {
@@ -31,7 +31,7 @@ public class h implements com.baidu.platform.comapi.wnplatform.j.b {
             }
             c2.a(a2, l.a(d3) - 3.141592653589793d, 0.0d);
         }
-        i = f.f10280d;
+        i = f.f9838d;
         if (i % 5 == 0) {
             StringBuilder sb = new StringBuilder();
             sb.append("s:" + ((int) d2));

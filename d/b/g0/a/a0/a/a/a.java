@@ -61,14 +61,14 @@ public abstract class a<V extends SwanEditText, M extends b> extends d.b.g0.a.a0
     @Override // d.b.g0.a.a0.a.d.a
     /* renamed from: e0 */
     public void S(@NonNull V v, @NonNull M m) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-EditText", "renderBackground");
         }
         v.setBackgroundColor(0);
     }
 
     public boolean f0(@NonNull V v, @NonNull M m) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-EditText", "renderConfirmType:" + m.L);
         }
         String str = m.L;
@@ -122,7 +122,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends d.b.g0.a.a0
     }
 
     public void g0(@NonNull V v, @NonNull M m) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-EditText", "renderCursor");
         }
         Editable text = v.getText();
@@ -135,7 +135,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends d.b.g0.a.a0
     }
 
     public final void h0(@NonNull V v, @NonNull M m) {
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-EditText", "renderMaxLength");
         }
         if (m.G >= 0) {
@@ -145,7 +145,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends d.b.g0.a.a0
 
     public void i0(@NonNull V v, @NonNull M m) {
         int i;
-        if (d.b.g0.a.a0.b.a.f43100h) {
+        if (d.b.g0.a.a0.b.a.f43492h) {
             Log.d("Component-EditText", "renderSelection");
         }
         Editable text = v.getText();

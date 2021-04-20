@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class e implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f50171a;
+    public b f50578a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f50172b;
+    public c f50579b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Application f50173c;
+    public Application f50580c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50174d = null;
+    public String f50581d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f50175e = new i();
+    public final j f50582e = new j();
 
     /* renamed from: f  reason: collision with root package name */
-    public final j f50176f = new j();
+    public final k f50583f = new k();
 
     /* loaded from: classes3.dex */
     public class b extends BroadcastReceiver {
@@ -36,7 +36,7 @@ public class e implements d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             d.b.h0.f0.a a2;
-            if (intent == null || !"intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) || (a2 = e.this.f50175e.a(intent)) == null) {
+            if (intent == null || !"intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) || (a2 = e.this.f50582e.a(intent)) == null) {
                 return;
             }
             int myPid = Process.myPid();
@@ -52,14 +52,14 @@ public class e implements d {
             } else if (myPid == pid) {
                 return;
             }
-            if (e.this.f50172b != null) {
-                e.this.f50172b.a(a2);
+            if (e.this.f50579b != null) {
+                e.this.f50579b.a(a2);
             }
         }
     }
 
     public e(Application application) {
-        this.f50173c = application;
+        this.f50580c = application;
     }
 
     @Override // d.b.h0.f0.d
@@ -69,7 +69,7 @@ public class e implements d {
 
     @Override // d.b.h0.f0.d
     public void b(c cVar) {
-        this.f50172b = cVar;
+        this.f50579b = cVar;
     }
 
     @Override // d.b.h0.f0.d
@@ -79,20 +79,20 @@ public class e implements d {
 
     public final String f() {
         Application application;
-        if (this.f50174d == null && (application = this.f50173c) != null) {
-            this.f50174d = application.getPackageName();
+        if (this.f50581d == null && (application = this.f50580c) != null) {
+            this.f50581d = application.getPackageName();
         }
-        return this.f50174d;
+        return this.f50581d;
     }
 
     public final void g() {
         try {
             i();
-            this.f50171a = new b();
+            this.f50578a = new b();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.setPriority(1000);
             intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-            this.f50173c.registerReceiver(this.f50171a, intentFilter);
+            this.f50580c.registerReceiver(this.f50578a, intentFilter);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -104,8 +104,8 @@ public class e implements d {
                 Intent intent = new Intent();
                 intent.setPackage(f());
                 intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                this.f50176f.a(intent, aVar);
-                this.f50173c.sendBroadcast(intent);
+                this.f50583f.a(intent, aVar);
+                this.f50580c.sendBroadcast(intent);
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -117,10 +117,10 @@ public class e implements d {
 
     public final void i() {
         try {
-            if (this.f50171a == null || this.f50173c == null) {
+            if (this.f50578a == null || this.f50580c == null) {
                 return;
             }
-            this.f50173c.unregisterReceiver(this.f50171a);
+            this.f50580c.unregisterReceiver(this.f50578a);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

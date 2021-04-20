@@ -1,87 +1,98 @@
 package a.a.a.a.r.b.d;
 
-import a.a.a.a.r.a.e.b;
+import a.a.a.a.r.a.e.g;
 import a.a.a.a.v.f.g.d;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.fun.ad.sdk.ChannelNativeAds_5;
 import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunNativeAd;
-import com.win.opensdk.PBNative;
+import com.kwad.sdk.api.KsAdVideoPlayConfig;
+import com.kwad.sdk.api.KsImage;
+import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements FunNativeAd {
 
     /* renamed from: a  reason: collision with root package name */
-    public final PBNative f1293a;
+    public final Context f1283a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1294b;
+    public final KsNativeAd f1284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f1295c;
+    public final String f1285c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f1296d;
+    public final g f1286d;
 
-    public a(PBNative pBNative, String str, b bVar) {
-        this.f1293a = pBNative;
-        this.f1294b = str;
-        this.f1295c = bVar;
-        this.f1296d = new d.b(str);
+    /* renamed from: e  reason: collision with root package name */
+    public final d f1287e;
+
+    public a(Context context, KsNativeAd ksNativeAd, String str, g gVar) {
+        this.f1283a = context;
+        this.f1284b = ksNativeAd;
+        this.f1285c = str;
+        this.f1286d = gVar;
+        this.f1287e = new d.b(str);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public ChannelNativeAds_5 getChannelNativeAds_5() {
-        return ChannelNativeAds_5.create(this.f1293a);
+        return ChannelNativeAds_5.create(this.f1284b);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public String getDescription() {
-        return this.f1293a.getBody();
+        return this.f1284b.getAdDescription();
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public String getIconUrl() {
-        return this.f1293a.getIcon();
+        return this.f1284b.getAppIconUrl();
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public List<String> getImageUrls() {
+        List<KsImage> imageList = this.f1284b.getImageList();
+        if (imageList == null) {
+            return null;
+        }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.f1293a.getIM());
+        for (KsImage ksImage : imageList) {
+            arrayList.add(ksImage.getImageUrl());
+        }
         return arrayList;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public FunNativeAd.InteractionType getInteractionType() {
-        return this.f1293a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE;
+        int interactionType = this.f1284b.getInteractionType();
+        return interactionType != 1 ? interactionType != 2 ? FunNativeAd.InteractionType.TYPE_UNKNOW : FunNativeAd.InteractionType.TYPE_BROWSE : FunNativeAd.InteractionType.TYPE_DOWNLOAD;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public String getTitle() {
-        return this.f1293a.getHeadline();
+        return this.f1284b.getAppName();
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public View getVideoView() {
-        return null;
+        return this.f1284b.getVideoView(this.f1283a, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
     public void show(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
         if (context != null && viewGroup != null && list != null) {
-            this.f1296d.a("ldr_sh_start");
-            b bVar = this.f1295c;
-            PBNative pBNative = this.f1293a;
-            String str = this.f1294b;
-            bVar.f1010g.g();
-            pBNative.registerViewForInteraction(viewGroup, null, list);
-            synchronized (bVar.m) {
-                bVar.m.put(pBNative, new b.C0003b(str, funAdInteractionListener));
-            }
+            this.f1287e.a("ldr_sh_start");
+            g gVar = this.f1286d;
+            KsNativeAd ksNativeAd = this.f1284b;
+            String str = this.f1285c;
+            gVar.f1010g.g();
+            ksNativeAd.registerViewForInteraction(viewGroup, list, gVar.a(ksNativeAd, str, funAdInteractionListener));
             return;
         }
         throw new IllegalArgumentException();

@@ -24,22 +24,22 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
 import d.b.h0.r.q.a2;
 import d.b.h0.z0.m0;
-import d.b.i0.i2.n;
-import d.b.i0.i2.o;
-import d.b.i0.s1.h;
-import d.b.i0.s1.k;
+import d.b.i0.j2.n;
+import d.b.i0.j2.o;
+import d.b.i0.t1.h;
+import d.b.i0.t1.k;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbCyberVideoView extends CyberVideoView implements MediaController.MediaPlayerControl {
     public static k o0;
     public boolean H;
     public String I;
     public String J;
     public boolean K;
-    public d.b.i0.i2.p.b L;
+    public d.b.i0.j2.p.b L;
     public h M;
     public String N;
     public String O;
@@ -51,7 +51,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     public boolean U;
     public boolean V;
     public int W;
-    public d.b.i0.i2.f a0;
+    public d.b.i0.j2.f a0;
     public boolean b0;
     public CyberPlayerManager.OnPreparedListener c0;
     public CyberPlayerManager.OnCompletionListener d0;
@@ -66,7 +66,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     public CyberPlayerManager.OnInfoListener m0;
     public final CustomMessageListener n0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements CyberPlayerManager.OnPreparedListener {
         public a() {
         }
@@ -100,7 +100,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements CyberPlayerManager.OnCompletionListener {
         public b() {
         }
@@ -125,7 +125,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements CyberPlayerManager.OnErrorListener {
         public c() {
         }
@@ -144,7 +144,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements CyberPlayerManager.OnSeekCompleteListener {
         public d() {
         }
@@ -157,7 +157,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements CyberPlayerManager.OnInfoListener {
         public e() {
         }
@@ -182,7 +182,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public f(int i) {
             super(i);
@@ -201,7 +201,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface g {
         void onSurfaceDestroyed();
     }
@@ -242,7 +242,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     }
 
     public final String B(String str) {
-        if (!d.b.b.e.p.k.isEmpty(str) && d.b.i0.p3.f.d().e()) {
+        if (!d.b.c.e.p.k.isEmpty(str) && d.b.i0.q3.f.d().e()) {
             if (str.contains("http://tb-video.bdstatic.com")) {
                 return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
             }
@@ -295,25 +295,25 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         super.setOnErrorListener(this.k0);
         super.setOnSeekCompleteListener(this.l0);
         super.setOnInfoListener(this.m0);
-        this.L = new d.b.i0.i2.p.b();
-        this.a0 = new d.b.i0.i2.f();
+        this.L = new d.b.i0.j2.p.b();
+        this.a0 = new d.b.i0.j2.f();
         SkinManager.setBackgroundResource(this, R.color.black_alpha100);
     }
 
     public final void K(Uri uri) {
-        d.b.i0.i2.p.a pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
+        d.b.i0.j2.p.a pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
         if (pcdnConfigData != null && pcdnConfigData.c()) {
             if (!pcdnConfigData.a(uri)) {
                 this.W = 2;
                 return;
-            } else if (d.b.i0.i2.p.c.e() <= 0) {
+            } else if (d.b.i0.j2.p.c.e() <= 0) {
                 this.W = 3;
                 return;
             } else {
                 setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
                 setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
                 setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.b() ? "1" : "0");
-                setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(d.b.i0.i2.p.c.e()));
+                setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(d.b.i0.j2.p.c.e()));
                 this.U = true;
                 this.V = pcdnConfigData.b();
                 this.W = 1;
@@ -333,7 +333,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
 
     @Deprecated
     public void O() {
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.e();
             this.L.d(getDuration());
@@ -423,7 +423,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             BdLog.e(e2);
         }
         super.pause();
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.g();
         }
@@ -468,7 +468,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         return getCyberPlayer().getCurrentPositionSync();
     }
 
-    public d.b.i0.i2.f getMediaProgressObserver() {
+    public d.b.i0.j2.f getMediaProgressObserver() {
         return this.a0;
     }
 
@@ -510,7 +510,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             n.d().f(this.J, getCurrentPositionSync());
         }
         super.pause();
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.b();
         }
@@ -584,14 +584,14 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     }
 
     public void setPlayMode(String str) {
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.i(str);
         }
     }
 
     public void setStageType(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             str = "-1";
         }
         HashMap hashMap = new HashMap();
@@ -603,7 +603,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
 
     public void setThreadDataForStatistic(a2 a2Var) {
         if (this.L == null) {
-            this.L = new d.b.i0.i2.p.b();
+            this.L = new d.b.i0.j2.p.b();
         }
         this.L.j(a2Var);
     }
@@ -617,7 +617,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     }
 
     public void setVideoPath(String str, String str2) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         this.I = str2;
@@ -626,11 +626,11 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
 
     public void setVideoStatData(o oVar) {
         if (this.L == null) {
-            this.L = new d.b.i0.i2.p.b();
+            this.L = new d.b.i0.j2.p.b();
         }
         this.L.k(oVar);
         if (oVar != null) {
-            this.N = oVar.f56164a;
+            this.N = oVar.f57611a;
         }
     }
 
@@ -649,7 +649,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
         this.K = true;
         super.start();
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.f();
         }
@@ -685,7 +685,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
         super.stopPlayback();
         TbVideoViewSet.d().f(this.J);
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.g();
         }
@@ -699,7 +699,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         S();
@@ -714,7 +714,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             }
         }
         this.a0.l(this);
-        d.b.i0.i2.p.b bVar = this.L;
+        d.b.i0.j2.p.b bVar = this.L;
         if (bVar != null) {
             bVar.e();
         }

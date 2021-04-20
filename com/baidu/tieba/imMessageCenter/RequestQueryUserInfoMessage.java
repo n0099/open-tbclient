@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserInfos.DataReq;
 import protobuf.QueryUserInfos.QueryUserInfosReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestQueryUserInfoMessage extends TbSocketMessage {
     public DataReq.Builder dataBuilder;
 

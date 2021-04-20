@@ -15,6 +15,6 @@ public class c implements d.b.g0.c.a {
 
     @Override // d.b.g0.c.a
     public boolean isDebug() {
-        return k.f45051a;
+        return k.f45443a;
     }
 }

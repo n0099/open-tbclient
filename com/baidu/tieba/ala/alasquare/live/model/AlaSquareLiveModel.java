@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live.message.AlaSquareLiveHttpResponseMessage;
 import com.baidu.tieba.ala.alasquare.live.message.AlaSquareLiveRequestMessage;
 import com.baidu.tieba.ala.alasquare.live.message.AlaSquareLiveSocketResponseMessage;
-import d.b.b.a.f;
-import d.b.b.j.e.n;
+import d.b.c.a.f;
+import d.b.c.j.e.n;
 import d.b.h0.r.q.a2;
 import d.b.i0.t.d.a.c;
 import java.util.ArrayList;
@@ -27,16 +27,16 @@ import tbclient.LiveSquare.HeadLiveInfo;
 public class AlaSquareLiveModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f14727e;
+    public f f14390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f14728f;
+    public b f14391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<FunctionListInfo> f14729g;
+    public LinkedList<FunctionListInfo> f14392g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadLiveInfo f14730h;
+    public HeadLiveInfo f14393h;
     public List<d.b.i0.t.d.b.b.a> i;
     public List<n> j;
     public List<n> k;
@@ -44,18 +44,18 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public boolean p;
     public int q;
     public List<Long> r;
-    public d.b.b.c.g.a s;
+    public d.b.c.c.g.a s;
     public int l = 1;
     public boolean n = false;
     public boolean o = false;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             LinkedList<d.b.i0.t.d.b.b.a> linkedList;
             boolean z;
@@ -67,8 +67,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
                 if (AlaSquareLiveModel.this.o) {
                     AlaSquareLiveModel.this.o = false;
                 }
-                if (AlaSquareLiveModel.this.f14728f != null) {
-                    AlaSquareLiveModel.this.f14728f.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                if (AlaSquareLiveModel.this.f14391f != null) {
+                    AlaSquareLiveModel.this.f14391f.a(responsedMessage.getError(), responsedMessage.getErrorString());
                     return;
                 }
                 return;
@@ -78,22 +78,22 @@ public class AlaSquareLiveModel extends BdBaseModel {
                 alaSquareLiveSocketResponseMessage.setPn(AlaSquareLiveModel.this.l);
                 z = alaSquareLiveSocketResponseMessage.hasMore();
                 if (AlaSquareLiveModel.this.l == 1) {
-                    AlaSquareLiveModel.this.f14729g.clear();
-                    AlaSquareLiveModel.this.f14729g.addAll(alaSquareLiveSocketResponseMessage.getFunctionList());
+                    AlaSquareLiveModel.this.f14392g.clear();
+                    AlaSquareLiveModel.this.f14392g.addAll(alaSquareLiveSocketResponseMessage.getFunctionList());
                 }
                 linkedList = alaSquareLiveSocketResponseMessage.getCategoryList();
-                AlaSquareLiveModel.this.f14730h = alaSquareLiveSocketResponseMessage.getHeadLiveInfo();
+                AlaSquareLiveModel.this.f14393h = alaSquareLiveSocketResponseMessage.getHeadLiveInfo();
                 AlaSquareLiveModel.this.q = alaSquareLiveSocketResponseMessage.getIsSmallFollow();
             } else if (responsedMessage instanceof AlaSquareLiveHttpResponseMessage) {
                 AlaSquareLiveHttpResponseMessage alaSquareLiveHttpResponseMessage = (AlaSquareLiveHttpResponseMessage) responsedMessage;
                 alaSquareLiveHttpResponseMessage.setPn(AlaSquareLiveModel.this.l);
                 z = alaSquareLiveHttpResponseMessage.hasMore();
                 if (AlaSquareLiveModel.this.l == 1) {
-                    AlaSquareLiveModel.this.f14729g.clear();
-                    AlaSquareLiveModel.this.f14729g.addAll(alaSquareLiveHttpResponseMessage.getFunctionList());
+                    AlaSquareLiveModel.this.f14392g.clear();
+                    AlaSquareLiveModel.this.f14392g.addAll(alaSquareLiveHttpResponseMessage.getFunctionList());
                 }
                 linkedList = alaSquareLiveHttpResponseMessage.getCategoryList();
-                AlaSquareLiveModel.this.f14730h = alaSquareLiveHttpResponseMessage.getHeadLiveInfo();
+                AlaSquareLiveModel.this.f14393h = alaSquareLiveHttpResponseMessage.getHeadLiveInfo();
                 AlaSquareLiveModel.this.q = alaSquareLiveHttpResponseMessage.getIsSmallFollow();
             } else {
                 linkedList = null;
@@ -109,8 +109,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
                 AlaSquareLiveModel.this.n = z;
             }
             AlaSquareLiveModel.this.F();
-            if (AlaSquareLiveModel.this.f14728f != null) {
-                AlaSquareLiveModel.this.f14728f.b(z, false, z2);
+            if (AlaSquareLiveModel.this.f14391f != null) {
+                AlaSquareLiveModel.this.f14391f.b(z, false, z2);
             }
         }
     }
@@ -125,18 +125,18 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public AlaSquareLiveModel(f fVar, BdUniqueId bdUniqueId, b bVar) {
         a aVar = new a(AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE);
         this.s = aVar;
-        this.f14727e = fVar;
+        this.f14390e = fVar;
         this.unique_id = bdUniqueId;
-        this.f14728f = bVar;
+        this.f14391f = bVar;
         registerListener(aVar);
         R();
         this.i = new ArrayList();
-        this.f14729g = new LinkedList<>();
+        this.f14392g = new LinkedList<>();
     }
 
     public static void R() {
-        d.b.i0.c3.d0.a.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, d.b.i0.c3.d0.a.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
+        d.b.i0.d3.d0.a.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, d.b.i0.d3.d0.a.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -146,7 +146,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
     }
 
     public void F() {
-        Pair<List<n>, List<n>> d2 = d.b.i0.t.d.a.b.d(this.f14727e.getString(R.string.square_live_category_title_hotest), this.i);
+        Pair<List<n>, List<n>> d2 = d.b.i0.t.d.a.b.d(this.f14390e.getString(R.string.square_live_category_title_hotest), this.i);
         if (d2 != null) {
             this.j = (List) d2.first;
             this.k = (List) d2.second;
@@ -161,8 +161,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
         }
         LinkedList linkedList = new LinkedList();
         for (n nVar : this.k) {
-            if ((nVar instanceof c) && (a2Var = (cVar = (c) nVar).f60242h) != null && a2Var.q1() != null) {
-                linkedList.add(Long.valueOf(cVar.f60242h.q1().live_id));
+            if ((nVar instanceof c) && (a2Var = (cVar = (c) nVar).f61806h) != null && a2Var.q1() != null) {
+                linkedList.add(Long.valueOf(cVar.f61806h.q1().live_id));
             }
         }
         return linkedList;
@@ -173,11 +173,11 @@ public class AlaSquareLiveModel extends BdBaseModel {
     }
 
     public LinkedList<FunctionListInfo> I() {
-        return this.f14729g;
+        return this.f14392g;
     }
 
     public HeadLiveInfo J() {
-        return this.f14730h;
+        return this.f14393h;
     }
 
     public int K() {
@@ -246,13 +246,13 @@ public class AlaSquareLiveModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        LinkedList<FunctionListInfo> linkedList = this.f14729g;
+        LinkedList<FunctionListInfo> linkedList = this.f14392g;
         if (linkedList != null) {
             linkedList.clear();
-            this.f14729g = null;
+            this.f14392g = null;
         }
-        if (this.f14730h != null) {
-            this.f14730h = null;
+        if (this.f14393h != null) {
+            this.f14393h = null;
         }
         List<d.b.i0.t.d.b.b.a> list = this.i;
         if (list != null) {

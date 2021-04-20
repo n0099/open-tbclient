@@ -1,13 +1,23 @@
 package d.b.i0.r.a.f;
+
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface a {
-    void a();
+public class a {
+    public a() {
+    }
 
-    void b(String str);
-
-    void c(d.b.i0.r.a.e.a aVar);
-
-    void d();
-
-    void e();
+    public a(JSONObject jSONObject) {
+        try {
+            if (jSONObject.has("code")) {
+                jSONObject.getInt("code");
+            }
+            if (jSONObject.has("msg")) {
+                jSONObject.getString("msg");
+            }
+        } catch (JSONException e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
 }

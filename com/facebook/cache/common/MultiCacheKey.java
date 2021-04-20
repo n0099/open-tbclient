@@ -3,7 +3,7 @@ package com.facebook.cache.common;
 import android.net.Uri;
 import com.facebook.common.internal.Preconditions;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiCacheKey implements CacheKey {
     public final List<CacheKey> mCacheKeys;
 

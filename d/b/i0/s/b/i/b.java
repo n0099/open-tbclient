@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.g0.a.q1.b.f.d;
 import d.b.g0.a.r1.e;
 import d.b.g0.a.w0.c.f;
@@ -30,38 +30,38 @@ import org.json.JSONObject;
 public class b implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static BroadcastReceiver f60089a;
+    public static BroadcastReceiver f61390a;
 
     /* loaded from: classes4.dex */
     public class a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.b0.e.a f60090a;
+        public final /* synthetic */ d.b.y.e.a f61391a;
 
-        public a(b bVar, d.b.b0.e.a aVar) {
-            this.f60090a = aVar;
+        public a(b bVar, d.b.y.e.a aVar) {
+            this.f61391a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(DelegateResult delegateResult) {
-            this.f60090a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
+            this.f61391a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
         }
     }
 
     /* renamed from: d.b.i0.s.b.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1527b implements d.b.i0.s.b.i.d.a {
+    public class C1566b implements d.b.i0.s.b.i.d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.b0.e.a f60091a;
+        public final /* synthetic */ d.b.y.e.a f61392a;
 
-        public C1527b(b bVar, d.b.b0.e.a aVar) {
-            this.f60091a = aVar;
+        public C1566b(b bVar, d.b.y.e.a aVar) {
+            this.f61392a = aVar;
         }
 
         @Override // d.b.i0.s.b.i.d.a
         public void a(Bundle bundle) {
-            d.b.b0.e.a aVar = this.f60091a;
+            d.b.y.e.a aVar = this.f61392a;
             if (aVar == null) {
                 return;
             }
@@ -71,9 +71,9 @@ public class b implements f {
 
     /* loaded from: classes4.dex */
     public class c extends BroadcastReceiver {
-        public final /* synthetic */ d.b.b0.e.a val$callback;
+        public final /* synthetic */ d.b.y.e.a val$callback;
 
-        public c(d.b.b0.e.a aVar) {
+        public c(d.b.y.e.a aVar) {
             this.val$callback = aVar;
         }
 
@@ -85,7 +85,7 @@ public class b implements f {
     }
 
     @Override // d.b.g0.a.w0.c.f
-    public void a(Context context, JSONObject jSONObject, d.b.b0.e.a aVar) {
+    public void a(Context context, JSONObject jSONObject, d.b.y.e.a aVar) {
         IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
         PayReq e2 = e(jSONObject);
         createWXAPI.registerApp(e2.appId);
@@ -97,13 +97,13 @@ public class b implements f {
             if (!createWXAPI.sendReq(e2)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }
-            if (f60089a != null) {
-                TbadkCoreApplication.getInst().unregisterReceiver(f60089a);
+            if (f61390a != null) {
+                TbadkCoreApplication.getInst().unregisterReceiver(f61390a);
             }
-            f60089a = new c(aVar);
+            f61390a = new c(aVar);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("WXPayResult");
-            TbadkCoreApplication.getInst().registerReceiver(f60089a, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(f61390a, intentFilter);
         }
     }
 
@@ -117,12 +117,12 @@ public class b implements f {
     }
 
     @Override // d.b.g0.a.w0.c.f
-    public void c(Activity activity, String str, d.b.b0.e.a aVar) {
+    public void c(Activity activity, String str, d.b.y.e.a aVar) {
         DelegateUtils.callOnMainWithActivity(d.b.g0.a.z0.f.V().getActivity(), MainProcessDelegateActivity.class, d.b.i0.s.b.i.e.a.class, d.b.i0.s.b.i.e.a.b(str), new a(this, aVar));
     }
 
     @Override // d.b.g0.a.w0.c.f
-    public void d(Activity activity, String str, d.b.b0.e.a aVar) {
+    public void d(Activity activity, String str, d.b.y.e.a aVar) {
         if (!d.b.h0.l0.c.c().g()) {
             l.K(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
             return;
@@ -135,7 +135,7 @@ public class b implements f {
         aVar2.mParams.putInt("type", 2);
         aVar2.mParams.putString("orderInfo", str);
         aVar2.b(y.A());
-        aVar2.c(new C1527b(this, aVar));
+        aVar2.c(new C1566b(this, aVar));
         aVar2.onExec();
     }
 

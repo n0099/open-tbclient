@@ -7,16 +7,16 @@ import org.json.JSONObject;
 public class l implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f33673a;
+    public long f33962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f33674b;
+    public long f33963b;
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "photoId", this.f33673a);
-        o.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f33674b);
+        o.a(jSONObject, "photoId", this.f33962a);
+        o.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f33963b);
         return jSONObject;
     }
 }

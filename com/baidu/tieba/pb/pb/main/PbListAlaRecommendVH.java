@@ -23,27 +23,27 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.v0;
 import d.b.h0.r.u.c;
-import d.b.i0.c2.h.e;
-import d.b.i0.c2.k.e.y;
+import d.b.i0.d2.h.e;
+import d.b.i0.d2.k.e.a0;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19719e;
+    public int f19404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbActivity f19720f;
+    public PbActivity f19405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public y f19721g;
+    public a0 f19406g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f19722h;
+    public View f19407h;
     public TbImageView i;
     public TBLottieAnimationView j;
     public TextView k;
@@ -54,7 +54,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     public View p;
     public e q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnAttachStateChangeListener {
         public a() {
         }
@@ -70,7 +70,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements NEGFeedBackView.b {
         public b(PbListAlaRecommendVH pbListAlaRecommendVH) {
         }
@@ -91,9 +91,9 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
 
     public PbListAlaRecommendVH(View view, PbActivity pbActivity) {
         super(view);
-        this.f19719e = 3;
-        this.f19720f = pbActivity;
-        this.f19722h = view.findViewById(R.id.rootLayout);
+        this.f19404e = 3;
+        this.f19405f = pbActivity;
+        this.f19407h = view.findViewById(R.id.rootLayout);
         this.i = (TbImageView) view.findViewById(R.id.coverView);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view.findViewById(R.id.alaStateView);
         this.j = tBLottieAnimationView;
@@ -111,23 +111,23 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         this.j.playAnimation();
     }
 
-    public void c(y yVar) {
+    public void c(a0 a0Var) {
         d(TbadkCoreApplication.getInst().getSkinType());
-        if (yVar == null) {
+        if (a0Var == null) {
             return;
         }
-        this.f19721g = yVar;
-        this.f19722h.setOnClickListener(this);
-        this.i.W(yVar.i, 10, false);
-        if (yVar.f52935f == 1 && yVar.j > 0) {
+        this.f19406g = a0Var;
+        this.f19407h.setOnClickListener(this);
+        this.i.W(a0Var.i, 10, false);
+        if (a0Var.f53962f == 1 && a0Var.j > 0) {
             this.j.setVisibility(0);
         } else {
             this.j.setVisibility(8);
         }
-        this.k.setText(yVar.f52937h);
+        this.k.setText(a0Var.f53964h);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
-        if (!k.isEmpty(yVar.f52934e)) {
-            this.l.setText(yVar.f52934e);
+        if (!k.isEmpty(a0Var.f53961e)) {
+            this.l.setText(a0Var.f53961e);
             this.l.setVisibility(0);
             layoutParams.leftMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
         } else {
@@ -135,13 +135,13 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
             layoutParams.leftMargin = 0;
         }
         this.m.setLayoutParams(layoutParams);
-        this.m.setText(String.format(this.f19720f.getResources().getString(R.string.pb_ala_audience_count), StringHelper.numFormatOverWan(yVar.f52936g)));
-        i(yVar.r);
+        this.m.setText(String.format(this.f19405f.getResources().getString(R.string.pb_ala_audience_count), StringHelper.numFormatOverWan(a0Var.f53963g)));
+        i(a0Var.r);
     }
 
     public final void d(int i) {
-        if (this.f19719e != i) {
-            SkinManager.setBackgroundSelector(this.f19722h, R.color.CAM_X0205, R.color.CAM_X0204, i);
+        if (this.f19404e != i) {
+            SkinManager.setBackgroundSelector(this.f19407h, R.color.CAM_X0205, R.color.CAM_X0204, i);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i);
@@ -150,57 +150,57 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
             if (nEGFeedBackView != null) {
                 nEGFeedBackView.q();
             }
-            c a2 = c.a(this.j);
-            a2.h(R.string.J_X01);
-            a2.c(R.color.CAM_X0310);
+            c d2 = c.d(this.j);
+            d2.k(R.string.J_X01);
+            d2.f(R.color.CAM_X0310);
             SkinManager.setBackgroundColor(this.p, R.color.CAM_X0203, i);
         }
-        this.f19719e = i;
+        this.f19404e = i;
     }
 
-    public final void e(y yVar) {
-        if (yVar == null || yVar.f52935f != 1) {
+    public final void e(a0 a0Var) {
+        if (a0Var == null || a0Var.f53962f != 1) {
             return;
         }
-        if (yVar.m) {
-            f(yVar.o, yVar.n);
-        } else if (yVar.j > 0) {
+        if (a0Var.m) {
+            f(a0Var.o, a0Var.n);
+        } else if (a0Var.j > 0) {
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.liveID = yVar.j;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f19720f, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_VIDEO_PB_CROSS_RECOMMEND, null, false, "")));
+            alaLiveInfoCoreData.liveID = a0Var.j;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f19405f, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_VIDEO_PB_CROSS_RECOMMEND, null, false, "")));
         }
     }
 
     public final void f(String str, String str2) {
         UrlManager urlManager = UrlManager.getInstance();
-        TbPageContext<BaseFragmentActivity> pageContext = this.f19720f.getPageContext();
+        TbPageContext<BaseFragmentActivity> pageContext = this.f19405f.getPageContext();
         urlManager.dealOneLink(pageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
     }
 
-    public final void g(y yVar) {
+    public final void g(a0 a0Var) {
         e eVar = this.q;
         if (eVar == null || eVar.l() == null) {
             return;
         }
         StatisticItem param = new StatisticItem("c13717").param("fid", this.q.l().getId()).param("fname", this.q.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.q.N());
-        MetaData metaData = yVar.k;
+        MetaData metaData = a0Var.k;
         TiebaStatic.log(param.param("obj_param1", metaData != null ? metaData.getUserId() : ""));
     }
 
     public void h(e eVar) {
-        y yVar;
-        if (eVar == null || eVar.l() == null || (yVar = this.f19721g) == null || yVar.q) {
+        a0 a0Var;
+        if (eVar == null || eVar.l() == null || (a0Var = this.f19406g) == null || a0Var.q) {
             return;
         }
         this.q = eVar;
         StatisticItem param = new StatisticItem("c13716").param("fid", eVar.l().getId()).param("fname", eVar.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", eVar.N());
-        MetaData metaData = this.f19721g.k;
+        MetaData metaData = this.f19406g.k;
         TiebaStatic.log(param.param("obj_param1", metaData != null ? metaData.getUserId() : ""));
-        this.f19721g.q = true;
+        this.f19406g.q = true;
     }
 
     public final void i(v0 v0Var) {
-        if (this.f19720f == null) {
+        if (this.f19405f == null) {
             return;
         }
         if (v0Var == null) {
@@ -212,11 +212,11 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
             return;
         }
         if (this.n == null) {
-            this.n = new NEGFeedBackView(this.f19720f.getPageContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.g(this.f19720f, R.dimen.tbds50), l.g(this.f19720f, R.dimen.tbds50));
+            this.n = new NEGFeedBackView(this.f19405f.getPageContext());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.g(this.f19405f, R.dimen.tbds50), l.g(this.f19405f, R.dimen.tbds50));
             layoutParams.addRule(11);
             layoutParams.addRule(3, R.id.descView);
-            layoutParams.topMargin = l.g(this.f19720f, R.dimen.tbds12);
+            layoutParams.topMargin = l.g(this.f19405f, R.dimen.tbds12);
             this.o.addView(this.n, layoutParams);
             this.n.setEventCallback(new b(this));
         }
@@ -229,10 +229,10 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        y yVar = this.f19721g;
-        if (yVar != null && id == R.id.rootLayout) {
-            e(yVar);
-            g(this.f19721g);
+        a0 a0Var = this.f19406g;
+        if (a0Var != null && id == R.id.rootLayout) {
+            e(a0Var);
+            g(this.f19406g);
         }
     }
 }

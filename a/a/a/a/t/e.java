@@ -10,32 +10,32 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1348a;
+    public String f1334a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f1349b;
+    public final a f1335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f1350c;
+    public Map<String, Object> f1336c;
 
     public e(String str, a aVar) {
-        this.f1348a = str;
-        this.f1349b = aVar;
+        this.f1334a = str;
+        this.f1335b = aVar;
     }
 
     public e(Map<String, Object> map) {
-        this.f1349b = a.f1342c;
+        this.f1335b = a.f1328c;
         HashMap hashMap = new HashMap();
-        this.f1350c = hashMap;
+        this.f1336c = hashMap;
         hashMap.putAll(map);
     }
 
     public e(JSONObject jSONObject) {
-        this(jSONObject.toString(), a.f1341b);
+        this(jSONObject.toString(), a.f1327b);
     }
 
     public byte[] a() {
-        String str = this.f1348a;
+        String str = this.f1334a;
         if (str == null) {
             return null;
         }
@@ -43,18 +43,18 @@ public class e {
     }
 
     public String b() {
-        String str = this.f1348a;
+        String str = this.f1334a;
         if (str != null) {
             return str;
         }
-        if (this.f1350c != null) {
+        if (this.f1336c != null) {
             StringBuilder sb = new StringBuilder();
-            for (String str2 : this.f1350c.keySet()) {
+            for (String str2 : this.f1336c.keySet()) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
                 sb.append(str2);
-                Object obj = this.f1350c.get(str2);
+                Object obj = this.f1336c.get(str2);
                 if (obj != null) {
                     sb.append("=");
                     try {
@@ -69,6 +69,6 @@ public class e {
     }
 
     public String c() {
-        return this.f1349b.f1343a;
+        return this.f1335b.f1329a;
     }
 }

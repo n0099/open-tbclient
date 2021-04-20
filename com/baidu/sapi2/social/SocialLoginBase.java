@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
-import d.b.a0.a.e;
-import d.b.a0.a.f;
+import d.b.x.a.e;
+import d.b.x.a.f;
 /* loaded from: classes2.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static WXInvokeCallback p;

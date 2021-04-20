@@ -10,32 +10,32 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f51743a = "";
+    public static String f52167a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f51744b = null;
+    public static String f52168b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51745c = null;
+    public static String f52169c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f51746d = "floor";
+    public static String f52170d = "floor";
 
-    public static void a(String str, String str2, String str3, int i, d.b.b.a.f fVar, BaijiahaoData baijiahaoData) {
-        f51744b = str;
-        f51745c = str2;
-        f51743a = str3;
+    public static void a(String str, String str2, String str3, int i, d.b.c.a.f fVar, BaijiahaoData baijiahaoData) {
+        f52168b = str;
+        f52169c = str2;
+        f52167a = str3;
         if (StringUtils.isNull(str3) || fVar == null || fVar.getPageActivity() == null) {
             return;
         }
-        if (f51746d.equals(f51743a)) {
-            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(fVar.getPageActivity()).createSubPbActivityConfig(f51744b, f51745c, "search_post", true);
+        if (f52170d.equals(f52167a)) {
+            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(fVar.getPageActivity()).createSubPbActivityConfig(f52168b, f52169c, "search_post", true);
             createSubPbActivityConfig.setKeyPageStartFrom(8);
             createSubPbActivityConfig.setBjhData(baijiahaoData);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(fVar.getPageActivity()).createNormalCfg(f51744b, f51745c, "search_post");
+        PbActivityConfig createNormalCfg = new PbActivityConfig(fVar.getPageActivity()).createNormalCfg(f52168b, f52169c, "search_post");
         createNormalCfg.setStartFrom(8);
         createNormalCfg.setBjhData(baijiahaoData);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));

@@ -3,6 +3,7 @@ package d.o.a.e.b.e;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -23,7 +24,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a(String str) {
         try {
@@ -272,7 +273,7 @@ public class a {
                                     errorMessage = e3.getErrorMessage();
                                 }
                             } else {
-                                i2 = 1049;
+                                i2 = SDKLogTypeConstants.TYPE_LP_LOAD_URL;
                             }
                         }
                     }
@@ -393,7 +394,7 @@ public class a {
             } else if (z2) {
                 i2 = 2;
             } else if (baseException != null) {
-                i2 = !e.p0(d.l()) ? 1049 : baseException.getErrorCode();
+                i2 = !e.p0(d.l()) ? SDKLogTypeConstants.TYPE_LP_LOAD_URL : baseException.getErrorCode();
                 errorMessage = baseException.getErrorMessage();
                 JSONObject jSONObject2 = new JSONObject();
                 if (kVar == null) {

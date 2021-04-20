@@ -3,7 +3,7 @@ package d.e;
 import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.faceunity.wrapper.faceunity;
-import d.b.i0.p3.m.f;
+import d.b.i0.q3.m.f;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */

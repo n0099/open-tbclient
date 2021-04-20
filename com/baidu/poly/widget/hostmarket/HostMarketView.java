@@ -13,25 +13,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
-import d.b.c0.f;
-import d.b.c0.g;
-import d.b.c0.h;
-import d.b.c0.k.j.a;
+import d.b.z.f;
+import d.b.z.g;
+import d.b.z.h;
+import d.b.z.k.j.a;
 import java.text.DecimalFormat;
 /* loaded from: classes2.dex */
 public class HostMarketView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f10471e;
+    public ImageView f10029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f10472f;
+    public TextView f10030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f10473g;
+    public TextView f10031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f10474h;
+    public TextView f10032h;
     public SwitchButton i;
     public o j;
     public a k;
@@ -39,9 +39,9 @@ public class HostMarketView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(a.C0570a c0570a);
+        void a(a.C1807a c1807a);
 
-        void b(boolean z, o oVar, d.b.c0.k.j.a aVar);
+        void b(boolean z, o oVar, d.b.z.k.j.a aVar);
     }
 
     /* loaded from: classes2.dex */
@@ -56,21 +56,21 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements d.b.c0.k.j.a {
+    public class c implements d.b.z.k.j.a {
         public c() {
         }
 
-        @Override // d.b.c0.k.j.a
-        public void a(a.C0570a c0570a) {
-            HostMarketView.this.k.a(c0570a);
-            if (c0570a == null) {
+        @Override // d.b.z.k.j.a
+        public void a(a.C1807a c1807a) {
+            HostMarketView.this.k.a(c1807a);
+            if (c1807a == null) {
                 return;
             }
-            if (c0570a.f42666a == 0) {
+            if (c1807a.f65734a == 0) {
                 if (HostMarketView.this.i.isChecked()) {
-                    HostMarketView.this.f10474h.setVisibility(0);
+                    HostMarketView.this.f10032h.setVisibility(0);
                 } else {
-                    HostMarketView.this.f10474h.setVisibility(4);
+                    HostMarketView.this.f10032h.setVisibility(4);
                 }
             } else {
                 HostMarketView.this.i.j();
@@ -98,10 +98,10 @@ public class HostMarketView extends FrameLayout {
 
     public final void g(Context context) {
         LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-        this.f10471e = (ImageView) findViewById(f.icon);
-        this.f10472f = (TextView) findViewById(f.title);
-        this.f10473g = (TextView) findViewById(f.subtitle);
-        this.f10474h = (TextView) findViewById(f.cut_text);
+        this.f10029e = (ImageView) findViewById(f.icon);
+        this.f10030f = (TextView) findViewById(f.title);
+        this.f10031g = (TextView) findViewById(f.subtitle);
+        this.f10032h = (TextView) findViewById(f.cut_text);
         SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
         this.i = switchButton;
         switchButton.setOnCheckedChangeListener(new b());
@@ -121,24 +121,24 @@ public class HostMarketView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        d.b.c0.k.d.b.c().b(this.f10471e, this.j.getIcon());
-        this.f10472f.setText(this.j.getDisplayName());
-        this.f10473g.setText(this.j.S());
+        d.b.z.k.d.b.c().b(this.f10029e, this.j.getIcon());
+        this.f10030f.setText(this.j.getDisplayName());
+        this.f10031g.setText(this.j.S());
         if (!TextUtils.isEmpty(this.j.M())) {
             try {
-                this.f10473g.setTextColor(Color.parseColor(this.j.M()));
+                this.f10031g.setTextColor(Color.parseColor(this.j.M()));
             } catch (Exception unused) {
             }
         }
         if (this.l) {
             this.i.setVisibility(4);
-            this.f10474h.setVisibility(0);
-            TextView textView = this.f10474h;
+            this.f10032h.setVisibility(0);
+            TextView textView = this.f10032h;
             textView.setText("-" + b(this.j.L()) + "元");
             return;
         }
         this.i.setVisibility(0);
-        this.f10474h.setVisibility(4);
+        this.f10032h.setVisibility(4);
         if (this.j.P() == 1) {
             this.i.setChecked(true);
         } else {

@@ -1,5 +1,6 @@
 package com.qq.e.comm.util;
 
+import com.baidu.mobads.container.util.XAdSimpleImageLoader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -48,7 +49,7 @@ public class FileUtil {
     }
 
     public static String getTempFileName(String str) {
-        return Md5Util.encode(str) + ".temp";
+        return Md5Util.encode(str) + XAdSimpleImageLoader.TEMP_SUFFIX;
     }
 
     public static boolean renameTo(File file, File file2) {

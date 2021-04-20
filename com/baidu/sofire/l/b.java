@@ -8,38 +8,38 @@ import com.baidu.sofire.h.c;
 public final class b implements com.baidu.sofire.h.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11840a;
+    public Context f11501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f11841b;
+    public a f11502b;
 
     @Override // com.baidu.sofire.h.b
     public final void a(Context context, c cVar) {
-        this.f11840a = context;
+        this.f11501a = context;
         a aVar = new a();
-        this.f11841b = aVar;
-        aVar.f11836c = null;
-        aVar.f11837d = null;
-        aVar.f11838e = null;
+        this.f11502b = aVar;
+        aVar.f11497c = null;
+        aVar.f11498d = null;
+        aVar.f11499e = null;
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            aVar.f11835b = cls;
-            aVar.f11834a = cls.newInstance();
+            aVar.f11496b = cls;
+            aVar.f11495a = cls.newInstance();
         } catch (Exception e2) {
             Log.d("IdentifierManager", "reflect exception!", e2);
         }
         try {
-            aVar.f11836c = aVar.f11835b.getMethod("getOAID", Context.class);
+            aVar.f11497c = aVar.f11496b.getMethod("getOAID", Context.class);
         } catch (Exception e3) {
             Log.d("IdentifierManager", "reflect exception!", e3);
         }
         try {
-            aVar.f11837d = aVar.f11835b.getMethod("getVAID", Context.class);
+            aVar.f11498d = aVar.f11496b.getMethod("getVAID", Context.class);
         } catch (Exception e4) {
             Log.d("IdentifierManager", "reflect exception!", e4);
         }
         try {
-            aVar.f11838e = aVar.f11835b.getMethod("getAAID", Context.class);
+            aVar.f11499e = aVar.f11496b.getMethod("getAAID", Context.class);
         } catch (Exception e5) {
             Log.d("IdentifierManager", "reflect exception!", e5);
         }
@@ -47,11 +47,11 @@ public final class b implements com.baidu.sofire.h.b {
 
     @Override // com.baidu.sofire.h.b
     public final String b() {
-        a aVar = this.f11841b;
-        Context context = this.f11840a;
-        if (TextUtils.isEmpty(aVar.f11839f)) {
-            aVar.f11839f = aVar.a(context, aVar.f11836c);
+        a aVar = this.f11502b;
+        Context context = this.f11501a;
+        if (TextUtils.isEmpty(aVar.f11500f)) {
+            aVar.f11500f = aVar.a(context, aVar.f11497c);
         }
-        return aVar.f11839f;
+        return aVar.f11500f;
     }
 }

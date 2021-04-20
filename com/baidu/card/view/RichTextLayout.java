@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.u.c;
 import d.b.i.p;
@@ -20,16 +20,16 @@ import d.b.i.p;
 public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f4510e;
+    public final int f4545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4511f;
+    public TextView f4546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4512g;
+    public TextView f4547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f4513h;
+    public Context f4548h;
     public boolean i;
     public View.OnClickListener j;
     public boolean k;
@@ -62,10 +62,10 @@ public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, Vie
 
     public RichTextLayout(Context context) {
         super(context);
-        this.f4510e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.f4545e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.i = false;
         this.k = false;
-        this.f4513h = context;
+        this.f4548h = context;
         c();
     }
 
@@ -75,8 +75,8 @@ public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, Vie
         setClipToPadding(false);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4512g = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4511f = (TextView) findViewById(R.id.thread_card_title);
+        this.f4547g = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4546f = (TextView) findViewById(R.id.thread_card_title);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,32 +89,32 @@ public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, Vie
         a2 n = aVar.n();
         OriginalThreadInfo originalThreadInfo = n.r1;
         if (originalThreadInfo != null && this.i) {
-            this.f4511f.setVisibility(8);
-            c a2 = c.a(this.f4512g);
-            a2.s(R.string.F_X01);
-            a2.r(R.dimen.T_X07);
+            this.f4546f.setVisibility(8);
+            c d2 = c.d(this.f4547g);
+            d2.v(R.string.F_X01);
+            d2.u(R.dimen.T_X07);
             if (originalThreadInfo.m) {
-                ThreadCardUtils.setAbstract(this.f4512g, this.f4511f, new SpannableString(originalThreadInfo.f13217g), n, this.f4510e, this.i, this.k);
-                SkinManager.setViewTextColor(this.f4512g, R.color.CAM_X0108);
+                ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, new SpannableString(originalThreadInfo.f12878g), n, this.f4545e, this.i, this.k);
+                SkinManager.setViewTextColor(this.f4547g, R.color.CAM_X0108);
             } else {
-                ThreadCardUtils.setAbstract(this.f4512g, this.f4511f, originalThreadInfo.t, n, this.f4510e, this.i, this.k);
+                ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, originalThreadInfo.t, n, this.f4545e, this.i, this.k);
             }
         } else {
-            ThreadCardUtils.setTitle(this.f4511f, n, this.k);
-            ThreadCardUtils.setAbstract(this.f4512g, this.f4511f, n.D(), n, this.f4510e, this.i, this.k);
+            ThreadCardUtils.setTitle(this.f4546f, n, this.k);
+            ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, n.D(), n, this.f4545e, this.i, this.k);
         }
         if (!this.i) {
-            this.f4512g.setClickable(false);
-            this.f4511f.setClickable(false);
+            this.f4547g.setClickable(false);
+            this.f4546f.setClickable(false);
         } else if (originalThreadInfo != null && originalThreadInfo.m) {
             setOnClickListener(null);
             setClickable(true);
         } else {
             setOnClickListener(this);
-            this.f4512g.setOnClickListener(new a());
-            this.f4511f.setOnClickListener(new b());
-            this.f4512g.setClickable(true);
-            this.f4511f.setClickable(true);
+            this.f4547g.setOnClickListener(new a());
+            this.f4546f.setOnClickListener(new b());
+            this.f4547g.setClickable(true);
+            this.f4546f.setClickable(true);
         }
     }
 

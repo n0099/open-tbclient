@@ -19,7 +19,7 @@ public class SwanApiNetworkV8Module {
 
     @JavascriptInterface
     public String request(JsObject jsObject) {
-        if (d.f45929c) {
+        if (d.f46321c) {
             Log.d("Api-Request", "request: jsObject");
         }
         d.b.g0.a.t.e.b J = this.requestApi.J(jsObject);

@@ -8,34 +8,34 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile d f66565d;
+    public static volatile d f67558d;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66566a = 0;
+    public long f67559a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f66567b = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, e> f67560b = new ConcurrentHashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Integer> f66568c = new HashMap<>();
+    public HashMap<String, Integer> f67561c = new HashMap<>();
 
     public d() {
         new CopyOnWriteArrayList();
     }
 
     public static d a() {
-        if (f66565d == null) {
+        if (f67558d == null) {
             synchronized (d.class) {
-                if (f66565d == null) {
-                    f66565d = new d();
+                if (f67558d == null) {
+                    f67558d = new d();
                 }
             }
         }
-        return f66565d;
+        return f67558d;
     }
 
     @WorkerThread
@@ -70,34 +70,34 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66567b.remove(str);
+        this.f67560b.remove(str);
     }
 
     public void e(String str, e eVar) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f66567b.put(str, eVar);
+        this.f67560b.put(str, eVar);
     }
 
     public int f(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        if (this.f66568c == null) {
-            this.f66568c = new HashMap<>();
+        if (this.f67561c == null) {
+            this.f67561c = new HashMap<>();
         }
-        if (this.f66568c.containsKey(str)) {
-            return this.f66568c.get(str).intValue();
+        if (this.f67561c.containsKey(str)) {
+            return this.f67561c.get(str).intValue();
         }
         return 0;
     }
 
     public long g() {
-        return this.f66566a;
+        return this.f67559a;
     }
 
     public void h() {
-        this.f66566a = System.currentTimeMillis();
+        this.f67559a = System.currentTimeMillis();
     }
 }

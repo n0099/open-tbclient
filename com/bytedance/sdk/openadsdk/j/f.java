@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.j;
 import android.os.Build;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static void a(WebSettings webSettings) {
         try {

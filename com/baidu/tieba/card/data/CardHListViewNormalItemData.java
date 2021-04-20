@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
 /* loaded from: classes4.dex */
@@ -16,7 +16,7 @@ public class CardHListViewNormalItemData implements n, Serializable {
     public long threadId;
     public String title;
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         return TYPE;
     }

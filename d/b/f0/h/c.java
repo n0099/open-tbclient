@@ -12,26 +12,26 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42975a;
+    public static String f43367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42976b;
+    public static String f43368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42977c;
+    public static String f43369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42978d;
+    public static String f43370d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f42979e;
+    public static String f43371e;
 
     public static String b(Context context) {
         try {
-            if (TextUtils.isEmpty(f42975a)) {
-                f42975a = d.b.f0.l.c.e(context);
+            if (TextUtils.isEmpty(f43367a)) {
+                f43367a = d.b.f0.l.c.e(context);
             }
-            return TextUtils.isEmpty(f42975a) ? "" : f42975a;
+            return TextUtils.isEmpty(f43367a) ? "" : f43367a;
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -48,9 +48,9 @@ public class c {
             jSONObject.put("5", str);
             jSONObject.put("6", System.currentTimeMillis());
             jSONObject.put("7", "0");
-            jSONObject.put("8", d.b.f0.a.f42809b);
+            jSONObject.put("8", d.b.f0.a.f43201b);
             jSONObject.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "1.0.5");
+            jSONObject.put("10", "1.0.5");
             jSONObject.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, d.b.f0.l.c.j(context));
             jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, e(context));
             jSONObject.put(SoUtils.SO_EVENT_ID_V8_SO, d.b.f0.g.a.a(context));
@@ -64,10 +64,10 @@ public class c {
 
     public static String d(Context context) {
         try {
-            if (TextUtils.isEmpty(f42976b)) {
-                f42976b = d.b.f0.l.c.h(context);
+            if (TextUtils.isEmpty(f43368b)) {
+                f43368b = d.b.f0.l.c.h(context);
             }
-            return TextUtils.isEmpty(f42976b) ? "" : f42976b;
+            return TextUtils.isEmpty(f43368b) ? "" : f43368b;
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -76,11 +76,11 @@ public class c {
 
     public static String e(Context context) {
         try {
-            if (!TextUtils.isEmpty(f42979e)) {
-                return f42979e;
+            if (!TextUtils.isEmpty(f43371e)) {
+                return f43371e;
             }
             String b2 = d.b.f0.g.a.b(context);
-            f42979e = b2;
+            f43371e = b2;
             return b2;
         } catch (Throwable unused) {
             return "";
@@ -89,10 +89,10 @@ public class c {
 
     public static String f(Context context) {
         try {
-            if (TextUtils.isEmpty(f42977c)) {
-                f42977c = context.getPackageName();
+            if (TextUtils.isEmpty(f43369c)) {
+                f43369c = context.getPackageName();
             }
-            return TextUtils.isEmpty(f42977c) ? "" : f42977c;
+            return TextUtils.isEmpty(f43369c) ? "" : f43369c;
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
             return "";
@@ -101,11 +101,11 @@ public class c {
 
     public static String g(Context context) {
         try {
-            if (!TextUtils.isEmpty(f42978d)) {
-                return f42978d;
+            if (!TextUtils.isEmpty(f43370d)) {
+                return f43370d;
             }
             String l = d.b.f0.l.d.l(context);
-            f42978d = l;
+            f43370d = l;
             return l;
         } catch (Throwable unused) {
             return "";

@@ -2,55 +2,55 @@ package com.bytedance.sdk.openadsdk.core.d;
 
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.TTImage;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28174a;
+    public String f27859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28175b;
+    public int f27860b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28176c;
+    public int f27861c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f28177d;
+    public double f27862d;
 
     public String a() {
-        return this.f28174a;
+        return this.f27859a;
     }
 
     public int b() {
-        return this.f28175b;
+        return this.f27860b;
     }
 
     public int c() {
-        return this.f28176c;
+        return this.f27861c;
     }
 
     public double d() {
-        return this.f28177d;
+        return this.f27862d;
     }
 
     public boolean e() {
-        return !TextUtils.isEmpty(this.f28174a) && this.f28175b > 0 && this.f28176c > 0;
+        return !TextUtils.isEmpty(this.f27859a) && this.f27860b > 0 && this.f27861c > 0;
     }
 
     public void a(String str) {
-        this.f28174a = str;
+        this.f27859a = str;
     }
 
     public void b(int i) {
-        this.f28176c = i;
+        this.f27861c = i;
     }
 
     public void a(int i) {
-        this.f28175b = i;
+        this.f27860b = i;
     }
 
     public void a(double d2) {
-        this.f28177d = d2;
+        this.f27862d = d2;
     }
 
     public static TTImage a(k kVar) {

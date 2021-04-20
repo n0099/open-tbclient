@@ -8,10 +8,10 @@ import com.kwad.sdk.widget.RadiusPvFrameLayout;
 public class b extends com.kwad.sdk.contentalliance.home.c.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public RadiusPvFrameLayout f32739b;
+    public RadiusPvFrameLayout f33028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RadiusPvFrameLayout.a f32740c = new RadiusPvFrameLayout.a() { // from class: com.kwad.sdk.contentalliance.home.c.b.b.1
+    public RadiusPvFrameLayout.a f33029c = new RadiusPvFrameLayout.a() { // from class: com.kwad.sdk.contentalliance.home.c.b.b.1
         @Override // com.kwad.sdk.widget.RadiusPvFrameLayout.a
         public void a() {
             b.this.e();
@@ -20,24 +20,24 @@ public class b extends com.kwad.sdk.contentalliance.home.c.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36008a).i);
+        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i);
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32739b.a(this.f32740c);
+        this.f33028b.a(this.f33029c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32739b.b();
+        this.f33028b.b();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32739b = (RadiusPvFrameLayout) b(R.id.ksad_slide_profile_container);
+        this.f33028b = (RadiusPvFrameLayout) b(R.id.ksad_slide_profile_container);
     }
 }

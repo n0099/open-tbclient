@@ -53,7 +53,7 @@ public class BuyTBeanActivityStatic {
 
     static {
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        d.b.i0.c3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
+        d.b.i0.d3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -74,7 +74,7 @@ public class BuyTBeanActivityStatic {
     }
 
     public static void c() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.b.i0.c3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.b.i0.d3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

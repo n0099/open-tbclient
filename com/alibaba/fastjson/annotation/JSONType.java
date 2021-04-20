@@ -2,6 +2,8 @@ package com.alibaba.fastjson.annotation;
 
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.parser.Feature;
+import com.alibaba.fastjson.parser.ParserConfig;
+import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,6 +16,8 @@ public @interface JSONType {
     boolean alphabetic() default true;
 
     boolean asm() default true;
+
+    Class<? extends ParserConfig.AutoTypeCheckHandler> autoTypeCheckHandler() default ParserConfig.AutoTypeCheckHandler.class;
 
     Class<?> builder() default Void.class;
 
@@ -38,6 +42,8 @@ public @interface JSONType {
     Class<?> serializer() default Void.class;
 
     SerializerFeature[] serialzeFeatures() default {};
+
+    Class<? extends SerializeFilter>[] serialzeFilters() default {};
 
     String typeKey() default "";
 

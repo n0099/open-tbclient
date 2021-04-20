@@ -7,7 +7,7 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,20 +16,20 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f50677b;
+    public static b f51084b;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d.b.h0.a.b0.a> f50678a = new ArrayList<>();
+    public ArrayList<d.b.h0.a.b0.a> f51085a = new ArrayList<>();
 
     public static b b() {
-        if (f50677b == null) {
+        if (f51084b == null) {
             synchronized (b.class) {
-                if (f50677b == null) {
-                    f50677b = new b();
+                if (f51084b == null) {
+                    f51084b = new b();
                 }
             }
         }
-        return f50677b;
+        return f51084b;
     }
 
     public void a() {
@@ -45,7 +45,7 @@ public class b {
     }
 
     public final ArrayList<d.b.h0.a.b0.a> e() {
-        return this.f50678a;
+        return this.f51085a;
     }
 
     public void f(JSONArray jSONArray) {
@@ -63,7 +63,7 @@ public class b {
         if (StringUtils.isNull(currentAccount) || jSONArray == null) {
             return;
         }
-        this.f50678a.clear();
+        this.f51085a.clear();
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject jSONObject = null;
             try {
@@ -72,17 +72,17 @@ public class b {
                 e2.printStackTrace();
             }
             d.b.h0.a.b0.a aVar = new d.b.h0.a.b0.a();
-            aVar.f49511a = jSONObject.optInt("active_id");
-            aVar.f49512b = jSONObject.optInt("mission_id");
-            aVar.f49513c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
-            long d2 = d("business_update_time" + currentAccount + aVar.f49511a);
-            if (g("business_count_hint" + currentAccount + aVar.f49511a) && DateUtils.isToday(d2)) {
-                aVar.s = c("business_count_hint" + currentAccount + aVar.f49511a);
+            aVar.f49903a = jSONObject.optInt("active_id");
+            aVar.f49904b = jSONObject.optInt("mission_id");
+            aVar.f49905c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+            long d2 = d("business_update_time" + currentAccount + aVar.f49903a);
+            if (g("business_count_hint" + currentAccount + aVar.f49903a) && DateUtils.isToday(d2)) {
+                aVar.s = c("business_count_hint" + currentAccount + aVar.f49903a);
             } else {
                 aVar.s = jSONObject.optInt("show_num");
                 a();
-                i("business_count_hint" + currentAccount + aVar.f49511a, aVar.s);
-                j("business_update_time" + currentAccount + aVar.f49511a, System.currentTimeMillis());
+                i("business_count_hint" + currentAccount + aVar.f49903a, aVar.s);
+                j("business_update_time" + currentAccount + aVar.f49903a, System.currentTimeMillis());
             }
             aVar.t = jSONObject.optInt("show_time_begin");
             aVar.u = jSONObject.optInt("show_time_end");
@@ -102,7 +102,7 @@ public class b {
                     e4.printStackTrace();
                 }
             }
-            this.f50678a.add(aVar);
+            this.f51085a.add(aVar);
         }
     }
 
@@ -139,9 +139,9 @@ public class b {
                 return;
             }
             while (i < e2.size()) {
-                int i2 = e2.get(i).f49511a;
-                int i3 = e2.get(i).f49512b;
-                int i4 = e2.get(i).f49513c;
+                int i2 = e2.get(i).f49903a;
+                int i3 = e2.get(i).f49904b;
+                int i4 = e2.get(i).f49905c;
                 int c2 = c("business_count_hint" + currentAccount + i2);
                 long j = e2.get(i).t;
                 long j2 = e2.get(i).u;

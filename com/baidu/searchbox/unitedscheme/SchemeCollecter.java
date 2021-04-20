@@ -7,13 +7,13 @@ public class SchemeCollecter {
     public static final String CLASSIFY_SWAN_V8 = "swan/v8";
     public static final String CLASSIFY_SWAN_WEBVIEW = "swan/webview";
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x003c  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0072  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0081  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x009f  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00a6 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x003d  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0059  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0093  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a3  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00aa A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -45,7 +45,7 @@ public class SchemeCollecter {
             if (CLASSIFY_BASE.equals(str)) {
                 str2 = i == 0 ? "{\"totalSlices\":1,\"currentIndex\":0,\"defaults\":{\"scheme\":\"\"},\"descriptions\":[{\"args\":[{\"name\":\"appKey\",\"value\":\"string\"},{\"name\":\"path\",\"value\":\"string=\"},{\"name\":\"query\",\"value\":\"Object=\"},{\"name\":\"_baiduboxapp\",\"value\":{\"type\":{\"ext\":\"Object=\",\"srcAppPage\":\"string=\",\"extraData\":\"Object=\",\"navi\":\"string=\",\"ubc\":\"Object=\",\"notinhis\":\"string=\",\"from\":\"string=\",\"srcAppId\":\"string=\"}}},{\"name\":\"abtest\",\"value\":\"string=\"},{\"name\":\"oauthType\",\"value\":\"string=\"}],\"method\":\"Bdbox_android_jsbridge.dispatch\",\"authority\":\"swan\",\"name\":\"swan.open\",\"invoke\":\"method.openSwan\"}]}" : "";
             }
-            if (CLASSIFY_EMPTY.equals(str)) {
+            if ("empty".equals(str)) {
                 str2 = i == 0 ? "{\"totalSlices\":1,\"currentIndex\":0,\"defaults\":{\"scheme\":\"\"},\"descriptions\":[]}" : "";
             }
             return !"swan/webview_ab".equals(str) ? i == 0 ? "{\"totalSlices\":1,\"currentIndex\":0,\"defaults\":{\"scheme\":\"\"},\"descriptions\":[{\"args\":[{\"name\":\"url\",\"value\":\"string\"},{\"name\":\"ext\",\"value\":\"object=\"},{\"name\":\"data\",\"value\":\"string|object=\"},{\"name\":\"header\",\"value\":\"object=\"},{\"name\":\"method\",\"value\":\"string=\"},{\"name\":\"dataType\",\"value\":\"string=\"},{\"name\":\"responseType\",\"value\":\"string=\"},{\"name\":\"ping\",\"value\":\"boolean=\"},{\"name\":\"__plugin__\",\"value\":\"string=\"},{\"name\":\"cb\",\"value\":\"string\"},{\"name\":\"__requestDataType__\",\"value\":\"string=\"}],\"path\":\"/request\",\"method\":\"_naNetwork.request\",\"authority\":\"swanAPI\",\"name\":\"request\",\"invoke\":\"swan.method.jsonString\"}]}" : "" : str2;
@@ -59,7 +59,7 @@ public class SchemeCollecter {
         }
         if (CLASSIFY_BASE.equals(str)) {
         }
-        if (CLASSIFY_EMPTY.equals(str)) {
+        if ("empty".equals(str)) {
         }
         if (!"swan/webview_ab".equals(str)) {
         }

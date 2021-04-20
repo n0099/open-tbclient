@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -17,8 +18,8 @@ import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.i0.o3.c;
+import d.b.c.e.p.l;
+import d.b.i0.p3.c;
 /* loaded from: classes3.dex */
 public class KuangFloatingWindowController {
     public static boolean currentStatus = false;
@@ -129,7 +130,7 @@ public class KuangFloatingWindowController {
                 }
                 Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                 if (launchIntentForPackage != null) {
-                    launchIntentForPackage.addFlags(268435456);
+                    launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
                 }
             }

@@ -3,9 +3,9 @@ package com.baidu.tbadk.message.http;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.util.NetWorkState;
-import d.b.b.e.j.a.d;
-import d.b.b.e.j.a.e;
-import d.b.b.e.p.j;
+import d.b.c.e.j.a.d;
+import d.b.c.e.j.a.e;
+import d.b.c.e.p.j;
 /* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
@@ -50,9 +50,9 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
             NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(j.I());
-            statisticsData.mSize = dVar.f41779b;
-            statisticsData.mTime = dVar.f41783f;
-            statisticsData.mTimesNum = dVar.f41782e;
+            statisticsData.mSize = dVar.f42276b;
+            statisticsData.mTime = dVar.f42280f;
+            statisticsData.mTimesNum = dVar.f42279e;
             statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
             NetWorkState.addStatisticsData(statisticsData);
         }

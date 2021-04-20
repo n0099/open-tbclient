@@ -24,16 +24,16 @@ import org.json.JSONObject;
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f11413a = 11;
+    public static final int f10997a = 11;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11415c = "android";
+    public static final String f10999c = "android";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11414b = Character.toString(1);
+    public static final String f10998b = Character.toString(1);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11416d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+    public static final String f11000d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
 
     public static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
@@ -136,7 +136,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String getDeviceInfo(String str) {
         List<String> buildDeviceTokens = buildDeviceTokens(str);
         a.a(buildDeviceTokens);
-        return a(TextUtils.join(f11414b, buildDeviceTokens));
+        return a(TextUtils.join(f10998b, buildDeviceTokens));
     }
 
     public static String getDiCookieInfo(List<String> list) {
@@ -145,12 +145,12 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (a.f11417a.isEmpty() || list == null) {
+        if (a.f11001a.isEmpty() || list == null) {
             return null;
         }
         for (String str : list) {
             try {
-                jSONObject.put(str, a.f11417a.get(str));
+                jSONObject.put(str, a.f11001a.get(str));
             } catch (JSONException e2) {
                 Log.e(e2);
             }
@@ -176,7 +176,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String a(String str) {
         try {
             String a2 = a();
-            String base64Encode = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str, a2, f11416d));
+            String base64Encode = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str, a2, f11000d));
             return TextUtils.join("_", new String[]{a2, base64Encode, SecurityUtil.md5(TextUtils.join("_", new String[]{a2, base64Encode, BundleOpProvider.METHOD_BUNDLE_CHECK}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
@@ -188,7 +188,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Map<String, String> f11417a = new HashMap();
+        public static Map<String, String> f11001a = new HashMap();
 
         public static List<String> a() {
             ArrayList arrayList = new ArrayList();
@@ -235,7 +235,7 @@ public class SapiDeviceInfo implements NoProguard {
         public static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                f11417a.put(a2.get(i), list.get(i));
+                f11001a.put(a2.get(i), list.get(i));
             }
         }
     }

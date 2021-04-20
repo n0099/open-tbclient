@@ -14,36 +14,36 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3692a = false;
+    public static final boolean f3727a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3693b = "ImageMemoryCache";
+    public static final String f3728b = "ImageMemoryCache";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3694c = 15;
+    public static final int f3729c = 15;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3695d = 10000;
+    public static final int f3730d = 10000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float f3696e = 0.75f;
+    public static final float f3731e = 0.75f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HandlerThread f3699h;
+    public static HandlerThread f3734h;
     public static Handler i;
 
     /* renamed from: f  reason: collision with root package name */
-    public static ConcurrentHashMap<String, SoftReference<Bitmap>> f3697f = new ConcurrentHashMap<>(7);
+    public static ConcurrentHashMap<String, SoftReference<Bitmap>> f3732f = new ConcurrentHashMap<>(7);
 
     /* renamed from: g  reason: collision with root package name */
-    public static HashMap<String, Bitmap> f3698g = new LinkedHashMap<String, Bitmap>(7, 0.75f, true) { // from class: com.baidu.apollon.imagemanager.ImageMemoryCache$1
+    public static HashMap<String, Bitmap> f3733g = new LinkedHashMap<String, Bitmap>(7, 0.75f, true) { // from class: com.baidu.apollon.imagemanager.ImageMemoryCache$1
         public static final long serialVersionUID = 1;
 
         @Override // java.util.LinkedHashMap
         public boolean removeEldestEntry(Map.Entry<String, Bitmap> entry) {
             ConcurrentHashMap concurrentHashMap;
             if (size() > 15) {
-                concurrentHashMap = b.f3697f;
+                concurrentHashMap = b.f3732f;
                 concurrentHashMap.put(entry.getKey(), new SoftReference(entry.getValue()));
                 return true;
             }
@@ -60,9 +60,9 @@ public class b {
     /* loaded from: classes.dex */
     public static class a {
         static {
-            HandlerThread unused = b.f3699h = new HandlerThread("sb_imagecache_loop", 10);
-            b.f3699h.start();
-            Handler unused2 = b.i = new Handler(b.f3699h.getLooper());
+            HandlerThread unused = b.f3734h = new HandlerThread("sb_imagecache_loop", 10);
+            b.f3734h.start();
+            Handler unused2 = b.i = new Handler(b.f3734h.getLooper());
         }
 
         public a() {
@@ -70,46 +70,46 @@ public class b {
     }
 
     public static void e() {
-        synchronized (f3698g) {
-            for (Map.Entry<String, Bitmap> entry : f3698g.entrySet()) {
-                f3697f.put(entry.getKey(), new SoftReference<>(entry.getValue()));
+        synchronized (f3733g) {
+            for (Map.Entry<String, Bitmap> entry : f3733g.entrySet()) {
+                f3732f.put(entry.getKey(), new SoftReference<>(entry.getValue()));
             }
-            f3698g.clear();
+            f3733g.clear();
         }
         LinkedList linkedList = new LinkedList();
-        for (Map.Entry<String, SoftReference<Bitmap>> entry2 : f3697f.entrySet()) {
+        for (Map.Entry<String, SoftReference<Bitmap>> entry2 : f3732f.entrySet()) {
             if (entry2.getValue().get() == null) {
                 linkedList.add(entry2.getKey());
             }
         }
         Iterator it = linkedList.iterator();
         while (it.hasNext()) {
-            f3697f.remove((String) it.next());
+            f3732f.remove((String) it.next());
         }
     }
 
     public void a(String str, Bitmap bitmap) {
         if (bitmap != null) {
-            synchronized (f3698g) {
-                f3698g.put(str, bitmap);
+            synchronized (f3733g) {
+                f3733g.put(str, bitmap);
             }
         }
     }
 
     public Bitmap a(String str) {
-        synchronized (f3698g) {
-            Bitmap bitmap = f3698g.get(str);
+        synchronized (f3733g) {
+            Bitmap bitmap = f3733g.get(str);
             if (bitmap != null) {
                 return bitmap;
             }
-            SoftReference<Bitmap> softReference = f3697f.get(str);
+            SoftReference<Bitmap> softReference = f3732f.get(str);
             if (softReference != null) {
                 Bitmap bitmap2 = softReference.get();
                 if (bitmap2 != null) {
                     a(str, bitmap2);
                     return bitmap2;
                 }
-                f3697f.remove(str);
+                f3732f.remove(str);
                 return null;
             }
             return null;

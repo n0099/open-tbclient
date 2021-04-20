@@ -26,13 +26,13 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f25368a = "PayUtils";
+    public static String f25053a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f25369b = "";
+    public static final String f25054b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f25370c;
+    public static ArrayList<String> f25055c;
 
     /* loaded from: classes5.dex */
     public static class a implements Comparator<String> {
@@ -49,12 +49,12 @@ public final class PayUtils {
 
     static {
         ArrayList<String> arrayList = new ArrayList<>();
-        f25370c = arrayList;
+        f25055c = arrayList;
         arrayList.add("card_no");
-        f25370c.add("valid_date");
-        f25370c.add("cvv2");
-        f25370c.add("identity_code");
-        f25370c.add("phone_number");
+        f25055c.add("valid_date");
+        f25055c.add("cvv2");
+        f25055c.add("identity_code");
+        f25055c.add("phone_number");
     }
 
     public static String a(List<String> list) {
@@ -71,7 +71,7 @@ public final class PayUtils {
 
     public static String encrypt(String str, String str2) {
         LogUtil.d(str + "加密=" + str2);
-        if (f25370c.contains(str)) {
+        if (f25055c.contains(str)) {
             if (TextUtils.isEmpty(str2)) {
                 return "";
             }
@@ -164,7 +164,7 @@ public final class PayUtils {
                     value = "";
                 }
                 sb.append(name);
-                sb.append(com.alipay.sdk.encrypt.a.f1897h);
+                sb.append(com.alipay.sdk.encrypt.a.f1922h);
                 sb.append(value);
                 sb.append(Typography.amp);
             }

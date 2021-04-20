@@ -10,11 +10,11 @@ public class c {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f3509a;
+    public final String f3544a;
 
     public c(@NonNull Certificate certificate) {
         try {
-            this.f3509a = Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(certificate.getPublicKey().getEncoded()), 0).trim();
+            this.f3544a = Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(certificate.getPublicKey().getEncoded()), 0).trim();
         } catch (NoSuchAlgorithmException unused) {
             throw new IllegalStateException("Should never happen");
         }
@@ -27,20 +27,20 @@ public class c {
         if (obj == null || c.class != obj.getClass()) {
             return false;
         }
-        return this.f3509a.equals(((c) obj).f3509a);
+        return this.f3544a.equals(((c) obj).f3544a);
     }
 
     public int hashCode() {
-        return this.f3509a.hashCode();
+        return this.f3544a.hashCode();
     }
 
     public String toString() {
-        return "pin='" + this.f3509a + '\'';
+        return "pin='" + this.f3544a + '\'';
     }
 
     public c(@NonNull String str) {
         if (Base64.decode(str, 0).length == 32) {
-            this.f3509a = str.trim();
+            this.f3544a = str.trim();
             return;
         }
         throw new IllegalArgumentException("Invalid pin: length is not 32 bytes");

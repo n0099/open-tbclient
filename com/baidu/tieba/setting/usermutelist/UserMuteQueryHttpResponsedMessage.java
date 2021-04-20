@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UserMuteQuery.DataRes;
 import tbclient.UserMuteQuery.UserMuteQueryResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UserMuteQueryHttpResponsedMessage extends HttpResponsedMessage {
     public DataRes mResult;
 

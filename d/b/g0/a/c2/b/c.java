@@ -10,7 +10,7 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a0 {
     public c(j jVar) {
         super(jVar, "/swanAPI/stopMediaVolumeListen");
@@ -21,14 +21,14 @@ public class c extends a0 {
         if (eVar == null) {
             d.b.g0.a.c0.c.b("stopMediaVolumeListen", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b.g0.a.c0.c.b("stopMediaVolumeListen", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal context");
             }
             return false;

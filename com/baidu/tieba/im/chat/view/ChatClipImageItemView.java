@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import d.b.b.e.p.l;
-import d.b.b.f.a.h;
-import d.b.b.f.a.k;
-import d.b.b.f.a.n;
+import d.b.c.e.p.l;
+import d.b.c.f.a.h;
+import d.b.c.f.a.k;
+import d.b.c.f.a.n;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
     public a A0;
     public boolean w0;
@@ -25,7 +25,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public final Path y0;
     public boolean z0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Canvas canvas);
     }
@@ -34,7 +34,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this(context, null, 0);
     }
 
-    @Override // d.b.b.f.a.k.a
+    @Override // d.b.c.f.a.k.a
     public Path a(RectF rectF) {
         if (rectF == null) {
             return null;
@@ -46,7 +46,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         return this.y0;
     }
 
-    @Override // d.b.b.f.a.k.a
+    @Override // d.b.c.f.a.k.a
     public void b(Canvas canvas) {
     }
 
@@ -78,11 +78,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         } else {
             this.x0 = new h();
         }
-        this.f2182h.n = true;
+        this.f2217h.n = true;
         this.x0.t(this);
         k kVar = this.x0;
         this.i = kVar;
-        kVar.p(this.f2182h);
+        kVar.p(this.f2217h);
     }
 
     public final Path g0(float f2, float f3, float f4) {
@@ -151,8 +151,8 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public d.b.b.j.d.a getBdImage() {
-        d.b.b.j.d.a bdImage = super.getBdImage();
+    public d.b.c.j.d.a getBdImage() {
+        d.b.c.j.d.a bdImage = super.getBdImage();
         boolean z = true;
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.w();
@@ -165,7 +165,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public d.b.b.j.d.a getDefaultBdImage() {
+    public d.b.c.j.d.a getDefaultBdImage() {
         this.x0.u(false);
         return super.getDefaultBdImage();
     }

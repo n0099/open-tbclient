@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.im.more;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PrivacySettingMessage extends HttpMessage {
     public String opt;
     public int val;

@@ -14,7 +14,7 @@ import com.baidu.walletfacesdk.LightInvokerImpl;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BdWalletUtils {
     public static final String DEVICE_FP = "rim_device_fp";
     public static final String PREF_FILE_NAME_FP = "__RIM_SDK_FP_V1";

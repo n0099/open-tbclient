@@ -5,18 +5,18 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 public class PluginInstallTask extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2193e;
+    public String f2228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2194f;
+    public String f2229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2195g;
+    public boolean f2230g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f2196h;
+    public long f2231h;
 
     public long s() {
-        return Math.max(Math.min(this.f2196h * 80, 240000L), 60000L);
+        return Math.max(Math.min(this.f2231h * 80, 240000L), 60000L);
     }
 }

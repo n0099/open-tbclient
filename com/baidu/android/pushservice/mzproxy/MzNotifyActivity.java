@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pushservice.f;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -15,19 +16,19 @@ import org.json.JSONObject;
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3489a;
+    public String f3524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3490b;
+    public String f3525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3491c;
+    public String f3526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3492d;
+    public String f3527d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3493e;
+    public String f3528e;
 
     public static String a(Context context, String str) {
         Intent intent = new Intent();
@@ -56,37 +57,37 @@ public class MzNotifyActivity extends Activity {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                         if (!jSONObject2.isNull("Msgid")) {
-                            this.f3489a = jSONObject2.getString("Msgid");
+                            this.f3524a = jSONObject2.getString("Msgid");
                         }
                         if (!jSONObject2.isNull("msgBody")) {
-                            this.f3491c = jSONObject2.getString("msgBody");
+                            this.f3526c = jSONObject2.getString("msgBody");
                         }
                     }
-                    if (!TextUtils.isEmpty(this.f3491c)) {
-                        JSONObject jSONObject3 = new JSONObject(this.f3491c);
+                    if (!TextUtils.isEmpty(this.f3526c)) {
+                        JSONObject jSONObject3 = new JSONObject(this.f3526c);
                         if (!jSONObject3.isNull("custom_content")) {
-                            this.f3492d = jSONObject3.getString("custom_content");
+                            this.f3527d = jSONObject3.getString("custom_content");
                         }
                         if (!jSONObject3.isNull("pkg_content")) {
-                            this.f3493e = jSONObject3.getString("pkg_content");
+                            this.f3528e = jSONObject3.getString("pkg_content");
                         }
                         if (!jSONObject3.isNull("mzpri_signinfo")) {
-                            this.f3490b = jSONObject3.getString("mzpri_signinfo");
+                            this.f3525b = jSONObject3.getString("mzpri_signinfo");
                         }
                     }
                 }
-                if (f.a(this, this.f3490b, (this.f3489a + this.f3492d).replaceAll("\\\\", ""))) {
-                    if (TextUtils.isEmpty(this.f3493e)) {
+                if (f.a(this, this.f3525b, (this.f3524a + this.f3527d).replaceAll("\\\\", ""))) {
+                    if (TextUtils.isEmpty(this.f3528e)) {
                         parseUri = new Intent();
                         parseUri.setClassName(getPackageName(), a(this, getPackageName()));
-                        parseUri.setFlags(268435456);
+                        parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     } else {
-                        parseUri = Intent.parseUri(this.f3493e, 0);
+                        parseUri = Intent.parseUri(this.f3528e, 0);
                         parseUri.setPackage(getPackageName());
-                        parseUri.addFlags(268435456);
+                        parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     }
-                    if (!TextUtils.isEmpty(this.f3492d)) {
-                        JSONObject jSONObject4 = new JSONObject(this.f3492d);
+                    if (!TextUtils.isEmpty(this.f3527d)) {
+                        JSONObject jSONObject4 = new JSONObject(this.f3527d);
                         Iterator<String> keys = jSONObject4.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();

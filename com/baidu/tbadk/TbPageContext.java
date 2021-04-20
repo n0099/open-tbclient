@@ -10,41 +10,41 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.b.a.f;
-import d.b.b.c.g.a;
+import d.b.c.a.f;
+import d.b.c.c.g.a;
 import d.b.h0.r.c;
 /* loaded from: classes3.dex */
 public interface TbPageContext<T> extends f<T> {
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ Context getContext();
 
     c getLayoutMode();
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ T getOrignalPage();
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ Activity getPageActivity();
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ Resources getResources();
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ String getString(int i);
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ BdUniqueId getUniqueId();
 
     /* synthetic */ void registerListener(int i, MessageListener<?> messageListener);
 
     /* synthetic */ void registerListener(int i, a aVar);
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ void registerListener(MessageListener<?> messageListener);
 
     /* synthetic */ void registerListener(a aVar);
 
-    @Override // d.b.b.a.f
+    @Override // d.b.c.a.f
     /* synthetic */ void sendMessage(Message<?> message);
 
     /* synthetic */ void sendMessage(NetMessage netMessage);

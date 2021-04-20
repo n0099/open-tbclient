@@ -1,57 +1,46 @@
 package d.b.h0.s.c;
 
-import android.net.Uri;
-import com.baidu.wallet.core.Domains;
-import java.util.Arrays;
+import android.text.TextUtils;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f51237a = Arrays.asList(Domains.BAIDU, Domains.NUOMI, Domains.BAIFUBAO, ".hao123.com");
+    public List<x> f51657a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static List<String> f51238b;
-
-    public static boolean a(String str) {
-        String o;
-        if (d.b.b.e.p.k.isEmpty(str)) {
-            return false;
-        }
-        Uri parse = Uri.parse(str);
-        if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-            if (f51238b == null && (o = d.b.h0.r.d0.b.i().o("js_host_white_list", null)) != null) {
-                f51238b = b(o);
+    public void a(JSONArray jSONArray) {
+        boolean z;
+        this.f51657a = new ArrayList();
+        try {
+            if (jSONArray == null) {
+                d.b.h0.r.d0.b.j().x("key_index_tab_info_list", "[]");
+                return;
             }
-            if (f51238b == null) {
-                f51238b = f51237a;
-            }
-            if (parse != null) {
-                String host = parse.getHost();
-                for (String str2 : f51238b) {
-                    if (host.endsWith(str2)) {
-                        return true;
+            JSONArray jSONArray2 = new JSONArray(d.b.h0.r.d0.b.j().p("key_index_tab_info_list", "[]"));
+            for (int i = 0; i < jSONArray.length(); i++) {
+                x xVar = new x();
+                x xVar2 = new x();
+                xVar.b(jSONArray.getJSONObject(i));
+                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                    xVar2.b(jSONArray2.getJSONObject(i2));
+                    if (xVar.f51660c != null && xVar.f51660c.equals(xVar2.f51660c)) {
+                        if (!TextUtils.isEmpty(xVar2.f51661d) && xVar2.f51661d.equals(xVar.f51661d)) {
+                            z = false;
+                            xVar.f51662e = z;
+                        }
+                        z = true;
+                        xVar.f51662e = z;
                     }
                 }
+                if (!xVar.a()) {
+                    this.f51657a.add(xVar);
+                }
             }
-            return false;
+            d.b.h0.r.d0.b.j().x("key_index_tab_info_list", jSONArray.toString());
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        return true;
-    }
-
-    public static List<String> b(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
-            return null;
-        }
-        return Arrays.asList(str.split(";"));
-    }
-
-    public static void c(String str) {
-        if (str == null) {
-            d.b.h0.r.d0.b.i().w("js_host_white_list", "");
-        } else {
-            d.b.h0.r.d0.b.i().w("js_host_white_list", str);
-        }
-        f51238b = b(str);
     }
 }

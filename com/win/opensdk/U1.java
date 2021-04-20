@@ -5,11 +5,11 @@ import java.io.File;
 public class U1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39819a;
+    public static boolean f40108a;
 
     public static boolean a() {
         String str;
-        boolean z = f39819a;
+        boolean z = f40108a;
         if (z) {
             return z;
         }
@@ -28,7 +28,7 @@ public class U1 {
             i++;
         }
         boolean z2 = str != null;
-        f39819a = z2;
+        f40108a = z2;
         return z2;
     }
 }

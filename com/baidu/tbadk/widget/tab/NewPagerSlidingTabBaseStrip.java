@@ -20,7 +20,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
@@ -53,19 +53,19 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout.LayoutParams f14336e;
+    public LinearLayout.LayoutParams f14013e;
     public Locale e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout.LayoutParams f14337f;
+    public LinearLayout.LayoutParams f14014f;
     public RectF f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f14338g;
+    public int[] f14015g;
     public c g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout.LayoutParams f14339h;
+    public FrameLayout.LayoutParams f14016h;
     public final d i;
     public ViewPager.OnPageChangeListener j;
     public LinearLayout k;
@@ -90,7 +90,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14340e;
+        public int f14017e;
 
         /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<SavedState> {
@@ -116,7 +116,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f14340e);
+            parcel.writeInt(this.f14017e);
         }
 
         public SavedState(Parcelable parcelable) {
@@ -125,7 +125,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
 
         public SavedState(Parcel parcel) {
             super(parcel);
-            this.f14340e = parcel.readInt();
+            this.f14017e = parcel.readInt();
         }
     }
 
@@ -133,27 +133,27 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     public class TabTextView extends TextView {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f14341e;
+        public boolean f14018e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f14342f;
+        public Paint f14019f;
 
         public TabTextView(Context context) {
             super(context);
-            this.f14341e = false;
+            this.f14018e = false;
             Paint paint = new Paint();
-            this.f14342f = paint;
+            this.f14019f = paint;
             paint.setColor(-16776961);
-            this.f14342f.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f14342f.setStrokeWidth(20.0f);
-            this.f14342f.setAntiAlias(true);
-            this.f14342f.setDither(true);
+            this.f14019f.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.f14019f.setStrokeWidth(20.0f);
+            this.f14019f.setAntiAlias(true);
+            this.f14019f.setDither(true);
         }
 
         @Override // android.widget.TextView, android.view.View
         public void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.f14341e) {
+            if (this.f14018e) {
                 int width = (getWidth() - NewPagerSlidingTabBaseStrip.this.W) - NewPagerSlidingTabBaseStrip.this.U;
                 int i = NewPagerSlidingTabBaseStrip.this.V;
                 NewPagerSlidingTabBaseStrip.this.u.set(width, i, width + NewPagerSlidingTabBaseStrip.this.U, i + NewPagerSlidingTabBaseStrip.this.U);
@@ -162,7 +162,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         }
 
         public void setHasRedDot(boolean z) {
-            this.f14341e = z;
+            this.f14018e = z;
         }
     }
 
@@ -188,10 +188,10 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14345e;
+        public final /* synthetic */ int f14022e;
 
         public b(int i) {
-            this.f14345e = i;
+            this.f14022e = i;
         }
 
         @Override // android.view.View.OnClickListener
@@ -200,11 +200,11 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
                 return;
             }
             if (NewPagerSlidingTabBaseStrip.this.g0 != null) {
-                NewPagerSlidingTabBaseStrip.this.g0.a(view, this.f14345e);
+                NewPagerSlidingTabBaseStrip.this.g0.a(view, this.f14022e);
             }
-            if (NewPagerSlidingTabBaseStrip.this.l.getCurrentItem() != this.f14345e) {
+            if (NewPagerSlidingTabBaseStrip.this.l.getCurrentItem() != this.f14022e) {
                 NewPagerSlidingTabBaseStrip.this.c0 = true;
-                NewPagerSlidingTabBaseStrip.this.l.setCurrentItem(this.f14345e);
+                NewPagerSlidingTabBaseStrip.this.l.setCurrentItem(this.f14022e);
                 NewPagerSlidingTabBaseStrip.this.I();
             }
         }
@@ -337,7 +337,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.R = linearLayout;
             linearLayout.setOrientation(0);
-            FrameLayout.LayoutParams layoutParams = this.f14339h;
+            FrameLayout.LayoutParams layoutParams = this.f14016h;
             if (layoutParams == null) {
                 this.R.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             } else {
@@ -382,8 +382,8 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.U = l.g(getContext(), R.dimen.tbds20);
         this.V = l.g(getContext(), R.dimen.tbds16);
         this.W = l.g(getContext(), R.dimen.tbds25);
-        this.f14336e = new LinearLayout.LayoutParams(-2, -1);
-        this.f14337f = new LinearLayout.LayoutParams(l.g(getContext(), R.dimen.tbds200), -1);
+        this.f14013e = new LinearLayout.LayoutParams(-2, -1);
+        this.f14014f = new LinearLayout.LayoutParams(l.g(getContext(), R.dimen.tbds200), -1);
         this.F = l.g(getContext(), R.dimen.tbds22);
         this.E = l.g(getContext(), R.dimen.tbds20);
         this.H = l.g(getContext(), R.dimen.tbds15);
@@ -558,7 +558,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     public void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        int i = savedState.f14340e;
+        int i = savedState.f14017e;
         this.o = i;
         this.q = i;
         requestLayout();
@@ -567,7 +567,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.f14340e = this.o;
+        savedState.f14017e = this.o;
         return savedState;
     }
 
@@ -575,7 +575,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     }
 
     public void setContainerLayoutParams(FrameLayout.LayoutParams layoutParams) {
-        this.f14339h = layoutParams;
+        this.f14016h = layoutParams;
     }
 
     public void setDefaultSelectorColorResourceId(int i) {
@@ -583,11 +583,11 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     }
 
     public void setDefaultTabLayoutParams(LinearLayout.LayoutParams layoutParams) {
-        this.f14336e = layoutParams;
+        this.f14013e = layoutParams;
     }
 
     public void setExpandedTabLayoutParams(LinearLayout.LayoutParams layoutParams) {
-        this.f14337f = layoutParams;
+        this.f14014f = layoutParams;
     }
 
     public void setIndicatorMarginBottom(int i) {
@@ -628,7 +628,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     }
 
     public void setTabPadding(int i, int i2, int i3, int i4) {
-        this.f14338g = r0;
+        this.f14015g = r0;
         int[] iArr = {i, i2, i3, i4};
     }
 
@@ -664,11 +664,11 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     public final void v(int i, View view) {
         view.setFocusable(true);
         view.setOnClickListener(new b(i));
-        int[] iArr = this.f14338g;
+        int[] iArr = this.f14015g;
         if (iArr != null && iArr.length == 4) {
             view.setPadding(iArr[0], iArr[1], iArr[2], iArr[3]);
         }
-        this.k.addView(view, i, this.v ? this.f14337f : this.f14336e);
+        this.k.addView(view, i, this.v ? this.f14014f : this.f14013e);
     }
 
     public final void w(int i, String str, boolean z) {

@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.BaseFragment;
 public abstract class BaseTemplateFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.x0.a f14026e;
+    public d.b.h0.x0.a f13687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f14027f;
+    public ViewGroup f13688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f14028g = new a(2001453);
+    public final CustomMessageListener f13689g = new a(2001453);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -65,7 +65,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     public void J0() {
         d.b.h0.x0.d.a.b("BaseTemplateFragment-->sendReq----");
-        d.b.h0.x0.a aVar = this.f14026e;
+        d.b.h0.x0.a aVar = this.f13687e;
         if (aVar != null) {
             aVar.e();
         }
@@ -98,7 +98,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onChangeSkinType(int i) {
         d.b.h0.x0.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
         super.onChangeSkinType(i);
-        d.b.h0.x0.a aVar = this.f14026e;
+        d.b.h0.x0.a aVar = this.f13687e;
         if (aVar != null) {
             aVar.a(i);
         }
@@ -114,26 +114,26 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         d.b.h0.x0.d.a.b("BaseTemplateFragment-->onCreateView---- ");
-        ViewGroup viewGroup2 = this.f14027f;
+        ViewGroup viewGroup2 = this.f13688f;
         if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f14027f.getParent()).removeView(this.f14027f);
+            ((ViewGroup) this.f13688f.getParent()).removeView(this.f13688f);
         }
-        if (this.f14027f == null) {
-            this.f14027f = G0();
+        if (this.f13688f == null) {
+            this.f13688f = G0();
         }
-        if (this.f14026e == null) {
-            this.f14026e = F0(this.f14027f);
+        if (this.f13687e == null) {
+            this.f13687e = F0(this.f13688f);
         }
-        this.f14026e.f(getUniqueId());
-        registerListener(this.f14028g);
-        return this.f14027f;
+        this.f13687e.f(getUniqueId());
+        registerListener(this.f13689g);
+        return this.f13688f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         d.b.h0.x0.d.a.b("BaseTemplateFragment-->onDestroy---- ");
         super.onDestroy();
-        d.b.h0.x0.a aVar = this.f14026e;
+        d.b.h0.x0.a aVar = this.f13687e;
         if (aVar != null) {
             aVar.b();
         }
@@ -168,7 +168,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onPause() {
         d.b.h0.x0.d.a.b("BaseTemplateFragment-->onPause---- ");
         super.onPause();
-        d.b.h0.x0.a aVar = this.f14026e;
+        d.b.h0.x0.a aVar = this.f13687e;
         if (aVar != null) {
             aVar.c();
         }
@@ -179,14 +179,14 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         d.b.h0.x0.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            d.b.h0.x0.a aVar = this.f14026e;
+            d.b.h0.x0.a aVar = this.f13687e;
             if (aVar != null) {
                 aVar.d();
                 return;
             }
             return;
         }
-        d.b.h0.x0.a aVar2 = this.f14026e;
+        d.b.h0.x0.a aVar2 = this.f13687e;
         if (aVar2 != null) {
             aVar2.c();
         }

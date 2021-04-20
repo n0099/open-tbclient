@@ -6,10 +6,10 @@ import d.b.o0.e.f.d;
 public class b extends d {
     public b(Context context) {
         super(context);
-        this.f64215d = "";
-        this.f64213b = false;
-        this.f64214c = false;
-        this.f64218g = -100;
+        this.f64928d = "";
+        this.f64926b = false;
+        this.f64927c = false;
+        this.f64931g = -100;
     }
 
     @Override // d.b.o0.e.f.c

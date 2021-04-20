@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
-import d.b.b.e.m.b;
-import d.b.b.e.p.k;
+import d.b.c.e.m.b;
+import d.b.c.e.p.k;
 import d.b.h0.r.f0.q.a;
-import d.b.h0.t.c;
-import d.b.h0.t.m;
+import d.b.h0.t.d;
+import d.b.h0.t.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class MetaData extends OrmObject implements Serializable, a {
     public AlaInfoData alaInfo;
     public AlaUserInfoData alaUserData;
     public String appealThreadPopover;
-    public c businessAccountData;
+    public d businessAccountData;
     public boolean canModifyAvatar;
     public String cantModifyAvatarDesc;
     public String fansNickName;
@@ -58,7 +58,7 @@ public class MetaData extends OrmObject implements Serializable, a {
     public int is_myfans;
     public int is_myfriend;
     public LiveRoomInfo liveRoomInfo;
-    public m pendantData;
+    public n pendantData;
     public int rankInfluence;
     public String rankNum;
     public String virtualUserUrl;
@@ -152,7 +152,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.mBazhuGrade;
     }
 
-    public c getBusinessAccountData() {
+    public d getBusinessAccountData() {
         return this.businessAccountData;
     }
 
@@ -274,7 +274,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.mNewGodData;
     }
 
-    public m getPendantData() {
+    public n getPendantData() {
         return this.pendantData;
     }
 
@@ -355,8 +355,8 @@ public class MetaData extends OrmObject implements Serializable, a {
     }
 
     public boolean isForumBusinessAccount() {
-        c cVar = this.businessAccountData;
-        return cVar != null && cVar.f51457b;
+        d dVar = this.businessAccountData;
+        return dVar != null && dVar.f51878b;
     }
 
     @Override // d.b.h0.r.f0.q.a
@@ -374,8 +374,8 @@ public class MetaData extends OrmObject implements Serializable, a {
     }
 
     public boolean isOfficial() {
-        c cVar = this.businessAccountData;
-        return cVar != null && cVar.f51456a;
+        d dVar = this.businessAccountData;
+        return dVar != null && dVar.f51877a;
     }
 
     public boolean isVideoGod() {
@@ -475,9 +475,9 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.giftNum = user.gift_num.intValue();
         this.themeCard.parser(user.theme_card);
         if (user.pendant != null) {
-            m mVar = new m();
-            this.pendantData = mVar;
-            mVar.c(user.pendant);
+            n nVar = new n();
+            this.pendantData = nVar;
+            nVar.c(user.pendant);
         }
         this.isLikeStatusFromNet = true;
         if (user.ala_info != null) {
@@ -525,9 +525,9 @@ public class MetaData extends OrmObject implements Serializable, a {
             this.privSetsData.parserProtobuf(privSets);
         }
         if (user.business_account_info != null) {
-            c cVar = new c();
-            this.businessAccountData = cVar;
-            cVar.b(user.business_account_info);
+            d dVar = new d();
+            this.businessAccountData = dVar;
+            dVar.b(user.business_account_info);
         }
         if (!StringUtils.isNull(user.appeal_thread_popover)) {
             this.appealThreadPopover = user.appeal_thread_popover;
@@ -548,8 +548,8 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.mBazhuGrade = bazhuGradeData;
     }
 
-    public void setBusinessAccountData(c cVar) {
-        this.businessAccountData = cVar;
+    public void setBusinessAccountData(d dVar) {
+        this.businessAccountData = dVar;
     }
 
     public void setConcern_num(int i) {
@@ -657,8 +657,8 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.mNewGodData = newGodData;
     }
 
-    public void setPendantData(m mVar) {
-        this.pendantData = mVar;
+    public void setPendantData(n nVar) {
+        this.pendantData = nVar;
     }
 
     public void setPortrait(String str) {

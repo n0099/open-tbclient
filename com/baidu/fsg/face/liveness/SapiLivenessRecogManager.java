@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import com.baidu.fsg.face.base.e;
 import com.baidu.fsg.face.liveness.SapiLivenessOperation;
@@ -22,16 +23,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    public static SapiLivenessRecogManager f5657a;
+    public static SapiLivenessRecogManager f5692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LivenessRecogCallback f5658b;
+    public LivenessRecogCallback f5693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f5659c;
+    public long f5694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f5660d;
+    public long f5695d;
 
     private void a(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -94,22 +95,22 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f5658b = livenessRecogCallback;
+        this.f5693b = livenessRecogCallback;
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
             if (livenessRecogDTO.showGuidePage) {
                 Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
-                intent.setFlags(268435456);
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 context.startActivity(intent);
                 return;
             }
             Intent intent2 = new Intent(context, LivenessRecogActivity.class);
-            intent2.setFlags(268435456);
+            intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent2);
             return;
         }
-        this.f5660d = System.currentTimeMillis();
+        this.f5695d = System.currentTimeMillis();
         Intent intent3 = new Intent(context, LivenessLoadingActivity.class);
-        intent3.setFlags(268435456);
+        intent3.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent3);
     }
 
@@ -118,16 +119,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     private void c(Context context) {
-        this.f5659c = System.currentTimeMillis();
+        this.f5694c = System.currentTimeMillis();
     }
 
     public static synchronized SapiLivenessRecogManager getInstance() {
         SapiLivenessRecogManager sapiLivenessRecogManager;
         synchronized (SapiLivenessRecogManager.class) {
-            if (f5657a == null) {
-                f5657a = new SapiLivenessRecogManager();
+            if (f5692a == null) {
+                f5692a = new SapiLivenessRecogManager();
             }
-            sapiLivenessRecogManager = f5657a;
+            sapiLivenessRecogManager = f5692a;
         }
         return sapiLivenessRecogManager;
     }
@@ -137,7 +138,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public void cleanLivenessRecogCallback() {
-        this.f5658b = null;
+        this.f5693b = null;
     }
 
     @Override // com.baidu.fsg.face.base.b
@@ -166,7 +167,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public LivenessRecogCallback getLivenessRecogCallback() {
-        return this.f5658b;
+        return this.f5693b;
     }
 
     private void b(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
@@ -220,9 +221,9 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f5658b = livenessRecogCallback;
+        this.f5693b = livenessRecogCallback;
         Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
-        intent.setFlags(268435456);
+        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
     }
 
@@ -234,10 +235,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
                 context.sendBroadcast(intent);
             }
-        }, System.currentTimeMillis() - this.f5660d >= 1000 ? 0L : 1000L);
+        }, System.currentTimeMillis() - this.f5695d >= 1000 ? 0L : 1000L);
     }
 
     private boolean a() {
-        return System.currentTimeMillis() - this.f5659c < 300;
+        return System.currentTimeMillis() - this.f5694c < 300;
     }
 }

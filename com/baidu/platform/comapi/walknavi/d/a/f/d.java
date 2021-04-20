@@ -16,14 +16,14 @@ import org.json.JSONObject;
 public class d extends AsyncTask<String, Void, String> implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public f.a<JSONObject> f10001a;
+    public f.a<JSONObject> f9559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10002b;
+    public String f9560b;
 
     public d(String str, f.a<JSONObject> aVar) {
-        this.f10001a = aVar;
-        this.f10002b = str;
+        this.f9559a = aVar;
+        this.f9560b = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f10002b).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f9560b).openConnection();
             httpURLConnection.setConnectTimeout(20000);
             httpURLConnection.setReadTimeout(30000);
             httpURLConnection.setDoOutput(true);
@@ -60,7 +60,7 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public void onPostExecute(String str) {
         if (TextUtils.isEmpty(str)) {
-            f.a<JSONObject> aVar = this.f10001a;
+            f.a<JSONObject> aVar = this.f9559a;
             if (aVar != null) {
                 aVar.b("http error! result is null");
                 return;
@@ -68,8 +68,8 @@ public class d extends AsyncTask<String, Void, String> implements c {
             return;
         }
         try {
-            if (this.f10001a != null) {
-                this.f10001a.a(new JSONObject(str));
+            if (this.f9559a != null) {
+                this.f9559a.a(new JSONObject(str));
             }
         } catch (JSONException unused) {
         }
@@ -78,6 +78,6 @@ public class d extends AsyncTask<String, Void, String> implements c {
     @Override // com.baidu.platform.comapi.walknavi.d.a.f.c
     public void a() {
         cancel(true);
-        this.f10001a = null;
+        this.f9559a = null;
     }
 }

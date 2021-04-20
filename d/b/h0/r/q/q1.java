@@ -10,21 +10,7 @@ public class q1 extends a2 {
     public String E3 = "";
     public ArrayList<r1> F3 = new ArrayList<>();
 
-    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
-    public BdUniqueId getType() {
-        return G3;
-    }
-
-    @Override // d.b.h0.r.q.a2
-    public String x1() {
-        return this.E3;
-    }
-
-    public ArrayList<r1> y4() {
-        return this.F3;
-    }
-
-    public void z4(RecommendInfo recommendInfo) {
+    public void A4(RecommendInfo recommendInfo) {
         if (recommendInfo == null) {
             return;
         }
@@ -36,5 +22,19 @@ public class q1 extends a2 {
                 this.F3.add(r1Var);
             }
         }
+    }
+
+    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
+    public BdUniqueId getType() {
+        return G3;
+    }
+
+    @Override // d.b.h0.r.q.a2
+    public String x1() {
+        return this.E3;
+    }
+
+    public ArrayList<r1> z4() {
+        return this.F3;
     }
 }

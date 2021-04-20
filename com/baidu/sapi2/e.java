@@ -5,10 +5,10 @@ import com.baidu.sapi2.utils.Log;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f11215a;
+    public static e f10799a;
 
     public static e a() {
-        e eVar = f11215a;
+        e eVar = f10799a;
         if (eVar != null) {
             return eVar;
         }
@@ -17,7 +17,7 @@ public abstract class e {
         } catch (Exception e2) {
             Log.e(e2);
         }
-        return f11215a;
+        return f10799a;
     }
 
     public abstract String a(SapiAccount sapiAccount);
@@ -39,8 +39,8 @@ public abstract class e {
     public abstract void d(SapiAccount sapiAccount, String str);
 
     public static void a(e eVar) {
-        if (f11215a == null) {
-            f11215a = eVar;
+        if (f10799a == null) {
+            f10799a = eVar;
             return;
         }
         throw new IllegalStateException();

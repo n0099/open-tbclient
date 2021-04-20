@@ -11,14 +11,14 @@ public class i implements com.kwad.sdk.core.c<l.b> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(l.b bVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f34383a);
-        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f34384b);
-        com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.f34385c);
-        com.kwad.sdk.utils.o.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f34386d);
-        com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.f34387e);
-        com.kwad.sdk.utils.o.a(jSONObject, PackageTable.MD5, bVar.f34388f);
-        com.kwad.sdk.utils.o.a(jSONObject, "url", bVar.f34389g);
-        com.kwad.sdk.utils.o.a(jSONObject, "icon", bVar.f34390h);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f34672a);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f34673b);
+        com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.f34674c);
+        com.kwad.sdk.utils.o.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f34675d);
+        com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.f34676e);
+        com.kwad.sdk.utils.o.a(jSONObject, PackageTable.MD5, bVar.f34677f);
+        com.kwad.sdk.utils.o.a(jSONObject, "url", bVar.f34678g);
+        com.kwad.sdk.utils.o.a(jSONObject, "icon", bVar.f34679h);
         com.kwad.sdk.utils.o.a(jSONObject, "desc", bVar.i);
         return jSONObject;
     }
@@ -29,14 +29,14 @@ public class i implements com.kwad.sdk.core.c<l.b> {
         if (jSONObject == null) {
             return;
         }
-        bVar.f34383a = jSONObject.optString("appName");
-        bVar.f34384b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
-        bVar.f34385c = jSONObject.optString("version");
-        bVar.f34386d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
-        bVar.f34387e = jSONObject.optLong("appSize");
-        bVar.f34388f = jSONObject.optString(PackageTable.MD5);
-        bVar.f34389g = jSONObject.optString("url");
-        bVar.f34390h = jSONObject.optString("icon");
+        bVar.f34672a = jSONObject.optString("appName");
+        bVar.f34673b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f34674c = jSONObject.optString("version");
+        bVar.f34675d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.f34676e = jSONObject.optLong("appSize");
+        bVar.f34677f = jSONObject.optString(PackageTable.MD5);
+        bVar.f34678g = jSONObject.optString("url");
+        bVar.f34679h = jSONObject.optString("icon");
         bVar.i = jSONObject.optString("desc");
     }
 }

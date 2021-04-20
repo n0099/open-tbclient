@@ -12,22 +12,22 @@ import java.util.List;
 public final class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f66003e;
+    public static c f66848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.f.b.a.b f66004f;
+    public static d.f.b.a.b f66849f;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f66005a;
+    public g f66850a;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<d> f66008d = new LinkedList();
+    public List<d> f66853d = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public i f66006b = new i(Looper.getMainLooper().getThread(), f66004f.provideDumpInterval());
+    public i f66851b = new i(Looper.getMainLooper().getThread(), f66849f.provideDumpInterval());
 
     /* renamed from: c  reason: collision with root package name */
-    public h f66007c = new h(f66004f.provideDumpInterval());
+    public h f66852c = new h(f66849f.provideDumpInterval());
 
     /* loaded from: classes6.dex */
     public class a implements g.b {
@@ -36,20 +36,20 @@ public final class c {
 
         @Override // d.f.b.a.g.b
         public void a(long j, long j2, long j3, long j4) {
-            ArrayList<String> e2 = c.this.f66006b.e(j, j2);
+            ArrayList<String> e2 = c.this.f66851b.e(j, j2);
             if (e2.isEmpty()) {
                 return;
             }
             d.f.b.a.j.a b2 = d.f.b.a.j.a.b();
             b2.c(j, j2, j3, j4);
-            b2.d(c.this.f66007c.e());
+            b2.d(c.this.f66852c.e());
             b2.e(e2);
             b2.a();
             if (c.d().displayNotification()) {
                 f.c(b2.toString());
             }
-            if (c.this.f66008d.size() != 0) {
-                for (d dVar : c.this.f66008d) {
+            if (c.this.f66853d.size() != 0) {
+                for (d dVar : c.this.f66853d) {
                     dVar.onBlock(c.d().provideContext(), b2);
                 }
             }
@@ -60,11 +60,11 @@ public final class c {
     public static class b implements FilenameFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f66010a = ".log";
+        public String f66855a = ".log";
 
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
-            return str.endsWith(this.f66010a);
+            return str.endsWith(this.f66855a);
         }
     }
 
@@ -82,18 +82,18 @@ public final class c {
     }
 
     public static d.f.b.a.b d() {
-        return f66004f;
+        return f66849f;
     }
 
     public static c f() {
-        if (f66003e == null) {
+        if (f66848e == null) {
             synchronized (c.class) {
-                if (f66003e == null) {
-                    f66003e = new c();
+                if (f66848e == null) {
+                    f66848e = new c();
                 }
             }
         }
-        return f66003e;
+        return f66848e;
     }
 
     public static File[] g() {
@@ -114,19 +114,19 @@ public final class c {
     }
 
     public static void l(d.f.b.a.b bVar) {
-        f66004f = bVar;
+        f66849f = bVar;
     }
 
     public void b(d dVar) {
-        this.f66008d.add(dVar);
+        this.f66853d.add(dVar);
     }
 
     public h e() {
-        return this.f66007c;
+        return this.f66852c;
     }
 
     public g h() {
-        return this.f66005a;
+        return this.f66850a;
     }
 
     public long j() {
@@ -134,10 +134,10 @@ public final class c {
     }
 
     public i k() {
-        return this.f66006b;
+        return this.f66851b;
     }
 
     public final void m(g gVar) {
-        this.f66005a = gVar;
+        this.f66850a = gVar;
     }
 }

@@ -1,4 +1,4 @@
 package com.facebook.imagepipeline;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class R {
 }

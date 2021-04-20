@@ -6,37 +6,37 @@ import com.kwad.sdk.api.KsImage;
 public class a implements KsImage {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35895a;
+    public int f36184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35896b;
+    public int f36185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35897c;
+    public String f36186c;
 
     public a(int i, int i2, String str) {
-        this.f35895a = i;
-        this.f35896b = i2;
-        this.f35897c = str;
+        this.f36184a = i;
+        this.f36185b = i2;
+        this.f36186c = str;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getHeight() {
-        return this.f35896b;
+        return this.f36185b;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public String getImageUrl() {
-        return this.f35897c;
+        return this.f36186c;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getWidth() {
-        return this.f35895a;
+        return this.f36184a;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public boolean isValid() {
-        return this.f35895a > 0 && this.f35896b > 0 && !TextUtils.isEmpty(this.f35897c);
+        return this.f36184a > 0 && this.f36185b > 0 && !TextUtils.isEmpty(this.f36186c);
     }
 }

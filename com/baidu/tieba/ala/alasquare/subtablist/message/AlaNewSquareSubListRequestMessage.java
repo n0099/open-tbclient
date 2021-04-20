@@ -5,7 +5,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public String entryName;

@@ -12,11 +12,11 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Static {
 
-    /* loaded from: classes3.dex */
-    public static class a extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public static class a extends d.b.c.c.g.c {
         public a(int i) {
             super(i);
         }
@@ -27,15 +27,15 @@ public class Static {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDismissGroupMessage) && socketResponsedMessage.getError() == 0) {
                 String valueOf = String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId());
                 MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
-                aVar.f18048a = 1;
-                aVar.f18049b = valueOf;
+                aVar.f17725a = 1;
+                aVar.f17726b = valueOf;
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public static class b extends d.b.c.c.g.c {
         public b(int i) {
             super(i);
         }
@@ -48,21 +48,21 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(d.b.i0.d1.m.a.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(d.b.i0.e1.m.a.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;
                 }
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(d.b.i0.d1.w.b.a(1L));
+                imMessageCenterPojo.setPulled_msgId(d.b.i0.e1.w.b.a(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class c extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public static class c extends d.b.c.c.g.c {
         public c(int i) {
             super(i);
         }
@@ -81,8 +81,8 @@ public class Static {
                 for (String str : split) {
                     if (id.equals(str)) {
                         MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
-                        aVar.f18048a = 1;
-                        aVar.f18049b = responseRemoveMembersMessage.getGroupId();
+                        aVar.f17725a = 1;
+                        aVar.f17726b = responseRemoveMembersMessage.getGroupId();
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
                         return;
                     }

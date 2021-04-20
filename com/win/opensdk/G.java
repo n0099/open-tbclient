@@ -15,6 +15,7 @@ import android.view.Display;
 import android.webkit.WebView;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
@@ -92,7 +93,7 @@ public class G {
         }
         hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-        hashMap.put("User-Agent", Collections.singletonList(a2.f39866a));
+        hashMap.put("User-Agent", Collections.singletonList(a2.f40155a));
         return hashMap;
     }
 
@@ -199,7 +200,7 @@ public class G {
         sb4.append("o7my");
         G1 g1 = new G1(sb3, sb4.toString());
         Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-        cipher.init(2, g1.f39673b, g1.f39672a);
+        cipher.init(2, g1.f39962b, g1.f39961a);
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {
@@ -471,7 +472,7 @@ public class G {
             if (a2.getFlags() > 0) {
                 Z0 a3 = a1.a(context);
                 try {
-                    a3.f39850b = a1.a("wist", new b1(info));
+                    a3.f40139b = a1.a("wist", new b1(info));
                     a3.a("msg", a1.a(str));
                 } catch (JSONException unused) {
                 }
@@ -501,7 +502,7 @@ public class G {
             if (a3 == 200) {
                 s0.a(u1Var);
             } else {
-                s0.a(a3, u1Var.f40047b);
+                s0.a(a3, u1Var.f40336b);
             }
         } catch (JSONException e2) {
             message = e2.getMessage();
@@ -536,7 +537,7 @@ public class G {
                 fromFile = FileProvider.getUriForFile(context, context.getApplicationInfo().packageName + ".fileProvider", new File(str));
             } else {
                 intent.setAction("android.intent.action.VIEW");
-                intent.setFlags(268435456);
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 fromFile = Uri.fromFile(new File(str));
             }
             intent.setDataAndType(fromFile, "application/vnd.android.package-archive");
@@ -547,7 +548,7 @@ public class G {
             if (info != null) {
                 Z0 a2 = a1.a(context);
                 try {
-                    a2.f39850b = a1.a("wiin", new b1(info));
+                    a2.f40139b = a1.a("wiin", new b1(info));
                     a2.a("msg", a1.a(str));
                 } catch (JSONException unused) {
                 }
@@ -596,11 +597,11 @@ public class G {
     }
 
     public static int a(U0 u0, u1 u1Var) {
-        byte[] bArr = u0.f39818b;
-        int i = u0.f39817a;
+        byte[] bArr = u0.f40107b;
+        int i = u0.f40106a;
         if (i == 200) {
             u1Var.a(new String(bArr, "UTF-8"));
-            return u1Var.f40046a;
+            return u1Var.f40335a;
         }
         return i;
     }

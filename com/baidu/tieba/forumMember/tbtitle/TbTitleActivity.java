@@ -18,32 +18,32 @@ import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsed
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.b.e.p.j;
-import d.b.i0.c3.w;
-import d.b.i0.n0.d.a.a;
+import d.b.c.e.p.j;
+import d.b.i0.d3.w;
+import d.b.i0.o0.d.a.a;
 import tbclient.GetLevelInfo.DataRes;
 /* loaded from: classes4.dex */
 public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public String mForumId;
     public String mForumName;
-    public d.b.i0.n0.d.a.a<TbTitleActivity> mGetLevelInfoModel;
+    public d.b.i0.o0.d.a.a<TbTitleActivity> mGetLevelInfoModel;
     public LikeModel mLikeModel;
-    public d.b.i0.n0.d.b.a mView;
+    public d.b.i0.o0.d.b.a mView;
     public a.c mLevelInfoModelCallback = new a();
     public View.OnClickListener mCommonListener = new b();
     public NoNetworkView.b mNoNetworkChangeListener = new d();
-    public d.b.b.a.e mLikeCallback = new e();
+    public d.b.c.a.e mLikeCallback = new e();
 
     /* loaded from: classes4.dex */
     public class a implements a.c {
         public a() {
         }
 
-        @Override // d.b.i0.n0.d.a.a.c
+        @Override // d.b.i0.o0.d.a.a.c
         public void a(DataRes dataRes, boolean z, int i, String str) {
             if (z) {
                 if (i != 0 || dataRes == null) {
-                    TbTitleActivity.this.mGetLevelInfoModel.c(d.b.b.e.m.b.d(TbTitleActivity.this.mForumId, 0));
+                    TbTitleActivity.this.mGetLevelInfoModel.c(d.b.c.e.m.b.d(TbTitleActivity.this.mForumId, 0));
                     return;
                 }
                 TbTitleActivity.this.mView.h();
@@ -83,23 +83,23 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public class c extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f15950a;
+        public final /* synthetic */ String f15611a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f15951b;
+        public final /* synthetic */ boolean f15612b;
 
         public c(String str, boolean z) {
-            this.f15950a = str;
-            this.f15951b = z;
+            this.f15611a = str;
+            this.f15612b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f15950a)) {
+            if (TextUtils.isEmpty(this.f15611a)) {
                 return null;
             }
-            d.b.i0.d1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15950a), this.f15951b);
+            d.b.i0.e1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15611a), this.f15612b);
             return null;
         }
     }
@@ -113,22 +113,22 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         public void b(boolean z) {
             if (z) {
                 TbTitleActivity.this.mView.q();
-                TbTitleActivity.this.mGetLevelInfoModel.d(d.b.b.e.m.b.d(TbTitleActivity.this.mForumId, 0));
+                TbTitleActivity.this.mGetLevelInfoModel.d(d.b.c.e.m.b.d(TbTitleActivity.this.mForumId, 0));
             }
             TbTitleActivity.this.mView.m(z);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends d.b.b.a.e {
+    public class e extends d.b.c.a.e {
         public e() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             boolean z = false;
             if (obj != null && (obj instanceof w)) {
-                d.b.i0.c3.e.i().n(TbTitleActivity.this.mForumName, false);
+                d.b.i0.d3.e.i().n(TbTitleActivity.this.mForumName, false);
                 z = true;
             }
             if (!z) {
@@ -167,9 +167,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     }
 
     private void registerTask() {
-        d.b.i0.c3.d0.a.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-        d.b.i0.c3.d0.a.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-        d.b.i0.c3.d0.a.b(2003007, d.b.i0.n0.d.a.b.b.class);
+        d.b.i0.d3.d0.a.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+        d.b.i0.d3.d0.a.b(2003007, d.b.i0.o0.d.a.b.b.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -187,11 +187,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.b.i0.n0.d.b.a aVar = new d.b.i0.n0.d.b.a(this, this.mCommonListener);
+        d.b.i0.o0.d.b.a aVar = new d.b.i0.o0.d.b.a(this, this.mCommonListener);
         this.mView = aVar;
         aVar.o(this.mNoNetworkChangeListener);
         initLikeModel();
-        this.mGetLevelInfoModel = new d.b.i0.n0.d.a.a<>(this.mLevelInfoModelCallback, this);
+        this.mGetLevelInfoModel = new d.b.i0.o0.d.a.a<>(this.mLevelInfoModelCallback, this);
         Intent intent = getIntent();
         if (intent != null) {
             this.mForumId = intent.getStringExtra(TbTitleActivityConfig.FORUM_ID);
@@ -200,7 +200,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         if (!TextUtils.isEmpty(this.mForumId) && !TextUtils.isEmpty(this.mForumName)) {
             registerTask();
             this.mView.q();
-            this.mGetLevelInfoModel.d(d.b.b.e.m.b.d(this.mForumId, 0));
+            this.mGetLevelInfoModel.d(d.b.c.e.m.b.d(this.mForumId, 0));
             return;
         }
         this.mView.r("");
@@ -215,7 +215,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public void onNetRefreshButtonClicked() {
         if (j.z()) {
             this.mView.q();
-            this.mGetLevelInfoModel.d(d.b.b.e.m.b.d(this.mForumId, 0));
+            this.mGetLevelInfoModel.d(d.b.c.e.m.b.d(this.mForumId, 0));
         }
     }
 

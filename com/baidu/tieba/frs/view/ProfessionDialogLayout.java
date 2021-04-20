@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f16787e;
+    public View.OnClickListener f16448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f16788f;
+    public View.OnClickListener f16449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f16789g;
+    public Context f16450g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -32,8 +32,8 @@ public class ProfessionDialogLayout extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ProfessionDialogLayout.this.f16788f != null) {
-                ProfessionDialogLayout.this.f16788f.onClick(view);
+            if (ProfessionDialogLayout.this.f16449f != null) {
+                ProfessionDialogLayout.this.f16449f.onClick(view);
             }
         }
     }
@@ -45,8 +45,8 @@ public class ProfessionDialogLayout extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ProfessionDialogLayout.this.f16787e != null) {
-                ProfessionDialogLayout.this.f16787e.onClick(view);
+            if (ProfessionDialogLayout.this.f16448e != null) {
+                ProfessionDialogLayout.this.f16448e.onClick(view);
             }
         }
     }
@@ -58,24 +58,24 @@ public class ProfessionDialogLayout extends LinearLayout {
 
     private void setImageAttribute(TbImageView tbImageView) {
         int k;
-        int g2 = l.g(this.f16789g, R.dimen.ds40);
-        if (UtilHelper.getRealScreenOrientation(this.f16789g) == 2) {
-            k = l.i(this.f16789g);
+        int g2 = l.g(this.f16450g, R.dimen.ds40);
+        if (UtilHelper.getRealScreenOrientation(this.f16450g) == 2) {
+            k = l.i(this.f16450g);
         } else {
-            k = l.k(this.f16789g);
+            k = l.k(this.f16450g);
         }
         int i = k - (g2 * 2);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = (i * 558) / 992;
         tbImageView.setLayoutParams(layoutParams);
-        tbImageView.setRadius(l.g(this.f16789g, R.dimen.ds16));
+        tbImageView.setRadius(l.g(this.f16450g, R.dimen.ds16));
         tbImageView.setConrers(3);
         tbImageView.setIsBitmapPic(true);
     }
 
     public final void c(Context context) {
-        this.f16789g = context;
+        this.f16450g = context;
         LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
         setOrientation(1);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
@@ -91,11 +91,11 @@ public class ProfessionDialogLayout extends LinearLayout {
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.f16787e = onClickListener;
+        this.f16448e = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.f16788f = onClickListener;
+        this.f16449f = onClickListener;
     }
 
     public ProfessionDialogLayout(Context context, @Nullable AttributeSet attributeSet) {

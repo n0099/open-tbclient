@@ -15,16 +15,16 @@ public class n extends EventTargetImpl implements d.b.g0.g.a.c {
     public String adUnitId;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f47746e;
+    public h f48138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47747f;
+    public String f48139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47748g;
+    public boolean f48140g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f47749h;
+    public j f48141h;
 
     /* loaded from: classes3.dex */
     public class a implements j {
@@ -54,22 +54,22 @@ public class n extends EventTargetImpl implements d.b.g0.g.a.c {
     public n(d.b.g0.g.i.b bVar, JsObject jsObject) {
         super(bVar);
         this.adUnitId = "";
-        this.f47749h = new a();
+        this.f48141h = new a();
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
         if (F != null) {
             this.adUnitId = F.B("adUnitId");
-            this.f47747f = F.B("appSid");
+            this.f48139f = F.B("appSid");
         }
-        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f47747f)) {
+        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f48139f)) {
             boolean g2 = d.b.g0.e.a.q.f.g();
-            this.f47748g = g2;
+            this.f48140g = g2;
             if (g2) {
-                this.f47747f = d.b.g0.e.a.q.f.c();
+                this.f48139f = d.b.g0.e.a.q.f.c();
                 this.adUnitId = d.b.g0.e.a.q.f.d();
             }
-            h hVar = new h(this.f47747f, this.adUnitId, this.f47748g);
-            this.f47746e = hVar;
-            hVar.t0(this.f47749h);
+            h hVar = new h(this.f48139f, this.adUnitId, this.f48140g);
+            this.f48138e = hVar;
+            hVar.t0(this.f48141h);
             loadAd(null);
             return;
         }
@@ -79,17 +79,17 @@ public class n extends EventTargetImpl implements d.b.g0.g.a.c {
     @JavascriptInterface
     public synchronized void loadAd(JsObject jsObject) {
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        if (this.f47746e != null) {
-            this.f47746e.s0(F);
+        if (this.f48138e != null) {
+            this.f48138e.s0(F);
         }
     }
 
     @JavascriptInterface
     public synchronized void showAd(JsObject jsObject) {
-        d.b.g0.g.k0.e.b.d(this.f47746e.b0());
+        d.b.g0.g.k0.e.b.d(this.f48138e.b0());
         d.b.g0.g.e.d.c F = d.b.g0.g.e.d.c.F(jsObject);
-        if (this.f47746e != null) {
-            this.f47746e.u0(F);
+        if (this.f48138e != null) {
+            this.f48138e.u0(F);
         }
     }
 }

@@ -12,23 +12,23 @@ import com.baidu.tieba.R;
 public class PublishProgressBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13458e;
+    public int f13119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f13459f;
+    public Paint f13120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f13460g;
+    public Rect f13121g;
 
     public PublishProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13458e = 0;
+        this.f13119e = 0;
         a(context, attributeSet);
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
-        this.f13459f = new Paint(1);
-        this.f13460g = new Rect();
+        this.f13120f = new Paint(1);
+        this.f13121g = new Rect();
         b();
     }
 
@@ -36,8 +36,8 @@ public class PublishProgressBar extends View {
         int color = SkinManager.getColor(R.color.CAM_X0302);
         setBackgroundColor(color);
         getBackground().setAlpha(168);
-        this.f13459f.setColor(color);
-        this.f13459f.setAlpha(168);
+        this.f13120f.setColor(color);
+        this.f13120f.setAlpha(168);
         postInvalidate();
     }
 
@@ -48,25 +48,25 @@ public class PublishProgressBar extends View {
         if (i > 100) {
             return 100;
         }
-        int i2 = this.f13458e;
+        int i2 = this.f13119e;
         if (i == i2) {
             return i2;
         }
-        this.f13458e = i;
+        this.f13119e = i;
         postInvalidate();
-        return this.f13458e;
+        return this.f13119e;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f13460g.set(0, 0, (int) (getWidth() * (this.f13458e / 100.0f)), getHeight());
-        canvas.drawRect(this.f13460g, this.f13459f);
+        this.f13121g.set(0, 0, (int) (getWidth() * (this.f13119e / 100.0f)), getHeight());
+        canvas.drawRect(this.f13121g, this.f13120f);
     }
 
     public PublishProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13458e = 0;
+        this.f13119e = 0;
         a(context, attributeSet);
     }
 }

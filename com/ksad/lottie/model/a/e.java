@@ -7,18 +7,18 @@ import java.util.List;
 public class e implements m<PointF, PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<com.ksad.lottie.e.a<PointF>> f31452a;
+    public final List<com.ksad.lottie.e.a<PointF>> f31741a;
 
     public e() {
-        this.f31452a = Collections.singletonList(new com.ksad.lottie.e.a(new PointF(0.0f, 0.0f)));
+        this.f31741a = Collections.singletonList(new com.ksad.lottie.e.a(new PointF(0.0f, 0.0f)));
     }
 
     public e(List<com.ksad.lottie.e.a<PointF>> list) {
-        this.f31452a = list;
+        this.f31741a = list;
     }
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<PointF, PointF> a() {
-        return this.f31452a.get(0).d() ? new com.ksad.lottie.a.b.j(this.f31452a) : new com.ksad.lottie.a.b.i(this.f31452a);
+        return this.f31741a.get(0).d() ? new com.ksad.lottie.a.b.j(this.f31741a) : new com.ksad.lottie.a.b.i(this.f31741a);
     }
 }

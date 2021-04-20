@@ -11,27 +11,27 @@ import d.b.g0.a.k;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48672b = k.f45051a;
+    public static final boolean f49064b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.i.b f48673a;
+    public d.b.g0.g.i.b f49065a;
     @V8JavascriptField
     public JsObject canvas = null;
 
     public e(d.b.g0.g.i.b bVar) {
-        this.f48673a = bVar;
+        this.f49065a = bVar;
         a();
         b();
     }
 
     public final boolean a() {
-        return c(this.f48673a.getInitBasePath(), "swan-game-open-data.js");
+        return c(this.f49065a.getInitBasePath(), "swan-game-open-data.js");
     }
 
     public final boolean b() {
         String h2 = d.b.g0.a.z0.f.V().h();
         String b2 = f.a().b();
-        if (f48672b) {
+        if (f49064b) {
             Log.d("SwanGameOpenDataContext", "baseFilePath: " + h2);
             Log.d("SwanGameOpenDataContext", "openDataJSFile: " + b2);
         }
@@ -42,17 +42,17 @@ public class e {
         if (!f.a().c() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.f48673a.V().b(str, str2);
+        this.f49065a.W().b(str, str2);
         return true;
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.f48673a.V().a();
+        this.f49065a.W().a();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.f48673a.Z().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.f49065a.Z().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 }

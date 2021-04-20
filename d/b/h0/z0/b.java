@@ -16,15 +16,15 @@ import okhttp3.Response;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f51656a;
+    public static b f52074a;
 
     public static synchronized b c() {
         b bVar;
         synchronized (b.class) {
-            if (f51656a == null) {
-                f51656a = new b();
+            if (f52074a == null) {
+                f52074a = new b();
             }
-            bVar = f51656a;
+            bVar = f52074a;
         }
         return bVar;
     }
@@ -101,6 +101,6 @@ public class b {
         if (TextUtils.isEmpty(b2)) {
             return;
         }
-        d.b.b.e.l.d.h().k(b2, 10, null, 0, 0, null, new Object[0]);
+        d.b.c.e.l.d.h().k(b2, 10, null, 0, 0, null, new Object[0]);
     }
 }

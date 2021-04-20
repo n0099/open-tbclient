@@ -16,7 +16,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public static final jg f474a = new jg("ClientUploadData");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40646a = new iy("", (byte) 15, 1);
+    public static final iy f40935a = new iy("", (byte) 15, 1);
 
     public int a() {
         List<hj> list = this.f475a;
@@ -32,11 +32,11 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public int compareTo(hi hiVar) {
         int a2;
         if (hi.class.equals(hiVar.getClass())) {
-            int compareTo = Boolean.valueOf(m354a()).compareTo(Boolean.valueOf(hiVar.m354a()));
+            int compareTo = Boolean.valueOf(m358a()).compareTo(Boolean.valueOf(hiVar.m358a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m354a() || (a2 = ir.a(this.f475a, hiVar.f475a)) == 0) {
+            if (!m358a() || (a2 = ir.a(this.f475a, hiVar.f475a)) == 0) {
                 return 0;
             }
             return a2;
@@ -45,7 +45,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m353a() {
+    public void m357a() {
         if (this.f475a != null) {
             return;
         }
@@ -61,19 +61,19 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m505a();
+        jbVar.m509a();
         while (true) {
-            iy m501a = jbVar.m501a();
-            byte b2 = m501a.f40867a;
+            iy m505a = jbVar.m505a();
+            byte b2 = m505a.f41156a;
             if (b2 == 0) {
                 jbVar.f();
-                m353a();
+                m357a();
                 return;
             }
-            if (m501a.f807a == 1 && b2 == 15) {
-                iz m502a = jbVar.m502a();
-                this.f475a = new ArrayList(m502a.f808a);
-                for (int i = 0; i < m502a.f808a; i++) {
+            if (m505a.f807a == 1 && b2 == 15) {
+                iz m506a = jbVar.m506a();
+                this.f475a = new ArrayList(m506a.f808a);
+                for (int i = 0; i < m506a.f808a; i++) {
                     hj hjVar = new hj();
                     hjVar.a(jbVar);
                     this.f475a.add(hjVar);
@@ -87,29 +87,29 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m354a() {
+    public boolean m358a() {
         return this.f475a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m355a(hi hiVar) {
+    public boolean m359a(hi hiVar) {
         if (hiVar == null) {
             return false;
         }
-        boolean m354a = m354a();
-        boolean m354a2 = hiVar.m354a();
-        if (m354a || m354a2) {
-            return m354a && m354a2 && this.f475a.equals(hiVar.f475a);
+        boolean m358a = m358a();
+        boolean m358a2 = hiVar.m358a();
+        if (m358a || m358a2) {
+            return m358a && m358a2 && this.f475a.equals(hiVar.f475a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m353a();
+        m357a();
         jbVar.a(f474a);
         if (this.f475a != null) {
-            jbVar.a(f40646a);
+            jbVar.a(f40935a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f475a.size()));
             for (hj hjVar : this.f475a) {
                 hjVar.b(jbVar);
@@ -118,12 +118,12 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m509a();
+        jbVar.m513a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hi)) {
-            return m355a((hi) obj);
+            return m359a((hi) obj);
         }
         return false;
     }

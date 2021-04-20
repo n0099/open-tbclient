@@ -22,26 +22,26 @@ import com.bytedance.sdk.openadsdk.utils.ad;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.al;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTMiddlePageActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f27425a;
+    public LinearLayout f27110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTNativeExpressAd f27426b;
+    public TTNativeExpressAd f27111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f27427c;
+    public l f27112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdSlot f27428d;
+    public AdSlot f27113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f27429e;
+    public b f27114e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27430f = false;
+    public boolean f27115f = false;
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
@@ -52,15 +52,15 @@ public class TTMiddlePageActivity extends Activity {
         if (intent != null) {
             try {
                 l a2 = c.a(new JSONObject(intent.getStringExtra("middle_page_material_meta")));
-                this.f27427c = a2;
+                this.f27112c = a2;
                 AdSlot b2 = b(a2);
-                this.f27428d = b2;
-                this.f27426b = new n(this, this.f27427c, b2);
+                this.f27113d = b2;
+                this.f27111b = new n(this, this.f27112c, b2);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        TTNativeExpressAd tTNativeExpressAd = this.f27426b;
+        TTNativeExpressAd tTNativeExpressAd = this.f27111b;
         if (tTNativeExpressAd == null) {
             finish();
             return;
@@ -70,20 +70,20 @@ public class TTMiddlePageActivity extends Activity {
             finish();
             return;
         }
-        this.f27425a = (LinearLayout) findViewById(ad.e(this, "tt_middle_page_layout"));
+        this.f27110a = (LinearLayout) findViewById(ad.e(this, "tt_middle_page_layout"));
         if (expressAdView instanceof NativeExpressVideoView) {
-            this.f27429e = ((NativeExpressVideoView) expressAdView).getClickListener();
+            this.f27114e = ((NativeExpressVideoView) expressAdView).getClickListener();
         } else if (expressAdView instanceof NativeExpressView) {
-            this.f27429e = ((NativeExpressView) expressAdView).getClickListener();
+            this.f27114e = ((NativeExpressView) expressAdView).getClickListener();
         }
-        l lVar = this.f27427c;
+        l lVar = this.f27112c;
         if (lVar != null && lVar.aG() == 2 && (expressAdView instanceof NativeExpressView) && (jsObject = ((NativeExpressView) expressAdView).getJsObject()) != null) {
-            jsObject.a(this.f27428d);
+            jsObject.a(this.f27113d);
         }
-        this.f27426b.setCanInterruptVideoPlay(true);
-        this.f27425a.removeAllViews();
-        this.f27425a.addView(expressAdView);
-        this.f27426b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
+        this.f27111b.setCanInterruptVideoPlay(true);
+        this.f27110a.removeAllViews();
+        this.f27110a.addView(expressAdView);
+        this.f27111b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i) {
             }
@@ -94,35 +94,35 @@ public class TTMiddlePageActivity extends Activity {
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderFail(View view, String str, int i) {
-                if (TTMiddlePageActivity.this.f27430f) {
+                if (TTMiddlePageActivity.this.f27115f) {
                     return;
                 }
-                if (TTMiddlePageActivity.this.f27427c != null && TTMiddlePageActivity.this.f27427c.aG() == 1 && TTMiddlePageActivity.this.f27429e != null) {
-                    TTMiddlePageActivity.this.f27430f = true;
-                    TTMiddlePageActivity.this.f27429e.e();
+                if (TTMiddlePageActivity.this.f27112c != null && TTMiddlePageActivity.this.f27112c.aG() == 1 && TTMiddlePageActivity.this.f27114e != null) {
+                    TTMiddlePageActivity.this.f27115f = true;
+                    TTMiddlePageActivity.this.f27114e.e();
                 }
                 TTMiddlePageActivity.this.finish();
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderSuccess(View view, float f2, float f3) {
-                if (TTMiddlePageActivity.this.isFinishing() || TTMiddlePageActivity.this.f27427c == null) {
+                if (TTMiddlePageActivity.this.isFinishing() || TTMiddlePageActivity.this.f27112c == null) {
                     return;
                 }
-                d.b(p.a(), TTMiddlePageActivity.this.f27427c, "feed_video_middle_page", "middle_page_show");
+                d.b(p.a(), TTMiddlePageActivity.this.f27112c, "feed_video_middle_page", "middle_page_show");
             }
         });
-        this.f27426b.render();
+        this.f27111b.render();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.f27426b != null) {
-            this.f27426b = null;
+        if (this.f27111b != null) {
+            this.f27111b = null;
         }
-        if (this.f27427c != null) {
-            this.f27427c = null;
+        if (this.f27112c != null) {
+            this.f27112c = null;
         }
     }
 

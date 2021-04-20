@@ -6,7 +6,7 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface b {
-    public static final boolean G0 = k.f45051a;
+    public static final boolean G0 = k.f45443a;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -19,18 +19,18 @@ public interface b {
 
     /* renamed from: d.b.g0.a.j0.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0708b {
+    public static final class C0720b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, a> f44865a = new HashMap();
+        public final Map<String, a> f45257a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f44866b = true;
+        public boolean f45258b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f44867c = 0;
+        public int f45259c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f44868d = 0;
+        public int f45260d = 0;
     }
 }

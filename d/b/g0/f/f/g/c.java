@@ -2,7 +2,6 @@ package d.b.g0.f.f.g;
 
 import com.baidu.down.manage.Download;
 import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import d.b.g0.a.k;
 import java.util.Collection;
 import org.json.JSONArray;
@@ -12,7 +11,7 @@ import org.json.JSONObject;
 public class c extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f47829d = k.f45051a;
+    public static final boolean f48221d = k.f45443a;
 
     public c(String str) {
         super("onSuccess", 0, g(null, str));
@@ -39,14 +38,14 @@ public class c extends b {
         try {
             jSONObject.put("apkId", new d.b.g0.f.f.d.a(download).c());
             jSONObject.put("downloadId", download.getId());
-            jSONObject.put(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, download.getKeyByUser());
+            jSONObject.put("packageName", download.getKeyByUser());
             jSONObject.put("url", download.getUrl());
             jSONObject.put("status", download.getState().ordinal());
             jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
             jSONObject.put("total", download.getTotalbytes());
             jSONObject.put("fileExist", d.b.g0.f.f.d.c.i(download) ? "1" : "0");
         } catch (JSONException e2) {
-            if (f47829d) {
+            if (f48221d) {
                 e2.printStackTrace();
             }
         }
@@ -59,7 +58,7 @@ public class c extends b {
             jSONObject.put("data", obj);
             jSONObject.put("message", str);
         } catch (JSONException e2) {
-            if (f47829d) {
+            if (f48221d) {
                 e2.printStackTrace();
             }
         }

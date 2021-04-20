@@ -1,246 +1,113 @@
 package d.b.i0.v2.d;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Shader;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import d.b.b.a.i;
-import d.b.b.a.j;
-import d.b.b.e.p.l;
-import d.b.h0.f0.g;
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-/* loaded from: classes5.dex */
-public abstract class a implements d.b.i0.v2.e.a {
+import com.baidu.tieba.setting.more.MsgSettingItemView;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
+import d.b.c.e.p.k;
+import java.util.ArrayList;
+/* loaded from: classes4.dex */
+public class a extends BaseAdapter implements BdSwitchView.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f62048e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
+    public TbPageContext f63143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f62049f = "temp_video_thumb.png";
+    public ArrayList<OfficialAccountPushInfo> f63144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f62050g = "_temp_share_pic.png";
+    public BdSwitchView.b f63145g;
 
-    /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f62051a;
+    /* renamed from: d.b.i0.v2.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public class C1661a {
 
-    /* renamed from: b  reason: collision with root package name */
-    public Context f62052b;
+        /* renamed from: a  reason: collision with root package name */
+        public MsgSettingItemView f63146a;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f62053c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f62054d;
-
-    public a(Context context) {
-        this.f62052b = context;
-    }
-
-    public void b(int i, int i2) {
-        ShareEvent shareEvent = new ShareEvent();
-        shareEvent.status = i;
-        shareEvent.tid = this.f62053c;
-        shareEvent.channel = i2;
-        shareEvent.extLiveInfo = this.f62054d;
-        g.g(shareEvent);
-    }
-
-    public Context c() {
-        return TbadkCoreApplication.getInst().getContext();
-    }
-
-    public Bitmap d() {
-        return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
-    }
-
-    public Bitmap e(int i) {
-        return BitmapHelper.getCashBitmap(i);
-    }
-
-    public Bitmap f(Uri uri) {
-        return BitmapHelper.loadBitmap(uri.getPath());
-    }
-
-    public Bitmap g(String str) {
-        return BitmapHelper.loadBitmap(str);
-    }
-
-    public BdUniqueId h() {
-        i c2;
-        BdUniqueId bdUniqueId = this.f62051a;
-        return (bdUniqueId == null && (c2 = j.c(this.f62052b)) != null) ? c2.getUniqueId() : bdUniqueId;
-    }
-
-    public Bitmap i(Bitmap bitmap, int i) {
-        return BitmapHelper.resizeBitmap(bitmap, i, i, false);
-    }
-
-    public Bitmap j(Bitmap bitmap, int i, int i2) {
-        return BitmapHelper.resizeBitmap(bitmap, i, i2, false);
-    }
-
-    public String k(int i, Object... objArr) {
-        return c().getString(i, objArr);
-    }
-
-    public void l(Intent intent) {
-    }
-
-    public boolean m(Uri uri) {
-        File file;
-        if (uri == null) {
-            return false;
+        public C1661a(a aVar) {
         }
-        try {
-            file = new File(new URI(uri.toString()));
-        } catch (IllegalArgumentException | URISyntaxException unused) {
-        }
-        return file.isFile() && file.exists();
     }
 
-    public boolean n(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        File file = new File(str);
-        return file.isFile() && file.exists();
+    public a(TbPageContext tbPageContext) {
+        this.f63143e = tbPageContext;
     }
 
-    public d.b.b.j.d.a o(ShareEntity shareEntity) {
-        Bundle bundle;
-        if (shareEntity == null || (bundle = shareEntity.diskPicOperate) == null) {
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+    public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
+        BdSwitchView.b bVar = this.f63145g;
+        if (bVar != null) {
+            bVar.OnSwitchStateChange(view, switchState);
+        }
+    }
+
+    public void a(ArrayList<OfficialAccountPushInfo> arrayList) {
+        this.f63144f = arrayList;
+    }
+
+    public void b(BdSwitchView.b bVar) {
+        this.f63145g = bVar;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        ArrayList<OfficialAccountPushInfo> arrayList = this.f63144f;
+        if (arrayList != null) {
+            return arrayList.size();
+        }
+        return 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        ArrayList<OfficialAccountPushInfo> arrayList = this.f63144f;
+        if (arrayList == null || i < 0 || i >= arrayList.size()) {
             return null;
         }
-        String string = bundle.getString("path");
-        String string2 = bundle.getString("name");
-        if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
-            return null;
+        return this.f63144f.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (getItem(i) != null) {
+            return i;
         }
-        boolean z = bundle.getBoolean("isSubDir", true);
-        boolean z2 = bundle.getBoolean("isSdcard", false);
-        boolean z3 = bundle.getBoolean("isSavedCache", true);
-        boolean z4 = bundle.getBoolean("formatData", true);
-        d.b.b.e.a.f.c cVar = new d.b.b.e.a.f.c(string, string2, DiskFileOperate.Action.READ);
-        cVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-        cVar.setSubFolder(z);
-        cVar.setIsFormatData(z4);
-        cVar.setSdCard(z2);
-        cVar.setSavedCache(z3);
-        if (d.b.b.e.a.d.g().d(cVar) && cVar.isSuccess()) {
-            cVar.formatData(cVar.getData());
-            Bitmap bitmap = cVar.getBitmap();
-            if (bitmap != null) {
-                return new d.b.b.j.d.a(bitmap, cVar.isGif());
-            }
-            return null;
-        }
-        return null;
+        return -1L;
     }
 
-    public void p() {
-    }
-
-    public void q(BdUniqueId bdUniqueId) {
-        this.f62051a = bdUniqueId;
-    }
-
-    public Bitmap r(Bitmap bitmap, ShareEntity shareEntity, boolean z) {
-        if (bitmap == null) {
-            return null;
-        }
-        Bitmap i = i(bitmap, (l.g(this.f62052b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
-        Bitmap createBitmap = Bitmap.createBitmap(i.getWidth(), i.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(createBitmap);
-        canvas.drawBitmap(i, 0.0f, 0.0f, (Paint) null);
-        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i.getHeight(), this.f62052b.getResources().getColor(R.color.CAM_X0601), this.f62052b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
-        Paint paint = new Paint();
-        paint.setShader(linearGradient);
-        canvas.drawRect(0.0f, 0.0f, i.getWidth(), i.getHeight(), paint);
-        Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_share_play_20, R.color.CAM_X0101, null, false);
-        if (pureDrawable != null) {
-            int min = (int) (Math.min(i.getWidth(), i.getHeight()) * 0.3f);
-            int width = (i.getWidth() - min) / 2;
-            int height = (i.getHeight() - min) / 2;
-            pureDrawable.setBounds(width, height, width + min, min + height);
-            pureDrawable.draw(canvas);
-        }
-        if (z) {
-            String saveFileAsPNG = FileHelper.saveFileAsPNG(f62048e, f62049f, createBitmap, 100);
-            if (!StringUtils.isNull(saveFileAsPNG)) {
-                shareEntity.u(Uri.parse(saveFileAsPNG));
-            }
-        }
-        return createBitmap;
-    }
-
-    public void s(String str) {
-        this.f62054d = str;
-    }
-
-    public void t(String str) {
-        this.f62053c = str;
-    }
-
-    public void u(String str) {
-        y(str, R.drawable.icon_toast_game_error);
-    }
-
-    public void v(String str) {
-        y(str, R.drawable.icon_toast_game_ok);
-    }
-
-    public void w(int i, int i2) {
-        x(i, null, i2);
-    }
-
-    public void x(int i, String str, int i2) {
-        if (i == 1) {
-            if (TextUtils.isEmpty(str)) {
-                str = k(R.string.share_success, new Object[0]);
-            }
-            v(str);
-        } else if (i == 3) {
-            if (TextUtils.isEmpty(str)) {
-                str = k(R.string.share_cancel, new Object[0]);
-            }
-            u(str);
-        } else if (i == 2) {
-            if (TextUtils.isEmpty(str)) {
-                str = k(R.string.share_failed, new Object[0]);
-            }
-            u(str);
-        }
-        if (!TextUtils.isEmpty(this.f62053c)) {
-            b(i, i2);
-        } else if (StringUtils.isNull(this.f62054d)) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        C1661a c1661a;
+        if (view == null) {
+            view = LayoutInflater.from(this.f63143e.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
+            c1661a = new C1661a(this);
+            c1661a.f63146a = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            view.setTag(c1661a);
         } else {
-            b(i, i2);
+            c1661a = (C1661a) view.getTag();
         }
-    }
-
-    public void y(String str, int i) {
-        BdToast.i(c(), str, i, false).q();
+        OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
+        if (k.isEmpty(officialAccountPushInfo.name)) {
+            c1661a.f63146a.setVisibility(8);
+        } else {
+            c1661a.f63146a.setVisibility(0);
+            c1661a.f63146a.setText(officialAccountPushInfo.name);
+            if (officialAccountPushInfo.is_on == 1) {
+                c1661a.f63146a.getSwitchView().k();
+            } else {
+                c1661a.f63146a.getSwitchView().h();
+            }
+            c1661a.f63146a.setLineVisibility(true);
+            c1661a.f63146a.c(this.f63143e, TbadkCoreApplication.getInst().getSkinType());
+            c1661a.f63146a.getSwitchView().setOnSwitchStateChangeListener(this);
+            c1661a.f63146a.getSwitchView().setTag(officialAccountPushInfo);
+        }
+        return view;
     }
 }

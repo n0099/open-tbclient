@@ -31,7 +31,7 @@ import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import d.b.h0.r.q.i0;
 import d.b.h0.r.q.j0;
 import d.b.h0.r.s.a;
-import d.b.i0.t0.b.f;
+import d.b.i0.u0.b.f;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
@@ -40,7 +40,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public int freeChance;
     public String mClickZone;
     public String mFrom;
-    public d.b.i0.t0.b.f mModelController;
+    public d.b.i0.u0.b.f mModelController;
     public String mReferPage;
     public SendGiftModel mSendGiftModel;
     public String mToNameShow;
@@ -50,7 +50,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public long postId;
     public int sendCount;
     public i0 sendGift;
-    public d.b.i0.t0.d.a sendOrder;
+    public d.b.i0.u0.d.a sendOrder;
     public long threadId;
     public boolean mHasShowAnim = false;
     public boolean shouldRefreshFreechance = false;
@@ -66,15 +66,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16880e;
+        public final /* synthetic */ d.b.h0.r.s.a f16553e;
 
         public a(d.b.h0.r.s.a aVar) {
-            this.f16880e = aVar;
+            this.f16553e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16880e.dismiss();
+            this.f16553e.dismiss();
         }
     }
 
@@ -82,15 +82,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16882e;
+        public final /* synthetic */ d.b.h0.r.s.a f16555e;
 
         public b(d.b.h0.r.s.a aVar) {
-            this.f16882e = aVar;
+            this.f16555e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16882e.dismiss();
+            this.f16555e.dismiss();
         }
     }
 
@@ -98,15 +98,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16884e;
+        public final /* synthetic */ d.b.h0.r.s.a f16557e;
 
         public c(d.b.h0.r.s.a aVar) {
-            this.f16884e = aVar;
+            this.f16557e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16884e.dismiss();
+            this.f16557e.dismiss();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(GiftTabActivity.this.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
         }
     }
@@ -115,15 +115,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16886e;
+        public final /* synthetic */ d.b.h0.r.s.a f16559e;
 
         public d(d.b.h0.r.s.a aVar) {
-            this.f16886e = aVar;
+            this.f16559e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16886e.dismiss();
+            this.f16559e.dismiss();
         }
     }
 
@@ -131,15 +131,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16888e;
+        public final /* synthetic */ d.b.h0.r.s.a f16561e;
 
         public e(d.b.h0.r.s.a aVar) {
-            this.f16888e = aVar;
+            this.f16561e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16888e.dismiss();
+            this.f16561e.dismiss();
             if (StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
                 return;
             }
@@ -158,12 +158,12 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (view == null) {
                 return;
             }
-            d.b.b.e.p.l.w(GiftTabActivity.this.getActivity(), GiftTabActivity.this.mView.k);
+            d.b.c.e.p.l.w(GiftTabActivity.this.getActivity(), GiftTabActivity.this.mView.k);
             if (view == GiftTabActivity.this.mView.q) {
                 if (GiftTabActivity.this.mSendGiftModel == null || GiftTabActivity.this.mView.C() <= 0 || GiftTabActivity.this.mView.D() == null) {
                     return;
                 }
-                if (!d.b.b.e.p.l.C()) {
+                if (!d.b.c.e.p.l.C()) {
                     GiftTabActivity.this.showToast(R.string.neterror);
                 } else if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(GiftTabActivity.this.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(GiftTabActivity.this.getPageContext().getPageActivity())));
@@ -223,7 +223,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public i() {
         }
 
-        @Override // d.b.i0.t0.b.f.d
+        @Override // d.b.i0.u0.b.f.d
         public void a(int i) {
             GiftTabActivity.this.freeChance = i;
             GiftTabActivity.this.mView.P(i);
@@ -236,8 +236,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public j() {
         }
 
-        @Override // d.b.i0.t0.b.f.e
-        public void a(int i, String str, boolean z, String str2, int i2, j0 j0Var, ArrayList<d.b.i0.t0.b.c> arrayList, ArrayList<d.b.i0.t0.b.a> arrayList2, ArrayList<d.b.i0.t0.b.e> arrayList3) {
+        @Override // d.b.i0.u0.b.f.e
+        public void a(int i, String str, boolean z, String str2, int i2, j0 j0Var, ArrayList<d.b.i0.u0.b.c> arrayList, ArrayList<d.b.i0.u0.b.a> arrayList2, ArrayList<d.b.i0.u0.b.e> arrayList3) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 GiftTabActivity.this.showToast(str);
             }
@@ -257,7 +257,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void a(int i, String str, d.b.i0.t0.d.a aVar) {
+        public void a(int i, String str, d.b.i0.u0.d.a aVar) {
             GiftTabActivity.this.mView.H();
             if (i != 0) {
                 if (StringUtils.isNull(str)) {
@@ -363,11 +363,11 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void hideAnimation() {
-        this.mView.f16902h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        this.mView.f16575h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.mView.f16902h.startAnimation(alphaAnimation);
+        this.mView.f16575h.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -380,10 +380,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         if (i0Var == null || i2 <= 0) {
             return false;
         }
-        int i3 = i0Var.f50814f;
+        int i3 = i0Var.f51221f;
         if (i3 == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis < i0Var.f50816h) {
+            if (currentTimeMillis < i0Var.f51223h) {
                 new d.b.h0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_not_start));
                 return false;
             } else if (currentTimeMillis > i0Var.i) {
@@ -433,10 +433,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void showAnimation() {
-        this.mView.f16902h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        this.mView.f16575h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.mView.f16902h.startAnimation(alphaAnimation);
+        this.mView.f16575h.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -497,7 +497,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         textView.setText(String.format(string, objArr));
         this.mView.Q(this.mLoadCategoryListCallback);
         this.mView.R(this.mLoadDefaultListCallback);
-        d.b.i0.t0.b.f fVar = new d.b.i0.t0.b.f(getPageContext());
+        d.b.i0.u0.b.f fVar = new d.b.i0.u0.b.f(getPageContext());
         this.mModelController = fVar;
         fVar.s(this.mRefreshCallback);
         this.mModelController.r(this.mFreeCountCallback);
@@ -537,7 +537,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        d.b.i0.t0.b.f fVar;
+        d.b.i0.u0.b.f fVar;
         super.onResume();
         if (!this.shouldRefreshFreechance || (fVar = this.mModelController) == null) {
             return;

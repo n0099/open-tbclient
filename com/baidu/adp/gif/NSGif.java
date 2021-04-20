@@ -3,62 +3,62 @@ package com.baidu.adp.gif;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import com.baidu.adp.base.BdBaseApplication;
-import d.b.b.e.p.h;
-import d.b.b.e.p.i;
+import d.b.c.e.p.h;
+import d.b.c.e.p.i;
 /* loaded from: classes.dex */
-public class NSGif implements d.b.b.d.b {
+public class NSGif implements d.b.c.d.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f2134e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String f2169e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f2135f = h.f().k("nsgif_jni", 2, new b());
+    public static boolean f2170f = h.f().k("nsgif_jni", 2, new b());
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2136a;
+    public int f2171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f2137b;
+    public final int f2172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f2138c;
+    public final int f2173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f2139d;
+    public final int f2174d;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f2140e;
+        public final /* synthetic */ int f2175e;
 
         public a(int i) {
-            this.f2140e = i;
+            this.f2175e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            NSGif.nativeDestroy(this.f2140e);
+            NSGif.nativeDestroy(this.f2175e);
         }
     }
 
     /* loaded from: classes.dex */
     public static class b extends i {
-        @Override // d.b.b.e.p.i
+        @Override // d.b.c.e.p.i
         public void a(boolean z) {
-            NSGif.f2135f = z;
+            NSGif.f2170f = z;
         }
     }
 
     public NSGif(int i) {
-        this.f2136a = i;
-        this.f2137b = nativeGetWidth(i);
-        this.f2138c = nativeGetHeight(i);
-        this.f2139d = nativeGetFrameCount(i);
+        this.f2171a = i;
+        this.f2172b = nativeGetWidth(i);
+        this.f2173c = nativeGetHeight(i);
+        this.f2174d = nativeGetFrameCount(i);
     }
 
     public static NSGif e(String str) {
-        int nativeCreate = nativeCreate(f2134e, str);
+        int nativeCreate = nativeCreate(f2169e, str);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
         }
@@ -66,7 +66,7 @@ public class NSGif implements d.b.b.d.b {
     }
 
     public static NSGif f(byte[] bArr, int i, int i2) {
-        int nativeCreate = nativeCreate(f2134e, bArr, i, i2);
+        int nativeCreate = nativeCreate(f2169e, bArr, i, i2);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
         }
@@ -93,36 +93,36 @@ public class NSGif implements d.b.b.d.b {
 
     public static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public int a(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.f2136a, i);
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.f2171a, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
         return nativeGetFrameDelay * 10;
     }
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public boolean b(int i) {
-        return nativeDecodeFrame(this.f2136a, i);
+        return nativeDecodeFrame(this.f2171a, i);
     }
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public boolean c(Bitmap bitmap, Canvas canvas) {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.f2136a, bitmap);
+        return nativeWriteTo(this.f2171a, bitmap);
     }
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public void close() {
-        int i = this.f2136a;
+        int i = this.f2171a;
         if (i == 0) {
             return;
         }
-        this.f2136a = 0;
-        d.b.b.e.m.h.a().c(new a(i));
+        this.f2171a = 0;
+        d.b.c.e.m.h.a().c(new a(i));
     }
 
     public void finalize() throws Throwable {
@@ -133,18 +133,18 @@ public class NSGif implements d.b.b.d.b {
         }
     }
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public int getFrameCount() {
-        return this.f2139d;
+        return this.f2174d;
     }
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public int getHeight() {
-        return this.f2138c;
+        return this.f2173c;
     }
 
-    @Override // d.b.b.d.b
+    @Override // d.b.c.d.b
     public int getWidth() {
-        return this.f2137b;
+        return this.f2172b;
     }
 }

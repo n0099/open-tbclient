@@ -25,36 +25,36 @@ public class a extends d.b.g0.a.t.b.d {
 
     /* renamed from: d.b.g0.a.n.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0735a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
+    public class C0747a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f45246e;
+        public final /* synthetic */ JSONArray f45638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45247f;
+        public final /* synthetic */ String f45639f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45248g;
+        public final /* synthetic */ String f45640g;
 
         /* renamed from: d.b.g0.a.n.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0736a implements d.b.g0.a.e0.n.b<d.b.g0.a.t.e.b> {
-            public C0736a() {
+        public class C0748a implements d.b.g0.a.e0.n.b<d.b.g0.a.t.e.b> {
+            public C0748a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.g0.a.e0.n.b
             /* renamed from: b */
             public void a(d.b.g0.a.t.e.b bVar) {
-                C0735a c0735a = C0735a.this;
-                a.this.c(c0735a.f45248g, bVar);
+                C0747a c0747a = C0747a.this;
+                a.this.c(c0747a.f45640g, bVar);
             }
         }
 
-        public C0735a(JSONArray jSONArray, String str, String str2) {
-            this.f45246e = jSONArray;
-            this.f45247f = str;
-            this.f45248g = str2;
+        public C0747a(JSONArray jSONArray, String str, String str2) {
+            this.f45638e = jSONArray;
+            this.f45639f = str;
+            this.f45640g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,12 +64,12 @@ public class a extends d.b.g0.a.t.b.d {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("appKey", d.b.g0.a.r1.e.T());
-                hashMap.put("contentIds", this.f45246e);
-                hashMap.put("category", this.f45247f);
-                a.this.K("INSERT", hashMap, new C0736a());
+                hashMap.put("contentIds", this.f45638e);
+                hashMap.put("category", this.f45639f);
+                a.this.K("INSERT", hashMap, new C0748a());
                 return;
             }
-            a.this.c(this.f45248g, new d.b.g0.a.t.e.b(hVar.b(), d.b.g0.a.v1.c.c.f(hVar.b())));
+            a.this.c(this.f45640g, new d.b.g0.a.t.e.b(hVar.b(), d.b.g0.a.v1.c.c.f(hVar.b())));
             d.b.g0.a.q1.b.f.d.e(a.this.h(), d.b.g0.a.h.swan_bookshelf_authorize_fail).C();
         }
     }
@@ -78,17 +78,17 @@ public class a extends d.b.g0.a.t.b.d {
     public class b implements d.b.g0.a.e0.n.b<d.b.g0.a.t.e.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45251a;
+        public final /* synthetic */ String f45643a;
 
         public b(String str) {
-            this.f45251a = str;
+            this.f45643a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.e0.n.b
         /* renamed from: b */
         public void a(d.b.g0.a.t.e.b bVar) {
-            a.this.c(this.f45251a, bVar);
+            a.this.c(this.f45643a, bVar);
         }
     }
 
@@ -96,17 +96,17 @@ public class a extends d.b.g0.a.t.b.d {
     public class c implements d.b.g0.a.e0.n.b<d.b.g0.a.t.e.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45253a;
+        public final /* synthetic */ String f45645a;
 
         public c(String str) {
-            this.f45253a = str;
+            this.f45645a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.e0.n.b
         /* renamed from: b */
         public void a(d.b.g0.a.t.e.b bVar) {
-            a.this.c(this.f45253a, bVar);
+            a.this.c(this.f45645a, bVar);
         }
     }
 
@@ -114,18 +114,18 @@ public class a extends d.b.g0.a.t.b.d {
     public class d implements d.b.g0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45255e;
+        public final /* synthetic */ String f45647e;
 
         public d(String str) {
-            this.f45255e = str;
+            this.f45647e = str;
         }
 
         @Override // d.b.g0.a.m.a
         public void onResult(int i) {
             if (i != 0) {
-                a.this.c(this.f45255e, new d.b.g0.a.t.e.b(1001, "user is not login"));
+                a.this.c(this.f45647e, new d.b.g0.a.t.e.b(1001, "user is not login"));
             } else {
-                a.this.G(this.f45255e);
+                a.this.G(this.f45647e);
             }
         }
     }
@@ -134,10 +134,10 @@ public class a extends d.b.g0.a.t.b.d {
     public class e implements CallbackHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45257e;
+        public final /* synthetic */ String f45649e;
 
         public e(String str) {
-            this.f45257e = str;
+            this.f45649e = str;
         }
 
         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -147,7 +147,7 @@ public class a extends d.b.g0.a.t.b.d {
 
         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
         public void handleSchemeDispatchCallback(String str, String str2) {
-            a.this.E(str2, this.f45257e);
+            a.this.E(str2, this.f45649e);
         }
     }
 
@@ -155,21 +155,21 @@ public class a extends d.b.g0.a.t.b.d {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45259e;
+        public final /* synthetic */ String f45651e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45260f;
+        public final /* synthetic */ String f45652f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45261g;
+        public final /* synthetic */ String f45653g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f45262h;
+        public final /* synthetic */ String f45654h;
 
         /* renamed from: d.b.g0.a.n.b.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0737a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0737a(f fVar) {
+        public class DialogInterface$OnClickListenerC0749a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0749a(f fVar) {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -189,22 +189,22 @@ public class a extends d.b.g0.a.t.b.d {
         }
 
         public f(String str, String str2, String str3, String str4) {
-            this.f45259e = str;
-            this.f45260f = str2;
-            this.f45261g = str3;
-            this.f45262h = str4;
+            this.f45651e = str;
+            this.f45652f = str2;
+            this.f45653g = str3;
+            this.f45654h = str4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             g.a aVar = new g.a(a.this.h());
-            aVar.V(this.f45259e);
-            aVar.y(this.f45260f);
+            aVar.V(this.f45651e);
+            aVar.y(this.f45652f);
             aVar.z();
             aVar.n(new d.b.g0.a.j2.g.a());
             aVar.m(false);
-            aVar.P(this.f45261g, new b(this));
-            aVar.D(this.f45262h, new DialogInterface$OnClickListenerC0737a(this));
+            aVar.P(this.f45653g, new b(this));
+            aVar.D(this.f45654h, new DialogInterface$OnClickListenerC0749a(this));
             aVar.X();
         }
     }
@@ -227,40 +227,40 @@ public class a extends d.b.g0.a.t.b.d {
     public class h extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f45264a;
+        public final /* synthetic */ boolean f45656a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.n.b f45265b;
+        public final /* synthetic */ d.b.g0.a.e0.n.b f45657b;
 
         public h(boolean z, d.b.g0.a.e0.n.b bVar) {
-            this.f45264a = z;
-            this.f45265b = bVar;
+            this.f45656a = z;
+            this.f45657b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i) {
-            if (this.f45264a) {
+            if (this.f45656a) {
                 d.b.g0.a.q1.b.f.d.a();
             }
             if (jSONObject == null) {
-                a.this.B(this.f45265b, 1001, "server response fail", this.f45264a);
+                a.this.B(this.f45657b, 1001, "server response fail", this.f45656a);
                 return;
             }
             int optInt = jSONObject.optInt("errno", -1);
             if (optInt != 0) {
-                if (this.f45264a) {
+                if (this.f45656a) {
                     d.b.g0.a.q1.b.f.d.e(d.b.g0.a.w0.a.c(), d.b.g0.a.h.swan_bookshelf_insert_failed).C();
                 }
-                a.this.B(this.f45265b, optInt, jSONObject.optString("errmsg"), false);
+                a.this.B(this.f45657b, optInt, jSONObject.optString("errmsg"), false);
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                a.this.B(this.f45265b, 0, jSONObject.optString("errmsg"), this.f45264a);
+                a.this.B(this.f45657b, 0, jSONObject.optString("errmsg"), this.f45656a);
             } else {
-                a.this.C(this.f45265b, optJSONObject, this.f45264a);
+                a.this.C(this.f45657b, optJSONObject, this.f45656a);
             }
         }
 
@@ -276,12 +276,12 @@ public class a extends d.b.g0.a.t.b.d {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.f45264a) {
+            if (this.f45656a) {
                 d.b.g0.a.q1.b.f.d.a();
             }
             a aVar = a.this;
-            d.b.g0.a.e0.n.b bVar = this.f45265b;
-            aVar.B(bVar, 1001, "operation fail, msg = " + exc.getMessage(), this.f45264a);
+            d.b.g0.a.e0.n.b bVar = this.f45657b;
+            aVar.B(bVar, 1001, "operation fail, msg = " + exc.getMessage(), this.f45656a);
         }
     }
 
@@ -365,7 +365,7 @@ public class a extends d.b.g0.a.t.b.d {
         try {
             i2 = new JSONObject(str).optInt("status", 1001);
         } catch (JSONException e2) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 e2.printStackTrace();
             }
         }
@@ -379,7 +379,7 @@ public class a extends d.b.g0.a.t.b.d {
     public final boolean F() {
         d.b.g0.a.v1.c.e eVar = d.b.g0.a.g1.o.c.a.g(true).get("scope_insert_bookshelf");
         if (eVar != null) {
-            return eVar.j < 0 && !eVar.f46771d;
+            return eVar.j < 0 && !eVar.f47163d;
         }
         return true;
     }
@@ -448,11 +448,11 @@ public class a extends d.b.g0.a.t.b.d {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
         } catch (Exception e2) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 e2.printStackTrace();
             }
         }
-        RequestBody create = RequestBody.create(d.b.g0.a.g1.f.f44518a, jSONObject.toString());
+        RequestBody create = RequestBody.create(d.b.g0.a.g1.f.f44910a, jSONObject.toString());
         String z = z(str);
         if (TextUtils.isEmpty(z)) {
             B(bVar, 1001, "operation fail, msg = url is null", equals);
@@ -498,7 +498,7 @@ public class a extends d.b.g0.a.t.b.d {
     }
 
     public final void y(JSONArray jSONArray, String str, String str2) {
-        d.b.g0.a.r1.d.e().s().R().g(h(), "scope_insert_bookshelf", new C0735a(jSONArray, str, str2));
+        d.b.g0.a.r1.d.e().s().R().g(h(), "scope_insert_bookshelf", new C0747a(jSONArray, str, str2));
     }
 
     public final String z(String str) {

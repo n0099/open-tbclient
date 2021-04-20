@@ -18,7 +18,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.i0.i0.l.d.c;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,28 +27,28 @@ import tbclient.ShortUserInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f55734a = 3;
+    public int f56857a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f55735b;
+    public TbPageContext<?> f56858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f55736c;
+    public View f56859c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RoundRelativeLayout f55737d;
+    public RoundRelativeLayout f56860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f55738e;
+    public ImageView f56861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f55739f;
+    public ImageView f56862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f55740g;
+    public TbImageView f56863g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f55741h;
+    public ImageView f56864h;
     public TextView i;
     public TextView j;
     public ImageView k;
@@ -65,9 +65,9 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(b.this.f55735b.getPageActivity());
+            HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(b.this.f56858b.getPageActivity());
             hotUserRankActivityConfig.setCategory(b.this.o);
-            b.this.f55735b.sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
+            b.this.f56858b.sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             StatisticItem statisticItem = new StatisticItem("c13655");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, b.this.p);
@@ -76,43 +76,43 @@ public class b {
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f55735b = tbPageContext;
+        this.f56858b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_tabfeed_hot_user_rank_header_view, (ViewGroup) null);
-        this.f55736c = inflate;
-        this.f55737d = (RoundRelativeLayout) inflate.findViewById(R.id.view_container);
-        this.f55738e = (ImageView) this.f55736c.findViewById(R.id.ic_red_background);
-        this.f55739f = (ImageView) this.f55736c.findViewById(R.id.ic_red_pic);
-        this.f55740g = (TbImageView) this.f55736c.findViewById(R.id.rank_icon);
-        this.f55741h = (ImageView) this.f55736c.findViewById(R.id.rank_icon_default);
-        this.i = (TextView) this.f55736c.findViewById(R.id.forum_text);
-        this.j = (TextView) this.f55736c.findViewById(R.id.no_1_user);
-        this.l = (HotUserRankImageOverlayView) this.f55736c.findViewById(R.id.image_overlay_view);
-        this.k = (ImageView) this.f55736c.findViewById(R.id.iv_crown);
-        this.m = (ImageView) this.f55736c.findViewById(R.id.icon_arrow);
+        this.f56859c = inflate;
+        this.f56860d = (RoundRelativeLayout) inflate.findViewById(R.id.view_container);
+        this.f56861e = (ImageView) this.f56859c.findViewById(R.id.ic_red_background);
+        this.f56862f = (ImageView) this.f56859c.findViewById(R.id.ic_red_pic);
+        this.f56863g = (TbImageView) this.f56859c.findViewById(R.id.rank_icon);
+        this.f56864h = (ImageView) this.f56859c.findViewById(R.id.rank_icon_default);
+        this.i = (TextView) this.f56859c.findViewById(R.id.forum_text);
+        this.j = (TextView) this.f56859c.findViewById(R.id.no_1_user);
+        this.l = (HotUserRankImageOverlayView) this.f56859c.findViewById(R.id.image_overlay_view);
+        this.k = (ImageView) this.f56859c.findViewById(R.id.iv_crown);
+        this.m = (ImageView) this.f56859c.findViewById(R.id.icon_arrow);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds114);
         this.l.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2_6), R.color.CAM_X0501, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62));
         this.l.setStrokeStyle(1);
         this.l.setLoadImageType(12);
         this.l.setFirstImageStrokeColor(R.color.CAM_X0314);
-        this.f55737d.setOnClickListener(new a());
+        this.f56860d.setOnClickListener(new a());
         int g2 = l.g(tbPageContext.getPageActivity(), R.dimen.tbds90);
         this.n = g2;
-        this.f55737d.setRoundLayoutRadius(new float[]{g2, g2, g2, g2, g2, g2, g2, g2});
+        this.f56860d.setRoundLayoutRadius(new float[]{g2, g2, g2, g2, g2, g2, g2, g2});
     }
 
     public View d() {
-        return this.f55736c;
+        return this.f56859c;
     }
 
     public void e() {
-        if (this.f55734a != TbadkCoreApplication.getInst().getSkinType()) {
-            this.f55734a = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setBackgroundColor(this.f55737d, R.color.CAM_X0206);
-            if (this.f55741h.getVisibility() == 0) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55741h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.f56857a != TbadkCoreApplication.getInst().getSkinType()) {
+            this.f56857a = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setBackgroundColor(this.f56860d, R.color.CAM_X0206);
+            if (this.f56864h.getVisibility() == 0) {
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f56864h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55738e, R.drawable.ic_pic_mask_list_red, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setImageResource(this.f55739f, R.drawable.pic_list_redword);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f56861e, R.drawable.ic_pic_mask_list_red, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.f56862f, R.drawable.pic_list_redword);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0311);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0311);
@@ -125,20 +125,20 @@ public class b {
         if (cVar == null) {
             return;
         }
-        String str = cVar.f55716b;
+        String str = cVar.f56839b;
         this.o = str;
         if (TextUtils.isEmpty(str)) {
             this.o = "";
         }
         TextView textView = this.i;
         textView.setText(this.o + "榜");
-        List<ShortUserInfo> list = cVar.f55715a;
+        List<ShortUserInfo> list = cVar.f56838a;
         if (list != null && list.size() > 0) {
             TextView textView2 = this.j;
-            textView2.setText("NO.1 " + cVar.f55715a.get(0).user_name);
+            textView2.setText("NO.1 " + cVar.f56838a.get(0).user_name);
             ArrayList arrayList = new ArrayList();
             int i = 0;
-            for (ShortUserInfo shortUserInfo : cVar.f55715a) {
+            for (ShortUserInfo shortUserInfo : cVar.f56838a) {
                 if (i > 2) {
                     break;
                 }
@@ -146,14 +146,14 @@ public class b {
                 arrayList.add(shortUserInfo.portrait);
             }
             this.l.setData(arrayList);
-            if (!TextUtils.isEmpty(cVar.f55717c)) {
-                this.f55740g.setVisibility(0);
-                this.f55741h.setVisibility(8);
-                this.f55740g.W(cVar.f55717c, 12, false);
+            if (!TextUtils.isEmpty(cVar.f56840c)) {
+                this.f56863g.setVisibility(0);
+                this.f56864h.setVisibility(8);
+                this.f56863g.W(cVar.f56840c, 12, false);
             } else {
-                this.f55741h.setVisibility(0);
-                this.f55740g.setVisibility(8);
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f55741h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+                this.f56864h.setVisibility(0);
+                this.f56863g.setVisibility(8);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f56864h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
         }
         e();

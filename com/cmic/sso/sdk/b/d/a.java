@@ -1,24 +1,24 @@
 package com.cmic.sso.sdk.b.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30663a;
+    public int f30348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30664b;
+    public String f30349b;
 
     public a(int i, String str) {
-        this.f30663a = i;
-        this.f30664b = str;
+        this.f30348a = i;
+        this.f30349b = str;
     }
 
     public int a() {
-        return this.f30663a;
+        return this.f30348a;
     }
 
     public String b() {
-        return this.f30664b;
+        return this.f30349b;
     }
 
     public static a a(int i) {

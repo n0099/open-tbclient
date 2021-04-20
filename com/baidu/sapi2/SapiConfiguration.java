@@ -27,7 +27,7 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LoginShareStrategy f10636a;
+    public final LoginShareStrategy f10220a;
     public final boolean accountCenterRealAutnen;
     public int activityExitAnimId;
     public int activityOpenAnimId;
@@ -35,11 +35,11 @@ public final class SapiConfiguration implements NoProguard {
     public final String appSignKey;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10637b;
+    public boolean f10221b;
     public final String bdOauthAppId;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10638c;
+    public boolean f10222c;
     public String clientId;
     public String clientIp;
     public final Switch configurableViewLayout;
@@ -180,34 +180,34 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     public boolean isAgreeDangerousProtocol() {
-        return this.f10637b;
+        return this.f10221b;
     }
 
     public boolean isSupportTouchLogin() {
-        return this.f10638c && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).f10806c;
+        return this.f10222c && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).f10390c;
     }
 
     public boolean isValidateSpCommit() {
-        return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_VALIDATE_SP_COMMIT).f10806c;
+        return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_VALIDATE_SP_COMMIT).f10390c;
     }
 
     public LoginShareStrategy loginShareStrategy() {
         SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
         LoginShareStrategy loginShareStrategy = sapiOptions.getSpecificShareStrategy().get(this.tpl);
         if (loginShareStrategy != null) {
-            Log.d(com.baidu.sapi2.share.d.f11377a, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
+            Log.d(com.baidu.sapi2.share.d.f10961a, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
             return loginShareStrategy;
         }
         LoginShareStrategy globalShareStrategy = sapiOptions.getGlobalShareStrategy();
         if (globalShareStrategy != null) {
-            Log.d(com.baidu.sapi2.share.d.f11377a, "loginShareStrategy getGlobalShareStrategy is " + globalShareStrategy.getStrValue());
+            Log.d(com.baidu.sapi2.share.d.f10961a, "loginShareStrategy getGlobalShareStrategy is " + globalShareStrategy.getStrValue());
             return globalShareStrategy;
         }
-        return this.f10636a;
+        return this.f10220a;
     }
 
     public void setAgreeDangerousProtocol(boolean z) {
-        this.f10637b = z;
+        this.f10221b = z;
         try {
             FH.setAgreePolicy(this.context, z);
         } catch (Exception e2) {
@@ -225,29 +225,29 @@ public final class SapiConfiguration implements NoProguard {
         public String R;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f10639a;
+        public Context f10223a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10640b;
+        public String f10224b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10641c;
+        public String f10225c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10642d;
+        public String f10226d;
         public boolean d0;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10643e;
+        public String f10227e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Domain f10644f;
+        public Domain f10228f;
 
         /* renamed from: g  reason: collision with root package name */
-        public BindType f10645g;
+        public BindType f10229g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Language f10646h;
+        public Language f10230h;
         public LoginShareStrategy i;
         public List<FastLoginFeature> j;
         public String k;
@@ -293,7 +293,7 @@ public final class SapiConfiguration implements NoProguard {
         public int f0 = 100;
 
         public Builder(Context context) {
-            this.f10639a = context.getApplicationContext();
+            this.f10223a = context.getApplicationContext();
         }
 
         public Builder bdOauthAppId(String str) {
@@ -302,15 +302,15 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public SapiConfiguration build() {
-            if (!TextUtils.isEmpty(this.f10640b) && !TextUtils.isEmpty(this.f10641c) && !TextUtils.isEmpty(this.f10642d)) {
-                if (this.f10644f == null) {
-                    this.f10644f = Domain.DOMAIN_ONLINE;
+            if (!TextUtils.isEmpty(this.f10224b) && !TextUtils.isEmpty(this.f10225c) && !TextUtils.isEmpty(this.f10226d)) {
+                if (this.f10228f == null) {
+                    this.f10228f = Domain.DOMAIN_ONLINE;
                 }
-                if (this.f10646h == null) {
-                    this.f10646h = Language.CHINESE;
+                if (this.f10230h == null) {
+                    this.f10230h = Language.CHINESE;
                 }
-                if (this.f10645g == null) {
-                    this.f10645g = BindType.BIND_MOBILE;
+                if (this.f10229g == null) {
+                    this.f10229g = BindType.BIND_MOBILE;
                 }
                 if (this.i == null) {
                     this.i = LoginShareStrategy.getDefault();
@@ -424,7 +424,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setAgreeDangerousProtocol(boolean z) {
             this.t = z;
             try {
-                FH.setAgreePolicy(this.f10639a, z);
+                FH.setAgreePolicy(this.f10223a, z);
             } catch (Exception e2) {
                 Log.e(e2);
             }
@@ -442,7 +442,7 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder setLanguage(Language language) {
-            this.f10646h = language;
+            this.f10230h = language;
             return this;
         }
 
@@ -476,14 +476,14 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.f10640b = str;
-            this.f10641c = str2;
-            this.f10642d = str3;
+            this.f10224b = str;
+            this.f10225c = str2;
+            this.f10226d = str3;
             return this;
         }
 
         public Builder setRuntimeEnvironment(Domain domain) {
-            this.f10644f = domain;
+            this.f10228f = domain;
             return this;
         }
 
@@ -493,7 +493,7 @@ public final class SapiConfiguration implements NoProguard {
         }
 
         public Builder setSocialBindType(BindType bindType) {
-            this.f10645g = bindType;
+            this.f10229g = bindType;
             return this;
         }
 
@@ -615,14 +615,14 @@ public final class SapiConfiguration implements NoProguard {
 
     public SapiConfiguration(Builder builder) {
         this.supportNetwork = true;
-        this.context = builder.f10639a;
-        this.tpl = builder.f10640b;
-        this.appId = builder.f10641c;
-        this.appSignKey = builder.f10642d;
-        this.environment = builder.f10644f;
-        this.language = builder.f10646h;
-        this.socialBindType = builder.f10645g;
-        this.f10636a = builder.i;
+        this.context = builder.f10223a;
+        this.tpl = builder.f10224b;
+        this.appId = builder.f10225c;
+        this.appSignKey = builder.f10226d;
+        this.environment = builder.f10228f;
+        this.language = builder.f10230h;
+        this.socialBindType = builder.f10229g;
+        this.f10220a = builder.i;
         this.fastLoginFeatureList = builder.j;
         this.wxAppID = builder.k;
         this.qqAppID = builder.l;
@@ -633,7 +633,7 @@ public final class SapiConfiguration implements NoProguard {
         this.sinaRedirectUri = builder.x;
         this.xiaomiAppID = builder.n;
         this.xiaomiRedirectUri = builder.v;
-        this.f10637b = builder.t;
+        this.f10221b = builder.t;
         this.twitterAppKey = builder.q;
         this.googleClientId = builder.r;
         this.yyAppId = builder.s;
@@ -664,7 +664,7 @@ public final class SapiConfiguration implements NoProguard {
         this.activityExitAnimId = builder.V;
         this.disableVoiceVerify = builder.X;
         this.supportFaceLogin = builder.Y;
-        this.f10638c = builder.Z;
+        this.f10222c = builder.Z;
         this.supportGestureSlide = builder.a0;
         this.syncOneKeyLoginInfo = builder.b0;
         this.supportMultipleAccounts = builder.c0;

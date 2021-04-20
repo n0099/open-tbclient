@@ -7,13 +7,13 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f30723a;
+    public ConcurrentHashMap<String, Long> f30408a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum ETag {
         in,
         out,
@@ -21,19 +21,19 @@ public class StatService {
         back
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f30724a = new StatService();
+        public static StatService f30409a = new StatService();
     }
 
     public static StatService a() {
-        return a.f30724a;
+        return a.f30409a;
     }
 
     public static void b(String str) {
-        a().f30723a.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().f30408a.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static void c(String str, String str2, String str3) {
@@ -67,12 +67,12 @@ public class StatService {
     }
 
     public static long f(String str) {
-        Long l = a().f30723a.get(str);
+        Long l = a().f30408a.get(str);
         if (l == null) {
             return -1L;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().f30723a.remove(str);
+        a().f30408a.remove(str);
         return valueOf.longValue();
     }
 
@@ -95,6 +95,6 @@ public class StatService {
     }
 
     public StatService() {
-        this.f30723a = new ConcurrentHashMap<>();
+        this.f30408a = new ConcurrentHashMap<>();
     }
 }

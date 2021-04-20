@@ -10,6 +10,6 @@ public class g implements Comparator<d.a> {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // java.util.Comparator
     public int compare(d.a aVar, d.a aVar2) {
-        return -Integer.compare(aVar.f1327e.f1328b, aVar2.f1327e.f1328b);
+        return -Integer.compare(aVar.f1313e.f1314b, aVar2.f1313e.f1314b);
     }
 }

@@ -10,11 +10,10 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
-import d.b.i0.u3.v.j;
-import d.b.i0.u3.v.k;
-import d.b.i0.u3.v.n.b.c;
+import d.b.i0.v3.v.j;
+import d.b.i0.v3.v.k;
+import d.b.i0.v3.v.n.b.c;
 /* loaded from: classes5.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
     public static final String OUTSTATE_KEY_CURRENT_INDEX = "OutState_Current_Index";
@@ -29,23 +28,23 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.b.i0.u3.v.n.b.c
+        @Override // d.b.i0.v3.v.n.b.c
         public void a() {
             WriteMultiImgsActivity.this.mControler.s();
             WriteMultiImgsActivity.this.mControler.r(false);
         }
 
-        @Override // d.b.i0.u3.v.n.b.c
+        @Override // d.b.i0.v3.v.n.b.c
         public boolean b(Bitmap bitmap) {
             return WriteMultiImgsActivity.this.mControler.q(bitmap);
         }
 
-        @Override // d.b.i0.u3.v.n.b.c
+        @Override // d.b.i0.v3.v.n.b.c
         public void c() {
             WriteMultiImgsActivity.this.mControler.A();
         }
 
-        @Override // d.b.i0.u3.v.n.b.c
+        @Override // d.b.i0.v3.v.n.b.c
         public void d() {
             WriteMultiImgsActivity.this.mControler.n();
             WriteMultiImgsActivity.this.mControler.r(true);
@@ -80,7 +79,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             } else if (2 == this.mControler.u()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
-                intent.setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                intent.setFlags(536870912);
                 intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 startActivity(intent);
                 finish();
@@ -116,7 +115,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (jVar != null) {
             jVar.h(i);
         }
-        this.mControler.f61824c.notifyDataSetChanged();
+        this.mControler.f63562c.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -151,11 +150,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onSaveInstanceState(Bundle bundle) {
         MultiImagePagerAdapter multiImagePagerAdapter;
         k kVar = this.mControler;
-        if (kVar != null && (multiImagePagerAdapter = kVar.f61824c) != null) {
+        if (kVar != null && (multiImagePagerAdapter = kVar.f63562c) != null) {
             bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
             bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
             bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-            this.mControler.f61824c.g(true);
+            this.mControler.f63562c.g(true);
             if (this.mControler.w() != null) {
                 bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
             }

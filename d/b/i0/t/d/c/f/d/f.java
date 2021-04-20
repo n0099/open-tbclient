@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes4.dex */
 public class f extends d.b.i0.x.b<d.b.i0.t.d.c.f.b.b> {
     public TextView m;
@@ -67,13 +67,13 @@ public class f extends d.b.i0.x.b<d.b.i0.t.d.c.f.b.b> {
     public void n(d.b.i0.t.d.c.f.b.b bVar) {
         if (bVar != null) {
             this.r = bVar;
-            String str = bVar.f60360g;
+            String str = bVar.f61924g;
             if (StringUtils.isNull(str)) {
-                str = StringUtils.isNull(bVar.f60359f) ? "" : bVar.f60359f;
+                str = StringUtils.isNull(bVar.f61923f) ? "" : bVar.f61923f;
             }
             this.m.setText(str);
             this.n.setText(StringUtils.isNull(bVar.i) ? "" : bVar.i);
-            this.o.W(bVar.f60361h, 10, false);
+            this.o.W(bVar.f61925h, 10, false);
             this.p.setText(StringUtils.isNull(bVar.j) ? "" : bVar.j);
         }
     }

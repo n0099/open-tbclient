@@ -20,42 +20,42 @@ import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
-import d.b.b.e.p.l;
-import d.b.b.e.q.h;
+import d.b.c.e.p.l;
+import d.b.c.e.q.h;
 /* loaded from: classes4.dex */
 public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumEmotionItemView f15836a;
+    public ForumEmotionItemView f15499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f15837b;
+    public TbPageContext f15500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.l0.z.b.c f15838c;
+    public d.b.i0.l0.z.b.c f15501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NewFaceGroupDownloadModel f15839d;
+    public NewFaceGroupDownloadModel f15502d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.l0.z.b.b f15840e;
+        public final /* synthetic */ d.b.i0.l0.z.b.b f15503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.l0.z.a.a f15841f;
+        public final /* synthetic */ d.b.i0.l0.z.a.a f15504f;
 
         public a(ForumEmotionViewHolder forumEmotionViewHolder, d.b.i0.l0.z.b.b bVar, d.b.i0.l0.z.a.a aVar) {
-            this.f15840e = bVar;
-            this.f15841f = aVar;
+            this.f15503e = bVar;
+            this.f15504f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.i0.l0.z.b.b bVar = this.f15840e;
+            d.b.i0.l0.z.b.b bVar = this.f15503e;
             bVar.c(!bVar.b());
-            d.b.i0.l0.z.a.a aVar = this.f15841f;
+            d.b.i0.l0.z.a.a aVar = this.f15504f;
             if (aVar != null) {
                 aVar.b();
             }
@@ -66,23 +66,23 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.l0.z.b.b f15842e;
+        public final /* synthetic */ d.b.i0.l0.z.b.b f15505e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.l0.z.a.a f15843f;
+        public final /* synthetic */ d.b.i0.l0.z.a.a f15506f;
 
         public b(ForumEmotionViewHolder forumEmotionViewHolder, d.b.i0.l0.z.b.b bVar, d.b.i0.l0.z.a.a aVar) {
-            this.f15842e = bVar;
-            this.f15843f = aVar;
+            this.f15505e = bVar;
+            this.f15506f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f15842e.c(false);
-            this.f15842e.d(0);
-            d.b.i0.l0.z.a.a aVar = this.f15843f;
+            this.f15505e.c(false);
+            this.f15505e.d(0);
+            d.b.i0.l0.z.a.a aVar = this.f15506f;
             if (aVar != null) {
-                aVar.a(this.f15842e.a());
+                aVar.a(this.f15505e.a());
             }
         }
     }
@@ -91,23 +91,23 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.l0.z.b.b f15844e;
+        public final /* synthetic */ d.b.i0.l0.z.b.b f15507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.l0.z.a.a f15845f;
+        public final /* synthetic */ d.b.i0.l0.z.a.a f15508f;
 
         public c(ForumEmotionViewHolder forumEmotionViewHolder, d.b.i0.l0.z.b.b bVar, d.b.i0.l0.z.a.a aVar) {
-            this.f15844e = bVar;
-            this.f15845f = aVar;
+            this.f15507e = bVar;
+            this.f15508f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f15844e.c(false);
-            this.f15844e.d(1);
-            d.b.i0.l0.z.a.a aVar = this.f15845f;
+            this.f15507e.c(false);
+            this.f15507e.d(1);
+            d.b.i0.l0.z.a.a aVar = this.f15508f;
             if (aVar != null) {
-                aVar.a(this.f15844e.a());
+                aVar.a(this.f15507e.a());
             }
         }
     }
@@ -116,15 +116,15 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     public class d implements AdapterView.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumEmotionPackageData f15846a;
+        public final /* synthetic */ ForumEmotionPackageData f15509a;
 
         public d(ForumEmotionPackageData forumEmotionPackageData) {
-            this.f15846a = forumEmotionPackageData;
+            this.f15509a = forumEmotionPackageData;
         }
 
         @Override // com.baidu.tieba.horizonalList.widget.AdapterView.d
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            ForumEmotionViewHolder.this.f15837b.sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(ForumEmotionViewHolder.this.f15837b.getPageActivity(), this.f15846a.id, 0)));
+            ForumEmotionViewHolder.this.f15500b.sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(ForumEmotionViewHolder.this.f15500b.getPageActivity(), this.f15509a.id, 0)));
         }
     }
 
@@ -132,54 +132,54 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumEmotionPackageData f15848e;
+        public final /* synthetic */ ForumEmotionPackageData f15511e;
 
         public e(ForumEmotionPackageData forumEmotionPackageData) {
-            this.f15848e = forumEmotionPackageData;
+            this.f15511e = forumEmotionPackageData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ForumEmotionViewHolder.this.l(this.f15848e);
+            ForumEmotionViewHolder.this.l(this.f15511e);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.i0.x1.e.b {
+    public class f implements d.b.i0.y1.e.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumEmotionPackageData f15850a;
+        public final /* synthetic */ ForumEmotionPackageData f15513a;
 
         public f(ForumEmotionPackageData forumEmotionPackageData) {
-            this.f15850a = forumEmotionPackageData;
+            this.f15513a = forumEmotionPackageData;
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onFail(String str) {
-            l.K(ForumEmotionViewHolder.this.f15837b.getPageActivity(), R.string.download_error);
-            ForumEmotionViewHolder.this.f15836a.getDownLoadView().setEnabled(true);
+            l.K(ForumEmotionViewHolder.this.f15500b.getPageActivity(), R.string.download_error);
+            ForumEmotionViewHolder.this.f15499a.getDownLoadView().setEnabled(true);
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onProgress(int i) {
             if (i > 0 && i < 100) {
-                l.I(ForumEmotionViewHolder.this.f15837b.getPageActivity(), h.a(R.string.package_downloading_progress));
+                l.I(ForumEmotionViewHolder.this.f15500b.getPageActivity(), h.a(R.string.package_downloading_progress));
             } else if (i >= 100) {
-                l.H(ForumEmotionViewHolder.this.f15837b.getPageActivity(), R.string.down_state_success);
+                l.H(ForumEmotionViewHolder.this.f15500b.getPageActivity(), R.string.down_state_success);
             }
         }
 
-        @Override // d.b.i0.x1.e.b
+        @Override // d.b.i0.y1.e.b
         public void onSuccess(String str) {
-            l.K(ForumEmotionViewHolder.this.f15837b.getPageActivity(), R.string.down_state_success);
-            ForumEmotionViewHolder.this.f15836a.getDownLoadView().setText(R.string.already_downloaded);
-            SkinManager.setViewTextColor(ForumEmotionViewHolder.this.f15836a.getDownLoadView(), R.color.CAM_X0109);
-            ForumEmotionViewHolder.this.f15836a.getDownLoadView().setBackgroundDrawable(null);
-            ForumEmotionViewHolder.this.f15836a.getDownLoadView().setEnabled(false);
-            this.f15850a.download++;
-            if (ForumEmotionViewHolder.this.f15838c != null) {
-                ForumEmotionPackageData forumEmotionPackageData = ForumEmotionViewHolder.this.f15838c.f56707e;
-                ForumEmotionPackageData forumEmotionPackageData2 = this.f15850a;
+            l.K(ForumEmotionViewHolder.this.f15500b.getPageActivity(), R.string.down_state_success);
+            ForumEmotionViewHolder.this.f15499a.getDownLoadView().setText(R.string.already_downloaded);
+            SkinManager.setViewTextColor(ForumEmotionViewHolder.this.f15499a.getDownLoadView(), R.color.CAM_X0109);
+            ForumEmotionViewHolder.this.f15499a.getDownLoadView().setBackgroundDrawable(null);
+            ForumEmotionViewHolder.this.f15499a.getDownLoadView().setEnabled(false);
+            this.f15513a.download++;
+            if (ForumEmotionViewHolder.this.f15501c != null) {
+                ForumEmotionPackageData forumEmotionPackageData = ForumEmotionViewHolder.this.f15501c.f58113e;
+                ForumEmotionPackageData forumEmotionPackageData2 = this.f15513a;
                 if (forumEmotionPackageData == forumEmotionPackageData2) {
                     ForumEmotionViewHolder.this.j(forumEmotionPackageData2);
                 }
@@ -190,12 +190,12 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
 
     public ForumEmotionViewHolder(TbPageContext tbPageContext, View view) {
         super(view);
-        this.f15836a = (ForumEmotionItemView) view;
-        this.f15837b = tbPageContext;
+        this.f15499a = (ForumEmotionItemView) view;
+        this.f15500b = tbPageContext;
     }
 
     public final void g(ForumEmotionPackageData forumEmotionPackageData) {
-        TextView downLoadView = this.f15836a.getDownLoadView();
+        TextView downLoadView = this.f15499a.getDownLoadView();
         if (forumEmotionPackageData == null) {
             downLoadView.setVisibility(4);
             return;
@@ -243,22 +243,22 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
 
     public final void h(ForumEmotionPackageData forumEmotionPackageData) {
         if (forumEmotionPackageData != null) {
-            this.f15836a.getListView().setVisibility(0);
-            this.f15836a.getListView().setAdapter((ListAdapter) this.f15836a.getAdapter());
-            this.f15836a.getAdapter().a(forumEmotionPackageData.pics, forumEmotionPackageData.forum_id > 0);
-            this.f15836a.getListView().setOnItemClickListener(new d(forumEmotionPackageData));
+            this.f15499a.getListView().setVisibility(0);
+            this.f15499a.getListView().setAdapter((ListAdapter) this.f15499a.getAdapter());
+            this.f15499a.getAdapter().a(forumEmotionPackageData.pics, forumEmotionPackageData.forum_id > 0);
+            this.f15499a.getListView().setOnItemClickListener(new d(forumEmotionPackageData));
             return;
         }
-        this.f15836a.getListView().setVisibility(4);
+        this.f15499a.getListView().setVisibility(4);
     }
 
     public final void i(d.b.i0.l0.z.b.b bVar, d.b.i0.l0.z.a.a aVar, int i) {
         String string;
-        ViewGroup filterDropDownView = this.f15836a.getFilterDropDownView();
+        ViewGroup filterDropDownView = this.f15499a.getFilterDropDownView();
         if (i == 0 && bVar != null) {
-            Resources resources = this.f15836a.getResources();
-            TextView filterView = this.f15836a.getFilterView();
-            this.f15836a.getHeaderView().setVisibility(0);
+            Resources resources = this.f15499a.getResources();
+            TextView filterView = this.f15499a.getFilterView();
+            this.f15499a.getHeaderView().setVisibility(0);
             filterDropDownView.setVisibility(0);
             if (bVar.a() == 0) {
                 string = resources.getString(R.string.forum_emotion_filter_all_bar);
@@ -279,38 +279,38 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
             }
             return;
         }
-        this.f15836a.getHeaderView().setVisibility(8);
+        this.f15499a.getHeaderView().setVisibility(8);
         filterDropDownView.setVisibility(8);
     }
 
     public final void j(ForumEmotionPackageData forumEmotionPackageData) {
         if (forumEmotionPackageData != null) {
-            this.f15836a.getDownloadNumView().setVisibility(0);
-            this.f15836a.getShareNumView().setVisibility(0);
-            this.f15836a.getTitleView().setVisibility(0);
+            this.f15499a.getDownloadNumView().setVisibility(0);
+            this.f15499a.getShareNumView().setVisibility(0);
+            this.f15499a.getTitleView().setVisibility(0);
             if (!TextUtils.isEmpty(forumEmotionPackageData.forum_name)) {
-                TextView titleView = this.f15836a.getTitleView();
+                TextView titleView = this.f15499a.getTitleView();
                 titleView.setText(forumEmotionPackageData.forum_name + "吧·" + forumEmotionPackageData.name);
             } else {
-                this.f15836a.getTitleView().setText(forumEmotionPackageData.name);
+                this.f15499a.getTitleView().setText(forumEmotionPackageData.name);
             }
-            this.f15836a.getDownloadNumView().setText(String.format(h.a(R.string.forum_emotion_down_num), StringHelper.numberUniform(forumEmotionPackageData.download)));
-            this.f15836a.getShareNumView().setText(String.format(h.a(R.string.forum_emotion_share_num), StringHelper.numberUniform(forumEmotionPackageData.share)));
+            this.f15499a.getDownloadNumView().setText(String.format(h.a(R.string.forum_emotion_down_num), StringHelper.numberUniform(forumEmotionPackageData.download)));
+            this.f15499a.getShareNumView().setText(String.format(h.a(R.string.forum_emotion_share_num), StringHelper.numberUniform(forumEmotionPackageData.share)));
         } else {
-            this.f15836a.getTitleView().setVisibility(4);
-            this.f15836a.getDownloadNumView().setVisibility(4);
-            this.f15836a.getShareNumView().setVisibility(4);
+            this.f15499a.getTitleView().setVisibility(4);
+            this.f15499a.getDownloadNumView().setVisibility(4);
+            this.f15499a.getShareNumView().setVisibility(4);
         }
-        this.f15836a.getLineView().setVisibility(forumEmotionPackageData != null ? 0 : 4);
+        this.f15499a.getLineView().setVisibility(forumEmotionPackageData != null ? 0 : 4);
         if (forumEmotionPackageData == null) {
-            SkinManager.setBackgroundColor(this.f15836a, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f15499a, R.color.CAM_X0201);
         } else {
-            this.f15836a.setBackgroundColor(0);
+            this.f15499a.setBackgroundColor(0);
         }
     }
 
     public final void k(ForumEmotionPackageData forumEmotionPackageData) {
-        TextView rankView = this.f15836a.getRankView();
+        TextView rankView = this.f15499a.getRankView();
         if (forumEmotionPackageData != null) {
             rankView.setVisibility(0);
             long j = forumEmotionPackageData.rank_num;
@@ -342,26 +342,26 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public final void l(ForumEmotionPackageData forumEmotionPackageData) {
-        if (ViewHelper.checkUpIsLogin(this.f15837b.getPageActivity()) && forumEmotionPackageData != null && forumEmotionPackageData.id >= 0) {
-            if (this.f15839d == null) {
-                this.f15839d = new NewFaceGroupDownloadModel();
+        if (ViewHelper.checkUpIsLogin(this.f15500b.getPageActivity()) && forumEmotionPackageData != null && forumEmotionPackageData.id >= 0) {
+            if (this.f15502d == null) {
+                this.f15502d = new NewFaceGroupDownloadModel();
             }
-            this.f15836a.getDownLoadView().setEnabled(false);
-            this.f15839d.s(Integer.toString(forumEmotionPackageData.id), Boolean.TRUE, new f(forumEmotionPackageData));
+            this.f15499a.getDownLoadView().setEnabled(false);
+            this.f15502d.s(Integer.toString(forumEmotionPackageData.id), Boolean.TRUE, new f(forumEmotionPackageData));
         }
     }
 
     public void m(d.b.i0.l0.z.b.c cVar, d.b.i0.l0.z.b.b bVar, d.b.i0.l0.z.a.a aVar, int i) {
-        this.f15838c = cVar;
-        if (this.f15836a == null || cVar == null) {
+        this.f15501c = cVar;
+        if (this.f15499a == null || cVar == null) {
             return;
         }
-        if (cVar.f56707e != null || i == 0) {
+        if (cVar.f58113e != null || i == 0) {
             i(bVar, aVar, i);
-            h(cVar.f56707e);
-            k(cVar.f56707e);
-            j(cVar.f56707e);
-            g(cVar.f56707e);
+            h(cVar.f58113e);
+            k(cVar.f58113e);
+            j(cVar.f58113e);
+            g(cVar.f58113e);
         }
     }
 }

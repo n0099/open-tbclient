@@ -6,7 +6,7 @@ import com.facebook.common.memory.NoOpMemoryTrimmableRegistry;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PoolConfig {
     public static final int BITMAP_POOL_MAX_BITMAP_SIZE_DEFAULT = 4194304;
     public final int mBitmapPoolMaxBitmapSize;
@@ -22,7 +22,7 @@ public class PoolConfig {
     public final PoolParams mSmallByteArrayPoolParams;
     public final PoolStatsTracker mSmallByteArrayPoolStatsTracker;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public int mBitmapPoolMaxBitmapSize;
         public int mBitmapPoolMaxPoolSize;

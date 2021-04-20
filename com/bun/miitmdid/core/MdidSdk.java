@@ -21,53 +21,53 @@ public class MdidSdk implements SupplierListener {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f27079a;
+        public static final /* synthetic */ int[] f26764a;
 
         static {
             int[] iArr = new int[b.a.values().length];
-            f27079a = iArr;
+            f26764a = iArr;
             try {
                 iArr[b.a.XIAOMI.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f27079a[b.a.VIVO.ordinal()] = 2;
+                f26764a[b.a.VIVO.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f27079a[b.a.HUA_WEI.ordinal()] = 3;
+                f26764a[b.a.HUA_WEI.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f27079a[b.a.OPPO.ordinal()] = 4;
+                f26764a[b.a.OPPO.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f27079a[b.a.MOTO.ordinal()] = 5;
+                f26764a[b.a.MOTO.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f27079a[b.a.LENOVO.ordinal()] = 6;
+                f26764a[b.a.LENOVO.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f27079a[b.a.ASUS.ordinal()] = 7;
+                f26764a[b.a.ASUS.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f27079a[b.a.SAMSUNG.ordinal()] = 8;
+                f26764a[b.a.SAMSUNG.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f27079a[b.a.MEIZU.ordinal()] = 9;
+                f26764a[b.a.MEIZU.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f27079a[b.a.ALPS.ordinal()] = 10;
+                f26764a[b.a.ALPS.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f27079a[b.a.NUBIA.ordinal()] = 11;
+                f26764a[b.a.NUBIA.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
         }
@@ -112,7 +112,7 @@ public class MdidSdk implements SupplierListener {
         }
         this._setting = a3;
         com.bun.miitmdid.supplier.f.b bVar = null;
-        switch (AnonymousClass1.f27079a[a2.ordinal()]) {
+        switch (AnonymousClass1.f26764a[a2.ordinal()]) {
             case 1:
                 bVar = new com.bun.miitmdid.supplier.i.b(context);
                 break;

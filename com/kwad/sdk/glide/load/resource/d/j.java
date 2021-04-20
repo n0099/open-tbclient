@@ -14,18 +14,18 @@ import java.util.List;
 public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<ImageHeaderParser> f35742a;
+    public final List<ImageHeaderParser> f36031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.f<ByteBuffer, c> f35743b;
+    public final com.kwad.sdk.glide.load.f<ByteBuffer, c> f36032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35744c;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36033c;
 
     public j(List<ImageHeaderParser> list, com.kwad.sdk.glide.load.f<ByteBuffer, c> fVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f35742a = list;
-        this.f35743b = fVar;
-        this.f35744c = bVar;
+        this.f36031a = list;
+        this.f36032b = fVar;
+        this.f36033c = bVar;
     }
 
     public static byte[] a(InputStream inputStream) {
@@ -56,12 +56,12 @@ public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
         if (a2 == null) {
             return null;
         }
-        return this.f35743b.a(ByteBuffer.wrap(a2), i, i2, eVar);
+        return this.f36032b.a(ByteBuffer.wrap(a2), i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return !((Boolean) eVar.a(i.f35741b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f35742a, inputStream, this.f35744c) == ImageHeaderParser.ImageType.GIF;
+        return !((Boolean) eVar.a(i.f36030b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f36031a, inputStream, this.f36033c) == ImageHeaderParser.ImageType.GIF;
     }
 }

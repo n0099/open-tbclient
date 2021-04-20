@@ -20,59 +20,59 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
     public static class Builder implements com.baidu.pass.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f9788a;
+        public Context f9346a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f9789b;
+        public CharSequence f9347b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9790c;
+        public String f9348c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f9791d;
+        public boolean f9349d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f9792e = false;
+        public boolean f9350e = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9793f;
+        public String f9351f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f9794g;
+        public View.OnClickListener f9352g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f9795h;
+        public String f9353h;
         public View.OnClickListener i;
         public int j;
 
         public Builder(Context context) {
-            this.f9788a = context;
+            this.f9346a = context;
         }
 
         public CommonDialog build() {
-            View inflate = LayoutInflater.from(this.f9788a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
-            CommonDialog commonDialog = new CommonDialog(this.f9788a, R.style.pass_base_ui_common_dialog_style);
+            View inflate = LayoutInflater.from(this.f9346a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
+            CommonDialog commonDialog = new CommonDialog(this.f9346a, R.style.pass_base_ui_common_dialog_style);
             TextView textView = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_title);
             TextView textView2 = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_content);
             View findViewById = inflate.findViewById(R.id.pass_base_ui_dialog_horizontal_split_line);
             TextView textView3 = (TextView) inflate.findViewById(R.id.negative_btn);
             TextView textView4 = (TextView) inflate.findViewById(R.id.positive_btn);
             View findViewById2 = inflate.findViewById(R.id.pass_base_ui_dialog_vertical_split_line);
-            textView.setText(this.f9790c);
-            textView2.setText(TextUtils.isEmpty(this.f9789b) ? "" : this.f9789b);
+            textView.setText(this.f9348c);
+            textView2.setText(TextUtils.isEmpty(this.f9347b) ? "" : this.f9347b);
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setHighlightColor(0);
             int i = this.j;
             if (i > 0) {
                 textView2.setGravity(i);
             }
-            textView3.setText(this.f9795h);
+            textView3.setText(this.f9353h);
             textView3.setOnClickListener(new a(this, commonDialog));
-            textView4.setText(this.f9793f);
+            textView4.setText(this.f9351f);
             textView4.setOnClickListener(new b(this, commonDialog));
             commonDialog.setContentView(inflate);
-            commonDialog.setCancelable(this.f9792e);
-            commonDialog.setCanceledOnTouchOutside(this.f9792e);
+            commonDialog.setCancelable(this.f9350e);
+            commonDialog.setCanceledOnTouchOutside(this.f9350e);
             Window window = commonDialog.getWindow();
             window.setGravity(17);
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -81,16 +81,16 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             attributes.width = -1;
             attributes.height = -2;
             window.setAttributes(attributes);
-            if (this.f9791d) {
+            if (this.f9349d) {
                 inflate.findViewById(R.id.pass_base_ui_dialog_root_view).setBackgroundResource(R.drawable.pass_base_ui_common_dialog_dark_bg);
-                textView.setTextColor(this.f9788a.getResources().getColor(R.color.pass_base_ui_dialog_title_dark_text_color));
-                textView2.setTextColor(this.f9788a.getResources().getColor(R.color.pass_base_ui_dialog_content_text_dark_color));
-                findViewById.setBackgroundColor(this.f9788a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
-                textView3.setTextColor(this.f9788a.getResources().getColor(R.color.pass_base_ui_dialog_negative_btn_text_dark_color));
-                textView4.setTextColor(this.f9788a.getResources().getColor(R.color.pass_base_ui_dialog_positive_btn_text_dark_color));
-                findViewById2.setBackgroundColor(this.f9788a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
+                textView.setTextColor(this.f9346a.getResources().getColor(R.color.pass_base_ui_dialog_title_dark_text_color));
+                textView2.setTextColor(this.f9346a.getResources().getColor(R.color.pass_base_ui_dialog_content_text_dark_color));
+                findViewById.setBackgroundColor(this.f9346a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
+                textView3.setTextColor(this.f9346a.getResources().getColor(R.color.pass_base_ui_dialog_negative_btn_text_dark_color));
+                textView4.setTextColor(this.f9346a.getResources().getColor(R.color.pass_base_ui_dialog_positive_btn_text_dark_color));
+                findViewById2.setBackgroundColor(this.f9346a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
             }
-            Context context = this.f9788a;
+            Context context = this.f9346a;
             if (context instanceof Activity) {
                 Display defaultDisplay = ((Activity) context).getWindowManager().getDefaultDisplay();
                 WindowManager.LayoutParams attributes2 = commonDialog.getWindow().getAttributes();
@@ -102,17 +102,17 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
         }
 
         public Builder setCancelable(boolean z) {
-            this.f9792e = z;
+            this.f9350e = z;
             return this;
         }
 
         public Builder setDarkMode(boolean z) {
-            this.f9791d = z;
+            this.f9349d = z;
             return this;
         }
 
         public Builder setMessage(CharSequence charSequence) {
-            this.f9789b = charSequence;
+            this.f9347b = charSequence;
             return this;
         }
 
@@ -122,19 +122,19 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
         }
 
         public Builder setNegativeButton(String str, View.OnClickListener onClickListener) {
-            this.f9795h = str;
+            this.f9353h = str;
             this.i = onClickListener;
             return this;
         }
 
         public Builder setPositiveBtn(String str, View.OnClickListener onClickListener) {
-            this.f9793f = str;
-            this.f9794g = onClickListener;
+            this.f9351f = str;
+            this.f9352g = onClickListener;
             return this;
         }
 
         public Builder setTitle(String str) {
-            this.f9790c = str;
+            this.f9348c = str;
             return this;
         }
     }

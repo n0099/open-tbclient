@@ -8,7 +8,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
     public static final String TYPE = "ovc1";
     public byte[] vc1Content;

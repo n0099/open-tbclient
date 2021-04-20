@@ -26,10 +26,10 @@ import java.util.UUID;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f11759a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
+    public static final String[] f11420a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11760b = "";
+    public static String f11421b = "";
 
     public static void a(Context context) {
         try {
@@ -51,22 +51,22 @@ public final class f {
     public static synchronized String b(Context context) {
         synchronized (f.class) {
             try {
-                if (!TextUtils.isEmpty(f11760b)) {
-                    return f11760b;
+                if (!TextUtils.isEmpty(f11421b)) {
+                    return f11421b;
                 }
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                 String m = eVar.m();
                 if (!TextUtils.isEmpty(m)) {
                     String f2 = d.f(m);
                     if (!TextUtils.isEmpty(f2)) {
-                        f11760b = f2;
+                        f11421b = f2;
                         return f2;
                     }
                 }
                 String l = eVar.l();
                 if (!TextUtils.isEmpty(l)) {
                     eVar.b(new String(Base64.encode(a.a("30212102dicudiab".getBytes(), l.getBytes("UTF-8")), 10), "UTF-8"));
-                    f11760b = l;
+                    f11421b = l;
                     return l;
                 }
                 String i = i(context);
@@ -80,10 +80,10 @@ public final class f {
                 if (TextUtils.isEmpty(l2)) {
                     eVar.a(str);
                     eVar.b(str2);
-                    f11760b = str;
+                    f11421b = str;
                     return str;
                 }
-                f11760b = l2;
+                f11421b = l2;
                 return l2;
             } catch (Throwable unused) {
                 d.a();
@@ -93,12 +93,12 @@ public final class f {
     }
 
     public static String c(Context context) {
-        if (!TextUtils.isEmpty(f11760b)) {
-            return f11760b;
+        if (!TextUtils.isEmpty(f11421b)) {
+            return f11421b;
         }
         String h2 = h(context);
         if (!TextUtils.isEmpty(h2)) {
-            f11760b = h2;
+            f11421b = h2;
             return h2;
         }
         return b(context);
@@ -107,7 +107,7 @@ public final class f {
     public static String d(Context context) {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String string = eVar.f11730b.getString("sgud", "");
+            String string = eVar.f11391b.getString("sgud", "");
             if (TextUtils.isEmpty(string)) {
                 if (Build.VERSION.SDK_INT > 25) {
                     return "";
@@ -125,8 +125,8 @@ public final class f {
                 if (TextUtils.isEmpty(a2)) {
                     return "";
                 }
-                eVar.f11732d.putString("sgud", a2);
-                eVar.f11732d.commit();
+                eVar.f11393d.putString("sgud", a2);
+                eVar.f11393d.commit();
                 return a2;
             }
             return string;
@@ -222,8 +222,8 @@ public final class f {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c1 A[Catch: all -> 0x00d1, TRY_LEAVE, TryCatch #4 {all -> 0x00dc, blocks: (B:3:0x0002, B:11:0x0021, B:14:0x0026, B:16:0x0032, B:21:0x0051, B:23:0x0057, B:7:0x0009, B:18:0x0035, B:27:0x0061, B:29:0x0084, B:31:0x008e, B:37:0x00a4, B:51:0x00c1, B:42:0x00ae, B:49:0x00bb, B:40:0x00a9), top: B:67:0x0002 }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00ce A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c2 A[Catch: all -> 0x00d2, TRY_LEAVE, TryCatch #4 {all -> 0x00dd, blocks: (B:3:0x0002, B:11:0x0021, B:14:0x0026, B:16:0x0032, B:21:0x0051, B:23:0x0057, B:7:0x0009, B:18:0x0035, B:27:0x0062, B:29:0x0085, B:31:0x008f, B:37:0x00a5, B:51:0x00c2, B:42:0x00af, B:49:0x00bc, B:40:0x00aa), top: B:67:0x0002 }] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x00cf A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -236,7 +236,7 @@ public final class f {
                 if (providerInfoArr != null && providerInfoArr.length > 0) {
                     ContentResolver contentResolver = context.getContentResolver();
                     boolean z = false;
-                    for (String str : f11759a) {
+                    for (String str : f11420a) {
                         String str2 = new String(a.a("30212102dicudiab".getBytes(), Base64.decode(str, 10), true), "UTF-8");
                         if (!TextUtils.isEmpty(str2)) {
                             boolean z2 = "sofire".equals(str2) ? true : z;

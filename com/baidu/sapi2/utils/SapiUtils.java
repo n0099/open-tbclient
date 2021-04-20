@@ -35,6 +35,7 @@ import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.common.SecurityUtil;
@@ -107,22 +108,22 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11419a = "cmd";
+    public static final String f11003a = "cmd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11420b = "error";
+    public static final String f11004b = "error";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11421c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f11005c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11422d = Character.toString(2);
+    public static final String f11006d = Character.toString(2);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11423e = Character.toString(3);
+    public static final String f11007e = Character.toString(3);
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f11424f;
+    public static String f11008f;
 
     @TargetApi(3)
     public static String a(Context context) {
@@ -373,8 +374,8 @@ public class SapiUtils implements NoProguard {
 
     public static String getIccid(Context context) {
         if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-            if (!TextUtils.isEmpty(f11424f)) {
-                return f11424f;
+            if (!TextUtils.isEmpty(f11008f)) {
+                return f11008f;
             }
             try {
                 if (Build.VERSION.SDK_INT >= 22) {
@@ -386,22 +387,22 @@ public class SapiUtils implements NoProguard {
                     for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
                         if (Build.VERSION.SDK_INT >= 30) {
                             sb.append(subscriptionInfo.getSubscriptionId());
-                            sb.append(f11422d);
+                            sb.append(f11006d);
                         } else {
                             sb.append(subscriptionInfo.getIccId());
-                            sb.append(f11422d);
+                            sb.append(f11006d);
                         }
                     }
                     if (sb.length() > 0) {
                         String substring = sb.toString().substring(0, sb.length() - 1);
-                        f11424f = substring;
+                        f11008f = substring;
                         return substring;
                     }
                 } else {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
                         String simSerialNumber = telephonyManager.getSimSerialNumber();
-                        f11424f = simSerialNumber;
+                        f11008f = simSerialNumber;
                         return simSerialNumber;
                     }
                 }
@@ -519,7 +520,7 @@ public class SapiUtils implements NoProguard {
                     case 12:
                     case 14:
                     case 15:
-                        return com.baidu.apollon.statistics.g.f3874b;
+                        return com.baidu.apollon.statistics.g.f3909b;
                     case 13:
                         return "4G";
                     default:
@@ -657,20 +658,20 @@ public class SapiUtils implements NoProguard {
                         if (i2 >= 10) {
                             break;
                         }
-                        stringBuffer.append(f11422d);
+                        stringBuffer.append(f11006d);
                         stringBuffer.append(replace);
-                        stringBuffer.append(f11423e);
+                        stringBuffer.append(f11007e);
                         stringBuffer.append(abs);
-                        stringBuffer.append(f11423e);
+                        stringBuffer.append(f11007e);
                         stringBuffer.append(str5);
-                        stringBuffer.append(f11423e);
+                        stringBuffer.append(f11007e);
                         stringBuffer.append("2");
                         i2++;
                     }
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                str3 = f11422d + str + f11423e + i + f11423e + str2 + f11423e + '1';
+                str3 = f11006d + str + f11007e + i + f11007e + str2 + f11007e + '1';
             }
         } catch (Exception e2) {
             Log.e(e2);
@@ -922,7 +923,7 @@ public class SapiUtils implements NoProguard {
             intent.setPackage(defaultSmsPackage);
         }
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         try {
             context.startActivity(intent);

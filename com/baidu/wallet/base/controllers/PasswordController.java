@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.Md5Utils;
 import com.baidu.wallet.api.Constants;
@@ -33,25 +34,25 @@ import java.util.Random;
 public final class PasswordController {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PasswordController f23588a;
+    public static PasswordController f23273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IPwdListener f23589b;
+    public IPwdListener f23274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IPwdListener f23590c;
+    public IPwdListener f23275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IPwdListener f23591d;
+    public IPwdListener f23276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IPwdListener f23592e;
+    public IPwdListener f23277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaiduPay.IBindCardCallback f23593f;
+    public BaiduPay.IBindCardCallback f23278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoginBackListenerProxy f23594g;
+    public LoginBackListenerProxy f23279g;
 
     /* loaded from: classes5.dex */
     public interface IPwdListener {
@@ -61,10 +62,10 @@ public final class PasswordController {
     }
 
     public static PasswordController getPassWordInstance() {
-        if (f23588a == null) {
-            f23588a = new PasswordController();
+        if (f23273a == null) {
+            f23273a = new PasswordController();
         }
-        return f23588a;
+        return f23273a;
     }
 
     public static String getSeed() {
@@ -107,14 +108,14 @@ public final class PasswordController {
     }
 
     public void checkPwdFail(int i, String str) {
-        IPwdListener iPwdListener = this.f23589b;
+        IPwdListener iPwdListener = this.f23274b;
         if (iPwdListener != null) {
             iPwdListener.onFail(i, str);
         }
     }
 
     public void checkPwdForSp(Context context, Map<String, String> map, IPwdListener iPwdListener) {
-        this.f23589b = iPwdListener;
+        this.f23274b = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.mFrom = 1;
         pwdRequest.mRequestType = 2;
@@ -123,7 +124,7 @@ public final class PasswordController {
         Intent intent = new Intent(context, PwdCheckActivity.class);
         intent.putExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY, BeanConstants.FROM_CHECK_FOR_SP);
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
         BaiduWalletUtils.startActivityAnim(context);
@@ -134,58 +135,58 @@ public final class PasswordController {
     }
 
     public void checkPwdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23589b;
+        IPwdListener iPwdListener = this.f23274b;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23589b = null;
+            this.f23274b = null;
         }
     }
 
     public void clearBindCardCallback() {
-        this.f23593f = null;
+        this.f23278f = null;
     }
 
     public void clearCheckPwdListener() {
-        this.f23589b = null;
+        this.f23274b = null;
     }
 
     public void clearEditPwdCallBack() {
-        this.f23591d = null;
+        this.f23276d = null;
     }
 
     public void clearForgetPasswdCallback() {
-        this.f23592e = null;
+        this.f23277e = null;
     }
 
     public void clearSetPwdListener() {
-        this.f23590c = null;
+        this.f23275c = null;
     }
 
     public void editPwd(Context context, IPwdListener iPwdListener) {
-        this.f23591d = iPwdListener;
+        this.f23276d = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.mFrom = 2;
         pwdRequest.mRequestType = 1;
         PayRequestCache.getInstance().addBeanRequestToCache(pwdRequest.getRequestId(), pwdRequest);
         Intent intent = new Intent(context, PwdCheckActivity.class);
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }
 
     public void editPwdFail(int i, String str) {
-        IPwdListener iPwdListener = this.f23591d;
+        IPwdListener iPwdListener = this.f23276d;
         if (iPwdListener != null) {
             iPwdListener.onFail(i, str);
         }
     }
 
     public void editPwdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23591d;
+        IPwdListener iPwdListener = this.f23276d;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23591d = null;
+            this.f23276d = null;
         }
     }
 
@@ -199,7 +200,7 @@ public final class PasswordController {
             forgetPasswdFailed();
             return;
         }
-        this.f23592e = iPwdListener;
+        this.f23277e = iPwdListener;
         if (PayDataCache.getInstance().hasBondCards()) {
             if (PayRequestCache.getInstance().isPaying()) {
                 createBindRequest = new BindFastRequest();
@@ -211,7 +212,7 @@ public final class PasswordController {
             createBindRequest.mBindFrom = 4;
             intent.putExtra(Constants.BDL_KEY_FROM, PayRequestCache.BindCategory.Pwd.name());
             if (!BaiduWalletUtils.isActivity(context)) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             context.startActivity(intent);
         } else if (PayRequestCache.getInstance().isPaying()) {
@@ -227,32 +228,32 @@ public final class PasswordController {
     }
 
     public void forgetPasswdFailed() {
-        IPwdListener iPwdListener = this.f23592e;
+        IPwdListener iPwdListener = this.f23277e;
         if (iPwdListener != null) {
             iPwdListener.onFail(-1, "");
         }
     }
 
     public void forgetPasswdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23592e;
+        IPwdListener iPwdListener = this.f23277e;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23592e = null;
+            this.f23277e = null;
         }
     }
 
     public void setPassByUserFail(String str) {
-        BaiduPay.IBindCardCallback iBindCardCallback = this.f23593f;
+        BaiduPay.IBindCardCallback iBindCardCallback = this.f23278f;
         if (iBindCardCallback != null) {
             iBindCardCallback.onChangeFailed(str);
         }
     }
 
     public void setPassByUserSucceed(String str) {
-        BaiduPay.IBindCardCallback iBindCardCallback = this.f23593f;
+        BaiduPay.IBindCardCallback iBindCardCallback = this.f23278f;
         if (iBindCardCallback != null) {
             iBindCardCallback.onChangeSucceed(null);
-            this.f23593f = null;
+            this.f23278f = null;
         }
     }
 
@@ -263,7 +264,7 @@ public final class PasswordController {
     public void setPwd(Context context, boolean z, IPwdListener iPwdListener, PayRequestCache.BindCategory bindCategory) {
         PwdRequest pwdRequest;
         if (iPwdListener != null) {
-            this.f23590c = iPwdListener;
+            this.f23275c = iPwdListener;
         }
         BeanRequestBase beanRequestFromCache = PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
         if (z && (beanRequestFromCache instanceof PwdRequest)) {
@@ -279,23 +280,23 @@ public final class PasswordController {
         }
         intent.putExtra(Constants.BDL_KEY_BINDCATEGORY, bindCategory.getScenario());
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
     }
 
     public void setPwdFail(int i, String str) {
-        IPwdListener iPwdListener = this.f23590c;
+        IPwdListener iPwdListener = this.f23275c;
         if (iPwdListener != null) {
             iPwdListener.onFail(i, str);
         }
     }
 
     public void setPwdSucceed(String str) {
-        IPwdListener iPwdListener = this.f23590c;
+        IPwdListener iPwdListener = this.f23275c;
         if (iPwdListener != null) {
             iPwdListener.onSucceed(str);
-            this.f23590c = null;
+            this.f23275c = null;
         }
     }
 
@@ -304,7 +305,7 @@ public final class PasswordController {
     }
 
     public void checkPwdFromH5(Context context, String str, String str2, IPwdListener iPwdListener, String str3) {
-        this.f23589b = iPwdListener;
+        this.f23274b = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.serviceType = str3;
         pwdRequest.mFrom = 1;
@@ -316,7 +317,7 @@ public final class PasswordController {
             intent.putExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY, str2);
         }
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         intent.putExtra(Constants.HALF_SCREEN_PWD_VERIFY, str);
         context.startActivity(intent);
@@ -328,7 +329,7 @@ public final class PasswordController {
             return;
         }
         if (PayDataCache.getInstance().hasBondCards()) {
-            this.f23593f = iBindCardCallback;
+            this.f23278f = iBindCardCallback;
             String string = bundle != null ? bundle.getString(Constants.BDL_KEY_FROM) : null;
             PayRequestCache.BindCategory valueOf = string != null ? PayRequestCache.BindCategory.valueOf(string) : null;
             if (valueOf == null) {
@@ -346,7 +347,7 @@ public final class PasswordController {
             }
             intent.putExtras(bundle);
             if (!BaiduWalletUtils.isActivity(context)) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             context.startActivity(intent);
             return;
@@ -356,7 +357,7 @@ public final class PasswordController {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, IPwdListener iPwdListener, String str2) {
-        this.f23589b = iPwdListener;
+        this.f23274b = iPwdListener;
         PwdRequest pwdRequest = new PwdRequest();
         pwdRequest.serviceType = str2;
         pwdRequest.mFrom = 1;
@@ -368,18 +369,18 @@ public final class PasswordController {
             intent.putExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY, str);
         }
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         context.startActivity(intent);
         BaiduWalletUtils.startActivityAnim(context);
     }
 
     public void checkPwd(final Context context, final String str, final IPwdListener iPwdListener, final String str2) {
-        this.f23594g = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.controllers.PasswordController.1
+        this.f23279g = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.base.controllers.PasswordController.1
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i, String str3) {
                 if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(PasswordController.this.f23594g);
+                    WalletLoginHelper.getInstance().onlyLogin(PasswordController.this.f23279g);
                 } else {
                     PasswordController.this.checkPwdFail(i, str3);
                 }
@@ -390,7 +391,7 @@ public final class PasswordController {
                 PasswordController.this.a(context, str, iPwdListener, str2);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23594g);
+        WalletLoginHelper.getInstance().login(this.f23279g);
     }
 
     @SuppressLint({"DefaultLocale"})

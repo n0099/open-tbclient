@@ -17,28 +17,28 @@ import com.baidu.apollon.utils.ResUtils;
 public abstract class BaseDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23713a = "BaseDialog";
+    public static final String f23398a = "BaseDialog";
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f23714b;
+    public TextView f23399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f23715c;
+    public LinearLayout f23400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f23716d;
+    public Button f23401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f23717e;
+    public Button f23402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageButton f23718f;
+    public ImageButton f23403f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f23719g;
+    public View f23404g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout.LayoutParams f23720h;
+    public LinearLayout.LayoutParams f23405h;
     public LayoutInflater i;
     public View.OnClickListener j;
     public Context mContext;
@@ -55,12 +55,12 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void addContentView(View view) {
-        this.f23715c.removeAllViews();
-        this.f23715c.addView(view, this.f23720h);
+        this.f23400c.removeAllViews();
+        this.f23400c.addView(view, this.f23405h);
     }
 
     public Button getNegativeBtn() {
-        return this.f23717e;
+        return this.f23402e;
     }
 
     public void hideButtons() {
@@ -68,30 +68,30 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void hideNegativeButton() {
-        Button button = this.f23717e;
+        Button button = this.f23402e;
         if (button != null) {
             button.setVisibility(8);
         }
-        View view = this.f23719g;
+        View view = this.f23404g;
         if (view != null) {
             view.setVisibility(8);
         }
-        this.f23716d.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
+        this.f23401d.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_dialog_btn_selector"));
     }
 
     public void hidePositiveButton() {
-        Button button = this.f23716d;
+        Button button = this.f23401d;
         if (button != null) {
             button.setVisibility(8);
         }
-        View view = this.f23719g;
+        View view = this.f23404g;
         if (view != null) {
             view.setVisibility(8);
         }
     }
 
     public void hideTitle() {
-        this.f23714b.setVisibility(8);
+        this.f23399b.setVisibility(8);
     }
 
     public void hideTitleLine() {
@@ -103,17 +103,17 @@ public abstract class BaseDialog extends Dialog {
         super.onCreate(bundle);
         requestWindowFeature(1);
         setContentView(ResUtils.layout(this.mContext, "wallet_base_layout_dialog_base"));
-        this.f23714b = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
-        this.f23716d = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
-        this.f23717e = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
-        this.f23718f = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
-        this.f23719g = findViewById(ResUtils.id(this.mContext, "btn_line"));
-        this.f23716d.setOnClickListener(this.j);
-        this.f23717e.setOnClickListener(this.j);
-        this.f23718f.setOnClickListener(this.j);
-        this.f23715c = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
+        this.f23399b = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_title"));
+        this.f23401d = (Button) findViewById(ResUtils.id(this.mContext, "positive_btn"));
+        this.f23402e = (Button) findViewById(ResUtils.id(this.mContext, "negative_btn"));
+        this.f23403f = (ImageButton) findViewById(ResUtils.id(this.mContext, "dialog_title_close"));
+        this.f23404g = findViewById(ResUtils.id(this.mContext, "btn_line"));
+        this.f23401d.setOnClickListener(this.j);
+        this.f23402e.setOnClickListener(this.j);
+        this.f23403f.setOnClickListener(this.j);
+        this.f23400c = (LinearLayout) findViewById(ResUtils.id(this.mContext, "dialog_content_layout"));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        this.f23720h = layoutParams;
+        this.f23405h = layoutParams;
         layoutParams.gravity = 17;
         this.i = LayoutInflater.from(this.mContext);
         setCanceledOnTouchOutside(false);
@@ -121,7 +121,7 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setNegativeBtn(View.OnClickListener onClickListener) {
-        Button button = this.f23717e;
+        Button button = this.f23402e;
         if (button != null) {
             if (onClickListener == null) {
                 onClickListener = this.j;
@@ -131,7 +131,7 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setPositiveBtn(View.OnClickListener onClickListener) {
-        Button button = this.f23716d;
+        Button button = this.f23401d;
         if (button != null) {
             if (onClickListener == null) {
                 onClickListener = this.j;
@@ -141,15 +141,15 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setPositiveButtonEnable(boolean z) {
-        Button button = this.f23716d;
+        Button button = this.f23401d;
         if (button != null) {
             button.setTextColor(ResUtils.getColor(this.mContext, z ? "wallet_base_mainColor" : "bd_wallet_pwdpay_light_gray"));
-            this.f23716d.setEnabled(z);
+            this.f23401d.setEnabled(z);
         }
     }
 
     public void setTitleText(int i) {
-        TextView textView = this.f23714b;
+        TextView textView = this.f23399b;
         if (textView == null) {
             return;
         }
@@ -157,7 +157,7 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setTitleTextBackgroud(int i) {
-        TextView textView = this.f23714b;
+        TextView textView = this.f23399b;
         if (textView == null) {
             return;
         }
@@ -165,22 +165,22 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void showCloseBtn(boolean z) {
-        ImageButton imageButton = this.f23718f;
+        ImageButton imageButton = this.f23403f;
         if (imageButton != null) {
             imageButton.setVisibility(z ? 0 : 4);
         }
     }
 
     public void addContentView(View view, LinearLayout.LayoutParams layoutParams) {
-        this.f23715c.removeAllViews();
-        this.f23715c.addView(view, layoutParams);
+        this.f23400c.removeAllViews();
+        this.f23400c.addView(view, layoutParams);
     }
 
     public void setNegativeBtn(int i, View.OnClickListener onClickListener) {
-        Button button = this.f23717e;
+        Button button = this.f23402e;
         if (button != null) {
             button.setText(i);
-            Button button2 = this.f23717e;
+            Button button2 = this.f23402e;
             if (onClickListener == null) {
                 onClickListener = this.j;
             }
@@ -189,10 +189,10 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setPositiveBtn(int i, View.OnClickListener onClickListener) {
-        Button button = this.f23716d;
+        Button button = this.f23401d;
         if (button != null) {
             button.setText(i);
-            Button button2 = this.f23716d;
+            Button button2 = this.f23401d;
             if (onClickListener == null) {
                 onClickListener = this.j;
             }
@@ -201,7 +201,7 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setTitleText(String str) {
-        TextView textView = this.f23714b;
+        TextView textView = this.f23399b;
         if (textView == null) {
             return;
         }
@@ -220,16 +220,16 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void addContentView(int i) {
-        this.f23715c.removeAllViews();
-        this.f23715c.addView(this.i.inflate(i, (ViewGroup) null), this.f23720h);
+        this.f23400c.removeAllViews();
+        this.f23400c.addView(this.i.inflate(i, (ViewGroup) null), this.f23405h);
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        if (this.f23717e != null) {
+        if (this.f23402e != null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f23717e.setText(str);
+                this.f23402e.setText(str);
             }
-            Button button = this.f23717e;
+            Button button = this.f23402e;
             if (onClickListener == null) {
                 onClickListener = this.j;
             }
@@ -238,10 +238,10 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        Button button = this.f23716d;
+        Button button = this.f23401d;
         if (button != null) {
             button.setText(spannableString);
-            Button button2 = this.f23716d;
+            Button button2 = this.f23401d;
             if (onClickListener == null) {
                 onClickListener = this.j;
             }
@@ -250,16 +250,16 @@ public abstract class BaseDialog extends Dialog {
     }
 
     public void addContentView(int i, LinearLayout.LayoutParams layoutParams) {
-        this.f23715c.removeAllViews();
-        this.f23715c.addView(this.i.inflate(i, (ViewGroup) null), layoutParams);
+        this.f23400c.removeAllViews();
+        this.f23400c.addView(this.i.inflate(i, (ViewGroup) null), layoutParams);
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        if (this.f23716d != null) {
+        if (this.f23401d != null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f23716d.setText(str);
+                this.f23401d.setText(str);
             }
-            Button button = this.f23716d;
+            Button button = this.f23401d;
             if (onClickListener == null) {
                 onClickListener = this.j;
             }

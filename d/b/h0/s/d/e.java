@@ -29,56 +29,55 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidubce.auth.NTLMEngineImpl;
-import d.b.b.e.m.g;
-import d.b.b.e.p.l;
+import d.b.c.e.m.g;
+import d.b.c.e.p.l;
 import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class e implements d.b.h0.s.d.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f51276b = StringHelper.MS_TO_MIN * 1;
+    public static final long f51693b = StringHelper.MS_TO_MIN * 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.b1.o.a.f.b f51277a;
+    public d.b.h0.b1.o.a.f.b f51694a;
 
     /* loaded from: classes3.dex */
     public class a implements d.b.h0.b1.o.a.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f51278a;
+        public final /* synthetic */ Activity f51695a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51279b;
+        public final /* synthetic */ TbPageContext f51696b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f51280c;
+        public final /* synthetic */ ViewGroup f51697c;
 
         public a(Activity activity, TbPageContext tbPageContext, ViewGroup viewGroup) {
-            this.f51278a = activity;
-            this.f51279b = tbPageContext;
-            this.f51280c = viewGroup;
+            this.f51695a = activity;
+            this.f51696b = tbPageContext;
+            this.f51697c = viewGroup;
         }
 
         @Override // d.b.h0.b1.o.a.d.e
         public void a(Date date, View view) {
             if (date != null) {
                 boolean z = false;
-                if ("frs.FrsActivity".equals(this.f51278a.getLocalClassName()) && d.b.h0.r.d0.b.i().g("first_call_attention", true)) {
-                    d.b.h0.r.d0.b.i().s("first_call_attention", false);
-                    if (!NotificationManagerCompat.from(this.f51279b.getPageActivity()).areNotificationsEnabled()) {
+                if ("frs.FrsActivity".equals(this.f51695a.getLocalClassName()) && d.b.h0.r.d0.b.j().g("first_call_attention", true)) {
+                    d.b.h0.r.d0.b.j().t("first_call_attention", false);
+                    if (!NotificationManagerCompat.from(this.f51696b.getPageActivity()).areNotificationsEnabled()) {
                         z = true;
                     }
                 }
                 if (z) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001223, date));
-                    d.b.h0.s.h.a.f(this.f51279b, new boolean[]{true, false}, 2);
+                    d.b.h0.s.h.a.f(this.f51696b, new boolean[]{true, false}, 2);
                     return;
                 }
                 e.this.g(true);
                 d.d().S(date.getHours(), date.getMinutes());
-                e.this.i(this.f51278a, this.f51280c);
+                e.this.i(this.f51695a, this.f51697c);
             }
         }
     }
@@ -87,7 +86,7 @@ public class e implements d.b.h0.s.d.a {
     public class b implements d.b.h0.b1.o.a.d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f51282a;
+        public final /* synthetic */ TbPageContext f51699a;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnTouchListener {
@@ -102,21 +101,21 @@ public class e implements d.b.h0.s.d.a {
 
         /* renamed from: d.b.h0.s.d.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC1094b implements View.OnClickListener {
-            public View$OnClickListenerC1094b() {
+        public class View$OnClickListenerC1107b implements View.OnClickListener {
+            public View$OnClickListenerC1107b() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.f51277a != null) {
-                    e.this.f51277a.E();
-                    e.this.f51277a.f();
+                if (e.this.f51694a != null) {
+                    e.this.f51694a.E();
+                    e.this.f51694a.f();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_OK_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(statisticItem);
                 if (d.b.h0.s.h.a.e(TbadkCoreApplication.getInst(), 0)) {
-                    d.b.h0.s.h.a.g(b.this.f51282a, 5, 0L);
+                    d.b.h0.s.h.a.g(b.this.f51699a, 5, 0L);
                 }
             }
         }
@@ -128,8 +127,8 @@ public class e implements d.b.h0.s.d.a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.f51277a != null) {
-                    e.this.f51277a.f();
+                if (e.this.f51694a != null) {
+                    e.this.f51694a.f();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_CLOSE_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -138,7 +137,7 @@ public class e implements d.b.h0.s.d.a {
         }
 
         public b(TbPageContext tbPageContext) {
-            this.f51282a = tbPageContext;
+            this.f51699a = tbPageContext;
         }
 
         @Override // d.b.h0.b1.o.a.d.a
@@ -161,7 +160,7 @@ public class e implements d.b.h0.s.d.a {
             a aVar = new a(this);
             findViewById.setOnTouchListener(aVar);
             findViewById4.setOnTouchListener(aVar);
-            textView.setOnClickListener(new View$OnClickListenerC1094b());
+            textView.setOnClickListener(new View$OnClickListenerC1107b());
             imageView.setOnClickListener(new c());
         }
     }
@@ -174,11 +173,11 @@ public class e implements d.b.h0.s.d.a {
     @Override // d.b.h0.s.d.a
     public void b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         Activity pageActivity;
-        if (tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null || !g.e(pageActivity) || d.d().y() || d.b.h0.r.d0.b.i().j("sign_time_set_dialog", 0) > 0) {
+        if (tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null || !g.e(pageActivity) || d.d().y() || d.b.h0.r.d0.b.j().k("sign_time_set_dialog", 0) > 0) {
             return;
         }
         h(tbPageContext, new a(pageActivity, tbPageContext, viewGroup));
-        d.b.h0.r.d0.b.i().u("sign_time_set_dialog", 1);
+        d.b.h0.r.d0.b.j().v("sign_time_set_dialog", 1);
     }
 
     @Override // d.b.h0.s.d.a
@@ -219,7 +218,7 @@ public class e implements d.b.h0.s.d.a {
             alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(inst, 0, k, 134217728));
             return;
         }
-        PendingIntent broadcast = PendingIntent.getBroadcast(inst, 0, k, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+        PendingIntent broadcast = PendingIntent.getBroadcast(inst, 0, k, 536870912);
         if (broadcast != null) {
             alarmManager.cancel(broadcast);
         }
@@ -253,7 +252,7 @@ public class e implements d.b.h0.s.d.a {
         if (i > 0 && j > 0) {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), i, j);
         } else {
-            calendar.setTimeInMillis(System.currentTimeMillis() + f51276b);
+            calendar.setTimeInMillis(System.currentTimeMillis() + f51693b);
         }
         d.b.h0.b1.o.a.b.a aVar = new d.b.h0.b1.o.a.b.a(pageActivity, eVar);
         aVar.g(calendar);
@@ -270,12 +269,12 @@ public class e implements d.b.h0.s.d.a {
         aVar.d(SkinManager.getColor(R.color.black_alpha30));
         aVar.e(SkinManager.getColor(R.color.CAM_X0211));
         d.b.h0.b1.o.a.f.b a2 = aVar.a();
-        this.f51277a = a2;
+        this.f51694a = a2;
         a2.w();
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SHOW);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(statisticItem);
-        return this.f51277a.k();
+        return this.f51694a.k();
     }
 
     @Override // d.b.h0.s.d.a
@@ -318,7 +317,7 @@ public class e implements d.b.h0.s.d.a {
 
     public final void m() {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis() + f51276b);
+        calendar.setTimeInMillis(System.currentTimeMillis() + f51693b);
         d(calendar.get(11), calendar.get(12));
     }
 }

@@ -2,7 +2,7 @@ package com.facebook.common.time;
 
 import com.facebook.common.internal.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AwakeTimeSinceBootClock implements MonotonicClock {
     @DoNotStrip
     public static final AwakeTimeSinceBootClock INSTANCE = new AwakeTimeSinceBootClock();

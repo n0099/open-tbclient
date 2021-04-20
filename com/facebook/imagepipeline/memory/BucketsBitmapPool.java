@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     public BucketsBitmapPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
         super(memoryTrimmableRegistry, poolParams, poolStatsTracker);

@@ -2,7 +2,7 @@ package d.l.a.g;
 
 import android.graphics.Path;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.util.Set;
 import java.util.StringTokenizer;
 import kotlin.jvm.internal.Intrinsics;
@@ -12,30 +12,30 @@ import kotlin.text.StringsKt__StringsKt;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66251a;
+    public final String f67244a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f66252b;
+    public Path f67245b;
 
     public b(String str) {
-        this.f66251a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+        this.f67244a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
-        Path path2 = this.f66252b;
+        Path path2 = this.f67245b;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.f66251a, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.f67244a, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String segment = stringTokenizer.nextToken();
             Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
             if (!(segment.length() == 0)) {
-                set = c.f66253a;
+                set = c.f67246a;
                 if (set.contains(segment)) {
                     if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
                         b(path3, segment, new StringTokenizer("", ""));
@@ -46,7 +46,7 @@ public final class b {
                 }
             }
         }
-        this.f66252b = path3;
+        this.f67245b = path3;
         path.set(path3);
     }
 
@@ -125,7 +125,7 @@ public final class b {
             }
             if (!Intrinsics.areEqual(str, "Q")) {
                 path.quadTo(f8, f9, f10, f11);
-            } else if (Intrinsics.areEqual(str, IXAdRequestInfo.COST_NAME)) {
+            } else if (Intrinsics.areEqual(str, IAdRequestParam.COST_NAME)) {
                 path.rQuadTo(f8, f9, f10, f11);
             }
             if (!Intrinsics.areEqual(str, "H")) {

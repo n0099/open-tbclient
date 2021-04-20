@@ -12,22 +12,22 @@ import java.util.List;
 public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<T> f14950a;
+    public List<T> f14613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f14951b;
+    public Context f14614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.i0.t.d.h.a.a f14952c;
+    public d.b.i0.t.d.h.a.a f14615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f14953d;
+    public b f14616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14954e;
+    public boolean f14617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f14955f = new a();
+    public View.OnClickListener f14618f = new a();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -36,32 +36,32 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (AlaBannerRecyclerAdapter.this.f14953d != null) {
-                AlaBannerRecyclerAdapter.this.f14953d.a(view.getTag());
+            if (AlaBannerRecyclerAdapter.this.f14616d != null) {
+                AlaBannerRecyclerAdapter.this.f14616d.a(view.getTag());
             }
         }
     }
 
     public AlaBannerRecyclerAdapter(Context context, d.b.i0.t.d.h.a.a aVar, boolean z) {
-        this.f14951b = context;
-        this.f14952c = aVar;
-        this.f14954e = z;
+        this.f14614b = context;
+        this.f14615c = aVar;
+        this.f14617e = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (ListUtils.isEmpty(this.f14950a) || ListUtils.getCount(this.f14950a) == 1) {
-            return ListUtils.getCount(this.f14950a);
+        if (ListUtils.isEmpty(this.f14613a) || ListUtils.getCount(this.f14613a) == 1) {
+            return ListUtils.getCount(this.f14613a);
         }
-        return this.f14954e ? ListUtils.getCount(this.f14950a) * 3 : ListUtils.getCount(this.f14950a);
+        return this.f14617e ? ListUtils.getCount(this.f14613a) * 3 : ListUtils.getCount(this.f14613a);
     }
 
     public int m() {
-        return ListUtils.getCount(this.f14950a);
+        return ListUtils.getCount(this.f14613a);
     }
 
     public final int n(int i) {
-        return ListUtils.getCount(this.f14950a) != 0 ? i % ListUtils.getCount(this.f14950a) : i;
+        return ListUtils.getCount(this.f14613a) != 0 ? i % ListUtils.getCount(this.f14613a) : i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,12 +73,12 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         if (getItemCount() == 0 || alaBannerViewHolder == 0) {
             return;
         }
-        Object item = ListUtils.getItem(this.f14950a, n(i));
+        Object item = ListUtils.getItem(this.f14613a, n(i));
         if (item != null) {
             alaBannerViewHolder.a(i, item);
             alaBannerViewHolder.itemView.setTag(item);
             alaBannerViewHolder.c(TbadkCoreApplication.getInst().getSkinType());
-            alaBannerViewHolder.itemView.setOnClickListener(this.f14955f);
+            alaBannerViewHolder.itemView.setOnClickListener(this.f14618f);
         }
     }
 
@@ -86,7 +86,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: p */
     public AlaBannerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        d.b.i0.t.d.h.a.a aVar = this.f14952c;
+        d.b.i0.t.d.h.a.a aVar = this.f14615c;
         if (aVar != null) {
             return aVar.a(viewGroup, i);
         }
@@ -94,13 +94,13 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     }
 
     public void q(b bVar) {
-        this.f14953d = bVar;
+        this.f14616d = bVar;
     }
 
     public void r(d.b.i0.t.d.h.a.a aVar) {
     }
 
     public void setData(List<T> list) {
-        this.f14950a = list;
+        this.f14613a = list;
     }
 }

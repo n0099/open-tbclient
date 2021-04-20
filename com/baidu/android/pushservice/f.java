@@ -30,28 +30,28 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3009a = -1;
+    public static int f3044a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3010b;
+    public static String f3045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3011c;
+    public static String f3046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3012d;
+    public static String f3047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3013e;
+    public static String f3048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3014f;
+    public static String f3049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3015g;
+    public static String f3050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f3016h;
+    public static String f3051h;
     public static Handler i;
     public static final ConcurrentLinkedQueue<Runnable> j = new ConcurrentLinkedQueue<>();
     public static int k = 0;
@@ -77,10 +77,10 @@ public class f {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f3027a;
+        public Context f3062a;
 
         public b(Context context) {
-            this.f3027a = context;
+            this.f3062a = context;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:11:0x0038, code lost:
@@ -101,25 +101,25 @@ public class f {
         */
         public void run() {
             String d2;
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.j.j.a(this.f3027a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.j.j.a(this.f3062a);
             String str = "";
-            if (com.baidu.android.pushservice.b.d.k(this.f3027a)) {
-                d2 = com.baidu.android.pushservice.j.j.c(this.f3027a);
-            } else if (com.baidu.android.pushservice.b.d.l(this.f3027a)) {
-                d2 = com.baidu.android.pushservice.j.j.b(this.f3027a);
-            } else if (com.baidu.android.pushservice.b.d.j(this.f3027a)) {
-                d2 = com.baidu.android.pushservice.j.j.d(this.f3027a);
+            if (com.baidu.android.pushservice.b.d.k(this.f3062a)) {
+                d2 = com.baidu.android.pushservice.j.j.c(this.f3062a);
+            } else if (com.baidu.android.pushservice.b.d.l(this.f3062a)) {
+                d2 = com.baidu.android.pushservice.j.j.b(this.f3062a);
+            } else if (com.baidu.android.pushservice.b.d.j(this.f3062a)) {
+                d2 = com.baidu.android.pushservice.j.j.d(this.f3062a);
             } else {
                 str = null;
             }
             if (!TextUtils.isEmpty(str)) {
-                f.a(this.f3027a, str);
+                f.a(this.f3062a, str);
                 return;
             }
             if (!f.j.isEmpty()) {
                 f.j.poll();
             }
-            f.k(this.f3027a);
+            f.k(this.f3062a);
         }
     }
 
@@ -192,7 +192,7 @@ public class f {
                             com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
                         }
                         int unused = f.k = 0;
-                        j.f3372a = false;
+                        j.f3407a = false;
                         AnonymousClass2 anonymousClass23 = AnonymousClass2.this;
                         f.b(context, z, i2);
                     }
@@ -240,7 +240,7 @@ public class f {
                 com.baidu.android.pushservice.j.j.a(context, b2, str);
             }
             a2.putExtra("push_proxy", jSONObject.toString());
-            if (j.f3372a) {
+            if (j.f3407a) {
                 j.a(context).a(jSONObject.toString());
             } else {
                 a(context, a2);
@@ -255,14 +255,14 @@ public class f {
 
     public static void a(Context context, final boolean z) {
         final Context applicationContext = context.getApplicationContext();
-        if (TextUtils.isEmpty(f3015g)) {
-            f3015g = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPKEY_KEY");
+        if (TextUtils.isEmpty(f3050g)) {
+            f3050g = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPKEY_KEY");
         }
-        if (TextUtils.isEmpty(f3016h)) {
-            f3016h = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPSECRET_KEY");
+        if (TextUtils.isEmpty(f3051h)) {
+            f3051h = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPSECRET_KEY");
         }
-        if (!TextUtils.isEmpty(f3015g) && !TextUtils.isEmpty(f3016h)) {
-            m.a(applicationContext, f3015g, f3016h, new PushCallback() { // from class: com.baidu.android.pushservice.f.1
+        if (!TextUtils.isEmpty(f3050g) && !TextUtils.isEmpty(f3051h)) {
+            m.a(applicationContext, f3050g, f3051h, new PushCallback() { // from class: com.baidu.android.pushservice.f.1
                 @Override // com.heytap.mcssdk.callback.PushCallback
                 public void onGetAliases(int i2, List<SubscribeResult> list) {
                 }
@@ -386,7 +386,7 @@ public class f {
     }
 
     public static void b(Context context, int i2, String str) {
-        j.f3372a = true;
+        j.f3407a = true;
         if (i2 == 0) {
             com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
             com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
@@ -434,7 +434,7 @@ public class f {
                 return;
             }
             m.a("startWork at time of " + System.currentTimeMillis(), context);
-            if (j.f3372a) {
+            if (j.f3407a) {
                 j.a(context).a("");
             } else {
                 b(context, 0);
@@ -446,7 +446,7 @@ public class f {
         if (m(context)) {
             return null;
         }
-        int i2 = f3009a;
+        int i2 = f3044a;
         if (i2 == -1) {
             i2 = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         }
@@ -597,33 +597,33 @@ public class f {
 
     public static void d(Context context) {
         Context applicationContext = context.getApplicationContext();
-        if (TextUtils.isEmpty(f3011c)) {
-            f3011c = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPID_KEY");
+        if (TextUtils.isEmpty(f3046c)) {
+            f3046c = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPID_KEY");
         }
-        if (TextUtils.isEmpty(f3012d)) {
-            f3012d = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPKEY_KEY");
+        if (TextUtils.isEmpty(f3047d)) {
+            f3047d = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPKEY_KEY");
         }
-        if (TextUtils.isEmpty(f3011c) || TextUtils.isEmpty(f3012d)) {
+        if (TextUtils.isEmpty(f3046c) || TextUtils.isEmpty(f3047d)) {
             l(applicationContext);
             return;
         }
-        m.c(applicationContext, f3011c, f3012d);
+        m.c(applicationContext, f3046c, f3047d);
         r(applicationContext);
     }
 
     public static void e(Context context) {
         Context applicationContext = context.getApplicationContext();
-        if (TextUtils.isEmpty(f3013e)) {
-            f3013e = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPID_KEY");
+        if (TextUtils.isEmpty(f3048e)) {
+            f3048e = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPID_KEY");
         }
-        if (TextUtils.isEmpty(f3014f)) {
-            f3014f = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPKEY_KEY");
+        if (TextUtils.isEmpty(f3049f)) {
+            f3049f = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPKEY_KEY");
         }
-        if (TextUtils.isEmpty(f3013e) || TextUtils.isEmpty(f3014f)) {
+        if (TextUtils.isEmpty(f3048e) || TextUtils.isEmpty(f3049f)) {
             l(applicationContext);
             return;
         }
-        m.d(applicationContext, f3013e, f3014f);
+        m.d(applicationContext, f3048e, f3049f);
         r(applicationContext);
     }
 
@@ -670,7 +670,7 @@ public class f {
         Intent a2;
         try {
             boolean z = false;
-            if (!j.f3372a) {
+            if (!j.f3407a) {
                 if (s(context) || (a2 = a(context, 0)) == null) {
                     return;
                 }
@@ -780,7 +780,7 @@ public class f {
     }
 
     public static String q(Context context) {
-        return !TextUtils.isEmpty(f3010b) ? f3010b : com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
+        return !TextUtils.isEmpty(f3045b) ? f3045b : com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
     }
 
     public static void r(Context context) {
@@ -797,11 +797,11 @@ public class f {
     }
 
     public static boolean s(Context context) {
-        if (k >= 2 || TextUtils.isEmpty(f3010b)) {
+        if (k >= 2 || TextUtils.isEmpty(f3045b)) {
             return false;
         }
         k++;
-        b(context, true, f3009a);
+        b(context, true, f3044a);
         return true;
     }
 

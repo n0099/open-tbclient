@@ -22,28 +22,28 @@ import com.baidu.apollon.utils.ResUtils;
 public abstract class LoadingLayout extends FrameLayout implements ILoadingLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24143a = "PullToRefresh-LoadingLayout";
+    public static final String f23828a = "PullToRefresh-LoadingLayout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Interpolator f24144b = new LinearInterpolator();
+    public static final Interpolator f23829b = new LinearInterpolator();
 
     /* renamed from: c  reason: collision with root package name */
-    public View f24145c;
+    public View f23830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24146d;
+    public boolean f23831d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f24147e;
+    public final TextView f23832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TextView f24148f;
+    public final TextView f23833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CharSequence f24149g;
+    public CharSequence f23834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f24150h;
+    public CharSequence f23835h;
     public CharSequence i;
     public float j;
     public final ImageView mHeaderImage;
@@ -56,30 +56,30 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f24151a;
+        public static final /* synthetic */ int[] f23836a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f24152b;
+        public static final /* synthetic */ int[] f23837b;
 
         static {
             int[] iArr = new int[Orientation.values().length];
-            f24152b = iArr;
+            f23837b = iArr;
             try {
                 iArr[Orientation.HORIZONTAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f24152b[Orientation.VERTICAL.ordinal()] = 2;
+                f23837b[Orientation.VERTICAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[Mode.values().length];
-            f24151a = iArr2;
+            f23836a = iArr2;
             try {
                 iArr2[Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f24151a[Mode.PULL_FROM_START.ordinal()] = 2;
+                f23836a[Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -151,39 +151,39 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
         this.mScrollDirection = orientation;
         int loadingLayout = getLoadingLayout();
         LayoutInflater.from(context).inflate(loadingLayout <= 0 ? ResUtils.layout(getContext(), "wallet_finance_tab_home_surprise_refresh_bar") : loadingLayout, this);
-        this.f24145c = findViewById(ResUtils.id(getContext(), "load_layout"));
-        this.f24147e = (TextView) findViewById(ResUtils.id(getContext(), "surprise_text"));
-        this.f24148f = (TextView) findViewById(ResUtils.id(getContext(), "pull_to_refresh_text"));
+        this.f23830c = findViewById(ResUtils.id(getContext(), "load_layout"));
+        this.f23832e = (TextView) findViewById(ResUtils.id(getContext(), "surprise_text"));
+        this.f23833f = (TextView) findViewById(ResUtils.id(getContext(), "pull_to_refresh_text"));
         this.mHeaderProgress = (ProgressBar) findViewById(ResUtils.id(getContext(), "pull_to_refresh_progress"));
         this.mHeaderImage = (ImageView) findViewById(ResUtils.id(getContext(), "pull_to_refresh_image"));
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24145c.getLayoutParams();
-        if (AnonymousClass1.f24151a[mode.ordinal()] != 1) {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f23830c.getLayoutParams();
+        if (AnonymousClass1.f23836a[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == Orientation.VERTICAL ? 80 : 5;
-            this.f24149g = context.getString(ResUtils.string(getContext(), "wallet_refresh_pull_down"));
-            this.f24150h = context.getString(ResUtils.string(getContext(), "wallet_refresh_loading"));
+            this.f23834g = context.getString(ResUtils.string(getContext(), "wallet_refresh_pull_down"));
+            this.f23835h = context.getString(ResUtils.string(getContext(), "wallet_refresh_loading"));
             this.i = context.getString(ResUtils.string(getContext(), "wallet_refresh_release"));
         } else {
             layoutParams.gravity = orientation == Orientation.VERTICAL ? 48 : 3;
-            this.f24149g = context.getString(ResUtils.string(getContext(), "wallet_tab_pull_to_refresh_from_bottom_pull_label"));
-            this.f24150h = context.getString(ResUtils.string(getContext(), "wallet_tab_pull_to_refresh_from_bottom_refreshing_label"));
+            this.f23834g = context.getString(ResUtils.string(getContext(), "wallet_tab_pull_to_refresh_from_bottom_pull_label"));
+            this.f23835h = context.getString(ResUtils.string(getContext(), "wallet_tab_pull_to_refresh_from_bottom_refreshing_label"));
             this.i = context.getString(ResUtils.string(getContext(), "wallet_tab_pull_to_refresh_from_bottom_release_label"));
         }
         if (this.j > 0.0f) {
-            this.f24145c.getLayoutParams().height = (int) this.j;
+            this.f23830c.getLayoutParams().height = (int) this.j;
         }
         setLoadingDrawable(context.getResources().getDrawable(getDefaultDrawableResId()));
         reset();
     }
 
     private void setTextAppearance(int i) {
-        TextView textView = this.f24148f;
+        TextView textView = this.f23833f;
         if (textView != null) {
             textView.setTextAppearance(getContext(), i);
         }
     }
 
     private void setTextColor(ColorStateList colorStateList) {
-        TextView textView = this.f24148f;
+        TextView textView = this.f23833f;
         if (textView != null) {
             textView.setTextColor(colorStateList);
         }
@@ -194,10 +194,10 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
         if (f2 > 0.0f) {
             return (int) f2;
         }
-        if (AnonymousClass1.f24152b[this.mScrollDirection.ordinal()] != 1) {
-            return this.f24145c.getHeight();
+        if (AnonymousClass1.f23837b[this.mScrollDirection.ordinal()] != 1) {
+            return this.f23830c.getHeight();
         }
-        return this.f24145c.getWidth();
+        return this.f23830c.getWidth();
     }
 
     public abstract int getDefaultDrawableResId();
@@ -205,8 +205,8 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public abstract int getLoadingLayout();
 
     public final void hideAllViews() {
-        if (this.f24148f.getVisibility() == 0) {
-            this.f24148f.setVisibility(4);
+        if (this.f23833f.getVisibility() == 0) {
+            this.f23833f.setVisibility(4);
         }
         if (this.mHeaderProgress.getVisibility() == 0) {
             this.mHeaderProgress.setVisibility(4);
@@ -219,7 +219,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public abstract void onLoadingDrawableSet(Drawable drawable);
 
     public final void onPull(float f2) {
-        if (this.f24146d) {
+        if (this.f23831d) {
             return;
         }
         onPullImpl(f2);
@@ -228,9 +228,9 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public abstract void onPullImpl(float f2);
 
     public final void pullToRefresh() {
-        TextView textView = this.f24148f;
+        TextView textView = this.f23833f;
         if (textView != null) {
-            textView.setText(this.f24149g);
+            textView.setText(this.f23834g);
         }
         pullToRefreshImpl();
     }
@@ -238,11 +238,11 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public abstract void pullToRefreshImpl();
 
     public final void refreshing() {
-        TextView textView = this.f24148f;
+        TextView textView = this.f23833f;
         if (textView != null) {
-            textView.setText(this.f24150h);
+            textView.setText(this.f23835h);
         }
-        if (this.f24146d) {
+        if (this.f23831d) {
             ((AnimationDrawable) this.mHeaderImage.getDrawable()).start();
         } else {
             refreshingImpl();
@@ -252,7 +252,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public abstract void refreshingImpl();
 
     public final void releaseToRefresh() {
-        TextView textView = this.f24148f;
+        TextView textView = this.f23833f;
         if (textView != null) {
             textView.setText(this.i);
         }
@@ -262,12 +262,12 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public abstract void releaseToRefreshImpl();
 
     public final void reset() {
-        TextView textView = this.f24148f;
+        TextView textView = this.f23833f;
         if (textView != null) {
-            textView.setText(this.f24149g);
+            textView.setText(this.f23834g);
         }
         this.mHeaderImage.setVisibility(0);
-        if (this.f24146d) {
+        if (this.f23831d) {
             ((AnimationDrawable) this.mHeaderImage.getDrawable()).stop();
         } else {
             resetImpl();
@@ -288,18 +288,18 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.ILoadingLayout
     public final void setLoadingDrawable(Drawable drawable) {
         this.mHeaderImage.setImageDrawable(drawable);
-        this.f24146d = drawable instanceof AnimationDrawable;
+        this.f23831d = drawable instanceof AnimationDrawable;
         onLoadingDrawableSet(drawable);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.ILoadingLayout
     public void setPullLabel(CharSequence charSequence) {
-        this.f24149g = charSequence;
+        this.f23834g = charSequence;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.ILoadingLayout
     public void setRefreshingLabel(CharSequence charSequence) {
-        this.f24150h = charSequence;
+        this.f23835h = charSequence;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.ILoadingLayout
@@ -309,7 +309,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.ILoadingLayout
     public void setTextTypeface(Typeface typeface) {
-        this.f24148f.setTypeface(typeface);
+        this.f23833f.setTypeface(typeface);
     }
 
     public final void setWidth(int i) {
@@ -318,8 +318,8 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     public final void showInvisibleViews() {
-        if (4 == this.f24148f.getVisibility()) {
-            this.f24148f.setVisibility(0);
+        if (4 == this.f23833f.getVisibility()) {
+            this.f23833f.setVisibility(0);
         }
         if (4 == this.mHeaderProgress.getVisibility()) {
             this.mHeaderProgress.setVisibility(0);
@@ -331,32 +331,32 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
     public void showSurprise(CharSequence charSequence, String str, int i) {
         if (TextUtils.isEmpty(charSequence) && TextUtils.isEmpty(str)) {
-            this.f24147e.setVisibility(8);
+            this.f23832e.setVisibility(8);
             return;
         }
         if (!TextUtils.isEmpty(charSequence)) {
-            this.f24147e.setText(charSequence);
+            this.f23832e.setText(charSequence);
         }
         TextUtils.isEmpty(str);
-        this.f24147e.setVisibility(0);
+        this.f23832e.setVisibility(0);
     }
 
     public void showSurpriseText(CharSequence charSequence) {
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f24147e.setText(charSequence);
-        this.f24147e.setVisibility(0);
+        this.f23832e.setText(charSequence);
+        this.f23832e.setVisibility(0);
     }
 
     public void showSurprise(CharSequence charSequence, int i) {
         if (TextUtils.isEmpty(charSequence) && i <= 0) {
-            this.f24147e.setVisibility(8);
+            this.f23832e.setVisibility(8);
             return;
         }
         if (!TextUtils.isEmpty(charSequence)) {
-            this.f24147e.setText(charSequence);
+            this.f23832e.setText(charSequence);
         }
-        this.f24147e.setVisibility(0);
+        this.f23832e.setVisibility(0);
     }
 }

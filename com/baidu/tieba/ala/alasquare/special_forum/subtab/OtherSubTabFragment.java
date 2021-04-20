@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.d0.h;
 import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14891h;
+    public View f14554h;
     public BdTypeListView i;
     public PbListView j;
     public g k;
@@ -81,7 +81,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.b
         public void a(int i, String str) {
             OtherSubTabFragment otherSubTabFragment = OtherSubTabFragment.this;
-            otherSubTabFragment.hideLoadingView(otherSubTabFragment.f14891h);
+            otherSubTabFragment.hideLoadingView(otherSubTabFragment.f14554h);
             OtherSubTabFragment.this.V0();
             OtherSubTabFragment.this.d1();
         }
@@ -92,7 +92,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             OtherSubTabFragment.this.q = true;
             OtherSubTabFragment.this.b1(false);
             OtherSubTabFragment otherSubTabFragment = OtherSubTabFragment.this;
-            otherSubTabFragment.hideLoadingView(otherSubTabFragment.f14891h);
+            otherSubTabFragment.hideLoadingView(otherSubTabFragment.f14554h);
             if (ListUtils.getCount(OtherSubTabFragment.this.n.F()) == 0) {
                 OtherSubTabFragment.this.d1();
                 return;
@@ -221,7 +221,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     public final void a1() {
         this.q = false;
         this.n.M();
-        showLoadingView(this.f14891h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
+        showLoadingView(this.f14554h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
     public void b1(boolean z) {
@@ -311,9 +311,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f14891h == null) {
+        if (this.f14554h == null) {
             View inflate = layoutInflater.inflate(R.layout.special_bar_recommend_tab, viewGroup, false);
-            this.f14891h = inflate;
+            this.f14554h = inflate;
             BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.content_thread);
             this.i = bdTypeListView;
             bdTypeListView.setOnSrollToBottomListener(this.u);
@@ -335,11 +335,11 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             arrayList.add(this.m);
             this.i.a(arrayList);
         }
-        if (this.f14891h.getParent() != null) {
-            ((ViewGroup) this.f14891h.getParent()).removeView(this.f14891h);
+        if (this.f14554h.getParent() != null) {
+            ((ViewGroup) this.f14554h.getParent()).removeView(this.f14554h);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return this.f14891h;
+        return this.f14554h;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -354,7 +354,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         if (alaNewSquareSubListModel != null) {
             alaNewSquareSubListModel.onDestroy();
         }
-        hideLoadingView(this.f14891h);
+        hideLoadingView(this.f14554h);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment

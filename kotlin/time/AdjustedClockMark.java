@@ -16,7 +16,7 @@ public final class AdjustedClockMark extends ClockMark {
 
     @Override // kotlin.time.ClockMark
     public double elapsedNow() {
-        return Duration.m1573minusLRDsOJo(this.mark.elapsedNow(), this.adjustment);
+        return Duration.m1577minusLRDsOJo(this.mark.elapsedNow(), this.adjustment);
     }
 
     public final double getAdjustment() {
@@ -29,8 +29,8 @@ public final class AdjustedClockMark extends ClockMark {
 
     @Override // kotlin.time.ClockMark
     /* renamed from: plus-LRDsOJo */
-    public ClockMark mo1546plusLRDsOJo(double d2) {
-        return new AdjustedClockMark(this.mark, Duration.m1574plusLRDsOJo(this.adjustment, d2), null);
+    public ClockMark mo1550plusLRDsOJo(double d2) {
+        return new AdjustedClockMark(this.mark, Duration.m1578plusLRDsOJo(this.adjustment, d2), null);
     }
 
     public /* synthetic */ AdjustedClockMark(ClockMark clockMark, double d2, DefaultConstructorMarker defaultConstructorMarker) {

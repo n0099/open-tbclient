@@ -46,13 +46,13 @@ public class ThrowableDeserializer extends JavaBeanDeserializer {
         if (java.lang.Throwable.class.isAssignableFrom(r14) != false) goto L14;
      */
     /* JADX WARN: Code restructure failed: missing block: B:59:0x00ec, code lost:
-        if (r14 != null) goto L57;
+        if (r14 != null) goto L58;
      */
     /* JADX WARN: Code restructure failed: missing block: B:60:0x00ee, code lost:
         r15 = (T) new java.lang.Exception(r5, r3);
      */
     /* JADX WARN: Code restructure failed: missing block: B:62:0x00fa, code lost:
-        if (java.lang.Throwable.class.isAssignableFrom(r14) == false) goto L59;
+        if (java.lang.Throwable.class.isAssignableFrom(r14) == false) goto L60;
      */
     /* JADX WARN: Code restructure failed: missing block: B:63:0x00fc, code lost:
         r15 = (T) createException(r5, r3, r14);
@@ -70,7 +70,7 @@ public class ThrowableDeserializer extends JavaBeanDeserializer {
         ((java.lang.Throwable) r15).setStackTrace(r6);
      */
     /* JADX WARN: Code restructure failed: missing block: B:68:0x010c, code lost:
-        if (r0 == null) goto L56;
+        if (r0 == null) goto L57;
      */
     /* JADX WARN: Code restructure failed: missing block: B:69:0x010e, code lost:
         if (r14 == null) goto L45;
@@ -91,32 +91,35 @@ public class ThrowableDeserializer extends JavaBeanDeserializer {
         r2 = (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) r13;
      */
     /* JADX WARN: Code restructure failed: missing block: B:76:0x0125, code lost:
+        if (r2 == null) goto L57;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x0127, code lost:
         r13 = r0.entrySet().iterator();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0131, code lost:
-        if (r13.hasNext() == false) goto L55;
-     */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x0133, code lost:
+        if (r13.hasNext() == false) goto L56;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x0135, code lost:
         r14 = (java.util.Map.Entry) r13.next();
         r14 = r14.getValue();
         r0 = r2.getFieldDeserializer((java.lang.String) r14.getKey());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x0147, code lost:
-        if (r0 == null) goto L54;
-     */
     /* JADX WARN: Code restructure failed: missing block: B:81:0x0149, code lost:
+        if (r0 == null) goto L55;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x014b, code lost:
         r0.setValue(r15, r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x014d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x014f, code lost:
         return r15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x014e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0150, code lost:
         r13 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x0156, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0158, code lost:
         throw new com.alibaba.fastjson.JSONException("create instance error", r13);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x0171, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x0173, code lost:
         throw new com.alibaba.fastjson.JSONException("type not match, not Throwable. " + r14.getName());
      */
     @Override // com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer, com.alibaba.fastjson.parser.deserializer.ObjectDeserializer

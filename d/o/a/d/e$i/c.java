@@ -3,7 +3,7 @@ package d.o.a.d.e$i;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static byte[] a(InputStream inputStream, String str) throws Exception {
         MessageDigest messageDigest = MessageDigest.getInstance(str);

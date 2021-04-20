@@ -2,22 +2,22 @@ package d.b.h0.s.b;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.e.a.f.d;
+import d.b.c.e.a.f.d;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f51124c;
+    public static volatile a f51534c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f51125a;
+    public boolean f51535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51126b;
+    public int f51536b;
 
     public a() {
-        this.f51125a = false;
-        this.f51126b = 0;
+        this.f51535a = false;
+        this.f51536b = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.setSdCard(true);
@@ -25,10 +25,10 @@ public class a {
             if (dVar.call()) {
                 String a2 = dVar.a();
                 if (a2 != null) {
-                    this.f51126b = Integer.parseInt(a2);
+                    this.f51536b = Integer.parseInt(a2);
                 }
-                if (this.f51126b == 1 || this.f51126b == 2) {
-                    this.f51125a = true;
+                if (this.f51536b == 1 || this.f51536b == 2) {
+                    this.f51535a = true;
                 }
             }
         } catch (Throwable th) {
@@ -37,25 +37,25 @@ public class a {
     }
 
     public static a b() {
-        if (f51124c == null) {
+        if (f51534c == null) {
             synchronized (a.class) {
-                if (f51124c == null) {
-                    f51124c = new a();
+                if (f51534c == null) {
+                    f51534c = new a();
                 }
             }
         }
-        return f51124c;
+        return f51534c;
     }
 
     public String a() {
-        return this.f51125a ? "pub_env=" + this.f51126b + ";" : "";
+        return this.f51535a ? "pub_env=" + this.f51536b + ";" : "";
     }
 
     public int c() {
-        return this.f51126b;
+        return this.f51536b;
     }
 
     public boolean d() {
-        return this.f51125a;
+        return this.f51535a;
     }
 }

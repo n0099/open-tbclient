@@ -8,47 +8,47 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f29427a;
+    public static volatile b f29112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29428b;
+    public Context f29113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f29429c = new AtomicBoolean(false);
+    public AtomicBoolean f29114c = new AtomicBoolean(false);
 
     public b() {
         b();
     }
 
     public static b a() {
-        if (f29427a == null) {
+        if (f29112a == null) {
             synchronized (b.class) {
-                if (f29427a == null) {
-                    f29427a = new b();
+                if (f29112a == null) {
+                    f29112a = new b();
                 }
             }
         }
-        return f29427a;
+        return f29112a;
     }
 
     public void b() {
-        if (this.f29429c.get() || p.a() == null) {
+        if (this.f29114c.get() || p.a() == null) {
             return;
         }
-        this.f29428b = p.a();
-        this.f29429c.set(true);
+        this.f29113b = p.a();
+        this.f29114c.set(true);
     }
 
     public synchronized void c() {
-        if (!this.f29429c.get()) {
+        if (!this.f29114c.get()) {
             b();
         } else {
             try {
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29428b, "logstats", "retry >=?", new String[]{String.valueOf(5)});
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29113b, "logstats", "retry >=?", new String[]{String.valueOf(5)});
             } catch (Throwable unused) {
             }
         }
@@ -68,11 +68,11 @@ public class b {
     */
     public synchronized List<c.a> d() {
         LinkedList linkedList = new LinkedList();
-        if (!this.f29429c.get()) {
+        if (!this.f29114c.get()) {
             b();
             return linkedList;
         }
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29428b, "logstats", new String[]{"id", "value"}, "retry <?", new String[]{String.valueOf(5)}, null, null, null);
+        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f29113b, "logstats", new String[]{"id", "value"}, "retry <?", new String[]{String.valueOf(5)}, null, null, null);
         if (a2 != null) {
             while (a2.moveToNext()) {
                 try {

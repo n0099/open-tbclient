@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.a0.a;
-import f.a.o;
-import f.a.t.b;
-import f.a.x.c.f;
+import f.b.a0.a;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.c.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -24,13 +24,13 @@ public final class ObservableFlatMap$InnerObserver<T, U> extends AtomicReference
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.done = true;
         this.parent.drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.parent.errors.addThrowable(th)) {
             ObservableFlatMap$MergeObserver<T, U> observableFlatMap$MergeObserver = this.parent;
@@ -44,7 +44,7 @@ public final class ObservableFlatMap$InnerObserver<T, U> extends AtomicReference
         a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(U u) {
         if (this.fusionMode == 0) {
             this.parent.tryEmit(u, this);
@@ -53,10 +53,10 @@ public final class ObservableFlatMap$InnerObserver<T, U> extends AtomicReference
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.setOnce(this, bVar) && (bVar instanceof f.a.x.c.b)) {
-            f.a.x.c.b bVar2 = (f.a.x.c.b) bVar;
+        if (DisposableHelper.setOnce(this, bVar) && (bVar instanceof f.b.x.c.b)) {
+            f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
             int requestFusion = bVar2.requestFusion(7);
             if (requestFusion == 1) {
                 this.fusionMode = requestFusion;

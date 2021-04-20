@@ -9,18 +9,18 @@ import java.nio.ByteBuffer;
 public final class b extends f {
 
     /* renamed from: h  reason: collision with root package name */
-    public final d f63808h;
+    public final d f64508h;
     public final g i;
     public final ByteBuffer j;
-    public final UploadDataProvider k = new C1731b();
+    public final UploadDataProvider k = new C1743b();
     public boolean l = false;
     public boolean m;
     public boolean n;
 
     /* renamed from: d.b.j0.b.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1731b extends UploadDataProvider {
-        public C1731b() {
+    public class C1743b extends UploadDataProvider {
+        public C1743b() {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -65,7 +65,7 @@ public final class b extends f {
         }
         if (i > 0) {
             this.j = ByteBuffer.allocate(i);
-            this.f63808h = dVar;
+            this.f64508h = dVar;
             this.i = gVar;
             this.m = z;
             this.n = z2;
@@ -83,7 +83,7 @@ public final class b extends f {
         this.l = true;
         this.j.flip();
         if (this.m) {
-            this.i.b(this.f63808h.getReadTimeout());
+            this.i.b(this.f64508h.getReadTimeout());
         }
     }
 
@@ -124,7 +124,7 @@ public final class b extends f {
     public final void z() throws IOException {
         o();
         this.j.flip();
-        this.i.b(this.f63808h.getReadTimeout());
+        this.i.b(this.f64508h.getReadTimeout());
         n();
     }
 

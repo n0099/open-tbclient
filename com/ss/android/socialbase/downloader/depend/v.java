@@ -6,25 +6,25 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.depend.u;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface v extends IInterface {
     boolean a(u uVar) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements v {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.v$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0497a implements v {
+        /* loaded from: classes6.dex */
+        public static class C0511a implements v {
 
             /* renamed from: a  reason: collision with root package name */
-            public static v f38835a;
+            public static v f39124a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38836b;
+            public IBinder f39125b;
 
-            public C0497a(IBinder iBinder) {
-                this.f38836b = iBinder;
+            public C0511a(IBinder iBinder) {
+                this.f39125b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.v
@@ -34,7 +34,7 @@ public interface v extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                     obtain.writeStrongBinder(uVar != null ? uVar.asBinder() : null);
-                    if (!this.f38836b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f39125b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(uVar);
                     }
                     obtain2.readException();
@@ -47,7 +47,7 @@ public interface v extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38836b;
+                return this.f39125b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface v extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof v)) {
                 return (v) queryLocalInterface;
             }
-            return new C0497a(iBinder);
+            return new C0511a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -88,7 +88,7 @@ public interface v extends IInterface {
         }
 
         public static v a() {
-            return C0497a.f38835a;
+            return C0511a.f39124a;
         }
     }
 }

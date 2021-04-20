@@ -1,5 +1,6 @@
 package d.b.m0.a.f;
 
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
@@ -23,7 +24,7 @@ public final class g {
             jSONObject2.put("osVersion", bVar.n().getOsVersion());
             jSONObject2.put("brandName", bVar.n().r());
             jSONObject2.put("deviceType", bVar.n().s());
-            jSONObject2.put("mac", bVar.n().t());
+            jSONObject2.put(IAdRequestParam.MAC, bVar.n().t());
             jSONObject2.put(CommandMessage.SDK_VERSION, bVar.n().u());
             jSONObject2.put("testEnable", bVar.n().v());
             jSONObject2.put("appVersion", bVar.n().w());

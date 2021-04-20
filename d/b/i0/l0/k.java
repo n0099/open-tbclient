@@ -23,13 +23,13 @@ import java.util.Date;
 public class k extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public FacePurchaseRecordsActivity f56542e;
+    public FacePurchaseRecordsActivity f57948e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePurchaseRecordsData f56543f = null;
+    public FacePurchaseRecordsData f57949f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56544g;
+    public boolean f57950g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -38,8 +38,8 @@ public class k extends BaseAdapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(k.this.f56542e.getPageContext().getContext(), CommonStatisticKey.FACESHOP_FROM_MORE)));
-            k.this.f56542e.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(k.this.f57948e.getPageContext().getContext(), CommonStatisticKey.FACESHOP_FROM_MORE)));
+            k.this.f57948e.finish();
         }
     }
 
@@ -47,16 +47,16 @@ public class k extends BaseAdapter {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f56546a;
+        public TbImageView f57952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f56547b;
+        public TextView f57953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f56548c;
+        public TextView f57954c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f56549d;
+        public TextView f57955d;
 
         public b(k kVar) {
         }
@@ -67,30 +67,30 @@ public class k extends BaseAdapter {
     }
 
     public k(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
-        this.f56542e = facePurchaseRecordsActivity;
+        this.f57948e = facePurchaseRecordsActivity;
     }
 
     public final View b() {
-        View inflate = LayoutInflater.from(this.f56542e.getPageContext().getContext()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
-        NoDataView a2 = NoDataViewFactory.a(this.f56542e.getPageContext().getContext(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.EMOTION, (int) this.f56542e.getResources().getDimension(R.dimen.ds160)), NoDataViewFactory.e.b(R.string.buy_no_emotion, R.string.go_to_emotion_store), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f56542e.getResources().getString(R.string.go_to_download_emotion), new a())));
-        d.b.h0.r.c layoutMode = this.f56542e.getLayoutMode();
+        View inflate = LayoutInflater.from(this.f57948e.getPageContext().getContext()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
+        NoDataView a2 = NoDataViewFactory.a(this.f57948e.getPageContext().getContext(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.EMOTION, (int) this.f57948e.getResources().getDimension(R.dimen.ds160)), NoDataViewFactory.e.b(R.string.buy_no_emotion, R.string.go_to_emotion_store), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f57948e.getResources().getString(R.string.go_to_download_emotion), new a())));
+        d.b.h0.r.c layoutMode = this.f57948e.getLayoutMode();
         int skinType = TbadkApplication.getInst().getSkinType();
         if (layoutMode != null) {
             layoutMode.k(skinType == 1);
             layoutMode.j(inflate);
         }
-        a2.f(this.f56542e.getPageContext(), skinType);
+        a2.f(this.f57948e.getPageContext(), skinType);
         a2.setVisibility(0);
         return inflate;
     }
 
     public final View c() {
         b bVar = new b(this, null);
-        View inflate = LayoutInflater.from(this.f56542e.getPageContext().getContext()).inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
-        bVar.f56546a = (TbImageView) inflate.findViewById(R.id.cover);
-        bVar.f56547b = (TextView) inflate.findViewById(R.id.title);
-        bVar.f56548c = (TextView) inflate.findViewById(R.id.time);
-        bVar.f56549d = (TextView) inflate.findViewById(R.id.price);
+        View inflate = LayoutInflater.from(this.f57948e.getPageContext().getContext()).inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
+        bVar.f57952a = (TbImageView) inflate.findViewById(R.id.cover);
+        bVar.f57953b = (TextView) inflate.findViewById(R.id.title);
+        bVar.f57954c = (TextView) inflate.findViewById(R.id.time);
+        bVar.f57955d = (TextView) inflate.findViewById(R.id.price);
         inflate.setTag(bVar);
         return inflate;
     }
@@ -100,23 +100,23 @@ public class k extends BaseAdapter {
         if (facePurchasePackageData == null) {
             return;
         }
-        bVar.f56546a.setTag(facePurchasePackageData.cover_url);
-        bVar.f56546a.T(facePurchasePackageData.cover_url, 10, this.f56542e.getResources().getDimensionPixelSize(R.dimen.ds94), this.f56542e.getResources().getDimensionPixelSize(R.dimen.ds94), false);
-        bVar.f56549d.setText(facePurchasePackageData.price);
-        bVar.f56547b.setText(facePurchasePackageData.pname);
+        bVar.f57952a.setTag(facePurchasePackageData.cover_url);
+        bVar.f57952a.T(facePurchasePackageData.cover_url, 10, this.f57948e.getResources().getDimensionPixelSize(R.dimen.ds94), this.f57948e.getResources().getDimensionPixelSize(R.dimen.ds94), false);
+        bVar.f57955d.setText(facePurchasePackageData.price);
+        bVar.f57953b.setText(facePurchasePackageData.pname);
         Date date = new Date();
         date.setTime(facePurchasePackageData.puy_time * 1000);
-        bVar.f56548c.setText(d.b.b.e.p.k.getDateStringDay(date));
+        bVar.f57954c.setText(d.b.c.e.p.k.getDateStringDay(date));
     }
 
     public void e(FacePurchaseRecordsData facePurchaseRecordsData) {
         ArrayList<FacePurchasePackageData> arrayList;
         if (facePurchaseRecordsData != null && (arrayList = facePurchaseRecordsData.buy_his) != null && arrayList.size() != 0) {
-            this.f56544g = true;
+            this.f57950g = true;
         } else {
-            this.f56544g = false;
+            this.f57950g = false;
         }
-        this.f56543f = facePurchaseRecordsData;
+        this.f57949f = facePurchaseRecordsData;
         notifyDataSetChanged();
     }
 
@@ -124,7 +124,7 @@ public class k extends BaseAdapter {
     public int getCount() {
         FacePurchaseRecordsData facePurchaseRecordsData;
         ArrayList<FacePurchasePackageData> arrayList;
-        if (!this.f56544g || (facePurchaseRecordsData = this.f56543f) == null || (arrayList = facePurchaseRecordsData.buy_his) == null) {
+        if (!this.f57950g || (facePurchaseRecordsData = this.f57949f) == null || (arrayList = facePurchaseRecordsData.buy_his) == null) {
             return 1;
         }
         return arrayList.size();
@@ -133,7 +133,7 @@ public class k extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         ArrayList<FacePurchasePackageData> arrayList;
-        FacePurchaseRecordsData facePurchaseRecordsData = this.f56543f;
+        FacePurchaseRecordsData facePurchaseRecordsData = this.f57949f;
         if (facePurchaseRecordsData == null || (arrayList = facePurchaseRecordsData.buy_his) == null || i < 0 || i >= arrayList.size()) {
             return null;
         }
@@ -148,14 +148,14 @@ public class k extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int skinType = TbadkApplication.getInst().getSkinType();
-        if (!this.f56544g) {
+        if (!this.f57950g) {
             return b();
         }
         if (view == null) {
             view = c();
         }
         b bVar = (b) view.getTag();
-        d.b.h0.r.c layoutMode = this.f56542e.getLayoutMode();
+        d.b.h0.r.c layoutMode = this.f57948e.getLayoutMode();
         layoutMode.k(skinType == 1);
         layoutMode.j(view);
         d(i, bVar);

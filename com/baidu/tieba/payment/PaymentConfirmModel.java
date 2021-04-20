@@ -11,15 +11,15 @@ import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
-import d.b.b.a.f;
+import d.b.c.a.f;
 /* loaded from: classes3.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f19455e;
+    public f<T> f19132e;
 
     public PaymentConfirmModel(f<T> fVar) {
-        this.f19455e = fVar;
+        this.f19132e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -46,7 +46,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("password", payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f19455e.sendMessage(httpMessage);
+        this.f19132e.sendMessage(httpMessage);
     }
 
     public void t() {
@@ -80,6 +80,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_duration", String.valueOf(paymentConfirmRequestData.getGoods_duration()));
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
-        this.f19455e.sendMessage(httpMessage);
+        this.f19132e.sendMessage(httpMessage);
     }
 }

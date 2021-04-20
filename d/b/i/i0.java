@@ -25,7 +25,7 @@ public class i0 extends h {
 
     public i0(Context context) {
         super(context);
-        r(d.b.b.e.p.l.g(context, R.dimen.M_H_X003));
+        r(d.b.c.e.p.l.g(context, R.dimen.M_H_X003));
         this.l = new ThreadSmartAppLayout(context);
         this.l.setAfterClickListener(new a());
     }

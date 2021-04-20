@@ -29,16 +29,16 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static BlockingQueue<Runnable> f967a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41059a = 1;
+    public static int f41348a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41060b = 1;
+    public static int f41349b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41061c = 2;
+    public static int f41350c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f968a = new ThreadPoolExecutor(f41059a, f41060b, f41061c, TimeUnit.SECONDS, f967a);
+    public static ThreadPoolExecutor f968a = new ThreadPoolExecutor(f41348a, f41349b, f41350c, TimeUnit.SECONDS, f967a);
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f969a = false;
@@ -55,7 +55,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!an.a(context).m85a() && b.m92a(context).m101c() && !b.m92a(context).m104f()) {
+        if (!an.a(context).m89a() && b.m96a(context).m105c() && !b.m96a(context).m108f()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -65,9 +65,9 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
         }
-        gq.m340a(context);
-        if (bg.b(context) && an.a(context).m88b()) {
-            an.a(context).m89c();
+        gq.m344a(context);
+        if (bg.b(context) && an.a(context).m92b()) {
+            an.a(context).m93c();
         }
         if (bg.b(context)) {
             if ("syncing".equals(ae.a(context).a(at.DISABLE_PUSH))) {

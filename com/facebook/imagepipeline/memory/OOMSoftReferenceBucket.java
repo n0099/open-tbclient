@@ -4,7 +4,7 @@ import com.facebook.common.references.OOMSoftReference;
 import java.util.LinkedList;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class OOMSoftReferenceBucket<V> extends Bucket<V> {
     public LinkedList<OOMSoftReference<V>> mSpareReferences;
 

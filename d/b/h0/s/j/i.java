@@ -2,7 +2,7 @@ package d.b.h0.s.j;
 
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import d.b.b.c.f.j;
+import d.b.c.c.f.j;
 /* loaded from: classes3.dex */
 public class i extends j {
     public i() {
@@ -11,7 +11,7 @@ public class i extends j {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // d.b.b.c.f.g
+    @Override // d.b.c.c.f.g
     public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         c(socketResponsedMessage2);

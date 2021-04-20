@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60552a;
+    public boolean f62116a;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -17,7 +17,7 @@ public class i {
         jSONObject.optInt("cout_total_sign_num");
         jSONObject.optInt("total_resign_num");
         jSONObject.optInt("miss_sign_num");
-        this.f60552a = jSONObject.optInt("is_sign_in") == 1;
+        this.f62116a = jSONObject.optInt("is_sign_in") == 1;
         jSONObject.optInt("user_sign_rank");
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.platform.core.a;
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.platform.base.e {
     public a(DistrictSearchOption districtSearchOption) {
@@ -16,21 +15,21 @@ public class a extends com.baidu.platform.base.e {
         if (districtSearchOption == null) {
             return;
         }
-        this.f9821a.a("qt", "con");
-        this.f9821a.a("rp_format", "json");
-        this.f9821a.a("rp_filter", "mobile");
-        this.f9821a.a("area_res", "true");
-        this.f9821a.a("addr_identify", "1");
-        this.f9821a.a("ie", "utf-8");
-        this.f9821a.a(Config.PACKAGE_NAME, "0");
-        this.f9821a.a("rn", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-        this.f9821a.a("c", districtSearchOption.mCityName);
+        this.f9379a.a("qt", "con");
+        this.f9379a.a("rp_format", "json");
+        this.f9379a.a("rp_filter", "mobile");
+        this.f9379a.a("area_res", "true");
+        this.f9379a.a("addr_identify", "1");
+        this.f9379a.a("ie", "utf-8");
+        this.f9379a.a(Config.PACKAGE_NAME, "0");
+        this.f9379a.a("rn", "10");
+        this.f9379a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;
         if (str2 == null || str2.equals("")) {
-            aVar = this.f9821a;
+            aVar = this.f9379a;
             str = districtSearchOption.mCityName;
         } else {
-            aVar = this.f9821a;
+            aVar = this.f9379a;
             str = districtSearchOption.mDistrictName;
         }
         aVar.a(ActVideoSetting.WIFI_DISPLAY, str);

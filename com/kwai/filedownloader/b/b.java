@@ -9,42 +9,42 @@ import java.util.List;
 public class b implements com.kwai.filedownloader.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<com.kwai.filedownloader.d.c> f36860a = new SparseArray<>();
+    public final SparseArray<com.kwai.filedownloader.d.c> f37149a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<com.kwai.filedownloader.d.a>> f36861b = new SparseArray<>();
+    public final SparseArray<List<com.kwai.filedownloader.d.a>> f37150b = new SparseArray<>();
 
     /* loaded from: classes6.dex */
-    public class a implements a.InterfaceC0441a {
+    public class a implements a.InterfaceC0455a {
         public a() {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC0441a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC0455a
         public void a() {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC0441a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC0455a
         public void a(int i, com.kwai.filedownloader.d.c cVar) {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC0441a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC0455a
         public void a(com.kwai.filedownloader.d.c cVar) {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC0441a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC0455a
         public void b(com.kwai.filedownloader.d.c cVar) {
         }
 
         @Override // java.lang.Iterable
         public Iterator<com.kwai.filedownloader.d.c> iterator() {
-            return new C0442b();
+            return new C0456b();
         }
     }
 
     /* renamed from: com.kwai.filedownloader.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0442b implements Iterator<com.kwai.filedownloader.d.c> {
-        public C0442b() {
+    public class C0456b implements Iterator<com.kwai.filedownloader.d.c> {
+        public C0456b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,8 +66,8 @@ public class b implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a() {
-        synchronized (this.f36860a) {
-            this.f36860a.clear();
+        synchronized (this.f37149a) {
+            this.f37149a.clear();
         }
     }
 
@@ -82,8 +82,8 @@ public class b implements com.kwai.filedownloader.b.a {
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2, long j) {
         List<com.kwai.filedownloader.d.a> list;
-        synchronized (this.f36861b) {
-            list = this.f36861b.get(i);
+        synchronized (this.f37150b) {
+            list = this.f37150b.get(i);
         }
         if (list == null) {
             return;
@@ -121,11 +121,11 @@ public class b implements com.kwai.filedownloader.b.a {
         List<com.kwai.filedownloader.d.a> list;
         try {
             int a2 = aVar.a();
-            synchronized (this.f36861b) {
-                list = this.f36861b.get(a2);
+            synchronized (this.f37150b) {
+                list = this.f37150b.get(a2);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.f36861b.put(a2, list);
+                    this.f37150b.put(a2, list);
                 }
             }
             list.add(aVar);
@@ -140,23 +140,23 @@ public class b implements com.kwai.filedownloader.b.a {
         } else if (b(cVar.a()) == null) {
             b(cVar);
         } else {
-            synchronized (this.f36860a) {
-                this.f36860a.remove(cVar.a());
-                this.f36860a.put(cVar.a(), cVar);
+            synchronized (this.f37149a) {
+                this.f37149a.remove(cVar.a());
+                this.f37149a.put(cVar.a(), cVar);
             }
         }
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC0441a b() {
+    public a.InterfaceC0455a b() {
         return new a();
     }
 
     @Override // com.kwai.filedownloader.b.a
     public com.kwai.filedownloader.d.c b(int i) {
         com.kwai.filedownloader.d.c cVar;
-        synchronized (this.f36860a) {
-            cVar = this.f36860a.get(i);
+        synchronized (this.f37149a) {
+            cVar = this.f37149a.get(i);
         }
         return cVar;
     }
@@ -167,8 +167,8 @@ public class b implements com.kwai.filedownloader.b.a {
     }
 
     public void b(com.kwai.filedownloader.d.c cVar) {
-        synchronized (this.f36860a) {
-            this.f36860a.put(cVar.a(), cVar);
+        synchronized (this.f37149a) {
+            this.f37149a.put(cVar.a(), cVar);
         }
     }
 
@@ -177,8 +177,8 @@ public class b implements com.kwai.filedownloader.b.a {
         List<com.kwai.filedownloader.d.a> list;
         try {
             ArrayList arrayList = new ArrayList();
-            synchronized (this.f36861b) {
-                list = this.f36861b.get(i);
+            synchronized (this.f37150b) {
+                list = this.f37150b.get(i);
             }
             if (list != null) {
                 arrayList.addAll(list);
@@ -196,8 +196,8 @@ public class b implements com.kwai.filedownloader.b.a {
     @Override // com.kwai.filedownloader.b.a
     public void d(int i) {
         try {
-            synchronized (this.f36861b) {
-                this.f36861b.remove(i);
+            synchronized (this.f37150b) {
+                this.f37150b.remove(i);
             }
         } catch (Exception unused) {
         }
@@ -205,8 +205,8 @@ public class b implements com.kwai.filedownloader.b.a {
 
     @Override // com.kwai.filedownloader.b.a
     public boolean e(int i) {
-        synchronized (this.f36860a) {
-            this.f36860a.remove(i);
+        synchronized (this.f37149a) {
+            this.f37149a.remove(i);
         }
         return true;
     }

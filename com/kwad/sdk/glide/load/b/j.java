@@ -11,35 +11,35 @@ import java.util.Map;
 public final class j implements h {
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, List<i>> f35315c;
+    public final Map<String, List<i>> f35604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile Map<String, String> f35316d;
+    public volatile Map<String, String> f35605d;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f35317a = b();
+        public static final String f35606a = b();
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Map<String, List<i>> f35318b;
+        public static final Map<String, List<i>> f35607b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f35319c = true;
+        public boolean f35608c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public Map<String, List<i>> f35320d = f35318b;
+        public Map<String, List<i>> f35609d = f35607b;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f35321e = true;
+        public boolean f35610e = true;
 
         static {
             HashMap hashMap = new HashMap(2);
-            if (!TextUtils.isEmpty(f35317a)) {
-                hashMap.put("User-Agent", Collections.singletonList(new b(f35317a)));
+            if (!TextUtils.isEmpty(f35606a)) {
+                hashMap.put("User-Agent", Collections.singletonList(new b(f35606a)));
             }
-            f35318b = Collections.unmodifiableMap(hashMap);
+            f35607b = Collections.unmodifiableMap(hashMap);
         }
 
         @VisibleForTesting
@@ -61,8 +61,8 @@ public final class j implements h {
         }
 
         public j a() {
-            this.f35319c = true;
-            return new j(this.f35320d);
+            this.f35608c = true;
+            return new j(this.f35609d);
         }
     }
 
@@ -71,35 +71,35 @@ public final class j implements h {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f35322a;
+        public final String f35611a;
 
         public b(@NonNull String str) {
-            this.f35322a = str;
+            this.f35611a = str;
         }
 
         @Override // com.kwad.sdk.glide.load.b.i
         public String a() {
-            return this.f35322a;
+            return this.f35611a;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
-                return this.f35322a.equals(((b) obj).f35322a);
+                return this.f35611a.equals(((b) obj).f35611a);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f35322a.hashCode();
+            return this.f35611a.hashCode();
         }
 
         public String toString() {
-            return "StringHeaderFactory{value='" + this.f35322a + "'}";
+            return "StringHeaderFactory{value='" + this.f35611a + "'}";
         }
     }
 
     public j(Map<String, List<i>> map) {
-        this.f35315c = Collections.unmodifiableMap(map);
+        this.f35604c = Collections.unmodifiableMap(map);
     }
 
     @NonNull
@@ -120,7 +120,7 @@ public final class j implements h {
 
     private Map<String, String> b() {
         HashMap hashMap = new HashMap();
-        for (Map.Entry<String, List<i>> entry : this.f35315c.entrySet()) {
+        for (Map.Entry<String, List<i>> entry : this.f35604c.entrySet()) {
             String a2 = a(entry.getValue());
             if (!TextUtils.isEmpty(a2)) {
                 hashMap.put(entry.getKey(), a2);
@@ -131,28 +131,28 @@ public final class j implements h {
 
     @Override // com.kwad.sdk.glide.load.b.h
     public Map<String, String> a() {
-        if (this.f35316d == null) {
+        if (this.f35605d == null) {
             synchronized (this) {
-                if (this.f35316d == null) {
-                    this.f35316d = Collections.unmodifiableMap(b());
+                if (this.f35605d == null) {
+                    this.f35605d = Collections.unmodifiableMap(b());
                 }
             }
         }
-        return this.f35316d;
+        return this.f35605d;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof j) {
-            return this.f35315c.equals(((j) obj).f35315c);
+            return this.f35604c.equals(((j) obj).f35604c);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.f35315c.hashCode();
+        return this.f35604c.hashCode();
     }
 
     public String toString() {
-        return "LazyHeaders{headers=" + this.f35315c + '}';
+        return "LazyHeaders{headers=" + this.f35604c + '}';
     }
 }

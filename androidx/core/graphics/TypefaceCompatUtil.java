@@ -124,7 +124,7 @@ public class TypefaceCompatUtil {
     @RequiresApi(19)
     public static ByteBuffer mmap(Context context, CancellationSignal cancellationSignal, Uri uri) {
         try {
-            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7664a, cancellationSignal);
+            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a, cancellationSignal);
             if (openFileDescriptor == null) {
                 if (openFileDescriptor != null) {
                     openFileDescriptor.close();

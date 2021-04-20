@@ -6,31 +6,31 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f47690b;
+    public static volatile a f48082b;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<k> f47691a = new CopyOnWriteArrayList();
+    public List<k> f48083a = new CopyOnWriteArrayList();
 
     public static a b() {
-        if (f47690b == null) {
+        if (f48082b == null) {
             synchronized (a.class) {
-                if (f47690b == null) {
-                    f47690b = new a();
+                if (f48082b == null) {
+                    f48082b = new a();
                 }
             }
         }
-        return f47690b;
+        return f48082b;
     }
 
     public void a(k kVar) {
-        if (kVar == null || this.f47691a.contains(kVar)) {
+        if (kVar == null || this.f48083a.contains(kVar)) {
             return;
         }
-        this.f47691a.add(kVar);
+        this.f48083a.add(kVar);
     }
 
     public void c(int i, String str) {
-        for (k kVar : this.f47691a) {
+        for (k kVar : this.f48083a) {
             if (i == 16) {
                 kVar.c();
             } else if (i == 17) {
@@ -41,8 +41,8 @@ public class a {
     }
 
     public void d(k kVar) {
-        if (this.f47691a.contains(kVar)) {
-            this.f47691a.remove(kVar);
+        if (this.f48083a.contains(kVar)) {
+            this.f48083a.remove(kVar);
         }
     }
 }

@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.switchs.WebpSwitch;
-import d.b.b.e.a.d;
-import d.b.b.e.l.b;
-import d.b.b.e.l.e;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.b.j.d.a;
+import d.b.c.e.a.d;
+import d.b.c.e.l.b;
+import d.b.c.e.l.e;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
+import d.b.c.j.d.a;
 import d.b.h0.a0.c;
 import d.b.h0.r.k;
 /* loaded from: classes3.dex */
@@ -26,7 +26,7 @@ public class ImageLoaderProc implements e<a> {
 
     public static a readGifFromDisk(String str, b bVar, String str2, String str3, int i, int i2) {
         byte[] bArr = new byte[0];
-        d.b.b.e.a.f.a aVar = new d.b.b.e.a.f.a("images", str, DiskFileOperate.Action.READ);
+        d.b.c.e.a.f.a aVar = new d.b.c.e.a.f.a("images", str, DiskFileOperate.Action.READ);
         aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
         aVar.setSubFolder(true);
         aVar.setIsFormatData(false);
@@ -36,7 +36,7 @@ public class ImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(aVar);
-            bVar.f41848a = diskCancelWorker;
+            bVar.f42345a = diskCancelWorker;
         }
         if (d.g().a(aVar)) {
             int i3 = j.H() ? 500 : 2000;
@@ -53,7 +53,7 @@ public class ImageLoaderProc implements e<a> {
                     aVar.formatData(aVar.getData());
                 }
                 if (aVar.a() != null) {
-                    return new a((d.b.b.d.b) aVar.a(), BitmapHelper.Bytes2Bitmap(aVar.getData()), true);
+                    return new a((d.b.c.d.b) aVar.a(), BitmapHelper.Bytes2Bitmap(aVar.getData()), true);
                 }
                 if (A) {
                     BdLog.e("BIGIMAGE gif parse fail ");
@@ -72,17 +72,17 @@ public class ImageLoaderProc implements e<a> {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return null;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public int getAsyncTaskPriority() {
         return 1;
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public boolean isNeedLoad() {
         return k.c().g();
     }
@@ -90,43 +90,43 @@ public class ImageLoaderProc implements e<a> {
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
     }
 
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj instanceof a) {
             a aVar = (a) obj;
             if (aVar.u()) {
                 aVar.A(i);
                 aVar.z(i2);
-                c.j().d(str, aVar);
+                c.k().d(str, aVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         long currentTimeMillis = System.currentTimeMillis();
         a readGifFromDisk = readGifFromDisk(TbMd5.getNameMd5FromUrl(str2), bVar, str2, "ImageLoaderProc.getFromLocal", i, i2);
-        d.b.b.e.l.a.f(readGifFromDisk != null, System.currentTimeMillis() - currentTimeMillis);
+        d.b.c.e.l.a.f(readGifFromDisk != null, System.currentTimeMillis() - currentTimeMillis);
         return readGifFromDisk;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         long currentTimeMillis = System.currentTimeMillis();
-        a l = c.j().l(str);
+        a m = c.k().m(str);
         if (z) {
-            d.b.b.e.l.a.i(l != null, System.currentTimeMillis() - currentTimeMillis);
+            d.b.c.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
         }
-        return l;
+        return m;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.b.e.l.e
+    @Override // d.b.c.e.l.e
     public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         String str3;
         boolean z;
@@ -164,11 +164,11 @@ public class ImageLoaderProc implements e<a> {
                     if (downloadImageBytes != null && Bytes2Bitmap != null) {
                         synchronized (BitmapHelper.lockForSyncImageDecoder) {
                             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
-                            c.j().h(TbConfig.getPbImageSize() + downloadImageBytes.length);
+                            c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                             boolean A = l.A(downloadImageBytes);
-                            NSGif f2 = (NSGif.f2135f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                            NSGif f2 = (NSGif.f2170f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                             if (f2 != null) {
-                                aVar = new a((d.b.b.d.b) f2, Bytes2Bitmap, true);
+                                aVar = new a((d.b.c.d.b) f2, Bytes2Bitmap, true);
                                 aVar.y(needCache);
                             } else {
                                 if (A) {
@@ -180,7 +180,7 @@ public class ImageLoaderProc implements e<a> {
                                 aVar = aVar2;
                             }
                             if (needCache) {
-                                d.b.b.e.a.f.a aVar3 = new d.b.b.e.a.f.a("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
+                                d.b.c.e.a.f.a aVar3 = new d.b.c.e.a.f.a("images", nameMd5FromUrl, DiskFileOperate.Action.WRITE);
                                 aVar3.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
                                 aVar3.setSubFolder(true);
                                 aVar3.setData(downloadImageBytes);
@@ -190,7 +190,7 @@ public class ImageLoaderProc implements e<a> {
                                 if (bVar != null) {
                                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                                     diskCancelWorker.setOperate(aVar3);
-                                    bVar.f41848a = diskCancelWorker;
+                                    bVar.f42345a = diskCancelWorker;
                                 }
                             }
                             if (A) {
@@ -202,14 +202,14 @@ public class ImageLoaderProc implements e<a> {
                             if (downloadImageBytes.length > 1) {
                                 z2 = true;
                             }
-                            d.b.b.e.l.a.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
+                            d.b.c.e.l.a.j(z2, str3, webClient.mStat, System.currentTimeMillis() - currentTimeMillis, downloadImageBytes.length);
                         }
                         return aVar;
                     }
-                    d.b.b.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+                    d.b.c.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
                     return null;
                 }
-                d.b.b.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+                d.b.c.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
                 return null;
             }
         }
@@ -223,7 +223,7 @@ public class ImageLoaderProc implements e<a> {
         }
         if (downloadImageBytes == null) {
         }
-        d.b.b.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
+        d.b.c.e.l.a.j(false, str3, webClient.mStat, 0L, 0L);
         return null;
     }
 }

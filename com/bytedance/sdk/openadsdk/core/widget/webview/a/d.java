@@ -18,24 +18,24 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f28991a;
+    public static volatile d f28676a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f28992b = new AtomicBoolean(false);
+    public AtomicBoolean f28677b = new AtomicBoolean(false);
 
     private JSONObject c(String str) {
         i c2 = i.c();
         new j(0, str, c2).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.c().e());
         try {
             o oVar = c2.get();
-            if (oVar == null || !oVar.f() || oVar.f65739a == 0) {
+            if (oVar == null || !oVar.f() || oVar.f66584a == 0) {
                 return null;
             }
-            return new JSONObject((String) oVar.f65739a);
+            return new JSONObject((String) oVar.f66584a);
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -50,14 +50,14 @@ public class d {
     }
 
     public static d a() {
-        if (f28991a == null) {
+        if (f28676a == null) {
             synchronized (d.class) {
-                if (f28991a == null) {
-                    f28991a = new d();
+                if (f28676a == null) {
+                    f28676a = new d();
                 }
             }
         }
-        return f28991a;
+        return f28676a;
     }
 
     private void b() {
@@ -88,7 +88,7 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f28992b.set(false);
+            this.f28677b.set(false);
             return;
         }
         u.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + E + ", 目前存储的模版的个数 " + b2.size());
@@ -135,11 +135,11 @@ public class d {
             u.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
             return;
         }
-        final String str2 = iVar.f28431a;
-        final String str3 = iVar.f28433c;
-        final String str4 = iVar.f28432b;
-        final String str5 = iVar.f28434d;
-        final String str6 = iVar.f28435e;
+        final String str2 = iVar.f28116a;
+        final String str3 = iVar.f28118c;
+        final String str4 = iVar.f28117b;
+        final String str5 = iVar.f28119d;
+        final String str6 = iVar.f28120e;
         if (TextUtils.isEmpty(str)) {
             str = com.bytedance.sdk.openadsdk.core.i.d().g();
         }

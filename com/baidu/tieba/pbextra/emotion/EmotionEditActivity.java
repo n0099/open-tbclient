@@ -35,11 +35,11 @@ import com.baidu.tieba.pbextra.emotion.view.ChooseColorLayout;
 import com.baidu.tieba.pbextra.emotion.view.EmotionEditLayout;
 import com.baidu.tieba.pbextra.emotion.view.EmotionEditText;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.p.f;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.f;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionEditActivity extends BaseActivity implements EmotionEditModel.e {
     public static final int STEP_COMPOSITION = 2;
     public static final int STEP_IDLE = 0;
@@ -70,7 +70,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public Bitmap mTextBitmap;
     public long startSendTime;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
         public a() {
         }
@@ -83,7 +83,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements ChooseColorLayout.b {
         public b() {
         }
@@ -94,7 +94,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnFocusChangeListener {
         public c() {
         }
@@ -111,14 +111,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    /* loaded from: classes3.dex */
+    public class d extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public d() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             if (aVar != null) {
                 EmotionEditActivity.this.mIsGif = aVar.t();
                 if (EmotionEditActivity.this.mIsGif) {
@@ -194,7 +194,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             tbImageView.setGifIconSupport(false);
             ((TbImageView) this.mImageView).setAutoChangeStyle(false);
             ((TbImageView) this.mImageView).W(this.mEmotionImageData.getPicUrl(), 10, true);
-            d.b.b.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(), getUniqueId());
+            d.b.c.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(), getUniqueId());
         }
         this.mImageWidth = this.mEmotionImageData.getWidth();
         int height = this.mEmotionImageData.getHeight();
@@ -257,14 +257,14 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         }
         ImageView imageView2 = this.mImageView;
         if (imageView2 instanceof TbImageView) {
-            d.b.b.j.d.a bdImage = ((TbImageView) imageView2).getBdImage();
+            d.b.c.j.d.a bdImage = ((TbImageView) imageView2).getBdImage();
             if (bdImage != null) {
                 if (this.mModel.B()) {
                     return;
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.E(addTextToImage, f.f42003b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.E(addTextToImage, f.f42500b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);

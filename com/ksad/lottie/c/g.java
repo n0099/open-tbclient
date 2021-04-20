@@ -3,7 +3,7 @@ package com.ksad.lottie.c;
 import android.util.JsonReader;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 /* loaded from: classes6.dex */
 public class g {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -113,7 +113,7 @@ public class g {
                 c3 = 65535;
                 break;
             case 3669:
-                if (str.equals(IXAdRequestInfo.SCREEN_HEIGHT)) {
+                if (str.equals(IAdRequestParam.SCREEN_HEIGHT)) {
                     c3 = 6;
                     break;
                 }
@@ -134,7 +134,7 @@ public class g {
                 c3 = 65535;
                 break;
             case 3705:
-                if (str.equals(IXAdRequestInfo.MAX_TITLE_LENGTH)) {
+                if (str.equals("tm")) {
                     c3 = '\t';
                     break;
                 }

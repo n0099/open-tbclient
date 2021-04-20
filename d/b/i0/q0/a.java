@@ -1,219 +1,199 @@
 package d.b.i0.q0;
 
-import android.app.Activity;
-import android.app.Application;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import d.b.h0.r.q.a2;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class a {
 
-    /* renamed from: b  reason: collision with root package name */
-    public static a f59259b;
-
     /* renamed from: a  reason: collision with root package name */
-    public b f59260a = f();
+    public final List<a2> f59012a;
 
-    /* renamed from: d.b.i0.q0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1477a implements d {
-        public C1477a(a aVar) {
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f59013b;
 
-        @Override // d.b.i0.q0.a.d
-        public void a(String str, int i) {
-            StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a006").param("obj_locate", 0).eventStat();
-        }
+    /* renamed from: c  reason: collision with root package name */
+    public String f59014c;
 
-        @Override // d.b.i0.q0.a.d
-        public void onError(String str) {
-            StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a006").param("obj_locate", 1).eventStat();
-        }
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public int f59015d;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        ViewGroup a(Activity activity, String str);
+    /* renamed from: e  reason: collision with root package name */
+    public List<FrsTabInfo> f59016e;
 
-        Object b(@NonNull Activity activity, @NonNull String str);
+    /* renamed from: f  reason: collision with root package name */
+    public SparseArray<FrsTabInfo> f59017f;
 
-        void c(Activity activity, String str, d dVar, c cVar);
-
-        void d(String str);
-
-        void destroyAd(String str);
-
-        void e(Application application, g gVar);
-
-        void f(Activity activity, @NonNull Object obj, e eVar, ViewGroup viewGroup, List<View> list, List<View> list2, c cVar);
-
-        void g(Activity activity, String str, d dVar, c cVar);
-
-        void h(Activity activity, String str, ViewGroup viewGroup, e eVar, c cVar);
-
-        boolean isAdReady(String str);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public x0 f59018g;
 
     /* loaded from: classes4.dex */
-    public static class c {
+    public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f59261a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f59262b;
-    }
-
-    /* loaded from: classes4.dex */
-    public interface d {
-        void a(String str, int i);
-
-        void onError(String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface e {
-        void onAdClicked(String str);
-
-        void onAdClose(String str);
-
-        void onAdError(String str);
-
-        void onAdShow(String str);
-
-        void onRewardedVideo(String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class f implements e {
-        @Override // d.b.i0.q0.a.e
-        public void onRewardedVideo(String str) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface g {
-        void a();
-    }
-
-    public static c a(String str, String str2) {
-        c cVar = new c();
-        cVar.f59261a = str;
-        cVar.f59262b = str2;
-        return cVar;
+        public static a f59019a = new a();
     }
 
     public static a h() {
-        if (f59259b == null) {
-            synchronized (a.class) {
-                if (f59259b == null) {
-                    f59259b = new a();
-                }
+        return b.f59019a;
+    }
+
+    public boolean a(a2 a2Var) {
+        if (a2Var == null) {
+            return false;
+        }
+        if (this.f59012a.size() > 29) {
+            x0 x0Var = this.f59018g;
+            if (x0Var != null) {
+                x0Var.a(2);
+            }
+            return false;
+        }
+        this.f59012a.add(a2Var);
+        x0 x0Var2 = this.f59018g;
+        if (x0Var2 != null) {
+            x0Var2.c(this.f59012a.size(), 2);
+            return true;
+        }
+        return true;
+    }
+
+    public void b() {
+        for (a2 a2Var : this.f59012a) {
+            if (a2Var != null) {
+                a2Var.U3(false);
             }
         }
-        return f59259b;
-    }
-
-    public void b(String str) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            bVar.d(str);
+        this.f59012a.clear();
+        x0 x0Var = this.f59018g;
+        if (x0Var != null) {
+            x0Var.c(0, 2);
         }
     }
 
-    public void c(String str) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            bVar.destroyAd(str);
+    public void c() {
+        this.f59014c = null;
+        this.f59015d = -1;
+        List<FrsTabInfo> list = this.f59016e;
+        if (list != null) {
+            list.clear();
+        }
+        SparseArray<FrsTabInfo> sparseArray = this.f59017f;
+        if (sparseArray != null) {
+            sparseArray.clear();
         }
     }
 
-    public int d() {
-        return d.b.h0.s.c.e.a();
+    public void d() {
+        if (ListUtils.isEmpty(this.f59012a)) {
+            return;
+        }
+        this.f59012a.clear();
+        x0 x0Var = this.f59018g;
+        if (x0Var != null) {
+            x0Var.c(this.f59012a.size(), 2);
+        }
     }
 
     public int e() {
-        return d.b.h0.s.c.e.b();
+        return this.f59015d;
     }
 
-    public final b f() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921525, b.class);
-        if (runTask != null) {
-            return (b) runTask.getData();
-        }
-        return null;
+    public String f() {
+        return this.f59014c;
     }
 
-    public ViewGroup g(Activity activity, String str) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            return bVar.a(activity, str);
-        }
-        return null;
+    public List<FrsTabInfo> g() {
+        return this.f59016e;
     }
 
-    public Object i(@NonNull Activity activity, @NonNull String str) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            return bVar.b(activity, str);
-        }
-        return null;
+    public List<a2> i() {
+        return this.f59012a;
     }
 
-    public void j() {
-        b bVar = this.f59260a;
-        if (bVar == null) {
-            return;
-        }
-        bVar.e(TbadkCoreApplication.getInst(), null);
+    public boolean j() {
+        return this.f59013b;
     }
 
-    public boolean k(String str) {
-        b bVar = this.f59260a;
-        return bVar != null && bVar.isAdReady(str);
+    public boolean k(int i) {
+        return this.f59017f.get(i) != null && this.f59017f.get(i).is_general_tab.intValue() == 1;
     }
 
-    public void l(Activity activity, String str, d dVar, c cVar) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            bVar.c(activity, str, dVar, cVar);
+    public void l(a2 a2Var) {
+        this.f59012a.remove(a2Var);
+        x0 x0Var = this.f59018g;
+        if (x0Var != null) {
+            x0Var.c(this.f59012a.size(), 2);
         }
     }
 
-    public void m(Activity activity, String str, d dVar, c cVar) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            bVar.g(activity, str, dVar, cVar);
+    public void m(int i, int i2) {
+        try {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
+            JSONArray jSONArray = new JSONArray();
+            for (a2 a2Var : h().i()) {
+                if (a2Var != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("thread_id", a2Var.o0());
+                    jSONObject.put("from_tab_id", a2Var.m1());
+                    jSONObject.put("to_tab_id", i2);
+                    jSONArray.put(jSONObject);
+                }
+            }
+            httpMessage.addParam("threads", jSONArray.toString());
+            httpMessage.addParam("forum_id", h().f());
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 
-    public void n(Activity activity, String str, ViewGroup viewGroup, e eVar, c cVar) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            bVar.h(activity, str, viewGroup, eVar, cVar);
+    public void n() {
+        p(false, false);
+        b();
+    }
+
+    public void o(int i) {
+        this.f59015d = i;
+    }
+
+    public void p(boolean z, boolean z2) {
+        this.f59013b = z;
+        x0 x0Var = this.f59018g;
+        if (x0Var != null) {
+            x0Var.b(z, z2, 2);
         }
     }
 
-    public void o(Activity activity, @NonNull Object obj, e eVar, ViewGroup viewGroup, List<View> list, List<View> list2, c cVar) {
-        b bVar = this.f59260a;
-        if (bVar != null) {
-            bVar.f(activity, obj, eVar, viewGroup, list, list2, cVar);
+    public void q(String str) {
+        this.f59014c = str;
+    }
+
+    public void r(List<FrsTabInfo> list) {
+        this.f59016e = new ArrayList(list);
+        this.f59017f = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.f59016e) {
+            if (frsTabInfo != null) {
+                this.f59017f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+            }
         }
     }
 
-    public boolean p(Activity activity) {
-        b bVar;
-        if (!d.b.h0.b.d.l() || (bVar = this.f59260a) == null) {
-            return false;
-        }
-        boolean isAdReady = bVar.isAdReady("6051001773-1862514716");
-        this.f59260a.g(activity, "6051001773-1862514716", new C1477a(this), a("frs", d.b.h0.b.d.l() ? "1" : "0"));
-        return isAdReady;
+    public void s(x0 x0Var) {
+        this.f59018g = x0Var;
+    }
+
+    public a() {
+        this.f59015d = -1;
+        this.f59012a = new ArrayList();
     }
 }

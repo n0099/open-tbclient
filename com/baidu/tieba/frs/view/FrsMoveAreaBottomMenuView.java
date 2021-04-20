@@ -15,22 +15,22 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
-import d.b.i0.p0.a;
+import d.b.i0.q0.a;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f16729e;
+    public TbPageContext f16390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16730f;
+    public TextView f16391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16731g;
+    public TextView f16392g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f16732h;
+    public View f16393h;
     public FrsMoveAreaChooseView i;
 
     public FrsMoveAreaBottomMenuView(Context context) {
@@ -39,11 +39,11 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_bottom_menu_layout, this);
-        this.f16730f = (TextView) findViewById(R.id.frs_move_area_cancel);
-        this.f16731g = (TextView) findViewById(R.id.frs_move_area_move);
-        this.f16732h = findViewById(R.id.frs_move_area_top_line);
-        this.f16730f.setOnClickListener(this);
-        this.f16731g.setOnClickListener(this);
+        this.f16391f = (TextView) findViewById(R.id.frs_move_area_cancel);
+        this.f16392g = (TextView) findViewById(R.id.frs_move_area_move);
+        this.f16393h = findViewById(R.id.frs_move_area_top_line);
+        this.f16391f.setOnClickListener(this);
+        this.f16392g.setOnClickListener(this);
         c();
         setClickable(true);
     }
@@ -55,11 +55,11 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
 
     public void c() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f16730f, R.color.CAM_X0105);
-        SkinManager.setBackgroundResource(this.f16730f, R.drawable.bg_bottom_up_list_dialog_item);
-        SkinManager.setViewTextColor(this.f16731g, R.color.CAM_X0302);
-        SkinManager.setBackgroundResource(this.f16731g, R.drawable.bg_bottom_up_list_dialog_item);
-        SkinManager.setBackgroundColor(this.f16732h, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.f16391f, R.color.CAM_X0105);
+        SkinManager.setBackgroundResource(this.f16391f, R.drawable.bg_bottom_up_list_dialog_item);
+        SkinManager.setViewTextColor(this.f16392g, R.color.CAM_X0302);
+        SkinManager.setBackgroundResource(this.f16392g, R.drawable.bg_bottom_up_list_dialog_item);
+        SkinManager.setBackgroundColor(this.f16393h, R.color.CAM_X0204);
     }
 
     public void d() {
@@ -73,12 +73,12 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void onClick(View view) {
         if (view.getTag() instanceof String) {
             d();
-        } else if (view == this.f16730f) {
+        } else if (view == this.f16391f) {
             this.i = null;
             a.h().n();
-        } else if (view == this.f16731g) {
-            if (this.f16729e != null && this.i == null && !ListUtils.isEmpty(a.h().i())) {
-                FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.f16729e);
+        } else if (view == this.f16392g) {
+            if (this.f16390e != null && this.i == null && !ListUtils.isEmpty(a.h().i())) {
+                FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.f16390e);
                 this.i = frsMoveAreaChooseView;
                 frsMoveAreaChooseView.setOnClickListener(this);
                 ((ViewGroup) getParent()).addView(this.i, -1, -1);
@@ -103,11 +103,11 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         if (i > 0) {
             string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
         }
-        this.f16731g.setText(string);
+        this.f16392g.setText(string);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.f16729e = tbPageContext;
+        this.f16390e = tbPageContext;
     }
 
     @Override // android.view.View

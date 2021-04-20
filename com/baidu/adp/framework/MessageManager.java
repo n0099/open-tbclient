@@ -26,17 +26,17 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.FieldBuilder;
-import d.b.b.c.e.c.h;
-import d.b.b.c.f.e;
-import d.b.b.c.f.f;
-import d.b.b.c.f.g;
-import d.b.b.c.f.i;
-import d.b.b.c.h.a;
-import d.b.b.c.h.b;
-import d.b.b.c.h.c;
-import d.b.b.c.h.d;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.c.e.c.h;
+import d.b.c.c.f.e;
+import d.b.c.c.f.f;
+import d.b.c.c.f.g;
+import d.b.c.c.f.i;
+import d.b.c.c.h.a;
+import d.b.c.c.h.b;
+import d.b.c.c.h.c;
+import d.b.c.c.h.d;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -99,12 +99,12 @@ public class MessageManager {
         FrameHelper.TYPE e2 = FrameHelper.e(messageListener.getCmd());
         if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
             this.mHttpManager.m(0, (HttpMessageListener) messageListener);
-        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.b.b.c.g.c)) {
-            this.mSocketManager.m(0, (d.b.b.c.g.c) messageListener);
+        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.b.c.c.g.c)) {
+            this.mSocketManager.m(0, (d.b.c.c.g.c) messageListener);
         } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.m(0, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + d.b.b.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + d.b.c.c.a.a().b(messageListener.getCmd()));
         }
     }
 
@@ -193,11 +193,11 @@ public class MessageManager {
             int cmd = responsedMessage.getCmd();
             FrameHelper.TYPE e2 = FrameHelper.e(cmd);
             if (e2 == FrameHelper.TYPE.HTTP && (responsedMessage instanceof HttpResponsedMessage)) {
-                d.b.b.b.a.a.h("Response_Http", responsedMessage);
+                d.b.c.b.a.a.h("Response_Http", responsedMessage);
                 if (responsedMessage.getError() != 0) {
                     if (j.z()) {
                         this.mHttpMsgCWSendFailedCnt++;
-                        if (this.mHttpMsgCWSendFailedCnt >= d.b.b.e.n.k.a.o().q("alert_http", 3)) {
+                        if (this.mHttpMsgCWSendFailedCnt >= d.b.c.e.n.k.a.o().q("alert_http", 3)) {
                             BdStatisticsManager.getInstance().alert("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
@@ -206,11 +206,11 @@ public class MessageManager {
                 }
                 this.mHttpManager.d(this.mController.j((HttpResponsedMessage) responsedMessage));
             } else if (e2 == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
-                d.b.b.b.a.a.h("Response_Socket", responsedMessage);
+                d.b.c.b.a.a.h("Response_Socket", responsedMessage);
                 if (responsedMessage.getError() != 0) {
                     if (j.z()) {
                         this.mSocketMsgCWSendFailedCnt++;
-                        if (this.mSocketMsgCWSendFailedCnt >= d.b.b.e.n.k.a.o().q("alert_im", 3)) {
+                        if (this.mSocketMsgCWSendFailedCnt >= d.b.c.e.n.k.a.o().q("alert_im", 3)) {
                             BdStatisticsManager.getInstance().alert("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
@@ -294,7 +294,7 @@ public class MessageManager {
                     this.mCustomManager.d(h2);
                 }
             } else {
-                BdLog.e("responsedMessage invalid:CMD=" + d.b.b.c.a.a().b(cmd) + " Class=" + responsedMessage.getClass().getName());
+                BdLog.e("responsedMessage invalid:CMD=" + d.b.c.c.a.a().b(cmd) + " Class=" + responsedMessage.getClass().getName());
             }
         }
     }
@@ -369,11 +369,11 @@ public class MessageManager {
         return this.mController;
     }
 
-    public d.b.b.c.e.c.g getSocketClient() {
+    public d.b.c.c.e.c.g getSocketClient() {
         return this.mSocketManager.w();
     }
 
-    public void registerListener(final d.b.b.c.g.a aVar) {
+    public void registerListener(final d.b.c.c.g.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -503,13 +503,13 @@ public class MessageManager {
         }
         message.setStartTime(System.currentTimeMillis());
         if (message instanceof HttpMessage) {
-            d.b.b.b.a.a.h("Request_Http", message);
+            d.b.c.b.a.a.h("Request_Http", message);
             return this.mHttpManager.c((HttpMessage) message, null);
         } else if (message instanceof SocketMessage) {
-            d.b.b.b.a.a.h("Request_Socket", message);
+            d.b.c.b.a.a.h("Request_Socket", message);
             return this.mSocketManager.c((SocketMessage) message, null);
         } else if (!(message instanceof CustomMessage)) {
-            BdLog.e("message invalid" + d.b.b.c.a.a().b(message.getCmd()));
+            BdLog.e("message invalid" + d.b.c.c.a.a().b(message.getCmd()));
             return false;
         } else {
             CustomMessage customMessage = (CustomMessage) message;
@@ -558,11 +558,11 @@ public class MessageManager {
         });
     }
 
-    public void setNotFindTaskListener(d.b.b.c.g.b<Message<?>> bVar) {
+    public void setNotFindTaskListener(d.b.c.c.g.b<Message<?>> bVar) {
         c.p(bVar);
     }
 
-    public void unRegisterListener(final d.b.b.c.g.a aVar) {
+    public void unRegisterListener(final d.b.c.c.g.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -634,7 +634,7 @@ public class MessageManager {
         return aVar.y(customMessage, aVar.g(i), cls);
     }
 
-    public void registerListener(final int i, final d.b.b.c.g.a aVar) {
+    public void registerListener(final int i, final d.b.c.c.g.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -702,12 +702,12 @@ public class MessageManager {
         FrameHelper.TYPE e2 = FrameHelper.e(i);
         if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
             this.mHttpManager.m(i, (HttpMessageListener) messageListener);
-        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.b.b.c.g.c)) {
-            this.mSocketManager.m(i, (d.b.b.c.g.c) messageListener);
+        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof d.b.c.c.g.c)) {
+            this.mSocketManager.m(i, (d.b.c.c.g.c) messageListener);
         } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.m(i, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + d.b.b.c.a.a().b(i) + FieldBuilder.SE + d.b.b.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + d.b.c.c.a.a().b(i) + FieldBuilder.SE + d.b.c.c.a.a().b(messageListener.getCmd()));
         }
     }
 
@@ -770,10 +770,10 @@ public class MessageManager {
             netMessage.setSocketErrNo(1);
         }
         if (v && sendMessage(netMessage.getSocketMessage())) {
-            d.b.b.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+            d.b.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
             return true;
         }
-        d.b.b.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
+        d.b.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
         return sendMessage(netMessage.getHttpMessage());
     }
 
@@ -792,10 +792,10 @@ public class MessageManager {
             netMessage.setSocketErrNo(1);
         }
         if (v && sendMessage(netMessage.getSocketMessage(), socketMessageTask)) {
-            d.b.b.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+            d.b.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
             return true;
         }
-        d.b.b.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
+        d.b.c.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
         return sendMessage(netMessage.getHttpMessage(), httpMessageTask);
     }
 
@@ -804,15 +804,15 @@ public class MessageManager {
             return false;
         }
         if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
-            d.b.b.b.a.a.h("Request_Http", message);
+            d.b.c.b.a.a.h("Request_Http", message);
             return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
         } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
-            d.b.b.b.a.a.h("Request_Socket", message);
+            d.b.c.b.a.a.h("Request_Socket", message);
             return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
         } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {
             return this.mCustomManager.c((CustomMessage) message, (CustomMessageTask) messageTask);
         } else {
-            BdLog.e("message and task invalid:" + d.b.b.c.a.a().b(message.getCmd()));
+            BdLog.e("message and task invalid:" + d.b.c.c.a.a().b(message.getCmd()));
             return false;
         }
     }

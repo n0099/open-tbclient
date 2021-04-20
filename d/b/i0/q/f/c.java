@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */

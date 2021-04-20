@@ -9,91 +9,91 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f42835f;
+    public static volatile a f43227f;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f42836a = new AtomicBoolean(false);
+    public AtomicBoolean f43228a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f42837b = new AtomicBoolean(false);
+    public AtomicBoolean f43229b = new AtomicBoolean(false);
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f42838c = new AtomicBoolean(false);
+    public AtomicBoolean f43230c = new AtomicBoolean(false);
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f42839d = new AtomicBoolean(false);
+    public AtomicBoolean f43231d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Integer, a.InterfaceC0579a> f42840e = new HashMap<>();
+    public HashMap<Integer, a.InterfaceC0591a> f43232e = new HashMap<>();
 
     public static a c() {
-        if (f42835f == null) {
+        if (f43227f == null) {
             synchronized (a.class) {
-                if (f42835f == null) {
-                    f42835f = new a();
+                if (f43227f == null) {
+                    f43227f = new a();
                 }
             }
         }
-        return f42835f;
+        return f43227f;
     }
 
-    public synchronized int a(a.InterfaceC0579a interfaceC0579a) {
+    public synchronized int a(a.InterfaceC0591a interfaceC0591a) {
         int currentTimeMillis;
         currentTimeMillis = (int) System.currentTimeMillis();
-        this.f42840e.put(Integer.valueOf(currentTimeMillis), interfaceC0579a);
+        this.f43232e.put(Integer.valueOf(currentTimeMillis), interfaceC0591a);
         return currentTimeMillis;
     }
 
-    public synchronized Pair<Boolean, a.InterfaceC0579a> b(int i) {
-        if (!this.f42840e.containsKey(Integer.valueOf(i))) {
+    public synchronized Pair<Boolean, a.InterfaceC0591a> b(int i) {
+        if (!this.f43232e.containsKey(Integer.valueOf(i))) {
             return new Pair<>(Boolean.FALSE, null);
         }
         d.a().b(i);
-        this.f42840e.remove(Integer.valueOf(i));
-        return new Pair<>(Boolean.TRUE, this.f42840e.get(Integer.valueOf(i)));
+        this.f43232e.remove(Integer.valueOf(i));
+        return new Pair<>(Boolean.TRUE, this.f43232e.get(Integer.valueOf(i)));
     }
 
     public void d(boolean z) {
-        this.f42836a.set(z);
+        this.f43228a.set(z);
     }
 
     public boolean e(boolean z, boolean z2) {
-        return this.f42836a.compareAndSet(z, z2);
+        return this.f43228a.compareAndSet(z, z2);
     }
 
     public void f(boolean z) {
-        this.f42837b.set(z);
+        this.f43229b.set(z);
     }
 
     public boolean g() {
-        return this.f42837b.get();
+        return this.f43229b.get();
     }
 
     public synchronized boolean h(int i) {
-        return this.f42840e.containsKey(Integer.valueOf(i));
+        return this.f43232e.containsKey(Integer.valueOf(i));
     }
 
     public boolean i(boolean z, boolean z2) {
-        return this.f42837b.compareAndSet(z, z2);
+        return this.f43229b.compareAndSet(z, z2);
     }
 
     public void j(boolean z) {
-        this.f42838c.set(z);
+        this.f43230c.set(z);
     }
 
     public boolean k() {
-        return this.f42838c.get();
+        return this.f43230c.get();
     }
 
     public boolean l(boolean z, boolean z2) {
-        return this.f42838c.compareAndSet(z, z2);
+        return this.f43230c.compareAndSet(z, z2);
     }
 
     public void m(boolean z) {
-        this.f42839d.set(z);
+        this.f43231d.set(z);
     }
 
     public boolean n(boolean z, boolean z2) {
-        return this.f42839d.compareAndSet(z, z2);
+        return this.f43231d.compareAndSet(z, z2);
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.tieba.hottopic.controller;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.message.RequestBlessMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BlessModel extends BdBaseModel<BaseActivity<?>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f17538e;
+    public BaseActivity<?> f17215e;
 
     public BlessModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.f17538e = baseActivity;
+        this.f17215e = baseActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

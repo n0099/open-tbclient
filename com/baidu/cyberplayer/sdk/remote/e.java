@@ -24,31 +24,31 @@ public class e implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public Uri f5012a;
+    public Uri f5047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f5013b;
+    public Map<String, String> f5048b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f5012a = uri;
-        this.f5013b = map;
+        this.f5047a = uri;
+        this.f5048b = map;
     }
 
     public e(Parcel parcel) {
-        this.f5012a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f5013b = new HashMap();
+        this.f5047a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f5048b = new HashMap();
         int readInt = parcel.readInt();
         for (int i = 0; i < readInt; i++) {
-            this.f5013b.put(parcel.readString(), parcel.readString());
+            this.f5048b.put(parcel.readString(), parcel.readString());
         }
     }
 
     public Uri a() {
-        return this.f5012a;
+        return this.f5047a;
     }
 
     public Map<String, String> b() {
-        return this.f5013b;
+        return this.f5048b;
     }
 
     @Override // android.os.Parcelable
@@ -58,14 +58,14 @@ public class e implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f5012a, i);
-        Map<String, String> map = this.f5013b;
+        parcel.writeParcelable(this.f5047a, i);
+        Map<String, String> map = this.f5048b;
         if (map == null || map.size() <= 0) {
             parcel.writeInt(0);
             return;
         }
-        parcel.writeInt(this.f5013b.size());
-        for (Map.Entry<String, String> entry : this.f5013b.entrySet()) {
+        parcel.writeInt(this.f5048b.size());
+        for (Map.Entry<String, String> entry : this.f5048b.entrySet()) {
             parcel.writeString(entry.getKey());
             parcel.writeString(entry.getValue());
         }

@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.image;
 
 import com.facebook.common.logging.FLog;
 import java.io.Closeable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class CloseableImage implements Closeable, ImageInfo {
     public static final String TAG = "CloseableImage";
 

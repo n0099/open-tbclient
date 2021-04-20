@@ -12,40 +12,40 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import com.bytedance.sdk.openadsdk.utils.ae;
 import java.util.HashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f28033a;
+    public static final boolean f27718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f28034b;
+    public static final boolean f27719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f28035c;
+    public static int f27720c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28036d;
+    public static int f27721d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f28037e;
+    public static int f27722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f28038f;
+    public static Handler f27723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final HashSet<String> f28039g;
+    public static final HashSet<String> f27724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final HashSet<String> f28040h;
+    public static final HashSet<String> f27725h;
 
     static {
-        f28033a = Build.VERSION.SDK_INT >= 16 && ae.e();
-        f28034b = a();
-        f28035c = -1;
-        f28036d = -1;
-        f28037e = -1;
-        f28038f = null;
+        f27718a = Build.VERSION.SDK_INT >= 16 && ae.e();
+        f27719b = a();
+        f27720c = -1;
+        f27721d = -1;
+        f27722e = -1;
+        f27723f = null;
         HashSet<String> hashSet = new HashSet<>();
         hashSet.add("HUAWEI C8812");
         hashSet.add("HUAWEI C8812E");
@@ -53,7 +53,7 @@ public class aa {
         hashSet.add("HUAWEI U8825D");
         hashSet.add("HUAWEI C8950D");
         hashSet.add("HUAWEI U8950D");
-        f28039g = hashSet;
+        f27724g = hashSet;
         HashSet<String> hashSet2 = new HashSet<>();
         hashSet2.add("ZTE V955");
         hashSet2.add("ZTE N881E");
@@ -61,7 +61,7 @@ public class aa {
         hashSet2.add("ZTE N880G");
         hashSet2.add("ZTE N880F");
         hashSet2.add("ZTE V889F");
-        f28040h = hashSet2;
+        f27725h = hashSet2;
     }
 
     public static void a(Context context, WebView webView) {
@@ -72,7 +72,7 @@ public class aa {
         if (activity.isFinishing()) {
             try {
                 webView.loadUrl("about:blank");
-                if (f28037e > 0) {
+                if (f27722e > 0) {
                     View rootView = webView.getRootView();
                     if (rootView instanceof ViewGroup) {
                         View childAt = ((ViewGroup) rootView).getChildAt(0);
@@ -91,7 +91,7 @@ public class aa {
     }
 
     public static boolean a() {
-        return f28033a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
+        return f27718a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
     }
 
     public static void a(WebView webView) {

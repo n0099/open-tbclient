@@ -7,61 +7,61 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<c, List<b>> f65810a = new HashMap();
+    public Map<c, List<b>> f66655a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f65811b = new HashMap();
+    public Map<String, String> f66656b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<i> f65812c;
+    public final List<i> f66657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<i> f65813d;
+    public final List<i> f66658d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f65814e;
+    public k f66659e;
 
     public d() {
         new CopyOnWriteArrayList();
-        this.f65812c = new CopyOnWriteArrayList();
+        this.f66657c = new CopyOnWriteArrayList();
         new CopyOnWriteArrayList();
-        this.f65813d = new CopyOnWriteArrayList();
-        this.f65814e = null;
+        this.f66658d = new CopyOnWriteArrayList();
+        this.f66659e = null;
     }
 
     @Nullable
     public List<b> a(c cVar) {
-        return this.f65810a.get(cVar);
+        return this.f66655a.get(cVar);
     }
 
     public Map<String, String> b() {
-        return this.f65811b;
+        return this.f66656b;
     }
 
     public void c(k kVar) {
-        this.f65814e = kVar;
+        this.f66659e = kVar;
     }
 
     public void d(Map<? extends String, ? extends String> map) {
-        this.f65811b.putAll(map);
+        this.f66656b.putAll(map);
     }
 
     @NonNull
     public List<i> e() {
-        return this.f65812c;
+        return this.f66657c;
     }
 
     @NonNull
     public List<i> f() {
-        return this.f65813d;
+        return this.f66658d;
     }
 
     @Nullable
     public k g() {
-        return this.f65814e;
+        return this.f66659e;
     }
 }

@@ -12,87 +12,87 @@ import java.util.List;
 public class EntryLinearView extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.b<AdTemplate> f34719c;
+    public com.kwad.sdk.lib.widget.b<AdTemplate> f35008c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EntryPhotoView f34720d;
+    public EntryPhotoView f35009d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EntryPhotoView f34721e;
+    public EntryPhotoView f35010e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<AdTemplate> f34722f;
+    public List<AdTemplate> f35011f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f34723g;
+    public View.OnClickListener f35012g;
 
     public EntryLinearView(Context context) {
         super(context);
-        this.f34719c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f34723g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryLinearView.1
+        this.f35008c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f35012g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryLinearView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EntryLinearView.this.a(((EntryPhotoView) view).getTemplateData(), view == EntryLinearView.this.f34721e ? 1 : 0, view, 1);
+                EntryLinearView.this.a(((EntryPhotoView) view).getTemplateData(), view == EntryLinearView.this.f35010e ? 1 : 0, view, 1);
             }
         };
     }
 
     public EntryLinearView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f34719c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f34723g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryLinearView.1
+        this.f35008c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f35012g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryLinearView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EntryLinearView.this.a(((EntryPhotoView) view).getTemplateData(), view == EntryLinearView.this.f34721e ? 1 : 0, view, 1);
+                EntryLinearView.this.a(((EntryPhotoView) view).getTemplateData(), view == EntryLinearView.this.f35010e ? 1 : 0, view, 1);
             }
         };
     }
 
     private void c() {
         EntryPhotoView entryPhotoView = (EntryPhotoView) findViewById(R.id.ksad_entry2_photoleft);
-        this.f34720d = entryPhotoView;
+        this.f35009d = entryPhotoView;
         entryPhotoView.setRatio(1.33f);
-        this.f34720d.a(true, true);
+        this.f35009d.a(true, true);
         EntryPhotoView entryPhotoView2 = (EntryPhotoView) findViewById(R.id.ksad_entry2_photoright);
-        this.f34721e = entryPhotoView2;
+        this.f35010e = entryPhotoView2;
         entryPhotoView2.setRatio(1.33f);
-        this.f34721e.a(true, true);
-        this.f34721e.setOnClickListener(this.f34723g);
-        this.f34720d.setOnClickListener(this.f34723g);
+        this.f35010e.a(true, true);
+        this.f35010e.setOnClickListener(this.f35012g);
+        this.f35009d.setOnClickListener(this.f35012g);
     }
 
     @Override // com.kwad.sdk.entry.view.a
     public boolean b() {
-        this.f34719c.clear();
-        List<AdTemplate> list = ((a) this).f34781a.k;
-        this.f34722f = list;
+        this.f35008c.clear();
+        List<AdTemplate> list = ((a) this).f35070a.k;
+        this.f35011f = list;
         for (AdTemplate adTemplate : list) {
             if (!adTemplate.needHide) {
-                this.f34719c.add(adTemplate);
+                this.f35008c.add(adTemplate);
             }
-            if (this.f34719c.size() >= 2) {
+            if (this.f35008c.size() >= 2) {
                 break;
             }
         }
-        if (this.f34719c.size() <= 1) {
+        if (this.f35008c.size() <= 1) {
             setVisibility(8);
             return false;
         }
-        this.f34720d.a(0, ((a) this).f34781a.f34069e);
-        this.f34720d.a(this.f34719c.get(0), ((a) this).f34781a);
-        this.f34720d.setLikeViewPos(((a) this).f34781a.f34068d);
-        this.f34720d.setAdShowStyle(1);
-        this.f34721e.a(1, ((a) this).f34781a.f34069e);
-        this.f34721e.a(this.f34719c.get(1), ((a) this).f34781a);
-        this.f34721e.setLikeViewPos(((a) this).f34781a.f34068d);
-        this.f34721e.setAdShowStyle(1);
+        this.f35009d.a(0, ((a) this).f35070a.f34358e);
+        this.f35009d.a(this.f35008c.get(0), ((a) this).f35070a);
+        this.f35009d.setLikeViewPos(((a) this).f35070a.f34357d);
+        this.f35009d.setAdShowStyle(1);
+        this.f35010e.a(1, ((a) this).f35070a.f34358e);
+        this.f35010e.a(this.f35008c.get(1), ((a) this).f35070a);
+        this.f35010e.setLikeViewPos(((a) this).f35070a.f34357d);
+        this.f35010e.setAdShowStyle(1);
         setVisibility(0);
         return true;
     }
 
     @Override // com.kwad.sdk.entry.view.a
     public List<AdTemplate> getRealShowData() {
-        return this.f34719c;
+        return this.f35008c;
     }
 
     @Override // com.kwad.sdk.entry.view.a, android.view.View
@@ -102,6 +102,6 @@ public class EntryLinearView extends a {
     }
 
     public void setRealShowItem(List<AdTemplate> list) {
-        this.f34722f = list;
+        this.f35011f = list;
     }
 }

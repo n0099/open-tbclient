@@ -7,29 +7,29 @@ import java.io.OutputStream;
 public abstract class f extends OutputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public IOException f63825e;
+    public IOException f64525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63826f;
+    public boolean f64526f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63827g;
+    public boolean f64527g;
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f63826f = true;
+        this.f64526f = true;
     }
 
     public void n() throws IOException {
-        IOException iOException = this.f63825e;
+        IOException iOException = this.f64525e;
         if (iOException != null) {
             throw iOException;
         }
     }
 
     public void o() throws IOException {
-        if (!this.f63827g) {
-            if (this.f63826f) {
+        if (!this.f64527g) {
+            if (this.f64526f) {
                 throw new IOException("Stream has been closed.");
             }
             return;
@@ -45,7 +45,7 @@ public abstract class f extends OutputStream {
     public abstract void s() throws IOException;
 
     public void t(IOException iOException) {
-        this.f63825e = iOException;
-        this.f63827g = true;
+        this.f64525e = iOException;
+        this.f64527g = true;
     }
 }

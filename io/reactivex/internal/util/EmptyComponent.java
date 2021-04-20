@@ -1,15 +1,15 @@
 package io.reactivex.internal.util;
 
-import f.a.a0.a;
-import f.a.b;
-import f.a.g;
-import f.a.i;
-import f.a.o;
-import f.a.r;
+import f.b.a0.a;
+import f.b.b;
+import f.b.g;
+import f.b.i;
+import f.b.o;
+import f.b.r;
 import g.d.c;
 import g.d.d;
 /* loaded from: classes7.dex */
-public enum EmptyComponent implements g<Object>, o<Object>, i<Object>, r<Object>, b, d, f.a.t.b {
+public enum EmptyComponent implements g<Object>, o<Object>, i<Object>, r<Object>, b, d, f.b.t.b {
     INSTANCE;
 
     public static <T> o<T> asObserver() {
@@ -24,11 +24,11 @@ public enum EmptyComponent implements g<Object>, o<Object>, i<Object>, r<Object>
     public void cancel() {
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return true;
     }
@@ -46,12 +46,12 @@ public enum EmptyComponent implements g<Object>, o<Object>, i<Object>, r<Object>
     public void onNext(Object obj) {
     }
 
-    @Override // f.a.o
-    public void onSubscribe(f.a.t.b bVar) {
+    @Override // f.b.o
+    public void onSubscribe(f.b.t.b bVar) {
         bVar.dispose();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(Object obj) {
     }
 
@@ -59,7 +59,7 @@ public enum EmptyComponent implements g<Object>, o<Object>, i<Object>, r<Object>
     public void request(long j) {
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         dVar.cancel();
     }

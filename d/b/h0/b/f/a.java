@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class a {
-    public static void d(List<d.b.b.j.e.n> list) {
+    public static void d(List<d.b.c.j.e.n> list) {
         if (list == null) {
             return;
         }
         HashMap hashMap = new HashMap(d.b.h0.b.d.c());
-        for (d.b.b.j.e.n nVar : list) {
+        for (d.b.c.j.e.n nVar : list) {
             if (nVar instanceof d.b.h0.r.q.a) {
                 d.b.h0.r.q.a aVar = (d.b.h0.r.q.a) nVar;
                 for (Map.Entry entry : hashMap.entrySet()) {

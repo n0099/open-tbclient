@@ -10,7 +10,6 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.tencent.connect.common.Constants;
 import d.b.g0.a.i2.i0;
 import d.b.g0.a.i2.m0;
 import d.b.g0.a.v1.c.i.b;
@@ -21,84 +20,84 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46364e;
+        public final /* synthetic */ JSONObject f46756e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46365f;
+        public final /* synthetic */ String f46757f;
 
         public a(JSONObject jSONObject, String str) {
-            this.f46364e = jSONObject;
-            this.f46365f = str;
+            this.f46756e = jSONObject;
+            this.f46757f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.this.o(this.f46364e, this.f46365f);
+            h.this.o(this.f46756e, this.f46757f);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46367e;
+        public final /* synthetic */ UnitedSchemeEntity f46759e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46368f;
+        public final /* synthetic */ CallbackHandler f46760f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f46369g;
+        public final /* synthetic */ JSONArray f46761g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46370h;
+        public final /* synthetic */ String f46762h;
 
         public b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
-            this.f46367e = unitedSchemeEntity;
-            this.f46368f = callbackHandler;
-            this.f46369g = jSONArray;
-            this.f46370h = str;
+            this.f46759e = unitedSchemeEntity;
+            this.f46760f = callbackHandler;
+            this.f46761g = jSONArray;
+            this.f46762h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
-            h.this.m(hVar, this.f46367e, this.f46368f, this.f46369g, this.f46370h);
+            h.this.m(hVar, this.f46759e, this.f46760f, this.f46761g, this.f46762h);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f46371e;
+        public final /* synthetic */ List f46763e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46372f;
+        public final /* synthetic */ String f46764f;
 
         public c(h hVar, List list, String str) {
-            this.f46371e = list;
-            this.f46372f = str;
+            this.f46763e = list;
+            this.f46764f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            List<String> h2 = d.b.g0.a.e0.p.p.a.h(this.f46371e);
+            List<String> h2 = d.b.g0.a.e0.p.p.a.h(this.f46763e);
             if (h2.isEmpty()) {
                 return;
             }
             d.b.g0.l.l.k.b bVar = new d.b.g0.l.l.k.b((Collection<String>) h2, (d.b.g0.l.r.a) m0.b());
-            bVar.e(this.f46372f);
+            bVar.e(this.f46764f);
             bVar.d("1");
             d.b.g0.a.e0.p.d dVar = new d.b.g0.a.e0.p.d();
-            dVar.L(5);
+            dVar.K(5);
             d.b.g0.l.c.b(bVar, dVar);
         }
     }
@@ -150,7 +149,7 @@ public class h extends a0 {
 
     @NonNull
     public final String l(CallbackHandler callbackHandler) {
-        return q(callbackHandler) ? Constants.VIA_REPORT_TYPE_SHARE_TO_QQ : "2";
+        return q(callbackHandler) ? "10" : "2";
     }
 
     public final void m(d.b.g0.a.v1.c.h<b.e> hVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
@@ -194,7 +193,7 @@ public class h extends a0 {
                                     arrayList2.add(i0.m(next, parse, false));
                                 }
                             } catch (Exception e2) {
-                                if (a0.f46288b) {
+                                if (a0.f46680b) {
                                     e2.printStackTrace();
                                 }
                             }

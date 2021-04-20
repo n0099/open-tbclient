@@ -13,14 +13,14 @@ import com.baidu.sofire.g.t;
 public class MyService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f11611b;
+    public static long f11272b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f11612a = 0;
+    public volatile int f11273a = 0;
 
     public static /* synthetic */ int a(MyService myService) {
-        int i = myService.f11612a;
-        myService.f11612a = i + 1;
+        int i = myService.f11273a;
+        myService.f11273a = i + 1;
         return i;
     }
 
@@ -52,15 +52,15 @@ public class MyService extends Service {
         if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
             a();
         } else {
-            long j = f11611b;
+            long j = f11272b;
             if ("teac".equals(intent.getAction())) {
-                f11611b = System.currentTimeMillis();
+                f11272b = System.currentTimeMillis();
                 if (System.currentTimeMillis() - j < 3000) {
                     return super.onStartCommand(intent, i, i2);
                 }
-                if (com.baidu.sofire.g.d.j != 0 && f11611b - com.baidu.sofire.g.d.j > 5000) {
+                if (com.baidu.sofire.g.d.j != 0 && f11272b - com.baidu.sofire.g.d.j > 5000) {
                     StringBuilder sb = new StringBuilder("persist process alive now:");
-                    sb.append(f11611b);
+                    sb.append(f11272b);
                     sb.append("init:");
                     sb.append(com.baidu.sofire.g.d.j);
                     b.b();
@@ -123,9 +123,9 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f11612a--;
-            if (this.f11612a <= 0) {
-                this.f11612a = 0;
+            this.f11273a--;
+            if (this.f11273a <= 0) {
+                this.f11273a = 0;
                 b.a();
                 stopSelf();
             }

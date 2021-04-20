@@ -1,30 +1,31 @@
 package d.b.i0;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import d.b.h0.s.c.h;
 /* loaded from: classes4.dex */
 public class b {
-    public static void b(d.b.h0.s.c.f fVar) {
-        if (fVar == null) {
+    public static void b(h hVar) {
+        if (hVar == null) {
             return;
         }
-        if (fVar.f51162b != 0) {
-            d.b.h0.r.d0.b.i().w("app_entrance_nologin", fVar.f51162b + "");
+        if (hVar.f51588b != 0) {
+            d.b.h0.r.d0.b.j().x("app_entrance_nologin", hVar.f51588b + "");
         }
-        if (fVar.f51161a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (hVar.f51587a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        d.b.h0.r.d0.b.i().w("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), fVar.f51161a + "");
+        d.b.h0.r.d0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), hVar.f51587a + "");
     }
 
     public int a() {
-        String o;
+        String p;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
-            o = d.b.h0.r.d0.b.i().o("app_entrance_nologin", "");
+            p = d.b.h0.r.d0.b.j().p("app_entrance_nologin", "");
         } else {
-            d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-            o = i.o("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
+            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            p = j.p("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
         }
-        int d2 = d.b.b.e.m.b.d(o, 0);
+        int d2 = d.b.c.e.m.b.d(p, 0);
         return (d2 != 1 && d2 == 2) ? 1 : 2;
     }
 }

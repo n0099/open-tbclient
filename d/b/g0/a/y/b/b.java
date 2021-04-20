@@ -111,7 +111,7 @@ public class b extends a {
             }
             this.p = jSONObject.optInt("reserve") != 0;
         } catch (Exception e2) {
-            if (d.b.g0.a.k.f45051a) {
+            if (d.b.g0.a.k.f45443a) {
                 e2.printStackTrace();
             }
         }

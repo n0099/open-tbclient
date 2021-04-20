@@ -7,14 +7,14 @@ import android.widget.TextView;
 public final class dd {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23166a;
+    public TextView f22851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f23167b;
+    public ImageView f22852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23168c;
+    public TextView f22853c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f23169d;
+    public RelativeLayout f22854d;
 }

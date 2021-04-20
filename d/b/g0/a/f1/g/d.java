@@ -5,14 +5,14 @@ import android.graphics.Bitmap;
 public class d extends c {
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f44444e;
+    public Bitmap f44836e;
 
     public d(String str, Bitmap bitmap) {
         super(5, str);
-        this.f44444e = bitmap;
+        this.f44836e = bitmap;
     }
 
     public Bitmap e() {
-        return this.f44444e;
+        return this.f44836e;
     }
 }

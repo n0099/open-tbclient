@@ -18,11 +18,11 @@ import org.json.JSONStringer;
 public class PProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40044a;
+    public Context f40333a;
 
     public final void a() {
-        if (V1.g(this.f40044a) == 0) {
-            G.f(this.f40044a);
+        if (V1.g(this.f40333a) == 0) {
+            G.f(this.f40333a);
         }
     }
 
@@ -45,20 +45,20 @@ public class PProvider extends ContentProvider {
     public boolean onCreate() {
         long currentTimeMillis = System.currentTimeMillis();
         Context context = getContext();
-        this.f40044a = context;
+        this.f40333a = context;
         if (context != null) {
             if (V1.g(context) == 0) {
-                G.f(this.f40044a);
+                G.f(this.f40333a);
             }
         } else {
             new Handler(Looper.getMainLooper()).post(new D1(this));
         }
         try {
             if (V1.t(getContext())) {
-                Z0 a2 = a1.a(this.f40044a);
+                Z0 a2 = a1.a(this.f40333a);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 try {
-                    a2.f39850b = new JSONStringer().object();
+                    a2.f40139b = new JSONStringer().object();
                     a2.a("e", "hbt").a("dr", currentTimeMillis2);
                 } catch (JSONException unused) {
                 }

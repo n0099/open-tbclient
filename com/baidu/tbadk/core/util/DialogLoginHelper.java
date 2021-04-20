@@ -36,7 +36,7 @@ public class DialogLoginHelper {
     }
 
     public static String getOneKeyLoginActivityLocate() {
-        return d.j() ? "new_start_1" : d.k() ? "new_start_2" : "";
+        return d.k() ? "new_start_1" : d.l() ? "new_start_2" : "";
     }
 
     public static void skipToLoginDialogActivity(r0 r0Var) {

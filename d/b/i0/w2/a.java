@@ -1,353 +1,156 @@
 package d.b.i0.w2;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import d.b.b.a.f;
-import d.b.b.e.m.g;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
+import d.b.h0.s.g.g;
+import d.b.i0.d3.z;
+/* loaded from: classes4.dex */
 public class a {
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f62151b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f62152c;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f62156g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f62157h;
-    public String i;
-    public String j;
-    public c k;
-    public c l;
-    public c m;
-    public DialogInterface.OnCancelListener n;
-    public DialogInterface.OnKeyListener o;
-    public AlertDialog p;
-    public final Activity q;
-    public final ViewGroup r;
-
     /* renamed from: a  reason: collision with root package name */
-    public int f62150a = -1;
+    public Context f63712a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f62153d = -1;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f62154e = R.drawable.btn_blue_bg;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f62155f = R.color.CAM_X0111;
-    public boolean s = false;
-    public boolean t = true;
-
-    /* renamed from: d.b.i0.w2.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1650a implements ViewHelper.ViewCallback {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f62158a;
-
-        public C1650a(a aVar, AtomicBoolean atomicBoolean) {
-            this.f62158a = atomicBoolean;
-        }
-
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view) {
-            if (view instanceof EditText) {
-                this.f62158a.set(true);
-                return true;
-            }
-            return false;
-        }
+    public a(Context context) {
+        this.f63712a = context;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public final String a(ShareItem shareItem) {
+        String str = "【" + shareItem.r + "】 " + shareItem.s;
+        shareItem.s = str;
+        return str;
+    }
 
-        /* renamed from: e  reason: collision with root package name */
-        public final a f62159e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final c f62160f;
-
-        public b(a aVar, a aVar2, c cVar) {
-            this.f62159e = aVar2;
-            this.f62160f = cVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            c cVar = this.f62160f;
-            if (cVar != null) {
-                cVar.a(this.f62159e);
+    public final Location b() {
+        if (PermissionUtil.checkLocationForGoogle(this.f63712a)) {
+            LocationManager locationManager = (LocationManager) this.f63712a.getSystemService("location");
+            Criteria criteria = new Criteria();
+            criteria.setAccuracy(1);
+            criteria.setAltitudeRequired(false);
+            criteria.setBearingRequired(false);
+            criteria.setCostAllowed(true);
+            criteria.setPowerRequirement(1);
+            try {
+                return locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return null;
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(a aVar);
-    }
-
-    public a(Activity activity) {
-        this.q = activity;
-        this.r = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.dialog_icon_bdalert, (ViewGroup) null);
-    }
-
-    public final void a(f<?> fVar) {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (fVar instanceof TbPageContext) {
-            TbPageContext tbPageContext = (TbPageContext) fVar;
-            tbPageContext.getLayoutMode().k(skinType == 1);
-            tbPageContext.getLayoutMode().j(this.r);
+    public void c(int i, ShareItem shareItem, boolean z) {
+        Location b2;
+        if (shareItem == null) {
+            return;
         }
-    }
-
-    public a b(f<?> fVar) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        if (this.s) {
-            return this;
+        if (!j.z()) {
+            l.K(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+            return;
         }
-        this.s = true;
-        a(fVar);
-        TextView textView = (TextView) this.r.findViewById(R.id.title);
-        LinearLayout linearLayout = (LinearLayout) this.r.findViewById(R.id.content);
-        ImageView imageView = (ImageView) this.r.findViewById(R.id.bdalert_icon);
-        TextView textView2 = (TextView) this.r.findViewById(R.id.message);
-        Button button = (Button) this.r.findViewById(R.id.yes);
-        SkinManager.setBackgroundResource(button, this.f62154e);
-        SkinManager.setViewTextColor(button, this.f62155f, 3);
-        Button button2 = (Button) this.r.findViewById(R.id.no);
-        Button button3 = (Button) this.r.findViewById(R.id.cancel);
-        if (!TextUtils.isEmpty(this.f62151b)) {
-            textView.setText(this.f62151b);
-        } else {
-            textView.setVisibility(8);
+        if (z && (b2 = b()) != null) {
+            shareItem.A = b2;
         }
-        if (this.f62152c != null) {
-            linearLayout.removeAllViews();
-            linearLayout.addView(this.f62152c);
-        }
-        int i = this.f62153d;
-        if (i != -1) {
-            SkinManager.setImageResource(imageView, i);
-            imageView.setVisibility(0);
-        } else {
-            imageView.setVisibility(8);
-        }
-        if (!TextUtils.isEmpty(this.f62156g)) {
-            textView2.setText(this.f62156g);
-        }
-        if (TextUtils.isEmpty(this.f62157h)) {
-            z = false;
-        } else {
-            button.setText(this.f62157h);
-            c cVar = this.k;
-            if (cVar != null) {
-                button.setOnClickListener(new b(this, this, cVar));
+        g gVar = new g(this.f63712a, null);
+        if (i == 3) {
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
+            if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
+                BdToast.c(this.f63712a, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).q();
+                return;
             }
-            z = true;
-        }
-        if (TextUtils.isEmpty(this.i)) {
-            z2 = false;
-        } else {
-            button2.setText(this.i);
-            c cVar2 = this.l;
-            if (cVar2 != null) {
-                button2.setOnClickListener(new b(this, this, cVar2));
+            e(shareItem, 4);
+            gVar.m(shareItem);
+        } else if (i == 2) {
+            IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
+            if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
+                BdToast.c(this.f63712a, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).q();
+                return;
             }
-            z2 = true;
-        }
-        if (TextUtils.isEmpty(this.j)) {
-            z3 = false;
-        } else {
-            button3.setText(this.j);
-            c cVar3 = this.m;
-            if (cVar3 != null) {
-                button3.setOnClickListener(new b(this, this, cVar3));
+            e(shareItem, 3);
+            if (shareItem.f13374b) {
+                shareItem.s = a(shareItem);
             }
-            z3 = true;
-        }
-        e(z, z2, z3, button, button2, button3);
-        return this;
-    }
-
-    public final int c(Context context, float f2) {
-        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
-
-    public void d() {
-        AlertDialog alertDialog = this.p;
-        if (alertDialog != null) {
-            g.a(alertDialog, this.q);
-        }
-    }
-
-    public final void e(boolean z, boolean z2, boolean z3, Button button, Button button2, Button button3) {
-        boolean[] zArr = {z2, z, z3};
-        Button[] buttonArr = {button2, button, button3};
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < 3; i++) {
-            if (zArr[i]) {
-                arrayList.add(buttonArr[i]);
-                buttonArr[i].setVisibility(0);
-            } else {
-                buttonArr[i].setVisibility(8);
+            gVar.n(shareItem);
+        } else if (i == 4) {
+            if (z.b(this.f63712a, "com.tencent.mobileqq")) {
+                e(shareItem, 5);
+                gVar.i(shareItem);
+                return;
             }
-        }
-        if (arrayList.size() == 3) {
-            int i2 = 0;
-            while (i2 < 3) {
-                f((Button) arrayList.get(i2), 0, i2 == 2 ? 0 : 20);
-                i2++;
+            Context context = this.f63712a;
+            BdToast.c(context, context.getText(R.string.share_qq_not_install)).q();
+        } else if (i == 5) {
+            if (!shareItem.f13373a) {
+                shareItem.s = a(shareItem);
             }
-        }
-        if (arrayList.size() == 2) {
-            int i3 = 0;
-            while (i3 < 2) {
-                f((Button) arrayList.get(i3), 0, i3 == 1 ? 0 : 20);
-                i3++;
+            gVar.l(shareItem);
+        } else if (i == 6) {
+            e(shareItem, 7);
+            if (!shareItem.f13373a) {
+                shareItem.s = a(shareItem);
             }
+            gVar.k(shareItem);
+        } else if (i == 7) {
+            if (!shareItem.f13373a) {
+                shareItem.s = a(shareItem);
+            }
+            gVar.j(shareItem);
+        } else if (i == 8) {
+            if (z.b(this.f63712a, "com.tencent.mobileqq")) {
+                e(shareItem, 9);
+                gVar.h(shareItem);
+                return;
+            }
+            Context context2 = this.f63712a;
+            BdToast.c(context2, context2.getText(R.string.share_qq_not_install)).q();
         }
-        if (arrayList.size() == 1) {
-            f((Button) arrayList.get(0), 0, 0);
+    }
+
+    public final void d(int i, String str) {
+        TiebaStatic.eventStat(this.f63712a, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
+    }
+
+    public final void e(ShareItem shareItem, int i) {
+        if (shareItem == null || shareItem.q == null) {
+            return;
         }
-    }
-
-    public final void f(Button button, int i, int i2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
-        layoutParams.width = c(this.q, i);
-        layoutParams.rightMargin = i2;
-        layoutParams.weight = 1.0f;
-        button.setLayoutParams(layoutParams);
-    }
-
-    public a g(boolean z) {
-        this.t = z;
-        return this;
-    }
-
-    public a h(int i) {
-        this.f62153d = i;
-        return this;
-    }
-
-    public a i(int i) {
-        Activity activity = this.q;
-        if (activity != null) {
-            this.f62156g = activity.getResources().getString(i);
-        }
-        return this;
-    }
-
-    public a j(int i, c cVar) {
-        Activity activity = this.q;
-        if (activity != null) {
-            this.i = activity.getResources().getString(i);
-            this.l = cVar;
-        }
-        return this;
-    }
-
-    public a k(DialogInterface.OnKeyListener onKeyListener) {
-        this.o = onKeyListener;
-        return this;
-    }
-
-    public a l(int i, c cVar) {
-        Activity activity = this.q;
-        if (activity != null) {
-            this.f62157h = activity.getResources().getString(i);
-            this.k = cVar;
-        }
-        return this;
-    }
-
-    public a m(int i) {
-        this.f62154e = i;
-        return this;
-    }
-
-    public a n(int i) {
-        this.f62155f = i;
-        return this;
-    }
-
-    public a o() {
-        p(true);
-        return this;
-    }
-
-    public final a p(boolean z) {
-        if (this.s) {
-            AlertDialog alertDialog = this.p;
-            if (alertDialog != null) {
-                if (z) {
-                    g.i(alertDialog, this.q);
-                } else {
-                    alertDialog.show();
+        if (shareItem.f13374b) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.q).param("obj_type", i));
+        } else if (!shareItem.f13375c && !shareItem.f13378f) {
+            if (shareItem.f13376d) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.q).param("obj_type", i));
+            } else if (shareItem.f13373a) {
+                d(i, shareItem.B);
+            } else if (shareItem.f13377e) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i).param("fid", shareItem.q));
+            } else if (shareItem.f13379g) {
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i);
+                param.param("obj_source", shareItem.D);
+                if (!k.isEmpty(shareItem.t) && shareItem.t.contains("worldcup")) {
+                    param.param("obj_param1", 9);
                 }
-                return this;
+                TiebaStatic.log(param);
+            } else if (shareItem.f13380h) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.q).param("fid", shareItem.I).param("obj_type", i).param("obj_source", shareItem.D).param("obj_param1", shareItem.E).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.F).param(TiebaStatic.Params.OBJ_PARAM3, shareItem.G).param("obj_locate", shareItem.H));
             }
-            AlertDialog create = new AlertDialog.Builder(this.q).create();
-            this.p = create;
-            create.setCanceledOnTouchOutside(this.t);
-            DialogInterface.OnCancelListener onCancelListener = this.n;
-            if (onCancelListener != null) {
-                this.p.setOnCancelListener(onCancelListener);
-            }
-            DialogInterface.OnKeyListener onKeyListener = this.o;
-            if (onKeyListener != null) {
-                this.p.setOnKeyListener(onKeyListener);
-            }
-            if (z) {
-                g.i(this.p, this.q);
-            } else {
-                this.p.show();
-            }
-            Window window = this.p.getWindow();
-            if (this.f62150a == -1) {
-                this.f62150a = 17;
-            }
-            window.setGravity(this.f62150a);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.5f;
-            window.setAttributes(attributes);
-            window.addFlags(2);
-            window.setLayout(-2, -2);
-            window.setContentView(this.r);
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.r, false, new C1650a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
-            }
-            return this;
+        } else {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.q).param("obj_type", i).param("obj_source", shareItem.D).param("obj_param1", shareItem.E).param("fid", shareItem.I).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.F));
         }
-        throw new RuntimeException("Dialog must be created by function create()!");
     }
 }

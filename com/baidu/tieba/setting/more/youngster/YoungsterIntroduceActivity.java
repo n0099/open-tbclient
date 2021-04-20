@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.youngster.view.YoungsterIntroduceView;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class YoungsterIntroduceActivity extends BaseActivity {
     public int mFrom;
     public NavigationBar mNavigationBar;

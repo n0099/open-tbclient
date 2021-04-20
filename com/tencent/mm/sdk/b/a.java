@@ -3,16 +3,16 @@ package com.tencent.mm.sdk.b;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static int level = 6;
-    public static InterfaceC0514a n;
-    public static InterfaceC0514a o;
+    public static InterfaceC0528a n;
+    public static InterfaceC0528a o;
     public static final String p;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0514a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0528a {
         int b();
 
         void d(String str, String str2);
@@ -49,8 +49,8 @@ public final class a {
     }
 
     public static void a(String str, String str2, Object... objArr) {
-        InterfaceC0514a interfaceC0514a = o;
-        if (interfaceC0514a == null || interfaceC0514a.b() > 4) {
+        InterfaceC0528a interfaceC0528a = o;
+        if (interfaceC0528a == null || interfaceC0528a.b() > 4) {
             return;
         }
         if (objArr != null) {
@@ -59,40 +59,40 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0514a interfaceC0514a2 = o;
+        InterfaceC0528a interfaceC0528a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0514a2.f(str, str2);
+        interfaceC0528a2.f(str, str2);
     }
 
     public static void b(String str, String str2) {
-        InterfaceC0514a interfaceC0514a = o;
-        if (interfaceC0514a == null || interfaceC0514a.b() > 2) {
+        InterfaceC0528a interfaceC0528a = o;
+        if (interfaceC0528a == null || interfaceC0528a.b() > 2) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0514a interfaceC0514a2 = o;
+        InterfaceC0528a interfaceC0528a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0514a2.d(str, str2);
+        interfaceC0528a2.d(str, str2);
     }
 
     public static void c(String str, String str2) {
-        InterfaceC0514a interfaceC0514a = o;
-        if (interfaceC0514a == null || interfaceC0514a.b() > 1) {
+        InterfaceC0528a interfaceC0528a = o;
+        if (interfaceC0528a == null || interfaceC0528a.b() > 1) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0514a interfaceC0514a2 = o;
+        InterfaceC0528a interfaceC0528a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0514a2.e(str, str2);
+        interfaceC0528a2.e(str, str2);
     }
 }

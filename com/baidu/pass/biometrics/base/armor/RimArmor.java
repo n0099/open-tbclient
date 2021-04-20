@@ -3,15 +3,15 @@ package com.baidu.pass.biometrics.base.armor;
 public class RimArmor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static RimArmor f9519a;
+    public static RimArmor f9077a;
 
     public static synchronized RimArmor getInstance() {
         RimArmor rimArmor;
         synchronized (RimArmor.class) {
-            if (f9519a == null) {
-                f9519a = new RimArmor();
+            if (f9077a == null) {
+                f9077a = new RimArmor();
             }
-            rimArmor = f9519a;
+            rimArmor = f9077a;
         }
         return rimArmor;
     }

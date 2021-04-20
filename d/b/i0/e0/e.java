@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
 import com.baidu.tieba.dnsproxy.DnsProxyStatic;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,28 +35,28 @@ public class e {
     public static final Random n = new Random();
 
     /* renamed from: a  reason: collision with root package name */
-    public HashSet<String> f54222a = new HashSet<>();
+    public HashSet<String> f55105a = new HashSet<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54223b = new ConcurrentHashMap();
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f55106b = new ConcurrentHashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54224c = new ConcurrentHashMap();
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f55107c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f54225d = new ConcurrentHashMap();
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f55108d = new ConcurrentHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f54226e = new c();
+    public BroadcastReceiver f55109e = new c();
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f54227f = new d(2000994);
+    public CustomMessageListener f55110f = new d(2000994);
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f54228g = new C1226e(2001011);
+    public CustomMessageListener f55111g = new C1251e(2001011);
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f54229h = null;
+    public Handler f55112h = null;
     public HandlerThread i = new HandlerThread(e.class.getName());
     public Runnable j = new g();
     public long k = 0;
@@ -66,10 +66,10 @@ public class e {
     public class a implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f54230e;
+        public final /* synthetic */ String f55113e;
 
         public a(e eVar, String str) {
-            this.f54230e = str;
+            this.f55113e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public class e {
             }
             if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                 if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                    return d.b.i0.e0.i.d.m().l(this.f54230e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().l(this.f54230e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
+                    return d.b.i0.e0.i.d.m().l(this.f55113e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().l(this.f55113e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
                 }
                 return -1;
             }
@@ -93,10 +93,10 @@ public class e {
     public class b implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f54231e;
+        public final /* synthetic */ String f55114e;
 
         public b(e eVar, String str) {
-            this.f54231e = str;
+            this.f55114e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,7 +108,7 @@ public class e {
             }
             if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                 if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                    return d.b.i0.e0.i.d.m().k(this.f54231e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().k(this.f54231e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
+                    return d.b.i0.e0.i.d.m().k(this.f55114e, dnsProxyIpData.getIp()) - d.b.i0.e0.i.d.m().k(this.f55114e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
                 }
                 return 1;
             }
@@ -143,8 +143,8 @@ public class e {
                         concurrentHashMap.put(str, arrayList);
                     }
                     if (concurrentHashMap.size() > 0) {
-                        e.this.f54224c.clear();
-                        e.this.f54224c.putAll(concurrentHashMap);
+                        e.this.f55107c.clear();
+                        e.this.f55107c.putAll(concurrentHashMap);
                         e.this.l(true);
                     }
                 } catch (Throwable th) {
@@ -164,7 +164,7 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if ((customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && d.b.b.e.p.j.z()) {
+            if ((customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && d.b.c.e.p.j.z()) {
                 d.b.i0.e0.i.d.m().r();
                 e.this.k();
             }
@@ -173,8 +173,8 @@ public class e {
 
     /* renamed from: d.b.i0.e0.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1226e extends CustomMessageListener {
-        public C1226e(int i) {
+    public class C1251e extends CustomMessageListener {
+        public C1251e(int i) {
             super(i);
         }
 
@@ -183,7 +183,7 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    d.b.b.e.m.e.a().removeCallbacks(e.this.j);
+                    d.b.c.e.m.e.a().removeCallbacks(e.this.j);
                     DnsProxyStatic.h();
                     DnsProxyStatic.g();
                     d.b.i0.e0.i.c.h().k();
@@ -198,15 +198,15 @@ public class e {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f54234e;
+        public final /* synthetic */ Runnable f55117e;
 
         public f(Runnable runnable) {
-            this.f54234e = runnable;
+            this.f55117e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.o(this.f54234e);
+            e.this.o(this.f55117e);
         }
     }
 
@@ -231,9 +231,9 @@ public class e {
         /* renamed from: c */
         public void onPostExecute(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
             super.onPostExecute(hashMap);
-            e.this.f54225d.clear();
+            e.this.f55108d.clear();
             if (hashMap != null) {
-                e.this.f54225d.putAll(hashMap);
+                e.this.f55108d.putAll(hashMap);
                 e.this.l(false);
             }
         }
@@ -243,15 +243,15 @@ public class e {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f54238e;
+        public final /* synthetic */ boolean f55121e;
 
         public i(boolean z) {
-            this.f54238e = z;
+            this.f55121e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.g(this.f54238e);
+            e.this.g(this.f55121e);
         }
     }
 
@@ -277,20 +277,20 @@ public class e {
             if (hashMapArr != null && hashMapArr.length > 0) {
                 if (hashMapArr[0] != null) {
                     e(hashMapArr[0]);
-                } else if (this.f54220a) {
+                } else if (this.f55103a) {
                     e.this.l = null;
                     e.this.g(false);
                 }
-            } else if (this.f54220a) {
+            } else if (this.f55103a) {
                 e.this.l = null;
                 e.this.g(false);
             }
         }
 
         public final void e(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
-            e.this.f54224c.clear();
+            e.this.f55107c.clear();
             if (hashMap != null) {
-                e.this.f54224c.putAll(hashMap);
+                e.this.f55107c.putAll(hashMap);
                 e.this.l(true);
                 if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                     Intent intent = new Intent();
@@ -307,7 +307,7 @@ public class e {
                         intent.putExtra(entry.getKey(), jSONArray.toString());
                     }
                     intent.setPackage(TbadkCoreApplication.getInst().getContext().getPackageName());
-                    d.b.b.e.m.f.b(TbadkCoreApplication.getInst().getContext(), intent);
+                    d.b.c.e.m.f.b(TbadkCoreApplication.getInst().getContext(), intent);
                 }
             }
         }
@@ -340,56 +340,56 @@ public class e {
     }
 
     public void f() {
-        this.f54222a.clear();
+        this.f55105a.clear();
         d.b.i0.e0.i.d.m().j();
-        d.b.b.e.m.e.a().removeCallbacks(this.j);
-        MessageManager.getInstance().unRegisterListener(this.f54227f);
-        MessageManager.getInstance().unRegisterListener(this.f54228g);
-        TbadkCoreApplication.getInst().unregisterReceiver(this.f54226e);
+        d.b.c.e.m.e.a().removeCallbacks(this.j);
+        MessageManager.getInstance().unRegisterListener(this.f55110f);
+        MessageManager.getInstance().unRegisterListener(this.f55111g);
+        TbadkCoreApplication.getInst().unregisterReceiver(this.f55109e);
     }
 
     public void g(boolean z) {
         if (z || TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (!l.B()) {
-                d.b.b.e.m.e.a().post(new i(z));
+                d.b.c.e.m.e.a().post(new i(z));
             } else if (this.l == null && System.currentTimeMillis() - this.k >= 5000) {
                 if (!z) {
                     this.k = System.currentTimeMillis();
                 }
                 j jVar = new j(z);
                 this.l = jVar;
-                jVar.execute(new HashSet(this.f54222a));
+                jVar.execute(new HashSet(this.f55105a));
             }
         }
     }
 
     public String h(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.f54222a.contains(str)) {
-            String m2 = m(str, this.f54223b, z);
-            return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f54224c, z);
+        if (!TextUtils.isEmpty(str) && this.f55105a.contains(str)) {
+            String m2 = m(str, this.f55106b, z);
+            return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f55107c, z);
         }
         return null;
     }
 
     public final void j() {
-        new h().execute(new HashSet(this.f54222a));
+        new h().execute(new HashSet(this.f55105a));
     }
 
     public void k() {
         j();
-        d.b.b.e.m.e.a().removeCallbacks(this.j);
-        d.b.b.e.m.e.a().postDelayed(this.j, 300000L);
+        d.b.c.e.m.e.a().removeCallbacks(this.j);
+        d.b.c.e.m.e.a().postDelayed(this.j, 300000L);
     }
 
     public final void l(boolean z) {
         Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map;
         Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map2;
         if (z) {
-            map = this.f54224c;
-            map2 = this.f54225d;
+            map = this.f55107c;
+            map2 = this.f55108d;
         } else {
-            map = this.f54225d;
-            map2 = this.f54224c;
+            map = this.f55108d;
+            map2 = this.f55107c;
         }
         for (String str : map.keySet()) {
             List<DnsProxyResponseData.DnsProxyIpData> list = map.get(str);
@@ -416,7 +416,7 @@ public class e {
                 dnsProxyIpData3.setIp(str2);
                 arrayList.add(dnsProxyIpData3);
             }
-            this.f54223b.put(str, arrayList);
+            this.f55106b.put(str, arrayList);
         }
     }
 
@@ -448,35 +448,35 @@ public class e {
     }
 
     public void n() {
-        this.f54222a.add("c.tieba.baidu.com");
+        this.f55105a.add("c.tieba.baidu.com");
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().unRegisterListener(this.f54227f);
-            MessageManager.getInstance().registerListener(this.f54227f);
+            MessageManager.getInstance().unRegisterListener(this.f55110f);
+            MessageManager.getInstance().registerListener(this.f55110f);
         }
-        MessageManager.getInstance().unRegisterListener(this.f54228g);
-        MessageManager.getInstance().registerListener(this.f54228g);
+        MessageManager.getInstance().unRegisterListener(this.f55111g);
+        MessageManager.getInstance().registerListener(this.f55111g);
         d.b.i0.e0.i.d.m().t();
-        d.b.b.e.m.e.a().post(new k());
+        d.b.c.e.m.e.a().post(new k());
         g(true);
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             return;
         }
-        TbadkCoreApplication.getInst().unregisterReceiver(this.f54226e);
+        TbadkCoreApplication.getInst().unregisterReceiver(this.f55109e);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.dnsproxy.dnsproxydata");
-        TbadkCoreApplication.getInst().registerReceiver(this.f54226e, intentFilter);
+        TbadkCoreApplication.getInst().registerReceiver(this.f55109e, intentFilter);
     }
 
     public void o(Runnable runnable) {
         if (runnable != null) {
-            Handler handler = this.f54229h;
+            Handler handler = this.f55112h;
             if (handler == null) {
                 if (this.i.getLooper() != null) {
                     Handler handler2 = new Handler(this.i.getLooper());
-                    this.f54229h = handler2;
+                    this.f55112h = handler2;
                     handler2.post(runnable);
                 }
-                d.b.b.e.m.e.a().postDelayed(new f(runnable), 100L);
+                d.b.c.e.m.e.a().postDelayed(new f(runnable), 100L);
                 return;
             }
             handler.post(runnable);

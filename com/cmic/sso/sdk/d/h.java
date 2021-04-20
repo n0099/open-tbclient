@@ -6,20 +6,20 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.cmic.sso.sdk.d.k;
 import com.cmic.sso.sdk.d.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30686b;
+    public static String f30371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30687c;
+    public static String f30372c;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30685a = m.a();
+    public static boolean f30370a = m.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f30688d = 0;
+    public static long f30373d = 0;
 
     public static void a(boolean z, boolean z2) {
         k.a a2 = k.a();
@@ -32,9 +32,9 @@ public class h {
             a2.b();
         }
         if (z) {
-            f30686b = null;
-            f30687c = null;
-            f30688d = 0L;
+            f30371b = null;
+            f30372c = null;
+            f30373d = 0L;
         }
     }
 
@@ -51,25 +51,25 @@ public class h {
     }
 
     public static boolean b() {
-        if (TextUtils.isEmpty(f30686b)) {
+        if (TextUtils.isEmpty(f30371b)) {
             return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.a("phonescripstarttime", 0L));
         }
-        c.b("PhoneScripUtils", f30687c + " " + f30688d);
-        return a(f30688d);
+        c.b("PhoneScripUtils", f30372c + " " + f30373d);
+        return a(f30373d);
     }
 
     public static boolean a() {
-        return f30685a;
+        return f30370a;
     }
 
     public static void a(final Context context, final String str, final long j, final String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f30686b = str;
-        f30688d = j;
-        f30687c = str2;
-        if (f30685a) {
+        f30371b = str;
+        f30373d = j;
+        f30372c = str2;
+        if (f30370a) {
             return;
         }
         o.a(new o.a() { // from class: com.cmic.sso.sdk.d.h.1
@@ -82,17 +82,17 @@ public class h {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f30686b)) {
+        if (TextUtils.isEmpty(f30371b)) {
             String b2 = k.b("phonescripcache", "");
             if (TextUtils.isEmpty(b2)) {
                 c.a("PhoneScripUtils", StringUtil.NULL_STRING);
                 return null;
             }
             String b3 = b.b(context, b2);
-            f30686b = b3;
+            f30371b = b3;
             return b3;
         }
-        return f30686b;
+        return f30371b;
     }
 
     public static boolean a(long j) {
@@ -104,11 +104,11 @@ public class h {
 
     public static int a(String str) {
         String b2;
-        if (!TextUtils.isEmpty(f30687c)) {
-            b2 = f30687c;
+        if (!TextUtils.isEmpty(f30372c)) {
+            b2 = f30372c;
         } else {
             b2 = k.b("pre_sim_key", "");
-            f30687c = b2;
+            f30372c = b2;
         }
         if (TextUtils.isEmpty(b2)) {
             return 0;
@@ -131,7 +131,7 @@ public class h {
             }
             return false;
         }
-        if (f30685a) {
+        if (f30370a) {
             c.b("PhoneScripUtils", "phone is root");
             a(false, false);
         }

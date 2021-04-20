@@ -10,51 +10,51 @@ import java.util.TreeMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44309a;
+    public String f44701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44310b;
+    public String f44702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44311c;
+    public String f44703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44312d;
+    public String f44704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44313e;
+    public String f44705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44314f;
+    public String f44706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f44315g;
+    public String f44707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44316h;
+    public boolean f44708h;
     public String i;
     public boolean j;
     public String k;
 
     public static d.b.g0.a.k0.b.b a(a aVar) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, aVar.f44309a);
-        treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, aVar.f44310b);
-        treeMap.put("wvID", aVar.f44311c);
-        treeMap.put("pageUrl", aVar.f44312d);
-        treeMap.put("devhook", aVar.f44314f);
-        treeMap.put("root", aVar.f44315g);
-        if (!TextUtils.isEmpty(aVar.f44313e)) {
-            treeMap.put("extraData", aVar.f44313e);
+        treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, aVar.f44701a);
+        treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, aVar.f44702b);
+        treeMap.put("wvID", aVar.f44703c);
+        treeMap.put("pageUrl", aVar.f44704d);
+        treeMap.put("devhook", aVar.f44706f);
+        treeMap.put("root", aVar.f44707g);
+        if (!TextUtils.isEmpty(aVar.f44705e)) {
+            treeMap.put("extraData", aVar.f44705e);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.f44316h));
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.f44708h));
         treeMap.put("pageType", aVar.i);
         treeMap.put("isT7Available", String.valueOf(aVar.j));
         if (!TextUtils.isEmpty(aVar.k)) {
             treeMap.put("masterPreload", aVar.k);
         }
         d.b.g0.a.l1.g.b.a(treeMap, "app ready event");
-        j.a(aVar.f44312d, treeMap);
+        j.a(aVar.f44704d, treeMap);
         return new d.b.g0.a.k0.b.b("AppReady", treeMap);
     }
 

@@ -49,7 +49,7 @@ public final class SapiOptions implements NoProguard {
     public static final String z = "login_cookie_di_keys";
 
     /* renamed from: b  reason: collision with root package name */
-    public LoginShareStrategy f10791b;
+    public LoginShareStrategy f10375b;
     public boolean httpClientAsyncCookie;
     public int loginStatExtraLimitLen;
     public boolean resetFileExecPer;
@@ -58,22 +58,22 @@ public final class SapiOptions implements NoProguard {
     public String tid;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10792c = true;
+    public boolean f10376c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f10793d = false;
+    public boolean f10377d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, LoginShareStrategy> f10794e = new HashMap();
+    public Map<String, LoginShareStrategy> f10378e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f10795f = new ArrayList();
+    public List<String> f10379f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f10796g = new ArrayList();
+    public List<String> f10380g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f10797h = new ArrayList();
+    public List<String> f10381h = new ArrayList();
     public List<Integer> diExceptIndex = new ArrayList();
     public List<String> i = new ArrayList();
     public List<String> j = new ArrayList();
@@ -82,37 +82,37 @@ public final class SapiOptions implements NoProguard {
     public String joinQrLoginPrompt = O;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f10790a = new a();
+    public a f10374a = new a();
     public Gray gray = new Gray();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f10808d = ".BD_SAPI_CACHE";
+        public static final String f10392d = ".BD_SAPI_CACHE";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10810b;
+        public String f10394b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<C0136a> f10811c = new ArrayList();
+        public List<C0136a> f10395c = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f10809a = true;
+        public boolean f10393a = true;
 
         public String b() {
-            return this.f10810b;
+            return this.f10394b;
         }
 
         public boolean c() {
-            return this.f10809a;
+            return this.f10393a;
         }
 
         public JSONObject d() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(SapiOptions.t, this.f10809a);
-                jSONObject.put("version", this.f10810b);
+                jSONObject.put(SapiOptions.t, this.f10393a);
+                jSONObject.put("version", this.f10394b);
                 JSONArray jSONArray = new JSONArray();
                 for (C0136a c0136a : a()) {
                     jSONArray.put(c0136a.a());
@@ -125,15 +125,15 @@ public final class SapiOptions implements NoProguard {
         }
 
         public List<C0136a> a() {
-            return this.f10811c;
+            return this.f10395c;
         }
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject != null) {
                 try {
-                    aVar.f10809a = jSONObject.optBoolean(SapiOptions.t, true);
-                    aVar.f10810b = jSONObject.optLong("version") + "";
+                    aVar.f10393a = jSONObject.optBoolean(SapiOptions.t, true);
+                    aVar.f10394b = jSONObject.optLong("version") + "";
                     JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.v);
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         aVar.a().add(C0136a.a(optJSONArray.getJSONObject(i)));
@@ -149,16 +149,16 @@ public final class SapiOptions implements NoProguard {
         public static class C0136a {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f10812a;
+            public String f10396a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f10813b;
+            public String f10397b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f10814c;
+            public String f10398c;
 
             public static String b(String str) {
-                return ShareStorage.f11328d + a(str);
+                return ShareStorage.f10912d + a(str);
             }
 
             public static String c(String str) {
@@ -168,9 +168,9 @@ public final class SapiOptions implements NoProguard {
             public JSONObject a() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("id", this.f10812a);
-                    jSONObject.put("download_url", this.f10813b);
-                    jSONObject.put("hash", this.f10814c);
+                    jSONObject.put("id", this.f10396a);
+                    jSONObject.put("download_url", this.f10397b);
+                    jSONObject.put("hash", this.f10398c);
                     return jSONObject;
                 } catch (Throwable unused) {
                     return null;
@@ -184,18 +184,18 @@ public final class SapiOptions implements NoProguard {
                 if (obj == null || C0136a.class != obj.getClass()) {
                     return false;
                 }
-                return this.f10812a.equals(((C0136a) obj).f10812a);
+                return this.f10396a.equals(((C0136a) obj).f10396a);
             }
 
             public int hashCode() {
-                return this.f10812a.hashCode();
+                return this.f10396a.hashCode();
             }
 
             public static C0136a a(JSONObject jSONObject) {
                 C0136a c0136a = new C0136a();
-                c0136a.f10812a = jSONObject.optString("id");
-                c0136a.f10813b = jSONObject.optString("download_url");
-                c0136a.f10814c = jSONObject.optString("hash");
+                c0136a.f10396a = jSONObject.optString("id");
+                c0136a.f10397b = jSONObject.optString("download_url");
+                c0136a.f10398c = jSONObject.optString("hash");
                 return c0136a;
             }
 
@@ -209,24 +209,24 @@ public final class SapiOptions implements NoProguard {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10815a;
+        public String f10399a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<a.C0136a> f10816b = new ArrayList();
+        public List<a.C0136a> f10400b = new ArrayList();
 
         public String b() {
-            return this.f10815a;
+            return this.f10399a;
         }
 
         public List<a.C0136a> a() {
-            return this.f10816b;
+            return this.f10400b;
         }
 
         public static b a(JSONObject jSONObject) {
             b bVar = new b();
             if (jSONObject != null) {
                 try {
-                    bVar.f10815a = jSONObject.optString(SapiOptions.s);
+                    bVar.f10399a = jSONObject.optString(SapiOptions.s);
                     JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.v);
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         bVar.a().add(a.C0136a.a(optJSONArray.getJSONObject(i)));
@@ -265,30 +265,30 @@ public final class SapiOptions implements NoProguard {
 
     public static SapiOptions fromJSON(JSONObject jSONObject) {
         SapiOptions sapiOptions = new SapiOptions();
-        sapiOptions.f10790a = a.a(jSONObject.optJSONObject(q));
+        sapiOptions.f10374a = a.a(jSONObject.optJSONObject(q));
         if (jSONObject.has(r)) {
             a(jSONObject, sapiOptions);
         }
         sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(B);
         sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(D);
-        sapiOptions.f10792c = jSONObject.optBoolean(m, true);
-        sapiOptions.f10793d = jSONObject.optBoolean(n);
+        sapiOptions.f10376c = jSONObject.optBoolean(m, true);
+        sapiOptions.f10377d = jSONObject.optBoolean(n);
         sapiOptions.shareInterGray = jSONObject.optInt(A, 0);
         String optString = jSONObject.optString(k);
         if (!TextUtils.isEmpty(optString)) {
-            sapiOptions.f10791b = LoginShareStrategy.mapStrToValue(optString);
+            sapiOptions.f10375b = LoginShareStrategy.mapStrToValue(optString);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject(l);
         if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                sapiOptions.f10794e.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
+                sapiOptions.f10378e.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
-        a(jSONObject.optJSONArray(o), sapiOptions.f10795f);
-        a(jSONObject.optJSONArray(p), sapiOptions.f10796g);
-        a(jSONObject.optJSONArray(z), sapiOptions.f10797h);
+        a(jSONObject.optJSONArray(o), sapiOptions.f10379f);
+        a(jSONObject.optJSONArray(p), sapiOptions.f10380g);
+        a(jSONObject.optJSONArray(z), sapiOptions.f10381h);
         a(jSONObject.optJSONArray(G), sapiOptions.i);
         a(jSONObject.optJSONArray(H), sapiOptions.j);
         JSONArray optJSONArray = jSONObject.optJSONArray(C);
@@ -324,7 +324,7 @@ public final class SapiOptions implements NoProguard {
 
     public List<String> c() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(com.baidu.sapi2.f.a.f11225g);
+        arrayList.add(com.baidu.sapi2.f.a.f10809g);
         return arrayList;
     }
 
@@ -342,33 +342,33 @@ public final class SapiOptions implements NoProguard {
     }
 
     public boolean getAddressUseWeb() {
-        return this.f10793d;
+        return this.f10377d;
     }
 
     public List<String> getAuthorizedDomains() {
-        if (!this.f10795f.isEmpty()) {
-            return this.f10795f;
+        if (!this.f10379f.isEmpty()) {
+            return this.f10379f;
         }
         return e();
     }
 
     public a getCache() {
-        return this.f10790a;
+        return this.f10374a;
     }
 
     public List<String> getCuidAuthorizedDomains() {
-        if (!this.f10796g.isEmpty()) {
-            return this.f10796g;
+        if (!this.f10380g.isEmpty()) {
+            return this.f10380g;
         }
         return f();
     }
 
     public boolean getDefaultHttpsEnabled() {
-        return this.f10792c;
+        return this.f10376c;
     }
 
     public LoginShareStrategy getGlobalShareStrategy() {
-        return this.f10791b;
+        return this.f10375b;
     }
 
     public boolean getHttpAsyncCookie() {
@@ -376,7 +376,7 @@ public final class SapiOptions implements NoProguard {
     }
 
     public List<String> getLoginCookieDiKeys() {
-        return this.f10797h;
+        return this.f10381h;
     }
 
     public List<String> getOpenBdussDomains() {
@@ -410,33 +410,33 @@ public final class SapiOptions implements NoProguard {
     }
 
     public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
-        return this.f10794e;
+        return this.f10378e;
     }
 
     public void setCache(a aVar) {
-        this.f10790a = aVar;
+        this.f10374a = aVar;
     }
 
     public String toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(q, this.f10790a.d());
+            jSONObject.put(q, this.f10374a.d());
             jSONObject.put(B, this.shareLivingunameEnabled);
             jSONObject.put(D, this.shareCommonStorageEnable);
             jSONObject.put(A, this.shareInterGray);
-            if (this.f10791b != null) {
-                jSONObject.put(k, this.f10791b.getStrValue());
+            if (this.f10375b != null) {
+                jSONObject.put(k, this.f10375b.getStrValue());
             }
-            jSONObject.put(m, this.f10792c);
-            jSONObject.put(n, this.f10793d);
+            jSONObject.put(m, this.f10376c);
+            jSONObject.put(n, this.f10377d);
             JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, LoginShareStrategy> entry : this.f10794e.entrySet()) {
+            for (Map.Entry<String, LoginShareStrategy> entry : this.f10378e.entrySet()) {
                 jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
             }
             jSONObject.put(l, jSONObject2);
-            a(jSONObject, o, this.f10795f);
-            a(jSONObject, p, this.f10796g);
-            a(jSONObject, z, this.f10797h);
+            a(jSONObject, o, this.f10379f);
+            a(jSONObject, p, this.f10380g);
+            a(jSONObject, z, this.f10381h);
             a(jSONObject, G, this.i);
             a(jSONObject, H, this.j);
             JSONArray jSONArray = new JSONArray();
@@ -461,21 +461,21 @@ public final class SapiOptions implements NoProguard {
     public static class c {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f10817c = "authorized_packages";
+        public static final String f10401c = "authorized_packages";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f10818d = "sc_authorized_packages";
+        public static final String f10402d = "sc_authorized_packages";
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f10819a = new HashMap();
+        public Map<String, String> f10403a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f10820b = new HashMap();
+        public Map<String, String> f10404b = new HashMap();
 
         public static c a(JSONObject jSONObject) {
             c cVar = new c();
-            SapiOptions.b(jSONObject.optJSONObject(f10817c), cVar.f10819a);
-            SapiOptions.b(jSONObject.optJSONObject(f10818d), cVar.f10820b);
+            SapiOptions.b(jSONObject.optJSONObject(f10401c), cVar.f10403a);
+            SapiOptions.b(jSONObject.optJSONObject(f10402d), cVar.f10404b);
             return cVar;
         }
 
@@ -499,7 +499,7 @@ public final class SapiOptions implements NoProguard {
             hashMap.put("com.baidu.hao123(.*)", "7fd3727852d29eb6f4283988dc0d6150");
             hashMap.put("com.baidu.netdisk(.*)", "ae5821440fab5e1a61a025f014bd8972");
             hashMap.put("com.hiapk.marketpho", "d46053ef4381d35cb774eb632d8e8aec");
-            hashMap.put(com.baidu.sapi2.f.a.f11225g, "db97d206640d7aca6d75975b3c1f6e87");
+            hashMap.put(com.baidu.sapi2.f.a.f10809g, "db97d206640d7aca6d75975b3c1f6e87");
             hashMap.put("com.nuomi", "59215ee95c063ff2c56226581a62130a");
             hashMap.put("cn.jingling.motu.photowonder", "6930f0bd9fa461c2cd65e216acee0118");
             hashMap.put("cn.opda.a.phonoalbumshoushou", "310a4f78e839b86df7731c2f48fcadae");
@@ -578,8 +578,8 @@ public final class SapiOptions implements NoProguard {
         }
 
         public Map<String, String> d() {
-            if (!this.f10820b.isEmpty()) {
-                return this.f10820b;
+            if (!this.f10404b.isEmpty()) {
+                return this.f10404b;
             }
             return c();
         }
@@ -587,8 +587,8 @@ public final class SapiOptions implements NoProguard {
         public String e() {
             JSONObject jSONObject = new JSONObject();
             try {
-                SapiOptions.b(jSONObject, f10817c, this.f10819a);
-                SapiOptions.b(jSONObject, f10818d, this.f10820b);
+                SapiOptions.b(jSONObject, f10401c, this.f10403a);
+                SapiOptions.b(jSONObject, f10402d, this.f10404b);
             } catch (JSONException e2) {
                 Log.e(e2);
             }
@@ -596,8 +596,8 @@ public final class SapiOptions implements NoProguard {
         }
 
         public Map<String, String> a() {
-            if (!this.f10819a.isEmpty()) {
-                return this.f10819a;
+            if (!this.f10403a.isEmpty()) {
+                return this.f10403a;
             }
             return b();
         }
@@ -626,22 +626,22 @@ public final class SapiOptions implements NoProguard {
         public static final String FUN_SHARE_V3_EXTERNAL_RECOVERY = "share_v3_external_recovery";
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f10798b = "v";
+        public static String f10382b = "v";
 
         /* renamed from: c  reason: collision with root package name */
-        public static String f10799c = "p";
+        public static String f10383c = "p";
 
         /* renamed from: d  reason: collision with root package name */
-        public static String f10800d = "ex";
+        public static String f10384d = "ex";
 
         /* renamed from: e  reason: collision with root package name */
-        public static String f10801e = "meet";
+        public static String f10385e = "meet";
 
         /* renamed from: f  reason: collision with root package name */
-        public static String f10802f = "t";
+        public static String f10386f = "t";
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, GrayModule> f10803a = new HashMap();
+        public Map<String, GrayModule> f10387a = new HashMap();
 
         public static Gray a(JSONObject jSONObject) {
             Gray gray = new Gray();
@@ -653,17 +653,17 @@ public final class SapiOptions implements NoProguard {
             while (keys.hasNext()) {
                 String obj = keys.next().toString();
                 if (obj != null && !"".equals(obj)) {
-                    gray.f10803a.put(obj, GrayModule.a(obj, optJSONObject.optJSONObject(obj)));
+                    gray.f10387a.put(obj, GrayModule.a(obj, optJSONObject.optJSONObject(obj)));
                 }
             }
             return gray;
         }
 
         public GrayModule getGrayModuleByFunName(String str) {
-            GrayModule grayModule = this.f10803a.get(str);
+            GrayModule grayModule = this.f10387a.get(str);
             if (grayModule == null) {
                 GrayModule grayModule2 = new GrayModule();
-                grayModule2.f10806c = true;
+                grayModule2.f10390c = true;
                 return grayModule2;
             }
             return grayModule;
@@ -673,24 +673,24 @@ public final class SapiOptions implements NoProguard {
         public static class GrayModule implements NoProguard {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f10804a;
+            public String f10388a;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f10805b;
+            public long f10389b;
 
             /* renamed from: c  reason: collision with root package name */
-            public boolean f10806c;
+            public boolean f10390c;
 
             /* renamed from: d  reason: collision with root package name */
-            public String f10807d;
+            public String f10391d;
 
             public JSONObject a() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(Gray.f10798b, this.f10804a);
-                    jSONObject.put(Gray.f10799c, this.f10805b);
-                    jSONObject.put(Gray.f10800d, this.f10807d);
-                    jSONObject.put(Gray.f10801e, this.f10806c);
+                    jSONObject.put(Gray.f10382b, this.f10388a);
+                    jSONObject.put(Gray.f10383c, this.f10389b);
+                    jSONObject.put(Gray.f10384d, this.f10391d);
+                    jSONObject.put(Gray.f10385e, this.f10390c);
                     return jSONObject;
                 } catch (Throwable unused) {
                     return null;
@@ -698,19 +698,19 @@ public final class SapiOptions implements NoProguard {
             }
 
             public boolean isMeetGray() {
-                return this.f10806c;
+                return this.f10390c;
             }
 
             public static GrayModule a(String str, JSONObject jSONObject) {
                 SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
                 GrayModule grayModule = new GrayModule();
-                JSONObject optJSONObject = jSONObject.has(Gray.f10802f) ? jSONObject.optJSONObject(Gray.f10802f).optJSONObject(confignation.tpl) : new JSONObject();
+                JSONObject optJSONObject = jSONObject.has(Gray.f10386f) ? jSONObject.optJSONObject(Gray.f10386f).optJSONObject(confignation.tpl) : new JSONObject();
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
-                grayModule.f10804a = optJSONObject.has(Gray.f10798b) ? optJSONObject.optString(Gray.f10798b) : jSONObject.optString(Gray.f10798b);
-                grayModule.f10805b = optJSONObject.has(Gray.f10799c) ? optJSONObject.optLong(Gray.f10799c) : jSONObject.optLong(Gray.f10799c);
-                grayModule.f10807d = optJSONObject.has(Gray.f10800d) ? optJSONObject.optString(Gray.f10800d) : jSONObject.optString(Gray.f10800d);
+                grayModule.f10388a = optJSONObject.has(Gray.f10382b) ? optJSONObject.optString(Gray.f10382b) : jSONObject.optString(Gray.f10382b);
+                grayModule.f10389b = optJSONObject.has(Gray.f10383c) ? optJSONObject.optLong(Gray.f10383c) : jSONObject.optLong(Gray.f10383c);
+                grayModule.f10391d = optJSONObject.has(Gray.f10384d) ? optJSONObject.optString(Gray.f10384d) : jSONObject.optString(Gray.f10384d);
                 long j = SapiContext.getInstance().getLong(str, -1L);
                 if (j == -1) {
                     Random random = new Random();
@@ -718,9 +718,9 @@ public final class SapiOptions implements NoProguard {
                     j = random.nextInt(1000000);
                     SapiContext.getInstance().put(str, j);
                 }
-                grayModule.f10806c = grayModule.f10805b >= j;
-                if (!TextUtils.isEmpty(grayModule.f10804a) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.f10804a) < 0) {
-                    grayModule.f10806c = false;
+                grayModule.f10390c = grayModule.f10389b >= j;
+                if (!TextUtils.isEmpty(grayModule.f10388a) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.f10388a) < 0) {
+                    grayModule.f10390c = false;
                 }
                 return grayModule;
             }
@@ -728,9 +728,9 @@ public final class SapiOptions implements NoProguard {
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
-            for (String str : this.f10803a.keySet()) {
+            for (String str : this.f10387a.keySet()) {
                 try {
-                    jSONObject.put(str, this.f10803a.get(str).a());
+                    jSONObject.put(str, this.f10387a.get(str).a());
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
@@ -770,8 +770,8 @@ public final class SapiOptions implements NoProguard {
         for (int i3 = 0; i3 < length; i3++) {
             i2 += Integer.valueOf(split[i3]).intValue();
             if (i <= i2) {
-                sapiOptions.f10790a.f10811c.clear();
-                sapiOptions.f10790a.f10811c.add(a2.f10816b.get(i3));
+                sapiOptions.f10374a.f10395c.clear();
+                sapiOptions.f10374a.f10395c.add(a2.f10400b.get(i3));
                 return;
             }
         }
@@ -781,7 +781,7 @@ public final class SapiOptions implements NoProguard {
         ArrayList arrayList = new ArrayList();
         arrayList.add("com.baidu.searchbox(.*)");
         arrayList.add("com.baidu.browser.(.+)");
-        arrayList.add(com.baidu.sapi2.f.a.f11225g);
+        arrayList.add(com.baidu.sapi2.f.a.f10809g);
         return arrayList;
     }
 

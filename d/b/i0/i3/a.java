@@ -1,132 +1,111 @@
 package d.b.i0.i3;
 
-import tbclient.ThemeCardPropMain;
+import android.app.Activity;
+import android.app.Application;
+import android.view.MotionEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes5.dex */
 public class a {
-    public static long k = 1350000;
+    public static a mInstance;
+    public InterfaceC1355a mICrabSdk = getCrabSdk();
 
-    /* renamed from: a  reason: collision with root package name */
-    public long f56201a;
+    /* renamed from: d.b.i0.i3.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1355a {
+        void a(Application application);
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f56202b;
+        void b(String str);
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f56203c;
+        void c(Exception exc);
 
-    /* renamed from: d  reason: collision with root package name */
-    public String f56204d;
+        void d(MotionEvent motionEvent, Activity activity);
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f56205e;
+        void e(String str);
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f56206f;
+        void f(String str);
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f56207g;
+        void onPause(Activity activity);
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f56208h;
-    public int i;
-    public int j = 0;
-
-    public long a() {
-        return this.f56201a;
+        void onResume(Activity activity);
     }
 
-    public String b() {
-        return this.f56206f;
-    }
-
-    public int c() {
-        return this.j;
-    }
-
-    public String d() {
-        return this.f56203c;
-    }
-
-    public String e() {
-        return this.f56204d;
-    }
-
-    public int f() {
-        return this.f56208h;
-    }
-
-    public int g() {
-        return this.f56207g;
-    }
-
-    public int h() {
-        return this.i;
-    }
-
-    public String i() {
-        return this.f56205e;
-    }
-
-    public String j() {
-        return this.f56202b;
-    }
-
-    public void k(ThemeCardPropMain themeCardPropMain) {
-        if (themeCardPropMain == null) {
-            return;
+    private InterfaceC1355a getCrabSdk() {
+        CustomResponsedMessage runTask;
+        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC1355a.class)) == null) {
+            return null;
         }
-        this.f56201a = themeCardPropMain.props_id.longValue();
-        this.f56202b = themeCardPropMain.title;
-        this.f56203c = themeCardPropMain.description;
-        this.f56204d = themeCardPropMain.example_url;
-        this.f56205e = themeCardPropMain.permission;
-        this.f56206f = themeCardPropMain.props_state_img;
-        this.f56207g = themeCardPropMain.in_use.intValue();
-        this.f56208h = themeCardPropMain.free_user_level.intValue();
-        String str = themeCardPropMain.activity_url;
-        this.i = themeCardPropMain.is_finished.intValue();
+        return (InterfaceC1355a) runTask.getData();
     }
 
-    public void l(String str) {
+    public static a getInstance() {
+        if (mInstance == null) {
+            synchronized (a.class) {
+                if (mInstance == null) {
+                    mInstance = new a();
+                }
+            }
+        }
+        return mInstance;
     }
 
-    public void m(long j) {
-        this.f56201a = j;
+    private boolean isCrabSdkSwitchOn() {
+        return d.b.h0.r.d0.b.j().k("pref_key_crab_sdk_enable", 1) == 1;
     }
 
-    public void n(String str) {
-        this.f56206f = str;
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.d(motionEvent, activity);
+        }
     }
 
-    public void o(int i) {
-        this.j = i;
+    public void initSdk(Application application) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.a(application);
+        }
     }
 
-    public void p(String str) {
-        this.f56203c = str;
+    public void onPause(Activity activity) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.onPause(activity);
+        }
     }
 
-    public void q(String str) {
-        this.f56204d = str;
+    public void onResume(Activity activity) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.onResume(activity);
+        }
     }
 
-    public void r(int i) {
-        this.f56208h = i;
+    public void setFlutterPath(String str) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.e(str);
+        }
     }
 
-    public void s(int i) {
-        this.f56207g = i;
+    public void setLastFlutterPage(String str) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.b(str);
+        }
     }
 
-    public void t(int i) {
-        this.i = i;
+    public void setOpenFlutterPage(String str) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.f(str);
+        }
     }
 
-    public void u(String str) {
-        this.f56205e = str;
-    }
-
-    public void v(String str) {
-        this.f56202b = str;
+    public void uploadException(Exception exc) {
+        InterfaceC1355a interfaceC1355a = this.mICrabSdk;
+        if (interfaceC1355a != null) {
+            interfaceC1355a.c(exc);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package io.reactivex.subscribers;
 
-import f.a.g;
+import f.b.g;
 import g.d.d;
 /* loaded from: classes7.dex */
 public enum TestSubscriber$EmptySubscriber implements g<Object> {
@@ -18,7 +18,7 @@ public enum TestSubscriber$EmptySubscriber implements g<Object> {
     public void onNext(Object obj) {
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
     }
 }

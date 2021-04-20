@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.i0.i2.q.e;
-/* loaded from: classes5.dex */
+import d.b.i0.j2.q.e;
+/* loaded from: classes3.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public NavigationBar navigationBar;
     public FrameLayout rootView;
@@ -20,7 +20,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public e videoContainer;
     public String videoUrl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

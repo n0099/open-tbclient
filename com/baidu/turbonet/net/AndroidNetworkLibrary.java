@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.security.KeyChain;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.CalledByNativeUnchecked;
 import java.net.NetworkInterface;
@@ -88,7 +89,7 @@ public class AndroidNetworkLibrary {
     public static boolean storeCertificate(Context context, int i, byte[] bArr) {
         try {
             Intent createInstallIntent = KeyChain.createInstallIntent();
-            createInstallIntent.addFlags(268435456);
+            createInstallIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             if (i == 1 || i == 2) {
                 createInstallIntent.putExtra("CERT", bArr);
             } else if (i != 3) {
@@ -111,7 +112,7 @@ public class AndroidNetworkLibrary {
             Intent createInstallIntent = KeyChain.createInstallIntent();
             createInstallIntent.putExtra("PKEY", bArr2);
             createInstallIntent.putExtra("KEY", bArr);
-            createInstallIntent.addFlags(268435456);
+            createInstallIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(createInstallIntent);
             return true;
         } catch (ActivityNotFoundException e2) {

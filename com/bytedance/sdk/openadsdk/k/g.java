@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g extends com.bytedance.sdk.openadsdk.k.a {
     public final Socket m;
     public final c n;
@@ -24,54 +24,54 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
     public volatile com.bytedance.sdk.openadsdk.k.b p;
     public volatile boolean q;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f29692a;
+        public final OutputStream f29377a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29693b;
+        public int f29378b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f29694c;
+        public boolean f29379c;
 
         public b(OutputStream outputStream, int i) {
-            this.f29692a = outputStream;
-            this.f29693b = i;
+            this.f29377a = outputStream;
+            this.f29378b = i;
         }
 
         public boolean a() {
-            return this.f29694c;
+            return this.f29379c;
         }
 
         public void b(byte[] bArr, int i, int i2) throws com.bytedance.sdk.openadsdk.k.c.d {
             try {
-                this.f29692a.write(bArr, i, i2);
-                this.f29693b += i2;
+                this.f29377a.write(bArr, i, i2);
+                this.f29378b += i2;
             } catch (IOException e2) {
                 throw new com.bytedance.sdk.openadsdk.k.c.d(e2);
             }
         }
 
         public void a(byte[] bArr, int i, int i2) throws com.bytedance.sdk.openadsdk.k.c.d {
-            if (this.f29694c) {
+            if (this.f29379c) {
                 return;
             }
             try {
-                this.f29692a.write(bArr, i, i2);
-                this.f29694c = true;
+                this.f29377a.write(bArr, i, i2);
+                this.f29379c = true;
             } catch (IOException e2) {
                 throw new com.bytedance.sdk.openadsdk.k.c.d(e2);
             }
         }
 
         public int b() {
-            return this.f29693b;
+            return this.f29378b;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(g gVar);
 
@@ -79,10 +79,10 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
     }
 
     public g(a aVar) {
-        super(aVar.f29687a, aVar.f29688b);
+        super(aVar.f29372a, aVar.f29373b);
         this.q = true;
-        this.m = aVar.f29689c;
-        this.n = aVar.f29690d;
+        this.m = aVar.f29374c;
+        this.n = aVar.f29375d;
         this.o = d.c();
     }
 
@@ -90,7 +90,7 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
     }
 
     private void b(b bVar, l.a aVar) throws IOException, com.bytedance.sdk.openadsdk.k.c.d, VAdError {
-        byte[] a2 = a(this.f29556b.a(this.f29562h, this.i.f29708c.f29709a), bVar, aVar);
+        byte[] a2 = a(this.f29241b.a(this.f29247h, this.i.f29393c.f29394a), bVar, aVar);
         if (a2 == null) {
             return;
         }
@@ -99,15 +99,15 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
 
     private void c(b bVar, l.a aVar) throws h.a, com.bytedance.sdk.openadsdk.k.c.d, IOException, com.bytedance.sdk.openadsdk.k.c.a, com.bytedance.sdk.openadsdk.k.c.b, VAdError {
         if (this.q) {
-            File c2 = this.f29555a.c(this.f29562h);
+            File c2 = this.f29240a.c(this.f29247h);
             long length = c2.length();
-            com.bytedance.sdk.openadsdk.k.b.a a2 = this.f29556b.a(this.f29562h, this.i.f29708c.f29709a);
+            com.bytedance.sdk.openadsdk.k.b.a a2 = this.f29241b.a(this.f29247h, this.i.f29393c.f29394a);
             int b2 = bVar.b();
             long j = length - b2;
             int i = (int) j;
-            int i2 = a2 == null ? -1 : a2.f29585c;
+            int i2 = a2 == null ? -1 : a2.f29270c;
             if (length > bVar.b()) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.i("TAG_PROXY_ProxyTask", "cache hit, remainSize: " + j);
                 }
                 a(true, i, i2, (int) length, b2);
@@ -140,7 +140,7 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
         i();
         long elapsedRealtime = SystemClock.elapsedRealtime();
         int b2 = bVar.b();
-        com.bytedance.sdk.openadsdk.k.e.a a2 = a(aVar, b2, this.i.f29708c.f29713e, "GET");
+        com.bytedance.sdk.openadsdk.k.e.a a2 = a(aVar, b2, this.i.f29393c.f29398e, "GET");
         if (a2 == null) {
             return;
         }
@@ -149,25 +149,25 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
         try {
             String a3 = com.bytedance.sdk.openadsdk.k.g.d.a(a2, false, true);
             if (a3 == null) {
-                com.bytedance.sdk.openadsdk.k.b.a a4 = this.f29556b.a(this.f29562h, f());
+                com.bytedance.sdk.openadsdk.k.b.a a4 = this.f29241b.a(this.f29247h, f());
                 int a5 = com.bytedance.sdk.openadsdk.k.g.d.a(a2);
-                if (a4 != null && a4.f29585c != a5) {
-                    if (e.f29633c) {
-                        Log.e("TAG_PROXY_ProxyTask", "Content-Length not match, old: " + a4.f29585c + StringUtil.ARRAY_ELEMENT_SEPARATOR + a5 + ", key: " + this.f29562h);
+                if (a4 != null && a4.f29270c != a5) {
+                    if (e.f29318c) {
+                        Log.e("TAG_PROXY_ProxyTask", "Content-Length not match, old: " + a4.f29270c + StringUtil.ARRAY_ELEMENT_SEPARATOR + a5 + ", key: " + this.f29247h);
                     }
-                    throw new com.bytedance.sdk.openadsdk.k.c.b("Content-Length not match, old length: " + a4.f29585c + ", new length: " + a5 + ", rawKey: " + this.f29561g + ", currentUrl: " + aVar + ", previousInfo: " + a4.f29587e);
+                    throw new com.bytedance.sdk.openadsdk.k.c.b("Content-Length not match, old length: " + a4.f29270c + ", new length: " + a5 + ", rawKey: " + this.f29246g + ", currentUrl: " + aVar + ", previousInfo: " + a4.f29272e);
                 }
                 if (!bVar.a()) {
                     String a6 = com.bytedance.sdk.openadsdk.k.g.d.a(a2, b2);
                     e();
-                    byte[] bytes = a6.getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29702a);
+                    byte[] bytes = a6.getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29387a);
                     bVar.a(bytes, 0, bytes.length);
                 }
                 e();
-                File d3 = this.f29555a.d(this.f29562h);
+                File d3 = this.f29240a.d(this.f29247h);
                 try {
                     if (this.q && d3 != null && d3.length() >= bVar.b()) {
-                        com.bytedance.sdk.openadsdk.k.g.d.a(a2, this.f29556b, this.f29562h, this.i.f29708c.f29709a);
+                        com.bytedance.sdk.openadsdk.k.g.d.a(a2, this.f29241b, this.f29247h, this.i.f29393c.f29394a);
                         try {
                             hVar = new h(d3, "rwd");
                             try {
@@ -176,9 +176,9 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                                 e = e2;
                                 e.printStackTrace();
                                 hVar = null;
-                                if (e.f29633c) {
+                                if (e.f29318c) {
                                 }
-                                com.bytedance.sdk.openadsdk.k.b.a a7 = this.f29556b.a(this.f29562h, f());
+                                com.bytedance.sdk.openadsdk.k.b.a a7 = this.f29241b.a(this.f29247h, f());
                                 if (a7 != null) {
                                 }
                                 bArr = new byte[8192];
@@ -198,34 +198,34 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                                         if (hVar2 != null) {
                                             hVar2.a();
                                         }
-                                        this.f29557c.addAndGet(i2);
-                                        this.f29558d.addAndGet(SystemClock.elapsedRealtime() - elapsedRealtime);
+                                        this.f29242c.addAndGet(i2);
+                                        this.f29243d.addAndGet(SystemClock.elapsedRealtime() - elapsedRealtime);
                                         throw th;
                                     }
                                 }
-                                if (e.f29633c) {
+                                if (e.f29318c) {
                                 }
                                 c();
                                 com.bytedance.sdk.openadsdk.k.g.d.a(a2.d());
                                 if (hVar != null) {
                                 }
-                                this.f29557c.addAndGet(i);
-                                this.f29558d.addAndGet(SystemClock.elapsedRealtime() - elapsedRealtime);
+                                this.f29242c.addAndGet(i);
+                                this.f29243d.addAndGet(SystemClock.elapsedRealtime() - elapsedRealtime);
                             }
                         } catch (h.a e3) {
                             e = e3;
                         }
-                        if (e.f29633c) {
+                        if (e.f29318c) {
                             Log.i("TAG_PROXY_ProxyTask", "can write to cache file in network task, cache file size: " + d3.length() + ", from: " + bVar.b());
                         }
                     } else {
-                        if (e.f29633c) {
+                        if (e.f29318c) {
                             Log.w("TAG_PROXY_ProxyTask", "can't write to cache file in network task, cache file size: " + d3.length() + ", from: " + bVar.b());
                         }
                         hVar = null;
                     }
-                    com.bytedance.sdk.openadsdk.k.b.a a72 = this.f29556b.a(this.f29562h, f());
-                    int i3 = a72 != null ? 0 : a72.f29585c;
+                    com.bytedance.sdk.openadsdk.k.b.a a72 = this.f29241b.a(this.f29247h, f());
+                    int i3 = a72 != null ? 0 : a72.f29270c;
                     bArr = new byte[8192];
                     d2 = a2.d();
                     i = 0;
@@ -245,7 +245,7 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                         }
                         e();
                     }
-                    if (e.f29633c) {
+                    if (e.f29318c) {
                         Log.i("TAG_PROXY_ProxyTask", "read from net complete!");
                     }
                     c();
@@ -253,14 +253,14 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                     if (hVar != null) {
                         hVar.a();
                     }
-                    this.f29557c.addAndGet(i);
-                    this.f29558d.addAndGet(SystemClock.elapsedRealtime() - elapsedRealtime);
+                    this.f29242c.addAndGet(i);
+                    this.f29243d.addAndGet(SystemClock.elapsedRealtime() - elapsedRealtime);
                 } catch (Throwable th2) {
                     th = th2;
                     hVar2 = hVar;
                 }
             } else {
-                throw new com.bytedance.sdk.openadsdk.k.c.c(a3 + ", rawKey: " + this.f29561g + ", url: " + aVar);
+                throw new com.bytedance.sdk.openadsdk.k.c.c(a3 + ", rawKey: " + this.f29246g + ", url: " + aVar);
             }
         } catch (Throwable th3) {
             th = th3;
@@ -271,35 +271,35 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
         try {
             this.i = i.a(this.m.getInputStream());
             OutputStream outputStream = this.m.getOutputStream();
-            com.bytedance.sdk.openadsdk.k.a.a aVar = this.i.f29708c.f29709a == 1 ? e.f29631a : e.f29632b;
+            com.bytedance.sdk.openadsdk.k.a.a aVar = this.i.f29393c.f29394a == 1 ? e.f29316a : e.f29317b;
             if (aVar == null) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_ProxyTask", "cache is null");
                 }
                 return null;
             }
-            this.f29555a = aVar;
-            this.f29561g = this.i.f29708c.f29710b;
-            this.f29562h = this.i.f29708c.f29711c;
-            this.j = new l(this.i.f29708c.f29715g);
-            this.f29560f = this.i.f29707b;
-            if (e.f29633c) {
+            this.f29240a = aVar;
+            this.f29246g = this.i.f29393c.f29395b;
+            this.f29247h = this.i.f29393c.f29396c;
+            this.j = new l(this.i.f29393c.f29400g);
+            this.f29245f = this.i.f29392b;
+            if (e.f29318c) {
                 Log.i("TAG_PROXY_ProxyTask", "request from MediaPlayer:    " + this.i.toString());
             }
-            return new b(outputStream, this.i.f29708c.f29712d);
+            return new b(outputStream, this.i.f29393c.f29397d);
         } catch (i.d e2) {
             com.bytedance.sdk.openadsdk.k.g.d.a(this.m);
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e2));
             }
-            a(this.f29555a == null ? null : Boolean.valueOf(g()), this.f29561g, e2);
+            a(this.f29240a == null ? null : Boolean.valueOf(g()), this.f29246g, e2);
             return null;
         } catch (IOException e3) {
             com.bytedance.sdk.openadsdk.k.g.d.a(this.m);
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e3));
             }
-            a(this.f29555a == null ? null : Boolean.valueOf(g()), this.f29561g, e3);
+            a(this.f29240a == null ? null : Boolean.valueOf(g()), this.f29246g, e3);
             return null;
         }
     }
@@ -323,24 +323,24 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
         if (cVar != null) {
             cVar.a(this);
         }
-        this.f29555a.a(this.f29562h);
-        if (e.f29638h != 0 && ((a2 = this.f29556b.a(this.f29562h, this.i.f29708c.f29709a)) == null || this.f29555a.c(this.f29562h).length() < a2.f29585c)) {
-            this.o.a(g(), this.f29562h);
+        this.f29240a.a(this.f29247h);
+        if (e.f29323h != 0 && ((a2 = this.f29241b.a(this.f29247h, this.i.f29393c.f29394a)) == null || this.f29240a.c(this.f29247h).length() < a2.f29270c)) {
+            this.o.a(g(), this.f29247h);
         }
         try {
             a(h2);
         } catch (VAdError e2) {
             e2.printStackTrace();
         } catch (com.bytedance.sdk.openadsdk.k.c.a e3) {
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e3));
             }
         } catch (Throwable th) {
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(th));
             }
         }
-        this.f29555a.b(this.f29562h);
+        this.f29240a.b(this.f29247h);
         this.o.a(g(), null);
         a();
         com.bytedance.sdk.openadsdk.k.g.d.a(this.m);
@@ -350,24 +350,24 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.k.a.a f29687a;
+        public com.bytedance.sdk.openadsdk.k.a.a f29372a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.k.b.c f29688b;
+        public com.bytedance.sdk.openadsdk.k.b.c f29373b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Socket f29689c;
+        public Socket f29374c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c f29690d;
+        public c f29375d;
 
         public a a(com.bytedance.sdk.openadsdk.k.b.c cVar) {
             if (cVar != null) {
-                this.f29688b = cVar;
+                this.f29373b = cVar;
                 return this;
             }
             throw new IllegalArgumentException("db == null");
@@ -375,19 +375,19 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
 
         public a a(Socket socket) {
             if (socket != null) {
-                this.f29689c = socket;
+                this.f29374c = socket;
                 return this;
             }
             throw new IllegalArgumentException("socket == null");
         }
 
         public a a(c cVar) {
-            this.f29690d = cVar;
+            this.f29375d = cVar;
             return this;
         }
 
         public g a() {
-            if (this.f29688b != null && this.f29689c != null) {
+            if (this.f29373b != null && this.f29374c != null) {
                 return new g(this);
             }
             throw new IllegalArgumentException();
@@ -402,34 +402,34 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                 a(bVar, b2);
                 return true;
             } catch (com.bytedance.sdk.adnet.err.a e2) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e2));
                 }
             } catch (com.bytedance.sdk.openadsdk.k.c.b e3) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e3));
                 }
                 return false;
             } catch (com.bytedance.sdk.openadsdk.k.c.c e4) {
                 b2.a();
-                a(Boolean.valueOf(g()), this.f29561g, e4);
+                a(Boolean.valueOf(g()), this.f29246g, e4);
             } catch (com.bytedance.sdk.openadsdk.k.c.d e5) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e5));
                 }
                 return true;
             } catch (h.a e6) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e6));
                 }
                 this.q = false;
-                a(Boolean.valueOf(g()), this.f29561g, e6);
+                a(Boolean.valueOf(g()), this.f29246g, e6);
             } catch (IOException e7) {
                 if (e7 instanceof SocketTimeoutException) {
                     b2.b();
                 }
                 if (b()) {
-                    if (e.f29633c) {
+                    if (e.f29318c) {
                         if (ResponseException.CANCELED.equalsIgnoreCase(e7.getMessage())) {
                             Log.w("TAG_PROXY_ProxyTask", "okhttp call canceled");
                         } else {
@@ -437,10 +437,10 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                         }
                     }
                 } else {
-                    a(Boolean.valueOf(g()), this.f29561g, e7);
+                    a(Boolean.valueOf(g()), this.f29246g, e7);
                 }
             } catch (Exception e8) {
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.e("TAG_PROXY_ProxyTask", Log.getStackTraceString(e8));
                 }
             }
@@ -449,7 +449,7 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
     }
 
     private void a(b bVar, l.a aVar) throws com.bytedance.sdk.openadsdk.k.c.d, IOException, h.a, com.bytedance.sdk.openadsdk.k.c.a, com.bytedance.sdk.openadsdk.k.c.b, VAdError {
-        if ("HEAD".equalsIgnoreCase(this.i.f29706a.f29718a)) {
+        if ("HEAD".equalsIgnoreCase(this.i.f29391a.f29403a)) {
             b(bVar, aVar);
         } else {
             c(bVar, aVar);
@@ -458,10 +458,10 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
 
     private byte[] a(com.bytedance.sdk.openadsdk.k.b.a aVar, b bVar, l.a aVar2) throws IOException, VAdError {
         if (aVar != null) {
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.i("TAG_PROXY_ProxyTask", "get header from db");
             }
-            return com.bytedance.sdk.openadsdk.k.g.d.a(aVar, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29702a);
+            return com.bytedance.sdk.openadsdk.k.g.d.a(aVar, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29387a);
         }
         com.bytedance.sdk.openadsdk.k.e.a a2 = a(aVar2, 0, -1, "HEAD");
         if (a2 == null) {
@@ -470,13 +470,13 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
         try {
             String a3 = com.bytedance.sdk.openadsdk.k.g.d.a(a2, false, false);
             if (a3 == null) {
-                com.bytedance.sdk.openadsdk.k.b.a a4 = com.bytedance.sdk.openadsdk.k.g.d.a(a2, this.f29556b, this.f29562h, this.i.f29708c.f29709a);
-                if (e.f29633c) {
+                com.bytedance.sdk.openadsdk.k.b.a a4 = com.bytedance.sdk.openadsdk.k.g.d.a(a2, this.f29241b, this.f29247h, this.i.f29393c.f29394a);
+                if (e.f29318c) {
                     Log.w("TAG_PROXY_ProxyTask", "get header from network");
                 }
-                return com.bytedance.sdk.openadsdk.k.g.d.a(a4, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29702a);
+                return com.bytedance.sdk.openadsdk.k.g.d.a(a4, bVar.b()).getBytes(com.bytedance.sdk.openadsdk.k.g.d.f29387a);
             }
-            throw new com.bytedance.sdk.openadsdk.k.c.c(a3 + ", rawKey: " + this.f29561g + ", url: " + aVar2);
+            throw new com.bytedance.sdk.openadsdk.k.c.c(a3 + ", rawKey: " + this.f29246g + ", url: " + aVar2);
         } finally {
             com.bytedance.sdk.openadsdk.k.g.d.a(a2.d());
         }
@@ -494,24 +494,24 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
             bVar.a(a2, 0, a2.length);
         }
         h hVar = null;
-        if (aVar == null && (aVar = this.f29556b.a(this.f29562h, this.i.f29708c.f29709a)) == null) {
-            if (e.f29633c) {
+        if (aVar == null && (aVar = this.f29241b.a(this.f29247h, this.i.f29393c.f29394a)) == null) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_ProxyTask", "failed to get video header info from db");
             }
             a((com.bytedance.sdk.openadsdk.k.b.a) null, bVar, aVar2);
-            aVar = this.f29556b.a(this.f29562h, this.i.f29708c.f29709a);
+            aVar = this.f29241b.a(this.f29247h, this.i.f29393c.f29394a);
             if (aVar == null) {
-                throw new com.bytedance.sdk.openadsdk.k.c.c("failed to get header, rawKey: " + this.f29561g + ", url: " + aVar2);
+                throw new com.bytedance.sdk.openadsdk.k.c.c("failed to get header, rawKey: " + this.f29246g + ", url: " + aVar2);
             }
         }
-        if (file.length() >= aVar.f29585c || !((bVar2 = this.p) == null || bVar2.b() || bVar2.d())) {
+        if (file.length() >= aVar.f29270c || !((bVar2 = this.p) == null || bVar2.b() || bVar2.d())) {
             fVar = null;
         } else {
-            com.bytedance.sdk.openadsdk.k.b a3 = new b.a().a(this.f29555a).a(this.f29556b).a(this.f29561g).b(this.f29562h).a(new l(aVar2.f29732a)).a(this.f29560f).a(this.i).a(new b.InterfaceC0324b() { // from class: com.bytedance.sdk.openadsdk.k.g.1
-                @Override // com.bytedance.sdk.openadsdk.k.b.InterfaceC0324b
+            com.bytedance.sdk.openadsdk.k.b a3 = new b.a().a(this.f29240a).a(this.f29241b).a(this.f29246g).b(this.f29247h).a(new l(aVar2.f29417a)).a(this.f29245f).a(this.i).a(new b.InterfaceC0326b() { // from class: com.bytedance.sdk.openadsdk.k.g.1
+                @Override // com.bytedance.sdk.openadsdk.k.b.InterfaceC0326b
                 public void a(com.bytedance.sdk.openadsdk.k.b bVar3) {
-                    g.this.f29557c.addAndGet(bVar3.f29557c.get());
-                    g.this.f29558d.addAndGet(bVar3.f29558d.get());
+                    g.this.f29242c.addAndGet(bVar3.f29242c.get());
+                    g.this.f29243d.addAndGet(bVar3.f29243d.get());
                     synchronized (bVar3.m) {
                         bVar3.m.notifyAll();
                     }
@@ -528,16 +528,16 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                     fVar.run();
                 }
             });
-            if (e.f29633c) {
+            if (e.f29318c) {
                 Log.e("TAG_PROXY_ProxyTask", "fire download in process cache task");
             }
         }
         byte[] bArr = new byte[8192];
         try {
-            h hVar2 = new h(file, r.f7664a);
+            h hVar2 = new h(file, r.f7699a);
             try {
                 hVar2.a(bVar.b());
-                int min = this.i.f29708c.f29713e > 0 ? Math.min(aVar.f29585c, this.i.f29708c.f29713e) : aVar.f29585c;
+                int min = this.i.f29393c.f29398e > 0 ? Math.min(aVar.f29270c, this.i.f29393c.f29398e) : aVar.f29270c;
                 while (bVar.b() < min) {
                     e();
                     int a4 = hVar2.a(bArr);
@@ -564,15 +564,15 @@ public class g extends com.bytedance.sdk.openadsdk.k.a {
                                 }
                             }
                         }
-                        if (e.f29633c) {
+                        if (e.f29318c) {
                             Log.e("TAG_PROXY_ProxyTask", "download task has finished!!!");
                         }
-                        throw new com.bytedance.sdk.openadsdk.k.c.c("illegal state download task has finished, rawKey: " + this.f29561g + ", url: " + aVar2);
+                        throw new com.bytedance.sdk.openadsdk.k.c.c("illegal state download task has finished, rawKey: " + this.f29246g + ", url: " + aVar2);
                     }
                     bVar.b(bArr, 0, a4);
                     e();
                 }
-                if (e.f29633c) {
+                if (e.f29318c) {
                     Log.i("TAG_PROXY_ProxyTask", "read cache file complete: " + bVar.b() + StringUtil.ARRAY_ELEMENT_SEPARATOR + min);
                 }
                 c();

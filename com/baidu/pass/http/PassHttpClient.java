@@ -11,17 +11,17 @@ import java.util.concurrent.TimeUnit;
 public class PassHttpClient implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadFactory f9750a = new a();
+    public static final ThreadFactory f9308a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ThreadPoolExecutor f9751b = new ThreadPoolExecutor(12, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f9750a);
+    public static final ThreadPoolExecutor f9309b = new ThreadPoolExecutor(12, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f9308a);
 
     /* renamed from: c  reason: collision with root package name */
-    public d f9752c;
+    public d f9310c;
 
     static {
         if (Build.VERSION.SDK_INT >= 9) {
-            f9751b.allowCoreThreadTimeOut(true);
+            f9309b.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -63,7 +63,7 @@ public class PassHttpClient implements com.baidu.pass.a {
 
     private void a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
         d dVar = new d(method, context, passHttpParamDTO, httpResponseHandler);
-        this.f9752c = dVar;
-        f9751b.submit(dVar);
+        this.f9310c = dVar;
+        f9309b.submit(dVar);
     }
 }

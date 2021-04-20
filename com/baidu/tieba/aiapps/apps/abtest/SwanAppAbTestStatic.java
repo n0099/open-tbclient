@@ -35,20 +35,21 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.g0.a.i2.k0;
+import d.b.h0.f0.i;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14679a = false;
+    public static boolean f14342a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.h0.f0.h f14680b = new a();
+    public static i f14343b = new a();
 
     /* loaded from: classes4.dex */
-    public static class a extends d.b.h0.f0.h<PrivacyPolicyEvent> {
+    public static class a extends i<PrivacyPolicyEvent> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.h0.f0.b
         /* renamed from: a */
@@ -73,7 +74,7 @@ public class SwanAppAbTestStatic {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START);
                 statisticItem.param("obj_id", customMessage.getData());
                 TiebaStatic.log(statisticItem);
-                if (d.b.b.a.b.f().b() != null) {
+                if (d.b.c.a.b.f().b() != null) {
                     Uri parse = Uri.parse(customMessage.getData());
                     SwanAppAbTestStatic.d(parse);
                     SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
@@ -103,7 +104,7 @@ public class SwanAppAbTestStatic {
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
             PopupWindow a2;
             Activity b2;
-            if ((customResponsedMessage.getData() instanceof d.b.h0.a.g) && (a2 = d.b.i0.s.b.a.a((d.b.h0.a.g) customResponsedMessage.getData())) != null && (b2 = d.b.b.a.b.f().b()) != null && b2.getWindow() != null) {
+            if ((customResponsedMessage.getData() instanceof d.b.h0.a.g) && (a2 = d.b.i0.s.b.a.a((d.b.h0.a.g) customResponsedMessage.getData())) != null && (b2 = d.b.c.a.b.f().b()) != null && b2.getWindow() != null) {
                 try {
                     a2.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -224,13 +225,13 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class g implements d.b.q.c<String> {
-        @Override // d.b.q.c
+    public static class g implements d.b.p.c<String> {
+        @Override // d.b.p.c
         public void b(int i, Throwable th, Bundle bundle) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.q.c
+        @Override // d.b.p.c
         /* renamed from: c */
         public void a(String str, Bundle bundle) {
         }
@@ -248,7 +249,7 @@ public class SwanAppAbTestStatic {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            d.b.h0.f0.g.e().k(PrivacyPolicyEvent.class, f14680b, BdUniqueId.gen());
+            d.b.h0.f0.h.f().m(PrivacyPolicyEvent.class, f14343b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -264,10 +265,10 @@ public class SwanAppAbTestStatic {
     }
 
     public static void c() {
-        if (f14679a) {
+        if (f14342a) {
             return;
         }
-        f14679a = true;
+        f14342a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;
@@ -278,7 +279,7 @@ public class SwanAppAbTestStatic {
         }
         d.b.i0.s.b.b.a.l().q(TbadkCoreApplication.getInst());
         d.b.i0.s.b.m.c.a().b(TbadkCoreApplication.getInst());
-        d.b.q.b.d(TbadkCoreApplication.getInst()).j(new g());
+        d.b.p.b.d(TbadkCoreApplication.getInst()).j(new g());
         k0.U(new h(), 3000L);
     }
 

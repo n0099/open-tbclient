@@ -5,31 +5,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.j.d.a f51542a;
+    public d.b.c.j.d.a f51960a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.j.d.a f51543b;
+    public d.b.c.j.d.a f51961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51544c;
+    public int f51962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f51545d;
+    public int f51963d;
 
     public int a() {
-        return this.f51545d;
+        return this.f51963d;
     }
 
     public abstract String b(int i);
 
     public abstract int c();
 
-    public d.b.b.j.d.a d() {
-        return this.f51542a;
+    public d.b.c.j.d.a d() {
+        return this.f51960a;
     }
 
-    public d.b.b.j.d.a e() {
-        return this.f51543b;
+    public d.b.c.j.d.a e() {
+        return this.f51961b;
     }
 
     public abstract String f();
@@ -43,36 +43,36 @@ public abstract class c {
     public abstract boolean j();
 
     public int k() {
-        return this.f51544c;
+        return this.f51962c;
     }
 
     public abstract int l();
 
     public abstract boolean m(String str);
 
-    public abstract d.b.b.j.d.a n(String str);
+    public abstract d.b.c.j.d.a n(String str);
 
-    public abstract d.b.b.j.d.a o(String str);
+    public abstract d.b.c.j.d.a o(String str);
 
     public void p(int i) {
-        this.f51545d = i;
+        this.f51963d = i;
     }
 
-    public void q(d.b.b.j.d.a aVar) {
+    public void q(d.b.c.j.d.a aVar) {
         if (aVar != null) {
             aVar.p();
         }
-        this.f51542a = aVar;
+        this.f51960a = aVar;
     }
 
-    public void r(d.b.b.j.d.a aVar) {
+    public void r(d.b.c.j.d.a aVar) {
         if (aVar != null) {
             aVar.p();
         }
-        this.f51543b = aVar;
+        this.f51961b = aVar;
     }
 
     public void s(int i) {
-        this.f51544c = i;
+        this.f51962c = i;
     }
 }

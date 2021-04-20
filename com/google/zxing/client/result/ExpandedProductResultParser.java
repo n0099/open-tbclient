@@ -48,7 +48,7 @@ public final class ExpandedProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:127:0x01fb, code lost:
-        if (r1.equals(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QQ) != false) goto L31;
+        if (r1.equals("10") != false) goto L31;
      */
     @Override // com.google.zxing.client.result.ResultParser
     /*

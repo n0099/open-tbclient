@@ -15,7 +15,7 @@ public class DxmPay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DxmPay f23476a = new DxmPay();
+        public static final DxmPay f23161a = new DxmPay();
     }
 
     private void a(Application application) {
@@ -31,7 +31,7 @@ public class DxmPay {
     }
 
     public static DxmPay getInstance() {
-        return a.f23476a;
+        return a.f23161a;
     }
 
     public void initWallet(final Context context) {

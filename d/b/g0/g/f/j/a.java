@@ -16,21 +16,21 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class a extends j {
-    public static final boolean j = k.f45051a;
+    public static final boolean j = k.f45443a;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public b f48133g;
+    public b f48525g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.g.f.k.a f48134h;
-    public c<h> i = new C0963a();
+    public d.b.g0.g.f.k.a f48526h;
+    public c<h> i = new C0975a();
 
     /* renamed from: d.b.g0.g.f.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0963a extends d.b.g0.l.h.b<h> {
-        public C0963a() {
+    public class C0975a extends d.b.g0.l.h.b<h> {
+        public C0975a() {
         }
 
         @Override // d.b.g0.l.h.e
@@ -48,13 +48,13 @@ public class a extends j {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.l.h.b, d.b.g0.l.h.c
-        /* renamed from: n */
+        /* renamed from: o */
         public void l(h hVar, d.b.g0.l.k.a aVar) {
             super.l(hVar, aVar);
             if (a.j) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.f48133g.a(false);
+            a.this.f48525g.a(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,25 +65,25 @@ public class a extends j {
             if (a.j) {
                 Log.i("ConsoleJsDownload", "onDownloadFinish: " + hVar.toString());
             }
-            if (!e0.a(new File(hVar.f48917a), hVar.m)) {
+            if (!e0.a(new File(hVar.f49309a), hVar.m)) {
                 if (a.j) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.f48133g.a(false);
+                a.this.f48525g.a(false);
                 return;
             }
-            File a2 = a.this.f48134h.a();
+            File a2 = a.this.f48526h.a();
             if (a2.exists()) {
                 d.f(a2);
             } else {
                 d.h(a2);
             }
-            boolean F = d.F(hVar.f48917a, a2.getAbsolutePath());
+            boolean F = d.F(hVar.f49309a, a2.getAbsolutePath());
             if (F) {
-                a.this.f48134h.b(hVar.j);
+                a.this.f48526h.b(hVar.j);
             }
-            d.g(hVar.f48917a);
-            a.this.f48133g.a(F);
+            d.g(hVar.f49309a);
+            a.this.f48525g.a(F);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,8 +99,8 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.l.h.b, d.b.g0.l.h.c
         /* renamed from: r */
-        public void o(h hVar) {
-            super.o(hVar);
+        public void n(h hVar) {
+            super.n(hVar);
             if (a.j) {
                 Log.i("ConsoleJsDownload", "onDownloading: 其它地方正在下载此包");
             }
@@ -108,46 +108,46 @@ public class a extends j {
     }
 
     public a(@NonNull d.b.g0.g.f.k.a aVar, @NonNull b bVar) {
-        this.f48133g = bVar;
-        this.f48134h = aVar;
+        this.f48525g = bVar;
+        this.f48526h = aVar;
     }
 
     @Override // d.b.g0.l.h.g
-    public void C(d.b.g0.l.k.a aVar) {
-        super.C(aVar);
+    public void B(d.b.g0.l.k.a aVar) {
+        super.B(aVar);
         if (j) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.f48133g.a(false);
+        this.f48525g.a(false);
     }
 
     @Override // d.b.g0.l.h.g
-    public void E() {
-        super.E();
+    public void D() {
+        super.D();
         if (j) {
             Log.i("ConsoleJsDownload", "onFetchSuccess");
         }
     }
 
     @Override // d.b.g0.l.h.g
-    public void F() {
-        super.F();
+    public void E() {
+        super.E();
         if (j) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.f48133g.a(false);
+        this.f48525g.a(false);
     }
 
     @Override // d.b.g0.l.h.g
-    public void G(f fVar) {
-        super.G(fVar);
+    public void F(f fVar) {
+        super.F(fVar);
         if (j) {
             Log.i("ConsoleJsDownload", "onPrepareDownload");
         }
     }
 
     @Override // d.b.g0.l.h.g
-    public c<h> x() {
+    public c<h> w() {
         return this.i;
     }
 }

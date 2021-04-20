@@ -24,44 +24,44 @@ public class f extends a0 {
     public static final String l = "https://smartprogram.baidu.com/batapi/engine" + j + "&type=2";
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45126c;
+    public boolean f45518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45127d;
+    public boolean f45519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45128e;
+    public boolean f45520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45129f;
+    public String f45521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45130g;
+    public String f45522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f45131h;
+    public String f45523h;
     public JSONObject i;
 
     /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45132e;
+        public final /* synthetic */ CallbackHandler f45524e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45133f;
+        public final /* synthetic */ JSONObject f45525f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f45134g;
+        public final /* synthetic */ Context f45526g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f45135h;
+        public final /* synthetic */ d.b.g0.a.r1.e f45527h;
 
         public a(CallbackHandler callbackHandler, JSONObject jSONObject, Context context, d.b.g0.a.r1.e eVar) {
-            this.f45132e = callbackHandler;
-            this.f45133f = jSONObject;
-            this.f45134g = context;
-            this.f45135h = eVar;
+            this.f45524e = callbackHandler;
+            this.f45525f = jSONObject;
+            this.f45526g = context;
+            this.f45527h = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,23 +69,23 @@ public class f extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.o(hVar, this.f45132e, f.this.f45131h);
+                d.b.g0.a.v1.c.c.o(hVar, this.f45524e, f.this.f45523h);
                 return;
             }
             f.this.i = new JSONObject();
-            if (this.f45133f.optInt("loadCts") == 1) {
-                f.this.u(this.f45134g);
+            if (this.f45525f.optInt("loadCts") == 1) {
+                f.this.u(this.f45526g);
                 f fVar = f.this;
-                fVar.w(this.f45135h, fVar.f45129f, this.f45132e, "master");
+                fVar.w(this.f45527h, fVar.f45521f, this.f45524e, "master");
                 f fVar2 = f.this;
-                fVar2.w(this.f45135h, fVar2.f45130g, this.f45132e, "slave");
-                f.this.f45128e = true;
+                fVar2.w(this.f45527h, fVar2.f45522g, this.f45524e, "slave");
+                f.this.f45520e = true;
                 return;
             }
-            f.this.f45128e = false;
+            f.this.f45520e = false;
             d.b.g0.a.m1.a.a.M(false);
             d.b.g0.a.m1.a.a.T();
-            this.f45132e.handleSchemeDispatchCallback(f.this.f45131h, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f45524e.handleSchemeDispatchCallback(f.this.f45523h, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
@@ -93,24 +93,24 @@ public class f extends a0 {
     public class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f45136a;
+        public final /* synthetic */ d.b.g0.a.r1.e f45528a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f45137b;
+        public final /* synthetic */ String f45529b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45138c;
+        public final /* synthetic */ CallbackHandler f45530c;
 
         public b(d.b.g0.a.r1.e eVar, String str, CallbackHandler callbackHandler) {
-            this.f45136a = eVar;
-            this.f45137b = str;
-            this.f45138c = callbackHandler;
+            this.f45528a = eVar;
+            this.f45529b = str;
+            this.f45530c = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             d.b.g0.a.c0.c.b("SwanAppAction", "request Cts Server Address onFailure: " + exc.getMessage());
-            this.f45138c.handleSchemeDispatchCallback(f.this.f45131h, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            this.f45530c.handleSchemeDispatchCallback(f.this.f45523h, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -120,10 +120,10 @@ public class f extends a0 {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
             if (response.code() == 200 && response.body() != null) {
-                f.this.s(this.f45136a, response, this.f45137b, this.f45138c);
+                f.this.s(this.f45528a, response, this.f45529b, this.f45530c);
             } else {
                 d.b.g0.a.c0.c.b("setCtsConfig", "request Cts Server Address fail,code is " + response.code());
-                this.f45138c.handleSchemeDispatchCallback(f.this.f45131h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f45530c.handleSchemeDispatchCallback(f.this.f45523h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
             return response;
         }
@@ -133,20 +133,20 @@ public class f extends a0 {
     public class c extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45140a;
+        public final /* synthetic */ String f45532a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45141b;
+        public final /* synthetic */ CallbackHandler f45533b;
 
         public c(String str, CallbackHandler callbackHandler) {
-            this.f45140a = str;
-            this.f45141b = callbackHandler;
+            this.f45532a = str;
+            this.f45533b = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             d.b.g0.a.c0.c.b("setCtsConfig", "download cts file fail");
-            this.f45141b.handleSchemeDispatchCallback(f.this.f45131h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            this.f45533b.handleSchemeDispatchCallback(f.this.f45523h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -156,16 +156,16 @@ public class f extends a0 {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
             f fVar = f.this;
-            fVar.v(response, this.f45140a, fVar.f45131h, this.f45141b);
+            fVar.v(response, this.f45532a, fVar.f45523h, this.f45533b);
             return response;
         }
     }
 
     public f(j jVar) {
         super(jVar, "/swanAPI/debug/setCtsConfig");
-        this.f45126c = false;
-        this.f45127d = false;
-        this.f45128e = false;
+        this.f45518c = false;
+        this.f45519d = false;
+        this.f45520e = false;
     }
 
     @Override // d.b.g0.a.t1.k.a0
@@ -180,7 +180,7 @@ public class f extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            this.f45131h = a2.optString("cb");
+            this.f45523h = a2.optString("cb");
             if (!a2.has("loadCts")) {
                 d.b.g0.a.c0.c.b("setCtsConfig", "loadCts is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,19 +198,19 @@ public class f extends a0 {
             if (jSONObject.has("code") && jSONObject.optInt("code") == 0) {
                 t(jSONObject.optJSONArray("data").optString(0), str, eVar, callbackHandler);
             } else {
-                callbackHandler.handleSchemeDispatchCallback(this.f45131h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f45523h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
-            callbackHandler.handleSchemeDispatchCallback(this.f45131h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f45523h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         }
     }
 
     public final void t(String str, String str2, d.b.g0.a.r1.e eVar, CallbackHandler callbackHandler) {
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(d.b.g0.a.w0.a.l().z(str), new c(str2, callbackHandler));
-        aVar.f48884f = true;
-        aVar.f48885g = false;
-        aVar.f48886h = true;
+        aVar.f49276f = true;
+        aVar.f49277g = false;
+        aVar.f49278h = true;
         d.b.g0.k.e.a.f().d(aVar);
     }
 
@@ -218,25 +218,25 @@ public class f extends a0 {
         if (d.b.g0.a.i2.g.a(context, "aiapps/debug_cts_url.json")) {
             try {
                 JSONObject jSONObject = new JSONObject(d.b.g0.a.i2.g.b(context, "aiapps/debug_cts_url.json"));
-                this.f45129f = jSONObject.optString("master");
-                this.f45130g = jSONObject.optString("slave");
-                if (TextUtils.isEmpty(this.f45129f)) {
-                    this.f45129f = k;
+                this.f45521f = jSONObject.optString("master");
+                this.f45522g = jSONObject.optString("slave");
+                if (TextUtils.isEmpty(this.f45521f)) {
+                    this.f45521f = k;
                 }
-                if (TextUtils.isEmpty(this.f45130g)) {
-                    this.f45130g = l;
+                if (TextUtils.isEmpty(this.f45522g)) {
+                    this.f45522g = l;
                     return;
                 }
                 return;
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                this.f45129f = k;
-                this.f45130g = l;
+                this.f45521f = k;
+                this.f45522g = l;
                 return;
             }
         }
-        this.f45129f = k;
-        this.f45130g = l;
+        this.f45521f = k;
+        this.f45522g = l;
     }
 
     public final void v(Response response, String str, String str2, CallbackHandler callbackHandler) {
@@ -259,7 +259,7 @@ public class f extends a0 {
                     }
                     if (c2 == 0) {
                         this.i.put("master", jSONArray);
-                        this.f45126c = true;
+                        this.f45518c = true;
                         x(this.i, callbackHandler, str2);
                         return;
                     } else if (c2 != 1) {
@@ -268,7 +268,7 @@ public class f extends a0 {
                         return;
                     } else {
                         this.i.put("slave", jSONArray);
-                        this.f45127d = true;
+                        this.f45519d = true;
                         x(this.i, callbackHandler, str2);
                         return;
                     }
@@ -288,19 +288,19 @@ public class f extends a0 {
 
     public final void w(d.b.g0.a.r1.e eVar, String str, CallbackHandler callbackHandler, String str2) {
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(str, new b(eVar, str2, callbackHandler));
-        aVar.f48884f = true;
-        aVar.f48885g = false;
-        aVar.f48886h = true;
+        aVar.f49276f = true;
+        aVar.f49277g = false;
+        aVar.f49278h = true;
         d.b.g0.k.e.a.f().d(aVar);
     }
 
     public final void x(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-        if (this.f45126c && this.f45127d && this.f45128e) {
+        if (this.f45518c && this.f45519d && this.f45520e) {
             d.b.g0.a.m1.a.a.M(true);
             d.b.g0.a.a2.g.h.a().putString("ctsUrl", jSONObject.toString());
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            this.f45127d = false;
-            this.f45126c = false;
+            this.f45519d = false;
+            this.f45518c = false;
             d.b.g0.a.m1.a.a.T();
         }
     }

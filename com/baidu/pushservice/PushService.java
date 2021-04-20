@@ -14,19 +14,19 @@ import com.baidu.android.pushservice.j.m;
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f10495a = false;
+    public boolean f10079a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f10496b = new Handler();
+    public Handler f10080b = new Handler();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10497c = false;
+    public boolean f10081c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Runnable f10498d = new a();
+    public final Runnable f10082d = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Runnable f10499e = new b();
+    public final Runnable f10083e = new b();
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -52,14 +52,14 @@ public class PushService extends Service {
     }
 
     private void a(boolean z, boolean z2) {
-        this.f10495a = z;
+        this.f10079a = z;
         com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
-            this.f10498d.run();
+            this.f10082d.run();
             return;
         }
-        this.f10496b.removeCallbacks(this.f10498d);
-        this.f10496b.postDelayed(this.f10498d, 1000L);
+        this.f10080b.removeCallbacks(this.f10082d);
+        this.f10080b.postDelayed(this.f10082d, 1000L);
     }
 
     @Override // android.app.Service
@@ -73,7 +73,7 @@ public class PushService extends Service {
         com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
         m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         boolean a2 = g.a(this).a();
-        this.f10497c = a2;
+        this.f10081c = a2;
         if (a2) {
             return;
         }
@@ -86,11 +86,11 @@ public class PushService extends Service {
         com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
         m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         g.b();
-        if (this.f10495a) {
-            this.f10496b.removeCallbacks(this.f10499e);
-            this.f10496b.postDelayed(this.f10499e, 1000L);
+        if (this.f10079a) {
+            this.f10080b.removeCallbacks(this.f10083e);
+            this.f10080b.postDelayed(this.f10083e, 1000L);
         }
-        if (this.f10497c) {
+        if (this.f10081c) {
             try {
                 sendBroadcast(f.a(this));
             } catch (Exception unused) {
@@ -111,11 +111,11 @@ public class PushService extends Service {
                 new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
             }
         }
-        this.f10496b.removeCallbacks(this.f10498d);
-        this.f10496b.removeCallbacks(this.f10499e);
+        this.f10080b.removeCallbacks(this.f10082d);
+        this.f10080b.removeCallbacks(this.f10083e);
         try {
             boolean a2 = g.a(this).a(intent);
-            this.f10497c = a2;
+            this.f10081c = a2;
             if (a2) {
                 return 1;
             }

@@ -23,8 +23,6 @@ public interface l {
 
     String getAppVersion();
 
-    String getDeviceId(Context context);
-
     int h();
 
     String i();
@@ -39,11 +37,13 @@ public interface l {
 
     String n(Context context);
 
-    boolean o();
+    String o(Context context);
 
     boolean p();
 
-    String q(Context context);
+    boolean q();
 
-    boolean r();
+    String r(Context context);
+
+    boolean s();
 }

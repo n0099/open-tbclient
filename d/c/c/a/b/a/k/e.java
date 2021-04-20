@@ -17,7 +17,7 @@ import okhttp3.CertificatePinner;
 public final class e implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f65436a = new e();
+    public static final e f66281a = new e();
 
     public static List<String> a(X509Certificate x509Certificate) {
         List<String> b2 = b(x509Certificate, 7);

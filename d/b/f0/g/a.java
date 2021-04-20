@@ -8,10 +8,10 @@ import d.b.f0.l.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42962a;
+    public static String f43354a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42963b;
+    public static String f43355b;
 
     public static String a(Context context) {
         return d.a(context);
@@ -19,20 +19,20 @@ public class a {
 
     public static String b(Context context) {
         if (d.b.f0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f42963b)) {
-                return f42963b;
+            if (!TextUtils.isEmpty(f43355b)) {
+                return f43355b;
             }
             if (d.b.f0.b.a.g(context).b()) {
-                f42963b = d.b.f0.d.a.b(context);
+                f43355b = d.b.f0.d.a.b(context);
             } else if (c.o(context)) {
-                f42963b = d.b.f0.d.a.b(context);
+                f43355b = d.b.f0.d.a.b(context);
             }
-            if (TextUtils.isEmpty(f42963b)) {
-                f42963b = d.b.f0.b.a.g(context).M();
+            if (TextUtils.isEmpty(f43355b)) {
+                f43355b = d.b.f0.b.a.g(context).M();
             } else {
-                d.b.f0.b.a.g(context).l(f42963b);
+                d.b.f0.b.a.g(context).l(f43355b);
             }
-            return f42963b;
+            return f43355b;
         }
         return "";
     }
@@ -43,12 +43,12 @@ public class a {
 
     public static String d(Context context) {
         if (d.b.f0.b.a.g(context).d()) {
-            if (!TextUtils.isEmpty(f42962a)) {
-                return f42962a;
+            if (!TextUtils.isEmpty(f43354a)) {
+                return f43354a;
             }
             if (c.o(context)) {
                 String a2 = d.b.f0.m.a.b().a();
-                f42962a = a2;
+                f43354a = a2;
                 return a2;
             }
             return "";

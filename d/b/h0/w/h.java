@@ -3,7 +3,7 @@ package d.b.h0.w;
 public interface h extends b {
     void b();
 
-    void f();
+    void e();
 
     int getToolId();
 

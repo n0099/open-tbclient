@@ -32,53 +32,53 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f45274c;
+    public Context f45666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.r1.e f45275d;
+    public d.b.g0.a.r1.e f45667d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CallbackHandler f45276e;
+    public CallbackHandler f45668e;
 
     /* renamed from: d.b.g0.a.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0739a implements j {
+    public class C0751a implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45277a;
+        public final /* synthetic */ String f45669a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String[] f45278b;
+        public final /* synthetic */ String[] f45670b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f45279c;
+        public final /* synthetic */ String f45671c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f45280d;
+        public final /* synthetic */ boolean f45672d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45281e;
+        public final /* synthetic */ String f45673e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f45282f;
+        public final /* synthetic */ boolean f45674f;
 
-        public C0739a(String str, String[] strArr, String str2, boolean z, String str3, boolean z2) {
-            this.f45277a = str;
-            this.f45278b = strArr;
-            this.f45279c = str2;
-            this.f45280d = z;
-            this.f45281e = str3;
-            this.f45282f = z2;
+        public C0751a(String str, String[] strArr, String str2, boolean z, String str3, boolean z2) {
+            this.f45669a = str;
+            this.f45670b = strArr;
+            this.f45671c = str2;
+            this.f45672d = z;
+            this.f45673e = str3;
+            this.f45674f = z2;
         }
 
         @Override // d.b.g0.a.n0.a.j
         public void a(@NonNull LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list) {
             if (linkedHashMap == null || linkedHashMap.size() == 0) {
-                a.this.w(this.f45277a, Arrays.asList(this.f45278b), this.f45279c, this.f45280d, this.f45281e);
+                a.this.w(this.f45669a, Arrays.asList(this.f45670b), this.f45671c, this.f45672d, this.f45673e);
                 return;
             }
-            a.this.x(this.f45281e, this.f45277a, this.f45279c, linkedHashMap, list, this.f45280d, this.f45282f);
-            if (a0.f46288b) {
+            a.this.x(this.f45673e, this.f45669a, this.f45671c, linkedHashMap, list, this.f45672d, this.f45674f);
+            if (a0.f46680b) {
                 Iterator<String> it = linkedHashMap.keySet().iterator();
                 while (it.hasNext()) {
                     Log.i("GetFormIdAction", "querySubscribeInfo unallowedTemplateId=" + it.next());
@@ -91,24 +91,24 @@ public class a extends a0 {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45284e;
+        public final /* synthetic */ String f45676e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String[] f45285f;
+        public final /* synthetic */ String[] f45677f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f45286g;
+        public final /* synthetic */ j f45678g;
 
         public b(String str, String[] strArr, j jVar) {
-            this.f45284e = str;
-            this.f45285f = strArr;
-            this.f45286g = jVar;
+            this.f45676e = str;
+            this.f45677f = strArr;
+            this.f45678g = jVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String[] strArr;
-            Cursor query = a.this.f45274c.getContentResolver().query(SwanAppSubscribeMsgProvider.CONTENT_URI, new String[]{"templateId", "result"}, "appKey=?", new String[]{this.f45284e}, null);
+            Cursor query = a.this.f45666c.getContentResolver().query(SwanAppSubscribeMsgProvider.CONTENT_URI, new String[]{"templateId", "result"}, "appKey=?", new String[]{this.f45676e}, null);
             HashMap hashMap = new HashMap();
             if (query != null && query.getCount() > 0 && query.moveToFirst()) {
                 do {
@@ -118,7 +118,7 @@ public class a extends a0 {
             }
             LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();
             ArrayList arrayList = new ArrayList();
-            for (String str : this.f45285f) {
+            for (String str : this.f45677f) {
                 Integer num = (Integer) hashMap.get(str);
                 if (num == null) {
                     linkedHashMap.put(str, Boolean.FALSE);
@@ -128,7 +128,7 @@ public class a extends a0 {
                     arrayList.add(str);
                 }
             }
-            this.f45286g.a(linkedHashMap, arrayList);
+            this.f45678g.a(linkedHashMap, arrayList);
         }
     }
 
@@ -136,54 +136,54 @@ public class a extends a0 {
     public class c implements i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45288a;
+        public final /* synthetic */ String f45680a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedHashMap f45289b;
+        public final /* synthetic */ LinkedHashMap f45681b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f45290c;
+        public final /* synthetic */ String f45682c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f45291d;
+        public final /* synthetic */ boolean f45683d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45292e;
+        public final /* synthetic */ List f45684e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45293f;
+        public final /* synthetic */ String f45685f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f45294g;
+        public final /* synthetic */ boolean f45686g;
 
         /* renamed from: d.b.g0.a.n0.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0740a implements Runnable {
+        public class RunnableC0752a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f45296e;
+            public final /* synthetic */ List f45688e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f45297f;
+            public final /* synthetic */ String f45689f;
 
-            public RunnableC0740a(List list, String str) {
-                this.f45296e = list;
-                this.f45297f = str;
+            public RunnableC0752a(List list, String str) {
+                this.f45688e = list;
+                this.f45689f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                ContentResolver contentResolver = a.this.f45274c.getContentResolver();
-                for (d.b.g0.a.n0.d dVar : this.f45296e) {
-                    String str = dVar.f45334a;
-                    Boolean bool = (Boolean) c.this.f45289b.get(str);
+                ContentResolver contentResolver = a.this.f45666c.getContentResolver();
+                for (d.b.g0.a.n0.d dVar : this.f45688e) {
+                    String str = dVar.f45726a;
+                    Boolean bool = (Boolean) c.this.f45681b.get(str);
                     if (bool != null && !bool.booleanValue()) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("appKey", c.this.f45290c);
+                        contentValues.put("appKey", c.this.f45682c);
                         contentValues.put("templateId", str);
                         contentValues.put("result", (Integer) 0);
-                        contentValues.put("title", dVar.f45335b);
-                        contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, this.f45297f);
+                        contentValues.put("title", dVar.f45727b);
+                        contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, this.f45689f);
                         contentResolver.insert(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues);
                     }
                 }
@@ -194,49 +194,49 @@ public class a extends a0 {
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f45299e;
+            public final /* synthetic */ String f45691e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ List f45300f;
+            public final /* synthetic */ List f45692f;
 
             public b(String str, List list) {
-                this.f45299e = str;
-                this.f45300f = list;
+                this.f45691e = str;
+                this.f45692f = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 c cVar = c.this;
-                a.this.y(cVar.f45288a, cVar.f45290c, cVar.f45293f, this.f45299e, this.f45300f, cVar.f45292e, cVar.f45294g);
+                a.this.y(cVar.f45680a, cVar.f45682c, cVar.f45685f, this.f45691e, this.f45692f, cVar.f45684e, cVar.f45686g);
             }
         }
 
         public c(String str, LinkedHashMap linkedHashMap, String str2, boolean z, List list, String str3, boolean z2) {
-            this.f45288a = str;
-            this.f45289b = linkedHashMap;
-            this.f45290c = str2;
-            this.f45291d = z;
-            this.f45292e = list;
-            this.f45293f = str3;
-            this.f45294g = z2;
+            this.f45680a = str;
+            this.f45681b = linkedHashMap;
+            this.f45682c = str2;
+            this.f45683d = z;
+            this.f45684e = list;
+            this.f45685f = str3;
+            this.f45686g = z2;
         }
 
         @Override // d.b.g0.a.n0.a.i
         public void a(@Nullable String str, List<d.b.g0.a.n0.d> list, boolean z) {
             if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-                p.k(new RunnableC0740a(list, str), "createFormDataBase");
-                if (z && this.f45291d) {
-                    a.this.z(this.f45290c, list, str, true);
+                p.k(new RunnableC0752a(list, str), "createFormDataBase");
+                if (z && this.f45683d) {
+                    a.this.z(this.f45682c, list, str, true);
                     for (d.b.g0.a.n0.d dVar : list) {
-                        this.f45292e.add(dVar.f45334a);
+                        this.f45684e.add(dVar.f45726a);
                     }
-                    a.this.w(this.f45290c, this.f45292e, this.f45293f, this.f45294g, this.f45288a);
+                    a.this.w(this.f45682c, this.f45684e, this.f45685f, this.f45686g, this.f45680a);
                     return;
                 }
                 k0.T(new b(str, list));
                 return;
             }
-            a.this.f45276e.handleSchemeDispatchCallback(this.f45288a, UnitedSchemeUtility.wrapCallbackParams(500104, "请求模板内容失败").toString());
+            a.this.f45668e.handleSchemeDispatchCallback(this.f45680a, UnitedSchemeUtility.wrapCallbackParams(500104, "请求模板内容失败").toString());
         }
     }
 
@@ -244,58 +244,58 @@ public class a extends a0 {
     public class d implements c.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45302a;
+        public final /* synthetic */ String f45694a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f45303b;
+        public final /* synthetic */ String f45695b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f45304c;
+        public final /* synthetic */ List f45696c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f45305d;
+        public final /* synthetic */ String f45697d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f45306e;
+        public final /* synthetic */ boolean f45698e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45307f;
+        public final /* synthetic */ String f45699f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ List f45308g;
+        public final /* synthetic */ List f45700g;
 
         public d(String str, String str2, List list, String str3, boolean z, String str4, List list2) {
-            this.f45302a = str;
-            this.f45303b = str2;
-            this.f45304c = list;
-            this.f45305d = str3;
-            this.f45306e = z;
-            this.f45307f = str4;
-            this.f45308g = list2;
+            this.f45694a = str;
+            this.f45695b = str2;
+            this.f45696c = list;
+            this.f45697d = str3;
+            this.f45698e = z;
+            this.f45699f = str4;
+            this.f45700g = list2;
         }
 
         @Override // d.b.g0.a.n0.c.f
         public boolean a(DialogInterface dialogInterface, int i, List<d.b.g0.a.n0.d> list) {
             String str;
             boolean z = i == -1;
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.i("GetFormIdAction", "showSubscribeDialog isPositive=" + z);
             }
             if (z && list.size() == 0) {
                 return false;
             }
-            a.this.z(this.f45302a, list, this.f45303b, z);
+            a.this.z(this.f45694a, list, this.f45695b, z);
             if (z) {
                 for (d.b.g0.a.n0.d dVar : list) {
-                    this.f45304c.add(dVar.f45334a);
+                    this.f45696c.add(dVar.f45726a);
                 }
-                a.this.w(this.f45302a, this.f45304c, this.f45305d, this.f45306e, this.f45307f);
+                a.this.w(this.f45694a, this.f45696c, this.f45697d, this.f45698e, this.f45699f);
                 str = "permit_click";
             } else {
-                a.this.f45276e.handleSchemeDispatchCallback(this.f45307f, UnitedSchemeUtility.wrapCallbackParams(500102, "用户单次拒绝授权").toString());
+                a.this.f45668e.handleSchemeDispatchCallback(this.f45699f, UnitedSchemeUtility.wrapCallbackParams(500102, "用户单次拒绝授权").toString());
                 str = "reject_click";
             }
-            a.this.u(str, this.f45308g, list);
+            a.this.u(str, this.f45700g, list);
             return true;
         }
     }
@@ -304,15 +304,15 @@ public class a extends a0 {
     public class e implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45310e;
+        public final /* synthetic */ String f45702e;
 
         public e(String str) {
-            this.f45310e = str;
+            this.f45702e = str;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            a.this.f45276e.handleSchemeDispatchCallback(this.f45310e, UnitedSchemeUtility.wrapCallbackParams(500103, "用户取消授权").toString());
+            a.this.f45668e.handleSchemeDispatchCallback(this.f45702e, UnitedSchemeUtility.wrapCallbackParams(500103, "用户取消授权").toString());
         }
     }
 
@@ -320,33 +320,33 @@ public class a extends a0 {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45312e;
+        public final /* synthetic */ List f45704e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45313f;
+        public final /* synthetic */ String f45705f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f45314g;
+        public final /* synthetic */ boolean f45706g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f45315h;
+        public final /* synthetic */ String f45707h;
 
         public f(List list, String str, boolean z, String str2) {
-            this.f45312e = list;
-            this.f45313f = str;
-            this.f45314g = z;
-            this.f45315h = str2;
+            this.f45704e = list;
+            this.f45705f = str;
+            this.f45706g = z;
+            this.f45707h = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ContentResolver contentResolver = a.this.f45274c.getContentResolver();
-            for (d.b.g0.a.n0.d dVar : this.f45312e) {
+            ContentResolver contentResolver = a.this.f45666c.getContentResolver();
+            for (d.b.g0.a.n0.d dVar : this.f45704e) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("title", dVar.f45335b);
-                contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, this.f45313f);
-                contentValues.put("result", Integer.valueOf(this.f45314g ? 1 : -1));
-                contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{this.f45315h, dVar.f45334a});
+                contentValues.put("title", dVar.f45727b);
+                contentValues.put(TableDefine.MessageColumns.COLUME_TIPS, this.f45705f);
+                contentValues.put("result", Integer.valueOf(this.f45706g ? 1 : -1));
+                contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{this.f45707h, dVar.f45726a});
             }
         }
     }
@@ -355,25 +355,25 @@ public class a extends a0 {
     public class g implements d.b.g0.a.n0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45316a;
+        public final /* synthetic */ String f45708a;
 
         public g(String str) {
-            this.f45316a = str;
+            this.f45708a = str;
         }
 
         @Override // d.b.g0.a.o1.a
         public void a(JSONObject jSONObject) {
-            a.this.f45276e.handleSchemeDispatchCallback(this.f45316a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            if (d.b.g0.a.w0.a.O().g(a.this.f45274c)) {
-                d.b.g0.a.o1.c.f45429b.d();
+            a.this.f45668e.handleSchemeDispatchCallback(this.f45708a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            if (d.b.g0.a.w0.a.O().g(a.this.f45666c)) {
+                d.b.g0.a.o1.c.f45821b.d();
             } else {
-                d.b.g0.a.o1.c.f45429b.e();
+                d.b.g0.a.o1.c.f45821b.e();
             }
         }
 
         @Override // d.b.g0.a.o1.a
         public void onFail(String str) {
-            a.this.f45276e.handleSchemeDispatchCallback(this.f45316a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
+            a.this.f45668e.handleSchemeDispatchCallback(this.f45708a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
         }
     }
 
@@ -381,25 +381,25 @@ public class a extends a0 {
     public class h implements d.b.g0.a.n0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45318a;
+        public final /* synthetic */ String f45710a;
 
         public h(String str) {
-            this.f45318a = str;
+            this.f45710a = str;
         }
 
         @Override // d.b.g0.a.o1.a
         public void a(JSONObject jSONObject) {
-            a.this.f45276e.handleSchemeDispatchCallback(this.f45318a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            if (d.b.g0.a.w0.a.O().g(a.this.f45274c)) {
-                d.b.g0.a.o1.c.f45429b.d();
+            a.this.f45668e.handleSchemeDispatchCallback(this.f45710a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            if (d.b.g0.a.w0.a.O().g(a.this.f45666c)) {
+                d.b.g0.a.o1.c.f45821b.d();
             } else {
-                d.b.g0.a.o1.c.f45429b.e();
+                d.b.g0.a.o1.c.f45821b.e();
             }
         }
 
         @Override // d.b.g0.a.o1.a
         public void onFail(String str) {
-            a.this.f45276e.handleSchemeDispatchCallback(this.f45318a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
+            a.this.f45668e.handleSchemeDispatchCallback(this.f45710a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
         }
     }
 
@@ -421,19 +421,19 @@ public class a extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         String[] strArr;
         if (unitedSchemeEntity == null) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.w("GetFormIdAction", "entity is null");
             }
             return false;
         } else if (eVar != null && (context instanceof Activity) && callbackHandler != null) {
-            this.f45274c = context;
-            this.f45275d = eVar;
-            this.f45276e = callbackHandler;
+            this.f45666c = context;
+            this.f45667d = eVar;
+            this.f45668e = callbackHandler;
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 != null && a2.length() != 0) {
                 String optString = a2.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    if (a0.f46288b) {
+                    if (a0.f46680b) {
                         Log.w("GetFormIdAction", "cb is empty");
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "cb is empty");
@@ -441,7 +441,7 @@ public class a extends a0 {
                 }
                 String B = eVar.B();
                 if (TextUtils.isEmpty(B)) {
-                    if (a0.f46288b) {
+                    if (a0.f46680b) {
                         Log.w("GetFormIdAction", "appKey is empty");
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "appKey is empty");
@@ -476,7 +476,7 @@ public class a extends a0 {
                             return false;
                         }
                     }
-                    t(B, strArr, new C0739a(B, strArr, optString3, z, optString, optBoolean));
+                    t(B, strArr, new C0751a(B, strArr, optString3, z, optString, optBoolean));
                 } else {
                     v(B, optString);
                 }
@@ -486,7 +486,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
             return false;
         } else {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("GetFormIdAction", "runtime parameter error");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "runtime parameter error");
@@ -498,7 +498,7 @@ public class a extends a0 {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (d.b.g0.a.n0.d dVar : list) {
-                jSONArray.put(dVar.f45335b);
+                jSONArray.put(dVar.f45727b);
             }
         }
         return jSONArray;
@@ -511,15 +511,15 @@ public class a extends a0 {
 
     public final void u(String str, List<d.b.g0.a.n0.d> list, List<d.b.g0.a.n0.d> list2) {
         d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
-        eVar.f47251a = "swan";
-        eVar.f47252b = str;
+        eVar.f47643a = "swan";
+        eVar.f47644b = str;
         if (list2 != null) {
-            eVar.f47254d = String.valueOf(list2.size());
+            eVar.f47646d = String.valueOf(list2.size());
         }
-        eVar.a("appkey", this.f45275d.getAppId());
+        eVar.a("appkey", this.f45667d.getAppId());
         eVar.a("tpl", s(list));
         eVar.a("selected_tpl", s(list2));
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("GetFormIdAction", "event: " + eVar.f());
         }
         d.b.g0.a.z1.h.u("1311", eVar);
@@ -539,7 +539,7 @@ public class a extends a0 {
     }
 
     public final void y(String str, String str2, String str3, String str4, List<d.b.g0.a.n0.d> list, @NonNull List<String> list2, boolean z) {
-        d.b.g0.a.n0.c.a((Activity) this.f45274c, this.f45275d, str4, list, new d(str2, str4, list2, str3, z, str, list), new e(str)).show();
+        d.b.g0.a.n0.c.a((Activity) this.f45666c, this.f45667d, str4, list, new d(str2, str4, list2, str3, z, str, list), new e(str)).show();
         u("show", list, list);
     }
 

@@ -7,22 +7,22 @@ import org.json.JSONArray;
 public class p0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f47041a;
+    public float f47433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f47042b;
+    public float f47434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f47043c;
+    public float f47435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f47044d;
+    public float f47436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47045e;
+    public int f47437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47046f;
+    public int f47438f;
 
     @Override // d.b.g0.a.y.a.j.a
     public void a(b bVar, Canvas canvas) {
@@ -30,7 +30,7 @@ public class p0 extends a {
             bVar.c(canvas.save());
         }
         Matrix matrix = new Matrix();
-        matrix.setValues(new float[]{this.f47041a, this.f47043c, this.f47045e, this.f47042b, this.f47044d, this.f47046f, 0.0f, 0.0f, 1.0f});
+        matrix.setValues(new float[]{this.f47433a, this.f47435c, this.f47437e, this.f47434b, this.f47436d, this.f47438f, 0.0f, 0.0f, 1.0f});
         canvas.concat(matrix);
     }
 
@@ -38,15 +38,15 @@ public class p0 extends a {
     public void b(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 6) {
-                this.f47041a = (float) jSONArray.optDouble(0);
-                this.f47042b = (float) jSONArray.optDouble(1);
-                this.f47043c = (float) jSONArray.optDouble(2);
-                this.f47044d = (float) jSONArray.optDouble(3);
-                this.f47045e = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(4));
-                this.f47046f = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(5));
+                this.f47433a = (float) jSONArray.optDouble(0);
+                this.f47434b = (float) jSONArray.optDouble(1);
+                this.f47435c = (float) jSONArray.optDouble(2);
+                this.f47436d = (float) jSONArray.optDouble(3);
+                this.f47437e = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(4));
+                this.f47438f = d.b.g0.a.i2.h0.f((float) jSONArray.optDouble(5));
             }
         } catch (Exception e2) {
-            if (d.b.g0.a.k.f45051a) {
+            if (d.b.g0.a.k.f45443a) {
                 e2.printStackTrace();
             }
         }

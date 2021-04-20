@@ -8,11 +8,11 @@ import d.b.g0.a.t1.k.o;
 import d.b.g0.a.t1.k.s;
 import d.b.g0.a.t1.k.v;
 import d.b.g0.a.t1.k.z;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46246a = k.f45051a;
+    public static final boolean f46638a = k.f45443a;
 
     public static j a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         j jVar = new j();
@@ -91,7 +91,7 @@ public final class e {
         jVar.b(new d.b.g0.a.t1.k.j0.d(jVar));
         jVar.b(new d.b.g0.a.t1.k.j0.a(jVar));
         jVar.b(new s(jVar));
-        if (f46246a) {
+        if (f46638a) {
             jVar.b(new d.b.g0.a.t1.k.q0.a(jVar));
             jVar.b(new d.b.g0.a.c0.e.c(jVar));
         }

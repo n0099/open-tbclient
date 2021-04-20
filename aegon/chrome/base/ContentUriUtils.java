@@ -70,7 +70,7 @@ public abstract class ContentUriUtils {
                         throw new SecurityException("Cannot open files with non-zero offset type.");
                     }
                 } else {
-                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(parse, r.f7664a);
+                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(parse, r.f7699a);
                     if (openFileDescriptor != null) {
                         return new AssetFileDescriptor(openFileDescriptor, 0L, -1L);
                     }

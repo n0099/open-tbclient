@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.IContentProvider;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.h.k.d;
+import d.b.c.h.k.d;
 /* loaded from: classes.dex */
 public class ContentResolverProxy extends ContentResolver {
     public static volatile ContentResolverProxy mProxy;

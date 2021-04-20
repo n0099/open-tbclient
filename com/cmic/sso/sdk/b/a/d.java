@@ -6,11 +6,11 @@ import android.os.Build;
 import com.cmic.sso.sdk.d.o;
 import com.cmic.sso.sdk.d.t;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f30589a;
+    public b f30274a;
 
     @Override // com.cmic.sso.sdk.b.a.b
     public void a(final com.cmic.sso.sdk.b.c.c cVar, final com.cmic.sso.sdk.b.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
@@ -23,11 +23,11 @@ public class d implements b {
             a2.a(new t.a() { // from class: com.cmic.sso.sdk.b.a.d.1
 
                 /* renamed from: e  reason: collision with root package name */
-                public AtomicBoolean f30594e = new AtomicBoolean(false);
+                public AtomicBoolean f30279e = new AtomicBoolean(false);
 
                 @Override // com.cmic.sso.sdk.d.t.a
                 public void a(final Network network) {
-                    if (this.f30594e.getAndSet(true) || network == null) {
+                    if (this.f30279e.getAndSet(true) || network == null) {
                         return;
                     }
                     o.a(new o.a(null, aVar) { // from class: com.cmic.sso.sdk.b.a.d.1.1
@@ -51,7 +51,7 @@ public class d implements b {
     }
 
     public void b(com.cmic.sso.sdk.b.c.c cVar, final com.cmic.sso.sdk.b.d.c cVar2, com.cmic.sso.sdk.a aVar) {
-        b bVar = this.f30589a;
+        b bVar = this.f30274a;
         if (bVar != null) {
             bVar.a(cVar, new com.cmic.sso.sdk.b.d.c() { // from class: com.cmic.sso.sdk.b.a.d.2
                 @Override // com.cmic.sso.sdk.b.d.c
@@ -68,6 +68,6 @@ public class d implements b {
     }
 
     public void a(b bVar) {
-        this.f30589a = bVar;
+        this.f30274a = bVar;
     }
 }

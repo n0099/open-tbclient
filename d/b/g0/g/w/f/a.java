@@ -13,16 +13,16 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f48611b = k.f45051a;
+    public static final boolean f49003b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c> f48612a = new ArrayList();
+    public List<c> f49004a = new ArrayList();
 
     public a(JSONArray jSONArray) {
         if (jSONArray == null) {
             return;
         }
-        if (f48611b) {
+        if (f49003b) {
             Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
         }
         int length = jSONArray.length();
@@ -43,11 +43,11 @@ public class a {
                 }
                 if (c2 != 0) {
                     if (c2 == 1 && i2 < 10) {
-                        this.f48612a.add(a(optJSONObject));
+                        this.f49004a.add(a(optJSONObject));
                         i2++;
                     }
                 } else if (i < 3) {
-                    this.f48612a.add(b(optJSONObject));
+                    this.f49004a.add(b(optJSONObject));
                     i++;
                 }
             }

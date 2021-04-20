@@ -3,11 +3,11 @@ package d.b.i0.t.d.c.e;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60322a;
+    public boolean f61886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60323b;
+    public boolean f61887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f60324c;
+    public h f61888c;
 }

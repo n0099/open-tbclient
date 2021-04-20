@@ -12,6 +12,6 @@ public class h extends e {
     }
 
     public boolean c() {
-        return b() - this.f48920d > this.o;
+        return b() - this.f49312d > this.o;
     }
 }

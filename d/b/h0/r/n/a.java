@@ -7,35 +7,35 @@ import tbclient.GetBigday.BigdayInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50649a;
+    public String f51056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50650b;
+    public String f51057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50651c;
+    public int f51058c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f50652d;
+    public long f51059d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50653e;
+    public int f51060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f50654f;
+    public long f51061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50655g;
+    public long f51062g;
 
     public boolean a() {
-        if (StringUtils.isNULL(this.f50649a) || this.f50652d <= 0) {
+        if (StringUtils.isNULL(this.f51056a) || this.f51059d <= 0) {
             return false;
         }
-        int i = this.f50653e;
+        int i = this.f51060e;
         if (i == 1 || i == 3) {
-            long j = this.f50654f;
+            long j = this.f51061f;
             if (j > 0) {
-                long j2 = this.f50655g;
+                long j2 = this.f51062g;
                 return j2 > 0 && j2 > j;
             }
             return false;
@@ -48,20 +48,20 @@ public class a {
             return;
         }
         if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-            this.f50649a = bigdayInfo.img_url;
-            this.f50650b = bigdayInfo.jump_url;
-            this.f50651c = bigdayInfo.img_colour.intValue();
-            this.f50652d = bigdayInfo.id.longValue();
-            this.f50653e = bigdayInfo.position.intValue();
-            this.f50654f = bigdayInfo.start_time.longValue();
-            this.f50655g = bigdayInfo.end_time.longValue();
+            this.f51056a = bigdayInfo.img_url;
+            this.f51057b = bigdayInfo.jump_url;
+            this.f51058c = bigdayInfo.img_colour.intValue();
+            this.f51059d = bigdayInfo.id.longValue();
+            this.f51060e = bigdayInfo.position.intValue();
+            this.f51061f = bigdayInfo.start_time.longValue();
+            this.f51062g = bigdayInfo.end_time.longValue();
         }
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return aVar.a() && a() && this.f50652d == aVar.f50652d && StringHelper.equals(this.f50649a, aVar.f50649a) && ((this.f50650b == null && aVar.f50650b == null) || StringHelper.equals(this.f50650b, aVar.f50650b)) && this.f50651c == aVar.f50651c && this.f50653e == aVar.f50653e && this.f50654f == aVar.f50654f && this.f50655g == aVar.f50655g;
+            return aVar.a() && a() && this.f51059d == aVar.f51059d && StringHelper.equals(this.f51056a, aVar.f51056a) && ((this.f51057b == null && aVar.f51057b == null) || StringHelper.equals(this.f51057b, aVar.f51057b)) && this.f51058c == aVar.f51058c && this.f51060e == aVar.f51060e && this.f51061f == aVar.f51061f && this.f51062g == aVar.f51062g;
         }
         return false;
     }

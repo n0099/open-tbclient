@@ -4,7 +4,7 @@ import android.app.Notification;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.u;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface m {
     int a(String str, String str2);
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.wallet.pay;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import d.b.h0.z0.w;
 import tbclient.GetOrder.DataReq;
 import tbclient.GetOrder.GetOrderReqIdl;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PushNotifyMessage extends SocketResponsedMessage {
     public static final long serialVersionUID = 7053886389487061173L;
     public String content;

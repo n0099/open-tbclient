@@ -5,10 +5,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
-import d.b.i0.i3.e.b;
-import d.b.i0.i3.e.c;
-import d.b.i0.i3.e.d;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.e.b;
+import d.b.i0.j3.e.c;
+import d.b.i0.j3.e.d;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
@@ -46,7 +46,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public d.b.h0.k0.d getPageStayDurationItem() {
         d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
         }
         return pageStayDurationItem;
     }

@@ -19,10 +19,10 @@ import java.util.List;
 public class CyberClassLoader extends BaseDexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f4975a;
+    public static Class f5010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f4976b;
+    public static Class f5011b;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -99,9 +99,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     public static void a() throws Exception {
-        if (f4975a == null || f4976b == null) {
+        if (f5010a == null || f5011b == null) {
             Class<?> cls = Class.forName("dalvik.system.DexPathList");
-            f4975a = cls;
+            f5010a = cls;
             Class<?>[] declaredClasses = cls.getDeclaredClasses();
             int length = declaredClasses.length;
             int i = 0;
@@ -111,12 +111,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 }
                 Class<?> cls2 = declaredClasses[i];
                 if (cls2.getSimpleName().equals("Element")) {
-                    f4976b = cls2;
+                    f5011b = cls2;
                     break;
                 }
                 i++;
             }
-            if (f4976b == null) {
+            if (f5011b == null) {
                 throw new AndroidRuntimeException("DexPathList$Element not found!");
             }
         }
@@ -162,7 +162,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
             a();
             String replace = new File(str).getName().replace(".so", ".dex");
             DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-            Constructor<?> constructor = f4976b.getConstructors()[0];
+            Constructor<?> constructor = f5011b.getConstructors()[0];
             int length = constructor.getParameterTypes().length;
             if (length == 4) {
                 newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -171,12 +171,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
             } else {
                 newInstance = constructor.newInstance(new File(str), null, loadDex);
             }
-            Object newInstance2 = Array.newInstance(f4976b, 1);
+            Object newInstance2 = Array.newInstance(f5011b, 1);
             Array.set(newInstance2, 0, newInstance);
             Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(f4975a, a2, "dexElements", newInstance2);
+            a(f5010a, a2, "dexElements", newInstance2);
             if (Build.VERSION.SDK_INT >= 19) {
-                a(f4975a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                a(f5010a, a2, "dexElementsSuppressedExceptions", (Object) null);
             }
         } catch (Exception e2) {
             e2.printStackTrace();

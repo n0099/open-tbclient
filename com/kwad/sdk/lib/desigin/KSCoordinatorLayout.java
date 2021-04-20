@@ -44,7 +44,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mapapi.map.WeightedLatLng;
 import com.kwad.sdk.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -119,7 +118,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             return -16777216;
         }
 
-        @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
+        @FloatRange(from = 0.0d, to = 1.0d)
         public float getScrimOpacity(KSCoordinatorLayout kSCoordinatorLayout, V v) {
             return 0.0f;
         }

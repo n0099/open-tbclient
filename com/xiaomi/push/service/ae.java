@@ -8,7 +8,7 @@ import com.xiaomi.push.ai;
 public final class ae extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40939a;
+    public final /* synthetic */ int f41228a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Notification f878a;
@@ -20,27 +20,27 @@ public final class ae extends ai.a {
     public final /* synthetic */ String f880a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40940b;
+    public final /* synthetic */ String f41229b;
 
     public ae(int i, String str, Context context, String str2, Notification notification) {
-        this.f40939a = i;
+        this.f41228a = i;
         this.f880a = str;
         this.f879a = context;
-        this.f40940b = str2;
+        this.f41229b = str2;
         this.f878a = notification;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo165a() {
+    public String mo169a() {
         String b2;
-        b2 = ac.b(this.f40939a, this.f880a);
+        b2 = ac.b(this.f41228a, this.f880a);
         return b2;
     }
 
     @Override // java.lang.Runnable
     @TargetApi(19)
     public void run() {
-        ac.b(this.f879a, this.f40940b, this.f40939a, this.f880a, this.f878a);
+        ac.b(this.f879a, this.f41229b, this.f41228a, this.f880a, this.f878a);
     }
 }

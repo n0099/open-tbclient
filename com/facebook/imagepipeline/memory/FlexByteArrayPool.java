@@ -8,14 +8,14 @@ import com.facebook.common.references.ResourceReleaser;
 import java.util.Map;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FlexByteArrayPool {
     @VisibleForTesting
     public final SoftRefByteArrayPool mDelegatePool;
     public final ResourceReleaser<byte[]> mResourceReleaser;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SoftRefByteArrayPool extends GenericByteArrayPool {
         public SoftRefByteArrayPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
             super(memoryTrimmableRegistry, poolParams, poolStatsTracker);

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WXDesignerSharedObject implements WXMediaMessage.IMediaObject {
     public static final String TAG = "MicroMsg.SDK.WXEmojiSharedObject";
     public String designerName;

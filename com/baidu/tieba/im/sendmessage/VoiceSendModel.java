@@ -4,38 +4,37 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VoiceSendModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f18104e;
+    public a f17781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18105f;
+    public b f17782f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18106a;
+        public String f17783a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ChatMessage f18107b;
+        public ChatMessage f17784b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.i0.d1.s.b f18108c = new d.b.i0.d1.s.b();
+        public d.b.i0.e1.s.b f17785c = new d.b.i0.e1.s.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.f18106a = str;
-            this.f18107b = chatMessage;
+            this.f17783a = str;
+            this.f17784b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
         public String doInBackground(Object... objArr) {
             try {
-                return this.f18108c.a(this.f18106a);
+                return this.f17785c.a(this.f17783a);
             } catch (Exception unused) {
                 return null;
             }
@@ -45,13 +44,13 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.f18105f != null) {
-                VoiceSendModel.this.f18105f.a(str, this.f18107b);
+            if (VoiceSendModel.this.f17782f != null) {
+                VoiceSendModel.this.f17782f.a(str, this.f17784b);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(String str, ChatMessage chatMessage);
     }
@@ -71,12 +70,12 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void t(b bVar) {
-        this.f18105f = bVar;
+        this.f17782f = bVar;
     }
 
     public void u(String str, ChatMessage chatMessage) {
         a aVar = new a(str, chatMessage);
-        this.f18104e = aVar;
+        this.f17781e = aVar;
         aVar.execute(new Object[0]);
     }
 }

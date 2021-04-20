@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public enum i {
     RUN_STATUS_NONE,
     RUN_STATUS_PAUSE,

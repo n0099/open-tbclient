@@ -19,18 +19,18 @@ public final class j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f40869a;
+        public final String f41158a;
 
         /* renamed from: a  reason: collision with other field name */
         public final boolean f809a;
 
         public a(String str, boolean z) {
-            this.f40869a = str;
+            this.f41158a = str;
             this.f809a = z;
         }
 
         public String a() {
-            return this.f40869a;
+            return this.f41158a;
         }
     }
 
@@ -38,14 +38,14 @@ public final class j {
     public static final class b implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f40870a;
+        public final LinkedBlockingQueue<IBinder> f41159a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f810a;
 
         public b() {
             this.f810a = false;
-            this.f40870a = new LinkedBlockingQueue<>(1);
+            this.f41159a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
@@ -53,13 +53,13 @@ public final class j {
                 throw new IllegalStateException();
             }
             this.f810a = true;
-            return this.f40870a.poll(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS);
+            return this.f41159a.poll(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.f40870a.put(iBinder);
+                this.f41159a.put(iBinder);
             } catch (InterruptedException unused) {
             }
         }
@@ -73,10 +73,10 @@ public final class j {
     public static final class c implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f40871a;
+        public IBinder f41160a;
 
         public c(IBinder iBinder) {
-            this.f40871a = iBinder;
+            this.f41160a = iBinder;
         }
 
         public String a() {
@@ -84,7 +84,7 @@ public final class j {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                this.f40871a.transact(1, obtain, obtain2, 0);
+                this.f41160a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -95,7 +95,7 @@ public final class j {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f40871a;
+            return this.f41160a;
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import d.b.g0.a.y0.e.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends e {
     public SwanCoreVersion j;
     public String k = "";
@@ -34,7 +34,7 @@ public class f extends e {
     public JSONObject f() {
         try {
             d.b.g0.a.r1.e t = d.b.g0.a.z0.f.V().t();
-            String g2 = d.b.g0.a.b2.b.g(this.j, this.f47251a == SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME ? 1 : 0);
+            String g2 = d.b.g0.a.b2.b.g(this.j, this.f47643a == SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME ? 1 : 0);
             if (t != null && t.L() != null) {
                 b.a L = t.L();
                 if (TextUtils.isEmpty(this.k)) {
@@ -52,7 +52,7 @@ public class f extends e {
                     this.q = L.V();
                 }
                 this.q = d.b.g0.a.z1.g.a(this.q);
-                if (TextUtils.isEmpty(this.f47256f) && !TextUtils.isEmpty(L.b0())) {
+                if (TextUtils.isEmpty(this.f47648f) && !TextUtils.isEmpty(L.b0())) {
                     this.t = L.b0();
                 }
                 this.t = d.b.g0.a.z1.g.a(this.t);
@@ -61,28 +61,28 @@ public class f extends e {
                 }
             }
             this.m = SwanAppNetworkUtils.f().type;
-            if (this.f47257g == null) {
-                this.f47257g = new JSONObject();
+            if (this.f47649g == null) {
+                this.f47649g = new JSONObject();
             }
-            this.f47257g.put("swan", g2);
-            this.f47257g.put("appversion", this.k);
-            this.f47257g.put("thirdversion", this.l);
-            this.f47257g.put("net", this.m);
-            this.f47257g.put("needdown", this.n);
-            this.f47257g.put("preset", this.p);
-            this.f47257g.put("isPreDownloading", this.o);
-            this.f47257g.put("scheme", this.q);
-            this.f47257g.put("page", this.t);
-            this.f47257g.put("error_code", this.u);
-            this.f47257g.put("launchid", this.v);
+            this.f47649g.put("swan", g2);
+            this.f47649g.put("appversion", this.k);
+            this.f47649g.put("thirdversion", this.l);
+            this.f47649g.put("net", this.m);
+            this.f47649g.put("needdown", this.n);
+            this.f47649g.put("preset", this.p);
+            this.f47649g.put("isPreDownloading", this.o);
+            this.f47649g.put("scheme", this.q);
+            this.f47649g.put("page", this.t);
+            this.f47649g.put("error_code", this.u);
+            this.f47649g.put("launchid", this.v);
             if (!TextUtils.isEmpty(this.r)) {
-                this.f47257g.put("canceltime", this.r);
+                this.f47649g.put("canceltime", this.r);
             }
             if (!TextUtils.isEmpty(this.s)) {
-                this.f47257g.put("successtime", this.s);
+                this.f47649g.put("successtime", this.s);
             }
             if (e.i) {
-                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.f47257g + "\t " + Thread.currentThread().getId());
+                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.f47649g + "\t " + Thread.currentThread().getId());
             }
         } catch (JSONException e2) {
             if (e.i) {
@@ -104,8 +104,8 @@ public class f extends e {
             }
             return;
         }
-        this.f47255e = eVar.G();
-        this.f47253c = eVar.S();
+        this.f47647e = eVar.G();
+        this.f47645c = eVar.S();
         this.n = eVar.n0().getString("aiapp_extra_need_download", "");
         this.p = eVar.n0().getString("aiapp_extra_preset_pkg", "");
         this.o = eVar.n0().getString("aiapp_extra_pkg_downloading", "0");

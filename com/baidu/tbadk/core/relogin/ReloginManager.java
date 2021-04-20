@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.l.c;
 import d.b.h0.r.q.q0;
 import java.util.ArrayList;
@@ -25,16 +25,16 @@ import org.json.JSONObject;
 public class ReloginManager {
 
     /* renamed from: d  reason: collision with root package name */
-    public static ReloginManager f13294d = new ReloginManager();
+    public static ReloginManager f12955d = new ReloginManager();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13295a;
+    public boolean f12956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<HttpMessage> f13296b = new ArrayList<>();
+    public final ArrayList<HttpMessage> f12957b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f13297c = new a(CmdConfigHttp.BG_LOGIN_HTTP_CMD);
+    public final HttpMessageListener f12958c = new a(CmdConfigHttp.BG_LOGIN_HTTP_CMD);
 
     /* loaded from: classes3.dex */
     public static class BgLoginHttpResponsedMessage extends JsonHttpResponsedMessage {
@@ -95,7 +95,7 @@ public class ReloginManager {
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof BgLoginHttpResponsedMessage)) {
                 return;
             }
-            ReloginManager.this.f13295a = false;
+            ReloginManager.this.f12956a = false;
             BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
             int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
             int error = bgLoginHttpResponsedMessage.getError();
@@ -108,19 +108,19 @@ public class ReloginManager {
             if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                 l.L(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
             }
-            ReloginManager.this.f13296b.clear();
+            ReloginManager.this.f12957b.clear();
         }
     }
 
     public static ReloginManager g() {
-        return f13294d;
+        return f12955d;
     }
 
     public final void d(HttpMessage httpMessage) {
-        if (this.f13296b.contains(httpMessage)) {
+        if (this.f12957b.contains(httpMessage)) {
             return;
         }
-        this.f13296b.add(httpMessage);
+        this.f12957b.add(httpMessage);
     }
 
     public final void e(AccountData accountData) {
@@ -143,7 +143,7 @@ public class ReloginManager {
     }
 
     public boolean h() {
-        return this.f13295a;
+        return this.f12956a;
     }
 
     public boolean i() {
@@ -152,16 +152,16 @@ public class ReloginManager {
 
     public final void j() {
         MessageManager messageManager = MessageManager.getInstance();
-        Iterator<HttpMessage> it = this.f13296b.iterator();
+        Iterator<HttpMessage> it = this.f12957b.iterator();
         while (it.hasNext()) {
             messageManager.sendMessage(it.next());
         }
-        this.f13296b.clear();
+        this.f12957b.clear();
     }
 
     public void k() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerListener(this.f13297c);
+        messageManager.registerListener(this.f12958c);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.BG_LOGIN_HTTP_CMD, TbConfig.LOGIN_FULL_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -174,7 +174,7 @@ public class ReloginManager {
     public void l(HttpMessage httpMessage) {
         d.b.h0.r.z.a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
         d(httpMessage);
-        if (this.f13295a) {
+        if (this.f12956a) {
             return;
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -182,7 +182,7 @@ public class ReloginManager {
             currentAccountObj = c.e();
         }
         if (currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getAccount())) {
-            this.f13295a = true;
+            this.f12956a = true;
             if (i()) {
                 return;
             }
@@ -193,7 +193,7 @@ public class ReloginManager {
     }
 
     public void m(int i, BdUniqueId bdUniqueId) {
-        Iterator<HttpMessage> it = this.f13296b.iterator();
+        Iterator<HttpMessage> it = this.f12957b.iterator();
         while (it.hasNext()) {
             HttpMessage next = it.next();
             BdUniqueId tag = next.getTag();
@@ -209,6 +209,6 @@ public class ReloginManager {
     }
 
     public void o(boolean z) {
-        this.f13295a = z;
+        this.f12956a = z;
     }
 }

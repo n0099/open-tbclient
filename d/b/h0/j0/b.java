@@ -7,27 +7,27 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageTag f50234a;
+    public TbPageTag f50641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageTag f50235b;
+    public TbPageTag f50642b;
 
     public b(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
-        this.f50235b = tbPageTag;
+        this.f50642b = tbPageTag;
         c(intent);
     }
 
     public TbPageTag a() {
-        return this.f50235b;
+        return this.f50642b;
     }
 
     public TbPageTag b() {
-        return this.f50234a;
+        return this.f50641a;
     }
 
     public final void c(Intent intent) {
         if (intent != null) {
-            this.f50234a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+            this.f50641a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
         }
     }
 }

@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.t.b;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
@@ -18,7 +18,7 @@ public final class FlowableDebounceTimed$DebounceEmitter<T> extends AtomicRefere
         this.parent = flowableDebounceTimed$DebounceTimedSubscriber;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
@@ -29,7 +29,7 @@ public final class FlowableDebounceTimed$DebounceEmitter<T> extends AtomicRefere
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }

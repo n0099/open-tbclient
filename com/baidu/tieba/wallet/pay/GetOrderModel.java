@@ -3,7 +3,7 @@ package com.baidu.tieba.wallet.pay;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pay.PayConfig;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 /* loaded from: classes5.dex */
 public class GetOrderModel extends BdBaseModel {
     public String mWalletSdkUa;

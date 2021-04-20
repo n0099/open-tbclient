@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DelGroupUsers.DataReq;
 import protobuf.DelGroupUsers.DelGroupUsersReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestRemoveMembersMessage extends TbSocketMessage {
     public long groupId;
     public String userIds;

@@ -2,10 +2,10 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.b.c.e.c.a;
+import d.b.c.c.e.c.a;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a {
     public long hasSentMsgId;
     public long toUid;
@@ -20,7 +20,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
     public Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = d.b.i0.d1.s.a.i;
+            builder.groupId = d.b.i0.e1.s.a.i;
             builder.msgType = 22;
             builder.msgId = Long.valueOf(this.hasSentMsgId);
             builder.toUid = Long.valueOf(this.toUid);
@@ -33,7 +33,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         }
     }
 
-    @Override // d.b.b.c.e.c.a
+    @Override // d.b.c.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         if (socketMessage != null && (socketMessage instanceof RequestPersonalMsgReadMessage)) {
             RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = (RequestPersonalMsgReadMessage) socketMessage;

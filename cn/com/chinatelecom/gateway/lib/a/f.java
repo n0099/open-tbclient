@@ -6,13 +6,13 @@ import java.nio.charset.Charset;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1512a = "f";
+    public static final String f1498a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f1513b = {68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
+    public static byte[] f1499b = {68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f1514c = Charset.forName("UTF-8");
+    public static final Charset f1500c = Charset.forName("UTF-8");
 
     public static String a(byte[] bArr) {
         try {
@@ -20,7 +20,7 @@ public class f {
             byte[] bArr2 = new byte[length];
             for (int i = 0; i < length; i++) {
                 bArr2[i] = bArr[i];
-                for (byte b2 : f1513b) {
+                for (byte b2 : f1499b) {
                     bArr2[i] = (byte) (b2 ^ bArr2[i]);
                 }
             }

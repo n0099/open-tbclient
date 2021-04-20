@@ -10,10 +10,10 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f51690a;
+        public String f52114a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51691b;
+        public int f52115b;
 
         public a() {
         }
@@ -26,44 +26,44 @@ public class f {
             if (str.contains("#")) {
                 String[] split = str.split("#");
                 if (split.length == 1) {
-                    aVar.f51690a = split[0];
+                    aVar.f52114a = split[0];
                 } else if (split.length == 2) {
-                    aVar.f51690a = split[0];
-                    aVar.f51691b = d.b.b.e.m.b.d(split[1], -1);
+                    aVar.f52114a = split[0];
+                    aVar.f52115b = d.b.c.e.m.b.d(split[1], -1);
                 }
             } else {
-                aVar.f51690a = str;
+                aVar.f52114a = str;
             }
             return aVar;
         }
 
         public String toString() {
-            if (StringUtils.isNull(this.f51690a)) {
+            if (StringUtils.isNull(this.f52114a)) {
                 return null;
             }
-            return this.f51690a + "#" + this.f51691b;
+            return this.f52114a + "#" + this.f52115b;
         }
 
         public a(String str, int i) {
-            this.f51690a = str;
-            this.f51691b = i;
+            this.f52114a = str;
+            this.f52115b = i;
         }
     }
 
     public static String[] a() {
-        String o = d.b.h0.r.d0.b.i().o("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-        if (StringUtils.isNull(o)) {
+        String p = d.b.h0.r.d0.b.j().p("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+        if (StringUtils.isNull(p)) {
             return new String[0];
         }
-        String[] split = o.split("\\^");
+        String[] split = p.split("\\^");
         if (split == null || split.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         for (String str : split) {
             a a2 = a.a(str);
-            if (a2 != null && !StringUtils.isNull(a2.f51690a)) {
-                arrayList.add(a2.f51690a);
+            if (a2 != null && !StringUtils.isNull(a2.f52114a)) {
+                arrayList.add(a2.f52114a);
             }
         }
         return (String[]) arrayList.toArray(new String[arrayList.size()]);

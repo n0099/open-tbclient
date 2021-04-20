@@ -6,26 +6,26 @@ import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 /* loaded from: classes5.dex */
-public class a implements a.InterfaceC0266a {
+public class a implements a.InterfaceC0268a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f25747a;
+    public a.b f25432a;
 
     public a(a.b bVar) {
-        this.f25747a = bVar;
+        this.f25432a = bVar;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0266a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0268a
     public boolean a(String str) {
         return !TextUtils.isEmpty(str);
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0266a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0268a
     public boolean b(String str) {
         return !TextUtils.isEmpty(str) && str.trim().replace(" ", "").length() >= 9;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0266a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0268a
     public void c(String str) {
         if (TextUtils.isEmpty(str)) {
             return;

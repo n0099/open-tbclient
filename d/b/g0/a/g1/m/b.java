@@ -10,22 +10,22 @@ import okhttp3.Response;
 public class b implements Interceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f44553a = new HashMap<>();
+    public HashMap<String, String> f44945a = new HashMap<>();
 
     public void a(HashMap<String, String> hashMap) {
-        this.f44553a.clear();
+        this.f44945a.clear();
         if (hashMap == null || hashMap.size() < 1) {
             return;
         }
-        this.f44553a = hashMap;
+        this.f44945a = hashMap;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
-        HashMap<String, String> hashMap = this.f44553a;
+        HashMap<String, String> hashMap = this.f44945a;
         if (hashMap != null && hashMap.size() >= 1) {
             Request.Builder newBuilder = chain.request().newBuilder();
-            for (Map.Entry<String, String> entry : this.f44553a.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f44945a.entrySet()) {
                 newBuilder.addHeader(entry.getKey(), entry.getValue());
             }
             return chain.proceed(newBuilder.build());

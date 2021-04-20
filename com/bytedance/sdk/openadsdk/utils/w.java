@@ -17,27 +17,27 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class w {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile w f30449c;
+    public static volatile w f30134c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f30450a;
+    public Map<String, String> f30135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30451b = false;
+    public volatile boolean f30136b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f30452d;
+    public Context f30137d;
 
     public w(Context context) {
-        if (context != null && this.f30452d == null) {
-            this.f30452d = context.getApplicationContext();
+        if (context != null && this.f30137d == null) {
+            this.f30137d = context.getApplicationContext();
             a();
         }
-        this.f30452d = context;
+        this.f30137d = context;
     }
 
     public static String b(String str) {
@@ -88,12 +88,12 @@ public class w {
             return null;
         }
         a();
-        Map<String, String> map = this.f30450a;
+        Map<String, String> map = this.f30135a;
         if (map == null || map.isEmpty()) {
             return null;
         }
         do {
-            str2 = this.f30450a.get(e2);
+            str2 = this.f30135a.get(e2);
             if (str2 == null) {
                 e2 = e(e2);
             }
@@ -162,14 +162,14 @@ public class w {
     }
 
     public static w a(Context context) {
-        if (f30449c == null) {
+        if (f30134c == null) {
             synchronized (w.class) {
-                if (f30449c == null) {
-                    f30449c = new w(context);
+                if (f30134c == null) {
+                    f30134c = new w(context);
                 }
             }
         }
-        return f30449c;
+        return f30134c;
     }
 
     public final String a(String str) {
@@ -188,11 +188,11 @@ public class w {
     }
 
     private void a() {
-        if (this.f30452d == null || this.f30451b) {
+        if (this.f30137d == null || this.f30136b) {
             return;
         }
         synchronized (this) {
-            if (!this.f30451b) {
+            if (!this.f30136b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>() { // from class: com.bytedance.sdk.openadsdk.utils.w.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.security.PrivilegedAction
@@ -202,7 +202,7 @@ public class w {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = w.this.f30452d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = w.this.f30137d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -259,7 +259,7 @@ public class w {
                         }
                     }
                 });
-                this.f30450a = new HashMap(list.size());
+                this.f30135a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -274,15 +274,15 @@ public class w {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f30451b = true;
+                this.f30136b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
-        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30450a.containsKey(str)) {
+        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30135a.containsKey(str)) {
             return;
         }
-        this.f30450a.put(str, str2);
+        this.f30135a.put(str, str2);
     }
 }

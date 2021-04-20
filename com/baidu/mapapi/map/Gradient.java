@@ -6,30 +6,30 @@ import java.util.HashMap;
 public class Gradient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6847a;
+    public final int f6882a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f6848b;
+    public final int[] f6883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f6849c;
+    public final float[] f6884c;
 
     /* loaded from: classes2.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f6851b;
+        public final int f6886b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f6852c;
+        public final int f6887c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f6853d;
+        public final float f6888d;
 
         public a(int i, int i2, float f2) {
-            this.f6851b = i;
-            this.f6852c = i2;
-            this.f6853d = f2;
+            this.f6886b = i;
+            this.f6887c = i2;
+            this.f6888d = f2;
         }
     }
 
@@ -52,12 +52,12 @@ public class Gradient {
                 throw new IllegalArgumentException("startPoints should be in increasing order");
             }
         }
-        this.f6847a = i;
+        this.f6882a = i;
         int[] iArr2 = new int[iArr.length];
-        this.f6848b = iArr2;
-        this.f6849c = new float[fArr.length];
+        this.f6883b = iArr2;
+        this.f6884c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f6849c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f6884c, 0, fArr.length);
     }
 
     public static int a(int i, int i2, float f2) {
@@ -80,42 +80,42 @@ public class Gradient {
 
     private HashMap<Integer, a> a() {
         HashMap<Integer, a> hashMap = new HashMap<>();
-        if (this.f6849c[0] != 0.0f) {
-            hashMap.put(0, new a(Color.argb(0, Color.red(this.f6848b[0]), Color.green(this.f6848b[0]), Color.blue(this.f6848b[0])), this.f6848b[0], this.f6847a * this.f6849c[0]));
+        if (this.f6884c[0] != 0.0f) {
+            hashMap.put(0, new a(Color.argb(0, Color.red(this.f6883b[0]), Color.green(this.f6883b[0]), Color.blue(this.f6883b[0])), this.f6883b[0], this.f6882a * this.f6884c[0]));
         }
-        for (int i = 1; i < this.f6848b.length; i++) {
+        for (int i = 1; i < this.f6883b.length; i++) {
             int i2 = i - 1;
-            Integer valueOf = Integer.valueOf((int) (this.f6847a * this.f6849c[i2]));
-            int[] iArr = this.f6848b;
+            Integer valueOf = Integer.valueOf((int) (this.f6882a * this.f6884c[i2]));
+            int[] iArr = this.f6883b;
             int i3 = iArr[i2];
             int i4 = iArr[i];
-            float[] fArr = this.f6849c;
-            hashMap.put(valueOf, new a(i3, i4, (fArr[i] - fArr[i2]) * this.f6847a));
+            float[] fArr = this.f6884c;
+            hashMap.put(valueOf, new a(i3, i4, (fArr[i] - fArr[i2]) * this.f6882a));
         }
-        float[] fArr2 = this.f6849c;
+        float[] fArr2 = this.f6884c;
         if (fArr2[fArr2.length - 1] != 1.0f) {
             int length = fArr2.length - 1;
-            Integer valueOf2 = Integer.valueOf((int) (this.f6847a * fArr2[length]));
-            int[] iArr2 = this.f6848b;
-            hashMap.put(valueOf2, new a(iArr2[length], iArr2[length], this.f6847a * (1.0f - this.f6849c[length])));
+            Integer valueOf2 = Integer.valueOf((int) (this.f6882a * fArr2[length]));
+            int[] iArr2 = this.f6883b;
+            hashMap.put(valueOf2, new a(iArr2[length], iArr2[length], this.f6882a * (1.0f - this.f6884c[length])));
         }
         return hashMap;
     }
 
     public int[] a(double d2) {
         HashMap<Integer, a> a2 = a();
-        int[] iArr = new int[this.f6847a];
+        int[] iArr = new int[this.f6882a];
         a aVar = a2.get(0);
         int i = 0;
-        for (int i2 = 0; i2 < this.f6847a; i2++) {
+        for (int i2 = 0; i2 < this.f6882a; i2++) {
             if (a2.containsKey(Integer.valueOf(i2))) {
                 aVar = a2.get(Integer.valueOf(i2));
                 i = i2;
             }
-            iArr[i2] = a(aVar.f6851b, aVar.f6852c, (i2 - i) / aVar.f6853d);
+            iArr[i2] = a(aVar.f6886b, aVar.f6887c, (i2 - i) / aVar.f6888d);
         }
         if (d2 != 1.0d) {
-            for (int i3 = 0; i3 < this.f6847a; i3++) {
+            for (int i3 = 0; i3 < this.f6882a; i3++) {
                 int i4 = iArr[i3];
                 iArr[i3] = Color.argb((int) (Color.alpha(i4) * d2), Color.red(i4), Color.green(i4), Color.blue(i4));
             }

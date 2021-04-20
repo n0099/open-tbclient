@@ -7,21 +7,21 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.card.CardLinkageManager;
-import d.b.b.j.e.s;
+import d.b.c.j.e.s;
 /* loaded from: classes.dex */
 public class ThreadCardView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public s f4526e;
+    public s f4561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f4527f;
+    public ViewGroup f4562f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4528g;
+    public int f4563g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f4529h;
+    public boolean f4564h;
     public Runnable i;
     public Runnable j;
 
@@ -32,16 +32,16 @@ public class ThreadCardView extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ThreadCardView.this.f4529h) {
+            if (ThreadCardView.this.f4564h) {
                 return;
             }
-            if (ThreadCardView.this.f4526e != null) {
-                CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.f4526e, ThreadCardView.this.f4528g, true);
-            } else if (ThreadCardView.this.f4527f instanceof s) {
-                CardLinkageManager.INSTANCE.pressLinkage((s) ThreadCardView.this.f4527f, ThreadCardView.this.f4528g, true);
+            if (ThreadCardView.this.f4561e != null) {
+                CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.f4561e, ThreadCardView.this.f4563g, true);
+            } else if (ThreadCardView.this.f4562f instanceof s) {
+                CardLinkageManager.INSTANCE.pressLinkage((s) ThreadCardView.this.f4562f, ThreadCardView.this.f4563g, true);
             }
-            if (ThreadCardView.this.f4529h) {
-                CardLinkageManager.INSTANCE.pressLinkage((s) ThreadCardView.this.f4527f, ThreadCardView.this.f4528g, false);
+            if (ThreadCardView.this.f4564h) {
+                CardLinkageManager.INSTANCE.pressLinkage((s) ThreadCardView.this.f4562f, ThreadCardView.this.f4563g, false);
             }
         }
     }
@@ -53,10 +53,10 @@ public class ThreadCardView extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ThreadCardView.this.f4526e != null) {
-                CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.f4526e, ThreadCardView.this.f4528g, false);
-            } else if (ThreadCardView.this.f4527f instanceof s) {
-                CardLinkageManager.INSTANCE.pressLinkage((s) ThreadCardView.this.f4527f, ThreadCardView.this.f4528g, false);
+            if (ThreadCardView.this.f4561e != null) {
+                CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.f4561e, ThreadCardView.this.f4563g, false);
+            } else if (ThreadCardView.this.f4562f instanceof s) {
+                CardLinkageManager.INSTANCE.pressLinkage((s) ThreadCardView.this.f4562f, ThreadCardView.this.f4563g, false);
             }
         }
     }
@@ -78,24 +78,24 @@ public class ThreadCardView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f4529h = false;
+            this.f4564h = false;
             postDelayed(this.i, ViewConfiguration.getTapTimeout());
         } else if (action == 1) {
-            this.f4529h = true;
+            this.f4564h = true;
             removeCallbacks(this.i);
-            CardLinkageManager.INSTANCE.pressLinkage(this.f4526e, this.f4528g, true);
+            CardLinkageManager.INSTANCE.pressLinkage(this.f4561e, this.f4563g, true);
             postDelayed(this.j, ViewConfiguration.getTapTimeout());
         } else if (action == 3) {
-            this.f4529h = true;
+            this.f4564h = true;
             removeCallbacks(this.i);
             removeCallbacks(this.j);
-            s sVar = this.f4526e;
+            s sVar = this.f4561e;
             if (sVar != null) {
-                CardLinkageManager.INSTANCE.pressLinkage(sVar, this.f4528g, false);
+                CardLinkageManager.INSTANCE.pressLinkage(sVar, this.f4563g, false);
             } else {
-                ViewGroup viewGroup = this.f4527f;
+                ViewGroup viewGroup = this.f4562f;
                 if (viewGroup instanceof s) {
-                    CardLinkageManager.INSTANCE.pressLinkage((s) viewGroup, this.f4528g, false);
+                    CardLinkageManager.INSTANCE.pressLinkage((s) viewGroup, this.f4563g, false);
                 }
             }
         }
@@ -103,15 +103,15 @@ public class ThreadCardView extends FrameLayout {
     }
 
     public void setITypeListView(s sVar) {
-        this.f4526e = sVar;
+        this.f4561e = sVar;
     }
 
     public void setParent(ViewGroup viewGroup) {
-        this.f4527f = viewGroup;
+        this.f4562f = viewGroup;
     }
 
     public void setPosition(int i) {
-        this.f4528g = i;
+        this.f4563g = i;
     }
 
     public ThreadCardView(Context context, AttributeSet attributeSet) {

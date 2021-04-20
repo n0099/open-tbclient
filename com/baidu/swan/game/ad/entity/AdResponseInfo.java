@@ -3,6 +3,7 @@ package com.baidu.swan.game.ad.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -52,7 +53,7 @@ public class AdResponseInfo implements Parcelable {
                 }
             }
             this.mAdsNum = jSONObject.optInt("n", 0);
-            this.mRequestId = jSONObject.optString("req_id");
+            this.mRequestId = jSONObject.optString(IAdRequestParam.REQ_ID);
             this.mErrorCode = jSONObject.optString("error_code", "");
         } catch (Exception unused2) {
             this.mAdInstanceList = new ArrayList<>();

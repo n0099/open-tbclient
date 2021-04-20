@@ -17,9 +17,9 @@ import androidx.transition.TransitionUtils;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ChangeImageTransform extends Transition {
-    public static final String PROPNAME_MATRIX = "android:changeImageTransform:matrix";
     public static final String PROPNAME_BOUNDS = "android:changeImageTransform:bounds";
-    public static final String[] sTransitionProperties = {PROPNAME_MATRIX, PROPNAME_BOUNDS};
+    public static final String PROPNAME_MATRIX = "android:changeImageTransform:matrix";
+    public static final String[] sTransitionProperties = {"android:changeImageTransform:matrix", "android:changeImageTransform:bounds"};
     public static final TypeEvaluator<Matrix> NULL_MATRIX_EVALUATOR = new TypeEvaluator<Matrix>() { // from class: androidx.transition.ChangeImageTransform.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
@@ -71,8 +71,8 @@ public class ChangeImageTransform extends Transition {
                 return;
             }
             Map<String, Object> map = transitionValues.values;
-            map.put(PROPNAME_BOUNDS, new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
-            map.put(PROPNAME_MATRIX, copyImageMatrix(imageView));
+            map.put("android:changeImageTransform:bounds", new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
+            map.put("android:changeImageTransform:matrix", copyImageMatrix(imageView));
         }
     }
 
@@ -133,11 +133,11 @@ public class ChangeImageTransform extends Transition {
     public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         ObjectAnimator createNullAnimator;
         if (transitionValues != null && transitionValues2 != null) {
-            Rect rect = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
-            Rect rect2 = (Rect) transitionValues2.values.get(PROPNAME_BOUNDS);
+            Rect rect = (Rect) transitionValues.values.get("android:changeImageTransform:bounds");
+            Rect rect2 = (Rect) transitionValues2.values.get("android:changeImageTransform:bounds");
             if (rect != null && rect2 != null) {
-                Matrix matrix = (Matrix) transitionValues.values.get(PROPNAME_MATRIX);
-                Matrix matrix2 = (Matrix) transitionValues2.values.get(PROPNAME_MATRIX);
+                Matrix matrix = (Matrix) transitionValues.values.get("android:changeImageTransform:matrix");
+                Matrix matrix2 = (Matrix) transitionValues2.values.get("android:changeImageTransform:matrix");
                 boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
                 if (rect.equals(rect2) && z) {
                     return null;

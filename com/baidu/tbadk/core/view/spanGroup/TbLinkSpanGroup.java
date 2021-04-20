@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.f0.p.a;
 import d.b.h0.r.q.v;
 import org.json.JSONObject;
@@ -106,7 +106,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     @Override // d.b.h0.r.f0.p.a
     public void p(Editable editable) {
         v vVar = this.i;
-        if (vVar != null && vVar.f50898f == 2) {
+        if (vVar != null && vVar.f51305f == 2) {
             if (vVar.l != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("#(commodity,commo_");
@@ -148,7 +148,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("goods_id", this.i.q);
                     jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i);
-                    jSONObject2.put("title", this.i.f50900h);
+                    jSONObject2.put("title", this.i.f51307h);
                     jSONObject2.put("url", this.i.o);
                     StringBuilder sb2 = new StringBuilder();
                     jSONObject.put(AdDebugActivity.KEY_GOODS, jSONObject2);

@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.BufferedReader;
 import java.io.File;
@@ -60,7 +61,7 @@ public class DeviceUtils implements IDevices {
                     RandomAccessFile randomAccessFile2 = null;
                     try {
                         try {
-                            randomAccessFile = new RandomAccessFile(file, r.f7664a);
+                            randomAccessFile = new RandomAccessFile(file, r.f7699a);
                         } catch (Throwable th) {
                             th = th;
                         }
@@ -244,7 +245,7 @@ public class DeviceUtils implements IDevices {
 
         public static String getOsVersion() {
             String str = Build.VERSION.RELEASE;
-            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+            return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
         }
 
         public static int getSDKLevel() {

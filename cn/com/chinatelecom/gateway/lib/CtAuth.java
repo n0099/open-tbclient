@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public final class CtAuth {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1493a = "CtAuth";
+    public static final String f1479a = "CtAuth";
     public static TraceLogger mTraceLogger;
     public static Handler mHandler = new Handler(Looper.getMainLooper());
     public static int mTotalTimeout = 0;
@@ -71,14 +71,14 @@ public final class CtAuth {
                         JSONObject jSONObject = new JSONObject(str);
                         jSONObject.put("reqId", str2);
                         PreCodeListener.this.onResult(jSONObject.toString());
-                        String str3 = CtAuth.f1493a;
+                        String str3 = CtAuth.f1479a;
                         StringBuilder sb = new StringBuilder();
                         sb.append("callback result : ");
                         sb.append(jSONObject.toString());
                         CtAuth.info(str3, sb.toString());
                     } catch (Exception unused) {
                         PreCodeListener.this.onResult(str);
-                        String str4 = CtAuth.f1493a;
+                        String str4 = CtAuth.f1479a;
                         CtAuth.info(str4, "Exception callback result : " + str);
                     }
                     CtAuth.mTraceLogger = null;
@@ -89,13 +89,13 @@ public final class CtAuth {
     }
 
     public static void requestPreAuth(Context context, String str, String str2, PreCodeListener preCodeListener) {
-        String str3 = f1493a;
+        String str3 = f1479a;
         info(str3, "called requestPreAuth()   appId：" + str + ",appSecret:" + str2);
         a(context, str, str2, "mhqh", preCodeListener);
     }
 
     public static void requestPreAuthCode(Context context, String str, String str2, PreCodeListener preCodeListener) {
-        String str3 = f1493a;
+        String str3 = f1479a;
         info(str3, "called requestPreAuthCode()   appId：" + str + ",appSecret:" + str2);
         a(context, str, str2, "qhx", preCodeListener);
     }

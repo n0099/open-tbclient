@@ -1,7 +1,6 @@
 package okhttp3;
 
 import com.alipay.sdk.encrypt.a;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -294,7 +293,7 @@ public final class Cookie {
 
     public int hashCode() {
         long j = this.expiresAt;
-        return ((((((((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.name.hashCode()) * 31) + this.value.hashCode()) * 31) + this.domain.hashCode()) * 31) + this.path.hashCode()) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (!this.secure ? 1 : 0)) * 31) + (!this.httpOnly ? 1 : 0)) * 31) + (!this.persistent ? 1 : 0)) * 31) + (!this.hostOnly ? 1 : 0);
+        return ((((((((((((((((527 + this.name.hashCode()) * 31) + this.value.hashCode()) * 31) + this.domain.hashCode()) * 31) + this.path.hashCode()) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (!this.secure ? 1 : 0)) * 31) + (!this.httpOnly ? 1 : 0)) * 31) + (!this.persistent ? 1 : 0)) * 31) + (!this.hostOnly ? 1 : 0);
     }
 
     public boolean hostOnly() {
@@ -358,8 +357,8 @@ public final class Cookie {
         int length = str.length();
         char c2 = ';';
         int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-        char c3 = a.f1897h;
-        int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1897h);
+        char c3 = a.f1922h;
+        int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1922h);
         if (delimiterOffset2 == delimiterOffset) {
             return null;
         }
@@ -405,12 +404,12 @@ public final class Cookie {
                 }
                 i = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f1897h;
+                c3 = a.f1922h;
             }
             z4 = true;
             i = delimiterOffset3 + 1;
             c2 = ';';
-            c3 = a.f1897h;
+            c3 = a.f1922h;
         }
         long j5 = Long.MIN_VALUE;
         if (j3 != Long.MIN_VALUE) {
@@ -461,7 +460,7 @@ public final class Cookie {
     public String toString(boolean z) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.name);
-        sb.append(a.f1897h);
+        sb.append(a.f1922h);
         sb.append(this.value);
         if (this.persistent) {
             if (this.expiresAt == Long.MIN_VALUE) {

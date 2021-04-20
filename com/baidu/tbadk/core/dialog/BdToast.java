@@ -10,8 +10,8 @@ import android.widget.Toast;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.b.e.p.u;
+import d.b.c.e.p.l;
+import d.b.c.e.p.u;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
@@ -21,28 +21,28 @@ public class BdToast {
     public static HashMap<DefaultIcon, Integer> o;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f13225a;
+    public final Context f12886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Toast f13226b;
+    public Toast f12887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f13227c;
+    public final ViewGroup f12888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ImageView f13228d;
+    public final ImageView f12889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f13229e;
+    public final TextView f12890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f13230f;
+    public CharSequence f12891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13231g = -1;
+    public int f12892g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13232h = false;
+    public boolean f12893h = false;
     public int i = 16;
     public int j = 0;
     public int k = 0;
@@ -65,11 +65,11 @@ public class BdToast {
     }
 
     public BdToast(Context context) {
-        this.f13225a = context;
+        this.f12886a = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_bdtoast, (ViewGroup) null);
-        this.f13227c = viewGroup;
-        this.f13228d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
-        this.f13229e = (TextView) this.f13227c.findViewById(R.id.toast_message);
+        this.f12888c = viewGroup;
+        this.f12889d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
+        this.f12890e = (TextView) this.f12888c.findViewById(R.id.toast_message);
     }
 
     public static BdToast c(Context context, CharSequence charSequence) {
@@ -132,51 +132,51 @@ public class BdToast {
     }
 
     public BdToast a() {
-        Toast toast = new Toast(this.f13225a);
-        this.f13226b = toast;
+        Toast toast = new Toast(this.f12886a);
+        this.f12887b = toast;
         u.a(toast);
         s();
-        int i = this.f13231g;
+        int i = this.f12892g;
         if (i != -1) {
-            if (this.f13232h) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f13228d, this.f13231g, R.color.CAM_X0101, null);
+            if (this.f12893h) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12889d, this.f12892g, R.color.CAM_X0101, null);
             } else {
-                SkinManager.setImageResource(this.f13228d, i);
+                SkinManager.setImageResource(this.f12889d, i);
             }
-            this.f13228d.setVisibility(0);
+            this.f12889d.setVisibility(0);
         } else {
-            this.f13228d.setVisibility(8);
+            this.f12889d.setVisibility(8);
         }
-        this.f13227c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(this.f13225a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-        SkinManager.setViewTextColor(this.f13229e, R.color.CAM_X0101, 1);
-        this.f13229e.setText(this.f13230f);
-        this.f13226b.setGravity(this.i, this.k, this.l);
-        this.f13226b.setDuration(this.j);
+        this.f12888c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(this.f12886a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+        SkinManager.setViewTextColor(this.f12890e, R.color.CAM_X0101, 1);
+        this.f12890e.setText(this.f12891f);
+        this.f12887b.setGravity(this.i, this.k, this.l);
+        this.f12887b.setDuration(this.j);
         r(this.m);
-        this.f13226b.setView(this.f13227c);
+        this.f12887b.setView(this.f12888c);
         return this;
     }
 
     public BdToast b(int i) {
-        this.f13226b = new Toast(this.f13225a);
+        this.f12887b = new Toast(this.f12886a);
         s();
-        int i2 = this.f13231g;
+        int i2 = this.f12892g;
         if (i2 != -1) {
-            if (this.f13232h) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f13228d, this.f13231g, R.color.CAM_X0101, null);
+            if (this.f12893h) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12889d, this.f12892g, R.color.CAM_X0101, null);
             } else {
-                SkinManager.setImageResource(this.f13228d, i2);
+                SkinManager.setImageResource(this.f12889d, i2);
             }
-            this.f13228d.setVisibility(0);
+            this.f12889d.setVisibility(0);
         } else {
-            this.f13228d.setVisibility(8);
+            this.f12889d.setVisibility(8);
         }
-        SkinManager.setViewTextColor(this.f13229e, R.color.CAM_X0101, 1, i);
-        this.f13229e.setText(this.f13230f);
-        this.f13226b.setGravity(this.i, this.k, this.l);
-        this.f13226b.setDuration(this.j);
+        SkinManager.setViewTextColor(this.f12890e, R.color.CAM_X0101, 1, i);
+        this.f12890e.setText(this.f12891f);
+        this.f12887b.setGravity(this.i, this.k, this.l);
+        this.f12887b.setDuration(this.j);
         r(this.m);
-        this.f13226b.setView(this.f13227c);
+        this.f12887b.setView(this.f12888c);
         return this;
     }
 
@@ -186,7 +186,7 @@ public class BdToast {
     }
 
     public void k(float f2) {
-        this.f13229e.setLineSpacing(0.0f, f2);
+        this.f12890e.setLineSpacing(0.0f, f2);
     }
 
     public BdToast l(int i) {
@@ -195,8 +195,8 @@ public class BdToast {
     }
 
     public BdToast m(int i, boolean z) {
-        this.f13231g = i;
-        this.f13232h = z;
+        this.f12892g = i;
+        this.f12893h = z;
         return this;
     }
 
@@ -209,22 +209,22 @@ public class BdToast {
     }
 
     public BdToast p(CharSequence charSequence) {
-        this.f13230f = charSequence;
-        this.f13229e.setText(charSequence);
+        this.f12891f = charSequence;
+        this.f12890e.setText(charSequence);
         return this;
     }
 
     public BdToast q() {
-        this.f13229e.setText(this.f13230f);
-        this.f13226b.setGravity(this.i, this.k, this.l);
-        this.f13226b.setDuration(this.j);
-        this.f13226b.show();
+        this.f12890e.setText(this.f12891f);
+        this.f12887b.setGravity(this.i, this.k, this.l);
+        this.f12887b.setDuration(this.j);
+        this.f12887b.show();
         return this;
     }
 
     public final void r(int i) {
         if (i > 0) {
-            this.f13227c.setPadding(i, this.f13227c.getTop(), i, this.f13227c.getBottom());
+            this.f12888c.setPadding(i, this.f12888c.getTop(), i, this.f12888c.getBottom());
         }
     }
 
@@ -233,6 +233,6 @@ public class BdToast {
         if (softReference != null && softReference.get() != null) {
             n.get().cancel();
         }
-        n = new SoftReference<>(this.f13226b);
+        n = new SoftReference<>(this.f12887b);
     }
 }

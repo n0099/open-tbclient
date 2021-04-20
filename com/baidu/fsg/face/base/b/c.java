@@ -10,28 +10,28 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5551a = "SdkConfigOptions";
+    public static final String f5586a = "SdkConfigOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5552b = "global-config";
+    public static final String f5587b = "global-config";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5553c = "host_version";
+    public static final String f5588c = "host_version";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5554d = "zip_version";
+    public static final String f5589d = "zip_version";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5555e = "updateFail";
+    public static final String f5590e = "updateFail";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5556f = "distributedSdk";
+    public static final String f5591f = "distributedSdk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5557g = "files";
+    public static final String f5592g = "files";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5558h = "list";
+    public static final String f5593h = "list";
     public static final String i = "cpu";
     public static final String j = "extra_params";
     public static final String k = "extra_global_enable";
@@ -55,7 +55,7 @@ public class c {
         c cVar = new c();
         cVar.q = jSONObject.optBoolean(k, true);
         try {
-            cVar.n = jSONObject.optString(f5554d);
+            cVar.n = jSONObject.optString(f5589d);
             cVar.r = jSONObject.optBoolean(l, true);
             cVar.s = jSONObject.optInt("gray");
             jSONArray = jSONObject.getJSONArray("list");
@@ -88,40 +88,40 @@ public class c {
     public static class a {
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f5559d = "name";
+        public static final String f5594d = "name";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f5560e = "url";
+        public static final String f5595e = "url";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f5561f = "hash";
+        public static final String f5596f = "hash";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5562a = null;
+        public String f5597a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5563b = null;
+        public String f5598b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5564c = null;
+        public String f5599c = null;
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject == null) {
                 return aVar;
             }
-            aVar.f5562a = jSONObject.optString("name");
-            aVar.f5563b = jSONObject.optString("url");
-            aVar.f5564c = jSONObject.optString("hash");
+            aVar.f5597a = jSONObject.optString("name");
+            aVar.f5598b = jSONObject.optString("url");
+            aVar.f5599c = jSONObject.optString("hash");
             return aVar;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f5562a);
-                jSONObject.put("url", this.f5563b);
-                jSONObject.put("hash", this.f5564c);
+                jSONObject.put("name", this.f5597a);
+                jSONObject.put("url", this.f5598b);
+                jSONObject.put("hash", this.f5599c);
                 return jSONObject;
             } catch (JSONException e2) {
                 com.baidu.fsg.face.base.d.d.a(e2);
@@ -132,24 +132,24 @@ public class c {
 
     public static c a(JSONObject jSONObject) {
         c cVar = new c();
-        cVar.n = jSONObject.optString(f5554d);
-        cVar.p = jSONObject.optBoolean(f5555e);
+        cVar.n = jSONObject.optString(f5589d);
+        cVar.p = jSONObject.optBoolean(f5590e);
         cVar.q = jSONObject.optBoolean(k);
         cVar.r = jSONObject.optBoolean(l);
         cVar.s = jSONObject.optInt("gray");
-        cVar.o = a.a(jSONObject.optJSONObject(f5556f));
+        cVar.o = a.a(jSONObject.optJSONObject(f5591f));
         return cVar;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f5554d, this.n);
-            jSONObject.put(f5555e, this.p);
+            jSONObject.put(f5589d, this.n);
+            jSONObject.put(f5590e, this.p);
             jSONObject.put(k, this.q);
             jSONObject.put(l, this.r);
             jSONObject.put("gray", this.s);
-            jSONObject.put(f5556f, this.o == null ? "" : this.o.a());
+            jSONObject.put(f5591f, this.o == null ? "" : this.o.a());
             return jSONObject;
         } catch (JSONException unused) {
             return null;

@@ -13,48 +13,48 @@ import tbclient.FloatStrategy;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49600a;
+    public boolean f49992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49601b;
+    public boolean f49993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49602c;
+    public boolean f49994c;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Integer f49603a;
+        public Integer f49995a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49604b;
+        public String f49996b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f49605c;
+        public Integer f49997c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Long f49606d;
+        public Long f49998d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Long f49607e;
+        public Long f49999e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Integer f49608f;
+        public Integer f50000f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f49609g;
+        public String f50001g;
     }
 
     /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final n f49610a = new n();
+        public static final n f50002a = new n();
     }
 
     public static n b() {
-        return c.f49610a;
+        return c.f50002a;
     }
 
     public final void a(b bVar, boolean z) {
@@ -62,26 +62,26 @@ public class n {
             return;
         }
         try {
-            if (this.f49600a) {
-                boolean g2 = d.b.h0.r.d0.b.i().g("pref_key_task_first_open", true);
-                int j = d.b.h0.r.d0.b.i().j("pref_key_float_tip_num", 0);
-                long k = d.b.h0.r.d0.b.i().k("pref_key_new_task_complete_time", 0L);
+            if (this.f49992a) {
+                boolean g2 = d.b.h0.r.d0.b.j().g("pref_key_task_first_open", true);
+                int k = d.b.h0.r.d0.b.j().k("pref_key_float_tip_num", 0);
+                long l = d.b.h0.r.d0.b.j().l("pref_key_new_task_complete_time", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (g2) {
                     if (e(bVar)) {
-                        this.f49602c = true;
-                        d.b.h0.r.d0.b.i().s("pref_key_task_first_open", false);
+                        this.f49994c = true;
+                        d.b.h0.r.d0.b.j().t("pref_key_task_first_open", false);
                     }
-                } else if (d(bVar, currentTimeMillis / 1000, k / 1000)) {
+                } else if (d(bVar, currentTimeMillis / 1000, l / 1000)) {
                     if (z) {
                         if (e(bVar)) {
-                            this.f49602c = true;
-                            d.b.h0.r.d0.b.i().u("pref_key_float_tip_num", 0);
+                            this.f49994c = true;
+                            d.b.h0.r.d0.b.j().v("pref_key_float_tip_num", 0);
                         }
-                    } else if (j >= bVar.f49608f.intValue() || !e(bVar)) {
+                    } else if (k >= bVar.f50000f.intValue() || !e(bVar)) {
                     } else {
-                        this.f49602c = true;
-                        d.b.h0.r.d0.b.i().u("pref_key_float_tip_num", j + 1);
+                        this.f49994c = true;
+                        d.b.h0.r.d0.b.j().v("pref_key_float_tip_num", k + 1);
                     }
                 }
             }
@@ -99,8 +99,8 @@ public class n {
 
     public final boolean d(b bVar, long j, long j2) {
         boolean z;
-        if (bVar != null && j2 > 0 && !TextUtils.isEmpty(bVar.f49604b) && bVar.f49606d.longValue() < bVar.f49607e.longValue() && j >= bVar.f49606d.longValue() && j <= bVar.f49607e.longValue() && bVar.f49608f.intValue() > 0 && bVar.f49603a.intValue() >= 0 && j > j2) {
-            String[] split = bVar.f49604b.split(",");
+        if (bVar != null && j2 > 0 && !TextUtils.isEmpty(bVar.f49996b) && bVar.f49998d.longValue() < bVar.f49999e.longValue() && j >= bVar.f49998d.longValue() && j <= bVar.f49999e.longValue() && bVar.f50000f.intValue() > 0 && bVar.f49995a.intValue() >= 0 && j > j2) {
+            String[] split = bVar.f49996b.split(",");
             if (split != null && split.length > 0) {
                 for (String str : split) {
                     if ("3".equals(str)) {
@@ -113,7 +113,7 @@ public class n {
             if (!z) {
                 return false;
             }
-            long intValue = bVar.f49603a.intValue() * 86400;
+            long intValue = bVar.f49995a.intValue() * 86400;
             long j3 = j - j2;
             if (j3 > intValue && j3 < intValue + 86400) {
                 return true;
@@ -131,17 +131,17 @@ public class n {
     }
 
     public final void f(String str) {
-        d.b.h0.r.d0.b.i().w("pref_key_strategy_json", str);
-        d.b.h0.r.d0.b.i().u("pref_key_float_tip_num", 0);
+        d.b.h0.r.d0.b.j().x("pref_key_strategy_json", str);
+        d.b.h0.r.d0.b.j().v("pref_key_float_tip_num", 0);
     }
 
     public void g() {
-        d.b.h0.r.d0.b.i().v("pref_key_new_task_complete_time", System.currentTimeMillis());
+        d.b.h0.r.d0.b.j().w("pref_key_new_task_complete_time", System.currentTimeMillis());
     }
 
     public void h(d.b.h0.a.b bVar) {
         if (bVar != null && c(bVar)) {
-            d.b.h0.r.d0.b.i().v("pref_key_new_task_complete_time", System.currentTimeMillis());
+            d.b.h0.r.d0.b.j().w("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -161,13 +161,13 @@ public class n {
             FloatStrategy next = it.next();
             if (currentTimeMillis > next.show_time_begin.longValue() && currentTimeMillis < next.show_time_end.longValue()) {
                 bVar2 = new b();
-                bVar2.f49604b = next.browsetimepage;
-                bVar2.f49605c = next.duration;
-                bVar2.f49608f = next.show_num;
-                bVar2.f49606d = next.show_time_begin;
-                bVar2.f49607e = next.show_time_end;
-                bVar2.f49609g = next.toast;
-                bVar2.f49603a = next.un_do_mission;
+                bVar2.f49996b = next.browsetimepage;
+                bVar2.f49997c = next.duration;
+                bVar2.f50000f = next.show_num;
+                bVar2.f49998d = next.show_time_begin;
+                bVar2.f49999e = next.show_time_end;
+                bVar2.f50001g = next.toast;
+                bVar2.f49995a = next.un_do_mission;
                 break;
             }
         }
@@ -177,19 +177,19 @@ public class n {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("un_do_mission", bVar2.f49603a.intValue());
-            jSONObject.put("browsetimepage", bVar2.f49604b);
-            jSONObject.put("duration", bVar2.f49605c.intValue());
-            jSONObject.put("show_time_begin", bVar2.f49606d.longValue());
-            jSONObject.put("show_time_end", bVar2.f49607e.longValue());
-            jSONObject.put("show_num", bVar2.f49608f.intValue());
-            jSONObject.put("toast", bVar2.f49609g);
+            jSONObject.put("un_do_mission", bVar2.f49995a.intValue());
+            jSONObject.put("browsetimepage", bVar2.f49996b);
+            jSONObject.put("duration", bVar2.f49997c.intValue());
+            jSONObject.put("show_time_begin", bVar2.f49998d.longValue());
+            jSONObject.put("show_time_end", bVar2.f49999e.longValue());
+            jSONObject.put("show_num", bVar2.f50000f.intValue());
+            jSONObject.put("toast", bVar2.f50001g);
             String jSONObject2 = jSONObject.toString();
             if (TextUtils.isEmpty(jSONObject2)) {
                 f("");
                 return;
             }
-            if (!jSONObject2.equals(d.b.h0.r.d0.b.i().o("pref_key_strategy_json", null))) {
+            if (!jSONObject2.equals(d.b.h0.r.d0.b.j().p("pref_key_strategy_json", null))) {
                 f(jSONObject2);
             }
             a(bVar2, true);
@@ -199,24 +199,24 @@ public class n {
     }
 
     public void j(boolean z) {
-        this.f49600a = z;
-        if (z && this.f49601b) {
-            this.f49601b = false;
-            if (!this.f49602c && d.b.h0.a.c.y().t()) {
-                String o = d.b.h0.r.d0.b.i().o("pref_key_strategy_json", null);
-                if (TextUtils.isEmpty(o)) {
+        this.f49992a = z;
+        if (z && this.f49993b) {
+            this.f49993b = false;
+            if (!this.f49994c && d.b.h0.a.c.y().t()) {
+                String p = d.b.h0.r.d0.b.j().p("pref_key_strategy_json", null);
+                if (TextUtils.isEmpty(p)) {
                     return;
                 }
                 try {
-                    JSONObject jSONObject = new JSONObject(o);
+                    JSONObject jSONObject = new JSONObject(p);
                     b bVar = new b();
-                    bVar.f49603a = Integer.valueOf(jSONObject.optInt("un_do_mission", 0));
-                    bVar.f49604b = jSONObject.optString("browsetimepage", "");
-                    bVar.f49605c = Integer.valueOf(jSONObject.optInt("duration", 0));
-                    bVar.f49606d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
-                    bVar.f49607e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
-                    bVar.f49608f = Integer.valueOf(jSONObject.optInt("show_num", 0));
-                    bVar.f49609g = jSONObject.optString("toast", null);
+                    bVar.f49995a = Integer.valueOf(jSONObject.optInt("un_do_mission", 0));
+                    bVar.f49996b = jSONObject.optString("browsetimepage", "");
+                    bVar.f49997c = Integer.valueOf(jSONObject.optInt("duration", 0));
+                    bVar.f49998d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
+                    bVar.f49999e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
+                    bVar.f50000f = Integer.valueOf(jSONObject.optInt("show_num", 0));
+                    bVar.f50001g = jSONObject.optString("toast", null);
                     a(bVar, false);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -226,8 +226,8 @@ public class n {
     }
 
     public n() {
-        this.f49600a = false;
-        this.f49601b = true;
-        this.f49602c = false;
+        this.f49992a = false;
+        this.f49993b = true;
+        this.f49994c = false;
     }
 }

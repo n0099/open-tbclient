@@ -22,19 +22,19 @@ public class c extends d.b.g0.g.i.a {
     public static class b extends EventTargetImpl {
 
         /* renamed from: g  reason: collision with root package name */
-        public static final boolean f48169g = k.f45051a;
+        public static final boolean f48561g = k.f45443a;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.g0.g.i.b f48170e;
+        public d.b.g0.g.i.b f48562e;
         @V8JavascriptField
         public a env;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.b.g0.g.l.e f48171f;
+        public d.b.g0.g.l.e f48563f;
 
         public b(d.b.g0.g.i.b bVar, String str) {
             super(bVar);
-            this.f48170e = bVar;
+            this.f48562e = bVar;
             a aVar = new a();
             this.env = aVar;
             aVar.basePath = str;
@@ -42,20 +42,20 @@ public class c extends d.b.g0.g.i.a {
 
         @JavascriptInterface
         public String getAPIs(int i) {
-            return f48169g ? d.b.g0.a.m1.a.a.n() ? d.b.g0.a.i2.i.d(i, true) : "" : !d.b.g0.a.i2.i.h() ? "" : d.b.g0.a.i2.i.d(i, true);
+            return f48561g ? d.b.g0.a.m1.a.a.n() ? d.b.g0.a.i2.i.d(i, true) : "" : !d.b.g0.a.i2.i.h() ? "" : d.b.g0.a.i2.i.d(i, true);
         }
 
         @JavascriptInterface
         public String getEnvVariables() {
-            return d.b.g0.a.x0.b.b.a(this.f48170e);
+            return d.b.g0.a.x0.b.b.a(this.f48562e);
         }
 
         @JavascriptInterface
         public d.b.g0.g.l.e getFileSystemManager() {
-            if (this.f48171f == null) {
-                this.f48171f = new d.b.g0.g.l.e((d.b.g0.g.i.a) this.f48170e);
+            if (this.f48563f == null) {
+                this.f48563f = new d.b.g0.g.l.e((d.b.g0.g.i.a) this.f48562e);
             }
-            return this.f48171f;
+            return this.f48563f;
         }
     }
 
@@ -65,8 +65,8 @@ public class c extends d.b.g0.g.i.a {
 
     @Override // d.b.g0.g.i.a
     @NonNull
-    public EventTarget G() {
-        b bVar = new b(this, this.f48161f.getInitBasePath());
+    public EventTarget H() {
+        b bVar = new b(this, this.f48553f.getInitBasePath());
         bVar.env.config = d.b.g0.a.b2.c.a.b();
         return bVar;
     }

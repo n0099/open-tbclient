@@ -11,7 +11,7 @@ import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     public static final String CACHE_KEY_PREFIX = "p_group_info";
     public int commonGroupNum;

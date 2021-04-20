@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.parser.deserializer;
 
+import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
@@ -45,6 +46,7 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
     public final void parseArray(DefaultJSONParser defaultJSONParser, Type type, Collection collection) {
         Class cls;
         int i;
+        Type intern;
         int i2;
         Type type2 = this.itemType;
         ObjectDeserializer objectDeserializer = this.deserializer;
@@ -66,10 +68,11 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
                 }
                 i2 = -1;
                 if (i2 != -1) {
-                    type2 = parameterizedType.getActualTypeArguments()[i2];
-                    if (!type2.equals(this.itemType)) {
-                        objectDeserializer = defaultJSONParser.getConfig().getDeserializer(type2);
+                    intern = parameterizedType.getActualTypeArguments()[i2];
+                    if (!intern.equals(this.itemType)) {
+                        objectDeserializer = defaultJSONParser.getConfig().getDeserializer(intern);
                     }
+                    type2 = intern;
                 }
             } else if (type2 instanceof ParameterizedType) {
                 ParameterizedType parameterizedType2 = (ParameterizedType) type2;
@@ -91,8 +94,29 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
                     i = -1;
                     if (i != -1) {
                         actualTypeArguments[0] = parameterizedType3.getActualTypeArguments()[i];
-                        type2 = new ParameterizedTypeImpl(actualTypeArguments, parameterizedType2.getOwnerType(), parameterizedType2.getRawType());
+                        intern = TypeReference.intern(new ParameterizedTypeImpl(actualTypeArguments, parameterizedType2.getOwnerType(), parameterizedType2.getRawType()));
+                        type2 = intern;
                     }
+                }
+            }
+        } else if ((type2 instanceof TypeVariable) && (type instanceof Class)) {
+            Class cls2 = (Class) type;
+            TypeVariable typeVariable3 = (TypeVariable) type2;
+            cls2.getTypeParameters();
+            int length3 = cls2.getTypeParameters().length;
+            int i4 = 0;
+            while (true) {
+                if (i4 >= length3) {
+                    break;
+                }
+                TypeVariable typeVariable4 = cls2.getTypeParameters()[i4];
+                if (typeVariable4.getName().equals(typeVariable3.getName())) {
+                    Type[] bounds = typeVariable4.getBounds();
+                    if (bounds.length == 1) {
+                        type2 = bounds[0];
+                    }
+                } else {
+                    i4++;
                 }
             }
         }
@@ -136,20 +160,24 @@ public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
     public void parseField(DefaultJSONParser defaultJSONParser, Object obj, Type type, Map<String, Object> map) {
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         int i = jSONLexer.token();
-        if (i != 8 && (i != 4 || jSONLexer.stringVal().length() != 0)) {
-            Collection arrayList = new ArrayList();
-            ParseContext context = defaultJSONParser.getContext();
-            defaultJSONParser.setContext(context, obj, this.fieldInfo.name);
-            parseArray(defaultJSONParser, type, arrayList);
-            defaultJSONParser.setContext(context);
+        if (i == 8 || (i == 4 && jSONLexer.stringVal().length() == 0)) {
             if (obj == null) {
-                map.put(this.fieldInfo.name, arrayList);
+                map.put(this.fieldInfo.name, null);
                 return;
             } else {
-                setValue(obj, arrayList);
+                setValue(obj, (String) null);
                 return;
             }
         }
-        setValue(obj, (String) null);
+        Collection arrayList = new ArrayList();
+        ParseContext context = defaultJSONParser.getContext();
+        defaultJSONParser.setContext(context, obj, this.fieldInfo.name);
+        parseArray(defaultJSONParser, type, arrayList);
+        defaultJSONParser.setContext(context);
+        if (obj == null) {
+            map.put(this.fieldInfo.name, arrayList);
+        } else {
+            setValue(obj, arrayList);
+        }
     }
 }

@@ -21,7 +21,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractDraweeController<T, INFO> implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
     public static final Class<?> TAG = AbstractDraweeController.class;
     public Object mCallerContext;
@@ -56,7 +56,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
     public final DraweeEventTracker mEventTracker = DraweeEventTracker.newInstance();
     public boolean mJustConstructed = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class InternalForwardingListener<INFO> extends ForwardingControllerListener<INFO> {
         public static <INFO> InternalForwardingListener<INFO> createInternal(ControllerListener<? super INFO> controllerListener, ControllerListener<? super INFO> controllerListener2) {
             if (FrescoSystrace.isTracing()) {

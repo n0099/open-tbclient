@@ -6,52 +6,52 @@ import android.view.animation.Interpolator;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f9423a = {0.0f, 0.0f};
+    public float[] f8981a = {0.0f, 0.0f};
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9424b = -1;
+    public long f8982b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f9425c = 250;
+    public long f8983c = 250;
 
     /* renamed from: d  reason: collision with root package name */
-    public Interpolator f9426d = new DecelerateInterpolator();
+    public Interpolator f8984d = new DecelerateInterpolator();
 
     /* renamed from: e  reason: collision with root package name */
-    public EnumC0115a f9427e = EnumC0115a.None;
+    public EnumC0114a f8985e = EnumC0114a.None;
 
     /* renamed from: com.baidu.pano.platform.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public enum EnumC0115a {
+    public enum EnumC0114a {
         None,
         Running
     }
 
     public float a() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f9424b == -1) {
-            this.f9424b = currentTimeMillis;
+        if (this.f8982b == -1) {
+            this.f8982b = currentTimeMillis;
         }
         float f2 = 1.0f;
-        float f3 = (((float) (currentTimeMillis - this.f9424b)) * 1.0f) / ((float) this.f9425c);
+        float f3 = (((float) (currentTimeMillis - this.f8982b)) * 1.0f) / ((float) this.f8983c);
         if (f3 < 0.0f) {
-            this.f9427e = EnumC0115a.None;
+            this.f8985e = EnumC0114a.None;
             f2 = 0.0f;
         } else if (f3 > 1.0f) {
-            this.f9427e = EnumC0115a.None;
+            this.f8985e = EnumC0114a.None;
         } else {
-            f2 = this.f9426d.getInterpolation(f3);
-            this.f9427e = EnumC0115a.Running;
+            f2 = this.f8984d.getInterpolation(f3);
+            this.f8985e = EnumC0114a.Running;
         }
-        float[] fArr = this.f9423a;
+        float[] fArr = this.f8981a;
         return fArr[0] + (f2 * fArr[1]);
     }
 
     public void a(float f2, float f3) {
-        float[] fArr = this.f9423a;
+        float[] fArr = this.f8981a;
         fArr[0] = f2;
         fArr[1] = f3 - f2;
-        this.f9424b = -1L;
-        this.f9427e = EnumC0115a.Running;
+        this.f8982b = -1L;
+        this.f8985e = EnumC0114a.Running;
     }
 }

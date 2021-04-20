@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.t.b;
+import f.b.i;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -18,22 +18,22 @@ public final class MaybeEqualSingle$EqualObserver<T> extends AtomicReference<b> 
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         this.parent.done();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         this.parent.error(this, th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         this.value = t;
         this.parent.done();

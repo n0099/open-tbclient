@@ -1,87 +1,28 @@
 package d.b.h0.s.c;
 
-import d.b.i0.c3.n0.f;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51182a;
+    public List<k> f51599a = new ArrayList();
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f51183b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public f.c f51184c;
-
-    /* loaded from: classes3.dex */
-    public static class a extends c {
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f51185b;
-
-        public a(boolean z, String str) {
-            super(z);
-            this.f51185b = str;
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("applist")) == null || optJSONArray.length() == 0) {
+            return;
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends c {
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f51186b;
-
-        public b(boolean z, String str) {
-            super(z);
-            this.f51186b = str;
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+            if (jSONObject2 != null) {
+                k kVar = new k();
+                kVar.a(jSONObject2);
+                this.f51599a.add(kVar);
+            }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f51187a;
-
-        public c(boolean z) {
-            this.f51187a = z;
-        }
-    }
-
-    public j(int i, String str) {
-        this.f51182a = i;
-        this.f51183b = str;
-    }
-
-    public static j a(String str) {
-        return new j(0, str);
-    }
-
-    public static j b() {
-        return new j(2, null);
-    }
-
-    public static j c() {
-        return new j(3, null);
-    }
-
-    public static j d() {
-        return new j(1, null);
-    }
-
-    public String e() {
-        return this.f51183b;
-    }
-
-    public f.c f() {
-        return this.f51184c;
-    }
-
-    public int g() {
-        return this.f51182a;
-    }
-
-    public void h(f.c cVar) {
-        this.f51184c = cVar;
     }
 }

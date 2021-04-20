@@ -12,13 +12,13 @@ import com.bun.miitmdid.utils.sysParamters;
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27121a = "";
+    public String f26806a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f27122b;
+    public Context f26807b;
 
     public a(Context context) {
-        this.f27122b = context;
+        this.f26807b = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -50,7 +50,7 @@ public class a implements InnerIdSupplier {
     }
 
     public void a(String str) {
-        this.f27121a = str;
+        this.f26806a = str;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -60,13 +60,13 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        String b2 = d.b(this.f27122b, this.f27121a);
+        String b2 = d.b(this.f26807b, this.f26806a);
         return TextUtils.isEmpty(b2) ? sysParamters.f() : b2;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        String b2 = d.b(this.f27122b);
+        String b2 = d.b(this.f26807b);
         return b2 == null ? "" : b2;
     }
 
@@ -77,13 +77,13 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        String a2 = d.a(this.f27122b, this.f27121a);
+        String a2 = d.a(this.f26807b, this.f26806a);
         return a2 == null ? "" : a2;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        return d.a(this.f27122b);
+        return d.a(this.f26807b);
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier

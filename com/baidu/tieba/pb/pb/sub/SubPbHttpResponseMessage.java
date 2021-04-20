@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.c2.h.q;
+import d.b.i0.d2.h.q;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public q pbFloorData;
     public boolean treatDelPage;

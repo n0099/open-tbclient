@@ -1,17 +1,17 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.a0.a;
-import f.a.t.b;
-import f.a.w.f;
+import f.b.a0.a;
+import f.b.t.b;
+import f.b.w.f;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class CompletableCreate$Emitter extends AtomicReference<b> implements Object {
     public static final long serialVersionUID = -2467358622224974244L;
-    public final f.a.b actual;
+    public final f.b.b actual;
 
-    public CompletableCreate$Emitter(f.a.b bVar) {
+    public CompletableCreate$Emitter(f.b.b bVar) {
         this.actual = bVar;
     }
 

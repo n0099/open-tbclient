@@ -7,36 +7,36 @@ import org.json.JSONObject;
 public final class MapPoi {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6897d = "MapPoi";
+    public static final String f6932d = "MapPoi";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6898a;
+    public String f6933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f6899b;
+    public LatLng f6934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6900c;
+    public String f6935c;
 
     public void a(JSONObject jSONObject) {
         String optString = jSONObject.optString("tx");
-        this.f6898a = optString;
+        this.f6933a = optString;
         if (optString != null && !optString.equals("")) {
-            this.f6898a = this.f6898a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
+            this.f6933a = this.f6933a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
         }
-        this.f6899b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-        this.f6900c = jSONObject.optString("ud");
+        this.f6934b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
+        this.f6935c = jSONObject.optString("ud");
     }
 
     public String getName() {
-        return this.f6898a;
+        return this.f6933a;
     }
 
     public LatLng getPosition() {
-        return this.f6899b;
+        return this.f6934b;
     }
 
     public String getUid() {
-        return this.f6900c;
+        return this.f6935c;
     }
 }

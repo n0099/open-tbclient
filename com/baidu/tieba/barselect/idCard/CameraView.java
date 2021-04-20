@@ -23,16 +23,16 @@ import java.io.IOException;
 public class CameraView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f15158e;
+    public b f14821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f15159f;
+    public d f14822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f15160g;
+    public View f14823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskView f15161h;
+    public MaskView f14824h;
     public ImageView i;
     public TextView j;
     public LinearLayout k;
@@ -41,26 +41,26 @@ public class CameraView extends FrameLayout {
     public class b implements d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f15162a;
+        public File f14825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f15163b;
+        public c f14826b;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f15165e;
+            public final /* synthetic */ byte[] f14828e;
 
             public a(byte[] bArr) {
-                this.f15165e = bArr;
+                this.f14828e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                int c2 = d.b.i0.v.e.c.c(this.f15165e);
+                int c2 = d.b.i0.v.e.c.c(this.f14828e);
                 b bVar = b.this;
-                b.this.f15163b.a(CameraView.this.b(bVar.f15162a, this.f15165e, c2));
+                b.this.f14826b.a(CameraView.this.b(bVar.f14825a, this.f14828e, c2));
             }
         }
 
@@ -80,23 +80,23 @@ public class CameraView extends FrameLayout {
 
     public CameraView(Context context) {
         super(context);
-        this.f15158e = new b();
+        this.f14821e = new b();
         new Handler(Looper.getMainLooper());
         d();
     }
 
     public final Bitmap b(File file, byte[] bArr, int i) {
         try {
-            Rect i2 = this.f15159f.i();
-            if (this.f15161h.getWidth() != 0 && this.f15161h.getHeight() != 0 && i2.width() != 0 && i2.height() != 0) {
+            Rect i2 = this.f14822f.i();
+            if (this.f14824h.getWidth() != 0 && this.f14824h.getHeight() != 0 && i2.width() != 0 && i2.height() != 0) {
                 BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, true);
                 int width = i % 180 == 0 ? newInstance.getWidth() : newInstance.getHeight();
                 int height = i % 180 == 0 ? newInstance.getHeight() : newInstance.getWidth();
-                Rect frameRect = this.f15161h.getFrameRect();
-                int width2 = (frameRect.left * width) / this.f15161h.getWidth();
-                int height2 = (frameRect.top * height) / this.f15161h.getHeight();
-                int width3 = (frameRect.right * width) / this.f15161h.getWidth();
-                int height3 = (frameRect.bottom * height) / this.f15161h.getHeight();
+                Rect frameRect = this.f14824h.getFrameRect();
+                int width2 = (frameRect.left * width) / this.f14824h.getWidth();
+                int height2 = (frameRect.top * height) / this.f14824h.getHeight();
+                int width3 = (frameRect.right * width) / this.f14824h.getWidth();
+                int height3 = (frameRect.bottom * height) / this.f14824h.getHeight();
                 if (i2.top < 0) {
                     int height4 = (i2.height() * getWidth()) / i2.width();
                     int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / i2.width();
@@ -105,8 +105,8 @@ public class CameraView extends FrameLayout {
                     height2 = height6;
                 } else if (i2.left < 0) {
                     int width4 = (i2.width() * getHeight()) / i2.height();
-                    int width5 = (((width4 - this.f15161h.getFrameRect().width()) / 2) * getHeight()) / i2.height();
-                    int width6 = (((width4 + this.f15161h.getFrameRect().width()) / 2) * getHeight()) / i2.height();
+                    int width5 = (((width4 - this.f14824h.getFrameRect().width()) / 2) * getHeight()) / i2.height();
+                    int width6 = (((width4 + this.f14824h.getFrameRect().width()) / 2) * getHeight()) / i2.height();
                     width2 = (width5 * width) / i2.width();
                     width3 = (width6 * width) / i2.width();
                 }
@@ -197,12 +197,12 @@ public class CameraView extends FrameLayout {
 
     public final void d() {
         d.b.i0.v.c.b bVar = new d.b.i0.v.c.b(getContext());
-        this.f15159f = bVar;
+        this.f14822f = bVar;
         View d2 = bVar.d();
-        this.f15160g = d2;
+        this.f14823g = d2;
         addView(d2);
         MaskView maskView = new MaskView(getContext());
-        this.f15161h = maskView;
+        this.f14824h = maskView;
         addView(maskView);
         ImageView imageView = new ImageView(getContext());
         this.i = imageView;
@@ -226,34 +226,34 @@ public class CameraView extends FrameLayout {
     }
 
     public void e() {
-        this.f15159f.start();
+        this.f14822f.start();
         setKeepScreenOn(true);
     }
 
     public void f() {
-        this.f15159f.stop();
+        this.f14822f.stop();
         setKeepScreenOn(false);
     }
 
     public void g(File file, c cVar) {
-        this.f15158e.f15162a = file;
-        this.f15158e.f15163b = cVar;
-        this.f15159f.e(this.f15158e);
+        this.f14821e.f14825a = file;
+        this.f14821e.f14826b = cVar;
+        this.f14822f.e(this.f14821e);
     }
 
     public d getCameraControl() {
-        return this.f15159f;
+        return this.f14822f;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5 = i4 - i2;
-        this.f15160g.layout(i, 0, i3, i5);
-        this.f15161h.layout(i, 0, i3, i5);
+        this.f14823g.layout(i, 0, i3, i5);
+        this.f14824h.layout(i, 0, i3, i5);
         int a2 = d.b.i0.v.e.b.a(250);
         int a3 = d.b.i0.v.e.b.a(25);
         int width = (getWidth() - a2) / 2;
-        int a4 = this.f15161h.getFrameRect().bottom + d.b.i0.v.e.b.a(16);
+        int a4 = this.f14824h.getFrameRect().bottom + d.b.i0.v.e.b.a(16);
         int i6 = a2 + width;
         int i7 = a3 + a4;
         this.k.layout(width, a4, i6, i7);
@@ -267,15 +267,15 @@ public class CameraView extends FrameLayout {
     }
 
     public void setMaskType(int i, Context context) {
-        this.f15161h.setMaskType(i);
+        this.f14824h.setMaskType(i);
         boolean z = false;
-        this.f15161h.setVisibility(0);
+        this.f14824h.setVisibility(0);
         this.i.setVisibility(0);
         int i2 = R.drawable.bd_ocr_hint_align_id_card;
         if (i == 1) {
             i2 = R.drawable.bd_ocr_round_corner;
         } else if (i != 2) {
-            this.f15161h.setVisibility(4);
+            this.f14824h.setVisibility(4);
             this.i.setVisibility(4);
             z = true;
         } else {
@@ -288,19 +288,19 @@ public class CameraView extends FrameLayout {
     }
 
     public void setOrientation(int i) {
-        this.f15159f.f(i);
+        this.f14822f.f(i);
     }
 
     public CameraView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15158e = new b();
+        this.f14821e = new b();
         new Handler(Looper.getMainLooper());
         d();
     }
 
     public CameraView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15158e = new b();
+        this.f14821e = new b();
         new Handler(Looper.getMainLooper());
         d();
     }

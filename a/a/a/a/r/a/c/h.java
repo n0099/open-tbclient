@@ -1,58 +1,18 @@
 package a.a.a.a.r.a.c;
 
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import android.view.View;
 /* loaded from: classes.dex */
-public class h implements TTNativeExpressAd.ExpressVideoAdListener {
+public class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f1121a;
+    public final /* synthetic */ g f1175a;
 
-    public h(f fVar) {
-        this.f1121a = fVar;
+    public h(g gVar) {
+        this.f1175a = gVar;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onClickRetry() {
-        a.a.a.a.v.d.a();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onProgressUpdate(long j, long j2) {
-        a.a.a.a.v.d.a();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onVideoAdComplete() {
-        a.a.a.a.v.d.a();
-        this.f1121a.f1010g.i();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onVideoAdContinuePlay() {
-        a.a.a.a.v.d.a();
-        this.f1121a.f1010g.l();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onVideoAdPaused() {
-        a.a.a.a.v.d.a();
-        this.f1121a.f1010g.k();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onVideoAdStartPlay() {
-        a.a.a.a.v.d.a();
-        this.f1121a.f1010g.n();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onVideoError(int i, int i2) {
-        a.a.a.a.v.d.b("onVideoError errorCode: " + i + ", extraCode: " + i2, new Object[0]);
-        this.f1121a.f1010g.b(i);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
-    public void onVideoLoad() {
-        a.a.a.a.v.d.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1175a.e();
     }
 }

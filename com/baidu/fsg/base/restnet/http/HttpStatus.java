@@ -1,8 +1,9 @@
 package com.baidu.fsg.base.restnet.http;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.http.response.StatusCodeException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
@@ -45,14 +46,14 @@ public enum HttpStatus {
     UNSUPPORTED_MEDIA_TYPE(415, "Unsupported Media Type"),
     REQUESTED_RANGE_NOT_SATISFIABLE(416, "Requested range not satisfiable"),
     EXPECTATION_FAILED(org.apache.http.HttpStatus.SC_EXPECTATION_FAILED, "Expectation Failed"),
-    I_AM_A_TEAPOT(418, "I'm a teapot"),
+    I_AM_A_TEAPOT(SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG, "I'm a teapot"),
     INSUFFICIENT_SPACE_ON_RESOURCE(org.apache.http.HttpStatus.SC_INSUFFICIENT_SPACE_ON_RESOURCE, "Insufficient Space On Resource"),
     METHOD_FAILURE(org.apache.http.HttpStatus.SC_METHOD_FAILURE, "Method Failure"),
     DESTINATION_LOCKED(421, "Destination Locked"),
     UNPROCESSABLE_ENTITY(org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY, "Unprocessable Entity"),
     LOCKED(org.apache.http.HttpStatus.SC_LOCKED, "Locked"),
     FAILED_DEPENDENCY(org.apache.http.HttpStatus.SC_FAILED_DEPENDENCY, "Failed Dependency"),
-    UPGRADE_REQUIRED(426, "Upgrade Required"),
+    UPGRADE_REQUIRED(SDKLogTypeConstants.TYPE_SHOUBAI_APO_INFO, "Upgrade Required"),
     PRECONDITION_REQUIRED(428, "Precondition Required"),
     TOO_MANY_REQUESTS(StatusCodeException.IGNORE_429_CODE, "Too Many Requests"),
     REQUEST_HEADER_FIELDS_TOO_LARGE(431, "Request Header Fields Too Large"),
@@ -72,7 +73,7 @@ public enum HttpStatus {
     public final String reasonPhrase;
     public final int value;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),

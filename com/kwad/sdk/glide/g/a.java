@@ -15,31 +15,31 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<byte[]> f35200a = new AtomicReference<>();
+    public static final AtomicReference<byte[]> f35489a = new AtomicReference<>();
 
     /* renamed from: com.kwad.sdk.glide.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0409a extends InputStream {
+    public static class C0423a extends InputStream {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f35201a;
+        public final ByteBuffer f35490a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35202b = -1;
+        public int f35491b = -1;
 
-        public C0409a(@NonNull ByteBuffer byteBuffer) {
-            this.f35201a = byteBuffer;
+        public C0423a(@NonNull ByteBuffer byteBuffer) {
+            this.f35490a = byteBuffer;
         }
 
         @Override // java.io.InputStream
         public int available() {
-            return this.f35201a.remaining();
+            return this.f35490a.remaining();
         }
 
         @Override // java.io.InputStream
         public synchronized void mark(int i) {
-            this.f35202b = this.f35201a.position();
+            this.f35491b = this.f35490a.position();
         }
 
         @Override // java.io.InputStream
@@ -49,17 +49,17 @@ public final class a {
 
         @Override // java.io.InputStream
         public int read() {
-            if (this.f35201a.hasRemaining()) {
-                return this.f35201a.get();
+            if (this.f35490a.hasRemaining()) {
+                return this.f35490a.get();
             }
             return -1;
         }
 
         @Override // java.io.InputStream
         public int read(@NonNull byte[] bArr, int i, int i2) {
-            if (this.f35201a.hasRemaining()) {
+            if (this.f35490a.hasRemaining()) {
                 int min = Math.min(i2, available());
-                this.f35201a.get(bArr, i, min);
+                this.f35490a.get(bArr, i, min);
                 return min;
             }
             return -1;
@@ -67,17 +67,17 @@ public final class a {
 
         @Override // java.io.InputStream
         public synchronized void reset() {
-            if (this.f35202b == -1) {
+            if (this.f35491b == -1) {
                 throw new IOException("Cannot reset to unset mark position");
             }
-            this.f35201a.position(this.f35202b);
+            this.f35490a.position(this.f35491b);
         }
 
         @Override // java.io.InputStream
         public long skip(long j) {
-            if (this.f35201a.hasRemaining()) {
+            if (this.f35490a.hasRemaining()) {
                 long min = Math.min(j, available());
-                ByteBuffer byteBuffer = this.f35201a;
+                ByteBuffer byteBuffer = this.f35490a;
                 byteBuffer.position((int) (byteBuffer.position() + min));
                 return min;
             }
@@ -89,18 +89,18 @@ public final class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f35207a;
+        public final int f35496a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35208b;
+        public final int f35497b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f35209c;
+        public final byte[] f35498c;
 
         public b(@NonNull byte[] bArr, int i, int i2) {
-            this.f35209c = bArr;
-            this.f35207a = i;
-            this.f35208b = i2;
+            this.f35498c = bArr;
+            this.f35496a = i;
+            this.f35497b = i2;
         }
     }
 
@@ -112,7 +112,7 @@ public final class a {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f7664a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7699a);
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
@@ -200,7 +200,7 @@ public final class a {
     @NonNull
     public static byte[] a(@NonNull ByteBuffer byteBuffer) {
         b c2 = c(byteBuffer);
-        if (c2 != null && c2.f35207a == 0 && c2.f35208b == c2.f35209c.length) {
+        if (c2 != null && c2.f35496a == 0 && c2.f35497b == c2.f35498c.length) {
             return byteBuffer.array();
         }
         ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
@@ -212,7 +212,7 @@ public final class a {
 
     @NonNull
     public static InputStream b(@NonNull ByteBuffer byteBuffer) {
-        return new C0409a(byteBuffer);
+        return new C0423a(byteBuffer);
     }
 
     @Nullable

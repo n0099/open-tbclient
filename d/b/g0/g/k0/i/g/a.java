@@ -8,25 +8,25 @@ import d.b.g0.g.k0.i.b.a;
 public class a implements d.b.g0.g.k0.i.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.k0.i.b.b f48309e;
+    public d.b.g0.g.k0.i.b.b f48701e;
 
     /* renamed from: d.b.g0.g.k0.i.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0978a implements Runnable {
+    public class RunnableC0990a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f48310e;
+        public final /* synthetic */ int f48702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.k0.i.b.d f48311f;
+        public final /* synthetic */ d.b.g0.g.k0.i.b.d f48703f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a.b f48312g;
+        public final /* synthetic */ a.b f48704g;
 
-        public RunnableC0978a(int i, d.b.g0.g.k0.i.b.d dVar, a.b bVar) {
-            this.f48310e = i;
-            this.f48311f = dVar;
-            this.f48312g = bVar;
+        public RunnableC0990a(int i, d.b.g0.g.k0.i.b.d dVar, a.b bVar) {
+            this.f48702e = i;
+            this.f48703f = dVar;
+            this.f48704g = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -36,8 +36,8 @@ public class a implements d.b.g0.g.k0.i.b.b {
                 d.b.g0.a.c0.c.b("RecommendButton", "context is null.");
                 return;
             }
-            a.this.f48309e = d.b.g0.g.k0.i.b.a.c(this.f48310e, b2, this.f48311f);
-            a.this.f48309e.o(this.f48312g);
+            a.this.f48701e = d.b.g0.g.k0.i.b.a.c(this.f48702e, b2, this.f48703f);
+            a.this.f48701e.o(this.f48704g);
         }
     }
 
@@ -45,16 +45,16 @@ public class a implements d.b.g0.g.k0.i.b.b {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.k0.i.e.a f48314e;
+        public final /* synthetic */ d.b.g0.g.k0.i.e.a f48706e;
 
         public b(d.b.g0.g.k0.i.e.a aVar) {
-            this.f48314e = aVar;
+            this.f48706e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48309e != null) {
-                a.this.f48309e.h(this.f48314e);
+            if (a.this.f48701e != null) {
+                a.this.f48701e.h(this.f48706e);
             }
         }
     }
@@ -63,16 +63,16 @@ public class a implements d.b.g0.g.k0.i.b.b {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.b f48316e;
+        public final /* synthetic */ a.b f48708e;
 
         public c(a.b bVar) {
-            this.f48316e = bVar;
+            this.f48708e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48309e != null) {
-                a.this.f48309e.o(this.f48316e);
+            if (a.this.f48701e != null) {
+                a.this.f48701e.o(this.f48708e);
             }
         }
     }
@@ -81,16 +81,16 @@ public class a implements d.b.g0.g.k0.i.b.b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48318e;
+        public final /* synthetic */ boolean f48710e;
 
         public d(boolean z) {
-            this.f48318e = z;
+            this.f48710e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48309e != null) {
-                a.this.f48309e.z(this.f48318e);
+            if (a.this.f48701e != null) {
+                a.this.f48701e.z(this.f48710e);
             }
         }
     }
@@ -102,8 +102,8 @@ public class a implements d.b.g0.g.k0.i.b.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48309e != null) {
-                a.this.f48309e.show();
+            if (a.this.f48701e != null) {
+                a.this.f48701e.show();
             }
         }
     }
@@ -115,8 +115,8 @@ public class a implements d.b.g0.g.k0.i.b.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48309e != null) {
-                a.this.f48309e.hide();
+            if (a.this.f48701e != null) {
+                a.this.f48701e.hide();
             }
         }
     }
@@ -128,14 +128,14 @@ public class a implements d.b.g0.g.k0.i.b.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f48309e != null) {
-                a.this.f48309e.destroy();
+            if (a.this.f48701e != null) {
+                a.this.f48701e.destroy();
             }
         }
     }
 
     public a(int i, @NonNull d.b.g0.g.k0.i.b.d dVar, a.b bVar) {
-        k0.X(new RunnableC0978a(i, dVar, bVar));
+        k0.X(new RunnableC0990a(i, dVar, bVar));
     }
 
     @Override // d.b.g0.g.k0.i.a

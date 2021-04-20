@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.h0.r.q.a2;
-import d.b.i0.c3.n0.d;
+import d.b.i0.d3.n0.d;
 import d.b.i0.x.b;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends b<d.b.i0.p0.s1.a.a.b> {
+public class FrsGameStrategyItemView extends b<d.b.i0.q0.s1.a.a.b> {
     public TbPageContext m;
     public View n;
     public TbImageView o;
@@ -28,11 +28,11 @@ public class FrsGameStrategyItemView extends b<d.b.i0.p0.s1.a.a.b> {
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public FrsGameStrategyItemView f16354a;
+        public FrsGameStrategyItemView f16015a;
 
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
             super(frsGameStrategyItemView.m());
-            this.f16354a = frsGameStrategyItemView;
+            this.f16015a = frsGameStrategyItemView;
         }
     }
 
@@ -74,7 +74,7 @@ public class FrsGameStrategyItemView extends b<d.b.i0.p0.s1.a.a.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i0.x.b
     /* renamed from: v */
-    public void n(d.b.i0.p0.s1.a.a.b bVar) {
+    public void n(d.b.i0.q0.s1.a.a.b bVar) {
         if (bVar == null || bVar.g() == null) {
             return;
         }
@@ -89,7 +89,7 @@ public class FrsGameStrategyItemView extends b<d.b.i0.p0.s1.a.a.b> {
         String numberUniformFormat = StringHelper.numberUniformFormat(g2.G1());
         String formatTimeShort = StringHelper.getFormatTimeShort(g2.S());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f62182g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f63757g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (g2.s1() == 40) {

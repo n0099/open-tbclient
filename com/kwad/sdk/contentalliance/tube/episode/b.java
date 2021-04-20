@@ -8,20 +8,20 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<AdTemplate> f33229a;
+    public static List<AdTemplate> f33518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f33230b;
+    public static volatile b f33519b;
 
     public static b a() {
-        if (f33230b == null) {
+        if (f33519b == null) {
             synchronized (b.class) {
-                if (f33230b == null) {
-                    f33230b = new b();
+                if (f33519b == null) {
+                    f33519b = new b();
                 }
             }
         }
-        return f33230b;
+        return f33519b;
     }
 
     public void a(List<AdTemplate> list) {
@@ -30,24 +30,24 @@ public class b {
             return;
         }
         com.kwad.sdk.core.d.a.a("TubeEpisodeCacheManager", "addCacheData() templateList size=" + list.size());
-        if (f33229a == null) {
-            f33229a = new ArrayList();
+        if (f33518a == null) {
+            f33518a = new ArrayList();
         }
-        f33229a.clear();
-        f33229a.addAll(list);
+        f33518a.clear();
+        f33518a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return f33229a;
+        return f33518a;
     }
 
     public void c() {
         com.kwad.sdk.core.d.a.a("TubeEpisodeCacheManager", "clearCacheData()");
-        List<AdTemplate> list = f33229a;
+        List<AdTemplate> list = f33518a;
         if (list != null) {
             list.clear();
         }
-        f33229a = null;
+        f33518a = null;
     }
 }

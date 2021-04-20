@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 public final class a extends f {
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f63806h;
+    public final int f64506h;
     public ByteBuffer j;
     public final UploadDataProvider i = new b();
     public boolean k = false;
@@ -21,10 +21,10 @@ public final class a extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long n() {
-            if (a.this.f63806h == -1) {
+            if (a.this.f64506h == -1) {
                 return a.this.k ? a.this.j.limit() : a.this.j.position();
             }
-            return a.this.f63806h;
+            return a.this.f64506h;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -55,7 +55,7 @@ public final class a extends f {
         }
         if (j >= 0) {
             int i = (int) j;
-            this.f63806h = i;
+            this.f64506h = i;
             this.j = ByteBuffer.allocate(i);
             return;
         }
@@ -74,7 +74,7 @@ public final class a extends f {
     @Override // d.b.j0.b.e.f
     public void s() throws IOException {
         this.k = true;
-        if (this.j.position() >= this.f63806h) {
+        if (this.j.position() >= this.f64506h) {
             this.j.flip();
             return;
         }
@@ -89,10 +89,10 @@ public final class a extends f {
     }
 
     public final void x(int i) throws IOException {
-        if (this.f63806h != -1 && this.j.position() + i > this.f63806h) {
-            throw new ProtocolException("exceeded content-length limit of " + this.f63806h + " bytes");
+        if (this.f64506h != -1 && this.j.position() + i > this.f64506h) {
+            throw new ProtocolException("exceeded content-length limit of " + this.f64506h + " bytes");
         } else if (!this.k) {
-            if (this.f63806h == -1 && this.j.limit() - this.j.position() <= i) {
+            if (this.f64506h == -1 && this.j.limit() - this.j.position() <= i) {
                 ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.j.capacity() * 2, this.j.capacity() + i));
                 this.j.flip();
                 allocate.put(this.j);
@@ -112,7 +112,7 @@ public final class a extends f {
 
     public a(d dVar) {
         if (dVar != null) {
-            this.f63806h = -1;
+            this.f64506h = -1;
             this.j = ByteBuffer.allocate(16384);
             return;
         }

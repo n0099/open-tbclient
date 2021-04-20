@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
 public class as implements ar, InvocationHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[][] f40236a = {new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
+    public static final String[][] f40525a = {new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
 
     /* renamed from: a  reason: collision with other field name */
     public Context f123a;
@@ -20,7 +20,7 @@ public class as implements ar, InvocationHandler {
     public Class f125a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class f40237b = null;
+    public Class f40526b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public Method f127a = null;
@@ -29,19 +29,19 @@ public class as implements ar, InvocationHandler {
     public Method f128b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f40238c = null;
+    public Method f40527c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f40239d = null;
+    public Method f40528d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f40240e = null;
+    public Method f40529e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f40241f = null;
+    public Method f40530f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f40242g = null;
+    public Method f40531g = null;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f126a = new Object();
@@ -65,24 +65,24 @@ public class as implements ar, InvocationHandler {
         public String f130a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40244b;
+        public String f40533b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40245c;
+        public String f40534c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40246d;
+        public String f40535d;
 
         public a() {
             this.f129a = null;
             this.f130a = null;
-            this.f40244b = null;
-            this.f40245c = null;
-            this.f40246d = null;
+            this.f40533b = null;
+            this.f40534c = null;
+            this.f40535d = null;
         }
 
         public boolean a() {
-            if (!TextUtils.isEmpty(this.f130a) || !TextUtils.isEmpty(this.f40244b) || !TextUtils.isEmpty(this.f40245c) || !TextUtils.isEmpty(this.f40246d)) {
+            if (!TextUtils.isEmpty(this.f130a) || !TextUtils.isEmpty(this.f40533b) || !TextUtils.isEmpty(this.f40534c) || !TextUtils.isEmpty(this.f40535d)) {
                 this.f129a = Boolean.TRUE;
             }
             return this.f129a != null;
@@ -144,7 +144,7 @@ public class as implements ar, InvocationHandler {
         Class<?> cls2 = null;
         int i = 0;
         while (true) {
-            String[][] strArr = f40236a;
+            String[][] strArr = f40525a;
             if (i >= strArr.length) {
                 break;
             }
@@ -163,13 +163,13 @@ public class as implements ar, InvocationHandler {
         }
         this.f125a = a2;
         this.f127a = a(a2, "InitSdk", Context.class, cls);
-        this.f40237b = cls;
+        this.f40526b = cls;
         this.f128b = a(cls2, "getUDID", new Class[0]);
-        this.f40238c = a(cls2, "getOAID", new Class[0]);
-        this.f40239d = a(cls2, "getVAID", new Class[0]);
-        this.f40240e = a(cls2, "getAAID", new Class[0]);
-        this.f40241f = a(cls2, "isSupported", new Class[0]);
-        this.f40242g = a(cls2, "shutDown", new Class[0]);
+        this.f40527c = a(cls2, "getOAID", new Class[0]);
+        this.f40528d = a(cls2, "getVAID", new Class[0]);
+        this.f40529e = a(cls2, "getAAID", new Class[0]);
+        this.f40530f = a(cls2, "isSupported", new Class[0]);
+        this.f40531g = a(cls2, "shutDown", new Class[0]);
     }
 
     private void a(String str) {
@@ -211,14 +211,14 @@ public class as implements ar, InvocationHandler {
     private void b(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         long j = -elapsedRealtime;
-        Class cls = this.f40237b;
+        Class cls = this.f40526b;
         if (cls != null) {
             try {
                 ClassLoader classLoader = cls.getClassLoader();
                 if (classLoader == null) {
                     classLoader = context.getClassLoader();
                 }
-                a(this.f127a, this.f125a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f40237b}, this));
+                a(this.f127a, this.f125a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f40526b}, this));
             } catch (Throwable th) {
                 b("call init sdk error:" + th);
             }
@@ -229,7 +229,7 @@ public class as implements ar, InvocationHandler {
     }
 
     public static void b(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m51a("mdid:" + str);
+        com.xiaomi.channel.commonutils.logger.b.m55a("mdid:" + str);
     }
 
     @Override // com.xiaomi.push.ar
@@ -249,12 +249,12 @@ public class as implements ar, InvocationHandler {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo130b() {
+    public String mo134b() {
         a("getOAID");
         if (this.f124a == null) {
             return null;
         }
-        return this.f124a.f40244b;
+        return this.f124a.f40533b;
     }
 
     @Override // com.xiaomi.push.ar
@@ -263,7 +263,7 @@ public class as implements ar, InvocationHandler {
         if (this.f124a == null) {
             return null;
         }
-        return this.f124a.f40245c;
+        return this.f124a.f40534c;
     }
 
     @Override // com.xiaomi.push.ar
@@ -272,7 +272,7 @@ public class as implements ar, InvocationHandler {
         if (this.f124a == null) {
             return null;
         }
-        return this.f124a.f40246d;
+        return this.f124a.f40535d;
     }
 
     @Override // java.lang.reflect.InvocationHandler
@@ -289,11 +289,11 @@ public class as implements ar, InvocationHandler {
                 Object obj2 = objArr[i];
                 if (obj2 != null && !a(obj2)) {
                     aVar.f130a = (String) a(this.f128b, obj2, new Object[0]);
-                    aVar.f40244b = (String) a(this.f40238c, obj2, new Object[0]);
-                    aVar.f40245c = (String) a(this.f40239d, obj2, new Object[0]);
-                    aVar.f40246d = (String) a(this.f40240e, obj2, new Object[0]);
-                    aVar.f129a = (Boolean) a(this.f40241f, obj2, new Object[0]);
-                    a(this.f40242g, obj2, new Object[0]);
+                    aVar.f40533b = (String) a(this.f40527c, obj2, new Object[0]);
+                    aVar.f40534c = (String) a(this.f40528d, obj2, new Object[0]);
+                    aVar.f40535d = (String) a(this.f40529e, obj2, new Object[0]);
+                    aVar.f129a = (Boolean) a(this.f40530f, obj2, new Object[0]);
+                    a(this.f40531g, obj2, new Object[0]);
                     if (aVar.a()) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("has get succ, check duplicate:");

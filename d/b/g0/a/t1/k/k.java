@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.storage.PathType;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k extends a0 {
     public k(d.b.g0.a.t1.j jVar) {
         super(jVar, "/swanAPI/getLocalImgData");
@@ -37,7 +37,7 @@ public class k extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, d.b.g0.a.t1.f.a(2006));
             return false;
         } else {
-            String u = d.b.g0.a.a2.b.u(optString, eVar.f45740f);
+            String u = d.b.g0.a.a2.b.u(optString, eVar.f46132f);
             if (TextUtils.isEmpty(u)) {
                 d.b.g0.a.c0.c.b("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -51,7 +51,7 @@ public class k extends a0 {
                 return true;
             } catch (JSONException e2) {
                 d.b.g0.a.c0.c.b("GetLocalImgDataAction", "getLocalImgData failed");
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     e2.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

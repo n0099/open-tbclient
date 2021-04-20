@@ -162,7 +162,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public d.b.b.e.k.b<TbImageView> getUserIconPool() {
+    public d.b.c.e.k.b<TbImageView> getUserIconPool() {
         return UserIconBox.c(getPageContext().getPageActivity(), 8);
     }
 

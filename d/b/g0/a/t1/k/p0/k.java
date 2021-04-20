@@ -17,107 +17,107 @@ import d.b.g0.a.t1.k.p0.g;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46531a;
+        public final /* synthetic */ String f46923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z0.f f46532b;
+        public final /* synthetic */ d.b.g0.a.z0.f f46924b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.f f46533c;
+        public final /* synthetic */ d.b.g0.a.e0.l.f f46925c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e1.b f46534d;
+        public final /* synthetic */ d.b.g0.a.e1.b f46926d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46535e;
+        public final /* synthetic */ CallbackHandler f46927e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46536f;
+        public final /* synthetic */ UnitedSchemeEntity f46928f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46537g;
+        public final /* synthetic */ Context f46929g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46538h;
+        public final /* synthetic */ String f46930h;
 
         /* renamed from: d.b.g0.a.t1.k.p0.k$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0844a implements b.d {
+        /* loaded from: classes3.dex */
+        public class C0856a implements b.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b.c f46539a;
+            public final /* synthetic */ b.c f46931a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f46540b;
+            public final /* synthetic */ JSONObject f46932b;
 
-            public C0844a(b.c cVar, JSONObject jSONObject) {
-                this.f46539a = cVar;
-                this.f46540b = jSONObject;
+            public C0856a(b.c cVar, JSONObject jSONObject) {
+                this.f46931a = cVar;
+                this.f46932b = jSONObject;
             }
 
             @Override // d.b.g0.a.e0.v.b.d
             public void onReady() {
-                d.b.g0.a.j1.j.e(this.f46539a, a.this.f46531a);
-                d.b.g0.a.p.d.b bVar = this.f46539a.f44304a;
+                d.b.g0.a.j1.j.e(this.f46931a, a.this.f46923a);
+                d.b.g0.a.p.d.b bVar = this.f46931a.f44696a;
                 a aVar = a.this;
-                d.b.g0.a.t1.k.p0.a.d(bVar, aVar.f46534d, aVar.f46531a);
-                d.b.g0.a.j1.j.c(5, a.this.f46531a);
+                d.b.g0.a.t1.k.p0.a.d(bVar, aVar.f46926d, aVar.f46923a);
+                d.b.g0.a.j1.j.c(5, a.this.f46923a);
                 a aVar2 = a.this;
-                k.this.l(aVar2.f46533c, aVar2.f46534d, aVar2.f46531a);
+                k.this.l(aVar2.f46925c, aVar2.f46926d, aVar2.f46923a);
                 a aVar3 = a.this;
-                UnitedSchemeUtility.callCallback(aVar3.f46535e, aVar3.f46536f, UnitedSchemeUtility.wrapCallbackParams(this.f46540b, 0));
+                UnitedSchemeUtility.callCallback(aVar3.f46927e, aVar3.f46928f, UnitedSchemeUtility.wrapCallbackParams(this.f46932b, 0));
             }
         }
 
         public a(String str, d.b.g0.a.z0.f fVar, d.b.g0.a.e0.l.f fVar2, d.b.g0.a.e1.b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, String str2) {
-            this.f46531a = str;
-            this.f46532b = fVar;
-            this.f46533c = fVar2;
-            this.f46534d = bVar;
-            this.f46535e = callbackHandler;
-            this.f46536f = unitedSchemeEntity;
-            this.f46537g = context;
-            this.f46538h = str2;
+            this.f46923a = str;
+            this.f46924b = fVar;
+            this.f46925c = fVar2;
+            this.f46926d = bVar;
+            this.f46927e = callbackHandler;
+            this.f46928f = unitedSchemeEntity;
+            this.f46929g = context;
+            this.f46930h = str2;
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void a(String str) {
-            d.b.g0.a.j1.j.d(this.f46531a);
-            this.f46532b.C();
-            d.b.g0.a.e0.l.e l = this.f46533c.l();
-            if (l != null && !TextUtils.isEmpty(l.a3(this.f46534d.f44365d))) {
-                JSONObject b2 = d.b.g0.a.t1.k.p0.a.b(l.a3(this.f46534d.f44365d));
-                d.b.g0.a.j1.j.c(4, this.f46531a);
-                k.this.l(this.f46533c, this.f46534d, this.f46531a);
-                UnitedSchemeUtility.callCallback(this.f46535e, this.f46536f, UnitedSchemeUtility.wrapCallbackParams(b2, 0));
+            d.b.g0.a.j1.j.d(this.f46923a);
+            this.f46924b.C();
+            d.b.g0.a.e0.l.e l = this.f46925c.l();
+            if (l != null && !TextUtils.isEmpty(l.a3(this.f46926d.f44757d))) {
+                JSONObject b2 = d.b.g0.a.t1.k.p0.a.b(l.a3(this.f46926d.f44757d));
+                d.b.g0.a.j1.j.c(4, this.f46923a);
+                k.this.l(this.f46925c, this.f46926d, this.f46923a);
+                UnitedSchemeUtility.callCallback(this.f46927e, this.f46928f, UnitedSchemeUtility.wrapCallbackParams(b2, 0));
                 return;
             }
-            b.c d2 = d.b.g0.a.e0.v.b.d(this.f46532b.getActivity());
-            JSONObject b3 = d.b.g0.a.t1.k.p0.a.b(d2.f44304a.c());
-            HybridUbcFlow p = d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.f46531a);
+            b.c d2 = d.b.g0.a.e0.v.b.d(this.f46924b.getActivity());
+            JSONObject b3 = d.b.g0.a.t1.k.p0.a.b(d2.f44696a.c());
+            HybridUbcFlow p = d.b.g0.a.j1.i.p(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.f46923a);
             p.A(new UbcFlowEvent("na_pre_load_slave_check"));
-            p.y("preload", d2.f44305b ? "1" : "0");
-            d.b.g0.a.e0.v.b.j(d2, new C0844a(d2, b3));
+            p.y("preload", d2.f44697b ? "1" : "0");
+            d.b.g0.a.e0.v.b.j(d2, new C0856a(d2, b3));
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void b(int i) {
-            this.f46532b.C();
-            if (a0.f46288b) {
-                Context context = this.f46537g;
-                d.b.g0.a.q1.b.f.d.f(context, this.f46537g.getString(d.b.g0.a.h.aiapps_open_pages_failed) + i).C();
+            this.f46924b.C();
+            if (a0.f46680b) {
+                Context context = this.f46929g;
+                d.b.g0.a.q1.b.f.d.f(context, this.f46929g.getString(d.b.g0.a.h.aiapps_open_pages_failed) + i).C();
             }
-            if (TextUtils.isEmpty(this.f46538h)) {
+            if (TextUtils.isEmpty(this.f46930h)) {
                 return;
             }
-            d.b.g0.a.t1.k.p0.a.i(this.f46536f, this.f46535e, this.f46538h);
+            d.b.g0.a.t1.k.p0.a.i(this.f46928f, this.f46927e, this.f46930h);
         }
     }
 
@@ -127,7 +127,7 @@ public class k extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("SwitchTabAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         String uuid = UUID.randomUUID().toString();

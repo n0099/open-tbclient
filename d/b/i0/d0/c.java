@@ -2,32 +2,32 @@ package d.b.i0.d0;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 /* loaded from: classes4.dex */
 public class c implements n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f53628f = BdUniqueId.gen();
+    public static BdUniqueId f53667f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f53629e;
+    public FeatureCardCompetition f53668e;
 
     public FeatureCardCompetition a() {
-        return this.f53629e;
+        return this.f53668e;
     }
 
     public void e(FeatureCardCompetition featureCardCompetition) {
         if (featureCardCompetition == null) {
             return;
         }
-        this.f53629e = featureCardCompetition;
+        this.f53668e = featureCardCompetition;
         String str = featureCardCompetition.title;
         Integer num = featureCardCompetition.floor;
         Integer num2 = featureCardCompetition.type;
     }
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f53628f;
+        return f53667f;
     }
 }

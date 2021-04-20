@@ -42,18 +42,18 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public final class a extends d.b.g0.a.n1.c.b {
-    public static final boolean l = k.f45051a;
+    public static final boolean l = k.f45443a;
     public static final long m = TimeUnit.MINUTES.toMillis(5);
     public static final Object n = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f45375f;
+    public final e f45767f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Messenger f45376g;
+    public Messenger f45768g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f45377h;
+    public d f45769h;
     public ServiceConnection i;
     public final Deque<Long> j;
     public List<Runnable> k;
@@ -75,11 +75,11 @@ public final class a extends d.b.g0.a.n1.c.b {
                 }
                 return;
             }
-            a.this.f45376g = new Messenger(iBinder);
+            a.this.f45768g = new Messenger(iBinder);
             a aVar = a.this;
             aVar.L(13, aVar.B());
-            if (a.this.f45377h != null) {
-                a.this.f45377h.a();
+            if (a.this.f45769h != null) {
+                a.this.f45769h.a();
             }
             d.b.g0.a.n1.c.a.e().c();
         }
@@ -109,14 +109,14 @@ public final class a extends d.b.g0.a.n1.c.b {
     public static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<c> f45379a;
+        public WeakReference<c> f45771a;
 
         public e() {
             super(Looper.getMainLooper());
         }
 
         public final boolean a(Message message) {
-            WeakReference<c> weakReference = this.f45379a;
+            WeakReference<c> weakReference = this.f45771a;
             c cVar = weakReference != null ? weakReference.get() : null;
             if (cVar == null || !cVar.a(message)) {
                 return d.b.g0.a.w0.a.V().a(message);
@@ -318,7 +318,7 @@ public final class a extends d.b.g0.a.n1.c.b {
                     g(message);
                     return;
                 case 119:
-                    d.b.b0.d.a((Bundle) message.obj);
+                    d.b.y.d.a((Bundle) message.obj);
                     return;
                 case 120:
                     f(message);
@@ -380,15 +380,15 @@ public final class a extends d.b.g0.a.n1.c.b {
 
         public final void k(Message message) {
             Bundle bundle;
-            d.b.b0.e.a aVar;
-            if (message == null || (bundle = (Bundle) message.obj) == null || (aVar = d.b.g0.a.i1.a.b().f44622d) == null) {
+            d.b.y.e.a aVar;
+            if (message == null || (bundle = (Bundle) message.obj) == null || (aVar = d.b.g0.a.i1.a.b().f45014d) == null) {
                 return;
             }
             aVar.onPayResult(d.b.g0.a.i1.a.a(bundle.getInt("_wxapi_baseresp_errcode")), bundle.getString("_wxapi_baseresp_errstr"));
         }
 
         public void l(c cVar) {
-            this.f45379a = new WeakReference<>(cVar);
+            this.f45771a = new WeakReference<>(cVar);
         }
 
         public final boolean m(PrefetchEvent prefetchEvent) {
@@ -402,7 +402,7 @@ public final class a extends d.b.g0.a.n1.c.b {
 
     public a(h hVar) {
         super(hVar);
-        this.f45375f = new e();
+        this.f45767f = new e();
         this.j = new ArrayDeque();
     }
 
@@ -412,7 +412,7 @@ public final class a extends d.b.g0.a.n1.c.b {
     }
 
     public boolean A() {
-        return this.f45376g != null;
+        return this.f45768g != null;
     }
 
     public final Bundle B() {
@@ -424,11 +424,11 @@ public final class a extends d.b.g0.a.n1.c.b {
     }
 
     public Handler D() {
-        return this.f45375f;
+        return this.f45767f;
     }
 
     public Messenger E() {
-        return this.f45376g;
+        return this.f45768g;
     }
 
     public final void F(String str) {
@@ -444,9 +444,9 @@ public final class a extends d.b.g0.a.n1.c.b {
 
     public synchronized void G() {
         this.i = null;
-        this.f45376g = null;
-        if (this.f45377h != null) {
-            this.f45377h.b();
+        this.f45768g = null;
+        if (this.f45769h != null) {
+            this.f45769h.b();
         }
         P();
         if (this.k != null) {
@@ -577,13 +577,13 @@ public final class a extends d.b.g0.a.n1.c.b {
     }
 
     public void y(d dVar, c cVar) {
-        this.f45377h = dVar;
-        this.f45375f.l(cVar);
+        this.f45769h = dVar;
+        this.f45767f.l(cVar);
         L(1, B());
-        if (this.f45377h == null || !A()) {
+        if (this.f45769h == null || !A()) {
             return;
         }
-        this.f45377h.a();
+        this.f45769h.a();
     }
 
     public final boolean z() {

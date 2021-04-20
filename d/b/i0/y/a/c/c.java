@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.util.List;
 import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
@@ -49,15 +49,15 @@ public class c extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f62553e;
+        public final /* synthetic */ tinfo f63998e;
 
         public b(tinfo tinfoVar) {
-            this.f62553e = tinfoVar;
+            this.f63998e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String str = this.f62553e.forum_name;
+            String str = this.f63998e.forum_name;
             if (k.isForumName(str)) {
                 TiebaStatic.eventStat(c.this.a(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(c.this.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
@@ -81,7 +81,7 @@ public class c extends d.b.h0.g0.f.a<tinfo, d.b.h0.g0.d.b> {
         this.r.setOnClickListener(this.s);
     }
 
-    @Override // d.b.i0.c3.t
+    @Override // d.b.i0.d3.t
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         d.b.h0.r.c layoutMode = e().getLayoutMode();
         layoutMode.k(i == 1);

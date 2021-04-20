@@ -2,7 +2,7 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PluginSetting implements Serializable, Cloneable {

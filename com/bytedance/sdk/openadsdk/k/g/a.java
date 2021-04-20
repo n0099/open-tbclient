@@ -8,15 +8,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f29691a;
+    public static Context f29376a;
 
     public static void a(Context context) {
         if (context != null) {
-            f29691a = context;
+            f29376a = context;
             return;
         }
         throw null;
@@ -51,7 +51,7 @@ public class a {
 
     @Deprecated
     public static File a() {
-        return b(f29691a);
+        return b(f29376a);
     }
 
     public static File b() {

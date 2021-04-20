@@ -2,8 +2,8 @@ package com.baidu.tieba.likedForum;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.c3.d0.a;
-/* loaded from: classes3.dex */
+import d.b.i0.d3.d0.a;
+/* loaded from: classes4.dex */
 public class LikedForumStatic {
     static {
         a.h(309440, GetBottleForumListSocketResMessage.class, false, false);

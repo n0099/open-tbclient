@@ -5,7 +5,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import d.b.i0.t.j.g.d.d.a;
 import java.util.LinkedList;
 import java.util.List;

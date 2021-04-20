@@ -5,9 +5,9 @@ import android.graphics.NinePatch;
 import android.graphics.Rect;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import d.b.b.e.a.f.b;
-import d.b.b.e.a.f.c;
-import d.b.b.j.d.a;
+import d.b.c.e.a.f.b;
+import d.b.c.e.a.f.c;
+import d.b.c.j.d.a;
 /* loaded from: classes3.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public int procType;
@@ -76,7 +76,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public a decodeToResource(byte[] bArr, Object... objArr) {
         long currentTimeMillis = System.currentTimeMillis();
         Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-        d.b.b.e.l.a.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+        d.b.c.e.l.a.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
         return new a(Bytes2NineBitmap);
     }
 }

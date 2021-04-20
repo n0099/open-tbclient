@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CountingOutputStream extends FilterOutputStream {
     public long mCount;
 

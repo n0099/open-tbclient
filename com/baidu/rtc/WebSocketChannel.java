@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
@@ -291,7 +290,7 @@ public class WebSocketChannel {
                         janusTransaction2.success.success(jSONObject);
                     }
                     concurrentHashMap = this.ackTransactions;
-                } else if (optString2.equals(a.i)) {
+                } else if (optString2.equals("timeout")) {
                     this.mHandler.removeCallbacks(this.fireKeepAlive);
                     this.keepAliveTimer.removeCallbacks(this.serverKeepAliveTimeout);
                     if (this.mIsEnableErrorInfoMonitor) {

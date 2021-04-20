@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.tencent.connect.common.Constants;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.UPSNotificationMessage;
@@ -38,17 +39,17 @@ public final class t extends ab {
             return;
         }
         UPSNotificationMessage a2 = com.vivo.push.util.q.a(f2);
-        boolean equals = this.f39589a.getPackageName().equals(rVar.d());
+        boolean equals = this.f39878a.getPackageName().equals(rVar.d());
         if (equals) {
-            NotifyAdapterUtil.cancelNotify(this.f39589a);
+            NotifyAdapterUtil.cancelNotify(this.f39878a);
         }
         if (equals) {
             com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(1030L);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("type", "2");
             hashMap.put("messageID", String.valueOf(rVar.e()));
-            hashMap.put(Constants.PARAM_PLATFORM, this.f39589a.getPackageName());
-            Context context = this.f39589a;
+            hashMap.put(Constants.PARAM_PLATFORM, this.f39878a.getPackageName());
+            Context context = this.f39878a;
             String b2 = com.vivo.push.util.z.b(context, context.getPackageName());
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("remoteAppId", b2);
@@ -59,7 +60,7 @@ public final class t extends ab {
             int skipType = a2.getSkipType();
             boolean z = true;
             if (skipType == 1) {
-                new Thread(new y(this, this.f39589a, a2.getParams())).start();
+                new Thread(new y(this, this.f39878a, a2.getParams())).start();
                 com.vivo.push.w.b(new u(this, a2));
                 return;
             } else if (skipType == 2) {
@@ -70,10 +71,10 @@ public final class t extends ab {
                 if (z) {
                     Uri parse = Uri.parse(skipContent);
                     Intent intent = new Intent("android.intent.action.VIEW", parse);
-                    intent.setFlags(268435456);
+                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     b(intent, a2.getParams());
                     try {
-                        this.f39589a.startActivity(intent);
+                        this.f39878a.startActivity(intent);
                     } catch (Exception unused) {
                         com.vivo.push.util.p.a("OnNotificationClickTask", "startActivity error : " + parse);
                     }
@@ -96,19 +97,19 @@ public final class t extends ab {
                 } catch (Exception e2) {
                     com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : " + skipContent2, e2);
                 }
-                if (!TextUtils.isEmpty(str) && !this.f39589a.getPackageName().equals(str)) {
-                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.f39589a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                if (!TextUtils.isEmpty(str) && !this.f39878a.getPackageName().equals(str)) {
+                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.f39878a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                     return;
                 }
                 String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
-                if (!TextUtils.isEmpty(packageName) && !this.f39589a.getPackageName().equals(packageName)) {
-                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.f39589a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                if (!TextUtils.isEmpty(packageName) && !this.f39878a.getPackageName().equals(packageName)) {
+                    com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.f39878a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                     return;
                 }
-                parseUri.setPackage(this.f39589a.getPackageName());
-                parseUri.addFlags(268435456);
+                parseUri.setPackage(this.f39878a.getPackageName());
+                parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 b(parseUri, a2.getParams());
-                this.f39589a.startActivity(parseUri);
+                this.f39878a.startActivity(parseUri);
                 com.vivo.push.w.b(new x(this, a2));
                 return;
             }

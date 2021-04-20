@@ -1,19 +1,25 @@
 package d.b.h0.f0.n;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
+import android.app.Activity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import d.b.h0.a.o;
 import d.b.h0.f0.b;
-import d.b.i0.x.m;
 /* loaded from: classes3.dex */
-public class a implements b<HistoryEvent> {
+public class a implements b<CompeteTaskEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.h0.f0.b
     /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
-        if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
-            return false;
+    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
+        CompleteTaskToastData completeTaskToastData;
+        if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof o) {
+                ((o) currentActivity).onMissionCompleted(completeTaskToastData);
+                return true;
+            }
         }
-        m.a(historyEvent.tid);
-        return true;
+        return false;
     }
 }

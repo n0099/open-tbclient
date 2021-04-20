@@ -5,10 +5,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupInfoData extends AbstractImageProvider implements n, Serializable, PreLoadImageProvider {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     public static final int TYPE_USER_MEIZHI_TRUE = 1;
@@ -111,7 +111,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return this.portrait;
     }
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         return TYPE_FRS_GROUP;
     }

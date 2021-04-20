@@ -11,16 +11,16 @@ public final class j<T> implements d.a<T> {
     public static final h.n.f<h.d<? extends Notification<?>>, h.d<?>> j = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<T> f67747e;
+    public final h.d<T> f68754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.f<? super h.d<? extends Notification<?>>, ? extends h.d<?>> f67748f;
+    public final h.n.f<? super h.d<? extends Notification<?>>, ? extends h.d<?>> f68755f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f67749g;
+    public final boolean f68756g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f67750h;
+    public final boolean f68757h;
     public final h.g i;
 
     /* loaded from: classes7.dex */
@@ -28,8 +28,8 @@ public final class j<T> implements d.a<T> {
 
         /* renamed from: h.o.a.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1869a implements h.n.f<Notification<?>, Notification<?>> {
-            public C1869a(a aVar) {
+        public class C1904a implements h.n.f<Notification<?>, Notification<?>> {
+            public C1904a(a aVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public final class j<T> implements d.a<T> {
         @Override // h.n.f
         /* renamed from: a */
         public h.d<?> call(h.d<? extends Notification<?>> dVar) {
-            return dVar.l(new C1869a(this));
+            return dVar.l(new C1904a(this));
         }
     }
 
@@ -53,23 +53,23 @@ public final class j<T> implements d.a<T> {
     public class b implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.j f67751e;
+        public final /* synthetic */ h.j f68758e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.t.d f67752f;
+        public final /* synthetic */ h.t.d f68759f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.o.b.a f67753g;
+        public final /* synthetic */ h.o.b.a f68760g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AtomicLong f67754h;
+        public final /* synthetic */ AtomicLong f68761h;
         public final /* synthetic */ h.u.d i;
 
         /* loaded from: classes7.dex */
         public class a extends h.j<T> {
 
             /* renamed from: e  reason: collision with root package name */
-            public boolean f67755e;
+            public boolean f68762e;
 
             public a() {
             }
@@ -77,65 +77,65 @@ public final class j<T> implements d.a<T> {
             public final void b() {
                 long j;
                 do {
-                    j = b.this.f67754h.get();
+                    j = b.this.f68761h.get();
                     if (j == Long.MAX_VALUE) {
                         return;
                     }
-                } while (!b.this.f67754h.compareAndSet(j, j - 1));
+                } while (!b.this.f68761h.compareAndSet(j, j - 1));
             }
 
             @Override // h.e
             public void onCompleted() {
-                if (this.f67755e) {
+                if (this.f68762e) {
                     return;
                 }
-                this.f67755e = true;
+                this.f68762e = true;
                 unsubscribe();
-                b.this.f67752f.onNext(Notification.a());
+                b.this.f68759f.onNext(Notification.a());
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                if (this.f67755e) {
+                if (this.f68762e) {
                     return;
                 }
-                this.f67755e = true;
+                this.f68762e = true;
                 unsubscribe();
-                b.this.f67752f.onNext(Notification.b(th));
+                b.this.f68759f.onNext(Notification.b(th));
             }
 
             @Override // h.e
             public void onNext(T t) {
-                if (this.f67755e) {
+                if (this.f68762e) {
                     return;
                 }
-                b.this.f67751e.onNext(t);
+                b.this.f68758e.onNext(t);
                 b();
-                b.this.f67753g.b(1L);
+                b.this.f68760g.b(1L);
             }
 
             @Override // h.j
             public void setProducer(h.f fVar) {
-                b.this.f67753g.c(fVar);
+                b.this.f68760g.c(fVar);
             }
         }
 
         public b(h.j jVar, h.t.d dVar, h.o.b.a aVar, AtomicLong atomicLong, h.u.d dVar2) {
-            this.f67751e = jVar;
-            this.f67752f = dVar;
-            this.f67753g = aVar;
-            this.f67754h = atomicLong;
+            this.f68758e = jVar;
+            this.f68759f = dVar;
+            this.f68760g = aVar;
+            this.f68761h = atomicLong;
             this.i = dVar2;
         }
 
         @Override // h.n.a
         public void call() {
-            if (this.f67751e.isUnsubscribed()) {
+            if (this.f68758e.isUnsubscribed()) {
                 return;
             }
             a aVar = new a();
             this.i.a(aVar);
-            j.this.f67747e.J(aVar);
+            j.this.f68754e.L(aVar);
         }
     }
 
@@ -146,35 +146,35 @@ public final class j<T> implements d.a<T> {
         public class a extends h.j<Notification<?>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.j f67758e;
+            public final /* synthetic */ h.j f68765e;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(h.j jVar, h.j jVar2) {
                 super(jVar);
-                this.f67758e = jVar2;
+                this.f68765e = jVar2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // h.e
             /* renamed from: b */
             public void onNext(Notification<?> notification) {
-                if (notification.i() && j.this.f67749g) {
-                    this.f67758e.onCompleted();
-                } else if (notification.j() && j.this.f67750h) {
-                    this.f67758e.onError(notification.e());
+                if (notification.i() && j.this.f68756g) {
+                    this.f68765e.onCompleted();
+                } else if (notification.j() && j.this.f68757h) {
+                    this.f68765e.onError(notification.e());
                 } else {
-                    this.f67758e.onNext(notification);
+                    this.f68765e.onNext(notification);
                 }
             }
 
             @Override // h.e
             public void onCompleted() {
-                this.f67758e.onCompleted();
+                this.f68765e.onCompleted();
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                this.f67758e.onError(th);
+                this.f68765e.onError(th);
             }
 
             @Override // h.j
@@ -198,16 +198,16 @@ public final class j<T> implements d.a<T> {
     public class d implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.d f67760e;
+        public final /* synthetic */ h.d f68767e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.j f67761f;
+        public final /* synthetic */ h.j f68768f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AtomicLong f67762g;
+        public final /* synthetic */ AtomicLong f68769g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g.a f67763h;
+        public final /* synthetic */ g.a f68770h;
         public final /* synthetic */ h.n.a i;
         public final /* synthetic */ AtomicBoolean j;
 
@@ -219,22 +219,22 @@ public final class j<T> implements d.a<T> {
 
             @Override // h.e
             public void onCompleted() {
-                d.this.f67761f.onCompleted();
+                d.this.f68768f.onCompleted();
             }
 
             @Override // h.e
             public void onError(Throwable th) {
-                d.this.f67761f.onError(th);
+                d.this.f68768f.onError(th);
             }
 
             @Override // h.e
             public void onNext(Object obj) {
-                if (d.this.f67761f.isUnsubscribed()) {
+                if (d.this.f68768f.isUnsubscribed()) {
                     return;
                 }
-                if (d.this.f67762g.get() > 0) {
+                if (d.this.f68769g.get() > 0) {
                     d dVar = d.this;
-                    dVar.f67763h.b(dVar.i);
+                    dVar.f68770h.b(dVar.i);
                     return;
                 }
                 d.this.j.compareAndSet(false, true);
@@ -247,17 +247,17 @@ public final class j<T> implements d.a<T> {
         }
 
         public d(j jVar, h.d dVar, h.j jVar2, AtomicLong atomicLong, g.a aVar, h.n.a aVar2, AtomicBoolean atomicBoolean) {
-            this.f67760e = dVar;
-            this.f67761f = jVar2;
-            this.f67762g = atomicLong;
-            this.f67763h = aVar;
+            this.f68767e = dVar;
+            this.f68768f = jVar2;
+            this.f68769g = atomicLong;
+            this.f68770h = aVar;
             this.i = aVar2;
             this.j = atomicBoolean;
         }
 
         @Override // h.n.a
         public void call() {
-            this.f67760e.J(new a(this.f67761f));
+            this.f68767e.L(new a(this.f68768f));
         }
     }
 
@@ -265,43 +265,43 @@ public final class j<T> implements d.a<T> {
     public class e implements h.f {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtomicLong f67765e;
+        public final /* synthetic */ AtomicLong f68772e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.o.b.a f67766f;
+        public final /* synthetic */ h.o.b.a f68773f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f67767g;
+        public final /* synthetic */ AtomicBoolean f68774g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g.a f67768h;
+        public final /* synthetic */ g.a f68775h;
         public final /* synthetic */ h.n.a i;
 
         public e(j jVar, AtomicLong atomicLong, h.o.b.a aVar, AtomicBoolean atomicBoolean, g.a aVar2, h.n.a aVar3) {
-            this.f67765e = atomicLong;
-            this.f67766f = aVar;
-            this.f67767g = atomicBoolean;
-            this.f67768h = aVar2;
+            this.f68772e = atomicLong;
+            this.f68773f = aVar;
+            this.f68774g = atomicBoolean;
+            this.f68775h = aVar2;
             this.i = aVar3;
         }
 
         @Override // h.f
         public void request(long j) {
             if (j > 0) {
-                h.o.a.a.b(this.f67765e, j);
-                this.f67766f.request(j);
-                if (this.f67767g.compareAndSet(true, false)) {
-                    this.f67768h.b(this.i);
+                h.o.a.a.b(this.f68772e, j);
+                this.f68773f.request(j);
+                if (this.f68774g.compareAndSet(true, false)) {
+                    this.f68775h.b(this.i);
                 }
             }
         }
     }
 
     public j(h.d<T> dVar, h.n.f<? super h.d<? extends Notification<?>>, ? extends h.d<?>> fVar, boolean z, boolean z2, h.g gVar) {
-        this.f67747e = dVar;
-        this.f67748f = fVar;
-        this.f67749g = z;
-        this.f67750h = z2;
+        this.f68754e = dVar;
+        this.f68755f = fVar;
+        this.f68756g = z;
+        this.f68757h = z2;
         this.i = gVar;
     }
 
@@ -323,11 +323,11 @@ public final class j<T> implements d.a<T> {
         jVar.add(createWorker);
         h.u.d dVar = new h.u.d();
         jVar.add(dVar);
-        h.t.c<T, T> K = h.t.a.L().K();
-        K.B(h.q.f.a());
+        h.t.c<T, T> M = h.t.a.N().M();
+        M.B(h.q.f.a());
         h.o.b.a aVar = new h.o.b.a();
-        b bVar = new b(jVar, K, aVar, atomicLong, dVar);
-        createWorker.b(new d(this, this.f67748f.call(K.k(new c())), jVar, atomicLong, createWorker, bVar, atomicBoolean));
+        b bVar = new b(jVar, M, aVar, atomicLong, dVar);
+        createWorker.b(new d(this, this.f68755f.call(M.k(new c())), jVar, atomicLong, createWorker, bVar, atomicBoolean));
         jVar.setProducer(new e(this, atomicLong, aVar, atomicBoolean, createWorker, bVar));
     }
 }

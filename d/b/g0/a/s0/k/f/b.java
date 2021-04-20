@@ -8,10 +8,10 @@ import d.b.g0.a.s0.k.f.c.c;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d.b.g0.a.s0.k.f.c.a f45900a;
+    public static final d.b.g0.a.s0.k.f.c.a f46292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d.b.g0.a.s0.k.f.c.a f45901b;
+    public static volatile d.b.g0.a.s0.k.f.c.a f46293b;
 
     /* loaded from: classes2.dex */
     public static class a implements d.b.g0.a.i2.u0.b<HybridUbcFlow> {
@@ -25,8 +25,8 @@ public class b {
 
     static {
         d.b.g0.a.s0.k.f.c.b bVar = new d.b.g0.a.s0.k.f.c.b();
-        f45900a = bVar;
-        f45901b = bVar;
+        f46292a = bVar;
+        f46293b = bVar;
     }
 
     public static void a() {
@@ -35,7 +35,7 @@ public class b {
 
     @NonNull
     public static d.b.g0.a.s0.k.f.c.a b() {
-        return f45901b;
+        return f46293b;
     }
 
     public static void c() {
@@ -47,10 +47,10 @@ public class b {
     }
 
     public static void e() {
-        f(f45900a);
+        f(f46292a);
     }
 
     public static void f(@NonNull d.b.g0.a.s0.k.f.c.a aVar) {
-        f45901b = aVar;
+        f46293b = aVar;
     }
 }

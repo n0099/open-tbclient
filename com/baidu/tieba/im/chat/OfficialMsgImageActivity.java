@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.chat;
 
-import d.b.i0.d1.s.a;
-import d.b.i0.d1.s.c;
-/* loaded from: classes3.dex */
+import d.b.i0.e1.s.a;
+import d.b.i0.e1.s.c;
+/* loaded from: classes4.dex */
 public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
     public void queryAllBigImageUrls(String str, c cVar) {

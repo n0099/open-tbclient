@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -19,7 +20,7 @@ import java.net.URLEncoder;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43276a = {BaseUrlManager.ONLINE_URL, "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    public static final String[] f43668a = {BaseUrlManager.ONLINE_URL, "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
     public static String a(String str, String str2, String str3) {
         StringBuilder sb;
@@ -136,7 +137,7 @@ public class c {
 
     public static String g() {
         String str = Build.VERSION.RELEASE;
-        return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+        return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
     }
 
     public static String h() {
@@ -219,7 +220,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : f43276a) {
+        for (String str2 : f43668a) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -228,6 +229,6 @@ public class c {
     }
 
     public static String u(String str) {
-        return a(a(a(a(a(a(a(a(a(a(str, "uid", k()), "ua", j()), "ut", l()), "osbranch", d()), "pkgname", o()), "network", n()), "appname", c()), "hostname", c()), "swan_sdk_version", q()), "mnpunion", String.valueOf(f.f45697d.e() ? 2 : 0));
+        return a(a(a(a(a(a(a(a(a(a(str, "uid", k()), "ua", j()), "ut", l()), "osbranch", d()), "pkgname", o()), "network", n()), "appname", c()), "hostname", c()), "swan_sdk_version", q()), "mnpunion", String.valueOf(f.f46089d.e() ? 2 : 0));
     }
 }

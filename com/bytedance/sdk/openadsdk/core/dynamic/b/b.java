@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     private List<String> b() {
         return Arrays.asList(DI.APP_INFO_NAME, "adInfo", "getTemplateInfo");

@@ -13,29 +13,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends View implements ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0390a f33957a;
+    public InterfaceC0404a f34246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f33958b;
+    public View f34247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33959c;
+    public boolean f34248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33960d;
+    public boolean f34249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f33961e;
+    public boolean f34250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ap f33962f;
+    public final ap f34251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicBoolean f33963g;
+    public final AtomicBoolean f34252g;
 
     /* renamed from: com.kwad.sdk.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0390a {
+    public interface InterfaceC0404a {
         void a();
 
         void a(View view);
@@ -47,74 +47,74 @@ public class a extends View implements ap.a {
 
     public a(Context context, View view) {
         super(context);
-        this.f33962f = new ap(this);
-        this.f33963g = new AtomicBoolean(true);
-        this.f33958b = view;
+        this.f34251f = new ap(this);
+        this.f34252g = new AtomicBoolean(true);
+        this.f34247b = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void a() {
-        InterfaceC0390a interfaceC0390a;
-        if (!this.f33963g.getAndSet(false) || (interfaceC0390a = this.f33957a) == null) {
+        InterfaceC0404a interfaceC0404a;
+        if (!this.f34252g.getAndSet(false) || (interfaceC0404a = this.f34246a) == null) {
             return;
         }
-        interfaceC0390a.a();
+        interfaceC0404a.a();
     }
 
     private void b() {
-        InterfaceC0390a interfaceC0390a;
-        if (this.f33963g.getAndSet(true) || (interfaceC0390a = this.f33957a) == null) {
+        InterfaceC0404a interfaceC0404a;
+        if (this.f34252g.getAndSet(true) || (interfaceC0404a = this.f34246a) == null) {
             return;
         }
-        interfaceC0390a.b();
+        interfaceC0404a.b();
     }
 
     private void c() {
-        if (this.f33960d) {
-            this.f33962f.removeCallbacksAndMessages(null);
-            this.f33960d = false;
+        if (this.f34249d) {
+            this.f34251f.removeCallbacksAndMessages(null);
+            this.f34249d = false;
         }
     }
 
     private void d() {
-        if (!this.f33961e || this.f33960d) {
+        if (!this.f34250e || this.f34249d) {
             return;
         }
-        this.f33960d = true;
-        this.f33962f.sendEmptyMessage(1);
+        this.f34249d = true;
+        this.f34251f.sendEmptyMessage(1);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
-        InterfaceC0390a interfaceC0390a;
+        InterfaceC0404a interfaceC0404a;
         int i = message.what;
         if (i == 1) {
             com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_CHECKING");
-            if (this.f33960d) {
-                if (!ao.a(this.f33958b, 30, false)) {
-                    this.f33962f.sendEmptyMessageDelayed(1, 500L);
+            if (this.f34249d) {
+                if (!ao.a(this.f34247b, 30, false)) {
+                    this.f34251f.sendEmptyMessageDelayed(1, 500L);
                     return;
                 }
                 c();
-                Message obtainMessage = this.f33962f.obtainMessage();
+                Message obtainMessage = this.f34251f.obtainMessage();
                 obtainMessage.what = 2;
                 obtainMessage.arg1 = 1000;
-                this.f33962f.sendMessageDelayed(obtainMessage, 1000L);
+                this.f34251f.sendMessageDelayed(obtainMessage, 1000L);
             }
         } else if (i != 2) {
         } else {
             com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_SHOWING");
-            if (!ao.a(this.f33958b, 30, false)) {
-                if (this.f33959c) {
+            if (!ao.a(this.f34247b, 30, false)) {
+                if (this.f34248c) {
                     return;
                 }
                 setNeedCheckingShow(true);
                 return;
             }
-            if (message.arg1 == 1000 && (interfaceC0390a = this.f33957a) != null) {
-                interfaceC0390a.a(this.f33958b);
+            if (message.arg1 == 1000 && (interfaceC0404a = this.f34246a) != null) {
+                interfaceC0404a.a(this.f34247b);
             }
-            this.f33962f.sendEmptyMessageDelayed(2, 500L);
+            this.f34251f.sendEmptyMessageDelayed(2, 500L);
         }
     }
 
@@ -123,7 +123,7 @@ public class a extends View implements ap.a {
         super.onAttachedToWindow();
         com.kwad.sdk.core.d.a.a("EmptyView", "onAttachedToWindow:" + this);
         d();
-        this.f33959c = false;
+        this.f34248c = false;
         a();
     }
 
@@ -132,21 +132,21 @@ public class a extends View implements ap.a {
         super.onDetachedFromWindow();
         com.kwad.sdk.core.d.a.a("EmptyView", "onDetachedFromWindow" + this);
         c();
-        this.f33959c = true;
+        this.f34248c = true;
         b();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f33958b.getParent());
+        com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f34247b.getParent());
         a();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f33958b.getParent());
+        com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f34247b.getParent());
         b();
     }
 
@@ -154,9 +154,9 @@ public class a extends View implements ap.a {
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         com.kwad.sdk.core.d.a.a("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
-        InterfaceC0390a interfaceC0390a = this.f33957a;
-        if (interfaceC0390a != null) {
-            interfaceC0390a.a(z);
+        InterfaceC0404a interfaceC0404a = this.f34246a;
+        if (interfaceC0404a != null) {
+            interfaceC0404a.a(z);
         }
     }
 
@@ -167,16 +167,16 @@ public class a extends View implements ap.a {
     }
 
     public void setNeedCheckingShow(boolean z) {
-        this.f33961e = z;
-        if (!z && this.f33960d) {
+        this.f34250e = z;
+        if (!z && this.f34249d) {
             c();
-        } else if (!z || this.f33960d) {
+        } else if (!z || this.f34249d) {
         } else {
             d();
         }
     }
 
-    public void setViewCallback(InterfaceC0390a interfaceC0390a) {
-        this.f33957a = interfaceC0390a;
+    public void setViewCallback(InterfaceC0404a interfaceC0404a) {
+        this.f34246a = interfaceC0404a;
     }
 }

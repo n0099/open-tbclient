@@ -10,31 +10,31 @@ import java.util.TimeZone;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64105a;
+    public static boolean f64833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f64106b;
+    public static boolean f64834b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static StringBuffer f64107c = new StringBuffer();
+    public static StringBuffer f64835c = new StringBuffer();
 
     /* renamed from: d.b.m0.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1737a extends c {
+    public static class C1749a extends c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f64108e;
+        public final /* synthetic */ String f64836e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f64109f;
+        public final /* synthetic */ String f64837f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f64110g;
+        public final /* synthetic */ String f64838g;
 
-        public C1737a(String str, String str2, String str3) {
-            this.f64108e = str;
-            this.f64109f = str2;
-            this.f64110g = str3;
+        public C1749a(String str, String str2, String str3) {
+            this.f64836e = str;
+            this.f64837f = str2;
+            this.f64838g = str3;
         }
 
         @Override // d.b.m0.a.f.c
@@ -44,42 +44,42 @@ public final class a {
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
             stringBuffer.append(simpleDateFormat.format(new Date()));
             stringBuffer.append(TrackUI.SEPERATOR);
-            stringBuffer.append(this.f64108e);
+            stringBuffer.append(this.f64836e);
             stringBuffer.append(TrackUI.SEPERATOR);
-            stringBuffer.append(this.f64109f);
+            stringBuffer.append(this.f64837f);
             stringBuffer.append(TrackUI.SEPERATOR);
-            stringBuffer.append(this.f64110g);
-            f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f22887c, a.f64107c.toString());
+            stringBuffer.append(this.f64838g);
+            f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f22572c, a.f64835c.toString());
         }
     }
 
     static {
         if (d.b.m0.a.c.i() != null) {
-            f64105a = !com.baidu.ubs.analytics.d.a.a();
-            f64106b = true;
-            f64107c.append("ABsdkLog-");
-            f64107c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            f64107c.append("_");
+            f64833a = !com.baidu.ubs.analytics.d.a.a();
+            f64834b = true;
+            f64835c.append("ABsdkLog-");
+            f64835c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            f64835c.append("_");
             try {
-                f64107c.append(c(d.b.m0.a.e.i.g(d.b.m0.a.c.i().g()).getBytes("UTF-8")));
+                f64835c.append(c(d.b.m0.a.e.i.g(d.b.m0.a.c.i().g()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e2) {
                 i.d(e2);
             } catch (Exception e3) {
                 i.d(e3);
             }
-            f64107c.append(".log");
+            f64835c.append(".log");
         }
     }
 
     public static void a(String str) {
-        if (f64105a) {
+        if (f64833a) {
             Log.w("BaiDuUbs", str);
         }
         d("w", "BaiDuUbs", str);
     }
 
     public static void b(String str) {
-        if (f64105a) {
+        if (f64833a) {
             Log.e("BaiDuUbs", str);
         }
         d("e", "BaiDuUbs", str);
@@ -101,12 +101,12 @@ public final class a {
     }
 
     public static void d(String str, String str2, String str3) {
-        if (f64106b) {
-            b.a(new C1737a(str, str2, str3));
+        if (f64834b) {
+            b.a(new C1749a(str, str2, str3));
         }
     }
 
     public static String e() {
-        return f64107c.toString();
+        return f64835c.toString();
     }
 }

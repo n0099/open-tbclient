@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.XiaoyingPlayerConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import d.b.b.a.f;
-import d.b.b.a.j;
+import d.b.c.a.f;
+import d.b.c.a.j;
 import d.b.h0.r.s.a;
 /* loaded from: classes3.dex */
 public class XiaoyingUtil {
@@ -28,29 +28,29 @@ public class XiaoyingUtil {
     public static class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f14002e;
+        public final /* synthetic */ Context f13663e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f14003f;
+        public final /* synthetic */ String f13664f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f14004g;
+        public final /* synthetic */ int f13665g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f14005h;
+        public final /* synthetic */ int f13666h;
         public final /* synthetic */ String i;
 
         public a(Context context, String str, int i, int i2, String str2) {
-            this.f14002e = context;
-            this.f14003f = str;
-            this.f14004g = i;
-            this.f14005h = i2;
+            this.f13663e = context;
+            this.f13664f = str;
+            this.f13665g = i;
+            this.f13666h = i2;
             this.i = str2;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f14002e, this.f14003f, this.f14004g, this.f14005h, this.i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f13663e, this.f13664f, this.f13665g, this.f13666h, this.i)));
             aVar.dismiss();
         }
     }
@@ -67,19 +67,19 @@ public class XiaoyingUtil {
     public static class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f14006e;
+        public final /* synthetic */ Activity f13667e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14007f;
+        public final /* synthetic */ TbPageContext f13668f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
-            this.f14006e = activity;
-            this.f14007f = tbPageContext;
+            this.f13667e = activity;
+            this.f13668f = tbPageContext;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            this.f14007f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f14006e, XiaoyingUtil.PKG_NAME_VIDEO)));
+            this.f13668f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f13667e, XiaoyingUtil.PKG_NAME_VIDEO)));
             aVar.dismiss();
         }
     }
@@ -134,7 +134,7 @@ public class XiaoyingUtil {
 
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig R;
-        return (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (R = PluginPackageManager.O().R(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(R.display_name) || R.forbidden == 1 || d.b.b.h.j.g.d.k().h(PKG_NAME_VIDEO) == null) ? false : true;
+        return (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (R = PluginPackageManager.O().R(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(R.display_name) || R.forbidden == 1 || d.b.c.h.j.g.d.k().h(PKG_NAME_VIDEO) == null) ? false : true;
     }
 
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2) {
@@ -154,10 +154,10 @@ public class XiaoyingUtil {
         }
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
             BdToast.c(context, context.getString(R.string.plugin_xiaoying_install_fail)).q();
-        } else if (z && !d.b.b.e.p.j.z()) {
+        } else if (z && !d.b.c.e.p.j.z()) {
             BdToast.c(context, context.getString(R.string.neterror)).q();
         } else if (z) {
-            if (d.b.b.e.p.j.H()) {
+            if (d.b.c.e.p.j.H()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
                 return;
             }
@@ -171,7 +171,7 @@ public class XiaoyingUtil {
         if (context == null) {
             return;
         }
-        d.b.h0.r.d0.b.i().s(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MotuVideoConfig(context, z || d.b.h0.r.d0.b.i().g("localvideo_open", false), str, str2, str3)));
+        d.b.h0.r.d0.b.j().t(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MotuVideoConfig(context, z || d.b.h0.r.d0.b.j().g("localvideo_open", false), str, str2, str3)));
     }
 }

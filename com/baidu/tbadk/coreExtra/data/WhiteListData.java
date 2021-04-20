@@ -15,9 +15,9 @@ public class WhiteListData extends LinkedList<String> {
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String o = b.i().o("key_white_list", null);
-        if (!TextUtils.isEmpty(o)) {
-            whiteListData.parserJson(o);
+        String p = b.j().p("key_white_list", null);
+        if (!TextUtils.isEmpty(p)) {
+            whiteListData.parserJson(p);
         }
         return whiteListData;
     }
@@ -38,7 +38,7 @@ public class WhiteListData extends LinkedList<String> {
     }
 
     private void save(String str) {
-        b.i().w("key_white_list", str);
+        b.j().x("key_white_list", str);
     }
 
     public boolean checkHostname(String str) {

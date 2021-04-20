@@ -54,27 +54,27 @@ import com.baidu.tieba.setting.model.MoreDiscoveryModel;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
 import com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel;
-import d.b.b.e.p.l;
-import d.b.i0.i2.n;
-/* loaded from: classes5.dex */
+import d.b.c.e.p.l;
+import d.b.i0.j2.n;
+/* loaded from: classes4.dex */
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public MoreDiscoveryModel mDiscoveryModel;
     public GetFriendAndStrangerSwitchModel mFriendAndStrangerSwitchModel;
     public GetImageWatermarkTypeModel mGetImageWatermarkTypeModel;
-    public d.b.i0.u2.c.e mView;
+    public d.b.i0.v2.c.e mView;
     public MoreModel mModel = null;
     public g receiver = null;
-    public d.b.b.c.g.a mPersonInfoChangedListener = new a(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+    public d.b.c.c.g.a mPersonInfoChangedListener = new a(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
     public HttpMessageListener mGetMemberPayinfoListener = new b(CmdConfigHttp.GETPAYINFO_CMD);
     public CustomMessageListener mModifyNicknameSucceedListener = new c(2921033);
 
-    /* loaded from: classes5.dex */
-    public class a extends d.b.b.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.getError() != 0) {
                 return;
@@ -101,7 +101,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public b(int i) {
             super(i);
@@ -121,7 +121,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -141,12 +141,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements d.b.i0.u2.c.d {
+    /* loaded from: classes4.dex */
+    public class d implements d.b.i0.v2.c.d {
         public d() {
         }
 
-        @Override // d.b.i0.u2.c.d
+        @Override // d.b.i0.v2.c.d
         public void a(int i) {
             if (i == 0) {
                 MoreActivity.this.goToBack();
@@ -195,12 +195,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e extends d.b.b.a.e {
+    /* loaded from: classes4.dex */
+    public class e extends d.b.c.a.e {
         public e() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (MoreActivity.this.mDiscoveryModel.getUser() != null) {
@@ -220,9 +220,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     personChangeData.setNickNameLeftDays(MoreActivity.this.mDiscoveryModel.z().left_days.intValue());
                 }
                 if (MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo() != null) {
-                    personChangeData.setUserAge(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f50802c);
-                    personChangeData.setBirthdayTime(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f50800a);
-                    personChangeData.setBirthdayShowStatus(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f50803d);
+                    personChangeData.setUserAge(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f51209c);
+                    personChangeData.setBirthdayTime(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f51207a);
+                    personChangeData.setBirthdayShowStatus(MoreActivity.this.mDiscoveryModel.getUser().getBirthdayInfo().f51210d);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
                 MoreActivity.this.buildModel(personChangeData);
@@ -230,12 +230,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f extends d.b.b.a.e {
+    /* loaded from: classes4.dex */
+    public class f extends d.b.c.a.e {
         public f() {
         }
 
-        @Override // d.b.b.a.e
+        @Override // d.b.c.a.e
         public void c(Object obj) {
             if (obj == null || !(obj instanceof MoreModel.TaskType)) {
                 return;
@@ -248,7 +248,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g extends BroadcastReceiver {
         public g() {
         }
@@ -273,7 +273,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         moreModel.setLoadDataCallBack(new f());
     }
 
-    private d.b.i0.u2.c.d getItemClickListener() {
+    private d.b.i0.v2.c.d getItemClickListener() {
         return new d();
     }
 
@@ -424,7 +424,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
-        d.b.i0.u2.c.e eVar;
+        d.b.i0.v2.c.e eVar;
         if (view == null || (eVar = this.mView) == null) {
             return;
         }
@@ -438,8 +438,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             }
         }
         if (view == this.mView.E()) {
-            d.b.h0.r.d0.b.i().s("key_is_dark_mode_notify_shown", true);
-            d.b.h0.r.d0.b.i().s("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
+            d.b.h0.r.d0.b.j().t("key_is_dark_mode_notify_shown", true);
+            d.b.h0.r.d0.b.j().t("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
             }
@@ -479,7 +479,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.b.i0.u2.c.e(this, getItemClickListener());
+        this.mView = new d.b.i0.v2.c.e(this, getItemClickListener());
         initModel(bundle);
         regReceiver();
         registerListener(this.mPersonInfoChangedListener);
@@ -491,7 +491,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public void onDestroy() {
         super.onDestroy();
         unregReceiver();
-        d.b.i0.u2.c.e eVar = this.mView;
+        d.b.i0.v2.c.e eVar = this.mView;
         if (eVar != null) {
             eVar.y();
         }
@@ -515,7 +515,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.u2.c.e eVar = this.mView;
+        d.b.i0.v2.c.e eVar = this.mView;
         if (eVar != null) {
             eVar.L();
             this.mView.J();

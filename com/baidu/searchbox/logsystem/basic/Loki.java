@@ -14,8 +14,8 @@ import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.searchbox.track.Track;
-import d.b.d0.b.a.a;
-import d.b.o.a.b;
+import d.b.b0.b.a.a;
+import d.b.n.a.b;
 /* loaded from: classes2.dex */
 public class Loki {
     public static final String CRASH_PAD_PROCESS_NAME = ":crashpad";

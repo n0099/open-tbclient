@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import com.alibaba.fastjson.asm.Label;
 import com.google.protobuf.CodedInputStream;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.a.a.a.q;
@@ -30,46 +31,46 @@ import d.o.a.e.a.d;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     /* renamed from: d  reason: collision with root package name */
-    public static d.o.a.d.m.a.a f38636d;
+    public static d.o.a.d.m.a.a f38925d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f38637a = null;
+    public Intent f38926a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38638b;
+    public boolean f38927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.o.a.b.a.c.b f38639c;
+    public d.o.a.b.a.c.b f38928c;
 
-    /* loaded from: classes7.dex */
-    public class b implements c.InterfaceC1818c {
+    /* loaded from: classes6.dex */
+    public class b implements c.InterfaceC1853c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f38643a;
+        public final /* synthetic */ d.o.a.b.a.c.b f38932a;
 
         public b(d.o.a.b.a.c.b bVar) {
-            this.f38643a = bVar;
+            this.f38932a = bVar;
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1818c
+        @Override // d.o.a.a.a.d.c.InterfaceC1853c
         public void a(DialogInterface dialogInterface) {
-            j.c.a().n("market_openapp_cancel", this.f38643a);
+            j.c.a().n("market_openapp_cancel", this.f38932a);
             dialogInterface.dismiss();
             d.q(TTDelegateActivity.this);
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1818c
+        @Override // d.o.a.a.a.d.c.InterfaceC1853c
         public void b(DialogInterface dialogInterface) {
-            g.b.j(this.f38643a);
+            g.b.j(this.f38932a);
             dialogInterface.dismiss();
             d.q(TTDelegateActivity.this);
         }
 
-        @Override // d.o.a.a.a.d.c.InterfaceC1818c
+        @Override // d.o.a.a.a.d.c.InterfaceC1853c
         public void c(DialogInterface dialogInterface) {
             d.q(TTDelegateActivity.this);
         }
@@ -77,7 +78,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void a(String str, String[] strArr) {
         Intent intent = new Intent(n.a(), TTDelegateActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("type", 1);
         intent.putExtra("permission_id_key", str);
         intent.putExtra("permission_content_key", strArr);
@@ -88,7 +89,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void b(String str, d.o.a.b.a.c.a aVar) {
         Intent c2 = c(aVar);
-        c2.addFlags(268435456);
+        c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         c2.putExtra("type", 11);
         c2.putExtra("package_name", str);
         if (n.a() != null) {
@@ -108,7 +109,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         b();
-        this.f38637a = getIntent();
+        this.f38926a = getIntent();
         n.l(this);
         a();
     }
@@ -117,7 +118,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.f38637a = intent;
+        this.f38926a = intent;
         n.l(this);
         a();
     }
@@ -132,46 +133,46 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onStop() {
         DownloadInfo c2;
         super.onStop();
-        if (!this.f38638b || this.f38639c == null || (c2 = l.b(null).c(this.f38639c.a())) == null || c2.E() < c2.Q0() || isFinishing()) {
+        if (!this.f38927b || this.f38928c == null || (c2 = l.b(null).c(this.f38928c.a())) == null || c2.E() < c2.Q0() || isFinishing()) {
             return;
         }
         finish();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Activity> f38640a;
+        public WeakReference<Activity> f38929a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f38641b;
+        public final /* synthetic */ String f38930b;
 
         public a(String str) {
-            this.f38641b = str;
-            this.f38640a = new WeakReference<>(TTDelegateActivity.this);
+            this.f38930b = str;
+            this.f38929a = new WeakReference<>(TTDelegateActivity.this);
         }
 
         @Override // d.o.a.a.a.a.q
         public void a() {
-            i.a(this.f38641b);
-            d.q(this.f38640a.get());
+            i.a(this.f38930b);
+            d.q(this.f38929a.get());
         }
 
         @Override // d.o.a.a.a.a.q
         public void a(String str) {
-            i.c(this.f38641b, str);
-            d.q(this.f38640a.get());
+            i.c(this.f38930b, str);
+            d.q(this.f38929a.get());
         }
     }
 
     private void c() {
         String str;
-        long longExtra = this.f38637a.getLongExtra("model_id", 0L);
-        String stringExtra = this.f38637a.getStringExtra("message_text");
-        String stringExtra2 = this.f38637a.getStringExtra("positive_button_text");
-        String stringExtra3 = this.f38637a.getStringExtra("negative_button_text");
-        int intExtra = this.f38637a.getIntExtra("type", 0);
+        long longExtra = this.f38926a.getLongExtra("model_id", 0L);
+        String stringExtra = this.f38926a.getStringExtra("message_text");
+        String stringExtra2 = this.f38926a.getStringExtra("positive_button_text");
+        String stringExtra3 = this.f38926a.getStringExtra("negative_button_text");
+        int intExtra = this.f38926a.getIntExtra("type", 0);
         d.o.a.b.a.c.b u = c.g.e().u(longExtra);
         d.c cVar = new d.c(this);
         cVar.c(false);
@@ -197,8 +198,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f38638b = true;
-        this.f38639c = u;
+        this.f38927b = true;
+        this.f38928c = u;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("pause_optimise_type", str);
@@ -215,7 +216,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void a(String str, d.o.a.b.a.c.a aVar) {
         Intent c2 = c(aVar);
-        c2.addFlags(268435456);
+        c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         c2.putExtra("type", 2);
         c2.putExtra("open_url", str);
         if (n.a() != null) {
@@ -259,13 +260,13 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         cVar.c(false);
         cVar.a(p.a());
         cVar.d().show();
-        this.f38638b = true;
-        this.f38639c = u;
+        this.f38927b = true;
+        this.f38928c = u;
     }
 
     public static void a(d.o.a.b.a.c.a aVar) {
         Intent c2 = c(aVar);
-        c2.addFlags(268435456);
+        c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         c2.putExtra("type", 4);
         c2.putExtra("model_id", aVar.b());
         if (n.a() != null) {
@@ -275,9 +276,9 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void a(d.o.a.b.a.c.a aVar, d.o.a.d.m.a.a aVar2) {
         Intent c2 = c(aVar);
-        c2.addFlags(268435456);
+        c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         c2.putExtra("type", 9);
-        f38636d = aVar2;
+        f38925d = aVar2;
         if (n.a() != null) {
             n.a().startActivity(c2);
         }
@@ -285,7 +286,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void a(long j) {
         Intent intent = new Intent(n.a(), TTDelegateActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("type", 10);
         intent.putExtra("app_info_id", j);
         if (n.a() != null) {
@@ -340,7 +341,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void a(@NonNull d.o.a.b.a.c.a aVar, int i, String str, String str2, String str3) {
         Intent c2 = c(aVar);
-        c2.addFlags(268435456);
+        c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         c2.putExtra("type", i);
         if (!TextUtils.isEmpty(str2)) {
             c2.putExtra("positive_button_text", str2);
@@ -364,7 +365,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
         try {
             try {
-                M.addFlags(268435456);
+                M.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 M.putExtra("start_only_for_android", true);
                 startActivity(M);
             } catch (Exception e2) {
@@ -376,16 +377,16 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     public void a() {
-        Intent intent = this.f38637a;
+        Intent intent = this.f38926a;
         if (intent == null) {
             return;
         }
         switch (intent.getIntExtra("type", 0)) {
             case 1:
-                b(this.f38637a.getStringExtra("permission_id_key"), this.f38637a.getStringArrayExtra("permission_content_key"));
+                b(this.f38926a.getStringExtra("permission_id_key"), this.f38926a.getStringArrayExtra("permission_content_key"));
                 break;
             case 2:
-                a(this.f38637a.getStringExtra("open_url"));
+                a(this.f38926a.getStringExtra("open_url"));
                 break;
             case 3:
             case 6:
@@ -393,30 +394,30 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 d.o.a.e.a.d.q(this);
                 break;
             case 4:
-                c(this.f38637a.getLongExtra("model_id", 0L));
+                c(this.f38926a.getLongExtra("model_id", 0L));
                 break;
             case 5:
-                b(this.f38637a.getLongExtra("model_id", 0L));
+                b(this.f38926a.getLongExtra("model_id", 0L));
                 break;
             case 7:
             case 8:
                 c();
                 break;
             case 9:
-                d.o.a.d.m.a.a aVar = f38636d;
+                d.o.a.d.m.a.a aVar = f38925d;
                 if (aVar != null) {
                     aVar.a();
                 }
                 d.o.a.e.a.d.q(this);
                 break;
             case 10:
-                d(this.f38637a.getLongExtra("app_info_id", 0L));
+                d(this.f38926a.getLongExtra("app_info_id", 0L));
                 break;
             case 11:
-                b(this.f38637a.getStringExtra("package_name"));
+                b(this.f38926a.getStringExtra("package_name"));
                 break;
         }
-        this.f38637a = null;
+        this.f38926a = null;
     }
 
     private void a(String str) {
@@ -429,7 +430,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(parse);
                 intent.putExtra("open_url", str);
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 if (d.o.a.e.b.j.a.r().l("fix_app_link_flag")) {
                     intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 }

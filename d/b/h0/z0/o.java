@@ -46,6 +46,6 @@ public class o {
     }
 
     public static boolean f() {
-        return FileHelper.checkSD() && d.b.b.d.c.c();
+        return FileHelper.checkSD() && d.b.c.d.c.c();
     }
 }

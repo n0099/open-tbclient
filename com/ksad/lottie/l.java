@@ -10,16 +10,16 @@ import java.util.Set;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31442a = false;
+    public boolean f31731a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<a> f31443b = new ArraySet();
+    public final Set<a> f31732b = new ArraySet();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, com.ksad.lottie.d.d> f31444c = new HashMap();
+    public final Map<String, com.ksad.lottie.d.d> f31733c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public final Comparator<Pair<String, Float>> f31445d = new Comparator<Pair<String, Float>>() { // from class: com.ksad.lottie.l.1
+    public final Comparator<Pair<String, Float>> f31734d = new Comparator<Pair<String, Float>>() { // from class: com.ksad.lottie.l.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -39,15 +39,15 @@ public class l {
     }
 
     public void a(String str, float f2) {
-        if (this.f31442a) {
-            com.ksad.lottie.d.d dVar = this.f31444c.get(str);
+        if (this.f31731a) {
+            com.ksad.lottie.d.d dVar = this.f31733c.get(str);
             if (dVar == null) {
                 dVar = new com.ksad.lottie.d.d();
-                this.f31444c.put(str, dVar);
+                this.f31733c.put(str, dVar);
             }
             dVar.a(f2);
             if (str.equals("__container")) {
-                for (a aVar : this.f31443b) {
+                for (a aVar : this.f31732b) {
                     aVar.a(f2);
                 }
             }
@@ -55,6 +55,6 @@ public class l {
     }
 
     public void a(boolean z) {
-        this.f31442a = z;
+        this.f31731a = z;
     }
 }

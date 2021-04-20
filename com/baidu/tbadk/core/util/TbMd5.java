@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.e.p.q;
+import d.b.c.e.p.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

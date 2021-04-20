@@ -4,66 +4,66 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66354a;
+    public Context f67347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66355b;
+    public String f67348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66356c;
+    public String f67349c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66357d;
+    public String f67350d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66358e;
+    public String f67351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f66359f;
+    public boolean f67352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f66360g;
+    public Drawable f67353g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1818c f66361h;
+    public InterfaceC1853c f67354h;
     public View i;
     public int j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f66362a;
+        public Context f67355a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66363b;
+        public String f67356b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66364c;
+        public String f67357c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66365d;
+        public String f67358d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66366e;
+        public String f67359e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f66367f;
+        public boolean f67360f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Drawable f66368g;
+        public Drawable f67361g;
 
         /* renamed from: h  reason: collision with root package name */
-        public InterfaceC1818c f66369h;
+        public InterfaceC1853c f67362h;
         public View i;
         public int j;
 
         public b(Context context) {
-            this.f66362a = context;
+            this.f67355a = context;
         }
 
         public b b(int i) {
@@ -72,22 +72,22 @@ public class c {
         }
 
         public b c(Drawable drawable) {
-            this.f66368g = drawable;
+            this.f67361g = drawable;
             return this;
         }
 
-        public b d(InterfaceC1818c interfaceC1818c) {
-            this.f66369h = interfaceC1818c;
+        public b d(InterfaceC1853c interfaceC1853c) {
+            this.f67362h = interfaceC1853c;
             return this;
         }
 
         public b e(String str) {
-            this.f66363b = str;
+            this.f67356b = str;
             return this;
         }
 
         public b f(boolean z) {
-            this.f66367f = z;
+            this.f67360f = z;
             return this;
         }
 
@@ -96,24 +96,24 @@ public class c {
         }
 
         public b h(String str) {
-            this.f66364c = str;
+            this.f67357c = str;
             return this;
         }
 
         public b j(String str) {
-            this.f66365d = str;
+            this.f67358d = str;
             return this;
         }
 
         public b l(String str) {
-            this.f66366e = str;
+            this.f67359e = str;
             return this;
         }
     }
 
     /* renamed from: d.o.a.a.a.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1818c {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1853c {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -122,15 +122,15 @@ public class c {
     }
 
     public c(b bVar) {
-        this.f66359f = true;
-        this.f66354a = bVar.f66362a;
-        this.f66355b = bVar.f66363b;
-        this.f66356c = bVar.f66364c;
-        this.f66357d = bVar.f66365d;
-        this.f66358e = bVar.f66366e;
-        this.f66359f = bVar.f66367f;
-        this.f66360g = bVar.f66368g;
-        this.f66361h = bVar.f66369h;
+        this.f67352f = true;
+        this.f67347a = bVar.f67355a;
+        this.f67348b = bVar.f67356b;
+        this.f67349c = bVar.f67357c;
+        this.f67350d = bVar.f67358d;
+        this.f67351e = bVar.f67359e;
+        this.f67352f = bVar.f67360f;
+        this.f67353g = bVar.f67361g;
+        this.f67354h = bVar.f67362h;
         this.i = bVar.i;
         this.j = bVar.j;
     }

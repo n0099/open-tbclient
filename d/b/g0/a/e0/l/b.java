@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListener {
-    public static final boolean C0 = k.f45051a;
+    public static final boolean C0 = k.f45443a;
     public static String D0 = "pref_close_scope_alert_showed";
     public FrameLayout A0;
     public BaseAdapter y0;
@@ -51,8 +51,8 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
 
     /* renamed from: d.b.g0.a.e0.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class DialogInterface$OnClickListenerC0660b implements DialogInterface.OnClickListener {
-        public DialogInterface$OnClickListenerC0660b() {
+    public class DialogInterface$OnClickListenerC0672b implements DialogInterface.OnClickListener {
+        public DialogInterface$OnClickListenerC0672b() {
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -65,16 +65,16 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
     public class c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.v1.c.e f43966e;
+        public final /* synthetic */ d.b.g0.a.v1.c.e f44358e;
 
         public c(d.b.g0.a.v1.c.e eVar) {
-            this.f43966e = eVar;
+            this.f44358e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
             b.this.L2().R().y(b.D0, true);
-            b.this.Q2(this.f43966e);
+            b.this.Q2(this.f44358e);
         }
     }
 
@@ -98,7 +98,7 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
             }
             for (Map.Entry<String, d.b.g0.a.v1.c.e> entry : map.entrySet()) {
                 d.b.g0.a.v1.c.e value = entry.getValue();
-                if (!TextUtils.isEmpty(entry.getKey()) && value != null && !value.f46771d && value.b() && "2".equals(value.f46772e) && !"snsapi_base".equals(value.f46769b)) {
+                if (!TextUtils.isEmpty(entry.getKey()) && value != null && !value.f47163d && value.b() && "2".equals(value.f47164e) && !"snsapi_base".equals(value.f47161b)) {
                     b.this.z0.add(value);
                 }
             }
@@ -135,19 +135,19 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
             if (view == null || !(view.getTag() instanceof g)) {
                 view = View.inflate(b.this.l(), d.b.g0.a.g.aiapps_setting_item, null);
                 g gVar = new g();
-                gVar.f43973b = (CheckBox) view.findViewById(d.b.g0.a.f.checkbox);
-                gVar.f43972a = (TextView) view.findViewById(d.b.g0.a.f.title);
+                gVar.f44365b = (CheckBox) view.findViewById(d.b.g0.a.f.checkbox);
+                gVar.f44364a = (TextView) view.findViewById(d.b.g0.a.f.title);
                 view.setTag(gVar);
             }
             g gVar2 = (g) view.getTag();
             d.b.g0.a.v1.c.e item = getItem(i);
-            String str = TextUtils.isEmpty(item.f46774g) ? item.f46773f : item.f46774g;
-            TextView textView = gVar2.f43972a;
+            String str = TextUtils.isEmpty(item.f47166g) ? item.f47165f : item.f47166g;
+            TextView textView = gVar2.f44364a;
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
             textView.setText(str);
-            gVar2.f43973b.setChecked(item.a());
+            gVar2.f44365b.setChecked(item.a());
             return view;
         }
     }
@@ -156,10 +156,10 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
     public class f implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.v1.c.e f43970e;
+        public final /* synthetic */ d.b.g0.a.v1.c.e f44362e;
 
         public f(d.b.g0.a.v1.c.e eVar) {
-            this.f43970e = eVar;
+            this.f44362e = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,7 +172,7 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
             }
             d.b.g0.a.q1.b.d.a.b(b.this.A0);
             if (hVar != null && hVar.c()) {
-                b.this.R2(this.f43970e, hVar.f46808a.f46823b);
+                b.this.R2(this.f44362e, hVar.f47200a.f47215b);
             } else {
                 d.b.g0.a.q1.b.f.d.e(f2, d.b.g0.a.h.aiapps_setting_scope_auth_failed).C();
             }
@@ -184,10 +184,10 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
     public class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f43972a;
+        public TextView f44364a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f43973b;
+        public CheckBox f44365b;
 
         public g() {
         }
@@ -217,7 +217,7 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
             return;
         }
         d.b.g0.a.q1.b.d.a.e(f(), this.A0);
-        L2.R().d(f(), eVar.f46769b, false, z, true, new f(eVar));
+        L2.R().d(f(), eVar.f47161b, false, z, true, new f(eVar));
     }
 
     public final BaseAdapter K2() {
@@ -259,7 +259,7 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
                 String string = query.getString(query.getColumnIndex("title"));
                 int i2 = query.getInt(query.getColumnIndex("result"));
                 h hVar = new h(String.valueOf(i));
-                hVar.f46773f = string;
+                hVar.f47165f = string;
                 int i3 = -1;
                 if (i2 != -1) {
                     i3 = 1;
@@ -279,7 +279,7 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
         aVar.w(d.b.g0.a.h.aiapps_setting_scope_close_alert_msg);
         aVar.n(new d.b.g0.a.j2.g.a());
         aVar.O(d.b.g0.a.h.aiapps_setting_scope_close_alert_btn_pos, new c(eVar));
-        aVar.C(d.b.g0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0660b());
+        aVar.C(d.b.g0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0672b());
         aVar.m(true);
         aVar.L(new a());
         aVar.X();
@@ -307,7 +307,7 @@ public class b extends d.b.g0.a.e0.l.c implements AdapterView.OnItemClickListene
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("result", Integer.valueOf(!hVar.a() ? 1 : -1));
-        if (f2.getContentResolver().update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "_id=?", new String[]{hVar.f46769b}) > 0) {
+        if (f2.getContentResolver().update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "_id=?", new String[]{hVar.f47161b}) > 0) {
             hVar.j = hVar.a() ? -1 : 1;
             this.y0.notifyDataSetChanged();
         }

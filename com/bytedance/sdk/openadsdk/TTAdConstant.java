@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTAdConstant {
     public static final int AD_TYPE_COMMON_VIDEO = 0;
     public static final int AD_TYPE_PLAYABLE = 2;
@@ -38,21 +38,21 @@ public class TTAdConstant {
     public static final int VERTICAL = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface NATIVE_AD_TYPE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface NETWORK_STATE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface ORIENTATION_STATE {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum RitScenes {
         CUSTOMIZE_SCENES("customize_scenes"),
         HOME_OPEN_BONUS("home_open_bonus"),
@@ -69,19 +69,19 @@ public class TTAdConstant {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f27299a;
+        public final String f26984a;
 
         RitScenes(String str) {
-            this.f27299a = str;
+            this.f26984a = str;
         }
 
         public String getScenesName() {
-            return this.f27299a;
+            return this.f26984a;
         }
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface TITLE_BAR_THEME {
     }
 }

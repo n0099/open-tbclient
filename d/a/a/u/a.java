@@ -1,71 +1,53 @@
 package d.a.a.u;
 
 import android.graphics.PointF;
-import android.util.JsonReader;
-import android.util.JsonToken;
-import com.baidu.mobstat.Config;
-import java.io.IOException;
-import java.util.ArrayList;
+import androidx.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class a {
-    public static d.a.a.s.i.e a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        ArrayList arrayList = new ArrayList();
-        if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
-            jsonReader.beginArray();
-            while (jsonReader.hasNext()) {
-                arrayList.add(w.a(jsonReader, dVar));
-            }
-            jsonReader.endArray();
-            r.b(arrayList);
-        } else {
-            arrayList.add(new d.a.a.w.a(p.e(jsonReader, d.a.a.v.f.e())));
-        }
-        return new d.a.a.s.i.e(arrayList);
+
+    /* renamed from: a  reason: collision with root package name */
+    public final PointF f41631a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final PointF f41632b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final PointF f41633c;
+
+    public a() {
+        this.f41631a = new PointF();
+        this.f41632b = new PointF();
+        this.f41633c = new PointF();
     }
 
-    public static d.a.a.s.i.m<PointF, PointF> b(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
-        jsonReader.beginObject();
-        d.a.a.s.i.e eVar = null;
-        d.a.a.s.i.b bVar = null;
-        d.a.a.s.i.b bVar2 = null;
-        boolean z = false;
-        while (jsonReader.peek() != JsonToken.END_OBJECT) {
-            String nextName = jsonReader.nextName();
-            char c2 = 65535;
-            int hashCode = nextName.hashCode();
-            if (hashCode != 107) {
-                if (hashCode != 120) {
-                    if (hashCode == 121 && nextName.equals("y")) {
-                        c2 = 2;
-                    }
-                } else if (nextName.equals("x")) {
-                    c2 = 1;
-                }
-            } else if (nextName.equals(Config.APP_KEY)) {
-                c2 = 0;
-            }
-            if (c2 == 0) {
-                eVar = a(jsonReader, dVar);
-            } else if (c2 != 1) {
-                if (c2 != 2) {
-                    jsonReader.skipValue();
-                } else if (jsonReader.peek() == JsonToken.STRING) {
-                    jsonReader.skipValue();
-                    z = true;
-                } else {
-                    bVar2 = d.e(jsonReader, dVar);
-                }
-            } else if (jsonReader.peek() == JsonToken.STRING) {
-                jsonReader.skipValue();
-                z = true;
-            } else {
-                bVar = d.e(jsonReader, dVar);
-            }
-        }
-        jsonReader.endObject();
-        if (z) {
-            dVar.a("Lottie doesn't support expressions.");
-        }
-        return eVar != null ? eVar : new d.a.a.s.i.i(bVar, bVar2);
+    public PointF a() {
+        return this.f41631a;
+    }
+
+    public PointF b() {
+        return this.f41632b;
+    }
+
+    public PointF c() {
+        return this.f41633c;
+    }
+
+    public void d(float f2, float f3) {
+        this.f41631a.set(f2, f3);
+    }
+
+    public void e(float f2, float f3) {
+        this.f41632b.set(f2, f3);
+    }
+
+    public void f(float f2, float f3) {
+        this.f41633c.set(f2, f3);
+    }
+
+    public a(PointF pointF, PointF pointF2, PointF pointF3) {
+        this.f41631a = pointF;
+        this.f41632b = pointF2;
+        this.f41633c = pointF3;
     }
 }

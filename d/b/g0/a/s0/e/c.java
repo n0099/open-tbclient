@@ -14,46 +14,46 @@ import d.b.g0.a.s0.d;
 import d.b.g0.a.s0.e.e.b;
 /* loaded from: classes2.dex */
 public class c implements d.b.g0.a.s0.d {
-    public static final boolean j = k.f45051a;
+    public static final boolean j = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45797a;
+    public Context f46189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45798b;
+    public String f46190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45799c;
+    public String f46191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.e0.l.e f45800d;
+    public d.b.g0.a.e0.l.e f46192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f45801e;
+    public Handler f46193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.s0.e.e.b f45802f;
+    public d.b.g0.a.s0.e.e.b f46194f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f45803g;
+    public f f46195g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45804h;
+    public int f46196h;
     public b.e i = new e();
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45805e;
+        public final /* synthetic */ int f46197e;
 
         public a(int i) {
-            this.f45805e = i;
+            this.f46197e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.w0(this.f45805e);
+            c.this.w0(this.f46197e);
         }
     }
 
@@ -70,30 +70,30 @@ public class c implements d.b.g0.a.s0.d {
 
     /* renamed from: d.b.g0.a.s0.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0781c implements Runnable {
+    public class RunnableC0793c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45808e;
+        public final /* synthetic */ int f46200e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f45809f;
+        public final /* synthetic */ int f46201f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f45810g;
+        public final /* synthetic */ int f46202g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f45811h;
+        public final /* synthetic */ int f46203h;
 
-        public RunnableC0781c(int i, int i2, int i3, int i4) {
-            this.f45808e = i;
-            this.f45809f = i2;
-            this.f45810g = i3;
-            this.f45811h = i4;
+        public RunnableC0793c(int i, int i2, int i3, int i4) {
+            this.f46200e = i;
+            this.f46201f = i2;
+            this.f46202g = i3;
+            this.f46203h = i4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.u0(this.f45808e, this.f45809f, this.f45810g, this.f45811h);
+            c.this.u0(this.f46200e, this.f46201f, this.f46202g, this.f46203h);
         }
     }
 
@@ -116,32 +116,32 @@ public class c implements d.b.g0.a.s0.d {
         @Override // d.b.g0.a.s0.e.e.b.e
         public void a() {
             e("onKeyboardHide", null);
-            if (c.this.f45803g != null) {
-                c.this.f45803g.a();
+            if (c.this.f46195g != null) {
+                c.this.f46195g.a();
             }
         }
 
         @Override // d.b.g0.a.s0.e.e.b.e
         public void b(int i) {
             e("onKeyboardShow", "height: " + i);
-            if (c.this.f45803g != null) {
-                c.this.f45803g.b(i);
+            if (c.this.f46195g != null) {
+                c.this.f46195g.b(i);
             }
         }
 
         @Override // d.b.g0.a.s0.e.e.b.e
         public void c(String str) {
             e("onInput", "inputText: " + str);
-            if (c.this.f45803g != null) {
-                c.this.f45803g.c(str);
+            if (c.this.f46195g != null) {
+                c.this.f46195g.c(str);
             }
         }
 
         @Override // d.b.g0.a.s0.e.e.b.e
         public void d() {
             e("onDeletePressed", null);
-            if (c.this.f45803g != null) {
-                c.this.f45803g.d();
+            if (c.this.f46195g != null) {
+                c.this.f46195g.d();
             }
         }
 
@@ -169,12 +169,12 @@ public class c implements d.b.g0.a.s0.d {
 
     public c(ZeusPluginFactory.Invoker invoker, String str) {
         if (invoker != null) {
-            this.f45799c = (String) invoker.get("id");
+            this.f46191c = (String) invoker.get("id");
         }
-        this.f45797a = d.b.g0.a.w0.a.c();
-        this.f45798b = str;
-        this.f45801e = new Handler(this.f45797a.getMainLooper());
-        this.f45800d = m0();
+        this.f46189a = d.b.g0.a.w0.a.c();
+        this.f46190b = str;
+        this.f46193e = new Handler(this.f46189a.getMainLooper());
+        this.f46192d = m0();
     }
 
     @Override // d.b.g0.a.s0.d
@@ -189,13 +189,13 @@ public class c implements d.b.g0.a.s0.d {
     @Override // d.b.g0.a.s0.d
     @Nullable
     public String b() {
-        return this.f45798b;
+        return this.f46190b;
     }
 
     @Override // d.b.g0.a.s0.d
     @Nullable
     public String c0() {
-        return this.f45799c;
+        return this.f46191c;
     }
 
     @Nullable
@@ -209,7 +209,7 @@ public class c implements d.b.g0.a.s0.d {
             d.b.g0.a.e0.l.c j2 = W.j(i);
             if (j2 instanceof d.b.g0.a.e0.l.e) {
                 d.b.g0.a.e0.l.e eVar = (d.b.g0.a.e0.l.e) j2;
-                if (TextUtils.equals(eVar.X2(), this.f45798b)) {
+                if (TextUtils.equals(eVar.X2(), this.f46190b)) {
                     return eVar;
                 }
             }
@@ -227,60 +227,60 @@ public class c implements d.b.g0.a.s0.d {
     }
 
     public final void o0() {
-        d.b.g0.a.s0.e.e.b bVar = this.f45802f;
+        d.b.g0.a.s0.e.e.b bVar = this.f46194f;
         if (bVar == null) {
             return;
         }
         bVar.dismiss();
-        this.f45802f = null;
+        this.f46194f = null;
     }
 
     public void p0() {
-        this.f45801e.post(new b());
+        this.f46193e.post(new b());
     }
 
     public void q0() {
-        this.f45801e.post(new d());
+        this.f46193e.post(new d());
     }
 
     public void r0(int i, int i2, int i3, int i4) {
-        this.f45801e.post(new RunnableC0781c(i, i2, i3, i4));
+        this.f46193e.post(new RunnableC0793c(i, i2, i3, i4));
     }
 
     public void release() {
     }
 
     public void s0(int i) {
-        this.f45801e.post(new a(i));
+        this.f46193e.post(new a(i));
     }
 
     public final void t0() {
-        d.b.g0.a.e0.l.e eVar = this.f45800d;
-        if (eVar == null || this.f45804h == 0) {
+        d.b.g0.a.e0.l.e eVar = this.f46192d;
+        if (eVar == null || this.f46196h == 0) {
             return;
         }
-        this.f45804h = 0;
+        this.f46196h = 0;
         if (eVar.b3().getScrollY() > 0) {
-            this.f45800d.b3().setScrollY(0);
+            this.f46192d.b3().setScrollY(0);
         }
     }
 
     public final void u0(int i, int i2, int i3, int i4) {
         int i5;
-        if (this.f45800d == null) {
+        if (this.f46192d == null) {
             return;
         }
         d.b.g0.a.p.d.c o = d.b.g0.a.z0.f.V().o();
-        if (this.f45804h == i3 || o == null) {
+        if (this.f46196h == i3 || o == null) {
             return;
         }
-        this.f45804h = i3;
-        int height = ((this.f45800d.b3().getHeight() - i) - i2) + o.getWebViewScrollY() + h0.i(this.f45797a);
+        this.f46196h = i3;
+        int height = ((this.f46192d.b3().getHeight() - i) - i2) + o.getWebViewScrollY() + h0.i(this.f46189a);
         if (i4 > height) {
             i4 = height;
         }
         int i6 = height - i3;
-        int scrollY = this.f45800d.b3().getScrollY();
+        int scrollY = this.f46192d.b3().getScrollY();
         if (i6 < 0) {
             i5 = i4 - i6;
         } else {
@@ -289,11 +289,11 @@ public class c implements d.b.g0.a.s0.d {
             }
             i5 = scrollY;
         }
-        this.f45800d.b3().setScrollY(i5);
+        this.f46192d.b3().setScrollY(i5);
     }
 
     public void v0(@NonNull f fVar) {
-        this.f45803g = fVar;
+        this.f46195g = fVar;
     }
 
     public final void w0(int i) {
@@ -302,7 +302,7 @@ public class c implements d.b.g0.a.s0.d {
             return;
         }
         d.b.g0.a.s0.e.e.b bVar = new d.b.g0.a.s0.e.e.b(n0, i, this.i);
-        this.f45802f = bVar;
+        this.f46194f = bVar;
         bVar.e();
     }
 }

@@ -7,21 +7,21 @@ import android.view.Choreographer;
 public class c implements Choreographer.FrameCallback {
 
     /* renamed from: f  reason: collision with root package name */
-    public long f50360f;
+    public long f50767f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50361g;
+    public long f50768g;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f50359e = 0;
+    public long f50766e = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50362h = 0;
+    public int f50769h = 0;
     public int i = -1;
     public boolean j = false;
 
     public final void a(long j) {
-        long j2 = this.f50361g;
+        long j2 = this.f50768g;
         if (j2 <= 0) {
             return;
         }
@@ -29,7 +29,7 @@ public class c implements Choreographer.FrameCallback {
         if (j3 <= 0 || this.i > 0) {
             return;
         }
-        this.i = (int) (60 - ((this.f50362h * 1000) / j3));
+        this.i = (int) (60 - ((this.f50769h * 1000) / j3));
     }
 
     public int b() {
@@ -38,10 +38,10 @@ public class c implements Choreographer.FrameCallback {
 
     public void c() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.f50361g = currentTimeMillis;
-        this.f50360f = currentTimeMillis + 1000;
-        this.f50359e = 0L;
-        this.f50362h = 0;
+        this.f50768g = currentTimeMillis;
+        this.f50767f = currentTimeMillis + 1000;
+        this.f50766e = 0L;
+        this.f50769h = 0;
         this.i = -1;
         this.j = false;
         Choreographer.getInstance().postFrameCallback(this);
@@ -51,27 +51,27 @@ public class c implements Choreographer.FrameCallback {
         this.j = true;
         Choreographer.getInstance().removeFrameCallback(this);
         a(System.currentTimeMillis());
-        this.f50362h = 0;
-        this.f50361g = 0L;
+        this.f50769h = 0;
+        this.f50768g = 0L;
     }
 
     @Override // android.view.Choreographer.FrameCallback
     public void doFrame(long j) {
-        long j2 = this.f50359e;
+        long j2 = this.f50766e;
         if (j2 != 0) {
             long j3 = (j - j2) / 1000000;
             if (j3 > 16 && j3 < 960) {
-                this.f50362h = (int) (this.f50362h + (j3 / 16));
+                this.f50769h = (int) (this.f50769h + (j3 / 16));
             }
         }
-        this.f50359e = j;
+        this.f50766e = j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.f50360f && !this.j) {
+        if (currentTimeMillis < this.f50767f && !this.j) {
             Choreographer.getInstance().postFrameCallback(this);
             return;
         }
         a(currentTimeMillis);
-        this.f50362h = 0;
-        this.f50361g = 0L;
+        this.f50769h = 0;
+        this.f50768g = 0L;
     }
 }

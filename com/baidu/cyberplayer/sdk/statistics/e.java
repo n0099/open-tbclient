@@ -3,31 +3,31 @@ package com.baidu.cyberplayer.sdk.statistics;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5075a;
+    public int f5110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5076b;
+    public String f5111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5077c;
+    public String f5112c;
 
     public e(int i, String str, long j) {
-        this.f5075a = i;
-        this.f5076b = str;
-        this.f5077c = Long.toString(j);
+        this.f5110a = i;
+        this.f5111b = str;
+        this.f5112c = Long.toString(j);
     }
 
     public e(int i, String str, String str2) {
-        this.f5075a = i;
-        this.f5076b = str;
-        this.f5077c = str2;
+        this.f5110a = i;
+        this.f5111b = str;
+        this.f5112c = str2;
     }
 
     public String a() {
-        return this.f5076b;
+        return this.f5111b;
     }
 
     public String b() {
-        return this.f5077c;
+        return this.f5112c;
     }
 }

@@ -13,16 +13,16 @@ import java.util.List;
 public class FeedBackLayout extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24557a;
+    public NetImageView f24242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24558b;
+    public TextView f24243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f24559c;
+    public View f24244c;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeCfgResponse.TitleItem f24560e;
+    public HomeCfgResponse.TitleItem f24245e;
 
     public FeedBackLayout(Context context) {
         super(context);
@@ -36,15 +36,15 @@ public class FeedBackLayout extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_feedback_layout"), this);
-        this.f24557a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_logo"));
-        this.f24558b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_home_feedback"));
+        this.f24242a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_logo"));
+        this.f24243b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_home_feedback"));
         View findViewById = findViewById(ResUtils.id(getContext(), "feedback_layout"));
-        this.f24559c = findViewById;
+        this.f24244c = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.FeedBackLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FeedBackLayout.this.getWalletInterface() != null) {
-                    FeedBackLayout.this.getWalletInterface().jump(FeedBackLayout.this.f24560e.fd_desc, FeedBackLayout.this.f24560e.fd_type, FeedBackLayout.this.f24560e.fd_link_addr, false);
+                    FeedBackLayout.this.getWalletInterface().jump(FeedBackLayout.this.f24245e.fd_desc, FeedBackLayout.this.f24245e.fd_type, FeedBackLayout.this.f24245e.fd_link_addr, false);
                 }
             }
         });
@@ -52,29 +52,29 @@ public class FeedBackLayout extends BaseItemLayout {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public boolean isDataValid() {
-        return this.f24560e != null;
+        return this.f24245e != null;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        HomeCfgResponse.TitleItem titleItem = this.f24560e;
+        HomeCfgResponse.TitleItem titleItem = this.f24245e;
         if (titleItem != null) {
             if (!TextUtils.isEmpty(titleItem.fd_logo)) {
-                NetImageView netImageView = this.f24557a;
-                netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.f24560e.fd_logo);
+                NetImageView netImageView = this.f24242a;
+                netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.f24245e.fd_logo);
             }
-            if (!this.f24560e.isFeedBackVisible()) {
-                this.f24559c.setVisibility(8);
+            if (!this.f24245e.isFeedBackVisible()) {
+                this.f24244c.setVisibility(8);
                 return;
             }
-            this.f24559c.setVisibility(0);
-            this.f24558b.setVisibility(0);
-            this.f24558b.setText(this.f24560e.fd_desc);
+            this.f24244c.setVisibility(0);
+            this.f24243b.setVisibility(0);
+            this.f24243b.setText(this.f24245e.fd_desc);
         }
     }
 
     public void setData(HomeCfgResponse.TitleItem titleItem, b bVar) {
-        this.f24560e = titleItem;
+        this.f24245e = titleItem;
         this.mWalletHomeInterface = bVar;
         if (isDataValid()) {
             initView();

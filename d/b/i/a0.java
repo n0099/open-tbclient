@@ -28,7 +28,7 @@ public class a0 extends h {
     }
 
     public final boolean s(d.b.h0.r.q.a aVar) {
-        return (aVar == null || aVar.n() == null || !aVar.n().y2() || aVar.n().u1() == null) ? false : true;
+        return (aVar == null || aVar.n() == null || !aVar.n().z2() || aVar.n().u1() == null) ? false : true;
     }
 
     public final boolean t(d.b.h0.r.q.a aVar) {

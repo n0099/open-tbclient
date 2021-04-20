@@ -2,13 +2,13 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.b1.c.d;
+import d.b.i0.c1.c.d;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public d hotThreadItemListData;
     public Page page;
@@ -45,7 +45,7 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
             this.page = dataRes.page;
             d dVar = new d();
             this.hotThreadItemListData = dVar;
-            dVar.C4(getTopicRelateThreadResIdl.data);
+            dVar.D4(getTopicRelateThreadResIdl.data);
         }
     }
 }

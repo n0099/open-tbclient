@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,7 +22,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionActivity> {
     public View mBack;
     public NavigationBar mNavigationBar;
@@ -33,19 +34,19 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
     public String[] PERMISSION_INFO_ARRAY = {getString(R.string.privacy_camera_info), getString(R.string.privacy_sdcard_info), getString(R.string.privacy_record_info), getString(R.string.privacy_location_info)};
     public RecyclerView.Adapter mAdapter = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class PermissionDetailHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f21075a;
+        public TextView f20760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21076b;
+        public int f20761b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View.OnClickListener f21077c;
+        public View.OnClickListener f20762c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
@@ -58,39 +59,39 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
 
         public PermissionDetailHolder(View view) {
             super(view);
-            this.f21076b = 3;
+            this.f20761b = 3;
             a aVar = new a();
-            this.f21077c = aVar;
+            this.f20762c = aVar;
             TextView textView = (TextView) view;
-            this.f21075a = textView;
+            this.f20760a = textView;
             textView.setOnClickListener(aVar);
         }
 
         public void a(int i) {
-            if (i != this.f21076b) {
-                SkinManager.setViewTextColor(this.f21075a, R.color.CAM_X0302);
+            if (i != this.f20761b) {
+                SkinManager.setViewTextColor(this.f20760a, R.color.CAM_X0302);
                 SkinManager.setBackgroundResource(this.itemView, R.drawable.more_all);
-                this.f21076b = i;
+                this.f20761b = i;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class PermissionViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbSettingTextTipView f21079a;
+        public TbSettingTextTipView f20764a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f21080b;
+        public TextView f20765b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f21081c;
+        public int f20766c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View.OnClickListener f21082d;
+        public View.OnClickListener f20767d;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
@@ -101,7 +102,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     return;
                 }
                 Intent intent = new Intent();
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", PermissionViewHolder.this.itemView.getContext().getPackageName(), null));
                 PermissionViewHolder.this.itemView.getContext().startActivity(intent);
@@ -110,12 +111,12 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
 
         public PermissionViewHolder(View view) {
             super(view);
-            this.f21081c = 3;
-            this.f21082d = new a();
+            this.f20766c = 3;
+            this.f20767d = new a();
             TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view.findViewById(R.id.privacy_name);
-            this.f21079a = tbSettingTextTipView;
-            tbSettingTextTipView.setOnClickListener(this.f21082d);
-            this.f21080b = (TextView) view.findViewById(R.id.privacy_info);
+            this.f20764a = tbSettingTextTipView;
+            tbSettingTextTipView.setOnClickListener(this.f20767d);
+            this.f20765b = (TextView) view.findViewById(R.id.privacy_info);
         }
 
         public void a(b bVar) {
@@ -123,29 +124,29 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             if (bVar == null || this.itemView == null) {
                 return;
             }
-            this.f21079a.setText(bVar.f21086b);
-            TbSettingTextTipView tbSettingTextTipView = this.f21079a;
-            if (bVar.f21088d) {
+            this.f20764a.setText(bVar.f20771b);
+            TbSettingTextTipView tbSettingTextTipView = this.f20764a;
+            if (bVar.f20773d) {
                 string = this.itemView.getContext().getString(R.string.privacy_permisson_open);
             } else {
                 string = this.itemView.getContext().getString(R.string.privacy_permisson_closed);
             }
             tbSettingTextTipView.setTip(string);
-            this.f21080b.setText(bVar.f21087c);
+            this.f20765b.setText(bVar.f20772c);
         }
 
         public void b(int i) {
-            if (i != this.f21081c) {
-                this.f21079a.f(i);
-                SkinManager.setBackgroundResource(this.f21079a, R.drawable.more_all);
-                SkinManager.setBackgroundColor(this.f21080b, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(this.f21080b, R.color.CAM_X0108);
-                this.f21081c = i;
+            if (i != this.f20766c) {
+                this.f20764a.f(i);
+                SkinManager.setBackgroundResource(this.f20764a, R.drawable.more_all);
+                SkinManager.setBackgroundColor(this.f20765b, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.f20765b, R.color.CAM_X0108);
+                this.f20766c = i;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends RecyclerView.Adapter {
         public a() {
         }
@@ -161,7 +162,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             if (bVar == null) {
                 return 0;
             }
-            return bVar.f21085a;
+            return bVar.f20770a;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -188,20 +189,20 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21085a = 0;
+        public int f20770a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21086b;
+        public String f20771b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f21087c;
+        public String f20772c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f21088d;
+        public boolean f20773d;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -228,13 +229,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.mRecyclerView.setAdapter(this.mAdapter);
         for (int i = 0; i < this.PERMISSION_ARRAY.length; i++) {
             b bVar = new b();
-            bVar.f21085a = 0;
-            bVar.f21086b = this.PERMISSION_NAME_ARRAY[i];
-            bVar.f21087c = this.PERMISSION_INFO_ARRAY[i];
+            bVar.f20770a = 0;
+            bVar.f20771b = this.PERMISSION_NAME_ARRAY[i];
+            bVar.f20772c = this.PERMISSION_INFO_ARRAY[i];
             this.mDataList.add(bVar);
         }
         b bVar2 = new b();
-        bVar2.f21085a = 1;
+        bVar2.f20770a = 1;
         this.mDataList.add(bVar2);
     }
 
@@ -243,7 +244,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         super.onResume();
         if (this.mDataList.size() >= this.PERMISSION_ARRAY.length) {
             for (int i = 0; i < this.PERMISSION_ARRAY.length; i++) {
-                this.mDataList.get(i).f21088d = PermissionUtil.checkPermission(getActivity(), this.PERMISSION_ARRAY[i]);
+                this.mDataList.get(i).f20773d = PermissionUtil.checkPermission(getActivity(), this.PERMISSION_ARRAY[i]);
             }
             this.mAdapter.notifyDataSetChanged();
         }

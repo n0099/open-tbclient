@@ -10,7 +10,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.b.h.g.d;
+import d.b.c.h.g.d;
 /* loaded from: classes.dex */
 public class PluginInstallerService extends HighPriorityIntentService {
     public static final String ACTION_INSTALL = "com.baidu.adp.plugin.action.install";

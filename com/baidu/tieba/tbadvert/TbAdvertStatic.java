@@ -13,7 +13,7 @@ public class TbAdvertStatic {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<d.b.h0.w0.a> run(CustomMessage<Context> customMessage) {
             if (customMessage.getData() != null) {
-                return new CustomResponsedMessage<>(2921390, new d.b.i0.d3.a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2921390, new d.b.i0.e3.a(customMessage.getData()));
             }
             return null;
         }

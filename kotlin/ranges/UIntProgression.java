@@ -29,7 +29,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         }
 
         /* renamed from: fromClosedRange-Nkh28Cs  reason: not valid java name */
-        public final UIntProgression m1504fromClosedRangeNkh28Cs(int i, int i2, int i3) {
+        public final UIntProgression m1508fromClosedRangeNkh28Cs(int i, int i2, int i3) {
             return new UIntProgression(i, i2, i3, null);
         }
 
@@ -89,16 +89,16 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         int i;
         if (this.step > 0) {
             sb = new StringBuilder();
-            sb.append(UInt.m750toStringimpl(this.first));
+            sb.append(UInt.m754toStringimpl(this.first));
             sb.append(IStringUtil.TOP_PATH);
-            sb.append(UInt.m750toStringimpl(this.last));
+            sb.append(UInt.m754toStringimpl(this.last));
             sb.append(" step ");
             i = this.step;
         } else {
             sb = new StringBuilder();
-            sb.append(UInt.m750toStringimpl(this.first));
+            sb.append(UInt.m754toStringimpl(this.first));
             sb.append(" downTo ");
-            sb.append(UInt.m750toStringimpl(this.last));
+            sb.append(UInt.m754toStringimpl(this.last));
             sb.append(" step ");
             i = -this.step;
         }
@@ -112,7 +112,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         }
         if (i3 != Integer.MIN_VALUE) {
             this.first = i;
-            this.last = UProgressionUtilKt.m1490getProgressionLastElementNkh28Cs(i, i2, i3);
+            this.last = UProgressionUtilKt.m1494getProgressionLastElementNkh28Cs(i, i2, i3);
             this.step = i3;
             return;
         }

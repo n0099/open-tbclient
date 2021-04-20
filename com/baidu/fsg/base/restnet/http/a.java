@@ -20,32 +20,32 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5218a = "Host";
+    public static final String f5253a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5219b = "Accept";
+    public static final String f5254b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5220c = "Accept-Charset";
+    public static final String f5255c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5221d = "Accept-Encoding";
+    public static final String f5256d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5222e = "Accept-Language";
+    public static final String f5257e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5223f = "Allow";
+    public static final String f5258f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5224g = "Cache-Control";
+    public static final String f5259g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5225h = "Content-Disposition";
+    public static final String f5260h = "Content-Disposition";
     public static final String i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";

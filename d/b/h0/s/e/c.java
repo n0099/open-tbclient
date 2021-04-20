@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,21 +23,21 @@ public class c {
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f51308a = null;
+        public NetWork f51725a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f51309b;
+        public final String f51726b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f51310c;
+        public final String f51727c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f51311d;
+        public final String f51728d;
 
         public a(String str, String str2, String str3) {
-            this.f51309b = str;
-            this.f51310c = str2;
-            this.f51311d = str3;
+            this.f51726b = str;
+            this.f51727c = str2;
+            this.f51728d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,15 +45,15 @@ public class c {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = Boolean.FALSE;
             try {
-                NetWork netWork = new NetWork(this.f51309b);
-                this.f51308a = netWork;
-                bool = Boolean.valueOf(netWork.downloadFile(this.f51310c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                NetWork netWork = new NetWork(this.f51726b);
+                this.f51725a = netWork;
+                bool = Boolean.valueOf(netWork.downloadFile(this.f51727c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(FileHelper.renameTo(null, this.f51310c + ".tmp", null, this.f51310c)) && !TextUtils.isEmpty(this.f51309b) && !this.f51309b.equals(this.f51311d)) {
-                        FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f51311d));
+                    if (!StringUtils.isNull(FileHelper.renameTo(null, this.f51727c + ".tmp", null, this.f51727c)) && !TextUtils.isEmpty(this.f51726b) && !this.f51726b.equals(this.f51728d)) {
+                        FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f51728d));
                     }
                 } else {
-                    FileHelper.DelFile(this.f51310c + ".tmp");
+                    FileHelper.DelFile(this.f51727c + ".tmp");
                 }
             } catch (Exception unused) {
             }

@@ -13,19 +13,19 @@ import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements b {
-    /* JADX WARN: Removed duplicated region for block: B:101:0x020d  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0210  */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0222  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x0240  */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0263  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0266  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0278  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x01cc  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01db  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01df  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x01ea  */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0211  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0214  */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0226  */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x0244  */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0267  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x026a  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x027c  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x01d0  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01df  */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x01e3  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x01ee  */
     @Override // com.cmic.sso.sdk.b.a.b
     @TargetApi(21)
     /*
@@ -90,20 +90,23 @@ public class a implements b {
                             sb2.append(cVar.a());
                             com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb2.toString());
                             if (e instanceof SSLHandshakeException) {
+                                aVar.a("isNeedToGetCert", true);
                             }
-                            com.cmic.sso.sdk.c.a.f30670a.add(e);
-                            if (e instanceof EOFException) {
-                            }
+                            com.cmic.sso.sdk.c.a.f30355a.add(e);
+                            i2 = e instanceof EOFException ? 200050 : 102102;
                             a(outputStream);
                             a(inputStream);
                             if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
                             StringBuilder sb3 = new StringBuilder();
                             sb3.append("responseResult: ");
                             sb3.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                             com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb3.toString());
-                            if (i2 == 200) {
+                            if (i2 == 200 && i2 != 301 && i2 != 302) {
+                                cVar2.a(com.cmic.sso.sdk.b.d.a.a(i2));
+                                return;
                             }
                             cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                         } catch (Throwable th) {
@@ -174,7 +177,7 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    com.cmic.sso.sdk.c.a.f30670a.add(e);
+                                    com.cmic.sso.sdk.c.a.f30355a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
@@ -242,25 +245,22 @@ public class a implements b {
                         sb222.append(cVar.a());
                         com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb222.toString());
                         if (e instanceof SSLHandshakeException) {
-                            aVar.a("isNeedToGetCert", true);
                         }
-                        com.cmic.sso.sdk.c.a.f30670a.add(e);
-                        i2 = e instanceof EOFException ? 200050 : 102102;
+                        com.cmic.sso.sdk.c.a.f30355a.add(e);
+                        if (e instanceof EOFException) {
+                        }
                         a(outputStream);
                         a(inputStream);
                         if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
                         }
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
                         StringBuilder sb322 = new StringBuilder();
                         sb322.append("responseResult: ");
                         sb322.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb322.toString());
-                        if (i2 == 200 && i2 != 301 && i2 != 302) {
-                            cVar2.a(com.cmic.sso.sdk.b.d.a.a(i2));
-                        } else {
-                            cVar2.a((com.cmic.sso.sdk.b.d.b) null);
+                        if (i2 == 200) {
                         }
+                        cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                     } catch (Throwable th5) {
                         th = th5;
                         str = "";

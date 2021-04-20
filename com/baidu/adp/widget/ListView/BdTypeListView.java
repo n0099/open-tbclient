@@ -8,17 +8,17 @@ import android.widget.ListAdapter;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.g;
-import d.b.b.j.e.h;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
+import d.b.c.j.e.g;
+import d.b.c.j.e.h;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements s<BdTypeListView> {
     public TypeAdapter K;
-    public HashMap<BdUniqueId, d.b.b.j.e.a> L;
+    public HashMap<BdUniqueId, d.b.c.j.e.a> L;
     public HashMap<BdUniqueId, h> M;
 
     /* loaded from: classes.dex */
@@ -74,15 +74,15 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         super.setOnItemLongClickListener(new b());
     }
 
-    @Override // d.b.b.j.e.s
-    public void a(List<d.b.b.j.e.a> list) {
-        for (d.b.b.j.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
+    @Override // d.b.c.j.e.s
+    public void a(List<d.b.c.j.e.a> list) {
+        for (d.b.c.j.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
             if (aVar != null) {
                 BdUniqueId bdUniqueId = null;
                 if (aVar.y() != null) {
                     bdUniqueId = aVar.y();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar.j0(aVar);
                         this.K.c(hVar);
                         this.M.put(bdUniqueId, hVar);
@@ -91,7 +91,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.w() != null) {
                     bdUniqueId = aVar.w();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar2 = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar2 = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar2.j0(aVar);
                         this.K.c(hVar2);
                         this.M.put(bdUniqueId, hVar2);
@@ -100,7 +100,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.x() != null) {
                     bdUniqueId = aVar.x();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar3 = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar3 = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar3.j0(aVar);
                         this.K.c(hVar3);
                         this.M.put(bdUniqueId, hVar3);
@@ -109,7 +109,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.v() != null) {
                     bdUniqueId = aVar.v();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar4 = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar4 = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar4.j0(aVar);
                         this.K.c(hVar4);
                         this.M.put(bdUniqueId, hVar4);
@@ -118,33 +118,33 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (bdUniqueId == null) {
                     this.K.c(aVar);
                 } else {
-                    this.L.put(aVar.f42361h, aVar);
+                    this.L.put(aVar.f42858h, aVar);
                 }
             }
         }
         setAdapter((ListAdapter) this.K);
     }
 
-    @Override // d.b.b.j.e.s
+    @Override // d.b.c.j.e.s
     public List<n> getData() {
         return this.K.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, d.b.b.j.e.p
+    @Override // com.baidu.adp.widget.ListView.BdListView, d.b.c.j.e.p
     /* renamed from: getListView */
     public BdListView getListView2() {
         return this;
     }
 
-    @Override // d.b.b.j.e.s
+    @Override // d.b.c.j.e.s
     public void setData(List<? extends n> list) {
         ArrayList arrayList = new ArrayList();
         for (n nVar : list) {
             if (nVar != null) {
                 if (this.L.containsKey(nVar.getType())) {
-                    d.b.b.j.e.a aVar = this.L.get(nVar.getType());
+                    d.b.c.j.e.a aVar = this.L.get(nVar.getType());
                     if (aVar.y() != null) {
                         g gVar = new g();
                         gVar.n(aVar.y());

@@ -1,70 +1,70 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28213a;
+    public int f27898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28214b;
+    public String f27899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28215c;
+    public int f27900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28216d;
+    public int f27901d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28217e;
+    public int f27902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28218f;
+    public int f27903f;
 
     public int a() {
-        return this.f28213a;
+        return this.f27898a;
     }
 
     public String b() {
-        return this.f28214b;
+        return this.f27899b;
     }
 
     public int c() {
-        return this.f28215c;
+        return this.f27900c;
     }
 
     public int d() {
-        return this.f28216d;
+        return this.f27901d;
     }
 
     public int e() {
-        return this.f28217e;
+        return this.f27902e;
     }
 
     public int f() {
-        return this.f28218f;
+        return this.f27903f;
     }
 
     public void a(int i) {
-        this.f28213a = i;
+        this.f27898a = i;
     }
 
     public void b(int i) {
-        this.f28215c = i;
+        this.f27900c = i;
     }
 
     public void c(int i) {
-        this.f28216d = i;
+        this.f27901d = i;
     }
 
     public void d(int i) {
-        this.f28217e = i;
+        this.f27902e = i;
     }
 
     public void e(int i) {
-        this.f28218f = i;
+        this.f27903f = i;
     }
 
     public void a(String str) {
-        this.f28214b = str;
+        this.f27899b = str;
     }
 }

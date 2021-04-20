@@ -11,10 +11,10 @@ import com.alipay.sdk.util.e;
 public class h extends IRemoteServiceCallback.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f1980a;
+    public final /* synthetic */ e f2005a;
 
     public h(e eVar) {
-        this.f1980a = eVar;
+        this.f2005a = eVar;
     }
 
     @Override // com.alipay.android.app.IRemoteServiceCallback
@@ -41,12 +41,12 @@ public class h extends IRemoteServiceCallback.Stub {
         } catch (Exception unused) {
         }
         intent.setClassName(str, str2);
-        activity = this.f1980a.f1971c;
+        activity = this.f2005a.f1996c;
         if (activity != null) {
-            activity2 = this.f1980a.f1971c;
+            activity2 = this.f2005a.f1996c;
             activity2.startActivity(intent);
         }
-        aVar = this.f1980a.f1975g;
+        aVar = this.f2005a.f2000g;
         aVar.b();
     }
 }

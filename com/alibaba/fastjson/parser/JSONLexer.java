@@ -98,6 +98,10 @@ public interface JSONLexer {
 
     String scanSymbolWithSeperator(SymbolTable symbolTable, char c2);
 
+    String scanTypeName(SymbolTable symbolTable);
+
+    void setFeatures(int i);
+
     void setLocale(Locale locale);
 
     void setTimeZone(TimeZone timeZone);

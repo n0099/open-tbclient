@@ -3,25 +3,25 @@ package com.baidu.pano.platform.a;
 public class v extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f9412a;
+    public final l f8970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9413b;
+    public long f8971b;
 
     public v() {
-        this.f9412a = null;
+        this.f8970a = null;
     }
 
     public void a(long j) {
-        this.f9413b = j;
+        this.f8971b = j;
     }
 
     public v(l lVar) {
-        this.f9412a = lVar;
+        this.f8970a = lVar;
     }
 
     public v(Throwable th) {
         super(th);
-        this.f9412a = null;
+        this.f8970a = null;
     }
 }

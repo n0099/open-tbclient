@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.x.e.c.i;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.x.e.c.i;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -28,7 +28,7 @@ public abstract class ObservableSampleWithObservable$SampleMainObserver<T> exten
 
     public abstract void completeOther();
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this.other);
         this.s.dispose();
@@ -46,29 +46,29 @@ public abstract class ObservableSampleWithObservable$SampleMainObserver<T> exten
         this.actual.onError(th);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.other.get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         DisposableHelper.dispose(this.other);
         completeMain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         DisposableHelper.dispose(this.other);
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         lazySet(t);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;

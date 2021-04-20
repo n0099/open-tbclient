@@ -13,24 +13,24 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
 import d.b.h0.r.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
     public View m0;
     public LoopADView n0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements LoopADView.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20766a;
+        public final /* synthetic */ AdCard f20450a;
 
         public a(AdCard adCard) {
-            this.f20766a = adCard;
+            this.f20450a = adCard;
         }
 
         @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
         public void a(TbImageView tbImageView, AdCard.b bVar) {
-            AdCardLoopPicView.this.X0(tbImageView, bVar, new AdCardBaseView.k(this.f20766a));
+            AdCardLoopPicView.this.X0(tbImageView, bVar, new AdCardBaseView.k(this.f20450a));
         }
 
         @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a

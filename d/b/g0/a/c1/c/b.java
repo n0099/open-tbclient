@@ -44,7 +44,7 @@ public class b {
         if (I == null) {
             return false;
         }
-        return TextUtils.equals("none", I.f12616d.n);
+        return TextUtils.equals("none", I.f12277d.n);
     }
 
     public static void f(int i) {

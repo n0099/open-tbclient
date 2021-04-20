@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import com.alibaba.fastjson.asm.Label;
 import com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.a.d;
@@ -16,13 +17,13 @@ import d.o.a.e.b.f.i;
 import d.o.a.e.b.g.d;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadHandlerService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38675a = DownloadHandlerService.class.getSimpleName();
+    public static final String f38964a = DownloadHandlerService.class.getSimpleName();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -40,37 +41,37 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38677e;
+        public final /* synthetic */ DownloadInfo f38966e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f38678f;
+        public final /* synthetic */ d.f f38967f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.f.d f38679g;
+        public final /* synthetic */ d.o.a.e.b.f.d f38968g;
 
         public b(DownloadInfo downloadInfo, d.f fVar, d.o.a.e.b.f.d dVar) {
-            this.f38677e = downloadInfo;
-            this.f38678f = fVar;
-            this.f38679g = dVar;
+            this.f38966e = downloadInfo;
+            this.f38967f = fVar;
+            this.f38968g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PackageInfo i;
             try {
-                File file = new File(this.f38677e.F0(), this.f38677e.q0());
+                File file = new File(this.f38966e.F0(), this.f38966e.q0());
                 if (file.exists()) {
                     try {
-                        String str = (d.o.a.e.b.g.d.l() == null || (i = d.o.a.e.a.d.i(this.f38677e, file)) == null) ? "" : i.packageName;
-                        if (this.f38678f != null) {
-                            this.f38678f.b(this.f38677e.c0(), 3, str, -3, this.f38677e.M());
+                        String str = (d.o.a.e.b.g.d.l() == null || (i = d.o.a.e.a.d.i(this.f38966e, file)) == null) ? "" : i.packageName;
+                        if (this.f38967f != null) {
+                            this.f38967f.b(this.f38966e.c0(), 3, str, -3, this.f38966e.M());
                         }
-                        if (this.f38679g != null) {
-                            this.f38679g.a(3, this.f38677e, str, "");
+                        if (this.f38968g != null) {
+                            this.f38968g.a(3, this.f38966e, str, "");
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -132,7 +133,7 @@ public class DownloadHandlerService extends Service {
         int c0 = downloadInfo.c0();
         Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
         intent.putExtra("extra_click_download_ids", c0);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         startActivity(intent);
         d.o.a.e.b.p.b.a().b(c0);
         downloadInfo.p3();
@@ -159,7 +160,7 @@ public class DownloadHandlerService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         super.onStartCommand(intent, i, i2);
         if (d.o.a.e.b.c.a.e()) {
-            d.o.a.e.b.c.a.g(f38675a, "onStartCommand");
+            d.o.a.e.b.c.a.g(f38964a, "onStartCommand");
         }
         a(intent);
         stopSelf();
@@ -201,7 +202,7 @@ public class DownloadHandlerService extends Service {
             if (a2) {
                 Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
                 intent.putExtra("extra_click_download_ids", c0);
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 startActivity(intent);
                 d.o.a.e.b.p.b.a().b(c0);
                 downloadInfo.p3();

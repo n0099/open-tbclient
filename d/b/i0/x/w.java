@@ -101,14 +101,14 @@ public class w extends b<a2> implements d.b.i0.m.e {
         long c0 = this.s.c0();
         OriginalForumInfo originalForumInfo = this.s.C1;
         if (originalForumInfo != null) {
-            c0 = d.b.b.e.m.b.f(originalForumInfo.id, 0L);
+            c0 = d.b.c.e.m.b.f(originalForumInfo.id, 0L);
         }
         long j = c0;
         if (d.b.h0.p0.b.h(true) && !d.b.h0.p0.b.g()) {
             String name_show = this.s.T().getName_show();
             HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(b());
             HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-            createNormalConfig.setExtra(j, this.s.d0(), this.s.d1(), d.b.b.e.m.b.f(this.s.w1(), 0L));
+            createNormalConfig.setExtra(j, this.s.d0(), this.s.d1(), d.b.c.e.m.b.f(this.s.w1(), 0L));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
             return;
         }
@@ -137,7 +137,7 @@ public class w extends b<a2> implements d.b.i0.m.e {
         this.q.setText(StringHelper.getFormatTime(a2Var.B0() * 1000));
         String str = a2Var.D1() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.append((CharSequence) a2Var.N2(false, true));
+        spannableStringBuilder.append((CharSequence) a2Var.O2(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
         this.r.setText(spannableStringBuilder);
         ArrayList<MediaData> K0 = a2Var.K0();
@@ -162,14 +162,14 @@ public class w extends b<a2> implements d.b.i0.m.e {
         o(this.n, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void w(d.b.b.e.k.b<TbImageView> bVar) {
+    public void w(d.b.c.e.k.b<TbImageView> bVar) {
         ConstrainImageGroup constrainImageGroup = this.u;
         if (constrainImageGroup != null) {
             constrainImageGroup.setImageViewPool(bVar);
         }
     }
 
-    public void x(d.b.b.e.k.b<ConstrainImageLayout> bVar) {
+    public void x(d.b.c.e.k.b<ConstrainImageLayout> bVar) {
         ConstrainImageGroup constrainImageGroup = this.u;
         if (constrainImageGroup != null) {
             constrainImageGroup.setConstrainLayoutPool(bVar);

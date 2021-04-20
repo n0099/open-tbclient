@@ -3,14 +3,14 @@ package d.b.f0.e;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42861a;
+    public int f43253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42862b;
+    public int f43254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42863c = -1;
+    public int f43255c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42864d = "";
+    public String f43256d = "";
 }

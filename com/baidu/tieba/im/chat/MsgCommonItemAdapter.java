@@ -7,31 +7,31 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.b.b.e.h.b;
-import d.b.b.j.e.a;
-/* loaded from: classes3.dex */
+import d.b.c.e.h.b;
+import d.b.c.j.e.a;
+/* loaded from: classes4.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public TbPageContext<MsglistActivity<?>> m;
-    public d.b.b.e.h.a n;
+    public d.b.c.e.h.a n;
     public b o;
     public long p;
     public boolean q;
     public boolean r;
     public int s;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public T f17764a;
+        public T f17441a;
 
         public MsgViewHolder(View view, T t) {
             super(view);
-            this.f17764a = t;
+            this.f17441a = t;
         }
 
         public T b() {
-            return this.f17764a;
+            return this.f17441a;
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         if (chatMessage != null && chatMessage.getCacheData() == null) {
@@ -76,7 +76,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         this.q = z;
     }
 
-    public void o0(d.b.b.e.h.a aVar) {
+    public void o0(d.b.c.e.h.a aVar) {
         this.n = aVar;
     }
 

@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
@@ -41,29 +42,29 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements am.a {
     public static Set<b> j = Collections.synchronizedSet(new HashSet());
     public l A;
     public a E;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdSlot f27929a;
+    public AdSlot f27614a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f27930b;
+    public m f27615b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final q f27932d;
+    public final q f27617d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f27933e;
+    public Context f27618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final am f27934f;
+    public final am f27619f;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f27936h;
+    public e f27621h;
     public e i;
     public com.bytedance.sdk.openadsdk.component.splash.a k;
     public boolean o;
@@ -75,10 +76,10 @@ public class b implements am.a {
     public r y;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTAdNative.SplashAdListener f27931c = null;
+    public TTAdNative.SplashAdListener f27616c = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicBoolean f27935g = new AtomicBoolean(false);
+    public final AtomicBoolean f27620g = new AtomicBoolean(false);
     public AtomicBoolean l = new AtomicBoolean(false);
     public AtomicBoolean m = new AtomicBoolean(false);
     public AtomicBoolean n = new AtomicBoolean(false);
@@ -91,40 +92,40 @@ public class b implements am.a {
     public AtomicBoolean C = new AtomicBoolean(false);
     public AtomicBoolean D = new AtomicBoolean(false);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27977a;
+        public int f27662a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27978b;
+        public int f27663b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27979c;
+        public String f27664c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TTSplashAd f27980d;
+        public TTSplashAd f27665d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.h.a.c f27981e;
+        public com.bytedance.sdk.openadsdk.h.a.c f27666e;
 
         public a(int i, int i2, String str, TTSplashAd tTSplashAd, com.bytedance.sdk.openadsdk.h.a.c cVar) {
-            this.f27977a = i;
-            this.f27978b = i2;
-            this.f27979c = str;
-            this.f27980d = tTSplashAd;
-            this.f27981e = cVar;
+            this.f27662a = i;
+            this.f27663b = i2;
+            this.f27664c = str;
+            this.f27665d = tTSplashAd;
+            this.f27666e = cVar;
         }
     }
 
     public b(Context context) {
         if (context != null) {
-            this.f27933e = context.getApplicationContext();
+            this.f27618e = context.getApplicationContext();
         }
-        this.f27932d = p.f();
-        this.f27934f = new am(Looper.getMainLooper(), this);
-        Context context2 = this.f27933e;
+        this.f27617d = p.f();
+        this.f27619f = new am(Looper.getMainLooper(), this);
+        Context context2 = this.f27618e;
         this.k = com.bytedance.sdk.openadsdk.component.splash.a.a(context2 == null ? p.a() : context2);
         this.o = p.h().t();
         j.add(this);
@@ -134,14 +135,14 @@ public class b implements am.a {
     private boolean d() {
         u.f("splashLoadAd", "try checkSpashAdCacheIsValidAndTryShowAd......");
         com.bytedance.sdk.openadsdk.h.a.c a2 = a(15001, (com.bytedance.sdk.openadsdk.core.d.p) null);
-        if (!this.k.b(this.f27929a.getCodeId()) && !this.k.a(this.f27929a.getCodeId())) {
+        if (!this.k.b(this.f27614a.getCodeId()) && !this.k.a(this.f27614a.getCodeId())) {
             u.f("splashLoadAd", "没有缓存数据..........");
             if (this.s.get() || this.t.get()) {
                 a(15001, new a(2, -12, h.a(-12), null, a2), (com.bytedance.sdk.openadsdk.core.d.p) null, (e) null, (String) null);
             }
             this.x = 0;
             return false;
-        } else if (this.k.a(this.f27929a, true)) {
+        } else if (this.k.a(this.f27614a, true)) {
             u.b("splashLoadAd", "======== 缓存过期 ========");
             if (this.s.get() || this.t.get()) {
                 a(15001, new a(2, -11, h.a(-11), null, a2), (com.bytedance.sdk.openadsdk.core.d.p) null, (e) null, (String) null);
@@ -181,7 +182,7 @@ public class b implements am.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.f27933e == null || this.A == null || this.y == null || !p.h().v()) {
+        if (this.f27618e == null || this.A == null || this.y == null || !p.h().v()) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -195,13 +196,13 @@ public class b implements am.a {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        com.bytedance.sdk.openadsdk.c.d.a(this.f27933e, this.A, "splash_ad", "download_image_duration", this.y.f(), jSONObject);
+        com.bytedance.sdk.openadsdk.c.d.a(this.f27618e, this.A, "splash_ad", "download_image_duration", this.y.f(), jSONObject);
     }
 
     private void i() {
         com.bytedance.sdk.openadsdk.component.splash.a aVar = this.k;
         if (aVar != null) {
-            aVar.a(this.f27929a, this.f27930b);
+            aVar.a(this.f27614a, this.f27615b);
         }
     }
 
@@ -229,20 +230,20 @@ public class b implements am.a {
     private m k() {
         long currentTimeMillis = System.currentTimeMillis();
         m mVar = new m();
-        mVar.f28198f = currentTimeMillis;
+        mVar.f27883f = currentTimeMillis;
         return mVar;
     }
 
     private boolean c() {
         if (d()) {
-            a(15001, this.f27929a.getCodeId());
+            a(15001, this.f27614a.getCodeId());
             return true;
         }
         return false;
     }
 
     private void b() {
-        if (this.f27931c == null) {
+        if (this.f27616c == null) {
             return;
         }
         int q = p.h().q();
@@ -251,14 +252,14 @@ public class b implements am.a {
             this.s.set(false);
             this.t.set(false);
             u.b("splashLoadAd", "splash_type_real_time=====只走实时");
-            a(this.f27929a);
+            a(this.f27614a);
         } else if (q == 1) {
             this.s.set(false);
             this.t.set(false);
             u.b("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存");
             if (!c()) {
                 u.c("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存--->执行缓存失败，进行网络请求");
-                a(this.f27929a);
+                a(this.f27614a);
                 return;
             }
             u.c("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存--->执行缓存成功！！");
@@ -266,14 +267,14 @@ public class b implements am.a {
             u.b("splashLoadAd", "splash_type_concurrent_priority_real_time=====并发请求广告和check缓存，优先使用实时");
             this.s.set(true);
             this.t.set(false);
-            a(this.f27929a);
+            a(this.f27614a);
             c();
         } else if (q != 3) {
         } else {
             this.s.set(false);
             this.t.set(true);
             u.b("splashLoadAd", "splash_type_concurrent_first_come_first_use=====并发请求广告和check缓存，谁先到用谁");
-            a(this.f27929a);
+            a(this.f27614a);
             c();
         }
     }
@@ -292,16 +293,16 @@ public class b implements am.a {
             return;
         }
         JSONObject jSONObject = new JSONObject();
-        u.f("splashLoadAd", "reportMarkAtRespSucc sSplashLoadImageSource " + com.bytedance.sdk.openadsdk.i.a.b.f29448a);
+        u.f("splashLoadAd", "reportMarkAtRespSucc sSplashLoadImageSource " + com.bytedance.sdk.openadsdk.i.a.b.f29133a);
         try {
-            jSONObject.put("image_CacheType", com.bytedance.sdk.openadsdk.i.a.b.f29448a);
+            jSONObject.put("image_CacheType", com.bytedance.sdk.openadsdk.i.a.b.f29133a);
         } catch (Throwable unused) {
         }
         com.bytedance.sdk.openadsdk.h.a.a().c(cVar.b(jSONObject.toString()));
     }
 
     private void d(l lVar) {
-        if (this.f27933e == null || lVar == null || this.y == null || !p.h().v()) {
+        if (this.f27618e == null || lVar == null || this.y == null || !p.h().v()) {
             return;
         }
         boolean K = p.h().K();
@@ -317,7 +318,7 @@ public class b implements am.a {
         JSONObject jSONObject = new JSONObject();
         if (K) {
             try {
-                jSONObject.put("pre_connect_status", com.bytedance.sdk.openadsdk.core.m.f28462d);
+                jSONObject.put("pre_connect_status", com.bytedance.sdk.openadsdk.core.m.f28147d);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -345,7 +346,7 @@ public class b implements am.a {
             jSONObject.put("download_write_time", this.y.r());
             jSONObject.put("download_client_end_time", this.y.s());
         }
-        com.bytedance.sdk.openadsdk.c.d.a(this.f27933e, lVar, "splash_ad", "splash_ad_loadtime", currentTimeMillis - this.y.u(), jSONObject);
+        com.bytedance.sdk.openadsdk.c.d.a(this.f27618e, lVar, "splash_ad", "splash_ad_loadtime", currentTimeMillis - this.y.u(), jSONObject);
     }
 
     public static b a(Context context) {
@@ -353,11 +354,11 @@ public class b implements am.a {
     }
 
     public void a(AdSlot adSlot, @NonNull TTAdNative.SplashAdListener splashAdListener, int i) {
-        this.f27930b = k();
-        this.f27929a = adSlot;
-        this.f27931c = splashAdListener;
-        this.f27935g.set(false);
-        this.f27936h = null;
+        this.f27615b = k();
+        this.f27614a = adSlot;
+        this.f27616c = splashAdListener;
+        this.f27620g.set(false);
+        this.f27621h = null;
         this.i = null;
         u.b("splashLoadAd", "开发者传入的超时时长 timeOut " + i);
         final long j2 = (long) i;
@@ -373,15 +374,15 @@ public class b implements am.a {
         }
         u.f("splashLoadAd", "getSplashAd 实际 timeOut " + i);
         long j3 = (long) i;
-        this.f27934f.sendEmptyMessageDelayed(2, j3);
+        this.f27619f.sendEmptyMessageDelayed(2, j3);
         int i2 = i + (-300);
         if (i2 > 0) {
             i = i2;
         }
-        this.f27934f.sendEmptyMessageDelayed(3, i);
-        m mVar = this.f27930b;
-        mVar.f28199g = j2;
-        mVar.f28200h = c2;
+        this.f27619f.sendEmptyMessageDelayed(3, i);
+        m mVar = this.f27615b;
+        mVar.f27884g = j2;
+        mVar.f27885h = c2;
         mVar.i = j3;
         com.bytedance.sdk.openadsdk.l.e.a(new g("getSplashAd") { // from class: com.bytedance.sdk.openadsdk.component.splash.b.1
             @Override // java.lang.Runnable
@@ -391,7 +392,7 @@ public class b implements am.a {
                     jSONObject.put("publisher_timeout_control", j2);
                 } catch (Throwable unused) {
                 }
-                com.bytedance.sdk.openadsdk.h.a.a().b(com.bytedance.sdk.openadsdk.h.a.c.b().a(3).c(b.this.f27929a.getCodeId()).f(b.this.f27930b.f28193a).b(jSONObject.toString()));
+                com.bytedance.sdk.openadsdk.h.a.a().b(com.bytedance.sdk.openadsdk.h.a.c.b().a(3).c(b.this.f27614a.getCodeId()).f(b.this.f27615b.f27878a).b(jSONObject.toString()));
             }
         });
         b();
@@ -435,8 +436,8 @@ public class b implements am.a {
                 u.b("splashLoadAd", "非wifi环境");
                 return;
             }
-            com.bytedance.sdk.openadsdk.i.e.c().a(i, new b.InterfaceC1796b() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.6
-                @Override // d.c.c.b.b.b.InterfaceC1796b
+            com.bytedance.sdk.openadsdk.i.e.c().a(i, new b.InterfaceC1824b() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.6
+                @Override // d.c.c.b.b.b.InterfaceC1824b
                 public File a(String str2) {
                     try {
                         File parentFile = a2.getParentFile();
@@ -456,7 +457,7 @@ public class b implements am.a {
                 public void a(long j2, long j3) {
                 }
 
-                @Override // d.c.c.b.b.b.InterfaceC1796b
+                @Override // d.c.c.b.b.b.InterfaceC1824b
                 public File b(String str2) {
                     return a2;
                 }
@@ -464,14 +465,14 @@ public class b implements am.a {
                 @Override // d.c.c.b.d.o.a
                 public void b(o<File> oVar) {
                     b.this.B = 3;
-                    c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.f65746h, oVar);
+                    c.a(elapsedRealtime, true, false, lVar, oVar == null ? -2L : oVar.f66591h, oVar);
                     cVar.b(-14).g(h.a(-14));
                     a aVar2 = new a(2, -14, h.a(-14), null, cVar);
                     u.f("splashLoadAd", "视频文件缓存失败 onErrorResponse REQUEST_TYPE_REAL_NETWORK");
                     b.this.a(15000, aVar2, (com.bytedance.sdk.openadsdk.core.d.p) null, (e) null, (String) null);
                 }
 
-                @Override // d.c.c.b.b.b.InterfaceC1796b
+                @Override // d.c.c.b.b.b.InterfaceC1824b
                 public void a(String str2, File file) {
                     if (file != null) {
                         u.b("splashLoadAd", "SplashAdLoadManager 视频文件下载成功保存到本地 putFile s " + str2 + " File " + file.getPath());
@@ -482,13 +483,13 @@ public class b implements am.a {
 
                 @Override // d.c.c.b.d.o.a
                 public void a(o<File> oVar) {
-                    if (oVar == null || oVar.f65739a == null) {
+                    if (oVar == null || oVar.f66584a == null) {
                         b.this.B = 3;
                         cVar.b(-14).g(h.a(-14));
                         a aVar2 = new a(2, -14, h.a(-14), null, cVar);
                         u.f("splashLoadAd", "视频文件缓存失败 response == null REQUEST_TYPE_REAL_NETWORK");
                         b.this.a(15000, aVar2, (com.bytedance.sdk.openadsdk.core.d.p) null, (e) null, (String) null);
-                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.f65746h, oVar);
+                        c.a(elapsedRealtime, true, false, lVar, oVar == null ? -3L : oVar.f66591h, oVar);
                         return;
                     }
                     com.bytedance.sdk.openadsdk.component.splash.a.a(p.a()).b(new com.bytedance.sdk.openadsdk.core.d.p(aVar, lVar, null));
@@ -511,10 +512,10 @@ public class b implements am.a {
 
     private void a() {
         AdSlot adSlot;
-        if (this.k == null || (adSlot = this.f27929a) == null || !TextUtils.isEmpty(adSlot.getBidAdm())) {
+        if (this.k == null || (adSlot = this.f27614a) == null || !TextUtils.isEmpty(adSlot.getBidAdm())) {
             return;
         }
-        this.k.b(this.f27929a, this.f27930b);
+        this.k.b(this.f27614a, this.f27615b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -587,15 +588,15 @@ public class b implements am.a {
             str = pVar.a().ap();
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    str3 = new JSONObject(str).getString("req_id");
+                    str3 = new JSONObject(str).getString(IAdRequestParam.REQ_ID);
                 } catch (Throwable unused) {
                 }
             }
         }
         if (str3 == null) {
-            str3 = this.f27930b.f28193a;
+            str3 = this.f27615b.f27878a;
         }
-        com.bytedance.sdk.openadsdk.h.a.c c2 = com.bytedance.sdk.openadsdk.h.a.c.b().f(str3).a(i).c(this.f27929a.getCodeId());
+        com.bytedance.sdk.openadsdk.h.a.c c2 = com.bytedance.sdk.openadsdk.h.a.c.b().f(str3).a(i).c(this.f27614a.getCodeId());
         if (str2 != null) {
             c2.d(str2);
         }
@@ -630,7 +631,7 @@ public class b implements am.a {
                     if (b.this.e()) {
                         u.b("splashLoadAd", "缓存广告素材解析出错");
                         b bVar2 = b.this;
-                        bVar2.a(bVar2.f27929a);
+                        bVar2.a(bVar2.f27614a);
                         return;
                     }
                     b bVar3 = b.this;
@@ -664,7 +665,7 @@ public class b implements am.a {
                     return;
                 }
                 b bVar2 = b.this;
-                bVar2.a(bVar2.f27929a);
+                bVar2.a(bVar2.f27614a);
             }
         });
     }
@@ -674,13 +675,13 @@ public class b implements am.a {
         u.f("splashLoadAd", "try LoadSplashAdFromNetwork......");
         final com.bytedance.sdk.openadsdk.h.a.c a2 = a(3, (com.bytedance.sdk.openadsdk.core.d.p) null);
         if (p.h().i(adSlot.getCodeId()) || adSlot.getExpressViewAcceptedWidth() > 0.0f) {
-            this.f27930b.f28197e = 2;
+            this.f27615b.f27882e = 2;
         }
-        q qVar = this.f27932d;
+        q qVar = this.f27617d;
         if (qVar instanceof com.bytedance.sdk.openadsdk.core.r) {
             ((com.bytedance.sdk.openadsdk.core.r) qVar).a(this.y);
         }
-        this.f27932d.a(adSlot, this.f27930b, 3, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.4
+        this.f27617d.a(adSlot, this.f27615b, 3, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.4
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 a2.b(i).g(str);
@@ -718,7 +719,7 @@ public class b implements am.a {
                 if (!TextUtils.isEmpty(ap)) {
                     a2.h(ap).d(am);
                     try {
-                        a2.f(new JSONObject(ap).getString("req_id"));
+                        a2.f(new JSONObject(ap).getString(IAdRequestParam.REQ_ID));
                     } catch (Throwable unused) {
                     }
                 }
@@ -735,11 +736,11 @@ public class b implements am.a {
                     u.f("splashLoadAd", "tryLoadSplashAdFromNetwork cacheSort " + x);
                     if (x == 1) {
                         b bVar = b.this;
-                        bVar.a(aVar, bVar.f27933e, a2);
+                        bVar.a(aVar, bVar.f27618e, a2);
                         return;
                     }
                     b bVar2 = b.this;
-                    bVar2.b(aVar, bVar2.f27933e, a2);
+                    bVar2.b(aVar, bVar2.f27618e, a2);
                     return;
                 }
                 a2.b(-3).g(h.a(-3));
@@ -764,7 +765,7 @@ public class b implements am.a {
         } else {
             i = this.x;
             if (i == 2) {
-                c.a(this.f27933e, this.f27929a);
+                c.a(this.f27618e, this.f27614a);
             }
         }
         u.f("splashLoadAd", "reportMarkAtRespFail cacheStatus " + i);
@@ -802,7 +803,7 @@ public class b implements am.a {
                 b.this.a(dVar);
                 u.f("splashLoadAd", "图片加载成功");
                 c.a(aVar);
-                b.this.y.d(com.bytedance.sdk.openadsdk.i.a.b.f29448a);
+                b.this.y.d(com.bytedance.sdk.openadsdk.i.a.b.f29133a);
                 if (!z) {
                     System.currentTimeMillis();
                     long unused = b.this.q;
@@ -828,7 +829,7 @@ public class b implements am.a {
                     return;
                 }
                 lVar.d(false);
-                e eVar = new e(b.this.f27933e, lVar, b.this.f27929a, "splash_ad");
+                e eVar = new e(b.this.f27618e, lVar, b.this.f27614a, "splash_ad");
                 b.this.i = eVar;
                 eVar.a(dVar);
                 b.this.m.set(lVar.d() == 1);
@@ -952,12 +953,12 @@ public class b implements am.a {
             p.f().a(a2.am(), a2.ap(), new q.a() { // from class: com.bytedance.sdk.openadsdk.component.splash.b.9
                 @Override // com.bytedance.sdk.openadsdk.core.q.a
                 public void a(boolean z, long j2, long j3) {
-                    c.a(b.this.f27929a, z, j2, j3);
-                    if (!z || b.this.f27935g.get()) {
-                        if (b.this.e() && !b.this.f27935g.get()) {
+                    c.a(b.this.f27614a, z, j2, j3);
+                    if (!z || b.this.f27620g.get()) {
+                        if (b.this.e() && !b.this.f27620g.get()) {
                             u.b("splashLoadAd", "开屏视频缓存广告不在投放期并且开屏广告没有回调出去则加载");
                             b bVar = b.this;
-                            bVar.a(bVar.f27929a);
+                            bVar.a(bVar.f27614a);
                             return;
                         }
                         u.b("splashLoadAd", "并发请求开屏视频check 失败 无需再网络请求");
@@ -978,7 +979,7 @@ public class b implements am.a {
         u.b("splashLoadAd", "checkAdFromServer check fail !!!!");
         if (e()) {
             u.b("splashLoadAd", "checkAdFromServer check fail !!!! ---> tryLoadSplashAdFromNetwork !!!");
-            a(this.f27929a);
+            a(this.f27614a);
             return;
         }
         com.bytedance.sdk.openadsdk.h.a.c a4 = a(4, (com.bytedance.sdk.openadsdk.core.d.p) null);
@@ -987,48 +988,48 @@ public class b implements am.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00b3, code lost:
         if (r8.D.get() != false) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00b5, code lost:
         com.bytedance.sdk.openadsdk.utils.u.d("splashLoadAd", "splashAdTryCallback 实时请求失败（实时先回，缓存还没回）...等待缓存");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00bc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00bd, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00be, code lost:
         com.bytedance.sdk.openadsdk.utils.u.d("splashLoadAd", "splashAdTryCallback 实时请求失败（缓存先回，实时后回）....");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00ca, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00cb, code lost:
         if (r8.l.get() == false) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d3, code lost:
         if (r8.m.get() != false) goto L34;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00da, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00db, code lost:
         if (r8.n.get() == false) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00de, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00df, code lost:
         if (r8.E == null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e1, code lost:
         com.bytedance.sdk.openadsdk.utils.u.d("splashLoadAd", "splashAdTryCallback 实时请求失败（缓存先回，实时后回）....尝试回调缓存成功！");
         r8.y.a("cache_ad");
         a(r8.E);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f5, code lost:
         return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00fb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00fc, code lost:
         if (r8.l.get() == false) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0103, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0104, code lost:
         if (r8.n.get() != false) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0105, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0106, code lost:
         com.bytedance.sdk.openadsdk.utils.u.d("splashLoadAd", "splashAdTryCallback 当为模版广告，存在缓存的情况下，模版渲染还没有回来时等待模版广告渲染回来！");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x010d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x010e, code lost:
         return;
      */
     /*
@@ -1049,7 +1050,7 @@ public class b implements am.a {
             } else if (i == 15003) {
                 u.f("splashLoadAd", "splashAdTryCallback start....渲染超时请求来了！=" + eVar);
             }
-            if (this.f27935g.get()) {
+            if (this.f27620g.get()) {
                 u.f("splashLoadAd", "splashAdTryCallback mSplashAdHasLoad==true 已成功回调，不再执行回调操作！！！");
             } else if (eVar == null) {
                 if (!this.s.get() && !this.t.get()) {
@@ -1181,8 +1182,8 @@ public class b implements am.a {
             if (str != null) {
                 pVar.a().d(true);
             }
-            e eVar = new e(this.f27933e, pVar.a(), str, this.f27929a, "splash_ad");
-            this.f27936h = eVar;
+            e eVar = new e(this.f27618e, pVar.a(), str, this.f27614a, "splash_ad");
+            this.f27621h = eVar;
             return eVar;
         }
         return null;
@@ -1194,40 +1195,40 @@ public class b implements am.a {
         if (aVar == null) {
             u.a("splashAdListener is null, then return");
             j.remove(this);
-        } else if (this.f27931c == null) {
+        } else if (this.f27616c == null) {
             u.a("splashAdListener is null, then return");
-            if (aVar.f27977a == 3) {
-                a(aVar.f27981e);
+            if (aVar.f27662a == 3) {
+                a(aVar.f27666e);
             }
             j.remove(this);
-        } else if (!this.f27935g.get()) {
-            this.f27935g.set(true);
-            int i = aVar.f27977a;
+        } else if (!this.f27620g.get()) {
+            this.f27620g.set(true);
+            int i = aVar.f27662a;
             if (i == 1) {
-                c(aVar.f27981e);
-                this.f27931c.onSplashAdLoad(aVar.f27980d);
+                c(aVar.f27666e);
+                this.f27616c.onSplashAdLoad(aVar.f27665d);
                 d(this.A);
             } else if (i == 2) {
                 u.f("splashLoadAd", "onCallback CALLBACK_RESULT_FAILED");
-                b(aVar.f27981e);
-                this.f27931c.onError(aVar.f27978b, aVar.f27979c);
+                b(aVar.f27666e);
+                this.f27616c.onError(aVar.f27663b, aVar.f27664c);
             } else if (i != 3) {
-                this.f27931c.onError(-2, h.a(-2));
+                this.f27616c.onError(-2, h.a(-2));
             } else {
                 u.f("splashLoadAd", "onCallback CALLBACK_RESULT_TIMEOUT");
-                a(aVar.f27981e);
-                this.f27931c.onTimeout();
+                a(aVar.f27666e);
+                this.f27616c.onTimeout();
             }
-            if (this.f27934f != null) {
-                this.f27934f.removeMessages(2);
-                this.f27934f.removeMessages(3);
+            if (this.f27619f != null) {
+                this.f27619f.removeMessages(2);
+                this.f27619f.removeMessages(3);
             }
-            this.f27931c = null;
+            this.f27616c = null;
             j.remove(this);
         } else {
-            this.f27931c = null;
-            if (aVar.f27977a == 3) {
-                a(aVar.f27981e);
+            this.f27616c = null;
+            if (aVar.f27662a == 3) {
+                a(aVar.f27666e);
             }
             j.remove(this);
         }
@@ -1239,7 +1240,7 @@ public class b implements am.a {
         com.bytedance.sdk.openadsdk.h.a.a().g(cVar);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00df, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00e5, code lost:
         if (r14 != null) goto L33;
      */
     @Override // com.bytedance.sdk.openadsdk.utils.am.a
@@ -1249,19 +1250,19 @@ public class b implements am.a {
     public void a(Message message) {
         e eVar;
         if (message.what == 1) {
-            if (!this.f27935g.get()) {
-                this.f27935g.set(true);
+            if (!this.f27620g.get()) {
+                this.f27620g.set(true);
                 b();
                 u.b("SplashAdLoadManager", "尝试从缓存中取");
             } else {
                 i();
                 u.b("SplashAdLoadManager", "开始预加载");
             }
-            this.f27934f.removeCallbacksAndMessages(null);
+            this.f27619f.removeCallbacksAndMessages(null);
         }
         if (message.what == 2) {
-            this.f27934f.removeCallbacksAndMessages(null);
-            if (this.f27935g.get()) {
+            this.f27619f.removeCallbacksAndMessages(null);
+            if (this.f27620g.get()) {
                 return;
             }
             u.b("splashLoadAd", "MSG_USER_TIME_OUT----7-");
@@ -1269,8 +1270,8 @@ public class b implements am.a {
         }
         int i = 3;
         if (message.what == 3) {
-            this.f27934f.removeMessages(3);
-            if (this.f27935g.get()) {
+            this.f27619f.removeMessages(3);
+            if (this.f27620g.get()) {
                 return;
             }
             this.m.set(true);
@@ -1281,11 +1282,11 @@ public class b implements am.a {
             } else if (q != 1) {
                 if (q != 2) {
                     if (q == 3) {
-                        if (this.f27936h == null || !this.l.get()) {
+                        if (this.f27621h == null || !this.l.get()) {
                             eVar = null;
                         } else {
                             u.b("splashLoadAd", "谁回来用谁//--mCacheTTSplashAd");
-                            eVar = this.f27936h;
+                            eVar = this.f27621h;
                             i = 4;
                         }
                         if (this.i != null) {
@@ -1299,16 +1300,16 @@ public class b implements am.a {
                     if (eVar != null) {
                         u.b("splashLoadAd", "超时使用实时--mRealNetWorkTTSplashAd");
                     } else {
-                        if (this.f27936h != null && this.l.get()) {
+                        if (this.f27621h != null && this.l.get()) {
                             u.b("splashLoadAd", "超时使用实时//--mCacheTTSplashAd");
-                            eVar = this.f27936h;
+                            eVar = this.f27621h;
                             i = 4;
                         }
                         eVar = null;
                     }
                 }
-            } else if (this.f27936h != null && this.l.get()) {
-                eVar = this.f27936h;
+            } else if (this.f27621h != null && this.l.get()) {
+                eVar = this.f27621h;
                 i = 4;
             } else {
                 eVar = this.i;

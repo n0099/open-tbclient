@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
 public class FrsArActivityConfig extends IntentConfig {
@@ -21,6 +22,6 @@ public class FrsArActivityConfig extends IntentConfig {
         if (getContext() instanceof Activity) {
             return;
         }
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
     }
 }

@@ -12,6 +12,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.alibaba.fastjson.asm.Label;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -142,7 +143,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
                 return;
             }
             Intent intent = new Intent(intentArr[intentArr.length - 1]);
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             this.mSourceContext.startActivity(intent);
             return;
         }

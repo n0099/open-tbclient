@@ -1,7 +1,7 @@
 package io.reactivex.internal.subscribers;
 
-import f.a.g;
-import f.a.x.i.b;
+import f.b.g;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -59,7 +59,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
 
     public abstract /* synthetic */ void onNext(T t);
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

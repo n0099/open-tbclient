@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.g0.b.a;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FeedData implements Serializable, a {
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -320,7 +320,7 @@ public class FeedData implements Serializable, a {
             jSONObject.put("is_share_thread", i);
             if (this.mOriginalThreadInfo != null) {
                 JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("title", this.mOriginalThreadInfo.f13217g);
+                jSONObject5.put("title", this.mOriginalThreadInfo.f12878g);
                 jSONObject.put("origin_thread_info", jSONObject5);
             }
             jSONArray.put(jSONObject);

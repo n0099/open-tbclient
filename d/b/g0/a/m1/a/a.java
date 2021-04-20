@@ -18,28 +18,28 @@ import java.util.Set;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45235a = k.f45051a;
+    public static final boolean f45627a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.g0.a.a2.g.a f45236b;
+    public static d.b.g0.a.a2.g.a f45628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f45237c;
+    public static final Set<String> f45629c;
 
     static {
         HashSet hashSet = new HashSet();
-        f45237c = hashSet;
+        f45629c = hashSet;
         hashSet.add("aiapps_websafe_debug_key");
-        f45237c.add("aiapps_server_domains_debug_key");
-        f45237c.add("aiapps_use_extension_debug_key");
-        f45237c.add("aiapps_emit_live_debug_key");
-        f45237c.add("aiapps_emit_https_debug_key");
-        f45237c.add("aiapps_emit_wss_debug_key");
-        f45237c.add("aiapps_load_cts_debug_key");
-        f45237c.add("aiapps_env_data");
-        f45237c.add("aiapps_js_native_switch_key");
-        f45237c.add("aiapps_emit_game_core_debug_key");
-        f45237c.add("aiapps_emit_game_launch_mode_key");
+        f45629c.add("aiapps_server_domains_debug_key");
+        f45629c.add("aiapps_use_extension_debug_key");
+        f45629c.add("aiapps_emit_live_debug_key");
+        f45629c.add("aiapps_emit_https_debug_key");
+        f45629c.add("aiapps_emit_wss_debug_key");
+        f45629c.add("aiapps_load_cts_debug_key");
+        f45629c.add("aiapps_env_data");
+        f45629c.add("aiapps_js_native_switch_key");
+        f45629c.add("aiapps_emit_game_core_debug_key");
+        f45629c.add("aiapps_emit_game_launch_mode_key");
     }
 
     public static boolean A() {
@@ -154,7 +154,7 @@ public final class a {
             return null;
         }
         extensionCore.extensionCoreVersionCode = 4294967297L;
-        extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f5542e;
+        extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f5577e;
         return extensionCore;
     }
 
@@ -163,7 +163,7 @@ public final class a {
     }
 
     public static d.g c(d.b.g0.a.y0.e.b bVar, d.b.g0.a.i2.r0.b bVar2) {
-        if (f45235a && bVar.j0()) {
+        if (f45627a && bVar.j0()) {
             return d.b.a(bVar, bVar2);
         }
         if (B(bVar.d0())) {
@@ -203,7 +203,7 @@ public final class a {
     }
 
     public static String j(d.b.g0.a.y0.e.b bVar) {
-        if (f45235a && bVar.j0()) {
+        if (f45627a && bVar.j0()) {
             return d.b.e().getPath();
         }
         if (B(bVar.d0())) {
@@ -244,16 +244,16 @@ public final class a {
     }
 
     public static d.b.g0.a.a2.g.a r() {
-        if (f45236b == null) {
+        if (f45628b == null) {
             synchronized (a.class) {
-                if (f45236b == null) {
+                if (f45628b == null) {
                     d.b.g0.a.a2.g.a aVar = new d.b.g0.a.a2.g.a("swan_app_debug");
-                    f45236b = aVar;
-                    aVar.f43237f.addAll(f45237c);
+                    f45628b = aVar;
+                    aVar.f43629f.addAll(f45629c);
                 }
             }
         }
-        return f45236b;
+        return f45628b;
     }
 
     public static boolean s() {
@@ -281,10 +281,10 @@ public final class a {
     }
 
     public static boolean y(d.b.g0.a.y0.e.b bVar) {
-        return (f45235a && bVar.j0()) || B(bVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && bVar.Q());
+        return (f45627a && bVar.j0()) || B(bVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && bVar.Q());
     }
 
     public static boolean z(c cVar) {
-        return (f45235a && cVar.j0()) || B(cVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && cVar.Q());
+        return (f45627a && cVar.j0()) || B(cVar.d0()) || d.b.g0.a.c0.d.b.e() || d.b.g0.a.c0.d.b.f() || (u() && cVar.Q());
     }
 }

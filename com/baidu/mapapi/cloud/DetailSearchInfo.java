@@ -1,7 +1,7 @@
 package com.baidu.mapapi.cloud;
 
 import com.baidu.mapapi.http.HttpClient;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 /* loaded from: classes2.dex */
 public class DetailSearchInfo extends BaseSearchInfo {
@@ -9,7 +9,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
     public int uid;
 
     public DetailSearchInfo() {
-        this.f6756a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/detail/" : "http://api.map.baidu.com/geosearch/v2/detail/";
+        this.f6791a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/detail/" : "http://api.map.baidu.com/geosearch/v2/detail/";
     }
 
     @Override // com.baidu.mapapi.cloud.BaseSearchInfo
@@ -19,7 +19,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f6756a);
+        sb.append(this.f6791a);
         String str2 = this.poiId;
         if (str2 == null || str2.equals("")) {
             sb.append(this.uid);
@@ -40,7 +40,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
                 String str4 = this.sn;
                 if (str4 != null && !str4.equals("") && this.sn.length() <= 50) {
                     sb.append("&");
-                    sb.append(IXAdRequestInfo.SN);
+                    sb.append(IAdRequestParam.SN);
                     sb.append("=");
                     sb.append(this.sn);
                 }

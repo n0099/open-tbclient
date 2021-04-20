@@ -8,19 +8,19 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class f extends BaseCardInfo {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f60540h = BdUniqueId.gen();
+    public static final BdUniqueId f62104h = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public UserData f60541e;
+    public UserData f62105e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaInfoData f60542f;
+    public AlaInfoData f62106f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60543g;
+    public boolean f62107g;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
-        return f60540h;
+        return f62104h;
     }
 }

@@ -12,7 +12,7 @@ import com.facebook.drawee.drawable.VisibilityCallback;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallback {
     public DH mHierarchy;
     public boolean mIsControllerAttached = false;

@@ -23,25 +23,25 @@ public class j0 extends c implements p<a2> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f51780e;
+        public final /* synthetic */ ThemeCardInUserData f52204e;
 
         public a(ThemeCardInUserData themeCardInUserData) {
-            this.f51780e = themeCardInUserData;
+            this.f52204e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.i.getPageActivity(), this.f51780e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.i.getPageActivity(), this.f52204e.getCardId())));
         }
     }
 
     public j0(TbPageContext tbPageContext) {
         this.i = tbPageContext;
         h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.b.b.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), d.b.b.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.b.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), d.b.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
-        layoutParams.topMargin = d.b.b.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        layoutParams.rightMargin = d.b.b.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.topMargin = d.b.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.rightMargin = d.b.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
         i(layoutParams);
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         this.j = tbImageView;
@@ -57,7 +57,7 @@ public class j0 extends c implements p<a2> {
         if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !a2Var.P1) {
             if (this.k && (this.j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.rightMargin = d.b.b.e.p.l.g(this.i.getPageActivity(), R.dimen.tbds106);
+                layoutParams.rightMargin = d.b.c.e.p.l.g(this.i.getPageActivity(), R.dimen.tbds106);
                 this.j.setLayoutParams(layoutParams);
             }
             this.j.setVisibility(0);

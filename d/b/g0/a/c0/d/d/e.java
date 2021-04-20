@@ -7,45 +7,45 @@ import d.b.g0.a.k;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43627a = k.f45051a;
+    public static final boolean f44019a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43628b;
+    public static String f44020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43629c;
+    public static String f44021c;
 
     public static String a() {
-        return f43628b + "/swan-core/master/master.html";
+        return f44020b + "/swan-core/master/master.html";
     }
 
     public static String b() {
-        return f43628b + "/swan-core/slaves/slaves.html";
+        return f44020b + "/swan-core/slaves/slaves.html";
     }
 
     public static boolean c() {
-        return TextUtils.equals(f43629c, "update_tag_by_remote_debug");
+        return TextUtils.equals(f44021c, "update_tag_by_remote_debug");
     }
 
     public static boolean d() {
-        return !TextUtils.isEmpty(f43628b);
+        return !TextUtils.isEmpty(f44020b);
     }
 
     public static void e(String str) {
-        if (f43627a) {
+        if (f44019a) {
             Log.d("RemoteDebugger", "Current launch mode is " + str);
         }
-        f43629c = str;
+        f44021c = str;
         if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
             d.g().o();
         }
     }
 
     public static void f() {
-        f43629c = "update_tag_by_remote_debug";
+        f44021c = "update_tag_by_remote_debug";
     }
 
     public static void g(String str) {
-        f43628b = str;
+        f44020b = str;
     }
 }

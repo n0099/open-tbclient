@@ -4,7 +4,7 @@ import h.e;
 import h.f;
 import h.j;
 import h.k;
-import h.o.a.q;
+import h.o.a.r;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -16,7 +16,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
     public volatile boolean done;
     public boolean emitting;
     public boolean missed;
-    public q<? super T> parent;
+    public r<? super T> parent;
     public Throwable terminal;
     public final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 

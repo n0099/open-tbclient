@@ -1,14 +1,40 @@
 package d.b.i0.q1.d;
 
-import org.json.JSONObject;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.ICertification;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class b {
+public class b implements LiveRealAuthService {
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f59340a;
+    /* loaded from: classes3.dex */
+    public class a implements ICertification.CertificationCallback {
 
-    public void a(JSONObject jSONObject) {
-        this.f59340a = jSONObject.optString("error_code");
-        jSONObject.optString("error_msg");
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LiveRealAuthCallback f60458a;
+
+        public a(b bVar, LiveRealAuthCallback liveRealAuthCallback) {
+            this.f60458a = liveRealAuthCallback;
+        }
+
+        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
+        public void onResult(int i, Map<String, Object> map) {
+            LiveRealAuthCallback liveRealAuthCallback = this.f60458a;
+            if (liveRealAuthCallback != null) {
+                liveRealAuthCallback.onRealAuthResult(i, map);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
+    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921433, ICertification.class);
+        if (runTask == null || runTask.getData() == null) {
+            return;
+        }
+        ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
     }
 }

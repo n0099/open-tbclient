@@ -23,8 +23,8 @@ import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.VideoPlayModel;
 import com.baidu.tieba.videoplay.VideoPlayView;
-import d.b.b.e.p.l;
-import d.b.i0.p3.g;
+import d.b.c.e.p.l;
+import d.b.i0.q3.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -61,7 +61,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 return;
             }
             g gVar = (g) customResponsedMessage.getData();
-            List<VideoItemData> list = gVar.f58913a;
+            List<VideoItemData> list = gVar.f60581a;
             if (!ListUtils.isEmpty(list)) {
                 if (VideoPlayActivity.this.mVideoDataList == null) {
                     VideoPlayActivity.this.mVideoDataList = new ArrayList();
@@ -72,7 +72,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (VideoPlayActivity.this.mVideoPlayView != null) {
                 VideoPlayActivity.this.mVideoPlayView.y();
             }
-            VideoPlayActivity.this.mHasMore = gVar.f58914b;
+            VideoPlayActivity.this.mHasMore = gVar.f60582b;
         }
     }
 
@@ -210,7 +210,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (videoItemData == null || TextUtils.isEmpty(videoItemData.thread_id)) {
             return 0L;
         }
-        return d.b.b.e.m.b.f(videoItemData.thread_id, 0L);
+        return d.b.c.e.m.b.f(videoItemData.thread_id, 0L);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -285,8 +285,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoPlayView == null || !videoPlayView.r()) {
                 VideoPlayView videoPlayView2 = this.mVideoPlayView;
                 int i2 = videoPlayView2.i;
-                int i3 = videoPlayView2.f21996h;
-                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21996h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+                int i3 = videoPlayView2.f21681h;
+                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21681h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }
                 finish();

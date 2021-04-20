@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
-import f.a.x.c.d;
+import f.b.x.c.d;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public abstract class BasicIntQueueSubscription<T> extends AtomicInteger implements d<T> {
@@ -12,7 +12,7 @@ public abstract class BasicIntQueueSubscription<T> extends AtomicInteger impleme
 
     public abstract /* synthetic */ boolean isEmpty();
 
-    @Override // f.a.x.c.f
+    @Override // f.b.x.c.f
     public final boolean offer(T t) {
         throw new UnsupportedOperationException("Should not be called!");
     }

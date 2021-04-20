@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     public PullToRefreshScrollView(Context context) {
         this(context, null);

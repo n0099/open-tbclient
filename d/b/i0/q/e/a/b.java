@@ -6,29 +6,29 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.b.e.p.m;
-import d.b.i0.d1.h.g;
-import d.b.i0.d1.h.h;
+import d.b.c.e.p.m;
+import d.b.i0.e1.h.g;
+import d.b.i0.e1.h.h;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f59233a;
+    public static b f58986a;
 
     public static synchronized b f() {
         b bVar;
         synchronized (b.class) {
-            if (f59233a == null) {
-                f59233a = new b();
+            if (f58986a == null) {
+                f58986a = new b();
             }
-            bVar = f59233a;
+            bVar = f58986a;
         }
         return bVar;
     }
 
-    public final int a(d.b.i0.d1.g.a aVar) {
+    public final int a(d.b.i0.e1.g.a aVar) {
         SQLiteDatabase c2 = g.c();
         int i = 0;
         if (c2 != null) {
@@ -93,9 +93,9 @@ public class b {
         return 0L;
     }
 
-    public synchronized d.b.i0.d1.g.a e(long j) {
-        d.b.i0.d1.g.a aVar;
-        aVar = new d.b.i0.d1.g.a();
+    public synchronized d.b.i0.e1.g.a e(long j) {
+        d.b.i0.e1.g.a aVar;
+        aVar = new d.b.i0.e1.g.a();
         Cursor cursor = null;
         try {
             cursor = h.e().h("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
@@ -115,7 +115,7 @@ public class b {
         return aVar;
     }
 
-    public List<d.b.i0.d1.g.a> g() {
+    public List<d.b.i0.e1.g.a> g() {
         ArrayList arrayList = new ArrayList();
         Cursor cursor = null;
         try {
@@ -123,7 +123,7 @@ public class b {
                 cursor = h.e().h("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
-                        d.b.i0.d1.g.a aVar = new d.b.i0.d1.g.a();
+                        d.b.i0.e1.g.a aVar = new d.b.i0.e1.g.a();
                         aVar.h(cursor.getLong(cursor.getColumnIndex("uid")));
                         aVar.g(cursor.getString(cursor.getColumnIndex("ucontent")));
                         aVar.i(cursor.getInt(cursor.getColumnIndex("isread")));
@@ -189,7 +189,7 @@ public class b {
         }
     }
 
-    public List<d.b.i0.d1.g.a> j() {
+    public List<d.b.i0.e1.g.a> j() {
         SQLiteDatabase c2 = g.c();
         ArrayList arrayList = new ArrayList();
         if (c2 != null) {
@@ -200,7 +200,7 @@ public class b {
                         cursor = h.e().h("select * from tb_new_friends ORDER BY _id DESC", null);
                         if (cursor != null) {
                             while (cursor.moveToNext()) {
-                                d.b.i0.d1.g.a aVar = new d.b.i0.d1.g.a();
+                                d.b.i0.e1.g.a aVar = new d.b.i0.e1.g.a();
                                 aVar.h(cursor.getLong(cursor.getColumnIndex("uid")));
                                 if (aVar.b() < 0) {
                                     a(aVar);
@@ -226,7 +226,7 @@ public class b {
         return arrayList;
     }
 
-    public final void k(SQLiteDatabase sQLiteDatabase, d.b.i0.d1.g.a aVar) throws Exception {
+    public final void k(SQLiteDatabase sQLiteDatabase, d.b.i0.e1.g.a aVar) throws Exception {
         if (aVar == null || aVar.b() == 0 || TextUtils.isEmpty(aVar.d())) {
             return;
         }
@@ -251,7 +251,7 @@ public class b {
         }
     }
 
-    public void l(d.b.i0.d1.g.a aVar) {
+    public void l(d.b.i0.e1.g.a aVar) {
         try {
             k(g.c(), aVar);
         } catch (Exception e2) {
@@ -259,9 +259,9 @@ public class b {
         }
     }
 
-    public void m(List<d.b.i0.d1.g.a> list) {
+    public void m(List<d.b.i0.e1.g.a> list) {
         try {
-            for (d.b.i0.d1.g.a aVar : list) {
+            for (d.b.i0.e1.g.a aVar : list) {
                 k(g.c(), aVar);
             }
         } catch (Exception e2) {
@@ -306,7 +306,7 @@ public class b {
         h.e().j("tb_new_friends", contentValues, null, null);
     }
 
-    public int q(d.b.i0.d1.g.a aVar) {
+    public int q(d.b.i0.e1.g.a aVar) {
         SQLiteDatabase c2 = g.c();
         int i = 0;
         if (c2 != null) {

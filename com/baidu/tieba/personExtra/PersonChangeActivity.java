@@ -70,7 +70,7 @@ import d.b.h0.s.i.b;
 import java.util.Calendar;
 import java.util.Date;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public static final int DEFAULT_DAYS_THRESHOLD = 2000;
     public static final int FIRST_SCROLL_TO_BOTTOM_DELAY = 800;
@@ -117,7 +117,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public boolean mClickOnEditor = false;
     public PersonChangeModel mModel = null;
     public HeadImageView mPhotoView = null;
-    public d.b.b.j.d.a mPhoto = null;
+    public d.b.c.j.d.a mPhoto = null;
     public t mImageTask = null;
     public u mModifyTask = null;
     public ProgressBar mImageProgressBar = null;
@@ -135,7 +135,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public CustomMessageListener mModifyNicknameSucceedListener = new i(2921033);
     public CustomMessageListener mChangeLeftDayListener = new j(2921061);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
         public a() {
         }
@@ -151,7 +151,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements TextWatcher {
         public b() {
         }
@@ -200,7 +200,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements a.e {
         public c() {
         }
@@ -212,7 +212,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements a.e {
         public d() {
         }
@@ -234,7 +234,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -245,7 +245,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f implements b.c {
         public f() {
         }
@@ -264,18 +264,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class g implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20335e;
+        public final /* synthetic */ String f20027e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f20336f;
+        public final /* synthetic */ String f20028f;
 
         public g(String str, String str2) {
-            this.f20335e = str;
-            this.f20336f = str2;
+            this.f20027e = str;
+            this.f20028f = str2;
         }
 
         @Override // d.b.h0.r.s.l.e
@@ -285,12 +285,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             }
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                if (this.f20335e.equals(textView.getText().toString())) {
+                if (this.f20027e.equals(textView.getText().toString())) {
                     PersonChangeActivity.this.mSex = 1;
-                    PersonChangeActivity.this.mSexShow.setText(this.f20335e);
-                } else if (this.f20336f.equals(textView.getText().toString())) {
+                    PersonChangeActivity.this.mSexShow.setText(this.f20027e);
+                } else if (this.f20028f.equals(textView.getText().toString())) {
                     PersonChangeActivity.this.mSex = 2;
-                    PersonChangeActivity.this.mSexShow.setText(this.f20336f);
+                    PersonChangeActivity.this.mSexShow.setText(this.f20028f);
                 }
                 if (PersonChangeActivity.this.mSex != PersonChangeActivity.this.mModel.s().getSex()) {
                     PersonChangeActivity.this.isUpdate = true;
@@ -304,7 +304,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class h implements View.OnClickListener {
         public h() {
         }
@@ -332,7 +332,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class i extends CustomMessageListener {
         public i(int i) {
             super(i);
@@ -356,7 +356,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class j extends CustomMessageListener {
         public j(int i) {
             super(i);
@@ -377,14 +377,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class k implements a.e {
         public k() {
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            if (d.b.b.e.p.j.z()) {
+            if (d.b.c.e.p.j.z()) {
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), 24);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MY_DATA, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
                 PersonChangeActivity.this.sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -396,7 +396,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class l implements a.e {
         public l() {
         }
@@ -407,19 +407,19 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class m implements a.e {
         public m() {
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), null, d.b.i0.c2.c.a(), true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(PersonChangeActivity.this.getPageContext().getPageActivity(), null, d.b.i0.d2.c.a(), true)));
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class n implements a.e {
         public n() {
         }
@@ -430,7 +430,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class o implements b.e {
         public o() {
         }
@@ -444,7 +444,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class p implements Runnable {
         public p() {
         }
@@ -455,7 +455,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class q implements DialogInterface.OnCancelListener {
         public q() {
         }
@@ -469,7 +469,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class r implements View.OnTouchListener {
         public r() {
         }
@@ -484,7 +484,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class s implements View.OnFocusChangeListener {
         public s() {
         }
@@ -498,7 +498,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class t extends BdAsyncTask<Object, Integer, Bitmap> {
         public t() {
         }
@@ -541,31 +541,31 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             PersonChangeActivity.this.mImageTask = null;
             PersonChangeActivity.this.mImageProgressBar.setVisibility(8);
             if (bitmap != null) {
-                PersonChangeActivity.this.mPhoto = new d.b.b.j.d.a(bitmap, false, (String) null);
+                PersonChangeActivity.this.mPhoto = new d.b.c.j.d.a(bitmap, false, (String) null);
                 PersonChangeActivity.this.mPhoto.h(PersonChangeActivity.this.mPhotoView);
-                d.b.h0.a0.c.j().c(PersonChangeActivity.this.mModel.s().getPortrait(), PersonChangeActivity.this.mPhoto, true);
+                d.b.h0.a0.c.k().c(PersonChangeActivity.this.mModel.s().getPortrait(), PersonChangeActivity.this.mPhoto, true);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class u extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20351a = null;
+        public NetWork f20043a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonChangeModel f20352b;
+        public PersonChangeModel f20044b;
 
         public u(PersonChangeModel personChangeModel) {
-            this.f20352b = null;
-            this.f20352b = personChangeModel;
+            this.f20044b = null;
+            this.f20044b = personChangeModel;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             PersonChangeActivity.this.mModifyTask = null;
-            NetWork netWork = this.f20351a;
+            NetWork netWork = this.f20043a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -582,18 +582,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            if (this.f20352b == null) {
+            if (this.f20044b == null) {
                 return null;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_MODIFY);
-            this.f20351a = netWork;
-            netWork.addPostData("sex", String.valueOf(this.f20352b.s().getSex()));
-            this.f20351a.addPostData("intro", this.f20352b.s().getIntro());
-            this.f20351a.addPostData("birthday_time", String.valueOf(this.f20352b.s().getBirthdayTime()));
-            this.f20351a.addPostData("birthday_show_status", String.valueOf(this.f20352b.s().getBirthdayShowStatus()));
-            this.f20351a.postMultiNetData();
-            if (this.f20351a.getNetContext().getResponse().isRequestSuccess()) {
-                d.b.i0.c3.n0.a.j();
+            this.f20043a = netWork;
+            netWork.addPostData("sex", String.valueOf(this.f20044b.s().getSex()));
+            this.f20043a.addPostData("intro", this.f20044b.s().getIntro());
+            this.f20043a.addPostData("birthday_time", String.valueOf(this.f20044b.s().getBirthdayTime()));
+            this.f20043a.addPostData("birthday_show_status", String.valueOf(this.f20044b.s().getBirthdayShowStatus()));
+            this.f20043a.postMultiNetData();
+            if (this.f20043a.getNetContext().getResponse().isRequestSuccess()) {
+                d.b.i0.d3.n0.a.j();
             }
             return null;
         }
@@ -603,14 +603,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPostExecute(String str) {
             PersonChangeActivity.this.mModifyTask = null;
             PersonChangeActivity.this.closeLoadingDialog();
-            NetWork netWork = this.f20351a;
+            NetWork netWork = this.f20043a;
             if (netWork != null) {
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     PersonChangeActivity personChangeActivity = PersonChangeActivity.this;
                     personChangeActivity.showToast(personChangeActivity.getPageContext().getString(R.string.success));
                     PersonChangeActivity.this.setDataAndFinish();
                 } else {
-                    PersonChangeActivity.this.showToast(this.f20351a.getErrorString());
+                    PersonChangeActivity.this.showToast(this.f20043a.getErrorString());
                 }
             }
             super.onPostExecute((u) str);
@@ -704,7 +704,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         editText.setHint(getResources().getString(R.string.person_default_sign, "o(〃'▽'〃)o"));
         this.mEdit.setHintTextColor(SkinManager.getColor(R.color.CAM_X0108));
         this.mEdit.setCursorVisible(false);
-        if (!d.b.b.e.p.k.isEmpty(this.mModel.s().getIntro())) {
+        if (!d.b.c.e.p.k.isEmpty(this.mModel.s().getIntro())) {
             this.mEdit.setText(this.mModel.s().getIntro());
             TextView textView4 = this.mIntroTextTipNum;
             textView4.setText(this.mModel.s().getIntro().length() + "");
@@ -836,7 +836,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             return;
         }
         hideEditor();
-        if (!d.b.b.e.p.j.z()) {
+        if (!d.b.c.e.p.j.z()) {
             showToast(R.string.neterror);
             return;
         }
@@ -1133,12 +1133,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             }
         }
         PersonChangeModel personChangeModel2 = this.mModel;
-        if (personChangeModel2 != null && (personChangeData = personChangeModel2.f20354e) != null && !personChangeData.canModifyAvatar()) {
-            if (!StringUtils.isNull(this.mModel.f20354e.getCantModifyAvatarDesc())) {
-                d.b.b.e.p.l.I(TbadkCoreApplication.getInst(), this.mModel.f20354e.getCantModifyAvatarDesc());
+        if (personChangeModel2 != null && (personChangeData = personChangeModel2.f20046e) != null && !personChangeData.canModifyAvatar()) {
+            if (!StringUtils.isNull(this.mModel.f20046e.getCantModifyAvatarDesc())) {
+                d.b.c.e.p.l.I(TbadkCoreApplication.getInst(), this.mModel.f20046e.getCantModifyAvatarDesc());
                 return;
             } else {
-                d.b.b.e.p.l.H(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
+                d.b.c.e.p.l.H(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
                 return;
             }
         }

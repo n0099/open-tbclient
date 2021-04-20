@@ -3,46 +3,46 @@ package d.b.f0.j;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42998a;
+    public int f43390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42999b;
+    public String f43391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43000c;
+    public int f43392c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43001d;
+    public int f43393d;
 
     public int a() {
-        return this.f42998a;
+        return this.f43390a;
     }
 
     public void b(int i) {
-        this.f42998a = i;
+        this.f43390a = i;
     }
 
     public void c(String str) {
-        this.f42999b = str;
+        this.f43391b = str;
     }
 
     public String d() {
-        return this.f42999b;
+        return this.f43391b;
     }
 
     public void e(int i) {
-        this.f43000c = i;
+        this.f43392c = i;
     }
 
     public int f() {
-        return this.f43000c;
+        return this.f43392c;
     }
 
     public void g(int i) {
-        this.f43001d = i;
+        this.f43393d = i;
     }
 
     public int h() {
-        return this.f43001d;
+        return this.f43393d;
     }
 }

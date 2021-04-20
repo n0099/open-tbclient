@@ -11,7 +11,7 @@ import d.b.g0.a.k;
 import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class b extends f {
-    public static final boolean H = k.f45051a;
+    public static final boolean H = k.f45443a;
     public a.c G;
 
     public b(String str, a.c cVar) {
@@ -20,51 +20,51 @@ public class b extends f {
     }
 
     @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-    public void C(d.b.g0.l.k.a aVar) {
-        super.C(aVar);
+    public void B(d.b.g0.l.k.a aVar) {
+        super.B(aVar);
         if (H) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
         a.c cVar = this.G;
         if (cVar != null) {
-            if (aVar.f48914a == 1010) {
+            if (aVar.f49306a == 1010) {
                 cVar.b();
             } else {
                 cVar.a(0);
             }
         }
-        k0(aVar.f48914a);
+        j0(aVar.f49306a);
         if (a.m(aVar)) {
             a.c(this.r);
         }
     }
 
     @Override // d.b.g0.l.h.g
-    public void F() {
-        super.F();
+    public void E() {
+        super.E();
         if (this.q != null) {
-            s0();
+            r0();
             a.c(this.r);
         }
     }
 
     @Override // d.b.g0.a.e0.p.j
-    public int K() {
+    public int J() {
         return 7;
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public PMSDownloadType i0() {
+    public PMSDownloadType h0() {
         return PMSDownloadType.PRE;
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public void t0() {
-        super.t0();
+    public void s0() {
+        super.s0();
         this.s.add(new UbcFlowEvent("na_start_update_db"));
-        d.b.g0.a.f2.a D0 = D0();
+        d.b.g0.a.f2.a C0 = C0();
         this.s.add(new UbcFlowEvent("na_end_update_db"));
-        if (D0 == null) {
+        if (C0 == null) {
             a.c(this.r);
             a.c cVar = this.G;
             if (cVar != null) {
@@ -76,7 +76,7 @@ public class b extends f {
                 cVar2.a(5);
             }
         }
-        y0("main_pre_download", this.t);
+        x0("main_pre_download", this.t);
         HashSet hashSet = new HashSet();
         hashSet.add(this.r);
         c d2 = e.c().d();
@@ -86,7 +86,7 @@ public class b extends f {
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public void u0(Throwable th) {
+    public void t0(Throwable th) {
         a.c cVar = this.G;
         if (cVar != null) {
             cVar.a(0);

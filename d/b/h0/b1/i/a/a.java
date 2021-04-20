@@ -9,58 +9,58 @@ import com.baidu.tbadk.TbConfig;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f49884a;
+    public Bitmap f50277a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final C1052a f49885b;
+    public final C1064a f50278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Rect f49886c;
+    public final Rect f50279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Rect f49887d;
+    public final Rect f50280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f49888e;
+    public final Rect f50281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49889f;
+    public int f50282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Canvas f49890g;
+    public Canvas f50283g;
 
     /* renamed from: d.b.h0.b1.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1052a {
+    public static class C1064a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49891a;
+        public int f50284a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49892b;
+        public int f50285b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f49893c;
+        public int f50286c;
 
-        public C1052a() {
+        public C1064a() {
         }
 
         public int a() {
-            return this.f49892b;
+            return this.f50285b;
         }
 
         public int b() {
-            return this.f49891a;
+            return this.f50284a;
         }
 
         public int c() {
-            return this.f49893c;
+            return this.f50286c;
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C1052a) {
-                C1052a c1052a = (C1052a) obj;
-                if (this.f49891a == c1052a.b() && this.f49892b == c1052a.a() && this.f49893c == c1052a.c()) {
+            if (obj instanceof C1064a) {
+                C1064a c1064a = (C1064a) obj;
+                if (this.f50284a == c1064a.b() && this.f50285b == c1064a.a() && this.f50286c == c1064a.c()) {
                     return true;
                 }
             }
@@ -68,63 +68,63 @@ public class a {
         }
 
         public int hashCode() {
-            return ((((119 + this.f49891a) * 17) + this.f49892b) * 17) + (this.f49893c * 100);
+            return ((((119 + this.f50284a) * 17) + this.f50285b) * 17) + (this.f50286c * 100);
         }
 
         public String toString() {
-            return "Position{row=" + this.f49891a + ", column=" + this.f49892b + ", sampleScale=" + this.f49893c + '}';
+            return "Position{row=" + this.f50284a + ", column=" + this.f50285b + ", sampleScale=" + this.f50286c + '}';
         }
 
-        public C1052a(int i, int i2, int i3) {
-            this.f49891a = i;
-            this.f49892b = i2;
-            this.f49893c = i3;
+        public C1064a(int i, int i2, int i3) {
+            this.f50284a = i;
+            this.f50285b = i2;
+            this.f50286c = i3;
         }
     }
 
     public a(int i) {
-        this.f49885b = new C1052a();
-        this.f49886c = new Rect();
-        this.f49887d = new Rect();
-        this.f49888e = new Rect();
-        this.f49884a = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.f49889f = i;
-        this.f49890g = new Canvas();
+        this.f50278b = new C1064a();
+        this.f50279c = new Rect();
+        this.f50280d = new Rect();
+        this.f50281e = new Rect();
+        this.f50277a = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
+        this.f50282f = i;
+        this.f50283g = new Canvas();
     }
 
     public void a() {
-        Bitmap bitmap = this.f49884a;
-        if (bitmap == null || bitmap.isRecycled() || !this.f49884a.isMutable()) {
+        Bitmap bitmap = this.f50277a;
+        if (bitmap == null || bitmap.isRecycled() || !this.f50277a.isMutable()) {
             return;
         }
-        this.f49890g.setBitmap(this.f49884a);
-        this.f49890g.drawColor(-1, PorterDuff.Mode.CLEAR);
+        this.f50283g.setBitmap(this.f50277a);
+        this.f50283g.drawColor(-1, PorterDuff.Mode.CLEAR);
     }
 
     public Bitmap b() {
-        return this.f49884a;
+        return this.f50277a;
     }
 
     public Rect c() {
-        return this.f49887d;
+        return this.f50280d;
     }
 
-    public C1052a d() {
-        return this.f49885b;
+    public C1064a d() {
+        return this.f50278b;
     }
 
     public Rect e() {
-        int i = this.f49889f;
-        C1052a c1052a = this.f49885b;
-        int i2 = c1052a.f49893c;
-        int i3 = c1052a.f49892b * i * i2;
-        int i4 = c1052a.f49891a * i * i2;
-        this.f49888e.set(i3, i4, (i * i2) + i3, (i * i2) + i4);
-        return this.f49888e;
+        int i = this.f50282f;
+        C1064a c1064a = this.f50278b;
+        int i2 = c1064a.f50286c;
+        int i3 = c1064a.f50285b * i * i2;
+        int i4 = c1064a.f50284a * i * i2;
+        this.f50281e.set(i3, i4, (i * i2) + i3, (i * i2) + i4);
+        return this.f50281e;
     }
 
     public Rect f() {
-        return this.f49886c;
+        return this.f50279c;
     }
 
     public boolean g(Rect rect) {
@@ -132,38 +132,38 @@ public class a {
             return false;
         }
         int i = rect.right - rect.left;
-        int i2 = this.f49889f;
+        int i2 = this.f50282f;
         return i == i2 && rect.bottom - rect.top == i2;
     }
 
     public void h(Bitmap bitmap) {
-        this.f49884a = bitmap;
+        this.f50277a = bitmap;
     }
 
     public void i(int i, int i2, int i3, int i4) {
-        this.f49887d.set(i, i2, i3, i4);
+        this.f50280d.set(i, i2, i3, i4);
     }
 
     public void j(int i, int i2, int i3) {
-        C1052a c1052a = this.f49885b;
-        c1052a.f49891a = i;
-        c1052a.f49892b = i2;
-        c1052a.f49893c = i3;
+        C1064a c1064a = this.f50278b;
+        c1064a.f50284a = i;
+        c1064a.f50285b = i2;
+        c1064a.f50286c = i3;
     }
 
     public void k(int i, int i2, int i3, int i4) {
-        this.f49886c.set(i, i2, i3, i4);
+        this.f50279c.set(i, i2, i3, i4);
     }
 
     public a(Bitmap bitmap) {
-        this.f49885b = new C1052a();
-        this.f49886c = new Rect();
-        this.f49887d = new Rect();
-        this.f49888e = new Rect();
+        this.f50278b = new C1064a();
+        this.f50279c = new Rect();
+        this.f50280d = new Rect();
+        this.f50281e = new Rect();
         if (bitmap != null) {
-            this.f49884a = bitmap;
-            this.f49886c.set(0, 0, bitmap.getWidth(), this.f49884a.getHeight());
+            this.f50277a = bitmap;
+            this.f50279c.set(0, 0, bitmap.getWidth(), this.f50277a.getHeight());
         }
-        this.f49890g = new Canvas();
+        this.f50283g = new Canvas();
     }
 }

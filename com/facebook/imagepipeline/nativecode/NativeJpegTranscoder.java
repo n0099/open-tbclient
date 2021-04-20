@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NativeJpegTranscoder implements ImageTranscoder {
     public static final String TAG = "NativeJpegTranscoder";
     public int mMaxBitmapSize;

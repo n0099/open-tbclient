@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public long A;
     public boolean B;
@@ -13,25 +13,25 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30326a;
+    public String f30011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30327b;
+    public String f30012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30328c;
+    public String f30013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30329d;
+    public String f30014d;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30331f;
+    public long f30016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30332g;
+    public long f30017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30333h;
+    public boolean f30018h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -51,6 +51,6 @@ public class a {
     public long z;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f30330e = new CopyOnWriteArrayList();
+    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f30015e = new CopyOnWriteArrayList();
     public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> w = new CopyOnWriteArrayList();
 }

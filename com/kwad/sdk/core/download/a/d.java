@@ -9,29 +9,29 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 public class d extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f33550a;
+    public int f33839a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f33551b;
+    public e f33840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f33552c;
+    public KsDrawAd.AdInteractionListener f33841c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdBaseFrameLayout f33553d;
+    public AdBaseFrameLayout f33842d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f33554e;
+    public AdTemplate f33843e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f33555f;
+    public com.kwad.sdk.core.download.b.b f33844f;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        com.kwad.sdk.core.download.b.b bVar = this.f33555f;
+        com.kwad.sdk.core.download.b.b bVar = this.f33844f;
         if (bVar != null) {
             bVar.f();
         }

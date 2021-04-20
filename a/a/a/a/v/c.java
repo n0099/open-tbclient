@@ -13,7 +13,7 @@ public final class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f1360a = new c();
+        public static final c f1346a = new c();
     }
 
     public void a(Context context, String str, ImageView imageView) {

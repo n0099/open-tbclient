@@ -13,7 +13,7 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/prefetchAppData");
@@ -21,7 +21,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("PrefetchAppData", "handle entity: " + unitedSchemeEntity.getUri().toString());
         }
         String param = unitedSchemeEntity.getParam("params");

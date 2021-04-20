@@ -126,7 +126,7 @@ public class ProxyURLConnection {
                 name = Uri.encode(name);
             }
             stringBuffer.append(name);
-            stringBuffer.append(a.f1897h);
+            stringBuffer.append(a.f1922h);
             stringBuffer.append(Uri.encode(nameValuePair.getValue()));
         }
         return stringBuffer.toString();

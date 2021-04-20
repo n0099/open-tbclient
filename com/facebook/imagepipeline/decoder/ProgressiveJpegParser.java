@@ -9,7 +9,7 @@ import com.facebook.common.util.StreamUtil;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProgressiveJpegParser {
     public static final int BUFFER_SIZE = 16384;
     public static final int NOT_A_JPEG = 6;

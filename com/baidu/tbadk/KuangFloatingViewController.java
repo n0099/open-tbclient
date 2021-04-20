@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,8 +22,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.i0.o3.c;
+import d.b.c.e.p.l;
+import d.b.i0.p3.c;
 /* loaded from: classes3.dex */
 public class KuangFloatingViewController {
     public static String STORY_PACKAGE = "com.baidu.tieba.story";
@@ -99,7 +100,7 @@ public class KuangFloatingViewController {
                     TiebaStatic.log(new StatisticItem("c12264").param("obj_source", 1));
                     Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                     if (launchIntentForPackage != null) {
-                        launchIntentForPackage.addFlags(268435456);
+                        launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FLOATING_VIEW_CLICK_KEY).param("obj_type", 1));
                     }

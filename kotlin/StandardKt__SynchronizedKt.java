@@ -9,7 +9,7 @@ import kotlin.jvm.internal.InlineMarker;
 public class StandardKt__SynchronizedKt extends StandardKt__StandardKt {
     @InlineOnly
     /* renamed from: synchronized  reason: not valid java name */
-    public static final <R> R m638synchronized(Object obj, Function0<? extends R> function0) {
+    public static final <R> R m642synchronized(Object obj, Function0<? extends R> function0) {
         R invoke;
         synchronized (obj) {
             try {

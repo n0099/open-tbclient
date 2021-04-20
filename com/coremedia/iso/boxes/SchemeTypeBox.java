@@ -9,17 +9,17 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SchemeTypeBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "schm";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_6 = null;
     public String schemeType;
     public String schemeUri;
     public long schemeVersion;

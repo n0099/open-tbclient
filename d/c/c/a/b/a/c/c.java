@@ -39,25 +39,25 @@ import org.apache.http.protocol.HTTP;
 public final class c extends e.i implements m {
 
     /* renamed from: b  reason: collision with root package name */
-    public final n f65190b;
+    public final n f66035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.c.c.a.b.e f65191c;
+    public final d.c.c.a.b.e f66036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Socket f65192d;
+    public Socket f66037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Socket f65193e;
+    public Socket f66038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public u f65194f;
+    public u f66039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public w f65195g;
+    public w f66040g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.c.c.a.b.a.h.e f65196h;
+    public d.c.c.a.b.a.h.e f66041h;
     public d.c.c.a.a.e i;
     public d.c.c.a.a.d j;
     public boolean k;
@@ -67,13 +67,13 @@ public final class c extends e.i implements m {
     public long o = Long.MAX_VALUE;
 
     public c(n nVar, d.c.c.a.b.e eVar) {
-        this.f65190b = nVar;
-        this.f65191c = eVar;
+        this.f66035b = nVar;
+        this.f66036c = eVar;
     }
 
     @Override // d.c.c.a.b.m
     public d.c.c.a.b.e a() {
-        return this.f65191c;
+        return this.f66036c;
     }
 
     @Override // d.c.c.a.b.a.h.e.i
@@ -81,11 +81,11 @@ public final class c extends e.i implements m {
         gVar.d(com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM);
     }
 
-    public e.InterfaceC1787e c(y yVar, w.a aVar, f fVar) throws SocketException {
-        if (this.f65196h != null) {
-            return new d.c.c.a.b.a.h.d(yVar, aVar, fVar, this.f65196h);
+    public e.InterfaceC1815e c(y yVar, w.a aVar, f fVar) throws SocketException {
+        if (this.f66041h != null) {
+            return new d.c.c.a.b.a.h.d(yVar, aVar, fVar, this.f66041h);
         }
-        this.f65193e.setSoTimeout(aVar.c());
+        this.f66038e.setSoTimeout(aVar.c());
         this.i.a().b(aVar.c(), TimeUnit.MILLISECONDS);
         this.j.a().b(aVar.d(), TimeUnit.MILLISECONDS);
         return new d.c.c.a.b.a.f.a(yVar, fVar, this.i, this.j);
@@ -116,7 +116,7 @@ public final class c extends e.i implements m {
                 }
                 throw new IOException("TLS tunnel buffered too many bytes!");
             } else if (r == 407) {
-                a0 a3 = this.f65191c.a().e().a(this.f65191c, k);
+                a0 a3 = this.f66036c.a().e().a(this.f66036c, k);
                 if (a3 != null) {
                     if (IntentConfig.CLOSE.equalsIgnoreCase(k.o(HTTP.CONN_DIRECTIVE))) {
                         return a3;
@@ -140,11 +140,11 @@ public final class c extends e.i implements m {
             if (p == null) {
                 return;
             }
-            d.c.c.a.b.a.e.r(this.f65192d);
-            this.f65192d = null;
+            d.c.c.a.b.a.e.r(this.f66037d);
+            this.f66037d = null;
             this.j = null;
             this.i = null;
-            tVar.l(iVar, this.f65191c.c(), this.f65191c.b(), null);
+            tVar.l(iVar, this.f66036c.c(), this.f66036c.b(), null);
         }
     }
 
@@ -157,12 +157,12 @@ public final class c extends e.i implements m {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void f(int i, int i2, int i3, boolean z, i iVar, t tVar) {
-        if (this.f65195g == null) {
-            List<o> g2 = this.f65191c.a().g();
+        if (this.f66040g == null) {
+            List<o> g2 = this.f66036c.a().g();
             b bVar = new b(g2);
-            if (this.f65191c.a().j() == null) {
-                if (g2.contains(o.f65523g)) {
-                    String v = this.f65191c.a().a().v();
+            if (this.f66036c.a().j() == null) {
+                if (g2.contains(o.f66368g)) {
+                    String v = this.f66036c.a().a().v();
                     if (!d.c.c.a.b.a.i.e.j().m(v)) {
                         throw new com.bytedance.sdk.a.b.a.b.e(new UnknownServiceException("CLEARTEXT communication to " + v + " not permitted by network security policy"));
                     }
@@ -173,15 +173,15 @@ public final class c extends e.i implements m {
             com.bytedance.sdk.a.b.a.b.e eVar = null;
             do {
                 try {
-                    if (!this.f65191c.d()) {
+                    if (!this.f66036c.d()) {
                         e(i, i2, i3, iVar, tVar);
-                        if (this.f65192d == null) {
-                            if (!this.f65191c.d() && this.f65192d == null) {
+                        if (this.f66037d == null) {
+                            if (!this.f66036c.d() && this.f66037d == null) {
                                 throw new com.bytedance.sdk.a.b.a.b.e(new ProtocolException("Too many tunnel connections attempted: 21"));
                             }
-                            if (this.f65196h != null) {
-                                synchronized (this.f65190b) {
-                                    this.m = this.f65196h.n();
+                            if (this.f66041h != null) {
+                                synchronized (this.f66035b) {
+                                    this.m = this.f66041h.n();
                                 }
                                 return;
                             }
@@ -192,16 +192,16 @@ public final class c extends e.i implements m {
                             g(i, i2, iVar, tVar);
                         } catch (IOException e2) {
                             e = e2;
-                            d.c.c.a.b.a.e.r(this.f65193e);
-                            d.c.c.a.b.a.e.r(this.f65192d);
-                            this.f65193e = null;
-                            this.f65192d = null;
+                            d.c.c.a.b.a.e.r(this.f66038e);
+                            d.c.c.a.b.a.e.r(this.f66037d);
+                            this.f66038e = null;
+                            this.f66037d = null;
                             this.i = null;
                             this.j = null;
-                            this.f65194f = null;
-                            this.f65195g = null;
-                            this.f65196h = null;
-                            tVar.m(iVar, this.f65191c.c(), this.f65191c.b(), null, e);
+                            this.f66039f = null;
+                            this.f66040g = null;
+                            this.f66041h = null;
+                            tVar.m(iVar, this.f66036c.c(), this.f66036c.b(), null, e);
                             if (eVar == null) {
                                 eVar = new com.bytedance.sdk.a.b.a.b.e(e);
                             } else {
@@ -211,23 +211,23 @@ public final class c extends e.i implements m {
                                 throw eVar;
                             }
                             do {
-                                if (!this.f65191c.d()) {
+                                if (!this.f66036c.d()) {
                                 }
                                 i(bVar, iVar, tVar);
-                                tVar.l(iVar, this.f65191c.c(), this.f65191c.b(), this.f65195g);
-                                if (!this.f65191c.d()) {
+                                tVar.l(iVar, this.f66036c.c(), this.f66036c.b(), this.f66040g);
+                                if (!this.f66036c.d()) {
                                 }
-                                if (this.f65196h != null) {
+                                if (this.f66041h != null) {
                                 }
                             } while (bVar.b(e));
                             throw eVar;
                         }
                     }
                     i(bVar, iVar, tVar);
-                    tVar.l(iVar, this.f65191c.c(), this.f65191c.b(), this.f65195g);
-                    if (!this.f65191c.d()) {
+                    tVar.l(iVar, this.f66036c.c(), this.f66036c.b(), this.f66040g);
+                    if (!this.f66036c.d()) {
                     }
-                    if (this.f65196h != null) {
+                    if (this.f66041h != null) {
                     }
                 } catch (IOException e3) {
                     e = e3;
@@ -239,22 +239,22 @@ public final class c extends e.i implements m {
     }
 
     public final void g(int i, int i2, i iVar, t tVar) throws IOException {
-        Proxy b2 = this.f65191c.b();
-        this.f65192d = (b2.type() == Proxy.Type.DIRECT || b2.type() == Proxy.Type.HTTP) ? this.f65191c.a().d().createSocket() : new Socket(b2);
-        tVar.k(iVar, this.f65191c.c(), b2);
-        this.f65192d.setSoTimeout(i2);
+        Proxy b2 = this.f66036c.b();
+        this.f66037d = (b2.type() == Proxy.Type.DIRECT || b2.type() == Proxy.Type.HTTP) ? this.f66036c.a().d().createSocket() : new Socket(b2);
+        tVar.k(iVar, this.f66036c.c(), b2);
+        this.f66037d.setSoTimeout(i2);
         try {
-            d.c.c.a.b.a.i.e.j().h(this.f65192d, this.f65191c.c(), i);
+            d.c.c.a.b.a.i.e.j().h(this.f66037d, this.f66036c.c(), i);
             try {
-                this.i = k.b(k.h(this.f65192d));
-                this.j = k.a(k.d(this.f65192d));
+                this.i = k.b(k.h(this.f66037d));
+                this.j = k.a(k.d(this.f66037d));
             } catch (NullPointerException e2) {
                 if (RealConnection.NPE_THROW_WITH_NULL.equals(e2.getMessage())) {
                     throw new IOException(e2);
                 }
             }
         } catch (ConnectException e3) {
-            ConnectException connectException = new ConnectException("Failed to connect to " + this.f65191c.c());
+            ConnectException connectException = new ConnectException("Failed to connect to " + this.f66036c.c());
             connectException.initCause(e3);
             throw connectException;
         }
@@ -262,11 +262,11 @@ public final class c extends e.i implements m {
 
     public final void h(b bVar) throws IOException {
         SSLSocket sSLSocket;
-        d.c.c.a.b.b a2 = this.f65191c.a();
+        d.c.c.a.b.b a2 = this.f66036c.a();
         SSLSocket sSLSocket2 = null;
         try {
             try {
-                sSLSocket = (SSLSocket) a2.j().createSocket(this.f65192d, a2.a().v(), a2.a().w(), true);
+                sSLSocket = (SSLSocket) a2.j().createSocket(this.f66037d, a2.a().v(), a2.a().w(), true);
             } catch (AssertionError e2) {
                 e = e2;
             }
@@ -283,11 +283,11 @@ public final class c extends e.i implements m {
             if (a2.k().verify(a2.a().v(), sSLSocket.getSession())) {
                 a2.l().e(a2.a().v(), b2.c());
                 String d2 = a3.g() ? d.c.c.a.b.a.i.e.j().d(sSLSocket) : null;
-                this.f65193e = sSLSocket;
+                this.f66038e = sSLSocket;
                 this.i = k.b(k.h(sSLSocket));
-                this.j = k.a(k.d(this.f65193e));
-                this.f65194f = b2;
-                this.f65195g = d2 != null ? com.bytedance.sdk.a.b.w.a(d2) : com.bytedance.sdk.a.b.w.HTTP_1_1;
+                this.j = k.a(k.d(this.f66038e));
+                this.f66039f = b2;
+                this.f66040g = d2 != null ? com.bytedance.sdk.a.b.w.a(d2) : com.bytedance.sdk.a.b.w.HTTP_1_1;
                 if (sSLSocket != null) {
                     d.c.c.a.b.a.i.e.j().l(sSLSocket);
                     return;
@@ -314,33 +314,33 @@ public final class c extends e.i implements m {
     }
 
     public final void i(b bVar, i iVar, t tVar) throws IOException {
-        if (this.f65191c.a().j() == null) {
-            this.f65195g = com.bytedance.sdk.a.b.w.HTTP_1_1;
-            this.f65193e = this.f65192d;
+        if (this.f66036c.a().j() == null) {
+            this.f66040g = com.bytedance.sdk.a.b.w.HTTP_1_1;
+            this.f66038e = this.f66037d;
             return;
         }
         tVar.n(iVar);
         h(bVar);
-        tVar.f(iVar, this.f65194f);
-        if (this.f65195g == com.bytedance.sdk.a.b.w.HTTP_2) {
-            this.f65193e.setSoTimeout(0);
+        tVar.f(iVar, this.f66039f);
+        if (this.f66040g == com.bytedance.sdk.a.b.w.HTTP_2) {
+            this.f66038e.setSoTimeout(0);
             e.h hVar = new e.h(true);
-            hVar.b(this.f65193e, this.f65191c.a().a().v(), this.i, this.j);
+            hVar.b(this.f66038e, this.f66036c.a().a().v(), this.i, this.j);
             hVar.a(this);
             d.c.c.a.b.a.h.e c2 = hVar.c();
-            this.f65196h = c2;
+            this.f66041h = c2;
             c2.G();
         }
     }
 
     public boolean j(d.c.c.a.b.b bVar, d.c.c.a.b.e eVar) {
-        if (this.n.size() >= this.m || this.k || !d.c.c.a.b.a.b.f65184a.h(this.f65191c.a(), bVar)) {
+        if (this.n.size() >= this.m || this.k || !d.c.c.a.b.a.b.f66029a.h(this.f66036c.a(), bVar)) {
             return false;
         }
         if (bVar.a().v().equals(a().a().a().v())) {
             return true;
         }
-        if (this.f65196h != null && eVar != null && eVar.b().type() == Proxy.Type.DIRECT && this.f65191c.b().type() == Proxy.Type.DIRECT && this.f65191c.c().equals(eVar.c()) && eVar.a().k() == d.c.c.a.b.a.k.e.f65436a && k(bVar.a())) {
+        if (this.f66041h != null && eVar != null && eVar.b().type() == Proxy.Type.DIRECT && this.f66036c.b().type() == Proxy.Type.DIRECT && this.f66036c.c().equals(eVar.c()) && eVar.a().k() == d.c.c.a.b.a.k.e.f66281a && k(bVar.a())) {
             try {
                 bVar.l().e(bVar.a().v(), n().c());
                 return true;
@@ -352,31 +352,31 @@ public final class c extends e.i implements m {
     }
 
     public boolean k(s sVar) {
-        if (sVar.w() != this.f65191c.a().a().w()) {
+        if (sVar.w() != this.f66036c.a().a().w()) {
             return false;
         }
-        if (sVar.v().equals(this.f65191c.a().a().v())) {
+        if (sVar.v().equals(this.f66036c.a().a().v())) {
             return true;
         }
-        return this.f65194f != null && d.c.c.a.b.a.k.e.f65436a.d(sVar.v(), (X509Certificate) this.f65194f.c().get(0));
+        return this.f66039f != null && d.c.c.a.b.a.k.e.f66281a.d(sVar.v(), (X509Certificate) this.f66039f.c().get(0));
     }
 
     public boolean l(boolean z) {
-        if (this.f65193e.isClosed() || this.f65193e.isInputShutdown() || this.f65193e.isOutputShutdown()) {
+        if (this.f66038e.isClosed() || this.f66038e.isInputShutdown() || this.f66038e.isOutputShutdown()) {
             return false;
         }
-        d.c.c.a.b.a.h.e eVar = this.f65196h;
+        d.c.c.a.b.a.h.e eVar = this.f66041h;
         if (eVar != null) {
             return !eVar.I();
         }
         if (z) {
             try {
-                int soTimeout = this.f65193e.getSoTimeout();
+                int soTimeout = this.f66038e.getSoTimeout();
                 try {
-                    this.f65193e.setSoTimeout(1);
+                    this.f66038e.setSoTimeout(1);
                     return !this.i.e();
                 } finally {
-                    this.f65193e.setSoTimeout(soTimeout);
+                    this.f66038e.setSoTimeout(soTimeout);
                 }
             } catch (SocketTimeoutException unused) {
             } catch (IOException unused2) {
@@ -387,21 +387,21 @@ public final class c extends e.i implements m {
     }
 
     public Socket m() {
-        return this.f65193e;
+        return this.f66038e;
     }
 
     public u n() {
-        return this.f65194f;
+        return this.f66039f;
     }
 
     public boolean o() {
-        return this.f65196h != null;
+        return this.f66041h != null;
     }
 
     public final a0 p() {
         a0.a aVar = new a0.a();
-        aVar.c(this.f65191c.a().a());
-        aVar.g("Host", d.c.c.a.b.a.e.h(this.f65191c.a().a(), true));
+        aVar.c(this.f66036c.a().a());
+        aVar.g("Host", d.c.c.a.b.a.e.h(this.f66036c.a().a(), true));
         aVar.g("Proxy-Connection", HTTP.CONN_KEEP_ALIVE);
         aVar.g("User-Agent", d.c.c.a.b.a.g.a());
         return aVar.p();
@@ -410,25 +410,25 @@ public final class c extends e.i implements m {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Connection{");
-        sb.append(this.f65191c.a().a().v());
+        sb.append(this.f66036c.a().a().v());
         sb.append(":");
-        sb.append(this.f65191c.a().a().w());
+        sb.append(this.f66036c.a().a().w());
         sb.append(", proxy=");
-        sb.append(this.f65191c.b());
+        sb.append(this.f66036c.b());
         sb.append(" hostAddress=");
-        sb.append(this.f65191c.c());
+        sb.append(this.f66036c.c());
         sb.append(" cipherSuite=");
-        u uVar = this.f65194f;
+        u uVar = this.f66039f;
         sb.append(uVar != null ? uVar.a() : "none");
         sb.append(" protocol=");
-        sb.append(this.f65195g);
+        sb.append(this.f66040g);
         sb.append('}');
         return sb.toString();
     }
 
     @Override // d.c.c.a.b.a.h.e.i
     public void a(d.c.c.a.b.a.h.e eVar) {
-        synchronized (this.f65190b) {
+        synchronized (this.f66035b) {
             this.m = eVar.n();
         }
     }

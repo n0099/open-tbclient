@@ -11,59 +11,59 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes.dex */
-public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
+public class shuoy implements d, ac.bv, bv.InterfaceC0006bv {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f1420a;
+    public b f1406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ac f1421b;
+    public ac f1407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Executor f1422c;
+    public Executor f1408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1423d;
+    public String f1409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.a.a.c.bv f1424e;
+    public a.a.a.c.bv f1410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a f1425f;
+    public d.a f1411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1426g;
+    public int f1412g;
 
     /* renamed from: h  reason: collision with root package name */
-    public bv f1427h;
+    public bv f1413h;
     public a.a.a.c.a.ac i;
     public List<a.a.a.c.a.bv> j = new LinkedList();
 
     public shuoy(b bVar, ac acVar, Executor executor, String str, a.a.a.c.bv bvVar, d.a aVar) {
-        this.f1420a = bVar;
-        this.f1421b = acVar;
-        this.f1422c = executor;
-        this.f1423d = str;
-        this.f1424e = bvVar;
-        this.f1425f = aVar;
-        this.f1427h = new bv(bVar.b().toString(), this.f1420a.c(), this.f1420a.a());
+        this.f1406a = bVar;
+        this.f1407b = acVar;
+        this.f1408c = executor;
+        this.f1409d = str;
+        this.f1410e = bvVar;
+        this.f1411f = aVar;
+        this.f1413h = new bv(bVar.b().toString(), this.f1406a.c(), this.f1406a.a());
     }
 
     public final void a() {
-        bv bvVar = this.f1427h;
-        File file = new File(bvVar.f1413b, bvVar.f1412a);
+        bv bvVar = this.f1413h;
+        File file = new File(bvVar.f1399b, bvVar.f1398a);
         if (file.exists() && file.isFile()) {
             file.delete();
         }
     }
 
     public void a(long j, long j2) {
-        ac acVar = this.f1421b;
-        acVar.f1407b.n(j);
-        acVar.f1407b.o(j2);
-        acVar.f1407b.p((int) ((100 * j) / j2));
-        acVar.f1407b.r(104);
-        acVar.f1406a.post(acVar.f1407b);
+        ac acVar = this.f1407b;
+        acVar.f1393b.n(j);
+        acVar.f1393b.o(j2);
+        acVar.f1393b.p((int) ((100 * j) / j2));
+        acVar.f1393b.r(104);
+        acVar.f1392a.post(acVar.f1393b);
     }
 
     public void a(DownloadException downloadException) {
@@ -71,15 +71,15 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
             b();
             return;
         }
-        if (((adfad) this.i).f1410c == 106) {
+        if (((adfad) this.i).f1396c == 106) {
             d();
             return;
         }
-        this.f1426g = 108;
-        ac acVar = this.f1421b;
-        acVar.f1407b.m(downloadException);
-        acVar.f1407b.r(108);
-        acVar.f1406a.post(acVar.f1407b);
+        this.f1412g = 108;
+        ac acVar = this.f1407b;
+        acVar.f1393b.m(downloadException);
+        acVar.f1393b.r(108);
+        acVar.f1392a.post(acVar.f1393b);
         onDestroy();
     }
 
@@ -91,7 +91,7 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
             if (!it.hasNext()) {
                 break;
             }
-            if (((uiou) it.next()).f1435e != 105) {
+            if (((uiou) it.next()).f1421e != 105) {
                 z = false;
                 continue;
             }
@@ -101,21 +101,21 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
             }
         }
         if (z) {
-            this.f1426g = 105;
-            ac acVar = this.f1421b;
-            acVar.f1407b.r(105);
-            acVar.f1407b.q(str);
-            acVar.f1406a.post(acVar.f1407b);
+            this.f1412g = 105;
+            ac acVar = this.f1407b;
+            acVar.f1393b.r(105);
+            acVar.f1393b.q(str);
+            acVar.f1392a.post(acVar.f1393b);
             onDestroy();
         }
     }
 
     public void b() {
         a();
-        this.f1426g = 107;
-        ac acVar = this.f1421b;
-        acVar.f1407b.r(107);
-        acVar.f1406a.post(acVar.f1407b);
+        this.f1412g = 107;
+        ac acVar = this.f1407b;
+        acVar.f1393b.r(107);
+        acVar.f1392a.post(acVar.f1393b);
         onDestroy();
     }
 
@@ -132,11 +132,11 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
             }
         }
         if (z) {
-            this.f1426g = 108;
-            ac acVar = this.f1421b;
-            acVar.f1407b.m(downloadException);
-            acVar.f1407b.r(108);
-            acVar.f1406a.post(acVar.f1407b);
+            this.f1412g = 108;
+            ac acVar = this.f1407b;
+            acVar.f1393b.m(downloadException);
+            acVar.f1393b.r(108);
+            acVar.f1392a.post(acVar.f1393b);
             onDestroy();
         }
     }
@@ -155,10 +155,10 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
         }
         if (z) {
             a();
-            this.f1426g = 107;
-            ac acVar = this.f1421b;
-            acVar.f1407b.r(107);
-            acVar.f1406a.post(acVar.f1407b);
+            this.f1412g = 107;
+            ac acVar = this.f1407b;
+            acVar.f1393b.r(107);
+            acVar.f1392a.post(acVar.f1393b);
             onDestroy();
         }
     }
@@ -167,13 +167,13 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
     public void cancel() {
         a.a.a.c.a.ac acVar = this.i;
         if (acVar != null) {
-            ((adfad) acVar).f1410c = 107;
+            ((adfad) acVar).f1396c = 107;
         }
         Iterator<a.a.a.c.a.bv> it = this.j.iterator();
         while (it.hasNext()) {
-            ((uiou) it.next()).f1436f = 107;
+            ((uiou) it.next()).f1422f = 107;
         }
-        if (this.f1426g != 104) {
+        if (this.f1412g != 104) {
             c();
         }
     }
@@ -191,47 +191,47 @@ public class shuoy implements d, ac.bv, bv.InterfaceC0007bv {
             }
         }
         if (z) {
-            this.f1426g = 106;
-            ac acVar = this.f1421b;
-            acVar.f1407b.r(106);
-            acVar.f1406a.post(acVar.f1407b);
+            this.f1412g = 106;
+            ac acVar = this.f1407b;
+            acVar.f1393b.r(106);
+            acVar.f1392a.post(acVar.f1393b);
             onDestroy();
         }
     }
 
     @Override // d.b.k.b.c.d
     public boolean isRunning() {
-        int i = this.f1426g;
+        int i = this.f1412g;
         return i == 101 || i == 102 || i == 103 || i == 104;
     }
 
     public void onDestroy() {
-        this.f1425f.a(this.f1423d, this);
+        this.f1411f.a(this.f1409d, this);
     }
 
     @Override // d.b.k.b.c.d
     public void pause() {
         a.a.a.c.a.ac acVar = this.i;
         if (acVar != null) {
-            ((adfad) acVar).f1410c = 106;
+            ((adfad) acVar).f1396c = 106;
         }
         Iterator<a.a.a.c.a.bv> it = this.j.iterator();
         while (it.hasNext()) {
-            ((uiou) it.next()).f1436f = 106;
+            ((uiou) it.next()).f1422f = 106;
         }
-        if (this.f1426g != 104) {
+        if (this.f1412g != 104) {
             d();
         }
     }
 
     @Override // d.b.k.b.c.d
     public void start() {
-        this.f1426g = 101;
-        ac acVar = this.f1421b;
-        acVar.f1407b.r(101);
-        acVar.f1407b.a().onStarted();
-        adfad adfadVar = new adfad(this.f1420a.c(), this);
+        this.f1412g = 101;
+        ac acVar = this.f1407b;
+        acVar.f1393b.r(101);
+        acVar.f1393b.a().onStarted();
+        adfad adfadVar = new adfad(this.f1406a.c(), this);
         this.i = adfadVar;
-        this.f1422c.execute(adfadVar);
+        this.f1408c.execute(adfadVar);
     }
 }

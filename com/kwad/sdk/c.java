@@ -10,14 +10,14 @@ import com.kwad.sdk.glide.request.a.j;
 public class c implements com.kwad.sdk.glide.request.e<Drawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31849a;
+    public String f32138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f31850b;
+    public AdTemplate f32139b;
 
     public c(String str, AdTemplate adTemplate) {
-        this.f31849a = str;
-        this.f31850b = adTemplate;
+        this.f32138a = str;
+        this.f32139b = adTemplate;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class c implements com.kwad.sdk.glide.request.e<Drawable> {
         if (glideException != null) {
             sb.append(glideException.getMessage());
         }
-        com.kwad.sdk.core.report.e.c(this.f31850b, this.f31849a, sb.toString());
+        com.kwad.sdk.core.report.e.c(this.f32139b, this.f32138a, sb.toString());
         return false;
     }
 }

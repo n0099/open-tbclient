@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import d.b.h0.d0.g;
 import d.b.i0.t.j.g.c.a;
 import d.b.i0.t.j.g.c.d.a;
@@ -22,16 +22,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public static final String l = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_achievement_mark_fragment_title);
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.t.j.g.c.d.a f15045e;
+    public d.b.i0.t.j.g.c.d.a f14708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaPersonCenterPrivilegeMarkModel f15046f;
+    public AlaPersonCenterPrivilegeMarkModel f14709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f15047g;
+    public g f14710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.t.j.g.c.a f15048h;
+    public d.b.i0.t.j.g.c.a f14711h;
     public AlaPersonCenterPrivilegeMarkModel.b i = new b();
     public View.OnClickListener j = new c();
     public a.c k = new d();
@@ -58,21 +58,21 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         public void a(int i, String str, Object obj) {
             AlaAchievementMarkFragment.this.n();
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaAchievementMarkFragment.this.f15045e != null) {
+                if (AlaAchievementMarkFragment.this.f14708e != null) {
                     if (j.z()) {
-                        AlaAchievementMarkFragment.this.f15045e.h(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
+                        AlaAchievementMarkFragment.this.f14708e.h(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
                     } else {
-                        AlaAchievementMarkFragment.this.f15045e.h(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, AlaAchievementMarkFragment.this.j);
+                        AlaAchievementMarkFragment.this.f14708e.h(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, AlaAchievementMarkFragment.this.j);
                     }
-                    AlaAchievementMarkFragment.this.f15045e.g(null, null);
+                    AlaAchievementMarkFragment.this.f14708e.g(null, null);
                 }
             } else if (obj == null) {
-                AlaAchievementMarkFragment.this.f15045e.g(null, null);
+                AlaAchievementMarkFragment.this.f14708e.g(null, null);
             } else if (obj instanceof AlaAchievementMarkResponsedMessage) {
                 AlaAchievementMarkResponsedMessage alaAchievementMarkResponsedMessage = (AlaAchievementMarkResponsedMessage) obj;
-                if (AlaAchievementMarkFragment.this.f15045e != null) {
-                    AlaAchievementMarkFragment.this.f15045e.d();
-                    AlaAchievementMarkFragment.this.f15045e.g(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
+                if (AlaAchievementMarkFragment.this.f14708e != null) {
+                    AlaAchievementMarkFragment.this.f14708e.d();
+                    AlaAchievementMarkFragment.this.f14708e.g(alaAchievementMarkResponsedMessage.getAlaUserInfoData(), alaAchievementMarkResponsedMessage.getList());
                 }
             }
         }
@@ -105,21 +105,21 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     public final void I0() {
-        if (this.f15046f == null) {
-            this.f15046f = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.i);
+        if (this.f14709f == null) {
+            this.f14709f = new AlaPersonCenterPrivilegeMarkModel(BdUniqueId.gen(), this.i);
         }
-        this.f15046f.u();
+        this.f14709f.u();
     }
 
     public final void J0() {
-        if (this.f15047g == null) {
-            this.f15047g = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
+        if (this.f14710g == null) {
+            this.f14710g = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
         }
-        d.b.i0.t.j.g.c.d.a aVar = this.f15045e;
+        d.b.i0.t.j.g.c.d.a aVar = this.f14708e;
         if (aVar == null || aVar.c() == null) {
             return;
         }
-        this.f15047g.attachView(this.f15045e.c(), false);
+        this.f14710g.attachView(this.f14708e.c(), false);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsFragment
@@ -134,16 +134,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
 
     public final void n() {
         d.b.i0.t.j.g.c.d.a aVar;
-        if (this.f15047g == null || (aVar = this.f15045e) == null || aVar.c() == null) {
+        if (this.f14710g == null || (aVar = this.f14708e) == null || aVar.c() == null) {
             return;
         }
-        this.f15047g.dettachView(this.f15045e.c());
+        this.f14710g.dettachView(this.f14708e.c());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        g gVar = this.f15047g;
+        g gVar = this.f14710g;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
@@ -152,21 +152,21 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.f15045e = new d.b.i0.t.j.g.c.d.a(getPageContext(), this.k);
+        this.f14708e = new d.b.i0.t.j.g.c.d.a(getPageContext(), this.k);
         J0();
         I0();
-        this.f15048h = new d.b.i0.t.j.g.c.a(getPageContext(), new a());
-        return this.f15045e.c();
+        this.f14711h = new d.b.i0.t.j.g.c.a(getPageContext(), new a());
+        return this.f14708e.c();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel = this.f15046f;
+        AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel = this.f14709f;
         if (alaPersonCenterPrivilegeMarkModel != null) {
             alaPersonCenterPrivilegeMarkModel.destory();
         }
-        d.b.i0.t.j.g.c.a aVar = this.f15048h;
+        d.b.i0.t.j.g.c.a aVar = this.f14711h;
         if (aVar != null) {
             aVar.p();
         }

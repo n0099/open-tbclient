@@ -11,35 +11,35 @@ import java.util.List;
 public class p extends d.b.h0.w.p.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static p f56594f;
+    public static p f58000f;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<d.b.h0.w.p.c> f56595e = new LinkedList<>();
+    public LinkedList<d.b.h0.w.p.c> f58001e = new LinkedList<>();
 
     public static p e() {
-        if (f56594f == null) {
+        if (f58000f == null) {
             synchronized (p.class) {
-                if (f56594f == null) {
-                    f56594f = new p();
+                if (f58000f == null) {
+                    f58000f = new p();
                 }
             }
         }
-        return f56594f;
+        return f58000f;
     }
 
     @Override // d.b.h0.w.p.a
-    public void b(a.InterfaceC1109a interfaceC1109a) {
+    public void b(a.InterfaceC1122a interfaceC1122a) {
         if (FileHelper.checkSD()) {
             List<MyEmotionGroupData> h2 = a.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.f56595e.clear();
+            this.f58001e.clear();
             for (MyEmotionGroupData myEmotionGroupData : h2) {
                 EmotionGroupData j = g.k().j(myEmotionGroupData.getGroupId());
                 if (j != null) {
                     c cVar = new c(j);
                     if (cVar.d() != null) {
-                        this.f56595e.add(cVar);
-                        if (interfaceC1109a != null) {
-                            interfaceC1109a.a(cVar);
+                        this.f58001e.add(cVar);
+                        if (interfaceC1122a != null) {
+                            interfaceC1122a.a(cVar);
                         }
                     }
                 }

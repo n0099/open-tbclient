@@ -14,6 +14,7 @@ import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.content.FileProvider;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.util.LogUtil;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
@@ -24,10 +25,10 @@ import java.util.List;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f4608a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f4643a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4609b = "";
+    public static String f4644b = "";
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Object obj2 = null;
@@ -65,14 +66,14 @@ public final class j {
         try {
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setFlags(RouterCallback.CODE_ERROR);
-                String str = f4609b;
-                if (TextUtils.isEmpty(f4609b)) {
+                String str = f4644b;
+                if (TextUtils.isEmpty(f4644b)) {
                     str = context.getPackageName() + ".fileprovider";
                 }
                 intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
             } else {
                 intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                intent.setFlags(268435456);
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             LogUtil.logD("Utility", "启动系统安装界面");
             context.startActivity(intent);
@@ -85,7 +86,7 @@ public final class j {
     }
 
     public static void a(String str) {
-        f4609b = str;
+        f4644b = str;
     }
 
     public static boolean a(Context context) {

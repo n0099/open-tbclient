@@ -1,5 +1,5 @@
 package com.facebook.datasource;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface DataSubscriber<T> {
     void onCancellation(DataSource<T> dataSource);
 

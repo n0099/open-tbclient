@@ -1,5 +1,6 @@
 package com.kwai.video.cache;
 
+import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.kwai.video.hodor.BaseTaskInfo;
 import com.kwai.video.hodor.IHodorTask;
 import org.json.JSONException;
@@ -56,7 +57,7 @@ public class AcCallBackInfo {
         try {
             jSONObject.put("cachedBytes", this.cachedBytes);
             jSONObject.put("cdnStatJson", this.cdnStatJson);
-            jSONObject.put("contentLength", this.contentLength);
+            jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.contentLength);
             jSONObject.put("currentSpeedKbps", this.currentSpeedKbps);
             jSONObject.put("currentUri", this.currentUri);
             jSONObject.put("downloadBytes", this.downloadBytes);

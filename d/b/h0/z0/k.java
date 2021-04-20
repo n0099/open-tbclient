@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.FileHelper;
 public class k {
 
     /* renamed from: c  reason: collision with root package name */
-    public static k f51709c = new k();
+    public static k f52133c = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f51710a;
+    public c f52134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51711b;
+    public b f52135b;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -36,27 +36,27 @@ public class k {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (k.this.f51711b == null || bool == null) {
+            if (k.this.f52135b == null || bool == null) {
                 return;
             }
-            k.this.f51711b.onResult(bool.booleanValue());
+            k.this.f52135b.onResult(bool.booleanValue());
         }
     }
 
     public static k e() {
-        return f51709c;
+        return f52133c;
     }
 
     public void c(b bVar) {
-        this.f51711b = bVar;
-        c cVar = this.f51710a;
+        this.f52135b = bVar;
+        c cVar = this.f52134a;
         if (cVar != null) {
             cVar.cancel();
         }
         c cVar2 = new c();
-        this.f51710a = cVar2;
+        this.f52134a = cVar2;
         cVar2.setPriority(4);
-        this.f51710a.execute(new String[0]);
+        this.f52134a.execute(new String[0]);
     }
 
     public final boolean d() {
@@ -69,8 +69,8 @@ public class k {
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
             d2 = 0;
         } else {
-            d2 = d.b.b.e.m.b.d(split[0], 0);
-            j2 = d.b.b.e.m.b.f(split[1], j);
+            d2 = d.b.c.e.m.b.d(split[0], 0);
+            j2 = d.b.c.e.m.b.f(split[1], j);
         }
         return j2 == j && d2 > 1;
     }

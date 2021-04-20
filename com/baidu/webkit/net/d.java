@@ -7,12 +7,12 @@ import android.os.Message;
 public final class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BdNetEngine f27044a;
+    public final /* synthetic */ BdNetEngine f26729a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BdNetEngine bdNetEngine, Looper looper) {
         super(looper);
-        this.f27044a = bdNetEngine;
+        this.f26729a = bdNetEngine;
     }
 
     @Override // android.os.Handler
@@ -25,20 +25,20 @@ public final class d extends Handler {
             if (i != 2) {
                 return;
             }
-            this.f27044a.stopDownloadInner();
+            this.f26729a.stopDownloadInner();
             return;
         }
-        this.f27044a.mIsWorking = true;
-        BdNetEngine bdNetEngine = this.f27044a;
+        this.f26729a.mIsWorking = true;
+        BdNetEngine bdNetEngine = this.f26729a;
         bdNetEngine.mNetTask = bdNetEngine.performTask((BdNetTask) message.obj);
-        bdNetTask = this.f27044a.mNetTask;
+        bdNetTask = this.f26729a.mNetTask;
         if (bdNetTask == null) {
-            this.f27044a.recycle();
+            this.f26729a.recycle();
         } else {
-            handler = this.f27044a.mPrivateHandler;
-            bdNetTask2 = this.f27044a.mNetTask;
+            handler = this.f26729a.mPrivateHandler;
+            bdNetTask2 = this.f26729a.mNetTask;
             handler.obtainMessage(1, bdNetTask2).sendToTarget();
         }
-        this.f27044a.mIsWorking = false;
+        this.f26729a.mIsWorking = false;
     }
 }

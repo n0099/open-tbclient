@@ -3,29 +3,29 @@ package d.o.a.c;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f66448a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f67441a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66449a;
+        public int f67442a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66450b;
+        public int f67443b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66451c;
+        public int f67444c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f66452d;
+        public long f67445d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66453e;
+        public String f67446e;
 
         public b() {
         }
@@ -43,22 +43,22 @@ public class c {
                     try {
                         b b2 = b(str);
                         if (b2 != null) {
-                            if (b2.f66449a > 1) {
+                            if (b2.f67442a > 1) {
                                 return 3;
                             }
-                            i = b2.f66451c;
-                            j = b2.f66452d;
+                            i = b2.f67444c;
+                            j = b2.f67445d;
                         }
                         b bVar = null;
                         String k = k(file, i, j);
                         if (k != null && k.length() != 0) {
-                            if (b2 != null && (b2.f66449a != 1 || b2.f66450b != 1)) {
-                                if (b2.f66453e != null) {
+                            if (b2 != null && (b2.f67442a != 1 || b2.f67443b != 1)) {
+                                if (b2.f67446e != null) {
                                     try {
                                         bVar = b(k);
                                     } catch (Throwable unused) {
                                     }
-                                    if (bVar != null && b2.f66451c == bVar.f66451c && b2.f66452d == bVar.f66452d && b2.f66453e.equals(bVar.f66453e)) {
+                                    if (bVar != null && b2.f67444c == bVar.f67444c && b2.f67445d == bVar.f67445d && b2.f67446e.equals(bVar.f67446e)) {
                                         return 0;
                                     }
                                 }
@@ -83,15 +83,15 @@ public class c {
             String[] split = str.split(";");
             String[] split2 = split[0].split(":");
             b bVar = new b();
-            bVar.f66449a = Integer.parseInt(split2[1]);
-            if (bVar.f66449a > 1) {
+            bVar.f67442a = Integer.parseInt(split2[1]);
+            if (bVar.f67442a > 1) {
                 return bVar;
             }
-            bVar.f66450b = Integer.parseInt(split2[2]);
+            bVar.f67443b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            bVar.f66451c = (int) j(split3[0]);
-            bVar.f66452d = j(split3[1]);
-            bVar.f66453e = split[1];
+            bVar.f67444c = (int) j(split3[0]);
+            bVar.f67445d = j(split3[1]);
+            bVar.f67446e = split[1];
             return bVar;
         }
         return null;
@@ -199,7 +199,7 @@ public class c {
             for (int i3 = 0; i3 < length; i3++) {
                 int i4 = bArr[i3 + 0] & 255;
                 int i5 = i2 + 1;
-                char[] cArr2 = f66448a;
+                char[] cArr2 = f67441a;
                 cArr[i2] = cArr2[i4 >> 4];
                 i2 = i5 + 1;
                 cArr[i5] = cArr2[i4 & 15];

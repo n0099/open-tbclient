@@ -1,8 +1,8 @@
 package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
-import d.b.b.e.p.k;
-import d.b.i0.c3.l0.b;
+import d.b.c.e.p.k;
+import d.b.i0.d3.l0.b;
 import d.b.i0.g0.f.a.a;
 import d.b.i0.g0.f.a.c;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class EasterEggBridge implements b {
         }
     }
 
-    @Override // d.b.i0.c3.l0.b
+    @Override // d.b.i0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if (KEY_INTERFACE_NAME.equals(str2)) {
             try {

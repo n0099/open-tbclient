@@ -52,28 +52,28 @@ import org.json.JSONObject;
 public final class PhoneUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5380a = "PhoneUtils";
+    public static final String f5415a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5381b = "_rim_pay.preferences";
+    public static final String f5416b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5382c = "cuid_1";
+    public static final String f5417c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5383d = "cuid_2";
+    public static final String f5418d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5384e = "wime";
+    public static final String f5419e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5385f = "identity_code";
+    public static final String f5420f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5386g = "phone_number";
+    public static final String f5421g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5387h = "card_no";
+    public static final String f5422h = "card_no";
     public static final String i = "valid_date";
     public static final String j = "cvv2";
     public static final String k = "imei";
@@ -93,10 +93,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f5388a = "processor";
+        public static final String f5423a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f5389b = "features";
+        public static final String f5424b = "features";
         public String processor = "";
         public String features = "";
 
@@ -116,7 +116,7 @@ public final class PhoneUtils {
     }
 
     public static final String a(Context context) {
-        String str = (String) SharedPreferencesUtils.getParam(context, f5381b, "imei", "");
+        String str = (String) SharedPreferencesUtils.getParam(context, f5416b, "imei", "");
         if (TextUtils.isEmpty(str)) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("BAIDU");
@@ -141,7 +141,7 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f5381b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f5416b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         if (ApollonConstants.DEBUG) {

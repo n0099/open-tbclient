@@ -13,16 +13,16 @@ public final class f implements Closeable {
     public static final Logger i = Logger.getLogger(c.class.getName());
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.c.c.a.a.e f65351e;
+    public final d.c.c.a.a.e f66196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a f65352f;
+    public final a f66197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f65353g;
+    public final boolean f66198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f65354h;
+    public final b.a f66199h;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -48,11 +48,11 @@ public final class f implements Closeable {
     }
 
     public f(d.c.c.a.a.e eVar, boolean z) {
-        this.f65351e = eVar;
-        this.f65353g = z;
+        this.f66196e = eVar;
+        this.f66198g = z;
         a aVar = new a(eVar);
-        this.f65352f = aVar;
-        this.f65354h = new b.a(4096, aVar);
+        this.f66197f = aVar;
+        this.f66199h = new b.a(4096, aVar);
     }
 
     public static int c(int i2, byte b2, short s) throws IOException {
@@ -72,33 +72,33 @@ public final class f implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f65351e.close();
+        this.f66196e.close();
     }
 
     public final List<d.c.c.a.b.a.h.a> e(int i2, short s, byte b2, int i3) throws IOException {
-        a aVar = this.f65352f;
+        a aVar = this.f66197f;
         aVar.i = i2;
-        aVar.f65356f = i2;
+        aVar.f66201f = i2;
         aVar.j = s;
-        aVar.f65357g = b2;
-        aVar.f65358h = i3;
-        this.f65354h.c();
-        return this.f65354h.e();
+        aVar.f66202g = b2;
+        aVar.f66203h = i3;
+        this.f66199h.c();
+        return this.f66199h.e();
     }
 
     public void l(b bVar) throws IOException {
-        if (this.f65353g) {
+        if (this.f66198g) {
             if (o(true, bVar)) {
                 return;
             }
             c.d("Required SETTINGS preface not received", new Object[0]);
             throw null;
         }
-        com.bytedance.sdk.a.a.f c2 = this.f65351e.c(c.f65296a.g());
+        com.bytedance.sdk.a.a.f c2 = this.f66196e.c(c.f66141a.g());
         if (i.isLoggable(Level.FINE)) {
             i.fine(d.c.c.a.b.a.e.j("<< CONNECTION %s", c2.e()));
         }
-        if (c.f65296a.equals(c2)) {
+        if (c.f66141a.equals(c2)) {
             return;
         }
         c.d("Expected a connection header but was %s", c2.a());
@@ -106,14 +106,14 @@ public final class f implements Closeable {
     }
 
     public final void m(b bVar, int i2) throws IOException {
-        int j = this.f65351e.j();
-        bVar.f(i2, j & Integer.MAX_VALUE, (this.f65351e.h() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
+        int j = this.f66196e.j();
+        bVar.f(i2, j & Integer.MAX_VALUE, (this.f66196e.h() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
     }
 
     public final void n(b bVar, int i2, byte b2, int i3) throws IOException {
         if (i3 != 0) {
             boolean z = (b2 & 1) != 0;
-            short h2 = (b2 & 8) != 0 ? (short) (this.f65351e.h() & 255) : (short) 0;
+            short h2 = (b2 & 8) != 0 ? (short) (this.f66196e.h() & 255) : (short) 0;
             if ((b2 & 32) != 0) {
                 m(bVar, i3);
                 i2 -= 5;
@@ -127,19 +127,19 @@ public final class f implements Closeable {
 
     public boolean o(boolean z, b bVar) throws IOException {
         try {
-            this.f65351e.a(9L);
-            int d2 = d(this.f65351e);
+            this.f66196e.a(9L);
+            int d2 = d(this.f66196e);
             if (d2 < 0 || d2 > 16384) {
                 c.d("FRAME_SIZE_ERROR: %s", Integer.valueOf(d2));
                 throw null;
             }
-            byte h2 = (byte) (this.f65351e.h() & 255);
+            byte h2 = (byte) (this.f66196e.h() & 255);
             if (z && h2 != 4) {
                 c.d("Expected a SETTINGS frame but was %s", Byte.valueOf(h2));
                 throw null;
             }
-            byte h3 = (byte) (this.f65351e.h() & 255);
-            int j = this.f65351e.j() & Integer.MAX_VALUE;
+            byte h3 = (byte) (this.f66196e.h() & 255);
+            int j = this.f66196e.j() & Integer.MAX_VALUE;
             if (i.isLoggable(Level.FINE)) {
                 i.fine(c.c(true, j, d2, h2, h3));
             }
@@ -172,7 +172,7 @@ public final class f implements Closeable {
                     w(bVar, d2, h3, j);
                     break;
                 default:
-                    this.f65351e.g(d2);
+                    this.f66196e.g(d2);
                     break;
             }
             return true;
@@ -188,9 +188,9 @@ public final class f implements Closeable {
         }
         boolean z = (b2 & 1) != 0;
         if (!((b2 & 32) != 0)) {
-            short h2 = (b2 & 8) != 0 ? (short) (this.f65351e.h() & 255) : (short) 0;
-            bVar.g(z, i3, this.f65351e, c(i2, b2, h2));
-            this.f65351e.g(h2);
+            short h2 = (b2 & 8) != 0 ? (short) (this.f66196e.h() & 255) : (short) 0;
+            bVar.g(z, i3, this.f66196e, c(i2, b2, h2));
+            this.f66196e.g(h2);
             return;
         }
         c.d("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
@@ -214,7 +214,7 @@ public final class f implements Closeable {
             c.d("TYPE_RST_STREAM length: %d != 4", Integer.valueOf(i2));
             throw null;
         } else if (i3 != 0) {
-            int j = this.f65351e.j();
+            int j = this.f66196e.j();
             com.bytedance.sdk.a.b.a.e.b a2 = com.bytedance.sdk.a.b.a.e.b.a(j);
             if (a2 != null) {
                 bVar.a(i3, a2);
@@ -245,8 +245,8 @@ public final class f implements Closeable {
         } else {
             l lVar = new l();
             for (int i4 = 0; i4 < i2; i4 += 6) {
-                short i5 = this.f65351e.i();
-                int j = this.f65351e.j();
+                short i5 = this.f66196e.i();
+                int j = this.f66196e.j();
                 if (i5 != 2) {
                     if (i5 == 3) {
                         i5 = 4;
@@ -272,8 +272,8 @@ public final class f implements Closeable {
 
     public final void t(b bVar, int i2, byte b2, int i3) throws IOException {
         if (i3 != 0) {
-            short h2 = (b2 & 8) != 0 ? (short) (this.f65351e.h() & 255) : (short) 0;
-            bVar.c(i3, this.f65351e.j() & Integer.MAX_VALUE, e(c(i2 - 4, b2, h2), h2, b2, i3));
+            short h2 = (b2 & 8) != 0 ? (short) (this.f66196e.h() & 255) : (short) 0;
+            bVar.c(i3, this.f66196e.j() & Integer.MAX_VALUE, e(c(i2 - 4, b2, h2), h2, b2, i3));
             return;
         }
         c.d("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
@@ -285,7 +285,7 @@ public final class f implements Closeable {
             c.d("TYPE_PING length != 8: %s", Integer.valueOf(i2));
             throw null;
         } else if (i3 == 0) {
-            bVar.b((b2 & 1) != 0, this.f65351e.j(), this.f65351e.j());
+            bVar.b((b2 & 1) != 0, this.f66196e.j(), this.f66196e.j());
         } else {
             c.d("TYPE_PING streamId != 0", new Object[0]);
             throw null;
@@ -297,17 +297,17 @@ public final class f implements Closeable {
             c.d("TYPE_GOAWAY length < 8: %s", Integer.valueOf(i2));
             throw null;
         } else if (i3 == 0) {
-            int j = this.f65351e.j();
-            int j2 = this.f65351e.j();
+            int j = this.f66196e.j();
+            int j2 = this.f66196e.j();
             int i4 = i2 - 8;
             com.bytedance.sdk.a.b.a.e.b a2 = com.bytedance.sdk.a.b.a.e.b.a(j2);
             if (a2 == null) {
                 c.d("TYPE_GOAWAY unexpected error code: %d", Integer.valueOf(j2));
                 throw null;
             }
-            com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f27162b;
+            com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f26847b;
             if (i4 > 0) {
-                fVar = this.f65351e.c(i4);
+                fVar = this.f66196e.c(i4);
             }
             bVar.d(j, a2, fVar);
         } else {
@@ -321,7 +321,7 @@ public final class f implements Closeable {
             c.d("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i2));
             throw null;
         }
-        long j = this.f65351e.j() & 2147483647L;
+        long j = this.f66196e.j() & 2147483647L;
         if (j != 0) {
             bVar.a(i3, j);
         } else {
@@ -334,21 +334,21 @@ public final class f implements Closeable {
     public static final class a implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.c.c.a.a.e f65355e;
+        public final d.c.c.a.a.e f66200e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f65356f;
+        public int f66201f;
 
         /* renamed from: g  reason: collision with root package name */
-        public byte f65357g;
+        public byte f66202g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f65358h;
+        public int f66203h;
         public int i;
         public short j;
 
         public a(d.c.c.a.a.e eVar) {
-            this.f65355e = eVar;
+            this.f66200e = eVar;
         }
 
         @Override // d.c.c.a.a.q
@@ -356,14 +356,14 @@ public final class f implements Closeable {
             while (true) {
                 int i = this.i;
                 if (i == 0) {
-                    this.f65355e.g(this.j);
+                    this.f66200e.g(this.j);
                     this.j = (short) 0;
-                    if ((this.f65357g & 4) != 0) {
+                    if ((this.f66202g & 4) != 0) {
                         return -1L;
                     }
                     n();
                 } else {
-                    long a2 = this.f65355e.a(cVar, Math.min(j, i));
+                    long a2 = this.f66200e.a(cVar, Math.min(j, i));
                     if (a2 == -1) {
                         return -1L;
                     }
@@ -378,17 +378,17 @@ public final class f implements Closeable {
         }
 
         public final void n() throws IOException {
-            int i = this.f65358h;
-            int d2 = f.d(this.f65355e);
+            int i = this.f66203h;
+            int d2 = f.d(this.f66200e);
             this.i = d2;
-            this.f65356f = d2;
-            byte h2 = (byte) (this.f65355e.h() & 255);
-            this.f65357g = (byte) (this.f65355e.h() & 255);
+            this.f66201f = d2;
+            byte h2 = (byte) (this.f66200e.h() & 255);
+            this.f66202g = (byte) (this.f66200e.h() & 255);
             if (f.i.isLoggable(Level.FINE)) {
-                f.i.fine(c.c(true, this.f65358h, this.f65356f, h2, this.f65357g));
+                f.i.fine(c.c(true, this.f66203h, this.f66201f, h2, this.f66202g));
             }
-            int j = this.f65355e.j() & Integer.MAX_VALUE;
-            this.f65358h = j;
+            int j = this.f66200e.j() & Integer.MAX_VALUE;
+            this.f66203h = j;
             if (h2 != 9) {
                 c.d("%s != TYPE_CONTINUATION", Byte.valueOf(h2));
                 throw null;
@@ -401,7 +401,7 @@ public final class f implements Closeable {
 
         @Override // d.c.c.a.a.q
         public r a() {
-            return this.f65355e.a();
+            return this.f66200e.a();
         }
     }
 }

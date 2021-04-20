@@ -18,17 +18,17 @@ import com.baidu.android.pushservice.j.m;
 public class PushJobService extends JobService {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f3408a;
+    public Handler f3443a;
 
     /* loaded from: classes.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final JobService f3409a;
+        public final JobService f3444a;
 
         public a(JobService jobService) {
             super(jobService.getMainLooper());
-            this.f3409a = jobService;
+            this.f3444a = jobService;
         }
 
         @Override // android.os.Handler
@@ -36,12 +36,12 @@ public class PushJobService extends JobService {
             if (message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f3409a.jobFinished(jobParameters, true);
+                    this.f3444a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f3409a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f3444a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f3409a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f3444a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -69,10 +69,10 @@ public class PushJobService extends JobService {
             } catch (Exception unused) {
             }
         }
-        if (this.f3408a == null) {
-            this.f3408a = new a(this);
+        if (this.f3443a == null) {
+            this.f3443a = new a(this);
         }
-        Handler handler = this.f3408a;
+        Handler handler = this.f3443a;
         handler.sendMessageDelayed(Message.obtain(handler, 1, jobParameters), 2000L);
         return true;
     }

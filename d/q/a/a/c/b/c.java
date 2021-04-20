@@ -1,6 +1,6 @@
 package d.q.a.a.c.b;
 
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -82,7 +82,7 @@ public class c implements d.q.a.a.a.b.b {
         DataOutputStream dataOutputStream2 = 0;
         try {
             try {
-                z = Runtime.getRuntime().exec(z != 0 ? "su" : IXAdRequestInfo.SCREEN_HEIGHT);
+                z = Runtime.getRuntime().exec(z != 0 ? "su" : IAdRequestParam.SCREEN_HEIGHT);
             } catch (Throwable th) {
                 th = th;
             }

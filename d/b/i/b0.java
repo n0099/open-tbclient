@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 import d.b.h0.r.q.v0;
 /* loaded from: classes.dex */
 public class b0 extends c implements p<v0>, q {
-    public static final int l = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    public static final int l = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     public NEGFeedBackView i;
     public Align j;
     public boolean k;
@@ -20,9 +20,9 @@ public class b0 extends c implements p<v0>, q {
     }
 
     public final void k() {
-        int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds57);
-        int g3 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        int g4 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds34);
+        int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds57);
+        int g3 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        int g4 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds34);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
         layoutParams.addRule(11);
         layoutParams.addRule(10);
@@ -62,9 +62,9 @@ public class b0 extends c implements p<v0>, q {
             this.i.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
             int i = l;
-            int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int g3 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int g3 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g4 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
             layoutParams3.addRule(11);
             layoutParams3.addRule(12);
@@ -86,9 +86,9 @@ public class b0 extends c implements p<v0>, q {
             if (!aVar.t() && !aVar.o()) {
                 l(Align.ALIGN_RIGHT_BOTTOM);
             } else if (aVar.isSupportTop()) {
-                v((!p(aVar) || d.b.h0.b.d.R()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
+                v((!p(aVar) || d.b.h0.b.d.T()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
             } else if (aVar.isSupportBottom()) {
-                k0 k0Var = this.f51771h;
+                k0 k0Var = this.f52195h;
                 if (k0Var != null) {
                     k0Var.n(this);
                 }
@@ -110,7 +110,7 @@ public class b0 extends c implements p<v0>, q {
     }
 
     public final int o(int i) {
-        return d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), i);
+        return d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), i);
     }
 
     @Override // d.b.i.q
@@ -151,9 +151,9 @@ public class b0 extends c implements p<v0>, q {
             return;
         }
         int i = l;
-        int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-        int g3 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-        int g4 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+        int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+        int g3 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+        int g4 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i, i);
         layoutParams2.addRule(11);
         layoutParams2.addRule(10);

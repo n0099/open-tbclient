@@ -20,49 +20,49 @@ public class b {
     public static class a implements ActivityResultConsumer {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.b1.d.d.b f43422a;
+        public final /* synthetic */ d.b.g0.a.b1.d.d.b f43814a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f43423b;
+        public final /* synthetic */ File f43815b;
 
         public a(d.b.g0.a.b1.d.d.b bVar, File file) {
-            this.f43422a = bVar;
-            this.f43423b = file;
+            this.f43814a = bVar;
+            this.f43815b = file;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
         public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
             d.b.g0.a.b1.d.d.b bVar;
-            if (i != -1 || (bVar = this.f43422a) == null) {
+            if (i != -1 || (bVar = this.f43814a) == null) {
                 return true;
             }
-            bVar.a(this.f43423b);
+            bVar.a(this.f43815b);
             return true;
         }
     }
 
     /* renamed from: d.b.g0.a.b1.d.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0608b implements ActivityResultConsumer {
+    public static class C0620b implements ActivityResultConsumer {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.b1.d.d.b f43424a;
+        public final /* synthetic */ d.b.g0.a.b1.d.d.b f43816a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f43425b;
+        public final /* synthetic */ File f43817b;
 
-        public C0608b(d.b.g0.a.b1.d.d.b bVar, File file) {
-            this.f43424a = bVar;
-            this.f43425b = file;
+        public C0620b(d.b.g0.a.b1.d.d.b bVar, File file) {
+            this.f43816a = bVar;
+            this.f43817b = file;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
         public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
             d.b.g0.a.b1.d.d.b bVar;
-            if (i != -1 || (bVar = this.f43424a) == null) {
+            if (i != -1 || (bVar = this.f43816a) == null) {
                 return true;
             }
-            bVar.a(this.f43425b);
+            bVar.a(this.f43817b);
             return true;
         }
     }
@@ -108,7 +108,7 @@ public class b {
         } catch (Exception e3) {
             e = e3;
             mediaMetadataRetriever2 = mediaMetadataRetriever;
-            if (c.f43426a) {
+            if (c.f43818a) {
                 e.printStackTrace();
             }
             if (mediaMetadataRetriever2 != null) {
@@ -164,7 +164,7 @@ public class b {
                 intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
             }
         }
-        resultDispatcher.addConsumer(new C0608b(bVar, b2));
+        resultDispatcher.addConsumer(new C0620b(bVar, b2));
         resultDispatcher.startActivityForResult(intent);
     }
 

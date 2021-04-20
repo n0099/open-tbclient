@@ -8,7 +8,6 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
-import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
@@ -17,10 +16,10 @@ import java.util.Map;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Resources> f31845a = new HashMap();
+    public static Map<String, Resources> f32134a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f31846b = new Object();
+    public static final Object f32135b = new Object();
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -180,14 +179,14 @@ public class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f31846b) {
-            resources2 = f31845a.get(str);
+        synchronized (f32135b) {
+            resources2 = f32134a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);
                 if (resources2 == null) {
                     throw new RuntimeException("Can not createResources for " + str);
                 }
-                f31845a.put(str, resources);
+                f32134a.put(str, resources);
             }
         }
         return resources2;
@@ -242,7 +241,7 @@ public class o {
             try {
                 if (applicationInfo.sharedLibraryFiles != null && applicationInfo.sharedLibraryFiles.length > 0) {
                     for (String str2 : applicationInfo.sharedLibraryFiles) {
-                        if (str2 != null && str2.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+                        if (str2 != null && str2.endsWith(".apk")) {
                             b(assetManager, str2);
                         }
                     }

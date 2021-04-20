@@ -7,10 +7,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class a implements GLSurfaceView.Renderer {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaseGLMapView f9483a;
+    public final /* synthetic */ BaseGLMapView f9041a;
 
     public a(BaseGLMapView baseGLMapView) {
-        this.f9483a = baseGLMapView;
+        this.f9041a = baseGLMapView;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer

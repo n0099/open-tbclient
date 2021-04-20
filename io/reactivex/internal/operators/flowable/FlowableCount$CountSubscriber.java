@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
+import f.b.g;
 import g.d.c;
 import g.d.d;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
@@ -36,7 +36,7 @@ public final class FlowableCount$CountSubscriber extends DeferredScalarSubscript
         this.count++;
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

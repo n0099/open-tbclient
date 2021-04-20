@@ -9,32 +9,32 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bytedance.sdk.openadsdk.utils.ad;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f28889a;
+    public a f28574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f28890b;
+    public ImageView f28575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28891c;
+    public TextView f28576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f28892d;
+    public TextView f28577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f28893e;
+    public Button f28578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f28894f;
+    public Button f28579f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f28895g;
+    public View f28580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f28896h;
+    public Context f28581h;
     public String i;
     public String j;
     public String k;
@@ -42,7 +42,7 @@ public class c extends Dialog {
     public int m;
     public boolean n;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -53,23 +53,23 @@ public class c extends Dialog {
         super(context, ad.g(context, "tt_custom_dialog"));
         this.m = -1;
         this.n = false;
-        this.f28896h = context;
+        this.f28581h = context;
     }
 
     private void a() {
-        this.f28894f.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.1
+        this.f28579f.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a aVar = c.this.f28889a;
+                a aVar = c.this.f28574a;
                 if (aVar != null) {
                     aVar.a();
                 }
             }
         });
-        this.f28893e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
+        this.f28578e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a aVar = c.this.f28889a;
+                a aVar = c.this.f28574a;
                 if (aVar != null) {
                     aVar.b();
                 }
@@ -79,47 +79,47 @@ public class c extends Dialog {
 
     private void b() {
         if (!TextUtils.isEmpty(this.j)) {
-            this.f28891c.setText(this.j);
-            this.f28891c.setVisibility(0);
+            this.f28576c.setText(this.j);
+            this.f28576c.setVisibility(0);
         } else {
-            this.f28891c.setVisibility(8);
+            this.f28576c.setVisibility(8);
         }
         if (!TextUtils.isEmpty(this.i)) {
-            this.f28892d.setText(this.i);
+            this.f28577d.setText(this.i);
         }
         if (!TextUtils.isEmpty(this.k)) {
-            this.f28894f.setText(this.k);
+            this.f28579f.setText(this.k);
         } else {
-            this.f28894f.setText("确定");
+            this.f28579f.setText("确定");
         }
         if (!TextUtils.isEmpty(this.l)) {
-            this.f28893e.setText(this.l);
+            this.f28578e.setText(this.l);
         } else {
-            this.f28893e.setText("取消");
+            this.f28578e.setText("取消");
         }
         int i = this.m;
         if (i != -1) {
-            this.f28890b.setImageResource(i);
-            this.f28890b.setVisibility(0);
+            this.f28575b.setImageResource(i);
+            this.f28575b.setVisibility(0);
         } else {
-            this.f28890b.setVisibility(8);
+            this.f28575b.setVisibility(8);
         }
         if (this.n) {
-            this.f28895g.setVisibility(8);
-            this.f28893e.setVisibility(8);
+            this.f28580g.setVisibility(8);
+            this.f28578e.setVisibility(8);
             return;
         }
-        this.f28893e.setVisibility(0);
-        this.f28895g.setVisibility(0);
+        this.f28578e.setVisibility(0);
+        this.f28580g.setVisibility(0);
     }
 
     private void c() {
-        this.f28893e = (Button) findViewById(ad.e(this.f28896h, "tt_negtive"));
-        this.f28894f = (Button) findViewById(ad.e(this.f28896h, "tt_positive"));
-        this.f28891c = (TextView) findViewById(ad.e(this.f28896h, "tt_title"));
-        this.f28892d = (TextView) findViewById(ad.e(this.f28896h, "tt_message"));
-        this.f28890b = (ImageView) findViewById(ad.e(this.f28896h, "tt_image"));
-        this.f28895g = findViewById(ad.e(this.f28896h, "tt_column_line"));
+        this.f28578e = (Button) findViewById(ad.e(this.f28581h, "tt_negtive"));
+        this.f28579f = (Button) findViewById(ad.e(this.f28581h, "tt_positive"));
+        this.f28576c = (TextView) findViewById(ad.e(this.f28581h, "tt_title"));
+        this.f28577d = (TextView) findViewById(ad.e(this.f28581h, "tt_message"));
+        this.f28575b = (ImageView) findViewById(ad.e(this.f28581h, "tt_image"));
+        this.f28580g = findViewById(ad.e(this.f28581h, "tt_column_line"));
     }
 
     @Override // android.app.Dialog
@@ -129,7 +129,7 @@ public class c extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ad.f(this.f28896h, "tt_custom_dailog_layout"));
+        setContentView(ad.f(this.f28581h, "tt_custom_dailog_layout"));
         setCanceledOnTouchOutside(false);
         c();
         b();
@@ -143,7 +143,7 @@ public class c extends Dialog {
     }
 
     public c a(a aVar) {
-        this.f28889a = aVar;
+        this.f28574a = aVar;
         return this;
     }
 

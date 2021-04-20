@@ -5,7 +5,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.kwai.video.player.KsMediaMeta;
-import d.b.b.c.j.e;
+import d.b.c.c.j.e;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     public e mConnectTimeOut;

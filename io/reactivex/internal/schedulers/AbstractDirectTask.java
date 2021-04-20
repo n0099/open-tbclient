@@ -1,6 +1,6 @@
 package io.reactivex.internal.schedulers;
 
-import f.a.t.b;
+import f.b.t.b;
 import io.reactivex.internal.functions.Functions;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
@@ -10,14 +10,14 @@ public abstract class AbstractDirectTask extends AtomicReference<Future<?>> impl
     public static final long serialVersionUID = 1811839108042568751L;
     public final Runnable runnable;
     public Thread runner;
-    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.f68026a, null);
-    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.f68026a, null);
+    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.f69032a, null);
+    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.f69032a, null);
 
     public AbstractDirectTask(Runnable runnable) {
         this.runnable = runnable;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public final void dispose() {
         FutureTask<Void> futureTask;
         Future<?> future = get();
@@ -31,7 +31,7 @@ public abstract class AbstractDirectTask extends AtomicReference<Future<?>> impl
         return this.runnable;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public final boolean isDisposed() {
         Future<?> future = get();
         return future == FINISHED || future == DISPOSED;

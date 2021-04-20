@@ -13,8 +13,8 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.a0.a.f;
-import d.b.a0.a.g;
+import d.b.x.a.f;
+import d.b.x.a.g;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class SwitchAccountActivity extends BaseActivity {

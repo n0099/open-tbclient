@@ -8,32 +8,32 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<List<b>> f51827a = new SparseArray<>();
+    public SparseArray<List<b>> f52251a = new SparseArray<>();
 
     /* loaded from: classes.dex */
     public interface b {
-        boolean a(C1118a c1118a);
+        boolean a(C1131a c1131a);
     }
 
     public void a(int i, b bVar) {
-        if (this.f51827a == null) {
-            this.f51827a = new SparseArray<>();
+        if (this.f52251a == null) {
+            this.f52251a = new SparseArray<>();
         }
-        List<b> list = this.f51827a.get(i);
+        List<b> list = this.f52251a.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.f51827a.put(i, list);
+            this.f52251a.put(i, list);
         }
         list.add(bVar);
     }
 
-    public boolean b(C1118a c1118a) {
-        List<b> list = this.f51827a.get(c1118a.f51828a);
+    public boolean b(C1131a c1131a) {
+        List<b> list = this.f52251a.get(c1131a.f52252a);
         if (ListUtils.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c1118a)) {
+            if (bVar != null && bVar.a(c1131a)) {
                 return true;
             }
         }
@@ -42,33 +42,33 @@ public class a {
 
     /* renamed from: d.b.i.u0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C1118a {
+    public static class C1131a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f51828a;
+        public int f52252a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f51829b;
+        public Object f52253b;
 
-        public C1118a(int i, Object obj) {
-            this.f51828a = i;
-            this.f51829b = obj;
+        public C1131a(int i, Object obj) {
+            this.f52252a = i;
+            this.f52253b = obj;
         }
 
         public int b() {
-            return this.f51828a;
+            return this.f52252a;
         }
 
         public Object c() {
-            return this.f51829b;
+            return this.f52253b;
         }
 
         public void d(Object obj) {
-            this.f51829b = obj;
+            this.f52253b = obj;
         }
 
-        public C1118a(int i) {
-            this.f51828a = i;
+        public C1131a(int i) {
+            this.f52252a = i;
         }
     }
 }

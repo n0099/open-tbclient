@@ -3,10 +3,10 @@ package com.xiaomi.push;
 public class ct implements cr {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cs f40339a;
+    public final /* synthetic */ cs f40628a;
 
     public ct(cs csVar) {
-        this.f40339a = csVar;
+        this.f40628a = csVar;
     }
 
     @Override // com.xiaomi.push.cr

@@ -70,11 +70,11 @@ public final class PayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayBeanFactory f25466a = new PayBeanFactory();
+        public static PayBeanFactory f25151a = new PayBeanFactory();
     }
 
     public static PayBeanFactory getInstance() {
-        return a.f25466a;
+        return a.f25151a;
     }
 
     public PayBeanFactory() {
@@ -167,8 +167,8 @@ public final class PayBeanFactory implements IBeanFactory {
                 default:
                     switch (i) {
                         case 257:
-                        case BEAN_ID_CHECK_MOBILE_PWD /* 258 */:
-                        case BEAN_ID_MODIFY_MOBILE_PWD /* 259 */:
+                        case 258:
+                        case 259:
                             baseBean = new x(applicationContext);
                             break;
                         case 260:

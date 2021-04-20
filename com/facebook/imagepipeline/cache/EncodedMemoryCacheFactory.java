@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.cache;
 
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.memory.PooledByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EncodedMemoryCacheFactory {
     public static InstrumentedMemoryCache<CacheKey, PooledByteBuffer> get(CountingMemoryCache<CacheKey, PooledByteBuffer> countingMemoryCache, final ImageCacheStatsTracker imageCacheStatsTracker) {
         imageCacheStatsTracker.registerEncodedMemoryCache(countingMemoryCache);

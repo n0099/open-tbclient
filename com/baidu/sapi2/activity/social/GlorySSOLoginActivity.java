@@ -13,7 +13,7 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-import d.b.a0.a.j.a;
+import d.b.x.a.j.a;
 /* loaded from: classes2.dex */
 public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
     public static final int REQUEST_SIGN_IN_LOGIN = 1002;

@@ -6,7 +6,7 @@ import d.b.h0.s.f.b;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     public b lbsInfo;
 

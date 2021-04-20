@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import d.b.h0.z0.w;
 import tbclient.CloseAd.CloseAdReqIdl;
 import tbclient.CloseAd.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemberCloseAdRequestMessage extends NetMessage {
     public int mVipClose;
 

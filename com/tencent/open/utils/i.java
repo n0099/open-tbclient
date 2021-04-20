@@ -11,45 +11,45 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f39322c;
+    public static Handler f39611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f39323d;
+    public static HandlerThread f39612d;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f39321b = new Object();
+    public static Object f39610b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f39320a = c();
+    public static final Executor f39609a = c();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<Runnable> f39324a;
+        public final Queue<Runnable> f39613a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f39325b;
+        public Runnable f39614b;
 
         public a() {
-            this.f39324a = new LinkedList();
+            this.f39613a = new LinkedList();
         }
 
         public synchronized void a() {
-            Runnable poll = this.f39324a.poll();
-            this.f39325b = poll;
+            Runnable poll = this.f39613a.poll();
+            this.f39614b = poll;
             if (poll != null) {
-                i.f39320a.execute(poll);
+                i.f39609a.execute(poll);
             }
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f39324a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f39613a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -59,22 +59,22 @@ public final class i {
                     }
                 }
             });
-            if (this.f39325b == null) {
+            if (this.f39614b == null) {
                 a();
             }
         }
     }
 
     public static Handler a() {
-        if (f39322c == null) {
+        if (f39611c == null) {
             synchronized (i.class) {
                 HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                f39323d = handlerThread;
+                f39612d = handlerThread;
                 handlerThread.start();
-                f39322c = new Handler(f39323d.getLooper());
+                f39611c = new Handler(f39612d.getLooper());
             }
         }
-        return f39322c;
+        return f39611c;
     }
 
     public static Executor b() {

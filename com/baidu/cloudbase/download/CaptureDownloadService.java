@@ -29,88 +29,88 @@ public class CaptureDownloadService extends Service {
     public static class a extends d.b.k.b.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ac f4626a;
+        public ac f4661a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4627b;
+        public int f4662b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f4628c;
+        public long f4663c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LocalBroadcastManager f4629d;
+        public LocalBroadcastManager f4664d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4630e;
+        public int f4665e;
 
         public a(int i, ac acVar, Context context) {
-            this.f4630e = i;
-            this.f4626a = acVar;
-            this.f4629d = LocalBroadcastManager.getInstance(context);
+            this.f4665e = i;
+            this.f4661a = acVar;
+            this.f4664d = LocalBroadcastManager.getInstance(context);
         }
 
         public final boolean a(int i) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f4628c <= 300 || i == this.f4627b) {
+            if (currentTimeMillis - this.f4663c <= 300 || i == this.f4662b) {
                 return false;
             }
-            this.f4628c = currentTimeMillis;
-            this.f4627b = i;
+            this.f4663c = currentTimeMillis;
+            this.f4662b = i;
             return true;
         }
 
         public final void b(ac acVar) {
             Intent intent = new Intent();
             intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
-            intent.putExtra("extra_position", this.f4630e);
+            intent.putExtra("extra_position", this.f4665e);
             intent.putExtra("extra_file_info", acVar.a().toString());
-            this.f4629d.sendBroadcast(intent);
+            this.f4664d.sendBroadcast(intent);
         }
 
         @Override // d.b.k.b.c.a
         public void onCompleted(String str) {
-            ac acVar = this.f4626a;
-            acVar.f1404g = 6;
-            acVar.f1402e = 100;
-            acVar.f1405h = str;
+            ac acVar = this.f4661a;
+            acVar.f1390g = 6;
+            acVar.f1388e = 100;
+            acVar.f1391h = str;
             b(acVar);
         }
 
         @Override // d.b.k.b.c.a
         public void onDownloadCanceled() {
-            ac acVar = this.f4626a;
-            acVar.f1404g = 0;
-            acVar.f1402e = 0;
-            acVar.f1403f = "";
+            ac acVar = this.f4661a;
+            acVar.f1390g = 0;
+            acVar.f1388e = 0;
+            acVar.f1389f = "";
             b(acVar);
         }
 
         @Override // d.b.k.b.c.a
         public void onDownloadPaused() {
-            ac acVar = this.f4626a;
-            acVar.f1404g = 4;
+            ac acVar = this.f4661a;
+            acVar.f1390g = 4;
             b(acVar);
         }
 
         @Override // d.b.k.b.c.a
         public void onFailed(DownloadException downloadException) {
             downloadException.printStackTrace();
-            ac acVar = this.f4626a;
-            acVar.f1404g = 5;
+            ac acVar = this.f4661a;
+            acVar.f1390g = 5;
             b(acVar);
         }
 
         @Override // d.b.k.b.c.a
         public void onProgress(long j, long j2, int i) {
-            if (this.f4628c == 0) {
-                this.f4628c = System.currentTimeMillis();
+            if (this.f4663c == 0) {
+                this.f4663c = System.currentTimeMillis();
             }
-            ac acVar = this.f4626a;
-            acVar.f1404g = 3;
-            acVar.f1402e = i;
-            acVar.f1403f = d.b.k.b.d.a.a(j, j2);
+            ac acVar = this.f4661a;
+            acVar.f1390g = 3;
+            acVar.f1388e = i;
+            acVar.f1389f = d.b.k.b.d.a.a(j, j2);
             if (a(i)) {
-                b(this.f4626a);
+                b(this.f4661a);
             }
         }
     }
@@ -142,7 +142,7 @@ public class CaptureDownloadService extends Service {
 
     private void download(int i, ac acVar, String str) {
         b.a aVar = new b.a();
-        aVar.d(acVar.f1401d);
+        aVar.d(acVar.f1387d);
         this.mDownloadManager.f(aVar.a(), str, new a(i, acVar, getApplicationContext()));
     }
 
@@ -215,14 +215,14 @@ public class CaptureDownloadService extends Service {
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(stringExtra);
-                    acVar.f1398a = jSONObject.optString("name");
-                    acVar.f1399b = jSONObject.optString("id");
-                    acVar.f1400c = jSONObject.optString("image");
-                    acVar.f1401d = jSONObject.optString("url");
-                    acVar.f1402e = jSONObject.optInt("progress");
-                    acVar.f1403f = jSONObject.optString("downloadPerSize");
-                    acVar.f1404g = jSONObject.optInt("status");
-                    acVar.f1405h = jSONObject.optString("savePath");
+                    acVar.f1384a = jSONObject.optString("name");
+                    acVar.f1385b = jSONObject.optString("id");
+                    acVar.f1386c = jSONObject.optString("image");
+                    acVar.f1387d = jSONObject.optString("url");
+                    acVar.f1388e = jSONObject.optInt("progress");
+                    acVar.f1389f = jSONObject.optString("downloadPerSize");
+                    acVar.f1390g = jSONObject.optInt("status");
+                    acVar.f1391h = jSONObject.optString("savePath");
                 } catch (JSONException unused) {
                 }
             }

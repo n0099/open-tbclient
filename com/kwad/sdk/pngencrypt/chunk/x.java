@@ -5,7 +5,7 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class x extends s {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36167h;
+    public String f36456h;
     public int i;
     public int[] j;
 
@@ -23,7 +23,7 @@ public class x extends s {
         int i6 = 0;
         int i7 = 0;
         while (true) {
-            byte[] bArr = dVar.f36143d;
+            byte[] bArr = dVar.f36432d;
             if (i7 >= bArr.length) {
                 i7 = -1;
                 break;
@@ -34,41 +34,41 @@ public class x extends s {
             }
         }
         if (i7 > 0) {
-            byte[] bArr2 = dVar.f36143d;
+            byte[] bArr2 = dVar.f36432d;
             if (i7 <= bArr2.length - 2) {
-                this.f36167h = b.a(bArr2, 0, i7);
-                int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, i7 + 1);
+                this.f36456h = b.a(bArr2, 0, i7);
+                int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, i7 + 1);
                 this.i = a2;
                 int i8 = i7 + 2;
-                int length = (dVar.f36143d.length - i8) / (a2 == 8 ? 6 : 10);
+                int length = (dVar.f36432d.length - i8) / (a2 == 8 ? 6 : 10);
                 this.j = new int[length * 5];
                 int i9 = i8;
                 int i10 = 0;
                 while (i6 < length) {
                     if (this.i == 8) {
                         int i11 = i9 + 1;
-                        i2 = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, i9);
+                        i2 = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, i9);
                         int i12 = i11 + 1;
-                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, i11);
+                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, i11);
                         int i13 = i12 + 1;
-                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, i12);
+                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, i12);
                         i = i13 + 1;
-                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f36143d, i13);
+                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f36432d, i13);
                     } else {
-                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f36143d, i9);
+                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, i9);
                         int i14 = i9 + 2;
-                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f36143d, i14);
+                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, i14);
                         int i15 = i14 + 2;
-                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f36143d, i15);
+                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, i15);
                         int i16 = i15 + 2;
-                        int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f36143d, i16);
+                        int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, i16);
                         i = i16 + 2;
                         i2 = b2;
                         i3 = b3;
                         i4 = b4;
                         i5 = b5;
                     }
-                    int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f36143d, i);
+                    int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, i);
                     int[] iArr = this.j;
                     int i17 = i10 + 1;
                     iArr[i10] = i2;
@@ -90,6 +90,6 @@ public class x extends s {
     }
 
     public String c() {
-        return this.f36167h;
+        return this.f36456h;
     }
 }

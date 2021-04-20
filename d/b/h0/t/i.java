@@ -1,34 +1,28 @@
 package d.b.h0.t;
 
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tieba.frs.FrsTabItemData;
-import java.util.List;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51471a;
+    public TbPageContext f51887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51472b;
+    public String f51888b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f51473c;
+    public i() {
+    }
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f51474d;
+    public String a() {
+        return this.f51888b;
+    }
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f51475e;
+    public TbPageContext b() {
+        return this.f51887a;
+    }
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f51476f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f51477g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<FrsTabItemData> f51478h;
-    public PostPrefixData i;
-    public boolean j;
+    public i(TbPageContext tbPageContext, String str) {
+        this.f51887a = tbPageContext;
+        this.f51888b = str;
+    }
 }

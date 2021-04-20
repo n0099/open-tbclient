@@ -8,55 +8,55 @@ import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WebViewContainer extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public OverScroller f20887e;
+    public OverScroller f20572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f20888f;
+    public float f20573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20889g;
+    public float f20574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f20890h;
+    public GestureDetector f20575h;
     public VelocityTracker i;
     public OnScrollChangedCallback j;
     public int k;
     public int l;
     public int m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WebViewContainer f20891e;
+        public final WebViewContainer f20576e;
 
         public YScrollDetector(WebViewContainer webViewContainer) {
-            this.f20891e = webViewContainer;
+            this.f20576e = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.f20891e.f20889g = motionEvent.getRawY();
+            this.f20576e.f20574g = motionEvent.getRawY();
             return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             WebViewContainer webViewContainer;
-            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20891e) != null) {
+            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20576e) != null) {
                 if (f3 > 0.0f) {
                     return webViewContainer.k > 0;
-                } else if (webViewContainer.k < this.f20891e.l) {
-                    return this.f20891e.k > 0 || this.f20891e.m != 1;
+                } else if (webViewContainer.k < this.f20576e.l) {
+                    return this.f20576e.k > 0 || this.f20576e.m != 1;
                 }
             }
             return false;
@@ -73,10 +73,10 @@ public class WebViewContainer extends FrameLayout {
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.f20887e.computeScrollOffset()) {
-            int e2 = e(this.f20887e.getCurrY());
+        if (this.f20572e.computeScrollOffset()) {
+            int e2 = e(this.f20572e.getCurrY());
             scrollBy(0, e2);
-            this.f20889g -= e2;
+            this.f20574g -= e2;
             invalidate();
         }
     }
@@ -99,17 +99,17 @@ public class WebViewContainer extends FrameLayout {
     }
 
     public final void f(int i) {
-        OverScroller overScroller = this.f20887e;
+        OverScroller overScroller = this.f20572e;
         if (overScroller == null) {
             return;
         }
-        overScroller.fling(0, (int) this.f20889g, 0, i, 0, 0, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, 10000);
+        overScroller.fling(0, (int) this.f20574g, 0, i, 0, 0, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, 10000);
         invalidate();
     }
 
     public final void g(Context context) {
-        this.f20887e = new OverScroller(context);
-        this.f20890h = new GestureDetector(context, new YScrollDetector(this));
+        this.f20572e = new OverScroller(context);
+        this.f20575h = new GestureDetector(context, new YScrollDetector(this));
     }
 
     @Override // android.view.ViewGroup
@@ -117,7 +117,7 @@ public class WebViewContainer extends FrameLayout {
         if (this.m == 2) {
             return false;
         }
-        if (this.k <= ((int) motionEvent.getY()) && this.f20890h.onTouchEvent(motionEvent)) {
+        if (this.k <= ((int) motionEvent.getY()) && this.f20575h.onTouchEvent(motionEvent)) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -160,13 +160,13 @@ public class WebViewContainer extends FrameLayout {
                 this.i = null;
             } else if (action == 2) {
                 float rawY = motionEvent.getRawY();
-                this.f20888f = rawY;
-                int e2 = e((int) (this.f20889g - rawY));
+                this.f20573f = rawY;
+                int e2 = e((int) (this.f20574g - rawY));
                 scrollBy(0, e2);
-                this.f20889g -= e2;
+                this.f20574g -= e2;
             }
-        } else if (!this.f20887e.isFinished()) {
-            this.f20887e.abortAnimation();
+        } else if (!this.f20572e.isFinished()) {
+            this.f20572e.abortAnimation();
         }
         return true;
     }

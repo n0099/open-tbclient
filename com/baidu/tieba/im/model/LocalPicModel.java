@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocalPicModel extends BdBaseModel implements Serializable {
     public static final long serialVersionUID = -339604626740227228L;
     public String mDName;
@@ -15,7 +15,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     public String mSName;
     public String mSPath;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
         public GetImageTask() {
         }
@@ -52,7 +52,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ResponseData implements Serializable {
         public static final long serialVersionUID = -9099542245580007084L;
         public Bitmap mBitmap;

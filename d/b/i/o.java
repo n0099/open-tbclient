@@ -27,9 +27,9 @@ public class o extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar = o.this;
-            a.InterfaceC1116a interfaceC1116a = oVar.i;
-            if (interfaceC1116a != null) {
-                interfaceC1116a.a(oVar.m);
+            a.InterfaceC1129a interfaceC1129a = oVar.i;
+            if (interfaceC1129a != null) {
+                interfaceC1129a.a(oVar.m);
             }
         }
     }
@@ -40,11 +40,11 @@ public class o extends h {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             if (o.this.m != null && o.this.m.n() != null && !o.this.f().booleanValue()) {
                 d.b.i0.x.m.a(o.this.m.n().o0());
-                d.b.i0.x.m.l(o.this.l.f4495f, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(o.this.l.f4496g, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(o.this.l.f4530f, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(o.this.l.f4531g, o.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -56,15 +56,15 @@ public class o extends h {
         this.l = new NewGridImageLayout(context);
     }
 
-    public void A(a.InterfaceC1116a interfaceC1116a) {
-        this.i = interfaceC1116a;
+    public void A(a.InterfaceC1129a interfaceC1129a) {
+        this.i = interfaceC1129a;
     }
 
     public void B(boolean z) {
         this.l.setNeedFrsTabName(z);
     }
 
-    public void C(d.b.b.e.k.b<ImageView> bVar, d.b.b.e.k.b<GifView> bVar2) {
+    public void C(d.b.c.e.k.b<ImageView> bVar, d.b.c.e.k.b<GifView> bVar2) {
         NewGridImageLayout newGridImageLayout = this.l;
         if (newGridImageLayout != null) {
             newGridImageLayout.setObjectPool(bVar, bVar2);

@@ -33,52 +33,52 @@ import d.b.g0.a.k;
 import d.b.g0.a.y0.e.b;
 /* loaded from: classes2.dex */
 public abstract class b implements d {
-    public static final boolean j = k.f45051a;
+    public static final boolean j = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.p.d.a f47137a;
+    public d.b.g0.a.p.d.a f47529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.r1.n.a f47138b = new d.b.g0.a.r1.n.a();
+    public d.b.g0.a.r1.n.a f47530b = new d.b.g0.a.r1.n.a();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47139c;
+    public String f47531c;
     @Deprecated
 
     /* renamed from: d  reason: collision with root package name */
-    public SwanAppActivity f47140d;
+    public SwanAppActivity f47532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f47141e;
+    public e f47533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FullScreenFloatView f47142f;
+    public FullScreenFloatView f47534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SwanAppPropertyWindow f47143g;
+    public SwanAppPropertyWindow f47535g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47144h;
+    public boolean f47536h;
     public boolean i;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f47145e;
+        public final /* synthetic */ boolean f47537e;
 
         public a(boolean z) {
-            this.f47145e = z;
+            this.f47537e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SwanAppActivity swanAppActivity = b.this.f47140d;
+            SwanAppActivity swanAppActivity = b.this.f47532d;
             if (swanAppActivity != null) {
                 int taskId = swanAppActivity.getTaskId();
-                b.this.f47140d.finish();
-                if (this.f47145e) {
-                    b.this.f47140d.overridePendingTransition(0, d.b.g0.a.a.aiapps_slide_out_to_right_zadjustment_top);
+                b.this.f47532d.finish();
+                if (this.f47537e) {
+                    b.this.f47532d.overridePendingTransition(0, d.b.g0.a.a.aiapps_slide_out_to_right_zadjustment_top);
                 }
                 d.b.g0.a.i2.b.m().l(taskId);
             }
@@ -87,12 +87,12 @@ public abstract class b implements d {
 
     /* renamed from: d.b.g0.a.z0.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0890b implements FullScreenFloatView.c {
+    public class C0902b implements FullScreenFloatView.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.g0.a.p.d.a f47147a;
+        public d.b.g0.a.p.d.a f47539a;
 
-        public C0890b(b bVar) {
+        public C0902b(b bVar) {
         }
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
@@ -101,17 +101,17 @@ public abstract class b implements d {
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
         public void onClick() {
-            if (this.f47147a == null) {
-                this.f47147a = f.V().F();
+            if (this.f47539a == null) {
+                this.f47539a = f.V().F();
             }
-            this.f47147a.J();
+            this.f47539a.K();
         }
     }
 
     public b() {
         d.b.g0.a.e0.w.d.L();
         e eVar = new e();
-        this.f47141e = eVar;
+        this.f47533e = eVar;
         eVar.h(this);
     }
 
@@ -130,15 +130,15 @@ public abstract class b implements d {
         if (activity == null) {
             return null;
         }
-        if (this.f47142f == null) {
+        if (this.f47534f == null) {
             FullScreenFloatView a2 = d.b.g0.a.q1.a.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.f47142f = a2;
+            this.f47534f = a2;
             a2.setFloatButtonText(activity.getString(d.b.g0.a.h.aiapps_sconsole));
-            this.f47142f.setFloatImageBackground(d.b.g0.a.e.aiapps_float_view_button_shape);
-            this.f47142f.setVisibility(8);
-            this.f47142f.setDragImageListener(new C0890b(this));
+            this.f47534f.setFloatImageBackground(d.b.g0.a.e.aiapps_float_view_button_shape);
+            this.f47534f.setVisibility(8);
+            this.f47534f.setDragImageListener(new C0902b(this));
         }
-        return this.f47142f;
+        return this.f47534f;
     }
 
     @Override // d.b.g0.a.z0.d
@@ -152,13 +152,13 @@ public abstract class b implements d {
 
     @Override // d.b.g0.a.z0.d
     public void D() {
-        this.f47144h = false;
+        this.f47536h = false;
     }
 
     @Override // d.b.g0.a.z0.d
     public void E() {
         if (s()) {
-            this.f47141e.i();
+            this.f47533e.i();
         }
     }
 
@@ -166,15 +166,15 @@ public abstract class b implements d {
     @DebugTrace
     public d.b.g0.a.p.d.a F() {
         R();
-        if (this.f47137a == null) {
-            this.f47137a = d.b.g0.a.e0.w.d.L().V().c(AppRuntime.getAppContext());
+        if (this.f47529a == null) {
+            this.f47529a = d.b.g0.a.e0.w.d.L().V().c(AppRuntime.getAppContext());
             d.b.g0.a.c0.c.k(true);
         }
-        SwanAppActivity swanAppActivity = this.f47140d;
+        SwanAppActivity swanAppActivity = this.f47532d;
         if (swanAppActivity != null) {
-            this.f47137a.o((ViewGroup) swanAppActivity.findViewById(d.b.g0.a.f.ai_apps_activity_root));
+            this.f47529a.o((ViewGroup) swanAppActivity.findViewById(d.b.g0.a.f.ai_apps_activity_root));
         }
-        return this.f47137a;
+        return this.f47529a;
     }
 
     @Override // d.b.g0.a.z0.d
@@ -199,13 +199,13 @@ public abstract class b implements d {
         if (activity == null) {
             return null;
         }
-        if (this.f47143g == null && (viewGroup = (ViewGroup) activity.findViewById(d.b.g0.a.f.ai_apps_activity_root)) != null) {
+        if (this.f47535g == null && (viewGroup = (ViewGroup) activity.findViewById(d.b.g0.a.f.ai_apps_activity_root)) != null) {
             SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
-            this.f47143g = swanAppPropertyWindow;
+            this.f47535g = swanAppPropertyWindow;
             swanAppPropertyWindow.setVisibility(8);
-            viewGroup.addView(this.f47143g);
+            viewGroup.addView(this.f47535g);
         }
-        return this.f47143g;
+        return this.f47535g;
     }
 
     @Override // d.b.g0.a.z0.d
@@ -263,17 +263,17 @@ public abstract class b implements d {
     @CallSuper
     public void P() {
         this.i = true;
-        e eVar = this.f47141e;
+        e eVar = this.f47533e;
         if (eVar != null) {
             eVar.j();
-            this.f47141e = null;
+            this.f47533e = null;
         }
         g.a().e();
         d.b.g0.a.n1.a.b.b.a.b().d();
         V();
         d.b.g0.a.y0.c.b.c().a();
         d.b.g0.a.g1.o.c.a.l();
-        this.f47140d = null;
+        this.f47532d = null;
     }
 
     @Override // d.b.g0.a.z0.d
@@ -293,7 +293,7 @@ public abstract class b implements d {
     }
 
     public final void S(boolean z) {
-        if (this.f47140d != null) {
+        if (this.f47532d != null) {
             k0.X(new a(z));
         }
     }
@@ -308,7 +308,7 @@ public abstract class b implements d {
     }
 
     public d.b.g0.a.e0.l.f U() {
-        SwanAppActivity swanAppActivity = this.f47140d;
+        SwanAppActivity swanAppActivity = this.f47532d;
         if (swanAppActivity == null) {
             return null;
         }
@@ -316,14 +316,14 @@ public abstract class b implements d {
     }
 
     public final void V() {
-        FullScreenFloatView fullScreenFloatView = this.f47142f;
+        FullScreenFloatView fullScreenFloatView = this.f47534f;
         if (fullScreenFloatView != null) {
             ViewParent parent = fullScreenFloatView.getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.f47142f);
+                ((ViewGroup) parent).removeView(this.f47534f);
             }
         }
-        d.b.g0.a.p.d.a aVar = this.f47137a;
+        d.b.g0.a.p.d.a aVar = this.f47529a;
         if (aVar != null) {
             aVar.l();
         }
@@ -337,8 +337,8 @@ public abstract class b implements d {
         if (TextUtils.isEmpty(T)) {
             return;
         }
-        this.f47144h = true;
-        this.f47141e.j();
+        this.f47536h = true;
+        this.f47533e.j();
         Bundle bundle = new Bundle();
         bundle.putString(Constants.APP_ID, T);
         bundle.putInt("task_id", getActivity().getTaskId());
@@ -396,12 +396,12 @@ public abstract class b implements d {
             return;
         }
         d.b.g0.a.k0.b.g gVar = new d.b.g0.a.k0.b.g();
-        gVar.f45069b = dVar.f45061b;
-        gVar.f45070c = z;
+        gVar.f45461b = dVar.f45453b;
+        gVar.f45462c = z;
         if (j) {
-            Log.d("AiBaseController", "handleNativeMessage data: " + dVar.f45061b + " ; needEncode = " + z);
+            Log.d("AiBaseController", "handleNativeMessage data: " + dVar.f45453b + " ; needEncode = " + z);
         }
-        z(dVar.f45060a, gVar);
+        z(dVar.f45452a, gVar);
         d.b.g0.a.j1.h.a("postMessage", "handleNativeMessage end.");
     }
 
@@ -412,7 +412,7 @@ public abstract class b implements d {
 
     @Override // d.b.g0.a.z0.d
     public void f() {
-        this.f47144h = true;
+        this.f47536h = true;
     }
 
     @Override // d.b.g0.a.z0.d
@@ -428,14 +428,14 @@ public abstract class b implements d {
 
     @Override // d.b.g0.a.z0.d
     public String h() {
-        return TextUtils.isEmpty(this.f47139c) ? "" : this.f47139c;
+        return TextUtils.isEmpty(this.f47531c) ? "" : this.f47531c;
     }
 
     @Override // d.b.g0.a.z0.d
     @NonNull
     public d.b.g0.a.r1.n.c i(String str, SwanAppConfigData swanAppConfigData, String str2) {
         if (swanAppConfigData != null && !TextUtils.isEmpty(str2)) {
-            return this.f47138b.b(str2, str, swanAppConfigData.f12616d);
+            return this.f47530b.b(str2, str, swanAppConfigData.f12277d);
         }
         return k(str);
     }
@@ -455,7 +455,7 @@ public abstract class b implements d {
             }
             return d.b.g0.a.r1.n.c.d();
         }
-        return this.f47138b.b(h(), str, I.f12616d);
+        return this.f47530b.b(h(), str, I.f12277d);
     }
 
     @Override // d.b.g0.a.z0.d
@@ -466,18 +466,18 @@ public abstract class b implements d {
 
     @Override // d.b.g0.a.z0.d
     public AbsoluteLayout m(String str) {
-        d.b.g0.a.p.d.c webView;
+        d.b.g0.a.p.d.c F;
         d.b.g0.a.p.d.d j2 = j(str);
-        if (j2 == null || (webView = j2.getWebView()) == null) {
+        if (j2 == null || (F = j2.F()) == null) {
             return null;
         }
-        return webView.getCurrentWebView();
+        return F.getCurrentWebView();
     }
 
     @Override // d.b.g0.a.z0.e.b
     public void n(int i) {
         R();
-        d.b.g0.a.i2.b.m().x(this.f47140d);
+        d.b.g0.a.i2.b.m().x(this.f47532d);
         S(false);
     }
 
@@ -487,7 +487,7 @@ public abstract class b implements d {
         if (j2 == null) {
             return null;
         }
-        return j2.getWebView();
+        return j2.F();
     }
 
     @Override // d.b.g0.a.z0.d
@@ -499,7 +499,7 @@ public abstract class b implements d {
     @Override // d.b.g0.a.z0.d
     public void q(Context context) {
         R();
-        this.f47141e.c(context);
+        this.f47533e.c(context);
     }
 
     @Override // d.b.g0.a.z0.d
@@ -511,7 +511,7 @@ public abstract class b implements d {
             }
             return d.b.g0.a.r1.n.c.d();
         }
-        return this.f47138b.a(h(), str, I.f12616d);
+        return this.f47530b.a(h(), str, I.f12277d);
     }
 
     @Override // d.b.g0.a.z0.d
@@ -533,12 +533,12 @@ public abstract class b implements d {
 
     @Override // d.b.g0.a.z0.d
     public void w(Context context) {
-        this.f47141e.f(context);
+        this.f47533e.f(context);
     }
 
     @Override // d.b.g0.a.z0.d
     public void x(SwanAppActivity swanAppActivity) {
-        this.f47140d = swanAppActivity;
+        this.f47532d = swanAppActivity;
     }
 
     @Override // d.b.g0.a.z0.d

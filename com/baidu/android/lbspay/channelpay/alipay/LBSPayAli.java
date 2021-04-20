@@ -29,11 +29,11 @@ public class LBSPayAli implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f2606a = new LBSPayAli();
+        public static LBSPayAli f2641a = new LBSPayAli();
     }
 
     public static LBSPayAli getInstance() {
-        return a.f2606a;
+        return a.f2641a;
     }
 
     private void handleError() {

@@ -23,18 +23,18 @@ public class b extends d.b.i.a<d.b.h0.r.q.a> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar = b.this;
-            bVar.r(bVar.f51762e.j(), b.this.k);
+            bVar.r(bVar.f52186e.j(), b.this.k);
         }
     }
 
     /* renamed from: d.b.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C1117b implements a.b {
-        public C1117b() {
+    public class C1130b implements a.b {
+        public C1130b() {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             if (b.this.k != null && b.this.k.n() != null) {
                 d.b.i0.x.m.a(b.this.k.n().o0());
                 d.b.i0.x.m.l(b.this.j.getTitle(), b.this.k.n().o0(), R.color.CAM_X0101, R.color.CAM_X0109);
@@ -59,7 +59,7 @@ public class b extends d.b.i.a<d.b.h0.r.q.a> {
     @Override // d.b.i.a
     public void h() {
         super.h();
-        i(1, new C1117b());
+        i(1, new C1130b());
     }
 
     @Override // d.b.i.a
@@ -73,20 +73,20 @@ public class b extends d.b.i.a<d.b.h0.r.q.a> {
         this.j.onChangeSkinType(tbPageContext, i);
     }
 
-    public final void r(View view, d.b.b.j.e.n nVar) {
+    public final void r(View view, d.b.c.j.e.n nVar) {
         d.b.h0.r.q.a aVar = this.k;
         if (((aVar instanceof d.b.i0.x.e0.e) || (aVar instanceof a2)) && (view.getTag() instanceof ThreadCardViewHolder)) {
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
             if (nVar instanceof d.b.i0.x.e0.e) {
                 d.b.i0.x.e0.e eVar = (d.b.i0.x.e0.e) this.k;
                 eVar.k = 1;
-                ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), eVar.f62197e.T1 ? 2 : 1, false);
-                threadCardViewHolder.b().o(new a.C1118a(1));
+                ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) eVar, view.getContext(), eVar.f63772e.T1 ? 2 : 1, false);
+                threadCardViewHolder.b().o(new a.C1131a(1));
             } else if (nVar instanceof a2) {
                 a2 a2Var = (a2) this.k;
                 a2Var.objType = 1;
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) a2Var, view.getContext(), 3, false);
-                threadCardViewHolder.b().o(new a.C1118a(1));
+                threadCardViewHolder.b().o(new a.C1131a(1));
             }
         }
     }

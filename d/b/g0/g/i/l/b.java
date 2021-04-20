@@ -5,17 +5,17 @@ import com.baidu.searchbox.v8engine.V8Engine;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public V8Engine f48190a;
+    public V8Engine f48582a;
 
     public b(V8Engine v8Engine) {
-        this.f48190a = v8Engine;
+        this.f48582a = v8Engine;
     }
 
     public void a() {
-        this.f48190a.destroyOpenDataContext();
+        this.f48582a.destroyOpenDataContext();
     }
 
     public void b(String str, String str2) {
-        this.f48190a.requireJSFileForOpenData(str, str2);
+        this.f48582a.requireJSFileForOpenData(str, str2);
     }
 }

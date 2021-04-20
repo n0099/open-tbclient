@@ -1,6 +1,6 @@
 package io.reactivex.internal.util;
 
-import f.a.w.c;
+import f.b.w.c;
 import java.util.List;
 /* loaded from: classes7.dex */
 public enum ListAddBiConsumer implements c<List, Object, List> {
@@ -11,7 +11,7 @@ public enum ListAddBiConsumer implements c<List, Object, List> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // f.a.w.c
+    @Override // f.b.w.c
     public List apply(List list, Object obj) throws Exception {
         list.add(obj);
         return list;

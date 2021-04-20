@@ -1,0 +1,98 @@
+package d.b.c.e.d;
+
+import com.baidu.adp.lib.util.BdLog;
+import d.b.c.e.d.l;
+/* loaded from: classes.dex */
+public abstract class d<T> implements k<T> {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final boolean f42175a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final e f42176b;
+
+    public d(e eVar, boolean z) {
+        this.f42176b = eVar;
+        this.f42175a = z;
+    }
+
+    @Override // d.b.c.e.d.k
+    public e b() {
+        return this.f42176b;
+    }
+
+    @Override // d.b.c.e.d.k
+    public void c(String str, String str2) {
+        l(h(str, str2));
+    }
+
+    @Override // d.b.c.e.d.k
+    public l.b<T> d(String str, String str2) {
+        g<T> k = k(str, str2);
+        if (k == null) {
+            return null;
+        }
+        l.b<T> bVar = new l.b<>();
+        bVar.f42198a = str2;
+        bVar.f42199b = k.f42182b;
+        long j = k.f42186f;
+        bVar.f42200c = k.f42184d;
+        return bVar;
+    }
+
+    @Override // d.b.c.e.d.k
+    public T e(String str, String str2) {
+        g<T> k = k(str, str2);
+        if (k == null) {
+            return null;
+        }
+        return k.f42182b;
+    }
+
+    @Override // d.b.c.e.d.k
+    public void f(String str, String str2, T t, long j) {
+        g<T> gVar = new g<>();
+        gVar.f42181a = h(str, str2);
+        gVar.f42183c = str;
+        gVar.f42186f = j;
+        gVar.f42182b = t;
+        gVar.f42185e = System.currentTimeMillis();
+        gVar.f42184d = System.currentTimeMillis();
+        j(gVar);
+    }
+
+    public String h(String str, String str2) {
+        if (this.f42175a) {
+            return str + "@" + str2;
+        }
+        return str2;
+    }
+
+    public abstract g<T> i(String str);
+
+    public abstract void j(g<T> gVar);
+
+    public g<T> k(String str, String str2) {
+        String h2 = h(str, str2);
+        g<T> i = i(h2);
+        if (i == null) {
+            BdLog.isDebugMode();
+            return null;
+        } else if (i.f42186f < System.currentTimeMillis()) {
+            m(h2);
+            BdLog.isDebugMode();
+            return null;
+        } else {
+            if (this.f42176b.b()) {
+                i.f42185e = System.currentTimeMillis();
+                j(i);
+            }
+            BdLog.isDebugMode();
+            return i;
+        }
+    }
+
+    public abstract void l(String str);
+
+    public abstract void m(String str);
+}

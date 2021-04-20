@@ -2,49 +2,48 @@ package com.sdk.base.framework.a;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public final class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f38458c = 60000;
+    public static long f38747c = 60000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f38459d;
+    public static final ConcurrentHashMap<String, Boolean> f38748d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.sdk.base.framework.a.a.c<String, String> f38460a;
+    public final com.sdk.base.framework.a.a.c<String, String> f38749a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38461b;
+    public int f38750b;
 
     static {
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f38459d = concurrentHashMap;
-        concurrentHashMap.put(j.f38481a.toString(), Boolean.TRUE);
+        f38748d = concurrentHashMap;
+        concurrentHashMap.put(j.f38770a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
 
     public d() {
-        this(LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP, 60000L);
+        this(102400, 60000L);
     }
 
     public d(int i, long j) {
-        this.f38461b = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
-        this.f38461b = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
-        f38458c = 60000L;
-        this.f38460a = new e(this, LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP);
+        this.f38750b = 102400;
+        this.f38750b = 102400;
+        f38747c = 60000L;
+        this.f38749a = new e(this, 102400);
     }
 
     public static long a() {
-        return f38458c;
+        return f38747c;
     }
 
     @SuppressLint({"DefaultLocale"})
     public static boolean b(String str) {
         Boolean bool;
-        if (TextUtils.isEmpty(str) || (bool = f38459d.get(str.toUpperCase())) == null) {
+        if (TextUtils.isEmpty(str) || (bool = f38748d.get(str.toUpperCase())) == null) {
             return false;
         }
         return bool.booleanValue();
@@ -52,7 +51,7 @@ public final class d {
 
     public final String a(String str) {
         if (str != null) {
-            return this.f38460a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+            return this.f38749a.a((com.sdk.base.framework.a.a.c<String, String>) str);
         }
         return null;
     }
@@ -61,6 +60,6 @@ public final class d {
         if (str == null || str2 == null || j < 1) {
             return;
         }
-        this.f38460a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f38749a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

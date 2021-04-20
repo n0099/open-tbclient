@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.q.a2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -59,28 +59,28 @@ public class ShareItem {
     public Bundle z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13712a = false;
+    public boolean f13373a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13713b = false;
+    public boolean f13374b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13714c = false;
+    public boolean f13375c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13715d = false;
+    public boolean f13376d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13716e = false;
+    public boolean f13377e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13717f = false;
+    public boolean f13378f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13718g = false;
+    public boolean f13379g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13719h = false;
+    public boolean f13380h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -285,18 +285,18 @@ public class ShareItem {
                 }
                 forwardInfo.showText = a2Var.r1.c();
                 OriginalThreadInfo originalThreadInfo = a2Var.r1;
-                forwardInfo.showPicUrl = originalThreadInfo.f13213c;
-                forwardInfo.showType = originalThreadInfo.f13211a;
+                forwardInfo.showPicUrl = originalThreadInfo.f12874c;
+                forwardInfo.showType = originalThreadInfo.f12872a;
                 forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                forwardInfo.originalTid = originalThreadInfo.f13216f;
+                forwardInfo.originalTid = originalThreadInfo.f12877f;
                 if (i == 1) {
-                    if (postData != null && postData.J() != null) {
-                        str = postData.J().toString();
+                    if (postData != null && postData.K() != null) {
+                        str = postData.K().toString();
                     } else if (a2Var.C() != null) {
                         str = a2Var.D().toString();
                     }
-                } else if (a2Var.F2() != null) {
-                    str = a2Var.F2().toString();
+                } else if (a2Var.G2() != null) {
+                    str = a2Var.G2().toString();
                 }
                 if (!TextUtils.isEmpty(str)) {
                     forwardInfo.transmitOriginThreadComment = str;
@@ -304,8 +304,8 @@ public class ShareItem {
                 if (a2Var.T() != null && !TextUtils.isEmpty(a2Var.T().getName_show())) {
                     forwardInfo.transmitThreadAuthorNameShow = a2Var.T().getName_show();
                 }
-                if (i == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
-                    forwardInfo.transmitThreadAuthorNameShow = postData.s().getName_show();
+                if (i == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
+                    forwardInfo.transmitThreadAuthorNameShow = postData.t().getName_show();
                 }
                 if (i == 2 && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                     forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
@@ -317,8 +317,8 @@ public class ShareItem {
                 OriginalThreadInfo i2 = OriginalThreadInfo.i(a2Var);
                 if (i2 != null) {
                     forwardInfo.showText = i2.c();
-                    forwardInfo.showPicUrl = i2.f13213c;
-                    forwardInfo.showType = i2.f13211a;
+                    forwardInfo.showPicUrl = i2.f12874c;
+                    forwardInfo.showType = i2.f12872a;
                 }
                 forwardInfo.originalTid = a2Var.w1();
             }

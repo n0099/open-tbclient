@@ -27,8 +27,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -46,7 +46,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public ImageView mSearchIcon;
     public EditText mSearchbox;
     public View.OnClickListener mOnClickListener = new a();
-    public d.b.b.c.g.a mDataResListener = new b(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
+    public d.b.c.c.g.a mDataResListener = new b(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641);
     public TextView.OnEditorActionListener mOnEditorActionListener = new c();
     public HttpMessageListener mVoteListener = new d(CmdConfigHttp.CMD_BAR_VOTE);
     public TextWatcher mTextWatcher = new e();
@@ -74,12 +74,12 @@ public class CandidateSearchActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.b.b.c.g.a {
+    public class b extends d.b.c.c.g.a {
         public b(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -119,7 +119,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             if (i == 3) {
                 if (CandidateSearchActivity.this.mSearchbox.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.mSearchbox.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
-                    CandidateSearchActivity.this.mModel.a(d.b.b.e.m.b.d(CandidateSearchActivity.this.mSearchbox.getText().toString(), 0), d.b.b.e.m.b.f(CandidateSearchActivity.this.mForumId, 0L));
+                    CandidateSearchActivity.this.mModel.a(d.b.c.e.m.b.d(CandidateSearchActivity.this.mSearchbox.getText().toString(), 0), d.b.c.e.m.b.f(CandidateSearchActivity.this.mForumId, 0L));
                 }
                 return true;
             }
@@ -148,10 +148,10 @@ public class CandidateSearchActivity extends BaseActivity {
                     }
                 }
             } else if (error == 3250023) {
-                d.b.i0.c3.n0.f.b(error, "", null);
+                d.b.i0.d3.n0.f.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    d.b.i0.c3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    d.b.i0.d3.n0.f.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 l.L(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -250,13 +250,13 @@ public class CandidateSearchActivity extends BaseActivity {
         registerListener(this.mDataResListener);
         registerListener(this.mVoteListener);
         this.mModel = new d.b.i0.v.d.a(getPageContext());
-        d.b.b.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
+        d.b.c.e.m.e.a().postDelayed(this.mShowKeyboardRunnable, 100L);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.b.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
+        d.b.c.e.m.e.a().removeCallbacks(this.mShowKeyboardRunnable);
     }
 
     public void setDelButtonVisible(boolean z) {

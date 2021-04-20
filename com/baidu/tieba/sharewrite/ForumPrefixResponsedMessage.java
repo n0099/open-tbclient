@@ -3,7 +3,7 @@ package com.baidu.tieba.sharewrite;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumPrefixResponsedMessage extends JsonHttpResponsedMessage {
     public PostPrefixData data;
     public boolean hasPostpre;

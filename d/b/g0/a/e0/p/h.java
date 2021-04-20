@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44185a = d.b.g0.a.k.f45051a;
+    public static final boolean f44577a = d.b.g0.a.k.f45443a;
 
     public static void a(Message message) {
         if (message != null) {
@@ -27,7 +27,7 @@ public class h {
                     try {
                         jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
                     } catch (JSONException e2) {
-                        if (f44185a) {
+                        if (f44577a) {
                             e2.printStackTrace();
                         }
                     }
@@ -72,7 +72,7 @@ public class h {
     }
 
     public static void e(String str) {
-        if (f44185a) {
+        if (f44577a) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         d("updateReady", str, null);

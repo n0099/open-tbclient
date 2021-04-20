@@ -9,11 +9,11 @@ import java.util.List;
 import tbclient.CommonReq;
 import tbclient.SubTagList.DataReq;
 import tbclient.SubTagList.SubTagListReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestSubLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f18484common;
+    public CommonReq f18161common;
     public List<Integer> labelList;
 
     public RequestSubLabelMessage() {
@@ -23,7 +23,7 @@ public class RequestSubLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f68633common = this.f18484common;
+        builder.f69641common = this.f18161common;
         builder.arr_tag_id = this.labelList;
         if (z) {
             w.a(builder, true);
@@ -34,7 +34,7 @@ public class RequestSubLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f18484common = commonReq;
+        this.f18161common = commonReq;
     }
 
     public void setLabelList(List<Integer> list) {

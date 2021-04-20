@@ -149,19 +149,19 @@ public class U extends Thread {
             }
             if (!sMonitorNetworkWhenUpgradeNoNet) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                MyReceiver myReceiver = d.f11754g;
+                MyReceiver myReceiver = d.f11415g;
                 if (myReceiver == null) {
-                    d.f11754g = new MyReceiver().a();
+                    d.f11415g = new MyReceiver().a();
                 } else {
                     myReceiver.a();
                 }
-                d.a(this.context, d.f11754g, intentFilter);
+                d.a(this.context, d.f11415g, intentFilter);
                 sMonitorNetworkWhenUpgradeNoNet = true;
             }
         }
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = this.preference;
-        long j = eVar.f11729a.getLong("pu_ap_fd", 0L);
+        long j = eVar.f11390a.getLong("pu_ap_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
             eVar.d();
@@ -457,12 +457,12 @@ public class U extends Thread {
                         return;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.f11754g == null) {
-                        d.f11754g = new MyReceiver().a();
+                    if (d.f11415g == null) {
+                        d.f11415g = new MyReceiver().a();
                     } else {
-                        d.f11754g.a();
+                        d.f11415g.a();
                     }
-                    d.a(this.context, d.f11754g, intentFilter);
+                    d.a(this.context, d.f11415g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             } catch (Throwable unused3) {
@@ -513,7 +513,7 @@ public class U extends Thread {
             }
             Map<Integer, String> b2 = this.loadedPluginDB.b();
             hashMap.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, b2.keySet());
-            hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, b2.values());
+            hashMap.put("10", b2.values());
             hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Integer.valueOf(this.mEndReason));
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, str.replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
@@ -526,41 +526,58 @@ public class U extends Thread {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00e6 A[Catch: all -> 0x00ff, TryCatch #2 {all -> 0x00ff, blocks: (B:26:0x00ce, B:28:0x00e6, B:29:0x00f6), top: B:34:0x00ce }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00e7 A[Catch: all -> 0x0100, TryCatch #0 {all -> 0x0100, blocks: (B:26:0x00cf, B:28:0x00e7, B:29:0x00f7), top: B:33:0x00cf }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void handleThreadStart() {
         try {
             try {
-                long j = this.preference.f11729a.getLong("slruct", 0L);
-                long currentTimeMillis = System.currentTimeMillis();
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i > 0 && currentTimeMillis - j > 86400000) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("1", Integer.valueOf(this.preference.t()));
-                    this.preference.f(0);
-                    JSONObject jSONObject = new JSONObject();
-                    for (int i2 = 1; i2 <= 6; i2++) {
-                        jSONObject.put(String.valueOf(i2), this.preference.a(0, i2));
-                        this.preference.a(0, i2, 0);
+                try {
+                    long j = this.preference.f11390a.getLong("slruct", 0L);
+                    long currentTimeMillis = System.currentTimeMillis();
+                    int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    if (i > 0 && currentTimeMillis - j > 86400000) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("1", Integer.valueOf(this.preference.t()));
+                        this.preference.f(0);
+                        JSONObject jSONObject = new JSONObject();
+                        for (int i2 = 1; i2 <= 6; i2++) {
+                            jSONObject.put(String.valueOf(i2), this.preference.a(0, i2));
+                            this.preference.a(0, i2, 0);
+                        }
+                        hashMap.put("2", jSONObject);
+                        hashMap.put("3", Integer.valueOf(this.preference.u()));
+                        this.preference.g(0);
+                        JSONObject jSONObject2 = new JSONObject();
+                        for (int i3 = 1; i3 <= 11; i3++) {
+                            jSONObject2.put(String.valueOf(i3), this.preference.a(1, i3));
+                            this.preference.a(1, i3, 0);
+                        }
+                        hashMap.put("4", jSONObject2);
+                        d.a(this.context, "1003128", (Map<String, Object>) hashMap, false);
+                        this.preference.a(currentTimeMillis);
+                    } else if (i == 0) {
+                        this.preference.a(currentTimeMillis);
                     }
-                    hashMap.put("2", jSONObject);
-                    hashMap.put("3", Integer.valueOf(this.preference.u()));
-                    this.preference.g(0);
-                    JSONObject jSONObject2 = new JSONObject();
-                    for (int i3 = 1; i3 <= 11; i3++) {
-                        jSONObject2.put(String.valueOf(i3), this.preference.a(1, i3));
-                        this.preference.a(1, i3, 0);
+                } catch (Throwable unused) {
+                    d.a();
+                    d.a();
+                    this.mStartKeyMap = this.loadedPluginDB.b();
+                    this.preference.f(this.preference.t() + 1);
+                    if (this.mFrom != 0) {
                     }
-                    hashMap.put("4", jSONObject2);
-                    d.a(this.context, "1003128", (Map<String, Object>) hashMap, false);
-                    this.preference.a(currentTimeMillis);
-                } else if (i == 0) {
-                    this.preference.a(currentTimeMillis);
+                    this.mStartNetwork = d.l(this.context);
                 }
-            } catch (Throwable unused) {
-                d.a();
+            } catch (Throwable unused2) {
+                this.preference.f(0);
+                this.preference.g(0);
+                for (int i4 = 1; i4 <= 6; i4++) {
+                    this.preference.a(0, i4, 0);
+                }
+                for (int i5 = 1; i5 <= 11; i5++) {
+                    this.preference.a(1, i5, 0);
+                }
                 d.a();
                 this.mStartKeyMap = this.loadedPluginDB.b();
                 this.preference.f(this.preference.t() + 1);
@@ -568,23 +585,6 @@ public class U extends Thread {
                 }
                 this.mStartNetwork = d.l(this.context);
             }
-        } catch (Throwable unused2) {
-            this.preference.f(0);
-            this.preference.g(0);
-            for (int i4 = 1; i4 <= 6; i4++) {
-                this.preference.a(0, i4, 0);
-            }
-            for (int i5 = 1; i5 <= 11; i5++) {
-                this.preference.a(1, i5, 0);
-            }
-            d.a();
-            this.mStartKeyMap = this.loadedPluginDB.b();
-            this.preference.f(this.preference.t() + 1);
-            if (this.mFrom != 0) {
-            }
-            this.mStartNetwork = d.l(this.context);
-        }
-        try {
             this.mStartKeyMap = this.loadedPluginDB.b();
             this.preference.f(this.preference.t() + 1);
             if (this.mFrom != 0) {
@@ -658,18 +658,18 @@ public class U extends Thread {
         start();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:217:0x04e9  */
-    /* JADX WARN: Removed duplicated region for block: B:218:0x04eb  */
-    /* JADX WARN: Removed duplicated region for block: B:226:0x0503  */
-    /* JADX WARN: Removed duplicated region for block: B:227:0x0505  */
-    /* JADX WARN: Removed duplicated region for block: B:230:0x050a A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:233:0x0514 A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:236:0x052c A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:252:0x0596  */
-    /* JADX WARN: Removed duplicated region for block: B:255:0x05c8 A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:258:0x05df A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:260:0x05e4 A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
-    /* JADX WARN: Removed duplicated region for block: B:286:0x067e A[Catch: all -> 0x089c, TryCatch #13 {, blocks: (B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0136, B:60:0x013f, B:63:0x014e, B:65:0x0152, B:66:0x0154, B:68:0x0162, B:70:0x0170, B:74:0x017c, B:76:0x0186, B:78:0x018a, B:83:0x019d, B:85:0x01a5, B:86:0x01ad, B:88:0x01b1, B:90:0x01b5, B:92:0x01b9, B:94:0x01bd, B:99:0x01db, B:101:0x01e6, B:103:0x01f7, B:105:0x0204, B:107:0x0208, B:108:0x020d, B:109:0x0210, B:110:0x0217, B:102:0x01f2, B:96:0x01c1, B:98:0x01cd, B:111:0x0218, B:113:0x022a, B:127:0x02b2, B:128:0x02b4, B:130:0x02f9, B:132:0x02fd, B:133:0x0301, B:134:0x0308, B:135:0x0309, B:137:0x030d, B:138:0x0311, B:140:0x0317, B:142:0x0332, B:143:0x033b, B:145:0x0350, B:146:0x0354, B:148:0x0367, B:149:0x036e, B:151:0x0374, B:153:0x037a, B:155:0x0381, B:156:0x0385, B:160:0x0391, B:164:0x039f, B:166:0x03a7, B:168:0x03bc, B:172:0x03d5, B:214:0x04d4, B:215:0x04d8, B:219:0x04ec, B:224:0x04fa, B:228:0x0506, B:230:0x050a, B:231:0x050c, B:233:0x0514, B:234:0x0524, B:236:0x052c, B:240:0x0539, B:242:0x0559, B:244:0x0561, B:246:0x056b, B:247:0x0579, B:249:0x057f, B:250:0x058e, B:253:0x0599, B:255:0x05c8, B:256:0x05d9, B:258:0x05df, B:260:0x05e4, B:262:0x05f4, B:264:0x05f8, B:266:0x05fc, B:269:0x060c, B:271:0x0612, B:272:0x061b, B:275:0x0627, B:276:0x0646, B:278:0x064f, B:285:0x067a, B:281:0x0660, B:283:0x0668, B:284:0x0675, B:286:0x067e, B:288:0x0689, B:290:0x069e, B:292:0x06a6, B:293:0x06ab, B:294:0x06ba, B:296:0x06c0, B:298:0x06d0, B:300:0x06d4, B:301:0x06df, B:303:0x06e9, B:304:0x0710, B:306:0x0716, B:308:0x0720, B:309:0x0727, B:310:0x072a, B:311:0x073e, B:313:0x0744, B:315:0x0750, B:317:0x0758, B:319:0x0763, B:321:0x0769, B:324:0x0773, B:326:0x0786, B:327:0x0789, B:329:0x07b3, B:330:0x07b6, B:336:0x0812, B:331:0x07be, B:333:0x07d1, B:335:0x07f4, B:342:0x0830, B:337:0x081d, B:339:0x0823, B:341:0x082d, B:343:0x0834, B:358:0x0852, B:360:0x0857, B:362:0x085b, B:368:0x0883, B:370:0x0887, B:372:0x088c, B:373:0x0893, B:374:0x0894, B:375:0x089b, B:364:0x0860, B:366:0x0871, B:367:0x087c, B:62:0x0143, B:116:0x024f, B:117:0x025e, B:119:0x026e, B:124:0x0297, B:120:0x0273, B:123:0x027f, B:45:0x006a, B:51:0x0126, B:46:0x011a, B:220:0x04ee, B:80:0x018e), top: B:432:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:217:0x04eb  */
+    /* JADX WARN: Removed duplicated region for block: B:218:0x04ed  */
+    /* JADX WARN: Removed duplicated region for block: B:226:0x0505  */
+    /* JADX WARN: Removed duplicated region for block: B:227:0x0507  */
+    /* JADX WARN: Removed duplicated region for block: B:230:0x050c A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:233:0x0516 A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:236:0x052e A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:252:0x0598  */
+    /* JADX WARN: Removed duplicated region for block: B:255:0x05ca A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:258:0x05e1 A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:260:0x05e6 A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:286:0x0680 A[Catch: all -> 0x089e, TryCatch #21 {, blocks: (B:348:0x0842, B:350:0x0846, B:352:0x084a, B:5:0x0004, B:7:0x0008, B:11:0x000e, B:31:0x0049, B:33:0x004d, B:35:0x0051, B:16:0x0017, B:344:0x0837, B:346:0x083b, B:347:0x083e, B:17:0x0018, B:19:0x0028, B:21:0x002c, B:23:0x0030, B:25:0x0034, B:27:0x003f, B:29:0x0043, B:30:0x0048, B:41:0x005a, B:43:0x0062, B:44:0x0068, B:58:0x0137, B:60:0x0140, B:63:0x014f, B:65:0x0153, B:66:0x0155, B:68:0x0163, B:70:0x0171, B:74:0x017d, B:76:0x0187, B:78:0x018b, B:82:0x019b, B:83:0x019e, B:85:0x01a6, B:86:0x01ae, B:88:0x01b2, B:90:0x01b6, B:92:0x01ba, B:94:0x01be, B:99:0x01dc, B:101:0x01e7, B:103:0x01f8, B:105:0x0205, B:107:0x0209, B:108:0x020e, B:109:0x0211, B:110:0x0218, B:102:0x01f3, B:96:0x01c2, B:98:0x01ce, B:111:0x0219, B:113:0x022b, B:127:0x02b3, B:126:0x02b0, B:128:0x02b5, B:130:0x02fa, B:132:0x02fe, B:133:0x0302, B:134:0x0309, B:135:0x030a, B:137:0x030e, B:138:0x0312, B:140:0x0318, B:142:0x0333, B:143:0x033c, B:145:0x0352, B:146:0x0356, B:148:0x0369, B:149:0x0370, B:151:0x0376, B:153:0x037c, B:155:0x0383, B:156:0x0387, B:160:0x0393, B:164:0x03a1, B:166:0x03a9, B:168:0x03be, B:172:0x03d7, B:214:0x04d6, B:215:0x04da, B:219:0x04ee, B:224:0x04fc, B:228:0x0508, B:230:0x050c, B:231:0x050e, B:233:0x0516, B:234:0x0526, B:236:0x052e, B:240:0x053b, B:242:0x055b, B:244:0x0563, B:246:0x056d, B:247:0x057b, B:249:0x0581, B:250:0x0590, B:253:0x059b, B:255:0x05ca, B:256:0x05db, B:258:0x05e1, B:260:0x05e6, B:262:0x05f6, B:264:0x05fa, B:266:0x05fe, B:269:0x060e, B:271:0x0614, B:272:0x061d, B:275:0x0629, B:276:0x0648, B:278:0x0651, B:285:0x067c, B:281:0x0662, B:283:0x066a, B:284:0x0677, B:286:0x0680, B:288:0x068b, B:223:0x04fa, B:290:0x06a0, B:292:0x06a8, B:293:0x06ad, B:294:0x06bc, B:296:0x06c2, B:298:0x06d2, B:300:0x06d6, B:301:0x06e1, B:303:0x06eb, B:304:0x0712, B:306:0x0718, B:308:0x0722, B:309:0x0729, B:310:0x072c, B:311:0x0740, B:313:0x0746, B:315:0x0752, B:317:0x075a, B:319:0x0765, B:321:0x076b, B:324:0x0775, B:326:0x0788, B:327:0x078b, B:329:0x07b5, B:330:0x07b8, B:336:0x0814, B:331:0x07c0, B:333:0x07d3, B:335:0x07f6, B:342:0x0832, B:337:0x081f, B:339:0x0825, B:341:0x082f, B:343:0x0836, B:358:0x0854, B:360:0x0859, B:362:0x085d, B:368:0x0885, B:370:0x0889, B:372:0x088e, B:373:0x0895, B:374:0x0896, B:375:0x089d, B:364:0x0862, B:366:0x0873, B:367:0x087e, B:62:0x0144, B:57:0x0134), top: B:430:0x0004 }] */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -716,33 +716,37 @@ public class U extends Thread {
                 sLastCheckTime = System.currentTimeMillis();
             }
             Context context = this.context;
-            e eVar = new e(context);
-            long s = eVar.s() * VideoCloudSetting.HOUR_MILLISECOND;
-            new StringBuilder("sjh-alarm gap ").append(eVar.s());
-            com.baidu.sofire.b.a();
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
-            intent.setClass(context, MyService.class);
-            intent.setPackage(context.getPackageName());
-            intent.addCategory("com.baidu.category.SOFIRE");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.putExtra("from_plugin_package", context.getPackageName());
-            intent.putExtra("target_class", U.class.getCanonicalName());
-            intent.putExtra("target_method", "handleWork");
-            intent.putExtra("from", 6);
-            PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
-            long currentTimeMillis = ((System.currentTimeMillis() + s) - 600000) + ((long) (1200000.0d * Math.random()));
-            eVar.f11731c.putLong("npuct", currentTimeMillis);
-            eVar.f11731c.commit();
-            StringBuilder sb = new StringBuilder("b=false,");
-            sb.append(currentTimeMillis);
-            sb.append(",");
-            sb.append(s);
-            sb.append(",");
-            sb.append(System.currentTimeMillis());
-            com.baidu.sofire.b.a();
-            alarmManager.cancel(service);
-            alarmManager.set(1, currentTimeMillis, service);
+            try {
+                e eVar = new e(context);
+                long s = eVar.s() * VideoCloudSetting.HOUR_MILLISECOND;
+                new StringBuilder("sjh-alarm gap ").append(eVar.s());
+                com.baidu.sofire.b.a();
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
+                intent.setClass(context, MyService.class);
+                intent.setPackage(context.getPackageName());
+                intent.addCategory("com.baidu.category.SOFIRE");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.putExtra("from_plugin_package", context.getPackageName());
+                intent.putExtra("target_class", U.class.getCanonicalName());
+                intent.putExtra("target_method", "handleWork");
+                intent.putExtra("from", 6);
+                PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
+                long currentTimeMillis = ((System.currentTimeMillis() + s) - 600000) + ((long) (1200000.0d * Math.random()));
+                eVar.f11392c.putLong("npuct", currentTimeMillis);
+                eVar.f11392c.commit();
+                StringBuilder sb = new StringBuilder("b=false,");
+                sb.append(currentTimeMillis);
+                sb.append(",");
+                sb.append(s);
+                sb.append(",");
+                sb.append(System.currentTimeMillis());
+                com.baidu.sofire.b.a();
+                alarmManager.cancel(service);
+                alarmManager.set(1, currentTimeMillis, service);
+            } catch (Throwable unused) {
+                d.a();
+            }
             i.a(this.context);
             if (this.mFrom == 1 || this.mFrom == 3) {
                 sRetryPingTimesCount = 0;
@@ -756,11 +760,15 @@ public class U extends Thread {
             boolean z3 = "com.baidu.input_huawei".equals(this.context.getPackageName()) ? !new e(this.context).y() : false;
             if (d.g(this.context) && !z3) {
                 sLastCheckTime = System.currentTimeMillis();
-                if (d.f11754g != null && (sMonitorNetworkWhenUpgradeNoNet || d.f11748a)) {
-                    this.context.getApplicationContext().unregisterReceiver(d.f11754g);
+                if (d.f11415g != null && (sMonitorNetworkWhenUpgradeNoNet || d.f11409a)) {
+                    try {
+                        this.context.getApplicationContext().unregisterReceiver(d.f11415g);
+                    } catch (Throwable unused2) {
+                        d.a();
+                    }
                 }
                 sMonitorNetworkWhenUpgradeNoNet = false;
-                d.f11748a = false;
+                d.f11409a = false;
                 if (this.mFrom != 1) {
                     this.mWholeJson = d.p(this.context);
                 }
@@ -771,16 +779,16 @@ public class U extends Thread {
                         sRetryPingTimesCount++;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.f11754g == null) {
-                        d.f11754g = new MyReceiver().a();
+                    if (d.f11415g == null) {
+                        d.f11415g = new MyReceiver().a();
                     } else {
-                        d.f11754g.a();
+                        d.f11415g.a();
                     }
-                    d.a(this.context, d.f11754g, intentFilter);
+                    d.a(this.context, d.f11415g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                     if (this.mEndReason == 0) {
-                        if (d.f11751d != 0) {
-                            this.mEndReason = d.f11751d;
+                        if (d.f11412d != 0) {
+                            this.mEndReason = d.f11412d;
                         } else {
                             this.mEndReason = 4;
                         }
@@ -792,30 +800,34 @@ public class U extends Thread {
                 this.loadedPluginDB.d();
                 if (!sPidRegister) {
                     e eVar2 = this.preference;
-                    eVar2.f11731c.putInt("pdcg", this.preference.f11729a.getInt("pdcg", 0) + 1);
-                    eVar2.f11731c.commit();
+                    eVar2.f11392c.putInt("pdcg", this.preference.f11390a.getInt("pdcg", 0) + 1);
+                    eVar2.f11392c.commit();
                     e eVar3 = this.preference;
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    if (currentTimeMillis2 == 0) {
-                        eVar3.f11731c.putString("pdcgts", "");
-                        eVar3.f11731c.commit();
-                    } else {
-                        String string = eVar3.f11729a.getString("pdcgts", "");
-                        if (TextUtils.isEmpty(string)) {
-                            str3 = String.valueOf(currentTimeMillis2);
-                        } else if (string.split("_").length < 20) {
-                            str3 = string + "_" + String.valueOf(currentTimeMillis2);
+                    try {
+                        if (currentTimeMillis2 == 0) {
+                            eVar3.f11392c.putString("pdcgts", "");
+                            eVar3.f11392c.commit();
+                        } else {
+                            String string = eVar3.f11390a.getString("pdcgts", "");
+                            if (TextUtils.isEmpty(string)) {
+                                str3 = String.valueOf(currentTimeMillis2);
+                            } else if (string.split("_").length < 20) {
+                                str3 = string + "_" + String.valueOf(currentTimeMillis2);
+                            }
+                            new StringBuilder().append(str3);
+                            com.baidu.sofire.b.a();
+                            eVar3.f11392c.putString("pdcgts", str3);
+                            eVar3.f11392c.commit();
                         }
-                        new StringBuilder().append(str3);
-                        com.baidu.sofire.b.a();
-                        eVar3.f11731c.putString("pdcgts", str3);
-                        eVar3.f11731c.commit();
+                    } catch (Throwable unused3) {
+                        d.a();
                     }
                     sPidRegister = true;
                 }
                 e eVar4 = this.preference;
-                eVar4.f11731c.putInt("rtqe", this.preference.f11729a.getInt("rtqe", 0) + 1);
-                eVar4.f11731c.commit();
+                eVar4.f11392c.putInt("rtqe", this.preference.f11390a.getInt("rtqe", 0) + 1);
+                eVar4.f11392c.commit();
                 List<ApkInfo> a2 = this.loadedPluginDB.a();
                 new StringBuilder("a=").append(a2);
                 com.baidu.sofire.b.a();
@@ -858,16 +870,16 @@ public class U extends Thread {
                         boolean z4 = optJSONObject4.optInt(Config.OS) == 1;
                         JSONObject jSONObject = optJSONObject3;
                         boolean z5 = optJSONObject4.optInt("d") == 1;
-                        int optInt2 = optJSONObject4.optInt(r.f7664a);
+                        int optInt2 = optJSONObject4.optInt(r.f7699a);
                         if (z4) {
                             it = keys;
                             e eVar5 = this.preference;
                             arrayList = arrayList6;
                             arrayList2 = arrayList7;
                             str = optString4;
-                            if (optInt2 > eVar5.f11729a.getInt("opi", 0)) {
-                                eVar5.f11731c.putInt("opi", optInt2);
-                                eVar5.f11731c.commit();
+                            if (optInt2 > eVar5.f11390a.getInt("opi", 0)) {
+                                eVar5.f11392c.putInt("opi", optInt2);
+                                eVar5.f11392c.commit();
                             }
                         } else {
                             arrayList = arrayList6;
@@ -917,14 +929,14 @@ public class U extends Thread {
                                                             if (activityInfo.name.startsWith(".")) {
                                                                 activityInfo.name = next + activityInfo.name;
                                                             }
-                                                        } catch (Throwable unused) {
+                                                        } catch (Throwable unused4) {
                                                             try {
                                                                 d.a();
                                                                 continue;
                                                                 i++;
                                                                 optJSONArray = jSONArray;
                                                                 arrayList8 = arrayList3;
-                                                            } catch (Throwable unused2) {
+                                                            } catch (Throwable unused5) {
                                                                 d.a();
                                                                 packageInfo = null;
                                                                 apkInfo = new ApkInfo(optInt, next, optString, optString2, optString3);
@@ -972,7 +984,7 @@ public class U extends Thread {
                                                         arrayList9.add(activityInfo);
                                                         continue;
                                                     }
-                                                } catch (Throwable unused3) {
+                                                } catch (Throwable unused6) {
                                                     arrayList3 = arrayList8;
                                                     d.a();
                                                     continue;
@@ -985,7 +997,7 @@ public class U extends Thread {
                                                 arrayList3 = arrayList8;
                                                 continue;
                                             }
-                                        } catch (Throwable unused4) {
+                                        } catch (Throwable unused7) {
                                             jSONArray = optJSONArray;
                                         }
                                         i++;
@@ -997,12 +1009,16 @@ public class U extends Thread {
                                         packageInfo.activities = (ActivityInfo[]) arrayList9.toArray(new ActivityInfo[arrayList9.size()]);
                                     }
                                 }
-                            } catch (Throwable unused5) {
+                            } catch (Throwable unused8) {
                                 arrayList3 = arrayList8;
                             }
                             apkInfo = new ApkInfo(optInt, next, optString, optString2, optString3);
                             apkInfo.isOnce = !z4 ? 1 : 0;
-                            apkInfo.priority = optJSONObject4.getInt(Config.PRINCIPAL_PART);
+                            try {
+                                apkInfo.priority = optJSONObject4.getInt(Config.PRINCIPAL_PART);
+                            } catch (Throwable unused9) {
+                                apkInfo.priority = -1;
+                            }
                             apkInfo.isMem = optJSONObject4.optInt("mem") != 1;
                             if (packageInfo != null) {
                                 apkInfo.cloudPkgInfo = packageInfo;
@@ -1056,7 +1072,7 @@ public class U extends Thread {
                             }
                             if (indexOf < 0) {
                                 ApkInfo apkInfo3 = a2.get(indexOf);
-                                if (d.b(apkInfo.versionName, apkInfo3.versionName) && (c.f11661d == null || ((c.f11661d != null && !c.f11661d.contains(Integer.valueOf(apkInfo.key))) || z2))) {
+                                if (d.b(apkInfo.versionName, apkInfo3.versionName) && (c.f11322d == null || ((c.f11322d != null && !c.f11322d.contains(Integer.valueOf(apkInfo.key))) || z2))) {
                                     if (apkInfo3.priority != apkInfo.priority) {
                                         this.loadedPluginDB.c(apkInfo.key, apkInfo.priority);
                                     }
@@ -1108,8 +1124,8 @@ public class U extends Thread {
                 ArrayList arrayList10 = arrayList7;
                 ArrayList arrayList11 = arrayList8;
                 ArrayList arrayList12 = arrayList6;
-                if (c.f11661d != null) {
-                    c.f11661d.clear();
+                if (c.f11322d != null) {
+                    c.f11322d.clear();
                 }
                 new StringBuilder().append(a2);
                 com.baidu.sofire.b.a();
@@ -1220,10 +1236,10 @@ public class U extends Thread {
                 com.baidu.sofire.b.a();
                 sMonitorNetworkWhenUpgradeNoNet = true;
                 IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (d.f11754g == null) {
-                    d.f11754g = new MyReceiver().a();
+                if (d.f11415g == null) {
+                    d.f11415g = new MyReceiver().a();
                 }
-                d.a(this.context, d.f11754g, intentFilter2);
+                d.a(this.context, d.f11415g, intentFilter2);
             }
             if (this.mEndReason == 0) {
                 this.mEndReason = 3;

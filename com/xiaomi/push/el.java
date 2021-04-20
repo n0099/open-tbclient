@@ -12,7 +12,7 @@ import com.xiaomi.mipush.sdk.MiPushMessage;
 public class el {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile el f40445a;
+    public static volatile el f40734a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f318a;
@@ -22,14 +22,14 @@ public class el {
     }
 
     public static el a(Context context) {
-        if (f40445a == null) {
+        if (f40734a == null) {
             synchronized (el.class) {
-                if (f40445a == null) {
-                    f40445a = new el(context);
+                if (f40734a == null) {
+                    f40734a = new el(context);
                 }
             }
         }
-        return f40445a;
+        return f40734a;
     }
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
@@ -54,14 +54,14 @@ public class el {
         if (intent == null) {
             return;
         }
-        a(str, ek.m267a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+        a(str, ek.m271a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, ek.m267a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), ErrorCode.SERVER_JSON_PARSE_ERROR, System.currentTimeMillis(), str2);
+        a(str, ek.m271a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), ErrorCode.SERVER_JSON_PARSE_ERROR, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {

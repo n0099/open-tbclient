@@ -24,52 +24,52 @@ import d.b.h0.r.s.a;
 import d.b.h0.r.s.j;
 import d.b.h0.r.s.l;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public StrangerListActivity mActivity;
     public d.b.h0.r.s.a mDelAllDialog;
     public StrangerListModel mModel;
     public d.b.h0.r.s.c mProgressDialog;
-    public d.b.i0.e1.a.e.b mView;
+    public d.b.i0.f1.a.e.b mView;
     public a.e mDelAllClickListener = new b();
     public a.e mCancelClickListener = new c();
     public final CustomMessageListener mMemoryListener = new d(0);
-    public d.b.i0.d1.f.i.a mCompleteProcess = new e();
-    public final d.b.i0.d1.f.i.b IProcessImpl = new f();
+    public d.b.i0.e1.f.i.a mCompleteProcess = new e();
+    public final d.b.i0.e1.f.i.b IProcessImpl = new f();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f18286e;
+        public final /* synthetic */ j f17963e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18287f;
+        public final /* synthetic */ int f17964f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f18288g;
+        public final /* synthetic */ ImMessageCenterShowItemData f17965g;
 
         public a(j jVar, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-            this.f18286e = jVar;
-            this.f18287f = i;
-            this.f18288g = imMessageCenterShowItemData;
+            this.f17963e = jVar;
+            this.f17964f = i;
+            this.f17965g = imMessageCenterShowItemData;
         }
 
         @Override // d.b.h0.r.s.l.e
         public void onItemClick(l lVar, int i, View view) {
-            j jVar = this.f18286e;
+            j jVar = this.f17963e;
             if (jVar != null && jVar.isShowing()) {
-                this.f18286e.dismiss();
+                this.f17963e.dismiss();
             }
-            if (this.f18287f == 1) {
+            if (this.f17964f == 1) {
                 StrangerListActivity.this.mModel.s(StrangerListActivity.this.IProcessImpl);
             } else {
-                StrangerListActivity.this.mModel.asyncDeleteItem(this.f18288g, StrangerListActivity.this.IProcessImpl);
+                StrangerListActivity.this.mModel.asyncDeleteItem(this.f17965g, StrangerListActivity.this.IProcessImpl);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public b() {
         }
@@ -81,7 +81,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public c() {
         }
@@ -92,7 +92,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -119,41 +119,41 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements d.b.i0.d1.f.i.a {
+    /* loaded from: classes4.dex */
+    public class e implements d.b.i0.e1.f.i.a {
         public e() {
         }
 
-        @Override // d.b.i0.d1.f.i.a
+        @Override // d.b.i0.e1.f.i.a
         public void onComplete() {
             StrangerListActivity.this.onCompleteProcess();
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class f implements d.b.i0.d1.f.i.b {
+    /* loaded from: classes4.dex */
+    public class f implements d.b.i0.e1.f.i.b {
         public f() {
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onCanceled() {
             StrangerListActivity.this.dismissDialog();
             StrangerListActivity.this.onCompleteProcess();
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onPostExecute() {
             StrangerListActivity.this.dismissDialog();
             StrangerListActivity.this.showToast(R.string.delete_success, false);
             StrangerListActivity.this.onCompleteProcess();
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onPreExecute() {
             StrangerListActivity.this.showProgressDialog();
         }
 
-        @Override // d.b.i0.d1.f.i.b
+        @Override // d.b.i0.e1.f.i.b
         public void onProgressUpdate(int i, String str, int i2) {
             if (StrangerListActivity.this.mProgressDialog != null) {
                 StrangerListActivity.this.mProgressDialog.b(i);
@@ -178,7 +178,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     private void initUI(StrangerListActivity strangerListActivity) {
-        this.mView = new d.b.i0.e1.a.e.b(strangerListActivity);
+        this.mView = new d.b.i0.f1.a.e.b(strangerListActivity);
         d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(strangerListActivity.getPageContext().getPageActivity());
         this.mDelAllDialog = aVar;
         aVar.setMessageId(R.string.sure_to_delete_all_stranger_msg);
@@ -189,7 +189,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        d.b.i0.e1.a.e.b bVar = this.mView;
+        d.b.i0.f1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null) {
             return;
         }
@@ -199,7 +199,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
         StrangerListModel strangerListModel;
-        d.b.i0.e1.a.e.b bVar = this.mView;
+        d.b.i0.f1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null || (strangerListModel = this.mModel) == null) {
             return;
         }
@@ -259,7 +259,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public void showProgressDialog() {
         dismissDialog();
         if (this.mProgressDialog == null) {
-            this.mProgressDialog = d.b.i0.d1.h.e.m().p(getPageContext().getPageActivity());
+            this.mProgressDialog = d.b.i0.e1.h.e.m().p(getPageContext().getPageActivity());
         }
         this.mProgressDialog.show();
         this.mProgressDialog.b(0);
@@ -267,7 +267,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        d.b.i0.e1.a.e.b bVar = this.mView;
+        d.b.i0.f1.a.e.b bVar = this.mView;
         if (bVar != null) {
             bVar.onChangeSkinType(i);
         }
@@ -301,11 +301,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData item;
-        d.b.i0.e1.a.e.b bVar = this.mView;
+        d.b.i0.f1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null || (item = this.mView.d().getItem(i)) == null) {
             return;
         }
-        PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.mActivity.getPageContext().getContext(), d.b.b.e.m.b.f(item.getFriendId(), 0L), item.getFriendName(), item.getFriendNameShow(), item.getFriendPortrait(), 0, 0);
+        PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.mActivity.getPageContext().getContext(), d.b.c.e.m.b.f(item.getFriendId(), 0L), item.getFriendName(), item.getFriendNameShow(), item.getFriendPortrait(), 0, 0);
         personalChatActivityConfig.setFollowStatus(0);
         sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
     }
@@ -313,7 +313,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData item;
-        d.b.i0.e1.a.e.b bVar = this.mView;
+        d.b.i0.f1.a.e.b bVar = this.mView;
         if (bVar == null || bVar.d() == null || (item = this.mView.d().getItem(i)) == null) {
             return false;
         }
@@ -333,7 +333,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.e1.a.e.b bVar = this.mView;
+        d.b.i0.f1.a.e.b bVar = this.mView;
         if (bVar != null && bVar.d() != null) {
             this.mView.d().notifyDataSetChanged();
         }

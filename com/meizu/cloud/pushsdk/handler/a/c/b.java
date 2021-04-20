@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
@@ -76,7 +77,7 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
         com.meizu.cloud.pushsdk.util.b.a(c(), messageV3.getPackageName(), 0);
         Intent a2 = a(c(), messageV3);
         if (a2 != null) {
-            a2.addFlags(268435456);
+            a2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             try {
                 c().startActivity(a2);
             } catch (Exception e2) {

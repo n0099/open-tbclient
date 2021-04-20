@@ -12,25 +12,25 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class J1 implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39692a;
+    public Context f39981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39693b = false;
+    public boolean f39982b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BlockingQueue f39694c = new LinkedBlockingQueue();
+    public final BlockingQueue f39983c = new LinkedBlockingQueue();
 
     public J1(Context context) {
-        this.f39692a = context;
+        this.f39981a = context;
     }
 
     public IBinder a() {
-        if (this.f39693b) {
+        if (this.f39982b) {
             throw new IllegalStateException("Binder already consumed");
         }
-        IBinder iBinder = (IBinder) this.f39694c.take();
+        IBinder iBinder = (IBinder) this.f39983c.take();
         if (iBinder != null) {
-            this.f39693b = true;
+            this.f39982b = true;
         }
         return iBinder;
     }
@@ -38,12 +38,12 @@ public class J1 implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         try {
-            this.f39694c.put(iBinder);
+            this.f39983c.put(iBinder);
             String a2 = ((a) b.a(iBinder)).a();
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            V1.f(this.f39692a, a2);
+            V1.f(this.f39981a, a2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         } catch (InterruptedException e3) {

@@ -28,28 +28,28 @@ public class d {
     public static volatile d j;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63885a;
+    public Context f64585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledExecutorService f63886b;
+    public ScheduledExecutorService f64586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f63887c;
+    public ExecutorService f64587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.k0.g f63888d;
+    public d.b.k0.g f64588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.k0.c f63889e;
+    public d.b.k0.c f64589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63890f;
+    public int f64590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63891g = false;
+    public boolean f64591g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public v f63892h;
+    public v f64592h;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -58,10 +58,10 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 return;
             }
-            d.this.f63889e.L();
+            d.this.f64589e.L();
         }
     }
 
@@ -72,7 +72,7 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "upload#ubc init not finish");
                     return;
@@ -82,7 +82,7 @@ public class d {
             if (Math.abs(System.currentTimeMillis() - g0.e().getLong("ubc_last_upload_all_time", 0L)) < VideoCloudSetting.HOUR_MILLISECOND) {
                 return;
             }
-            d.this.f63889e.L();
+            d.this.f64589e.L();
             long currentTimeMillis = System.currentTimeMillis();
             g0.e().putLong("ubc_last_upload_all_time", currentTimeMillis);
             g0.e().putLong("ubc_last_upload_non_real", currentTimeMillis);
@@ -96,52 +96,52 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "saveCache#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.m();
+            d.this.f64589e.m();
         }
     }
 
     /* renamed from: d.b.k0.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1733d implements Runnable {
+    public class RunnableC1745d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f63896e;
+        public final /* synthetic */ JSONObject f64596e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63897f;
+        public final /* synthetic */ String f64597f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f63898g;
+        public final /* synthetic */ boolean f64598g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.k0.n f63899h;
+        public final /* synthetic */ d.b.k0.n f64599h;
         public final /* synthetic */ t i;
 
-        public RunnableC1733d(JSONObject jSONObject, String str, boolean z, d.b.k0.n nVar, t tVar) {
-            this.f63896e = jSONObject;
-            this.f63897f = str;
-            this.f63898g = z;
-            this.f63899h = nVar;
+        public RunnableC1745d(JSONObject jSONObject, String str, boolean z, d.b.k0.n nVar, t tVar) {
+            this.f64596e = jSONObject;
+            this.f64597f = str;
+            this.f64598g = z;
+            this.f64599h = nVar;
             this.i = tVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.H(this.f63896e, this.f63897f, this.f63898g, this.f63899h, this.i);
+            d.this.f64589e.H(this.f64596e, this.f64597f, this.f64598g, this.f64599h, this.i);
         }
     }
 
@@ -152,14 +152,14 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.t();
+            d.this.f64589e.t();
         }
     }
 
@@ -170,14 +170,14 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "sendQualityData#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.A();
+            d.this.f64589e.A();
         }
     }
 
@@ -185,26 +185,26 @@ public class d {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f63902e;
+        public final /* synthetic */ boolean f64602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63903f;
+        public final /* synthetic */ String f64603f;
 
         public g(boolean z, String str) {
-            this.f63902e = z;
-            this.f63903f = str;
+            this.f64602e = z;
+            this.f64603f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
                 }
-            } else if (this.f63902e) {
-                d.this.f63889e.K(this.f63903f);
+            } else if (this.f64602e) {
+                d.this.f64589e.K(this.f64603f);
             } else {
-                d.this.f63889e.J(this.f63903f);
+                d.this.f64589e.J(this.f64603f);
             }
         }
     }
@@ -213,30 +213,30 @@ public class d {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public w f63905e;
+        public w f64605e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f63906f;
+        public boolean f64606f;
 
         /* renamed from: g  reason: collision with root package name */
-        public s f63907g;
+        public s f64607g;
 
         public h(w wVar, boolean z, s sVar) {
-            this.f63905e = wVar;
-            this.f63906f = z;
-            this.f63907g = sVar;
+            this.f64605e = wVar;
+            this.f64606f = z;
+            this.f64607g = sVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.F(this.f63905e, this.f63906f, this.f63907g);
+            d.this.f64589e.F(this.f64605e, this.f64606f, this.f64607g);
         }
     }
 
@@ -244,26 +244,26 @@ public class d {
     public class j implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f63912e;
+        public String f64612e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f63913f;
+        public int f64613f;
 
         public j(String str, int i) {
-            this.f63912e = str;
-            this.f63913f = i;
+            this.f64612e = str;
+            this.f64613f = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.h(this.f63912e, this.f63913f);
+            d.this.f64589e.h(this.f64612e, this.f64613f);
         }
     }
 
@@ -271,33 +271,33 @@ public class d {
     public class l implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f63917e;
+        public String f64617e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f63918f;
+        public int f64618f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f63919g = System.currentTimeMillis();
+        public long f64619g = System.currentTimeMillis();
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONArray f63920h;
+        public JSONArray f64620h;
 
         public l(String str, int i, JSONArray jSONArray) {
-            this.f63917e = str;
-            this.f63918f = i;
-            this.f63920h = jSONArray;
+            this.f64617e = str;
+            this.f64618f = i;
+            this.f64620h = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.l(this.f63917e, this.f63918f, this.f63919g, this.f63920h);
+            d.this.f64589e.l(this.f64617e, this.f64618f, this.f64619g, this.f64620h);
         }
     }
 
@@ -305,30 +305,30 @@ public class d {
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f63921e;
+        public String f64621e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f63922f;
+        public int f64622f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f63923g;
+        public String f64623g;
 
         public m(String str, int i, String str2) {
-            this.f63921e = str;
-            this.f63922f = i;
-            this.f63923g = str2;
+            this.f64621e = str;
+            this.f64622f = i;
+            this.f64623g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.f63889e.G(this.f63921e, this.f63922f, this.f63923g);
+            d.this.f64589e.G(this.f64621e, this.f64622f, this.f64623g);
         }
     }
 
@@ -340,9 +340,9 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.f63888d = d.b.k0.g.m();
-            d.this.f63889e = new d.b.k0.c(d.this.f63885a);
-            d.this.f63889e.C();
+            d.this.f64588d = d.b.k0.g.m();
+            d.this.f64589e = new d.b.k0.c(d.this.f64585a);
+            d.this.f64589e.C();
         }
 
         public /* synthetic */ n(d dVar, a aVar) {
@@ -355,14 +355,14 @@ public class d {
     }
 
     public static /* synthetic */ int i(d dVar) {
-        int i2 = dVar.f63890f;
-        dVar.f63890f = i2 + 1;
+        int i2 = dVar.f64590f;
+        dVar.f64590f = i2 + 1;
         return i2;
     }
 
     @Inject
     public static final r o() {
-        return d.b.i0.x2.t.a();
+        return d.b.i0.y2.t.a();
     }
 
     public static d q() {
@@ -377,23 +377,23 @@ public class d {
     }
 
     public void A() {
-        this.f63886b.execute(new f());
+        this.f64586b.execute(new f());
     }
 
     public void B(w wVar, boolean z, s sVar) {
-        this.f63886b.execute(new h(wVar, z, sVar));
+        this.f64586b.execute(new h(wVar, z, sVar));
     }
 
     public void C(String str, int i2, String str2) {
-        this.f63886b.execute(new m(str, i2, str2));
+        this.f64586b.execute(new m(str, i2, str2));
     }
 
     public void D() {
-        if (this.f63891g) {
+        if (this.f64591g) {
             return;
         }
-        this.f63891g = true;
-        this.f63886b.execute(new b());
+        this.f64591g = true;
+        this.f64586b.execute(new b());
     }
 
     public void E(JSONObject jSONObject) {
@@ -415,7 +415,7 @@ public class d {
             z2 = false;
         }
         if (z2) {
-            this.f63887c.execute(new RunnableC1733d(jSONObject, str, z, nVar, tVar));
+            this.f64587c.execute(new RunnableC1745d(jSONObject, str, z, nVar, tVar));
         }
     }
 
@@ -424,11 +424,11 @@ public class d {
     }
 
     public void I(String str, boolean z) {
-        this.f63886b.execute(new g(z, str));
+        this.f64586b.execute(new g(z, str));
     }
 
     public void J() {
-        this.f63886b.execute(new a());
+        this.f64586b.execute(new a());
     }
 
     public synchronized Flow j(String str, String str2, int i2) {
@@ -436,10 +436,10 @@ public class d {
         m2 = m(str, i2);
         if (m2 != null && m2.getValid()) {
             k kVar = new k(m2, str2);
-            if (this.f63888d != null && this.f63888d.w(str)) {
+            if (this.f64588d != null && this.f64588d.w(str)) {
                 kVar.a(true);
             }
-            this.f63886b.execute(kVar);
+            this.f64586b.execute(kVar);
         }
         return m2;
     }
@@ -449,21 +449,21 @@ public class d {
         m2 = m(str, i2);
         if (m2 != null && m2.getValid()) {
             k kVar = new k(m2, jSONObject);
-            if (this.f63888d != null && this.f63888d.w(str)) {
+            if (this.f64588d != null && this.f64588d.w(str)) {
                 kVar.a(true);
             }
-            this.f63886b.execute(kVar);
+            this.f64586b.execute(kVar);
         }
         return m2;
     }
 
     public void l(String str, int i2) {
-        this.f63886b.execute(new j(str, i2));
+        this.f64586b.execute(new j(str, i2));
     }
 
     public Flow m(String str, int i2) {
-        Flow flow = new Flow(str, this.f63890f, i2);
-        d.b.k0.g gVar = this.f63888d;
+        Flow flow = new Flow(str, this.f64590f, i2);
+        d.b.k0.g gVar = this.f64588d;
         if (gVar != null && !gVar.g(str, i2)) {
             flow.setValid(false);
             return flow;
@@ -471,17 +471,17 @@ public class d {
             flow.setValid(false);
             return flow;
         } else {
-            d.b.k0.g gVar2 = this.f63888d;
+            d.b.k0.g gVar2 = this.f64588d;
             if (gVar2 != null && gVar2.h(str)) {
                 flow.setValid(false);
                 return flow;
             }
-            d.b.k0.g gVar3 = this.f63888d;
+            d.b.k0.g gVar3 = this.f64588d;
             if (gVar3 != null && gVar3.v(str)) {
                 flow.setValid(false);
                 return flow;
             }
-            d.b.k0.g gVar4 = this.f63888d;
+            d.b.k0.g gVar4 = this.f64588d;
             if (gVar4 != null && !gVar4.x(str)) {
                 flow.setValid(false);
             }
@@ -490,33 +490,33 @@ public class d {
     }
 
     public void n(String str, int i2, JSONArray jSONArray) {
-        this.f63886b.execute(new l(str, i2, jSONArray));
+        this.f64586b.execute(new l(str, i2, jSONArray));
     }
 
     public void p() {
-        this.f63886b.execute(new c());
+        this.f64586b.execute(new c());
     }
 
     public String r(String str) {
-        d.b.k0.c cVar = this.f63889e;
+        d.b.k0.c cVar = this.f64589e;
         return cVar != null ? cVar.p(str) : "";
     }
 
     public final void s(Context context) {
-        if (this.f63885a != null || context == null) {
+        if (this.f64585a != null || context == null) {
             return;
         }
         if (context instanceof Application) {
-            this.f63885a = context;
+            this.f64585a = context;
         } else {
-            this.f63885a = context.getApplicationContext();
+            this.f64585a = context.getApplicationContext();
         }
-        this.f63890f = QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+        this.f64590f = QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
         ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-        this.f63886b = newSingleThreadScheduledExecutor;
+        this.f64586b = newSingleThreadScheduledExecutor;
         newSingleThreadScheduledExecutor.execute(new n(this, null));
-        this.f63887c = Executors.newSingleThreadExecutor();
-        this.f63892h = (v) ServiceManager.getService(v.f63989a);
+        this.f64587c = Executors.newSingleThreadExecutor();
+        this.f64592h = (v) ServiceManager.getService(v.f64689a);
     }
 
     public void t(String str, String str2, String str3, int i2) {
@@ -524,53 +524,53 @@ public class d {
         if (!TextUtils.isEmpty(str3)) {
             iVar.d(str3);
         }
-        this.f63886b.execute(iVar);
+        this.f64586b.execute(iVar);
     }
 
     public void u(String str, String str2, int i2) {
-        this.f63886b.execute(new i(str, str2, i2));
+        this.f64586b.execute(new i(str, str2, i2));
     }
 
     public void v(String str, JSONObject jSONObject, int i2) {
-        this.f63886b.execute(new i(str, jSONObject, i2));
+        this.f64586b.execute(new i(str, jSONObject, i2));
     }
 
     public void w() {
-        this.f63886b.execute(new e());
+        this.f64586b.execute(new e());
     }
 
     public void x(String str, String str2, int i2, String str3, int i3) {
-        this.f63886b.execute(new i(str, str2, i2, str3, i3));
+        this.f64586b.execute(new i(str, str2, i2, str3, i3));
     }
 
     public void y(String str, String str2, int i2, String str3, long j2, int i3) {
-        this.f63886b.execute(new i(str, str2, i2, str3, j2, i3));
+        this.f64586b.execute(new i(str, str2, i2, str3, j2, i3));
     }
 
     public void z(Runnable runnable, long j2) {
-        this.f63886b.schedule(runnable, j2, TimeUnit.MILLISECONDS);
+        this.f64586b.schedule(runnable, j2, TimeUnit.MILLISECONDS);
     }
 
     /* loaded from: classes5.dex */
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.k0.n f63909e;
+        public d.b.k0.n f64609e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f63910f;
+        public String f64610f;
 
         public i(String str, String str2, int i) {
-            this.f63909e = new d.b.k0.n(str, str2, i);
-            this.f63910f = str;
+            this.f64609e = new d.b.k0.n(str, str2, i);
+            this.f64610f = str;
         }
 
         public final boolean a(String str, int i) {
             if ((i & 16) == 0 || UBC.getUBCContext().a(str)) {
-                if (d.this.f63888d == null || d.this.f63888d.g(str, i)) {
-                    if (d.this.f63888d == null || !d.this.f63888d.v(str)) {
-                        if (d.this.f63888d == null || !d.this.f63888d.h(str)) {
-                            return d.this.f63888d == null || !d.this.f63888d.d(str);
+                if (d.this.f64588d == null || d.this.f64588d.g(str, i)) {
+                    if (d.this.f64588d == null || !d.this.f64588d.v(str)) {
+                        if (d.this.f64588d == null || !d.this.f64588d.h(str)) {
+                            return d.this.f64588d == null || !d.this.f64588d.d(str);
                         }
                         return false;
                     }
@@ -583,7 +583,7 @@ public class d {
 
         public final void b() {
             JSONObject h2;
-            d.b.k0.n nVar = this.f63909e;
+            d.b.k0.n nVar = this.f64609e;
             if (nVar == null) {
                 return;
             }
@@ -591,30 +591,30 @@ public class d {
             if (TextUtils.isEmpty(g2)) {
                 return;
             }
-            String b2 = this.f63909e.b();
-            if (TextUtils.isEmpty(b2) && (h2 = this.f63909e.h()) != null) {
+            String b2 = this.f64609e.b();
+            if (TextUtils.isEmpty(b2) && (h2 = this.f64609e.h()) != null) {
                 try {
                     b2 = h2.toString();
                 } catch (ConcurrentModificationException e2) {
-                    d.this.f63892h.b(g2, e2.toString());
+                    d.this.f64592h.b(g2, e2.toString());
                     return;
                 }
             }
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            d.this.f63892h.a(g2, b2);
+            d.this.f64592h.a(g2, b2);
         }
 
         public void c(boolean z) {
-            d.b.k0.n nVar = this.f63909e;
+            d.b.k0.n nVar = this.f64609e;
             if (nVar != null) {
                 nVar.n(z);
             }
         }
 
         public void d(String str) {
-            d.b.k0.n nVar = this.f63909e;
+            d.b.k0.n nVar = this.f64609e;
             if (nVar != null) {
                 nVar.p(str);
             }
@@ -622,62 +622,62 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            if (d.this.f63892h != null && d.this.f63888d != null && d.this.f63888d.b(this.f63910f) == 1) {
+            if (d.this.f64592h != null && d.this.f64588d != null && d.this.f64588d.b(this.f64610f) == 1) {
                 b();
             }
-            if (this.f63909e.e() == -1) {
-                if (!a(this.f63909e.g(), this.f63909e.i())) {
+            if (this.f64609e.e() == -1) {
+                if (!a(this.f64609e.g(), this.f64609e.i())) {
                     return;
                 }
-                if (d.this.f63888d != null && d.this.f63888d.w(this.f63909e.g())) {
+                if (d.this.f64588d != null && d.this.f64588d.w(this.f64609e.g())) {
                     c(true);
                 }
             }
-            this.f63909e.o();
-            String g2 = this.f63909e.g();
+            this.f64609e.o();
+            String g2 = this.f64609e.g();
             if (TextUtils.isEmpty(g2)) {
                 return;
             }
-            if (d.this.f63888d != null) {
-                String i = d.this.f63888d.i(g2);
+            if (d.this.f64588d != null) {
+                String i = d.this.f64588d.i(g2);
                 if (!TextUtils.isEmpty(i)) {
-                    this.f63909e.m(i);
+                    this.f64609e.m(i);
                 }
             }
-            if (d.this.f63892h != null && d.this.f63888d != null && d.this.f63888d.b(this.f63910f) == 2) {
+            if (d.this.f64592h != null && d.this.f64588d != null && d.this.f64588d.b(this.f64610f) == 2) {
                 b();
             }
-            if (this.f63909e.e() == -1 && TextUtils.equals(g2, "1876")) {
-                d.this.f63889e.y(this.f63909e);
-            } else if ((this.f63909e.i() & 8) != 0) {
-                d.this.f63889e.x(this.f63909e);
-            } else if (this.f63909e == null || d.this.f63888d == null || !d.this.f63888d.f(g2)) {
-                d.this.f63889e.w(this.f63909e);
+            if (this.f64609e.e() == -1 && TextUtils.equals(g2, "1876")) {
+                d.this.f64589e.y(this.f64609e);
+            } else if ((this.f64609e.i() & 8) != 0) {
+                d.this.f64589e.x(this.f64609e);
+            } else if (this.f64609e == null || d.this.f64588d == null || !d.this.f64588d.f(g2)) {
+                d.this.f64589e.w(this.f64609e);
             } else {
-                d.this.f63889e.Q(this.f63909e);
+                d.this.f64589e.Q(this.f64609e);
             }
         }
 
         public i(String str, JSONObject jSONObject, int i) {
-            this.f63909e = new d.b.k0.n(str, jSONObject, i);
-            this.f63910f = str;
+            this.f64609e = new d.b.k0.n(str, jSONObject, i);
+            this.f64610f = str;
         }
 
         public i(String str, String str2, int i, String str3, int i2) {
-            this.f63909e = new d.b.k0.n(str, str2, i, str3, i2);
-            this.f63910f = str;
+            this.f64609e = new d.b.k0.n(str, str2, i, str3, i2);
+            this.f64610f = str;
         }
 
         public i(String str, String str2, int i, String str3, long j, int i2) {
-            this.f63909e = new d.b.k0.n(str, str2, i, str3, j, i2);
-            this.f63910f = str;
+            this.f64609e = new d.b.k0.n(str, str2, i, str3, j, i2);
+            this.f64610f = str;
         }
     }
 
@@ -685,18 +685,18 @@ public class d {
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public p f63915e;
+        public p f64615e;
 
         public k(Flow flow, String str) {
             p pVar = new p(flow.getId(), flow.getHandle(), str, flow.getOption());
-            this.f63915e = pVar;
+            this.f64615e = pVar;
             pVar.m(flow.getStartTime());
-            this.f63915e.w("1");
+            this.f64615e.w("1");
             d.i(d.this);
         }
 
         public void a(boolean z) {
-            p pVar = this.f63915e;
+            p pVar = this.f64615e;
             if (pVar != null) {
                 pVar.p(z);
             }
@@ -704,26 +704,26 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f63889e == null) {
+            if (d.this.f64589e == null) {
                 if (d.i) {
                     Log.d("UBCBehaviorProcessor", "FlowCreateRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            this.f63915e.r();
-            if (!TextUtils.isEmpty(d.this.f63888d.i(this.f63915e.g()))) {
-                this.f63915e.n(d.this.f63888d.i(this.f63915e.g()));
+            this.f64615e.r();
+            if (!TextUtils.isEmpty(d.this.f64588d.i(this.f64615e.g()))) {
+                this.f64615e.n(d.this.f64588d.i(this.f64615e.g()));
             }
-            d.this.f63889e.D(this.f63915e);
-            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, d.this.f63890f);
+            d.this.f64589e.D(this.f64615e);
+            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, d.this.f64590f);
         }
 
         public k(Flow flow, JSONObject jSONObject) {
             p pVar = new p(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
-            this.f63915e = pVar;
+            this.f64615e = pVar;
             pVar.m(flow.getStartTime());
-            this.f63915e.w("1");
+            this.f64615e.w("1");
             d.i(d.this);
         }
     }

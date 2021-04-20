@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.f.a;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends a {
     public b(File file) {
         super(file);

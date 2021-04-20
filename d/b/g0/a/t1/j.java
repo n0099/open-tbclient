@@ -28,18 +28,18 @@ import d.b.g0.a.t1.k.y;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends UnitedSchemeBaseDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a0> f46287a = new HashMap();
+    public final Map<String, a0> f46679a = new HashMap();
 
     public j() {
         a();
     }
 
     public void a() {
-        this.f46287a.clear();
+        this.f46679a.clear();
         b(new u(this));
         b(new d.b.g0.a.g1.i(this));
         b(new d0(this));
@@ -106,7 +106,7 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void b(a0 a0Var) {
-        this.f46287a.put(a0Var.f46290a, a0Var);
+        this.f46679a.put(a0Var.f46682a, a0Var);
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -137,7 +137,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
                         return false;
                     }
-                    a0 a0Var = this.f46287a.get(str);
+                    a0 a0Var = this.f46679a.get(str);
                     if (a0Var != null) {
                         if (unitedSchemeEntity.isOnlyVerify()) {
                             return true;

@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.imagemanager.ImageProcessor;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.wallet.core.utils.LogUtil;
@@ -44,7 +45,7 @@ public class ImageBase64Utils {
             Context context = this.mContext;
             if (context != null && this.mImageUri != null) {
                 try {
-                    return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7664a);
+                    return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7699a);
                 } catch (FileNotFoundException e2) {
                     e2.printStackTrace();
                 }
@@ -55,7 +56,7 @@ public class ImageBase64Utils {
         private ParcelFileDescriptor initFileDescriptorFromPath() {
             if (!TextUtils.isEmpty(this.mImagePath)) {
                 try {
-                    return ParcelFileDescriptor.open(new File(this.mImagePath), 268435456);
+                    return ParcelFileDescriptor.open(new File(this.mImagePath), Label.FORWARD_REFERENCE_TYPE_SHORT);
                 } catch (FileNotFoundException e2) {
                     e2.printStackTrace();
                 }

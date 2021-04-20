@@ -11,28 +11,28 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11343a = "extra_trace_id";
+    public static final String f10927a = "extra_trace_id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11344b = "extra_session_id";
+    public static final String f10928b = "extra_session_id";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11345c = "login_type_share";
+    public static final String f10929c = "login_type_share";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11346d = "call_type_share";
+    public static final String f10930d = "call_type_share";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11347e = "V2_FACE_LOGIN_UIDS_TIMES";
+    public static final String f10931e = "V2_FACE_LOGIN_UIDS_TIMES";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11348f = "PKG";
+    public static final String f10932f = "PKG";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11349g = "SDK_VERSION";
+    public static final String f10933g = "SDK_VERSION";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f11350h = 20001;
+    public static final int f10934h = 20001;
     public static final int i = 190;
     public static final String j = "choice_share";
     public static final String k = "choice_share_v2";
@@ -43,15 +43,15 @@ public class a {
     public class RunnableC0145a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f11351a;
+        public final /* synthetic */ int f10935a;
 
         public RunnableC0145a(int i) {
-            this.f11351a = i;
+            this.f10935a = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            new ShareStorage().set(this.f11351a);
+            new ShareStorage().set(this.f10935a);
             d.f();
         }
     }
@@ -68,29 +68,29 @@ public class a {
     public static class c {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f11353e = "index";
+        public static final String f10937e = "index";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f11354f = "account_tpl";
+        public static final String f10938f = "account_tpl";
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f11355g = "account_app";
+        public static final String f10939g = "account_app";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f11356h = "share_version";
+        public static final String f10940h = "share_version";
         public static final String i = "call_type";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11357a;
+        public int f10941a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11358b;
+        public String f10942b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11359c;
+        public String f10943c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f11360d;
+        public String f10944d;
     }
 
     public boolean a(Context context, String str) {

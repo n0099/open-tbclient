@@ -13,50 +13,50 @@ import java.util.concurrent.locks.LockSupport;
 public class c implements a {
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f36866c;
+    public Handler f37155c;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile Thread f36870g;
+    public volatile Thread f37159g;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile List<Integer> f36868e = new CopyOnWriteArrayList();
+    public volatile List<Integer> f37157e = new CopyOnWriteArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f36869f = new AtomicInteger();
+    public AtomicInteger f37158f = new AtomicInteger();
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f36864a = new b();
+    public final b f37153a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f36865b = new d();
+    public final d f37154b = new d();
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f36867d = com.kwai.filedownloader.f.e.a().f37014b;
+    public final long f37156d = com.kwai.filedownloader.f.e.a().f37303b;
 
     public c() {
         HandlerThread handlerThread = new HandlerThread(f.i("RemitHandoverToDB"), 10);
         handlerThread.start();
-        this.f36866c = new Handler(handlerThread.getLooper(), new Handler.Callback() { // from class: com.kwai.filedownloader.b.c.1
+        this.f37155c = new Handler(handlerThread.getLooper(), new Handler.Callback() { // from class: com.kwai.filedownloader.b.c.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 int i = message.what;
                 if (i == 0) {
-                    if (c.this.f36870g != null) {
-                        LockSupport.unpark(c.this.f36870g);
-                        c.this.f36870g = null;
+                    if (c.this.f37159g != null) {
+                        LockSupport.unpark(c.this.f37159g);
+                        c.this.f37159g = null;
                     }
                     return false;
                 }
                 try {
-                    c.this.f36869f.set(i);
+                    c.this.f37158f.set(i);
                     c.this.g(i);
-                    c.this.f36868e.add(Integer.valueOf(i));
+                    c.this.f37157e.add(Integer.valueOf(i));
                     return false;
                 } finally {
-                    c.this.f36869f.set(0);
-                    if (c.this.f36870g != null) {
-                        LockSupport.unpark(c.this.f36870g);
-                        c.this.f36870g = null;
+                    c.this.f37158f.set(0);
+                    if (c.this.f37159g != null) {
+                        LockSupport.unpark(c.this.f37159g);
+                        c.this.f37159g = null;
                     }
                 }
             }
@@ -65,186 +65,186 @@ public class c implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(int i) {
-        this.f36865b.a(this.f36864a.b(i));
-        List<com.kwai.filedownloader.d.a> c2 = this.f36864a.c(i);
-        this.f36865b.d(i);
+        this.f37154b.a(this.f37153a.b(i));
+        List<com.kwai.filedownloader.d.a> c2 = this.f37153a.c(i);
+        this.f37154b.d(i);
         for (com.kwai.filedownloader.d.a aVar : c2) {
-            this.f36865b.a(aVar);
+            this.f37154b.a(aVar);
         }
     }
 
     private boolean h(int i) {
-        return !this.f36868e.contains(Integer.valueOf(i));
+        return !this.f37157e.contains(Integer.valueOf(i));
     }
 
     private void i(int i) {
-        this.f36866c.removeMessages(i);
-        if (this.f36869f.get() != i) {
+        this.f37155c.removeMessages(i);
+        if (this.f37158f.get() != i) {
             g(i);
             return;
         }
-        this.f36870g = Thread.currentThread();
-        this.f36866c.sendEmptyMessage(0);
+        this.f37159g = Thread.currentThread();
+        this.f37155c.sendEmptyMessage(0);
         LockSupport.park();
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a() {
-        this.f36864a.a();
-        this.f36865b.a();
+        this.f37153a.a();
+        this.f37154b.a();
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i) {
-        this.f36866c.sendEmptyMessageDelayed(i, this.f36867d);
+        this.f37155c.sendEmptyMessageDelayed(i, this.f37156d);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2) {
-        this.f36864a.a(i, i2);
+        this.f37153a.a(i, i2);
         if (h(i)) {
             return;
         }
-        this.f36865b.a(i, i2);
+        this.f37154b.a(i, i2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2, long j) {
-        this.f36864a.a(i, i2, j);
+        this.f37153a.a(i, i2, j);
         if (h(i)) {
             return;
         }
-        this.f36865b.a(i, i2, j);
+        this.f37154b.a(i, i2, j);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, long j) {
-        this.f36864a.a(i, j);
+        this.f37153a.a(i, j);
         if (h(i)) {
             return;
         }
-        this.f36865b.a(i, j);
+        this.f37154b.a(i, j);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, long j, String str, String str2) {
-        this.f36864a.a(i, j, str, str2);
+        this.f37153a.a(i, j, str, str2);
         if (h(i)) {
             return;
         }
-        this.f36865b.a(i, j, str, str2);
+        this.f37154b.a(i, j, str, str2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, String str, long j, long j2, int i2) {
-        this.f36864a.a(i, str, j, j2, i2);
+        this.f37153a.a(i, str, j, j2, i2);
         if (h(i)) {
             return;
         }
-        this.f36865b.a(i, str, j, j2, i2);
+        this.f37154b.a(i, str, j, j2, i2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, Throwable th) {
-        this.f36864a.a(i, th);
+        this.f37153a.a(i, th);
         if (h(i)) {
             return;
         }
-        this.f36865b.a(i, th);
+        this.f37154b.a(i, th);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, Throwable th, long j) {
-        this.f36864a.a(i, th, j);
+        this.f37153a.a(i, th, j);
         if (h(i)) {
             i(i);
         }
-        this.f36865b.a(i, th, j);
-        this.f36868e.remove(Integer.valueOf(i));
+        this.f37154b.a(i, th, j);
+        this.f37157e.remove(Integer.valueOf(i));
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(com.kwai.filedownloader.d.a aVar) {
-        this.f36864a.a(aVar);
+        this.f37153a.a(aVar);
         if (h(aVar.a())) {
             return;
         }
-        this.f36865b.a(aVar);
+        this.f37154b.a(aVar);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(com.kwai.filedownloader.d.c cVar) {
-        this.f36864a.a(cVar);
+        this.f37153a.a(cVar);
         if (h(cVar.a())) {
             return;
         }
-        this.f36865b.a(cVar);
+        this.f37154b.a(cVar);
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC0441a b() {
-        d dVar = this.f36865b;
-        b bVar = this.f36864a;
-        return dVar.a(bVar.f36860a, bVar.f36861b);
+    public a.InterfaceC0455a b() {
+        d dVar = this.f37154b;
+        b bVar = this.f37153a;
+        return dVar.a(bVar.f37149a, bVar.f37150b);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public com.kwai.filedownloader.d.c b(int i) {
-        return this.f36864a.b(i);
+        return this.f37153a.b(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void b(int i, long j) {
-        this.f36864a.b(i, j);
+        this.f37153a.b(i, j);
         if (h(i)) {
-            this.f36866c.removeMessages(i);
-            if (this.f36869f.get() == i) {
-                this.f36870g = Thread.currentThread();
-                this.f36866c.sendEmptyMessage(0);
+            this.f37155c.removeMessages(i);
+            if (this.f37158f.get() == i) {
+                this.f37159g = Thread.currentThread();
+                this.f37155c.sendEmptyMessage(0);
                 LockSupport.park();
             }
-            this.f36868e.remove(Integer.valueOf(i));
+            this.f37157e.remove(Integer.valueOf(i));
         }
-        this.f36865b.b(i, j);
-        this.f36868e.remove(Integer.valueOf(i));
+        this.f37154b.b(i, j);
+        this.f37157e.remove(Integer.valueOf(i));
     }
 
     @Override // com.kwai.filedownloader.b.a
     public List<com.kwai.filedownloader.d.a> c(int i) {
-        return this.f36864a.c(i);
+        return this.f37153a.c(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void c(int i, long j) {
-        this.f36864a.c(i, j);
+        this.f37153a.c(i, j);
         if (h(i)) {
             i(i);
         }
-        this.f36865b.c(i, j);
-        this.f36868e.remove(Integer.valueOf(i));
+        this.f37154b.c(i, j);
+        this.f37157e.remove(Integer.valueOf(i));
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void d(int i) {
-        this.f36864a.d(i);
+        this.f37153a.d(i);
         if (h(i)) {
             return;
         }
-        this.f36865b.d(i);
+        this.f37154b.d(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public boolean e(int i) {
-        this.f36865b.e(i);
-        return this.f36864a.e(i);
+        this.f37154b.e(i);
+        return this.f37153a.e(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void f(int i) {
-        this.f36864a.f(i);
+        this.f37153a.f(i);
         if (h(i)) {
             return;
         }
-        this.f36865b.f(i);
+        this.f37154b.f(i);
     }
 }

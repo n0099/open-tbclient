@@ -14,7 +14,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
-import d.b.b.a.j;
+import d.b.c.a.j;
 import d.b.i0.t.d.f.c.c;
 /* loaded from: classes4.dex */
 public class RecommendActivityView extends d.b.i0.x.b<c> {
@@ -26,15 +26,15 @@ public class RecommendActivityView extends d.b.i0.x.b<c> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public RecommendActivityView f14927a;
+        public RecommendActivityView f14590a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14928b;
+        public View f14591b;
 
         public ViewHolder(RecommendActivityView recommendActivityView) {
             super(recommendActivityView.m());
-            this.f14927a = recommendActivityView;
-            this.f14928b = recommendActivityView.m();
+            this.f14590a = recommendActivityView;
+            this.f14591b = recommendActivityView.m();
         }
     }
 
@@ -49,8 +49,8 @@ public class RecommendActivityView extends d.b.i0.x.b<c> {
                 return;
             }
             d.b.i0.t.d.f.c.b bVar = (d.b.i0.t.d.f.c.b) obj;
-            if (!StringUtils.isNull(bVar.f60532e)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f60532e}, true);
+            if (!StringUtils.isNull(bVar.f62096e)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f62096e}, true);
             }
             TiebaStatic.log("c12902");
         }
@@ -63,7 +63,7 @@ public class RecommendActivityView extends d.b.i0.x.b<c> {
         public class a extends AlaBannerViewHolder<d.b.i0.t.d.f.c.b> {
 
             /* renamed from: a  reason: collision with root package name */
-            public TbImageView f14931a;
+            public TbImageView f14594a;
 
             public a(b bVar, View view) {
                 super(view);
@@ -72,7 +72,7 @@ public class RecommendActivityView extends d.b.i0.x.b<c> {
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void b(View view) {
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.cover);
-                this.f14931a = tbImageView;
+                this.f14594a = tbImageView;
                 tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             }
 
@@ -84,10 +84,10 @@ public class RecommendActivityView extends d.b.i0.x.b<c> {
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
             public void a(int i, d.b.i0.t.d.f.c.b bVar) {
-                if (bVar == null || this.f14931a == null || StringUtils.isNull(bVar.f60533f)) {
+                if (bVar == null || this.f14594a == null || StringUtils.isNull(bVar.f62097f)) {
                     return;
                 }
-                this.f14931a.W(bVar.f60533f, 10, false);
+                this.f14594a.W(bVar.f62097f, 10, false);
             }
         }
 
@@ -134,10 +134,10 @@ public class RecommendActivityView extends d.b.i0.x.b<c> {
     @Override // d.b.i0.x.b
     /* renamed from: v */
     public void n(c cVar) {
-        if (cVar == null || ListUtils.isEmpty(cVar.f60535e)) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f62099e)) {
             return;
         }
-        this.n.n(cVar.f60535e, this.o);
+        this.n.n(cVar.f62099e, this.o);
         TiebaStatic.log("c12901");
     }
 }

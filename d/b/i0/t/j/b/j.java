@@ -25,9 +25,9 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.h0.r.s.a;
 import d.b.i0.t.j.d.m;
 /* loaded from: classes4.dex */
-public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
+public class j extends d.b.c.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
     public TbPageContext m;
-    public d.b.i0.k3.d n;
+    public d.b.i0.l3.d n;
     public boolean o;
     public String p;
     public String q;
@@ -39,15 +39,15 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f60836e;
+        public final /* synthetic */ m f62400e;
 
         public a(m mVar) {
-            this.f60836e = mVar;
+            this.f62400e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            j.this.o0(this.f60836e);
+            j.this.o0(this.f62400e);
         }
     }
 
@@ -66,10 +66,10 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
     public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f60838a;
+        public final /* synthetic */ TbPageContext f62402a;
 
         public c(TbPageContext tbPageContext) {
-            this.f60838a = tbPageContext;
+            this.f62402a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
@@ -78,13 +78,13 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
             String str2 = j.this.o ? j.this.q : null;
             String str3 = j.this.o ? j.this.r : null;
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-            d.b.b.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f60838a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
+            d.b.c.e.i.a.l().h(false);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f62402a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
         }
     }
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.f60872f);
+        super(tbPageContext.getPageActivity(), m.f62436f);
         this.o = false;
         this.t = false;
         this.m = tbPageContext;
@@ -101,7 +101,7 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
         this.s = aVar.u();
         w0();
         aVar.z(8);
-        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_center_publish_live));
+        aVar.A(this.f42855e.getResources().getString(R.string.ala_person_center_publish_live));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -109,21 +109,21 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
         if (mVar == null || mVar.g() == null) {
             return;
         }
-        d.b.h0.r.d0.b.i().s(d.b.h0.r.d0.b.m("live_publish_live_has_showed"), true);
+        d.b.h0.r.d0.b.j().t(d.b.h0.r.d0.b.n("live_publish_live_has_showed"), true);
         x0(this.s, null, false);
         s0();
         TiebaStatic.log("c13618");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: p0 */
     public CardViewHolder<d.b.i0.t.j.h.a> R(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.b.i0.t.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: q0 */
     public View X(int i, View view, ViewGroup viewGroup, m mVar, CardViewHolder<d.b.i0.t.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {
@@ -160,7 +160,7 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
             aVar.create(this.m).show();
         } else if (ViewHelper.checkUpIsLogin(this.m.getPageActivity())) {
             if (this.n == null) {
-                this.n = new d.b.i0.k3.d(this.m);
+                this.n = new d.b.i0.l3.d(this.m);
             }
             if (this.o) {
                 if (this.n.c()) {
@@ -170,7 +170,7 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
                 return;
             }
             if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                d.b.b.e.p.l.K(this.m.getPageActivity(), R.string.plugin_config_not_found);
+                d.b.c.e.p.l.K(this.m.getPageActivity(), R.string.plugin_config_not_found);
             } else {
                 r0(this.m);
             }
@@ -194,8 +194,8 @@ public class j extends d.b.b.j.e.a<m, CardViewHolder<d.b.i0.t.j.h.a>> {
             return;
         }
         this.t = true;
-        if (!d.b.h0.r.d0.b.i().g(d.b.h0.r.d0.b.m("live_publish_live_has_showed"), false)) {
-            d.b.h0.r.d0.b.i().s(d.b.h0.r.d0.b.m("live_publish_live_has_showed"), true);
+        if (!d.b.h0.r.d0.b.j().g(d.b.h0.r.d0.b.n("live_publish_live_has_showed"), false)) {
+            d.b.h0.r.d0.b.j().t(d.b.h0.r.d0.b.n("live_publish_live_has_showed"), true);
             x0(this.s, null, true);
             return;
         }

@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g extends f {
-    public static final boolean I = d.b.g0.a.k.f45051a;
+    public static final boolean I = d.b.g0.a.k.f45443a;
     public Timer G;
     public final d.b.g0.a.r1.e H;
 
@@ -34,34 +34,34 @@ public class g extends f {
     }
 
     public g(d.b.g0.a.r1.e eVar) {
-        super(eVar.f45740f);
+        super(eVar.f46132f);
         this.H = eVar;
     }
 
     @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-    public void C(d.b.g0.l.k.a aVar) {
-        super.C(aVar);
+    public void B(d.b.g0.l.k.a aVar) {
+        super.B(aVar);
         if (I) {
             Log.e("PkgSyncDownloadCallback", "onFetchError: " + aVar.toString());
         }
         d.b.g0.a.f2.a aVar2 = new d.b.g0.a.f2.a();
         aVar2.j(10L);
-        aVar2.h(aVar.f48914a);
-        aVar2.c(aVar.f48915b);
-        aVar2.p(aVar.f48916c);
-        if (aVar.f48914a == 1013 && d.b.g0.a.w0.a.E().a(d.b.g0.a.w0.a.c(), this.r, aVar2)) {
-            r0(aVar2, false);
-            F0(this.H.J(), aVar2);
-        } else if (aVar.f48914a == 1020) {
-            r0(aVar2, false);
-            F0(this.H.J(), aVar2);
+        aVar2.h(aVar.f49306a);
+        aVar2.c(aVar.f49307b);
+        aVar2.p(aVar.f49308c);
+        if (aVar.f49306a == 1013 && d.b.g0.a.w0.a.E().a(d.b.g0.a.w0.a.c(), this.r, aVar2)) {
+            q0(aVar2, false);
+            E0(this.H.J(), aVar2);
+        } else if (aVar.f49306a == 1020) {
+            q0(aVar2, false);
+            E0(this.H.J(), aVar2);
         } else {
-            r0(aVar2, true);
+            q0(aVar2, true);
         }
     }
 
     @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-    public void D() {
+    public void C() {
         if (this.H.h() != 1) {
             synchronized (g.class) {
                 Timer timer = new Timer();
@@ -70,12 +70,12 @@ public class g extends f {
             }
         }
         d.b.g0.a.j1.i.o("startup").A(new UbcFlowEvent("aps_start_req"));
-        super.D();
+        super.C();
     }
 
     @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-    public void E() {
-        super.E();
+    public void D() {
+        super.D();
         d.b.g0.a.j1.i.o("startup").A(new UbcFlowEvent("aps_end_req"));
         if (this.H.h() != 1) {
             synchronized (g.class) {
@@ -91,28 +91,28 @@ public class g extends f {
     }
 
     @Override // d.b.g0.l.h.g
-    public void F() {
-        super.F();
+    public void E() {
+        super.E();
         if (this.q != null) {
-            s0();
+            r0();
         }
         d.b.g0.a.f2.a aVar = new d.b.g0.a.f2.a();
         aVar.j(10L);
         aVar.h(2901L);
         aVar.c("同步获取-> Server无包");
-        r0(aVar, true);
+        q0(aVar, true);
     }
 
-    public final void F0(d.b.g0.a.y0.e.b bVar, d.b.g0.a.f2.a aVar) {
+    public final void E0(d.b.g0.a.y0.e.b bVar, d.b.g0.a.f2.a aVar) {
         if (bVar == null) {
             return;
         }
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47251a = d.b.g0.a.z1.h.n(bVar.F());
-        fVar.f47255e = bVar.G();
-        fVar.f47253c = bVar.S();
-        fVar.f47252b = Config.LAUNCH;
-        fVar.f47254d = "success";
+        fVar.f47643a = d.b.g0.a.z1.h.n(bVar.F());
+        fVar.f47647e = bVar.G();
+        fVar.f47645c = bVar.S();
+        fVar.f47644b = Config.LAUNCH;
+        fVar.f47646d = "success";
         fVar.a("status", "1");
         if (aVar != null) {
             fVar.a("errcode", String.valueOf(aVar.a()));
@@ -128,18 +128,18 @@ public class g extends f {
     }
 
     @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-    public void G(d.b.g0.l.r.f fVar) {
+    public void F(d.b.g0.l.r.f fVar) {
         d.b.g0.a.j1.i.o("startup").A(new UbcFlowEvent("aps_start_download"));
-        super.G(fVar);
+        super.F(fVar);
     }
 
-    public d.b.g0.a.y0.e.b G0() {
+    public d.b.g0.a.y0.e.b F0() {
         return this.H.J();
     }
 
     @Override // d.b.g0.l.h.g
-    public void H(String str, int i) {
-        super.H(str, i);
+    public void G(String str, int i) {
+        super.G(str, i);
         d.b.g0.l.l.c a2 = d.b.g0.l.l.c.a(str);
         if (a2 == null) {
             return;
@@ -163,7 +163,7 @@ public class g extends f {
     /* JADX WARN: Type inference failed for: r6v8 */
     /* JADX WARN: Type inference failed for: r6v9 */
     @Override // d.b.g0.l.h.g
-    public void I(String str, String str2, JSONObject jSONObject) {
+    public void H(String str, String str2, JSONObject jSONObject) {
         String jSONObject2;
         if (jSONObject == null) {
             return;
@@ -222,7 +222,7 @@ public class g extends f {
     }
 
     @Override // d.b.g0.a.e0.p.j
-    public int K() {
+    public int J() {
         return 1;
     }
 
@@ -237,12 +237,12 @@ public class g extends f {
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public int h0() {
+    public int g0() {
         return 200;
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public PMSDownloadType i0() {
+    public PMSDownloadType h0() {
         return PMSDownloadType.SYNC;
     }
 
@@ -270,8 +270,8 @@ public class g extends f {
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public void t0() {
-        super.t0();
+    public void s0() {
+        super.s0();
         if (I) {
             Log.i("PkgSyncDownloadCallback", "onDownloadProcessComplete: ");
         }
@@ -280,50 +280,50 @@ public class g extends f {
         o.z("type", "0");
         d.b.g0.a.s0.k.f.b.d("0");
         this.s.add(new UbcFlowEvent("na_start_update_db"));
-        d.b.g0.a.f2.a D0 = D0();
+        d.b.g0.a.f2.a C0 = C0();
         this.s.add(new UbcFlowEvent("na_end_update_db"));
-        if (D0 == null) {
+        if (C0 == null) {
             if (I) {
                 Log.d("PkgSyncDownloadCallback", "同步获取-> DB 存储成功");
             }
-            d.b.g0.a.y0.e.b G0 = G0();
+            d.b.g0.a.y0.e.b F0 = F0();
             d.b.g0.l.k.d dVar = this.o;
-            if (dVar != null && dVar.f48924h == 0) {
-                G0.Q0(d.b.g0.a.b2.b.d(0));
-                G0.D(1);
+            if (dVar != null && dVar.f49316h == 0) {
+                F0.Q0(d.b.g0.a.b2.b.d(0));
+                F0.D(1);
             }
             d.b.g0.l.k.d dVar2 = this.o;
-            if (dVar2 != null && dVar2.f48924h == 1) {
-                G0.Q0(d.b.g0.a.b2.b.d(1));
-                G0.D(1);
+            if (dVar2 != null && dVar2.f49316h == 1) {
+                F0.Q0(d.b.g0.a.b2.b.d(1));
+                F0.D(1);
             }
             d.b.g0.l.k.b bVar = this.p;
-            if (bVar != null && bVar.f48924h == 0) {
-                G0.x0(d.b.g0.a.l0.b.b(0));
-                G0.D(2);
+            if (bVar != null && bVar.f49316h == 0) {
+                F0.x0(d.b.g0.a.l0.b.b(0));
+                F0.D(2);
             }
             d.b.g0.l.k.b bVar2 = this.p;
-            if (bVar2 != null && bVar2.f48924h == 1) {
-                G0.x0(d.b.g0.a.l0.b.b(1));
-                G0.D(2);
+            if (bVar2 != null && bVar2.f49316h == 1) {
+                F0.x0(d.b.g0.a.l0.b.b(1));
+                F0.D(2);
             }
             d.b.g0.l.k.g gVar = this.u;
             if (gVar != null) {
-                G0.A0(gVar.r);
-                G0.N0(this.u.p);
+                F0.A0(gVar.r);
+                F0.N0(this.u.p);
             }
-            q0(this.q);
-            y0("main_download", "0");
+            p0(this.q);
+            x0("main_download", "0");
             return;
         }
         if (I) {
             Log.e("PkgSyncDownloadCallback", "同步获取-> DB 存储失败");
         }
-        r0(D0, true);
+        q0(C0, true);
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public void u0(Throwable th) {
+    public void t0(Throwable th) {
         d.b.g0.a.f2.a aVar;
         if (th instanceof PkgDownloadError) {
             PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
@@ -340,6 +340,6 @@ public class g extends f {
             aVar.h(2900L);
             aVar.c("包下载过程未知错误");
         }
-        r0(aVar, true);
+        q0(aVar, true);
     }
 }

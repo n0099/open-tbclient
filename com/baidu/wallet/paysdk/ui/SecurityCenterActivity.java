@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.GlobalUtils;
@@ -59,28 +60,28 @@ import java.util.Map;
 public class SecurityCenterActivity extends PayBaseBeanActivity implements View.OnClickListener, BaiduPay.IBindCardCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26219a;
+    public int f25904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f26220b;
+    public LinearLayout f25905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f26221c;
+    public RelativeLayout f25906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f26222d;
+    public RelativeLayout f25907d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f26223e;
+    public RelativeLayout f25908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f26224f;
+    public RelativeLayout f25909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f26225g;
+    public RelativeLayout f25910g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f26226h;
+    public TextView f25911h;
     public RelativeLayout i;
     public TextView j;
     public RelativeLayout k;
@@ -127,7 +128,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     private void g() {
         PayStatisticsUtil.onEvent(StatServiceEvent.SECURITY_PROTECTION_LAUNCH);
         Intent intent = new Intent("com.dianxinos.optimizer.action.LAUNCH_PAYSECURITY");
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
         intent.addFlags(32768);
         intent.putExtra("extra_from", getPackageName());
@@ -301,7 +302,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 }));
             } else if (f() && view.getId() == ResUtils.id(getActivity(), "security_protection_layout")) {
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "WeiShi");
-                int i = this.f26219a;
+                int i = this.f25904a;
                 if (i == 1) {
                     WalletGlobalUtils.safeShowDialog(this, 3, getText(ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_install")).toString());
                 } else if (i == 2) {
@@ -427,7 +428,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
             promptDialog.setCancelable(true);
             int string = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_install");
             int string2 = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_install");
-            if (2 == this.f26219a) {
+            if (2 == this.f25904a) {
                 string = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_update");
                 string2 = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_update");
             }
@@ -475,22 +476,22 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
 
     private void b() {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_pay_setting"));
-        this.f26221c = relativeLayout;
+        this.f25906c = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        this.f26220b = (LinearLayout) findViewById(ResUtils.id(getActivity(), "security_item_layout"));
+        this.f25905b = (LinearLayout) findViewById(ResUtils.id(getActivity(), "security_item_layout"));
         RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_mobile_pwd_layout"));
-        this.f26222d = relativeLayout2;
+        this.f25907d = relativeLayout2;
         relativeLayout2.setOnClickListener(this);
         RelativeLayout relativeLayout3 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_sign_state_layout"));
-        this.f26223e = relativeLayout3;
+        this.f25908e = relativeLayout3;
         relativeLayout3.setOnClickListener(this);
         RelativeLayout relativeLayout4 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_account_info_layout"));
-        this.f26224f = relativeLayout4;
+        this.f25909f = relativeLayout4;
         relativeLayout4.setOnClickListener(this);
         RelativeLayout relativeLayout5 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_protection_layout"));
-        this.f26225g = relativeLayout5;
+        this.f25910g = relativeLayout5;
         relativeLayout5.setOnClickListener(this);
-        this.f26226h = (TextView) findViewById(ResUtils.id(getActivity(), "security_protection_status"));
+        this.f25911h = (TextView) findViewById(ResUtils.id(getActivity(), "security_protection_status"));
         RelativeLayout relativeLayout6 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_auth_layout"));
         this.t = relativeLayout6;
         relativeLayout6.setOnClickListener(this);
@@ -537,14 +538,14 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     private void c() {
-        this.f26221c.setVisibility(0);
-        this.f26220b.setVisibility(0);
-        this.f26222d.setVisibility(0);
+        this.f25906c.setVisibility(0);
+        this.f25905b.setVisibility(0);
+        this.f25907d.setVisibility(0);
         this.k.setVisibility(0);
         this.l.setVisibility(0);
         this.m.setVisibility(0);
         boolean f2 = f();
-        this.f26225g.setVisibility(f2 ? 0 : 8);
+        this.f25910g.setVisibility(f2 ? 0 : 8);
         findViewById(ResUtils.id(getActivity(), "security_protection_inner_divider")).setVisibility(f2 ? 0 : 8);
         boolean isWalletNFCSurport = NFCUtil.getInstance().isWalletNFCSurport(getActivity());
         this.i.setVisibility(isWalletNFCSurport ? 0 : 8);
@@ -561,11 +562,11 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
 
     private void a() {
         int e2 = e();
-        this.f26219a = e2;
+        this.f25904a = e2;
         if (3 == e2) {
-            this.f26226h.setText(ResUtils.string(getActivity(), "bd_wallet_enabled"));
+            this.f25911h.setText(ResUtils.string(getActivity(), "bd_wallet_enabled"));
         } else {
-            this.f26226h.setText(ResUtils.string(getActivity(), "bd_wallet_disabled"));
+            this.f25911h.setText(ResUtils.string(getActivity(), "bd_wallet_disabled"));
         }
     }
 
@@ -583,20 +584,20 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     private void a(boolean z) {
-        if (this.f26223e == null) {
+        if (this.f25908e == null) {
             return;
         }
         int i = z ? 0 : 8;
         this.n.setVisibility(i);
-        this.f26223e.setVisibility(i);
+        this.f25908e.setVisibility(i);
     }
 
     private void b(boolean z) {
-        if (this.f26224f == null) {
+        if (this.f25909f == null) {
             return;
         }
         int i = z ? 0 : 8;
         this.o.setVisibility(i);
-        this.f26224f.setVisibility(i);
+        this.f25909f.setVisibility(i);
     }
 }

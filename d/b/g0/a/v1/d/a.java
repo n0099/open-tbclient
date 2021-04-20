@@ -16,25 +16,25 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    public static final boolean n = k.f45051a;
+    public static final boolean n = k.f45443a;
     public static final Map<String, a> o = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f46833a;
+    public final Activity f47225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f46834b;
+    public final String f47226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f46835c;
+    public final String f47227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f46836d;
+    public boolean f47228d;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f46839g;
+    public JSONObject f47231g;
     public d.b.g0.a.r1.e i;
     public final d.b.g0.a.f2.a j;
     public boolean k;
@@ -42,18 +42,18 @@ public final class a {
     public final d.b.g0.a.i2.t0.a m;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<d.b.g0.a.i2.u0.b<a>> f46837e = new HashSet();
+    public final Set<d.b.g0.a.i2.u0.b<a>> f47229e = new HashSet();
 
     /* renamed from: f  reason: collision with root package name */
-    public TaskState f46838f = TaskState.INIT;
+    public TaskState f47230f = TaskState.INIT;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f46840h = false;
+    public boolean f47232h = false;
 
     /* renamed from: d.b.g0.a.v1.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0868a extends d.b.g0.a.i2.t0.a {
-        public C0868a() {
+    /* loaded from: classes3.dex */
+    public class C0880a extends d.b.g0.a.i2.t0.a {
+        public C0880a() {
         }
 
         @Override // java.lang.Runnable
@@ -62,13 +62,13 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.g0.a.i2.u0.b<h<JSONObject>> {
 
         /* renamed from: d.b.g0.a.v1.d.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0869a implements d.b.g0.a.v1.c.a {
-            public C0869a() {
+        /* loaded from: classes3.dex */
+        public class C0881a implements d.b.g0.a.v1.c.a {
+            public C0881a() {
             }
 
             @Override // d.b.g0.a.v1.c.a
@@ -89,10 +89,10 @@ public final class a {
         public void onCallback(h<JSONObject> hVar) {
             JSONObject jSONObject;
             int i;
-            if (hVar != null && hVar.c() && (jSONObject = hVar.f46808a) != null) {
+            if (hVar != null && hVar.c() && (jSONObject = hVar.f47200a) != null) {
                 d.b.g0.a.c0.c.a("OpenData", "opendata=", jSONObject);
-                a.this.j.b(hVar.f46808a.optInt("errno", 10001));
-                a.this.j.e(hVar.f46808a.optString("errmsg", "internal error"));
+                a.this.j.b(hVar.f47200a.optInt("errno", 10001));
+                a.this.j.e(hVar.f47200a.optString("errmsg", "internal error"));
                 if (0 != a.this.j.g()) {
                     d.b.g0.a.v1.c.c.j("by errno", Boolean.TRUE);
                     a.this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
@@ -100,7 +100,7 @@ public final class a {
                     a.this.s(10001);
                     return;
                 }
-                JSONObject optJSONObject = hVar.f46808a.optJSONObject("data");
+                JSONObject optJSONObject = hVar.f47200a.optJSONObject("data");
                 if (optJSONObject == null) {
                     d.b.g0.a.v1.c.c.j("by data parse", Boolean.TRUE);
                     a.this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
@@ -116,8 +116,8 @@ public final class a {
                     a.this.s(10001);
                     return;
                 }
-                a.this.f46839g = optJSONObject.optJSONObject("opendata");
-                if (!a.this.f46836d && (i = e2.j) < 0) {
+                a.this.f47231g = optJSONObject.optJSONObject("opendata");
+                if (!a.this.f47228d && (i = e2.j) < 0) {
                     if (i == -2) {
                         a.this.j.b(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
                     } else {
@@ -128,20 +128,20 @@ public final class a {
                     return;
                 } else if (e2.j <= 0) {
                     if (!a.this.i.Z()) {
-                        if (!a.this.f46840h && e2.c()) {
-                            if (!TextUtils.equals(e2.f46769b, "mobile") || d.b.g0.a.r.a.f.f45697d.e()) {
+                        if (!a.this.f47232h && e2.c()) {
+                            if (!TextUtils.equals(e2.f47161b, "mobile") || d.b.g0.a.r.a.f.f46089d.e()) {
                                 a.this.z();
                                 return;
                             } else {
                                 a.this.A();
                                 return;
                             }
-                        } else if (TextUtils.equals(e2.f46769b, "mobile") && a.this.l) {
+                        } else if (TextUtils.equals(e2.f47161b, "mobile") && a.this.l) {
                             a.this.C(true);
                             return;
                         } else {
                             a aVar = a.this;
-                            d.b.g0.a.v1.c.c.q(aVar.f46833a, aVar.i, e2, a.this.f46839g, new C0869a());
+                            d.b.g0.a.v1.c.c.q(aVar.f47225a, aVar.i, e2, a.this.f47231g, new C0881a());
                             return;
                         }
                     }
@@ -150,7 +150,7 @@ public final class a {
                     a.this.t(10005, e2);
                     return;
                 } else {
-                    a.this.f46839g = optJSONObject.optJSONObject("opendata");
+                    a.this.f47231g = optJSONObject.optJSONObject("opendata");
                     a.this.u();
                     return;
                 }
@@ -162,7 +162,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.b.g0.a.m.a {
         public c() {
         }
@@ -180,14 +180,14 @@ public final class a {
                 a.this.u();
             } else {
                 d.b.g0.a.v1.c.c.j("Login Preparation ok, is already login", Boolean.FALSE);
-                a.this.f46840h = true;
+                a.this.f47232h = true;
                 a.this.l = true;
                 a.this.D();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements d.b.g0.a.m.a {
         public d() {
         }
@@ -205,20 +205,20 @@ public final class a {
                 a.this.u();
             } else {
                 d.b.g0.a.v1.c.c.j("Login Preparation ok, is already login", Boolean.FALSE);
-                a.this.f46840h = true;
+                a.this.f47232h = true;
                 a.this.D();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements d.b.g0.a.i2.u0.b<h<a.b>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f46846e;
+        public final /* synthetic */ boolean f47238e;
 
         public e(boolean z) {
-            this.f46846e = z;
+            this.f47238e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -226,11 +226,11 @@ public final class a {
         /* renamed from: a */
         public void onCallback(h<a.b> hVar) {
             a.b bVar;
-            if (!this.f46846e && !a.this.k) {
+            if (!this.f47238e && !a.this.k) {
                 a.this.u();
-            } else if (hVar != null && hVar.c() && (bVar = hVar.f46808a) != null && bVar.f46813c != null) {
+            } else if (hVar != null && hVar.c() && (bVar = hVar.f47200a) != null && bVar.f47205c != null) {
                 a aVar = a.this;
-                aVar.f46839g = bVar.f46813c;
+                aVar.f47231g = bVar.f47205c;
                 aVar.u();
             } else {
                 d.b.g0.a.f2.a aVar2 = a.this.j;
@@ -242,7 +242,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements d.b.g0.a.i2.u0.b<h<b.e>> {
         public f() {
         }
@@ -261,18 +261,18 @@ public final class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements Runnable {
         public g() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (a.this.f46837e) {
-                for (d.b.g0.a.i2.u0.b bVar : a.this.f46837e) {
+            synchronized (a.this.f47229e) {
+                for (d.b.g0.a.i2.u0.b bVar : a.this.f47229e) {
                     bVar.onCallback(a.this);
                 }
-                a.this.f46837e.clear();
+                a.this.f47229e.clear();
             }
         }
     }
@@ -284,11 +284,11 @@ public final class a {
         this.j = aVar;
         this.k = false;
         this.l = false;
-        this.m = new C0868a();
-        this.f46833a = activity;
-        this.f46834b = str;
-        this.f46835c = str2;
-        this.f46836d = z;
+        this.m = new C0880a();
+        this.f47225a = activity;
+        this.f47226b = str;
+        this.f47227c = str2;
+        this.f47228d = z;
     }
 
     public static void r() {
@@ -325,32 +325,32 @@ public final class a {
     }
 
     public final void B() {
-        this.f46840h = this.i.z().e(this.f46833a);
+        this.f47232h = this.i.z().e(this.f47225a);
         D();
     }
 
     public final void C(boolean z) {
-        if (TextUtils.isEmpty(this.f46835c)) {
-            d.b.g0.a.v1.c.i.a a2 = d.b.g0.a.r1.d.e().o().a().a().a(this.f46833a, z, this.f46834b, this.f46835c);
+        if (TextUtils.isEmpty(this.f47227c)) {
+            d.b.g0.a.v1.c.i.a a2 = d.b.g0.a.r1.d.e().o().a().a().a(this.f47225a, z, this.f47226b, this.f47227c);
             a2.p(new e(z));
             a2.a();
             return;
         }
-        d.b.g0.a.v1.c.i.b e2 = d.b.g0.a.r1.d.e().o().a().a().e(this.f46833a, true, z, new String[]{this.f46834b}, this.f46835c, true);
+        d.b.g0.a.v1.c.i.b e2 = d.b.g0.a.r1.d.e().o().a().a().e(this.f47225a, true, z, new String[]{this.f47226b}, this.f47227c, true);
         e2.p(new f());
         e2.a();
     }
 
     public final void D() {
-        d.b.g0.a.v1.c.i.g c2 = d.b.g0.a.r1.d.e().o().a().a().c(this.f46833a, this.f46834b, this.f46835c, this.f46836d, this.f46840h);
+        d.b.g0.a.v1.c.i.g c2 = d.b.g0.a.r1.d.e().o().a().a().c(this.f47225a, this.f47226b, this.f47227c, this.f47228d, this.f47232h);
         c2.p(new b());
         c2.a();
     }
 
     public final void E(d.b.g0.a.i2.u0.b<a> bVar) {
-        d.b.g0.a.c0.c.g("OpenData", "start session : " + this.f46834b);
-        this.f46838f = TaskState.CALLING;
-        this.k = TextUtils.equals(this.f46834b, "snsapi_userinfo");
+        d.b.g0.a.c0.c.g("OpenData", "start session : " + this.f47226b);
+        this.f47230f = TaskState.CALLING;
+        this.k = TextUtils.equals(this.f47226b, "snsapi_userinfo");
         q(bVar);
         d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
         this.i = y;
@@ -361,21 +361,21 @@ public final class a {
             s(10001);
             return;
         }
-        y.R().f46662f.d(this.m);
+        y.R().f47054f.d(this.m);
     }
 
     public final a q(d.b.g0.a.i2.u0.b<a> bVar) {
         if (bVar == null) {
             return this;
         }
-        synchronized (this.f46837e) {
-            this.f46837e.add(bVar);
+        synchronized (this.f47229e) {
+            this.f47229e.add(bVar);
         }
         return this;
     }
 
     public final void s(int i) {
-        t(i, d.b.g0.a.v1.c.e.d(this.f46834b, new JSONObject()));
+        t(i, d.b.g0.a.v1.c.e.d(this.f47226b, new JSONObject()));
     }
 
     public final void t(int i, d.b.g0.a.v1.c.e eVar) {
@@ -397,8 +397,8 @@ public final class a {
             jSONObject.put("appid", O.getAppId());
             jSONObject.put("msg", d.b.g0.a.v1.c.c.f(i));
             if (eVar != null) {
-                jSONObject.put("scope", eVar.f46769b);
-                jSONObject.put("scopeData", eVar.f46768a);
+                jSONObject.put("scope", eVar.f47161b);
+                jSONObject.put("scopeData", eVar.f47160a);
             }
         } catch (JSONException e2) {
             if (n) {
@@ -411,23 +411,23 @@ public final class a {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.f46834b, Boolean.valueOf(x()), super.toString()));
+        sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.f47226b, Boolean.valueOf(x()), super.toString()));
         sb.append(String.format(Locale.getDefault(), "Err(%s)\n", this.j));
-        if (this.f46839g != null) {
-            sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.f46839g));
+        if (this.f47231g != null) {
+            sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.f47231g));
         }
-        sb.append(String.format(Locale.getDefault(), "state=%s\n", this.f46838f));
+        sb.append(String.format(Locale.getDefault(), "state=%s\n", this.f47230f));
         return sb.toString();
     }
 
     public final void u() {
         this.m.a();
         synchronized (o) {
-            o.remove(w(this.f46834b, this.f46836d));
+            o.remove(w(this.f47226b, this.f47228d));
         }
-        this.f46838f = TaskState.FINISHED;
-        if (this.f46839g == null && 0 == this.j.a()) {
-            if (this.f46840h) {
+        this.f47230f = TaskState.FINISHED;
+        if (this.f47231g == null && 0 == this.j.a()) {
+            if (this.f47232h) {
                 this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
             } else {
                 this.j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
@@ -438,14 +438,14 @@ public final class a {
     }
 
     public boolean x() {
-        return TaskState.FINISHED == this.f46838f && 0 == this.j.a() && this.f46839g != null;
+        return TaskState.FINISHED == this.f47230f && 0 == this.j.a() && this.f47231g != null;
     }
 
     public boolean y() {
-        return TaskState.FINISHED == this.f46838f && this.f46839g != null;
+        return TaskState.FINISHED == this.f47230f && this.f47231g != null;
     }
 
     public final void z() {
-        this.i.z().f(this.f46833a, null, new d());
+        this.i.z().f(this.f47225a, null, new d());
     }
 }

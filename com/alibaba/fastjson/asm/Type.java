@@ -127,11 +127,11 @@ public class Type {
             case 8:
                 return "double";
             case 9:
-                StringBuffer stringBuffer = new StringBuffer(getType(this.buf, this.off + getDimensions()).getClassName());
+                StringBuilder sb = new StringBuilder(getType(this.buf, this.off + getDimensions()).getClassName());
                 for (int dimensions = getDimensions(); dimensions > 0; dimensions--) {
-                    stringBuffer.append("[]");
+                    sb.append("[]");
                 }
-                return stringBuffer.toString();
+                return sb.toString();
             default:
                 return new String(this.buf, this.off, this.len).replace('/', IStringUtil.EXTENSION_SEPARATOR);
         }

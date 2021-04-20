@@ -6,14 +6,14 @@ import com.bytedance.sdk.openadsdk.preload.geckox.f.b;
 import java.io.File;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f30177a;
+    public b f29862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f30178b = new AtomicBoolean(false);
+    public AtomicBoolean f29863b = new AtomicBoolean(false);
 
     public a(Context context, String str, File file) {
         if (context != null) {
@@ -21,7 +21,7 @@ public class a {
                 throw new RuntimeException("access key empty");
             }
             if (file != null) {
-                this.f30177a = new b(context, str, file);
+                this.f29862a = new b(context, str, file);
                 return;
             }
             throw new RuntimeException("resRootDir == null");
@@ -30,24 +30,24 @@ public class a {
     }
 
     public InputStream a(String str) throws Exception {
-        if (!this.f30178b.get()) {
+        if (!this.f29863b.get()) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("WebOffline-falcon", "GeckoResLoader ready to load, file:", str);
-            return this.f30177a.a(str);
+            return this.f29862a.a(str);
         }
         throw new RuntimeException("released!");
     }
 
     public boolean b(String str) throws Exception {
-        if (!this.f30178b.get()) {
-            return this.f30177a.b(str);
+        if (!this.f29863b.get()) {
+            return this.f29862a.b(str);
         }
         throw new RuntimeException("released!");
     }
 
     public void a() throws Exception {
-        if (this.f30178b.getAndSet(true)) {
+        if (this.f29863b.getAndSet(true)) {
             return;
         }
-        this.f30177a.a();
+        this.f29862a.a();
     }
 }

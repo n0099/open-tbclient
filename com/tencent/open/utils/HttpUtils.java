@@ -92,10 +92,10 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HttpUtils {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -104,7 +104,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -113,40 +113,40 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SSLContext f39290a;
+        public final SSLContext f39579a;
 
         public a(KeyStore keyStore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
             super(keyStore);
             b bVar;
-            this.f39290a = SSLContext.getInstance("TLS");
+            this.f39579a = SSLContext.getInstance("TLS");
             try {
                 bVar = new b();
             } catch (Exception unused) {
                 bVar = null;
             }
-            this.f39290a.init(null, new TrustManager[]{bVar}, null);
+            this.f39579a.init(null, new TrustManager[]{bVar}, null);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
         public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException, UnknownHostException {
-            return this.f39290a.getSocketFactory().createSocket(socket, str, i, z);
+            return this.f39579a.getSocketFactory().createSocket(socket, str, i, z);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
         public Socket createSocket() throws IOException {
-            return this.f39290a.getSocketFactory().createSocket();
+            return this.f39579a.getSocketFactory().createSocket();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f39291a;
+        public X509TrustManager f39580a;
 
         public b() throws Exception {
             KeyStore keyStore;
@@ -185,7 +185,7 @@ public class HttpUtils {
             }
             for (int i = 0; i < trustManagers.length; i++) {
                 if (trustManagers[i] instanceof X509TrustManager) {
-                    this.f39291a = (X509TrustManager) trustManagers[i];
+                    this.f39580a = (X509TrustManager) trustManagers[i];
                     return;
                 }
             }
@@ -194,32 +194,32 @@ public class HttpUtils {
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f39291a.checkClientTrusted(x509CertificateArr, str);
+            this.f39580a.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f39291a.checkServerTrusted(x509CertificateArr, str);
+            this.f39580a.checkServerTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            return this.f39291a.getAcceptedIssuers();
+            return this.f39580a.getAcceptedIssuers();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f39292a;
+        public final String f39581a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f39293b;
+        public final int f39582b;
 
         public c(String str, int i) {
-            this.f39292a = str;
-            this.f39293b = i;
+            this.f39581a = str;
+            this.f39582b = i;
         }
     }
 
@@ -454,7 +454,7 @@ public class HttpUtils {
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
         if (proxy != null) {
-            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f39292a, proxy.f39293b));
+            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f39581a, proxy.f39582b));
         }
         return defaultHttpClient;
     }
@@ -665,7 +665,7 @@ public class HttpUtils {
             r11 = r21
             r12 = r22
             com.tencent.open.utils.j$a r0 = openUrl2(r1, r2, r12, r11)     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
-            java.lang.String r13 = r0.f39335a     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
+            java.lang.String r13 = r0.f39624a     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
             org.json.JSONObject r3 = com.tencent.open.utils.j.d(r13)     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
             java.lang.String r13 = "ret"
             int r13 = r3.getInt(r13)     // Catch: org.json.JSONException -> Ld1 java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
@@ -673,8 +673,8 @@ public class HttpUtils {
         Ld1:
             r13 = -4
         Ld2:
-            long r14 = r0.f39336b     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
-            long r0 = r0.f39337c     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
+            long r14 = r0.f39625b     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
+            long r0 = r0.f39626c     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
             r9 = r0
             r0 = r3
             r11 = r13

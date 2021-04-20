@@ -17,7 +17,7 @@ public class RxBus {
     public static volatile RxBus mInstance;
     public ConcurrentHashMap<Object, ConcurrentHashMap<Class, d>> mObservables = new ConcurrentHashMap<>();
     public ConcurrentHashMap<Object, ConcurrentHashMap<Class, List<j>>> mSubscribers = new ConcurrentHashMap<>();
-    public final c<Object, Object> mRxBusSubject = new c<>(PublishSubject.L());
+    public final c<Object, Object> mRxBusSubject = new c<>(PublishSubject.N());
 
     /* loaded from: classes.dex */
     public class Remover implements k {

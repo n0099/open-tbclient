@@ -1,6 +1,7 @@
 package com.sdk.base.framework.d;
 
 import android.content.Context;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.a.l;
 import org.json.JSONObject;
@@ -8,20 +9,20 @@ import org.json.JSONObject;
 public final class b extends com.sdk.base.framework.b.b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f38534a;
+    public /* synthetic */ a f38823a;
 
     public b(a aVar) {
-        this.f38534a = aVar;
+        this.f38823a = aVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 java.lang.Object)] */
     @Override // com.sdk.base.framework.b.b
     public final void a(int i, Object obj) {
-        a aVar = this.f38534a;
+        a aVar = this.f38823a;
         StringBuilder sb = new StringBuilder();
         sb.append(obj);
         aVar.a(i, 302002, sb.toString());
-        Context context = this.f38534a.f38528a;
+        Context context = this.f38823a.f38817a;
         com.sdk.base.framework.f.g.a.a();
     }
 
@@ -39,24 +40,24 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                 String optString = jSONObject.optString("msg");
                 int optInt2 = jSONObject.optInt("status");
                 String optString2 = jSONObject.optString("obj");
-                String optString3 = jSONObject.optString("seq");
+                String optString3 = jSONObject.optString(IAdRequestParam.SEQ);
                 if (!c.a(optString).booleanValue() || !c.a(optString3).booleanValue() || !c.a(optString2).booleanValue()) {
-                    this.f38534a.a(optInt, optString, optInt2, optString2, optString3);
-                    Context context = this.f38534a.f38528a;
+                    this.f38823a.a(optInt, optString, optInt2, optString2, optString3);
+                    Context context = this.f38823a.f38817a;
                     com.sdk.base.framework.f.g.a.a();
                     return;
                 }
-                this.f38534a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f38526d;
-                z2 = a.f38527e;
+                this.f38823a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str2 = a.f38815d;
+                z2 = a.f38816e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
                 i = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
-                this.f38534a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f38526d;
-                z = a.f38527e;
+                this.f38823a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str = a.f38815d;
+                z = a.f38816e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {

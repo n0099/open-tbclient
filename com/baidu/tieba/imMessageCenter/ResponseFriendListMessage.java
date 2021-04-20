@@ -9,7 +9,7 @@ import d.b.h0.s.f.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public LinkedList<a> friendList;
 

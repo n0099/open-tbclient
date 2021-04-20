@@ -7,52 +7,52 @@ import java.io.Serializable;
 public class b implements Serializable {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9938b;
+    public String f9496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9939c;
+    public String f9497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9940d;
+    public String f9498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f9941e;
+    public String[] f9499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9942f;
+    public String f9500f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9943g;
+    public String f9501g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9944h;
+    public int f9502h;
     public String i;
     public String l;
     public String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9937a = Integer.MIN_VALUE;
+    public int f9495a = Integer.MIN_VALUE;
     public boolean j = false;
     public boolean k = true;
 
     public void a(int i) {
-        this.f9937a = i;
+        this.f9495a = i;
     }
 
     public String b() {
-        return this.f9938b;
+        return this.f9496b;
     }
 
     public String c() {
-        return this.f9939c;
+        return this.f9497c;
     }
 
     public String d() {
-        return this.f9940d;
+        return this.f9498d;
     }
 
     public void e(String str) {
-        this.f9943g = str;
+        this.f9501g = str;
     }
 
     public void f(String str) {
@@ -68,27 +68,27 @@ public class b implements Serializable {
     }
 
     public String toString() {
-        return "ARResource [ err_code = " + this.f9937a + StringUtil.ARRAY_ELEMENT_SEPARATOR + PmsConstant.Statistic.STATISTIC_ERRMSG + " = " + this.f9938b + ", , version_code = " + this.f9943g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "ar_resource = " + this.f9940d + " ]";
+        return "ARResource [ err_code = " + this.f9495a + StringUtil.ARRAY_ELEMENT_SEPARATOR + PmsConstant.Statistic.STATISTIC_ERRMSG + " = " + this.f9496b + ", , version_code = " + this.f9501g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "ar_resource = " + this.f9498d + " ]";
     }
 
     public int a() {
-        return this.f9937a;
+        return this.f9495a;
     }
 
     public void b(String str) {
-        this.f9939c = str;
+        this.f9497c = str;
     }
 
     public void c(String str) {
-        this.f9940d = str;
+        this.f9498d = str;
     }
 
     public void d(String str) {
-        this.f9942f = str;
+        this.f9500f = str;
     }
 
     public int e() {
-        return this.f9944h;
+        return this.f9502h;
     }
 
     public boolean f() {
@@ -104,15 +104,15 @@ public class b implements Serializable {
     }
 
     public void a(String str) {
-        this.f9938b = str;
+        this.f9496b = str;
     }
 
     public void b(int i) {
-        this.f9944h = i;
+        this.f9502h = i;
     }
 
     public void a(String[] strArr) {
-        this.f9941e = strArr;
+        this.f9499e = strArr;
     }
 
     public void b(boolean z) {

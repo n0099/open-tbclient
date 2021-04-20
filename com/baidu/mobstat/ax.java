@@ -7,20 +7,20 @@ import org.json.JSONObject;
 public class ax {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ax f9044c = new ax();
+    public static final ax f8618c = new ax();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9045a = false;
+    public boolean f8619a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f9046b;
+    public volatile boolean f8620b;
 
     public static ax a() {
-        return f9044c;
+        return f8618c;
     }
 
     public boolean b() {
-        return this.f9045a;
+        return this.f8619a;
     }
 
     public void a(String str) {
@@ -29,9 +29,9 @@ public class ax {
         }
         try {
             JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-            this.f9045a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
+            this.f8619a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f9046b = true;
+        this.f8620b = true;
     }
 }

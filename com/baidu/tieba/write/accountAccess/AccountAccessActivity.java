@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import d.b.i0.u3.k.a;
-import d.b.i0.u3.k.b;
+import d.b.i0.v3.k.a;
+import d.b.i0.v3.k.b;
 /* loaded from: classes5.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";

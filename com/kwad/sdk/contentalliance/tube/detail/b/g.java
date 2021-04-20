@@ -15,25 +15,25 @@ import com.kwad.sdk.utils.q;
 public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public LottieAnimationView f33213b;
+    public LottieAnimationView f33502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f33214c;
+    public ViewGroup f33503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f33215d;
+    public ImageView f33504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f33216e;
+    public TextView f33505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f33217f;
+    public ImageView f33506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f33218g;
+    public TextView f33507g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f33219h;
+    public TextView f33508h;
     public boolean i;
     public b.a j = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.g.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
@@ -64,7 +64,7 @@ public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     public View.OnClickListener k = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.g.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.kwad.sdk.contentalliance.tube.b bVar = ((com.kwad.sdk.contentalliance.tube.detail.a.a) g.this).f33158a.f33165g;
+            com.kwad.sdk.contentalliance.tube.b bVar = ((com.kwad.sdk.contentalliance.tube.detail.a.a) g.this).f33447a.f33454g;
             if (bVar != null) {
                 g.this.i = true;
                 g.this.f();
@@ -84,8 +84,8 @@ public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     }
 
     private void c(int i) {
-        this.f33214c.setVisibility(0);
-        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f33869a.k) {
+        this.f33503c.setVisibility(0);
+        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f34158a.k) {
             h();
         } else if (i == com.kwad.sdk.core.network.f.j.k) {
             q();
@@ -97,80 +97,80 @@ public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         f();
-        this.f33213b.setVisibility(8);
-        this.f33215d.setVisibility(8);
-        this.f33214c.setVisibility(8);
+        this.f33502b.setVisibility(8);
+        this.f33504d.setVisibility(8);
+        this.f33503c.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f33215d.setVisibility(0);
-        this.f33213b.setVisibility(0);
-        if (!this.f33213b.c()) {
-            this.f33213b.b();
+        this.f33504d.setVisibility(0);
+        this.f33502b.setVisibility(0);
+        if (!this.f33502b.c()) {
+            this.f33502b.b();
         }
-        this.f33214c.setVisibility(8);
+        this.f33503c.setVisibility(8);
     }
 
     private void g() {
-        this.f33215d.setVisibility(8);
-        if (!this.f33213b.c()) {
-            this.f33213b.d();
+        this.f33504d.setVisibility(8);
+        if (!this.f33502b.c()) {
+            this.f33502b.d();
         }
-        this.f33213b.setVisibility(8);
+        this.f33502b.setVisibility(8);
     }
 
     private void h() {
-        this.f33217f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_content_network_error));
-        this.f33216e.setText(q.d(o()));
-        this.f33218g.setText(q.e(o()));
-        this.f33219h.setText(q.i(o()));
+        this.f33506f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_content_network_error));
+        this.f33505e.setText(q.d(o()));
+        this.f33507g.setText(q.e(o()));
+        this.f33508h.setText(q.i(o()));
     }
 
     private void p() {
-        this.f33217f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_data_img));
-        this.f33216e.setText(q.g(o()));
-        this.f33218g.setText(q.h(o()));
-        this.f33219h.setText(q.i(o()));
+        this.f33506f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_data_img));
+        this.f33505e.setText(q.g(o()));
+        this.f33507g.setText(q.h(o()));
+        this.f33508h.setText(q.i(o()));
     }
 
     private void q() {
-        this.f33217f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_video_img));
-        this.f33216e.setText(o().getString(R.string.ksad_video_no_found));
-        this.f33218g.setText(o().getString(R.string.ksad_click_to_next_video));
-        this.f33219h.setText(o().getString(R.string.ksad_watch_next_video));
+        this.f33506f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_video_img));
+        this.f33505e.setText(o().getString(R.string.ksad_video_no_found));
+        this.f33507g.setText(o().getString(R.string.ksad_click_to_next_video));
+        this.f33508h.setText(o().getString(R.string.ksad_watch_next_video));
     }
 
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33162d.add(this.j);
-        this.f33219h.setOnClickListener(this.k);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33447a.f33451d.add(this.j);
+        this.f33508h.setOnClickListener(this.k);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33158a.f33162d.remove(this.j);
-        this.f33219h.setOnClickListener(null);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33447a.f33451d.remove(this.j);
+        this.f33508h.setOnClickListener(null);
         g();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33213b = (LottieAnimationView) b(R.id.ksad_center_loading_animation_view);
-        this.f33214c = (ViewGroup) b(R.id.ksad_error_container);
-        this.f33215d = (ImageView) b(R.id.ksad_tube_loading_mask_view);
-        this.f33216e = (TextView) b(R.id.ksad_load_error_title);
-        this.f33217f = (ImageView) b(R.id.ksad_load_error_img);
-        this.f33218g = (TextView) b(R.id.ksad_load_error_tip);
-        this.f33219h = (TextView) b(R.id.ksad_retry_btn);
+        this.f33502b = (LottieAnimationView) b(R.id.ksad_center_loading_animation_view);
+        this.f33503c = (ViewGroup) b(R.id.ksad_error_container);
+        this.f33504d = (ImageView) b(R.id.ksad_tube_loading_mask_view);
+        this.f33505e = (TextView) b(R.id.ksad_load_error_title);
+        this.f33506f = (ImageView) b(R.id.ksad_load_error_img);
+        this.f33507g = (TextView) b(R.id.ksad_load_error_tip);
+        this.f33508h = (TextView) b(R.id.ksad_retry_btn);
         int i = R.raw.ksad_detail_loading_amin_new;
-        this.f33215d.setVisibility(4);
-        this.f33213b.setVisibility(0);
-        this.f33213b.setRepeatMode(1);
-        this.f33213b.setRepeatCount(-1);
-        this.f33213b.setAnimation(i);
+        this.f33504d.setVisibility(4);
+        this.f33502b.setVisibility(0);
+        this.f33502b.setRepeatMode(1);
+        this.f33502b.setRepeatCount(-1);
+        this.f33502b.setAnimation(i);
     }
 }

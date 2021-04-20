@@ -7,6 +7,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.net.InetAddress;
@@ -21,10 +22,10 @@ import java.util.Map;
 public class p1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap f40013a = new HashMap();
+    public static HashMap f40302a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f40014b = false;
+    public static boolean f40303b = false;
 
     public static String a(Map map) {
         StringBuilder sb = new StringBuilder();
@@ -102,25 +103,25 @@ public class p1 {
         NetworkInfo activeNetworkInfo;
         String deviceId;
         String str8;
-        if (f40014b) {
-            hashMap = f40013a;
+        if (f40303b) {
+            hashMap = f40302a;
         } else {
-            f40013a.put("app", G.b(context));
-            f40013a.put("sdkna", "norm-1.1.7");
-            f40013a.put("plat", "a");
-            f40013a.put("model", Build.MODEL);
-            f40013a.put("manu", Build.MANUFACTURER);
-            f40013a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
-            f40013a.put("h", String.valueOf(G.c(context)));
-            f40013a.put("w", String.valueOf(G.e(context)));
-            HashMap hashMap2 = f40013a;
+            f40302a.put("app", G.b(context));
+            f40302a.put("sdkna", "norm-1.1.7");
+            f40302a.put("plat", "a");
+            f40302a.put("model", Build.MODEL);
+            f40302a.put("manu", Build.MANUFACTURER);
+            f40302a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
+            f40302a.put("h", String.valueOf(G.c(context)));
+            f40302a.put("w", String.valueOf(G.e(context)));
+            HashMap hashMap2 = f40302a;
             try {
                 i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
             } catch (Exception unused) {
                 i = -1;
             }
             hashMap2.put("appv", String.valueOf(i));
-            HashMap hashMap3 = f40013a;
+            HashMap hashMap3 = f40302a;
             try {
                 str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
                 if (str != null) {
@@ -129,8 +130,8 @@ public class p1 {
             }
             str = "";
             hashMap3.put("appvn", str);
-            f40013a.put("rt", U1.a() ? "1" : "0");
-            f40013a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
+            f40302a.put("rt", U1.a() ? "1" : "0");
+            f40302a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
             try {
                 str2 = Build.SERIAL;
                 try {
@@ -149,7 +150,7 @@ public class p1 {
                 str2 = "";
             }
             if (!TextUtils.isEmpty(str2)) {
-                HashMap hashMap4 = f40013a;
+                HashMap hashMap4 = f40302a;
                 try {
                     str2 = G.a(str2);
                 } catch (Exception unused3) {
@@ -209,7 +210,7 @@ public class p1 {
             hashMap5.put("opcode", str4);
         }
         try {
-            str5 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            str5 = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception unused8) {
             str5 = "NO";
         }
@@ -252,7 +253,7 @@ public class p1 {
                     case 12:
                     case 14:
                     case 15:
-                        str6 = com.baidu.apollon.statistics.g.f3874b;
+                        str6 = com.baidu.apollon.statistics.g.f3909b;
                         break;
                     case 13:
                         str6 = "4G";
@@ -264,7 +265,7 @@ public class p1 {
                                 break;
                             }
                         }
-                        str6 = com.baidu.apollon.statistics.g.f3874b;
+                        str6 = com.baidu.apollon.statistics.g.f3909b;
                         break;
                 }
             }
@@ -300,7 +301,7 @@ public class p1 {
                                     str7 = stringBuffer.toString().toUpperCase();
                                     if (!TextUtils.isEmpty(str7)) {
                                     }
-                                    d2 = P1.f39744c.f39745a;
+                                    d2 = P1.f40033c.f40034a;
                                     if (d2 > 0.0d) {
                                     }
                                     b2 = T1.a(context).b();
@@ -340,7 +341,7 @@ public class p1 {
                     }
                     hashMap5.put("wm", str7);
                 }
-                d2 = P1.f39744c.f39745a;
+                d2 = P1.f40033c.f40034a;
                 if (d2 > 0.0d) {
                     String valueOf = String.valueOf(d2);
                     try {
@@ -348,7 +349,7 @@ public class p1 {
                     } catch (Exception unused12) {
                     }
                     hashMap5.put("lau", valueOf);
-                    String valueOf2 = String.valueOf(P1.f39744c.f39746b);
+                    String valueOf2 = String.valueOf(P1.f40033c.f40035b);
                     try {
                         valueOf2 = G.a(valueOf2);
                     } catch (Exception unused13) {
@@ -388,7 +389,7 @@ public class p1 {
             str7 = stringBuffer22.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = P1.f39744c.f39745a;
+            d2 = P1.f40033c.f40034a;
             if (d2 > 0.0d) {
             }
             b2 = T1.a(context).b();
@@ -419,7 +420,7 @@ public class p1 {
             str7 = stringBuffer222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = P1.f39744c.f39745a;
+            d2 = P1.f40033c.f40034a;
             if (d2 > 0.0d) {
             }
             b2 = T1.a(context).b();
@@ -440,7 +441,7 @@ public class p1 {
         str7 = stringBuffer2222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = P1.f39744c.f39745a;
+        d2 = P1.f40033c.f40034a;
         if (d2 > 0.0d) {
         }
         b2 = T1.a(context).b();
@@ -455,15 +456,15 @@ public class p1 {
         return hashMap5;
         str3 = "";
         if (!TextUtils.isEmpty(str3)) {
-            HashMap hashMap6 = f40013a;
+            HashMap hashMap6 = f40302a;
             try {
                 str3 = G.a(str3);
             } catch (Exception unused17) {
             }
             hashMap6.put("imsi", str3);
         }
-        f40014b = true;
-        hashMap = f40013a;
+        f40303b = true;
+        hashMap = f40302a;
         HashMap hashMap52 = new HashMap();
         if (hashMap != null) {
         }
@@ -475,7 +476,7 @@ public class p1 {
         str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str4)) {
         }
-        str5 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+        str5 = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         if (!TextUtils.isEmpty(str5)) {
         }
         String a32 = M1.a(context);
@@ -503,7 +504,7 @@ public class p1 {
                 str7 = stringBuffer22222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = P1.f39744c.f39745a;
+                d2 = P1.f40033c.f40034a;
                 if (d2 > 0.0d) {
                 }
                 b2 = T1.a(context).b();
@@ -524,7 +525,7 @@ public class p1 {
             str7 = stringBuffer222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = P1.f39744c.f39745a;
+            d2 = P1.f40033c.f40034a;
             if (d2 > 0.0d) {
             }
             b2 = T1.a(context).b();
@@ -555,7 +556,7 @@ public class p1 {
             str7 = stringBuffer2222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = P1.f39744c.f39745a;
+            d2 = P1.f40033c.f40034a;
             if (d2 > 0.0d) {
             }
             b2 = T1.a(context).b();
@@ -576,7 +577,7 @@ public class p1 {
         str7 = stringBuffer22222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = P1.f39744c.f39745a;
+        d2 = P1.f40033c.f40034a;
         if (d2 > 0.0d) {
         }
         b2 = T1.a(context).b();
@@ -590,8 +591,8 @@ public class p1 {
         }
         return hashMap52;
         hashMap6.put("imsi", str3);
-        f40014b = true;
-        hashMap = f40013a;
+        f40303b = true;
+        hashMap = f40302a;
         HashMap hashMap522 = new HashMap();
         if (hashMap != null) {
         }
@@ -603,7 +604,7 @@ public class p1 {
         str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str4)) {
         }
-        str5 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+        str5 = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         if (!TextUtils.isEmpty(str5)) {
         }
         String a322 = M1.a(context);
@@ -631,7 +632,7 @@ public class p1 {
             str7 = stringBuffer222222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = P1.f39744c.f39745a;
+            d2 = P1.f40033c.f40034a;
             if (d2 > 0.0d) {
             }
             b2 = T1.a(context).b();
@@ -652,7 +653,7 @@ public class p1 {
         str7 = stringBuffer2222222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = P1.f39744c.f39745a;
+        d2 = P1.f40033c.f40034a;
         if (d2 > 0.0d) {
         }
         b2 = T1.a(context).b();

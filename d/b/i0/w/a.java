@@ -25,38 +25,38 @@ import d.b.h0.r.s.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f62089a;
+    public TbPageContext f63620a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f62090b;
+    public TextView f63621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f62091c;
+    public TextView f63622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f62092d;
+    public ImageView f63623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f62093e;
+    public TextView f63624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62094f;
+    public String f63625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f62095g = false;
+    public boolean f63626g = false;
 
     /* renamed from: d.b.i0.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1645a implements View.OnClickListener {
-        public View$OnClickListenerC1645a() {
+    public class View$OnClickListenerC1692a implements View.OnClickListener {
+        public View$OnClickListenerC1692a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar = a.this;
-            aVar.f62095g = !aVar.f62095g;
+            aVar.f63626g = !aVar.f63626g;
             aVar.h();
-            d.b.h0.r.d0.b.i().s("key_call_fans_no_tip_again", a.this.f62095g);
+            d.b.h0.r.d0.b.j().t("key_call_fans_no_tip_again", a.this.f63626g);
         }
     }
 
@@ -64,16 +64,16 @@ public class a {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f62097e;
+        public final /* synthetic */ d.b.h0.r.s.a f63628e;
 
         public b(d.b.h0.r.s.a aVar) {
-            this.f62097e = aVar;
+            this.f63628e = aVar;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             a.this.d();
-            this.f62097e.dismiss();
+            this.f63628e.dismiss();
         }
     }
 
@@ -81,53 +81,53 @@ public class a {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f62099e;
+        public final /* synthetic */ d.b.h0.r.s.a f63630e;
 
         public c(a aVar, d.b.h0.r.s.a aVar2) {
-            this.f62099e = aVar2;
+            this.f63630e = aVar2;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            d.b.h0.r.d0.b.i().s("key_call_fans_no_tip_again", false);
-            this.f62099e.dismiss();
+            d.b.h0.r.d0.b.j().t("key_call_fans_no_tip_again", false);
+            this.f63630e.dismiss();
         }
     }
 
     public a(TbPageContext tbPageContext) {
-        this.f62089a = tbPageContext;
+        this.f63620a = tbPageContext;
         g();
     }
 
     public void c() {
         if (!TbSingleton.getInstance().mCanCallFans) {
-            this.f62089a.showToast(R.string.have_used_call_fans_this_week);
-        } else if (d.b.h0.r.d0.b.i().g("key_call_fans_no_tip_again", false)) {
+            this.f63620a.showToast(R.string.have_used_call_fans_this_week);
+        } else if (d.b.h0.r.d0.b.j().g("key_call_fans_no_tip_again", false)) {
             d();
         } else {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f62089a.getPageActivity());
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.f63620a.getPageActivity());
             aVar.setContentViewSize(1);
-            View inflate = LayoutInflater.from(this.f62089a.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-            this.f62090b = (TextView) inflate.findViewById(R.id.title);
-            this.f62091c = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            this.f62093e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            this.f62092d = (ImageView) inflate.findViewById(R.id.checkbox);
+            View inflate = LayoutInflater.from(this.f63620a.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
+            this.f63621b = (TextView) inflate.findViewById(R.id.title);
+            this.f63622c = (TextView) inflate.findViewById(R.id.call_fans_intro);
+            this.f63624e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+            this.f63623d = (ImageView) inflate.findViewById(R.id.checkbox);
             h();
-            this.f62092d.setOnClickListener(new View$OnClickListenerC1645a());
+            this.f63623d.setOnClickListener(new View$OnClickListenerC1692a());
             f();
             aVar.setContentView(inflate);
-            aVar.setPositiveButton(this.f62089a.getString(R.string.call_fans), new b(aVar));
-            aVar.setNegativeButton(this.f62089a.getString(R.string.next_time), new c(this, aVar));
-            aVar.create(this.f62089a).show();
+            aVar.setPositiveButton(this.f63620a.getString(R.string.call_fans), new b(aVar));
+            aVar.setNegativeButton(this.f63620a.getString(R.string.next_time), new c(this, aVar));
+            aVar.create(this.f63620a).show();
         }
     }
 
     public final void d() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
-        httpMessage.addParam("thread_id", this.f62094f);
+        httpMessage.addParam("thread_id", this.f63625f);
         MessageManager.getInstance().sendMessage(httpMessage);
-        this.f62089a.showToast(R.string.your_thread_is_recommended_to_fans);
-        TbSingleton.getInstance().mCallFansTid = this.f62094f;
+        this.f63620a.showToast(R.string.your_thread_is_recommended_to_fans);
+        TbSingleton.getInstance().mCallFansTid = this.f63625f;
         TbSingleton.getInstance().mCanCallFans = false;
     }
 
@@ -136,10 +136,10 @@ public class a {
     }
 
     public void f() {
-        SkinManager.setViewTextColor(this.f62090b, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f62091c, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f63621b, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f63622c, R.color.CAM_X0107);
         h();
-        SkinManager.setViewTextColor(this.f62093e, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f63624e, R.color.CAM_X0107);
     }
 
     public final void g() {
@@ -152,11 +152,11 @@ public class a {
 
     public final void h() {
         Drawable maskDrawable;
-        ImageView imageView = this.f62092d;
+        ImageView imageView = this.f63623d;
         if (imageView == null) {
             return;
         }
-        if (this.f62095g) {
+        if (this.f63626g) {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
         } else {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -165,6 +165,6 @@ public class a {
     }
 
     public void i(String str) {
-        this.f62094f = str;
+        this.f63625f = str;
     }
 }

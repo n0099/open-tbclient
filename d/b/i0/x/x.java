@@ -90,7 +90,7 @@ public class x extends b<a2> implements d.b.i0.m.e {
             String name_show = this.s.T().getName_show();
             HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(b());
             HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-            createNormalConfig.setExtra(this.s.c0(), this.s.d0(), this.s.d1(), d.b.b.e.m.b.f(this.s.w1(), 0L));
+            createNormalConfig.setExtra(this.s.c0(), this.s.d0(), this.s.d1(), d.b.c.e.m.b.f(this.s.w1(), 0L));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
             return;
         }
@@ -123,7 +123,7 @@ public class x extends b<a2> implements d.b.i0.m.e {
         this.q.setText(StringHelper.getFormatTime(a2Var.B0() * 1000));
         String str = a2Var.D1() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.append((CharSequence) a2Var.N2(false, true));
+        spannableStringBuilder.append((CharSequence) a2Var.O2(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
         this.r.setText(spannableStringBuilder);
         m.l(this.r, this.s.w1(), R.color.CAM_X0105, R.color.CAM_X0109);

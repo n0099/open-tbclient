@@ -3,10 +3,10 @@ package d.b.h0.u0.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51509a;
+    public String f51927a;
 
     public String a() {
-        return this.f51509a;
+        return this.f51927a;
     }
 
     public void b(int i) {
@@ -16,6 +16,6 @@ public class b {
     }
 
     public void d(String str) {
-        this.f51509a = str;
+        this.f51927a = str;
     }
 }

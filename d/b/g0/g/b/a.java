@@ -4,23 +4,23 @@ public class a {
 
     /* renamed from: d.b.g0.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0949a implements d {
+    public static class C0961a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f47879a;
+        public final /* synthetic */ d f48271a;
 
-        public C0949a(d dVar) {
-            this.f47879a = dVar;
+        public C0961a(d dVar) {
+            this.f48271a = dVar;
         }
 
         @Override // d.b.g0.g.b.a.d
         public void onFail(String str) {
-            this.f47879a.onFail(str);
+            this.f48271a.onFail(str);
         }
 
         @Override // d.b.g0.g.b.a.d
         public void onSuccess() {
-            this.f47879a.onSuccess();
+            this.f48271a.onSuccess();
         }
     }
 
@@ -28,18 +28,18 @@ public class a {
     public static class b implements d.b.g0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f47880e;
+        public final /* synthetic */ d f48272e;
 
         public b(d dVar) {
-            this.f47880e = dVar;
+            this.f48272e = dVar;
         }
 
         @Override // d.b.g0.a.m.a
         public void onResult(int i) {
             if (i == 0) {
-                this.f47880e.onSuccess();
+                this.f48272e.onSuccess();
             } else {
-                this.f47880e.onFail("login error");
+                this.f48272e.onFail("login error");
             }
         }
     }
@@ -48,37 +48,37 @@ public class a {
     public static class c implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f47881a;
+        public final /* synthetic */ d f48273a;
 
         /* renamed from: d.b.g0.g.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0950a implements d {
-            public C0950a() {
+        public class C0962a implements d {
+            public C0962a() {
             }
 
             @Override // d.b.g0.g.b.a.d
             public void onFail(String str) {
-                c.this.f47881a.onFail(str);
+                c.this.f48273a.onFail(str);
             }
 
             @Override // d.b.g0.g.b.a.d
             public void onSuccess() {
-                c.this.f47881a.onSuccess();
+                c.this.f48273a.onSuccess();
             }
         }
 
         public c(d dVar) {
-            this.f47881a = dVar;
+            this.f48273a = dVar;
         }
 
         @Override // d.b.g0.g.b.a.d
         public void onFail(String str) {
-            this.f47881a.onFail(str);
+            this.f48273a.onFail(str);
         }
 
         @Override // d.b.g0.g.b.a.d
         public void onSuccess() {
-            a.b(new C0950a());
+            a.b(new C0962a());
         }
     }
 
@@ -98,7 +98,7 @@ public class a {
     }
 
     public static void b(d dVar) {
-        d.b.g0.g.r.a.a().a(new C0949a(dVar));
+        d.b.g0.g.r.a.a().a(new C0961a(dVar));
     }
 
     public static void c(d dVar) {

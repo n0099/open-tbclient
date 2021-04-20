@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.cache;
 
 import com.facebook.common.internal.Supplier;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultEncodedMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static final int MAX_CACHE_ENTRIES = Integer.MAX_VALUE;
     public static final int MAX_EVICTION_QUEUE_ENTRIES = Integer.MAX_VALUE;

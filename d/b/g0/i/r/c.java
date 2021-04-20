@@ -5,32 +5,32 @@ import java.util.ArrayList;
 public class c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<T> f48874a = new ArrayList<>();
+    public ArrayList<T> f49266a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f48875b;
+    public final int f49267b;
 
     public c(int i) {
-        this.f48875b = i;
+        this.f49267b = i;
     }
 
     public synchronized T a() {
         T remove;
         do {
-            if (this.f48874a.size() <= 0) {
+            if (this.f49266a.size() <= 0) {
                 return null;
             }
-            remove = this.f48874a.remove(this.f48874a.size() - 1);
+            remove = this.f49266a.remove(this.f49266a.size() - 1);
         } while (remove == null);
         return remove;
     }
 
     public synchronized void b(T t) {
         if (t != null) {
-            if (this.f48874a.size() >= this.f48875b) {
-                this.f48874a.remove(this.f48874a.size() - 1);
+            if (this.f49266a.size() >= this.f49267b) {
+                this.f49266a.remove(this.f49266a.size() - 1);
             }
-            this.f48874a.add(t);
+            this.f49266a.add(t);
         }
     }
 }

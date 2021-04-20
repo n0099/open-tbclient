@@ -18,28 +18,28 @@ import com.kwad.sdk.utils.ao;
 public class AdDownloadProgressBar extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f34227a;
+    public ImageView f34516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f34228b;
+    public TextView f34517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f34229c;
+    public View f34518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f34230d;
+    public a f34519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.view.a f34231e;
+    public com.kwad.sdk.core.view.a f34520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f34232f;
+    public Drawable f34521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f34233g;
+    public Drawable f34522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f34234h;
+    public Drawable f34523h;
     public Drawable i;
     public int j;
 
@@ -47,28 +47,28 @@ public class AdDownloadProgressBar extends d {
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public float f34236b;
+        public float f34525b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34237c;
+        public String f34526c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f34238d;
+        public boolean f34527d;
 
         public a() {
-            this.f34236b = -1.0f;
-            this.f34238d = false;
+            this.f34525b = -1.0f;
+            this.f34527d = false;
         }
 
         public void a() {
-            if (!this.f34238d || this.f34236b < 0.0f) {
-                AdDownloadProgressBar.this.f34228b.setText(this.f34237c);
+            if (!this.f34527d || this.f34525b < 0.0f) {
+                AdDownloadProgressBar.this.f34517b.setText(this.f34526c);
                 return;
             }
-            AdDownloadProgressBar.this.f34228b.setText(this.f34237c);
-            if (AdDownloadProgressBar.this.f34231e != null) {
-                AdDownloadProgressBar.this.f34227a.setImageDrawable(AdDownloadProgressBar.this.f34231e);
-                AdDownloadProgressBar.this.f34231e.a(this.f34236b);
+            AdDownloadProgressBar.this.f34517b.setText(this.f34526c);
+            if (AdDownloadProgressBar.this.f34520e != null) {
+                AdDownloadProgressBar.this.f34516a.setImageDrawable(AdDownloadProgressBar.this.f34520e);
+                AdDownloadProgressBar.this.f34520e.a(this.f34525b);
             }
         }
     }
@@ -83,7 +83,7 @@ public class AdDownloadProgressBar extends d {
 
     public AdDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f34230d = new a();
+        this.f34519d = new a();
         a();
     }
 
@@ -93,25 +93,25 @@ public class AdDownloadProgressBar extends d {
 
     private void b() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_download_progress_bar, (ViewGroup) this, true);
-        this.f34228b = (TextView) findViewById(R.id.ksad_status_tv);
-        this.f34229c = findViewById(R.id.ksad_click_mask);
-        this.f34227a = (ImageView) findViewById(R.id.ksad_progress_bg);
+        this.f34517b = (TextView) findViewById(R.id.ksad_status_tv);
+        this.f34518c = findViewById(R.id.ksad_click_mask);
+        this.f34516a = (ImageView) findViewById(R.id.ksad_progress_bg);
         setRadius(ao.a(getContext(), 2.0f));
-        this.f34229c.setBackgroundResource(R.drawable.ksad_download_progress_mask_bg);
+        this.f34518c.setBackgroundResource(R.drawable.ksad_download_progress_mask_bg);
     }
 
     private void c() {
-        this.f34228b.setCompoundDrawablePadding(0);
-        this.f34228b.setCompoundDrawables(null, null, null, null);
+        this.f34517b.setCompoundDrawablePadding(0);
+        this.f34517b.setCompoundDrawables(null, null, null, null);
     }
 
     private void d() {
-        setDrawableBounds(this.f34232f);
-        setDrawableBounds(this.f34233g);
-        setDrawableBounds(this.f34234h);
+        setDrawableBounds(this.f34521f);
+        setDrawableBounds(this.f34522g);
+        setDrawableBounds(this.f34523h);
         setDrawableBounds(this.i);
-        this.f34228b.setCompoundDrawablePadding(this.j);
-        this.f34228b.setCompoundDrawables(this.f34232f, this.f34233g, this.f34234h, this.i);
+        this.f34517b.setCompoundDrawablePadding(this.j);
+        this.f34517b.setCompoundDrawables(this.f34521f, this.f34522g, this.f34523h, this.i);
     }
 
     private void setDrawableBounds(@Nullable Drawable drawable) {
@@ -122,57 +122,57 @@ public class AdDownloadProgressBar extends d {
     }
 
     public void a(@Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4, int i) {
-        this.f34232f = drawable;
-        this.f34233g = drawable2;
-        this.f34234h = drawable3;
+        this.f34521f = drawable;
+        this.f34522g = drawable2;
+        this.f34523h = drawable3;
         this.i = drawable4;
         this.j = i;
         d();
     }
 
     public void a(String str, float f2) {
-        this.f34230d.f34238d = true;
-        this.f34230d.f34237c = str;
-        this.f34230d.f34236b = f2;
-        this.f34230d.a();
+        this.f34519d.f34527d = true;
+        this.f34519d.f34526c = str;
+        this.f34519d.f34525b = f2;
+        this.f34519d.a();
         c();
     }
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        View view = this.f34229c;
+        View view = this.f34518c;
         if (view != null) {
             view.setOnClickListener(onClickListener);
         }
     }
 
     public void setProgressDrawable(@ColorInt int i) {
-        this.f34227a.setBackgroundColor(i);
+        this.f34516a.setBackgroundColor(i);
         super.setBackground(null);
         super.setForeground(null);
     }
 
     public void setText(String str) {
-        this.f34230d.f34238d = false;
-        this.f34230d.f34237c = str;
-        this.f34230d.a();
+        this.f34519d.f34527d = false;
+        this.f34519d.f34526c = str;
+        this.f34519d.a();
         d();
     }
 
     public void setTextColor(@ColorInt int i) {
-        this.f34228b.setTextColor(i);
+        this.f34517b.setTextColor(i);
     }
 
     public void setTextIncludeFontPadding(boolean z) {
-        this.f34228b.setIncludeFontPadding(z);
+        this.f34517b.setIncludeFontPadding(z);
     }
 
     public void setTextSize(float f2) {
-        this.f34228b.setTextSize(f2);
+        this.f34517b.setTextSize(f2);
     }
 
     public void setTextTypeface(Typeface typeface) {
-        this.f34228b.getPaint().setTypeface(typeface);
+        this.f34517b.getPaint().setTypeface(typeface);
     }
 }

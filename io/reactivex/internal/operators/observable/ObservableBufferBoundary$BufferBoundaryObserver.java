@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.l;
-import f.a.n;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.f.a;
+import f.b.l;
+import f.b.n;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.f.a;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import java.util.Collection;
@@ -25,7 +25,7 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
     public volatile boolean done;
     public long index;
     public final a<C> queue = new a<>(l.a());
-    public final f.a.t.a observers = new f.a.t.a();
+    public final f.b.t.a observers = new f.b.t.a();
     public final AtomicReference<b> upstream = new AtomicReference<>();
     public Map<Long, C> buffers = new LinkedHashMap();
     public final AtomicThrowable errors = new AtomicThrowable();
@@ -39,34 +39,34 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
             this.parent = observableBufferBoundary$BufferBoundaryObserver;
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public void dispose() {
             DisposableHelper.dispose(this);
         }
 
-        @Override // f.a.t.b
+        @Override // f.b.t.b
         public boolean isDisposed() {
             return get() == DisposableHelper.DISPOSED;
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onComplete() {
             lazySet(DisposableHelper.DISPOSED);
             this.parent.openComplete(this);
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onError(Throwable th) {
             lazySet(DisposableHelper.DISPOSED);
             this.parent.boundaryError(this, th);
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onNext(Open open) {
             this.parent.open(open);
         }
 
-        @Override // f.a.o
+        @Override // f.b.o
         public void onSubscribe(b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
@@ -106,7 +106,7 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (DisposableHelper.dispose(this.upstream)) {
             this.cancelled = true;
@@ -151,12 +151,12 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
         aVar.clear();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(this.upstream.get());
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         this.observers.dispose();
         synchronized (this) {
@@ -173,7 +173,7 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.errors.addThrowable(th)) {
             this.observers.dispose();
@@ -184,10 +184,10 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         synchronized (this) {
             Map<Long, C> map = this.buffers;
@@ -200,7 +200,7 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.setOnce(this.upstream, bVar)) {
             BufferOpenObserver bufferOpenObserver = new BufferOpenObserver(this);
@@ -212,10 +212,10 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
     public void open(Open open) {
         try {
             C call = this.bufferSupplier.call();
-            f.a.x.b.a.b(call, "The bufferSupplier returned a null Collection");
+            f.b.x.b.a.b(call, "The bufferSupplier returned a null Collection");
             C c2 = call;
             n<? extends Close> apply = this.bufferClose.apply(open);
-            f.a.x.b.a.b(apply, "The bufferClose returned a null ObservableSource");
+            f.b.x.b.a.b(apply, "The bufferClose returned a null ObservableSource");
             n<? extends Close> nVar = apply;
             long j = this.index;
             this.index = 1 + j;
@@ -230,7 +230,7 @@ public final class ObservableBufferBoundary$BufferBoundaryObserver<T, C extends 
                 nVar.subscribe(observableBufferBoundary$BufferCloseObserver);
             }
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             DisposableHelper.dispose(this.upstream);
             onError(th);
         }

@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.t.b;
+import f.b.r;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -19,17 +19,17 @@ public final class SingleZipArray$ZipSingleObserver<T> extends AtomicReference<b
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         this.parent.innerError(th, this.index);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         this.parent.innerSuccess(t, this.index);
     }

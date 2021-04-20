@@ -6,7 +6,7 @@ import com.baidu.sapi2.SapiOptions;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public boolean j;
 
@@ -22,17 +22,17 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
     public void a(int i, int i2) {
-        if (this.f28652b == null || i == 308) {
+        if (this.f28337b == null || i == 308) {
             return;
         }
-        String str = this.f28658h ? "play_error" : "play_start_error";
-        Map<String, Object> a2 = ak.a(this.f28652b, i, i2, u());
-        if (this.f28658h) {
+        String str = this.f28343h ? "play_error" : "play_start_error";
+        Map<String, Object> a2 = ak.a(this.f28337b, i, i2, u());
+        if (this.f28343h) {
             a2.put("duration", Long.valueOf(p()));
             a2.put(SapiOptions.s, Integer.valueOf(r()));
             a2.put("buffers_time", Long.valueOf(o()));
         }
-        com.bytedance.sdk.openadsdk.c.d.d(this.f28651a.get(), this.f28652b, "splash_ad", str, a2);
+        com.bytedance.sdk.openadsdk.c.d.d(this.f28336a.get(), this.f28337b, "splash_ad", str, a2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
@@ -41,7 +41,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
             return;
         }
         this.j = true;
-        com.bytedance.sdk.openadsdk.c.d.a(this.f28651a.get(), this.f28652b, "splash_ad", "feed_over", this.f28653c, 100, C());
+        com.bytedance.sdk.openadsdk.c.d.a(this.f28336a.get(), this.f28337b, "splash_ad", "feed_over", this.f28338c, 100, C());
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
@@ -54,11 +54,11 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.c.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
     public void e() {
-        com.bytedance.sdk.openadsdk.c.d.c(this.f28651a.get(), this.f28652b, "splash_ad", "feed_play", B());
+        com.bytedance.sdk.openadsdk.c.d.c(this.f28336a.get(), this.f28337b, "splash_ad", "feed_play", B());
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.a
     public void f() {
-        com.bytedance.sdk.openadsdk.c.d.c(this.f28651a.get(), this.f28652b, "splash_ad", "feed_play", B());
+        com.bytedance.sdk.openadsdk.c.d.c(this.f28336a.get(), this.f28337b, "splash_ad", "feed_play", B());
     }
 }

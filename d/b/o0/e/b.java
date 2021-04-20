@@ -6,31 +6,31 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Integer> f64192a;
+    public static ArrayList<Integer> f64905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64193b;
+    public static String f64906b;
 
     static {
         ArrayList<Integer> arrayList = new ArrayList<>(4);
-        f64192a = arrayList;
+        f64905a = arrayList;
         arrayList.add(10000);
-        f64192a.add(10001);
-        f64192a.add(10002);
-        f64192a.add(20001);
-        f64192a.add(-1);
+        f64905a.add(10001);
+        f64905a.add(10002);
+        f64905a.add(20001);
+        f64905a.add(-1);
     }
 
     public static int a() {
-        if (TextUtils.isEmpty(f64193b)) {
-            f64193b = d.b.o0.e.h.d.a();
+        if (TextUtils.isEmpty(f64906b)) {
+            f64906b = d.b.o0.e.h.d.a();
         }
-        if (TextUtils.isEmpty(f64193b)) {
+        if (TextUtils.isEmpty(f64906b)) {
             return 20001;
         }
-        if (f64193b.toUpperCase().contains("HUAWEI")) {
+        if (f64906b.toUpperCase().contains("HUAWEI")) {
             return 10001;
         }
-        return f64193b.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
+        return f64906b.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
     }
 }

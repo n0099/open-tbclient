@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.yxcorp.kuaishou.addfp.android.Orange;
 import java.io.BufferedReader;
@@ -19,17 +20,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67369a;
+    public String f68362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67370b;
+    public String f68363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ReentrantLock f67371c;
+    public ReentrantLock f68364c;
 
     public a() {
-        this.f67370b = "";
-        this.f67371c = new ReentrantLock();
+        this.f68363b = "";
+        this.f68364c = new ReentrantLock();
     }
 
     public /* synthetic */ a(byte b2) {
@@ -37,7 +38,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f67372a;
+        return b.f68365a;
     }
 
     public static String b(Context context) {
@@ -77,7 +78,7 @@ public class a {
 
     public static String f(Context context) {
         try {
-            return Settings.Secure.getString(context.getContentResolver(), "android_id");
+            return Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Throwable unused) {
             return "KWE_PE";
         }
@@ -161,18 +162,18 @@ public class a {
     public final String c(Context context, boolean z, boolean z2) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.f67371c.lock();
+            this.f68364c.lock();
         } finally {
             try {
-                this.f67371c.unlock();
-                if (TextUtils.isEmpty(this.f67370b)) {
+                this.f68364c.unlock();
+                if (TextUtils.isEmpty(this.f68363b)) {
                 }
                 d.q.a.a.c.b.b.e("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-                return this.f67370b;
+                return this.f68363b;
             } finally {
             }
         }
-        if (TextUtils.isEmpty(this.f67370b)) {
+        if (TextUtils.isEmpty(this.f68363b)) {
             JSONObject jSONObject = new JSONObject();
             String str = Build.MODEL;
             jSONObject.put("k27", d.q.a.a.c.b.e.f(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
@@ -191,7 +192,7 @@ public class a {
             if (z2) {
                 d.q.a.a.a.a.b.c().i();
             }
-            String str2 = d.q.a.a.b.f67362h;
+            String str2 = d.q.a.a.b.f68355h;
             if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                 str2 = new e(context).e();
             }
@@ -211,24 +212,24 @@ public class a {
             StringBuilder sb = new StringBuilder("get mini lenth ");
             sb.append(d2.length);
             d.q.a.a.c.b.b.b(sb.toString());
-            this.f67370b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
-            this.f67371c.unlock();
-            if (TextUtils.isEmpty(this.f67370b)) {
-                this.f67370b = "KWE_N";
+            this.f68363b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
+            this.f68364c.unlock();
+            if (TextUtils.isEmpty(this.f68363b)) {
+                this.f68363b = "KWE_N";
             }
             d.q.a.a.c.b.b.e("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-            return this.f67370b;
+            return this.f68363b;
         }
-        return this.f67370b;
+        return this.f68363b;
     }
 
     public final void d(String str) {
-        this.f67369a = str;
+        this.f68362a = str;
     }
 
     public final String e() {
         try {
-            return !TextUtils.isEmpty(this.f67369a) ? this.f67369a : "KWE_N";
+            return !TextUtils.isEmpty(this.f68362a) ? this.f68362a : "KWE_N";
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
             return "KWE_N";

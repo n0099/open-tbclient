@@ -17,11 +17,11 @@ import d.b.g0.a.y0.e.b;
 import d.b.g0.a.z1.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends d.b.g0.a.n1.a.a.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f47250f = k.f45051a;
+    public static final boolean f47642f = k.f45443a;
 
     public static boolean e(@Nullable String str) {
         return TextUtils.isEmpty(str) || TextUtils.equals("0", str);
@@ -59,7 +59,7 @@ public class j extends d.b.g0.a.n1.a.a.a {
                     jSONObject2.put("reportExtInfo", jSONObject);
                 }
             } catch (JSONException e2) {
-                if (f47250f) {
+                if (f47642f) {
                     e2.printStackTrace();
                 }
             }
@@ -83,7 +83,7 @@ public class j extends d.b.g0.a.n1.a.a.a {
         try {
             jSONObject = new JSONObject(str);
         } catch (JSONException e2) {
-            if (f47250f) {
+            if (f47642f) {
                 Log.e("VersionBusinessUbc", "execCall: ", e2);
             }
             e2.printStackTrace();
@@ -98,7 +98,7 @@ public class j extends d.b.g0.a.n1.a.a.a {
                 e3.printStackTrace();
             }
         }
-        if (f47250f) {
+        if (f47642f) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
         c.b bVar = new c.b(10002);

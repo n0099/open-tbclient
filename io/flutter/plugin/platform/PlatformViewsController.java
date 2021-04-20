@@ -50,6 +50,12 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
             throw new IllegalStateException("Trying to use platform views with API " + Build.VERSION.SDK_INT + ", required API level is: 20");
         }
 
+        public /* synthetic */ void a(PlatformViewsChannel.PlatformViewCreationRequest platformViewCreationRequest, View view, boolean z) {
+            if (z) {
+                PlatformViewsController.this.platformViewsChannel.invokeViewFocused(platformViewCreationRequest.viewId);
+            }
+        }
+
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
         public void clearFocus(int i) {
             PlatformViewsController.this.vdControllers.get(Integer.valueOf(i)).getView().clearFocus();
@@ -68,18 +74,10 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
                         int physicalPixels2 = PlatformViewsController.this.toPhysicalPixels(platformViewCreationRequest.logicalHeight);
                         PlatformViewsController.this.validateVirtualDisplayDimensions(physicalPixels, physicalPixels2);
                         TextureRegistry.SurfaceTextureEntry createSurfaceTexture = PlatformViewsController.this.textureRegistry.createSurfaceTexture();
-                        VirtualDisplayController create = VirtualDisplayController.create(PlatformViewsController.this.context, PlatformViewsController.this.accessibilityEventsDelegate, factory, createSurfaceTexture, physicalPixels, physicalPixels2, platformViewCreationRequest.viewId, decodeMessage, new View.OnFocusChangeListener(this, platformViewCreationRequest) { // from class: io.flutter.plugin.platform.PlatformViewsController$1$$Lambda$0
-                            public final PlatformViewsController.AnonymousClass1 arg$1;
-                            public final PlatformViewsChannel.PlatformViewCreationRequest arg$2;
-
-                            {
-                                this.arg$1 = this;
-                                this.arg$2 = platformViewCreationRequest;
-                            }
-
+                        VirtualDisplayController create = VirtualDisplayController.create(PlatformViewsController.this.context, PlatformViewsController.this.accessibilityEventsDelegate, factory, createSurfaceTexture, physicalPixels, physicalPixels2, platformViewCreationRequest.viewId, decodeMessage, new View.OnFocusChangeListener() { // from class: f.a.b.a.a
                             @Override // android.view.View.OnFocusChangeListener
-                            public void onFocusChange(View view, boolean z) {
-                                this.arg$1.lambda$createPlatformView$0$PlatformViewsController$1(this.arg$2, view, z);
+                            public final void onFocusChange(View view, boolean z) {
+                                PlatformViewsController.AnonymousClass1.this.a(platformViewCreationRequest, view, z);
                             }
                         });
                         if (create != null) {
@@ -115,12 +113,6 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
                 return;
             }
             throw new IllegalStateException("Trying to dispose a platform view with unknown id: " + i);
-        }
-
-        public final /* synthetic */ void lambda$createPlatformView$0$PlatformViewsController$1(PlatformViewsChannel.PlatformViewCreationRequest platformViewCreationRequest, View view, boolean z) {
-            if (z) {
-                PlatformViewsController.this.platformViewsChannel.invokeViewFocused(platformViewCreationRequest.viewId);
-            }
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler

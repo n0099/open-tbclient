@@ -44,28 +44,28 @@ import org.json.JSONException;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11377a = "pass_share_login";
+    public static final String f10961a = "pass_share_login";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11378b = "share_account";
+    public static final String f10962b = "share_account";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11379c = "share_fail_code";
+    public static final String f10963c = "share_fail_code";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11380d = "share_fail_reason";
+    public static final String f10964d = "share_fail_reason";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11381e = "SDK_VERSION";
+    public static final String f10965e = "SDK_VERSION";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11382f = "V2_FACE_LOGIN_UIDS_TIMES";
+    public static final String f10966f = "V2_FACE_LOGIN_UIDS_TIMES";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11383g = "PKG";
+    public static final String f10967g = "PKG";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f11384h = "shareV2";
+    public static final String f10968h = "shareV2";
     public static final String i = "shareV3";
     public static final String j = "baidu.intent.action.account.SHARE_ACTIVITY";
     public static boolean k = false;
@@ -86,18 +86,18 @@ public final class d {
     public static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShareModelCallback f11385a;
+        public final /* synthetic */ ShareModelCallback f10969a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(Looper looper, ShareModelCallback shareModelCallback) {
             super(looper);
-            this.f11385a = shareModelCallback;
+            this.f10969a = shareModelCallback;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             boolean unused = d.k = true;
-            this.f11385a.onReceiveShareModels(new ArrayList(0));
+            this.f10969a.onReceiveShareModels(new ArrayList(0));
         }
     }
 
@@ -105,24 +105,24 @@ public final class d {
     public static class c implements com.baidu.sapi2.callback.a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f11386a;
+        public final /* synthetic */ Handler f10970a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ShareModelCallback f11387b;
+        public final /* synthetic */ ShareModelCallback f10971b;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f11388a;
+            public final /* synthetic */ List f10972a;
 
             public a(List list) {
-                this.f11388a = list;
+                this.f10972a = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                c.this.f11387b.onReceiveShareModels(this.f11388a);
+                c.this.f10971b.onReceiveShareModels(this.f10972a);
             }
         }
 
@@ -133,41 +133,41 @@ public final class d {
 
             @Override // java.lang.Runnable
             public void run() {
-                c.this.f11387b.onReceiveShareModels(new ArrayList(0));
+                c.this.f10971b.onReceiveShareModels(new ArrayList(0));
             }
         }
 
         public c(Handler handler, ShareModelCallback shareModelCallback) {
-            this.f11386a = handler;
-            this.f11387b = shareModelCallback;
+            this.f10970a = handler;
+            this.f10971b = shareModelCallback;
         }
 
         @Override // com.baidu.sapi2.callback.a.b
         public void a(List<ShareStorage.StorageModel> list) {
             List unused = d.l = list;
-            this.f11386a.removeCallbacksAndMessages(null);
+            this.f10970a.removeCallbacksAndMessages(null);
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.data.a.i, d.k ? "1" : "0");
+            hashMap.put("timeout", d.k ? "1" : "0");
             hashMap.put("status", "1");
             StatService.onEventAutoStat(com.baidu.sapi2.share.c.s, hashMap);
             if (d.k) {
                 boolean unused2 = d.k = false;
             } else {
-                this.f11386a.post(new a(list));
+                this.f10970a.post(new a(list));
             }
         }
 
         @Override // com.baidu.sapi2.callback.a.b
         public void onFailure() {
-            this.f11386a.removeCallbacksAndMessages(null);
+            this.f10970a.removeCallbacksAndMessages(null);
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.data.a.i, d.k ? "1" : "0");
+            hashMap.put("timeout", d.k ? "1" : "0");
             hashMap.put("status", "0");
             StatService.onEventAutoStat(com.baidu.sapi2.share.c.s, hashMap);
             if (d.k) {
                 boolean unused = d.k = false;
             } else {
-                this.f11386a.post(new b());
+                this.f10970a.post(new b());
             }
         }
     }
@@ -184,11 +184,11 @@ public final class d {
         JSONArray jSONArray;
         if ((System.currentTimeMillis() / 1000) - SapiContext.KEY_SHARE_MODELS_FROM_CLOUD_TIME_SECOND <= 60) {
             String string = SapiContext.getInstance().getString(SapiContext.KEY_SHARE_MODELS_FROM_CLOUD_CACHE);
-            Log.d(f11377a, "get share models from cloud cache, value=" + string);
+            Log.d(f10961a, "get share models from cloud cache, value=" + string);
             try {
                 jSONArray = new JSONArray(string);
             } catch (JSONException e2) {
-                Log.e(f11377a, e2.getMessage());
+                Log.e(f10961a, e2.getMessage());
                 jSONArray = null;
             }
             if (jSONArray != null) {
@@ -207,24 +207,24 @@ public final class d {
                 try {
                     jSONArray = new JSONArray(decryptAccountInfo);
                 } catch (Exception e2) {
-                    Log.e(f11377a, e2.getMessage());
+                    Log.e(f10961a, e2.getMessage());
                 }
                 return ShareStorage.StorageModel.a(jSONArray);
             }
         }
-        Log.e(f11377a, "getShareStorage result is null");
+        Log.e(f10961a, "getShareStorage result is null");
         return new ArrayList(0);
     }
 
     public static List<ShareStorage.StorageModel> e() {
         if (SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy() == LoginShareStrategy.DISABLED) {
-            Log.d(f11377a, "config initialShareStrategy is DISABLED");
+            Log.d(f10961a, "config initialShareStrategy is DISABLED");
             return new ArrayList(0);
         }
         List<ShareStorage.StorageModel> d2 = d();
         String[] b2 = b();
         if (d2 != null && d2.size() > 0 && b2 != null && b2.length > 0) {
-            Log.d(f11377a, "shareModels has value, deleteModels has value");
+            Log.d(f10961a, "shareModels has value, deleteModels has value");
             Iterator<ShareStorage.StorageModel> it = d2.iterator();
             while (it.hasNext()) {
                 ShareStorage.StorageModel next = it.next();
@@ -260,10 +260,10 @@ public final class d {
             int size = a2.size();
             int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
             int i2 = 1;
-            Log.d(f11377a, "current login env is " + ordinal);
+            Log.d(f10961a, "current login env is " + ordinal);
             StringBuilder sb = new StringBuilder();
             if (!SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", context)) {
-                StatService.onEventAutoStat(com.baidu.sapi2.share.c.f11370b);
+                StatService.onEventAutoStat(com.baidu.sapi2.share.c.f10954b);
             }
             int i3 = size;
             int i4 = 0;
@@ -278,12 +278,12 @@ public final class d {
                     i4++;
                 } else {
                     Object[] objArr = new Object[i2];
-                    objArr[0] = packageName + " env=" + a3.f11336c + " flag=" + a3.flag + " displayName=" + a3.displayname;
-                    Log.d(f11377a, objArr);
-                    if (a3.f11336c != ordinal) {
+                    objArr[0] = packageName + " env=" + a3.f10920c + " flag=" + a3.flag + " displayName=" + a3.displayname;
+                    Log.d(f10961a, objArr);
+                    if (a3.f10920c != ordinal) {
                         i3--;
                     } else {
-                        int i7 = a3.f11335b;
+                        int i7 = a3.f10919b;
                         if (i7 == 0) {
                             i5++;
                         } else if (i7 == 1) {
@@ -299,7 +299,7 @@ public final class d {
             }
             Object[] objArr2 = new Object[i2];
             objArr2[0] = "share storage model result size=" + arrayList.size();
-            Log.d(f11377a, objArr2);
+            Log.d(f10961a, objArr2);
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
@@ -365,7 +365,7 @@ public final class d {
         ShareStorage shareStorage = new ShareStorage();
         for (String str : list) {
             ShareStorage.StorageModel modelFromSd = shareStorage.getModelFromSd(str);
-            if (modelFromSd != null && !TextUtils.isEmpty(modelFromSd.displayname) && !TextUtils.isEmpty(modelFromSd.url) && i2 == modelFromSd.f11336c) {
+            if (modelFromSd != null && !TextUtils.isEmpty(modelFromSd.displayname) && !TextUtils.isEmpty(modelFromSd.url) && i2 == modelFromSd.f10920c) {
                 arrayList.add(modelFromSd);
             }
         }
@@ -411,7 +411,7 @@ public final class d {
 
     public static void a(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list, String str5, String str6) {
         if (activity != null) {
-            if (f11384h.equals(str5)) {
+            if (f10968h.equals(str5)) {
                 com.baidu.sapi2.share.a.l = new a.c();
                 List<ShareStorage.StorageModel> e2 = e();
                 int i2 = 0;
@@ -419,9 +419,9 @@ public final class d {
                     if (i2 < e2.size()) {
                         if (e2.get(i2).pkg.equals(str) && e2.get(i2).url.equals(str2)) {
                             a.c cVar = com.baidu.sapi2.share.a.l;
-                            cVar.f11357a = i2;
-                            cVar.f11358b = e2.get(i2).tpl;
-                            com.baidu.sapi2.share.a.l.f11359c = e2.get(i2).app;
+                            cVar.f10941a = i2;
+                            cVar.f10942b = e2.get(i2).tpl;
+                            com.baidu.sapi2.share.a.l.f10943c = e2.get(i2).app;
                             break;
                         }
                         i2++;
@@ -437,10 +437,10 @@ public final class d {
                 ComponentName componentName = new ComponentName(str, "com.baidu.sapi2.activity.ShareActivity");
                 Intent intent = new Intent();
                 intent.putExtra("android.intent.extra.TEXT", str2);
-                intent.putExtra(com.baidu.sapi2.share.a.f11344b, str4);
-                intent.putExtra(com.baidu.sapi2.share.a.f11343a, str3);
-                intent.putExtra(com.baidu.sapi2.share.a.f11345c, str5);
-                intent.putExtra(com.baidu.sapi2.share.a.f11346d, str6);
+                intent.putExtra(com.baidu.sapi2.share.a.f10928b, str4);
+                intent.putExtra(com.baidu.sapi2.share.a.f10927a, str3);
+                intent.putExtra(com.baidu.sapi2.share.a.f10929c, str5);
+                intent.putExtra(com.baidu.sapi2.share.a.f10930d, str6);
                 intent.setComponent(componentName);
                 activity.startActivityForResult(intent, 20001);
                 return;
@@ -465,7 +465,7 @@ public final class d {
         if (bVar != null) {
             Context context = SapiAccountManager.getInstance().getConfignation().context;
             String str9 = "";
-            String stringExtra = intent != null ? intent.getStringExtra(com.baidu.sapi2.share.a.f11345c) : "";
+            String stringExtra = intent != null ? intent.getStringExtra(com.baidu.sapi2.share.a.f10929c) : "";
             char c2 = 2;
             if (i3 == -1 && intent != null) {
                 SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra("share_account");
@@ -501,7 +501,7 @@ public final class d {
                     str7 = "-3007";
                     str8 = "";
                     c2 = 1;
-                    str9 = com.baidu.sapi2.share.b.f11367g;
+                    str9 = com.baidu.sapi2.share.b.f10951g;
                 }
                 str6 = str7;
                 str4 = str9;
@@ -595,7 +595,7 @@ public final class d {
         ShareStorage shareStorage = new ShareStorage();
         for (String str : list) {
             ShareStorage.StorageModel modelFromSp = shareStorage.getModelFromSp(str);
-            if (modelFromSp != null && !TextUtils.isEmpty(modelFromSp.displayname) && !TextUtils.isEmpty(modelFromSp.url) && i2 == modelFromSp.f11336c) {
+            if (modelFromSp != null && !TextUtils.isEmpty(modelFromSp.displayname) && !TextUtils.isEmpty(modelFromSp.url) && i2 == modelFromSp.f10920c) {
                 arrayList.add(modelFromSp);
             }
         }

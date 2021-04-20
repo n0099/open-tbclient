@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends a0 {
     public b(d.b.g0.a.t1.j jVar, String str) {
         super(jVar, str);
@@ -55,7 +55,7 @@ public abstract class b extends a0 {
             return new JSONObject(param);
         } catch (JSONException e2) {
             d.b.g0.a.c0.c.b("AbsSwanAppWidget", "getParamsJSONObject exception = " + e2.getMessage());
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
                 return null;
             }

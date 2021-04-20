@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
@@ -11,8 +12,11 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.IdentityHashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -23,6 +27,7 @@ public class JSONSerializer extends SerializeFilterable {
     public SerialContext context;
     public DateFormat dateFormat;
     public String dateFormatPattern;
+    public String fastJsonConfigDateFormatPattern;
     public String indent;
     public int indentCount;
     public Locale locale;
@@ -32,6 +37,12 @@ public class JSONSerializer extends SerializeFilterable {
 
     public JSONSerializer() {
         this(new SerializeWriter(), SerializeConfig.getGlobalInstance());
+    }
+
+    private DateFormat generateDateFormat(String str) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(str, this.locale);
+        simpleDateFormat.setTimeZone(this.timeZone);
+        return simpleDateFormat;
     }
 
     public static void write(Writer writer, Object obj) {
@@ -67,7 +78,7 @@ public class JSONSerializer extends SerializeFilterable {
     public boolean containsReference(Object obj) {
         SerialContext serialContext;
         IdentityHashMap<Object, SerialContext> identityHashMap = this.references;
-        if (identityHashMap == null || (serialContext = identityHashMap.get(obj)) == null) {
+        if (identityHashMap == null || (serialContext = identityHashMap.get(obj)) == null || obj == Collections.emptyMap()) {
             return false;
         }
         Object obj2 = serialContext.fieldName;
@@ -83,10 +94,9 @@ public class JSONSerializer extends SerializeFilterable {
     }
 
     public DateFormat getDateFormat() {
-        if (this.dateFormat == null && this.dateFormatPattern != null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.dateFormatPattern, this.locale);
-            this.dateFormat = simpleDateFormat;
-            simpleDateFormat.setTimeZone(this.timeZone);
+        String str;
+        if (this.dateFormat == null && (str = this.dateFormatPattern) != null) {
+            this.dateFormat = generateDateFormat(str);
         }
         return this.dateFormat;
     }
@@ -97,6 +107,10 @@ public class JSONSerializer extends SerializeFilterable {
             return ((SimpleDateFormat) dateFormat).toPattern();
         }
         return this.dateFormatPattern;
+    }
+
+    public String getFastJsonConfigDateFormatPattern() {
+        return this.fastJsonConfigDateFormatPattern;
     }
 
     public int getIndentCount() {
@@ -119,6 +133,12 @@ public class JSONSerializer extends SerializeFilterable {
         List<NameFilter> list;
         List<NameFilter> list2 = this.nameFilters;
         return (list2 != null && list2.size() > 0) || ((list = serializeFilterable.nameFilters) != null && list.size() > 0);
+    }
+
+    public boolean hasPropertyFilters(SerializeFilterable serializeFilterable) {
+        List<PropertyFilter> list;
+        List<PropertyFilter> list2 = this.propertyFilters;
+        return (list2 != null && list2.size() > 0) || ((list = serializeFilterable.propertyFilters) != null && list.size() > 0);
     }
 
     public void incrementIndent() {
@@ -159,8 +179,24 @@ public class JSONSerializer extends SerializeFilterable {
         }
     }
 
+    public void setFastJsonConfigDateFormatPattern(String str) {
+        this.fastJsonConfigDateFormatPattern = str;
+    }
+
     public String toString() {
         return this.out.toString();
+    }
+
+    public final void writeAs(Object obj, Class cls) {
+        if (obj == null) {
+            this.out.writeNull();
+            return;
+        }
+        try {
+            getObjectWriter(cls).write(this, obj, null, null, 0);
+        } catch (IOException e2) {
+            throw new JSONException(e2.getMessage(), e2);
+        }
     }
 
     public final void writeKeyValue(char c2, String str, Object obj) {
@@ -209,12 +245,30 @@ public class JSONSerializer extends SerializeFilterable {
     public final void writeWithFormat(Object obj, String str) {
         GZIPOutputStream gZIPOutputStream;
         if (obj instanceof Date) {
-            DateFormat dateFormat = getDateFormat();
-            if (dateFormat == null) {
-                dateFormat = new SimpleDateFormat(str, this.locale);
-                dateFormat.setTimeZone(this.timeZone);
+            if ("unixtime".equals(str)) {
+                this.out.writeInt((int) (((Date) obj).getTime() / 1000));
+            } else if ("millis".equals(str)) {
+                this.out.writeLong(((Date) obj).getTime());
+            } else {
+                DateFormat dateFormat = getDateFormat();
+                if (dateFormat == null) {
+                    if (str != null) {
+                        try {
+                            dateFormat = generateDateFormat(str);
+                        } catch (IllegalArgumentException unused) {
+                            dateFormat = generateDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"));
+                        }
+                    } else {
+                        String str2 = this.fastJsonConfigDateFormatPattern;
+                        if (str2 != null) {
+                            dateFormat = generateDateFormat(str2);
+                        } else {
+                            dateFormat = generateDateFormat(JSON.DEFFAULT_DATE_FORMAT);
+                        }
+                    }
+                }
+                this.out.writeString(dateFormat.format((Date) obj));
             }
-            this.out.writeString(dateFormat.format((Date) obj));
         } else if (obj instanceof byte[]) {
             byte[] bArr = (byte[]) obj;
             if (!AsyncHttpClient.ENCODING_GZIP.equals(str) && !"gzip,base64".equals(str)) {
@@ -239,12 +293,24 @@ public class JSONSerializer extends SerializeFilterable {
                     gZIPOutputStream2.write(bArr);
                     gZIPOutputStream2.finish();
                     this.out.writeByteArray(byteArrayOutputStream.toByteArray());
-                } catch (IOException e2) {
-                    throw new JSONException("write gzipBytes error", e2);
+                } finally {
+                    IOUtils.close(gZIPOutputStream2);
                 }
-            } finally {
-                IOUtils.close(gZIPOutputStream2);
+            } catch (IOException e2) {
+                throw new JSONException("write gzipBytes error", e2);
             }
+        } else if (obj instanceof Collection) {
+            Collection collection = (Collection) obj;
+            Iterator it = collection.iterator();
+            this.out.write(91);
+            for (int i = 0; i < collection.size(); i++) {
+                Object next = it.next();
+                if (i != 0) {
+                    this.out.write(44);
+                }
+                writeWithFormat(next, str);
+            }
+            this.out.write(93);
         } else {
             write(obj);
         }
@@ -302,12 +368,12 @@ public class JSONSerializer extends SerializeFilterable {
         }
     }
 
-    public static void write(SerializeWriter serializeWriter, Object obj) {
-        new JSONSerializer(serializeWriter).write(obj);
-    }
-
     public void setContext(Object obj, Object obj2) {
         setContext(this.context, obj, obj2, 0);
+    }
+
+    public static void write(SerializeWriter serializeWriter, Object obj) {
+        new JSONSerializer(serializeWriter).write(obj);
     }
 
     public final void write(Object obj) {

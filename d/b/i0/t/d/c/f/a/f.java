@@ -7,18 +7,18 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernReco
 import d.b.i0.t.d.c.f.d.h;
 import d.b.i0.t.d.c.f.d.i;
 /* loaded from: classes4.dex */
-public class f extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.c, LiveTabConcernRecommendLineHolder> {
+public class f extends d.b.c.j.e.a<d.b.i0.t.d.c.f.b.c, LiveTabConcernRecommendLineHolder> {
     public TbPageContext m;
     public h n;
     public i o;
 
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.c.f60362h);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.c.f61926h);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: h0 */
     public LiveTabConcernRecommendLineHolder R(ViewGroup viewGroup) {
         h hVar = new h(this.m, viewGroup);
@@ -31,11 +31,11 @@ public class f extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.c, LiveTabConcernRecommendLi
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.f.b.c cVar, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
         h hVar;
-        if (liveTabConcernRecommendLineHolder == null || (hVar = liveTabConcernRecommendLineHolder.f14800a) == null) {
+        if (liveTabConcernRecommendLineHolder == null || (hVar = liveTabConcernRecommendLineHolder.f14463a) == null) {
             return null;
         }
         hVar.n(cVar);

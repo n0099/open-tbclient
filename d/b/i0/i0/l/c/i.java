@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
-import d.b.b.j.e.w;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
+import d.b.c.j.e.w;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.z1;
 import d.b.i.g0;
@@ -18,7 +18,7 @@ import d.b.i.k0;
 import d.b.i.u0.a;
 import d.b.i0.x.b0;
 /* loaded from: classes4.dex */
-public class i extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
+public class i extends d.b.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public s o;
@@ -40,7 +40,7 @@ public class i extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
             if (i.this.k != null) {
                 ThreadCardUtils.jumpToPB((d.b.h0.r.q.a) kVar.n(), view.getContext(), 0, false);
-                threadCardViewHolder.b().o(new a.C1118a(1));
+                threadCardViewHolder.b().o(new a.C1131a(1));
             }
         }
     }
@@ -50,7 +50,7 @@ public class i extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
         public b() {
         }
 
-        @Override // d.b.b.j.e.w
+        @Override // d.b.c.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if ((nVar instanceof d.b.i0.x.e0.k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
@@ -70,7 +70,7 @@ public class i extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public ThreadCardViewHolder<a2> R(ViewGroup viewGroup) {
         k0.b bVar = new k0.b(this.n.getPageActivity(), false);
@@ -84,7 +84,7 @@ public class i extends d.b.b.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
         a2 a2Var;

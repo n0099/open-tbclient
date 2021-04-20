@@ -5,50 +5,50 @@ import com.baidu.mapapi.model.LatLng;
 public class PoiParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7405a;
+    public String f7440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7406b;
+    public String f7441b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7407c;
+    public LatLng f7442c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7408d;
+    public int f7443d;
 
     public PoiParaOption center(LatLng latLng) {
-        this.f7407c = latLng;
+        this.f7442c = latLng;
         return this;
     }
 
     public LatLng getCenter() {
-        return this.f7407c;
+        return this.f7442c;
     }
 
     public String getKey() {
-        return this.f7406b;
+        return this.f7441b;
     }
 
     public int getRadius() {
-        return this.f7408d;
+        return this.f7443d;
     }
 
     public String getUid() {
-        return this.f7405a;
+        return this.f7440a;
     }
 
     public PoiParaOption key(String str) {
-        this.f7406b = str;
+        this.f7441b = str;
         return this;
     }
 
     public PoiParaOption radius(int i) {
-        this.f7408d = i;
+        this.f7443d = i;
         return this;
     }
 
     public PoiParaOption uid(String str) {
-        this.f7405a = str;
+        this.f7440a = str;
         return this;
     }
 }

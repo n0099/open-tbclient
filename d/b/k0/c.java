@@ -36,19 +36,19 @@ public class c {
     public static final boolean v = AppConfig.isDebug();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63875a;
+    public int f64575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63876b;
+    public long f64576b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f63878d;
+    public Context f64578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public x f63879e;
+    public x f64579e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.k0.b f63880f;
+    public d.b.k0.b f64580f;
     public List<n> i;
     public long j;
     public long k;
@@ -63,13 +63,13 @@ public class c {
     public int t;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f63877c = false;
+    public boolean f64577c = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63881g = 0;
+    public int f64581g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63882h = 0;
+    public long f64582h = 0;
     public Runnable u = new a();
 
     /* loaded from: classes5.dex */
@@ -79,19 +79,19 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.f63881g == 1) {
-                long uptimeMillis = SystemClock.uptimeMillis() - c.this.f63882h;
+            if (c.this.f64581g == 1) {
+                long uptimeMillis = SystemClock.uptimeMillis() - c.this.f64582h;
                 if (uptimeMillis >= 5000) {
                     if (c.v) {
                         Log.d("UBCBehaviorModel", String.format("***saveCache after %d ms***", Long.valueOf(uptimeMillis)));
                     }
                     c.this.v();
-                    c.this.f63881g = 0;
+                    c.this.f64581g = 0;
                     return;
                 }
                 d.q().z(this, 5000 - uptimeMillis);
-            } else if (c.this.f63881g == 2) {
-                c.this.f63881g = 0;
+            } else if (c.this.f64581g == 2) {
+                c.this.f64581g = 0;
             }
         }
     }
@@ -104,18 +104,18 @@ public class c {
         @Override // d.b.k0.t
         public void a(boolean z, n nVar) {
             if (!z) {
-                c.this.f63879e.r(nVar);
+                c.this.f64579e.r(nVar);
             } else {
-                c.this.f63879e.d();
+                c.this.f64579e.d();
             }
         }
     }
 
     public c(Context context) {
-        this.f63878d = context;
+        this.f64578d = context;
         g0 e2 = g0.e();
-        this.f63879e = new x(context);
-        this.f63880f = new d.b.k0.b(context);
+        this.f64579e = new x(context);
+        this.f64580f = new d.b.k0.b(context);
         this.p = e0.a();
         this.i = new ArrayList(20);
         this.j = e2.getLong("ubc_last_upload_non_real", 0L);
@@ -125,13 +125,13 @@ public class c {
         g m = g.m();
         this.q = m;
         m.t(this, context);
-        this.f63876b = System.currentTimeMillis();
-        this.f63875a = new Random().nextInt(31) + 60;
+        this.f64576b = System.currentTimeMillis();
+        this.f64575a = new Random().nextInt(31) + 60;
     }
 
     public void A() {
         h0 h0Var = new h0();
-        if (this.f63880f.e(h0Var)) {
+        if (this.f64580f.e(h0Var)) {
             JSONObject i = h0Var.i();
             if (v) {
                 Log.d("UBCBehaviorModel", "sendQualityData:" + i.toString());
@@ -143,22 +143,22 @@ public class c {
     public final void B(boolean z) {
         h0 h0Var = new h0();
         h0Var.r(z);
-        if (this.f63880f.f(h0Var, z)) {
+        if (this.f64580f.f(h0Var, z)) {
             JSONObject i = h0Var.i();
             if (v) {
                 Log.d("UBCBehaviorModel", "checkFileData:" + i.toString());
             }
-            this.f63880f.c(z);
+            this.f64580f.c(z);
             d.q().E(i);
         }
     }
 
     public void C() {
-        this.f63879e.u();
+        this.f64579e.u();
     }
 
     public void D(p pVar) {
-        this.f63879e.t(pVar);
+        this.f64579e.t(pVar);
     }
 
     public final void E(h0 h0Var) {
@@ -173,13 +173,13 @@ public class c {
                 z.a(h0Var);
                 Log.d("UBCBehaviorModel", "save send data to file " + b2);
             }
-            if (!this.f63879e.c(h0Var.f(), h0Var.e(), h0Var.l(), b2)) {
+            if (!this.f64579e.c(h0Var.f(), h0Var.e(), h0Var.l(), b2)) {
                 h0Var.c();
-                File file = new File(this.f63878d.getFilesDir() + File.separator + "ubcsenddir", b2);
+                File file = new File(this.f64578d.getFilesDir() + File.separator + "ubcsenddir", b2);
                 if (file.exists() && file.delete()) {
                     Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
                 }
-                this.f63879e.g(b2);
+                this.f64579e.g(b2);
                 return;
             }
             d.q().F(i, b2);
@@ -239,7 +239,7 @@ public class c {
             this.o = new HashMap<>();
         }
         this.o.clear();
-        this.f63879e.p(this.n);
+        this.f64579e.p(this.n);
         int i = 0;
         for (int i2 = 0; i2 < this.n.size(); i2++) {
             int keyAt = this.n.keyAt(i2);
@@ -254,7 +254,7 @@ public class c {
     }
 
     public void G(String str, int i, String str2) {
-        this.f63879e.w(str, i, str2);
+        this.f64579e.w(str, i, str2);
     }
 
     public final void H(JSONObject jSONObject, String str, boolean z, n nVar, t tVar) {
@@ -271,7 +271,7 @@ public class c {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x00ca -> B:45:0x00cd). Please submit an issue!!! */
     public void I(String str) {
         InputStream fileInputStream;
-        File file = new File(this.f63878d.getFilesDir() + File.separator + "ubcsenddir", str);
+        File file = new File(this.f64578d.getFilesDir() + File.separator + "ubcsenddir", str);
         InputStream inputStream = null;
         try {
             try {
@@ -339,11 +339,11 @@ public class c {
             Log.d("UBCBehaviorModel", "upload file fail:" + str);
         }
         z.b("upload file fail");
-        this.f63879e.x(str);
+        this.f64579e.x(str);
     }
 
     public void K(String str) {
-        File file = new File(this.f63878d.getFilesDir() + File.separator + "ubcsenddir", str);
+        File file = new File(this.f64578d.getFilesDir() + File.separator + "ubcsenddir", str);
         if (v) {
             Log.d("UBCBehaviorModel", "deleteUploadFile file:" + file.getAbsolutePath());
         }
@@ -352,19 +352,19 @@ public class c {
             Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
             z.b("delete file suc");
         }
-        this.f63879e.g(str);
+        this.f64579e.g(str);
     }
 
     public void L() {
-        if (s(this.f63878d)) {
-            this.f63879e.b();
+        if (s(this.f64578d)) {
+            this.f64579e.b();
             h0 h0Var = new h0();
             h0Var.s(this.q.n());
             h0Var.r(true);
             h0 h0Var2 = new h0();
             h0Var2.s(this.q.n());
             h0Var2.r(false);
-            if (this.f63879e.i(h0Var, h0Var2) == 0) {
+            if (this.f64579e.i(h0Var, h0Var2) == 0) {
                 return;
             }
             if (v) {
@@ -383,12 +383,12 @@ public class c {
 
     public final void M(SparseArray<ArrayList> sparseArray, h0 h0Var) {
         for (int i = 0; i < sparseArray.size() && !h0Var.b(51200); i++) {
-            this.f63879e.m(sparseArray.valueAt(i), h0Var);
+            this.f64579e.m(sparseArray.valueAt(i), h0Var);
         }
     }
 
     public final void N() {
-        if (s(this.f63878d)) {
+        if (s(this.f64578d)) {
             if (v) {
                 Log.d("UBCBehaviorModel", " upload no real data");
             }
@@ -396,7 +396,7 @@ public class c {
             g0.e().putLong("ubc_last_upload_non_real", this.j);
             i();
             v();
-            this.f63879e.b();
+            this.f64579e.b();
             HashSet hashSet = new HashSet();
             if (this.n == null) {
                 q();
@@ -410,7 +410,7 @@ public class c {
                     HashMap<String, Long> hashMap = this.o;
                     long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
                     if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.q.p()) {
-                        i |= this.f63879e.m(this.n.valueAt(i2), h0Var);
+                        i |= this.f64579e.m(this.n.valueAt(i2), h0Var);
                         HashMap<String, Long> hashMap2 = this.o;
                         hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
                         hashSet.add(Integer.valueOf(keyAt));
@@ -426,7 +426,7 @@ public class c {
                     if (h0Var.b(51200)) {
                         break;
                     }
-                    this.f63879e.m(this.n.valueAt(i3), h0Var);
+                    this.f64579e.m(this.n.valueAt(i3), h0Var);
                 }
             }
             if (v) {
@@ -437,7 +437,7 @@ public class c {
     }
 
     public final boolean O(n nVar) {
-        if (s(this.f63878d) && j()) {
+        if (s(this.f64578d) && j()) {
             v();
             h0 o = o(nVar);
             if (o == null) {
@@ -458,7 +458,7 @@ public class c {
     }
 
     public final void P() {
-        if (s(this.f63878d) && j()) {
+        if (s(this.f64578d) && j()) {
             h0 h0Var = new h0();
             h0Var.r(true);
             if (this.n == null) {
@@ -474,13 +474,13 @@ public class c {
     }
 
     public boolean Q(n nVar) {
-        if (s(this.f63878d)) {
+        if (s(this.f64578d)) {
             nVar.q("1");
             h0 o = o(nVar);
             if (o.j()) {
                 return false;
             }
-            this.f63879e.n(o);
+            this.f64579e.n(o);
             d.q().H(o.i(), true, nVar, new b());
             o.c();
             return true;
@@ -499,7 +499,7 @@ public class c {
                 if (arrayList.size() == 0) {
                     return true;
                 }
-                this.f63879e.m(arrayList, h0Var);
+                this.f64579e.m(arrayList, h0Var);
                 E(h0Var);
                 u();
             }
@@ -510,20 +510,20 @@ public class c {
 
     public final void g(n nVar) {
         this.i.add(nVar);
-        int i = this.f63881g;
+        int i = this.f64581g;
         if (i == 0) {
-            this.f63882h = SystemClock.uptimeMillis();
+            this.f64582h = SystemClock.uptimeMillis();
             d.q().z(this.u, 5000L);
-            this.f63881g = 1;
+            this.f64581g = 1;
         } else if (i == 2) {
-            this.f63882h = SystemClock.uptimeMillis();
-            this.f63881g = 1;
+            this.f64582h = SystemClock.uptimeMillis();
+            this.f64581g = 1;
         }
     }
 
     public void h(String str, int i) {
         v();
-        this.f63879e.a(str, i);
+        this.f64579e.a(str, i);
         if (!UBC.getUBCContext().b() && Math.abs(System.currentTimeMillis() - this.j) >= g.m().p()) {
             if (v) {
                 Log.d("UBCBehaviorModel", "cancel flow " + str + " invoke ->uploadNonRealTimeData ");
@@ -574,7 +574,7 @@ public class c {
             String next = keys.next();
             try {
                 JSONObject jSONObject = new JSONObject();
-                k k = this.f63879e.k(next);
+                k k = this.f64579e.k(next);
                 String optString = a2.optString(next, "0");
                 String r = k != null ? k.r() : "0";
                 boolean z2 = Integer.parseInt(r) >= Integer.parseInt(optString);
@@ -588,7 +588,7 @@ public class c {
                     jSONObject.put("product", String.format("del/%s", next));
                     jSONObject.put("version", optString);
                     jSONObject.put("valid", "1");
-                    if (!this.f63879e.f(next)) {
+                    if (!this.f64579e.f(next)) {
                         jSONObject.put("valid", "0");
                         this.s++;
                     } else {
@@ -607,17 +607,17 @@ public class c {
     public void l(String str, int i, long j, JSONArray jSONArray) {
         List<String> d2;
         v();
-        this.f63879e.h(str, i, j, jSONArray);
+        this.f64579e.h(str, i, j, jSONArray);
         boolean e2 = this.q.e(str);
         if (UBC.getUBCContext().b()) {
             if (!e2 || (d2 = UBC.getUBCContext().d()) == null || !d2.contains(str)) {
                 return;
             }
-            if (!this.f63877c) {
-                if ((System.currentTimeMillis() - this.f63876b) / 1000 < this.f63875a) {
+            if (!this.f64577c) {
+                if ((System.currentTimeMillis() - this.f64576b) / 1000 < this.f64575a) {
                     return;
                 }
-                this.f63877c = true;
+                this.f64577c = true;
             }
         }
         if (e2) {
@@ -645,7 +645,7 @@ public class c {
     }
 
     public x n() {
-        return this.f63879e;
+        return this.f64579e;
     }
 
     public final h0 o(n nVar) {
@@ -704,7 +704,7 @@ public class c {
         }
         SparseArray<ArrayList> sparseArray = new SparseArray<>();
         this.n = sparseArray;
-        this.f63879e.p(sparseArray);
+        this.f64579e.p(sparseArray);
         this.o = new HashMap<>();
         int i = 0;
         for (int i2 = 0; i2 < this.n.size(); i2++) {
@@ -742,13 +742,13 @@ public class c {
         ArrayList arrayList2 = new ArrayList(b2);
         String str5 = "Json格式转化失败";
         String str6 = "UBCBehaviorModel";
-        if (this.f63879e.l() > 0) {
+        if (this.f64579e.l() > 0) {
             ArrayList<String> arrayList3 = new ArrayList<>();
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 arrayList3.add(((k) it.next()).d());
             }
-            HashMap<String, String> j = this.f63879e.j(arrayList3);
+            HashMap<String, String> j = this.f64579e.j(arrayList3);
             Iterator it2 = arrayList2.iterator();
             while (it2.hasNext()) {
                 k kVar = (k) it2.next();
@@ -887,7 +887,7 @@ public class c {
         ArrayList arrayList4 = arrayList2;
         String str8 = str5;
         String str9 = str6;
-        boolean v2 = this.f63879e.v(arrayList4);
+        boolean v2 = this.f64579e.v(arrayList4);
         Iterator it3 = arrayList4.iterator();
         while (it3.hasNext()) {
             k kVar2 = (k) it3.next();
@@ -935,8 +935,8 @@ public class c {
 
     public void t() {
         File[] listFiles;
-        if (s(this.f63878d)) {
-            File file = new File(this.f63878d.getFilesDir() + File.separator + "ubcsenddir");
+        if (s(this.f64578d)) {
+            File file = new File(this.f64578d.getFilesDir() + File.separator + "ubcsenddir");
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 if (listFiles.length > 1000) {
                     if (!v) {
@@ -945,13 +945,13 @@ public class c {
                     for (File file2 : listFiles) {
                         file2.delete();
                     }
-                    this.f63879e.e();
+                    this.f64579e.e();
                 }
                 for (int i = 0; i < listFiles.length; i++) {
                     if (v) {
                         Log.d("UBCBehaviorModel", "uploadFailedData fileName:" + listFiles[i].getAbsolutePath());
                     }
-                    o o = this.f63879e.o(listFiles[i].getName());
+                    o o = this.f64579e.o(listFiles[i].getName());
                     if (o != null && TextUtils.equals("0", o.a())) {
                         if (v) {
                             Log.d("UBCBehaviorModel", "processFailedData sending, not send again");
@@ -959,7 +959,7 @@ public class c {
                         z.b("processFailedData file, no need to send");
                     } else if (o != null && TextUtils.equals("1", o.a())) {
                         z.b("processFailedData file, send");
-                        this.f63879e.y(listFiles[i].getName(), "0");
+                        this.f64579e.y(listFiles[i].getName(), "0");
                         I(listFiles[i].getName());
                     } else {
                         if (v) {
@@ -983,10 +983,10 @@ public class c {
         if (list == null || list.size() == 0) {
             return;
         }
-        this.f63879e.s(this.i);
+        this.f64579e.s(this.i);
         this.i.clear();
-        if (this.f63881g == 1) {
-            this.f63881g = 2;
+        if (this.f64581g == 1) {
+            this.f64581g = 2;
         }
     }
 
@@ -994,30 +994,30 @@ public class c {
         boolean z = TextUtils.equals(nVar.g(), nVar.f()) && this.q.e(nVar.g()) && (nVar.i() & 64) == 0;
         if (UBC.getUBCContext().b()) {
             if (!z) {
-                this.f63879e.r(nVar);
+                this.f64579e.r(nVar);
                 return;
             }
             List<String> d2 = UBC.getUBCContext().d();
             if (d2 != null && d2.contains(nVar.g())) {
-                if (!this.f63877c) {
-                    if ((System.currentTimeMillis() - this.f63876b) / 1000 >= this.f63875a) {
-                        this.f63877c = true;
+                if (!this.f64577c) {
+                    if ((System.currentTimeMillis() - this.f64576b) / 1000 >= this.f64575a) {
+                        this.f64577c = true;
                     } else {
-                        this.f63879e.r(nVar);
+                        this.f64579e.r(nVar);
                         return;
                     }
                 }
             } else {
-                this.f63879e.r(nVar);
+                this.f64579e.r(nVar);
                 return;
             }
         }
         if (z && !O(nVar)) {
             if (this.q.x(nVar.g())) {
-                this.f63879e.r(nVar);
+                this.f64579e.r(nVar);
             }
         } else if (UBC.getUBCContext().b()) {
-            this.f63879e.b();
+            this.f64579e.b();
         } else if (Math.abs(System.currentTimeMillis() - this.j) >= g.m().p()) {
             if (!z && this.q.x(nVar.g())) {
                 g(nVar);
@@ -1032,23 +1032,23 @@ public class c {
             }
         } else if (z || !this.q.x(nVar.g())) {
         } else {
-            this.f63879e.r(nVar);
+            this.f64579e.r(nVar);
         }
     }
 
     public void x(n nVar) {
-        this.f63880f.g(nVar, this.q.e(nVar.g()));
+        this.f64580f.g(nVar, this.q.e(nVar.g()));
     }
 
     public void y(n nVar) {
-        if (d.b.d0.b.a.a.g()) {
-            this.f63880f.i(nVar);
+        if (d.b.b0.b.a.a.g()) {
+            this.f64580f.i(nVar);
         }
     }
 
     public final void z(String str, String str2) {
         OutputStream fileOutputStream;
-        String str3 = this.f63878d.getFilesDir() + File.separator + "ubcsenddir";
+        String str3 = this.f64578d.getFilesDir() + File.separator + "ubcsenddir";
         File file = new File(str3);
         if (!file.exists()) {
             file.mkdir();

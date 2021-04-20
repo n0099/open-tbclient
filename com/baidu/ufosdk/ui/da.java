@@ -9,23 +9,23 @@ import android.widget.TextView;
 public final class da {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23147a;
+    public TextView f22832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f23148b;
+    public ImageView f22833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f23149c;
+    public ListView f22834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f23150d;
+    public TextView f22835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f23151e;
+    public TextView f22836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f23152f;
+    public LinearLayout f22837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f23153g;
+    public RelativeLayout f22838g;
 }

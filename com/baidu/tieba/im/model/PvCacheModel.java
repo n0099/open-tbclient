@@ -3,9 +3,9 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.b.e.k.a;
-import d.b.b.e.m.b;
-/* loaded from: classes3.dex */
+import d.b.c.e.k.a;
+import d.b.c.e.m.b;
+/* loaded from: classes4.dex */
 public class PvCacheModel {
     public static PvCacheModel mCacheModel;
     public a<String, String> mCache;

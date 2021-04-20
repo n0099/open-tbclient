@@ -11,10 +11,10 @@ import kotlin.text.Typography;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38570a = "com.sdk.base.framework.f.j.a";
+    public static final String f38859a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38571b = f.f38520b;
+    public static boolean f38860b = f.f38809b;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0031: INVOKE  (r3v0 java.lang.Object A[REMOVE]) = (r5v4 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
     public static String a(String str, String str2, TreeMap<String, Object> treeMap) {
@@ -30,7 +30,7 @@ public class a extends com.sdk.base.framework.f.a {
                 String sb2 = sb.toString();
                 if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                     stringBuffer.append(key);
-                    stringBuffer.append(com.alipay.sdk.encrypt.a.f1897h);
+                    stringBuffer.append(com.alipay.sdk.encrypt.a.f1922h);
                     stringBuffer.append(entry.getValue());
                     stringBuffer.append(Typography.amp);
                 }
@@ -40,7 +40,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return e.a(stringBuffer.toString());
         } catch (Exception e2) {
-            c.b(f38570a, e2.getMessage(), Boolean.valueOf(f38571b));
+            c.b(f38859a, e2.getMessage(), Boolean.valueOf(f38860b));
             return null;
         }
     }

@@ -4,14 +4,14 @@ import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
 import d.b.h0.k0.d;
-import d.b.i0.i3.f.b.b;
-import d.b.i0.i3.f.b.c;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.f.b.b;
+import d.b.i0.j3.f.b.c;
+import d.b.i0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public BubbleGroupModel.c mCallback = new a();
-    public d.b.i0.i3.f.a.a mItemController;
+    public d.b.i0.j3.f.a.a mItemController;
     public BubbleGroupModel mModel;
     public c mView;
 
@@ -43,7 +43,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50239a = true;
+            pageStayDurationItem.f50646a = true;
         }
         return pageStayDurationItem;
     }
@@ -63,7 +63,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
         this.mModel = bubbleGroupModel;
         bubbleGroupModel.C(this.mCallback);
-        d.b.i0.i3.f.a.a aVar = new d.b.i0.i3.f.a.a(getPageContext());
+        d.b.i0.j3.f.a.a aVar = new d.b.i0.j3.f.a.a(getPageContext());
         this.mItemController = aVar;
         c cVar = new c(this, aVar);
         this.mView = cVar;

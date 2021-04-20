@@ -7,13 +7,13 @@ import java.nio.charset.Charset;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f36196a = Charset.forName("ISO-8859-1");
+    public static Charset f36485a = Charset.forName("ISO-8859-1");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f36197b = Charset.forName("UTF-8");
+    public static Charset f36486b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f36198c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static ThreadLocal<Boolean> f36487c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */

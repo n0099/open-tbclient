@@ -12,30 +12,30 @@ import java.io.RandomAccessFile;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f64114a = {StorageUtils.EXTERNAL_STORAGE_PERMISSION};
+    public static String[] f64842a = {StorageUtils.EXTERNAL_STORAGE_PERMISSION};
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f64115b;
+    public static File f64843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static RandomAccessFile f64116c;
+    public static RandomAccessFile f64844c;
 
     public static boolean a(String str) {
         File file = new File(str);
-        f64115b = file;
+        f64843b = file;
         return file.exists();
     }
 
     public static boolean b(String str) {
         File file = new File(str);
-        f64115b = file;
+        f64843b = file;
         return file.delete();
     }
 
     public static boolean c() {
         String externalStorageState = Environment.getExternalStorageState();
         if (Build.VERSION.SDK_INT >= 23) {
-            return d.b.m0.a.c.i().g().checkCallingOrSelfPermission(f64114a[0]) == 0 && externalStorageState.equals("mounted");
+            return d.b.m0.a.c.i().g().checkCallingOrSelfPermission(f64842a[0]) == 0 && externalStorageState.equals("mounted");
         }
         return externalStorageState.equals("mounted");
     }
@@ -44,12 +44,12 @@ public final class f {
         synchronized (f.class) {
             if (c() && f(str2, str3)) {
                 try {
-                    f64115b = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(f64115b, "rwd");
-                    f64116c = randomAccessFile;
-                    randomAccessFile.seek(f64115b.length());
-                    f64116c.write((str + Part.CRLF).getBytes("UTF-8"));
-                    f64116c.close();
+                    f64843b = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(f64843b, "rwd");
+                    f64844c = randomAccessFile;
+                    randomAccessFile.seek(f64843b.length());
+                    f64844c.write((str + Part.CRLF).getBytes("UTF-8"));
+                    f64844c.close();
                     return true;
                 } catch (Exception e2) {
                     i.e(e2);
@@ -65,11 +65,11 @@ public final class f {
             if (c()) {
                 if (a(str + str2)) {
                     try {
-                        f64115b = new File(str + str2);
-                        f64116c = new RandomAccessFile(f64115b, r.f7664a);
+                        f64843b = new File(str + str2);
+                        f64844c = new RandomAccessFile(f64843b, r.f7699a);
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = f64116c.readLine();
+                            String readLine = f64844c.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -78,7 +78,7 @@ public final class f {
                         }
                         String stringBuffer2 = stringBuffer.toString();
                         try {
-                            f64116c.close();
+                            f64844c.close();
                         } catch (IOException e2) {
                             e2.printStackTrace();
                         }
@@ -86,7 +86,7 @@ public final class f {
                     } catch (Exception e3) {
                         e3.printStackTrace();
                         try {
-                            f64116c.close();
+                            f64844c.close();
                         } catch (IOException e4) {
                             e4.printStackTrace();
                         }
@@ -100,20 +100,20 @@ public final class f {
 
     public static boolean f(String str, String str2) {
         try {
-            f64115b = new File(str);
+            f64843b = new File(str);
             if (!a(str)) {
-                f64115b.mkdirs();
+                f64843b.mkdirs();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            f64115b = file;
+            f64843b = file;
             if (file.exists()) {
                 return true;
             }
-            return f64115b.createNewFile();
+            return f64843b.createNewFile();
         } catch (Exception e3) {
             e3.printStackTrace();
             return false;

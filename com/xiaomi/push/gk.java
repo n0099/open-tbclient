@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.xiaomi.push.ga;
 import com.xiaomi.push.ge;
@@ -18,21 +19,21 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gk {
 
     /* renamed from: a  reason: collision with root package name */
-    public static XmlPullParser f40594a;
+    public static XmlPullParser f40883a;
 
     public static fz a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m331a = gj.a().m331a("all", "xm:chat");
-        if (m331a == null || !(m331a instanceof com.xiaomi.push.service.f)) {
+        Object m335a = gj.a().m335a("all", "xm:chat");
+        if (m335a == null || !(m335a instanceof com.xiaomi.push.service.f)) {
             return null;
         }
-        return ((com.xiaomi.push.service.f) m331a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.f) m335a).b(xmlPullParser);
     }
 
     public static ga a(XmlPullParser xmlPullParser, fl flVar) {
         String attributeValue = xmlPullParser.getAttributeValue("", "id");
         String attributeValue2 = xmlPullParser.getAttributeValue("", "to");
         String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
-        String attributeValue4 = xmlPullParser.getAttributeValue("", "chid");
+        String attributeValue4 = xmlPullParser.getAttributeValue("", IAdRequestParam.CHID);
         ga.a a2 = ga.a.a(xmlPullParser.getAttributeValue("", "type"));
         HashMap hashMap = new HashMap();
         boolean z = false;
@@ -48,7 +49,7 @@ public class gk {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals("error")) {
-                    ggVar = m335a(xmlPullParser);
+                    ggVar = m339a(xmlPullParser);
                 } else {
                     gaVar = new ga();
                     gaVar.a(a(name, namespace, xmlPullParser));
@@ -58,14 +59,14 @@ public class gk {
             }
         }
         if (gaVar == null) {
-            if (ga.a.f40543a == a2 || ga.a.f40544b == a2) {
+            if (ga.a.f40832a == a2 || ga.a.f40833b == a2) {
                 gl glVar = new gl();
                 glVar.k(attributeValue);
                 glVar.m(attributeValue3);
                 glVar.n(attributeValue2);
-                glVar.a(ga.a.f40546d);
+                glVar.a(ga.a.f40835d);
                 glVar.l(attributeValue4);
-                glVar.a(new gg(gg.a.f40588e));
+                glVar.a(new gg(gg.a.f40877e));
                 flVar.a(glVar);
                 com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                 return null;
@@ -87,7 +88,7 @@ public class gk {
         boolean z = false;
         String str2 = null;
         if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
-            String attributeValue = xmlPullParser.getAttributeValue("", "chid");
+            String attributeValue = xmlPullParser.getAttributeValue("", IAdRequestParam.CHID);
             String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
             String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
             String attributeValue4 = xmlPullParser.getAttributeValue("", "to");
@@ -117,13 +118,13 @@ public class gk {
                             gbVar.k(attributeValue2);
                             gbVar.f(attributeValue5);
                             fz fzVar = new fz("s", null, null, null);
-                            fzVar.m316a(text);
+                            fzVar.m320a(text);
                             gbVar.a(fzVar);
                             return gbVar;
                         }
-                        a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f40968h, attributeValue2), text));
-                        f40594a.next();
-                        gcVar = a(f40594a);
+                        a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f41257h, attributeValue2), text));
+                        f40883a.next();
+                        gcVar = a(f40883a);
                     } else if (next == 3 && xmlPullParser.getName().equals("message")) {
                         z = true;
                     }
@@ -143,7 +144,7 @@ public class gk {
         gbVar2.k(attributeValue6);
         gbVar2.m(xmlPullParser.getAttributeValue("", "to"));
         gbVar2.n(xmlPullParser.getAttributeValue("", "from"));
-        gbVar2.l(xmlPullParser.getAttributeValue("", "chid"));
+        gbVar2.l(xmlPullParser.getAttributeValue("", IAdRequestParam.CHID));
         gbVar2.a(xmlPullParser.getAttributeValue("", "appid"));
         try {
             str = xmlPullParser.getAttributeValue("", "transient");
@@ -151,7 +152,7 @@ public class gk {
             str = null;
         }
         try {
-            String attributeValue7 = xmlPullParser.getAttributeValue("", "seq");
+            String attributeValue7 = xmlPullParser.getAttributeValue("", IAdRequestParam.SEQ);
             if (!TextUtils.isEmpty(attributeValue7)) {
                 gbVar2.b(attributeValue7);
             }
@@ -196,21 +197,21 @@ public class gk {
                 }
                 if (name.equals("subject")) {
                     b(xmlPullParser);
-                    gbVar2.g(m336a(xmlPullParser));
+                    gbVar2.g(m340a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                    String m336a = m336a(xmlPullParser);
+                    String m340a = m340a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        gbVar2.h(m336a);
+                        gbVar2.h(m340a);
                     } else {
-                        gbVar2.a(m336a, attributeValue11);
+                        gbVar2.a(m340a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals("error")) {
-                    gbVar2.a(m335a(xmlPullParser));
+                    gbVar2.a(m339a(xmlPullParser));
                 } else {
                     gbVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -223,7 +224,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ge m333a(XmlPullParser xmlPullParser) {
+    public static ge m337a(XmlPullParser xmlPullParser) {
         ge.b bVar = ge.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -237,7 +238,7 @@ public class gk {
         ge geVar = new ge(bVar);
         geVar.m(xmlPullParser.getAttributeValue("", "to"));
         geVar.n(xmlPullParser.getAttributeValue("", "from"));
-        geVar.l(xmlPullParser.getAttributeValue("", "chid"));
+        geVar.l(xmlPullParser.getAttributeValue("", IAdRequestParam.CHID));
         String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
         if (attributeValue2 == null) {
             attributeValue2 = "ID_NOT_AVAILABLE";
@@ -267,7 +268,7 @@ public class gk {
                         printStream2.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals("error")) {
-                    geVar.a(m335a(xmlPullParser));
+                    geVar.a(m339a(xmlPullParser));
                 } else {
                     geVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -279,7 +280,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gf m334a(XmlPullParser xmlPullParser) {
+    public static gf m338a(XmlPullParser xmlPullParser) {
         gf gfVar = null;
         boolean z = false;
         while (!z) {
@@ -294,7 +295,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gg m335a(XmlPullParser xmlPullParser) {
+    public static gg m339a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         boolean z = false;
         String str = "-1";
@@ -339,7 +340,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m336a(XmlPullParser xmlPullParser) {
+    public static String m340a(XmlPullParser xmlPullParser) {
         int depth = xmlPullParser.getDepth();
         String str = "";
         while (true) {
@@ -351,16 +352,16 @@ public class gk {
     }
 
     public static void a(byte[] bArr) {
-        if (f40594a == null) {
+        if (f40883a == null) {
             try {
                 XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-                f40594a = newPullParser;
+                f40883a = newPullParser;
                 newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
             } catch (XmlPullParserException e2) {
                 e2.printStackTrace();
             }
         }
-        f40594a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        f40883a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
     }
 
     public static String b(XmlPullParser xmlPullParser) {

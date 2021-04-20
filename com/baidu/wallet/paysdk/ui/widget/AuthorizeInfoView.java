@@ -18,42 +18,42 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 public class AuthorizeInfoView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f26332a;
+    public NetImageView f26017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26333b;
+    public TextView f26018b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26334c;
+    public TextView f26019c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26335d;
+    public TextView f26020d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f26336e;
+    public TextView f26021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f26337f;
+    public TextView f26022f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26338g;
+    public String f26023g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26339h;
+    public String f26024h;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0273a {
+        public static class C0275a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f26341a = new a();
+            public static a f26026a = new a();
         }
 
         public static a a() {
-            return C0273a.f26341a;
+            return C0275a.f26026a;
         }
 
         public a() {
@@ -71,10 +71,10 @@ public class AuthorizeInfoView extends LinearLayout {
     public static abstract class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AuthorizeInfoView f26342a;
+        public AuthorizeInfoView f26027a;
 
         public b(AuthorizeInfoView authorizeInfoView) {
-            this.f26342a = authorizeInfoView;
+            this.f26027a = authorizeInfoView;
         }
 
         public abstract void a(Object obj);
@@ -82,8 +82,8 @@ public class AuthorizeInfoView extends LinearLayout {
 
     public AuthorizeInfoView(Context context) {
         super(context);
-        this.f26338g = "";
-        this.f26339h = "";
+        this.f26023g = "";
+        this.f26024h = "";
         a();
     }
 
@@ -93,24 +93,24 @@ public class AuthorizeInfoView extends LinearLayout {
         if (payResponse == null || (authorize = payResponse.authorize) == null) {
             return;
         }
-        this.f26332a.setImageUrl(authorize.sp_logo_url);
-        this.f26333b.setText(authorize.sp_company_title);
+        this.f26017a.setImageUrl(authorize.sp_logo_url);
+        this.f26018b.setText(authorize.sp_company_title);
         setTips(authorize.authorize_action_desc);
         String[] strArr = authorize.authorize_desc;
         int i = 0;
         if (strArr != null && strArr.length > 0) {
-            this.f26335d.setText(strArr[0]);
+            this.f26020d.setText(strArr[0]);
         }
         UserData.UserModel userModel = payResponse.user;
         if (userModel != null) {
-            this.f26337f.setText(userModel.authorize_display_name);
+            this.f26022f.setText(userModel.authorize_display_name);
         }
         Authorize.AuthDetailInfo authDetailInfo = authorize.detail_info;
         if (authDetailInfo == null) {
             return;
         }
         if (!TextUtils.isEmpty(authDetailInfo.introduce)) {
-            this.f26339h += authorize.detail_info.introduce + "\n";
+            this.f26024h += authorize.detail_info.introduce + "\n";
         }
         while (true) {
             String[] strArr2 = authorize.detail_info.detail;
@@ -118,54 +118,54 @@ public class AuthorizeInfoView extends LinearLayout {
                 return;
             }
             if (!TextUtils.isEmpty(strArr2[i])) {
-                this.f26339h += "\n· " + authorize.detail_info.detail[i];
+                this.f26024h += "\n· " + authorize.detail_info.detail[i];
             }
             i++;
         }
     }
 
     public void setAmount(String str) {
-        TextView textView = this.f26336e;
+        TextView textView = this.f26021e;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
     public void setDesc(String str) {
-        TextView textView = this.f26335d;
+        TextView textView = this.f26020d;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
     public void setLogo(String str) {
-        NetImageView netImageView = this.f26332a;
+        NetImageView netImageView = this.f26017a;
         if (netImageView != null) {
             netImageView.setImageUrl(str);
         }
     }
 
     public void setPhone(String str) {
-        TextView textView = this.f26337f;
+        TextView textView = this.f26022f;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
     public void setTipMessage(String str) {
-        this.f26339h = str;
+        this.f26024h = str;
     }
 
     public void setTips(String str) {
-        TextView textView = this.f26334c;
+        TextView textView = this.f26019c;
         if (textView != null) {
             textView.setText(str);
         }
-        this.f26338g = str;
+        this.f26023g = str;
     }
 
     public void setTitle(String str) {
-        TextView textView = this.f26333b;
+        TextView textView = this.f26018b;
         if (textView != null) {
             textView.setText(str);
         }
@@ -173,21 +173,21 @@ public class AuthorizeInfoView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_authorize_info_view"), this);
-        this.f26332a = (NetImageView) findViewById(ResUtils.id(getContext(), "ni_sp_logo"));
-        this.f26333b = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_name"));
-        this.f26334c = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_action"));
-        this.f26335d = (TextView) findViewById(ResUtils.id(getContext(), "tv_auth_desc"));
-        this.f26336e = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_tips"));
-        this.f26337f = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_phone"));
-        this.f26334c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView.1
+        this.f26017a = (NetImageView) findViewById(ResUtils.id(getContext(), "ni_sp_logo"));
+        this.f26018b = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_name"));
+        this.f26019c = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_action"));
+        this.f26020d = (TextView) findViewById(ResUtils.id(getContext(), "tv_auth_desc"));
+        this.f26021e = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_tips"));
+        this.f26022f = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_phone"));
+        this.f26019c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (TextUtils.isEmpty(AuthorizeInfoView.this.f26339h)) {
+                if (TextUtils.isEmpty(AuthorizeInfoView.this.f26024h)) {
                     return;
                 }
                 PromptTipDialog promptTipDialog = new PromptTipDialog(AuthorizeInfoView.this.getContext());
-                promptTipDialog.setTitleMessage(AuthorizeInfoView.this.f26338g);
-                promptTipDialog.setMessage(AuthorizeInfoView.this.f26339h);
+                promptTipDialog.setTitleMessage(AuthorizeInfoView.this.f26023g);
+                promptTipDialog.setMessage(AuthorizeInfoView.this.f26024h);
                 promptTipDialog.setButtonMessage(ResUtils.getString(AuthorizeInfoView.this.getContext(), "ebpay_know"));
                 promptTipDialog.show();
             }
@@ -196,15 +196,15 @@ public class AuthorizeInfoView extends LinearLayout {
 
     public AuthorizeInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26338g = "";
-        this.f26339h = "";
+        this.f26023g = "";
+        this.f26024h = "";
         a();
     }
 
     public AuthorizeInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f26338g = "";
-        this.f26339h = "";
+        this.f26023g = "";
+        this.f26024h = "";
         a();
     }
 }

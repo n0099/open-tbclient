@@ -1,6 +1,5 @@
 package d.c.c.a.b;
 
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.bytedance.sdk.a.b.ad;
 import java.security.cert.Certificate;
 import java.util.Collections;
@@ -11,22 +10,22 @@ import javax.net.ssl.SSLSession;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ad f65551a;
+    public final ad f66396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f65552b;
+    public final l f66397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Certificate> f65553c;
+    public final List<Certificate> f66398c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Certificate> f65554d;
+    public final List<Certificate> f66399d;
 
     public u(ad adVar, l lVar, List<Certificate> list, List<Certificate> list2) {
-        this.f65551a = adVar;
-        this.f65552b = lVar;
-        this.f65553c = list;
-        this.f65554d = list2;
+        this.f66396a = adVar;
+        this.f66397b = lVar;
+        this.f66398c = list;
+        this.f66399d = list2;
     }
 
     public static u b(SSLSession sSLSession) {
@@ -63,22 +62,22 @@ public final class u {
     }
 
     public l a() {
-        return this.f65552b;
+        return this.f66397b;
     }
 
     public List<Certificate> c() {
-        return this.f65553c;
+        return this.f66398c;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f65551a.equals(uVar.f65551a) && this.f65552b.equals(uVar.f65552b) && this.f65553c.equals(uVar.f65553c) && this.f65554d.equals(uVar.f65554d);
+            return this.f66396a.equals(uVar.f66396a) && this.f66397b.equals(uVar.f66397b) && this.f66398c.equals(uVar.f66398c) && this.f66399d.equals(uVar.f66399d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.f65551a.hashCode()) * 31) + this.f65552b.hashCode()) * 31) + this.f65553c.hashCode()) * 31) + this.f65554d.hashCode();
+        return ((((((527 + this.f66396a.hashCode()) * 31) + this.f66397b.hashCode()) * 31) + this.f66398c.hashCode()) * 31) + this.f66399d.hashCode();
     }
 }

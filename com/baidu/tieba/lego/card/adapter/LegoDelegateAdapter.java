@@ -6,16 +6,16 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.b.i0.i1.o.b;
-import d.b.i0.i1.o.g.a;
-import d.b.i0.i1.o.l.e;
-/* loaded from: classes3.dex */
+import d.b.i0.j1.o.b;
+import d.b.i0.j1.o.g.a;
+import d.b.i0.j1.o.l.e;
+/* loaded from: classes4.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public BdUniqueId n;
     public TbPageContext<?> o;
     public ICardInfo p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
         public LegoDelegateViewHolder(e<?> eVar) {
             super((View) eVar);
@@ -29,7 +29,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View I(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         this.p = iCardInfo;
@@ -37,7 +37,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: j0 */
     public LegoDelegateViewHolder R(ViewGroup viewGroup) {
         e a2 = b.h().a(this.o, this.p, this.m);
@@ -49,7 +49,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public View X(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         e eVar = (e) legoDelegateViewHolder.a();
@@ -61,7 +61,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) eVar;
     }
 
-    @Override // d.b.i0.i1.f
+    @Override // d.b.i0.j1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         this.n = bdUniqueId;
     }

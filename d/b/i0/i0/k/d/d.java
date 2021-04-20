@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.i0.i0.k.c.e;
 /* loaded from: classes4.dex */
 public class d extends d.b.i0.x.b<e> {
@@ -44,7 +44,7 @@ public class d extends d.b.i0.x.b<e> {
             return;
         }
         ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
-        layoutParams.height = l.g(this.f62182g, eVar.f55654e);
+        layoutParams.height = l.g(this.f63757g, eVar.f56777e);
         this.n.setLayoutParams(layoutParams);
     }
 }

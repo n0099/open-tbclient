@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import d.b.h0.r.q.a0;
 import d.b.h0.r.q.c0;
 import d.b.h0.r.q.c2;
@@ -352,7 +352,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return this.topic_special_icon_right;
     }
 
-    @Override // d.b.b.j.e.n
+    @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
         return FORUM_FLOOR_TYPE;
     }
@@ -513,7 +513,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 this.canAddPhotoLivePost = anchorPower.can_add_live_post.intValue() == 1;
             }
             this.top_code.j(forumInfo.top_code);
-            this.news_info.D0(forumInfo.news_info);
+            this.news_info.F0(forumInfo.news_info);
             this.mAcrossForumIcon = forumInfo.across_forum_show;
             this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
             this.forumGameLabel = forumInfo.forum_game_label;
@@ -800,7 +800,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 BdLog.e(e7.getMessage());
             }
             try {
-                this.news_info.C0(jSONObject.optJSONObject("news_info"));
+                this.news_info.E0(jSONObject.optJSONObject("news_info"));
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }

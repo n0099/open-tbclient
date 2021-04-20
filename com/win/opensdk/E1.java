@@ -12,17 +12,17 @@ import android.webkit.WebView;
 public class E1 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f39662a;
+    public final /* synthetic */ Context f39951a;
 
     public E1(F1 f1, Context context) {
-        this.f39662a = context;
+        this.f39951a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
         String userAgentString;
-        Context context = this.f39662a;
+        Context context = this.f39951a;
         try {
             if (Build.VERSION.SDK_INT >= 28) {
                 try {
@@ -45,16 +45,16 @@ public class E1 implements Runnable {
                 } catch (Exception unused2) {
                 }
             }
-            a2.f39866a = System.getProperty("http.agent");
+            a2.f40155a = System.getProperty("http.agent");
             if (Build.VERSION.SDK_INT >= 17) {
                 userAgentString = WebSettings.getDefaultUserAgent(context);
             } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                Y1.f39840a.post(new Z1(context));
+                Y1.f40129a.post(new Z1(context));
                 return;
             } else {
                 userAgentString = new WebView(context).getSettings().getUserAgentString();
             }
-            a2.f39866a = userAgentString;
+            a2.f40155a = userAgentString;
         } catch (Exception unused3) {
         }
     }

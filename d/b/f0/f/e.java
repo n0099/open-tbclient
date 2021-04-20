@@ -9,10 +9,10 @@ import d.b.f0.l.g;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42960b;
+    public static String f43352b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42961a = d.b.f0.b.b.f42827a;
+    public String f43353a = d.b.f0.b.b.f43219a;
 
     public e(Context context) {
     }
@@ -26,8 +26,8 @@ public class e {
     }
 
     public String b(String str, String str2) {
-        String str3 = d.b.f0.a.f42809b;
-        String str4 = d.b.f0.a.f42810c;
+        String str3 = d.b.f0.a.f43201b;
+        String str4 = d.b.f0.a.f43202c;
         String str5 = "";
         if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return "";
@@ -65,7 +65,7 @@ public class e {
 
     public final void d() {
         try {
-            f42960b = new String(d.b.f0.l.e.e(Base64.decode(this.f42961a, 0), "30212102dicudiab".getBytes("utf-8")));
+            f43352b = new String(d.b.f0.l.e.e(Base64.decode(this.f43353a, 0), "30212102dicudiab".getBytes("utf-8")));
         } catch (Throwable th) {
             d.b.f0.l.c.d(th);
         }
@@ -83,9 +83,9 @@ public class e {
     }
 
     public final String f() {
-        if (TextUtils.isEmpty(f42960b)) {
+        if (TextUtils.isEmpty(f43352b)) {
             d();
         }
-        return f42960b;
+        return f43352b;
     }
 }

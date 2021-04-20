@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
-import d.b.a0.a.j.a;
+import d.b.x.a.j.a;
 import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;

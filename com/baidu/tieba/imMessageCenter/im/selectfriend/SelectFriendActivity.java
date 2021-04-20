@@ -32,14 +32,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.im.widget.Game2GroupShareDialogView;
 import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
-    public d.b.i0.e1.a.d.a adapter;
+    public d.b.i0.f1.a.d.a adapter;
     public CustomMessageListener discoverSharelistener;
     public CustomMessageListener gameSharelistener;
     public BdListView listView;
@@ -51,7 +51,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     public CustomMessageListener getFriendListListener = new b(2001184);
     public AdapterView.OnItemClickListener itemClickListener = new d();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public a(int i) {
             super(i);
@@ -76,7 +76,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -101,7 +101,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -112,31 +112,31 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements AdapterView.OnItemClickListener {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends CustomMessageListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f18263a;
+            public final /* synthetic */ long f17940a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f18264b;
+            public final /* synthetic */ String f17941b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f18265c;
+            public final /* synthetic */ String f17942c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f18266d;
+            public final /* synthetic */ String f17943d;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(int i, long j, String str, String str2, String str3) {
                 super(i);
-                this.f18263a = j;
-                this.f18264b = str;
-                this.f18265c = str2;
-                this.f18266d = str3;
+                this.f17940a = j;
+                this.f17941b = str;
+                this.f17942c = str2;
+                this.f17943d = str3;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -145,32 +145,32 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                 if (customResponsedMessage == null || customResponsedMessage.getData() == null || customResponsedMessage.getCmd() != 2001261) {
                     return;
                 }
-                SelectFriendActivity.this.showConfirmShareToFriendDialog((ShareFromGameCenterMsgData) customResponsedMessage.getData(), this.f18263a, this.f18264b, this.f18265c, this.f18266d);
+                SelectFriendActivity.this.showConfirmShareToFriendDialog((ShareFromGameCenterMsgData) customResponsedMessage.getData(), this.f17940a, this.f17941b, this.f17942c, this.f17943d);
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b extends CustomMessageListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f18268a;
+            public final /* synthetic */ long f17945a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f18269b;
+            public final /* synthetic */ String f17946b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f18270c;
+            public final /* synthetic */ String f17947c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f18271d;
+            public final /* synthetic */ String f17948d;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(int i, long j, String str, String str2, String str3) {
                 super(i);
-                this.f18268a = j;
-                this.f18269b = str;
-                this.f18270c = str2;
-                this.f18271d = str3;
+                this.f17945a = j;
+                this.f17946b = str;
+                this.f17947c = str2;
+                this.f17948d = str3;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -179,7 +179,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                 if (customResponsedMessage == null || customResponsedMessage.getData() == null || customResponsedMessage.getCmd() != 2921015) {
                     return;
                 }
-                SelectFriendActivity.this.showConfirmShareToFriendDialog((ShareFromPBMsgData) customResponsedMessage.getData(), this.f18268a, this.f18269b, this.f18270c, this.f18271d);
+                SelectFriendActivity.this.showConfirmShareToFriendDialog((ShareFromPBMsgData) customResponsedMessage.getData(), this.f17945a, this.f17946b, this.f17947c, this.f17948d);
             }
         }
 
@@ -221,37 +221,37 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f18273e;
+        public final /* synthetic */ long f17950e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareFromPBMsgData f18274f;
+        public final /* synthetic */ ShareFromPBMsgData f17951f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f18275g;
+        public final /* synthetic */ String f17952g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f18276h;
+        public final /* synthetic */ String f17953h;
         public final /* synthetic */ String i;
         public final /* synthetic */ Game2GroupShareDialogView j;
 
         public e(long j, ShareFromPBMsgData shareFromPBMsgData, String str, String str2, String str3, Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f18273e = j;
-            this.f18274f = shareFromPBMsgData;
-            this.f18275g = str;
-            this.f18276h = str2;
+            this.f17950e = j;
+            this.f17951f = shareFromPBMsgData;
+            this.f17952g = str;
+            this.f17953h = str2;
             this.i = str3;
             this.j = game2GroupShareDialogView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            long t = d.b.i0.d1.k.b.o().t(String.valueOf(this.f18273e), 2);
-            MessageUtils.createPersonalChatMessage(t, 9, this.f18274f.toChatMessageContent(), this.f18273e, this.f18275g, this.f18276h, this.i);
-            MessageUtils.createPersonalChatMessage(t + 1, 1, this.j.getLeaveMsg(), this.f18273e, this.f18275g, this.f18276h, this.i);
+            long t = d.b.i0.e1.k.b.o().t(String.valueOf(this.f17950e), 2);
+            MessageUtils.createPersonalChatMessage(t, 9, this.f17951f.toChatMessageContent(), this.f17950e, this.f17952g, this.f17953h, this.i);
+            MessageUtils.createPersonalChatMessage(t + 1, 1, this.j.getLeaveMsg(), this.f17950e, this.f17952g, this.f17953h, this.i);
             aVar.dismiss();
             SelectFriendActivity.this.setResult(-1);
             if (!j.z()) {
@@ -264,54 +264,54 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f18277e;
+        public final /* synthetic */ Game2GroupShareDialogView f17954e;
 
         public f(Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f18277e = game2GroupShareDialogView;
+            this.f17954e = game2GroupShareDialogView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            ((InputMethodManager) SelectFriendActivity.this.getPageContext().getPageActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f18277e.getWindowToken(), 2);
+            ((InputMethodManager) SelectFriendActivity.this.getPageContext().getPageActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f17954e.getWindowToken(), 2);
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f18279e;
+        public final /* synthetic */ long f17956e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareFromGameCenterMsgData f18280f;
+        public final /* synthetic */ ShareFromGameCenterMsgData f17957f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f18281g;
+        public final /* synthetic */ String f17958g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f18282h;
+        public final /* synthetic */ String f17959h;
         public final /* synthetic */ String i;
         public final /* synthetic */ Game2GroupShareDialogView j;
 
         public g(long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, String str, String str2, String str3, Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f18279e = j;
-            this.f18280f = shareFromGameCenterMsgData;
-            this.f18281g = str;
-            this.f18282h = str2;
+            this.f17956e = j;
+            this.f17957f = shareFromGameCenterMsgData;
+            this.f17958g = str;
+            this.f17959h = str2;
             this.i = str3;
             this.j = game2GroupShareDialogView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
-            long t = d.b.i0.d1.k.b.o().t(String.valueOf(this.f18279e), 2);
-            MessageUtils.createPersonalChatMessage(t, 9, this.f18280f.toChatMessageContent(), this.f18279e, this.f18281g, this.f18282h, this.i);
-            MessageUtils.createPersonalChatMessage(t + 1, 1, this.j.getLeaveMsg(), this.f18279e, this.f18281g, this.f18282h, this.i);
+            long t = d.b.i0.e1.k.b.o().t(String.valueOf(this.f17956e), 2);
+            MessageUtils.createPersonalChatMessage(t, 9, this.f17957f.toChatMessageContent(), this.f17956e, this.f17958g, this.f17959h, this.i);
+            MessageUtils.createPersonalChatMessage(t + 1, 1, this.j.getLeaveMsg(), this.f17956e, this.f17958g, this.f17959h, this.i);
             aVar.dismiss();
             SelectFriendActivity.this.setResult(-1);
             if (!j.z()) {
@@ -322,20 +322,20 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f18283e;
+        public final /* synthetic */ Game2GroupShareDialogView f17960e;
 
         public h(Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f18283e = game2GroupShareDialogView;
+            this.f17960e = game2GroupShareDialogView;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             aVar.dismiss();
-            ((InputMethodManager) SelectFriendActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f18283e.getWindowToken(), 2);
+            ((InputMethodManager) SelectFriendActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f17960e.getWindowToken(), 2);
         }
     }
 
@@ -372,7 +372,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c());
         this.navigationBar.setTitleText(R.string.select_friend_title);
         this.listView = (BdListView) findViewById(R.id.select_friend_listview);
-        d.b.i0.e1.a.d.a aVar = new d.b.i0.e1.a.d.a(getPageContext().getPageActivity());
+        d.b.i0.f1.a.d.a aVar = new d.b.i0.f1.a.d.a(getPageContext().getPageActivity());
         this.adapter = aVar;
         this.listView.setAdapter((ListAdapter) aVar);
         this.listView.setOnItemClickListener(this.itemClickListener);

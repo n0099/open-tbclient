@@ -14,8 +14,8 @@ public class ClassesInfoCache {
     public static final int CALL_TYPE_PROVIDER = 1;
     public static final int CALL_TYPE_PROVIDER_WITH_EVENT = 2;
     public static ClassesInfoCache sInstance = new ClassesInfoCache();
-    public final Map<Class, CallbackInfo> mCallbackMap = new HashMap();
-    public final Map<Class, Boolean> mHasLifecycleMethods = new HashMap();
+    public final Map<Class<?>, CallbackInfo> mCallbackMap = new HashMap();
+    public final Map<Class<?>, Boolean> mHasLifecycleMethods = new HashMap();
 
     /* loaded from: classes.dex */
     public static class CallbackInfo {
@@ -94,10 +94,10 @@ public class ClassesInfoCache {
         }
     }
 
-    private CallbackInfo createInfo(Class cls, @Nullable Method[] methodArr) {
+    private CallbackInfo createInfo(Class<?> cls, @Nullable Method[] methodArr) {
         int i;
         CallbackInfo info;
-        Class superclass = cls.getSuperclass();
+        Class<? super Object> superclass = cls.getSuperclass();
         HashMap hashMap = new HashMap();
         if (superclass != null && (info = getInfo(superclass)) != null) {
             hashMap.putAll(info.mHandlerToEvent);
@@ -147,7 +147,7 @@ public class ClassesInfoCache {
         return callbackInfo;
     }
 
-    private Method[] getDeclaredMethods(Class cls) {
+    private Method[] getDeclaredMethods(Class<?> cls) {
         try {
             return cls.getDeclaredMethods();
         } catch (NoClassDefFoundError e2) {
@@ -155,7 +155,7 @@ public class ClassesInfoCache {
         }
     }
 
-    private void verifyAndPutHandler(Map<MethodReference, Lifecycle.Event> map, MethodReference methodReference, Lifecycle.Event event, Class cls) {
+    private void verifyAndPutHandler(Map<MethodReference, Lifecycle.Event> map, MethodReference methodReference, Lifecycle.Event event, Class<?> cls) {
         Lifecycle.Event event2 = map.get(methodReference);
         if (event2 == null || event == event2) {
             if (event2 == null) {
@@ -168,12 +168,12 @@ public class ClassesInfoCache {
         throw new IllegalArgumentException("Method " + method.getName() + " in " + cls.getName() + " already declared with different @OnLifecycleEvent value: previous value " + event2 + ", new value " + event);
     }
 
-    public CallbackInfo getInfo(Class cls) {
+    public CallbackInfo getInfo(Class<?> cls) {
         CallbackInfo callbackInfo = this.mCallbackMap.get(cls);
         return callbackInfo != null ? callbackInfo : createInfo(cls, null);
     }
 
-    public boolean hasLifecycleMethods(Class cls) {
+    public boolean hasLifecycleMethods(Class<?> cls) {
         Boolean bool = this.mHasLifecycleMethods.get(cls);
         if (bool != null) {
             return bool.booleanValue();

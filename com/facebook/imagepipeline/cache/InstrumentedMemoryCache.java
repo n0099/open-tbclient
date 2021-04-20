@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.cache;
 
 import com.facebook.common.internal.Predicate;
 import com.facebook.common.references.CloseableReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
     public final MemoryCache<K, V> mDelegate;
     public final MemoryCacheTracker mTracker;

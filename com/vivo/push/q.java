@@ -5,31 +5,31 @@ import com.vivo.push.p;
 public final class q implements IPushActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p.a f39506a;
+    public final /* synthetic */ p.a f39795a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f39507b;
+    public final /* synthetic */ p f39796b;
 
     public q(p pVar, p.a aVar) {
-        this.f39507b = pVar;
-        this.f39506a = aVar;
+        this.f39796b = pVar;
+        this.f39795a = aVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
     public final void onStateChanged(int i) {
         com.vivo.push.util.a aVar;
         if (i == 0) {
-            Object[] b2 = this.f39506a.b();
+            Object[] b2 = this.f39795a.b();
             if (b2 != null && b2.length != 0) {
-                this.f39507b.a((String) this.f39506a.b()[0]);
+                this.f39796b.a((String) this.f39795a.b()[0]);
                 return;
             } else {
                 com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
                 return;
             }
         }
-        this.f39507b.l = null;
-        aVar = this.f39507b.k;
+        this.f39796b.l = null;
+        aVar = this.f39796b.k;
         aVar.c("APP_TOKEN");
     }
 }

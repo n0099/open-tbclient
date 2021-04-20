@@ -5,19 +5,19 @@ import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f5190a;
+    public static d f5225a;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f5190a == null) {
-                f5190a = new d();
+            if (f5225a == null) {
+                f5225a = new d();
             }
-            dVar = f5190a;
+            dVar = f5225a;
         }
         return dVar;
     }

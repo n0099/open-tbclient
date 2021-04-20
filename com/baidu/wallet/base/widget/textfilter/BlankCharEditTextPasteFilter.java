@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class BlankCharEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24167a = "BlankCharEditTextPasteFilter";
+    public static final String f23852a = "BlankCharEditTextPasteFilter";
 
     @Override // com.baidu.wallet.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

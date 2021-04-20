@@ -6,7 +6,7 @@ import d.o.a.e.b.f.u;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c implements d {
     public boolean A;
     public u B;
@@ -18,28 +18,28 @@ public class c implements d {
     public int H;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f66423a;
+    public long f67416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f66424b;
+    public long f67417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f66425c;
+    public boolean f67418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66426d;
+    public int f67419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66427e;
+    public String f67420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66428f;
+    public String f67421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66429g;
+    public String f67422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o.a.a.a.d.b f66430h;
+    public d.o.a.a.a.d.b f67423h;
     public List<String> i;
     public JSONObject j;
     public String k;
@@ -59,7 +59,7 @@ public class c implements d {
     public String y;
     public f z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public String A;
         public boolean B;
@@ -70,25 +70,25 @@ public class c implements d {
         public String H;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f66431a;
+        public long f67424a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66432b;
+        public long f67425b;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f66434d;
+        public int f67427d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66435e;
+        public String f67428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f66436f;
+        public String f67429f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f66437g;
+        public String f67430g;
 
         /* renamed from: h  reason: collision with root package name */
-        public d.o.a.a.a.d.b f66438h;
+        public d.o.a.a.a.d.b f67431h;
         public List<String> i;
         public JSONObject j;
         public String k;
@@ -105,7 +105,7 @@ public class c implements d {
         public List<String> z;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f66433c = true;
+        public boolean f67426c = true;
         public boolean o = true;
         public boolean p = true;
         public boolean q = false;
@@ -134,22 +134,22 @@ public class c implements d {
         }
 
         public b j(int i) {
-            this.f66434d = i;
+            this.f67427d = i;
             return this;
         }
 
         public b k(long j) {
-            this.f66431a = j;
+            this.f67424a = j;
             return this;
         }
 
         public b l(d.o.a.a.a.d.b bVar) {
-            this.f66438h = bVar;
+            this.f67431h = bVar;
             return this;
         }
 
         public b m(String str) {
-            this.f66435e = str;
+            this.f67428e = str;
             return this;
         }
 
@@ -159,7 +159,7 @@ public class c implements d {
         }
 
         public b o(boolean z) {
-            this.f66433c = z;
+            this.f67426c = z;
             return this;
         }
 
@@ -173,12 +173,12 @@ public class c implements d {
         }
 
         public b s(long j) {
-            this.f66432b = j;
+            this.f67425b = j;
             return this;
         }
 
         public b t(String str) {
-            this.f66436f = str;
+            this.f67429f = str;
             return this;
         }
 
@@ -188,7 +188,7 @@ public class c implements d {
         }
 
         public b v(String str) {
-            this.f66437g = str;
+            this.f67430g = str;
             return this;
         }
 
@@ -205,7 +205,7 @@ public class c implements d {
 
     @Override // d.o.a.a.a.c.d
     public int A() {
-        return this.f66426d;
+        return this.f67419d;
     }
 
     @Override // d.o.a.a.a.c.d
@@ -266,7 +266,7 @@ public class c implements d {
 
     @Override // d.o.a.a.a.c.d
     public long d() {
-        return this.f66423a;
+        return this.f67416a;
     }
 
     @Override // d.o.a.a.a.c.d
@@ -281,7 +281,7 @@ public class c implements d {
 
     @Override // d.o.a.a.a.c.d
     public long g() {
-        return this.f66424b;
+        return this.f67417b;
     }
 
     @Override // d.o.a.a.a.c.d
@@ -346,27 +346,27 @@ public class c implements d {
 
     @Override // d.o.a.a.a.c.d
     public boolean t() {
-        return this.f66425c;
+        return this.f67418c;
     }
 
     @Override // d.o.a.a.a.c.d
     public String u() {
-        return this.f66427e;
+        return this.f67420e;
     }
 
     @Override // d.o.a.a.a.c.d
     public String v() {
-        return this.f66428f;
+        return this.f67421f;
     }
 
     @Override // d.o.a.a.a.c.d
     public String w() {
-        return this.f66429g;
+        return this.f67422g;
     }
 
     @Override // d.o.a.a.a.c.d
     public d.o.a.a.a.d.b x() {
-        return this.f66430h;
+        return this.f67423h;
     }
 
     @Override // d.o.a.a.a.c.d
@@ -381,14 +381,14 @@ public class c implements d {
 
     public c(b bVar) {
         this.H = 1;
-        this.f66423a = bVar.f66431a;
-        this.f66424b = bVar.f66432b;
-        this.f66425c = bVar.f66433c;
-        this.f66426d = bVar.f66434d;
-        this.f66427e = bVar.f66435e;
-        this.f66428f = bVar.f66436f;
-        this.f66429g = bVar.f66437g;
-        this.f66430h = bVar.f66438h;
+        this.f67416a = bVar.f67424a;
+        this.f67417b = bVar.f67425b;
+        this.f67418c = bVar.f67426c;
+        this.f67419d = bVar.f67427d;
+        this.f67420e = bVar.f67428e;
+        this.f67421f = bVar.f67429f;
+        this.f67422g = bVar.f67430g;
+        this.f67423h = bVar.f67431h;
         this.i = bVar.i;
         this.j = bVar.j;
         this.k = bVar.k;
@@ -428,11 +428,11 @@ public class c implements d {
     }
 
     public void c(long j) {
-        this.f66424b = j;
+        this.f67417b = j;
     }
 
     public c d(String str) {
-        this.f66428f = str;
+        this.f67421f = str;
         return this;
     }
 

@@ -13,11 +13,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f30725a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+    public static final List<String> f30410a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
         {
             add("HUAWEI");
             add("OPPO");
@@ -30,7 +30,7 @@ public class f {
         String trim = str == null ? RomUtils.UNKNOWN : str.trim();
         try {
             if (!TextUtils.isEmpty(trim)) {
-                for (String str2 : f30725a) {
+                for (String str2 : f30410a) {
                     if (str2.equalsIgnoreCase(trim)) {
                         return str2;
                     }

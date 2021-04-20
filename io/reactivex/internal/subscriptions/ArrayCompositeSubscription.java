@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
-import f.a.t.b;
+import f.b.t.b;
 import g.d.d;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
@@ -11,7 +11,7 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<d> im
         super(i);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         d andSet;
         if (get(0) != SubscriptionHelper.CANCELLED) {
@@ -26,7 +26,7 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<d> im
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get(0) == SubscriptionHelper.CANCELLED;
     }

@@ -10,20 +10,20 @@ public class j extends i {
     public class a extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42942f;
+        public final /* synthetic */ int f43334f;
 
         public a(int i) {
-            this.f42942f = i;
+            this.f43334f = i;
         }
 
         @Override // d.b.f0.k.c
         public void b() {
             try {
-                j.this.a(this.f42942f);
+                j.this.a(this.f43334f);
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
                 j jVar = j.this;
-                jVar.c(this.f42942f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f42936c, "cu on getToken unknown error.");
+                jVar.c(this.f43334f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f43328c, "cu on getToken unknown error.");
             }
         }
     }
@@ -32,20 +32,20 @@ public class j extends i {
     public class b extends d.b.f0.k.c {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42944f;
+        public final /* synthetic */ int f43336f;
 
         public b(int i) {
-            this.f42944f = i;
+            this.f43336f = i;
         }
 
         @Override // d.b.f0.k.c
         public void b() {
             try {
-                j.this.f(this.f42944f, j.this.f42936c, j.this.f42941h);
+                j.this.f(this.f43336f, j.this.f43328c, j.this.f43333h);
             } catch (Throwable th) {
                 d.b.f0.l.c.d(th);
                 j jVar = j.this;
-                jVar.l(this.f42944f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f42936c, "cu on getToken unknown error.");
+                jVar.l(this.f43336f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, jVar.f43328c, "cu on getToken unknown error.");
             }
         }
     }
@@ -63,14 +63,14 @@ public class j extends i {
 
     @Override // d.b.f0.e.i
     public boolean j() {
-        if (TextUtils.isEmpty(this.f42938e)) {
-            this.f42940g = null;
-            this.f42939f = 0L;
+        if (TextUtils.isEmpty(this.f43330e)) {
+            this.f43332g = null;
+            this.f43331f = 0L;
             return true;
         }
-        if (this.f42939f - System.currentTimeMillis() < d.b.f0.l.b.f43013a) {
-            this.f42940g = null;
-            this.f42939f = 0L;
+        if (this.f43331f - System.currentTimeMillis() < d.b.f0.l.b.f43405a) {
+            this.f43332g = null;
+            this.f43331f = 0L;
             return true;
         }
         return false;
@@ -85,11 +85,11 @@ public class j extends i {
 
     @Override // d.b.f0.e.i
     public boolean p() {
-        if (TextUtils.isEmpty(this.f42941h)) {
+        if (TextUtils.isEmpty(this.f43333h)) {
             this.i = 0L;
             return true;
         }
-        if (this.i - System.currentTimeMillis() < d.b.f0.l.b.f43013a) {
+        if (this.i - System.currentTimeMillis() < d.b.f0.l.b.f43405a) {
             this.i = 0L;
             return true;
         }

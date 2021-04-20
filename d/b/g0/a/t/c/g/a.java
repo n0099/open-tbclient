@@ -21,20 +21,20 @@ public class a extends d implements b.c {
 
     /* renamed from: d.b.g0.a.t.c.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0813a implements d.b.g0.a.i2.u0.b<h<b.e>> {
+    public class C0825a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f46069e;
+        public final /* synthetic */ c f46461e;
 
-        public C0813a(c cVar) {
-            this.f46069e = cVar;
+        public C0825a(c cVar) {
+            this.f46461e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
-            a.this.s(hVar, this.f46069e, false);
+            a.this.s(hVar, this.f46461e, false);
         }
     }
 
@@ -42,12 +42,12 @@ public class a extends d implements b.c {
     public class b implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46071e;
+        public final /* synthetic */ String f46463e;
 
         /* renamed from: d.b.g0.a.t.c.g.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0814a implements d.a {
-            public C0814a(b bVar) {
+        public class C0826a implements d.a {
+            public C0826a(b bVar) {
             }
 
             @Override // d.b.g0.a.w0.c.d.a
@@ -63,7 +63,7 @@ public class a extends d implements b.c {
         }
 
         public b(String str) {
-            this.f46071e = str;
+            this.f46463e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,12 +72,12 @@ public class a extends d implements b.c {
         public void onCallback(h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
                 int b2 = hVar.b();
-                a.this.c(this.f46071e, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
+                a.this.c(this.f46463e, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
             } else if (!k0.I()) {
-                a.this.c(this.f46071e, new d.b.g0.a.t.e.b(10005, d.b.g0.a.v1.c.c.f(10005)));
+                a.this.c(this.f46463e, new d.b.g0.a.t.e.b(10005, d.b.g0.a.v1.c.c.f(10005)));
             } else {
-                a.this.c(this.f46071e, new d.b.g0.a.t.e.b(0));
-                d.b.g0.a.w0.a.w().e(new C0814a(this));
+                a.this.c(this.f46463e, new d.b.g0.a.t.e.b(0));
+                d.b.g0.a.w0.a.w().e(new C0826a(this));
             }
         }
     }
@@ -86,13 +86,13 @@ public class a extends d implements b.c {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46073a;
+        public String f46465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f46074b;
+        public boolean f46466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46075c;
+        public String f46467c;
 
         public static c b(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -102,19 +102,19 @@ public class a extends d implements b.c {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("type");
-                cVar.f46073a = optString;
+                cVar.f46465a = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    cVar.f46073a = CoordinateType.WGS84;
+                    cVar.f46465a = CoordinateType.WGS84;
                 }
-                cVar.f46074b = jSONObject.optBoolean("altitude");
+                cVar.f46466b = jSONObject.optBoolean("altitude");
                 String optString2 = jSONObject.optString("cb");
-                cVar.f46075c = optString2;
+                cVar.f46467c = optString2;
                 if (TextUtils.isEmpty(optString2)) {
                     return null;
                 }
                 return cVar;
             } catch (JSONException e2) {
-                if (d.b.g0.a.t.b.d.f45929c) {
+                if (d.b.g0.a.t.b.d.f46321c) {
                     Log.e("Api-GetLocationAction", "parse failed: " + Log.getStackTraceString(e2));
                 }
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "parse failed: " + Log.getStackTraceString(e2));
@@ -123,7 +123,7 @@ public class a extends d implements b.c {
         }
 
         public boolean a() {
-            return (TextUtils.equals(this.f46073a, CoordinateType.WGS84) || TextUtils.equals(this.f46073a, "gcj02") || TextUtils.equals(this.f46073a, "bd09ll")) && !TextUtils.isEmpty(this.f46075c);
+            return (TextUtils.equals(this.f46465a, CoordinateType.WGS84) || TextUtils.equals(this.f46465a, "gcj02") || TextUtils.equals(this.f46465a, "bd09ll")) && !TextUtils.isEmpty(this.f46467c);
         }
     }
 
@@ -134,24 +134,24 @@ public class a extends d implements b.c {
     @Override // d.b.g0.a.t.c.g.b.c
     public void b(c cVar, int i) {
         d.b.g0.a.c0.c.b("Api-GetLocationAction", "request location error code : " + i);
-        c(cVar.f46075c, new d.b.g0.a.t.e.b(1001, String.valueOf(i)));
+        c(cVar.f46467c, new d.b.g0.a.t.e.b(1001, String.valueOf(i)));
     }
 
     @Override // d.b.g0.a.t.c.g.b.c
     public void d(c cVar, String str) {
-        c(cVar.f46075c, new d.b.g0.a.t.e.b(10005, "system deny"));
+        c(cVar.f46467c, new d.b.g0.a.t.e.b(10005, "system deny"));
     }
 
     @Override // d.b.g0.a.t.c.g.b.c
     public void f(c cVar, d.b.g0.a.t1.k.k0.b bVar) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-GetLocationAction", "convert info : " + bVar.a());
         }
-        c(cVar.f46075c, new d.b.g0.a.t.e.b(0, "success", bVar.a()));
+        c(cVar.f46467c, new d.b.g0.a.t.e.b(0, "success", bVar.a()));
     }
 
     public d.b.g0.a.t.e.b r(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
         e O = e.O();
@@ -161,18 +161,18 @@ public class a extends d implements b.c {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-GetLocationAction", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "parse fail");
             }
             return bVar;
         }
         c b2 = c.b(((JSONObject) a2.second).toString());
         if (b2 != null && b2.a()) {
-            if (TextUtils.isEmpty(b2.f46075c)) {
+            if (TextUtils.isEmpty(b2.f46467c)) {
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "empty cb");
                 return new d.b.g0.a.t.e.b(201, "empty cb");
             }
-            O.R().g(h(), "mapp_location", new C0813a(b2));
+            O.R().g(h(), "mapp_location", new C0825a(b2));
             return new d.b.g0.a.t.e.b(0);
         }
         d.b.g0.a.c0.c.b("Api-GetLocationAction", "params is invalid");
@@ -186,11 +186,11 @@ public class a extends d implements b.c {
             return;
         }
         int b2 = hVar.b();
-        c(cVar.f46075c, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
+        c(cVar.f46467c, new d.b.g0.a.t.e.b(b2, d.b.g0.a.v1.c.c.f(b2)));
     }
 
     public d.b.g0.a.t.e.b t(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
         e O = e.O();
@@ -200,7 +200,7 @@ public class a extends d implements b.c {
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-GetLocationAction", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-GetLocationAction", "parse fail");
             }
             return bVar;

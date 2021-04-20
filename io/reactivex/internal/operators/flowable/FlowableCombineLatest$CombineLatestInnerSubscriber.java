@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
+import f.b.g;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -39,7 +39,7 @@ public final class FlowableCombineLatest$CombineLatestInnerSubscriber<T> extends
         this.parent.innerValue(this.index, t);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(this.prefetch);

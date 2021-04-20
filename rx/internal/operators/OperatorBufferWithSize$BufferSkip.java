@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f68191e;
+    public final int f69197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f68192f;
+    public final int f69198f;
 
     /* loaded from: classes7.dex */
     public final class BufferSkipProducer extends AtomicBoolean implements f {
@@ -28,9 +28,9 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
             } else if (i != 0) {
                 OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = OperatorBufferWithSize$BufferSkip.this;
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferSkip.request(a.c(j, operatorBufferWithSize$BufferSkip.f68192f));
+                    operatorBufferWithSize$BufferSkip.request(a.c(j, operatorBufferWithSize$BufferSkip.f69198f));
                 } else {
-                    operatorBufferWithSize$BufferSkip.request(a.a(a.c(j, operatorBufferWithSize$BufferSkip.f68191e), a.c(operatorBufferWithSize$BufferSkip.f68192f - operatorBufferWithSize$BufferSkip.f68191e, j - 1)));
+                    operatorBufferWithSize$BufferSkip.request(a.a(a.c(j, operatorBufferWithSize$BufferSkip.f69197e), a.c(operatorBufferWithSize$BufferSkip.f69198f - operatorBufferWithSize$BufferSkip.f69197e, j - 1)));
                 }
             }
         }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,14 +14,14 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import d.b.b.e.m.b;
-import d.b.b.e.p.l;
+import d.b.c.e.m.b;
+import d.b.c.e.p.l;
 import d.b.h0.b.d;
 import d.b.h0.b.g.a;
 import d.b.h0.r.q.a2;
 import d.b.h0.z0.c0;
-import d.b.i0.p0.m2.k;
-import d.b.i0.r2.s;
+import d.b.i0.q0.n2.k;
+import d.b.i0.s2.v;
 /* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -99,7 +100,7 @@ public class FrsActivityConfig extends IntentConfig {
         intent.putExtra(GOOD, false);
         intent.putExtra("yuelaou_locate", str3);
         if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }
@@ -113,7 +114,7 @@ public class FrsActivityConfig extends IntentConfig {
         intent.putExtra(FOLLOWED_HAS_NEW, false);
         intent.putExtra(ALA_IS_ONLIVING, z);
         if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }
@@ -148,7 +149,7 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i = 6;
         }
-        if (d.m() && a.f49752c != a.d()) {
+        if (d.n() && a.f50145c != a.d()) {
             frsRequestData.D(k.d(a.d()));
         }
         frsRequestData.setSortType(k.d(i));
@@ -157,7 +158,7 @@ public class FrsActivityConfig extends IntentConfig {
         } else {
             frsRequestData.G(0);
         }
-        frsRequestData.s("forum_name", d.b.b.e.p.k.getUrlEncode(stringExtra));
+        frsRequestData.s("forum_name", d.b.c.e.p.k.getUrlEncode(stringExtra));
         frsRequestData.s("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
@@ -184,9 +185,9 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.E(longExtra);
         k.e(i, frsRequestData);
         frsRequestData.M(1);
-        if (a2.u3.get() && s.o().b() != null) {
-            int d2 = s.o().b().d(stringExtra, false);
-            int e2 = s.o().b().e(stringExtra, false);
+        if (a2.u3.get() && v.p().b() != null) {
+            int d2 = v.p().b().d(stringExtra, false);
+            int e2 = v.p().b().e(stringExtra, false);
             if (frsRequestData.w() == 1) {
                 d2++;
             } else if (frsRequestData.w() == 2) {
@@ -239,7 +240,7 @@ public class FrsActivityConfig extends IntentConfig {
         intent.putExtra(GOOD, z2);
         intent.putExtra(FOLLOWED_HAS_NEW, z3);
         if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
         return this;
     }

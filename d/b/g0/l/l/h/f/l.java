@@ -7,10 +7,10 @@ import java.util.Vector;
 public class l implements b {
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f48974b = new Object();
+    public Object f49366b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public Vector<b> f48973a = new Vector<>();
+    public Vector<b> f49365a = new Vector<>();
 
     public l(b bVar) {
         c(bVar);
@@ -19,14 +19,14 @@ public class l implements b {
     @Override // d.b.g0.l.l.h.f.b
     public <T> void a(f<T> fVar) {
         try {
-            synchronized (this.f48974b) {
-                Iterator<b> it = this.f48973a.iterator();
+            synchronized (this.f49366b) {
+                Iterator<b> it = this.f49365a.iterator();
                 while (it.hasNext()) {
                     it.next().a(fVar);
                 }
             }
         } catch (Throwable th) {
-            if (d.b.g0.l.f.f48889a) {
+            if (d.b.g0.l.f.f49281a) {
                 Log.w("RuntimeTaskObserver", "notifyTaskRunning error:" + th.toString());
             }
         }
@@ -36,8 +36,8 @@ public class l implements b {
     public <T> void b(f<T> fVar) {
         Vector vector = new Vector();
         try {
-            synchronized (this.f48974b) {
-                Iterator<b> it = this.f48973a.iterator();
+            synchronized (this.f49366b) {
+                Iterator<b> it = this.f49365a.iterator();
                 while (it.hasNext()) {
                     vector.add(it.next());
                 }
@@ -47,7 +47,7 @@ public class l implements b {
                 ((b) it2.next()).b(fVar);
             }
         } catch (Throwable th) {
-            if (d.b.g0.l.f.f48889a) {
+            if (d.b.g0.l.f.f49281a) {
                 Log.w("RuntimeTaskObserver", "notifyTaskEnd error:" + th.toString());
             }
         }
@@ -55,17 +55,17 @@ public class l implements b {
 
     public void c(b bVar) {
         if (bVar != null) {
-            synchronized (this.f48974b) {
-                this.f48973a.add(bVar);
+            synchronized (this.f49366b) {
+                this.f49365a.add(bVar);
             }
         }
     }
 
     public void d(b bVar) {
         if (bVar != null) {
-            synchronized (this.f48974b) {
-                if (!this.f48973a.remove(bVar)) {
-                    this.f48973a.remove(this.f48973a.indexOf(bVar));
+            synchronized (this.f49366b) {
+                if (!this.f49365a.remove(bVar)) {
+                    this.f49365a.remove(this.f49365a.indexOf(bVar));
                 }
             }
         }

@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.win.opensdk.G;
@@ -51,7 +52,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (z) {
                     Z0 a2 = a1.a(context);
                     try {
-                        a2.f39850b = a1.a("wie", new b1(info));
+                        a2.f40139b = a1.a("wie", new b1(info));
                         a2.a("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -81,12 +82,12 @@ public class WinDReceiver extends BroadcastReceiver {
                 b1 b1Var = new b1(info);
                 String open = info.getOpen();
                 try {
-                    a2.f39850b = a1.a("wiop", b1Var);
+                    a2.f40139b = a1.a("wiop", b1Var);
                     a2.a("msg", a1.a(open));
                 } catch (JSONException unused) {
                 }
                 a2.a();
-                launchIntentForPackage.setFlags(268435456);
+                launchIntentForPackage.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 context.startActivity(launchIntentForPackage);
                 V1.a(context, str);
             }

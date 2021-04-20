@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import d.b.i0.q1.h.c.a;
-import d.b.i0.q1.h.c.d;
-import d.b.i0.q1.h.c.e;
+import d.b.i0.r1.h.c.a;
+import d.b.i0.r1.h.c.d;
+import d.b.i0.r1.h.c.e;
 /* loaded from: classes3.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
-    public d.b.i0.q1.h.c.a mAdapter;
+    public d.b.i0.r1.h.c.a mAdapter;
     public d mModel;
     public e mView;
     public a.f mRefreshCallbackListener = new a();
@@ -20,7 +20,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         public a() {
         }
 
-        @Override // d.b.i0.q1.h.c.a.f
+        @Override // d.b.i0.r1.h.c.a.f
         public void callback() {
             boolean g2 = TailManagementActivity.this.mModel.g();
             if (TailManagementActivity.this.mModel.h().size() == 0 && g2) {
@@ -63,7 +63,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         super.onCreate(bundle);
         setContentView(R.layout.tail_management_activity);
         this.mModel = new d(getPageContext());
-        this.mAdapter = new d.b.i0.q1.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
+        this.mAdapter = new d.b.i0.r1.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
         e eVar = new e(this, this.mNavBtnClickListener);
         this.mView = eVar;
         eVar.d(this.mAdapter);

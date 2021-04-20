@@ -3,6 +3,7 @@ package d.m.b.b.a;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -10,7 +11,7 @@ import java.util.TimeZone;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static double f66294a = -1.0d;
+    public static double f67287a = -1.0d;
 
     public static String a() {
         String str;
@@ -93,7 +94,7 @@ public class c {
     public static String f(Context context) {
         String str;
         try {
-            str = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            str = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Throwable unused) {
             str = null;
         }
@@ -102,7 +103,7 @@ public class c {
 
     public static String g(Context context) {
         int i;
-        double d2 = f66294a;
+        double d2 = f67287a;
         double d3 = 0.0d;
         if (d2 >= 0.0d) {
             i = (int) d2;
@@ -115,7 +116,7 @@ public class c {
                 d3 = ((Double) declaredMethod.invoke(newInstance, "battery.capacity")).doubleValue();
             } catch (Throwable unused) {
             }
-            f66294a = d3;
+            f67287a = d3;
             i = (int) d3;
         }
         return Integer.toString(i);

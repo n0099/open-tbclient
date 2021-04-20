@@ -7,20 +7,20 @@ import java.io.PushbackInputStream;
 public final class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f38535a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    public static final char[] f38824a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f38536b = new byte[256];
+    public static final byte[] f38825b = new byte[256];
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f38537c = new byte[4];
+    public byte[] f38826c = new byte[4];
 
     static {
         for (int i = 0; i < 255; i++) {
-            f38536b[i] = -1;
+            f38825b[i] = -1;
         }
         for (int i2 = 0; i2 < 64; i2++) {
-            f38536b[f38535a[i2]] = (byte) i2;
+            f38825b[f38824a[i2]] = (byte) i2;
         }
     }
 
@@ -46,7 +46,7 @@ public final class a extends d {
                 throw new c();
             }
             if (read != 10 && read != 13) {
-                byte[] bArr = this.f38537c;
+                byte[] bArr = this.f38826c;
                 bArr[0] = (byte) read;
                 int i3 = i - 1;
                 int i4 = 0;
@@ -65,10 +65,10 @@ public final class a extends d {
                 if (i3 == -1) {
                     throw new c();
                 }
-                if (i > 3 && this.f38537c[3] == 61) {
+                if (i > 3 && this.f38826c[3] == 61) {
                     i = 3;
                 }
-                if (i > 2 && this.f38537c[2] == 61) {
+                if (i > 2 && this.f38826c[2] == 61) {
                     i = 2;
                 }
                 if (i != 2) {
@@ -94,15 +94,15 @@ public final class a extends d {
                             outputStream.write((byte) i2);
                             return;
                         }
-                        b6 = f38536b[this.f38537c[3] & 255];
+                        b6 = f38825b[this.f38826c[3] & 255];
                     }
                     b2 = b6;
-                    b6 = f38536b[this.f38537c[2] & 255];
+                    b6 = f38825b[this.f38826c[2] & 255];
                 } else {
                     b2 = -1;
                 }
-                byte[] bArr2 = f38536b;
-                byte[] bArr3 = this.f38537c;
+                byte[] bArr2 = f38825b;
+                byte[] bArr3 = this.f38826c;
                 b3 = bArr2[bArr3[1] & 255];
                 byte b7 = b2;
                 b4 = b6;

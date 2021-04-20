@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.facebook.common.util.UriUtil;
-import d.b.c.m.e.a;
+import d.b.d.m.e.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -190,13 +190,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                         aVar5.t = 24;
                                     }
                                     a aVar6 = this.pasterData;
-                                    aVar6.f42520g = optString3;
+                                    aVar6.f43110g = optString3;
                                     aVar6.e(this.type);
                                     a aVar7 = this.pasterData;
-                                    aVar7.f42519f = optString2;
+                                    aVar7.f43109f = optString2;
                                     aVar7.j = optInt;
                                     aVar7.i = optString5;
-                                    aVar7.f42521h = optString4;
+                                    aVar7.f43111h = optString4;
                                     aVar7.o = optString7;
                                     aVar7.n = optString6;
                                     aVar7.p = optString8;

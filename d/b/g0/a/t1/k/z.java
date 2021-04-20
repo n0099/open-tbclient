@@ -14,30 +14,30 @@ import d.b.g0.a.w0.c.i;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46579e;
+        public final /* synthetic */ JSONObject f46971e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f46580f;
+        public final /* synthetic */ d.b.g0.a.r1.e f46972f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46581g;
+        public final /* synthetic */ Context f46973g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46582h;
+        public final /* synthetic */ String f46974h;
         public final /* synthetic */ CallbackHandler i;
 
         public a(JSONObject jSONObject, d.b.g0.a.r1.e eVar, Context context, String str, CallbackHandler callbackHandler) {
-            this.f46579e = jSONObject;
-            this.f46580f = eVar;
-            this.f46581g = context;
-            this.f46582h = str;
+            this.f46971e = jSONObject;
+            this.f46972f = eVar;
+            this.f46973g = context;
+            this.f46974h = str;
             this.i = callbackHandler;
         }
 
@@ -46,11 +46,11 @@ public class z extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.e eVar) {
             String str;
-            if (eVar == null || eVar.f46771d || eVar.j != 1 || TextUtils.isEmpty(eVar.o.optString("web_url"))) {
+            if (eVar == null || eVar.f47163d || eVar.j != 1 || TextUtils.isEmpty(eVar.o.optString("web_url"))) {
                 str = "";
             } else {
                 String optString = eVar.o.optString("web_url");
-                String optString2 = this.f46579e.optString("path");
+                String optString2 = this.f46971e.optString("path");
                 if (!TextUtils.isEmpty(optString2)) {
                     if (!optString.endsWith("/")) {
                         optString = optString + "/";
@@ -63,37 +63,37 @@ public class z extends a0 {
                 str = i0.a(i0.a(optString, "_swebfr", "1"), "hostname", d.b.g0.a.w0.a.k().g());
             }
             if (!k0.D() && TextUtils.isEmpty(str)) {
-                str = d.b.g0.c.g.c.e().g(this.f46580f.B(), this.f46580f.h(), this.f46579e.optString("path"));
+                str = d.b.g0.c.g.c.e().g(this.f46972f.B(), this.f46972f.h(), this.f46971e.optString("path"));
             }
             String str2 = str;
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("ShareAction", "final share url is " + str2);
             }
-            z.this.n(str2, this.f46581g, this.f46582h, this.i, this.f46579e, this.f46580f);
+            z.this.n(str2, this.f46973g, this.f46974h, this.i, this.f46971e, this.f46972f);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46583e;
+        public final /* synthetic */ Context f46975e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46584f;
+        public final /* synthetic */ CallbackHandler f46976f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46585g;
+        public final /* synthetic */ String f46977g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46586h;
+        public final /* synthetic */ JSONObject f46978h;
         public final /* synthetic */ String i;
 
         public b(Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
-            this.f46583e = context;
-            this.f46584f = callbackHandler;
-            this.f46585g = str;
-            this.f46586h = jSONObject;
+            this.f46975e = context;
+            this.f46976f = callbackHandler;
+            this.f46977g = str;
+            this.f46978h = jSONObject;
             this.i = str2;
         }
 
@@ -101,32 +101,32 @@ public class z extends a0 {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
-            z.this.m(this.f46583e, this.f46584f, this.f46585g, this.f46586h, d.b.g0.a.v1.c.c.h(hVar), this.i);
+            z.this.m(this.f46975e, this.f46976f, this.f46977g, this.f46978h, d.b.g0.a.v1.c.c.h(hVar), this.i);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46587a;
+        public final /* synthetic */ CallbackHandler f46979a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46588b;
+        public final /* synthetic */ String f46980b;
 
         public c(CallbackHandler callbackHandler, String str) {
-            this.f46587a = callbackHandler;
-            this.f46588b = str;
+            this.f46979a = callbackHandler;
+            this.f46980b = str;
         }
 
         @Override // d.b.g0.a.w0.c.i.a
         public void a() {
-            z.this.o(this.f46587a, this.f46588b, false);
+            z.this.o(this.f46979a, this.f46980b, false);
         }
 
         @Override // d.b.g0.a.w0.c.i.a
         public void b() {
-            z.this.o(this.f46587a, this.f46588b, true);
+            z.this.o(this.f46979a, this.f46980b, true);
         }
     }
 
@@ -138,7 +138,7 @@ public class z extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         if (context != null && eVar != null) {
             if (eVar.Z()) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("ShareAction", "ShareAction does not supported when app is invisible.");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -159,7 +159,7 @@ public class z extends a0 {
             try {
                 a2.put("iconUrl", a2.optString("imageUrl", ""));
             } catch (JSONException e2) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("ShareAction", e2.toString());
                 }
             }
@@ -186,7 +186,7 @@ public class z extends a0 {
                 jSONObject.put("pannel", optJSONArray);
             }
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("ShareAction", e2.toString());
             }
         }
@@ -204,7 +204,7 @@ public class z extends a0 {
                         jSONObject.put("pannel", optJSONArray2);
                     }
                 } catch (JSONException e2) {
-                    if (a0.f46288b) {
+                    if (a0.f46680b) {
                         Log.d("ShareAction", e2.toString());
                     }
                 }
@@ -232,7 +232,7 @@ public class z extends a0 {
         try {
             jSONObject.put("result", z);
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("ShareAction", e2.toString());
             }
         }

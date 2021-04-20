@@ -1,15 +1,41 @@
 package d.b.i0.i1;
+/* loaded from: classes4.dex */
+public class c {
 
-import java.util.List;
-/* loaded from: classes3.dex */
-public interface c {
-    void a();
+    /* renamed from: a  reason: collision with root package name */
+    public d.b.i0.i1.a f57003a;
 
-    void b(List<d.b.i0.i1.p.d> list);
+    /* loaded from: classes4.dex */
+    public static class b {
 
-    void c(long j, String str);
+        /* renamed from: a  reason: collision with root package name */
+        public static c f57004a = new c();
+    }
 
-    void d(String str, String str2, String str3, List<d.b.i0.i1.p.e> list);
+    public static c b() {
+        return b.f57004a;
+    }
 
-    void e(long j, String str, int i, String str2);
+    public void a(boolean z) {
+        d.b.i0.i1.a aVar = this.f57003a;
+        if (aVar != null) {
+            aVar.cancel();
+            this.f57003a = null;
+        }
+        d.b.i0.i1.a aVar2 = new d.b.i0.i1.a(z);
+        this.f57003a = aVar2;
+        aVar2.execute(new String[0]);
+    }
+
+    public void c() {
+        d.b.i0.i1.a aVar = this.f57003a;
+        if (aVar == null) {
+            return;
+        }
+        aVar.cancel();
+        this.f57003a = null;
+    }
+
+    public c() {
+    }
 }

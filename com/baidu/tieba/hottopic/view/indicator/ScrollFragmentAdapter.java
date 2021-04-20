@@ -12,49 +12,49 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.view.HotRankView;
-import d.b.b.a.f;
-import d.b.b.e.p.l;
-import d.b.i0.b1.c.j;
-import d.b.i0.b1.c.p;
+import d.b.c.a.f;
+import d.b.c.e.p.l;
+import d.b.i0.c1.c.j;
+import d.b.i0.c1.c.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScrollFragmentAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f17690a;
+    public Context f17367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f17691b;
+    public TbPageContext<?> f17368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<HotRankView> f17692c;
+    public List<HotRankView> f17369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<j> f17693d;
+    public List<j> f17370d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<p> f17694e;
+    public List<p> f17371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17695f = -1;
+    public int f17372f = -1;
 
     public ScrollFragmentAdapter(Context context) {
-        this.f17690a = context;
-        f<?> a2 = d.b.b.a.j.a(context);
+        this.f17367a = context;
+        f<?> a2 = d.b.c.a.j.a(context);
         if (a2 instanceof TbPageContext) {
-            this.f17691b = (TbPageContext) a2;
+            this.f17368b = (TbPageContext) a2;
         }
-        this.f17693d = new ArrayList();
+        this.f17370d = new ArrayList();
         ArrayList arrayList = new ArrayList();
-        this.f17692c = arrayList;
+        this.f17369c = arrayList;
         arrayList.add(j());
-        this.f17692c.add(j());
-        this.f17692c.add(j());
+        this.f17369c.add(j());
+        this.f17369c.add(j());
     }
 
     public void c(boolean z) {
-        List<HotRankView> list = this.f17692c;
+        List<HotRankView> list = this.f17369c;
         if (list != null) {
             for (HotRankView hotRankView : list) {
                 if (hotRankView != null) {
@@ -69,26 +69,26 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public final HotRankView e() {
-        int i = this.f17695f;
+        int i = this.f17372f;
         if (i == -1) {
             return null;
         }
-        return (HotRankView) ListUtils.getItem(this.f17692c, i % 3);
+        return (HotRankView) ListUtils.getItem(this.f17369c, i % 3);
     }
 
     public List<j> f() {
-        return this.f17693d;
+        return this.f17370d;
     }
 
     public int g(p pVar) {
         String str;
-        if (this.f17693d == null) {
+        if (this.f17370d == null) {
             return -1;
         }
         int count = getCount();
         for (int i = 0; i < count; i++) {
-            p pVar2 = this.f17693d.get(0).f52123b.get(i);
-            if (pVar2 != null && (str = pVar2.f52145e) != null && str.equals(pVar.f52145e)) {
+            p pVar2 = this.f17370d.get(0).f53524b.get(i);
+            if (pVar2 != null && (str = pVar2.f53546e) != null && str.equals(pVar.f53546e)) {
                 return i;
             }
         }
@@ -97,16 +97,16 @@ public class ScrollFragmentAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f17693d);
+        return ListUtils.getCount(this.f17370d);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
         int count = getCount();
-        if (i < 0 || i >= count || ListUtils.isEmpty(this.f17693d) || this.f17693d.get(0) == null || ListUtils.isEmpty(this.f17693d.get(0).f52123b)) {
+        if (i < 0 || i >= count || ListUtils.isEmpty(this.f17370d) || this.f17370d.get(0) == null || ListUtils.isEmpty(this.f17370d.get(0).f53524b)) {
             return null;
         }
-        return this.f17693d.get(0).f52123b.get(i).f52145e;
+        return this.f17370d.get(0).f53524b.get(i).f53546e;
     }
 
     public void i() {
@@ -118,19 +118,19 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         String str;
-        HotRankView hotRankView = this.f17692c.get(i % this.f17692c.size());
+        HotRankView hotRankView = this.f17369c.get(i % this.f17369c.size());
         if (hotRankView.getParent() != null) {
             viewGroup.removeView(hotRankView);
         }
-        j jVar = this.f17693d.get(i);
+        j jVar = this.f17370d.get(i);
         viewGroup.addView(hotRankView);
         hotRankView.d();
         hotRankView.e();
-        int i2 = this.f17695f;
+        int i2 = this.f17372f;
         if (i2 == -1) {
-            str = this.f17694e.get(0).f52146f;
+            str = this.f17371e.get(0).f53547f;
         } else {
-            str = this.f17694e.get(i2).f52146f;
+            str = this.f17371e.get(i2).f53547f;
         }
         hotRankView.k(jVar, str);
         return hotRankView;
@@ -142,11 +142,11 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public final HotRankView j() {
-        return new HotRankView(this.f17690a);
+        return new HotRankView(this.f17367a);
     }
 
     public void k(View view, int i, int i2, int i3, int i4) {
-        List<HotRankView> list = this.f17692c;
+        List<HotRankView> list = this.f17369c;
         if (list != null) {
             for (HotRankView hotRankView : list) {
                 if (hotRankView != null) {
@@ -157,17 +157,17 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public final void l() {
-        int i = this.f17695f;
+        int i = this.f17372f;
         if (i < 0) {
             return;
         }
-        HotRankView hotRankView = this.f17692c.get(i % 3);
-        j jVar = (j) ListUtils.getItem(this.f17693d, this.f17695f);
+        HotRankView hotRankView = this.f17369c.get(i % 3);
+        j jVar = (j) ListUtils.getItem(this.f17370d, this.f17372f);
         if (hotRankView != null) {
             hotRankView.d();
             hotRankView.e();
-            p pVar = (p) ListUtils.getItem(this.f17694e, this.f17695f);
-            hotRankView.k(jVar, pVar != null ? pVar.f52146f : "");
+            p pVar = (p) ListUtils.getItem(this.f17371e, this.f17372f);
+            hotRankView.k(jVar, pVar != null ? pVar.f53547f : "");
             if (jVar == null || ListUtils.isEmpty(jVar.b())) {
                 hotRankView.m(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
             }
@@ -176,23 +176,23 @@ public class ScrollFragmentAdapter extends PagerAdapter {
 
     public void m() {
         if (e() != null) {
-            e().l(true, l.g(this.f17691b.getPageActivity(), R.dimen.ds500));
+            e().l(true, l.g(this.f17368b.getPageActivity(), R.dimen.ds500));
         }
     }
 
     public void n(List<j> list) {
-        if (this.f17693d == null) {
-            this.f17693d = new ArrayList();
+        if (this.f17370d == null) {
+            this.f17370d = new ArrayList();
         }
         if (!ListUtils.isEmpty(list)) {
-            this.f17693d.clear();
-            this.f17693d.addAll(list);
+            this.f17370d.clear();
+            this.f17370d.addAll(list);
         }
-        if (this.f17694e == null && !ListUtils.isEmpty(this.f17693d)) {
+        if (this.f17371e == null && !ListUtils.isEmpty(this.f17370d)) {
             ArrayList arrayList = new ArrayList();
-            this.f17694e = arrayList;
+            this.f17371e = arrayList;
             arrayList.clear();
-            this.f17694e.addAll(this.f17693d.get(0).f52123b);
+            this.f17371e.addAll(this.f17370d.get(0).f53524b);
         }
         notifyDataSetChanged();
         l();
@@ -201,29 +201,29 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        for (HotRankView hotRankView : this.f17692c) {
+        for (HotRankView hotRankView : this.f17369c) {
             if (hotRankView != null) {
                 hotRankView.i();
             }
         }
-        if (this.f17695f == i) {
+        if (this.f17372f == i) {
             return;
         }
-        this.f17695f = i;
-        if (ListUtils.isEmpty(this.f17693d)) {
+        this.f17372f = i;
+        if (ListUtils.isEmpty(this.f17370d)) {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-        j jVar = this.f17693d.get(this.f17695f);
-        List<HotRankView> list = this.f17692c;
+        j jVar = this.f17370d.get(this.f17372f);
+        List<HotRankView> list = this.f17369c;
         HotRankView hotRankView2 = list.get(i % list.size());
         if (jVar == null || ListUtils.isEmpty(jVar.b())) {
-            if (!d.b.b.e.p.j.A()) {
+            if (!d.b.c.e.p.j.A()) {
                 hotRankView2.m(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                 return;
             }
             hotRankView2.l(true, 0);
-            ((HotRanklistActivity) this.f17691b.getOrignalPage()).loadHotTopicRanklistData();
+            ((HotRanklistActivity) this.f17368b.getOrignalPage()).loadHotTopicRanklistData();
         }
     }
 }

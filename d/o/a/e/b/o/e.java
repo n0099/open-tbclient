@@ -4,84 +4,84 @@ import android.net.Uri;
 import android.os.Handler;
 import java.net.InetAddress;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.g<String, d> f67239a;
+    public final com.ss.android.socialbase.downloader.i.g<String, d> f68232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f67240b;
+    public final Handler f68233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f67241c;
+    public final Handler f68234c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f67242e;
+        public final /* synthetic */ String f68235e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f67243f;
+        public final /* synthetic */ c f68236f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f67244g;
+        public final /* synthetic */ long f68237g;
 
         public a(String str, c cVar, long j) {
-            this.f67242e = str;
-            this.f67243f = cVar;
-            this.f67244g = j;
+            this.f68235e = str;
+            this.f68236f = cVar;
+            this.f68237g = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.e(this.f67242e, this.f67243f, this.f67244g);
+            e.this.e(this.f68235e, this.f68236f, this.f68237g);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f67246e;
+        public final /* synthetic */ c f68239e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f67247f;
+        public final /* synthetic */ String f68240f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f67248g;
+        public final /* synthetic */ d f68241g;
 
         public b(e eVar, c cVar, String str, d dVar) {
-            this.f67246e = cVar;
-            this.f67247f = str;
-            this.f67248g = dVar;
+            this.f68239e = cVar;
+            this.f68240f = str;
+            this.f68241g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c cVar = this.f67246e;
+            c cVar = this.f68239e;
             if (cVar != null) {
-                String str = this.f67247f;
-                d dVar = this.f67248g;
-                cVar.a(str, dVar == null ? null : dVar.f67249a);
+                String str = this.f68240f;
+                d dVar = this.f68241g;
+                cVar.a(str, dVar == null ? null : dVar.f68242a);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(String str, List<InetAddress> list);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<InetAddress> f67249a;
+        public List<InetAddress> f68242a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f67250b;
+        public long f68243b;
 
         public d() {
         }
@@ -92,11 +92,11 @@ public class e {
     }
 
     /* renamed from: d.o.a.e.b.o.e$e  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1854e {
+    /* loaded from: classes6.dex */
+    public static class C1889e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f67251a = new e(null);
+        public static final e f68244a = new e(null);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -104,27 +104,27 @@ public class e {
     }
 
     public static e a() {
-        return C1854e.f67251a;
+        return C1889e.f68244a;
     }
 
     public void c(String str, c cVar, long j) {
-        this.f67240b.post(new a(str, cVar, j));
+        this.f68233b.post(new a(str, cVar, j));
     }
 
     public final void d(String str, List<InetAddress> list) {
-        synchronized (this.f67239a) {
-            d dVar = this.f67239a.get(str);
+        synchronized (this.f68232a) {
+            d dVar = this.f68232a.get(str);
             if (dVar == null) {
                 dVar = new d(null);
-                this.f67239a.put(str, dVar);
+                this.f68232a.put(str, dVar);
             }
-            dVar.f67249a = list;
-            dVar.f67250b = System.currentTimeMillis();
+            dVar.f68242a = list;
+            dVar.f68243b = System.currentTimeMillis();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x0085, code lost:
-        r10 = r2.f67249a;
+        r10 = r2.f68242a;
      */
     /* JADX WARN: Removed duplicated region for block: B:37:0x008e A[Catch: all -> 0x0095, TRY_LEAVE, TryCatch #2 {all -> 0x0095, blocks: (B:2:0x0000, B:3:0x000a, B:7:0x0016, B:10:0x0034, B:12:0x003a, B:14:0x0052, B:21:0x0063, B:29:0x0078, B:32:0x007f, B:35:0x0087, B:37:0x008e, B:34:0x0085, B:23:0x0069, B:24:0x006d, B:4:0x000b, B:5:0x0013, B:16:0x0058), top: B:45:0x0000 }] */
     /* JADX WARN: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
@@ -136,20 +136,20 @@ public class e {
         h F0;
         try {
             String host = Uri.parse(str).getHost();
-            synchronized (this.f67239a) {
-                dVar = this.f67239a.get(host);
+            synchronized (this.f68232a) {
+                dVar = this.f68232a.get(host);
             }
             if (dVar != null) {
-                if (System.currentTimeMillis() - dVar.f67250b < d.o.a.e.b.j.a.r().b("dns_expire_min", 10) * 60 * 1000) {
+                if (System.currentTimeMillis() - dVar.f68243b < d.o.a.e.b.j.a.r().b("dns_expire_min", 10) * 60 * 1000) {
                     if (cVar != null) {
-                        cVar.a(str, dVar.f67249a);
+                        cVar.a(str, dVar.f68242a);
                         return;
                     }
                     return;
                 }
             }
             b bVar = new b(this, cVar, str, dVar);
-            this.f67241c.postDelayed(bVar, j);
+            this.f68234c.postDelayed(bVar, j);
             List<InetAddress> list = null;
             if (d.o.a.e.b.j.a.r().b("use_host_dns", 1) == 1 && (F0 = d.o.a.e.b.g.d.F0()) != null) {
                 list = F0.a(host);
@@ -159,14 +159,14 @@ public class e {
             }
             if (list != null && !list.isEmpty()) {
                 d(host, list);
-                this.f67241c.removeCallbacks(bVar);
+                this.f68234c.removeCallbacks(bVar);
                 if (cVar == null) {
                     cVar.a(str, list);
                     return;
                 }
                 return;
             }
-            this.f67241c.removeCallbacks(bVar);
+            this.f68234c.removeCallbacks(bVar);
             if (cVar == null) {
             }
         } catch (Throwable th) {
@@ -175,8 +175,8 @@ public class e {
     }
 
     public e() {
-        this.f67239a = new com.ss.android.socialbase.downloader.i.g<>(4, 16, false);
-        this.f67240b = new Handler(d.o.a.e.b.o.b.b.a());
-        this.f67241c = new Handler(d.o.a.e.b.k.e.a());
+        this.f68232a = new com.ss.android.socialbase.downloader.i.g<>(4, 16, false);
+        this.f68233b = new Handler(d.o.a.e.b.o.b.b.a());
+        this.f68234c = new Handler(d.o.a.e.b.k.e.a());
     }
 }

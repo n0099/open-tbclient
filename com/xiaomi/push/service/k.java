@@ -14,7 +14,7 @@ import java.util.List;
 public class k extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f41042a;
+    public final /* synthetic */ j f41331a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f957a;
@@ -23,15 +23,15 @@ public class k extends XMPushService.i {
     public final /* synthetic */ List f958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f41043b;
+    public final /* synthetic */ String f41332b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, int i, String str, List list, String str2) {
         super(i);
-        this.f41042a = jVar;
+        this.f41331a = jVar;
         this.f957a = str;
         this.f958a = list;
-        this.f41043b = str2;
+        this.f41332b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -43,7 +43,7 @@ public class k extends XMPushService.i {
     public void a() {
         String a2;
         XMPushService xMPushService;
-        a2 = this.f41042a.a(this.f957a);
+        a2 = this.f41331a.a(this.f957a);
         ArrayList<ie> a3 = bm.a(this.f958a, this.f957a, a2, 32768);
         if (a3 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
@@ -54,16 +54,16 @@ public class k extends XMPushService.i {
             ie next = it.next();
             next.a("uploadWay", "longXMPushService");
             ib a4 = y.a(this.f957a, a2, next, hf.Notification);
-            if (!TextUtils.isEmpty(this.f41043b) && !TextUtils.equals(this.f957a, this.f41043b)) {
-                if (a4.m431a() == null) {
+            if (!TextUtils.isEmpty(this.f41332b) && !TextUtils.equals(this.f957a, this.f41332b)) {
+                if (a4.m435a() == null) {
                     hs hsVar = new hs();
                     hsVar.a("-1");
                     a4.a(hsVar);
                 }
-                a4.m431a().b("ext_traffic_source_pkg", this.f41043b);
+                a4.m435a().b("ext_traffic_source_pkg", this.f41332b);
             }
             byte[] a5 = ip.a(a4);
-            xMPushService = this.f41042a.f41041a;
+            xMPushService = this.f41331a.f41330a;
             xMPushService.a(this.f957a, a5, true);
         }
     }

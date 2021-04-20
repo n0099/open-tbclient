@@ -17,6 +17,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import java.io.File;
@@ -176,8 +177,8 @@ public class FileProvider extends ContentProvider {
     }
 
     public static int modeToMode(String str) {
-        if (r.f7664a.equals(str)) {
-            return 268435456;
+        if (r.f7699a.equals(str)) {
+            return Label.FORWARD_REFERENCE_TYPE_SHORT;
         }
         if ("w".equals(str) || "wt".equals(str)) {
             return 738197504;

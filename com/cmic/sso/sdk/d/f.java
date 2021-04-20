@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.d;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static String a(Context context) {
         String str = null;

@@ -76,7 +76,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.bumptech.glide.load.engine.GlideException;
-import d.b.r.a;
+import d.b.q.a;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -603,7 +603,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (a.f64552e && chatMsg.getCategory() == 4) {
+            if (a.f65246e && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -1018,7 +1018,7 @@ public class ChatMsgManagerImpl {
         LogUtils.i(str, " category: " + i + " contacter: " + j + " beginMsgid: " + j2 + " endMsgid: " + j3 + " count: " + i2 + " triggerReason: " + i3 + " jumpToRecentMsg: " + i4 + " key: " + addListener);
         if (j2 >= 0 && j3 >= 0) {
             if (AccountManager.isLogin(context)) {
-                if (a.f64552e && i == 4) {
+                if (a.f65246e && i == 4) {
                     creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
                 } else {
                     creatMethodIntent = Utility.creatMethodIntent(context, 93);

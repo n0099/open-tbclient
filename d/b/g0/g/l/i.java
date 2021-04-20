@@ -11,56 +11,56 @@ import java.util.concurrent.TimeUnit;
 public class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f48457c = d.b.g0.a.k.f45051a;
+    public static final boolean f48849c = d.b.g0.a.k.f45443a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f48458d;
+    public static volatile i f48850d;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<h> f48459a = new ArrayList<>();
+    public ArrayList<h> f48851a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public g f48460b = new g();
+    public g f48852b = new g();
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Semaphore f48461e;
+        public final /* synthetic */ Semaphore f48853e;
 
         public a(i iVar, Semaphore semaphore) {
-            this.f48461e = semaphore;
+            this.f48853e = semaphore;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f48461e.release();
+            this.f48853e.release();
         }
     }
 
     public static i d() {
-        if (f48458d == null) {
+        if (f48850d == null) {
             synchronized (i.class) {
-                if (f48458d == null) {
-                    f48458d = new i();
+                if (f48850d == null) {
+                    f48850d = new i();
                 }
             }
         }
-        return f48458d;
+        return f48850d;
     }
 
     public static synchronized void i() {
         synchronized (i.class) {
-            if (f48458d != null) {
-                f48458d.f();
-                f48458d = null;
+            if (f48850d != null) {
+                f48850d.f();
+                f48850d = null;
             }
         }
     }
 
     public final void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
-        if (f48457c) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.f48459a.size());
+        if (f48849c) {
+            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.f48851a.size());
         }
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
@@ -68,7 +68,7 @@ public class i {
             next.i();
             hVar.a(next);
         }
-        this.f48459a.add(hVar);
+        this.f48851a.add(hVar);
     }
 
     public final h b(@NonNull Semaphore semaphore) {
@@ -76,7 +76,7 @@ public class i {
     }
 
     public final synchronized boolean c(Semaphore semaphore, String... strArr) {
-        ArrayList<h> c2 = this.f48460b.c(strArr);
+        ArrayList<h> c2 = this.f48852b.c(strArr);
         if (c2 != null && c2.size() != 0) {
             a(b(semaphore), c2);
             return true;
@@ -89,31 +89,31 @@ public class i {
     }
 
     public final synchronized void f() {
-        this.f48460b.b();
-        Iterator<h> it = this.f48459a.iterator();
+        this.f48852b.b();
+        Iterator<h> it = this.f48851a.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (e(next)) {
                 next.h();
             }
         }
-        this.f48459a.clear();
+        this.f48851a.clear();
     }
 
     public synchronized void g(h hVar) {
         if (hVar == null) {
             return;
         }
-        this.f48460b.d(hVar, hVar.b());
+        this.f48852b.d(hVar, hVar.b());
         if (hVar.e()) {
-            if (f48457c) {
-                Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.f48459a.size());
+            if (f48849c) {
+                Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.f48851a.size());
             }
-            for (int size = this.f48459a.size() - 1; size >= 0; size--) {
-                h hVar2 = this.f48459a.get(size);
+            for (int size = this.f48851a.size() - 1; size >= 0; size--) {
+                h hVar2 = this.f48851a.get(size);
                 hVar2.g(hVar);
                 if (hVar2.d()) {
-                    this.f48459a.remove(size);
+                    this.f48851a.remove(size);
                     hVar2.f();
                 }
             }
@@ -122,8 +122,8 @@ public class i {
 
     public synchronized void h(@NonNull Runnable runnable, String str, String... strArr) {
         h hVar = new h(this, runnable, str, strArr);
-        ArrayList<h> c2 = this.f48460b.c(strArr);
-        this.f48460b.a(hVar, strArr);
+        ArrayList<h> c2 = this.f48852b.c(strArr);
+        this.f48852b.a(hVar, strArr);
         if (c2 != null && c2.size() != 0) {
             a(hVar, c2);
         }
@@ -134,7 +134,7 @@ public class i {
         try {
             semaphore.tryAcquire(10L, TimeUnit.SECONDS);
         } catch (Exception e2) {
-            if (f48457c) {
+            if (f48849c) {
                 Log.e("FileSystemTaskManager", "semaphore.acquire: " + e2);
             }
         }
@@ -143,7 +143,7 @@ public class i {
     public void k(String... strArr) {
         Semaphore semaphore = new Semaphore(0);
         if (c(semaphore, strArr)) {
-            if (f48457c) {
+            if (f48849c) {
                 Log.i("FileSystemTaskManager", "waitIfHasPathDependence: " + Arrays.toString(strArr));
             }
             j(semaphore);

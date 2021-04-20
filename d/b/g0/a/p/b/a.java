@@ -10,18 +10,18 @@ public class a implements d.b.g0.a.p.c.l {
 
     /* renamed from: d.b.g0.a.p.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0752a implements b.c {
+    public class C0764a implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f45433a;
+        public final /* synthetic */ a.c f45825a;
 
-        public C0752a(a aVar, a.c cVar) {
-            this.f45433a = cVar;
+        public C0764a(a aVar, a.c cVar) {
+            this.f45825a = cVar;
         }
 
         @Override // d.b.g0.a.e0.u.b.c
         public void a() {
-            a.c cVar = this.f45433a;
+            a.c cVar = this.f45825a;
             if (cVar != null) {
                 cVar.a();
             }
@@ -69,6 +69,6 @@ public class a implements d.b.g0.a.p.c.l {
 
     @Override // d.b.g0.a.p.c.l
     public void h(a.c cVar) {
-        d.b.g0.a.e0.u.b.h(AppRuntime.getAppContext()).e(new C0752a(this, cVar));
+        d.b.g0.a.e0.u.b.h(AppRuntime.getAppContext()).e(new C0764a(this, cVar));
     }
 }

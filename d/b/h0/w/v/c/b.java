@@ -9,25 +9,25 @@ import d.b.h0.w.v.d.d;
 public class b implements d.b.h0.w.v.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f51553e;
+    public final View f51971e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51555g;
+    public boolean f51973g;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51554f = false;
+    public boolean f51972f = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51556h = false;
+    public boolean f51974h = false;
 
     public b(View view, AttributeSet attributeSet) {
-        this.f51555g = false;
-        this.f51553e = view;
+        this.f51973g = false;
+        this.f51971e = view;
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
                 typedArray = view.getContext().obtainStyledAttributes(attributeSet, R$styleable.KPSwitchPanelLayout);
-                this.f51555g = typedArray.getBoolean(R$styleable.KPSwitchPanelLayout_ignore_recommend_height, false);
+                this.f51973g = typedArray.getBoolean(R$styleable.KPSwitchPanelLayout_ignore_recommend_height, false);
             } finally {
                 if (typedArray != null) {
                     typedArray.recycle();
@@ -38,9 +38,9 @@ public class b implements d.b.h0.w.v.a {
 
     public boolean a(int i) {
         if (i == 0) {
-            this.f51554f = false;
+            this.f51972f = false;
         }
-        if (i == this.f51553e.getVisibility()) {
+        if (i == this.f51971e.getVisibility()) {
             return true;
         }
         return b() && i == 0;
@@ -48,12 +48,12 @@ public class b implements d.b.h0.w.v.a {
 
     @Override // d.b.h0.w.v.a
     public boolean b() {
-        return this.f51556h;
+        return this.f51974h;
     }
 
     public int[] c(int i, int i2) {
-        if (this.f51554f) {
-            this.f51553e.setVisibility(8);
+        if (this.f51972f) {
+            this.f51971e.setVisibility(8);
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i = makeMeasureSpec;
@@ -62,23 +62,23 @@ public class b implements d.b.h0.w.v.a {
     }
 
     public void d(int i) {
-        if (this.f51555g) {
+        if (this.f51973g) {
             return;
         }
-        d.d(this.f51553e, i);
+        d.d(this.f51971e, i);
     }
 
     public void e(boolean z) {
-        this.f51555g = z;
+        this.f51973g = z;
     }
 
     public void f(boolean z) {
-        this.f51556h = z;
+        this.f51974h = z;
     }
 
     @Override // d.b.h0.w.v.a
     public void handleHide() {
-        this.f51554f = true;
+        this.f51972f = true;
     }
 
     @Override // d.b.h0.w.v.a
@@ -88,6 +88,6 @@ public class b implements d.b.h0.w.v.a {
 
     @Override // d.b.h0.w.v.a
     public boolean isVisible() {
-        return !this.f51554f;
+        return !this.f51972f;
     }
 }

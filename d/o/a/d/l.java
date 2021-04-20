@@ -15,28 +15,28 @@ import d.o.a.d.i;
 import d.o.a.e.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class l {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile l f66752f;
+    public static volatile l f67745f;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.o.a.b.a.b f66755c;
+    public final d.o.a.b.a.b f67748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.o.a.b.a.d f66756d;
+    public d.o.a.b.a.d f67749d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k f66754b = k.b();
+    public final k f67747b = k.b();
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.o.a.a.a.b f66753a = new j();
+    public final d.o.a.a.a.b f67746a = new j();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f66757e = System.currentTimeMillis();
+    public long f67750e = System.currentTimeMillis();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public a(l lVar) {
         }
@@ -47,59 +47,59 @@ public class l {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements d.l {
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a implements d.o.a.d.m.a.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.k f66758a;
+            public final /* synthetic */ d.k f67751a;
 
             public a(b bVar, d.k kVar) {
-                this.f66758a = kVar;
+                this.f67751a = kVar;
             }
 
             @Override // d.o.a.d.m.a.a
             public void a() {
-                this.f66758a.a();
+                this.f67751a.a();
             }
         }
 
         /* renamed from: d.o.a.d.l$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1835b implements d.o.a.d.m.a.a {
+        /* loaded from: classes6.dex */
+        public class C1870b implements d.o.a.d.m.a.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f66759a;
+            public final /* synthetic */ DownloadInfo f67752a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.d.m.a.a f66760b;
+            public final /* synthetic */ d.o.a.d.m.a.a f67753b;
 
-            public C1835b(DownloadInfo downloadInfo, d.o.a.d.m.a.a aVar) {
-                this.f66759a = downloadInfo;
-                this.f66760b = aVar;
+            public C1870b(DownloadInfo downloadInfo, d.o.a.d.m.a.a aVar) {
+                this.f67752a = downloadInfo;
+                this.f67753b = aVar;
             }
 
             @Override // d.o.a.d.m.a.a
             public void a() {
-                b.this.d(this.f66759a, this.f66760b);
+                b.this.d(this.f67752a, this.f67753b);
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class c implements d.o.a.d.m.a.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.d.m.a.a f66762a;
+            public final /* synthetic */ d.o.a.d.m.a.a f67755a;
 
             public c(b bVar, d.o.a.d.m.a.a aVar) {
-                this.f66762a = aVar;
+                this.f67755a = aVar;
             }
 
             @Override // d.o.a.d.m.a.a
             public void a() {
-                this.f66762a.a();
+                this.f67755a.a();
             }
         }
 
@@ -111,7 +111,7 @@ public class l {
         public void c(DownloadInfo downloadInfo, @NonNull d.o.a.d.m.a.a aVar) {
             d.o.a.b.a.c.b c2 = c.g.e().c(downloadInfo);
             if (c2 != null && g.j.a(c2)) {
-                TTDelegateActivity.a(c2, new C1835b(downloadInfo, aVar));
+                TTDelegateActivity.a(c2, new C1870b(downloadInfo, aVar));
             } else {
                 d(downloadInfo, aVar);
             }
@@ -119,8 +119,8 @@ public class l {
 
         public final void d(DownloadInfo downloadInfo, @NonNull d.o.a.d.m.a.a aVar) {
             d.o.a.b.a.c.b c2 = c.g.e().c(downloadInfo);
-            boolean c3 = g.C1831g.c(c2);
-            boolean e2 = g.C1831g.e(c2);
+            boolean c3 = g.C1866g.c(c2);
+            boolean e2 = g.C1866g.e(c2);
             if (c3 && e2) {
                 g.d.a(c2, new c(this, aVar));
             } else {
@@ -129,7 +129,7 @@ public class l {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c implements d.l {
         @Override // d.o.a.e.a.d.l
         public void a(DownloadInfo downloadInfo, d.k kVar) {
@@ -143,60 +143,60 @@ public class l {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class d implements d.l {
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile d f66763b;
+        public static volatile d f67756b;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d.l> f66764a;
+        public List<d.l> f67757a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a implements d.k {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f66765a;
+            public final /* synthetic */ int f67758a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f66766b;
+            public final /* synthetic */ DownloadInfo f67759b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ d.k f66767c;
+            public final /* synthetic */ d.k f67760c;
 
             public a(int i, DownloadInfo downloadInfo, d.k kVar) {
-                this.f66765a = i;
-                this.f66766b = downloadInfo;
-                this.f66767c = kVar;
+                this.f67758a = i;
+                this.f67759b = downloadInfo;
+                this.f67760c = kVar;
             }
 
             @Override // d.o.a.e.a.d.k
             public void a() {
-                d.this.d(this.f66766b, this.f66765a + 1, this.f66767c);
+                d.this.d(this.f67759b, this.f67758a + 1, this.f67760c);
             }
         }
 
         public d() {
             ArrayList arrayList = new ArrayList();
-            this.f66764a = arrayList;
+            this.f67757a = arrayList;
             arrayList.add(new c());
-            this.f66764a.add(new b());
+            this.f67757a.add(new b());
         }
 
         public static d b() {
-            if (f66763b == null) {
+            if (f67756b == null) {
                 synchronized (d.class) {
-                    if (f66763b == null) {
-                        f66763b = new d();
+                    if (f67756b == null) {
+                        f67756b = new d();
                     }
                 }
             }
-            return f66763b;
+            return f67756b;
         }
 
         @Override // d.o.a.e.a.d.l
         public void a(DownloadInfo downloadInfo, d.k kVar) {
-            if (downloadInfo != null && this.f66764a.size() != 0) {
+            if (downloadInfo != null && this.f67757a.size() != 0) {
                 d(downloadInfo, 0, kVar);
             } else if (kVar != null) {
                 kVar.a();
@@ -204,8 +204,8 @@ public class l {
         }
 
         public final void d(DownloadInfo downloadInfo, int i, d.k kVar) {
-            if (i != this.f66764a.size() && i >= 0) {
-                this.f66764a.get(i).a(downloadInfo, new a(i, downloadInfo, kVar));
+            if (i != this.f67757a.size() && i >= 0) {
+                this.f67757a.get(i).a(downloadInfo, new a(i, downloadInfo, kVar));
             } else {
                 kVar.a();
             }
@@ -214,22 +214,22 @@ public class l {
 
     public l(Context context) {
         k(context);
-        this.f66755c = e.d();
+        this.f67748c = e.d();
     }
 
     public static l b(Context context) {
-        if (f66752f == null) {
+        if (f67745f == null) {
             synchronized (l.class) {
-                if (f66752f == null) {
-                    f66752f = new l(context);
+                if (f67745f == null) {
+                    f67745f = new l(context);
                 }
             }
         }
-        return f66752f;
+        return f67745f;
     }
 
     public d.o.a.a.a.b a() {
-        return this.f66753a;
+        return this.f67746a;
     }
 
     public DownloadInfo c(String str) {
@@ -269,7 +269,7 @@ public class l {
     }
 
     public long j() {
-        return this.f66757e;
+        return this.f67750e;
     }
 
     public final void k(Context context) {
@@ -287,18 +287,18 @@ public class l {
     }
 
     public void l() {
-        this.f66757e = System.currentTimeMillis();
+        this.f67750e = System.currentTimeMillis();
     }
 
     public d.o.a.b.a.b m() {
-        return this.f66755c;
+        return this.f67748c;
     }
 
     public d.o.a.b.a.d n() {
-        if (this.f66756d == null) {
-            this.f66756d = g.e();
+        if (this.f67749d == null) {
+            this.f67749d = g.e();
         }
-        return this.f66756d;
+        return this.f67749d;
     }
 
     public String o() {
@@ -310,6 +310,6 @@ public class l {
     }
 
     public final k q() {
-        return this.f66754b;
+        return this.f67747b;
     }
 }

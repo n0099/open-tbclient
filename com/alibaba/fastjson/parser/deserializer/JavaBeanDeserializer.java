@@ -16,10 +16,12 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -28,15 +30,18 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes.dex */
 public class JavaBeanDeserializer implements ObjectDeserializer {
     public final Map<String, FieldDeserializer> alterNameFieldDeserializers;
+    public final ParserConfig.AutoTypeCheckHandler autoTypeCheckHandler;
     public final JavaBeanInfo beanInfo;
     public final Class<?> clazz;
     public ConcurrentMap<String, Object> extraFieldDeserializers;
+    public Map<String, FieldDeserializer> fieldDeserializerMap;
     public final FieldDeserializer[] fieldDeserializers;
     public transient long[] hashArray;
     public transient short[] hashArrayMapping;
@@ -46,6 +51,32 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
 
     public JavaBeanDeserializer(ParserConfig parserConfig, Class<?> cls) {
         this(parserConfig, cls, cls);
+    }
+
+    private Object createFactoryInstance(ParserConfig parserConfig, Object obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        return this.beanInfo.factoryMethod.invoke(null, obj);
+    }
+
+    public static JavaBeanDeserializer getSeeAlso(ParserConfig parserConfig, JavaBeanInfo javaBeanInfo, String str) {
+        JSONType jSONType = javaBeanInfo.jsonType;
+        if (jSONType == null) {
+            return null;
+        }
+        for (Class<?> cls : jSONType.seeAlso()) {
+            ObjectDeserializer deserializer = parserConfig.getDeserializer(cls);
+            if (deserializer instanceof JavaBeanDeserializer) {
+                JavaBeanDeserializer javaBeanDeserializer = (JavaBeanDeserializer) deserializer;
+                JavaBeanInfo javaBeanInfo2 = javaBeanDeserializer.beanInfo;
+                if (javaBeanInfo2.typeName.equals(str)) {
+                    return javaBeanDeserializer;
+                }
+                JavaBeanDeserializer seeAlso = getSeeAlso(parserConfig, javaBeanInfo2, str);
+                if (seeAlso != null) {
+                    return seeAlso;
+                }
+            }
+        }
+        return null;
     }
 
     public static boolean isSetFlag(int i, int[] iArr) {
@@ -139,12 +170,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                             String name2 = obj2.getClass().getName();
                             if (!name2.equals(substring)) {
                                 ParseContext parseContext = context.parent;
-                                if (parseContext != null && parseContext.object != null && (("java.util.ArrayList".equals(name2) || "java.util.List".equals(name2) || "java.util.Collection".equals(name2) || "java.util.Map".equals(name2) || "java.util.HashMap".equals(name2)) && parseContext.object.getClass().getName().equals(substring))) {
+                                if (parseContext == null || parseContext.object == null || !("java.util.ArrayList".equals(name2) || "java.util.List".equals(name2) || "java.util.Collection".equals(name2) || "java.util.Map".equals(name2) || "java.util.HashMap".equals(name2))) {
+                                    obj = obj2;
+                                } else if (parseContext.object.getClass().getName().equals(substring)) {
                                     obj = parseContext.object;
                                 }
                                 obj2 = obj;
                             }
-                            if (obj2 != null) {
+                            if (obj2 != null && (!(obj2 instanceof Collection) || !((Collection) obj2).isEmpty())) {
                                 newInstance = constructor.newInstance(obj2);
                             } else {
                                 throw new JSONException("can't create non-static inner class instance.");
@@ -190,6 +223,16 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         Enum<?> scanEnum;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() == 14) {
+            String scanTypeName = jSONLexer.scanTypeName(defaultJSONParser.symbolTable);
+            if (scanTypeName != null) {
+                ObjectDeserializer seeAlso = getSeeAlso(defaultJSONParser.getConfig(), this.beanInfo, scanTypeName);
+                if (seeAlso == null) {
+                    seeAlso = defaultJSONParser.getConfig().getDeserializer(defaultJSONParser.getConfig().checkAutoType(scanTypeName, TypeUtils.getClass(type), jSONLexer.getFeatures()));
+                }
+                if (seeAlso instanceof JavaBeanDeserializer) {
+                    return (T) ((JavaBeanDeserializer) seeAlso).deserialzeArrayMapping(defaultJSONParser, type, obj, obj2);
+                }
+            }
             T t = (T) createInstance(defaultJSONParser, type);
             int i = 0;
             int length = this.sortedFieldDeserializers.length;
@@ -256,28 +299,6 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return this.sortedFieldDeserializers[i].fieldInfo.fieldType;
     }
 
-    public JavaBeanDeserializer getSeeAlso(ParserConfig parserConfig, JavaBeanInfo javaBeanInfo, String str) {
-        JSONType jSONType = javaBeanInfo.jsonType;
-        if (jSONType == null) {
-            return null;
-        }
-        for (Class<?> cls : jSONType.seeAlso()) {
-            ObjectDeserializer deserializer = parserConfig.getDeserializer(cls);
-            if (deserializer instanceof JavaBeanDeserializer) {
-                JavaBeanDeserializer javaBeanDeserializer = (JavaBeanDeserializer) deserializer;
-                JavaBeanInfo javaBeanInfo2 = javaBeanDeserializer.beanInfo;
-                if (javaBeanInfo2.typeName.equals(str)) {
-                    return javaBeanDeserializer;
-                }
-                JavaBeanDeserializer seeAlso = getSeeAlso(parserConfig, javaBeanInfo2, str);
-                if (seeAlso != null) {
-                    return seeAlso;
-                }
-            }
-        }
-        return null;
-    }
-
     public boolean parseField(DefaultJSONParser defaultJSONParser, String str, Object obj, Type type, Map<String, Object> map) {
         return parseField(defaultJSONParser, str, obj, type, map, null);
     }
@@ -295,7 +316,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     }
 
     public JavaBeanDeserializer(ParserConfig parserConfig, Class<?> cls, Type type) {
-        this(parserConfig, JavaBeanInfo.build(cls, type, parserConfig.propertyNamingStrategy, parserConfig.fieldBased, parserConfig.compatibleWithJavaBean));
+        this(parserConfig, JavaBeanInfo.build(cls, type, parserConfig.propertyNamingStrategy, parserConfig.fieldBased, parserConfig.compatibleWithJavaBean, parserConfig.isJacksonCompatible()));
     }
 
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, int i) {
@@ -303,172 +324,236 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     }
 
     public FieldDeserializer getFieldDeserializer(String str, int[] iArr) {
+        FieldDeserializer fieldDeserializer;
         if (str == null) {
             return null;
         }
-        int i = 0;
-        int length = this.sortedFieldDeserializers.length - 1;
-        while (i <= length) {
-            int i2 = (i + length) >>> 1;
-            int compareTo = this.sortedFieldDeserializers[i2].fieldInfo.name.compareTo(str);
-            if (compareTo < 0) {
-                i = i2 + 1;
-            } else if (compareTo <= 0) {
-                if (isSetFlag(i2, iArr)) {
-                    return null;
+        Map<String, FieldDeserializer> map = this.fieldDeserializerMap;
+        if (map == null || (fieldDeserializer = map.get(str)) == null) {
+            int i = 0;
+            int length = this.sortedFieldDeserializers.length - 1;
+            while (i <= length) {
+                int i2 = (i + length) >>> 1;
+                int compareTo = this.sortedFieldDeserializers[i2].fieldInfo.name.compareTo(str);
+                if (compareTo < 0) {
+                    i = i2 + 1;
+                } else if (compareTo <= 0) {
+                    if (isSetFlag(i2, iArr)) {
+                        return null;
+                    }
+                    return this.sortedFieldDeserializers[i2];
+                } else {
+                    length = i2 - 1;
                 }
-                return this.sortedFieldDeserializers[i2];
-            } else {
-                length = i2 - 1;
             }
+            Map<String, FieldDeserializer> map2 = this.alterNameFieldDeserializers;
+            if (map2 != null) {
+                return map2.get(str);
+            }
+            return null;
         }
-        Map<String, FieldDeserializer> map = this.alterNameFieldDeserializers;
-        if (map != null) {
-            return map.get(str);
-        }
-        return null;
+        return fieldDeserializer;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00d8  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01b1  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x0212  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0125  */
     /* JADX WARN: Type inference failed for: r17v0 */
-    /* JADX WARN: Type inference failed for: r17v1, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r17v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r17v3 */
+    /* JADX WARN: Type inference failed for: r17v4 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean parseField(DefaultJSONParser defaultJSONParser, String str, Object obj, Type type, Map<String, Object> map, int[] iArr) {
         FieldDeserializer fieldDeserializer;
+        FieldDeserializer fieldDeserializer2;
         JSONLexer jSONLexer;
         ?? r17;
-        JSONLexer jSONLexer2;
-        FieldDeserializer[] fieldDeserializerArr;
-        Field[] declaredFields;
-        JSONLexer jSONLexer3 = defaultJSONParser.lexer;
+        FieldDeserializer fieldDeserializer3;
+        FieldDeserializer fieldDeserializer4;
+        Field[] fieldArr;
+        JSONLexer jSONLexer2 = defaultJSONParser.lexer;
         int i = Feature.DisableFieldSmartMatch.mask;
-        if (!jSONLexer3.isEnabled(i) && (i & this.beanInfo.parserFeatures) == 0) {
-            fieldDeserializer = smartMatch(str, iArr);
+        int i2 = Feature.InitStringFieldAsEmpty.mask;
+        if (!jSONLexer2.isEnabled(i) && (i & this.beanInfo.parserFeatures) == 0) {
+            if (!jSONLexer2.isEnabled(i2) && (this.beanInfo.parserFeatures & i2) == 0) {
+                fieldDeserializer = smartMatch(str, iArr);
+            } else {
+                fieldDeserializer = smartMatch(str);
+            }
         } else {
             fieldDeserializer = getFieldDeserializer(str);
         }
-        int i2 = Feature.SupportNonPublicField.mask;
-        if (fieldDeserializer == null && (jSONLexer3.isEnabled(i2) || (i2 & this.beanInfo.parserFeatures) != 0)) {
+        int i3 = Feature.SupportNonPublicField.mask;
+        if (fieldDeserializer != null || (!jSONLexer2.isEnabled(i3) && (i3 & this.beanInfo.parserFeatures) == 0)) {
+            fieldDeserializer2 = fieldDeserializer;
+        } else {
             if (this.extraFieldDeserializers == null) {
                 ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap(1, 0.75f, 1);
                 for (Class<?> cls = this.clazz; cls != null && cls != Object.class; cls = cls.getSuperclass()) {
-                    for (Field field : cls.getDeclaredFields()) {
+                    Field[] declaredFields = cls.getDeclaredFields();
+                    int length = declaredFields.length;
+                    int i4 = 0;
+                    while (i4 < length) {
+                        Field field = declaredFields[i4];
                         String name = field.getName();
                         if (getFieldDeserializer(name) == null) {
                             int modifiers = field.getModifiers();
                             if ((modifiers & 16) == 0 && (modifiers & 8) == 0) {
+                                fieldDeserializer4 = fieldDeserializer;
+                                JSONField jSONField = (JSONField) TypeUtils.getAnnotation(field, JSONField.class);
+                                if (jSONField != null) {
+                                    String name2 = jSONField.name();
+                                    fieldArr = declaredFields;
+                                    if (!"".equals(name2)) {
+                                        name = name2;
+                                    }
+                                } else {
+                                    fieldArr = declaredFields;
+                                }
                                 concurrentHashMap.put(name, field);
+                                i4++;
+                                fieldDeserializer = fieldDeserializer4;
+                                declaredFields = fieldArr;
                             }
                         }
+                        fieldDeserializer4 = fieldDeserializer;
+                        fieldArr = declaredFields;
+                        i4++;
+                        fieldDeserializer = fieldDeserializer4;
+                        declaredFields = fieldArr;
                     }
                 }
+                fieldDeserializer2 = fieldDeserializer;
                 this.extraFieldDeserializers = concurrentHashMap;
+            } else {
+                fieldDeserializer2 = fieldDeserializer;
             }
             Object obj2 = this.extraFieldDeserializers.get(str);
             if (obj2 != null) {
                 if (obj2 instanceof FieldDeserializer) {
-                    fieldDeserializer = (FieldDeserializer) obj2;
+                    fieldDeserializer3 = (FieldDeserializer) obj2;
+                    jSONLexer = jSONLexer2;
+                    r17 = 1;
                 } else {
                     Field field2 = (Field) obj2;
                     field2.setAccessible(true);
                     r17 = 1;
-                    jSONLexer = jSONLexer3;
-                    fieldDeserializer = new DefaultFieldDeserializer(defaultJSONParser.getConfig(), this.clazz, new FieldInfo(str, field2.getDeclaringClass(), field2.getType(), field2.getGenericType(), field2, 0, 0, 0));
-                    this.extraFieldDeserializers.put(str, fieldDeserializer);
-                    if (fieldDeserializer != null) {
-                        if (jSONLexer.isEnabled(Feature.IgnoreNotMatch)) {
-                            for (FieldDeserializer fieldDeserializer2 : this.sortedFieldDeserializers) {
-                                FieldInfo fieldInfo = fieldDeserializer2.fieldInfo;
-                                if (fieldInfo.unwrapped && (fieldDeserializer2 instanceof DefaultFieldDeserializer)) {
-                                    if (fieldInfo.field != null) {
-                                        DefaultFieldDeserializer defaultFieldDeserializer = (DefaultFieldDeserializer) fieldDeserializer2;
-                                        ObjectDeserializer fieldValueDeserilizer = defaultFieldDeserializer.getFieldValueDeserilizer(defaultJSONParser.getConfig());
-                                        if (fieldValueDeserilizer instanceof JavaBeanDeserializer) {
-                                            FieldDeserializer fieldDeserializer3 = ((JavaBeanDeserializer) fieldValueDeserilizer).getFieldDeserializer(str);
-                                            if (fieldDeserializer3 != null) {
-                                                try {
-                                                    Object obj3 = fieldInfo.field.get(obj);
-                                                    if (obj3 == null) {
-                                                        obj3 = ((JavaBeanDeserializer) fieldValueDeserilizer).createInstance(defaultJSONParser, fieldInfo.fieldType);
-                                                        fieldDeserializer2.setValue(obj, obj3);
-                                                    }
-                                                    jSONLexer.nextTokenWithColon(defaultFieldDeserializer.getFastMatchToken());
-                                                    fieldDeserializer3.parseField(defaultJSONParser, obj3, type, map);
-                                                    return r17;
-                                                } catch (Exception e2) {
-                                                    throw new JSONException("parse unwrapped field error.", e2);
-                                                }
-                                            }
-                                        } else if (fieldValueDeserilizer instanceof MapDeserializer) {
-                                            MapDeserializer mapDeserializer = (MapDeserializer) fieldValueDeserilizer;
-                                            try {
-                                                Map<Object, Object> map2 = (Map) fieldInfo.field.get(obj);
-                                                if (map2 == null) {
-                                                    map2 = mapDeserializer.createMap(fieldInfo.fieldType);
-                                                    fieldDeserializer2.setValue(obj, map2);
-                                                }
-                                                jSONLexer.nextTokenWithColon();
-                                                map2.put(str, defaultJSONParser.parse(str));
-                                                return r17;
-                                            } catch (Exception e3) {
-                                                throw new JSONException("parse unwrapped field error.", e3);
-                                            }
-                                        }
-                                    } else if (fieldInfo.method.getParameterTypes().length == 2) {
-                                        jSONLexer.nextTokenWithColon();
-                                        Object parse = defaultJSONParser.parse(str);
-                                        try {
-                                            Method method = fieldInfo.method;
-                                            Object[] objArr = new Object[2];
-                                            objArr[0] = str;
-                                            objArr[r17] = parse;
-                                            method.invoke(obj, objArr);
-                                            return r17;
-                                        } catch (Exception e4) {
-                                            throw new JSONException("parse unwrapped field error.", e4);
-                                        }
-                                    }
-                                }
-                            }
-                            defaultJSONParser.parseExtra(obj, str);
-                            return false;
-                        }
+                    jSONLexer = jSONLexer2;
+                    fieldDeserializer3 = new DefaultFieldDeserializer(defaultJSONParser.getConfig(), this.clazz, new FieldInfo(str, field2.getDeclaringClass(), field2.getType(), field2.getGenericType(), field2, 0, 0, 0));
+                    this.extraFieldDeserializers.put(str, fieldDeserializer3);
+                }
+                if (fieldDeserializer3 != null) {
+                    if (!jSONLexer.isEnabled(Feature.IgnoreNotMatch)) {
                         throw new JSONException("setter not found, class " + this.clazz.getName() + ", property " + str);
                     }
-                    int i3 = 0;
+                    int i5 = 0;
+                    int i6 = -1;
                     while (true) {
-                        FieldDeserializer[] fieldDeserializerArr2 = this.sortedFieldDeserializers;
-                        if (i3 >= fieldDeserializerArr2.length) {
-                            i3 = -1;
+                        FieldDeserializer[] fieldDeserializerArr = this.sortedFieldDeserializers;
+                        if (i5 >= fieldDeserializerArr.length) {
                             break;
-                        } else if (fieldDeserializerArr2[i3] == fieldDeserializer) {
-                            break;
-                        } else {
-                            i3++;
                         }
-                    }
-                    if (i3 != -1) {
-                        jSONLexer2 = jSONLexer;
-                        if (iArr != null && str.startsWith("_") && isSetFlag(i3, iArr)) {
-                            defaultJSONParser.parseExtra(obj, str);
-                            return false;
+                        FieldDeserializer fieldDeserializer5 = fieldDeserializerArr[i5];
+                        FieldInfo fieldInfo = fieldDeserializer5.fieldInfo;
+                        if (fieldInfo.unwrapped && (fieldDeserializer5 instanceof DefaultFieldDeserializer)) {
+                            if (fieldInfo.field != null) {
+                                DefaultFieldDeserializer defaultFieldDeserializer = (DefaultFieldDeserializer) fieldDeserializer5;
+                                ObjectDeserializer fieldValueDeserilizer = defaultFieldDeserializer.getFieldValueDeserilizer(defaultJSONParser.getConfig());
+                                if (fieldValueDeserilizer instanceof JavaBeanDeserializer) {
+                                    FieldDeserializer fieldDeserializer6 = ((JavaBeanDeserializer) fieldValueDeserilizer).getFieldDeserializer(str);
+                                    if (fieldDeserializer6 != null) {
+                                        try {
+                                            Object obj3 = fieldInfo.field.get(obj);
+                                            if (obj3 == null) {
+                                                obj3 = ((JavaBeanDeserializer) fieldValueDeserilizer).createInstance(defaultJSONParser, fieldInfo.fieldType);
+                                                fieldDeserializer5.setValue(obj, obj3);
+                                            }
+                                            jSONLexer.nextTokenWithColon(defaultFieldDeserializer.getFastMatchToken());
+                                            fieldDeserializer6.parseField(defaultJSONParser, obj3, type, map);
+                                            i6 = i5;
+                                        } catch (Exception e2) {
+                                            throw new JSONException("parse unwrapped field error.", e2);
+                                        }
+                                    } else {
+                                        continue;
+                                    }
+                                } else if (fieldValueDeserilizer instanceof MapDeserializer) {
+                                    MapDeserializer mapDeserializer = (MapDeserializer) fieldValueDeserilizer;
+                                    try {
+                                        Map<Object, Object> map2 = (Map) fieldInfo.field.get(obj);
+                                        if (map2 == null) {
+                                            map2 = mapDeserializer.createMap(fieldInfo.fieldType);
+                                            fieldDeserializer5.setValue(obj, map2);
+                                        }
+                                        jSONLexer.nextTokenWithColon();
+                                        map2.put(str, defaultJSONParser.parse(str));
+                                        i6 = i5;
+                                    } catch (Exception e3) {
+                                        throw new JSONException("parse unwrapped field error.", e3);
+                                    }
+                                } else {
+                                    continue;
+                                }
+                            } else if (fieldInfo.method.getParameterTypes().length == 2) {
+                                jSONLexer.nextTokenWithColon();
+                                Object parse = defaultJSONParser.parse(str);
+                                try {
+                                    Method method = fieldInfo.method;
+                                    Object[] objArr = new Object[2];
+                                    objArr[0] = str;
+                                    objArr[r17] = parse;
+                                    method.invoke(obj, objArr);
+                                    i6 = i5;
+                                } catch (Exception e4) {
+                                    throw new JSONException("parse unwrapped field error.", e4);
+                                }
+                            } else {
+                                continue;
+                            }
                         }
-                    } else {
-                        jSONLexer2 = jSONLexer;
+                        i5++;
                     }
-                    jSONLexer2.nextTokenWithColon(fieldDeserializer.getFastMatchToken());
-                    fieldDeserializer.parseField(defaultJSONParser, obj, type, map);
+                    if (i6 == -1) {
+                        defaultJSONParser.parseExtra(obj, str);
+                        return false;
+                    }
+                    if (iArr != null) {
+                        int i7 = i6 / 32;
+                        iArr[i7] = iArr[i7] | (r17 << (i6 % 32));
+                    }
                     return r17;
                 }
+                JSONLexer jSONLexer3 = jSONLexer;
+                int i8 = 0;
+                while (true) {
+                    FieldDeserializer[] fieldDeserializerArr2 = this.sortedFieldDeserializers;
+                    if (i8 >= fieldDeserializerArr2.length) {
+                        i8 = -1;
+                        break;
+                    } else if (fieldDeserializerArr2[i8] == fieldDeserializer3) {
+                        break;
+                    } else {
+                        i8++;
+                    }
+                }
+                if (i8 != -1 && iArr != null && str.startsWith("_") && isSetFlag(i8, iArr)) {
+                    defaultJSONParser.parseExtra(obj, str);
+                    return false;
+                }
+                jSONLexer3.nextTokenWithColon(fieldDeserializer3.getFastMatchToken());
+                fieldDeserializer3.parseField(defaultJSONParser, obj, type, map);
+                if (iArr != null) {
+                    int i9 = i8 / 32;
+                    iArr[i9] = iArr[i9] | (r17 << (i8 % 32));
+                }
+                return r17;
             }
         }
-        jSONLexer = jSONLexer3;
+        jSONLexer = jSONLexer2;
         r17 = 1;
-        if (fieldDeserializer != null) {
+        fieldDeserializer3 = fieldDeserializer2;
+        if (fieldDeserializer3 != null) {
         }
     }
 
@@ -482,9 +567,18 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             jSONLexerBase.matchStat = -1;
             return null;
         }
-        long scanFieldSymbol = jSONLexerBase.scanFieldSymbol(cArr);
+        long scanEnumSymbol = jSONLexerBase.scanEnumSymbol(cArr);
         if (jSONLexerBase.matchStat > 0) {
-            return enumDeserializer.getEnumByHashCode(scanFieldSymbol);
+            Enum enumByHashCode = enumDeserializer.getEnumByHashCode(scanEnumSymbol);
+            if (enumByHashCode == null) {
+                if (scanEnumSymbol == -3750763034362895579L) {
+                    return null;
+                }
+                if (jSONLexerBase.isEnabled(Feature.ErrorOnEnumNotMatch)) {
+                    throw new JSONException("not match enum value, " + enumDeserializer.enumClass);
+                }
+            }
+            return enumByHashCode;
         }
         return null;
     }
@@ -496,7 +590,6 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         }
         FieldDeserializer fieldDeserializer = getFieldDeserializer(str, iArr);
         if (fieldDeserializer == null) {
-            long fnv1a_64_lower = TypeUtils.fnv1a_64_lower(str);
             int i = 0;
             if (this.smartMatchHashArray == null) {
                 long[] jArr = new long[this.sortedFieldDeserializers.length];
@@ -506,17 +599,20 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                     if (i2 >= fieldDeserializerArr.length) {
                         break;
                     }
-                    jArr[i2] = TypeUtils.fnv1a_64_lower(fieldDeserializerArr[i2].fieldInfo.name);
+                    jArr[i2] = fieldDeserializerArr[i2].fieldInfo.nameHashCode;
                     i2++;
                 }
                 Arrays.sort(jArr);
                 this.smartMatchHashArray = jArr;
             }
-            int binarySearch = Arrays.binarySearch(this.smartMatchHashArray, fnv1a_64_lower);
+            int binarySearch = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(str));
+            if (binarySearch < 0) {
+                binarySearch = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_extract(str));
+            }
             if (binarySearch < 0) {
                 z = str.startsWith("is");
                 if (z) {
-                    binarySearch = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(str.substring(2)));
+                    binarySearch = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_extract(str.substring(2)));
                 }
             } else {
                 z = false;
@@ -530,7 +626,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                         if (i >= fieldDeserializerArr2.length) {
                             break;
                         }
-                        int binarySearch2 = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(fieldDeserializerArr2[i].fieldInfo.name));
+                        int binarySearch2 = Arrays.binarySearch(this.smartMatchHashArray, fieldDeserializerArr2[i].fieldInfo.nameHashCode);
                         if (binarySearch2 >= 0) {
                             sArr[binarySearch2] = (short) i;
                         }
@@ -557,395 +653,175 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return fieldDeserializer;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:525:0x054c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:536:0x0536 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:565:0x0645 */
-    /* JADX WARN: Code restructure failed: missing block: B:220:0x02b4, code lost:
-        if (r12.matchStat == (-2)) goto L436;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:714:0x0755 */
+    /* JADX DEBUG: Type inference failed for r2v88. Raw type applied. Possible types: java.lang.Class<?> */
+    /* JADX WARN: Code restructure failed: missing block: B:295:0x039e, code lost:
+        if (r14.matchStat == (-2)) goto L622;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:306:0x041a, code lost:
-        r14 = r7;
-        r0 = r18;
-        r30 = 0;
-        r1 = r1;
+    /* JADX WARN: Code restructure failed: missing block: B:314:0x03f9, code lost:
+        if (r14.isEnabled(com.alibaba.fastjson.parser.Feature.AllowArbitraryCommas) != false) goto L160;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:370:0x0530, code lost:
-        r0 = r17;
-        r5 = r18;
-        r1 = (T) r20;
+    /* JADX WARN: Code restructure failed: missing block: B:371:0x04f1, code lost:
+        if (r12.equals(r6) == false) goto L493;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:371:0x0536, code lost:
-        if (r1 != null) goto L345;
+    /* JADX WARN: Code restructure failed: missing block: B:384:0x0520, code lost:
+        r4 = r30;
+        r2 = getSeeAlso(r4, r37.beanInfo, r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:372:0x0538, code lost:
-        if (r0 != null) goto L208;
+    /* JADX WARN: Code restructure failed: missing block: B:385:0x0528, code lost:
+        if (r2 != null) goto L258;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:373:0x053a, code lost:
-        r1 = (T) createInstance(r26, r27);
+    /* JADX WARN: Code restructure failed: missing block: B:386:0x052a, code lost:
+        r2 = com.alibaba.fastjson.util.TypeUtils.getClass(r39);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:374:0x053e, code lost:
-        if (r5 != null) goto L204;
+    /* JADX WARN: Code restructure failed: missing block: B:387:0x0530, code lost:
+        if (r37.autoTypeCheckHandler == null) goto L257;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:375:0x0540, code lost:
-        r5 = r26.setContext(r14, r1, r28);
+    /* JADX WARN: Code restructure failed: missing block: B:388:0x0532, code lost:
+        r6 = r37.autoTypeCheckHandler.handler(r1, r2, r14.getFeatures());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:376:0x0544, code lost:
-        if (r5 == null) goto L206;
+    /* JADX WARN: Code restructure failed: missing block: B:389:0x053d, code lost:
+        r6 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:377:0x0546, code lost:
-        r5.object = r1;
+    /* JADX WARN: Code restructure failed: missing block: B:390:0x053e, code lost:
+        if (r6 != null) goto L244;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:378:0x0548, code lost:
-        r26.setContext(r14);
+    /* JADX WARN: Code restructure failed: missing block: B:391:0x0540, code lost:
+        r6 = r4.checkAutoType(r1, r2, r14.getFeatures());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:379:0x054b, code lost:
-        return r1;
+    /* JADX WARN: Code restructure failed: missing block: B:392:0x0549, code lost:
+        r2 = r38.getConfig().getDeserializer(r6);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:380:0x054c, code lost:
-        r2 = r25.beanInfo.creatorConstructorParameters;
+    /* JADX WARN: Code restructure failed: missing block: B:394:0x0552, code lost:
+        r6 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:382:0x0554, code lost:
-        if (r2 == null) goto L298;
+    /* JADX WARN: Code restructure failed: missing block: B:395:0x0553, code lost:
+        r4 = (T) r2.deserialze(r38, r6, r40);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:383:0x0556, code lost:
-        r12 = new java.lang.Object[r2.length];
-        r13 = 0;
+    /* JADX WARN: Code restructure failed: missing block: B:396:0x0559, code lost:
+        if ((r2 instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L252;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:385:0x055b, code lost:
-        if (r13 >= r2.length) goto L246;
+    /* JADX WARN: Code restructure failed: missing block: B:397:0x055b, code lost:
+        r2 = (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) r2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:386:0x055d, code lost:
-        r15 = r0.remove(r2[r13]);
+    /* JADX WARN: Code restructure failed: missing block: B:398:0x055d, code lost:
+        if (r12 == null) goto L252;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:387:0x0563, code lost:
-        if (r15 != null) goto L245;
+    /* JADX WARN: Code restructure failed: missing block: B:399:0x055f, code lost:
+        r2 = r2.getFieldDeserializer(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:388:0x0565, code lost:
-        r6 = r25.beanInfo.creatorConstructorParameterTypes[r13];
-        r7 = r25.beanInfo.fields[r13];
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:389:0x0573, code lost:
-        if (r6 != java.lang.Byte.TYPE) goto L220;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:390:0x0575, code lost:
-        r15 = java.lang.Byte.valueOf(r30);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:391:0x0579, code lost:
-        r4 = r21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:393:0x057e, code lost:
-        if (r6 != java.lang.Short.TYPE) goto L223;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:394:0x0580, code lost:
-        r15 = java.lang.Short.valueOf(r30);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:396:0x0587, code lost:
-        if (r6 != java.lang.Integer.TYPE) goto L226;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:397:0x0589, code lost:
-        r15 = java.lang.Integer.valueOf(r30);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:399:0x0590, code lost:
-        if (r6 != java.lang.Long.TYPE) goto L229;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:400:0x0592, code lost:
-        r15 = 0L;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:402:0x0599, code lost:
-        if (r6 != java.lang.Float.TYPE) goto L232;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:403:0x059b, code lost:
-        r15 = java.lang.Float.valueOf(0.0f);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:405:0x05a3, code lost:
-        if (r6 != java.lang.Double.TYPE) goto L235;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:406:0x05a5, code lost:
-        r15 = java.lang.Double.valueOf(0.0d);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:408:0x05ae, code lost:
-        if (r6 != java.lang.Boolean.TYPE) goto L238;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:409:0x05b0, code lost:
-        r15 = java.lang.Boolean.FALSE;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:410:0x05b3, code lost:
-        r4 = r21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:411:0x05b5, code lost:
-        if (r6 != r4) goto L243;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:413:0x05be, code lost:
-        if ((r7.parserFeatures & com.alibaba.fastjson.parser.Feature.InitStringFieldAsEmpty.mask) == 0) goto L243;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:414:0x05c0, code lost:
-        r15 = "";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:415:0x05c1, code lost:
-        r12[r13] = r15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:416:0x05c3, code lost:
-        r13 = r13 + 1;
-        r21 = r4;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:417:0x05c8, code lost:
-        r4 = r21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:418:0x05ca, code lost:
-        r6 = r25.beanInfo.fields;
-        r7 = r6.length;
-        r12 = new java.lang.Object[r7];
-        r13 = 0;
-        r1 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:419:0x05d2, code lost:
-        if (r13 >= r7) goto L342;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:420:0x05d4, code lost:
-        r15 = r6[r13];
-        r10 = r0.get(r15.name);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:421:0x05dc, code lost:
-        if (r10 != null) goto L340;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:422:0x05de, code lost:
-        r11 = r15.fieldType;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:423:0x05e0, code lost:
-        r31 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:425:0x05e4, code lost:
-        if (r11 != java.lang.Byte.TYPE) goto L313;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:426:0x05e6, code lost:
-        r10 = java.lang.Byte.valueOf(r30);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:427:0x05ea, code lost:
-        r17 = 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:430:0x05f1, code lost:
-        if (r11 != java.lang.Short.TYPE) goto L316;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:431:0x05f3, code lost:
-        r10 = java.lang.Short.valueOf(r30);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:433:0x05fa, code lost:
-        if (r11 != java.lang.Integer.TYPE) goto L319;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:434:0x05fc, code lost:
-        r10 = java.lang.Integer.valueOf(r30);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:436:0x0603, code lost:
-        if (r11 != java.lang.Long.TYPE) goto L322;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:437:0x0605, code lost:
-        r17 = 0;
-        r10 = 0L;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:438:0x060c, code lost:
-        r17 = 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:439:0x0610, code lost:
-        if (r11 != java.lang.Float.TYPE) goto L325;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:440:0x0612, code lost:
-        r10 = java.lang.Float.valueOf(0.0f);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:442:0x061a, code lost:
-        if (r11 != java.lang.Double.TYPE) goto L329;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:443:0x061c, code lost:
-        r10 = java.lang.Double.valueOf(0.0d);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:445:0x0627, code lost:
-        if (r11 != java.lang.Boolean.TYPE) goto L333;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:446:0x0629, code lost:
-        r10 = java.lang.Boolean.FALSE;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:447:0x062c, code lost:
-        if (r11 != r4) goto L339;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:449:0x0635, code lost:
-        if ((r15.parserFeatures & com.alibaba.fastjson.parser.Feature.InitStringFieldAsEmpty.mask) == 0) goto L338;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:450:0x0637, code lost:
-        r10 = "";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:451:0x0639, code lost:
-        r31 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:452:0x063c, code lost:
-        r12[r13] = r10;
-        r13 = r13 + 1;
-        r1 = (T) r31;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:453:0x0645, code lost:
-        r31 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:454:0x064b, code lost:
-        if (r25.beanInfo.creatorConstructor == null) goto L249;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:455:0x064d, code lost:
-        r1 = r25.beanInfo.creatorConstructor.newInstance(r12);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:456:0x0655, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:400:0x0563, code lost:
         if (r2 == null) goto L252;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:457:0x0657, code lost:
-        r0 = r0.entrySet().iterator();
+    /* JADX WARN: Code restructure failed: missing block: B:401:0x0565, code lost:
+        r2.setValue((java.lang.Object) r4, r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:459:0x0663, code lost:
-        if (r0.hasNext() == false) goto L293;
+    /* JADX WARN: Code restructure failed: missing block: B:402:0x0568, code lost:
+        if (r3 == null) goto L254;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:460:0x0665, code lost:
-        r2 = r0.next();
-        r3 = getFieldDeserializer(r2.getKey());
+    /* JADX WARN: Code restructure failed: missing block: B:403:0x056a, code lost:
+        r3.object = r23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:461:0x0675, code lost:
-        if (r3 == null) goto L292;
+    /* JADX WARN: Code restructure failed: missing block: B:404:0x056e, code lost:
+        r38.setContext(r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:462:0x0677, code lost:
-        r3.setValue(r1, r2.getValue());
+    /* JADX WARN: Code restructure failed: missing block: B:405:0x0571, code lost:
+        return r4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:464:0x067f, code lost:
-        r0 = move-exception;
+    /* JADX WARN: Code restructure failed: missing block: B:500:0x0733, code lost:
+        r1 = r20;
+        r2 = r22;
+        r6 = r31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:466:0x06a6, code lost:
-        throw new com.alibaba.fastjson.JSONException("create instance error, " + r2 + com.baidu.android.common.others.lang.StringUtil.ARRAY_ELEMENT_SEPARATOR + r25.beanInfo.creatorConstructor.toGenericString(), r0);
+    /* JADX WARN: Code restructure failed: missing block: B:689:0x0a03, code lost:
+        throw new com.alibaba.fastjson.JSONException("syntax error, unexpect token " + com.alibaba.fastjson.parser.JSONToken.name(r14.token()));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:468:0x06ab, code lost:
-        if (r25.beanInfo.factoryMethod == null) goto L251;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:470:0x06b6, code lost:
-        r1 = (T) r25.beanInfo.factoryMethod.invoke(null, r12);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:471:0x06b8, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:473:0x06d7, code lost:
-        throw new com.alibaba.fastjson.JSONException("create factory method error, " + r25.beanInfo.factoryMethod.toString(), r0);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:474:0x06d8, code lost:
-        r1 = (T) r31;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:475:0x06da, code lost:
-        r5.object = r1;
-        r1 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:476:0x06dd, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:477:0x06de, code lost:
-        r1 = (T) r31;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:478:0x06e2, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:479:0x06e3, code lost:
-        r1 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:480:0x06e7, code lost:
-        r1 = r1;
-        r1 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:481:0x06e9, code lost:
-        r0 = r25.beanInfo.buildMethod;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:482:0x06ed, code lost:
-        if (r0 != null) goto L259;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:483:0x06ef, code lost:
-        if (r5 == null) goto L257;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:484:0x06f1, code lost:
-        r5.object = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:485:0x06f3, code lost:
-        r26.setContext(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:486:0x06f6, code lost:
-        return (T) r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:488:0x06f8, code lost:
-        r0 = (T) r0.invoke(r1, new java.lang.Object[0]);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:489:0x06fe, code lost:
-        if (r5 == null) goto L264;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:490:0x0700, code lost:
-        r5.object = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:491:0x0702, code lost:
-        r26.setContext(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:492:0x0705, code lost:
-        return r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:493:0x0706, code lost:
-        r0 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:495:0x070e, code lost:
-        throw new com.alibaba.fastjson.JSONException("build object error", r0);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:496:0x070f, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:506:0x0757, code lost:
-        throw new com.alibaba.fastjson.JSONException("syntax error, unexpect token " + com.alibaba.fastjson.parser.JSONToken.name(r12.token()));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:513:0x0768, code lost:
-        r15 = r5;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:228:0x02c5 A[Catch: all -> 0x0141, TryCatch #1 {all -> 0x0141, blocks: (B:87:0x0134, B:92:0x014c, B:97:0x015d, B:103:0x0169, B:228:0x02c5, B:230:0x02cf, B:232:0x02db, B:235:0x02e6, B:242:0x02f9, B:244:0x0303, B:246:0x030f, B:267:0x0366, B:269:0x0371, B:274:0x0381, B:275:0x0388, B:247:0x0313, B:249:0x031b, B:251:0x0321, B:252:0x0324, B:253:0x0330, B:256:0x0339, B:258:0x033d, B:259:0x0340, B:261:0x0344, B:262:0x0347, B:263:0x0353, B:266:0x035b, B:276:0x0389, B:277:0x03a3, B:279:0x03a6, B:283:0x03b0, B:285:0x03ba, B:287:0x03cd, B:290:0x03d6, B:292:0x03de, B:294:0x03f4, B:296:0x03fc, B:298:0x0400, B:303:0x040f, B:305:0x0417, B:308:0x0437, B:309:0x043e, B:281:0x03ac, B:314:0x044f, B:316:0x0455, B:317:0x045f, B:319:0x0465, B:106:0x0173, B:111:0x017d, B:113:0x0181, B:116:0x018b, B:121:0x0195, B:124:0x019f, B:129:0x01a9, B:132:0x01b3, B:135:0x01b9, B:140:0x01c3, B:145:0x01cd, B:150:0x01d7, B:152:0x01dd, B:155:0x01eb, B:157:0x01f3, B:159:0x01f7, B:162:0x0206, B:167:0x0211, B:170:0x021b, B:175:0x0226, B:178:0x0230, B:183:0x023b, B:186:0x0245, B:189:0x024c, B:192:0x0256, B:195:0x0263, B:198:0x0269, B:201:0x0276, B:204:0x027c, B:207:0x0289, B:210:0x028f, B:213:0x029c, B:216:0x02a2, B:219:0x02b1), top: B:524:0x0134 }] */
-    /* JADX WARN: Removed duplicated region for block: B:311:0x0442  */
-    /* JADX WARN: Removed duplicated region for block: B:313:0x044d A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:316:0x0455 A[Catch: all -> 0x0141, TryCatch #1 {all -> 0x0141, blocks: (B:87:0x0134, B:92:0x014c, B:97:0x015d, B:103:0x0169, B:228:0x02c5, B:230:0x02cf, B:232:0x02db, B:235:0x02e6, B:242:0x02f9, B:244:0x0303, B:246:0x030f, B:267:0x0366, B:269:0x0371, B:274:0x0381, B:275:0x0388, B:247:0x0313, B:249:0x031b, B:251:0x0321, B:252:0x0324, B:253:0x0330, B:256:0x0339, B:258:0x033d, B:259:0x0340, B:261:0x0344, B:262:0x0347, B:263:0x0353, B:266:0x035b, B:276:0x0389, B:277:0x03a3, B:279:0x03a6, B:283:0x03b0, B:285:0x03ba, B:287:0x03cd, B:290:0x03d6, B:292:0x03de, B:294:0x03f4, B:296:0x03fc, B:298:0x0400, B:303:0x040f, B:305:0x0417, B:308:0x0437, B:309:0x043e, B:281:0x03ac, B:314:0x044f, B:316:0x0455, B:317:0x045f, B:319:0x0465, B:106:0x0173, B:111:0x017d, B:113:0x0181, B:116:0x018b, B:121:0x0195, B:124:0x019f, B:129:0x01a9, B:132:0x01b3, B:135:0x01b9, B:140:0x01c3, B:145:0x01cd, B:150:0x01d7, B:152:0x01dd, B:155:0x01eb, B:157:0x01f3, B:159:0x01f7, B:162:0x0206, B:167:0x0211, B:170:0x021b, B:175:0x0226, B:178:0x0230, B:183:0x023b, B:186:0x0245, B:189:0x024c, B:192:0x0256, B:195:0x0263, B:198:0x0269, B:201:0x0276, B:204:0x027c, B:207:0x0289, B:210:0x028f, B:213:0x029c, B:216:0x02a2, B:219:0x02b1), top: B:524:0x0134 }] */
-    /* JADX WARN: Removed duplicated region for block: B:319:0x0465 A[Catch: all -> 0x0141, TRY_LEAVE, TryCatch #1 {all -> 0x0141, blocks: (B:87:0x0134, B:92:0x014c, B:97:0x015d, B:103:0x0169, B:228:0x02c5, B:230:0x02cf, B:232:0x02db, B:235:0x02e6, B:242:0x02f9, B:244:0x0303, B:246:0x030f, B:267:0x0366, B:269:0x0371, B:274:0x0381, B:275:0x0388, B:247:0x0313, B:249:0x031b, B:251:0x0321, B:252:0x0324, B:253:0x0330, B:256:0x0339, B:258:0x033d, B:259:0x0340, B:261:0x0344, B:262:0x0347, B:263:0x0353, B:266:0x035b, B:276:0x0389, B:277:0x03a3, B:279:0x03a6, B:283:0x03b0, B:285:0x03ba, B:287:0x03cd, B:290:0x03d6, B:292:0x03de, B:294:0x03f4, B:296:0x03fc, B:298:0x0400, B:303:0x040f, B:305:0x0417, B:308:0x0437, B:309:0x043e, B:281:0x03ac, B:314:0x044f, B:316:0x0455, B:317:0x045f, B:319:0x0465, B:106:0x0173, B:111:0x017d, B:113:0x0181, B:116:0x018b, B:121:0x0195, B:124:0x019f, B:129:0x01a9, B:132:0x01b3, B:135:0x01b9, B:140:0x01c3, B:145:0x01cd, B:150:0x01d7, B:152:0x01dd, B:155:0x01eb, B:157:0x01f3, B:159:0x01f7, B:162:0x0206, B:167:0x0211, B:170:0x021b, B:175:0x0226, B:178:0x0230, B:183:0x023b, B:186:0x0245, B:189:0x024c, B:192:0x0256, B:195:0x0263, B:198:0x0269, B:201:0x0276, B:204:0x027c, B:207:0x0289, B:210:0x028f, B:213:0x029c, B:216:0x02a2, B:219:0x02b1), top: B:524:0x0134 }] */
-    /* JADX WARN: Removed duplicated region for block: B:324:0x047a  */
-    /* JADX WARN: Removed duplicated region for block: B:354:0x04df  */
-    /* JADX WARN: Removed duplicated region for block: B:366:0x0523  */
-    /* JADX WARN: Removed duplicated region for block: B:367:0x0527 A[Catch: all -> 0x0760, TryCatch #0 {all -> 0x0760, blocks: (B:504:0x0728, B:364:0x051b, B:367:0x0527, B:369:0x052d, B:499:0x0715, B:501:0x071d, B:505:0x0739, B:506:0x0757, B:355:0x04fa, B:357:0x0500, B:359:0x0506, B:362:0x0513, B:507:0x0758, B:508:0x075f), top: B:523:0x0728 }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0073 A[Catch: all -> 0x004b, TRY_LEAVE, TryCatch #6 {all -> 0x004b, blocks: (B:17:0x003b, B:19:0x0040, B:29:0x0056, B:31:0x0061, B:33:0x0069, B:39:0x0073, B:45:0x0082, B:50:0x008e, B:52:0x0098, B:55:0x009f, B:57:0x00a5, B:59:0x00b0, B:61:0x00ba, B:69:0x00cd, B:71:0x00d5, B:74:0x00df, B:76:0x0100, B:77:0x0108, B:78:0x011b, B:67:0x00c8, B:82:0x0121), top: B:533:0x0039 }] */
-    /* JADX WARN: Removed duplicated region for block: B:517:0x0771  */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:304:0x03d0  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0075 A[Catch: all -> 0x004d, TRY_LEAVE, TryCatch #8 {all -> 0x004d, blocks: (B:17:0x003d, B:19:0x0042, B:29:0x0058, B:31:0x0063, B:33:0x006b, B:39:0x0075, B:45:0x0084, B:52:0x009a, B:76:0x00ed, B:78:0x00f3, B:81:0x00fb, B:85:0x0109, B:88:0x011c, B:92:0x0123, B:97:0x0134, B:98:0x013d, B:99:0x013e, B:101:0x015f, B:102:0x0167, B:103:0x017a, B:108:0x0181), top: B:722:0x003b, inners: #10 }] */
+    /* JADX WARN: Removed duplicated region for block: B:419:0x05cd  */
+    /* JADX WARN: Removed duplicated region for block: B:421:0x05e0 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:440:0x062e  */
+    /* JADX WARN: Removed duplicated region for block: B:471:0x0699 A[Catch: all -> 0x06d7, TryCatch #15 {all -> 0x06d7, blocks: (B:425:0x05ea, B:427:0x05fb, B:442:0x0632, B:446:0x064c, B:471:0x0699, B:473:0x06a7, B:448:0x0654, B:450:0x0658, B:452:0x065c, B:454:0x0660, B:456:0x0664, B:458:0x0668, B:462:0x0672, B:464:0x067a, B:466:0x0685, B:468:0x068e, B:469:0x0694, B:479:0x06cc), top: B:732:0x05ea }] */
+    /* JADX WARN: Removed duplicated region for block: B:472:0x06a6  */
+    /* JADX WARN: Removed duplicated region for block: B:476:0x06b7  */
+    /* JADX WARN: Removed duplicated region for block: B:477:0x06c4  */
+    /* JADX WARN: Removed duplicated region for block: B:496:0x0727  */
+    /* JADX WARN: Removed duplicated region for block: B:497:0x072a A[Catch: all -> 0x0a0c, TryCatch #5 {all -> 0x0a0c, blocks: (B:687:0x09d2, B:494:0x071f, B:497:0x072a, B:499:0x0730, B:682:0x09c1, B:684:0x09c9, B:688:0x09e5, B:689:0x0a03, B:485:0x06fe, B:487:0x0704, B:489:0x070a, B:492:0x0717, B:690:0x0a04, B:691:0x0a0b), top: B:717:0x09d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:637:0x08fe A[Catch: all -> 0x09ba, TRY_ENTER, TryCatch #18 {all -> 0x09ba, blocks: (B:503:0x073d, B:505:0x0743, B:518:0x0766, B:520:0x0776, B:522:0x077d, B:524:0x0781, B:525:0x0786, B:527:0x078a, B:528:0x078f, B:530:0x0793, B:531:0x0798, B:533:0x079c, B:534:0x07a1, B:536:0x07a5, B:537:0x07aa, B:539:0x07ae, B:542:0x07b5, B:623:0x08d2, B:625:0x08d5, B:627:0x08d9, B:629:0x08df, B:631:0x08e6, B:637:0x08fe, B:638:0x0906, B:640:0x090c, B:642:0x091e, B:657:0x0986, B:663:0x0993, B:670:0x09a2, B:677:0x09b2, B:678:0x09b9, B:645:0x0929, B:646:0x0950), top: B:738:0x0739, inners: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:702:0x0a23  */
+    /* JADX WARN: Removed duplicated region for block: B:748:0x06ac A[SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r10v35, types: [com.alibaba.fastjson.parser.deserializer.FieldDeserializer[]] */
+    /* JADX WARN: Type inference failed for: r10v36, types: [com.alibaba.fastjson.parser.deserializer.FieldDeserializer] */
+    /* JADX WARN: Type inference failed for: r38v0, types: [com.alibaba.fastjson.parser.DefaultJSONParser] */
+    /* JADX WARN: Type inference failed for: r41v15 */
+    /* JADX WARN: Type inference failed for: r41v16 */
+    /* JADX WARN: Type inference failed for: r41v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r41v6 */
+    /* JADX WARN: Type inference failed for: r41v8 */
+    /* JADX WARN: Type inference failed for: r41v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i, int[] iArr) {
-        Object obj3;
         ParseContext parseContext;
-        FieldDeserializer fieldDeserializer;
-        FieldInfo fieldInfo;
-        Class<?> cls;
-        JSONField annotation;
-        int[] iArr2;
-        int i2;
+        Throwable th;
+        Object obj3;
         Object obj4;
-        boolean z;
-        boolean z2;
+        ParseContext parseContext2;
+        int[] iArr2;
         Object obj5;
-        String str;
-        Type type2;
-        Class<String> cls2;
-        int[] iArr3;
-        Class<String> cls3;
         Object obj6;
-        Class<?> cls4;
+        DefaultFieldDeserializer defaultFieldDeserializer;
+        Class cls;
+        boolean z;
+        FieldInfo fieldInfo;
+        JSONField jSONField;
+        Throwable th2;
+        String str;
+        ParserConfig parserConfig;
+        boolean z2;
         String str2;
-        HashMap hashMap;
-        byte b2;
+        Class cls2;
+        int i2;
+        Object obj7;
         int i3;
-        Class<?> cls5;
+        ParserConfig parserConfig2;
+        int[] iArr3;
+        Class cls3;
+        Class cls4;
         int i4;
-        Class<?>[] seeAlso;
+        String str3;
+        ParserConfig parserConfig3;
         boolean z3;
-        Class<String> cls6 = String.class;
+        String str4;
+        Object obj8;
+        String str5;
+        Object obj9;
+        byte b2;
+        int i5;
+        Class cls5;
+        Class cls6;
+        Class cls7;
+        Object[] objArr;
+        String str6;
+        boolean z4;
+        Class cls8;
+        Object obj10;
+        int i6;
+        T t;
+        String str7;
+        Object valueOf;
+        Class cls9;
+        boolean z5;
+        Class cls10 = Integer.class;
+        Class cls11 = String.class;
         if (type != JSON.class && type != JSONObject.class) {
             JSONLexerBase jSONLexerBase = (JSONLexerBase) defaultJSONParser.lexer;
             ParserConfig config = defaultJSONParser.getConfig();
-            int i5 = jSONLexerBase.token();
-            ParseContext parseContext2 = null;
-            if (i5 == 8) {
+            int i7 = jSONLexerBase.token();
+            ParseContext parseContext3 = null;
+            if (i7 == 8) {
                 jSONLexerBase.nextToken(16);
                 return null;
             }
@@ -953,1050 +829,1490 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             if (obj2 != null && context != null) {
                 context = context.parent;
             }
-            ParseContext parseContext3 = context;
+            ParseContext parseContext4 = context;
             try {
-                if (i5 == 13) {
-                    jSONLexerBase.nextToken(16);
-                    T t = obj2 == null ? (T) createInstance(defaultJSONParser, type) : (T) obj2;
-                    defaultJSONParser.setContext(parseContext3);
-                    return t;
+            } catch (Throwable th3) {
+                th = th3;
+            }
+            if (i7 == 13) {
+                jSONLexerBase.nextToken(16);
+                T t2 = obj2 == null ? (T) createInstance((DefaultJSONParser) defaultJSONParser, type) : (T) obj2;
+                defaultJSONParser.setContext(parseContext4);
+                return t2;
+            }
+            int i8 = 14;
+            if (i7 == 14) {
+                int i9 = Feature.SupportArrayToBean.mask;
+                if ((this.beanInfo.parserFeatures & i9) == 0 && !jSONLexerBase.isEnabled(Feature.SupportArrayToBean) && (i & i9) == 0) {
+                    z5 = false;
+                    if (z5) {
+                        T t3 = (T) deserialzeArrayMapping(defaultJSONParser, type, obj, obj2);
+                        defaultJSONParser.setContext(parseContext4);
+                        return t3;
+                    }
                 }
-                if (i5 == 14) {
-                    int i6 = Feature.SupportArrayToBean.mask;
-                    if ((this.beanInfo.parserFeatures & i6) == 0 && !jSONLexerBase.isEnabled(Feature.SupportArrayToBean) && (i & i6) == 0) {
-                        z3 = false;
-                        if (z3) {
-                            T t2 = (T) deserialzeArrayMapping(defaultJSONParser, type, obj, obj2);
-                            defaultJSONParser.setContext(parseContext3);
-                            return t2;
-                        }
-                    }
-                    z3 = true;
-                    if (z3) {
-                    }
+                z5 = true;
+                if (z5) {
                 }
-                if (i5 != 12 && i5 != 16) {
-                    if (jSONLexerBase.isBlankInput()) {
-                        defaultJSONParser.setContext(parseContext3);
-                        return null;
-                    }
-                    if (i5 == 4) {
+            }
+            if (i7 != 12 && i7 != 16) {
+                if (jSONLexerBase.isBlankInput()) {
+                    defaultJSONParser.setContext(parseContext4);
+                    return null;
+                }
+                if (i7 == 4) {
+                    try {
                         String stringVal = jSONLexerBase.stringVal();
                         if (stringVal.length() == 0) {
                             jSONLexerBase.nextToken();
-                            defaultJSONParser.setContext(parseContext3);
+                            defaultJSONParser.setContext(parseContext4);
                             return null;
                         } else if (this.beanInfo.jsonType != null) {
-                            for (Class<?> cls7 : this.beanInfo.jsonType.seeAlso()) {
-                                if (Enum.class.isAssignableFrom(cls7)) {
+                            Class<?>[] seeAlso = this.beanInfo.jsonType.seeAlso();
+                            int length = seeAlso.length;
+                            int i10 = 0;
+                            while (i10 < length) {
+                                Class<?> cls12 = seeAlso[i10];
+                                if (Enum.class.isAssignableFrom(cls12)) {
                                     try {
-                                        T t3 = (T) Enum.valueOf(cls7, stringVal);
-                                        defaultJSONParser.setContext(parseContext3);
-                                        return t3;
+                                        T t4 = (T) Enum.valueOf(cls12, stringVal);
+                                        defaultJSONParser.setContext(parseContext4);
+                                        return t4;
                                     } catch (IllegalArgumentException unused) {
                                         continue;
                                     }
                                 }
+                                i10++;
+                                i8 = 14;
                             }
                         }
-                    } else if (i5 == 5) {
-                        jSONLexerBase.getCalendar();
+                    } catch (Throwable th4) {
+                        obj3 = obj2;
+                        th = th4;
+                        parseContext = parseContext4;
+                        parseContext3 = null;
                     }
-                    if (i5 == 14 && jSONLexerBase.getCurrent() == ']') {
-                        jSONLexerBase.next();
-                        jSONLexerBase.nextToken();
-                        defaultJSONParser.setContext(parseContext3);
-                        return null;
-                    }
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("syntax error, expect {, actual ");
-                    stringBuffer.append(jSONLexerBase.tokenName());
-                    stringBuffer.append(", pos ");
-                    stringBuffer.append(jSONLexerBase.pos());
-                    if (obj instanceof String) {
-                        stringBuffer.append(", fieldName ");
-                        stringBuffer.append(obj);
-                    }
-                    stringBuffer.append(", fastjson-version ");
-                    stringBuffer.append(JSON.VERSION);
-                    throw new JSONException(stringBuffer.toString());
                 }
-                try {
-                    if (defaultJSONParser.resolveStatus == 2) {
-                        defaultJSONParser.resolveStatus = 0;
+                if (i7 == i8) {
+                    try {
+                        if (jSONLexerBase.getCurrent() == ']') {
+                            jSONLexerBase.next();
+                            jSONLexerBase.nextToken();
+                            defaultJSONParser.setContext(parseContext4);
+                            return null;
+                        }
+                    } catch (Throwable th5) {
+                        th = th5;
+                        parseContext3 = null;
+                        obj3 = obj2;
+                        th = th;
+                        parseContext = parseContext4;
+                        if (parseContext3 != null) {
+                        }
+                        defaultJSONParser.setContext(parseContext);
+                        throw th;
                     }
-                    String str3 = this.beanInfo.typeKey;
-                    obj3 = obj2;
-                    int[] iArr4 = iArr;
-                    ParseContext parseContext4 = null;
-                    ParseContext parseContext5 = null;
-                    int i7 = 0;
-                    while (true) {
-                        try {
-                            if (i7 < this.sortedFieldDeserializers.length) {
-                                try {
-                                    fieldDeserializer = this.sortedFieldDeserializers[i7];
-                                    fieldInfo = fieldDeserializer.fieldInfo;
-                                    cls = fieldInfo.fieldClass;
-                                    annotation = fieldInfo.getAnnotation();
-                                } catch (Throwable th) {
-                                    th = th;
-                                    parseContext2 = parseContext4;
-                                    parseContext = parseContext3;
-                                    if (parseContext2 != null) {
-                                    }
-                                    defaultJSONParser.setContext(parseContext);
-                                    throw th;
-                                }
-                            } else {
-                                fieldDeserializer = null;
-                                cls = null;
-                                fieldInfo = null;
-                                annotation = null;
+                }
+                parseContext3 = null;
+                if (this.beanInfo.factoryMethod != null && this.beanInfo.fields.length == 1) {
+                    try {
+                        FieldInfo fieldInfo2 = this.beanInfo.fields[0];
+                        if (fieldInfo2.fieldClass == cls10) {
+                            if (i7 == 2) {
+                                int intValue = jSONLexerBase.intValue();
+                                jSONLexerBase.nextToken();
+                                T t5 = (T) createFactoryInstance(config, Integer.valueOf(intValue));
+                                defaultJSONParser.setContext(parseContext4);
+                                return t5;
                             }
+                        } else if (fieldInfo2.fieldClass == cls11 && i7 == 4) {
+                            String stringVal2 = jSONLexerBase.stringVal();
+                            jSONLexerBase.nextToken();
+                            T t6 = (T) createFactoryInstance(config, stringVal2);
+                            defaultJSONParser.setContext(parseContext4);
+                            return t6;
+                        }
+                    } catch (Exception e2) {
+                        throw new JSONException(e2.getMessage(), e2);
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append("syntax error, expect {, actual ");
+                sb.append(jSONLexerBase.tokenName());
+                sb.append(", pos ");
+                sb.append(jSONLexerBase.pos());
+                if (obj instanceof String) {
+                    sb.append(", fieldName ");
+                    sb.append(obj);
+                }
+                sb.append(", fastjson-version ");
+                sb.append(JSON.VERSION);
+                throw new JSONException(sb.toString());
+            }
+            try {
+                if (defaultJSONParser.resolveStatus == 2) {
+                    defaultJSONParser.resolveStatus = 0;
+                }
+                String str8 = this.beanInfo.typeKey;
+                obj3 = obj2;
+                int[] iArr4 = iArr;
+                ParseContext parseContext5 = null;
+                HashMap hashMap = null;
+                int i11 = 0;
+                int i12 = 0;
+                while (true) {
+                    try {
+                        if (i12 >= this.sortedFieldDeserializers.length || i11 >= 16) {
+                            iArr2 = iArr4;
+                            obj5 = i12;
+                            obj6 = obj3;
+                            defaultFieldDeserializer = null;
+                            cls = null;
+                            z = false;
+                            fieldInfo = null;
+                            jSONField = null;
+                        } else {
                             try {
-                                if (fieldDeserializer != null) {
-                                    i2 = i7;
+                                ?? r10 = this.sortedFieldDeserializers[i12];
+                                int i13 = i12;
+                                FieldInfo fieldInfo3 = r10.fieldInfo;
+                                iArr2 = iArr4;
+                                Class cls13 = fieldInfo3.fieldClass;
+                                JSONField annotation = fieldInfo3.getAnnotation();
+                                if (annotation != null) {
+                                    cls9 = cls13;
+                                    if (r10 instanceof DefaultFieldDeserializer) {
+                                        boolean z6 = ((DefaultFieldDeserializer) r10).customDeserilizer;
+                                        obj6 = obj3;
+                                        defaultFieldDeserializer = r10;
+                                        fieldInfo = fieldInfo3;
+                                        z = z6;
+                                        cls = cls9;
+                                        jSONField = annotation;
+                                        obj5 = i13;
+                                    }
+                                } else {
+                                    cls9 = cls13;
+                                }
+                                cls = cls9;
+                                jSONField = annotation;
+                                obj6 = obj3;
+                                defaultFieldDeserializer = r10;
+                                fieldInfo = fieldInfo3;
+                                z = false;
+                                obj5 = i13;
+                            } catch (Throwable th6) {
+                                th2 = th6;
+                                th = th2;
+                                parseContext3 = parseContext5;
+                                parseContext = parseContext4;
+                                if (parseContext3 != null) {
+                                }
+                                defaultJSONParser.setContext(parseContext);
+                                throw th;
+                            }
+                        }
+                        try {
+                            if (defaultFieldDeserializer != null) {
+                                parserConfig = config;
+                                try {
                                     char[] cArr = fieldInfo.name_chars;
-                                    iArr2 = iArr4;
-                                    if (cls != Integer.TYPE && cls != Integer.class) {
-                                        if (cls != Long.TYPE && cls != Long.class) {
-                                            if (cls == cls6) {
-                                                obj4 = jSONLexerBase.scanFieldString(cArr);
-                                                if (jSONLexerBase.matchStat > 0) {
-                                                    z = true;
-                                                    z2 = true;
-                                                    if (z) {
-                                                        obj6 = obj4;
-                                                        cls4 = cls;
-                                                        cls3 = cls6;
-                                                        str2 = null;
-                                                    } else {
-                                                        cls3 = cls6;
-                                                        str2 = jSONLexerBase.scanSymbol(defaultJSONParser.symbolTable);
-                                                        if (str2 == null) {
-                                                            cls4 = cls;
-                                                            int i8 = jSONLexerBase.token();
-                                                            obj6 = obj4;
-                                                            if (i8 == 13) {
-                                                                jSONLexerBase.nextToken(16);
-                                                                break;
-                                                            } else if (i8 == 16 && jSONLexerBase.isEnabled(Feature.AllowArbitraryCommas)) {
-                                                            }
+                                    if (z && jSONLexerBase.matchField(cArr)) {
+                                        str = str8;
+                                    } else {
+                                        str = str8;
+                                        if (cls != Integer.TYPE && cls != cls10) {
+                                            if (cls != Long.TYPE && cls != Long.class) {
+                                                if (cls == cls11) {
+                                                    valueOf = jSONLexerBase.scanFieldString(cArr);
+                                                    if (jSONLexerBase.matchStat <= 0) {
+                                                        if (jSONLexerBase.matchStat == -2) {
+                                                            i3 = obj5;
+                                                            parseContext = parseContext4;
+                                                            i2 = i11 + 1;
+                                                            cls2 = cls10;
+                                                            cls3 = cls11;
+                                                            parserConfig2 = parserConfig;
+                                                            str2 = str;
+                                                            iArr3 = iArr2;
+                                                            parseContext2 = parseContext5;
+                                                        }
+                                                        z2 = false;
+                                                        str7 = valueOf;
+                                                        z3 = false;
+                                                        str4 = str7;
+                                                        if (z2) {
+                                                            i4 = i11;
+                                                            cls2 = cls10;
+                                                            cls4 = cls11;
+                                                            obj8 = obj6;
+                                                            parserConfig2 = parserConfig;
+                                                            str3 = str;
+                                                            str5 = null;
                                                         } else {
-                                                            obj6 = obj4;
-                                                            cls4 = cls;
-                                                        }
-                                                        if ("$ref" == str2 && parseContext3 != null) {
-                                                            jSONLexerBase.nextTokenWithColon(4);
-                                                            if (jSONLexerBase.token() == 4) {
-                                                                String stringVal2 = jSONLexerBase.stringVal();
-                                                                if ("@".equals(stringVal2)) {
-                                                                    obj3 = (T) parseContext3.object;
-                                                                } else if (IStringUtil.TOP_PATH.equals(stringVal2)) {
-                                                                    ParseContext parseContext6 = parseContext3.parent;
-                                                                    if (parseContext6.object != null) {
-                                                                        obj3 = (T) parseContext6.object;
-                                                                    } else {
-                                                                        defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext6, stringVal2));
-                                                                        defaultJSONParser.resolveStatus = 1;
-                                                                    }
-                                                                } else if ("$".equals(stringVal2)) {
-                                                                    ParseContext parseContext7 = parseContext3;
-                                                                    while (parseContext7.parent != null) {
-                                                                        parseContext7 = parseContext7.parent;
-                                                                    }
-                                                                    if (parseContext7.object != null) {
-                                                                        obj3 = (T) parseContext7.object;
-                                                                    } else {
-                                                                        defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext7, stringVal2));
-                                                                        defaultJSONParser.resolveStatus = 1;
-                                                                    }
-                                                                } else {
-                                                                    Object resolveReference = defaultJSONParser.resolveReference(stringVal2);
-                                                                    if (resolveReference != null) {
-                                                                        obj3 = (T) resolveReference;
-                                                                    } else {
-                                                                        defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext3, stringVal2));
-                                                                        defaultJSONParser.resolveStatus = 1;
-                                                                    }
-                                                                }
-                                                                jSONLexerBase.nextToken(13);
-                                                                if (jSONLexerBase.token() == 13) {
-                                                                    jSONLexerBase.nextToken(16);
-                                                                    defaultJSONParser.setContext(parseContext3, obj3, obj);
-                                                                    if (parseContext4 != null) {
-                                                                        parseContext4.object = obj3;
-                                                                    }
-                                                                    defaultJSONParser.setContext(parseContext3);
-                                                                    return (T) obj3;
-                                                                }
-                                                                throw new JSONException("illegal ref");
-                                                            }
-                                                            throw new JSONException("illegal ref, " + JSONToken.name(i4));
-                                                        } else if ((str3 != null && str3.equals(str2)) || JSON.DEFAULT_TYPE_KEY == str2) {
-                                                            jSONLexerBase.nextTokenWithColon(4);
-                                                            if (jSONLexerBase.token() == 4) {
-                                                                String stringVal3 = jSONLexerBase.stringVal();
-                                                                jSONLexerBase.nextToken(16);
-                                                                if (!stringVal3.equals(this.beanInfo.typeName) && !defaultJSONParser.isEnabled(Feature.IgnoreAutoType)) {
-                                                                    ObjectDeserializer seeAlso2 = getSeeAlso(config, this.beanInfo, stringVal3);
-                                                                    if (seeAlso2 == null) {
-                                                                        cls5 = config.checkAutoType(stringVal3, TypeUtils.getClass(type), jSONLexerBase.getFeatures());
-                                                                        seeAlso2 = defaultJSONParser.getConfig().getDeserializer(cls5);
-                                                                    } else {
-                                                                        cls5 = null;
-                                                                    }
-                                                                    T t4 = (T) seeAlso2.deserialze(defaultJSONParser, cls5, obj);
-                                                                    if (seeAlso2 instanceof JavaBeanDeserializer) {
-                                                                        JavaBeanDeserializer javaBeanDeserializer = (JavaBeanDeserializer) seeAlso2;
-                                                                        if (str3 != null) {
-                                                                            javaBeanDeserializer.getFieldDeserializer(str3).setValue((Object) t4, stringVal3);
-                                                                        }
-                                                                    }
-                                                                    if (parseContext4 != null) {
-                                                                        parseContext4.object = obj3;
-                                                                    }
-                                                                    defaultJSONParser.setContext(parseContext3);
-                                                                    return t4;
-                                                                }
-                                                                if (jSONLexerBase.token() == 13) {
-                                                                    jSONLexerBase.nextToken();
-                                                                    break;
-                                                                }
-                                                                type2 = type;
-                                                                iArr3 = iArr2;
-                                                                obj5 = obj3;
-                                                                str = str3;
-                                                                parseContext = parseContext3;
-                                                                cls2 = cls3;
-                                                                iArr4 = iArr3;
-                                                                cls6 = cls2;
-                                                                str3 = str;
-                                                                obj3 = (T) obj5;
-                                                                i7 = i2 + 1;
-                                                                parseContext3 = parseContext;
-                                                                parseContext5 = parseContext5;
-                                                            } else {
-                                                                throw new JSONException("syntax error");
-                                                            }
-                                                        }
-                                                    }
-                                                    if (obj3 == null && parseContext5 == null) {
-                                                        obj3 = (T) createInstance(defaultJSONParser, type);
-                                                        if (obj3 == null) {
-                                                            parseContext5 = new HashMap(this.fieldDeserializers.length);
-                                                        }
-                                                        parseContext4 = defaultJSONParser.setContext(parseContext3, obj3, obj);
-                                                        if (iArr2 == null) {
-                                                            iArr3 = new int[(this.fieldDeserializers.length / 32) + 1];
-                                                            Object obj7 = obj3;
-                                                            HashMap hashMap2 = parseContext5;
-                                                            ParseContext parseContext8 = parseContext4;
-                                                            if (z) {
-                                                                type2 = type;
-                                                                str = str3;
-                                                                String str4 = str2;
-                                                                hashMap = hashMap2;
-                                                                b2 = 0;
-                                                                obj5 = obj7;
-                                                                i3 = 13;
-                                                                parseContext = parseContext3;
-                                                                if (!parseField(defaultJSONParser, str4, obj7, type, hashMap, iArr3)) {
-                                                                    if (jSONLexerBase.token() == 13) {
-                                                                        jSONLexerBase.nextToken();
+                                                            i4 = i11;
+                                                            try {
+                                                                str5 = jSONLexerBase.scanSymbol(defaultJSONParser.symbolTable);
+                                                                if (str5 == null) {
+                                                                    cls2 = cls10;
+                                                                    int i14 = jSONLexerBase.token();
+                                                                    cls4 = cls11;
+                                                                    if (i14 == 13) {
+                                                                        jSONLexerBase.nextToken(16);
+                                                                        obj3 = (T) obj6;
                                                                         break;
+                                                                    } else if (i14 == 16) {
                                                                     }
-                                                                    cls2 = cls3;
-                                                                    parseContext4 = parseContext8;
-                                                                    parseContext5 = hashMap;
                                                                 } else {
-                                                                    if (jSONLexerBase.token() == 17) {
-                                                                        throw new JSONException("syntax error, unexpect token ':'");
-                                                                    }
-                                                                    if (jSONLexerBase.token() != 16) {
-                                                                    }
+                                                                    cls2 = cls10;
+                                                                    cls4 = cls11;
                                                                 }
-                                                            } else {
-                                                                if (!z2) {
-                                                                    type2 = type;
+                                                                if ("$ref" == str5 && parseContext4 != null) {
+                                                                    jSONLexerBase.nextTokenWithColon(4);
+                                                                    if (jSONLexerBase.token() == 4) {
+                                                                        String stringVal3 = jSONLexerBase.stringVal();
+                                                                        if ("@".equals(stringVal3)) {
+                                                                            t = (T) parseContext4.object;
+                                                                        } else if (IStringUtil.TOP_PATH.equals(stringVal3)) {
+                                                                            ParseContext parseContext6 = parseContext4.parent;
+                                                                            if (parseContext6.object != null) {
+                                                                                t = (T) parseContext6.object;
+                                                                            } else {
+                                                                                defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext6, stringVal3));
+                                                                                defaultJSONParser.resolveStatus = 1;
+                                                                                t = (T) obj6;
+                                                                            }
+                                                                        } else if ("$".equals(stringVal3)) {
+                                                                            ParseContext parseContext7 = parseContext4;
+                                                                            while (parseContext7.parent != null) {
+                                                                                parseContext7 = parseContext7.parent;
+                                                                            }
+                                                                            if (parseContext7.object != null) {
+                                                                                t = (T) parseContext7.object;
+                                                                            } else {
+                                                                                defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext7, stringVal3));
+                                                                                defaultJSONParser.resolveStatus = 1;
+                                                                                t = (T) obj6;
+                                                                            }
+                                                                        } else {
+                                                                            if (stringVal3.indexOf(92) > 0) {
+                                                                                StringBuilder sb2 = new StringBuilder();
+                                                                                int i15 = 0;
+                                                                                while (i15 < stringVal3.length()) {
+                                                                                    char charAt = stringVal3.charAt(i15);
+                                                                                    if (charAt == '\\') {
+                                                                                        i15++;
+                                                                                        charAt = stringVal3.charAt(i15);
+                                                                                    }
+                                                                                    sb2.append(charAt);
+                                                                                    i15++;
+                                                                                }
+                                                                                stringVal3 = sb2.toString();
+                                                                            }
+                                                                            Object resolveReference = defaultJSONParser.resolveReference(stringVal3);
+                                                                            if (resolveReference != null) {
+                                                                                t = (T) resolveReference;
+                                                                            } else {
+                                                                                defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext4, stringVal3));
+                                                                                defaultJSONParser.resolveStatus = 1;
+                                                                                t = (T) obj6;
+                                                                            }
+                                                                        }
+                                                                        jSONLexerBase.nextToken(13);
+                                                                        if (jSONLexerBase.token() == 13) {
+                                                                            jSONLexerBase.nextToken(16);
+                                                                            defaultJSONParser.setContext(parseContext4, t, obj);
+                                                                            if (parseContext5 != null) {
+                                                                                parseContext5.object = t;
+                                                                            }
+                                                                            defaultJSONParser.setContext(parseContext4);
+                                                                            return t;
+                                                                        }
+                                                                        throw new JSONException("illegal ref");
+                                                                    }
+                                                                    throw new JSONException("illegal ref, " + JSONToken.name(i6));
+                                                                }
+                                                                if (str != null) {
+                                                                    str3 = str;
+                                                                } else {
+                                                                    str3 = str;
+                                                                }
+                                                                if (JSON.DEFAULT_TYPE_KEY != str5) {
+                                                                    obj8 = obj6;
+                                                                    parserConfig2 = parserConfig;
+                                                                }
+                                                                try {
+                                                                    jSONLexerBase.nextTokenWithColon(4);
+                                                                    if (jSONLexerBase.token() == 4) {
+                                                                        String stringVal4 = jSONLexerBase.stringVal();
+                                                                        jSONLexerBase.nextToken(16);
+                                                                        if (!stringVal4.equals(this.beanInfo.typeName) && !defaultJSONParser.isEnabled(Feature.IgnoreAutoType)) {
+                                                                            break;
+                                                                        }
+                                                                        obj3 = (T) obj6;
+                                                                        parserConfig3 = parserConfig;
+                                                                        if (jSONLexerBase.token() == 13) {
+                                                                            jSONLexerBase.nextToken();
+                                                                            break;
+                                                                        }
+                                                                        i3 = obj5;
+                                                                        obj6 = obj3;
+                                                                        parseContext2 = parseContext5;
+                                                                        parserConfig2 = parserConfig3;
+                                                                        parseContext = parseContext4;
+                                                                        str2 = str3;
+                                                                        i2 = i4;
+                                                                        cls3 = cls4;
+                                                                        iArr3 = iArr2;
+                                                                    } else {
+                                                                        throw new JSONException("syntax error");
+                                                                    }
+                                                                } catch (Throwable th7) {
+                                                                    th2 = th7;
+                                                                    obj3 = obj6;
+                                                                    th = th2;
+                                                                    parseContext3 = parseContext5;
+                                                                    parseContext = parseContext4;
+                                                                    if (parseContext3 != null) {
+                                                                    }
+                                                                    defaultJSONParser.setContext(parseContext);
+                                                                    throw th;
+                                                                }
+                                                            } catch (Throwable th8) {
+                                                                th = th8;
+                                                                parseContext3 = parseContext5;
+                                                                parseContext = parseContext4;
+                                                                obj3 = obj6;
+                                                            }
+                                                        }
+                                                        if (obj8 == null || hashMap != null) {
+                                                            parseContext2 = parseContext5;
+                                                            str2 = str3;
+                                                            iArr3 = iArr2;
+                                                            obj9 = obj8;
+                                                        } else {
+                                                            try {
+                                                                obj9 = createInstance((DefaultJSONParser) defaultJSONParser, type);
+                                                                if (obj9 == null) {
+                                                                    parseContext2 = parseContext5;
                                                                     try {
-                                                                        fieldDeserializer.parseField(defaultJSONParser, obj7, type2, hashMap2);
-                                                                    } catch (Throwable th2) {
-                                                                        th = th2;
-                                                                        obj3 = obj7;
-                                                                        parseContext = parseContext3;
-                                                                        parseContext2 = parseContext8;
-                                                                        if (parseContext2 != null) {
+                                                                        str2 = str3;
+                                                                        hashMap = new HashMap(this.fieldDeserializers.length);
+                                                                    } catch (Throwable th9) {
+                                                                        th = th9;
+                                                                        parseContext = parseContext4;
+                                                                        obj3 = obj9;
+                                                                        parseContext3 = parseContext2;
+                                                                        if (parseContext3 != null) {
                                                                         }
                                                                         defaultJSONParser.setContext(parseContext);
                                                                         throw th;
                                                                     }
                                                                 } else {
-                                                                    type2 = type;
-                                                                    if (obj7 == null) {
-                                                                        hashMap2.put(fieldInfo.name, obj6);
-                                                                    } else {
-                                                                        Object obj8 = obj6;
-                                                                        if (obj8 == null) {
-                                                                            Class<?> cls8 = cls4;
-                                                                            if (cls8 != Integer.TYPE && cls8 != Long.TYPE && cls8 != Float.TYPE && cls8 != Double.TYPE && cls8 != Boolean.TYPE) {
-                                                                                fieldDeserializer.setValue(obj7, obj8);
-                                                                            }
-                                                                        } else {
-                                                                            fieldDeserializer.setValue(obj7, obj8);
-                                                                        }
+                                                                    parseContext2 = parseContext5;
+                                                                    str2 = str3;
+                                                                }
+                                                                ParseContext context2 = defaultJSONParser.setContext(parseContext4, obj9, obj);
+                                                                if (iArr2 == null) {
+                                                                    try {
+                                                                        iArr3 = new int[(this.fieldDeserializers.length / 32) + 1];
+                                                                    } catch (Throwable th10) {
+                                                                        th = th10;
+                                                                        parseContext3 = context2;
+                                                                        parseContext = parseContext4;
+                                                                        obj3 = obj9;
                                                                     }
-                                                                    if (iArr3 != null) {
-                                                                        int i9 = i2 / 32;
-                                                                        iArr3[i9] = (1 >> (i2 % 32)) | iArr3[i9];
+                                                                } else {
+                                                                    iArr3 = iArr2;
+                                                                }
+                                                                parseContext2 = context2;
+                                                            } catch (Throwable th11) {
+                                                                parseContext2 = parseContext5;
+                                                                th = th11;
+                                                                parseContext = parseContext4;
+                                                                obj3 = obj8;
+                                                            }
+                                                        }
+                                                        HashMap hashMap2 = hashMap;
+                                                        if (!z2) {
+                                                            Class cls14 = cls4;
+                                                            HashMap hashMap3 = hashMap2 == null ? new HashMap(this.fieldDeserializers.length) : hashMap2;
+                                                            hashMap = hashMap2;
+                                                            b2 = 0;
+                                                            String str9 = str5;
+                                                            Object obj11 = obj9;
+                                                            parseContext = parseContext4;
+                                                            obj7 = obj9;
+                                                            i2 = i4;
+                                                            i5 = 13;
+                                                            HashMap hashMap4 = hashMap3;
+                                                            i3 = obj5;
+                                                            cls5 = cls14;
+                                                            if (!parseField(defaultJSONParser, str9, obj11, type, hashMap4, iArr3)) {
+                                                                if (jSONLexerBase.token() == 13) {
+                                                                    jSONLexerBase.nextToken();
+                                                                    break;
+                                                                }
+                                                                cls3 = cls5;
+                                                                obj6 = obj7;
+                                                            } else {
+                                                                if (jSONLexerBase.token() == 17) {
+                                                                    throw new JSONException("syntax error, unexpect token ':'");
+                                                                }
+                                                                if (jSONLexerBase.token() != 16) {
+                                                                }
+                                                            }
+                                                        } else {
+                                                            if (!z3) {
+                                                                defaultFieldDeserializer.parseField(defaultJSONParser, obj9, type, hashMap2);
+                                                                i3 = obj5;
+                                                                hashMap = hashMap2;
+                                                                parseContext = parseContext4;
+                                                                obj7 = obj9;
+                                                                i2 = i4;
+                                                                cls5 = cls4;
+                                                            } else {
+                                                                if (obj9 == null) {
+                                                                    hashMap2.put(fieldInfo.name, str4);
+                                                                } else if (str4 == null) {
+                                                                    if (cls != Integer.TYPE && cls != Long.TYPE && cls != Float.TYPE && cls != Double.TYPE && cls != Boolean.TYPE) {
+                                                                        defaultFieldDeserializer.setValue(obj9, (Object) str4);
                                                                     }
-                                                                    if (jSONLexerBase.matchStat == 4) {
+                                                                } else {
+                                                                    cls6 = cls4;
+                                                                    if (cls == cls6 && ((i & Feature.TrimStringFieldValue.mask) != 0 || (this.beanInfo.parserFeatures & Feature.TrimStringFieldValue.mask) != 0 || (fieldInfo.parserFeatures & Feature.TrimStringFieldValue.mask) != 0)) {
+                                                                        str4 = str4.trim();
+                                                                    }
+                                                                    defaultFieldDeserializer.setValue(obj9, (Object) str4);
+                                                                    if (iArr3 == null) {
+                                                                        int i16 = obj5 / 32;
+                                                                        iArr3[i16] = (1 << (obj5 % 32)) | iArr3[i16];
+                                                                    }
+                                                                    if (jSONLexerBase.matchStat != 4) {
                                                                         hashMap = hashMap2;
-                                                                        obj5 = obj7;
-                                                                        parseContext = parseContext3;
+                                                                        cls5 = cls6;
+                                                                        parseContext = parseContext4;
+                                                                        obj7 = obj9;
                                                                         b2 = 0;
                                                                         break;
                                                                     }
+                                                                    i3 = obj5;
+                                                                    hashMap = hashMap2;
+                                                                    cls5 = cls6;
+                                                                    parseContext = parseContext4;
+                                                                    obj7 = obj9;
+                                                                    i2 = i4;
                                                                 }
-                                                                str = str3;
-                                                                hashMap = hashMap2;
-                                                                obj5 = obj7;
-                                                                parseContext = parseContext3;
-                                                                b2 = 0;
-                                                                i3 = 13;
-                                                                if (jSONLexerBase.token() != 16) {
-                                                                    cls2 = cls3;
-                                                                    parseContext4 = parseContext8;
-                                                                    parseContext5 = hashMap;
-                                                                } else if (jSONLexerBase.token() == i3) {
-                                                                    jSONLexerBase.nextToken(16);
-                                                                    break;
-                                                                } else {
-                                                                    cls2 = cls3;
-                                                                    if (jSONLexerBase.token() == 18 || jSONLexerBase.token() == 1) {
-                                                                        break;
-                                                                    }
-                                                                    parseContext4 = parseContext8;
-                                                                    parseContext5 = hashMap;
+                                                                cls6 = cls4;
+                                                                if (iArr3 == null) {
+                                                                }
+                                                                if (jSONLexerBase.matchStat != 4) {
                                                                 }
                                                             }
-                                                            iArr4 = iArr3;
-                                                            cls6 = cls2;
-                                                            str3 = str;
-                                                            obj3 = (T) obj5;
-                                                            i7 = i2 + 1;
-                                                            parseContext3 = parseContext;
-                                                            parseContext5 = parseContext5;
-                                                        }
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj72 = obj3;
-                                                    HashMap hashMap22 = parseContext5;
-                                                    ParseContext parseContext82 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                } else {
-                                                    if (jSONLexerBase.matchStat == -2) {
-                                                        cls3 = cls6;
-                                                    }
-                                                    z = false;
-                                                    z2 = false;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                        obj3 = (T) createInstance(defaultJSONParser, type);
-                                                        if (obj3 == null) {
-                                                        }
-                                                        parseContext4 = defaultJSONParser.setContext(parseContext3, obj3, obj);
-                                                        if (iArr2 == null) {
-                                                        }
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj722 = obj3;
-                                                    HashMap hashMap222 = parseContext5;
-                                                    ParseContext parseContext822 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                }
-                                            } else if (cls == Date.class && fieldInfo.format == null) {
-                                                obj4 = jSONLexerBase.scanFieldDate(cArr);
-                                                if (jSONLexerBase.matchStat > 0) {
-                                                    z = true;
-                                                    z2 = true;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj7222 = obj3;
-                                                    HashMap hashMap2222 = parseContext5;
-                                                    ParseContext parseContext8222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                } else {
-                                                    if (jSONLexerBase.matchStat == -2) {
-                                                        cls3 = cls6;
-                                                    }
-                                                    z = false;
-                                                    z2 = false;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj72222 = obj3;
-                                                    HashMap hashMap22222 = parseContext5;
-                                                    ParseContext parseContext82222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                }
-                                            } else if (cls == BigDecimal.class) {
-                                                obj4 = jSONLexerBase.scanFieldDecimal(cArr);
-                                                if (jSONLexerBase.matchStat > 0) {
-                                                    z = true;
-                                                    z2 = true;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj722222 = obj3;
-                                                    HashMap hashMap222222 = parseContext5;
-                                                    ParseContext parseContext822222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                } else {
-                                                    if (jSONLexerBase.matchStat == -2) {
-                                                        cls3 = cls6;
-                                                    }
-                                                    z = false;
-                                                    z2 = false;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj7222222 = obj3;
-                                                    HashMap hashMap2222222 = parseContext5;
-                                                    ParseContext parseContext8222222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                }
-                                            } else if (cls == BigInteger.class) {
-                                                obj4 = jSONLexerBase.scanFieldBigInteger(cArr);
-                                                if (jSONLexerBase.matchStat > 0) {
-                                                    z = true;
-                                                    z2 = true;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj72222222 = obj3;
-                                                    HashMap hashMap22222222 = parseContext5;
-                                                    ParseContext parseContext82222222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                } else {
-                                                    if (jSONLexerBase.matchStat == -2) {
-                                                        cls3 = cls6;
-                                                    }
-                                                    z = false;
-                                                    z2 = false;
-                                                    if (z) {
-                                                    }
-                                                    if (obj3 == null) {
-                                                    }
-                                                    iArr3 = iArr2;
-                                                    Object obj722222222 = obj3;
-                                                    HashMap hashMap222222222 = parseContext5;
-                                                    ParseContext parseContext822222222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
-                                                }
-                                            } else {
-                                                if (cls != Boolean.TYPE && cls != Boolean.class) {
-                                                    if (cls != Float.TYPE && cls != Float.class) {
-                                                        if (cls != Double.TYPE && cls != Double.class) {
-                                                            if (cls.isEnum() && (defaultJSONParser.getConfig().getDeserializer(cls) instanceof EnumDeserializer) && (annotation == null || annotation.deserializeUsing() == Void.class)) {
-                                                                if (fieldDeserializer instanceof DefaultFieldDeserializer) {
-                                                                    obj4 = scanEnum(jSONLexerBase, cArr, ((DefaultFieldDeserializer) fieldDeserializer).fieldValueDeserilizer);
-                                                                    if (jSONLexerBase.matchStat > 0) {
-                                                                        z = true;
-                                                                        z2 = true;
-                                                                        if (z) {
-                                                                        }
-                                                                        if (obj3 == null) {
-                                                                        }
-                                                                        iArr3 = iArr2;
-                                                                        Object obj7222222222 = obj3;
-                                                                        HashMap hashMap2222222222 = parseContext5;
-                                                                        ParseContext parseContext8222222222 = parseContext4;
-                                                                        if (z) {
-                                                                        }
-                                                                        iArr4 = iArr3;
-                                                                        cls6 = cls2;
-                                                                        str3 = str;
-                                                                        obj3 = (T) obj5;
-                                                                        i7 = i2 + 1;
-                                                                        parseContext3 = parseContext;
-                                                                        parseContext5 = parseContext5;
-                                                                    } else {
-                                                                        if (jSONLexerBase.matchStat == -2) {
-                                                                            cls3 = cls6;
-                                                                        }
-                                                                        z = false;
-                                                                        z2 = false;
-                                                                        if (z) {
-                                                                        }
-                                                                        if (obj3 == null) {
-                                                                        }
-                                                                        iArr3 = iArr2;
-                                                                        Object obj72222222222 = obj3;
-                                                                        HashMap hashMap22222222222 = parseContext5;
-                                                                        ParseContext parseContext82222222222 = parseContext4;
-                                                                        if (z) {
-                                                                        }
-                                                                        iArr4 = iArr3;
-                                                                        cls6 = cls2;
-                                                                        str3 = str;
-                                                                        obj3 = (T) obj5;
-                                                                        i7 = i2 + 1;
-                                                                        parseContext3 = parseContext;
-                                                                        parseContext5 = parseContext5;
-                                                                    }
-                                                                }
-                                                            } else if (cls == int[].class) {
-                                                                obj4 = jSONLexerBase.scanFieldIntArray(cArr);
-                                                                if (jSONLexerBase.matchStat > 0) {
-                                                                    z = true;
-                                                                    z2 = true;
-                                                                    if (z) {
-                                                                    }
-                                                                    if (obj3 == null) {
-                                                                    }
-                                                                    iArr3 = iArr2;
-                                                                    Object obj722222222222 = obj3;
-                                                                    HashMap hashMap222222222222 = parseContext5;
-                                                                    ParseContext parseContext822222222222 = parseContext4;
-                                                                    if (z) {
-                                                                    }
-                                                                    iArr4 = iArr3;
-                                                                    cls6 = cls2;
-                                                                    str3 = str;
-                                                                    obj3 = (T) obj5;
-                                                                    i7 = i2 + 1;
-                                                                    parseContext3 = parseContext;
-                                                                    parseContext5 = parseContext5;
-                                                                } else {
-                                                                    if (jSONLexerBase.matchStat == -2) {
-                                                                        cls3 = cls6;
-                                                                    }
-                                                                    z = false;
-                                                                    z2 = false;
-                                                                    if (z) {
-                                                                    }
-                                                                    if (obj3 == null) {
-                                                                    }
-                                                                    iArr3 = iArr2;
-                                                                    Object obj7222222222222 = obj3;
-                                                                    HashMap hashMap2222222222222 = parseContext5;
-                                                                    ParseContext parseContext8222222222222 = parseContext4;
-                                                                    if (z) {
-                                                                    }
-                                                                    iArr4 = iArr3;
-                                                                    cls6 = cls2;
-                                                                    str3 = str;
-                                                                    obj3 = (T) obj5;
-                                                                    i7 = i2 + 1;
-                                                                    parseContext3 = parseContext;
-                                                                    parseContext5 = parseContext5;
-                                                                }
-                                                            } else if (cls == float[].class) {
-                                                                obj4 = jSONLexerBase.scanFieldFloatArray(cArr);
-                                                                if (jSONLexerBase.matchStat > 0) {
-                                                                    z = true;
-                                                                    z2 = true;
-                                                                    if (z) {
-                                                                    }
-                                                                    if (obj3 == null) {
-                                                                    }
-                                                                    iArr3 = iArr2;
-                                                                    Object obj72222222222222 = obj3;
-                                                                    HashMap hashMap22222222222222 = parseContext5;
-                                                                    ParseContext parseContext82222222222222 = parseContext4;
-                                                                    if (z) {
-                                                                    }
-                                                                    iArr4 = iArr3;
-                                                                    cls6 = cls2;
-                                                                    str3 = str;
-                                                                    obj3 = (T) obj5;
-                                                                    i7 = i2 + 1;
-                                                                    parseContext3 = parseContext;
-                                                                    parseContext5 = parseContext5;
-                                                                } else {
-                                                                    if (jSONLexerBase.matchStat == -2) {
-                                                                        cls3 = cls6;
-                                                                    }
-                                                                    z = false;
-                                                                    z2 = false;
-                                                                    if (z) {
-                                                                    }
-                                                                    if (obj3 == null) {
-                                                                    }
-                                                                    iArr3 = iArr2;
-                                                                    Object obj722222222222222 = obj3;
-                                                                    HashMap hashMap222222222222222 = parseContext5;
-                                                                    ParseContext parseContext822222222222222 = parseContext4;
-                                                                    if (z) {
-                                                                    }
-                                                                    iArr4 = iArr3;
-                                                                    cls6 = cls2;
-                                                                    str3 = str;
-                                                                    obj3 = (T) obj5;
-                                                                    i7 = i2 + 1;
-                                                                    parseContext3 = parseContext;
-                                                                    parseContext5 = parseContext5;
-                                                                }
+                                                            b2 = 0;
+                                                            i5 = 13;
+                                                            if (jSONLexerBase.token() != 16) {
+                                                                cls3 = cls5;
+                                                                obj6 = obj7;
+                                                            } else if (jSONLexerBase.token() == i5) {
+                                                                jSONLexerBase.nextToken(16);
+                                                                break;
                                                             } else {
-                                                                if (cls == float[][].class) {
-                                                                    obj4 = jSONLexerBase.scanFieldFloatArray2(cArr);
-                                                                    if (jSONLexerBase.matchStat > 0) {
-                                                                        z = true;
-                                                                        z2 = true;
-                                                                        if (z) {
-                                                                        }
-                                                                        if (obj3 == null) {
-                                                                        }
-                                                                        iArr3 = iArr2;
-                                                                        Object obj7222222222222222 = obj3;
-                                                                        HashMap hashMap2222222222222222 = parseContext5;
-                                                                        ParseContext parseContext8222222222222222 = parseContext4;
-                                                                        if (z) {
-                                                                        }
-                                                                        iArr4 = iArr3;
-                                                                        cls6 = cls2;
-                                                                        str3 = str;
-                                                                        obj3 = (T) obj5;
-                                                                        i7 = i2 + 1;
-                                                                        parseContext3 = parseContext;
-                                                                        parseContext5 = parseContext5;
-                                                                    } else {
-                                                                        if (jSONLexerBase.matchStat == -2) {
-                                                                        }
-                                                                        z = false;
-                                                                        z2 = false;
-                                                                        if (z) {
-                                                                        }
-                                                                        if (obj3 == null) {
-                                                                        }
-                                                                        iArr3 = iArr2;
-                                                                        Object obj72222222222222222 = obj3;
-                                                                        HashMap hashMap22222222222222222 = parseContext5;
-                                                                        ParseContext parseContext82222222222222222 = parseContext4;
-                                                                        if (z) {
-                                                                        }
-                                                                        iArr4 = iArr3;
-                                                                        cls6 = cls2;
-                                                                        str3 = str;
-                                                                        obj3 = (T) obj5;
-                                                                        i7 = i2 + 1;
-                                                                        parseContext3 = parseContext;
-                                                                        parseContext5 = parseContext5;
-                                                                    }
-                                                                } else if (jSONLexerBase.matchField(cArr)) {
-                                                                    obj4 = null;
-                                                                    z = true;
-                                                                    z2 = false;
-                                                                    if (z) {
-                                                                    }
-                                                                    if (obj3 == null) {
-                                                                    }
-                                                                    iArr3 = iArr2;
-                                                                    Object obj722222222222222222 = obj3;
-                                                                    HashMap hashMap222222222222222222 = parseContext5;
-                                                                    ParseContext parseContext822222222222222222 = parseContext4;
-                                                                    if (z) {
-                                                                    }
-                                                                    iArr4 = iArr3;
-                                                                    cls6 = cls2;
-                                                                    str3 = str;
-                                                                    obj3 = (T) obj5;
-                                                                    i7 = i2 + 1;
-                                                                    parseContext3 = parseContext;
-                                                                    parseContext5 = parseContext5;
+                                                                cls3 = cls5;
+                                                                if (jSONLexerBase.token() == 18 || jSONLexerBase.token() == 1) {
+                                                                    break;
                                                                 }
-                                                                cls3 = cls6;
+                                                                obj6 = obj7;
                                                             }
-                                                        }
-                                                        obj4 = Double.valueOf(jSONLexerBase.scanFieldDouble(cArr));
-                                                        if (jSONLexerBase.matchStat > 0) {
-                                                            z = true;
-                                                            z2 = true;
-                                                            if (z) {
-                                                            }
-                                                            if (obj3 == null) {
-                                                            }
-                                                            iArr3 = iArr2;
-                                                            Object obj7222222222222222222 = obj3;
-                                                            HashMap hashMap2222222222222222222 = parseContext5;
-                                                            ParseContext parseContext8222222222222222222 = parseContext4;
-                                                            if (z) {
-                                                            }
-                                                            iArr4 = iArr3;
-                                                            cls6 = cls2;
-                                                            str3 = str;
-                                                            obj3 = (T) obj5;
-                                                            i7 = i2 + 1;
-                                                            parseContext3 = parseContext;
-                                                            parseContext5 = parseContext5;
-                                                        } else {
-                                                            if (jSONLexerBase.matchStat == -2) {
-                                                                cls3 = cls6;
-                                                            }
-                                                            z = false;
-                                                            z2 = false;
-                                                            if (z) {
-                                                            }
-                                                            if (obj3 == null) {
-                                                            }
-                                                            iArr3 = iArr2;
-                                                            Object obj72222222222222222222 = obj3;
-                                                            HashMap hashMap22222222222222222222 = parseContext5;
-                                                            ParseContext parseContext82222222222222222222 = parseContext4;
-                                                            if (z) {
-                                                            }
-                                                            iArr4 = iArr3;
-                                                            cls6 = cls2;
-                                                            str3 = str;
-                                                            obj3 = (T) obj5;
-                                                            i7 = i2 + 1;
-                                                            parseContext3 = parseContext;
-                                                            parseContext5 = parseContext5;
                                                         }
                                                     }
-                                                    obj4 = Float.valueOf(jSONLexerBase.scanFieldFloat(cArr));
+                                                    z2 = true;
+                                                    z3 = true;
+                                                    str4 = valueOf;
+                                                    if (z2) {
+                                                    }
+                                                    if (obj8 == null) {
+                                                    }
+                                                    parseContext2 = parseContext5;
+                                                    str2 = str3;
+                                                    iArr3 = iArr2;
+                                                    obj9 = obj8;
+                                                    HashMap hashMap22 = hashMap;
+                                                    if (!z2) {
+                                                    }
+                                                } else if (cls == Date.class && fieldInfo.format == null) {
+                                                    valueOf = jSONLexerBase.scanFieldDate(cArr);
                                                     if (jSONLexerBase.matchStat > 0) {
-                                                        z = true;
                                                         z2 = true;
-                                                        if (z) {
+                                                        z3 = true;
+                                                        str4 = valueOf;
+                                                        if (z2) {
                                                         }
-                                                        if (obj3 == null) {
+                                                        if (obj8 == null) {
                                                         }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
                                                         iArr3 = iArr2;
-                                                        Object obj722222222222222222222 = obj3;
-                                                        HashMap hashMap222222222222222222222 = parseContext5;
-                                                        ParseContext parseContext822222222222222222222 = parseContext4;
-                                                        if (z) {
+                                                        obj9 = obj8;
+                                                        HashMap hashMap222 = hashMap;
+                                                        if (!z2) {
                                                         }
-                                                        iArr4 = iArr3;
-                                                        cls6 = cls2;
-                                                        str3 = str;
-                                                        obj3 = (T) obj5;
-                                                        i7 = i2 + 1;
-                                                        parseContext3 = parseContext;
-                                                        parseContext5 = parseContext5;
                                                     } else {
                                                         if (jSONLexerBase.matchStat == -2) {
-                                                            cls3 = cls6;
+                                                            i3 = obj5;
+                                                            parseContext = parseContext4;
+                                                            i2 = i11 + 1;
+                                                            cls2 = cls10;
+                                                            cls3 = cls11;
+                                                            parserConfig2 = parserConfig;
+                                                            str2 = str;
+                                                            iArr3 = iArr2;
+                                                            parseContext2 = parseContext5;
                                                         }
-                                                        z = false;
                                                         z2 = false;
-                                                        if (z) {
+                                                        str7 = valueOf;
+                                                        z3 = false;
+                                                        str4 = str7;
+                                                        if (z2) {
                                                         }
-                                                        if (obj3 == null) {
+                                                        if (obj8 == null) {
                                                         }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
                                                         iArr3 = iArr2;
-                                                        Object obj7222222222222222222222 = obj3;
-                                                        HashMap hashMap2222222222222222222222 = parseContext5;
-                                                        ParseContext parseContext8222222222222222222222 = parseContext4;
-                                                        if (z) {
+                                                        obj9 = obj8;
+                                                        HashMap hashMap2222 = hashMap;
+                                                        if (!z2) {
                                                         }
-                                                        iArr4 = iArr3;
-                                                        cls6 = cls2;
-                                                        str3 = str;
-                                                        obj3 = (T) obj5;
-                                                        i7 = i2 + 1;
-                                                        parseContext3 = parseContext;
-                                                        parseContext5 = parseContext5;
                                                     }
-                                                }
-                                                obj4 = Boolean.valueOf(jSONLexerBase.scanFieldBoolean(cArr));
-                                                if (jSONLexerBase.matchStat > 0) {
-                                                    z = true;
-                                                    z2 = true;
-                                                    if (z) {
+                                                } else if (cls == BigDecimal.class) {
+                                                    valueOf = jSONLexerBase.scanFieldDecimal(cArr);
+                                                    if (jSONLexerBase.matchStat > 0) {
+                                                        z2 = true;
+                                                        z3 = true;
+                                                        str4 = valueOf;
+                                                        if (z2) {
+                                                        }
+                                                        if (obj8 == null) {
+                                                        }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
+                                                        iArr3 = iArr2;
+                                                        obj9 = obj8;
+                                                        HashMap hashMap22222 = hashMap;
+                                                        if (!z2) {
+                                                        }
+                                                    } else {
+                                                        if (jSONLexerBase.matchStat == -2) {
+                                                            i3 = obj5;
+                                                            parseContext = parseContext4;
+                                                            i2 = i11 + 1;
+                                                            cls2 = cls10;
+                                                            cls3 = cls11;
+                                                            parserConfig2 = parserConfig;
+                                                            str2 = str;
+                                                            iArr3 = iArr2;
+                                                            parseContext2 = parseContext5;
+                                                        }
+                                                        z2 = false;
+                                                        str7 = valueOf;
+                                                        z3 = false;
+                                                        str4 = str7;
+                                                        if (z2) {
+                                                        }
+                                                        if (obj8 == null) {
+                                                        }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
+                                                        iArr3 = iArr2;
+                                                        obj9 = obj8;
+                                                        HashMap hashMap222222 = hashMap;
+                                                        if (!z2) {
+                                                        }
                                                     }
-                                                    if (obj3 == null) {
+                                                } else if (cls == BigInteger.class) {
+                                                    valueOf = jSONLexerBase.scanFieldBigInteger(cArr);
+                                                    if (jSONLexerBase.matchStat > 0) {
+                                                        z2 = true;
+                                                        z3 = true;
+                                                        str4 = valueOf;
+                                                        if (z2) {
+                                                        }
+                                                        if (obj8 == null) {
+                                                        }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
+                                                        iArr3 = iArr2;
+                                                        obj9 = obj8;
+                                                        HashMap hashMap2222222 = hashMap;
+                                                        if (!z2) {
+                                                        }
+                                                    } else {
+                                                        if (jSONLexerBase.matchStat == -2) {
+                                                            i3 = obj5;
+                                                            parseContext = parseContext4;
+                                                            i2 = i11 + 1;
+                                                            cls2 = cls10;
+                                                            cls3 = cls11;
+                                                            parserConfig2 = parserConfig;
+                                                            str2 = str;
+                                                            iArr3 = iArr2;
+                                                            parseContext2 = parseContext5;
+                                                        }
+                                                        z2 = false;
+                                                        str7 = valueOf;
+                                                        z3 = false;
+                                                        str4 = str7;
+                                                        if (z2) {
+                                                        }
+                                                        if (obj8 == null) {
+                                                        }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
+                                                        iArr3 = iArr2;
+                                                        obj9 = obj8;
+                                                        HashMap hashMap22222222 = hashMap;
+                                                        if (!z2) {
+                                                        }
                                                     }
-                                                    iArr3 = iArr2;
-                                                    Object obj72222222222222222222222 = obj3;
-                                                    HashMap hashMap22222222222222222222222 = parseContext5;
-                                                    ParseContext parseContext82222222222222222222222 = parseContext4;
-                                                    if (z) {
-                                                    }
-                                                    iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
                                                 } else {
-                                                    if (jSONLexerBase.matchStat == -2) {
-                                                        cls3 = cls6;
+                                                    if (cls != Boolean.TYPE && cls != Boolean.class) {
+                                                        if (cls != Float.TYPE && cls != Float.class) {
+                                                            if (cls != Double.TYPE && cls != Double.class) {
+                                                                if (cls.isEnum() && (defaultJSONParser.getConfig().getDeserializer(cls) instanceof EnumDeserializer) && (jSONField == null || jSONField.deserializeUsing() == Void.class)) {
+                                                                    if (defaultFieldDeserializer instanceof DefaultFieldDeserializer) {
+                                                                        valueOf = scanEnum(jSONLexerBase, cArr, defaultFieldDeserializer.fieldValueDeserilizer);
+                                                                        if (jSONLexerBase.matchStat > 0) {
+                                                                            z2 = true;
+                                                                            z3 = true;
+                                                                            str4 = valueOf;
+                                                                            if (z2) {
+                                                                            }
+                                                                            if (obj8 == null) {
+                                                                            }
+                                                                            parseContext2 = parseContext5;
+                                                                            str2 = str3;
+                                                                            iArr3 = iArr2;
+                                                                            obj9 = obj8;
+                                                                            HashMap hashMap222222222 = hashMap;
+                                                                            if (!z2) {
+                                                                            }
+                                                                        } else {
+                                                                            if (jSONLexerBase.matchStat == -2) {
+                                                                                i3 = obj5;
+                                                                                parseContext = parseContext4;
+                                                                                i2 = i11 + 1;
+                                                                                cls2 = cls10;
+                                                                                cls3 = cls11;
+                                                                                parserConfig2 = parserConfig;
+                                                                                str2 = str;
+                                                                                iArr3 = iArr2;
+                                                                                parseContext2 = parseContext5;
+                                                                            }
+                                                                            z2 = false;
+                                                                            str7 = valueOf;
+                                                                            z3 = false;
+                                                                            str4 = str7;
+                                                                            if (z2) {
+                                                                            }
+                                                                            if (obj8 == null) {
+                                                                            }
+                                                                            parseContext2 = parseContext5;
+                                                                            str2 = str3;
+                                                                            iArr3 = iArr2;
+                                                                            obj9 = obj8;
+                                                                            HashMap hashMap2222222222 = hashMap;
+                                                                            if (!z2) {
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                } else if (cls == int[].class) {
+                                                                    valueOf = jSONLexerBase.scanFieldIntArray(cArr);
+                                                                    if (jSONLexerBase.matchStat > 0) {
+                                                                        z2 = true;
+                                                                        z3 = true;
+                                                                        str4 = valueOf;
+                                                                        if (z2) {
+                                                                        }
+                                                                        if (obj8 == null) {
+                                                                        }
+                                                                        parseContext2 = parseContext5;
+                                                                        str2 = str3;
+                                                                        iArr3 = iArr2;
+                                                                        obj9 = obj8;
+                                                                        HashMap hashMap22222222222 = hashMap;
+                                                                        if (!z2) {
+                                                                        }
+                                                                    } else {
+                                                                        if (jSONLexerBase.matchStat == -2) {
+                                                                            i3 = obj5;
+                                                                            parseContext = parseContext4;
+                                                                            i2 = i11 + 1;
+                                                                            cls2 = cls10;
+                                                                            cls3 = cls11;
+                                                                            parserConfig2 = parserConfig;
+                                                                            str2 = str;
+                                                                            iArr3 = iArr2;
+                                                                            parseContext2 = parseContext5;
+                                                                        }
+                                                                        z2 = false;
+                                                                        str7 = valueOf;
+                                                                        z3 = false;
+                                                                        str4 = str7;
+                                                                        if (z2) {
+                                                                        }
+                                                                        if (obj8 == null) {
+                                                                        }
+                                                                        parseContext2 = parseContext5;
+                                                                        str2 = str3;
+                                                                        iArr3 = iArr2;
+                                                                        obj9 = obj8;
+                                                                        HashMap hashMap222222222222 = hashMap;
+                                                                        if (!z2) {
+                                                                        }
+                                                                    }
+                                                                } else if (cls == float[].class) {
+                                                                    valueOf = jSONLexerBase.scanFieldFloatArray(cArr);
+                                                                    if (jSONLexerBase.matchStat > 0) {
+                                                                        z2 = true;
+                                                                        z3 = true;
+                                                                        str4 = valueOf;
+                                                                        if (z2) {
+                                                                        }
+                                                                        if (obj8 == null) {
+                                                                        }
+                                                                        parseContext2 = parseContext5;
+                                                                        str2 = str3;
+                                                                        iArr3 = iArr2;
+                                                                        obj9 = obj8;
+                                                                        HashMap hashMap2222222222222 = hashMap;
+                                                                        if (!z2) {
+                                                                        }
+                                                                    } else {
+                                                                        if (jSONLexerBase.matchStat == -2) {
+                                                                            i3 = obj5;
+                                                                            parseContext = parseContext4;
+                                                                            i2 = i11 + 1;
+                                                                            cls2 = cls10;
+                                                                            cls3 = cls11;
+                                                                            parserConfig2 = parserConfig;
+                                                                            str2 = str;
+                                                                            iArr3 = iArr2;
+                                                                            parseContext2 = parseContext5;
+                                                                        }
+                                                                        z2 = false;
+                                                                        str7 = valueOf;
+                                                                        z3 = false;
+                                                                        str4 = str7;
+                                                                        if (z2) {
+                                                                        }
+                                                                        if (obj8 == null) {
+                                                                        }
+                                                                        parseContext2 = parseContext5;
+                                                                        str2 = str3;
+                                                                        iArr3 = iArr2;
+                                                                        obj9 = obj8;
+                                                                        HashMap hashMap22222222222222 = hashMap;
+                                                                        if (!z2) {
+                                                                        }
+                                                                    }
+                                                                } else if (cls == float[][].class) {
+                                                                    valueOf = jSONLexerBase.scanFieldFloatArray2(cArr);
+                                                                    if (jSONLexerBase.matchStat > 0) {
+                                                                        z2 = true;
+                                                                        z3 = true;
+                                                                        str4 = valueOf;
+                                                                        if (z2) {
+                                                                        }
+                                                                        if (obj8 == null) {
+                                                                        }
+                                                                        parseContext2 = parseContext5;
+                                                                        str2 = str3;
+                                                                        iArr3 = iArr2;
+                                                                        obj9 = obj8;
+                                                                        HashMap hashMap222222222222222 = hashMap;
+                                                                        if (!z2) {
+                                                                        }
+                                                                    } else {
+                                                                        if (jSONLexerBase.matchStat == -2) {
+                                                                            i3 = obj5;
+                                                                            parseContext = parseContext4;
+                                                                            i2 = i11 + 1;
+                                                                            cls2 = cls10;
+                                                                            cls3 = cls11;
+                                                                            parserConfig2 = parserConfig;
+                                                                            str2 = str;
+                                                                            iArr3 = iArr2;
+                                                                            parseContext2 = parseContext5;
+                                                                        }
+                                                                        z2 = false;
+                                                                        str7 = valueOf;
+                                                                        z3 = false;
+                                                                        str4 = str7;
+                                                                        if (z2) {
+                                                                        }
+                                                                        if (obj8 == null) {
+                                                                        }
+                                                                        parseContext2 = parseContext5;
+                                                                        str2 = str3;
+                                                                        iArr3 = iArr2;
+                                                                        obj9 = obj8;
+                                                                        HashMap hashMap2222222222222222 = hashMap;
+                                                                        if (!z2) {
+                                                                        }
+                                                                    }
+                                                                } else if (!jSONLexerBase.matchField(cArr)) {
+                                                                    i4 = i11;
+                                                                    cls2 = cls10;
+                                                                    cls4 = cls11;
+                                                                    obj3 = obj6;
+                                                                    parserConfig3 = parserConfig;
+                                                                    str3 = str;
+                                                                    i3 = obj5;
+                                                                    obj6 = obj3;
+                                                                    parseContext2 = parseContext5;
+                                                                    parserConfig2 = parserConfig3;
+                                                                    parseContext = parseContext4;
+                                                                    str2 = str3;
+                                                                    i2 = i4;
+                                                                    cls3 = cls4;
+                                                                    iArr3 = iArr2;
+                                                                }
+                                                            }
+                                                            double scanFieldDouble = jSONLexerBase.scanFieldDouble(cArr);
+                                                            valueOf = (scanFieldDouble == 0.0d && jSONLexerBase.matchStat == 5) ? null : Double.valueOf(scanFieldDouble);
+                                                            if (jSONLexerBase.matchStat > 0) {
+                                                                z2 = true;
+                                                                z3 = true;
+                                                                str4 = valueOf;
+                                                                if (z2) {
+                                                                }
+                                                                if (obj8 == null) {
+                                                                }
+                                                                parseContext2 = parseContext5;
+                                                                str2 = str3;
+                                                                iArr3 = iArr2;
+                                                                obj9 = obj8;
+                                                                HashMap hashMap22222222222222222 = hashMap;
+                                                                if (!z2) {
+                                                                }
+                                                            } else {
+                                                                if (jSONLexerBase.matchStat == -2) {
+                                                                    i3 = obj5;
+                                                                    parseContext = parseContext4;
+                                                                    i2 = i11 + 1;
+                                                                    cls2 = cls10;
+                                                                    cls3 = cls11;
+                                                                    parserConfig2 = parserConfig;
+                                                                    str2 = str;
+                                                                    iArr3 = iArr2;
+                                                                    parseContext2 = parseContext5;
+                                                                }
+                                                                z2 = false;
+                                                                str7 = valueOf;
+                                                                z3 = false;
+                                                                str4 = str7;
+                                                                if (z2) {
+                                                                }
+                                                                if (obj8 == null) {
+                                                                }
+                                                                parseContext2 = parseContext5;
+                                                                str2 = str3;
+                                                                iArr3 = iArr2;
+                                                                obj9 = obj8;
+                                                                HashMap hashMap222222222222222222 = hashMap;
+                                                                if (!z2) {
+                                                                }
+                                                            }
+                                                        }
+                                                        float scanFieldFloat = jSONLexerBase.scanFieldFloat(cArr);
+                                                        valueOf = (scanFieldFloat == 0.0f && jSONLexerBase.matchStat == 5) ? null : Float.valueOf(scanFieldFloat);
+                                                        if (jSONLexerBase.matchStat > 0) {
+                                                            z2 = true;
+                                                            z3 = true;
+                                                            str4 = valueOf;
+                                                            if (z2) {
+                                                            }
+                                                            if (obj8 == null) {
+                                                            }
+                                                            parseContext2 = parseContext5;
+                                                            str2 = str3;
+                                                            iArr3 = iArr2;
+                                                            obj9 = obj8;
+                                                            HashMap hashMap2222222222222222222 = hashMap;
+                                                            if (!z2) {
+                                                            }
+                                                        } else {
+                                                            if (jSONLexerBase.matchStat == -2) {
+                                                                i3 = obj5;
+                                                                parseContext = parseContext4;
+                                                                i2 = i11 + 1;
+                                                                cls2 = cls10;
+                                                                cls3 = cls11;
+                                                                parserConfig2 = parserConfig;
+                                                                str2 = str;
+                                                                iArr3 = iArr2;
+                                                                parseContext2 = parseContext5;
+                                                            }
+                                                            z2 = false;
+                                                            str7 = valueOf;
+                                                            z3 = false;
+                                                            str4 = str7;
+                                                            if (z2) {
+                                                            }
+                                                            if (obj8 == null) {
+                                                            }
+                                                            parseContext2 = parseContext5;
+                                                            str2 = str3;
+                                                            iArr3 = iArr2;
+                                                            obj9 = obj8;
+                                                            HashMap hashMap22222222222222222222 = hashMap;
+                                                            if (!z2) {
+                                                            }
+                                                        }
                                                     }
-                                                    z = false;
-                                                    z2 = false;
-                                                    if (z) {
+                                                    valueOf = jSONLexerBase.matchStat == 5 ? null : Boolean.valueOf(jSONLexerBase.scanFieldBoolean(cArr));
+                                                    if (jSONLexerBase.matchStat > 0) {
+                                                        z2 = true;
+                                                        z3 = true;
+                                                        str4 = valueOf;
+                                                        if (z2) {
+                                                        }
+                                                        if (obj8 == null) {
+                                                        }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
+                                                        iArr3 = iArr2;
+                                                        obj9 = obj8;
+                                                        HashMap hashMap222222222222222222222 = hashMap;
+                                                        if (!z2) {
+                                                        }
+                                                    } else {
+                                                        if (jSONLexerBase.matchStat == -2) {
+                                                            i3 = obj5;
+                                                            parseContext = parseContext4;
+                                                            i2 = i11 + 1;
+                                                            cls2 = cls10;
+                                                            cls3 = cls11;
+                                                            parserConfig2 = parserConfig;
+                                                            str2 = str;
+                                                            iArr3 = iArr2;
+                                                            parseContext2 = parseContext5;
+                                                        }
+                                                        z2 = false;
+                                                        str7 = valueOf;
+                                                        z3 = false;
+                                                        str4 = str7;
+                                                        if (z2) {
+                                                        }
+                                                        if (obj8 == null) {
+                                                        }
+                                                        parseContext2 = parseContext5;
+                                                        str2 = str3;
+                                                        iArr3 = iArr2;
+                                                        obj9 = obj8;
+                                                        HashMap hashMap2222222222222222222222 = hashMap;
+                                                        if (!z2) {
+                                                        }
                                                     }
-                                                    if (obj3 == null) {
-                                                    }
+                                                }
+                                                i12 = i3 + 1;
+                                                cls11 = cls3;
+                                                parseContext4 = parseContext;
+                                                iArr4 = iArr3;
+                                                config = parserConfig2;
+                                                i11 = i2;
+                                                obj3 = obj6;
+                                                parseContext5 = parseContext2;
+                                                cls10 = cls2;
+                                                str8 = str2;
+                                            }
+                                            long scanFieldLong = jSONLexerBase.scanFieldLong(cArr);
+                                            valueOf = (scanFieldLong == 0 && jSONLexerBase.matchStat == 5) ? null : Long.valueOf(scanFieldLong);
+                                            if (jSONLexerBase.matchStat > 0) {
+                                                z2 = true;
+                                                z3 = true;
+                                                str4 = valueOf;
+                                                if (z2) {
+                                                }
+                                                if (obj8 == null) {
+                                                }
+                                                parseContext2 = parseContext5;
+                                                str2 = str3;
+                                                iArr3 = iArr2;
+                                                obj9 = obj8;
+                                                HashMap hashMap22222222222222222222222 = hashMap;
+                                                if (!z2) {
+                                                }
+                                                i12 = i3 + 1;
+                                                cls11 = cls3;
+                                                parseContext4 = parseContext;
+                                                iArr4 = iArr3;
+                                                config = parserConfig2;
+                                                i11 = i2;
+                                                obj3 = obj6;
+                                                parseContext5 = parseContext2;
+                                                cls10 = cls2;
+                                                str8 = str2;
+                                            } else {
+                                                if (jSONLexerBase.matchStat == -2) {
+                                                    i3 = obj5;
+                                                    parseContext = parseContext4;
+                                                    i2 = i11 + 1;
+                                                    cls2 = cls10;
+                                                    cls3 = cls11;
+                                                    parserConfig2 = parserConfig;
+                                                    str2 = str;
                                                     iArr3 = iArr2;
-                                                    Object obj722222222222222222222222 = obj3;
-                                                    HashMap hashMap222222222222222222222222 = parseContext5;
-                                                    ParseContext parseContext822222222222222222222222 = parseContext4;
-                                                    if (z) {
-                                                    }
+                                                    parseContext2 = parseContext5;
+                                                    i12 = i3 + 1;
+                                                    cls11 = cls3;
+                                                    parseContext4 = parseContext;
                                                     iArr4 = iArr3;
-                                                    cls6 = cls2;
-                                                    str3 = str;
-                                                    obj3 = (T) obj5;
-                                                    i7 = i2 + 1;
-                                                    parseContext3 = parseContext;
-                                                    parseContext5 = parseContext5;
+                                                    config = parserConfig2;
+                                                    i11 = i2;
+                                                    obj3 = obj6;
+                                                    parseContext5 = parseContext2;
+                                                    cls10 = cls2;
+                                                    str8 = str2;
+                                                }
+                                                z2 = false;
+                                                str7 = valueOf;
+                                                z3 = false;
+                                                str4 = str7;
+                                                if (z2) {
+                                                }
+                                                if (obj8 == null) {
+                                                }
+                                                parseContext2 = parseContext5;
+                                                str2 = str3;
+                                                iArr3 = iArr2;
+                                                obj9 = obj8;
+                                                HashMap hashMap222222222222222222222222 = hashMap;
+                                                if (!z2) {
+                                                }
+                                                i12 = i3 + 1;
+                                                cls11 = cls3;
+                                                parseContext4 = parseContext;
+                                                iArr4 = iArr3;
+                                                config = parserConfig2;
+                                                i11 = i2;
+                                                obj3 = obj6;
+                                                parseContext5 = parseContext2;
+                                                cls10 = cls2;
+                                                str8 = str2;
+                                            }
+                                        }
+                                        int scanFieldInt = jSONLexerBase.scanFieldInt(cArr);
+                                        valueOf = (scanFieldInt == 0 && jSONLexerBase.matchStat == 5) ? null : Integer.valueOf(scanFieldInt);
+                                        if (jSONLexerBase.matchStat > 0) {
+                                            z2 = true;
+                                            z3 = true;
+                                            str4 = valueOf;
+                                            if (z2) {
+                                            }
+                                            if (obj8 == null) {
+                                            }
+                                            parseContext2 = parseContext5;
+                                            str2 = str3;
+                                            iArr3 = iArr2;
+                                            obj9 = obj8;
+                                            HashMap hashMap2222222222222222222222222 = hashMap;
+                                            if (!z2) {
+                                            }
+                                            i12 = i3 + 1;
+                                            cls11 = cls3;
+                                            parseContext4 = parseContext;
+                                            iArr4 = iArr3;
+                                            config = parserConfig2;
+                                            i11 = i2;
+                                            obj3 = obj6;
+                                            parseContext5 = parseContext2;
+                                            cls10 = cls2;
+                                            str8 = str2;
+                                        }
+                                    }
+                                    z2 = true;
+                                    str7 = null;
+                                    z3 = false;
+                                    str4 = str7;
+                                    if (z2) {
+                                    }
+                                    if (obj8 == null) {
+                                    }
+                                    parseContext2 = parseContext5;
+                                    str2 = str3;
+                                    iArr3 = iArr2;
+                                    obj9 = obj8;
+                                    HashMap hashMap22222222222222222222222222 = hashMap;
+                                    if (!z2) {
+                                    }
+                                    i12 = i3 + 1;
+                                    cls11 = cls3;
+                                    parseContext4 = parseContext;
+                                    iArr4 = iArr3;
+                                    config = parserConfig2;
+                                    i11 = i2;
+                                    obj3 = obj6;
+                                    parseContext5 = parseContext2;
+                                    cls10 = cls2;
+                                    str8 = str2;
+                                } catch (Throwable th12) {
+                                    th = th12;
+                                    parseContext3 = parseContext5;
+                                    parseContext = parseContext4;
+                                    obj3 = obj6;
+                                }
+                            } else {
+                                str = str8;
+                                parserConfig = config;
+                            }
+                            i12 = i3 + 1;
+                            cls11 = cls3;
+                            parseContext4 = parseContext;
+                            iArr4 = iArr3;
+                            config = parserConfig2;
+                            i11 = i2;
+                            obj3 = obj6;
+                            parseContext5 = parseContext2;
+                            cls10 = cls2;
+                            str8 = str2;
+                        } catch (Throwable th13) {
+                            th = th13;
+                            obj3 = obj7;
+                            parseContext3 = parseContext2;
+                            if (parseContext3 != null) {
+                            }
+                            defaultJSONParser.setContext(parseContext);
+                            throw th;
+                        }
+                        z2 = false;
+                        str7 = null;
+                        z3 = false;
+                        str4 = str7;
+                        if (z2) {
+                        }
+                        if (obj8 == null) {
+                        }
+                        parseContext2 = parseContext5;
+                        str2 = str3;
+                        iArr3 = iArr2;
+                        obj9 = obj8;
+                        HashMap hashMap222222222222222222222222222 = hashMap;
+                        if (!z2) {
+                        }
+                    } catch (Throwable th14) {
+                        parseContext2 = parseContext5;
+                        parseContext = parseContext4;
+                        th = th14;
+                    }
+                }
+                parseContext3 = parseContext5;
+                parseContext = parseContext4;
+                HashMap hashMap5 = hashMap;
+                cls5 = cls4;
+                b2 = 0;
+                try {
+                    if (obj3 != null) {
+                        Object obj12 = obj3;
+                    } else if (hashMap5 == null) {
+                        T t7 = (T) createInstance((DefaultJSONParser) defaultJSONParser, type);
+                        if (parseContext3 == null) {
+                            parseContext3 = defaultJSONParser.setContext(parseContext, t7, obj);
+                        }
+                        if (parseContext3 != null) {
+                            parseContext3.object = t7;
+                        }
+                        defaultJSONParser.setContext(parseContext);
+                        return t7;
+                    } else {
+                        try {
+                            String[] strArr = this.beanInfo.creatorConstructorParameters;
+                            String str10 = "";
+                            try {
+                                if (strArr != null) {
+                                    objArr = new Object[strArr.length];
+                                    int i17 = 0;
+                                    while (i17 < strArr.length) {
+                                        Object remove = hashMap5.remove(strArr[i17]);
+                                        if (remove == null) {
+                                            Type type2 = this.beanInfo.creatorConstructorParameterTypes[i17];
+                                            FieldInfo fieldInfo4 = this.beanInfo.fields[i17];
+                                            if (type2 == Byte.TYPE) {
+                                                remove = Byte.valueOf(b2);
+                                            } else if (type2 == Short.TYPE) {
+                                                remove = Short.valueOf(b2);
+                                            } else if (type2 == Integer.TYPE) {
+                                                remove = Integer.valueOf(b2);
+                                            } else if (type2 == Long.TYPE) {
+                                                remove = 0L;
+                                            } else if (type2 == Float.TYPE) {
+                                                remove = Float.valueOf(0.0f);
+                                            } else if (type2 == Double.TYPE) {
+                                                remove = Double.valueOf(0.0d);
+                                            } else if (type2 == Boolean.TYPE) {
+                                                remove = Boolean.FALSE;
+                                            } else {
+                                                cls8 = cls5;
+                                                if (type2 == cls8 && (fieldInfo4.parserFeatures & Feature.InitStringFieldAsEmpty.mask) != 0) {
+                                                    remove = "";
                                                 }
                                             }
-                                            type2 = type;
-                                            iArr3 = iArr2;
-                                            obj5 = obj3;
-                                            str = str3;
-                                            parseContext = parseContext3;
-                                            cls2 = cls3;
-                                            iArr4 = iArr3;
-                                            cls6 = cls2;
-                                            str3 = str;
-                                            obj3 = (T) obj5;
-                                            i7 = i2 + 1;
-                                            parseContext3 = parseContext;
-                                            parseContext5 = parseContext5;
-                                        }
-                                        obj4 = Long.valueOf(jSONLexerBase.scanFieldLong(cArr));
-                                        if (jSONLexerBase.matchStat > 0) {
-                                            z = true;
-                                            z2 = true;
-                                            if (z) {
-                                            }
-                                            if (obj3 == null) {
-                                            }
-                                            iArr3 = iArr2;
-                                            Object obj7222222222222222222222222 = obj3;
-                                            HashMap hashMap2222222222222222222222222 = parseContext5;
-                                            ParseContext parseContext8222222222222222222222222 = parseContext4;
-                                            if (z) {
-                                            }
-                                            iArr4 = iArr3;
-                                            cls6 = cls2;
-                                            str3 = str;
-                                            obj3 = (T) obj5;
-                                            i7 = i2 + 1;
-                                            parseContext3 = parseContext;
-                                            parseContext5 = parseContext5;
+                                            cls8 = cls5;
                                         } else {
-                                            if (jSONLexerBase.matchStat == -2) {
-                                                cls3 = cls6;
-                                                type2 = type;
-                                                iArr3 = iArr2;
-                                                obj5 = obj3;
-                                                str = str3;
-                                                parseContext = parseContext3;
-                                                cls2 = cls3;
-                                                iArr4 = iArr3;
-                                                cls6 = cls2;
-                                                str3 = str;
-                                                obj3 = (T) obj5;
-                                                i7 = i2 + 1;
-                                                parseContext3 = parseContext;
-                                                parseContext5 = parseContext5;
+                                            cls8 = cls5;
+                                            if (this.beanInfo.creatorConstructorParameterTypes != null && i17 < this.beanInfo.creatorConstructorParameterTypes.length) {
+                                                Type type3 = this.beanInfo.creatorConstructorParameterTypes[i17];
+                                                if (type3 instanceof Class) {
+                                                    Class cls15 = (Class) type3;
+                                                    if (!cls15.isInstance(remove) && (remove instanceof List)) {
+                                                        List list = (List) remove;
+                                                        obj10 = obj3;
+                                                        if (list.size() == 1) {
+                                                            if (cls15.isInstance(list.get(0))) {
+                                                                remove = list.get(0);
+                                                            }
+                                                            objArr[i17] = remove;
+                                                            i17++;
+                                                            obj3 = (T) obj10;
+                                                            cls5 = cls8;
+                                                            b2 = 0;
+                                                        }
+                                                        objArr[i17] = remove;
+                                                        i17++;
+                                                        obj3 = (T) obj10;
+                                                        cls5 = cls8;
+                                                        b2 = 0;
+                                                    }
+                                                }
                                             }
-                                            z = false;
-                                            z2 = false;
-                                            if (z) {
+                                        }
+                                        obj10 = obj3;
+                                        objArr[i17] = remove;
+                                        i17++;
+                                        obj3 = (T) obj10;
+                                        cls5 = cls8;
+                                        b2 = 0;
+                                    }
+                                    obj5 = obj3;
+                                    cls7 = cls5;
+                                } else {
+                                    obj5 = obj3;
+                                    cls7 = cls5;
+                                    FieldInfo[] fieldInfoArr = this.beanInfo.fields;
+                                    int length2 = fieldInfoArr.length;
+                                    Object[] objArr2 = new Object[length2];
+                                    int i18 = 0;
+                                    while (i18 < length2) {
+                                        FieldInfo fieldInfo5 = fieldInfoArr[i18];
+                                        Object obj13 = hashMap5.get(fieldInfo5.name);
+                                        if (obj13 == null) {
+                                            Type type4 = fieldInfo5.fieldType;
+                                            str6 = str10;
+                                            if (type4 == Byte.TYPE) {
+                                                obj13 = (byte) 0;
+                                            } else if (type4 == Short.TYPE) {
+                                                obj13 = (short) 0;
+                                            } else if (type4 == Integer.TYPE) {
+                                                obj13 = 0;
+                                            } else if (type4 == Long.TYPE) {
+                                                obj13 = 0L;
+                                            } else if (type4 == Float.TYPE) {
+                                                obj13 = Float.valueOf(0.0f);
+                                            } else if (type4 == Double.TYPE) {
+                                                obj13 = Double.valueOf(0.0d);
+                                            } else if (type4 == Boolean.TYPE) {
+                                                obj13 = Boolean.FALSE;
+                                            } else if (type4 == cls7 && (fieldInfo5.parserFeatures & Feature.InitStringFieldAsEmpty.mask) != 0) {
+                                                obj13 = str6;
                                             }
-                                            if (obj3 == null) {
+                                        } else {
+                                            str6 = str10;
+                                        }
+                                        objArr2[i18] = obj13;
+                                        i18++;
+                                        str10 = str6;
+                                    }
+                                    objArr = objArr2;
+                                }
+                                if (this.beanInfo.creatorConstructor != null) {
+                                    if (this.beanInfo.f1649kotlin) {
+                                        int i19 = 0;
+                                        while (true) {
+                                            if (i19 >= objArr.length) {
+                                                break;
+                                            } else if (objArr[i19] != null || this.beanInfo.fields == null || i19 >= this.beanInfo.fields.length) {
+                                                i19++;
+                                            } else if (this.beanInfo.fields[i19].fieldClass == cls7) {
+                                                z4 = true;
                                             }
-                                            iArr3 = iArr2;
-                                            Object obj72222222222222222222222222 = obj3;
-                                            HashMap hashMap22222222222222222222222222 = parseContext5;
-                                            ParseContext parseContext82222222222222222222222222 = parseContext4;
-                                            if (z) {
-                                            }
-                                            iArr4 = iArr3;
-                                            cls6 = cls2;
-                                            str3 = str;
-                                            obj3 = (T) obj5;
-                                            i7 = i2 + 1;
-                                            parseContext3 = parseContext;
-                                            parseContext5 = parseContext5;
                                         }
                                     }
-                                    obj4 = Integer.valueOf(jSONLexerBase.scanFieldInt(cArr));
-                                    if (jSONLexerBase.matchStat <= 0) {
+                                    z4 = false;
+                                    if (z4) {
+                                        try {
+                                            if (this.beanInfo.kotlinDefaultConstructor != null) {
+                                                obj3 = this.beanInfo.kotlinDefaultConstructor.newInstance(new Object[0]);
+                                                for (int i20 = 0; i20 < objArr.length; i20++) {
+                                                    try {
+                                                        Object obj14 = objArr[i20];
+                                                        if (obj14 != null && this.beanInfo.fields != null && i20 < this.beanInfo.fields.length) {
+                                                            this.beanInfo.fields[i20].set(obj3, obj14);
+                                                        }
+                                                    } catch (Exception e3) {
+                                                        e = e3;
+                                                        throw new JSONException("create instance error, " + strArr + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.beanInfo.creatorConstructor.toGenericString(), e);
+                                                    }
+                                                }
+                                                if (strArr != null) {
+                                                    for (Map.Entry<String, Object> entry : hashMap5.entrySet()) {
+                                                        FieldDeserializer fieldDeserializer = getFieldDeserializer(entry.getKey());
+                                                        if (fieldDeserializer != null) {
+                                                            fieldDeserializer.setValue(obj3, entry.getValue());
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } catch (Exception e4) {
+                                            e = e4;
+                                        }
                                     }
-                                    z = true;
-                                    z2 = true;
-                                    if (z) {
+                                    obj3 = (T) this.beanInfo.creatorConstructor.newInstance(objArr);
+                                    if (strArr != null) {
                                     }
-                                    if (obj3 == null) {
+                                } else if (this.beanInfo.factoryMethod != null) {
+                                    try {
+                                        obj3 = this.beanInfo.factoryMethod.invoke(null, objArr);
+                                    } catch (Exception e5) {
+                                        throw new JSONException("create factory method error, " + this.beanInfo.factoryMethod.toString(), e5);
                                     }
-                                    iArr3 = iArr2;
-                                    Object obj722222222222222222222222222 = obj3;
-                                    HashMap hashMap222222222222222222222222222 = parseContext5;
-                                    ParseContext parseContext822222222222222222222222222 = parseContext4;
-                                    if (z) {
-                                    }
-                                    iArr4 = iArr3;
-                                    cls6 = cls2;
-                                    str3 = str;
-                                    obj3 = (T) obj5;
-                                    i7 = i2 + 1;
-                                    parseContext3 = parseContext;
-                                    parseContext5 = parseContext5;
                                 } else {
-                                    iArr2 = iArr4;
-                                    i2 = i7;
+                                    obj3 = obj5;
                                 }
-                                iArr4 = iArr3;
-                                cls6 = cls2;
-                                str3 = str;
-                                obj3 = (T) obj5;
-                                i7 = i2 + 1;
-                                parseContext3 = parseContext;
-                                parseContext5 = parseContext5;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                parseContext2 = parseContext5;
-                                obj3 = obj5;
-                                if (parseContext2 != null) {
-                                    parseContext2.object = obj3;
+                                if (parseContext3 != null) {
+                                    parseContext3.object = obj3;
+                                }
+                            } catch (Throwable th15) {
+                                th = th15;
+                                obj4 = obj5;
+                                obj3 = obj4;
+                                th = th;
+                                if (parseContext3 != null) {
                                 }
                                 defaultJSONParser.setContext(parseContext);
                                 throw th;
                             }
-                            obj4 = null;
-                            z = false;
-                            z2 = false;
-                            if (z) {
+                        } catch (Throwable th16) {
+                            th = th16;
+                            th = th;
+                            if (parseContext3 != null) {
                             }
-                            if (obj3 == null) {
-                            }
-                            iArr3 = iArr2;
-                            Object obj7222222222222222222222222222 = obj3;
-                            HashMap hashMap2222222222222222222222222222 = parseContext5;
-                            ParseContext parseContext8222222222222222222222222222 = parseContext4;
-                            if (z) {
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            parseContext = parseContext3;
+                            defaultJSONParser.setContext(parseContext);
+                            throw th;
                         }
                     }
-                } catch (Throwable th5) {
-                    th = th5;
-                    parseContext = parseContext3;
-                    obj3 = obj2;
+                    Method method = this.beanInfo.buildMethod;
+                    if (method == null) {
+                        if (parseContext3 != null) {
+                            parseContext3.object = obj3;
+                        }
+                        defaultJSONParser.setContext(parseContext);
+                        return (T) obj3;
+                    }
+                    try {
+                        T t8 = (T) method.invoke(obj3, new Object[0]);
+                        if (parseContext3 != null) {
+                            parseContext3.object = obj3;
+                        }
+                        defaultJSONParser.setContext(parseContext);
+                        return t8;
+                    } catch (Exception e6) {
+                        throw new JSONException("build object error", e6);
+                    }
+                } catch (Throwable th17) {
+                    th = th17;
+                    th = th;
+                    if (parseContext3 != null) {
+                    }
+                    defaultJSONParser.setContext(parseContext);
+                    throw th;
                 }
-            } catch (Throwable th6) {
-                th = th6;
-                obj3 = obj2;
+            } catch (Throwable th18) {
+                th = th18;
+                parseContext = parseContext4;
+                obj4 = obj2;
             }
-        } else {
-            return (T) defaultJSONParser.parse();
+            if (parseContext3 != null) {
+                parseContext3.object = obj3;
+            }
+            defaultJSONParser.setContext(parseContext);
+            throw th;
         }
+        return (T) defaultJSONParser.parse();
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0078 A[LOOP:2: B:25:0x0076->B:26:0x0078, LOOP_END] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public JavaBeanDeserializer(ParserConfig parserConfig, JavaBeanInfo javaBeanInfo) {
+        ParserConfig.AutoTypeCheckHandler autoTypeCheckHandler;
+        int length;
+        int i;
+        int i2;
+        int length2;
         String[] strArr;
         this.clazz = javaBeanInfo.clazz;
         this.beanInfo = javaBeanInfo;
-        FieldInfo[] fieldInfoArr = javaBeanInfo.sortedFields;
-        this.sortedFieldDeserializers = new FieldDeserializer[fieldInfoArr.length];
-        int length = fieldInfoArr.length;
+        JSONType jSONType = javaBeanInfo.jsonType;
         HashMap hashMap = null;
-        for (int i = 0; i < length; i++) {
-            FieldInfo fieldInfo = javaBeanInfo.sortedFields[i];
-            FieldDeserializer createFieldDeserializer = parserConfig.createFieldDeserializer(parserConfig, javaBeanInfo, fieldInfo);
-            this.sortedFieldDeserializers[i] = createFieldDeserializer;
-            for (String str : fieldInfo.alternateNames) {
-                if (hashMap == null) {
-                    hashMap = new HashMap();
+        if (jSONType != null && jSONType.autoTypeCheckHandler() != ParserConfig.AutoTypeCheckHandler.class) {
+            try {
+                autoTypeCheckHandler = javaBeanInfo.jsonType.autoTypeCheckHandler().newInstance();
+            } catch (Exception unused) {
+            }
+            this.autoTypeCheckHandler = autoTypeCheckHandler;
+            FieldInfo[] fieldInfoArr = javaBeanInfo.sortedFields;
+            this.sortedFieldDeserializers = new FieldDeserializer[fieldInfoArr.length];
+            length = fieldInfoArr.length;
+            for (i2 = 0; i2 < length; i2++) {
+                FieldInfo fieldInfo = javaBeanInfo.sortedFields[i2];
+                FieldDeserializer createFieldDeserializer = parserConfig.createFieldDeserializer(parserConfig, javaBeanInfo, fieldInfo);
+                this.sortedFieldDeserializers[i2] = createFieldDeserializer;
+                if (length > 128) {
+                    if (this.fieldDeserializerMap == null) {
+                        this.fieldDeserializerMap = new HashMap();
+                    }
+                    this.fieldDeserializerMap.put(fieldInfo.name, createFieldDeserializer);
                 }
-                hashMap.put(str, createFieldDeserializer);
+                for (String str : fieldInfo.alternateNames) {
+                    if (hashMap == null) {
+                        hashMap = new HashMap();
+                    }
+                    hashMap.put(str, createFieldDeserializer);
+                }
+            }
+            this.alterNameFieldDeserializers = hashMap;
+            FieldInfo[] fieldInfoArr2 = javaBeanInfo.fields;
+            this.fieldDeserializers = new FieldDeserializer[fieldInfoArr2.length];
+            length2 = fieldInfoArr2.length;
+            for (i = 0; i < length2; i++) {
+                this.fieldDeserializers[i] = getFieldDeserializer(javaBeanInfo.fields[i].name);
             }
         }
+        autoTypeCheckHandler = null;
+        this.autoTypeCheckHandler = autoTypeCheckHandler;
+        FieldInfo[] fieldInfoArr3 = javaBeanInfo.sortedFields;
+        this.sortedFieldDeserializers = new FieldDeserializer[fieldInfoArr3.length];
+        length = fieldInfoArr3.length;
+        while (i2 < length) {
+        }
         this.alterNameFieldDeserializers = hashMap;
-        FieldInfo[] fieldInfoArr2 = javaBeanInfo.fields;
-        this.fieldDeserializers = new FieldDeserializer[fieldInfoArr2.length];
-        int length2 = fieldInfoArr2.length;
-        for (int i2 = 0; i2 < length2; i2++) {
-            this.fieldDeserializers[i2] = getFieldDeserializer(javaBeanInfo.fields[i2].name);
+        FieldInfo[] fieldInfoArr22 = javaBeanInfo.fields;
+        this.fieldDeserializers = new FieldDeserializer[fieldInfoArr22.length];
+        length2 = fieldInfoArr22.length;
+        while (i < length2) {
         }
     }
 
@@ -2043,7 +2359,116 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return null;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0069, code lost:
+        if (r6.method != null) goto L124;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x006b, code lost:
+        r9 = r7.getType();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0071, code lost:
+        if (r9 != java.lang.Boolean.TYPE) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0075, code lost:
+        if (r1 != java.lang.Boolean.FALSE) goto L114;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0077, code lost:
+        r7.setBoolean(r0, false);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x007d, code lost:
+        if (r1 != java.lang.Boolean.TRUE) goto L117;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x007f, code lost:
+        r7.setBoolean(r0, true);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0085, code lost:
+        if (r9 != java.lang.Integer.TYPE) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0089, code lost:
+        if ((r1 instanceof java.lang.Number) == false) goto L110;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x008b, code lost:
+        r7.setInt(r0, ((java.lang.Number) r1).intValue());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0097, code lost:
+        if (r9 != java.lang.Long.TYPE) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x009b, code lost:
+        if ((r1 instanceof java.lang.Number) == false) goto L103;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x009d, code lost:
+        r7.setLong(r0, ((java.lang.Number) r1).longValue());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00ac, code lost:
+        if (r9 != java.lang.Float.TYPE) goto L33;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00b0, code lost:
+        if ((r1 instanceof java.lang.Number) == false) goto L86;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x00b2, code lost:
+        r7.setFloat(r0, ((java.lang.Number) r1).floatValue());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00bf, code lost:
+        if ((r1 instanceof java.lang.String) == false) goto L96;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00c1, code lost:
+        r1 = (java.lang.String) r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00c7, code lost:
+        if (r1.length() > 10) goto L95;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00c9, code lost:
+        r1 = com.alibaba.fastjson.util.TypeUtils.parseFloat(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00ce, code lost:
+        r1 = java.lang.Float.parseFloat(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00d2, code lost:
+        r7.setFloat(r0, r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x00d9, code lost:
+        if (r9 != java.lang.Double.TYPE) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x00dd, code lost:
+        if ((r1 instanceof java.lang.Number) == false) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00df, code lost:
+        r7.setDouble(r0, ((java.lang.Number) r1).doubleValue());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00ec, code lost:
+        if ((r1 instanceof java.lang.String) == false) goto L79;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00ee, code lost:
+        r1 = (java.lang.String) r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00f4, code lost:
+        if (r1.length() > 10) goto L78;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00f6, code lost:
+        r5 = com.alibaba.fastjson.util.TypeUtils.parseDouble(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00fb, code lost:
+        r5 = java.lang.Double.parseDouble(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x00ff, code lost:
+        r7.setDouble(r0, r5);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0104, code lost:
+        if (r1 == null) goto L62;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x010a, code lost:
+        if (r8 != r1.getClass()) goto L44;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x010c, code lost:
+        r7.set(r0, r1);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public Object createInstance(Map<String, Object> map, ParserConfig parserConfig) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        boolean z;
+        Constructor<?> constructor;
+        Integer num;
+        Object cast;
         JavaBeanInfo javaBeanInfo = this.beanInfo;
         if (javaBeanInfo.creatorConstructor == null && javaBeanInfo.factoryMethod == null) {
             Object createInstance = createInstance((DefaultJSONParser) null, this.clazz);
@@ -2051,7 +2476,26 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 Object value = entry.getValue();
                 FieldDeserializer smartMatch = smartMatch(entry.getKey());
                 if (smartMatch != null) {
-                    smartMatch.setValue(createInstance, TypeUtils.cast(value, smartMatch.fieldInfo.fieldType, parserConfig));
+                    FieldInfo fieldInfo = smartMatch.fieldInfo;
+                    Field field = fieldInfo.field;
+                    Type type = fieldInfo.fieldType;
+                    Class<?> cls = fieldInfo.fieldClass;
+                    JSONField annotation = fieldInfo.getAnnotation();
+                    if (fieldInfo.declaringClass != null && (!cls.isInstance(value) || (annotation != null && annotation.deserializeUsing() != Void.class))) {
+                        smartMatch.parseField(new DefaultJSONParser(JSON.toJSONString(value)), createInstance, type, null);
+                    } else {
+                        String str = fieldInfo.format;
+                        if (str != null && type == Date.class) {
+                            cast = TypeUtils.castToDate(value, str);
+                        } else if (str != null && (type instanceof Class) && ((Class) type).getName().equals("java.time.LocalDateTime")) {
+                            cast = Jdk8DateCodec.castToLocalDateTime(value, str);
+                        } else if (type instanceof ParameterizedType) {
+                            cast = TypeUtils.cast(value, (ParameterizedType) type, parserConfig);
+                        } else {
+                            cast = TypeUtils.cast(value, type, parserConfig);
+                        }
+                        smartMatch.setValue(createInstance, cast);
+                    }
                 }
             }
             Method method = this.beanInfo.buildMethod;
@@ -2067,46 +2511,93 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         FieldInfo[] fieldInfoArr = this.beanInfo.fields;
         int length = fieldInfoArr.length;
         Object[] objArr = new Object[length];
+        HashMap hashMap = null;
         for (int i = 0; i < length; i++) {
-            FieldInfo fieldInfo = fieldInfoArr[i];
-            char c2 = map.get(fieldInfo.name);
+            FieldInfo fieldInfo2 = fieldInfoArr[i];
+            char c2 = map.get(fieldInfo2.name);
             if (c2 == null) {
-                Class<?> cls = fieldInfo.fieldClass;
-                if (cls == Integer.TYPE) {
+                Class<?> cls2 = fieldInfo2.fieldClass;
+                if (cls2 == Integer.TYPE) {
                     c2 = 0;
-                } else if (cls == Long.TYPE) {
+                } else if (cls2 == Long.TYPE) {
                     c2 = 0L;
-                } else if (cls == Short.TYPE) {
+                } else if (cls2 == Short.TYPE) {
                     c2 = (short) 0;
-                } else if (cls == Byte.TYPE) {
+                } else if (cls2 == Byte.TYPE) {
                     c2 = (byte) 0;
-                } else if (cls == Float.TYPE) {
+                } else if (cls2 == Float.TYPE) {
                     c2 = Float.valueOf(0.0f);
-                } else if (cls == Double.TYPE) {
+                } else if (cls2 == Double.TYPE) {
                     c2 = Double.valueOf(0.0d);
-                } else if (cls == Character.TYPE) {
+                } else if (cls2 == Character.TYPE) {
                     c2 = '0';
-                } else if (cls == Boolean.TYPE) {
+                } else if (cls2 == Boolean.TYPE) {
                     c2 = Boolean.FALSE;
                 }
+                if (hashMap == null) {
+                    hashMap = new HashMap();
+                }
+                hashMap.put(fieldInfo2.name, Integer.valueOf(i));
             }
             objArr[i] = c2;
         }
+        if (hashMap != null) {
+            for (Map.Entry<String, Object> entry2 : map.entrySet()) {
+                Object value2 = entry2.getValue();
+                FieldDeserializer smartMatch2 = smartMatch(entry2.getKey());
+                if (smartMatch2 != null && (num = (Integer) hashMap.get(smartMatch2.fieldInfo.name)) != null) {
+                    objArr[num.intValue()] = value2;
+                }
+            }
+        }
         JavaBeanInfo javaBeanInfo2 = this.beanInfo;
-        Constructor<?> constructor = javaBeanInfo2.creatorConstructor;
-        if (constructor != null) {
+        if (javaBeanInfo2.creatorConstructor != null) {
+            if (javaBeanInfo2.f1649kotlin) {
+                z = false;
+                for (int i2 = 0; i2 < length; i2++) {
+                    Object obj = objArr[i2];
+                    if (obj == null) {
+                        FieldInfo[] fieldInfoArr2 = this.beanInfo.fields;
+                        if (fieldInfoArr2 != null && i2 < fieldInfoArr2.length && fieldInfoArr2[i2].fieldClass == String.class) {
+                            z = true;
+                        }
+                    } else {
+                        Class<?> cls3 = obj.getClass();
+                        FieldInfo[] fieldInfoArr3 = this.beanInfo.fields;
+                        if (cls3 != fieldInfoArr3[i2].fieldClass) {
+                            objArr[i2] = TypeUtils.cast(obj, (Class<Object>) fieldInfoArr3[i2].fieldClass, parserConfig);
+                        }
+                    }
+                }
+            } else {
+                z = false;
+            }
+            if (z && (constructor = this.beanInfo.kotlinDefaultConstructor) != null) {
+                try {
+                    Object newInstance = constructor.newInstance(new Object[0]);
+                    for (int i3 = 0; i3 < length; i3++) {
+                        Object obj2 = objArr[i3];
+                        if (obj2 != null && this.beanInfo.fields != null && i3 < this.beanInfo.fields.length) {
+                            this.beanInfo.fields[i3].set(newInstance, obj2);
+                        }
+                    }
+                    return newInstance;
+                } catch (Exception e3) {
+                    throw new JSONException("create instance error, " + this.beanInfo.creatorConstructor.toGenericString(), e3);
+                }
+            }
             try {
-                return constructor.newInstance(objArr);
-            } catch (Exception e3) {
-                throw new JSONException("create instance error, " + this.beanInfo.creatorConstructor.toGenericString(), e3);
+                return this.beanInfo.creatorConstructor.newInstance(objArr);
+            } catch (Exception e4) {
+                throw new JSONException("create instance error, " + this.beanInfo.creatorConstructor.toGenericString(), e4);
             }
         }
         Method method2 = javaBeanInfo2.factoryMethod;
         if (method2 != null) {
             try {
                 return method2.invoke(null, objArr);
-            } catch (Exception e4) {
-                throw new JSONException("create factory method error, " + this.beanInfo.factoryMethod.toString(), e4);
+            } catch (Exception e5) {
+                throw new JSONException("create factory method error, " + this.beanInfo.factoryMethod.toString(), e5);
             }
         }
         return null;

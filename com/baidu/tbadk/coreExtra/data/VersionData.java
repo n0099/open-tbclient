@@ -3,9 +3,8 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.TbConfig;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -131,7 +130,7 @@ public class VersionData implements Serializable {
             this.isOfficialVersion = jSONObject.optInt("android_is_official_version", 0) == 1;
             if (hasNewVersion()) {
                 this.hasNewVer = 1;
-                this.newFile = "tieba_" + this.newVer + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+                this.newFile = "tieba_" + this.newVer + ".apk";
             }
         } catch (Exception e2) {
             BdLog.detailException(e2);

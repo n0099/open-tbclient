@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.cache;
 
 import com.facebook.cache.common.CacheKey;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapMemoryCacheFactory {
     public static InstrumentedMemoryCache<CacheKey, CloseableImage> get(CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache, final ImageCacheStatsTracker imageCacheStatsTracker) {
         imageCacheStatsTracker.registerBitmapMemoryCache(countingMemoryCache);

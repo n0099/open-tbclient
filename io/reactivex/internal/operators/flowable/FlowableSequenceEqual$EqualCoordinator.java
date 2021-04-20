@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.u.a;
-import f.a.w.d;
-import f.a.x.c.f;
-import f.a.x.e.a.l;
+import f.b.u.a;
+import f.b.w.d;
+import f.b.x.c.f;
+import f.b.x.e.a.l;
 import g.d.b;
 import g.d.c;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
@@ -47,7 +47,7 @@ public final class FlowableSequenceEqual$EqualCoordinator<T> extends DeferredSca
         this.second.clear();
     }
 
-    @Override // f.a.x.e.a.l
+    @Override // f.b.x.e.a.l
     public void drain() {
         if (this.wip.getAndIncrement() != 0) {
             return;
@@ -136,12 +136,12 @@ public final class FlowableSequenceEqual$EqualCoordinator<T> extends DeferredSca
         } while (i != 0);
     }
 
-    @Override // f.a.x.e.a.l
+    @Override // f.b.x.e.a.l
     public void innerError(Throwable th) {
         if (this.error.addThrowable(th)) {
             drain();
         } else {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         }
     }
 

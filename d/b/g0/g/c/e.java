@@ -10,32 +10,32 @@ import org.json.JSONObject;
 public class e extends d.b.g0.a.b1.c.e.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f47943f = k.f45051a;
+    public static final boolean f48335f = k.f45443a;
 
     /* renamed from: d  reason: collision with root package name */
-    public EventTargetImpl f47944d;
+    public EventTargetImpl f48336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47945e;
+    public b f48337e;
 
     public e(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
         super(null, jSONObject);
-        this.f47944d = eventTargetImpl;
+        this.f48336d = eventTargetImpl;
     }
 
     @Override // d.b.g0.a.b1.c.e.a
     public void b(String str, JSONObject jSONObject) {
-        String optString = this.f43317b.optString(str);
-        b bVar = this.f47945e;
+        String optString = this.f43709b.optString(str);
+        b bVar = this.f48337e;
         if (bVar != null) {
             bVar.i(optString, jSONObject);
         }
-        if (this.f47944d.hasEventListener(optString)) {
+        if (this.f48336d.hasEventListener(optString)) {
             JSEvent jSEvent = new JSEvent(optString);
             if (jSONObject != null) {
                 jSEvent.data = jSONObject;
             }
-            if (f47943f && !"onTimeUpdate".equals(str)) {
+            if (f48335f && !"onTimeUpdate".equals(str)) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("type = ");
                 sb.append(str);
@@ -43,7 +43,7 @@ public class e extends d.b.g0.a.b1.c.e.a {
                 sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
                 Log.d("AudioCallbackForV8", sb.toString());
             }
-            this.f47944d.dispatchEvent(jSEvent);
+            this.f48336d.dispatchEvent(jSEvent);
         }
     }
 
@@ -53,6 +53,6 @@ public class e extends d.b.g0.a.b1.c.e.a {
     }
 
     public void e(b bVar) {
-        this.f47945e = bVar;
+        this.f48337e = bVar;
     }
 }

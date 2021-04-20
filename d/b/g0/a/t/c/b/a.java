@@ -14,8 +14,8 @@ public class a extends d {
 
     /* renamed from: d.b.g0.a.t.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0797a implements d.b {
-        public C0797a() {
+    public class C0809a implements d.b {
+        public C0809a() {
         }
 
         @Override // d.b.g0.a.t.b.d.b
@@ -34,34 +34,34 @@ public class a extends d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f45948e;
+        public final /* synthetic */ e f46340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45949f;
+        public final /* synthetic */ String f46341f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45950g;
+        public final /* synthetic */ String f46342g;
 
         public b(e eVar, String str, String str2) {
-            this.f45948e = eVar;
-            this.f45949f = str;
-            this.f45950g = str2;
+            this.f46340e = eVar;
+            this.f46341f = str;
+            this.f46342g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f45948e.h0(this.f45949f) && this.f45948e.g0(this.f45949f)) {
+            if (this.f46340e.h0(this.f46341f) && this.f46340e.g0(this.f46341f)) {
                 d.b.g0.a.c0.c.g("Api-LoadSubPackage", "subPackage have existed");
-                a.this.c(this.f45950g, new d.b.g0.a.t.e.b(1001, "subPackage have existed"));
+                a.this.c(this.f46342g, new d.b.g0.a.t.e.b(1001, "subPackage have existed"));
                 return;
             }
-            String E = this.f45948e.E(this.f45949f);
+            String E = this.f46340e.E(this.f46341f);
             if (!TextUtils.isEmpty(E)) {
-                a.this.s(this.f45948e, this.f45949f, E, this.f45950g);
+                a.this.s(this.f46340e, this.f46341f, E, this.f46342g);
                 return;
             }
             d.b.g0.a.c0.c.g("Api-LoadSubPackage", "subPackage cannot find aps key");
-            a.this.c(this.f45950g, new d.b.g0.a.t.e.b(202));
+            a.this.c(this.f46342g, new d.b.g0.a.t.e.b(202));
         }
     }
 
@@ -69,22 +69,22 @@ public class a extends d {
     public class c implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45952a;
+        public final /* synthetic */ String f46344a;
 
         public c(String str) {
-            this.f45952a = str;
+            this.f46344a = str;
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void a(String str) {
             d.b.g0.a.c0.c.g("Api-LoadSubPackage", "preload subPackage success");
-            a.this.c(this.f45952a, new d.b.g0.a.t.e.b(0, "preload subPackage success"));
+            a.this.c(this.f46344a, new d.b.g0.a.t.e.b(0, "preload subPackage success"));
         }
 
         @Override // d.b.g0.a.t1.k.p0.g.d
         public void b(int i) {
             d.b.g0.a.c0.c.b("Api-LoadSubPackage", "preload subPackage failed");
-            a.this.c(this.f45952a, new d.b.g0.a.t.e.b(202, "No SubPackage"));
+            a.this.c(this.f46344a, new d.b.g0.a.t.e.b(202, "No SubPackage"));
         }
     }
 
@@ -93,7 +93,7 @@ public class a extends d {
     }
 
     public final void s(e eVar, String str, String str2, @Nullable String str3) {
-        g.c(eVar.f45740f, eVar.W(), str, str2, null, new c(str3));
+        g.c(eVar.f46132f, eVar.W(), str, str2, null, new c(str3));
     }
 
     public final void t(e eVar, String str, @Nullable String str2) {
@@ -101,9 +101,9 @@ public class a extends d {
     }
 
     public d.b.g0.a.t.e.b u(String str) {
-        if (d.f45929c) {
+        if (d.f46321c) {
             Log.d("Api-LoadSubPackage", "start pre load sub package");
         }
-        return i(str, true, new C0797a());
+        return i(str, true, new C0809a());
     }
 }

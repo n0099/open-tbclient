@@ -12,34 +12,34 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static final String TYPE = "trun";
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_13 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_14 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_15 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_16 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_17 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_18 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_19 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1859a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_13 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_14 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_15 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_16 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_17 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_18 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_19 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_9 = null;
     public int dataOffset;
     public List<Entry> entries;
     public SampleFlags firstSampleFlags;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public long sampleCompositionTimeOffset;
         public long sampleDuration;
@@ -121,7 +121,7 @@ public class TrackRunBox extends AbstractFullBox {
         ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "isDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 246);
         ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "isFirstSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 250);
         ajc$tjp_6 = bVar.g("method-execution", bVar.f("1", "isSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 255);
-        ajc$tjp_7 = bVar.g("method-execution", bVar.f("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), PayBeanFactory.BEAN_ID_MODIFY_MOBILE_PWD);
+        ajc$tjp_7 = bVar.g("method-execution", bVar.f("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 259);
         ajc$tjp_8 = bVar.g("method-execution", bVar.f("1", "isSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), PayBeanFactory.BEAN_ID_CREDIT_PAY);
         ajc$tjp_9 = bVar.g("method-execution", bVar.f("1", "isSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 267);
     }

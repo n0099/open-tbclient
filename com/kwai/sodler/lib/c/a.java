@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -39,7 +38,7 @@ public final class a {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             StringBuilder sb = new StringBuilder(32);
-            byte[] bArr = new byte[LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP];
+            byte[] bArr = new byte[102400];
             while (true) {
                 int read = bufferedInputStream.read(bArr);
                 if (read == -1) {

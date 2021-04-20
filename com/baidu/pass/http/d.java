@@ -21,22 +21,22 @@ import java.util.Random;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9756a = "PassHttpClientRequest";
+    public static final String f9314a = "PassHttpClientRequest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9757b = "Set-Cookie";
+    public static final String f9315b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f9758c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public static final char[] f9316c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9759d = "User-Agent";
+    public static final String f9317d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9760e = 15000;
+    public static final int f9318e = 15000;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f9763h;
+    public Context f9321h;
     public HttpResponseHandler i;
     public PassHttpParamDTO j;
     public Method k;
@@ -44,16 +44,16 @@ public class d implements Runnable {
     public Thread m;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9761f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+    public String f9319f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9762g = false;
+    public boolean f9320g = false;
     public volatile boolean n = false;
     public volatile boolean o = false;
 
     public d(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
         this.k = method;
-        this.f9763h = context;
+        this.f9321h = context;
         this.j = passHttpParamDTO;
         this.i = httpResponseHandler;
         c();
@@ -120,15 +120,15 @@ public class d implements Runnable {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            char[] cArr = f9758c;
+            char[] cArr = f9316c;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        this.f9761f = sb.toString();
+        this.f9319f = sb.toString();
     }
 
     private void d() throws IOException, InterruptedException, IllegalArgumentException {
         byte[] bArr;
-        int i = c.f9755a[this.k.ordinal()];
+        int i = c.f9313a[this.k.ordinal()];
         if (i == 1) {
             String a2 = a(this.j.paramsMap);
             if (!TextUtils.isEmpty(a2)) {
@@ -152,7 +152,7 @@ public class d implements Runnable {
         a(this.l, this.j.connectTimeout);
         a(this.l, this.j.userAgent);
         a(this.l, this.j.headers);
-        e.b(this.f9763h, this.l, this.j);
+        e.b(this.f9321h, this.l, this.j);
         if (bArr != null) {
             OutputStream outputStream = this.l.getOutputStream();
             outputStream.write(bArr);
@@ -163,10 +163,10 @@ public class d implements Runnable {
         int responseCode = this.l.getResponseCode();
         byte[] a3 = a(inputStream);
         if (a3 != null) {
-            f.a(f9756a, "responseBody:" + new String(a3));
+            f.a(f9314a, "responseBody:" + new String(a3));
         }
         HashMap<String, String> a4 = a(this.l);
-        e.a(this.f9763h, this.l, this.j);
+        e.a(this.f9321h, this.l, this.j);
         HttpResponseHandler httpResponseHandler = this.i;
         if (httpResponseHandler != null) {
             httpResponseHandler.b(responseCode, a4, a3);
@@ -231,13 +231,13 @@ public class d implements Runnable {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            char[] cArr = f9758c;
+            char[] cArr = f9316c;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        byte[] bytes = ("\r\n--" + this.f9761f + Part.CRLF).getBytes();
-        if (!this.f9762g) {
-            this.f9762g = true;
-            byteArrayOutputStream.write(("--" + this.f9761f + Part.CRLF).getBytes());
+        byte[] bytes = ("\r\n--" + this.f9319f + Part.CRLF).getBytes();
+        if (!this.f9320g) {
+            this.f9320g = true;
+            byteArrayOutputStream.write(("--" + this.f9319f + Part.CRLF).getBytes());
             return;
         }
         byteArrayOutputStream.write(bytes);
@@ -351,7 +351,7 @@ public class d implements Runnable {
     private byte[] a(HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) throws IOException {
         HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
         if (httpHashMap instanceof MultipartHashMap) {
-            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9761f);
+            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9319f);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
             if (httpHashMap2 != null) {
@@ -362,7 +362,7 @@ public class d implements Runnable {
                 }
             }
             MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-            a(byteArrayOutputStream, aVar.f9746a, aVar.f9747b, aVar.f9749d, aVar.f9748c);
+            a(byteArrayOutputStream, aVar.f9304a, aVar.f9305b, aVar.f9307d, aVar.f9306c);
             a(byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (httpHashMap instanceof HttpHashMap) {

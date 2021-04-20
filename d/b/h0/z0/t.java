@@ -55,12 +55,12 @@ public class t {
         if (a2Var == null) {
             return;
         }
-        if (d.b.h0.b.d.I()) {
+        if (d.b.h0.b.d.K()) {
             a(true, context, a2Var, str4);
-        } else if (d.b.h0.b.d.K()) {
+        } else if (d.b.h0.b.d.M()) {
             a2Var.n();
             f(true, context, a2Var, i2, rect, str, str2, str3, str4, str5);
-        } else if (d.b.h0.b.d.N()) {
+        } else if (d.b.h0.b.d.P()) {
             ThreadCardUtils.jumpToPB(a2Var.r1, context, i);
         } else if (z) {
             a2Var.n();
@@ -74,9 +74,9 @@ public class t {
         if (a2Var == null) {
             return;
         }
-        if (d.b.h0.b.d.H()) {
+        if (d.b.h0.b.d.J()) {
             a(true, context, a2Var, str4);
-        } else if (d.b.h0.b.d.J()) {
+        } else if (d.b.h0.b.d.L()) {
             a2Var.n();
             f(true, context, a2Var, i2, rect, str, str2, str3, str4, str5);
         } else {

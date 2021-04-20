@@ -7,7 +7,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.i0.i;
 /* loaded from: classes4.dex */
 public class SelectForumActivity extends SuspendedActivity {

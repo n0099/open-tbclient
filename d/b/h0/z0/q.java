@@ -30,28 +30,28 @@ import java.util.UUID;
 public class q extends BdAsyncTask<String, String, b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f51732a;
+    public Activity f52156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51733b;
+    public String f52157b;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f51735d;
+    public a f52159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51736e;
+    public String f52160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51737f;
+    public String f52161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f51738g;
+    public File f52162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51739h;
+    public boolean f52163h;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51734c = 0;
+    public int f52158c = 0;
     public boolean i = true;
     public boolean j = false;
 
@@ -66,42 +66,42 @@ public class q extends BdAsyncTask<String, String, b> {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f51740a;
+        public boolean f52164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51741b;
+        public String f52165b;
 
         public b(q qVar, boolean z, String str) {
-            this.f51740a = z;
-            this.f51741b = str;
+            this.f52164a = z;
+            this.f52165b = str;
         }
 
         public String a() {
-            return this.f51741b;
+            return this.f52165b;
         }
 
         public boolean b() {
-            return this.f51740a;
+            return this.f52164a;
         }
     }
 
     public q(Activity activity, String str, a aVar) {
-        this.f51732a = activity;
-        this.f51733b = str;
-        this.f51735d = aVar;
+        this.f52156a = activity;
+        this.f52157b = str;
+        this.f52159d = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public b doInBackground(String... strArr) {
-        if (TextUtils.isEmpty(this.f51733b)) {
+        if (TextUtils.isEmpty(this.f52157b)) {
             return new b(this, false, "url is null");
         }
         if (!j()) {
             return new b(this, false, "make file error");
         }
-        if (!this.f51739h) {
+        if (!this.f52163h) {
             if (!d()) {
                 return new b(this, false, "download error");
             }
@@ -112,8 +112,8 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public final boolean c(String str, String str2, int i) {
-        int b2 = d.b.b.c.j.b.d().b().b();
-        int b3 = d.b.b.c.j.b.d().c().b();
+        int b2 = d.b.c.c.j.b.d().b().b();
+        int b3 = d.b.c.c.j.b.d().c().b();
         boolean z = false;
         for (int i2 = 0; i2 < i; i2++) {
             try {
@@ -127,7 +127,7 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public final boolean d() {
-        return c(this.f51733b, this.f51737f, 3);
+        return c(this.f52157b, this.f52161f, 3);
     }
 
     public final HttpURLConnection e(URL url, int i, int i2) throws SocketException, ProtocolException {
@@ -138,9 +138,9 @@ public class q extends BdAsyncTask<String, String, b> {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (d.b.b.e.p.j.z()) {
-            if (d.b.b.e.p.j.x() && (c2 = d.b.b.e.p.j.c()) != null && c2.length() > 0) {
-                if (d.b.b.e.p.j.F(c2) && d.b.b.e.p.j.D()) {
+        if (d.b.c.e.p.j.z()) {
+            if (d.b.c.e.p.j.x() && (c2 = d.b.c.e.p.j.c()) != null && c2.length() > 0) {
+                if (d.b.c.e.p.j.F(c2) && d.b.c.e.p.j.D()) {
                     StringBuilder sb = new StringBuilder(80);
                     sb.append("http://");
                     sb.append(c2);
@@ -151,7 +151,7 @@ public class q extends BdAsyncTask<String, String, b> {
                     sb.append(file);
                     httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                 } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, d.b.b.e.p.j.d())));
+                    httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, d.b.c.e.p.j.d())));
                 }
                 httpURLConnection2 = httpURLConnection;
             }
@@ -223,12 +223,12 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public final File g(String str) {
-        d.b.b.e.p.f.k(str);
+        d.b.c.e.p.f.k(str);
         return new File(str);
     }
 
     public q h(boolean z) {
-        this.f51739h = z;
+        this.f52163h = z;
         return this;
     }
 
@@ -257,7 +257,7 @@ public class q extends BdAsyncTask<String, String, b> {
     public final boolean j() {
         File externalStoragePublicDirectory;
         try {
-            if (this.f51734c == 1) {
+            if (this.f52158c == 1) {
                 FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
                 FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/");
                 FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/.nomedia/");
@@ -267,27 +267,27 @@ public class q extends BdAsyncTask<String, String, b> {
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
                 String absolutePath = externalStoragePublicDirectory.getAbsolutePath();
-                this.f51736e = absolutePath;
-                if (!TextUtils.isEmpty(absolutePath) && !this.f51736e.endsWith("/")) {
-                    this.f51736e += "/";
+                this.f52160e = absolutePath;
+                if (!TextUtils.isEmpty(absolutePath) && !this.f52160e.endsWith("/")) {
+                    this.f52160e += "/";
                 }
             } else {
-                this.f51736e = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.f52160e = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.f51736e);
+            File file = new File(this.f52160e);
             if (!file.exists()) {
                 file.mkdir();
             }
-            this.f51737f = this.f51736e + (this.f51734c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(this.f51733b);
-            File file2 = new File(this.f51737f);
-            this.f51738g = file2;
+            this.f52161f = this.f52160e + (this.f52158c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(this.f52157b);
+            File file2 = new File(this.f52161f);
+            this.f52162g = file2;
             if (file2.exists()) {
-                this.f51738g.delete();
+                this.f52162g.delete();
             }
-            if (this.f51738g.exists()) {
+            if (this.f52162g.exists()) {
                 return true;
             }
-            this.f51738g.createNewFile();
+            this.f52162g.createNewFile();
             return true;
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -296,8 +296,8 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public final void k() {
-        if (this.f51738g != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.f51738g)));
+        if (this.f52162g != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.f52162g)));
         }
     }
 
@@ -307,26 +307,26 @@ public class q extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            a aVar = this.f51735d;
+            a aVar = this.f52159d;
             if (aVar != null) {
                 aVar.onError(-2, "error");
             }
         } else if (!bVar.b()) {
-            a aVar2 = this.f51735d;
+            a aVar2 = this.f52159d;
             if (aVar2 != null) {
                 aVar2.onError(-1, bVar.a());
             }
         } else {
-            if (this.j && i(new File(this.f51737f))) {
-                String replace = this.f51737f.replace(f(this.f51737f), ".gif");
-                this.f51738g.renameTo(new File(replace));
-                this.f51737f = replace;
-                this.f51738g = new File(this.f51737f);
+            if (this.j && i(new File(this.f52161f))) {
+                String replace = this.f52161f.replace(f(this.f52161f), ".gif");
+                this.f52162g.renameTo(new File(replace));
+                this.f52161f = replace;
+                this.f52162g = new File(this.f52161f);
             }
             k();
-            a aVar3 = this.f51735d;
+            a aVar3 = this.f52159d;
             if (aVar3 != null) {
-                aVar3.onSuccess(this.f51737f);
+                aVar3.onSuccess(this.f52161f);
             }
         }
     }
@@ -345,24 +345,24 @@ public class q extends BdAsyncTask<String, String, b> {
                     responseCode = httpURLConnection.getResponseCode();
                     if (responseCode == 302) {
                         String headerField = httpURLConnection.getHeaderField("Location");
-                        d.b.b.e.m.a.e(httpURLConnection);
+                        d.b.c.e.m.a.e(httpURLConnection);
                         try {
-                            if (this.f51738g != null) {
-                                this.f51738g.delete();
+                            if (this.f52162g != null) {
+                                this.f52162g.delete();
                             }
                         } catch (Exception unused) {
                         }
-                        this.f51737f = this.f51736e + (this.f51734c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(headerField);
-                        File file = new File(this.f51737f);
-                        this.f51738g = file;
+                        this.f52161f = this.f52160e + (this.f52158c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(headerField);
+                        File file = new File(this.f52161f);
+                        this.f52162g = file;
                         if (file.exists()) {
-                            this.f51738g.delete();
+                            this.f52162g.delete();
                         }
-                        if (!this.f51738g.exists()) {
-                            this.f51738g.createNewFile();
+                        if (!this.f52162g.exists()) {
+                            this.f52162g.createNewFile();
                         }
-                        d.b.b.e.m.a.d(fileOutputStream);
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(this.f51738g, true);
+                        d.b.c.e.m.a.d(fileOutputStream);
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(this.f52162g, true);
                         try {
                             httpURLConnection = e(new URL(headerField), i, i2);
                             httpURLConnection.connect();
@@ -387,7 +387,7 @@ public class q extends BdAsyncTask<String, String, b> {
         }
         if (responseCode == 200) {
             String headerField2 = httpURLConnection.getHeaderField("Content-Length");
-            if ((headerField2 != null ? d.b.b.e.m.b.d(headerField2, 0) : 0) != 0 || !this.i) {
+            if ((headerField2 != null ? d.b.c.e.m.b.d(headerField2, 0) : 0) != 0 || !this.i) {
                 inputStream = httpURLConnection.getInputStream();
                 byte[] bArr = new byte[1024];
                 while (true) {
@@ -401,32 +401,32 @@ public class q extends BdAsyncTask<String, String, b> {
                     } else {
                         try {
                             fileOutputStream.flush();
-                            d.b.b.e.m.a.c(inputStream);
-                            d.b.b.e.m.a.e(httpURLConnection);
-                            d.b.b.e.m.a.d(fileOutputStream);
+                            d.b.c.e.m.a.c(inputStream);
+                            d.b.c.e.m.a.e(httpURLConnection);
+                            d.b.c.e.m.a.d(fileOutputStream);
                             return true;
                         } catch (Exception unused3) {
                             throw new FileNotFoundException();
                         }
                     }
                     th = th2;
-                    d.b.b.e.m.a.c(inputStream);
-                    d.b.b.e.m.a.e(httpURLConnection);
-                    d.b.b.e.m.a.d(fileOutputStream);
+                    d.b.c.e.m.a.c(inputStream);
+                    d.b.c.e.m.a.e(httpURLConnection);
+                    d.b.c.e.m.a.d(fileOutputStream);
                     throw th;
                 }
             }
         }
-        d.b.b.e.m.a.c(null);
-        d.b.b.e.m.a.e(httpURLConnection);
-        d.b.b.e.m.a.d(fileOutputStream);
+        d.b.c.e.m.a.c(null);
+        d.b.c.e.m.a.e(httpURLConnection);
+        d.b.c.e.m.a.d(fileOutputStream);
         return false;
     }
 
     public final boolean n() {
         FileOutputStream fileOutputStream;
-        String str = this.f51733b;
-        byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.f51733b.length()), 0);
+        String str = this.f52157b;
+        byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.f52157b.length()), 0);
         for (int i = 0; i < decode.length; i++) {
             if (decode[i] < 0) {
                 decode[i] = (byte) (decode[i] + 256);
@@ -435,7 +435,7 @@ public class q extends BdAsyncTask<String, String, b> {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                fileOutputStream = new FileOutputStream(this.f51738g, true);
+                fileOutputStream = new FileOutputStream(this.f52162g, true);
             } catch (Throwable th) {
                 th = th;
             }
@@ -445,18 +445,18 @@ public class q extends BdAsyncTask<String, String, b> {
         try {
             fileOutputStream.write(decode);
             fileOutputStream.flush();
-            d.b.b.e.m.a.d(fileOutputStream);
+            d.b.c.e.m.a.d(fileOutputStream);
             return true;
         } catch (Exception e3) {
             e = e3;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
-            d.b.b.e.m.a.d(fileOutputStream2);
+            d.b.c.e.m.a.d(fileOutputStream2);
             return false;
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream2 = fileOutputStream;
-            d.b.b.e.m.a.d(fileOutputStream2);
+            d.b.c.e.m.a.d(fileOutputStream2);
             throw th;
         }
     }
@@ -466,7 +466,7 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public void p(int i) {
-        this.f51734c = i;
+        this.f52158c = i;
     }
 
     public void q(boolean z) {

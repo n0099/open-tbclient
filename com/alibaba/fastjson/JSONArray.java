@@ -1,8 +1,12 @@
 package com.alibaba.fastjson;
 
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.util.TypeUtils;
+import java.io.IOException;
+import java.io.NotActiveException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -14,6 +18,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.RandomAccess;
 /* loaded from: classes.dex */
 public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAccess, Serializable {
@@ -26,13 +31,33 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         this.list = new ArrayList();
     }
 
+    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+        JSONObject.SecureObjectInputStream.ensureFields();
+        if (JSONObject.SecureObjectInputStream.fields != null && !JSONObject.SecureObjectInputStream.fields_error) {
+            try {
+                new JSONObject.SecureObjectInputStream(objectInputStream).defaultReadObject();
+                return;
+            } catch (NotActiveException unused) {
+            }
+        }
+        objectInputStream.defaultReadObject();
+        for (Object obj : this.list) {
+            if (obj != null) {
+                String name = obj.getClass().getName();
+                if (TypeUtils.getClassFromMapping(name) == null) {
+                    ParserConfig.global.checkAutoType(name, null);
+                }
+            }
+        }
+    }
+
     @Override // java.util.List, java.util.Collection
     public boolean add(Object obj) {
         return this.list.add(obj);
     }
 
     @Override // java.util.List, java.util.Collection
-    public boolean addAll(Collection<? extends Object> collection) {
+    public boolean addAll(Collection<?> collection) {
         return this.list.addAll(collection);
     }
 
@@ -65,7 +90,7 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         return this;
     }
 
-    public JSONArray fluentAddAll(Collection<? extends Object> collection) {
+    public JSONArray fluentAddAll(Collection<?> collection) {
         this.list.addAll(collection);
         return this;
     }
@@ -129,11 +154,11 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     public byte getByteValue(int i) {
-        Object obj = get(i);
-        if (obj == null) {
+        Byte castToByte = TypeUtils.castToByte(get(i));
+        if (castToByte == null) {
             return (byte) 0;
         }
-        return TypeUtils.castToByte(obj).byteValue();
+        return castToByte.byteValue();
     }
 
     public Type getComponentType() {
@@ -149,11 +174,11 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     public double getDoubleValue(int i) {
-        Object obj = get(i);
-        if (obj == null) {
+        Double castToDouble = TypeUtils.castToDouble(get(i));
+        if (castToDouble == null) {
             return 0.0d;
         }
-        return TypeUtils.castToDouble(obj).doubleValue();
+        return castToDouble.doubleValue();
     }
 
     public Float getFloat(int i) {
@@ -161,19 +186,19 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     public float getFloatValue(int i) {
-        Object obj = get(i);
-        if (obj == null) {
+        Float castToFloat = TypeUtils.castToFloat(get(i));
+        if (castToFloat == null) {
             return 0.0f;
         }
-        return TypeUtils.castToFloat(obj).floatValue();
+        return castToFloat.floatValue();
     }
 
     public int getIntValue(int i) {
-        Object obj = get(i);
-        if (obj == null) {
+        Integer castToInt = TypeUtils.castToInt(get(i));
+        if (castToInt == null) {
             return 0;
         }
-        return TypeUtils.castToInt(obj).intValue();
+        return castToInt.intValue();
     }
 
     public Integer getInteger(int i) {
@@ -185,6 +210,9 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         if (obj instanceof JSONArray) {
             return (JSONArray) obj;
         }
+        if (obj instanceof List) {
+            return new JSONArray((List) obj);
+        }
         return (JSONArray) JSON.toJSON(obj);
     }
 
@@ -192,6 +220,9 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         Object obj = this.list.get(i);
         if (obj instanceof JSONObject) {
             return (JSONObject) obj;
+        }
+        if (obj instanceof Map) {
+            return new JSONObject((Map) obj);
         }
         return (JSONObject) JSON.toJSON(obj);
     }
@@ -201,11 +232,11 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     public long getLongValue(int i) {
-        Object obj = get(i);
-        if (obj == null) {
+        Long castToLong = TypeUtils.castToLong(get(i));
+        if (castToLong == null) {
             return 0L;
         }
-        return TypeUtils.castToLong(obj).longValue();
+        return castToLong.longValue();
     }
 
     public <T> T getObject(int i, Class<T> cls) {
@@ -221,11 +252,11 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     public short getShortValue(int i) {
-        Object obj = get(i);
-        if (obj == null) {
+        Short castToShort = TypeUtils.castToShort(get(i));
+        if (castToShort == null) {
             return (short) 0;
         }
-        return TypeUtils.castToShort(obj).shortValue();
+        return castToShort.shortValue();
     }
 
     public java.sql.Date getSqlDate(int i) {
@@ -339,6 +370,7 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         this.list.add(i, obj);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.util.Collection<?>] */
     @Override // java.util.List
     public boolean addAll(int i, Collection<? extends Object> collection) {
         return this.list.addAll(i, collection);
@@ -349,7 +381,7 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         return this;
     }
 
-    public JSONArray fluentAddAll(int i, Collection<? extends Object> collection) {
+    public JSONArray fluentAddAll(int i, Collection<?> collection) {
         this.list.addAll(i, collection);
         return this;
     }
@@ -375,7 +407,11 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     public JSONArray(List<Object> list) {
-        this.list = list;
+        if (list != null) {
+            this.list = list;
+            return;
+        }
+        throw new IllegalArgumentException("list is null.");
     }
 
     public <T> T getObject(int i, Type type) {

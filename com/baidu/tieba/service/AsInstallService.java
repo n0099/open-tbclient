@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import d.b.i0.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AsInstallService extends BdBaseService {
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
     public static final String SCHEME_PACKAGE_ADDED = "package";
@@ -25,7 +25,7 @@ public class AsInstallService extends BdBaseService {
     public Runnable mStopReceivingRunnable;
     public VersionData mVersionData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -36,7 +36,7 @@ public class AsInstallService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends BroadcastReceiver {
         public b() {
         }

@@ -27,14 +27,14 @@ public abstract class b extends a0 {
         if (eVar == null) {
             d.b.g0.a.c0.c.b("componentFullScreen", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.b.g0.a.c0.c.b("componentFullScreen", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
             }
             return false;
@@ -66,12 +66,12 @@ public abstract class b extends a0 {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 }
-                d.b.g0.a.s0.j.b y0 = ((SwanAppWebViewManager) j).y0();
-                if (y0 == null) {
+                d.b.g0.a.s0.j.b z0 = ((SwanAppWebViewManager) j).z0();
+                if (z0 == null) {
                     d.b.g0.a.c0.c.b("componentFullScreen", "cant get CustomViewHelper");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
-                } else if (!j(unitedSchemeEntity, y0, arrayList)) {
+                } else if (!j(unitedSchemeEntity, z0, arrayList)) {
                     d.b.g0.a.c0.c.b("componentFullScreen", "custom view handle fail");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

@@ -31,7 +31,7 @@ public class a extends b<PMSAppInfo> {
             return contentValues;
         }
         contentValues.put(Constants.APP_ID, pMSAppInfo.appId);
-        contentValues.put(com.alipay.sdk.cons.b.f1858h, pMSAppInfo.appKey);
+        contentValues.put(com.alipay.sdk.cons.b.f1883h, pMSAppInfo.appKey);
         contentValues.put("app_sign", Long.valueOf(pMSAppInfo.appSign));
         contentValues.put("version_code", Long.valueOf(pMSAppInfo.versionCode));
         contentValues.put("version_name", pMSAppInfo.versionName);
@@ -93,7 +93,7 @@ public class a extends b<PMSAppInfo> {
     public final PMSAppInfo h(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex(Constants.APP_ID);
-            int columnIndex2 = cursor.getColumnIndex(com.alipay.sdk.cons.b.f1858h);
+            int columnIndex2 = cursor.getColumnIndex(com.alipay.sdk.cons.b.f1883h);
             int columnIndex3 = cursor.getColumnIndex("app_sign");
             int columnIndex4 = cursor.getColumnIndex("version_code");
             int columnIndex5 = cursor.getColumnIndex("version_name");

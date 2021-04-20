@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class f implements d.b.g0.a.e1.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c> f43207e;
+    public ArrayList<c> f43599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43208f = 0;
+    public int f43600f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f43209g = 0.0f;
+    public float f43601g = 0.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43210h = false;
+    public boolean f43602h = false;
 
     @Override // d.b.g0.a.e1.a
     public void a(JSONObject jSONObject) throws JSONException {
@@ -25,25 +25,25 @@ public class f implements d.b.g0.a.e1.a {
             JSONArray optJSONArray = jSONObject.optJSONArray("points");
             int length = optJSONArray == null ? 0 : optJSONArray.length();
             if (length > 0) {
-                this.f43207e = new ArrayList<>(length);
+                this.f43599e = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         c cVar = new c();
                         cVar.a(optJSONObject);
                         if (cVar.isValid()) {
-                            this.f43207e.add(cVar);
+                            this.f43599e.add(cVar);
                         }
                     }
                 }
             }
-            ArrayList<c> arrayList = this.f43207e;
+            ArrayList<c> arrayList = this.f43599e;
             if (arrayList == null || arrayList.size() <= 0) {
                 return;
             }
-            this.f43208f = d.b.g0.a.a1.c.d.a(jSONObject.optString("color"), 0);
-            this.f43209g = Math.abs(d.b.g0.a.a1.c.d.b(jSONObject.optDouble("width", 0.0d)));
-            this.f43210h = jSONObject.optBoolean("dottedLine", false);
+            this.f43600f = d.b.g0.a.a1.c.d.a(jSONObject.optString("color"), 0);
+            this.f43601g = Math.abs(d.b.g0.a.a1.c.d.b(jSONObject.optDouble("width", 0.0d)));
+            this.f43602h = jSONObject.optBoolean("dottedLine", false);
             jSONObject.optBoolean("arrowLine", false);
             jSONObject.optString("arrowIconPath");
             d.b.g0.a.a1.c.d.a(jSONObject.optString("borderColor"), 0);
@@ -53,7 +53,7 @@ public class f implements d.b.g0.a.e1.a {
 
     @Override // d.b.g0.a.e1.a
     public boolean isValid() {
-        ArrayList<c> arrayList = this.f43207e;
+        ArrayList<c> arrayList = this.f43599e;
         return arrayList != null && arrayList.size() > 0;
     }
 }

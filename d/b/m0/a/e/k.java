@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class k extends d.b.m0.a.f.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f64092e;
+    public static String f64820e;
 
     public static void b(c.h hVar, c.l lVar, c.j jVar, c.b bVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
         hVar.b(list2.size() != 0 ? list2.get(list2.size() - 1).getId() : 0);
@@ -28,17 +28,17 @@ public final class k extends d.b.m0.a.f.c {
     @Override // d.b.m0.a.f.c
     public final void a() {
         d dVar;
-        dVar = d.a.f64071a;
+        dVar = d.a.f64799a;
         if (dVar.a().size() == 0) {
             d.b.m0.a.f.a.b(" 线程轮询  app 应该是退出了");
         }
-        if (f64092e == null && Environment.getExternalStorageState().equals("mounted")) {
+        if (f64820e == null && Environment.getExternalStorageState().equals("mounted")) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
             stringBuffer.append("/baidu/ab/");
             stringBuffer.append(i.l(d.b.m0.a.c.i().g()));
             stringBuffer.append("/");
-            f64092e = stringBuffer.toString();
+            f64820e = stringBuffer.toString();
         }
         c.h hVar = new c.h();
         c.l lVar = new c.l();
@@ -94,7 +94,7 @@ public final class k extends d.b.m0.a.f.c {
         aVar.o(i.n());
         aVar.p(i.a());
         int f2 = i.f(d.b.m0.a.c.i().g());
-        aVar.l(f2 == 1 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : f2 == 2 ? "2G" : f2 == 3 ? com.baidu.apollon.statistics.g.f3874b : f2 == 4 ? "4G" : f2 == 5 ? "unKnow" : "noNet");
+        aVar.l(f2 == 1 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : f2 == 2 ? "2G" : f2 == 3 ? com.baidu.apollon.statistics.g.f3909b : f2 == 4 ? "4G" : f2 == 5 ? "unKnow" : "noNet");
         d.b.m0.a.c.i();
         aVar.setPhone("");
         bVar2.a(aVar);
@@ -103,7 +103,7 @@ public final class k extends d.b.m0.a.f.c {
         bVar2.b(d2);
         bVar2.d(a3);
         String a5 = d.b.m0.a.f.g.a(bVar2);
-        String e3 = d.b.m0.a.f.f.e(f64092e, "ABJson.log");
+        String e3 = d.b.m0.a.f.f.e(f64820e, "ABJson.log");
         if (!e3.equals("")) {
             StringBuffer stringBuffer2 = new StringBuffer();
             stringBuffer2.append("[");
@@ -112,7 +112,7 @@ public final class k extends d.b.m0.a.f.c {
             stringBuffer2.append("]");
             if (d.b.m0.a.d.a.a(d.b.m0.a.c.i().g(), stringBuffer2.toString())) {
                 d.b.m0.a.f.a.b("上传成功，删除本地文件的       ");
-                d.b.m0.a.f.f.b(f64092e + "ABJson.log");
+                d.b.m0.a.f.f.b(f64820e + "ABJson.log");
                 b(hVar, lVar, jVar, bVar, a3, a2, a4);
                 return;
             }
@@ -123,7 +123,7 @@ public final class k extends d.b.m0.a.f.c {
             if (d.b.m0.a.d.a.a(d.b.m0.a.c.i().g(), stringBuffer3.toString())) {
                 b(hVar, lVar, jVar, bVar, a3, a2, a4);
                 return;
-            } else if (d.b.m0.a.f.f.d(a5, f64092e, "ABJson.log")) {
+            } else if (d.b.m0.a.f.f.d(a5, f64820e, "ABJson.log")) {
                 b(hVar, lVar, jVar, bVar, a3, a2, a4);
                 return;
             } else {
@@ -136,7 +136,7 @@ public final class k extends d.b.m0.a.f.c {
         stringBuffer4.append("]");
         if (d.b.m0.a.d.a.a(d.b.m0.a.c.i().g(), stringBuffer4.toString())) {
             b(hVar, lVar, jVar, bVar, a3, a2, a4);
-        } else if (d.b.m0.a.f.f.d(a5, f64092e, "ABJson.log")) {
+        } else if (d.b.m0.a.f.f.d(a5, f64820e, "ABJson.log")) {
             b(hVar, lVar, jVar, bVar, a3, a2, a4);
         }
     }

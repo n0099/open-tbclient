@@ -17,18 +17,18 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.p.l;
-import d.b.i0.e2.j.b;
-import d.b.i0.f2.e.h;
+import d.b.c.e.p.l;
+import d.b.i0.f2.j.b;
+import d.b.i0.g2.e.h;
 import d.b.i0.x.b0;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public h mItemData;
     public b mMoreController;
     public b0 mOnCardSubClickListenner = new a();
     public Bundle mUrlBundle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends b0<h> {
         public a() {
         }

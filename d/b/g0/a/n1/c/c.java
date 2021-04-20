@@ -12,30 +12,30 @@ import java.util.Set;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Message f45367a;
+    public final Message f45759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<SwanAppProcessInfo> f45368b;
+    public final Set<SwanAppProcessInfo> f45760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f45369c;
+    public final Set<String> f45761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45370d;
+    public boolean f45762d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45371e;
+    public boolean f45763e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f45372f;
+    public long f45764f;
 
     public c(Message message) {
-        this.f45368b = new HashSet();
-        this.f45369c = new HashSet();
-        this.f45370d = false;
-        this.f45371e = false;
-        this.f45372f = 0L;
-        this.f45367a = message == null ? Message.obtain() : message;
+        this.f45760b = new HashSet();
+        this.f45761c = new HashSet();
+        this.f45762d = false;
+        this.f45763e = false;
+        this.f45764f = 0L;
+        this.f45759a = message == null ? Message.obtain() : message;
     }
 
     public c a(int... iArr) {
@@ -51,14 +51,14 @@ public final class c {
 
     public c b(SwanAppProcessInfo... swanAppProcessInfoArr) {
         if (swanAppProcessInfoArr != null) {
-            this.f45368b.addAll(Arrays.asList(swanAppProcessInfoArr));
+            this.f45760b.addAll(Arrays.asList(swanAppProcessInfoArr));
         }
         return this;
     }
 
     public c c(String... strArr) {
         if (strArr != null) {
-            this.f45369c.addAll(Arrays.asList(strArr));
+            this.f45761c.addAll(Arrays.asList(strArr));
         }
         return this;
     }
@@ -84,7 +84,7 @@ public final class c {
     }
 
     public c f(boolean z) {
-        this.f45370d = z;
+        this.f45762d = z;
         return this;
     }
 
@@ -101,14 +101,14 @@ public final class c {
 
     @NonNull
     public Message h() {
-        if (this.f45367a.obj == null) {
+        if (this.f45759a.obj == null) {
             o(new Bundle());
         }
-        return this.f45367a;
+        return this.f45759a;
     }
 
     public long i() {
-        long j = this.f45372f;
+        long j = this.f45764f;
         if (j < 0) {
             return 0L;
         }
@@ -119,33 +119,33 @@ public final class c {
         if (j < 0) {
             j = 0;
         }
-        this.f45372f = j;
+        this.f45764f = j;
         return this;
     }
 
     public Set<String> k() {
-        return new HashSet(this.f45369c);
+        return new HashSet(this.f45761c);
     }
 
     public Set<SwanAppProcessInfo> l() {
-        return new HashSet(this.f45368b);
+        return new HashSet(this.f45760b);
     }
 
     public boolean m() {
-        return this.f45370d;
+        return this.f45762d;
     }
 
     public boolean n() {
-        return this.f45371e;
+        return this.f45763e;
     }
 
     public c o(Object obj) {
-        this.f45367a.obj = obj;
+        this.f45759a.obj = obj;
         return this;
     }
 
     public c p(boolean z) {
-        this.f45371e = z;
+        this.f45763e = z;
         return this;
     }
 

@@ -5,10 +5,11 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
+import com.alibaba.fastjson.asm.Label;
 /* loaded from: classes5.dex */
 public abstract class j {
     public static boolean a(Context context, Intent intent) {
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         try {
             if (context instanceof Activity) {
                 ((Activity) context).startActivity(intent);

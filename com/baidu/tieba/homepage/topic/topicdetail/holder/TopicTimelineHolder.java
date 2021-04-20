@@ -2,18 +2,18 @@ package com.baidu.tieba.homepage.topic.topicdetail.holder;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f17374a;
+    public T f17051a;
 
     public TopicTimelineHolder(T t) {
         super(t);
-        this.f17374a = t;
+        this.f17051a = t;
     }
 
     public T a() {
-        return this.f17374a;
+        return this.f17051a;
     }
 }

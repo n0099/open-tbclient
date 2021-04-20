@@ -3,18 +3,18 @@ package com.baidu.location.a;
 public class t extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f6582a;
+    public final /* synthetic */ p f6617a;
 
     public t(p pVar) {
-        this.f6582a = pVar;
+        this.f6617a = pVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         boolean i;
-        i = this.f6582a.i();
+        i = this.f6617a.i();
         if (i) {
-            this.f6582a.j();
+            this.f6617a.j();
         }
     }
 }

@@ -11,33 +11,33 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, DownloadParams> f33412a;
+    public ConcurrentHashMap<String, DownloadParams> f33701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, AdTemplate> f33413b;
+    public ConcurrentHashMap<String, AdTemplate> f33702b;
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0375a {
+    public static final class C0389a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f33414a = new a();
+        public static final a f33703a = new a();
     }
 
     public a() {
-        this.f33412a = new ConcurrentHashMap<>();
-        this.f33413b = new ConcurrentHashMap<>();
+        this.f33701a = new ConcurrentHashMap<>();
+        this.f33702b = new ConcurrentHashMap<>();
     }
 
     public static a a() {
-        return C0375a.f33414a;
+        return C0389a.f33703a;
     }
 
     public DownloadParams a(String str) {
         if (KsAdSDKImpl.get().getContext() == null) {
             return null;
         }
-        DownloadParams downloadParams = this.f33412a.get(str);
+        DownloadParams downloadParams = this.f33701a.get(str);
         if (downloadParams != null) {
             return downloadParams;
         }
@@ -58,7 +58,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f33412a.put(str, downloadParams);
+        this.f33701a.put(str, downloadParams);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, downloadParams.toJson().toString()).apply();
     }
 
@@ -66,7 +66,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f33413b.put(str, adTemplate);
+        this.f33702b.put(str, adTemplate);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, adTemplate.toJson().toString()).apply();
     }
 
@@ -74,7 +74,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f33412a.remove(str);
+        this.f33701a.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 
@@ -82,7 +82,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return null;
         }
-        AdTemplate adTemplate = this.f33413b.get(str);
+        AdTemplate adTemplate = this.f33702b.get(str);
         if (adTemplate != null) {
             return adTemplate;
         }
@@ -103,7 +103,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f33413b.remove(str);
+        this.f33702b.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 }

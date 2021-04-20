@@ -8,29 +8,29 @@ import org.json.JSONObject;
 public class g implements d.b.g0.a.e1.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43211e = Integer.MIN_VALUE;
+    public int f43603e = Integer.MIN_VALUE;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43212f = Integer.MIN_VALUE;
+    public int f43604f = Integer.MIN_VALUE;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43213g = -1;
+    public int f43605g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43214h = -1;
+    public int f43606h = -1;
 
     @Override // d.b.g0.a.e1.a
     public void a(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has(CustomDialogData.POS_LEFT) && jSONObject.has("top")) {
-            this.f43211e = h0.f(jSONObject.optInt(CustomDialogData.POS_LEFT));
-            this.f43212f = h0.f(jSONObject.optInt("top"));
-            this.f43213g = jSONObject.has("width") ? Math.abs(h0.f(jSONObject.optInt("width"))) : -1;
-            this.f43214h = jSONObject.has("height") ? Math.abs(h0.f(jSONObject.optInt("height"))) : -1;
+            this.f43603e = h0.f(jSONObject.optInt(CustomDialogData.POS_LEFT));
+            this.f43604f = h0.f(jSONObject.optInt("top"));
+            this.f43605g = jSONObject.has("width") ? Math.abs(h0.f(jSONObject.optInt("width"))) : -1;
+            this.f43606h = jSONObject.has("height") ? Math.abs(h0.f(jSONObject.optInt("height"))) : -1;
         }
     }
 
     @Override // d.b.g0.a.e1.a
     public boolean isValid() {
-        return (this.f43211e == Integer.MIN_VALUE || this.f43212f == Integer.MIN_VALUE) ? false : true;
+        return (this.f43603e == Integer.MIN_VALUE || this.f43604f == Integer.MIN_VALUE) ? false : true;
     }
 }

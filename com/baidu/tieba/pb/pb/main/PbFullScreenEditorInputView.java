@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
-import d.b.h0.s.c.t;
+import d.b.h0.s.c.v;
 import d.b.i0.k0.b;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements b.f {
         public a() {
         }
@@ -29,7 +29,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements b.f {
         public b() {
         }
@@ -40,7 +40,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements b.f {
         public c() {
         }
@@ -100,11 +100,11 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         d.b.i0.k0.b.d(getContext(), str2, new c());
     }
 
-    public void l(t tVar) {
+    public void l(v vVar) {
         if (d.b.i0.k0.a.a(getText().toString()) >= 10) {
             CustomToast.newInstance().showToast(R.string.too_many_face);
         } else {
-            d.b.i0.k0.b.b(getContext(), tVar, this);
+            d.b.i0.k0.b.b(getContext(), vVar, this);
         }
     }
 

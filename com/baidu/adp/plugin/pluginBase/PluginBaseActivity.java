@@ -42,12 +42,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import d.b.b.a.f;
-import d.b.b.a.g;
-import d.b.b.a.i;
-import d.b.b.h.f.a;
-import d.b.b.h.j.g.d;
-import d.b.b.j.e.q;
+import d.b.c.a.f;
+import d.b.c.a.g;
+import d.b.c.a.i;
+import d.b.c.h.f.a;
+import d.b.c.h.j.g.d;
+import d.b.c.j.e.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -290,7 +290,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return this.mActivity.getPackageName();
     }
 
-    @Override // d.b.b.a.g
+    @Override // d.b.c.a.g
     public f getPageContext() {
         return null;
     }

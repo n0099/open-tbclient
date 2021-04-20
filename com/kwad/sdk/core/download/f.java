@@ -3,13 +3,13 @@ package com.kwad.sdk.core.download;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f33590a = false;
+    public volatile boolean f33879a = false;
 
     public void a() {
-        this.f33590a = true;
+        this.f33879a = true;
     }
 
     public boolean b() {
-        return !this.f33590a;
+        return !this.f33879a;
     }
 }

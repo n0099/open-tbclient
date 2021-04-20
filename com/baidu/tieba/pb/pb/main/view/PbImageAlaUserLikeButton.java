@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import d.b.h0.r.f0.q.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements b {
     public PbImageAlaUserLikeButton(Context context) {
         this(context, null);

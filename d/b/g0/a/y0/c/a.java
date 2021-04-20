@@ -15,7 +15,7 @@ public class a implements d.b.g0.a.y0.f.a {
         }
         long currentTimeMillis = System.currentTimeMillis();
         SwanAppConfigData c2 = SwanAppConfigData.c(d.h(new File(file, "app.json")), file);
-        if (d.b.g0.a.y0.f.a.f47107a) {
+        if (d.b.g0.a.y0.f.a.f47499a) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.d("SwanPreProcess", "buildAppJsonConfig cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; current thread = " + Thread.currentThread().getId());
         }
@@ -33,7 +33,7 @@ public class a implements d.b.g0.a.y0.f.a {
                 b.c().d(file.getAbsolutePath(), a2);
                 return a2;
             }
-            if (d.b.g0.a.y0.f.a.f47107a) {
+            if (d.b.g0.a.y0.f.a.f47499a) {
                 Log.d("SwanPreProcess", "adopt cached app.json");
             }
             return swanAppConfigData;

@@ -3,13 +3,13 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.k;
 import d.b.h0.z0.w;
-import d.b.i0.e2.b;
+import d.b.i0.f2.b;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ProfileRequestMessage extends NetMessage {
     public boolean error_hint;
     public Long friend_uid;

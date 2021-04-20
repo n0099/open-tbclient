@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.o;
-import f.a.t.b;
+import f.b.i;
+import f.b.o;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 /* loaded from: classes7.dex */
@@ -10,37 +10,37 @@ public final class MaybeToObservable$MaybeToFlowableSubscriber<T> extends Deferr
     public static final long serialVersionUID = 7603343402964826922L;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f68057d;
+    public b f69063d;
 
     public MaybeToObservable$MaybeToFlowableSubscriber(o<? super T> oVar) {
         super(oVar);
     }
 
-    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public void dispose() {
         super.dispose();
-        this.f68057d.dispose();
+        this.f69063d.dispose();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         complete();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         error(th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f68057d, bVar)) {
-            this.f68057d = bVar;
+        if (DisposableHelper.validate(this.f69063d, bVar)) {
+            this.f69063d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         complete(t);
     }

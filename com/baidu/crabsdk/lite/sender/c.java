@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4754a;
+    public static Context f4789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f4755b;
+    public static SharedPreferences f4790b;
 
     public static boolean a(String str) {
         long j;
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             j = sharedPreferences.getLong("crash_upload_time_nowifi_" + str, 0L);
         } else {
@@ -41,9 +41,9 @@ public final class c {
     public static boolean b(String str) {
         SharedPreferences sharedPreferences;
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
         int intValue = (hashMap == null || (obj = hashMap.get("sdk_all_crash_limit")) == null) ? -1 : ((Integer) obj).intValue();
-        if (intValue != -1 && (sharedPreferences = f4755b) != null) {
+        if (intValue != -1 && (sharedPreferences = f4790b) != null) {
             int i = sharedPreferences.getInt(com.baidu.crabsdk.lite.b.c.h() + "oneday_crash_count_" + str, -1);
             if (i > intValue) {
                 com.baidu.crabsdk.lite.b.a.d(str, "exceed daily crash quota " + i + "/" + intValue);
@@ -56,15 +56,15 @@ public final class c {
     public static void c(String str) {
         SharedPreferences sharedPreferences;
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
-        if (((hashMap == null || (obj = hashMap.get("sdk_all_crash_limit")) == null) ? -1 : ((Integer) obj).intValue()) == -1 || (sharedPreferences = f4755b) == null) {
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
+        if (((hashMap == null || (obj = hashMap.get("sdk_all_crash_limit")) == null) ? -1 : ((Integer) obj).intValue()) == -1 || (sharedPreferences = f4790b) == null) {
             return;
         }
         int i = sharedPreferences.getInt(com.baidu.crabsdk.lite.b.c.h() + "oneday_crash_count_" + str, 0) + 1;
         StringBuilder sb = new StringBuilder("addCrashUploadCount todayCount: ");
         sb.append(i);
         com.baidu.crabsdk.lite.b.a.d(str, sb.toString());
-        SharedPreferences.Editor edit = f4755b.edit();
+        SharedPreferences.Editor edit = f4790b.edit();
         com.baidu.crabsdk.lite.b.c.c(edit.putInt(com.baidu.crabsdk.lite.b.c.h() + "oneday_crash_count_" + str, i), true);
     }
 
@@ -77,7 +77,7 @@ public final class c {
         calendar.set(13, 0);
         calendar.set(14, 0);
         long timeInMillis = calendar.getTimeInMillis();
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             com.baidu.crabsdk.lite.b.c.c(edit.putLong("crash_switch_time_" + str, timeInMillis), true);
@@ -85,7 +85,7 @@ public final class c {
     }
 
     public static void e(String str, long j) {
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             com.baidu.crabsdk.lite.b.c.c(edit.putLong("crash_upload_time_nowifi_" + str, j), true);
@@ -94,11 +94,11 @@ public final class c {
 
     public static void f(String str, Context context) {
         Object obj;
-        if (f4754a == null) {
-            f4754a = context;
-            f4755b = context.getSharedPreferences("crablite_crash_switch", 0);
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
-            if (((hashMap == null || (obj = hashMap.get("sdk_same_crash_limit")) == null) ? -1 : ((Integer) obj).intValue()) == -1 || f4755b == null) {
+        if (f4789a == null) {
+            f4789a = context;
+            f4790b = context.getSharedPreferences("crablite_crash_switch", 0);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
+            if (((hashMap == null || (obj = hashMap.get("sdk_same_crash_limit")) == null) ? -1 : ((Integer) obj).intValue()) == -1 || f4790b == null) {
                 return;
             }
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
@@ -108,7 +108,7 @@ public final class c {
                 calendar.add(5, -i);
                 strArr[i - 1] = simpleDateFormat.format(calendar.getTime());
             }
-            SharedPreferences.Editor edit = f4755b.edit();
+            SharedPreferences.Editor edit = f4790b.edit();
             for (int i2 = 0; i2 < 7; i2++) {
                 String str2 = strArr[i2];
                 edit.remove(str2 + "same_crash_oneday_count_" + str);
@@ -119,7 +119,7 @@ public final class c {
     }
 
     public static void g(String str, boolean z) {
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             com.baidu.crabsdk.lite.b.c.c(edit.putBoolean("crash_switch_" + str, z), true);
@@ -128,14 +128,14 @@ public final class c {
 
     public static boolean h(String str, Throwable th) {
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
         int intValue = (hashMap == null || (obj = hashMap.get("sdk_same_crash_limit")) == null) ? -1 : ((Integer) obj).intValue();
         if (intValue == -1) {
             return true;
         }
-        if (f4755b != null) {
+        if (f4790b != null) {
             String f2 = com.baidu.crabsdk.lite.b.c.f(th);
-            SharedPreferences sharedPreferences = f4755b;
+            SharedPreferences sharedPreferences = f4790b;
             String string = sharedPreferences.getString(com.baidu.crabsdk.lite.b.c.h() + "same_crash_oneday_count_" + str, null);
             try {
                 if (!TextUtils.isEmpty(string)) {
@@ -151,8 +151,8 @@ public final class c {
             } catch (Exception e2) {
                 com.baidu.crabsdk.lite.b.a.d(str, "canSameCrashUpload exception " + com.baidu.crabsdk.lite.b.c.d(e2));
             }
-            for (String str2 : com.baidu.crabsdk.lite.a.f4721g.keySet()) {
-                if (str2.equals(f2) && com.baidu.crabsdk.lite.a.f4721g.get(str2).intValue() > intValue) {
+            for (String str2 : com.baidu.crabsdk.lite.a.f4756g.keySet()) {
+                if (str2.equals(f2) && com.baidu.crabsdk.lite.a.f4756g.get(str2).intValue() > intValue) {
                     com.baidu.crabsdk.lite.b.a.c(str, "SharedPreferences ignore, but canSameCrashUpload no");
                     return false;
                 }
@@ -164,19 +164,19 @@ public final class c {
 
     public static void i(String str, String str2) {
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
         String str3 = (hashMap == null || (obj = hashMap.get("sdk_appvn")) == null) ? null : (String) obj;
         if (str3 == null) {
             str3 = n.d();
         }
-        SharedPreferences.Editor edit = f4755b.edit();
+        SharedPreferences.Editor edit = f4790b.edit();
         edit.putString(str2, str3);
         com.baidu.crabsdk.lite.b.c.c(edit, true);
         com.baidu.crabsdk.lite.b.a.c(str, "(--#)  fileName when write  (--#)" + str2);
     }
 
     public static void j(String str, String str2, String str3) {
-        SharedPreferences.Editor edit = f4755b.edit();
+        SharedPreferences.Editor edit = f4790b.edit();
         edit.putString(str2, str3);
         com.baidu.crabsdk.lite.b.c.c(edit, true);
         com.baidu.crabsdk.lite.b.a.c(str, "(--#)  save RSA_AESkey when write  (--#)" + str2);
@@ -186,12 +186,12 @@ public final class c {
         int i;
         String jSONArray;
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4715a.get(str);
-        if (((hashMap == null || (obj = hashMap.get("sdk_same_crash_limit")) == null) ? -1 : ((Integer) obj).intValue()) == -1 || f4755b == null) {
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
+        if (((hashMap == null || (obj = hashMap.get("sdk_same_crash_limit")) == null) ? -1 : ((Integer) obj).intValue()) == -1 || f4790b == null) {
             return;
         }
         String f2 = com.baidu.crabsdk.lite.b.c.f(th);
-        Iterator<String> it = com.baidu.crabsdk.lite.a.f4721g.keySet().iterator();
+        Iterator<String> it = com.baidu.crabsdk.lite.a.f4756g.keySet().iterator();
         boolean z = true;
         while (true) {
             if (!it.hasNext()) {
@@ -199,15 +199,15 @@ public final class c {
             }
             String next = it.next();
             if (next.equals(f2)) {
-                HashMap<String, Integer> hashMap2 = com.baidu.crabsdk.lite.a.f4721g;
+                HashMap<String, Integer> hashMap2 = com.baidu.crabsdk.lite.a.f4756g;
                 hashMap2.put(next, Integer.valueOf(hashMap2.get(next).intValue() + 1));
                 z = false;
             }
         }
         if (z) {
-            com.baidu.crabsdk.lite.a.f4721g.put(f2, 1);
+            com.baidu.crabsdk.lite.a.f4756g.put(f2, 1);
         }
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         String string = sharedPreferences.getString(com.baidu.crabsdk.lite.b.c.h() + "same_crash_oneday_count_" + str, null);
         try {
             if (TextUtils.isEmpty(string)) {
@@ -235,7 +235,7 @@ public final class c {
                 }
                 jSONArray = jSONArray3.toString();
             }
-            SharedPreferences.Editor edit = f4755b.edit();
+            SharedPreferences.Editor edit = f4790b.edit();
             com.baidu.crabsdk.lite.b.c.c(edit.putString(com.baidu.crabsdk.lite.b.c.h() + "same_crash_oneday_count_" + str, jSONArray), true);
         } catch (Exception e2) {
             com.baidu.crabsdk.lite.b.a.d(str, "addSameCrashUploadCount exception " + com.baidu.crabsdk.lite.b.c.d(e2));
@@ -243,14 +243,14 @@ public final class c {
     }
 
     public static String l(String str, String str2) {
-        String string = f4755b.getString(str2, "");
+        String string = f4790b.getString(str2, "");
         com.baidu.crabsdk.lite.b.a.c(str, "(--#) getRecordAppVN (--#) " + string);
         return string;
     }
 
     public static void m(String str, String str2) {
         try {
-            SharedPreferences.Editor edit = f4755b.edit();
+            SharedPreferences.Editor edit = f4790b.edit();
             edit.remove(str2);
             com.baidu.crabsdk.lite.b.c.c(edit, true);
             com.baidu.crabsdk.lite.b.a.c(str, "(--#) deleteRecordAppVN (--#) " + str2);
@@ -261,14 +261,14 @@ public final class c {
     }
 
     public static String n(String str, String str2) {
-        String string = f4755b.getString(str2, "");
+        String string = f4790b.getString(str2, "");
         com.baidu.crabsdk.lite.b.a.c(str, "(--#) getRSA_AESkey (--#) " + string);
         return string;
     }
 
     public static void o(String str, String str2) {
         try {
-            SharedPreferences.Editor edit = f4755b.edit();
+            SharedPreferences.Editor edit = f4790b.edit();
             edit.remove(str2);
             com.baidu.crabsdk.lite.b.c.c(edit, true);
             com.baidu.crabsdk.lite.b.a.c(str, "(--#) deleteRSA_AESkey (--#) " + str2);
@@ -280,7 +280,7 @@ public final class c {
 
     public static boolean p(String str) {
         boolean z;
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             z = sharedPreferences.getBoolean("crash_switch_" + str, true);
         } else {
@@ -291,7 +291,7 @@ public final class c {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        SharedPreferences sharedPreferences2 = f4755b;
+        SharedPreferences sharedPreferences2 = f4790b;
         long j = 0;
         if (sharedPreferences2 != null) {
             j = sharedPreferences2.getLong("crash_switch_time_" + str, 0L);
@@ -314,21 +314,21 @@ public final class c {
 
     public static void s(String str) {
         int u = u(str) + 1;
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             com.baidu.crabsdk.lite.b.c.c(sharedPreferences.edit().putInt(str, u), true);
         }
     }
 
     public static void t(String str) {
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             com.baidu.crabsdk.lite.b.c.c(sharedPreferences.edit().remove(str), true);
         }
     }
 
     public static int u(String str) {
-        SharedPreferences sharedPreferences = f4755b;
+        SharedPreferences sharedPreferences = f4790b;
         if (sharedPreferences != null) {
             return sharedPreferences.getInt(str, 0);
         }

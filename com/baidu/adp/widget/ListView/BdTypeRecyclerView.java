@@ -9,17 +9,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.g;
-import d.b.b.j.e.h;
-import d.b.b.j.e.n;
-import d.b.b.j.e.s;
+import d.b.c.j.e.g;
+import d.b.c.j.e.h;
+import d.b.c.j.e.n;
+import d.b.c.j.e.s;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecyclerView> {
     public RecyclerViewTypeAdapter x;
-    public HashMap<BdUniqueId, d.b.b.j.e.a> y;
+    public HashMap<BdUniqueId, d.b.c.j.e.a> y;
     public HashMap<BdUniqueId, h> z;
 
     /* loaded from: classes.dex */
@@ -83,15 +83,15 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         this.x.u(i, i2, getHeaderViewsCount());
     }
 
-    @Override // d.b.b.j.e.s
-    public void a(List<d.b.b.j.e.a> list) {
-        for (d.b.b.j.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
+    @Override // d.b.c.j.e.s
+    public void a(List<d.b.c.j.e.a> list) {
+        for (d.b.c.j.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
             if (aVar != null) {
                 BdUniqueId bdUniqueId = null;
                 if (aVar.y() != null) {
                     bdUniqueId = aVar.y();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar.j0(aVar);
                         this.x.c(hVar);
                         this.z.put(bdUniqueId, hVar);
@@ -100,7 +100,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.w() != null) {
                     bdUniqueId = aVar.w();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar2 = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar2 = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar2.j0(aVar);
                         this.x.c(hVar2);
                         this.z.put(bdUniqueId, hVar2);
@@ -109,7 +109,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.x() != null) {
                     bdUniqueId = aVar.x();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar3 = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar3 = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar3.j0(aVar);
                         this.x.c(hVar3);
                         this.z.put(bdUniqueId, hVar3);
@@ -118,7 +118,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.v() != null) {
                     bdUniqueId = aVar.v();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar4 = new h(aVar.f42358e, bdUniqueId, aVar.i);
+                        h hVar4 = new h(aVar.f42855e, bdUniqueId, aVar.i);
                         hVar4.j0(aVar);
                         this.x.c(hVar4);
                         this.z.put(bdUniqueId, hVar4);
@@ -127,7 +127,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (bdUniqueId == null) {
                     this.x.c(aVar);
                 } else {
-                    this.y.put(aVar.f42361h, aVar);
+                    this.y.put(aVar.f42858h, aVar);
                 }
             }
         }
@@ -138,14 +138,14 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         return this.x.getCount();
     }
 
-    @Override // d.b.b.j.e.s
+    @Override // d.b.c.j.e.s
     public List<n> getData() {
         return this.x.m();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeRecyclerView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, d.b.b.j.e.p
+    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, d.b.c.j.e.p
     /* renamed from: getListView */
     public BdRecyclerView getListView2() {
         return this;
@@ -161,13 +161,13 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         return super.onSaveInstanceState();
     }
 
-    @Override // d.b.b.j.e.s
+    @Override // d.b.c.j.e.s
     public void setData(List<? extends n> list) {
         ArrayList arrayList = new ArrayList();
         for (n nVar : list) {
             if (nVar != null) {
                 if (this.y.containsKey(nVar.getType())) {
-                    d.b.b.j.e.a aVar = this.y.get(nVar.getType());
+                    d.b.c.j.e.a aVar = this.y.get(nVar.getType());
                     if (aVar.y() != null) {
                         g gVar = new g();
                         gVar.n(aVar.y());

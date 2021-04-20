@@ -7,10 +7,10 @@ import d.q.a.a.c.a.a;
 public final class e implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ b f67393e;
+    public /* synthetic */ b f68386e;
 
     public e(b bVar) {
-        this.f67393e = bVar;
+        this.f68386e = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,35 +25,35 @@ public final class e implements Runnable {
         Context context3;
         d dVar3;
         try {
-            context = this.f67393e.f67363a;
+            context = this.f68386e.f68356a;
             if (context == null) {
-                dVar3 = this.f67393e.f67368f;
+                dVar3 = this.f68386e.f68361f;
                 dVar3.a(-3, "parameter error");
                 return;
             }
-            i = b.f67361g;
+            i = b.f68354g;
             if (i == -1) {
-                context3 = this.f67393e.f67363a;
+                context3 = this.f68386e.f68356a;
                 if (context3.getPackageName().equals(d.q.a.a.c.b.e.a(Process.myPid()))) {
-                    int unused = b.f67361g = 1;
+                    int unused = b.f68354g = 1;
                 } else {
-                    int unused2 = b.f67361g = 0;
+                    int unused2 = b.f68354g = 0;
                 }
             }
-            i2 = b.f67361g;
+            i2 = b.f68354g;
             if (i2 == 0) {
-                dVar2 = this.f67393e.f67368f;
+                dVar2 = this.f68386e.f68361f;
                 dVar2.a(-4, "need main process");
                 return;
             }
-            b bVar = this.f67393e;
-            context2 = this.f67393e.f67363a;
-            bVar.f67364b = context2.getPackageName();
+            b bVar = this.f68386e;
+            context2 = this.f68386e.f68356a;
+            bVar.f68357b = context2.getPackageName();
             a a2 = a.a();
-            str = this.f67393e.f67364b;
+            str = this.f68386e.f68357b;
             a2.d(str);
-            b bVar2 = this.f67393e;
-            dVar = this.f67393e.f67368f;
+            b bVar2 = this.f68386e;
+            dVar = this.f68386e.f68361f;
             bVar2.i(dVar);
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

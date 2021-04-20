@@ -12,11 +12,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f28976a = new Object();
+    public static Object f28661a = new Object();
 
     public static void a() {
         b.a();
@@ -82,7 +82,7 @@ public class a {
         com.bytedance.sdk.openadsdk.l.e.a(new g("updateTmplTime") { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (a.f28976a) {
+                synchronized (a.f28661a) {
                     c.a().a(tVar);
                 }
             }

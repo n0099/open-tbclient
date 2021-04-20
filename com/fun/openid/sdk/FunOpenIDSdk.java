@@ -6,6 +6,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +20,7 @@ public class FunOpenIDSdk {
     public static String getAndroidId(Context context) {
         if (context != null) {
             try {
-                return Settings.Secure.getString(context.getContentResolver(), "android_id");
+                return Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -93,7 +94,7 @@ public class FunOpenIDSdk {
                     Log.e(TAG, "getOaid context is null !!!");
                 }
             } else if (onGetOaidListener != null) {
-                j.f30849a.execute(new e(context, onGetOaidListener));
+                j.f30522a.execute(new e(context, onGetOaidListener));
             } else {
                 if (isLogEnabled()) {
                     Log.e(TAG, "getOaid onGetOaidListener is null !!!");

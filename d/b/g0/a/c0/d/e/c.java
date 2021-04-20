@@ -12,42 +12,42 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f43641h = k.f45051a;
+    public static final boolean f44033h = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43642a;
+    public String f44034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43643b;
+    public String f44035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43644c;
+    public String f44036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43645d;
+    public String f44037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43646e;
+    public String f44038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43647f;
+    public String f44039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f43648g;
+    public JSONArray f44040g;
 
     public static c e(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.f43642a = jSONObject.getString("appKey");
-            cVar.f43643b = jSONObject.getString("appUrl") + "?swanJsVersion=" + d.b.g0.a.b2.b.f(0) + "&appVersion=" + k0.z();
-            cVar.f43644c = jSONObject.getString("wsUrl");
-            cVar.f43645d = jSONObject.optString("notInHistory", "1");
-            cVar.f43646e = jSONObject.optString("masterPreload");
-            cVar.f43647f = jSONObject.optString("slavePreload");
-            cVar.f43648g = jSONObject.optJSONArray("hosts");
+            cVar.f44034a = jSONObject.getString("appKey");
+            cVar.f44035b = jSONObject.getString("appUrl") + "?swanJsVersion=" + d.b.g0.a.b2.b.f(0) + "&appVersion=" + k0.z();
+            cVar.f44036c = jSONObject.getString("wsUrl");
+            cVar.f44037d = jSONObject.optString("notInHistory", "1");
+            cVar.f44038e = jSONObject.optString("masterPreload");
+            cVar.f44039f = jSONObject.optString("slavePreload");
+            cVar.f44040g = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException unused) {
-            if (f43641h) {
+            if (f44033h) {
                 Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
                 return null;
             }
@@ -56,13 +56,13 @@ public class c {
     }
 
     public String a(int i) {
-        return b(i, this.f43643b);
+        return b(i, this.f44035b);
     }
 
     public final String b(int i, String str) {
-        if (this.f43648g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.f43648g.length()) {
+        if (this.f44040g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.f44040g.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.f43648g.optString(i);
+            String optString = this.f44040g.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -71,10 +71,10 @@ public class c {
     }
 
     public String c(int i) {
-        return b(i, this.f43644c);
+        return b(i, this.f44036c);
     }
 
     public boolean d() {
-        return TextUtils.isEmpty(this.f43642a) || TextUtils.isEmpty(this.f43643b) || TextUtils.isEmpty(this.f43644c);
+        return TextUtils.isEmpty(this.f44034a) || TextUtils.isEmpty(this.f44035b) || TextUtils.isEmpty(this.f44036c);
     }
 }

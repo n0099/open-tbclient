@@ -5,16 +5,17 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.io.File;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f2074a = new d();
+    public static d f2099a = new d();
 
     public static d a() {
-        return f2074a;
+        return f2099a;
     }
 
     public static String a(String str, String str2) {
@@ -46,7 +47,7 @@ public class d {
                         return true;
                     }
                 }
-                return com.alipay.security.mobile.module.a.a.a(Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                return com.alipay.security.mobile.module.a.a.a(Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
             }
             return true;
         } catch (Exception unused) {

@@ -3,13 +3,13 @@ package com.baidu.tieba.imMessageCenter.mention.agree.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-import d.b.i0.e1.b.p.a;
+import d.b.i0.f1.b.p.a;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 import tbclient.AgreeMe.DataRes;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public ArrayList<a> datas;
     public boolean hasMore;

@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk.core.video.nativevideo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum a {
         hideCloseBtn,
         alwayShowBackBtn,

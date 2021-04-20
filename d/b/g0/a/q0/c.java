@@ -16,10 +16,10 @@ import java.lang.ref.WeakReference;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45502b = k.f45051a;
+    public static final boolean f45894b = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f45503a;
+    public g f45895a;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -28,14 +28,14 @@ public class c {
 
     /* renamed from: d.b.g0.a.q0.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0760c {
+    public static final class C0772c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f45504a = new c();
+        public static final c f45896a = new c();
     }
 
     public static c c() {
-        return C0760c.f45504a;
+        return C0772c.f45896a;
     }
 
     public boolean a(@NonNull WeakReference<Activity> weakReference) {
@@ -59,19 +59,19 @@ public class c {
     }
 
     public final int d(Activity activity) {
-        return this.f45503a.getInt("up_first_in", b(activity));
+        return this.f45895a.getInt("up_first_in", b(activity));
     }
 
     public final boolean e() {
-        return this.f45503a.getBoolean("new_first_in", true);
+        return this.f45895a.getBoolean("new_first_in", true);
     }
 
     public String f() {
-        return this.f45503a.getString("url", "");
+        return this.f45895a.getString("url", "");
     }
 
     public String g() {
-        return this.f45503a.getString(SetImageWatermarkTypeReqMsg.SWITCH, "1");
+        return this.f45895a.getString(SetImageWatermarkTypeReqMsg.SWITCH, "1");
     }
 
     public boolean h() {
@@ -84,7 +84,7 @@ public class c {
 
     public final boolean i(@NonNull Activity activity) {
         boolean e2 = e();
-        if (f45502b) {
+        if (f45894b) {
             Log.e("SwanAppGuideDialogManager", "is first in " + e2);
         }
         if (e2) {
@@ -92,7 +92,7 @@ public class c {
         }
         int d2 = d(activity);
         int b2 = b(activity);
-        if (f45502b) {
+        if (f45894b) {
             Log.e("SwanAppGuideDialogManager", "version =" + d2 + " curVerCode" + b2);
         }
         return b2 > d2;
@@ -104,7 +104,7 @@ public class c {
 
     public c() {
         g gVar = new g("aiapps_guide_dialog_sp");
-        this.f45503a = gVar;
+        this.f45895a = gVar;
         gVar.edit();
     }
 }

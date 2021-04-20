@@ -2,9 +2,9 @@ package com.baidu.tieba.setting.more.youngster.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.u2.c.k.a.a;
+import d.b.i0.v2.c.k.a.a;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
     public a mSearchMajorResultData;
 

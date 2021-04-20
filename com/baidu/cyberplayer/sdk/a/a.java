@@ -12,23 +12,23 @@ import java.util.HashMap;
 public class a implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4848a = Boolean.toString(true);
+    public static final String f4883a = Boolean.toString(true);
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0071a f4849b;
+    public InterfaceC0070a f4884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4850c;
+    public String f4885c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4851d;
+    public String f4886d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f4852e = null;
+    public ArrayList<String> f4887e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0071a {
+    public interface InterfaceC0070a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -52,17 +52,17 @@ public class a implements b.a {
     */
     private String a() {
         File file;
-        String str = f4848a;
+        String str = f4883a;
         File file2 = null;
         try {
-            file = new File(this.f4851d, this.f4850c);
+            file = new File(this.f4886d, this.f4885c);
             try {
                 try {
-                    this.f4852e = n.a(file, this.f4851d);
-                    CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.f4852e);
+                    this.f4887e = n.a(file, this.f4886d);
+                    CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.f4887e);
                 } catch (Exception e2) {
                     e = e2;
-                    this.f4852e = null;
+                    this.f4887e = null;
                     str = e.toString();
                     if (file != null) {
                     }
@@ -124,7 +124,7 @@ public class a implements b.a {
     */
     public static String a(String str, ArrayList<String> arrayList) {
         File file;
-        String str2 = f4848a;
+        String str2 = f4883a;
         if (arrayList != null) {
             int i = 0;
             while (true) {
@@ -160,15 +160,15 @@ public class a implements b.a {
     }
 
     private String b() {
-        String str = f4848a;
+        String str = f4883a;
         try {
-            if (this.f4852e != null) {
+            if (this.f4887e != null) {
                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
-                for (int i = 0; i < this.f4852e.size(); i++) {
-                    String str2 = this.f4852e.get(i);
+                for (int i = 0; i < this.f4887e.size(); i++) {
+                    String str2 = this.f4887e.get(i);
                     if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
                         String substring = str2.substring(4, 36);
-                        if (!n.a(substring, this.f4851d + File.separator + str2)) {
+                        if (!n.a(substring, this.f4886d + File.separator + str2)) {
                             CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
                             return "md5 check fail.";
                         }
@@ -184,32 +184,32 @@ public class a implements b.a {
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j) {
-        this.f4849b.a(str, j);
+        this.f4884b.a(str, j);
     }
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, long j2) {
-        this.f4849b.a(str, j, j2);
+        this.f4884b.a(str, j, j2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, String str2) {
-        this.f4849b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
+        this.f4884b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0071a interfaceC0071a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0071a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0070a interfaceC0070a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0070a == null) {
             return;
         }
-        this.f4850c = str2;
-        this.f4849b = interfaceC0071a;
-        this.f4851d = str3;
+        this.f4885c = str2;
+        this.f4884b = interfaceC0070a;
+        this.f4886d = str3;
         n.b(str3);
-        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.f4851d);
+        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.f4886d);
         HashMap hashMap = new HashMap();
-        hashMap.put("url", str + File.separator + this.f4850c);
-        hashMap.put("file-folder", this.f4851d);
-        hashMap.put("file-name", this.f4850c);
+        hashMap.put("url", str + File.separator + this.f4885c);
+        hashMap.put("file-folder", this.f4886d);
+        hashMap.put("file-name", this.f4885c);
         hashMap.put("is-asyn", "0");
         b.a(hashMap, this);
     }
@@ -217,23 +217,23 @@ public class a implements b.a {
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void b(String str, long j) {
         String a2 = a();
-        if (!f4848a.equals(a2)) {
-            n.a(this.f4851d, this.f4852e);
-            this.f4849b.a(str, j, -2, a2);
+        if (!f4883a.equals(a2)) {
+            n.a(this.f4886d, this.f4887e);
+            this.f4884b.a(str, j, -2, a2);
             return;
         }
         String b2 = b();
-        if (!f4848a.equals(b2)) {
-            n.a(this.f4851d, this.f4852e);
-            this.f4849b.a(str, j, -3, b2);
+        if (!f4883a.equals(b2)) {
+            n.a(this.f4886d, this.f4887e);
+            this.f4884b.a(str, j, -3, b2);
             return;
         }
-        String a3 = a(this.f4851d, this.f4852e);
-        if (f4848a.equals(a3)) {
-            this.f4849b.a(str, j, this.f4852e);
+        String a3 = a(this.f4886d, this.f4887e);
+        if (f4883a.equals(a3)) {
+            this.f4884b.a(str, j, this.f4887e);
             return;
         }
-        n.a(this.f4851d, this.f4852e);
-        this.f4849b.a(str, j, -6, a3);
+        n.a(this.f4886d, this.f4887e);
+        this.f4884b.a(str, j, -6, a3);
     }
 }

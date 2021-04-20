@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.b.j.e.n;
+import d.b.c.e.p.l;
+import d.b.c.j.e.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -39,9 +39,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TextView mTransmitSubTitle;
     public TextView mTransmitTipsView;
     public TextView mTransmitTitle;
-    public List<d.b.b.j.e.a> mAdapters = new ArrayList();
+    public List<d.b.c.j.e.a> mAdapters = new ArrayList();
     public View.OnClickListener mOnClickListener = new a();
-    public d.b.i0.u3.r.a mTransmitForumCallback = new b();
+    public d.b.i0.v3.r.a mTransmitForumCallback = new b();
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -70,21 +70,21 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements d.b.i0.u3.r.a {
+    public class b implements d.b.i0.v3.r.a {
         public b() {
         }
 
-        @Override // d.b.i0.u3.r.a
+        @Override // d.b.i0.v3.r.a
         public void a() {
             TransmitForumActivity.this.showToast(R.string.transmit_max_commit);
         }
 
-        @Override // d.b.i0.u3.r.a
+        @Override // d.b.i0.v3.r.a
         public boolean b() {
             return ListUtils.getCount(TransmitForumActivity.this.getSelectedList()) >= 3;
         }
 
-        @Override // d.b.i0.u3.r.a
+        @Override // d.b.i0.v3.r.a
         public void c() {
             TransmitForumActivity.this.setTransmitConfirmButtonText();
         }
@@ -234,9 +234,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         } else {
             arrayList = null;
         }
-        this.mDataList.add(new d.b.i0.u3.r.c());
+        this.mDataList.add(new d.b.i0.v3.r.c());
         this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.b.i0.u3.r.c.f61689e, getUniqueId(), arrayList);
+        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.b.i0.v3.r.c.f63427e, getUniqueId(), arrayList);
         this.mForumAdapter.l0(this.mTransmitForumCallback);
         this.mAdapters.add(this.mForumAdapter);
         this.mAdapters.add(this.mSelectAdapter);

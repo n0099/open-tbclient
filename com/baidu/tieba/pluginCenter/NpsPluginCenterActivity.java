@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import d.b.b.g.c;
+import d.b.c.g.c;
 import d.b.h0.g0.f.a;
 import d.b.h0.g0.f.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public TbSettingTextTipView livePlugin;
     public int mFromType;

@@ -6,20 +6,20 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f45836a;
+    public long f46228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45837b;
+    public String f46229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45838c;
+    public int f46230c;
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("userId", this.f45836a);
-            jSONObject.put("displayName", this.f45837b);
-            jSONObject.put("volumeLevel", this.f45838c);
+            jSONObject.put("userId", this.f46228a);
+            jSONObject.put("displayName", this.f46229b);
+            jSONObject.put("volumeLevel", this.f46230c);
             return jSONObject;
         } catch (JSONException unused) {
             return null;

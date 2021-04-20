@@ -1,37 +1,37 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28145a;
+    public String f27830a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28146b;
+    public String f27831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28147c;
+    public int f27832c;
 
     public String a() {
-        return this.f28145a;
+        return this.f27830a;
     }
 
     public String b() {
-        return this.f28146b;
+        return this.f27831b;
     }
 
     public int c() {
-        return this.f28147c;
+        return this.f27832c;
     }
 
     public void a(String str) {
-        this.f28145a = str;
+        this.f27830a = str;
     }
 
     public void b(String str) {
-        this.f28146b = str;
+        this.f27831b = str;
     }
 
     public void a(int i) {
-        this.f28147c = i;
+        this.f27832c = i;
     }
 }

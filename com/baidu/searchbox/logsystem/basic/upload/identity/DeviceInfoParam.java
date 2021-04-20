@@ -2,6 +2,7 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.util.Base64Encoder;
 /* loaded from: classes2.dex */
 public class DeviceInfoParam {
@@ -33,7 +34,7 @@ public class DeviceInfoParam {
         String str3 = Build.VERSION.RELEASE;
         this.mOSVersion = str3;
         if (TextUtils.isEmpty(str3)) {
-            this.mOSVersion = "0.0";
+            this.mOSVersion = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
         } else {
             this.mOSVersion = this.mOSVersion.replace("_", "-");
         }

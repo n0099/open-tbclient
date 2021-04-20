@@ -32,9 +32,9 @@ import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.tieba.view.ShadowLinearLayout;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -44,16 +44,16 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 public class h implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarCoverTip f51996e;
+    public NavigationBarCoverTip f53282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ShadowLinearLayout f51997f;
+    public ShadowLinearLayout f53283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51998g;
+    public TextView f53284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51999h;
+    public TextView f53285h;
     public TBSpecificationBtn i;
     public d.b.h0.r.f0.a j;
     public long k;
@@ -63,15 +63,15 @@ public class h implements View.OnClickListener {
     public TbPageContext o;
     public boolean p = false;
     public boolean q = false;
-    public final d.b.b.c.g.a r = new a(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+    public final d.b.c.c.g.a r = new a(CmdConfigHttp.CMD_GET_MY_POST, 303111);
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             h.this.h();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -87,7 +87,7 @@ public class h implements View.OnClickListener {
     public h(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.n = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f51996e = navigationBarCoverTip;
+        this.f53282e = navigationBarCoverTip;
         this.r.setTag(tbPageContext.getUniqueId());
         this.r.getHttpMessageListener().setSelfListener(true);
         this.r.getSocketMessageListener().setSelfListener(true);
@@ -120,13 +120,13 @@ public class h implements View.OnClickListener {
 
     public final int e(a2 a2Var) {
         if (a2Var != null) {
-            if (a2Var.n2()) {
+            if (a2Var.o2()) {
                 return 4;
             }
             if (a2Var.s0() == 1) {
                 return 3;
             }
-            return a2Var.o2() ? 2 : 1;
+            return a2Var.p2() ? 2 : 1;
         }
         return 0;
     }
@@ -136,7 +136,7 @@ public class h implements View.OnClickListener {
         if (i == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
             a2 a2Var = new a2();
             this.m = a2Var;
-            a2Var.Q2(getMyPostResIdl.data.thread_info);
+            a2Var.R2(getMyPostResIdl.data.thread_info);
             l();
             return;
         }
@@ -151,7 +151,7 @@ public class h implements View.OnClickListener {
     }
 
     public void i() {
-        NavigationBarCoverTip navigationBarCoverTip = this.f51996e;
+        NavigationBarCoverTip navigationBarCoverTip = this.f53282e;
         if (navigationBarCoverTip != null) {
             navigationBarCoverTip.i();
         }
@@ -204,7 +204,7 @@ public class h implements View.OnClickListener {
         shareItem.I = valueOf;
         shareItem.p = i0;
         shareItem.J = w1;
-        shareItem.f13717f = true;
+        shareItem.f13378f = true;
         shareItem.D = d();
         shareItem.L = e(this.m);
         if (parse != null) {
@@ -225,34 +225,34 @@ public class h implements View.OnClickListener {
     }
 
     public void m(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData == null || this.f51996e == null) {
+        if (postWriteCallBackData == null || this.f53282e == null) {
             return;
         }
-        this.k = d.b.b.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
-        long f2 = d.b.b.e.m.b.f(postWriteCallBackData.getThreadId(), 0L);
+        this.k = d.b.c.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
+        long f2 = d.b.c.e.m.b.f(postWriteCallBackData.getThreadId(), 0L);
         this.l = f2;
         if (this.k == 0 || f2 == 0) {
             return;
         }
         this.q = false;
-        if (this.f51997f == null) {
+        if (this.f53283f == null) {
             ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.n).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
-            this.f51997f = shadowLinearLayout;
-            this.f51998g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
-            this.f51999h = (TextView) this.f51997f.findViewById(R.id.tb_top_toast_content);
-            this.i = (TBSpecificationBtn) this.f51997f.findViewById(R.id.tb_top_toast_btn);
-            this.f51998g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
-            this.f51999h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
+            this.f53283f = shadowLinearLayout;
+            this.f53284g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            this.f53285h = (TextView) this.f53283f.findViewById(R.id.tb_top_toast_content);
+            this.i = (TBSpecificationBtn) this.f53283f.findViewById(R.id.tb_top_toast_btn);
+            this.f53284g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
+            this.f53285h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
             this.i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
             this.i.setConfig(new d.b.h0.r.f0.m.a());
         }
-        SkinManager.setViewTextColor(this.f51998g, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f51999h, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f53284g, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f53285h, R.color.CAM_X0302);
         this.i.k();
-        this.f51997f.b();
+        this.f53283f.b();
         this.i.setOnClickListener(this);
-        this.f51996e.setBackgroundColor(0);
-        this.f51996e.m(this.n, this.f51997f, 5000);
+        this.f53282e.setBackgroundColor(0);
+        this.f53282e.m(this.n, this.f53283f, 5000);
     }
 
     @Override // android.view.View.OnClickListener
@@ -263,7 +263,7 @@ public class h implements View.OnClickListener {
         this.q = true;
         if (!j.z()) {
             this.o.showToast(R.string.neterror);
-            this.f51996e.e();
+            this.f53282e.e();
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
@@ -275,7 +275,7 @@ public class h implements View.OnClickListener {
         requestGetMyPostNetMessage.setParams(this.l, this.k, 0L, k, i, f2, i2);
         MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         k();
-        this.f51996e.e();
+        this.f53282e.e();
         j();
     }
 }

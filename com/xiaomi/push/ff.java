@@ -9,44 +9,44 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class ff {
 
     /* renamed from: a  reason: collision with root package name */
-    public XmlPullParser f40501a;
+    public XmlPullParser f40790a;
 
     public ff() {
         try {
             XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-            this.f40501a = newPullParser;
+            this.f40790a = newPullParser;
             newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
         } catch (XmlPullParserException unused) {
         }
     }
 
     public gc a(byte[] bArr, fl flVar) {
-        this.f40501a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
-        this.f40501a.next();
-        int eventType = this.f40501a.getEventType();
-        String name = this.f40501a.getName();
+        this.f40790a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        this.f40790a.next();
+        int eventType = this.f40790a.getEventType();
+        String name = this.f40790a.getName();
         if (eventType == 2) {
             if (name.equals("message")) {
-                return gk.a(this.f40501a);
+                return gk.a(this.f40790a);
             }
             if (name.equals("iq")) {
-                return gk.a(this.f40501a, flVar);
+                return gk.a(this.f40790a, flVar);
             }
             if (name.equals("presence")) {
-                return gk.m333a(this.f40501a);
+                return gk.m337a(this.f40790a);
             }
-            if (this.f40501a.getName().equals("stream")) {
+            if (this.f40790a.getName().equals("stream")) {
                 return null;
             }
-            if (this.f40501a.getName().equals("error")) {
-                throw new fw(gk.m334a(this.f40501a));
+            if (this.f40790a.getName().equals("error")) {
+                throw new fw(gk.m338a(this.f40790a));
             }
-            if (!this.f40501a.getName().equals("warning")) {
-                this.f40501a.getName().equals("bind");
+            if (!this.f40790a.getName().equals("warning")) {
+                this.f40790a.getName().equals("bind");
                 return null;
             }
-            this.f40501a.next();
-            this.f40501a.getName().equals("multi-login");
+            this.f40790a.next();
+            this.f40790a.getName().equals("multi-login");
             return null;
         }
         return null;

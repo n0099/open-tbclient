@@ -3,10 +3,10 @@ package c;
 public class f<TResult> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e<TResult> f1491a = new e<>();
+    public final e<TResult> f1477a = new e<>();
 
     public e<TResult> a() {
-        return this.f1491a;
+        return this.f1477a;
     }
 
     public void b() {
@@ -28,14 +28,14 @@ public class f<TResult> {
     }
 
     public boolean e() {
-        return this.f1491a.t();
+        return this.f1477a.t();
     }
 
     public boolean f(Exception exc) {
-        return this.f1491a.u(exc);
+        return this.f1477a.u(exc);
     }
 
     public boolean g(TResult tresult) {
-        return this.f1491a.v(tresult);
+        return this.f1477a.v(tresult);
     }
 }

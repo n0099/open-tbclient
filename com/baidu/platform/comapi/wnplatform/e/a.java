@@ -3,30 +3,30 @@ package com.baidu.platform.comapi.wnplatform.e;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f10258a;
+    public static a f9816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10259b;
+    public String f9817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10260c;
+    public String f9818c;
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f10258a == null) {
-                f10258a = new a();
+            if (f9816a == null) {
+                f9816a = new a();
             }
-            aVar = f10258a;
+            aVar = f9816a;
         }
         return aVar;
     }
 
     public String b() {
-        return this.f10259b;
+        return this.f9817b;
     }
 
     public String c() {
-        return this.f10260c;
+        return this.f9818c;
     }
 }

@@ -17,10 +17,10 @@ import org.json.JSONArray;
 public class GetEmotionInfosModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f13939e;
+    public b f13600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f13940f = new a(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+    public final HttpMessageListener f13601f = new a(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -31,16 +31,16 @@ public class GetEmotionInfosModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003353 || !(httpResponsedMessage instanceof GetEmotionInfosResponseMessage) || GetEmotionInfosModel.this.f13939e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003353 || !(httpResponsedMessage instanceof GetEmotionInfosResponseMessage) || GetEmotionInfosModel.this.f13600e == null) {
                 return;
             }
             GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
             if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                GetEmotionInfosModel.this.f13939e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
+                GetEmotionInfosModel.this.f13600e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
             } else {
-                GetEmotionInfosModel.this.f13939e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                GetEmotionInfosModel.this.f13600e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
             }
-            GetEmotionInfosModel.this.f13939e = null;
+            GetEmotionInfosModel.this.f13600e = null;
         }
     }
 
@@ -54,9 +54,9 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public GetEmotionInfosModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f13940f.setTag(getUniqueId());
-        this.f13940f.setSelfListener(true);
-        registerListener(this.f13940f);
+        this.f13601f.setTag(getUniqueId());
+        this.f13601f.setSelfListener(true);
+        registerListener(this.f13601f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -66,7 +66,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f13940f);
+        MessageManager.getInstance().unRegisterListener(this.f13601f);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         return true;
     }
@@ -78,7 +78,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
     }
 
     public void u(List<String> list, b bVar) {
-        this.f13939e = bVar;
+        this.f13600e = bVar;
         if (list == null || list.isEmpty()) {
             if (bVar != null) {
                 bVar.onFail(0, "list is empty");

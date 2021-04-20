@@ -18,66 +18,66 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f56959e;
+    public BaseActivity f58425e;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f56962h;
+    public View.OnClickListener f58428h;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f56961g = null;
+    public List<AccountData> f58427g = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56960f = false;
+    public boolean f58426f = false;
 
     /* loaded from: classes4.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f56963a;
+        public TextView f58429a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f56964b;
+        public TextView f58430b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f56965c;
+        public ImageView f58431c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f56966d;
+        public TextView f58432d;
 
         public b(a aVar) {
         }
     }
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.f56959e = baseActivity;
-        this.f56962h = onClickListener;
+        this.f58425e = baseActivity;
+        this.f58428h = onClickListener;
     }
 
     public boolean a() {
-        return this.f56960f;
+        return this.f58426f;
     }
 
     public void b(List<AccountData> list) {
-        this.f56961g = list;
+        this.f58427g = list;
     }
 
     public void c(boolean z) {
-        this.f56960f = z;
+        this.f58426f = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<AccountData> list = this.f56961g;
+        List<AccountData> list = this.f58427g;
         return (list != null ? list.size() : 0) + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        List<AccountData> list = this.f56961g;
+        List<AccountData> list = this.f58427g;
         if (list == null || i < 0 || i >= list.size()) {
             return null;
         }
-        return this.f56961g.get(i);
+        return this.f58427g.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -105,7 +105,7 @@ public class a extends BaseAdapter {
      */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00e5, code lost:
         r6.k(r0);
-        r5.f56959e.getLayoutMode().j(r7);
+        r5.f58425e.getLayoutMode().j(r7);
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x00f1, code lost:
         return r7;
@@ -121,18 +121,18 @@ public class a extends BaseAdapter {
             try {
                 if (view == null) {
                     if (getItemViewType(i) == 0) {
-                        view = LayoutInflater.from(this.f56959e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                        view = LayoutInflater.from(this.f58425e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
                         bVar = new b();
-                        bVar.f56963a = (TextView) view.findViewById(R.id.account);
-                        bVar.f56965c = (ImageView) view.findViewById(R.id.active);
+                        bVar.f58429a = (TextView) view.findViewById(R.id.account);
+                        bVar.f58431c = (ImageView) view.findViewById(R.id.active);
                         TextView textView = (TextView) view.findViewById(R.id.delete);
-                        bVar.f56966d = textView;
-                        textView.setOnClickListener(this.f56962h);
+                        bVar.f58432d = textView;
+                        textView.setOnClickListener(this.f58428h);
                         view.setTag(bVar);
                     } else {
-                        view = LayoutInflater.from(this.f56959e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                        view = LayoutInflater.from(this.f58425e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
                         bVar = new b();
-                        bVar.f56964b = (TextView) view.findViewById(R.id.add_text);
+                        bVar.f58430b = (TextView) view.findViewById(R.id.add_text);
                         view.setTag(bVar);
                     }
                 } else {
@@ -140,27 +140,27 @@ public class a extends BaseAdapter {
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    bVar.f56965c.setVisibility(8);
-                    bVar.f56966d.setVisibility(8);
-                    bVar.f56966d.setTag(accountData);
+                    bVar.f58431c.setVisibility(8);
+                    bVar.f58432d.setVisibility(8);
+                    bVar.f58432d.setTag(accountData);
                     if (accountData != null) {
-                        bVar.f56963a.setText(accountData.getAccountNameShow());
+                        bVar.f58429a.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            bVar.f56965c.setVisibility(0);
+                            bVar.f58431c.setVisibility(0);
                         }
-                        if (this.f56960f) {
-                            bVar.f56966d.setVisibility(0);
+                        if (this.f58426f) {
+                            bVar.f58432d.setVisibility(0);
                         }
                     }
                 }
-                layoutMode = this.f56959e.getLayoutMode();
+                layoutMode = this.f58425e.getLayoutMode();
             } catch (Exception e2) {
                 BdLog.detailException(e2);
-                layoutMode = this.f56959e.getLayoutMode();
+                layoutMode = this.f58425e.getLayoutMode();
             }
         } catch (Throwable th) {
-            this.f56959e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f56959e.getLayoutMode().j(view);
+            this.f58425e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f58425e.getLayoutMode().j(view);
             throw th;
         }
     }

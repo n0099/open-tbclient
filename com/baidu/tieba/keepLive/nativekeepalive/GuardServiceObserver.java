@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.h0.c0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuardServiceObserver extends Service {
     public final long STEP = 900000;
 

@@ -11,27 +11,27 @@ import java.lang.reflect.Method;
 public class SystemMessageHandler extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f22657a;
+    public long f22342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f22658b = 0;
+    public long f22343b = 0;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f22659a;
+        public static final c f22344a;
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0233a implements c {
+        public static class C0235a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public Method f22660a;
+            public Method f22345a;
 
-            public C0233a() {
+            public C0235a() {
                 try {
-                    this.f22660a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
+                    this.f22345a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e2) {
                     d.b.j0.a.a.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e2);
                 } catch (NoSuchMethodException e3) {
@@ -43,7 +43,7 @@ public class SystemMessageHandler extends Handler {
 
             @Override // com.baidu.turbonet.base.SystemMessageHandler.a.c
             public void a(Message message, boolean z) {
-                Method method = this.f22660a;
+                Method method = this.f22345a;
                 if (method == null) {
                     return;
                 }
@@ -51,16 +51,16 @@ public class SystemMessageHandler extends Handler {
                     method.invoke(message, Boolean.valueOf(z));
                 } catch (IllegalAccessException unused) {
                     d.b.j0.a.a.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
-                    this.f22660a = null;
+                    this.f22345a = null;
                 } catch (IllegalArgumentException unused2) {
                     d.b.j0.a.a.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
-                    this.f22660a = null;
+                    this.f22345a = null;
                 } catch (RuntimeException unused3) {
                     d.b.j0.a.a.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
-                    this.f22660a = null;
+                    this.f22345a = null;
                 } catch (InvocationTargetException unused4) {
                     d.b.j0.a.a.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
-                    this.f22660a = null;
+                    this.f22345a = null;
                 }
             }
         }
@@ -81,20 +81,20 @@ public class SystemMessageHandler extends Handler {
 
         static {
             if (Build.VERSION.SDK_INT >= 22) {
-                f22659a = new b();
+                f22344a = new b();
             } else {
-                f22659a = new C0233a();
+                f22344a = new C0235a();
             }
         }
 
         public static void a(Message message, boolean z) {
-            f22659a.a(message, z);
+            f22344a.a(message, z);
         }
     }
 
     public SystemMessageHandler(long j) {
-        this.f22657a = 0L;
-        this.f22657a = j;
+        this.f22342a = 0L;
+        this.f22342a = j;
     }
 
     @CalledByNative
@@ -112,10 +112,10 @@ public class SystemMessageHandler extends Handler {
 
     @CalledByNative
     private void scheduleDelayedWork(long j, long j2) {
-        if (this.f22658b != 0) {
+        if (this.f22343b != 0) {
             removeMessages(2);
         }
-        this.f22658b = j;
+        this.f22343b = j;
         sendMessageDelayed(a(2), j2);
     }
 
@@ -134,8 +134,8 @@ public class SystemMessageHandler extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 2) {
-            this.f22658b = 0L;
+            this.f22343b = 0L;
         }
-        nativeDoRunLoopOnce(this.f22657a, this.f22658b);
+        nativeDoRunLoopOnce(this.f22342a, this.f22343b);
     }
 }

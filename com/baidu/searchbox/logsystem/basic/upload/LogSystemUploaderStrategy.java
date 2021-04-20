@@ -117,8 +117,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:65:0x0189 A[Catch: IOException -> 0x01b3, TryCatch #0 {IOException -> 0x01b3, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002f, B:11:0x0057, B:12:0x0062, B:15:0x0076, B:17:0x007c, B:19:0x0093, B:22:0x009b, B:24:0x00a1, B:25:0x00a8, B:27:0x00ae, B:29:0x00b6, B:31:0x00c4, B:32:0x00c6, B:33:0x00c9, B:35:0x00d7, B:39:0x00df, B:41:0x00e4, B:42:0x00e7, B:44:0x011d, B:45:0x0132, B:46:0x013d, B:47:0x0145, B:49:0x014b, B:51:0x0157, B:53:0x015d, B:63:0x0180, B:65:0x0189, B:66:0x0190, B:68:0x0196, B:59:0x0170, B:61:0x0174, B:69:0x019d, B:18:0x008c), top: B:76:0x0004 }] */
-        /* JADX WARN: Removed duplicated region for block: B:68:0x0196 A[Catch: IOException -> 0x01b3, TryCatch #0 {IOException -> 0x01b3, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002f, B:11:0x0057, B:12:0x0062, B:15:0x0076, B:17:0x007c, B:19:0x0093, B:22:0x009b, B:24:0x00a1, B:25:0x00a8, B:27:0x00ae, B:29:0x00b6, B:31:0x00c4, B:32:0x00c6, B:33:0x00c9, B:35:0x00d7, B:39:0x00df, B:41:0x00e4, B:42:0x00e7, B:44:0x011d, B:45:0x0132, B:46:0x013d, B:47:0x0145, B:49:0x014b, B:51:0x0157, B:53:0x015d, B:63:0x0180, B:65:0x0189, B:66:0x0190, B:68:0x0196, B:59:0x0170, B:61:0x0174, B:69:0x019d, B:18:0x008c), top: B:76:0x0004 }] */
+        /* JADX WARN: Removed duplicated region for block: B:65:0x018a A[Catch: IOException -> 0x01b4, TryCatch #0 {IOException -> 0x01b4, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002f, B:11:0x0057, B:12:0x0062, B:15:0x0077, B:17:0x007d, B:19:0x0094, B:22:0x009c, B:24:0x00a2, B:25:0x00a9, B:27:0x00af, B:29:0x00b7, B:31:0x00c5, B:32:0x00c7, B:33:0x00ca, B:35:0x00d8, B:39:0x00e0, B:41:0x00e5, B:42:0x00e8, B:44:0x011e, B:45:0x0133, B:46:0x013e, B:47:0x0146, B:49:0x014c, B:51:0x0158, B:53:0x015e, B:63:0x0181, B:65:0x018a, B:66:0x0191, B:68:0x0197, B:59:0x0171, B:61:0x0175, B:69:0x019e, B:18:0x008d), top: B:76:0x0004 }] */
+        /* JADX WARN: Removed duplicated region for block: B:68:0x0197 A[Catch: IOException -> 0x01b4, TryCatch #0 {IOException -> 0x01b4, blocks: (B:3:0x0004, B:5:0x000a, B:9:0x002f, B:11:0x0057, B:12:0x0062, B:15:0x0077, B:17:0x007d, B:19:0x0094, B:22:0x009c, B:24:0x00a2, B:25:0x00a9, B:27:0x00af, B:29:0x00b7, B:31:0x00c5, B:32:0x00c7, B:33:0x00ca, B:35:0x00d8, B:39:0x00e0, B:41:0x00e5, B:42:0x00e8, B:44:0x011e, B:45:0x0133, B:46:0x013e, B:47:0x0146, B:49:0x014c, B:51:0x0158, B:53:0x015e, B:63:0x0181, B:65:0x018a, B:66:0x0191, B:68:0x0197, B:59:0x0171, B:61:0x0175, B:69:0x019e, B:18:0x008d), top: B:76:0x0004 }] */
         @NonNull
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -248,7 +248,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 RandomAccessFile randomAccessFile2 = null;
                 try {
                     try {
-                        randomAccessFile = new RandomAccessFile(file, r.f7664a);
+                        randomAccessFile = new RandomAccessFile(file, r.f7699a);
                     } catch (IOException e2) {
                         e = e2;
                     }

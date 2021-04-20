@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.b;
-import f.a.t.a;
+import f.b.b;
+import f.b.t.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
@@ -18,25 +18,25 @@ public final class CompletableMergeArray$InnerCompletableObserver extends Atomic
         lazySet(i);
     }
 
-    @Override // f.a.b
+    @Override // f.b.b
     public void onComplete() {
         if (decrementAndGet() == 0 && this.once.compareAndSet(false, true)) {
             this.actual.onComplete();
         }
     }
 
-    @Override // f.a.b
+    @Override // f.b.b
     public void onError(Throwable th) {
         this.set.dispose();
         if (this.once.compareAndSet(false, true)) {
             this.actual.onError(th);
         } else {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
         }
     }
 
-    @Override // f.a.b
-    public void onSubscribe(f.a.t.b bVar) {
+    @Override // f.b.b
+    public void onSubscribe(f.b.t.b bVar) {
         this.set.b(bVar);
     }
 }

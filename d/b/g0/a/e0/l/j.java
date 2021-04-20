@@ -39,8 +39,8 @@ import d.b.g0.a.q0.c;
 import d.b.g0.a.q1.b.c.a;
 import d.b.g0.i.n;
 /* loaded from: classes2.dex */
-public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.InterfaceC0765a {
-    public static final boolean c1 = d.b.g0.a.k.f45051a;
+public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.InterfaceC0777a {
+    public static final boolean c1 = d.b.g0.a.k.f45443a;
     public ImageView A0;
     public View B0;
     public ImageView C0;
@@ -54,7 +54,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
     public k R0;
     public AudioManager T0;
     public boolean U0;
-    public C0664j V0;
+    public C0676j V0;
     public OrientationEventListener W0;
     public GameCloseGuidePopView Y0;
     public View a1;
@@ -105,7 +105,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         public void onClick(View view) {
             j.this.a2();
             d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-            fVar.f47254d = SupportMenuInflater.XML_MENU;
+            fVar.f47646d = SupportMenuInflater.XML_MENU;
             j.this.t1(fVar);
         }
     }
@@ -210,12 +210,12 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
     public class i extends OrientationEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.g.i.a f44040a;
+        public final /* synthetic */ d.b.g0.g.i.a f44432a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(Context context, int i, d.b.g0.g.i.a aVar) {
             super(context, i);
-            this.f44040a = aVar;
+            this.f44432a = aVar;
         }
 
         @Override // android.view.OrientationEventListener
@@ -229,7 +229,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
                 }
                 j.this.f0.setRequestedOrientation(8);
                 j.this.X0 = "landscapeReverse";
-                d.b.g0.g.g0.a.a(this.f44040a, j.this.X0);
+                d.b.g0.g.g0.a.a(this.f44432a, j.this.X0);
                 if (j.c1) {
                     Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.X0);
                     return;
@@ -238,7 +238,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             }
             j.this.f0.setRequestedOrientation(0);
             j.this.X0 = "landscape";
-            d.b.g0.g.g0.a.a(this.f44040a, j.this.X0);
+            d.b.g0.g.g0.a.a(this.f44432a, j.this.X0);
             if (j.c1) {
                 Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.X0);
             }
@@ -247,17 +247,17 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
 
     /* renamed from: d.b.g0.a.e0.l.j$j  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0664j implements AudioManager.OnAudioFocusChangeListener {
+    public class C0676j implements AudioManager.OnAudioFocusChangeListener {
 
         /* renamed from: d.b.g0.a.e0.l.j$j$a */
         /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f44043e;
+            public final /* synthetic */ int f44435e;
 
             public a(int i) {
-                this.f44043e = i;
+                this.f44435e = i;
             }
 
             @Override // java.lang.Runnable
@@ -265,7 +265,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
                 if (j.this.f3()) {
                     return;
                 }
-                int i = this.f44043e;
+                int i = this.f44435e;
                 if (i == -2) {
                     if (j.c1) {
                         Log.d("SwanGameFragment", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
@@ -281,7 +281,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             }
         }
 
-        public C0664j() {
+        public C0676j() {
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
@@ -289,7 +289,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             k0.X(new a(i));
         }
 
-        public /* synthetic */ C0664j(j jVar, a aVar) {
+        public /* synthetic */ C0676j(j jVar, a aVar) {
             this();
         }
     }
@@ -331,7 +331,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             activity.moveTaskToBack(true);
         }
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47254d = IntentConfig.CLOSE;
+        fVar.f47646d = IntentConfig.CLOSE;
         t1(fVar);
         ((SwanAppActivity) this.f0).handleSwanAppExit(1);
         p0.b().e(2);
@@ -497,7 +497,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         }
     }
 
-    @Override // d.b.g0.a.q1.b.c.a.InterfaceC0765a
+    @Override // d.b.g0.a.q1.b.c.a.InterfaceC0777a
     public d.b.g0.a.q1.b.c.a getFloatLayer() {
         d.b.g0.g.k0.d dVar;
         if (this.N0 == null && (dVar = this.L0) != null && dVar.e() != null) {
@@ -508,11 +508,11 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
 
     @Override // d.b.g0.a.e0.l.c
     public void h1() {
-        C0664j c0664j;
+        C0676j c0676j;
         if (this.U0) {
             AudioManager audioManager = this.T0;
-            if (audioManager != null && (c0664j = this.V0) != null) {
-                audioManager.abandonAudioFocus(c0664j);
+            if (audioManager != null && (c0676j = this.V0) != null) {
+                audioManager.abandonAudioFocus(c0676j);
                 this.T0 = null;
                 this.V0 = null;
             }
@@ -552,9 +552,9 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         if (c1) {
             Log.d("SwanGameFragment", "pause() obj: " + this + " ,v8Engine: " + v8Engine);
         }
-        if (!v8Engine.n0()) {
+        if (!v8Engine.o0()) {
             v8Engine.onPause();
-            v8Engine.c0(new JSEvent("apphide"));
+            v8Engine.d0(new JSEvent("apphide"));
             d.b.g0.g.g0.b.a(v8Engine);
             EventTarget t = v8Engine.t();
             if (t instanceof d.b.g0.g.e.c) {
@@ -588,7 +588,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             }
         }
         if (this.V0 == null) {
-            this.V0 = new C0664j(this, null);
+            this.V0 = new C0676j(this, null);
         }
         this.U0 = this.T0.requestAudioFocus(this.V0, 3, 1) == 1;
         if (c1) {
@@ -613,7 +613,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         d.b.g0.g.g0.b.b(v8Engine);
         Activity activity2 = this.f0;
         if (activity2 != null && (activity2 instanceof SwanAppActivity)) {
-            v8Engine.c0(new d.b.g0.g.u.e(((SwanAppActivity) activity2).getLaunchInfo()));
+            v8Engine.d0(new d.b.g0.g.u.e(((SwanAppActivity) activity2).getLaunchInfo()));
         }
         v8Engine.onResume();
         if (this.D0 != null && this.E0 != null) {
@@ -772,7 +772,7 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             Log.d("SwanGameFragment", "onPause() obj: " + this);
         }
         super.onPause();
-        if (V()) {
+        if (T()) {
             h3();
         }
     }
@@ -783,15 +783,15 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
             Log.d("SwanGameFragment", "onResume() obj: " + this);
         }
         super.onResume();
-        if (V()) {
+        if (T()) {
             j3();
         }
     }
 
     @Override // d.b.g0.a.e0.l.c
     public boolean v() {
-        if (d.b.b0.a.j()) {
-            return d.b.b0.a.j();
+        if (d.b.y.a.j()) {
+            return d.b.y.a.j();
         }
         if (d.b.g0.a.r1.e.y() != null && d.b.g0.a.q0.c.c().h()) {
             return l3(com.alipay.sdk.widget.j.m);
@@ -822,6 +822,6 @@ public class j extends d.b.g0.a.e0.l.c implements d.b.g0.g.b0.a.b.b, a.Interface
         if (duMixGameSurfaceView == null || duMixGameSurfaceView.getV8Engine() == null) {
             return;
         }
-        this.y0.getV8Engine().c0(new JSEvent("sharebtn"));
+        this.y0.getV8Engine().d0(new JSEvent("sharebtn"));
     }
 }

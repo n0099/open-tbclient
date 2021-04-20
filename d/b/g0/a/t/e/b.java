@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class b implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46215b;
+    public int f46607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46216c;
+    public String f46608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f46217d;
+    public JSONObject f46609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46218e;
+    public boolean f46610e;
 
     public b() {
-        this.f46218e = false;
+        this.f46610e = false;
     }
 
     public static String c(int i) {
@@ -65,16 +65,16 @@ public class b implements a {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("status", String.valueOf(this.f46215b));
-            if (TextUtils.isEmpty(this.f46216c)) {
-                this.f46216c = c(this.f46215b);
+            jSONObject.put("status", String.valueOf(this.f46607b));
+            if (TextUtils.isEmpty(this.f46608c)) {
+                this.f46608c = c(this.f46607b);
             }
-            jSONObject.put("message", this.f46216c);
-            if (this.f46217d != null) {
-                jSONObject.put("data", this.f46218e ? Uri.encode(this.f46217d.toString(), StandardCharsets.UTF_8.name()) : this.f46217d);
+            jSONObject.put("message", this.f46608c);
+            if (this.f46609d != null) {
+                jSONObject.put("data", this.f46610e ? Uri.encode(this.f46609d.toString(), StandardCharsets.UTF_8.name()) : this.f46609d);
             }
         } catch (JSONException e2) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 e2.printStackTrace();
             }
         }
@@ -83,18 +83,18 @@ public class b implements a {
 
     @Override // d.b.g0.a.t.e.a
     public boolean b() {
-        return this.f46215b == 0;
+        return this.f46607b == 0;
     }
 
     public boolean d(@NonNull String str, @Nullable Object obj) {
-        if (this.f46217d == null) {
-            this.f46217d = new JSONObject();
+        if (this.f46609d == null) {
+            this.f46609d = new JSONObject();
         }
         try {
-            this.f46217d.put(str, obj);
+            this.f46609d.put(str, obj);
             return true;
         } catch (JSONException e2) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -107,33 +107,33 @@ public class b implements a {
     }
 
     public b(int i) {
-        this.f46218e = false;
-        this.f46215b = i;
+        this.f46610e = false;
+        this.f46607b = i;
     }
 
     public b(int i, @NonNull String str) {
-        this.f46218e = false;
-        this.f46215b = i;
-        this.f46216c = str;
+        this.f46610e = false;
+        this.f46607b = i;
+        this.f46608c = str;
     }
 
     public b(int i, @NonNull JSONObject jSONObject) {
-        this.f46218e = false;
-        this.f46215b = i;
-        this.f46217d = jSONObject;
+        this.f46610e = false;
+        this.f46607b = i;
+        this.f46609d = jSONObject;
     }
 
     public b(int i, @NonNull JSONObject jSONObject, boolean z) {
-        this.f46218e = false;
-        this.f46215b = i;
-        this.f46217d = jSONObject;
-        this.f46218e = z;
+        this.f46610e = false;
+        this.f46607b = i;
+        this.f46609d = jSONObject;
+        this.f46610e = z;
     }
 
     public b(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        this.f46218e = false;
-        this.f46215b = i;
-        this.f46216c = str;
-        this.f46217d = jSONObject;
+        this.f46610e = false;
+        this.f46607b = i;
+        this.f46608c = str;
+        this.f46609d = jSONObject;
     }
 }

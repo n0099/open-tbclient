@@ -15,12 +15,12 @@ import org.apache.http.protocol.HttpContext;
 public final class d extends DefaultHttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1654a;
+    public final /* synthetic */ b f1679a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
         super(clientConnectionManager, httpParams);
-        this.f1654a = bVar;
+        this.f1679a = bVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultHttpClient, org.apache.http.impl.client.AbstractHttpClient
@@ -41,9 +41,9 @@ public final class d extends DefaultHttpClient {
     public final BasicHttpProcessor createHttpProcessor() {
         HttpRequestInterceptor httpRequestInterceptor;
         BasicHttpProcessor createHttpProcessor = super.createHttpProcessor();
-        httpRequestInterceptor = b.f1647c;
+        httpRequestInterceptor = b.f1672c;
         createHttpProcessor.addRequestInterceptor(httpRequestInterceptor);
-        createHttpProcessor.addRequestInterceptor(new b.a(this.f1654a, (byte) 0));
+        createHttpProcessor.addRequestInterceptor(new b.a(this.f1679a, (byte) 0));
         return createHttpProcessor;
     }
 

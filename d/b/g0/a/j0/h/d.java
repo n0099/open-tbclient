@@ -18,7 +18,7 @@ public class d implements a {
             return list;
         }
         list.removeAll(i);
-        if (a.f44813a) {
+        if (a.f45205a) {
             Log.d("IDiskCleanStrategy", "共" + i.size() + "个历史，尝试过滤");
         }
         return list;

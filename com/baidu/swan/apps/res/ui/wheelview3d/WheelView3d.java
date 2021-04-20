@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WheelView3d extends View {
     public static final int[] e0 = {-1, 452984831};
     public int A;
@@ -58,16 +58,16 @@ public class WheelView3d extends View {
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f12590e;
+    public DividerType f12251e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12591f;
+    public Context f12252f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f12592g;
+    public Handler f12253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f12593h;
+    public GestureDetector f12254h;
     public b i;
     public boolean j;
     public boolean k;
@@ -87,20 +87,20 @@ public class WheelView3d extends View {
     public int y;
     public int z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ACTION {
         CLICK,
         FLING,
         DAGGLE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum DividerType {
         FILL,
         WRAP
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -163,10 +163,10 @@ public class WheelView3d extends View {
     }
 
     public final void g(Context context) {
-        this.f12591f = context;
-        this.f12592g = new d.b.g0.a.q1.a.f.d.b(this);
+        this.f12252f = context;
+        this.f12253g = new d.b.g0.a.q1.a.f.d.b(this);
         GestureDetector gestureDetector = new GestureDetector(context, new d.b.g0.a.q1.a.f.c.a(this));
-        this.f12593h = gestureDetector;
+        this.f12254h = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.C = true;
         this.G = 0.0f;
@@ -198,7 +198,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public Handler getHandler() {
-        return this.f12592g;
+        return this.f12253g;
     }
 
     public int getInitPosition() {
@@ -380,7 +380,7 @@ public class WheelView3d extends View {
             }
             i3++;
         }
-        if (this.f12590e == DividerType.WRAP) {
+        if (this.f12251e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i = (this.N - this.t) / 2;
             } else {
@@ -476,7 +476,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.f12593h.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f12254h.onTouchEvent(motionEvent);
         float f2 = (-this.H) * this.w;
         float a2 = ((this.q.a() - 1) - this.H) * this.w;
         int action = motionEvent.getAction();
@@ -588,7 +588,7 @@ public class WheelView3d extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.f12590e = dividerType;
+        this.f12251e = dividerType;
     }
 
     public void setGravity(int i) {

@@ -35,7 +35,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                         if (optJSONObject2 != null) {
                             a2 a2Var = new a2();
-                            a2Var.P2(optJSONObject2);
+                            a2Var.Q2(optJSONObject2);
                             this.livesList.add(a2Var);
                         }
                     }
@@ -47,8 +47,8 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
             c cVar = this.mSpecialActivityListData;
-            if (cVar != null && cVar.f60535e == null) {
-                cVar.f60535e = new ArrayList();
+            if (cVar != null && cVar.f62099e == null) {
+                cVar.f62099e = new ArrayList();
             }
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -56,7 +56,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     if (optJSONObject3 != null) {
                         b bVar = new b();
                         bVar.g(optJSONObject3);
-                        this.mSpecialActivityListData.f60535e.add(bVar);
+                        this.mSpecialActivityListData.f62099e.add(bVar);
                     }
                 }
             }

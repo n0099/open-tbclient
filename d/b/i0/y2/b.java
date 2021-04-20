@@ -1,13 +1,18 @@
 package d.b.i0.y2;
-/* loaded from: classes5.dex */
-public class b extends d {
-    public String r;
+/* loaded from: classes4.dex */
+public class b {
 
-    public b(String str, String str2) {
-        this.r = str;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile a f64201a;
 
-    public String x() {
-        return this.r;
+    public static synchronized a a() {
+        a aVar;
+        synchronized (b.class) {
+            if (f64201a == null) {
+                f64201a = new a();
+            }
+            aVar = f64201a;
+        }
+        return aVar;
     }
 }

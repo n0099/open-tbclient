@@ -7,20 +7,20 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
+import d.b.c.e.m.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Runnable f50370a = new RunnableC1069a();
+    public static Runnable f50777a = new RunnableC1082a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f50371b = false;
+    public static boolean f50778b = false;
 
     /* renamed from: d.b.h0.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC1069a implements Runnable {
+    public static class RunnableC1082a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
             a.d();
@@ -55,7 +55,7 @@ public class a {
 
     public static void c() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.a().post(f50370a);
+            e.a().post(f50777a);
             MessageManager.getInstance().registerListener(new b(2000993));
             MessageManager.getInstance().registerListener(new c(2000988));
         }
@@ -63,8 +63,8 @@ public class a {
 
     public static final void d() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            f50371b = false;
-            e.a().removeCallbacks(f50370a);
+            f50778b = false;
+            e.a().removeCallbacks(f50777a);
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
         }
@@ -72,12 +72,12 @@ public class a {
 
     public static final void e() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.a().removeCallbacks(f50370a);
-            e.a().postDelayed(f50370a, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
-            if (f50371b) {
+            e.a().removeCallbacks(f50777a);
+            e.a().postDelayed(f50777a, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+            if (f50778b) {
                 return;
             }
-            f50371b = true;
+            f50778b = true;
             String string = TbadkCoreApplication.getInst().getResources().getString(R.string.plugin_tip_installing);
             NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000, null, string, string, null, false);
         }

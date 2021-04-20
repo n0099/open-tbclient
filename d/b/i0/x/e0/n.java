@@ -8,22 +8,22 @@ public class n extends BaseCardInfo implements p {
     public static final BdUniqueId k = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62221e = true;
+    public boolean f63796e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f62222f = true;
+    public boolean f63797f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62223g;
+    public String f63798g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<m> f62224h;
+    public List<m> f63799h;
     public int i;
     public int j;
 
     @Override // d.b.i0.x.e0.p
     public void b(boolean z) {
-        this.f62221e = z;
+        this.f63796e = z;
     }
 
     @Override // d.b.i0.x.e0.p
@@ -31,14 +31,14 @@ public class n extends BaseCardInfo implements p {
         return this.i;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return k;
     }
 
     @Override // d.b.i0.x.e0.p
     public void h(boolean z) {
-        this.f62222f = z;
+        this.f63797f = z;
     }
 
     @Override // d.b.i0.x.e0.p

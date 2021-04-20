@@ -14,15 +14,15 @@ import java.util.List;
 public class o extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25523a;
+    public BindFastRequest f25208a;
 
     public <T> o(Context context) {
         super(context);
-        this.f25523a = null;
+        this.f25208a = null;
     }
 
     public void a(BindFastRequest bindFastRequest) {
-        this.f25523a = bindFastRequest;
+        this.f25208a = bindFastRequest;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -32,10 +32,10 @@ public class o extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        if (this.f25523a != null) {
+        if (this.f25208a != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25523a.getmBankCard())));
-            arrayList.add(new RestNameValuePair("account_bank_code", this.f25523a.getSubBankCode()));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25208a.getmBankCard())));
+            arrayList.add(new RestNameValuePair("account_bank_code", this.f25208a.getSubBankCode()));
             arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
             return arrayList;
         }

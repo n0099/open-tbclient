@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.b.e.d.l;
+import d.b.c.e.d.l;
 import d.b.h0.r.r.a;
-import d.b.i0.e2.c;
-import d.b.i0.e2.g;
-import d.b.i0.v0.b;
+import d.b.i0.f2.c;
+import d.b.i0.f2.g;
+import d.b.i0.w0.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
@@ -35,7 +35,7 @@ import tbclient.TbBookrack;
 import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implements c {
     public static final String PROFILE_CACHE_KEY = "profile_cache_key";
     public Anti anti_stat;
@@ -71,17 +71,17 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         super(i);
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public Anti GetAntiStat() {
         return this.anti_stat;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public List<PostInfoList> GetPostList() {
         return this.post_list;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public User GetUser() {
         return this.user;
     }
@@ -90,22 +90,22 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.banner;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public TbBookrack getBookrackData() {
         return this.bookrack;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public List<ForumDynamic> getConcernedForumList() {
         return this.concernedForumList;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public List<DynamicInfo> getDynamicInfoList() {
         return this.dynamicInfoList;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public int getErrorCode() {
         return getError();
     }
@@ -118,7 +118,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.feedback;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public b getGoodsWindowInfo() {
         return this.mLiveGoodsWindowData;
     }
@@ -127,22 +127,22 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.highlist;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public HotUserRankEntry getHotRankEntry() {
         return this.hotUserRankEntry;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public AlaLiveInfoCoreData getLiveInfo() {
         return this.liveInfoData;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         return this.liveReplayData;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public int getMaskType() {
         return this.maskType;
     }
@@ -151,12 +151,12 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.moduleInfo;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public List<ThreadInfo> getNewestThreadList() {
         return this.newest_dynamic_list;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public NicknameInfo getNicknameInfo() {
         return this.nicknameInfo;
     }
@@ -169,7 +169,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.recomSwanList;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public TAInfo getTaInfo() {
         return this.tainfo;
     }
@@ -178,7 +178,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.ucCardData;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public UserAgreeInfo getUserAgreeInfo() {
         return this.userAgreeInfo;
     }
@@ -187,7 +187,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.userManChannelInfo;
     }
 
-    @Override // d.b.i0.e2.c
+    @Override // d.b.i0.f2.c
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
     }
@@ -230,14 +230,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         if (this.ucCardData == null || (h2 = a.f().h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) == null || !this.isSelf) {
             return;
         }
-        List<g.a> list = this.ucCardData.f54537a;
+        List<g.a> list = this.ucCardData.f55978a;
         if (ListUtils.getCount(list) > 4) {
-            list.get(4).f54539b = 8L;
+            list.get(4).f55980b = 8L;
             for (g.a aVar : list) {
-                if (aVar.f54539b > d.b.b.e.m.b.f(h2.get(aVar.f54538a), 0L)) {
-                    aVar.f54540c = true;
+                if (aVar.f55980b > d.b.c.e.m.b.f(h2.get(aVar.f55979a), 0L)) {
+                    aVar.f55981c = true;
                 } else {
-                    aVar.f54540c = false;
+                    aVar.f55981c = false;
                 }
             }
         }
@@ -262,7 +262,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         if (getError() != 0) {
             return;
         }
-        d.b.i0.e2.b personCenterData = profileRequestMessage.getPersonCenterData();
+        d.b.i0.f2.b personCenterData = profileRequestMessage.getPersonCenterData();
         if (personCenterData != null) {
             personCenterData.b(profileResIdl);
         }

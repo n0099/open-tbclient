@@ -11,96 +11,96 @@ import d.c.b.a;
 import d.c.b.p1;
 import d.c.b.q1;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AppLogHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile AppLogHelper f27257a;
+    public static volatile AppLogHelper f26942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27258b = null;
+    public String f26943b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27259c = null;
+    public String f26944c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f27260d = false;
+    public volatile boolean f26945d = false;
 
     private void a() {
         String g2 = a.g();
-        this.f27258b = g2;
+        this.f26943b = g2;
         if (TextUtils.isEmpty(g2)) {
             return;
         }
-        i.a("sdk_app_log_did", this.f27258b);
+        i.a("sdk_app_log_did", this.f26943b);
     }
 
     private void b() {
         String n = a.n();
-        this.f27259c = n;
+        this.f26944c = n;
         if (TextUtils.isEmpty(n)) {
             return;
         }
-        i.a("app_log_user_unique_id", this.f27259c);
+        i.a("app_log_user_unique_id", this.f26944c);
     }
 
     public static AppLogHelper getInstance() {
-        if (f27257a == null) {
+        if (f26942a == null) {
             synchronized (AppLogHelper.class) {
-                if (f27257a == null) {
-                    f27257a = new AppLogHelper();
+                if (f26942a == null) {
+                    f26942a = new AppLogHelper();
                 }
             }
         }
-        return f27257a;
+        return f26942a;
     }
 
     public String getAppLogDid() {
-        if (TextUtils.isEmpty(this.f27258b)) {
+        if (TextUtils.isEmpty(this.f26943b)) {
             String a2 = i.a("sdk_app_log_did", 2592000000L);
-            this.f27258b = a2;
+            this.f26943b = a2;
             if (TextUtils.isEmpty(a2)) {
-                if (!this.f27260d) {
+                if (!this.f26945d) {
                     initAppLog(p.a());
                 }
                 a();
             }
         }
-        return this.f27258b;
+        return this.f26943b;
     }
 
     public String getAppLogUserUniqueID() {
-        if (TextUtils.isEmpty(this.f27259c)) {
+        if (TextUtils.isEmpty(this.f26944c)) {
             String a2 = i.a("app_log_user_unique_id", 2592000000L);
-            this.f27259c = a2;
+            this.f26944c = a2;
             if (TextUtils.isEmpty(a2)) {
-                if (!this.f27260d) {
+                if (!this.f26945d) {
                     initAppLog(p.a());
                 }
                 b();
             }
         }
-        return this.f27259c;
+        return this.f26944c;
     }
 
     public String getSdkVersion() {
-        return !this.f27260d ? "" : (String) a.j("sdk_version_name", "");
+        return !this.f26945d ? "" : (String) a.j("sdk_version_name", "");
     }
 
     public synchronized void initAppLog(Context context) {
-        if (!this.f27260d) {
+        if (!this.f26945d) {
             q1 q1Var = new q1(String.valueOf(164362), "unionser_slardar_applog");
-            if (m.f28460b != null) {
-                q1Var.i(m.f28460b.isCanUsePhoneState());
-                if (!m.f28460b.isCanUsePhoneState()) {
-                    q1Var.e(m.f28460b.getDevImei());
+            if (m.f28145b != null) {
+                q1Var.i(m.f28145b.isCanUsePhoneState());
+                if (!m.f28145b.isCanUsePhoneState()) {
+                    q1Var.e(m.f28145b.getDevImei());
                 }
-                q1Var.f(m.f28460b.isCanUseWifiState());
+                q1Var.f(m.f28145b.isCanUseWifiState());
             }
             q1Var.d(new p1() { // from class: com.bytedance.sdk.openadsdk.AppLogHelper.1
                 @Override // d.c.b.p1
                 public String a() {
-                    if (m.f28460b == null || m.f28460b.isCanUseWifiState()) {
+                    if (m.f28145b == null || m.f28145b.isCanUseWifiState()) {
                         return k.h(p.a());
                     }
                     return null;
@@ -109,14 +109,14 @@ public class AppLogHelper {
             q1Var.a(0);
             a.o(context, q1Var);
             y.a(context);
-            this.f27260d = true;
+            this.f26945d = true;
             a();
             b();
         }
     }
 
     public void setHeaderInfo(HashMap<String, Object> hashMap) {
-        if (!this.f27260d) {
+        if (!this.f26945d) {
             initAppLog(p.a());
         }
         a.s(hashMap);

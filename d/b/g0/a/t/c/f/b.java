@@ -19,24 +19,24 @@ public class b extends d.b.g0.a.t.b.d {
 
         /* renamed from: d.b.g0.a.t.c.f.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0804a implements Runnable {
+        public class RunnableC0816a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.r1.e f45995e;
+            public final /* synthetic */ d.b.g0.a.r1.e f46387e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f45996f;
+            public final /* synthetic */ JSONObject f46388f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f45997g;
+            public final /* synthetic */ String f46389g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ String f45998h;
+            public final /* synthetic */ String f46390h;
 
             /* renamed from: d.b.g0.a.t.c.f.b$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class DialogInterface$OnClickListenerC0805a implements DialogInterface.OnClickListener {
-                public DialogInterface$OnClickListenerC0805a() {
+            public class DialogInterface$OnClickListenerC0817a implements DialogInterface.OnClickListener {
+                public DialogInterface$OnClickListenerC0817a() {
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -44,22 +44,22 @@ public class b extends d.b.g0.a.t.b.d {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", QueryResponse.Options.CANCEL);
-                        RunnableC0804a runnableC0804a = RunnableC0804a.this;
-                        b.this.c(runnableC0804a.f45997g, new d.b.g0.a.t.e.b(0, jSONObject));
+                        RunnableC0816a runnableC0816a = RunnableC0816a.this;
+                        b.this.c(runnableC0816a.f46389g, new d.b.g0.a.t.e.b(0, jSONObject));
                     } catch (JSONException e2) {
-                        if (d.b.g0.a.t.b.d.f45929c) {
+                        if (d.b.g0.a.t.b.d.f46321c) {
                             e2.printStackTrace();
                         }
-                        RunnableC0804a runnableC0804a2 = RunnableC0804a.this;
-                        b.this.c(runnableC0804a2.f45997g, new d.b.g0.a.t.e.b(201));
+                        RunnableC0816a runnableC0816a2 = RunnableC0816a.this;
+                        b.this.c(runnableC0816a2.f46389g, new d.b.g0.a.t.e.b(201));
                     }
                 }
             }
 
             /* renamed from: d.b.g0.a.t.c.f.b$a$a$b  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class DialogInterface$OnClickListenerC0806b implements DialogInterface.OnClickListener {
-                public DialogInterface$OnClickListenerC0806b() {
+            public class DialogInterface$OnClickListenerC0818b implements DialogInterface.OnClickListener {
+                public DialogInterface$OnClickListenerC0818b() {
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -67,45 +67,45 @@ public class b extends d.b.g0.a.t.b.d {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", "confirm");
-                        RunnableC0804a runnableC0804a = RunnableC0804a.this;
-                        b.this.c(runnableC0804a.f45997g, new d.b.g0.a.t.e.b(0, jSONObject));
+                        RunnableC0816a runnableC0816a = RunnableC0816a.this;
+                        b.this.c(runnableC0816a.f46389g, new d.b.g0.a.t.e.b(0, jSONObject));
                     } catch (JSONException e2) {
-                        if (d.b.g0.a.t.b.d.f45929c) {
+                        if (d.b.g0.a.t.b.d.f46321c) {
                             e2.printStackTrace();
                         }
-                        RunnableC0804a runnableC0804a2 = RunnableC0804a.this;
-                        b.this.c(runnableC0804a2.f45997g, new d.b.g0.a.t.e.b(201));
+                        RunnableC0816a runnableC0816a2 = RunnableC0816a.this;
+                        b.this.c(runnableC0816a2.f46389g, new d.b.g0.a.t.e.b(201));
                     }
                 }
             }
 
-            public RunnableC0804a(d.b.g0.a.r1.e eVar, JSONObject jSONObject, String str, String str2) {
-                this.f45995e = eVar;
-                this.f45996f = jSONObject;
-                this.f45997g = str;
-                this.f45998h = str2;
+            public RunnableC0816a(d.b.g0.a.r1.e eVar, JSONObject jSONObject, String str, String str2) {
+                this.f46387e = eVar;
+                this.f46388f = jSONObject;
+                this.f46389g = str;
+                this.f46390h = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f45995e.n() == null || this.f45995e.n().isFinishing() || this.f45995e.n().isDestroyed()) {
+                if (this.f46387e.n() == null || this.f46387e.n().isFinishing() || this.f46387e.n().isDestroyed()) {
                     return;
                 }
                 g.a aVar = new g.a(b.this.h());
-                aVar.V(this.f45996f.optString("title"));
-                aVar.y(this.f45996f.optString("content"));
+                aVar.V(this.f46388f.optString("title"));
+                aVar.y(this.f46388f.optString("content"));
                 aVar.n(new d.b.g0.a.j2.g.a());
                 aVar.m(false);
-                if (this.f45996f.optBoolean("showCancel", true)) {
-                    aVar.F(this.f45996f.optString("cancelColor"), d.b.g0.a.c.aiapps_modal_cancel_color);
-                    String optString = this.f45996f.optString("cancelText");
+                if (this.f46388f.optBoolean("showCancel", true)) {
+                    aVar.F(this.f46388f.optString("cancelColor"), d.b.g0.a.c.aiapps_modal_cancel_color);
+                    String optString = this.f46388f.optString("cancelText");
                     if (TextUtils.isEmpty(optString)) {
                         optString = b.this.h().getString(d.b.g0.a.h.aiapps_cancel);
                     }
-                    aVar.D(optString, new DialogInterface$OnClickListenerC0805a());
+                    aVar.D(optString, new DialogInterface$OnClickListenerC0817a());
                 }
-                aVar.R(this.f45996f.optString("confirmColor"), d.b.g0.a.c.aiapps_modal_confirm_color);
-                aVar.P(this.f45998h, new DialogInterface$OnClickListenerC0806b());
+                aVar.R(this.f46388f.optString("confirmColor"), d.b.g0.a.c.aiapps_modal_confirm_color);
+                aVar.P(this.f46390h, new DialogInterface$OnClickListenerC0818b());
                 aVar.X();
             }
         }
@@ -119,7 +119,7 @@ public class b extends d.b.g0.a.t.b.d {
             if (TextUtils.isEmpty(optString)) {
                 optString = b.this.h().getString(d.b.g0.a.h.aiapps_ok);
             }
-            k0.X(new RunnableC0804a(eVar, jSONObject, str, optString));
+            k0.X(new RunnableC0816a(eVar, jSONObject, str, optString));
             return new d.b.g0.a.t.e.b(0);
         }
     }
@@ -129,7 +129,7 @@ public class b extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b t(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-Modal", "start show modal");
         }
         return i(str, true, new a());

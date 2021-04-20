@@ -9,29 +9,29 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<GeoCodeResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7190a;
+    public LatLng f7225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7191b;
+    public String f7226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7192c;
+    public int f7227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7193d;
+    public int f7228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7194e;
+    public String f7229e;
 
     public GeoCodeResult() {
     }
 
     public GeoCodeResult(Parcel parcel) {
-        this.f7190a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7191b = parcel.readString();
-        this.f7192c = parcel.readInt();
-        this.f7193d = parcel.readInt();
-        this.f7194e = parcel.readString();
+        this.f7225a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7226b = parcel.readString();
+        this.f7227c = parcel.readInt();
+        this.f7228d = parcel.readInt();
+        this.f7229e = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -41,65 +41,65 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Deprecated
     public String getAddress() {
-        return this.f7191b;
+        return this.f7226b;
     }
 
     public int getConfidence() {
-        return this.f7193d;
+        return this.f7228d;
     }
 
     public String getLevel() {
-        return this.f7194e;
+        return this.f7229e;
     }
 
     public LatLng getLocation() {
-        return this.f7190a;
+        return this.f7225a;
     }
 
     public int getPrecise() {
-        return this.f7192c;
+        return this.f7227c;
     }
 
     @Deprecated
     public void setAddress(String str) {
-        this.f7191b = str;
+        this.f7226b = str;
     }
 
     public void setConfidence(int i) {
-        this.f7193d = i;
+        this.f7228d = i;
     }
 
     public void setLevel(String str) {
-        this.f7194e = str;
+        this.f7229e = str;
     }
 
     public void setLocation(LatLng latLng) {
-        this.f7190a = latLng;
+        this.f7225a = latLng;
     }
 
     public void setPrecise(int i) {
-        this.f7192c = i;
+        this.f7227c = i;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("GeoCodeResult: \n");
         stringBuffer.append("location = ");
-        stringBuffer.append(this.f7190a);
+        stringBuffer.append(this.f7225a);
         stringBuffer.append("; precise = ");
-        stringBuffer.append(this.f7192c);
+        stringBuffer.append(this.f7227c);
         stringBuffer.append("; confidence = ");
-        stringBuffer.append(this.f7193d);
+        stringBuffer.append(this.f7228d);
         stringBuffer.append("; level = ");
-        stringBuffer.append(this.f7194e);
+        stringBuffer.append(this.f7229e);
         return stringBuffer.toString();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f7190a);
-        parcel.writeString(this.f7191b);
-        parcel.writeInt(this.f7192c);
-        parcel.writeInt(this.f7193d);
-        parcel.writeString(this.f7194e);
+        parcel.writeValue(this.f7225a);
+        parcel.writeString(this.f7226b);
+        parcel.writeInt(this.f7227c);
+        parcel.writeInt(this.f7228d);
+        parcel.writeString(this.f7229e);
     }
 }

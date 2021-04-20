@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.t.b;
-import f.a.x.c.f;
+import f.b.g;
+import f.b.t.b;
+import f.b.x.c.f;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -26,12 +26,12 @@ public final class FlowableFlatMap$InnerSubscriber<T, U> extends AtomicReference
         this.limit = i >> 2;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         SubscriptionHelper.cancel(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get() == SubscriptionHelper.CANCELLED;
     }
@@ -57,11 +57,11 @@ public final class FlowableFlatMap$InnerSubscriber<T, U> extends AtomicReference
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(7);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;

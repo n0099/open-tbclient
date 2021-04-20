@@ -25,20 +25,20 @@ import okhttp3.Response;
 public class a extends HttpManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48887a = d.b.g0.k.b.b();
+    public static final boolean f49279a = d.b.g0.k.b.b();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f48888b;
+    public static volatile a f49280b;
 
     /* renamed from: d.b.g0.k.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1017a extends ResponseCallback {
-        public C1017a(a aVar) {
+    public class C1029a extends ResponseCallback {
+        public C1029a(a aVar) {
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (a.f48887a) {
+            if (a.f49279a) {
                 Log.e("SwanHttpManager", "request is fail");
             }
         }
@@ -49,7 +49,7 @@ public class a extends HttpManager {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            if (a.f48887a) {
+            if (a.f49279a) {
                 Log.w("SwanHttpManager", "response is ignore");
             }
             return response;
@@ -57,18 +57,18 @@ public class a extends HttpManager {
     }
 
     public a() {
-        super(d.b.g0.k.b.a().f());
+        super(d.b.g0.k.b.a().getAppContext());
     }
 
     public static a f() {
-        if (f48888b == null) {
+        if (f49280b == null) {
             synchronized (a.class) {
-                if (f48888b == null) {
-                    f48888b = new a();
+                if (f49280b == null) {
+                    f49280b = new a();
                 }
             }
         }
-        return f48888b;
+        return f49280b;
     }
 
     public static a g(Context context) {
@@ -87,12 +87,12 @@ public class a extends HttpManager {
     }
 
     public void d(d.b.g0.k.d.a aVar) {
-        aVar.f48880b = "GET";
+        aVar.f49272b = "GET";
         r(aVar);
     }
 
     public void e(d.b.g0.k.d.a aVar) {
-        aVar.f48880b = "POST";
+        aVar.f49272b = "POST";
         r(aVar);
     }
 
@@ -122,7 +122,7 @@ public class a extends HttpManager {
     }
 
     public final ResponseCallback j() {
-        return new C1017a(this);
+        return new C1029a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,7 +134,7 @@ public class a extends HttpManager {
 
     public final boolean l(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f48887a) {
+            if (f49279a) {
                 Log.e("SwanHttpManager", "url is empty");
                 return true;
             }
@@ -176,47 +176,47 @@ public class a extends HttpManager {
     }
 
     public void r(@NonNull d.b.g0.k.d.a aVar) {
-        if (aVar.f48883e == null) {
-            aVar.f48883e = j();
+        if (aVar.f49275e == null) {
+            aVar.f49275e = j();
         }
-        if (l(aVar.f48879a)) {
-            aVar.f48883e.onFail(new Exception("url is invalid"));
+        if (l(aVar.f49271a)) {
+            aVar.f49275e.onFail(new Exception("url is invalid"));
             return;
         }
         HttpRequestBuilder a2 = b.a(aVar);
         s(a2, aVar);
-        a2.build().executeAsync(aVar.f48883e);
+        a2.build().executeAsync(aVar.f49275e);
     }
 
     public void s(HttpRequestBuilder httpRequestBuilder, d.b.g0.k.d.a aVar) {
         if (httpRequestBuilder != null && aVar != null) {
-            httpRequestBuilder.url(aVar.f48879a);
-            Map<String, String> map = aVar.f48881c;
+            httpRequestBuilder.url(aVar.f49271a);
+            Map<String, String> map = aVar.f49273c;
             if (map != null && map.size() > 0) {
-                httpRequestBuilder.headers(aVar.f48881c);
+                httpRequestBuilder.headers(aVar.f49273c);
             }
-            if (aVar.f48884f) {
+            if (aVar.f49276f) {
                 httpRequestBuilder.userAgent(d.b.g0.k.b.a().b());
             }
-            if (aVar.f48885g) {
+            if (aVar.f49277g) {
                 httpRequestBuilder.cookieManager(d.b.g0.k.b.a().a());
             }
-            if (aVar.f48886h) {
+            if (aVar.f49278h) {
                 t(httpRequestBuilder);
             }
             Object obj = aVar.i;
             if (obj != null) {
                 httpRequestBuilder.tag(obj);
             }
-        } else if (f48887a) {
+        } else if (f49279a) {
             Log.e("SwanHttpManager", "setNetworkConfig fail");
         }
     }
 
     public void t(HttpRequestBuilder httpRequestBuilder) {
-        int g2 = d.b.g0.k.b.a().g();
-        if (g2 > 0) {
-            httpRequestBuilder.connectionTimeout(g2);
+        int f2 = d.b.g0.k.b.a().f();
+        if (f2 > 0) {
+            httpRequestBuilder.connectionTimeout(f2);
         }
         int readTimeout = d.b.g0.k.b.a().getReadTimeout();
         if (readTimeout > 0) {
@@ -229,9 +229,9 @@ public class a extends HttpManager {
     }
 
     public void u(OkHttpClient.Builder builder) {
-        int g2 = d.b.g0.k.b.a().g();
-        if (g2 > 0) {
-            builder.connectTimeout(g2, TimeUnit.MILLISECONDS);
+        int f2 = d.b.g0.k.b.a().f();
+        if (f2 > 0) {
+            builder.connectTimeout(f2, TimeUnit.MILLISECONDS);
         }
         int readTimeout = d.b.g0.k.b.a().getReadTimeout();
         if (readTimeout > 0) {

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import d.b.h0.m.d;
 import d.b.h0.r.q.a2;
 /* loaded from: classes3.dex */
@@ -31,12 +31,12 @@ public class ClickableHeaderImageView extends HeadImageView {
         public void onClick(View view) {
             d dVar = ClickableHeaderImageView.this.Z0;
             if ((dVar == null || !dVar.b(view)) && ClickableHeaderImageView.this.W0 != null) {
-                MetaData s = ClickableHeaderImageView.this.X0 ? ClickableHeaderImageView.this.W0.z1().s() : ClickableHeaderImageView.this.W0.T();
-                if (s == null || StringUtils.isNull(s.getName_show()) || StringUtils.isNull(s.getUserId())) {
+                MetaData t = ClickableHeaderImageView.this.X0 ? ClickableHeaderImageView.this.W0.z1().t() : ClickableHeaderImageView.this.W0.T();
+                if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                     return;
                 }
-                long f2 = b.f(s.getUserId(), 0L);
-                PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), s.isBigV());
+                long f2 = b.f(t.getUserId(), 0L);
+                PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
                 createNormalConfig.setSourceTid(ClickableHeaderImageView.this.W0.w1());
                 createNormalConfig.setSourceNid(ClickableHeaderImageView.this.W0.L0());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
@@ -71,7 +71,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.W0 = a2Var;
         this.X0 = z2;
         if (z2) {
-            T = a2Var.z1().s();
+            T = a2Var.z1().t();
         } else {
             T = a2Var.T();
         }
@@ -115,7 +115,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             return;
         }
         a2 a2Var = new a2();
-        a2Var.p3(metaData);
+        a2Var.q3(metaData);
         setData(a2Var);
     }
 }

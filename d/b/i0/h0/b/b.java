@@ -5,45 +5,45 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public EmotionGroupType f55117a;
+    public EmotionGroupType f56430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55118b;
+    public int f56431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55119c;
+    public int f56432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f55120d;
+    public int f56433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55121e;
+    public int f56434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55122f;
+    public int f56435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.h0.w.p.c f55123g;
+    public d.b.h0.w.p.c f56436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55124h;
+    public int f56437h;
     public int i;
     public int j;
 
     public int a() {
-        return this.f55120d;
+        return this.f56433d;
     }
 
     public int b() {
-        return this.f55118b;
+        return this.f56431b;
     }
 
     public EmotionGroupType c() {
-        return this.f55117a;
+        return this.f56430a;
     }
 
     public int d() {
-        return this.f55124h;
+        return this.f56437h;
     }
 
     public int e() {
@@ -55,38 +55,38 @@ public class b {
     }
 
     public int g() {
-        return this.f55121e;
+        return this.f56434e;
     }
 
     public int h() {
-        return this.f55119c;
+        return this.f56432c;
     }
 
     public int i() {
-        return this.f55122f;
+        return this.f56435f;
     }
 
     public d.b.h0.w.p.c j() {
-        return this.f55123g;
+        return this.f56436g;
     }
 
     public void k(int i) {
-        this.f55120d = i;
+        this.f56433d = i;
     }
 
     public void l(int i) {
-        this.f55118b = i;
+        this.f56431b = i;
     }
 
     public void m(EmotionGroupType emotionGroupType) {
-        this.f55117a = emotionGroupType;
+        this.f56430a = emotionGroupType;
     }
 
     public void n(int i) {
     }
 
     public void o(int i) {
-        this.f55124h = i;
+        this.f56437h = i;
     }
 
     public void p(int i) {
@@ -98,18 +98,18 @@ public class b {
     }
 
     public void r(int i) {
-        this.f55121e = i;
+        this.f56434e = i;
     }
 
     public void s(int i) {
-        this.f55119c = i;
+        this.f56432c = i;
     }
 
     public void t(int i) {
-        this.f55122f = i;
+        this.f56435f = i;
     }
 
     public void u(d.b.h0.w.p.c cVar) {
-        this.f55123g = cVar;
+        this.f56436g = cVar;
     }
 }

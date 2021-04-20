@@ -9,7 +9,7 @@ public interface a extends d {
 
     /* renamed from: d.b.g0.a.s0.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0793a {
+    public interface InterfaceC0805a {
         void a(int i);
 
         void b(String str);
@@ -43,7 +43,7 @@ public interface a extends d {
 
     int a();
 
-    void a0(@NonNull InterfaceC0793a interfaceC0793a);
+    void a0(@NonNull InterfaceC0805a interfaceC0805a);
 
     String c();
 
@@ -83,5 +83,5 @@ public interface a extends d {
 
     void start();
 
-    InterfaceC0793a t();
+    InterfaceC0805a t();
 }

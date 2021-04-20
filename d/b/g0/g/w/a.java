@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.container.util.XAdRemoteEvent;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.facebook.common.internal.Sets;
@@ -20,36 +21,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends EventTargetImpl {
-    public static final boolean i = k.f45051a;
+    public static final boolean i = k.f45443a;
     public static final Set<String> j = Sets.newHashSet("REFERER", "USER-AGENT");
     public static final Set<String> k = Sets.newHashSet("localhost", "127.0.0.1");
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48585e;
+    public int f48977e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.g.e.d.c f48586f;
+    public d.b.g0.g.e.d.c f48978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48587g;
+    public String f48979g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.g0.g.i.b f48588h;
+    public d.b.g0.g.i.b f48980h;
 
     /* renamed from: d.b.g0.g.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0995a implements Runnable {
+    public class RunnableC1007a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSEvent f48589e;
+        public final /* synthetic */ JSEvent f48981e;
 
-        public RunnableC0995a(JSEvent jSEvent) {
-            this.f48589e = jSEvent;
+        public RunnableC1007a(JSEvent jSEvent) {
+            this.f48981e = jSEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.super.dispatchEvent(this.f48589e);
+            a.super.dispatchEvent(this.f48981e);
         }
     }
 
@@ -57,15 +58,15 @@ public class a extends EventTargetImpl {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f48591e;
+        public final /* synthetic */ Object f48983e;
 
         public b(Object obj) {
-            this.f48591e = obj;
+            this.f48983e = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.i0.b.a(a.this.f48586f, true, this.f48591e);
+            d.b.g0.g.i0.b.a(a.this.f48978f, true, this.f48983e);
         }
     }
 
@@ -73,31 +74,31 @@ public class a extends EventTargetImpl {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48593e;
+        public final /* synthetic */ String f48985e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48594f;
+        public final /* synthetic */ int f48986f;
 
         public c(String str, int i) {
-            this.f48593e = str;
-            this.f48594f = i;
+            this.f48985e = str;
+            this.f48986f = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.b.g0.g.w.g.b bVar = new d.b.g0.g.w.g.b();
-            bVar.errMsg = this.f48593e;
-            bVar.statusCode = this.f48594f;
-            d.b.g0.g.i0.b.a(a.this.f48586f, false, bVar);
+            bVar.errMsg = this.f48985e;
+            bVar.statusCode = this.f48986f;
+            d.b.g0.g.i0.b.a(a.this.f48978f, false, bVar);
         }
     }
 
     public a(@NonNull d.b.g0.g.i.b bVar, d.b.g0.g.e.d.c cVar) {
         super(bVar);
-        this.f48585e = 0;
-        this.f48588h = bVar;
-        this.f48587g = B();
-        this.f48586f = cVar;
+        this.f48977e = 0;
+        this.f48980h = bVar;
+        this.f48979g = B();
+        this.f48978f = cVar;
     }
 
     public static void I(@NonNull Request.Builder builder, d.b.g0.g.e.d.c cVar, Map<String, String> map) {
@@ -126,8 +127,8 @@ public class a extends EventTargetImpl {
     }
 
     public String C() {
-        String B = this.f48586f.B("url");
-        if (this.f48586f != null && !TextUtils.isEmpty(this.f48587g)) {
+        String B = this.f48978f.B("url");
+        if (this.f48978f != null && !TextUtils.isEmpty(this.f48979g)) {
             if (TextUtils.isEmpty(B)) {
                 F("", -1, "request:url is invalid");
                 return null;
@@ -171,11 +172,11 @@ public class a extends EventTargetImpl {
     }
 
     public void F(String str, int i2, String str2) {
-        this.f48588h.postOnJSThread(new c(str2, i2));
+        this.f48980h.postOnJSThread(new c(str2, i2));
     }
 
     public void G(Object obj) {
-        this.f48588h.postOnJSThread(new b(obj));
+        this.f48980h.postOnJSThread(new b(obj));
     }
 
     public HttpUrl H(String str) {
@@ -201,12 +202,12 @@ public class a extends EventTargetImpl {
 
     public void K(d.b.g0.g.e.d.c cVar) {
         d.b.g0.g.e.d.c cVar2;
-        if (cVar == null || (cVar2 = this.f48586f) == null) {
+        if (cVar == null || (cVar2 = this.f48978f) == null) {
             return;
         }
         cVar2.G("success", cVar.u("success"));
-        this.f48586f.G("fail", cVar.u("fail"));
-        this.f48586f.G("complete", cVar.u("complete"));
+        this.f48978f.G("fail", cVar.u("fail"));
+        this.f48978f.G(XAdRemoteEvent.COMPLETE, cVar.u(XAdRemoteEvent.COMPLETE));
     }
 
     public JSONObject L(Headers headers) throws JSONException {
@@ -234,15 +235,15 @@ public class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void abort() {
-        if (this.f48586f == null || e.y() == null) {
+        if (this.f48978f == null || e.y() == null) {
             return;
         }
-        e.y().V().cancelTag(this.f48587g);
+        e.y().V().cancelTag(this.f48979g);
     }
 
     @Override // com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        this.f48588h.postOnJSThread(new RunnableC0995a(jSEvent));
+        this.f48980h.postOnJSThread(new RunnableC1007a(jSEvent));
         return true;
     }
 }

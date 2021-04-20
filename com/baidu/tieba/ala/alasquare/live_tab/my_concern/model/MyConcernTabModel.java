@@ -14,22 +14,22 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.b.j.e.n;
+import d.b.c.j.e.n;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MyConcernTabModel extends BdBaseModel {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f14792f;
+    public TbPageContext f14455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f14793g;
+    public b f14456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.i0.t.d.c.f.c.b f14794h;
+    public d.b.i0.t.d.c.f.c.b f14457h;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14791e = 1;
+    public int f14454e = 1;
     public HttpMessageListener i = new a(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
 
     /* loaded from: classes4.dex */
@@ -45,17 +45,17 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.f14793g != null) {
-                        MyConcernTabModel.this.f14793g.b(MyConcernTabModel.this.f14791e == 1);
+                    if (MyConcernTabModel.this.f14456g != null) {
+                        MyConcernTabModel.this.f14456g.b(MyConcernTabModel.this.f14454e == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.f14794h.e(alaLiveTabMyConcernResponse, MyConcernTabModel.this.f14791e == 1);
-                if (MyConcernTabModel.this.f14793g != null) {
-                    MyConcernTabModel.this.f14793g.a(MyConcernTabModel.this.f14794h.h(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.f14791e == 1);
+                MyConcernTabModel.this.f14457h.e(alaLiveTabMyConcernResponse, MyConcernTabModel.this.f14454e == 1);
+                if (MyConcernTabModel.this.f14456g != null) {
+                    MyConcernTabModel.this.f14456g.a(MyConcernTabModel.this.f14457h.h(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.f14454e == 1);
                 }
-                MyConcernTabModel.this.f14791e = alaLiveTabMyConcernResponse.pn + 1;
+                MyConcernTabModel.this.f14454e = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
     }
@@ -68,18 +68,18 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
-        this.f14792f = tbPageContext;
-        this.f14794h = new d.b.i0.t.d.c.f.c.b(this.f14792f);
+        this.f14455f = tbPageContext;
+        this.f14457h = new d.b.i0.t.d.c.f.c.b(this.f14455f);
         z();
         MessageManager.getInstance().registerListener(this.i);
     }
 
     public void A(Class<? extends BaseCardInfo> cls) {
-        this.f14794h.j(cls);
+        this.f14457h.j(cls);
     }
 
     public void B(b bVar) {
-        this.f14793g = bVar;
+        this.f14456g = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,7 +93,7 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f14794h.a();
+        this.f14457h.a();
         if (this.i != null) {
             MessageManager.getInstance().unRegisterListener(this.i);
         }
@@ -106,12 +106,12 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void x() {
-        w(this.f14791e);
+        w(this.f14454e);
     }
 
     public void y() {
-        this.f14791e = 1;
-        this.f14794h.a();
+        this.f14454e = 1;
+        this.f14457h.a();
         w(1);
     }
 

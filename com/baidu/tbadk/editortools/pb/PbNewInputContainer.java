@@ -28,8 +28,8 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
-import d.b.h0.s.c.t;
+import d.b.c.e.p.l;
+import d.b.h0.s.c.v;
 import d.b.h0.w.n;
 import d.b.h0.w.w.j;
 import d.b.i0.k0.b;
@@ -41,16 +41,16 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
     public static int y;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f13886e;
+    public EditorTools f13547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpanGroupEditText f13887f;
+    public SpanGroupEditText f13548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f13888g;
+    public TBSpecificationBtn f13549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f13889h;
+    public TBSpecificationBtn f13550h;
     public LinearLayout i;
     public View j;
     public TextView k;
@@ -74,9 +74,9 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
 
         @Override // java.lang.Runnable
         public void run() {
-            if (PbNewInputContainer.this.f13887f != null) {
+            if (PbNewInputContainer.this.f13548f != null) {
                 PbNewInputContainer pbNewInputContainer = PbNewInputContainer.this;
-                pbNewInputContainer.d(new d.b.h0.w.a(4, -1, pbNewInputContainer.f13887f.getSpanGroupManager()));
+                pbNewInputContainer.d(new d.b.h0.w.a(4, -1, pbNewInputContainer.f13548f.getSpanGroupManager()));
             }
         }
     }
@@ -106,15 +106,15 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
                 if (PbNewInputContainer.this.m == null) {
                     PbNewInputContainer.this.m = new j();
                 }
-                PbNewInputContainer.this.m.f51608b = PbNewInputContainer.this.n.toString();
-                PbNewInputContainer.this.m.f51607a = PbNewInputContainer.this.f13887f.getText().toString();
-                PbNewInputContainer.this.m.f51609c = PbNewInputContainer.this.f13887f.getSpanGroupManager();
+                PbNewInputContainer.this.m.f52026b = PbNewInputContainer.this.n.toString();
+                PbNewInputContainer.this.m.f52025a = PbNewInputContainer.this.f13548f.getText().toString();
+                PbNewInputContainer.this.m.f52027c = PbNewInputContainer.this.f13548f.getSpanGroupManager();
                 PbNewInputContainer pbNewInputContainer = PbNewInputContainer.this;
                 pbNewInputContainer.d(new d.b.h0.w.a(4, -1, pbNewInputContainer.m));
                 return;
             }
-            d.b.b.e.m.e.a().removeCallbacks(PbNewInputContainer.this.w);
-            d.b.b.e.m.e.a().post(PbNewInputContainer.this.w);
+            d.b.c.e.m.e.a().removeCallbacks(PbNewInputContainer.this.w);
+            d.b.c.e.m.e.a().post(PbNewInputContainer.this.w);
         }
 
         @Override // android.text.TextWatcher
@@ -128,7 +128,7 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
             }
             PbNewInputContainer.this.r = true;
             if (PbNewInputContainer.this.s != -1) {
-                PbNewInputContainer.this.f13887f.setSelection(PbNewInputContainer.this.s);
+                PbNewInputContainer.this.f13548f.setSelection(PbNewInputContainer.this.s);
                 PbNewInputContainer.this.s = -1;
             }
         }
@@ -143,7 +143,7 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 1) {
                 PbNewInputContainer.this.d(new d.b.h0.w.a(5, -1, null));
-                PbNewInputContainer.this.f13887f.requestFocus();
+                PbNewInputContainer.this.f13548f.requestFocus();
             }
             return false;
         }
@@ -156,8 +156,8 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
 
         @Override // d.b.i0.k0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
-            PbNewInputContainer.this.f13887f.setText(spannableStringBuilder);
-            PbNewInputContainer.this.f13887f.setSelection(PbNewInputContainer.this.f13887f.getText().length());
+            PbNewInputContainer.this.f13548f.setText(spannableStringBuilder);
+            PbNewInputContainer.this.f13548f.setSelection(PbNewInputContainer.this.f13548f.getText().length());
             PbNewInputContainer.this.d(new d.b.h0.w.a(5, -1, null));
             PbNewInputContainer.this.requestFocus();
         }
@@ -167,17 +167,17 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
     public class f implements b.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f13895a;
+        public final /* synthetic */ j f13556a;
 
         public f(j jVar) {
-            this.f13895a = jVar;
+            this.f13556a = jVar;
         }
 
         @Override // d.b.i0.k0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             PbNewInputContainer.this.n = spannableStringBuilder;
-            if (TextUtils.isEmpty(this.f13895a.f51607a)) {
-                PbNewInputContainer.this.f13887f.setText("");
+            if (TextUtils.isEmpty(this.f13556a.f52025a)) {
+                PbNewInputContainer.this.f13548f.setText("");
                 PbNewInputContainer.this.d(new d.b.h0.w.a(5, -1, null));
                 PbNewInputContainer.this.requestFocus();
             }
@@ -191,8 +191,8 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
 
         @Override // d.b.i0.k0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
-            PbNewInputContainer.this.f13887f.setText(spannableStringBuilder);
-            PbNewInputContainer.this.f13887f.setSelection(PbNewInputContainer.this.f13887f.getText().length());
+            PbNewInputContainer.this.f13548f.setText(spannableStringBuilder);
+            PbNewInputContainer.this.f13548f.setSelection(PbNewInputContainer.this.f13548f.getText().length());
             PbNewInputContainer.this.d(new d.b.h0.w.a(5, -1, null));
             PbNewInputContainer.this.requestFocus();
         }
@@ -204,18 +204,18 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
 
     @Override // d.b.h0.w.n
     public void b() {
-        if (this.f13887f != null && this.i.getVisibility() == 0) {
-            this.f13887f.setFocusable(true);
-            this.f13887f.setFocusableInTouchMode(true);
-            this.f13887f.requestFocus();
-            l.J(getContext(), this.f13887f);
+        if (this.f13548f != null && this.i.getVisibility() == 0) {
+            this.f13548f.setFocusable(true);
+            this.f13548f.setFocusableInTouchMode(true);
+            this.f13548f.requestFocus();
+            l.J(getContext(), this.f13548f);
         }
         setVisibility(0);
     }
 
     @Override // d.b.h0.w.n
     public void d(d.b.h0.w.a aVar) {
-        EditorTools editorTools = this.f13886e;
+        EditorTools editorTools = this.f13547e;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
@@ -226,11 +226,11 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
     }
 
     public EditText getInputView() {
-        return this.f13887f;
+        return this.f13548f;
     }
 
     public TBSpecificationBtn getSendView() {
-        return this.f13888g;
+        return this.f13549g;
     }
 
     public TextView getTitleView() {
@@ -262,14 +262,14 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
             sb.append(" ");
         }
         String sb2 = sb.toString();
-        this.f13887f.getText().insert(this.f13887f.getSelectionStart(), sb2);
+        this.f13548f.getText().insert(this.f13548f.getSelectionStart(), sb2);
     }
 
     public final void o(String str) {
         if (StringUtils.isNull(str)) {
             return;
         }
-        this.f13887f.getText().insert(this.f13887f.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
+        this.f13548f.getText().insert(this.f13548f.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
     @Override // d.b.h0.w.b
@@ -277,40 +277,40 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
         if (aVar == null) {
             return;
         }
-        int i = aVar.f51524a;
+        int i = aVar.f51942a;
         if (i != 3) {
             if (i != 4) {
                 if (i == 6) {
-                    Object obj = aVar.f51526c;
+                    Object obj = aVar.f51944c;
                     if (obj == null) {
-                        this.f13887f.setText((CharSequence) null);
+                        this.f13548f.setText((CharSequence) null);
                     } else if (obj instanceof String) {
                         if (TextUtils.isEmpty((String) obj)) {
-                            this.f13887f.setText((CharSequence) null);
+                            this.f13548f.setText((CharSequence) null);
                         } else {
-                            d.b.i0.k0.b.d(getContext(), (String) aVar.f51526c, new e());
+                            d.b.i0.k0.b.d(getContext(), (String) aVar.f51944c, new e());
                         }
                     } else if (obj instanceof j) {
                         this.n = null;
                         String str = this.o;
                         if (str != null) {
-                            this.f13887f.setHint(str);
+                            this.f13548f.setHint(str);
                         }
-                        Object obj2 = aVar.f51526c;
+                        Object obj2 = aVar.f51944c;
                         j jVar = (j) obj2;
-                        if (TextUtils.isEmpty(((j) obj2).f51608b) && TextUtils.isEmpty(((j) aVar.f51526c).f51607a)) {
-                            this.f13887f.setText((CharSequence) null);
+                        if (TextUtils.isEmpty(((j) obj2).f52026b) && TextUtils.isEmpty(((j) aVar.f51944c).f52025a)) {
+                            this.f13548f.setText((CharSequence) null);
                         } else {
-                            if (!TextUtils.isEmpty(jVar.f51608b)) {
-                                d.b.i0.k0.b.d(getContext(), jVar.f51608b, new f(jVar));
+                            if (!TextUtils.isEmpty(jVar.f52026b)) {
+                                d.b.i0.k0.b.d(getContext(), jVar.f52026b, new f(jVar));
                             }
-                            if (!TextUtils.isEmpty(jVar.f51607a)) {
-                                d.b.i0.k0.b.d(getContext(), jVar.f51607a, new g());
+                            if (!TextUtils.isEmpty(jVar.f52025a)) {
+                                d.b.i0.k0.b.d(getContext(), jVar.f52025a, new g());
                             }
                         }
                     }
                 } else if (i == 17) {
-                    Object obj3 = aVar.f51526c;
+                    Object obj3 = aVar.f51944c;
                     if (obj3 != null && (obj3 instanceof ArrayList)) {
                         n((ArrayList) obj3);
                     }
@@ -319,26 +319,26 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
                         if (i != 19) {
                             if (i == 20) {
                                 y(true);
-                                this.f13889h.setText(getContext().getString(R.string.location_where_are_you));
+                                this.f13550h.setText(getContext().getString(R.string.location_where_are_you));
                             } else if (i != 28) {
                                 if (i == 29) {
                                     this.t[3] = false;
                                 } else if (i == 44) {
-                                    Object obj4 = aVar.f51526c;
+                                    Object obj4 = aVar.f51944c;
                                     if (obj4 != null) {
                                         if (obj4 instanceof String) {
                                             o((String) obj4);
-                                        } else if ((obj4 instanceof j) && ((j) obj4).f51607a != null) {
-                                            o(((j) obj4).f51607a);
+                                        } else if ((obj4 instanceof j) && ((j) obj4).f52025a != null) {
+                                            o(((j) obj4).f52025a);
                                         }
                                     }
                                 } else if (i != 45) {
                                     switch (i) {
                                         case 9:
-                                            if (((Boolean) aVar.f51526c).booleanValue()) {
+                                            if (((Boolean) aVar.f51944c).booleanValue()) {
                                                 this.m = null;
                                                 this.n = null;
-                                                this.f13887f.setText((CharSequence) null);
+                                                this.f13548f.setText((CharSequence) null);
                                             }
                                             boolean[] zArr = this.t;
                                             zArr[0] = false;
@@ -357,13 +357,13 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
                                             this.t[2] = false;
                                             break;
                                         case 12:
-                                            Object obj5 = aVar.f51526c;
+                                            Object obj5 = aVar.f51944c;
                                             if (obj5 instanceof d.b.h0.w.r.a) {
                                                 d.b.h0.w.r.a aVar2 = (d.b.h0.w.r.a) obj5;
-                                                WriteImagesInfo writeImagesInfo = aVar2.f51546a;
+                                                WriteImagesInfo writeImagesInfo = aVar2.f51964a;
                                                 if (writeImagesInfo != null) {
                                                     if (writeImagesInfo.getChosedFiles() != null) {
-                                                        this.u[0] = aVar2.f51546a.getChosedFiles().size();
+                                                        this.u[0] = aVar2.f51964a.getChosedFiles().size();
                                                     } else {
                                                         this.u[0] = 0;
                                                     }
@@ -390,7 +390,7 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
                                             }
                                     }
                                 } else {
-                                    Object obj6 = aVar.f51526c;
+                                    Object obj6 = aVar.f51944c;
                                     if (obj6 instanceof String) {
                                         String str2 = (String) obj6;
                                         if (StringUtils.isNull(str2)) {
@@ -404,17 +404,17 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
                                     }
                                 }
                             }
-                        } else if (aVar.f51526c == null) {
+                        } else if (aVar.f51944c == null) {
                             y(false);
                         } else {
                             y(true);
-                            d.b.h0.w.u.a aVar3 = (d.b.h0.w.u.a) aVar.f51526c;
-                            if (aVar3.f51549a == 1) {
-                                this.f13889h.setText(getContext().getString(R.string.location_loading));
-                            } else if (!TextUtils.isEmpty(aVar3.f51550b)) {
-                                this.f13889h.setText(aVar3.f51550b);
+                            d.b.h0.w.u.a aVar3 = (d.b.h0.w.u.a) aVar.f51944c;
+                            if (aVar3.f51967a == 1) {
+                                this.f13550h.setText(getContext().getString(R.string.location_loading));
+                            } else if (!TextUtils.isEmpty(aVar3.f51968b)) {
+                                this.f13550h.setText(aVar3.f51968b);
                             } else {
-                                this.f13889h.setText(getContext().getString(R.string.location_where_are_you));
+                                this.f13550h.setText(getContext().getString(R.string.location_where_are_you));
                             }
                         }
                     }
@@ -423,24 +423,24 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
                     v(aVar);
                 }
             }
-            Object obj7 = aVar.f51526c;
+            Object obj7 = aVar.f51944c;
             if (obj7 != null && (!(obj7 instanceof String) || !StringUtils.isNull((String) obj7))) {
-                Object obj8 = aVar.f51526c;
-                if (!(obj8 instanceof j) || !TextUtils.isEmpty(((j) obj8).f51607a)) {
-                    Object obj9 = aVar.f51526c;
+                Object obj8 = aVar.f51944c;
+                if (!(obj8 instanceof j) || !TextUtils.isEmpty(((j) obj8).f52025a)) {
+                    Object obj9 = aVar.f51944c;
                     if (!(obj9 instanceof SpanGroupManager) || !((SpanGroupManager) obj9).w()) {
                         this.t[0] = true;
                     }
                 }
             }
             this.t[0] = false;
-        } else if (this.f13887f.getSelectionStart() > 0) {
-            String substring = this.f13887f.getText().toString().substring(0, this.f13887f.getSelectionStart());
-            Matcher matcher = d.b.i0.k0.a.f56420b.matcher(substring);
+        } else if (this.f13548f.getSelectionStart() > 0) {
+            String substring = this.f13548f.getText().toString().substring(0, this.f13548f.getSelectionStart());
+            Matcher matcher = d.b.i0.k0.a.f57842b.matcher(substring);
             if (matcher.find()) {
-                this.f13887f.getText().delete(this.f13887f.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.f13887f.getSelectionStart());
+                this.f13548f.getText().delete(this.f13548f.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.f13548f.getSelectionStart());
             } else {
-                this.f13887f.getText().delete(this.f13887f.getSelectionStart() - 1, this.f13887f.getSelectionStart());
+                this.f13548f.getText().delete(this.f13548f.getSelectionStart() - 1, this.f13548f.getSelectionStart());
             }
         }
         p(this.v);
@@ -448,26 +448,26 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
 
     @Override // d.b.h0.w.n
     public void onChangeSkinType(int i) {
-        this.f13887f.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        SkinManager.setViewTextColor(this.f13887f, R.color.CAM_X0105, 2, i);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(l.g(getContext(), R.dimen.tbds21)).into(this.f13887f);
+        this.f13548f.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        SkinManager.setViewTextColor(this.f13548f, R.color.CAM_X0105, 2, i);
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(l.g(getContext(), R.dimen.tbds21)).into(this.f13548f);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0207, i);
         SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
         if (i == 0) {
-            d.b.i0.u3.j.e(this.f13887f, R.drawable.edittext_cursor);
-            this.f13887f.setHintTextColor(SkinManager.getColor(i, R.color.CAM_X0109));
+            d.b.i0.v3.j.e(this.f13548f, R.drawable.edittext_cursor);
+            this.f13548f.setHintTextColor(SkinManager.getColor(i, R.color.CAM_X0109));
         } else {
-            d.b.i0.u3.j.e(this.f13887f, R.drawable.edittext_cursor_1);
-            this.f13887f.setHintTextColor(SkinManager.getColor(i, R.color.CAM_X0109));
+            d.b.i0.v3.j.e(this.f13548f, R.drawable.edittext_cursor_1);
+            this.f13548f.setHintTextColor(SkinManager.getColor(i, R.color.CAM_X0109));
         }
-        this.f13888g.l(i);
-        this.f13889h.l(i);
-        d.b.h0.r.u.c.a(this.k).n(R.color.CAM_X0109);
+        this.f13549g.l(i);
+        this.f13550h.l(i);
+        d.b.h0.r.u.c.d(this.k).q(R.color.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f13889h) {
+        if (view == this.f13550h) {
             d(new d.b.h0.w.a(18, -1, null));
         }
     }
@@ -476,40 +476,40 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
         if (i == y) {
             boolean[] zArr = this.t;
             if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
-                this.f13888g.setEnabled(false);
+                this.f13549g.setEnabled(false);
             } else {
-                this.f13888g.setEnabled(true);
+                this.f13549g.setEnabled(true);
             }
         } else if (i == x) {
             if (this.t[1]) {
-                this.f13888g.setEnabled(true);
+                this.f13549g.setEnabled(true);
             } else {
-                this.f13888g.setEnabled(false);
+                this.f13549g.setEnabled(false);
             }
         }
     }
 
     public final void q(Context context) {
         SpanGroupEditText spanGroupEditText = new SpanGroupEditText(context);
-        this.f13887f = spanGroupEditText;
+        this.f13548f = spanGroupEditText;
         spanGroupEditText.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
-        this.f13887f.setMaxLines(4);
-        this.f13887f.setMinLines(2);
-        this.f13887f.setGravity(48);
-        this.f13887f.setIncludeFontPadding(false);
-        this.f13887f.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
-        this.f13887f.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f13887f.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
-        d.b.i0.u3.j.e(this.f13887f, R.drawable.edittext_cursor);
-        this.f13887f.setLineSpacing(l.g(context, R.dimen.M_T_X002), 1.0f);
-        this.f13887f.setPadding(l.g(context, R.dimen.M_W_X006), l.g(context, R.dimen.M_H_X004), l.g(context, R.dimen.M_W_X006), l.g(context, R.dimen.M_H_X004));
-        this.f13887f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        this.f13887f.addTextChangedListener(new c());
-        this.f13887f.setOnTouchListener(new d());
+        this.f13548f.setMaxLines(4);
+        this.f13548f.setMinLines(2);
+        this.f13548f.setGravity(48);
+        this.f13548f.setIncludeFontPadding(false);
+        this.f13548f.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
+        this.f13548f.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f13548f.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
+        d.b.i0.v3.j.e(this.f13548f, R.drawable.edittext_cursor);
+        this.f13548f.setLineSpacing(l.g(context, R.dimen.M_T_X002), 1.0f);
+        this.f13548f.setPadding(l.g(context, R.dimen.M_W_X006), l.g(context, R.dimen.M_H_X004), l.g(context, R.dimen.M_W_X006), l.g(context, R.dimen.M_H_X004));
+        this.f13548f.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        this.f13548f.addTextChangedListener(new c());
+        this.f13548f.setOnTouchListener(new d());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
         layoutParams.setMargins(l.g(context, R.dimen.M_W_X007), l.g(context, R.dimen.M_H_X002), l.g(context, R.dimen.M_W_X006), l.g(context, R.dimen.M_H_X002));
-        this.i.addView(this.f13887f, layoutParams);
+        this.i.addView(this.f13548f, layoutParams);
     }
 
     public final void r(Context context) {
@@ -524,14 +524,14 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds62));
         layoutParams.setMargins(l.g(context, R.dimen.M_W_X007), l.g(context, R.dimen.M_H_X004), l.g(context, R.dimen.M_W_X007), l.g(context, R.dimen.M_H_X003));
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-        this.f13889h = tBSpecificationBtn;
+        this.f13550h = tBSpecificationBtn;
         tBSpecificationBtn.setLayoutParams(layoutParams);
-        this.f13889h.setOnClickListener(this);
-        this.f13889h.setConfig(bVar);
-        this.f13889h.setTextSize(R.dimen.T_X09);
-        this.f13889h.setOnClickListener(this);
-        this.f13889h.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.f13889h);
+        this.f13550h.setOnClickListener(this);
+        this.f13550h.setConfig(bVar);
+        this.f13550h.setTextSize(R.dimen.T_X09);
+        this.f13550h.setOnClickListener(this);
+        this.f13550h.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.f13550h);
     }
 
     public final void s() {
@@ -552,14 +552,14 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
 
     @Override // d.b.h0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f13886e = editorTools;
+        this.f13547e = editorTools;
     }
 
     public void setHasHint(boolean z) {
     }
 
     public void setHint(int i) {
-        SpanGroupEditText spanGroupEditText = this.f13887f;
+        SpanGroupEditText spanGroupEditText = this.f13548f;
         if (spanGroupEditText != null) {
             spanGroupEditText.setHint(getContext().getString(i));
         }
@@ -575,7 +575,7 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
     }
 
     public void setTransLink(boolean z) {
-        SpanGroupEditText spanGroupEditText = this.f13887f;
+        SpanGroupEditText spanGroupEditText = this.f13548f;
         if (spanGroupEditText != null) {
             spanGroupEditText.setTransLink(z);
         }
@@ -593,57 +593,57 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
         d.b.h0.r.f0.m.b bVar = new d.b.h0.r.f0.m.b();
         bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-        this.f13888g = tBSpecificationBtn;
+        this.f13549g = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f13888g.setEnabled(false);
-        this.f13888g.setTextSize(R.dimen.T_X08);
-        this.f13888g.setText(context.getString(R.string.pb_send_post));
-        this.f13888g.setOnClickListener(new b());
+        this.f13549g.setEnabled(false);
+        this.f13549g.setTextSize(R.dimen.T_X08);
+        this.f13549g.setText(context.getString(R.string.pb_send_post));
+        this.f13549g.setOnClickListener(new b());
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds150), l.g(context, R.dimen.tbds75));
         layoutParams2.rightMargin = l.g(context, R.dimen.M_W_X007);
         layoutParams2.bottomMargin = l.g(context, R.dimen.M_H_X002);
-        linearLayout.addView(this.f13888g, layoutParams2);
+        linearLayout.addView(this.f13549g, layoutParams2);
         this.i.addView(linearLayout, layoutParams);
     }
 
     public final void v(d.b.h0.w.a aVar) {
         Object obj;
-        if (aVar == null || (obj = aVar.f51526c) == null || !(obj instanceof t) || ((t) obj).e() == EmotionGroupType.BIG_EMOTION || ((t) aVar.f51526c).e() == EmotionGroupType.USER_COLLECT) {
+        if (aVar == null || (obj = aVar.f51944c) == null || !(obj instanceof v) || ((v) obj).e() == EmotionGroupType.BIG_EMOTION || ((v) aVar.f51944c).e() == EmotionGroupType.USER_COLLECT) {
             return;
         }
-        t tVar = (t) aVar.f51526c;
-        if (tVar.e() == EmotionGroupType.NET_SUG) {
-            x(tVar);
+        v vVar = (v) aVar.f51944c;
+        if (vVar.e() == EmotionGroupType.NET_SUG) {
+            x(vVar);
         } else {
-            w(tVar);
+            w(vVar);
         }
     }
 
-    public final void w(t tVar) {
-        if (!this.p || tVar.e() == EmotionGroupType.LOCAL) {
-            String obj = this.f13887f.getText().toString();
+    public final void w(v vVar) {
+        if (!this.p || vVar.e() == EmotionGroupType.LOCAL) {
+            String obj = this.f13548f.getText().toString();
             if (this.q && d.b.i0.k0.a.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                d.b.i0.k0.b.b(getContext(), tVar, this.f13887f);
+                d.b.i0.k0.b.b(getContext(), vVar, this.f13548f);
             }
         }
     }
 
-    public final void x(t tVar) {
-        if (tVar == null || TextUtils.isEmpty(tVar.b()) || TextUtils.isEmpty(tVar.f())) {
+    public final void x(v vVar) {
+        if (vVar == null || TextUtils.isEmpty(vVar.b()) || TextUtils.isEmpty(vVar.f())) {
             return;
         }
-        String obj = this.f13887f.getText().toString();
+        String obj = this.f13548f.getText().toString();
         if (this.q && d.b.i0.k0.a.a(obj) >= 10 && getContext() != null) {
             CustomToast.newInstance().showToast(R.string.too_many_face);
         } else {
-            d.b.i0.k0.b.c(getContext(), tVar, this.f13887f);
+            d.b.i0.k0.b.c(getContext(), vVar, this.f13548f);
         }
     }
 
     public void y(boolean z) {
-        TBSpecificationBtn tBSpecificationBtn = this.f13889h;
+        TBSpecificationBtn tBSpecificationBtn = this.f13550h;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setVisibility(z ? 0 : 8);
         }
@@ -682,7 +682,7 @@ public class PbNewInputContainer extends LinearLayout implements n, View.OnClick
     }
 
     public void setHint(CharSequence charSequence) {
-        SpanGroupEditText spanGroupEditText = this.f13887f;
+        SpanGroupEditText spanGroupEditText = this.f13548f;
         if (spanGroupEditText != null) {
             spanGroupEditText.setHint(charSequence);
         }

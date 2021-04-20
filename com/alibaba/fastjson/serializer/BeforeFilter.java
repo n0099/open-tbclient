@@ -9,15 +9,20 @@ public abstract class BeforeFilter implements SerializeFilter {
         serializerLocal.set(jSONSerializer);
         seperatorLocal.set(Character.valueOf(c2));
         writeBefore(obj);
-        serializerLocal.set(null);
+        serializerLocal.set(serializerLocal.get());
         return seperatorLocal.get().charValue();
     }
 
     public abstract void writeBefore(Object obj);
 
     public final void writeKeyValue(String str, Object obj) {
+        JSONSerializer jSONSerializer = serializerLocal.get();
         char charValue = seperatorLocal.get().charValue();
-        serializerLocal.get().writeKeyValue(charValue, str, obj);
+        boolean containsKey = jSONSerializer.references.containsKey(obj);
+        jSONSerializer.writeKeyValue(charValue, str, obj);
+        if (!containsKey) {
+            jSONSerializer.references.remove(obj);
+        }
         if (charValue != ',') {
             seperatorLocal.set(COMMA);
         }

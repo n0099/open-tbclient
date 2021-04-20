@@ -6,41 +6,41 @@ import androidx.annotation.Nullable;
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final GradientType f31513a;
+    public final GradientType f31802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Path.FillType f31514b;
+    public final Path.FillType f31803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.c f31515c;
+    public final com.ksad.lottie.model.a.c f31804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.d f31516d;
+    public final com.ksad.lottie.model.a.d f31805d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.f f31517e;
+    public final com.ksad.lottie.model.a.f f31806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.f f31518f;
+    public final com.ksad.lottie.model.a.f f31807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f31519g;
+    public final String f31808g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31520h;
+    public final com.ksad.lottie.model.a.b f31809h;
     @Nullable
     public final com.ksad.lottie.model.a.b i;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.ksad.lottie.model.a.c cVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.f fVar2, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2) {
-        this.f31513a = gradientType;
-        this.f31514b = fillType;
-        this.f31515c = cVar;
-        this.f31516d = dVar;
-        this.f31517e = fVar;
-        this.f31518f = fVar2;
-        this.f31519g = str;
-        this.f31520h = bVar;
+        this.f31802a = gradientType;
+        this.f31803b = fillType;
+        this.f31804c = cVar;
+        this.f31805d = dVar;
+        this.f31806e = fVar;
+        this.f31807f = fVar2;
+        this.f31808g = str;
+        this.f31809h = bVar;
         this.i = bVar2;
     }
 
@@ -50,30 +50,30 @@ public class d implements b {
     }
 
     public String a() {
-        return this.f31519g;
+        return this.f31808g;
     }
 
     public GradientType b() {
-        return this.f31513a;
+        return this.f31802a;
     }
 
     public Path.FillType c() {
-        return this.f31514b;
+        return this.f31803b;
     }
 
     public com.ksad.lottie.model.a.c d() {
-        return this.f31515c;
+        return this.f31804c;
     }
 
     public com.ksad.lottie.model.a.d e() {
-        return this.f31516d;
+        return this.f31805d;
     }
 
     public com.ksad.lottie.model.a.f f() {
-        return this.f31517e;
+        return this.f31806e;
     }
 
     public com.ksad.lottie.model.a.f g() {
-        return this.f31518f;
+        return this.f31807f;
     }
 }

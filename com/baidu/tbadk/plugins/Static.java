@@ -12,13 +12,13 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import d.b.b.h.j.g.d;
+import d.b.c.h.j.g.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class Static {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f14001a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] f13662a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -53,7 +53,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f14001a;
+            String[] strArr = Static.f13662a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -63,7 +63,7 @@ public class Static {
                 }
                 String str2 = strArr[i];
                 if (exceptionData != null && (str = exceptionData.info) != null && str.contains(str2) && !exceptionData.info.contains("java.lang.OutOfMemoryError")) {
-                    d.b.b.h.h.a.b().g("plugin_crash_inflate");
+                    d.b.c.h.h.a.b().g("plugin_crash_inflate");
                     z = false;
                     break;
                 }
@@ -81,7 +81,7 @@ public class Static {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 try {
                                     plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                    d.b.h0.r.d0.b.i().u("plugin_patch_hook_failed_count", d.b.h0.r.d0.b.i().j("plugin_patch_hook_failed_count", 0) + 1);
+                                    d.b.h0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.b.h0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
                                     break;
                                 } catch (ClassNotFoundException unused) {
                                 }
@@ -96,14 +96,14 @@ public class Static {
     }
 
     /* loaded from: classes3.dex */
-    public static class c extends d.b.b.c.f.b {
+    public static class c extends d.b.c.c.f.b {
         public c(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.b.c.f.f
+        @Override // d.b.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);

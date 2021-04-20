@@ -3,17 +3,17 @@ package d.b.j.d.a;
 public abstract class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f63712a;
+    public final b f64412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f63713b;
+    public final int f64413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f63714c;
+    public byte[] f64414c;
 
     public f(b bVar) {
-        this.f63712a = bVar;
-        this.f63713b = bVar.a();
+        this.f64412a = bVar;
+        this.f64413b = bVar.a();
     }
 
     public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2);

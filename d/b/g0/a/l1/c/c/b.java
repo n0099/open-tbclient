@@ -5,17 +5,17 @@ import java.util.TreeMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.k0.b.b f45200a;
+    public d.b.g0.a.k0.b.b f45592a;
 
     public b(String str, String str2, String str3) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("functionPagePath", str);
         treeMap.put("paymentArgs", str2);
         treeMap.put("slaveId", str3);
-        this.f45200a = new d.b.g0.a.k0.b.b("beforeRequestPayment", treeMap);
+        this.f45592a = new d.b.g0.a.k0.b.b("beforeRequestPayment", treeMap);
     }
 
     public d.b.g0.a.k0.b.b a() {
-        return this.f45200a;
+        return this.f45592a;
     }
 }

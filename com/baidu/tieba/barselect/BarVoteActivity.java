@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.BarVoteModel;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.i0.v.b.f;
 /* loaded from: classes4.dex */
 public class BarVoteActivity extends BaseActivity {

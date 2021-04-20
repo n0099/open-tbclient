@@ -23,36 +23,36 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
-import d.b.i0.p0.i1.i;
+import d.b.i0.q0.i1.i;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d.b.i0.p0.i1.d {
+public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d.b.i0.q0.i1.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16150e;
+    public String f15811e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16151f;
+    public String f15812f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16152g;
+    public String f15813g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16153h;
+    public String f15814h;
     public BdTypeListView i;
     public g j;
     public PbListView k;
-    public d.b.i0.p0.i1.f l;
+    public d.b.i0.q0.i1.f l;
     public i m;
     public NavigationBar n;
     public FrameLayout o;
     public NoNetworkView p;
     public NoDataView q;
-    public List<d.b.i0.p0.i1.g> r = null;
+    public List<d.b.i0.q0.i1.g> r = null;
     public CustomMessageListener s = new e(2000994);
     public CustomMessageListener t = new f(2001115);
 
@@ -145,10 +145,10 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
-            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || VideoAggregationFragment.this.l == null || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || !data.f13693a) {
+            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || VideoAggregationFragment.this.l == null || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || !data.f13354a) {
                 return;
             }
-            VideoAggregationFragment.this.l.f(data.f13695c, data.f13696d);
+            VideoAggregationFragment.this.l.f(data.f13356c, data.f13357d);
         }
     }
 
@@ -173,7 +173,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public final void K0() {
-        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f16151f)) {
+        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f15812f)) {
             this.n.setCenterTextTitle(getPageContext().getString(R.string.video_aggregation_title));
         } else {
             this.n.setCenterTextTitle(getPageContext().getString(R.string.video_middle_page_title));
@@ -182,7 +182,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void L0(int i) {
-        d.b.i0.p0.i1.f fVar;
+        d.b.i0.q0.i1.f fVar;
         if (this.i == null || (fVar = this.l) == null) {
             return;
         }
@@ -195,7 +195,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public boolean M0(int i) {
-        d.b.i0.p0.i1.f fVar = this.l;
+        d.b.i0.q0.i1.f fVar = this.l;
         if (fVar == null) {
             return false;
         }
@@ -223,8 +223,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.i.setVisibility(8);
     }
 
-    @Override // d.b.i0.p0.i1.d
-    public void a(List<d.b.i0.p0.i1.g> list, boolean z, boolean z2) {
+    @Override // d.b.i0.q0.i1.d
+    public void a(List<d.b.i0.q0.i1.g> list, boolean z, boolean z2) {
         if (list == null) {
             return;
         }
@@ -249,11 +249,11 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // d.b.i0.p0.i1.d
+    @Override // d.b.i0.q0.i1.d
     public void c(String str) {
     }
 
-    @Override // d.b.i0.p0.i1.d
+    @Override // d.b.i0.q0.i1.d
     public void n() {
         if (this.o == null) {
             return;
@@ -278,7 +278,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         } else {
             this.n.setVisibility(0);
         }
-        d.b.i0.p0.i1.f fVar = this.l;
+        d.b.i0.q0.i1.f fVar = this.l;
         if (fVar != null) {
             fVar.h(configuration);
         }
@@ -289,17 +289,17 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f16150e = arguments.getString("PARAM_FID");
-            this.f16151f = arguments.getString("PARAM_FROM");
-            this.f16152g = arguments.getString("st_type");
-            this.f16153h = arguments.getString("yuelaou_locate");
+            this.f15811e = arguments.getString("PARAM_FID");
+            this.f15812f = arguments.getString("PARAM_FROM");
+            this.f15813g = arguments.getString("st_type");
+            this.f15814h = arguments.getString("yuelaou_locate");
         }
         i iVar = new i(getPageContext(), this);
         this.m = iVar;
-        iVar.g(this.f16150e);
-        this.m.f(this.f16151f);
-        this.m.i(this.f16152g);
-        this.m.h(this.f16153h);
+        iVar.g(this.f15811e);
+        this.m.f(this.f15812f);
+        this.m.i(this.f15813g);
+        this.m.h(this.f15814h);
         this.m.e();
         registerListener(this.s);
         registerListener(this.t);
@@ -317,13 +317,13 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         if (iVar != null) {
             iVar.c();
         }
-        d.b.i0.p0.i1.f fVar = this.l;
+        d.b.i0.q0.i1.f fVar = this.l;
         if (fVar != null) {
             fVar.i();
         }
     }
 
-    @Override // d.b.i0.p0.i1.d
+    @Override // d.b.i0.q0.i1.d
     public void onLoadFail() {
         if (ListUtils.isEmpty(this.r)) {
             O0(this.o, true);
@@ -367,7 +367,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.k.O();
         this.i.setNextPage(this.k);
         this.i.setOnScrollListener(new b());
-        this.l = new d.b.i0.p0.i1.f(getPageContext(), this.i, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.f16151f));
+        this.l = new d.b.i0.q0.i1.f(getPageContext(), this.i, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.f15812f));
         N0();
     }
 }

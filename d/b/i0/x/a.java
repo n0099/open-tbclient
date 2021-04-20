@@ -114,7 +114,7 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
             int v2 = v(R.dimen.tbds78);
             int v3 = v(z ? R.dimen.tbds104 : R.dimen.tbds44);
             int v4 = v(R.dimen.tbds50);
-            if (d.b.h0.b.d.R()) {
+            if (d.b.h0.b.d.T()) {
                 v = v(R.dimen.tbds177);
                 v2 = v(R.dimen.tbds76);
                 v3 = v(z ? R.dimen.tbds126 : R.dimen.tbds44);
@@ -148,10 +148,10 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
                 viewGroup.addView(nEGFeedBackView);
             }
             this.r.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-            int g3 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g5 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+            int g3 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g4 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g5 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
             layoutParams.rightMargin = g4;
             layoutParams.topMargin = g5;
@@ -188,10 +188,10 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
         }
         if (this.o.n().U1 && !ThreadCardUtils.isSelf(this.o.n())) {
             this.s.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            int g2 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-            int g3 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g5 = d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            int g2 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+            int g3 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g4 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g5 = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
             layoutParams.rightMargin = g4;
             layoutParams.topMargin = g5;
@@ -210,7 +210,7 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
 
     public final void u() {
         ForumEnterLayout forumEnterLayout = this.u;
-        if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !d.b.h0.b.d.R()) {
+        if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !d.b.h0.b.d.T()) {
             A(this.p, v(R.dimen.tbds20));
             A(this.q, v(R.dimen.tbds20));
             return;
@@ -220,7 +220,7 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
     }
 
     public int v(int i) {
-        return d.b.b.e.p.l.g(TbadkCoreApplication.getInst(), i);
+        return d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), i);
     }
 
     public void w(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
@@ -241,8 +241,8 @@ public abstract class a<T extends d.b.h0.r.q.a> extends b<T> {
         threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
         threadCommentAndPraiseInfoLayout.hideDisagree();
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50763b = 7;
-        eVar.f50769h = 1;
+        eVar.f51170b = 7;
+        eVar.f51176h = 1;
         threadCommentAndPraiseInfoLayout.setAgreeStatisticData(eVar);
     }
 

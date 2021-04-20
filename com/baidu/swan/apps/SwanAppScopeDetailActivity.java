@@ -16,7 +16,7 @@ import d.b.g0.a.p.d.c;
 import d.b.g0.a.p.d.e;
 /* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final int INVALID_ANIM = 0;
     public static final String TAG = "ScopeDetailActivity";
     public c mNgWebView;
@@ -61,7 +61,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
         e i = new d.b.g0.a.p.d.j.b().i(this);
         i.P(new b());
-        this.mNgWebView = i.getWebView();
+        this.mNgWebView = i.F();
         i.loadUrl(this.mUrl);
         i.m((FrameLayout) findViewById(f.webview_container), this.mNgWebView.covertToView());
     }

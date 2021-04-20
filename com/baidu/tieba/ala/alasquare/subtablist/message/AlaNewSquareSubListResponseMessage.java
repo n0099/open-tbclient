@@ -36,7 +36,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     a2 a2Var = new a2();
-                    a2Var.P2(optJSONObject);
+                    a2Var.Q2(optJSONObject);
                     this.liveList.add(a2Var);
                 }
             }

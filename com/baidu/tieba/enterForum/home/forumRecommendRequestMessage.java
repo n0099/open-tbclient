@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.home;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import d.b.h0.z0.w;
 import java.util.Iterator;
 import java.util.LinkedList;

@@ -13,25 +13,25 @@ import d.b.g0.h.a.i.c;
 public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f48748e;
+    public c f49140e;
 
     static {
-        boolean z = k.f45051a;
+        boolean z = k.f45443a;
     }
 
     public b(@NonNull c cVar) {
-        this.f48748e = cVar;
+        this.f49140e = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.b(view, this.f48748e);
+        a.b(view, this.f49140e);
         d.b.g0.a.c0.c.g("map", "Control View click");
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
     public void onMapClick(LatLng latLng) {
-        a.d(this.f48748e, latLng);
+        a.d(this.f49140e, latLng);
         d.b.g0.a.c0.c.g("map", "onMapClick LatLng " + latLng);
     }
 
@@ -42,14 +42,14 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
     public boolean onMapPoiClick(MapPoi mapPoi) {
-        a.c(this.f48748e, mapPoi);
+        a.c(this.f49140e, mapPoi);
         d.b.g0.a.c0.c.g("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
         return true;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
     public void onMapRenderFinished() {
-        a.e(this.f48748e);
+        a.e(this.f49140e);
         d.b.g0.a.c0.c.g("map", "onMapRenderFinished");
     }
 
@@ -60,7 +60,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
-        a.g(this.f48748e, mapStatus);
+        a.g(this.f49140e, mapStatus);
         d.b.g0.a.c0.c.g("map", "onMapStatusChangeFinish");
     }
 
@@ -74,10 +74,10 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
     public boolean onMarkerClick(Marker marker) {
-        d.b.g0.h.a.i.b J = this.f48748e.J(marker);
+        d.b.g0.h.a.i.b J = this.f49140e.J(marker);
         if (J != null) {
-            a.f(marker, this.f48748e);
-            J.b(this.f48748e);
+            a.f(marker, this.f49140e);
+            J.b(this.f49140e);
             d.b.g0.a.c0.c.g("map", "onMarkerClick marker id " + marker.getId());
             return true;
         }

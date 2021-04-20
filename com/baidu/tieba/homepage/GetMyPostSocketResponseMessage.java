@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMyPost.GetMyPostResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetMyPostSocketResponseMessage extends SocketResponsedMessage {
     public GetMyPostResIdl mResponseData;
 

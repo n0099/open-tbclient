@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.message.chat;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialChatMessage extends ChatMessage {
     public OfficialChatMessage() {
         super(205001);

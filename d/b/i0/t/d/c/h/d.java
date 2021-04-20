@@ -34,7 +34,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.s.a;
 import d.b.i0.t.d.c.e.h;
 import d.b.i0.t.d.c.e.i;
@@ -53,7 +53,7 @@ public class d extends d.b.i0.x.b<i> {
     public int I;
     public List<h.a> J;
     public String K;
-    public d.b.i0.k3.d L;
+    public d.b.i0.l3.d L;
     public View m;
     public LinearLayout n;
     public HeadImageView o;
@@ -107,17 +107,17 @@ public class d extends d.b.i0.x.b<i> {
     public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f60454a;
+        public final /* synthetic */ TbPageContext f62018a;
 
         public c(d dVar, TbPageContext tbPageContext) {
-            this.f60454a = tbPageContext;
+            this.f62018a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-            d.b.b.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f60454a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
+            d.b.c.e.i.a.l().h(false);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f62018a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
         }
     }
 
@@ -141,7 +141,7 @@ public class d extends d.b.i0.x.b<i> {
             aVar.create(l()).show();
         } else if (ViewHelper.checkUpIsLogin(l().getPageActivity())) {
             if (this.L == null) {
-                this.L = new d.b.i0.k3.d(l());
+                this.L = new d.b.i0.l3.d(l());
             }
             if (this.L.d()) {
                 return;
@@ -150,7 +150,7 @@ public class d extends d.b.i0.x.b<i> {
                 l.K(l().getPageActivity(), R.string.plugin_config_not_found);
                 return;
             }
-            d.b.h0.r.d0.b.i().s(d.b.h0.r.d0.b.m("square_live_publish_live_has_showed"), true);
+            d.b.h0.r.d0.b.j().t(d.b.h0.r.d0.b.n("square_live_publish_live_has_showed"), true);
             this.D.setVisibility(8);
             z(l());
         }
@@ -214,7 +214,7 @@ public class d extends d.b.i0.x.b<i> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.n) {
-            if (ViewHelper.checkUpIsLogin(this.f62182g)) {
+            if (ViewHelper.checkUpIsLogin(this.f63757g)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(l().getPageActivity())));
             }
             TiebaStatic.log("c13552");
@@ -222,24 +222,24 @@ public class d extends d.b.i0.x.b<i> {
             if (StringUtils.isNull(this.K)) {
                 return;
             }
-            d.b.h0.l.a.r(this.f62182g.getApplicationContext(), b().getResources().getString(R.string.entrance_ranklist_tip), this.K, true, true, true, true, true, true, true);
+            d.b.h0.l.a.r(this.f63757g.getApplicationContext(), b().getResources().getString(R.string.entrance_ranklist_tip), this.K, true, true, true, true, true, true, true);
             TiebaStatic.log("c13553");
         } else if (view == this.u) {
             String str = "http://tieba.baidu.com/f?kw=百度直播";
-            String o = d.b.h0.r.d0.b.i().o("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
-            if (!StringUtils.isNull(o) && o.startsWith("http")) {
-                str = o;
+            String p = d.b.h0.r.d0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
+            if (!StringUtils.isNull(p) && p.startsWith("http")) {
+                str = p;
             }
             if (!str.contains("?")) {
                 str = str + "?default_tab_id=1&call_from=15";
             } else if (!str.contains("&default_tab_id=")) {
                 str = str + "&default_tab_id=1&call_from=15";
             }
-            UrlManager.getInstance().dealOneLink(this.f62181f, new String[]{str}, true);
+            UrlManager.getInstance().dealOneLink(this.f63756f, new String[]{str}, true);
             TiebaStatic.log("c13554");
         } else if (view == this.x) {
-            if (ViewHelper.checkUpIsLogin(this.f62182g)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f62181f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true)));
+            if (ViewHelper.checkUpIsLogin(this.f63757g)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f63756f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true)));
             }
             TiebaStatic.log("c13555");
         } else if (view == this.A) {
@@ -256,10 +256,10 @@ public class d extends d.b.i0.x.b<i> {
         int size = this.J.size();
         int i = this.I;
         if (size > i) {
-            this.o.W(this.J.get(i).f60337a, 12, false);
+            this.o.W(this.J.get(i).f61901a, 12, false);
         } else if (this.J.size() > 0) {
             this.I = 0;
-            this.o.W(this.J.get(0).f60337a, 12, false);
+            this.o.W(this.J.get(0).f61901a, 12, false);
         }
     }
 
@@ -309,7 +309,7 @@ public class d extends d.b.i0.x.b<i> {
         this.H.setRepeatMode(1);
         this.H.setDuration(2000L);
         this.H.addListener(new a());
-        o(this.f62181f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f63756f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void x(boolean z) {
@@ -318,8 +318,8 @@ public class d extends d.b.i0.x.b<i> {
             return;
         }
         if (z) {
-            if (!d.b.h0.r.d0.b.i().g(d.b.h0.r.d0.b.m("square_live_publish_live_has_showed"), false)) {
-                d.b.h0.r.d0.b.i().s(d.b.h0.r.d0.b.m("square_live_publish_live_has_showed"), true);
+            if (!d.b.h0.r.d0.b.j().g(d.b.h0.r.d0.b.n("square_live_publish_live_has_showed"), false)) {
+                d.b.h0.r.d0.b.j().t(d.b.h0.r.d0.b.n("square_live_publish_live_has_showed"), true);
                 this.D.setVisibility(0);
                 return;
             }
@@ -333,15 +333,15 @@ public class d extends d.b.i0.x.b<i> {
     @Override // d.b.i0.x.b
     /* renamed from: y */
     public void n(i iVar) {
-        if (iVar != null && iVar.f60339e != null) {
+        if (iVar != null && iVar.f61903e != null) {
             TiebaStatic.log("c13550");
             TiebaStatic.log("c13549");
             TiebaStatic.log("c13547");
             TiebaStatic.log("c13546");
-            d.b.i0.t.d.c.e.h hVar = iVar.f60339e;
-            this.K = hVar.f60336c;
-            if (hVar.f60334a && !ListUtils.isEmpty(hVar.f60335b)) {
-                ArrayList<h.a> arrayList = iVar.f60339e.f60335b;
+            d.b.i0.t.d.c.e.h hVar = iVar.f61903e;
+            this.K = hVar.f61900c;
+            if (hVar.f61898a && !ListUtils.isEmpty(hVar.f61899b)) {
+                ArrayList<h.a> arrayList = iVar.f61903e.f61899b;
                 this.J = arrayList;
                 if (ListUtils.isEmpty(arrayList)) {
                     return;

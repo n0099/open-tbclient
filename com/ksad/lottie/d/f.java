@@ -6,51 +6,50 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.ksad.lottie.a.a.r;
 import java.io.Closeable;
 /* loaded from: classes6.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final PathMeasure f31367a = new PathMeasure();
+    public static final PathMeasure f31656a = new PathMeasure();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Path f31368b = new Path();
+    public static final Path f31657b = new Path();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Path f31369c = new Path();
+    public static final Path f31658c = new Path();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float[] f31370d = new float[4];
+    public static final float[] f31659d = new float[4];
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float f31371e = (float) Math.sqrt(2.0d);
+    public static final float f31660e = (float) Math.sqrt(2.0d);
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f31372f = -1.0f;
+    public static float f31661f = -1.0f;
 
     public static float a() {
-        if (f31372f == -1.0f) {
-            f31372f = Resources.getSystem().getDisplayMetrics().density;
+        if (f31661f == -1.0f) {
+            f31661f = Resources.getSystem().getDisplayMetrics().density;
         }
-        return f31372f;
+        return f31661f;
     }
 
     public static float a(Matrix matrix) {
-        float[] fArr = f31370d;
+        float[] fArr = f31659d;
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
-        float f2 = f31371e;
+        float f2 = f31660e;
         fArr[2] = f2;
         fArr[3] = f2;
         matrix.mapPoints(fArr);
-        float[] fArr2 = f31370d;
+        float[] fArr2 = f31659d;
         return ((float) Math.hypot(fArr2[2] - fArr2[0], fArr2[3] - fArr2[1])) / 2.0f;
     }
 
     public static int a(float f2, float f3, float f4, float f5) {
-        int i = f2 != 0.0f ? (int) (((float) PayBeanFactory.BEAN_ID_WIDTHDRAW) * f2) : 17;
+        int i = f2 != 0.0f ? (int) (527 * f2) : 17;
         if (f3 != 0.0f) {
             i = (int) (i * 31 * f3);
         }
@@ -76,8 +75,8 @@ public final class f {
 
     public static void a(Path path, float f2, float f3, float f4) {
         com.ksad.lottie.c.c("applyTrimPathIfNeeded");
-        f31367a.setPath(path, false);
-        float length = f31367a.getLength();
+        f31656a.setPath(path, false);
+        float length = f31656a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f3 - f2) - 1.0f) < 0.01d) {
@@ -105,20 +104,20 @@ public final class f {
                 if (i >= 0) {
                     min -= length;
                 }
-                f31368b.reset();
-                f31367a.getSegment(min, max, f31368b, true);
+                f31657b.reset();
+                f31656a.getSegment(min, max, f31657b, true);
                 if (max > length) {
-                    f31369c.reset();
-                    f31367a.getSegment(0.0f, max % length, f31369c, true);
+                    f31658c.reset();
+                    f31656a.getSegment(0.0f, max % length, f31658c, true);
                 } else {
                     if (min < 0.0f) {
-                        f31369c.reset();
-                        f31367a.getSegment(min + length, length, f31369c, true);
+                        f31658c.reset();
+                        f31656a.getSegment(min + length, length, f31658c, true);
                     }
-                    path.set(f31368b);
+                    path.set(f31657b);
                 }
-                f31368b.addPath(f31369c);
-                path.set(f31368b);
+                f31657b.addPath(f31658c);
+                path.set(f31657b);
             }
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         }

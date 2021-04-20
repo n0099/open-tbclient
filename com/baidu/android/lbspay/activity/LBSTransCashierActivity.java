@@ -21,7 +21,6 @@ import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.beans.BeanManager;
-import com.baidubce.auth.NTLMEngineImpl;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -140,7 +139,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
             this.mCashierData.setShowAllPayType(1 == newCashierContent.bfb_only);
             PayStatisticsUtil.onEventWithValues(StatServiceEvent.LBS_PAY_AMOUNT, getChannelDesc(newCashierContent));
             Intent intent = new Intent(this.mAct, LbSCashierActivity.class);
-            intent.setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+            intent.setFlags(536870912);
             intent.putExtra(CashierDataNew.DELIVERY_CASHIER_DATA, this.mCashierData);
             intent.putExtra(CashierDataNew.DELIVERY_CASHIER_CONTENT, newCashierContent);
             startActivityWithoutAnim(intent);

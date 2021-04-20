@@ -6,28 +6,28 @@ import java.util.Stack;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<WebViewWindow> f2054a = new Stack<>();
+    public Stack<WebViewWindow> f2079a = new Stack<>();
 
     public WebViewWindow a() {
-        return this.f2054a.pop();
+        return this.f2079a.pop();
     }
 
     public boolean b() {
-        return this.f2054a.isEmpty();
+        return this.f2079a.isEmpty();
     }
 
     public void c() {
         if (b()) {
             return;
         }
-        Iterator<WebViewWindow> it = this.f2054a.iterator();
+        Iterator<WebViewWindow> it = this.f2079a.iterator();
         while (it.hasNext()) {
             it.next().a();
         }
-        this.f2054a.clear();
+        this.f2079a.clear();
     }
 
     public void a(WebViewWindow webViewWindow) {
-        this.f2054a.push(webViewWindow);
+        this.f2079a.push(webViewWindow);
     }
 }

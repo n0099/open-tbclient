@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.buffer.a;
 
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f30232a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f29917a;
 
     public b(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f30232a = aVar;
+        this.f29917a = aVar;
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -22,16 +22,16 @@ public class b extends c {
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        this.f30232a.a(i);
+        this.f29917a.a(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr) throws IOException {
-        this.f30232a.a(bArr);
+        this.f29917a.a(bArr);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        this.f30232a.a(bArr, i, i2);
+        this.f29917a.a(bArr, i, i2);
     }
 }

@@ -1,11 +1,11 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.c;
-import f.a.o;
-import f.a.t.b;
-import f.a.w.h;
-import f.a.x.b.a;
-import f.a.x.c.f;
+import f.b.c;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.h;
+import f.b.x.b.a;
+import f.b.x.c.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableConcatMapCompletable$SourceObserver<T> extends AtomicInteger implements o<T>, b {
     public static final long serialVersionUID = 6893587405571511048L;
     public volatile boolean active;
-    public final f.a.b actual;
+    public final f.b.b actual;
     public final int bufferSize;
     public volatile boolean disposed;
     public volatile boolean done;
@@ -24,12 +24,12 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
     public int sourceMode;
 
     /* loaded from: classes7.dex */
-    public static final class InnerObserver extends AtomicReference<b> implements f.a.b {
+    public static final class InnerObserver extends AtomicReference<b> implements f.b.b {
         public static final long serialVersionUID = -5987419458390772447L;
-        public final f.a.b actual;
+        public final f.b.b actual;
         public final ObservableConcatMapCompletable$SourceObserver<?> parent;
 
-        public InnerObserver(f.a.b bVar, ObservableConcatMapCompletable$SourceObserver<?> observableConcatMapCompletable$SourceObserver) {
+        public InnerObserver(f.b.b bVar, ObservableConcatMapCompletable$SourceObserver<?> observableConcatMapCompletable$SourceObserver) {
             this.actual = bVar;
             this.parent = observableConcatMapCompletable$SourceObserver;
         }
@@ -38,31 +38,31 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
             DisposableHelper.dispose(this);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onComplete() {
             this.parent.innerComplete();
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onError(Throwable th) {
             this.parent.dispose();
             this.actual.onError(th);
         }
 
-        @Override // f.a.b
+        @Override // f.b.b
         public void onSubscribe(b bVar) {
             DisposableHelper.set(this, bVar);
         }
     }
 
-    public ObservableConcatMapCompletable$SourceObserver(f.a.b bVar, h<? super T, ? extends c> hVar, int i) {
+    public ObservableConcatMapCompletable$SourceObserver(f.b.b bVar, h<? super T, ? extends c> hVar, int i) {
         this.actual = bVar;
         this.mapper = hVar;
         this.bufferSize = i;
         this.inner = new InnerObserver(bVar, this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         this.disposed = true;
         this.inner.dispose();
@@ -94,7 +94,7 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
                             this.active = true;
                             cVar.a(this.inner);
                         } catch (Throwable th) {
-                            f.a.u.a.a(th);
+                            f.b.u.a.a(th);
                             dispose();
                             this.queue.clear();
                             this.actual.onError(th);
@@ -102,7 +102,7 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
                         }
                     }
                 } catch (Throwable th2) {
-                    f.a.u.a.a(th2);
+                    f.b.u.a.a(th2);
                     dispose();
                     this.queue.clear();
                     this.actual.onError(th2);
@@ -121,12 +121,12 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
         drain();
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return this.disposed;
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.done) {
             return;
@@ -135,10 +135,10 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.done) {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
             return;
         }
         this.done = true;
@@ -146,7 +146,7 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
         this.actual.onError(th);
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -157,12 +157,12 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
         drain();
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
-            if (bVar instanceof f.a.x.c.b) {
-                f.a.x.c.b bVar2 = (f.a.x.c.b) bVar;
+            if (bVar instanceof f.b.x.c.b) {
+                f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
                 int requestFusion = bVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.sourceMode = requestFusion;
@@ -178,7 +178,7 @@ public final class ObservableConcatMapCompletable$SourceObserver<T> extends Atom
                     return;
                 }
             }
-            this.queue = new f.a.x.f.a(this.bufferSize);
+            this.queue = new f.b.x.f.a(this.bufferSize);
             this.actual.onSubscribe(this);
         }
     }

@@ -5,36 +5,36 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentLinkedQueue<String> f39216a;
+    public ConcurrentLinkedQueue<String> f39505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f39217b;
+    public AtomicInteger f39506b;
 
     public g() {
-        this.f39216a = null;
-        this.f39217b = null;
-        this.f39216a = new ConcurrentLinkedQueue<>();
-        this.f39217b = new AtomicInteger(0);
+        this.f39505a = null;
+        this.f39506b = null;
+        this.f39505a = new ConcurrentLinkedQueue<>();
+        this.f39506b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f39216a.add(str);
-        return this.f39217b.addAndGet(length);
+        this.f39505a.add(str);
+        return this.f39506b.addAndGet(length);
     }
 
     public void b() {
-        this.f39216a.clear();
-        this.f39217b.set(0);
+        this.f39505a.clear();
+        this.f39506b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f39216a.iterator();
+        return this.f39505a.iterator();
     }
 
     public void a(Writer writer, char[] cArr) throws IOException {
@@ -73,6 +73,6 @@ public class g implements Iterable<String> {
     }
 
     public int a() {
-        return this.f39217b.get();
+        return this.f39506b.get();
     }
 }

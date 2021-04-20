@@ -8,9 +8,9 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.widget.TbImageView;
-import d.b.b.e.l.d;
-import d.b.b.e.m.e;
-import d.b.b.e.p.k;
+import d.b.c.e.l.d;
+import d.b.c.e.m.e;
+import d.b.c.e.p.k;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class FrameAnimationView extends TbImageView {
@@ -57,7 +57,7 @@ public class FrameAnimationView extends TbImageView {
         String frameUrl = getFrameUrl();
         this.w0++;
         if (!k.isEmpty(frameUrl)) {
-            d.b.b.j.d.a aVar = (d.b.b.j.d.a) d.h().n(frameUrl, 10, new Object[0]);
+            d.b.c.j.d.a aVar = (d.b.c.j.d.a) d.h().n(frameUrl, 10, new Object[0]);
             if (aVar != null) {
                 return aVar.p();
             }

@@ -22,6 +22,6 @@ public abstract class UByteIterator implements Iterator<UByte>, KMappedMarker {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
     public final UByte next() {
-        return UByte.m640boximpl(nextUByte());
+        return UByte.m644boximpl(nextUByte());
     }
 }

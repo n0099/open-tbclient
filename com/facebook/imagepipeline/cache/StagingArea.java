@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StagingArea {
     public static final Class<?> TAG = StagingArea.class;
     @GuardedBy("this")

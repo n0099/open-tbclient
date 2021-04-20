@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
+import d.b.c.e.m.e;
 import d.b.i0.i0.i.c.d;
 import d.b.i0.i0.i.d.a;
 import java.util.ArrayList;
@@ -63,17 +63,17 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public void a(d.b.i0.i0.i.c.c cVar) {
             HotUserRankActivity hotUserRankActivity = HotUserRankActivity.this;
             hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-            if (cVar == null || cVar.f55608a == null) {
+            if (cVar == null || cVar.f56731a == null) {
                 return;
             }
-            HotUserRankActivity.this.mRuleUrl = cVar.f55611d;
+            HotUserRankActivity.this.mRuleUrl = cVar.f56734d;
             if (HotUserRankActivity.this.mForumId > 0) {
                 e.a().post(HotUserRankActivity.this.mLoadDataRunnable);
                 return;
             }
-            TiebaFieldsInfo tiebaFieldsInfo = cVar.f55608a.f55599f;
+            TiebaFieldsInfo tiebaFieldsInfo = cVar.f56731a.f56722f;
             if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                List<String> list = cVar.f55608a.f55599f.tieba_fields;
+                List<String> list = cVar.f56731a.f56722f.tieba_fields;
                 HotUserRankActivity.this.mTabDataList.clear();
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
@@ -81,8 +81,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                         HotUserRankActivity.this.mJumpPosition = i;
                     }
                     d dVar = new d();
-                    dVar.f55616b = str;
-                    dVar.f55615a = str;
+                    dVar.f56739b = str;
+                    dVar.f56738a = str;
                     HotUserRankActivity.this.mTabDataList.add(dVar);
                 }
                 e.a().post(HotUserRankActivity.this.mLoadDataRunnable);
@@ -102,7 +102,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     private void checkShowUpdateTip() {
-        long k = d.b.h0.r.d0.b.i().k("key_hot_user_rank_last_update_time", 0L);
+        long l = d.b.h0.r.d0.b.j().l("key_hot_user_rank_last_update_time", 0L);
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 6);
         calendar.set(13, 0);
@@ -111,13 +111,13 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         long timeInMillis = calendar.getTimeInMillis();
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        if (currentTimeMillis <= timeInMillis ? k >= timeInMillis - 86400000 : k >= timeInMillis) {
+        if (currentTimeMillis <= timeInMillis ? l >= timeInMillis - 86400000 : l >= timeInMillis) {
             z = false;
         }
         if (z) {
             this.mHotUserRankView.o(0);
             e.a().postDelayed(this.mHideUpdateTipRunnable, 5000L);
-            d.b.h0.r.d0.b.i().v("key_hot_user_rank_last_update_time", currentTimeMillis);
+            d.b.h0.r.d0.b.j().w("key_hot_user_rank_last_update_time", currentTimeMillis);
         }
     }
 
@@ -130,7 +130,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                 String queryParameter = uri.getQueryParameter("module_name");
                 this.mInputCategory = queryParameter;
                 if (TextUtils.isEmpty(queryParameter)) {
-                    this.mForumId = d.b.b.e.m.b.f(uri.getQueryParameter("fid"), -1L);
+                    this.mForumId = d.b.c.e.m.b.f(uri.getQueryParameter("fid"), -1L);
                 }
             }
             this.isGod = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);

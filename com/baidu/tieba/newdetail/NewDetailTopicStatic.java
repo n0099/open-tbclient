@@ -2,6 +2,7 @@ package com.baidu.tieba.newdetail;
 
 import android.content.Intent;
 import android.net.Uri;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
@@ -17,7 +18,7 @@ import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 /* loaded from: classes3.dex */
 public class NewDetailTopicStatic {
 
@@ -33,7 +34,7 @@ public class NewDetailTopicStatic {
                 if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
                         Intent parseUri = Intent.parseUri(lowerCase, 1);
-                        parseUri.setFlags(268435456);
+                        parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         if (tbPageContext.getPageActivity() != null) {
                             tbPageContext.getPageActivity().startActivity(parseUri);
                         }
@@ -74,18 +75,18 @@ public class NewDetailTopicStatic {
     }
 
     public static void a() {
-        d.b.i0.c3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
     public static void b() {
-        d.b.i0.c3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
     public static void c() {
-        d.b.i0.c3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-        d.b.i0.c3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+        d.b.i0.d3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+        d.b.i0.d3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 
     public static void d() {

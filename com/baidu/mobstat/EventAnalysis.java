@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class EventAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f8784a = new HashMap();
+    public Map<String, a> f8358a = new HashMap();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8785a;
+        public String f8359a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8786b;
+        public String f8360b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f8787c;
+        public long f8361c;
 
         public a() {
         }
@@ -116,33 +116,33 @@ public class EventAnalysis {
 
     public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         String a2 = a(str, str2);
-        a aVar = this.f8784a.get(a2);
+        a aVar = this.f8358a.get(a2);
         if (aVar == null) {
             bc c2 = bc.c();
             c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-        } else if ((str != null && !str.equals(aVar.f8785a)) || (str2 != null && !str2.equals(aVar.f8786b))) {
+        } else if ((str != null && !str.equals(aVar.f8359a)) || (str2 != null && !str2.equals(aVar.f8360b))) {
             bc.c().b("[WARNING] eventId/label pair not match");
         } else {
-            this.f8784a.remove(a2);
-            long j3 = j2 - aVar.f8787c;
+            this.f8358a.remove(a2);
+            long j3 = j2 - aVar.f8361c;
             if (j3 < 0) {
                 bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
             }
-            onEventDuration(context, j, str, str2, aVar.f8787c, j3, extraInfo, map, z);
+            onEventDuration(context, j, str, str2, aVar.f8361c, j3, extraInfo, map, z);
         }
     }
 
     public void onEventStart(Context context, String str, String str2, long j) {
         a aVar = new a();
-        aVar.f8787c = j;
-        aVar.f8785a = str;
-        aVar.f8786b = str2;
+        aVar.f8361c = j;
+        aVar.f8359a = str;
+        aVar.f8360b = str2;
         String a2 = a(str, str2);
-        if (this.f8784a.containsKey(a2)) {
+        if (this.f8358a.containsKey(a2)) {
             bc c2 = bc.c();
             c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
         }
-        this.f8784a.put(a2, aVar);
+        this.f8358a.put(a2, aVar);
     }
 
     public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, JSONArray jSONArray, JSONArray jSONArray2, String str4, String str5, String str6, int i2, int i3, ExtraInfo extraInfo, Map<String, String> map, String str7, String str8, boolean z) {
@@ -235,7 +235,7 @@ public class EventAnalysis {
     /* JADX WARN: Code restructure failed: missing block: B:5:0x001b, code lost:
         if (r37.equals("") != false) goto L3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0164, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x0166, code lost:
         if (r4.equalsIgnoreCase(r23) != false) goto L86;
      */
     /*
@@ -309,64 +309,64 @@ public class EventAnalysis {
                     str13 = str22;
                     i9 = 0;
                 }
+            } catch (JSONException unused2) {
+                str11 = str21;
+                str12 = jSONArray5;
+                i6 = length;
+                str13 = str22;
+            }
+            try {
+                optString = jSONObject3.optString("h");
+                i8 = i10;
                 try {
-                    optString = jSONObject3.optString("h");
-                    i8 = i10;
+                    optString2 = jSONObject3.optString("p");
+                    optString3 = jSONObject3.optString("p2");
+                    i6 = length;
                     try {
-                        optString2 = jSONObject3.optString("p");
-                        optString3 = jSONObject3.optString("p2");
-                        i6 = length;
-                        try {
-                            optString4 = jSONObject3.optString("rn");
-                            i7 = i11;
-                        } catch (JSONException unused2) {
-                            str11 = str21;
-                            str12 = jSONArray5;
-                            str14 = str23;
-                            str15 = str24;
-                            i7 = i11;
-                            jSONObject2 = jSONObject4;
-                            jSONArray5 = str12;
-                            i11 = i7 + 1;
-                            str23 = str14;
-                            jSONObject4 = jSONObject2;
-                            str22 = str13;
-                            i10 = i8;
-                            length = i6;
-                            str21 = str11;
-                            str24 = str15;
-                            jSONArray4 = jSONArray;
-                        }
+                        optString4 = jSONObject3.optString("rn");
+                        i7 = i11;
                     } catch (JSONException unused3) {
                         str11 = str21;
                         str12 = jSONArray5;
-                        i6 = length;
+                        str14 = str23;
+                        str15 = str24;
+                        i7 = i11;
+                        jSONObject2 = jSONObject4;
+                        jSONArray5 = str12;
+                        i11 = i7 + 1;
+                        str23 = str14;
+                        jSONObject4 = jSONObject2;
+                        str22 = str13;
+                        i10 = i8;
+                        length = i6;
+                        str21 = str11;
+                        str24 = str15;
+                        jSONArray4 = jSONArray;
                     }
                 } catch (JSONException unused4) {
                     str11 = str21;
                     str12 = jSONArray5;
                     i6 = length;
-                    str14 = str23;
-                    str15 = str24;
-                    i7 = i11;
-                    i8 = i10;
-                    jSONObject2 = jSONObject4;
-                    jSONArray5 = str12;
-                    i11 = i7 + 1;
-                    str23 = str14;
-                    jSONObject4 = jSONObject2;
-                    str22 = str13;
-                    i10 = i8;
-                    length = i6;
-                    str21 = str11;
-                    str24 = str15;
-                    jSONArray4 = jSONArray;
                 }
             } catch (JSONException unused5) {
                 str11 = str21;
                 str12 = jSONArray5;
                 i6 = length;
-                str13 = str22;
+                str14 = str23;
+                str15 = str24;
+                i7 = i11;
+                i8 = i10;
+                jSONObject2 = jSONObject4;
+                jSONArray5 = str12;
+                i11 = i7 + 1;
+                str23 = str14;
+                jSONObject4 = jSONObject2;
+                str22 = str13;
+                i10 = i8;
+                length = i6;
+                str21 = str11;
+                str24 = str15;
+                jSONArray4 = jSONArray;
             }
             try {
                 optInt = jSONObject3.optInt("v");

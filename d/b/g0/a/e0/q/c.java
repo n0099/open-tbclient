@@ -7,7 +7,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f44248a = new a();
+    public static final c f44640a = new a();
 
     /* loaded from: classes2.dex */
     public static class a implements c {

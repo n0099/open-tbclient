@@ -24,43 +24,43 @@ public class h implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public b f37837a;
+    public b f38126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37838b;
+    public String f38127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37839c;
+    public int f38128c;
 
     public h(Parcel parcel) {
-        this.f37837a = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.f37838b = parcel.readString();
-        this.f37839c = parcel.readInt();
+        this.f38126a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f38127b = parcel.readString();
+        this.f38128c = parcel.readInt();
     }
 
     public h(String str, String str2, String str3, String str4, String str5) {
-        this.f37838b = str2;
+        this.f38127b = str2;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull(MiPushMessage.KEY_NOTIFY_ID)) {
-                this.f37839c = jSONObject.getInt(MiPushMessage.KEY_NOTIFY_ID);
+                this.f38128c = jSONObject.getInt(MiPushMessage.KEY_NOTIFY_ID);
             }
         } catch (JSONException e2) {
             d.j.a.a.a.b("WithDrawMessage", "parse WithDrawMessage error " + e2.getMessage());
         }
-        this.f37837a = new b(str3, str4, str5);
+        this.f38126a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.f37837a;
+        return this.f38126a;
     }
 
     public int b() {
-        return this.f37839c;
+        return this.f38128c;
     }
 
     public String c() {
-        return this.f37838b;
+        return this.f38127b;
     }
 
     @Override // android.os.Parcelable
@@ -69,13 +69,13 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.f37837a + ", revokePackageName='" + this.f37838b + "', notifyId=" + this.f37839c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f38126a + ", revokePackageName='" + this.f38127b + "', notifyId=" + this.f38128c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f37837a, i);
-        parcel.writeString(this.f37838b);
-        parcel.writeInt(this.f37839c);
+        parcel.writeParcelable(this.f38126a, i);
+        parcel.writeString(this.f38127b);
+        parcel.writeInt(this.f38128c);
     }
 }

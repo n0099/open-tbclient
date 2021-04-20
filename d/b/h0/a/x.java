@@ -6,24 +6,24 @@ import org.json.JSONArray;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f49655a;
+    public long f50047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f49656b;
+    public long f50048b;
 
     public long a() {
-        return this.f49656b + UtilHelper.getTimesMorning();
+        return this.f50048b + UtilHelper.getTimesMorning();
     }
 
     public long b() {
-        return this.f49655a + UtilHelper.getTimesMorning();
+        return this.f50047a + UtilHelper.getTimesMorning();
     }
 
     public void c(JSONArray jSONArray) {
         if (jSONArray == null || jSONArray.length() != 2) {
             return;
         }
-        this.f49655a = jSONArray.optLong(0, 0L) * 1000;
-        this.f49656b = jSONArray.optLong(1, 0L) * 1000;
+        this.f50047a = jSONArray.optLong(0, 0L) * 1000;
+        this.f50048b = jSONArray.optLong(1, 0L) * 1000;
     }
 }

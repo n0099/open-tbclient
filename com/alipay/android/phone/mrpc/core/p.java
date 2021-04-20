@@ -3,43 +3,43 @@ package com.alipay.android.phone.mrpc.core;
 public final class p extends u {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1684c;
+    public int f1709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1685d;
+    public String f1710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1686e;
+    public long f1711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1687f;
+    public long f1712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1688g;
+    public String f1713g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpUrlHeader f1689h;
+    public HttpUrlHeader f1714h;
 
     public p(HttpUrlHeader httpUrlHeader, int i, String str, byte[] bArr) {
-        this.f1689h = httpUrlHeader;
-        this.f1684c = i;
-        this.f1685d = str;
-        this.f1701a = bArr;
+        this.f1714h = httpUrlHeader;
+        this.f1709c = i;
+        this.f1710d = str;
+        this.f1726a = bArr;
     }
 
     public final HttpUrlHeader a() {
-        return this.f1689h;
+        return this.f1714h;
     }
 
     public final void a(long j) {
-        this.f1686e = j;
+        this.f1711e = j;
     }
 
     public final void a(String str) {
-        this.f1688g = str;
+        this.f1713g = str;
     }
 
     public final void b(long j) {
-        this.f1687f = j;
+        this.f1712f = j;
     }
 }

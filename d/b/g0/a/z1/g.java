@@ -4,15 +4,15 @@ import android.text.TextUtils;
 import d.b.g0.a.i2.i0;
 import d.b.g0.a.k;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f47215a;
+    public static int f47607a;
 
     static {
-        boolean z = k.f45051a;
-        f47215a = 0;
+        boolean z = k.f45443a;
+        f47607a = 0;
     }
 
     public static String a(String str) {
@@ -32,11 +32,11 @@ public final class g {
     }
 
     public static int b() {
-        return f47215a;
+        return f47607a;
     }
 
     public static void c(int i) {
-        f47215a = i;
+        f47607a = i;
     }
 
     public static <EvenT extends d.b.g0.a.z1.k.e> EvenT d(EvenT event, String str, Object obj) {

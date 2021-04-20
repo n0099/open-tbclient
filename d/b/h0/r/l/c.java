@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class c {
-    public static boolean a(AccountData accountData, d.b.b.a.k.b bVar) {
+    public static boolean a(AccountData accountData, d.b.c.a.k.b bVar) {
         return bVar.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
     }
 
@@ -23,7 +23,7 @@ public class c {
     }
 
     public static int d() {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         int i = 0;
         Cursor cursor = null;
         try {
@@ -39,7 +39,7 @@ public class c {
             }
             return i;
         } finally {
-            d.b.b.e.m.a.a(cursor);
+            d.b.c.e.m.a.a(cursor);
         }
     }
 
@@ -49,7 +49,7 @@ public class c {
         AccountData accountData;
         Exception e2;
         Cursor cursor2;
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Cursor cursor3 = null;
         try {
             if (mainDBDatabaseManager != null) {
@@ -76,7 +76,7 @@ public class c {
                                 } catch (Exception e3) {
                                     e2 = e3;
                                     mainDBDatabaseManager.i(e2, "getActiveAccountData");
-                                    d.b.b.e.m.a.a(cursor2);
+                                    d.b.c.e.m.a.a(cursor2);
                                     return accountData;
                                 }
                             }
@@ -93,13 +93,13 @@ public class c {
                     cursor2 = null;
                 } catch (Throwable th) {
                     th = th;
-                    d.b.b.e.m.a.a(cursor3);
+                    d.b.c.e.m.a.a(cursor3);
                     throw th;
                 }
             } else {
                 accountData = null;
             }
-            d.b.b.e.m.a.a(cursor3);
+            d.b.c.e.m.a.a(cursor3);
             return accountData;
         } catch (Throwable th2) {
             th = th2;
@@ -108,7 +108,7 @@ public class c {
     }
 
     public static ArrayList<AccountData> f() {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         ArrayList<AccountData> arrayList = new ArrayList<>();
         Cursor cursor = null;
         try {
@@ -137,7 +137,7 @@ public class c {
             }
             return arrayList;
         } finally {
-            d.b.b.e.m.a.a(cursor);
+            d.b.c.e.m.a.a(cursor);
         }
     }
 
@@ -162,7 +162,7 @@ public class c {
         if (accountData.getIsActive() == 1) {
             b();
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (c(accountData.getID()) && a(accountData, mainDBDatabaseManager)) {
             return;
         }

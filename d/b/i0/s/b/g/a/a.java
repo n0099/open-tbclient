@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-import d.b.b.e.m.e;
+import d.b.c.e.m.e;
 import d.b.g0.a.b1.d.d.c;
 import d.b.g0.a.p.c.z;
 import java.util.ArrayList;
@@ -30,29 +30,29 @@ import org.json.JSONObject;
 public class a implements z {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f60079a;
+    public c f61380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f60080b = new C1524a(2921365);
+    public CustomMessageListener f61381b = new C1563a(2921365);
 
     /* renamed from: d.b.i0.s.b.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1524a extends CustomMessageListener {
+    public class C1563a extends CustomMessageListener {
 
         /* renamed from: d.b.i0.s.b.g.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1525a implements Runnable {
-            public RunnableC1525a() {
+        public class RunnableC1564a implements Runnable {
+            public RunnableC1564a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f60079a = null;
-                MessageManager.getInstance().unRegisterListener(a.this.f60080b);
+                a.this.f61380a = null;
+                MessageManager.getInstance().unRegisterListener(a.this.f61381b);
             }
         }
 
-        public C1524a(int i) {
+        public C1563a(int i) {
             super(i);
         }
 
@@ -74,7 +74,7 @@ public class a implements z {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.f60079a != null) {
+                        if (a.this.f61380a != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -83,24 +83,24 @@ public class a implements z {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.f60079a.b(arrayList);
+                                a.this.f61380a.b(arrayList);
                             } else {
-                                a.this.f60079a.a(QueryResponse.Options.CANCEL);
+                                a.this.f61380a.a(QueryResponse.Options.CANCEL);
                             }
                         }
                     } else {
-                        c cVar = a.this.f60079a;
+                        c cVar = a.this.f61380a;
                         if (cVar != null) {
                             cVar.a("error");
                         }
                     }
-                    e.a().post(new RunnableC1525a());
+                    e.a().post(new RunnableC1564a());
                 }
             }
             intent = null;
             if (intent == null) {
             }
-            e.a().post(new RunnableC1525a());
+            e.a().post(new RunnableC1564a());
         }
     }
 
@@ -153,7 +153,7 @@ public class a implements z {
         jSONObject.optString("type");
         String optString = jSONObject.optString("index");
         JSONArray optJSONArray = jSONObject.optJSONArray("url");
-        int d2 = d.b.b.e.m.b.d(optString, 0);
+        int d2 = d.b.c.e.m.b.d(optString, 0);
         int length = optJSONArray.length();
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < length; i++) {

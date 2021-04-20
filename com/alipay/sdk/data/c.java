@@ -22,41 +22,41 @@ import java.util.concurrent.TimeUnit;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1880a = "virtualImeiAndImsi";
+    public static final String f1905a = "virtualImeiAndImsi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1881b = "virtual_imei";
+    public static final String f1906b = "virtual_imei";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1882c = "virtual_imsi";
+    public static final String f1907c = "virtual_imsi";
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f1883d;
+    public static c f1908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1884e;
+    public String f1909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1885f = "sdk-and-lite";
+    public String f1910f = "sdk-and-lite";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1886g;
+    public String f1911g;
 
     public c() {
         String a2 = i.a();
         if (i.b()) {
             return;
         }
-        this.f1885f += '_' + a2;
+        this.f1910f += '_' + a2;
     }
 
     public static synchronized c b() {
         c cVar;
         synchronized (c.class) {
-            if (f1883d == null) {
-                f1883d = new c();
+            if (f1908d == null) {
+                f1908d = new c();
             }
-            cVar = f1883d;
+            cVar = f1908d;
         }
         return cVar;
     }
@@ -78,8 +78,8 @@ public class c {
     public String c() {
         String b2;
         Context b3 = com.alipay.sdk.sys.b.a().b();
-        SharedPreferences sharedPreferences = b3.getSharedPreferences(f1880a, 0);
-        String string = sharedPreferences.getString(f1881b, null);
+        SharedPreferences sharedPreferences = b3.getSharedPreferences(f1905a, 0);
+        String string = sharedPreferences.getString(f1906b, null);
         if (TextUtils.isEmpty(string)) {
             if (TextUtils.isEmpty(com.alipay.sdk.tid.b.a(b3).a())) {
                 b2 = g();
@@ -87,7 +87,7 @@ public class c {
                 b2 = com.alipay.sdk.util.a.a(b3).b();
             }
             String str = b2;
-            sharedPreferences.edit().putString(f1881b, str).commit();
+            sharedPreferences.edit().putString(f1906b, str).commit();
             return str;
         }
         return string;
@@ -96,8 +96,8 @@ public class c {
     public String d() {
         String a2;
         Context b2 = com.alipay.sdk.sys.b.a().b();
-        SharedPreferences sharedPreferences = b2.getSharedPreferences(f1880a, 0);
-        String string = sharedPreferences.getString(f1882c, null);
+        SharedPreferences sharedPreferences = b2.getSharedPreferences(f1905a, 0);
+        String string = sharedPreferences.getString(f1907c, null);
         if (TextUtils.isEmpty(string)) {
             if (TextUtils.isEmpty(com.alipay.sdk.tid.b.a(b2).a())) {
                 String e2 = com.alipay.sdk.sys.b.a().e();
@@ -110,14 +110,14 @@ public class c {
                 a2 = com.alipay.sdk.util.a.a(b2).a();
             }
             String str = a2;
-            sharedPreferences.edit().putString(f1882c, str).commit();
+            sharedPreferences.edit().putString(f1907c, str).commit();
             return str;
         }
         return string;
     }
 
     public String a() {
-        return this.f1886g;
+        return this.f1911g;
     }
 
     public synchronized void a(String str) {
@@ -125,7 +125,7 @@ public class c {
             return;
         }
         PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.a().b()).edit().putString(com.alipay.sdk.cons.b.i, str).commit();
-        com.alipay.sdk.cons.a.f1845c = str;
+        com.alipay.sdk.cons.a.f1870c = str;
     }
 
     private String b(Context context) {
@@ -136,7 +136,7 @@ public class c {
         try {
             return (String) Executors.newFixedThreadPool(2).submit(new d(this, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
         } catch (Throwable th) {
-            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1839e, com.alipay.sdk.app.statistic.c.j, th);
+            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1864e, com.alipay.sdk.app.statistic.c.j, th);
             return "";
         }
     }
@@ -149,14 +149,14 @@ public class c {
     public String a(com.alipay.sdk.tid.b bVar) {
         Context b2 = com.alipay.sdk.sys.b.a().b();
         com.alipay.sdk.util.a a2 = com.alipay.sdk.util.a.a(b2);
-        if (TextUtils.isEmpty(this.f1884e)) {
+        if (TextUtils.isEmpty(this.f1909e)) {
             String b3 = n.b();
             String c2 = n.c();
             String d2 = n.d(b2);
             String f2 = n.f(b2);
             String e2 = n.e(b2);
             String b4 = b(b2);
-            this.f1884e = "Msp/15.6.5 (" + b3 + ";" + c2 + ";" + d2 + ";" + f2 + ";" + e2 + ";" + b4;
+            this.f1909e = "Msp/15.6.5 (" + b3 + ";" + c2 + ";" + d2 + ";" + f2 + ";" + e2 + ";" + b4;
         }
         String b5 = com.alipay.sdk.util.a.b(b2).b();
         String g2 = n.g(b2);
@@ -166,7 +166,7 @@ public class c {
         String d3 = d();
         String c3 = c();
         if (bVar != null) {
-            this.f1886g = bVar.b();
+            this.f1911g = bVar.b();
         }
         String replace = Build.MANUFACTURER.replace(";", " ");
         String replace2 = Build.MODEL.replace(";", " ");
@@ -175,7 +175,7 @@ public class c {
         String c4 = c(b2);
         String d6 = d(b2);
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f1884e);
+        sb.append(this.f1909e);
         sb.append(";");
         sb.append(b5);
         sb.append(";");
@@ -187,7 +187,7 @@ public class c {
         sb.append(";");
         sb.append(b6);
         sb.append(";");
-        sb.append(this.f1886g);
+        sb.append(this.f1911g);
         sb.append(";");
         sb.append(replace);
         sb.append(";");
@@ -199,7 +199,7 @@ public class c {
         sb.append(";");
         sb.append(f());
         sb.append(";");
-        sb.append(this.f1885f);
+        sb.append(this.f1910f);
         sb.append(";");
         sb.append(d3);
         sb.append(";");
@@ -211,7 +211,7 @@ public class c {
         if (bVar != null) {
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("tid", com.alipay.sdk.tid.b.a(b2).a());
-            hashMap.put(com.alipay.sdk.cons.b.f1857g, com.alipay.sdk.sys.b.a().e());
+            hashMap.put(com.alipay.sdk.cons.b.f1882g, com.alipay.sdk.sys.b.a().e());
             String b7 = b(b2, hashMap);
             if (!TextUtils.isEmpty(b7)) {
                 sb.append(";");
@@ -234,13 +234,13 @@ public class c {
             str = SecurityClientMobile.GetApdid(context, hashMap);
         } catch (Throwable th) {
             com.alipay.sdk.util.c.a(th);
-            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1839e, com.alipay.sdk.app.statistic.c.f1842h, th);
+            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1864e, com.alipay.sdk.app.statistic.c.f1867h, th);
             str = "";
         }
         if (TextUtils.isEmpty(str)) {
-            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1839e, com.alipay.sdk.app.statistic.c.i, "apdid == null");
+            com.alipay.sdk.app.statistic.a.a(com.alipay.sdk.app.statistic.c.f1864e, com.alipay.sdk.app.statistic.c.i, "apdid == null");
         }
-        com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1900a, "apdid:" + str);
+        com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1925a, "apdid:" + str);
         return str;
     }
 

@@ -18,7 +18,7 @@ public class BreakpointInfoRow {
         this.url = cursor.getString(cursor.getColumnIndex("url"));
         this.etag = cursor.getString(cursor.getColumnIndex("etag"));
         this.parentPath = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.PARENT_PATH));
-        this.filename = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.FILENAME));
+        this.filename = cursor.getString(cursor.getColumnIndex("filename"));
         this.taskOnlyProvidedParentPath = cursor.getInt(cursor.getColumnIndex(BreakpointSQLiteKey.TASK_ONLY_PARENT_PATH)) == 1;
         this.chunked = cursor.getInt(cursor.getColumnIndex("chunked")) == 1;
     }

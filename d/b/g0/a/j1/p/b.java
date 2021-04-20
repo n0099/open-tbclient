@@ -3,16 +3,16 @@ package d.b.g0.a.j1.p;
 public class b implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44950a = -1;
+    public long f45342a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44951b = -1;
+    public long f45343b = -1;
 
     @Override // d.b.g0.a.j1.p.e
     public long a() {
-        long j = this.f44950a;
+        long j = this.f45342a;
         if (j >= 0) {
-            long j2 = this.f44951b;
+            long j2 = this.f45343b;
             if (j2 < 0) {
                 return -1L;
             }
@@ -23,12 +23,12 @@ public class b implements e {
 
     @Override // d.b.g0.a.j1.p.e
     public void b(long j) {
-        this.f44950a = j;
+        this.f45342a = j;
     }
 
     @Override // d.b.g0.a.j1.p.e
     public void c(long j) {
-        this.f44951b = j;
+        this.f45343b = j;
     }
 
     @Override // d.b.g0.a.j1.p.e

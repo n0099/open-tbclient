@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f35633a = true;
+    public static volatile boolean f35922a = true;
 
     public static Drawable a(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         return a(context, context, i, theme);
@@ -31,7 +31,7 @@ public final class a {
             }
             return ContextCompat.getDrawable(context2, i);
         } catch (NoClassDefFoundError unused2) {
-            f35633a = false;
+            f35922a = false;
             return context2.getResources().getDrawable(i);
         }
     }

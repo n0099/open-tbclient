@@ -6,32 +6,32 @@ import com.baidu.fsg.base.utils.LogUtil;
 public class n implements r.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f5330a;
+    public final /* synthetic */ String f5365a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h[] f5331b;
+    public final /* synthetic */ h[] f5366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ l f5332c;
+    public final /* synthetic */ l f5367c;
 
     public n(l lVar, String str, h[] hVarArr) {
-        this.f5332c = lVar;
-        this.f5330a = str;
-        this.f5331b = hVarArr;
+        this.f5367c = lVar;
+        this.f5365a = str;
+        this.f5366b = hVarArr;
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
     public void a() {
-        LogUtil.d(l.f5324a, "====send-success==");
-        if (b.o.equals(this.f5330a)) {
-            f.a().a(this.f5330a);
+        LogUtil.d(l.f5359a, "====send-success==");
+        if (b.o.equals(this.f5365a)) {
+            f.a().a(this.f5365a);
         } else {
-            i.a(RimStatisticsUtil.getAppContext()).a(this.f5331b);
+            i.a(RimStatisticsUtil.getAppContext()).a(this.f5366b);
         }
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
     public void b() {
-        LogUtil.d(l.f5324a, "====send-fail=====");
+        LogUtil.d(l.f5359a, "====send-fail=====");
     }
 }

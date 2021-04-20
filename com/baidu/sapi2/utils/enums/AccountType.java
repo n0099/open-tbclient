@@ -7,10 +7,10 @@ public enum AccountType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11462a;
+    public int f11046a;
 
     AccountType(int i) {
-        this.f11462a = i;
+        this.f11046a = i;
     }
 
     public static AccountType getAccountType(int i) {
@@ -24,6 +24,6 @@ public enum AccountType {
     }
 
     public int getType() {
-        return this.f11462a;
+        return this.f11046a;
     }
 }

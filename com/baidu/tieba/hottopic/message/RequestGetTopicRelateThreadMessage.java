@@ -6,11 +6,11 @@ import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestGetTopicRelateThreadMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17618common;
+    public CommonReq f17295common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -32,7 +32,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f68501common = getCommon();
+            builder.f69507common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.rn = getRn();
@@ -57,7 +57,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f17618common;
+        return this.f17295common;
     }
 
     public Long getLastId() {
@@ -109,7 +109,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17618common = commonReq;
+        this.f17295common = commonReq;
     }
 
     public void setLastId(Long l) {

@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.single;
 
-import f.a.r;
-import f.a.s;
-import f.a.t.b;
-import f.a.w.h;
+import f.b.r;
+import f.b.s;
+import f.b.t.b;
+import f.b.w.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
@@ -16,29 +16,29 @@ public final class SingleFlatMap$SingleFlatMapCallback<T, R> extends AtomicRefer
     public static final class a<R> implements r<R> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicReference<b> f68086e;
+        public final AtomicReference<b> f69092e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final r<? super R> f68087f;
+        public final r<? super R> f69093f;
 
         public a(AtomicReference<b> atomicReference, r<? super R> rVar) {
-            this.f68086e = atomicReference;
-            this.f68087f = rVar;
+            this.f69092e = atomicReference;
+            this.f69093f = rVar;
         }
 
-        @Override // f.a.r
+        @Override // f.b.r
         public void onError(Throwable th) {
-            this.f68087f.onError(th);
+            this.f69093f.onError(th);
         }
 
-        @Override // f.a.r
+        @Override // f.b.r
         public void onSubscribe(b bVar) {
-            DisposableHelper.replace(this.f68086e, bVar);
+            DisposableHelper.replace(this.f69092e, bVar);
         }
 
-        @Override // f.a.r
+        @Override // f.b.r
         public void onSuccess(R r) {
-            this.f68087f.onSuccess(r);
+            this.f69093f.onSuccess(r);
         }
     }
 
@@ -47,40 +47,40 @@ public final class SingleFlatMap$SingleFlatMapCallback<T, R> extends AtomicRefer
         this.mapper = hVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSubscribe(b bVar) {
         if (DisposableHelper.setOnce(this, bVar)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // f.a.r
+    @Override // f.b.r
     public void onSuccess(T t) {
         try {
             s<? extends R> apply = this.mapper.apply(t);
-            f.a.x.b.a.b(apply, "The single returned by the mapper is null");
+            f.b.x.b.a.b(apply, "The single returned by the mapper is null");
             s<? extends R> sVar = apply;
             if (isDisposed()) {
                 return;
             }
             sVar.a(new a(this, this.actual));
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.actual.onError(th);
         }
     }

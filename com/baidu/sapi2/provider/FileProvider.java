@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,29 +24,29 @@ import org.xmlpull.v1.XmlPullParserException;
 public class FileProvider extends ContentProvider {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11293c = "android.support.FILE_PROVIDER_PATHS";
+    public static final String f10877c = "android.support.FILE_PROVIDER_PATHS";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f11294d = "root-path";
+    public static final String f10878d = "root-path";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f11295e = "files-path";
+    public static final String f10879e = "files-path";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f11296f = "cache-path";
+    public static final String f10880f = "cache-path";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f11297g = "external-path";
+    public static final String f10881g = "external-path";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f11298h = "name";
+    public static final String f10882h = "name";
     public static final String i = "path";
 
     /* renamed from: a  reason: collision with root package name */
-    public a f11299a;
+    public a f10883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f11292b = {"_display_name", "_size"};
+    public static final String[] f10876b = {"_display_name", "_size"};
     public static final File j = new File("/");
     public static HashMap<String, a> k = new HashMap<>();
 
@@ -115,7 +116,7 @@ public class FileProvider extends ContentProvider {
         super.attachInfo(context, providerInfo);
         if (!providerInfo.exported) {
             if (providerInfo.grantUriPermissions) {
-                this.f11299a = a(context, providerInfo.authority);
+                this.f10883a = a(context, providerInfo.authority);
                 return;
             }
             throw new SecurityException("Provider must grant uri permissions");
@@ -125,12 +126,12 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        return this.f11299a.a(uri).delete() ? 1 : 0;
+        return this.f10883a.a(uri).delete() ? 1 : 0;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        File a2 = this.f11299a.a(uri);
+        File a2 = this.f10883a.a(uri);
         int lastIndexOf = a2.getName().lastIndexOf(46);
         if (lastIndexOf >= 0) {
             String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(a2.getName().substring(lastIndexOf + 1));
@@ -151,15 +152,15 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
-        return ParcelFileDescriptor.open(this.f11299a.a(uri), a(str));
+        return ParcelFileDescriptor.open(this.f10883a.a(uri), a(str));
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         int i2;
-        File a2 = this.f11299a.a(uri);
+        File a2 = this.f10883a.a(uri);
         if (strArr == null) {
-            strArr = f11292b;
+            strArr = f10876b;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
@@ -192,19 +193,19 @@ public class FileProvider extends ContentProvider {
     public static class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f11300a;
+        public final String f10884a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f11301b = new HashMap<>();
+        public final HashMap<String, File> f10885b = new HashMap<>();
 
         public b(String str) {
-            this.f11300a = str;
+            this.f10884a = str;
         }
 
         public void a(String str, File file) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    this.f11301b.put(str, file.getCanonicalFile());
+                    this.f10885b.put(str, file.getCanonicalFile());
                     return;
                 } catch (IOException e2) {
                     throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
@@ -219,7 +220,7 @@ public class FileProvider extends ContentProvider {
             try {
                 String canonicalPath = file.getCanonicalPath();
                 Map.Entry<String, File> entry = null;
-                for (Map.Entry<String, File> entry2 : this.f11301b.entrySet()) {
+                for (Map.Entry<String, File> entry2 : this.f10885b.entrySet()) {
                     String path = entry2.getValue().getPath();
                     if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                         entry = entry2;
@@ -232,7 +233,7 @@ public class FileProvider extends ContentProvider {
                     } else {
                         substring = canonicalPath.substring(path2.length() + 1);
                     }
-                    return new Uri.Builder().scheme("content").authority(this.f11300a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                    return new Uri.Builder().scheme("content").authority(this.f10884a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
                 }
                 throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
             } catch (IOException unused) {
@@ -246,7 +247,7 @@ public class FileProvider extends ContentProvider {
             int indexOf = encodedPath.indexOf(47, 1);
             String decode = Uri.decode(encodedPath.substring(1, indexOf));
             String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-            File file = this.f11301b.get(decode);
+            File file = this.f10885b.get(decode);
             if (file != null) {
                 File file2 = new File(file, decode2);
                 try {
@@ -264,8 +265,8 @@ public class FileProvider extends ContentProvider {
     }
 
     public static int a(String str) {
-        if (r.f7664a.equals(str)) {
-            return 268435456;
+        if (r.f7699a.equals(str)) {
+            return Label.FORWARD_REFERENCE_TYPE_SHORT;
         }
         if ("w".equals(str) || "wt".equals(str)) {
             return 738197504;

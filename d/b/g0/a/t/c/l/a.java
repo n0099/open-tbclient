@@ -17,8 +17,8 @@ public class a extends d {
 
     /* renamed from: d.b.g0.a.t.c.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0826a implements d.b {
-        public C0826a() {
+    public class C0838a implements d.b {
+        public C0838a() {
         }
 
         @Override // d.b.g0.a.t.b.d.b
@@ -31,15 +31,15 @@ public class a extends d {
     public class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46163a;
+        public final /* synthetic */ String f46555a;
 
         public b(String str) {
-            this.f46163a = str;
+            this.f46555a = str;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.this.u(this.f46163a, exc == null ? "" : exc.getMessage());
+            a.this.u(this.f46555a, exc == null ? "" : exc.getMessage());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -48,7 +48,7 @@ public class a extends d {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i) throws Exception {
-            a.this.c(this.f46163a, a.this.w(response));
+            a.this.c(this.f46555a, a.this.w(response));
             return response;
         }
     }
@@ -68,9 +68,9 @@ public class a extends d {
     public final void t(@NonNull Request request, String str) {
         d.b.g0.k.d.a aVar = new d.b.g0.k.d.a(request.url().toString(), request.body(), new b(str));
         aVar.i = request.tag();
-        aVar.f48884f = true;
-        aVar.f48885g = true;
-        aVar.f48886h = true;
+        aVar.f49276f = true;
+        aVar.f49277g = true;
+        aVar.f49278h = true;
         d.b.g0.k.e.a.f().e(aVar);
     }
 
@@ -92,7 +92,7 @@ public class a extends d {
         if (response != null && response.body() != null) {
             try {
                 String string = response.body().string();
-                if (d.f45929c) {
+                if (d.f46321c) {
                     Log.i("Api-Subscription", string);
                 }
                 JSONObject jSONObject = new JSONObject(string);
@@ -103,7 +103,7 @@ public class a extends d {
                 }
                 return new d.b.g0.a.t.e.b(500106, "subscribe fail");
             } catch (Exception e2) {
-                if (d.f45929c) {
+                if (d.f46321c) {
                     e2.printStackTrace();
                 }
                 return new d.b.g0.a.t.e.b(500106, Log.getStackTraceString(e2));
@@ -123,9 +123,9 @@ public class a extends d {
     }
 
     public d.b.g0.a.t.e.b y(String str) {
-        if (d.f45929c) {
+        if (d.f46321c) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
-        return i(str, true, new C0826a());
+        return i(str, true, new C0838a());
     }
 }

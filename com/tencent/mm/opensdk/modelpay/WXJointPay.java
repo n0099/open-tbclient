@@ -1,10 +1,10 @@
 package com.tencent.mm.opensdk.modelpay;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WXJointPay {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class JointPayReq extends PayReq {
         @Override // com.tencent.mm.opensdk.modelpay.PayReq, com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
@@ -27,7 +27,7 @@ public class WXJointPay {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class JointPayResp extends PayResp {
         public JointPayResp() {
         }

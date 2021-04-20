@@ -12,8 +12,8 @@ import d.b.h0.r.q.a2;
 import d.b.h0.r.q.z1;
 import d.b.i0.m.e;
 import d.b.i0.m.f;
-import d.b.i0.p0.j;
-import d.b.i0.p0.k;
+import d.b.i0.q0.j;
+import d.b.i0.q0.k;
 import d.b.i0.t.i.e.c;
 import d.b.i0.x.b0;
 import d.b.i0.x.z;
@@ -28,11 +28,11 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f15030a;
+        public c f14693a;
 
         public FrsPageAlaShareHolder(c cVar) {
             super(cVar.m());
-            this.f15030a = cVar;
+            this.f14693a = cVar;
         }
     }
 
@@ -81,7 +81,7 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: v0 */
     public FrsPageAlaShareHolder R(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
@@ -97,7 +97,7 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.p0.k, d.b.b.j.e.a
+    @Override // d.b.i0.q0.k, d.b.c.j.e.a
     /* renamed from: w0 */
     public View X(int i, View view, ViewGroup viewGroup, z1 z1Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         CustomMessage customMessage = new CustomMessage(2921017);
@@ -108,15 +108,15 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (z1Var != null) {
-            c cVar = frsPageAlaShareHolder.f15030a;
+            c cVar = frsPageAlaShareHolder.f14693a;
             if (cVar instanceof e) {
                 cVar.setPage(this.y);
             }
-            frsPageAlaShareHolder.f15030a.a(this.w);
-            j.h(frsPageAlaShareHolder.f15030a.P(), this.n);
-            j.h(frsPageAlaShareHolder.f15030a.R(), this.n);
-            frsPageAlaShareHolder.f15030a.n(z1Var.w);
-            z1Var.w.x4();
+            frsPageAlaShareHolder.f14693a.a(this.w);
+            j.h(frsPageAlaShareHolder.f14693a.P(), this.n);
+            j.h(frsPageAlaShareHolder.f14693a.R(), this.n);
+            frsPageAlaShareHolder.f14693a.n(z1Var.w);
+            z1Var.w.y4();
         }
         return frsPageAlaShareHolder.a();
     }

@@ -9,13 +9,13 @@ import d.b.g0.a.t1.k.a0;
 public class b extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public a f43561c;
+    public a f43953c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f43562d;
+    public e f43954d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f43563e;
+    public d f43955e;
 
     public b(j jVar) {
         super(jVar, "/swanAPI/vrvideo");
@@ -50,22 +50,22 @@ public class b extends a0 {
             c2 = 65535;
         }
         if (c2 == 0) {
-            if (this.f43561c == null) {
-                this.f43561c = new a("/swanAPI/vrvideo/open");
+            if (this.f43953c == null) {
+                this.f43953c = new a("/swanAPI/vrvideo/open");
             }
-            c3 = this.f43561c.c(context, unitedSchemeEntity, callbackHandler, eVar);
+            c3 = this.f43953c.c(context, unitedSchemeEntity, callbackHandler, eVar);
         } else if (c2 == 1) {
-            if (this.f43562d == null) {
-                this.f43562d = new e("/swanAPI/vrvideo/update");
+            if (this.f43954d == null) {
+                this.f43954d = new e("/swanAPI/vrvideo/update");
             }
-            c3 = this.f43562d.c(context, unitedSchemeEntity, callbackHandler, eVar);
+            c3 = this.f43954d.c(context, unitedSchemeEntity, callbackHandler, eVar);
         } else if (c2 != 2) {
             c3 = false;
         } else {
-            if (this.f43563e == null) {
-                this.f43563e = new d("/swanAPI/vrvideo/remove");
+            if (this.f43955e == null) {
+                this.f43955e = new d("/swanAPI/vrvideo/remove");
             }
-            c3 = this.f43563e.c(context, unitedSchemeEntity, callbackHandler, eVar);
+            c3 = this.f43955e.c(context, unitedSchemeEntity, callbackHandler, eVar);
         }
         return c3 || super.i(context, unitedSchemeEntity, callbackHandler, str, eVar);
     }

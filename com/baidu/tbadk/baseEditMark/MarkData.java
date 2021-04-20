@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidubce.services.vod.VodClient;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;

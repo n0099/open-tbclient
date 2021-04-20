@@ -28,33 +28,33 @@ public class a {
     public static CustomMessageListener j = new b(2921440);
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50435a;
+    public int f50842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50436b;
+    public int f50843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50437c;
+    public int f50844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50438d;
+    public int f50845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50439e;
+    public int f50846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f50440f;
+    public NewUserRedPackageData f50847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f50441g = new C1072a(2921406);
+    public CustomMessageListener f50848g = new C1085a(2921406);
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.b.e.l.c<d.b.b.j.d.a> f50442h = new c();
+    public final d.b.c.e.l.c<d.b.c.j.d.a> f50849h = new c();
 
     /* renamed from: d.b.h0.r.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1072a extends CustomMessageListener {
-        public C1072a(int i) {
+    public class C1085a extends CustomMessageListener {
+        public C1085a(int i) {
             super(i);
         }
 
@@ -85,18 +85,18 @@ public class a {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public class c extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             Activity currentActivity;
-            if (aVar == null || a.this.f50440f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || a.this.d(currentActivity) == null) {
+            if (aVar == null || a.this.f50847f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || a.this.d(currentActivity) == null) {
                 return;
             }
-            TbSingleton.getInstance().setNewUserRedPackageData(a.this.f50440f);
+            TbSingleton.getInstance().setNewUserRedPackageData(a.this.f50847f);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921532));
         }
     }
@@ -113,10 +113,10 @@ public class a {
     }
 
     public final void c() {
-        d.b.h0.r.d0.b.i().B("task_share_thread_success_data_total_limit");
-        d.b.h0.r.d0.b.i().B("task_share_thread_success_data_mission_id");
-        d.b.h0.r.d0.b.i().B("task_share_thread_success_data_action_id");
-        d.b.h0.r.d0.b.i().B("task_share_thread_success_data_specific_clear_time");
+        d.b.h0.r.d0.b.j().C("task_share_thread_success_data_total_limit");
+        d.b.h0.r.d0.b.j().C("task_share_thread_success_data_mission_id");
+        d.b.h0.r.d0.b.j().C("task_share_thread_success_data_action_id");
+        d.b.h0.r.d0.b.j().C("task_share_thread_success_data_specific_clear_time");
     }
 
     public final TbPageContext d(Activity activity) {
@@ -130,7 +130,7 @@ public class a {
     }
 
     public void f() {
-        MessageManager.getInstance().registerListener(this.f50441g);
+        MessageManager.getInstance().registerListener(this.f50848g);
         MessageManager.getInstance().registerListener(j);
     }
 
@@ -138,18 +138,18 @@ public class a {
         if (missionInfo == null || missionInfo.activityid.intValue() == 0 || missionInfo.missionid.intValue() == 0) {
             return;
         }
-        this.f50437c = missionInfo.activityid.intValue();
-        this.f50435a = missionInfo.missionid.intValue();
-        this.f50436b = missionInfo.total_limit.intValue();
-        this.f50439e = missionInfo.cleartype.intValue();
-        this.f50438d = missionInfo.cleartime.intValue();
+        this.f50844c = missionInfo.activityid.intValue();
+        this.f50842a = missionInfo.missionid.intValue();
+        this.f50843b = missionInfo.total_limit.intValue();
+        this.f50846e = missionInfo.cleartype.intValue();
+        this.f50845d = missionInfo.cleartime.intValue();
         d.b.h0.a.b bVar = new d.b.h0.a.b();
-        bVar.X(this.f50438d);
-        bVar.Y(this.f50439e);
-        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_total_limit", this.f50436b);
-        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_mission_id", this.f50435a);
-        d.b.h0.r.d0.b.i().u("task_share_thread_success_data_action_id", this.f50437c);
-        d.b.h0.r.d0.b.i().v("task_share_thread_success_data_specific_clear_time", bVar.c());
+        bVar.X(this.f50845d);
+        bVar.Y(this.f50846e);
+        d.b.h0.r.d0.b.j().v("task_share_thread_success_data_total_limit", this.f50843b);
+        d.b.h0.r.d0.b.j().v("task_share_thread_success_data_mission_id", this.f50842a);
+        d.b.h0.r.d0.b.j().v("task_share_thread_success_data_action_id", this.f50844c);
+        d.b.h0.r.d0.b.j().w("task_share_thread_success_data_specific_clear_time", bVar.c());
     }
 
     public final void h(String str) {
@@ -163,7 +163,7 @@ public class a {
     public void i() {
         TbPageContext d2;
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity == null || (d2 = d(currentActivity)) == null || !d.b.b.a.b.f().h("MainTabActivity")) {
+        if (currentActivity == null || (d2 = d(currentActivity)) == null || !d.b.c.a.b.f().h("MainTabActivity")) {
             return;
         }
         d2.sendMessage(new CustomMessage(2002001, new UserTropicGiftBagActivityConfig(d2.getPageActivity())));
@@ -175,30 +175,30 @@ public class a {
         if (bVar == null) {
             return;
         }
-        ActiveCenterData activeCenterData = bVar.f49667g;
-        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f49662b || StringUtils.isNull(bVar.f49663c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
+        ActiveCenterData activeCenterData = bVar.f50059g;
+        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f50054b || StringUtils.isNull(bVar.f50055c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
             return;
         }
-        this.f50440f = bVar.f49666f;
-        d.b.b.e.l.d.h().k(this.f50440f.topPicUrl, 10, this.f50442h, 0, 0, d2.getUniqueId(), new Object[0]);
+        this.f50847f = bVar.f50058f;
+        d.b.c.e.l.d.h().k(this.f50847f.topPicUrl, 10, this.f50849h, 0, 0, d2.getUniqueId(), new Object[0]);
     }
 
     public void k() {
-        int j2;
+        int k;
         if (TbadkCoreApplication.isLogin()) {
-            int j3 = d.b.h0.r.d0.b.i().j("task_share_thread_success_data_mission_id", 0);
-            int j4 = d.b.h0.r.d0.b.i().j("task_share_thread_success_data_action_id", 0);
-            long k = d.b.h0.r.d0.b.i().k("task_share_thread_success_data_specific_clear_time", 0L);
+            int k2 = d.b.h0.r.d0.b.j().k("task_share_thread_success_data_mission_id", 0);
+            int k3 = d.b.h0.r.d0.b.j().k("task_share_thread_success_data_action_id", 0);
+            long l = d.b.h0.r.d0.b.j().l("task_share_thread_success_data_specific_clear_time", 0L);
             d.b.h0.a.b bVar = new d.b.h0.a.b();
-            bVar.d0(k);
+            bVar.d0(l);
             if (bVar.M()) {
                 c();
-            } else if (j4 == 0 || j3 == 0 || (j2 = d.b.h0.r.d0.b.i().j("task_share_thread_success_data_total_limit", 0)) <= 0) {
+            } else if (k3 == 0 || k2 == 0 || (k = d.b.h0.r.d0.b.j().k("task_share_thread_success_data_total_limit", 0)) <= 0) {
             } else {
-                d.b.h0.r.d0.b.i().u("task_share_thread_success_data_total_limit", j2 - 1);
+                d.b.h0.r.d0.b.j().v("task_share_thread_success_data_total_limit", k - 1);
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(String.valueOf(j4), String.valueOf(j3));
+                    jSONObject.put(String.valueOf(k3), String.valueOf(k2));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }

@@ -10,42 +10,42 @@ import android.widget.FrameLayout;
 public abstract class LoadingLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f24091a;
+    public View f23776a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f24092b;
+    public State f23777b;
 
     /* renamed from: c  reason: collision with root package name */
-    public State f24093c;
+    public State f23778c;
 
     /* renamed from: com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f24094a;
+        public static final /* synthetic */ int[] f23779a;
 
         static {
             int[] iArr = new int[State.values().length];
-            f24094a = iArr;
+            f23779a = iArr;
             try {
                 iArr[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f24094a[State.RELEASE_TO_REFRESH.ordinal()] = 2;
+                f23779a[State.RELEASE_TO_REFRESH.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f24094a[State.PULL_TO_REFRESH.ordinal()] = 3;
+                f23779a[State.PULL_TO_REFRESH.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f24094a[State.REFRESHING.ordinal()] = 4;
+                f23779a[State.REFRESHING.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f24094a[State.NO_MORE_DATA.ordinal()] = 5;
+                f23779a[State.NO_MORE_DATA.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -76,18 +76,18 @@ public abstract class LoadingLayout extends FrameLayout {
     public abstract int getContentSize();
 
     public State getPreState() {
-        return this.f24093c;
+        return this.f23778c;
     }
 
     public State getState() {
-        return this.f24092b;
+        return this.f23777b;
     }
 
     public void init(Context context, AttributeSet attributeSet) {
         View createLoadingView = createLoadingView(context, attributeSet);
-        this.f24091a = createLoadingView;
+        this.f23776a = createLoadingView;
         if (createLoadingView != null) {
-            addView(this.f24091a, new FrameLayout.LayoutParams(-1, -2));
+            addView(this.f23776a, new FrameLayout.LayoutParams(-1, -2));
             return;
         }
         throw new NullPointerException("Loading view can not be null.");
@@ -112,7 +112,7 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     public void onStateChanged(State state, State state2) {
-        int i = AnonymousClass1.f24094a[state.ordinal()];
+        int i = AnonymousClass1.f23779a[state.ordinal()];
         if (i == 1) {
             onReset();
         } else if (i == 2) {
@@ -146,17 +146,17 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     public void setState(State state) {
-        State state2 = this.f24092b;
+        State state2 = this.f23777b;
         if (state2 != state) {
-            this.f24093c = state2;
-            this.f24092b = state;
+            this.f23778c = state2;
+            this.f23777b = state;
             onStateChanged(state, state2);
         }
     }
 
     public void show(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (z == (getVisibility() == 0) || (layoutParams = this.f24091a.getLayoutParams()) == null) {
+        if (z == (getVisibility() == 0) || (layoutParams = this.f23776a.getLayoutParams()) == null) {
             return;
         }
         if (z) {
@@ -175,8 +175,8 @@ public abstract class LoadingLayout extends FrameLayout {
     public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         State state = State.NONE;
-        this.f24092b = state;
-        this.f24093c = state;
+        this.f23777b = state;
+        this.f23778c = state;
         init(context, attributeSet);
     }
 }

@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.b.e.l.b;
-import d.b.b.j.d.a;
+import d.b.c.e.l.b;
+import d.b.c.j.d.a;
 import d.b.h0.a0.c;
 /* loaded from: classes3.dex */
 public class PortraitLoaderProc extends AbstractImageLoaderProc {
@@ -39,7 +39,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         this.size = 80;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.b.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         if (mBdAsyncTaskTwo == null) {
             mBdAsyncTaskTwo = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
@@ -75,26 +75,26 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.b.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.b.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj instanceof a) {
             a aVar = (a) obj;
             if (aVar.u()) {
                 aVar.A(i);
                 aVar.z(i2);
-                c.j().b(str, aVar);
+                c.k().b(str, aVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.b.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
     public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         if (this.mForceDownload) {
             return null;
@@ -104,16 +104,16 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.b.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.b.c.e.l.e
     public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         if (this.mForceDownload) {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        a k = c.j().k(str);
+        a l = c.k().l(str);
         if (z) {
-            d.b.b.e.l.a.i(k != null, System.currentTimeMillis() - currentTimeMillis);
+            d.b.c.e.l.a.i(l != null, System.currentTimeMillis() - currentTimeMillis);
         }
-        return k;
+        return l;
     }
 }

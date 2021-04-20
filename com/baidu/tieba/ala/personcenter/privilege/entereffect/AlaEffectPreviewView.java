@@ -22,22 +22,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.i0.t.j.g.d.b;
 /* loaded from: classes4.dex */
 public class AlaEffectPreviewView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15066e;
+    public int f14729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15067f;
+    public int f14730f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f15068g;
+    public View f14731g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f15069h;
+    public ImageView f14732h;
     public TextView i;
     public b.c j;
     public ObjectAnimator k;
@@ -45,13 +45,13 @@ public class AlaEffectPreviewView extends LinearLayout {
     public ImageView m;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             Bitmap p;
             super.onLoaded((a) aVar, str, i);
             if (aVar == null || (p = aVar.p()) == null) {
@@ -79,11 +79,11 @@ public class AlaEffectPreviewView extends LinearLayout {
                 return;
             }
             try {
-                Bitmap g2 = d.b.b.e.p.d.d().g(p, l.k(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                Bitmap g2 = d.b.c.e.p.d.d().g(p, l.k(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                 if (g2 != p) {
                     p.recycle();
                 }
-                AlaEffectPreviewView.this.f15069h.setImageBitmap(g2);
+                AlaEffectPreviewView.this.f14732h.setImageBitmap(g2);
             } catch (OutOfMemoryError e4) {
                 BdLog.e(e4);
                 if (p != null) {
@@ -145,13 +145,13 @@ public class AlaEffectPreviewView extends LinearLayout {
             float f3;
             float f4 = f2 * 3500.0f;
             if (f4 <= 500.0f) {
-                f3 = (AlaEffectPreviewView.this.f15066e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f15067f;
+                f3 = (AlaEffectPreviewView.this.f14729e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14730f;
             } else {
                 float f5 = 3500.0f - f4;
                 if (f5 <= 500.0f) {
-                    f3 = AlaEffectPreviewView.this.f15067f + (AlaEffectPreviewView.this.f15066e * (1.0f - (f5 / 500.0f)));
+                    f3 = AlaEffectPreviewView.this.f14730f + (AlaEffectPreviewView.this.f14729e * (1.0f - (f5 / 500.0f)));
                 } else {
-                    f3 = AlaEffectPreviewView.this.f15067f;
+                    f3 = AlaEffectPreviewView.this.f14730f;
                 }
             }
             return Float.valueOf(f3);
@@ -164,8 +164,8 @@ public class AlaEffectPreviewView extends LinearLayout {
     }
 
     public final void e() {
-        this.f15068g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-        this.f15069h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+        this.f14731g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+        this.f14732h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
         this.i = (TextView) findViewById(R.id.ala_im_user_enter_content);
         this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
         this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
@@ -183,10 +183,10 @@ public class AlaEffectPreviewView extends LinearLayout {
             measure(0, 0);
         }
         int k = l.k(getContext());
-        this.f15066e = k;
-        this.f15067f = (k - getMeasuredWidth()) / 2;
-        View view = this.f15068g;
-        int i = this.f15066e;
+        this.f14729e = k;
+        this.f14730f = (k - getMeasuredWidth()) / 2;
+        View view = this.f14731g;
+        int i = this.f14729e;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i, -i);
         this.k = ofFloat;
         ofFloat.setDuration(3500L);
@@ -226,10 +226,10 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
         String str3 = alaEnterEffectData.icon_url;
         if (StringUtils.isNull(str3)) {
-            this.f15069h.setVisibility(8);
+            this.f14732h.setVisibility(8);
         } else {
-            this.f15069h.setVisibility(0);
-            d.b.b.e.l.d.h().m(str3, 10, new a(), null);
+            this.f14732h.setVisibility(0);
+            d.b.c.e.l.d.h().m(str3, 10, new a(), null);
         }
         this.i.setText(spannableStringBuilder);
         String str4 = alaEnterEffectData.color;

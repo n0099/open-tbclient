@@ -11,7 +11,7 @@ import java.util.Map;
 public abstract class e {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6706h = null;
+    public String f6741h = null;
     public int i = 3;
     public String j = null;
     public Map<String, Object> k = null;
@@ -21,13 +21,13 @@ public abstract class e {
     public String o = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6705g = a.f6675g;
+    public static int f6740g = a.f6710g;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6703a = "10.0.0.172";
+    public static String f6738a = "10.0.0.172";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6704b = 80;
+    public static int f6739b = 80;
     public static int p = 0;
 
     /* JADX WARN: Code restructure failed: missing block: B:53:0x00ad, code lost:
@@ -46,32 +46,32 @@ public abstract class e {
                 if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
                     str2 = defaultHost;
                 }
-                f6703a = str2;
-                return a.f6672d;
+                f6738a = str2;
+                return a.f6707d;
             } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                 String defaultHost2 = Proxy.getDefaultHost();
                 if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
                     str = defaultHost2;
                 }
-                f6703a = str;
-                return a.f6672d;
+                f6738a = str;
+                return a.f6707d;
             } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                return a.f6673e;
+                return a.f6708e;
             }
         }
         String defaultHost3 = Proxy.getDefaultHost();
         if (defaultHost3 != null && defaultHost3.length() > 0) {
             if (!"10.0.0.172".equals(defaultHost3.trim())) {
             }
-            f6703a = str2;
-            return a.f6672d;
+            f6738a = str2;
+            return a.f6707d;
         }
-        return a.f6673e;
+        return a.f6708e;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        f6705g = c();
+        f6740g = c();
     }
 
     private int c() {
@@ -79,19 +79,19 @@ public abstract class e {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
             if (connectivityManager == null) {
-                return a.f6675g;
+                return a.f6710g;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                 if (activeNetworkInfo.getType() == 1) {
                     String defaultHost = Proxy.getDefaultHost();
-                    return (defaultHost == null || defaultHost.length() <= 0) ? a.f6674f : a.f6676h;
+                    return (defaultHost == null || defaultHost.length() <= 0) ? a.f6709f : a.f6711h;
                 }
                 return a(serviceContext, activeNetworkInfo);
             }
-            return a.f6675g;
+            return a.f6710g;
         } catch (Exception unused) {
-            return a.f6675g;
+            return a.f6710g;
         }
     }
 

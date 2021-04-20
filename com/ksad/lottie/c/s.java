@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.util.JsonReader;
 import androidx.appcompat.widget.SearchView;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.fun.ad.sdk.FunAdSdk;
 import com.ksad.lottie.model.layer.Layer;
@@ -134,7 +134,7 @@ public class s {
                     c2 = 65535;
                     break;
                 case 3669:
-                    if (nextName.equals(IXAdRequestInfo.SCREEN_HEIGHT)) {
+                    if (nextName.equals(IAdRequestParam.SCREEN_HEIGHT)) {
                         c2 = 6;
                         break;
                     }
@@ -162,7 +162,7 @@ public class s {
                     c2 = 65535;
                     break;
                 case 3705:
-                    if (nextName.equals(IXAdRequestInfo.MAX_TITLE_LENGTH)) {
+                    if (nextName.equals("tm")) {
                         c2 = 20;
                         break;
                     }

@@ -132,28 +132,28 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     public abstract class d<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public e<K, V> f30934e;
+        public e<K, V> f31223e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e<K, V> f30935f;
+        public e<K, V> f31224f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30936g;
+        public int f31225g;
 
         public d() {
             LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
-            this.f30934e = linkedTreeMap.header.f30941h;
-            this.f30935f = null;
-            this.f30936g = linkedTreeMap.modCount;
+            this.f31223e = linkedTreeMap.header.f31230h;
+            this.f31224f = null;
+            this.f31225g = linkedTreeMap.modCount;
         }
 
         public final e<K, V> a() {
-            e<K, V> eVar = this.f30934e;
+            e<K, V> eVar = this.f31223e;
             LinkedTreeMap linkedTreeMap = LinkedTreeMap.this;
             if (eVar != linkedTreeMap.header) {
-                if (linkedTreeMap.modCount == this.f30936g) {
-                    this.f30934e = eVar.f30941h;
-                    this.f30935f = eVar;
+                if (linkedTreeMap.modCount == this.f31225g) {
+                    this.f31223e = eVar.f31230h;
+                    this.f31224f = eVar;
                     return eVar;
                 }
                 throw new ConcurrentModificationException();
@@ -163,16 +163,16 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
         @Override // java.util.Iterator
         public final boolean hasNext() {
-            return this.f30934e != LinkedTreeMap.this.header;
+            return this.f31223e != LinkedTreeMap.this.header;
         }
 
         @Override // java.util.Iterator
         public final void remove() {
-            e<K, V> eVar = this.f30935f;
+            e<K, V> eVar = this.f31224f;
             if (eVar != null) {
                 LinkedTreeMap.this.removeInternal(eVar, true);
-                this.f30935f = null;
-                this.f30936g = LinkedTreeMap.this.modCount;
+                this.f31224f = null;
+                this.f31225g = LinkedTreeMap.this.modCount;
                 return;
             }
             throw new IllegalStateException();
@@ -189,14 +189,14 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     private void rebalance(e<K, V> eVar, boolean z) {
         while (eVar != null) {
-            e<K, V> eVar2 = eVar.f30939f;
-            e<K, V> eVar3 = eVar.f30940g;
+            e<K, V> eVar2 = eVar.f31228f;
+            e<K, V> eVar3 = eVar.f31229g;
             int i = eVar2 != null ? eVar2.l : 0;
             int i2 = eVar3 != null ? eVar3.l : 0;
             int i3 = i - i2;
             if (i3 == -2) {
-                e<K, V> eVar4 = eVar3.f30939f;
-                e<K, V> eVar5 = eVar3.f30940g;
+                e<K, V> eVar4 = eVar3.f31228f;
+                e<K, V> eVar5 = eVar3.f31229g;
                 int i4 = (eVar4 != null ? eVar4.l : 0) - (eVar5 != null ? eVar5.l : 0);
                 if (i4 != -1 && (i4 != 0 || z)) {
                     rotateRight(eVar3);
@@ -208,8 +208,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                     return;
                 }
             } else if (i3 == 2) {
-                e<K, V> eVar6 = eVar2.f30939f;
-                e<K, V> eVar7 = eVar2.f30940g;
+                e<K, V> eVar6 = eVar2.f31228f;
+                e<K, V> eVar7 = eVar2.f31229g;
                 int i5 = (eVar6 != null ? eVar6.l : 0) - (eVar7 != null ? eVar7.l : 0);
                 if (i5 != 1 && (i5 != 0 || z)) {
                     rotateLeft(eVar2);
@@ -231,22 +231,22 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                     return;
                 }
             }
-            eVar = eVar.f30938e;
+            eVar = eVar.f31227e;
         }
     }
 
     private void replaceInParent(e<K, V> eVar, e<K, V> eVar2) {
-        e<K, V> eVar3 = eVar.f30938e;
-        eVar.f30938e = null;
+        e<K, V> eVar3 = eVar.f31227e;
+        eVar.f31227e = null;
         if (eVar2 != null) {
-            eVar2.f30938e = eVar3;
+            eVar2.f31227e = eVar3;
         }
         if (eVar3 != null) {
-            if (eVar3.f30939f == eVar) {
-                eVar3.f30939f = eVar2;
+            if (eVar3.f31228f == eVar) {
+                eVar3.f31228f = eVar2;
                 return;
             } else {
-                eVar3.f30940g = eVar2;
+                eVar3.f31229g = eVar2;
                 return;
             }
         }
@@ -254,34 +254,34 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     private void rotateLeft(e<K, V> eVar) {
-        e<K, V> eVar2 = eVar.f30939f;
-        e<K, V> eVar3 = eVar.f30940g;
-        e<K, V> eVar4 = eVar3.f30939f;
-        e<K, V> eVar5 = eVar3.f30940g;
-        eVar.f30940g = eVar4;
+        e<K, V> eVar2 = eVar.f31228f;
+        e<K, V> eVar3 = eVar.f31229g;
+        e<K, V> eVar4 = eVar3.f31228f;
+        e<K, V> eVar5 = eVar3.f31229g;
+        eVar.f31229g = eVar4;
         if (eVar4 != null) {
-            eVar4.f30938e = eVar;
+            eVar4.f31227e = eVar;
         }
         replaceInParent(eVar, eVar3);
-        eVar3.f30939f = eVar;
-        eVar.f30938e = eVar3;
+        eVar3.f31228f = eVar;
+        eVar.f31227e = eVar3;
         int max = Math.max(eVar2 != null ? eVar2.l : 0, eVar4 != null ? eVar4.l : 0) + 1;
         eVar.l = max;
         eVar3.l = Math.max(max, eVar5 != null ? eVar5.l : 0) + 1;
     }
 
     private void rotateRight(e<K, V> eVar) {
-        e<K, V> eVar2 = eVar.f30939f;
-        e<K, V> eVar3 = eVar.f30940g;
-        e<K, V> eVar4 = eVar2.f30939f;
-        e<K, V> eVar5 = eVar2.f30940g;
-        eVar.f30939f = eVar5;
+        e<K, V> eVar2 = eVar.f31228f;
+        e<K, V> eVar3 = eVar.f31229g;
+        e<K, V> eVar4 = eVar2.f31228f;
+        e<K, V> eVar5 = eVar2.f31229g;
+        eVar.f31228f = eVar5;
         if (eVar5 != null) {
-            eVar5.f30938e = eVar;
+            eVar5.f31227e = eVar;
         }
         replaceInParent(eVar, eVar2);
-        eVar2.f30940g = eVar;
-        eVar.f30938e = eVar2;
+        eVar2.f31229g = eVar;
+        eVar.f31227e = eVar2;
         int max = Math.max(eVar3 != null ? eVar3.l : 0, eVar5 != null ? eVar5.l : 0) + 1;
         eVar.l = max;
         eVar2.l = Math.max(max, eVar4 != null ? eVar4.l : 0) + 1;
@@ -298,7 +298,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         this.modCount++;
         e<K, V> eVar = this.header;
         eVar.i = eVar;
-        eVar.f30941h = eVar;
+        eVar.f31230h = eVar;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -334,7 +334,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 if (i == 0) {
                     return eVar2;
                 }
-                e<K, V> eVar3 = i < 0 ? eVar2.f30939f : eVar2.f30940g;
+                e<K, V> eVar3 = i < 0 ? eVar2.f31228f : eVar2.f31229g;
                 if (eVar3 == null) {
                     break;
                 }
@@ -354,9 +354,9 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             } else {
                 eVar = new e<>(eVar2, k, eVar4, eVar4.i);
                 if (i < 0) {
-                    eVar2.f30939f = eVar;
+                    eVar2.f31228f = eVar;
                 } else {
-                    eVar2.f30940g = eVar;
+                    eVar2.f31229g = eVar;
                 }
                 rebalance(eVar2, true);
             }
@@ -432,31 +432,31 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         int i;
         if (z) {
             e<K, V> eVar2 = eVar.i;
-            eVar2.f30941h = eVar.f30941h;
-            eVar.f30941h.i = eVar2;
+            eVar2.f31230h = eVar.f31230h;
+            eVar.f31230h.i = eVar2;
         }
-        e<K, V> eVar3 = eVar.f30939f;
-        e<K, V> eVar4 = eVar.f30940g;
-        e<K, V> eVar5 = eVar.f30938e;
+        e<K, V> eVar3 = eVar.f31228f;
+        e<K, V> eVar4 = eVar.f31229g;
+        e<K, V> eVar5 = eVar.f31227e;
         int i2 = 0;
         if (eVar3 != null && eVar4 != null) {
             e<K, V> b2 = eVar3.l > eVar4.l ? eVar3.b() : eVar4.a();
             removeInternal(b2, false);
-            e<K, V> eVar6 = eVar.f30939f;
+            e<K, V> eVar6 = eVar.f31228f;
             if (eVar6 != null) {
                 i = eVar6.l;
-                b2.f30939f = eVar6;
-                eVar6.f30938e = b2;
-                eVar.f30939f = null;
+                b2.f31228f = eVar6;
+                eVar6.f31227e = b2;
+                eVar.f31228f = null;
             } else {
                 i = 0;
             }
-            e<K, V> eVar7 = eVar.f30940g;
+            e<K, V> eVar7 = eVar.f31229g;
             if (eVar7 != null) {
                 i2 = eVar7.l;
-                b2.f30940g = eVar7;
-                eVar7.f30938e = b2;
-                eVar.f30940g = null;
+                b2.f31229g = eVar7;
+                eVar7.f31227e = b2;
+                eVar.f31229g = null;
             }
             b2.l = Math.max(i, i2) + 1;
             replaceInParent(eVar, b2);
@@ -464,10 +464,10 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
         if (eVar3 != null) {
             replaceInParent(eVar, eVar3);
-            eVar.f30939f = null;
+            eVar.f31228f = null;
         } else if (eVar4 != null) {
             replaceInParent(eVar, eVar4);
-            eVar.f30940g = null;
+            eVar.f31229g = null;
         } else {
             replaceInParent(eVar, null);
         }
@@ -500,16 +500,16 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     public static final class e<K, V> implements Map.Entry<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public e<K, V> f30938e;
+        public e<K, V> f31227e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e<K, V> f30939f;
+        public e<K, V> f31228f;
 
         /* renamed from: g  reason: collision with root package name */
-        public e<K, V> f30940g;
+        public e<K, V> f31229g;
 
         /* renamed from: h  reason: collision with root package name */
-        public e<K, V> f30941h;
+        public e<K, V> f31230h;
         public e<K, V> i;
         public final K j;
         public V k;
@@ -518,12 +518,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         public e() {
             this.j = null;
             this.i = this;
-            this.f30941h = this;
+            this.f31230h = this;
         }
 
         public e<K, V> a() {
             e<K, V> eVar = this;
-            for (e<K, V> eVar2 = this.f30939f; eVar2 != null; eVar2 = eVar2.f30939f) {
+            for (e<K, V> eVar2 = this.f31228f; eVar2 != null; eVar2 = eVar2.f31228f) {
                 eVar = eVar2;
             }
             return eVar;
@@ -531,7 +531,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
         public e<K, V> b() {
             e<K, V> eVar = this;
-            for (e<K, V> eVar2 = this.f30940g; eVar2 != null; eVar2 = eVar2.f30940g) {
+            for (e<K, V> eVar2 = this.f31229g; eVar2 != null; eVar2 = eVar2.f31229g) {
                 eVar = eVar2;
             }
             return eVar;
@@ -592,12 +592,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
 
         public e(e<K, V> eVar, K k, e<K, V> eVar2, e<K, V> eVar3) {
-            this.f30938e = eVar;
+            this.f31227e = eVar;
             this.j = k;
             this.l = 1;
-            this.f30941h = eVar2;
+            this.f31230h = eVar2;
             this.i = eVar3;
-            eVar3.f30941h = this;
+            eVar3.f31230h = this;
             eVar2.i = this;
         }
     }

@@ -24,28 +24,28 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f2075a = 300000;
+    public static final long f2100a = 300000;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2076b;
+    public Context f2101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2077c;
+    public String f2102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2078d;
+    public String f2103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2079e;
+    public String f2104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2080f;
+    public String f2105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2081g;
+    public String f2106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2082h;
+    public String f2107h;
     public String i;
     public String j;
     public String k;
@@ -80,7 +80,7 @@ public class e {
         CdmaCellLocation cdmaCellLocation2;
         TelephonyManager telephonyManager;
         e eVar = new e();
-        eVar.f2076b = context;
+        eVar.f2101b = context;
         boolean z = false;
         if (!b.a(context, "android.permission.ACCESS_COARSE_LOCATION")) {
             try {
@@ -302,7 +302,7 @@ public class e {
     }
 
     public void a(String str) {
-        this.f2077c = str;
+        this.f2102c = str;
     }
 
     public boolean a() {
@@ -327,7 +327,7 @@ public class e {
     }
 
     public void b(String str) {
-        this.f2078d = str;
+        this.f2103d = str;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0048: IGET  (r2v4 int A[REMOVE]) = (r2v3 android.net.wifi.ScanResult) android.net.wifi.ScanResult.level int)] */
@@ -335,7 +335,7 @@ public class e {
         WifiManager wifiManager;
         List<ScanResult> scanResults;
         ArrayList arrayList = new ArrayList();
-        Context context = this.f2076b;
+        Context context = this.f2101b;
         if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || (scanResults = wifiManager.getScanResults()) == null) {
             return arrayList;
         }
@@ -356,16 +356,16 @@ public class e {
     }
 
     public void c(String str) {
-        this.f2079e = str;
+        this.f2104e = str;
     }
 
     public void d(String str) {
-        this.f2080f = str;
+        this.f2105f = str;
     }
 
     public boolean d() {
         LocationManager locationManager;
-        Context context = this.f2076b;
+        Context context = this.f2101b;
         if (context == null || (locationManager = (LocationManager) context.getSystemService("location")) == null) {
             return false;
         }
@@ -373,7 +373,7 @@ public class e {
     }
 
     public void e(String str) {
-        this.f2081g = str;
+        this.f2106g = str;
     }
 
     public boolean e() {
@@ -381,11 +381,11 @@ public class e {
         WifiInfo connectionInfo;
         WifiManager wifiManager2;
         List<WifiConfiguration> configuredNetworks;
-        Context context = this.f2076b;
+        Context context = this.f2101b;
         if (context == null || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
             return false;
         }
-        Context context2 = this.f2076b;
+        Context context2 = this.f2101b;
         String ssid = connectionInfo.getSSID();
         WifiConfiguration wifiConfiguration = null;
         if (context2 != null && ssid != null && (wifiManager2 = (WifiManager) context2.getSystemService("wifi")) != null && (configuredNetworks = wifiManager2.getConfiguredNetworks()) != null) {
@@ -414,15 +414,15 @@ public class e {
     }
 
     public String f() {
-        return this.f2077c;
+        return this.f2102c;
     }
 
     public void f(String str) {
-        this.f2082h = str;
+        this.f2107h = str;
     }
 
     public String g() {
-        return this.f2078d;
+        return this.f2103d;
     }
 
     public void g(String str) {
@@ -430,7 +430,7 @@ public class e {
     }
 
     public String h() {
-        return this.f2079e;
+        return this.f2104e;
     }
 
     public void h(String str) {
@@ -438,7 +438,7 @@ public class e {
     }
 
     public String i() {
-        return this.f2080f;
+        return this.f2105f;
     }
 
     public void i(String str) {
@@ -446,7 +446,7 @@ public class e {
     }
 
     public String j() {
-        return this.f2081g;
+        return this.f2106g;
     }
 
     public void j(String str) {
@@ -454,7 +454,7 @@ public class e {
     }
 
     public String k() {
-        return this.f2082h;
+        return this.f2107h;
     }
 
     public String l() {

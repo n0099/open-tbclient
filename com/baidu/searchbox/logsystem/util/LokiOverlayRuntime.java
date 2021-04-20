@@ -2,7 +2,7 @@ package com.baidu.searchbox.logsystem.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import d.b.i0.x2.n;
+import d.b.i0.y2.n;
 @Autowired
 /* loaded from: classes2.dex */
 public class LokiOverlayRuntime {

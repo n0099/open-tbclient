@@ -10,7 +10,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f45890b;
+    public AudioManager f46282b;
 
     @Override // d.b.g0.a.s0.a
     @NonNull
@@ -42,7 +42,7 @@ public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
                 }
                 f(doubleValue, aVar.getContext());
             } catch (Exception unused) {
-                if (d.b.g0.a.s0.a.f45783a) {
+                if (d.b.g0.a.s0.a.f46175a) {
                     Log.e(b(), "setVolume param type error");
                 }
             }
@@ -50,16 +50,16 @@ public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
     }
 
     public final void f(double d2, Context context) {
-        if (this.f45890b == null) {
-            this.f45890b = (AudioManager) context.getSystemService("audio");
+        if (this.f46282b == null) {
+            this.f46282b = (AudioManager) context.getSystemService("audio");
         }
-        AudioManager audioManager = this.f45890b;
+        AudioManager audioManager = this.f46282b;
         if (audioManager == null) {
             return;
         }
         int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d2);
-        if (round == this.f45890b.getStreamVolume(3)) {
-            if (d.b.g0.a.s0.a.f45783a) {
+        if (round == this.f46282b.getStreamVolume(3)) {
+            if (d.b.g0.a.s0.a.f46175a) {
                 Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
                 return;
             }
@@ -68,9 +68,9 @@ public class q extends d.b.g0.a.s0.a<d.b.g0.a.s0.k.g.a> {
         if (d2 > 0.0d && round == 0) {
             round = 1;
         }
-        if (d.b.g0.a.s0.a.f45783a) {
+        if (d.b.g0.a.s0.a.f46175a) {
             Log.d("【InlineCommand】", "setVolumeInt" + round);
         }
-        this.f45890b.setStreamVolume(3, round, 0);
+        this.f46282b.setStreamVolume(3, round, 0);
     }
 }

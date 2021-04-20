@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import d.b.b.e.p.l;
-import d.b.i0.r2.s;
-/* loaded from: classes3.dex */
+import d.b.c.e.p.l;
+import d.b.i0.s2.v;
+/* loaded from: classes4.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public RelativeLayout r;
     public TbImageView s;
@@ -22,37 +22,37 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public int v;
     public final int w;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f18654e;
+        public final /* synthetic */ LPBigImgCard f18331e;
 
         public a(LPBigImgCard lPBigImgCard) {
-            this.f18654e = lPBigImgCard;
+            this.f18331e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18654e.getBtnLink()});
-            s.o().j().a(this.f18654e.getsExtras(), LPBigImgCardView.this.f18637e);
+            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18331e.getBtnLink()});
+            v.p().k().a(this.f18331e.getsExtras(), LPBigImgCardView.this.f18314e);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f18656e;
+        public final /* synthetic */ LPBigImgCard f18333e;
 
         public b(LPBigImgCard lPBigImgCard) {
-            this.f18656e = lPBigImgCard;
+            this.f18333e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18656e.getBtnLink()});
-            s.o().j().a(this.f18656e.getsExtras(), LPBigImgCardView.this.f18637e);
+            UrlManager.getInstance().dealOneLink(LPBigImgCardView.this.m, new String[]{this.f18333e.getBtnLink()});
+            v.p().k().a(this.f18333e.getsExtras(), LPBigImgCardView.this.f18314e);
         }
     }
 
@@ -129,7 +129,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (lPBigImgCard.mHasShown) {
             return;
         }
-        s.o().j().c(lPBigImgCard.getShowExtra(), this.f18637e);
+        v.p().k().c(lPBigImgCard.getShowExtra(), this.f18314e);
         lPBigImgCard.mHasShown = true;
     }
 

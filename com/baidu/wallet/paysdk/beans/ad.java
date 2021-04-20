@@ -9,23 +9,23 @@ import java.util.List;
 public class ad extends PayBaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25487a;
+    public String f25172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25488b;
+    public String f25173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25489c;
+    public String f25174c;
 
     public ad(Context context) {
         super(context);
-        this.f25487a = "";
-        this.f25488b = "";
-        this.f25489c = "";
+        this.f25172a = "";
+        this.f25173b = "";
+        this.f25174c = "";
     }
 
     public void a(String str) {
-        this.f25489c = str;
+        this.f25174c = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -36,7 +36,7 @@ public class ad extends PayBaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("paymethod_list", this.f25489c));
+        arrayList.add(new RestNameValuePair("paymethod_list", this.f25174c));
         return arrayList;
     }
 

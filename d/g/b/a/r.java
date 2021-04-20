@@ -6,24 +6,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class r implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f66085e;
+    public final /* synthetic */ AtomicBoolean f66930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ q f66086f;
+    public final /* synthetic */ q f66931f;
 
     public r(q qVar, AtomicBoolean atomicBoolean) {
-        this.f66086f = qVar;
-        this.f66085e = atomicBoolean;
+        this.f66931f = qVar;
+        this.f66930e = atomicBoolean;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f66085e.getAndSet(true)) {
+        if (this.f66930e.getAndSet(true)) {
             return;
         }
         Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        q qVar = this.f66086f;
-        l lVar = qVar.f66084g;
-        l.n(qVar.f66082e, qVar.f66083f);
+        q qVar = this.f66931f;
+        l lVar = qVar.f66929g;
+        l.n(qVar.f66927e, qVar.f66928f);
     }
 }

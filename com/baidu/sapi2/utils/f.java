@@ -5,6 +5,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
@@ -92,7 +93,7 @@ public class f {
         if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT >= 23) {
                 for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                    if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
                         byte[] hardwareAddress = networkInterface.getHardwareAddress();
                         if (hardwareAddress == null) {
                             return "";

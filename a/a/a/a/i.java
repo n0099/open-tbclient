@@ -80,7 +80,7 @@ public class i implements e {
         }
 
         public boolean a(Object obj) {
-            k kVar = i.this.f1048c.get(((c.a) obj).f1317d);
+            k kVar = i.this.f1048c.get(((c.a) obj).f1303d);
             List list = this.f1053a;
             return (list == null || !list.contains(kVar)) && kVar != null && kVar.c();
         }
@@ -88,14 +88,14 @@ public class i implements e {
 
     public i(a.a.a.a.s.c cVar, m mVar) {
         this.f1046a = cVar;
-        this.f1047b = new d.C0006d(cVar.f1313b);
+        this.f1047b = new d.C0005d(cVar.f1299b);
         HashMap hashMap = new HashMap();
-        for (c.b bVar : cVar.f1314c) {
-            for (c.a aVar : bVar.f1319c) {
-                k a2 = mVar.a(aVar.f1317d);
+        for (c.b bVar : cVar.f1300c) {
+            for (c.a aVar : bVar.f1305c) {
+                k a2 = mVar.a(aVar.f1303d);
                 if (a2 != null) {
                     a2.a(new d(aVar));
-                    hashMap.put(aVar.f1317d, a2);
+                    hashMap.put(aVar.f1303d, a2);
                 }
             }
         }
@@ -103,21 +103,21 @@ public class i implements e {
     }
 
     public final k a(c.b bVar, List<k> list) {
-        c.a aVar = (c.a) a.a.a.a.a.a(this.f1049d, bVar.f1319c, new b(list));
+        c.a aVar = (c.a) a.a.a.a.a.a(this.f1049d, bVar.f1305c, new b(list));
         if (aVar == null) {
             return null;
         }
-        return this.f1048c.get(aVar.f1317d);
+        return this.f1048c.get(aVar.f1303d);
     }
 
     @Override // a.a.a.a.e
     public FunNativeAd a(Context context) {
-        for (c.b bVar : this.f1046a.f1314c) {
+        for (c.b bVar : this.f1046a.f1300c) {
             ArrayList arrayList = new ArrayList();
             while (true) {
                 k a2 = a(bVar, arrayList);
                 if (a2 != null) {
-                    FunNativeAd nativeAd = a2.getNativeAd(context, this.f1046a.f1313b);
+                    FunNativeAd nativeAd = a2.getNativeAd(context, this.f1046a.f1299b);
                     if (nativeAd != null) {
                         return nativeAd;
                     }
@@ -137,9 +137,9 @@ public class i implements e {
         }
         this.f1050e = null;
         this.f1051f = null;
-        for (c.b bVar : this.f1046a.f1314c) {
-            for (c.a aVar : bVar.f1319c) {
-                k kVar = this.f1048c.get(aVar.f1317d);
+        for (c.b bVar : this.f1046a.f1300c) {
+            for (c.a aVar : bVar.f1305c) {
+                k kVar = this.f1048c.get(aVar.f1303d);
                 if (kVar != null) {
                     kVar.a();
                 }
@@ -151,7 +151,7 @@ public class i implements e {
     public synchronized <T extends ViewGroup> void a(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater) {
         this.f1047b.a("ldr_sh_start");
         this.f1051f = funAdInteractionListener;
-        for (c.b bVar : this.f1046a.f1314c) {
+        for (c.b bVar : this.f1046a.f1300c) {
             ArrayList arrayList = new ArrayList();
             while (true) {
                 k a2 = a(bVar, arrayList);
@@ -163,9 +163,9 @@ public class i implements e {
                 }
             }
         }
-        funAdInteractionListener.onAdError(this.f1046a.f1313b);
+        funAdInteractionListener.onAdError(this.f1046a.f1299b);
         this.f1051f = null;
-        a.a.a.a.v.d.b("showFailed for SerialSlotId(%s), because no ready loader found", this.f1046a.f1313b);
+        a.a.a.a.v.d.b("showFailed for SerialSlotId(%s), because no ready loader found", this.f1046a.f1299b);
     }
 
     @Override // a.a.a.a.e
@@ -179,12 +179,12 @@ public class i implements e {
             cVar.c();
         }
         this.f1047b.a();
-        if (this.f1046a.f1314c.isEmpty()) {
-            a.a.a.a.v.d.b("No groups found in SerialSlotId(%s)", this.f1046a.f1313b);
-            funAdLoadListener.onError(this.f1046a.f1313b);
+        if (this.f1046a.f1300c.isEmpty()) {
+            a.a.a.a.v.d.b("No groups found in SerialSlotId(%s)", this.f1046a.f1299b);
+            funAdLoadListener.onError(this.f1046a.f1299b);
             return;
         }
-        c cVar2 = new c(context, funAdSlot, this.f1046a.f1314c.iterator(), funAdLoadListener);
+        c cVar2 = new c(context, funAdSlot, this.f1046a.f1300c.iterator(), funAdLoadListener);
         this.f1050e = cVar2;
         cVar2.b();
     }
@@ -192,14 +192,14 @@ public class i implements e {
     @Override // a.a.a.a.e
     public synchronized boolean b() {
         boolean z;
-        Iterator<c.b> it = this.f1046a.f1314c.iterator();
+        Iterator<c.b> it = this.f1046a.f1300c.iterator();
         loop0: while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
-            for (c.a aVar : it.next().f1319c) {
-                k kVar = this.f1048c.get(aVar.f1317d);
+            for (c.a aVar : it.next().f1305c) {
+                k kVar = this.f1048c.get(aVar.f1303d);
                 if (kVar != null && kVar.c()) {
                     z = true;
                     break loop0;
@@ -239,8 +239,8 @@ public class i implements e {
                 return false;
             }
             if (this.f1058d != null) {
-                a.a.a.a.v.d.a("All loader load failed, callback onError(%s)", i.this.f1046a.f1313b);
-                this.f1058d.onError(i.this.f1046a.f1313b);
+                a.a.a.a.v.d.a("All loader load failed, callback onError(%s)", i.this.f1046a.f1299b);
+                this.f1058d.onError(i.this.f1046a.f1299b);
                 c();
             }
             return true;
@@ -259,14 +259,14 @@ public class i implements e {
                         return;
                     }
                     c.b next = this.f1057c.next();
-                    if (next.f1319c.isEmpty()) {
-                        a.a.a.a.v.d.b("There is an empty group in SerialSid(%s)", i.this.f1046a.f1313b);
+                    if (next.f1305c.isEmpty()) {
+                        a.a.a.a.v.d.b("There is an empty group in SerialSid(%s)", i.this.f1046a.f1299b);
                         b();
                         return;
                     }
                     ArrayList arrayList = new ArrayList();
-                    for (c.a aVar : next.f1319c) {
-                        k kVar = i.this.f1048c.get(aVar.f1317d);
+                    for (c.a aVar : next.f1305c) {
+                        k kVar = i.this.f1048c.get(aVar.f1303d);
                         if (kVar != null) {
                             this.f1059e.add(aVar);
                             if (kVar.c()) {
@@ -277,7 +277,7 @@ public class i implements e {
                         }
                     }
                     if (arrayList.isEmpty()) {
-                        a.a.a.a.v.d.b("No group which ready to load found in SerialSid(%s)", i.this.f1046a.f1313b);
+                        a.a.a.a.v.d.b("No group which ready to load found in SerialSid(%s)", i.this.f1046a.f1299b);
                         b();
                         return;
                     }
@@ -286,7 +286,7 @@ public class i implements e {
                         ((k) it.next()).a(this.f1055a, this.f1056b);
                     }
                     i.this.f1052g.removeMessages(100);
-                    i.this.f1052g.sendMessageDelayed(i.this.f1052g.obtainMessage(100, this), next.f1318b);
+                    i.this.f1052g.sendMessageDelayed(i.this.f1052g.obtainMessage(100, this), next.f1304b);
                 }
             }
         }
@@ -311,7 +311,7 @@ public class i implements e {
                     return;
                 }
                 if (this.f1059e.remove(aVar)) {
-                    funAdLoadListener.onAdLoaded(i.this.f1046a.f1313b);
+                    funAdLoadListener.onAdLoaded(i.this.f1046a.f1299b);
                     c();
                 }
             }
@@ -332,14 +332,14 @@ public class i implements e {
         public void a(int i, String str) {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str2 = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdShowError(str2, aVar.f1335d, aVar.f1334c, aVar.k.f1330b, i, str);
+                String str2 = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdShowError(str2, aVar.f1321d, aVar.f1320c, aVar.k.f1316b, i, str);
             }
             i iVar = i.this;
             FunAdInteractionListener funAdInteractionListener = iVar.f1051f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdError(iVar.f1046a.f1313b);
+                funAdInteractionListener.onAdError(iVar.f1046a.f1299b);
             }
         }
 
@@ -347,9 +347,9 @@ public class i implements e {
         public void b() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdLoad(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdLoad(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
         }
 
@@ -357,14 +357,14 @@ public class i implements e {
         public void onAdClicked() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdClicked(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdClicked(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             i iVar = i.this;
             FunAdInteractionListener funAdInteractionListener = iVar.f1051f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClicked(iVar.f1046a.f1313b);
+                funAdInteractionListener.onAdClicked(iVar.f1046a.f1299b);
             }
         }
 
@@ -372,14 +372,14 @@ public class i implements e {
         public void onAdClose() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdClose(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdClose(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             i iVar = i.this;
             FunAdInteractionListener funAdInteractionListener = iVar.f1051f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(iVar.f1046a.f1313b);
+                funAdInteractionListener.onAdClose(iVar.f1046a.f1299b);
             }
         }
 
@@ -387,14 +387,14 @@ public class i implements e {
         public void onAdShow() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdShow(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdShow(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             i iVar = i.this;
             FunAdInteractionListener funAdInteractionListener = iVar.f1051f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdShow(iVar.f1046a.f1313b);
+                funAdInteractionListener.onAdShow(iVar.f1046a.f1299b);
             }
         }
 
@@ -402,9 +402,9 @@ public class i implements e {
         public void onError(int i, String str) {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str2 = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdLoadError(str2, aVar.f1335d, aVar.f1334c, aVar.k.f1330b, i, str);
+                String str2 = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdLoadError(str2, aVar.f1321d, aVar.f1320c, aVar.k.f1316b, i, str);
             }
             c cVar = i.this.f1050e;
             if (cVar != null) {
@@ -422,9 +422,9 @@ public class i implements e {
         public void onLoaded() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onAdLoaded(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onAdLoaded(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             c cVar = i.this.f1050e;
             if (cVar != null) {
@@ -436,14 +436,14 @@ public class i implements e {
         public void a() {
             FunAdCallback adCallback = FunAdSdk.getAdCallback();
             if (adCallback != null) {
-                String str = i.this.f1046a.f1313b;
-                e.a aVar = this.f1061a.f1317d;
-                adCallback.onRewardedVideo(str, aVar.f1335d, aVar.f1334c, aVar.k.f1330b);
+                String str = i.this.f1046a.f1299b;
+                e.a aVar = this.f1061a.f1303d;
+                adCallback.onRewardedVideo(str, aVar.f1321d, aVar.f1320c, aVar.k.f1316b);
             }
             i iVar = i.this;
             FunAdInteractionListener funAdInteractionListener = iVar.f1051f;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onRewardedVideo(iVar.f1046a.f1313b);
+                funAdInteractionListener.onRewardedVideo(iVar.f1046a.f1299b);
             }
         }
     }

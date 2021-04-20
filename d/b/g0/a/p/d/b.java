@@ -15,9 +15,9 @@ public interface b<T extends c> extends d<T>, o0 {
 
     void I();
 
-    boolean K(d.b.g0.a.t1.k.r0.d dVar);
-
     boolean L(d.b.g0.a.t1.k.r0.d dVar);
+
+    boolean M(d.b.g0.a.t1.k.r0.d dVar);
 
     void O(String str);
 
@@ -28,15 +28,15 @@ public interface b<T extends c> extends d<T>, o0 {
     String R();
 
     @Nullable
-    d.b.g0.a.a0.e.a T();
+    d.b.g0.a.a0.e.a U();
 
-    boolean U(d.b.g0.a.t1.k.r0.d dVar);
-
-    PullToRefreshBaseWebView Y();
+    boolean V(d.b.g0.a.t1.k.r0.d dVar);
 
     boolean a();
 
-    void b0(FrameLayout frameLayout, d.b.g0.a.r1.n.c cVar);
+    PullToRefreshBaseWebView b0();
+
+    void c0(FrameLayout frameLayout, d.b.g0.a.r1.n.c cVar);
 
     void f0(int i);
 

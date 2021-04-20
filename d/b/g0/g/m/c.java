@@ -24,28 +24,28 @@ import java.io.IOException;
 public class c {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f48500h = k.f45051a;
+    public static final boolean f48892h = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.g.i.a f48501a;
+    public d.b.g0.g.i.a f48893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DuMixGameSurfaceView f48502b;
+    public DuMixGameSurfaceView f48894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.g.e.a f48503c = new d.b.g0.g.e.a();
+    public d.b.g0.g.e.a f48895c = new d.b.g0.g.e.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public e f48504d;
+    public e f48896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48505e;
+    public String f48897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48506f;
+    public boolean f48898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48507g;
+    public boolean f48899g;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -64,95 +64,95 @@ public class c {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.c f48509e;
+        public final /* synthetic */ a.c f48901e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Runnable f48510f;
+        public final /* synthetic */ Runnable f48902f;
 
         public b(a.c cVar, Runnable runnable) {
-            this.f48509e = cVar;
-            this.f48510f = runnable;
+            this.f48901e = cVar;
+            this.f48902f = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.f48500h) {
+            if (c.f48892h) {
                 Log.d("SwanGameV8Master", "SwanGameCoreRuntime JSThread run event start");
             }
-            d.b.g0.g.z.a.a aVar = this.f48509e.f48547c;
-            d.b.g0.g.p.a aVar2 = aVar == null ? null : aVar.f48699f;
-            a.C0987a f2 = d.b.g0.g.p.a.f(aVar2);
+            d.b.g0.g.z.a.a aVar = this.f48901e.f48939c;
+            d.b.g0.g.p.a aVar2 = aVar == null ? null : aVar.f49091f;
+            a.C0999a f2 = d.b.g0.g.p.a.f(aVar2);
             if (f2.b()) {
-                SwanInspectorEndpoint.v().r(aVar2, c.this.f48501a, f2, this.f48510f);
+                SwanInspectorEndpoint.v().r(aVar2, c.this.f48893a, f2, this.f48902f);
                 return;
             }
             SwanInspectorEndpoint.v().w(f2);
-            this.f48510f.run();
+            this.f48902f.run();
         }
     }
 
     /* renamed from: d.b.g0.g.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0985c implements V8ThreadDelegatePolicy {
+    public class C0997c implements V8ThreadDelegatePolicy {
 
         /* renamed from: a  reason: collision with root package name */
-        public DuMixGameSurfaceView f48512a;
+        public DuMixGameSurfaceView f48904a;
 
         /* renamed from: d.b.g0.g.m.c$c$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ V8Engine f48513e;
+            public final /* synthetic */ V8Engine f48905e;
 
-            public a(C0985c c0985c, V8Engine v8Engine) {
-                this.f48513e = v8Engine;
+            public a(C0997c c0997c, V8Engine v8Engine) {
+                this.f48905e = v8Engine;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (c.f48500h) {
+                if (c.f48892h) {
                     Log.d("SwanGameV8Master", "startEngineInternal");
                 }
-                this.f48513e.startEngineInternal();
+                this.f48905e.startEngineInternal();
             }
         }
 
-        public C0985c(c cVar, DuMixGameSurfaceView duMixGameSurfaceView) {
-            this.f48512a = duMixGameSurfaceView;
+        public C0997c(c cVar, DuMixGameSurfaceView duMixGameSurfaceView) {
+            this.f48904a = duMixGameSurfaceView;
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnable(Runnable runnable) {
-            this.f48512a.t(runnable);
+            this.f48904a.t(runnable);
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnableDirectly(Runnable runnable) {
-            this.f48512a.w(runnable);
+            this.f48904a.w(runnable);
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public Thread getThread() {
-            return this.f48512a.getThread();
+            return this.f48904a.getThread();
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void shutdown() {
-            this.f48512a.l();
+            this.f48904a.l();
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void startV8Engine(V8Engine v8Engine) {
-            if (c.f48500h) {
+            if (c.f48892h) {
                 Log.d("SwanGameV8Master", "startV8Engine");
             }
-            this.f48512a.w(new a(this, v8Engine));
+            this.f48904a.w(new a(this, v8Engine));
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnable(Runnable runnable, long j) {
-            this.f48512a.u(runnable, j);
+            this.f48904a.u(runnable, j);
         }
     }
 
@@ -160,10 +160,10 @@ public class c {
     public class d extends d.b.g0.g.i.n.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48514a;
+        public String f48906a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48515b;
+        public String f48907b;
 
         /* loaded from: classes3.dex */
         public class a implements V8EngineConfiguration.JSCacheCallback {
@@ -177,13 +177,13 @@ public class c {
         }
 
         public d(@NonNull String str, @NonNull String str2) {
-            this.f48514a = str;
-            this.f48515b = str2;
+            this.f48906a = str;
+            this.f48907b = str2;
         }
 
         @Override // d.b.g0.g.i.n.b
         public String a() {
-            return this.f48515b;
+            return this.f48907b;
         }
 
         @Override // d.b.g0.g.i.n.a, d.b.g0.g.i.n.b
@@ -197,16 +197,16 @@ public class c {
         @Override // d.b.g0.g.i.n.a, d.b.g0.g.i.n.b
         public void c(d.b.g0.g.i.a aVar) {
             i.o("preload").A(new UbcFlowEvent("na_load_swan_game_js_end"));
-            if (c.this.f48504d != null) {
-                c.this.f48504d.a(aVar);
+            if (c.this.f48896d != null) {
+                c.this.f48896d.a(aVar);
             }
         }
 
         @Override // d.b.g0.g.i.n.a, d.b.g0.g.i.n.b
         public void d(d.b.g0.g.i.a aVar) {
-            c.this.f48503c.b(aVar, d.b.g0.a.w0.a.c());
+            c.this.f48895c.b(aVar, d.b.g0.a.w0.a.c());
             new d.b.g0.g.e.b().a(aVar, d.b.g0.a.w0.a.c());
-            aVar.v0(new a());
+            aVar.w0(new a());
             i.o("preload").A(new UbcFlowEvent("na_load_swan_game_js_start"));
         }
 
@@ -214,7 +214,7 @@ public class c {
             if (cacheInfo == null) {
                 return;
             }
-            if (c.f48500h) {
+            if (c.f48892h) {
                 Log.d("SwanGameV8Master", "onCacheResult cached:" + cacheInfo.cached + " ,jsPath: " + cacheInfo.jsPath);
             }
             if (!cacheInfo.cached || TextUtils.isEmpty(cacheInfo.jsPath)) {
@@ -223,14 +223,14 @@ public class c {
             File file = new File(cacheInfo.jsPath);
             try {
                 if (TextUtils.isEmpty(getInitBasePath()) || !file.getCanonicalPath().startsWith(new File(getInitBasePath()).getCanonicalPath())) {
-                    if (!TextUtils.isEmpty(c.this.f48505e) && file.getCanonicalPath().startsWith(new File(c.this.f48505e).getCanonicalPath())) {
-                        c.this.f48507g = true;
+                    if (!TextUtils.isEmpty(c.this.f48897e) && file.getCanonicalPath().startsWith(new File(c.this.f48897e).getCanonicalPath())) {
+                        c.this.f48899g = true;
                     }
                 } else {
-                    c.this.f48506f = true;
+                    c.this.f48898f = true;
                 }
             } catch (IOException e2) {
-                if (c.f48500h) {
+                if (c.f48892h) {
                     e2.printStackTrace();
                 }
             }
@@ -238,7 +238,7 @@ public class c {
 
         @Override // d.b.g0.g.i.n.b
         public String getInitBasePath() {
-            return this.f48514a;
+            return this.f48906a;
         }
     }
 
@@ -252,7 +252,7 @@ public class c {
     }
 
     public void k(Activity activity) {
-        this.f48503c.a(activity);
+        this.f48895c.a(activity);
     }
 
     public final h l() {
@@ -263,88 +263,88 @@ public class c {
     }
 
     public void m() {
-        if (f48500h) {
+        if (f48892h) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish engine");
         }
-        this.f48501a.g0();
-        if (this.f48502b.isAttachedToWindow()) {
+        this.f48893a.h0();
+        if (this.f48894b.isAttachedToWindow()) {
             return;
         }
-        if (f48500h) {
+        if (f48892h) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish surfaceView");
         }
-        this.f48502b.p();
+        this.f48894b.p();
     }
 
     public int n() {
-        return d.b.g0.a.e0.i.a.b(this.f48506f, this.f48507g);
+        return d.b.g0.a.e0.i.a.b(this.f48898f, this.f48899g);
     }
 
     public d.b.g0.g.i.a o() {
-        return this.f48501a;
+        return this.f48893a;
     }
 
     public DuMixGameSurfaceView p() {
-        return this.f48502b;
+        return this.f48894b;
     }
 
     public final void q(@NonNull String str, @NonNull String str2) {
         DuMixGameSurfaceView a2 = d.b.g0.g.o.b.b().a(AppRuntime.getAppContext());
-        this.f48502b = a2;
+        this.f48894b = a2;
         a2.setRenderMode(1);
-        d.b.g0.g.i.a c2 = g.c(l(), new d(str, str2), new C0985c(this, this.f48502b));
-        this.f48501a = c2;
-        c2.x0(d.b.g0.a.w0.a.c());
-        this.f48502b.setV8Engine(this.f48501a);
+        d.b.g0.g.i.a c2 = g.c(l(), new d(str, str2), new C0997c(this, this.f48894b));
+        this.f48893a = c2;
+        c2.y0(d.b.g0.a.w0.a.c());
+        this.f48894b.setV8Engine(this.f48893a);
     }
 
     public final void r() {
-        this.f48502b.x();
-        this.f48501a.z0(new d.b.g0.g.i.m.d());
-        this.f48501a.B0();
-        this.f48501a.y0();
+        this.f48894b.x();
+        this.f48893a.A0(new d.b.g0.g.i.m.d());
+        this.f48893a.C0();
+        this.f48893a.z0();
         if (d.b.g0.a.w0.a.N().G(1)) {
-            this.f48501a.w0(d.b.g0.a.e0.i.a.a("gamejs", this.f48505e));
+            this.f48893a.x0(d.b.g0.a.e0.i.a.a("gamejs", this.f48897e));
         }
     }
 
     public final void s() {
-        if (f48500h && d.b.g0.a.m1.a.a.f() && new File(d.b.g0.g.h.b.b(), d.b.g0.g.h.b.d()).exists()) {
-            this.f48501a.N(d.b.g0.g.h.b.b().getAbsolutePath(), d.b.g0.g.h.b.d());
+        if (f48892h && d.b.g0.a.m1.a.a.f() && new File(d.b.g0.g.h.b.b(), d.b.g0.g.h.b.d()).exists()) {
+            this.f48893a.S(d.b.g0.g.h.b.b().getAbsolutePath(), d.b.g0.g.h.b.d());
         }
     }
 
     public void t(a.c cVar) {
-        if (cVar == null || TextUtils.isEmpty(cVar.f48545a)) {
+        if (cVar == null || TextUtils.isEmpty(cVar.f48937a)) {
             return;
         }
-        this.f48505e = cVar.f48545a;
+        this.f48897e = cVar.f48937a;
         a aVar = new a();
-        if (f48500h) {
+        if (f48892h) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime loadAppJs run event");
         }
-        this.f48501a.runOnJSThread(new b(cVar, aVar));
+        this.f48893a.runOnJSThread(new b(cVar, aVar));
     }
 
     public final void u() {
-        if (f48500h) {
+        if (f48892h) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js start.");
         }
         HybridUbcFlow o = i.o("startup");
         o.D(HybridUbcFlow.SubmitStrategy.NA_ONLY);
         o.A(new UbcFlowEvent("na_load_index_js_start"));
-        this.f48501a.c0(new d.b.g0.g.u.c());
-        this.f48501a.N(this.f48505e, "index.js");
-        this.f48501a.c0(new d.b.g0.g.u.d());
+        this.f48893a.d0(new d.b.g0.g.u.c());
+        this.f48893a.S(this.f48897e, "index.js");
+        this.f48893a.d0(new d.b.g0.g.u.d());
         i.o("startup").A(new UbcFlowEvent("na_load_index_js_end"));
-        if (f48500h) {
+        if (f48892h) {
             Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js end.");
         }
-        this.f48501a.t0();
-        this.f48502b.o();
+        this.f48893a.u0();
+        this.f48894b.o();
     }
 
     public void v(e eVar) {
-        this.f48504d = eVar;
+        this.f48896d = eVar;
     }
 }

@@ -28,8 +28,8 @@ import com.baidu.tieba.mainentrance.HotForumModel;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage;
 import com.baidu.tieba.mainentrance.view.SquareSearchViewController;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,16 +42,16 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public SquareSearchViewController mViewController;
     public boolean hasRemindSearchResultForNet = false;
     public boolean mIsFromEnterForum = false;
-    public d.b.b.c.g.a mSearchSuggestListListener = new a(CmdConfigHttp.CMD_SEARCH_LIST, 309438);
+    public d.b.c.c.g.a mSearchSuggestListListener = new a(CmdConfigHttp.CMD_SEARCH_LIST, 309438);
     public CustomMessageListener mCreateBarListener = new b(2001608);
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<ForumInfo> list;
             boolean z = responsedMessage instanceof SearchListHttpResMessage;
@@ -212,7 +212,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             this.mViewController.C(this.mTransmitHotSearchInfo);
             return;
         }
-        HotSearchInfoData hotSearchInfoData2 = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.b.h0.r.d0.b.i().o("hot_search_info", ""), HotSearchInfoData.class);
+        HotSearchInfoData hotSearchInfoData2 = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.b.h0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
         this.mHotSearchInfo = hotSearchInfoData2;
         if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.s()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
             this.mViewController.C(this.mHotSearchInfo);
@@ -288,7 +288,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<d.b.i0.n1.b> list, List<d.b.i0.n1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<d.b.i0.o1.b> list, List<d.b.i0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         updateHotSearchCache(hotSearchInfoData);
         this.mViewController.C(this.mHotSearchInfo);
     }
@@ -302,7 +302,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 s.goBack();
                 return true;
             }
-            d.b.b.e.m.e.a().postDelayed(new d(), 200L);
+            d.b.c.e.m.e.a().postDelayed(new d(), 200L);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -327,6 +327,6 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        d.b.b.e.m.e.a().postDelayed(new c(), 300L);
+        d.b.c.e.m.e.a().postDelayed(new c(), 300L);
     }
 }

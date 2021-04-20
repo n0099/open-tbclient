@@ -22,6 +22,6 @@ public abstract class UIntIterator implements Iterator<UInt>, KMappedMarker {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
     public final UInt next() {
-        return UInt.m707boximpl(nextUInt());
+        return UInt.m711boximpl(nextUInt());
     }
 }

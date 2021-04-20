@@ -8,14 +8,14 @@ import com.baidu.platform.core.a.e;
 public class DistrictSearch extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f7188a;
+    public e f7223a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7189b = false;
+    public boolean f7224b = false;
 
     public DistrictSearch() {
-        this.f7188a = null;
-        this.f7188a = new d();
+        this.f7223a = null;
+        this.f7223a = new d();
     }
 
     public static DistrictSearch newInstance() {
@@ -24,27 +24,27 @@ public class DistrictSearch extends l {
     }
 
     public void destroy() {
-        if (this.f7189b) {
+        if (this.f7224b) {
             return;
         }
-        this.f7189b = true;
-        this.f7188a.a();
+        this.f7224b = true;
+        this.f7223a.a();
         BMapManager.destroy();
     }
 
     public boolean searchDistrict(DistrictSearchOption districtSearchOption) {
         String str;
-        if (this.f7188a != null) {
+        if (this.f7223a != null) {
             if (districtSearchOption == null || (str = districtSearchOption.mCityName) == null || str.equals("")) {
                 throw new IllegalArgumentException("option or city name can not be null or empty.");
             }
-            return this.f7188a.a(districtSearchOption);
+            return this.f7223a.a(districtSearchOption);
         }
         throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public void setOnDistrictSearchListener(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        e eVar = this.f7188a;
+        e eVar = this.f7223a;
         if (eVar == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }

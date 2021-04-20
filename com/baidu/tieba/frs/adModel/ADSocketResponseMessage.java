@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.p0.h1.c;
+import d.b.i0.q0.h1.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;

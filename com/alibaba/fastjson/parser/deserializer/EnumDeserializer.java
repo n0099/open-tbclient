@@ -3,7 +3,10 @@ package com.alibaba.fastjson.parser.deserializer;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
+import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
+import com.alibaba.fastjson.util.TypeUtils;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -39,7 +42,7 @@ public class EnumDeserializer implements ObjectDeserializer {
             String name = r5.name();
             JSONField jSONField2 = null;
             try {
-                jSONField = (JSONField) cls.getField(name).getAnnotation(JSONField.class);
+                jSONField = (JSONField) TypeUtils.getAnnotation(cls.getField(name), JSONField.class);
                 if (jSONField != null) {
                     try {
                         String name2 = jSONField.name();
@@ -131,29 +134,41 @@ public class EnumDeserializer implements ObjectDeserializer {
             if (i == 2) {
                 int intValue = jSONLexer.intValue();
                 jSONLexer.nextToken(16);
-                if (intValue >= 0 && intValue <= this.ordinalEnums.length) {
+                if (intValue >= 0 && intValue < this.ordinalEnums.length) {
                     return (T) this.ordinalEnums[intValue];
                 }
                 throw new JSONException("parse enum " + this.enumClass.getName() + " error, value : " + intValue);
-            } else if (i != 4) {
-                if (i == 8) {
-                    jSONLexer.nextToken(16);
-                    return null;
-                } else {
-                    Object parse = defaultJSONParser.parse();
-                    throw new JSONException("parse enum " + this.enumClass.getName() + " error, value : " + parse);
-                }
-            } else {
+            } else if (i == 4) {
                 String stringVal = jSONLexer.stringVal();
                 jSONLexer.nextToken(16);
                 if (stringVal.length() == 0) {
                     return null;
                 }
                 long j = -3750763034362895579L;
+                long j2 = -3750763034362895579L;
                 for (int i2 = 0; i2 < stringVal.length(); i2++) {
-                    j = (j ^ stringVal.charAt(i2)) * 1099511628211L;
+                    int charAt = stringVal.charAt(i2);
+                    long j3 = j ^ charAt;
+                    if (charAt >= 65 && charAt <= 90) {
+                        charAt += 32;
+                    }
+                    j = j3 * 1099511628211L;
+                    j2 = (j2 ^ charAt) * 1099511628211L;
                 }
-                return (T) getEnumByHashCode(j);
+                T t = (T) getEnumByHashCode(j);
+                if (t == null && j2 != j) {
+                    t = (T) getEnumByHashCode(j2);
+                }
+                if (t == null && jSONLexer.isEnabled(Feature.ErrorOnEnumNotMatch)) {
+                    throw new JSONException("not match enum value, " + this.enumClass.getName() + ZeusCrashHandler.NAME_SEPERATOR + stringVal);
+                }
+                return t;
+            } else {
+                if (i == 8) {
+                    jSONLexer.nextToken(16);
+                    return null;
+                }
+                throw new JSONException("parse enum " + this.enumClass.getName() + " error, value : " + defaultJSONParser.parse());
             }
         } catch (JSONException e2) {
             throw e2;

@@ -11,7 +11,6 @@ import android.util.Log;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidubce.services.vod.VodClient;
 import d.b.g0.a.e0.w.d;
 import d.b.g0.a.i2.k0;
 import d.b.g0.a.i2.p;
@@ -28,7 +27,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     public static final String ACTION_PREFIX = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_";
     public static final String TAG = "SwanAppLocalService";
     public Messenger mMessenger;
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static boolean sFlagPreloaded = false;
 
     /* loaded from: classes2.dex */
@@ -95,7 +94,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", currentTimeMillis);
-                jSONObject.put(VodClient.PARA_PROCESS, intent.getIntExtra("bundle_key_process", -1));
+                jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                 jSONObject.put("cost", currentTimeMillis - longExtra2);
                 jSONObject.put("is_preload_started", d.b.g0.a.e0.w.d.x);
                 jSONObject.put("is_preload_ready", d.b.g0.a.e0.w.d.L().a0());
@@ -119,7 +118,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             sFlagPreloaded = true;
             k0.T(new a());
         }
-        if (!d.b.g0.a.j1.m.b.f44922b || d.b.g0.a.j1.m.b.i()) {
+        if (!d.b.g0.a.j1.m.b.f45314b || d.b.g0.a.j1.m.b.i()) {
             return;
         }
         p.k(new b(), "SwanAbSwitchCache");

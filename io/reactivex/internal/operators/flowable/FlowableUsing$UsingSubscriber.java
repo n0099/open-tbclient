@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.u.a;
+import f.b.g;
+import f.b.u.a;
 import g.d.c;
 import g.d.d;
 import io.reactivex.exceptions.CompositeException;
@@ -11,12 +11,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class FlowableUsing$UsingSubscriber<T, D> extends AtomicBoolean implements g<T>, d {
     public static final long serialVersionUID = 5904473792286235046L;
     public final c<? super T> actual;
-    public final f.a.w.g<? super D> disposer;
+    public final f.b.w.g<? super D> disposer;
     public final boolean eager;
     public final D resource;
     public d s;
 
-    public FlowableUsing$UsingSubscriber(c<? super T> cVar, D d2, f.a.w.g<? super D> gVar, boolean z) {
+    public FlowableUsing$UsingSubscriber(c<? super T> cVar, D d2, f.b.w.g<? super D> gVar, boolean z) {
         this.actual = cVar;
         this.resource = d2;
         this.disposer = gVar;
@@ -36,7 +36,7 @@ public final class FlowableUsing$UsingSubscriber<T, D> extends AtomicBoolean imp
                 this.disposer.accept((D) this.resource);
             } catch (Throwable th) {
                 a.a(th);
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             }
         }
     }
@@ -95,7 +95,7 @@ public final class FlowableUsing$UsingSubscriber<T, D> extends AtomicBoolean imp
         this.actual.onNext(t);
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;

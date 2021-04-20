@@ -16,32 +16,32 @@ import d.b.h0.a.q;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.h0.a.z.a<b> f49668a;
+    public d.b.h0.a.z.a<b> f50060a;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f49670c;
+    public BdUniqueId f50062c;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49669b = false;
+    public boolean f50061b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.c.g.a f49671d = new a(CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
+    public d.b.c.c.g.a f50063d = new a(CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            c.this.f49669b = false;
+            c.this.f50061b = false;
             if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || c.this.d() != responsedMessage.getOrginalMessage().getTag()) {
                 return;
             }
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                if (c.this.f49668a != null) {
-                    c.this.f49668a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                if (c.this.f50060a != null) {
+                    c.this.f50060a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     return;
                 }
                 return;
@@ -53,59 +53,59 @@ public class c {
                 bVar = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
             }
             if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                d.b.h0.r.d0.b.i().v("pref_key_active_config_info", System.currentTimeMillis());
+                d.b.h0.r.d0.b.j().w("pref_key_active_config_info", System.currentTimeMillis());
             }
-            if (bVar != null && bVar.f49667g != null) {
-                if (c.this.f49668a != null) {
-                    c.this.f49668a.a(bVar);
+            if (bVar != null && bVar.f50059g != null) {
+                if (c.this.f50060a != null) {
+                    c.this.f50060a.a(bVar);
                 }
-                if (bVar.f49667g.is_first_up != 1) {
-                    q.g().q(bVar.f49667g);
+                if (bVar.f50059g.is_first_up != 1) {
+                    q.g().q(bVar.f50059g);
                 }
             }
             if (bVar == null || !c.this.c()) {
                 return;
             }
-            d.b.h0.r.d0.b.i().v("pref_key_last_register_mission", System.currentTimeMillis());
+            d.b.h0.r.d0.b.j().w("pref_key_last_register_mission", System.currentTimeMillis());
             n.b().i(bVar);
             d.b.h0.r.c0.a.e().j(bVar);
-            if (c.this.f49668a != null) {
-                c.this.f49668a.onSuccess(bVar);
+            if (c.this.f50060a != null) {
+                c.this.f50060a.onSuccess(bVar);
             }
         }
     }
 
     public c(BdUniqueId bdUniqueId) {
-        this.f49670c = bdUniqueId;
+        this.f50062c = bdUniqueId;
         e();
-        this.f49671d.setTag(d());
-        MessageManager.getInstance().registerListener(this.f49671d);
+        this.f50063d.setTag(d());
+        MessageManager.getInstance().registerListener(this.f50063d);
     }
 
     public boolean c() {
-        return !UtilHelper.isSameDay(d.b.h0.r.d0.b.i().k("pref_key_last_register_mission", 0L), System.currentTimeMillis());
+        return !UtilHelper.isSameDay(d.b.h0.r.d0.b.j().l("pref_key_last_register_mission", 0L), System.currentTimeMillis());
     }
 
     public BdUniqueId d() {
-        return this.f49670c;
+        return this.f50062c;
     }
 
     public final void e() {
-        d.b.i0.c3.d0.a.h(309637, ActiveConfigSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, d.b.i0.c3.d0.a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+        d.b.i0.d3.d0.a.h(309637, ActiveConfigSocketResMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, d.b.i0.d3.d0.a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
         tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void f(boolean z, boolean z2, int i) {
-        if (this.f49669b) {
+        if (this.f50061b) {
             return;
         }
         if (!z) {
-            this.f49669b = true;
+            this.f50061b = true;
         }
-        d.b.h0.r.d0.b.i().v("pref_key_last_active_config", System.currentTimeMillis());
+        d.b.h0.r.d0.b.j().w("pref_key_last_active_config", System.currentTimeMillis());
         ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
         activeConfigReqMsg.setFirstUp(z);
         activeConfigReqMsg.setSchemaUp(z2);
@@ -115,6 +115,6 @@ public class c {
     }
 
     public void g(d.b.h0.a.z.a<b> aVar) {
-        this.f49668a = aVar;
+        this.f50060a = aVar;
     }
 }

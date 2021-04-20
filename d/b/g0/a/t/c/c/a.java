@@ -38,47 +38,47 @@ public class a {
     public static volatile a i;
 
     /* renamed from: a  reason: collision with root package name */
-    public PopupWindow f45954a;
+    public PopupWindow f46346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Timer f45955b;
+    public Timer f46347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppActivity f45956c;
+    public SwanAppActivity f46348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.g0.a.e0.l.c f45957d;
+    public d.b.g0.a.e0.l.c f46349d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ContentObserver f45958e;
+    public ContentObserver f46350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.a.o0.a f45959f;
+    public d.b.g0.a.o0.a f46351f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.g0.g.k0.b f45960g;
+    public d.b.g0.g.k0.b f46352g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f45961h;
+    public j f46353h;
 
     /* renamed from: d.b.g0.a.t.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class View$OnClickListenerC0798a implements View.OnClickListener {
+    public class View$OnClickListenerC0810a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f45962e;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f46354e;
 
-        public View$OnClickListenerC0798a(ShowFavoriteGuideApi.GuideType guideType) {
-            this.f45962e = guideType;
+        public View$OnClickListenerC0810a(ShowFavoriteGuideApi.GuideType guideType) {
+            this.f46354e = guideType;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a.this.k();
-            if (a.this.f45961h != null) {
-                a.this.f45961h.e(false);
+            if (a.this.f46353h != null) {
+                a.this.f46353h.e(false);
             }
-            ShowFavoriteGuideApi.y(this.f45962e, "flow_close_close", PrefetchEvent.STATE_CLICK);
+            ShowFavoriteGuideApi.y(this.f46354e, "flow_close_close", PrefetchEvent.STATE_CLICK);
         }
     }
 
@@ -86,47 +86,47 @@ public class a {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f45964e;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f46356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f45965f;
+        public final /* synthetic */ Activity f46357f;
 
         /* renamed from: d.b.g0.a.t.c.c.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0799a implements a.j {
-            public C0799a() {
+        public class C0811a implements a.j {
+            public C0811a() {
             }
 
             @Override // d.b.g0.a.c1.a.j
             public void onFail() {
-                if (a.this.f45961h != null) {
-                    a.this.f45961h.e(false);
+                if (a.this.f46353h != null) {
+                    a.this.f46353h.e(false);
                 }
                 d.b.g0.a.c0.c.g("FavoriteGuideHelper", "add favorite result=false");
             }
 
             @Override // d.b.g0.a.c1.a.j
             public void onSuccess() {
-                if (a.this.f45961h != null) {
-                    a.this.f45961h.e(true);
+                if (a.this.f46353h != null) {
+                    a.this.f46353h.e(true);
                 }
                 d.b.g0.a.c0.c.g("FavoriteGuideHelper", "add favorite result=true");
             }
         }
 
         public b(ShowFavoriteGuideApi.GuideType guideType, Activity activity) {
-            this.f45964e = guideType;
-            this.f45965f = activity;
+            this.f46356e = guideType;
+            this.f46357f = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.g0.a.c1.a.i(this.f45965f, new C0799a());
+            d.b.g0.a.c1.a.i(this.f46357f, new C0811a());
             a.this.k();
-            if (a.this.f45955b != null) {
-                a.this.f45955b.cancel();
+            if (a.this.f46347b != null) {
+                a.this.f46347b.cancel();
             }
-            ShowFavoriteGuideApi.GuideType guideType = this.f45964e;
+            ShowFavoriteGuideApi.GuideType guideType = this.f46356e;
             ShowFavoriteGuideApi.y(guideType, guideType == ShowFavoriteGuideApi.GuideType.WEAK ? "flow_add" : "flow_close_add", PrefetchEvent.STATE_CLICK);
         }
     }
@@ -135,23 +135,23 @@ public class a {
     public class c implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewTreeObserver f45968e;
+        public final /* synthetic */ ViewTreeObserver f46360e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.f f45969f;
+        public final /* synthetic */ d.b.g0.a.e0.l.f f46361f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.e0.l.e f45970g;
+        public final /* synthetic */ d.b.g0.a.e0.l.e f46362g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f45971h;
+        public final /* synthetic */ String f46363h;
         public final /* synthetic */ d.b.g0.a.r1.e i;
 
         public c(ViewTreeObserver viewTreeObserver, d.b.g0.a.e0.l.f fVar, d.b.g0.a.e0.l.e eVar, String str, d.b.g0.a.r1.e eVar2) {
-            this.f45968e = viewTreeObserver;
-            this.f45969f = fVar;
-            this.f45970g = eVar;
-            this.f45971h = str;
+            this.f46360e = viewTreeObserver;
+            this.f46361f = fVar;
+            this.f46362g = eVar;
+            this.f46363h = str;
             this.i = eVar2;
         }
 
@@ -159,19 +159,19 @@ public class a {
         public void onGlobalLayout() {
             d.b.g0.a.e0.l.e eVar;
             ViewTreeObserver viewTreeObserver;
-            if (a.this.f45954a != null || (viewTreeObserver = this.f45968e) == null || !viewTreeObserver.isAlive()) {
-                if (a.this.f45957d != this.f45969f.m() || (!((eVar = this.f45970g) == null || TextUtils.equals(this.f45971h, eVar.X2())) || (!this.i.i0() && h0.C()))) {
+            if (a.this.f46346a != null || (viewTreeObserver = this.f46360e) == null || !viewTreeObserver.isAlive()) {
+                if (a.this.f46349d != this.f46361f.m() || (!((eVar = this.f46362g) == null || TextUtils.equals(this.f46363h, eVar.X2())) || (!this.i.i0() && h0.C()))) {
                     a.this.k();
-                    ViewTreeObserver viewTreeObserver2 = this.f45968e;
+                    ViewTreeObserver viewTreeObserver2 = this.f46360e;
                     if (viewTreeObserver2 == null || !viewTreeObserver2.isAlive()) {
                         return;
                     }
-                    this.f45968e.removeOnGlobalLayoutListener(this);
+                    this.f46360e.removeOnGlobalLayoutListener(this);
                     return;
                 }
                 return;
             }
-            this.f45968e.removeOnGlobalLayoutListener(this);
+            this.f46360e.removeOnGlobalLayoutListener(this);
         }
     }
 
@@ -179,20 +179,20 @@ public class a {
     public class d extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f45972e;
+        public final /* synthetic */ d.b.g0.a.r1.e f46364e;
 
         public d(d.b.g0.a.r1.e eVar) {
-            this.f45972e = eVar;
+            this.f46364e = eVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             a.this.k();
-            if (a.this.f45961h != null) {
-                a.this.f45961h.e(d.b.g0.a.g0.c.a.n(this.f45972e.f45740f));
+            if (a.this.f46353h != null) {
+                a.this.f46353h.e(d.b.g0.a.g0.c.a.n(this.f46364e.f46132f));
             }
-            if (a.this.f45955b != null) {
-                a.this.f45955b.cancel();
+            if (a.this.f46347b != null) {
+                a.this.f46347b.cancel();
             }
         }
     }
@@ -219,23 +219,23 @@ public class a {
     public class f extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f45975a;
+        public final /* synthetic */ d.b.g0.a.r1.e f46367a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f45976b;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f46368b;
 
         /* renamed from: d.b.g0.a.t.c.c.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0800a implements Runnable {
-            public RunnableC0800a() {
+        public class RunnableC0812a implements Runnable {
+            public RunnableC0812a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (d.b.g0.a.g0.c.a.n(f.this.f45975a.f45740f)) {
+                if (d.b.g0.a.g0.c.a.n(f.this.f46367a.f46132f)) {
                     f fVar = f.this;
-                    if (fVar.f45976b == ShowFavoriteGuideApi.GuideType.NORMAL && a.this.f45961h != null) {
-                        a.this.f45961h.e(true);
+                    if (fVar.f46368b == ShowFavoriteGuideApi.GuideType.NORMAL && a.this.f46353h != null) {
+                        a.this.f46353h.e(true);
                     }
                     a.this.k();
                 }
@@ -245,14 +245,14 @@ public class a {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(Handler handler, d.b.g0.a.r1.e eVar, ShowFavoriteGuideApi.GuideType guideType) {
             super(handler);
-            this.f45975a = eVar;
-            this.f45976b = guideType;
+            this.f46367a = eVar;
+            this.f46368b = guideType;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            p.h().execute(new RunnableC0800a());
+            p.h().execute(new RunnableC0812a());
         }
     }
 
@@ -260,15 +260,15 @@ public class a {
     public class g extends d.b.g0.a.o0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f45979a;
+        public final /* synthetic */ d.b.g0.a.r1.e f46371a;
 
         public g(d.b.g0.a.r1.e eVar) {
-            this.f45979a = eVar;
+            this.f46371a = eVar;
         }
 
         @Override // d.b.g0.a.o0.a, d.b.g0.a.o0.b
         public void a() {
-            if (a.this.f45954a == null || !a.this.f45954a.u()) {
+            if (a.this.f46346a == null || !a.this.f46346a.u()) {
                 return;
             }
             a.this.k();
@@ -278,17 +278,17 @@ public class a {
         public void d() {
             d.b.g0.a.c0.c.g("FavoriteGuideHelper", "call onActivityDestroyed");
             a.this.k();
-            if (a.this.f45956c == null || a.this.f45959f == null) {
+            if (a.this.f46348c == null || a.this.f46351f == null) {
                 return;
             }
-            a.this.f45956c.unregisterCallback(a.this.f45959f);
+            a.this.f46348c.unregisterCallback(a.this.f46351f);
         }
 
         @Override // d.b.g0.a.o0.a, d.b.g0.a.o0.b
         public void f() {
             super.f();
-            d.b.g0.a.c0.c.g("FavoriteGuideHelper", "swanId=" + this.f45979a.f45740f + ", nowId=" + d.b.g0.a.r1.e.T());
-            if (TextUtils.equals(this.f45979a.f45740f, d.b.g0.a.r1.e.T())) {
+            d.b.g0.a.c0.c.g("FavoriteGuideHelper", "swanId=" + this.f46371a.f46132f + ", nowId=" + d.b.g0.a.r1.e.T());
+            if (TextUtils.equals(this.f46371a.f46132f, d.b.g0.a.r1.e.T())) {
                 return;
             }
             a.this.k();
@@ -313,19 +313,19 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f45954a != null) {
-                a.this.f45954a.n();
-                a.this.f45954a = null;
+            if (a.this.f46346a != null) {
+                a.this.f46346a.n();
+                a.this.f46346a = null;
             }
-            if (a.this.f45958e != null) {
-                AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(a.this.f45958e);
-                a.this.f45958e = null;
+            if (a.this.f46350e != null) {
+                AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(a.this.f46350e);
+                a.this.f46350e = null;
             }
-            if (a.this.f45956c != null && a.this.f45959f != null) {
-                a.this.f45956c.unregisterCallback(a.this.f45959f);
+            if (a.this.f46348c != null && a.this.f46351f != null) {
+                a.this.f46348c.unregisterCallback(a.this.f46351f);
             }
-            if (a.this.f45957d != null) {
-                a.this.f45957d.r2(null);
+            if (a.this.f46349d != null) {
+                a.this.f46349d.r2(null);
             }
         }
     }
@@ -352,9 +352,9 @@ public class a {
     }
 
     public final void m() {
-        if (this.f45960g == null) {
+        if (this.f46352g == null) {
             d.b.g0.g.k0.b a2 = d.b.g0.g.k0.b.a();
-            this.f45960g = a2;
+            this.f46352g = a2;
             if (a2 != null) {
                 a2.c(new e());
             }
@@ -366,24 +366,24 @@ public class a {
     }
 
     public final synchronized void o(@NonNull Activity activity, @NonNull d.b.g0.a.r1.e eVar, ShowFavoriteGuideApi.GuideType guideType) {
-        this.f45958e = new f(null, eVar, guideType);
-        AppRuntime.getAppContext().getContentResolver().registerContentObserver(d.b.g0.a.g0.c.a.d(), false, this.f45958e);
+        this.f46350e = new f(null, eVar, guideType);
+        AppRuntime.getAppContext().getContentResolver().registerContentObserver(d.b.g0.a.g0.c.a.d(), false, this.f46350e);
         if (activity instanceof SwanAppActivity) {
             SwanAppActivity swanAppActivity = (SwanAppActivity) activity;
-            this.f45956c = swanAppActivity;
-            if (this.f45959f != null) {
-                swanAppActivity.unregisterCallback(this.f45959f);
+            this.f46348c = swanAppActivity;
+            if (this.f46351f != null) {
+                swanAppActivity.unregisterCallback(this.f46351f);
             }
             g gVar = new g(eVar);
-            this.f45959f = gVar;
-            this.f45956c.registerCallback(gVar);
+            this.f46351f = gVar;
+            this.f46348c.registerCallback(gVar);
         }
-        d.b.g0.a.e0.l.f swanAppFragmentManager = this.f45956c.getSwanAppFragmentManager();
+        d.b.g0.a.e0.l.f swanAppFragmentManager = this.f46348c.getSwanAppFragmentManager();
         if (swanAppFragmentManager == null) {
             return;
         }
         d.b.g0.a.e0.l.c m = swanAppFragmentManager.m();
-        this.f45957d = m;
+        this.f46349d = m;
         if (m == null) {
             return;
         }
@@ -395,11 +395,11 @@ public class a {
         SwanAppActivity swanAppActivity;
         d.b.g0.a.e0.l.f swanAppFragmentManager;
         String str3 = str;
-        this.f45961h = jVar;
+        this.f46353h = jVar;
         k();
         if (eVar.i0()) {
             m();
-            d.b.g0.g.k0.b bVar = this.f45960g;
+            d.b.g0.g.k0.b bVar = this.f46352g;
             if (bVar != null) {
                 bVar.d(0);
             }
@@ -431,43 +431,43 @@ public class a {
             if (guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
                 imageView.setVisibility(8);
             } else {
-                imageView.setOnClickListener(new View$OnClickListenerC0798a(guideType));
+                imageView.setOnClickListener(new View$OnClickListenerC0810a(guideType));
             }
             ((Button) inflate.findViewById(d.b.g0.a.f.favorite_guide_add_btn)).setOnClickListener(new b(guideType, activity));
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
-            this.f45954a = popupWindow;
+            this.f46346a = popupWindow;
             popupWindow.J(16);
-            this.f45954a.M(activity.getWindow().getDecorView(), 81, 0, (int) h0.g(50.0f));
+            this.f46346a.M(activity.getWindow().getDecorView(), 81, 0, (int) h0.g(50.0f));
         } else if (findViewById != null) {
             int[] iArr = new int[2];
             findViewById.getLocationOnScreen(iArr);
             inflate.findViewById(d.b.g0.a.f.favorite_guide_arrow).setPadding(0, 0, ((h0.m(null) - iArr[0]) - (findViewById.getWidth() / 2)) - h0.f(7.0f), 0);
-            this.f45954a = new PopupWindow(inflate, -2, -2);
-            SwanAppActivity swanAppActivity2 = this.f45956c;
-            if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.f45956c.isDestroyed() && findViewById.isAttachedToWindow()) {
+            this.f46346a = new PopupWindow(inflate, -2, -2);
+            SwanAppActivity swanAppActivity2 = this.f46348c;
+            if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.f46348c.isDestroyed() && findViewById.isAttachedToWindow()) {
                 try {
-                    this.f45954a.L(findViewById, 0, -h0.f(3.0f));
+                    this.f46346a.L(findViewById, 0, -h0.f(3.0f));
                 } catch (WindowManager.BadTokenException e2) {
-                    if (k.f45051a) {
+                    if (k.f45443a) {
                         Log.e("FavoriteGuideHelper", "Bad token when showing fav guide popup!");
                         e2.printStackTrace();
                     }
                 }
             }
         }
-        if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && (swanAppActivity = this.f45956c) != null && (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) != null && findViewById != null) {
+        if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && (swanAppActivity = this.f46348c) != null && (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) != null && findViewById != null) {
             d.b.g0.a.e0.l.e l = swanAppFragmentManager.l();
             String X2 = l == null ? "" : l.X2();
             ViewTreeObserver viewTreeObserver = findViewById.getViewTreeObserver();
             viewTreeObserver.addOnGlobalLayoutListener(new c(viewTreeObserver, swanAppFragmentManager, l, X2, eVar));
         }
         if (guideType == ShowFavoriteGuideApi.GuideType.TIPS || guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
-            Timer timer = this.f45955b;
+            Timer timer = this.f46347b;
             if (timer != null) {
                 timer.cancel();
             }
             Timer timer2 = new Timer();
-            this.f45955b = timer2;
+            this.f46347b = timer2;
             timer2.schedule(new d(eVar), 1000 * j2);
         }
         ShowFavoriteGuideApi.y(guideType, "", "show");

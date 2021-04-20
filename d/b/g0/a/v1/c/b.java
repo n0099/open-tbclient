@@ -10,28 +10,28 @@ import java.util.LinkedList;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class b<ResultDataT> {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f46748f = k.f45051a;
+    public static final boolean f47140f = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h<ResultDataT> f46749a = new h<>();
+    public final h<ResultDataT> f47141a = new h<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<d.b.g0.a.i2.u0.b<h<ResultDataT>>> f46750b = new HashSet();
+    public final Set<d.b.g0.a.i2.u0.b<h<ResultDataT>>> f47142b = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<d> f46751c = new LinkedList<>();
+    public final LinkedList<d> f47143c = new LinkedList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f46752d = false;
+    public boolean f47144d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46753e = false;
+    public boolean f47145e = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends d {
         public a() {
         }
@@ -47,9 +47,9 @@ public abstract class b<ResultDataT> {
     }
 
     /* renamed from: d.b.g0.a.v1.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0862b extends d {
-        public C0862b() {
+    /* loaded from: classes3.dex */
+    public class C0874b extends d {
+        public C0874b() {
         }
 
         @Override // d.b.g0.a.v1.c.d
@@ -62,21 +62,21 @@ public abstract class b<ResultDataT> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.i2.u0.b f46756e;
+        public final /* synthetic */ d.b.g0.a.i2.u0.b f47148e;
 
         public c(d.b.g0.a.i2.u0.b bVar) {
-            this.f46756e = bVar;
+            this.f47148e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.i2.u0.b bVar = this.f46756e;
+            d.b.g0.a.i2.u0.b bVar = this.f47148e;
             if (bVar != null) {
-                bVar.onCallback(b.this.f46749a);
+                bVar.onCallback(b.this.f47141a);
             }
         }
     }
@@ -95,10 +95,10 @@ public abstract class b<ResultDataT> {
     }
 
     public final void c() {
-        C0862b c0862b = new C0862b();
-        c0862b.h(this);
-        c0862b.g();
-        this.f46753e = true;
+        C0874b c0874b = new C0874b();
+        c0874b.h(this);
+        c0874b.g();
+        this.f47145e = true;
     }
 
     public void d() {
@@ -107,39 +107,39 @@ public abstract class b<ResultDataT> {
 
     public void e(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.f46749a.f46810c = (OAuthException) exc;
+            this.f47141a.f47202c = (OAuthException) exc;
         } else if (exc != null) {
-            this.f46749a.f46810c = new OAuthException(exc, 10001);
+            this.f47141a.f47202c = new OAuthException(exc, 10001);
         }
-        if (!this.f46749a.c() && f46748f && exc != null) {
+        if (!this.f47141a.c() && f47140f && exc != null) {
             exc.printStackTrace();
         }
         s(TaskState.FINISHED);
         d.b.g0.a.v1.c.c.j(toString(), Boolean.FALSE);
         h();
-        this.f46750b.clear();
+        this.f47142b.clear();
     }
 
     public TaskState f() {
-        return this.f46749a.f46809b;
+        return this.f47141a.f47201b;
     }
 
     public final void g() {
         a aVar = new a();
         aVar.h(this);
         aVar.g();
-        this.f46752d = true;
+        this.f47144d = true;
     }
 
     public final void h() {
-        for (d.b.g0.a.i2.u0.b<h<ResultDataT>> bVar : this.f46750b) {
+        for (d.b.g0.a.i2.u0.b<h<ResultDataT>> bVar : this.f47142b) {
             d.b.g0.a.v1.c.c.k(new c(bVar));
         }
     }
 
     public b i(@NonNull d dVar) {
         dVar.h(this);
-        this.f46751c.offer(dVar);
+        this.f47143c.offer(dVar);
         return this;
     }
 
@@ -163,14 +163,14 @@ public abstract class b<ResultDataT> {
 
     public final void o() {
         if (!TaskState.CALLING.equals(f())) {
-            if (f46748f) {
+            if (f47140f) {
                 d.b.g0.a.v1.c.c.j("IllegalState on prepare", Boolean.FALSE);
             }
-        } else if (!this.f46752d) {
+        } else if (!this.f47144d) {
             g();
-        } else if (!this.f46751c.isEmpty()) {
-            this.f46751c.poll().g();
-        } else if (!this.f46753e) {
+        } else if (!this.f47143c.isEmpty()) {
+            this.f47143c.poll().g();
+        } else if (!this.f47145e) {
             c();
         } else {
             b();
@@ -178,23 +178,23 @@ public abstract class b<ResultDataT> {
     }
 
     public b<ResultDataT> p(d.b.g0.a.i2.u0.b<h<ResultDataT>> bVar) {
-        if (this.f46749a.f46809b.isCallbackAvailable()) {
-            this.f46750b.add(bVar);
+        if (this.f47141a.f47201b.isCallbackAvailable()) {
+            this.f47142b.add(bVar);
         }
         return this;
     }
 
     public void q() {
-        this.f46749a.f46809b = TaskState.INIT;
-        this.f46752d = false;
-        this.f46753e = false;
+        this.f47141a.f47201b = TaskState.INIT;
+        this.f47144d = false;
+        this.f47145e = false;
     }
 
     public void r(ResultDataT resultdatat) {
-        this.f46749a.f46808a = resultdatat;
+        this.f47141a.f47200a = resultdatat;
     }
 
     public final void s(TaskState taskState) {
-        this.f46749a.f46809b = taskState;
+        this.f47141a.f47201b = taskState;
     }
 }

@@ -1,62 +1,51 @@
 package d.b.i0.f3;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.R;
+import tbclient.GetIconList.Setting;
+import tbclient.GetIconList.UserInfo;
 /* loaded from: classes5.dex */
-public class b implements d.b.h0.r.a0.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f54824a;
-
-    @Override // d.b.h0.r.a0.a
-    public void a(Context context) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            e(context, 1);
-        } else {
-            e(context, 0);
+public class b {
+    public static String a(int i) {
+        if (i < 0) {
+            i = 0;
         }
-    }
-
-    @Override // d.b.h0.r.a0.a
-    public void b(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
-    }
-
-    @Override // d.b.h0.r.a0.a
-    public Class<?> c() {
-        return MainTabActivity.class;
-    }
-
-    @Override // d.b.h0.r.a0.a
-    public void d(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-    }
-
-    @Override // d.b.h0.r.a0.a
-    public void e(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
-    }
-
-    @Override // d.b.h0.r.a0.a
-    public String f() {
-        return MainTabActivity.class.getName();
-    }
-
-    public void g(a aVar) {
-        this.f54824a = aVar;
-    }
-
-    @Override // d.b.h0.r.a0.a
-    public int getCurrentTabType() {
-        a aVar = this.f54824a;
-        if (aVar != null) {
-            return aVar.getCurrentTabType();
+        String valueOf = String.valueOf(i);
+        if (i >= 1000000) {
+            float f2 = i / 10000.0f;
+            int i2 = i / 10000;
+            if (f2 > i2) {
+                return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            }
+            return i2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
         }
-        return -1;
+        return valueOf;
+    }
+
+    public static String b(long j) {
+        if (j < 0) {
+            j = 0;
+        }
+        String valueOf = String.valueOf(j);
+        if (j >= 1000000) {
+            float f2 = ((float) j) / 10000.0f;
+            long j2 = j / 10000;
+            if (f2 > ((float) j2)) {
+                return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            }
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+        }
+        return valueOf;
+    }
+
+    public static int c(UserInfo userInfo, int i, Setting setting) {
+        if (userInfo == null || userInfo.is_mem == null) {
+            return 0;
+        }
+        return userInfo.is_mem.intValue() != 2 ? i : (setting == null || setting.vip_extra_switch.intValue() != 1 || setting.vip_extra_percent.intValue() <= 0) ? i : ((setting.vip_extra_percent.intValue() * i) / 100) + i;
+    }
+
+    public static int d(int i) {
+        return (int) (i / 100.0f);
     }
 }

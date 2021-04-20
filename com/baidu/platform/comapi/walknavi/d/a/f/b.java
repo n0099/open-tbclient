@@ -20,30 +20,30 @@ import java.util.zip.ZipFile;
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9995a;
+    public String f9553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9996b;
+    public int f9554b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f9997c;
+    public a<String> f9555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9998d = false;
+    public boolean f9556d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9999e;
+    public boolean f9557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10000f;
+    public String f9558f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f9995a = "";
-        this.f9996b = 0;
-        this.f9995a = str;
-        this.f9996b = i;
-        this.f9997c = aVar;
-        this.f9999e = z;
+        this.f9553a = "";
+        this.f9554b = 0;
+        this.f9553a = str;
+        this.f9554b = i;
+        this.f9555c = aVar;
+        this.f9557e = z;
     }
 
     private int b(String str) {
@@ -95,7 +95,7 @@ public class b extends AsyncTask<String, Integer, String> {
         String substring = str.substring(0, str.length() - 4);
         File file2 = new File(substring);
         String a2 = k.a(str);
-        if (this.f9999e) {
+        if (this.f9557e) {
             if (file2.exists()) {
                 com.baidu.platform.comapi.walknavi.d.a.g.f.a(file2);
             }
@@ -226,7 +226,7 @@ public class b extends AsyncTask<String, Integer, String> {
                     } catch (IOException unused12) {
                     }
                 }
-                if (!this.f9999e) {
+                if (!this.f9557e) {
                     com.baidu.platform.comapi.walknavi.d.a.g.f.a(a2, ".successUnzip.txt");
                 }
                 return substring;
@@ -297,7 +297,7 @@ public class b extends AsyncTask<String, Integer, String> {
     /* renamed from: a */
     public void onProgressUpdate(Integer... numArr) {
         super.onProgressUpdate(numArr);
-        a<String> aVar = this.f9997c;
+        a<String> aVar = this.f9555c;
         if (aVar != null) {
             aVar.a(numArr[0].intValue());
         }
@@ -331,8 +331,8 @@ public class b extends AsyncTask<String, Integer, String> {
             if (TextUtils.isEmpty(str2)) {
                 return null;
             }
-            this.f10000f = str2;
-            String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9995a, this.f9996b);
+            this.f9558f = str2;
+            String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9553a, this.f9554b);
             if (TextUtils.isEmpty(a2)) {
                 return null;
             }
@@ -345,9 +345,9 @@ public class b extends AsyncTask<String, Integer, String> {
             if (file2.exists()) {
                 try {
                     new ZipFile(str);
-                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9945a) {
-                        if (this.f9997c != null) {
-                            this.f9997c.a(false, b(str2));
+                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
+                        if (this.f9555c != null) {
+                            this.f9555c.a(false, b(str2));
                             return "false";
                         }
                         return "false";
@@ -355,16 +355,16 @@ public class b extends AsyncTask<String, Integer, String> {
                     return c(str);
                 } catch (Exception unused) {
                     file2.delete();
-                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9945a) {
-                        a<String> aVar = this.f9997c;
+                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
+                        a<String> aVar = this.f9555c;
                         if (aVar != null) {
                             aVar.a(true, b(str2));
                         }
                         return "true";
                     }
                 }
-            } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f9945a) {
-                a<String> aVar2 = this.f9997c;
+            } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f9503a) {
+                a<String> aVar2 = this.f9555c;
                 if (aVar2 != null) {
                     aVar2.a(true, b(str2));
                 }
@@ -405,8 +405,8 @@ public class b extends AsyncTask<String, Integer, String> {
                                     int i2 = (int) ((((float) i) * 100.0f) / ((float) b2));
                                     com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i2);
                                     publishProgress(Integer.valueOf(i2));
-                                    while (this.f9998d) {
-                                        com.baidu.platform.comapi.walknavi.d.a.g.a.a("mIsPause = " + this.f9998d);
+                                    while (this.f9556d) {
+                                        com.baidu.platform.comapi.walknavi.d.a.g.a.a("mIsPause = " + this.f9556d);
                                         try {
                                             Thread.currentThread();
                                             Thread.sleep(500L);
@@ -471,14 +471,14 @@ public class b extends AsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         a<String> aVar;
         if (TextUtils.isEmpty(str)) {
-            a<String> aVar2 = this.f9997c;
+            a<String> aVar2 = this.f9555c;
             if (aVar2 != null) {
                 aVar2.b("download error!");
             }
-        } else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str) || (aVar = this.f9997c) == null) {
+        } else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str) || (aVar = this.f9555c) == null) {
         } else {
             aVar.a(100);
-            this.f9997c.a((a<String>) str);
+            this.f9555c.a((a<String>) str);
         }
     }
 }

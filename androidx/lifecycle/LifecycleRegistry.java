@@ -1,6 +1,5 @@
 package androidx.lifecycle;
 
-import android.util.Log;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,7 +12,6 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class LifecycleRegistry extends Lifecycle {
-    public static final String LOG_TAG = "LifecycleRegistry";
     public final WeakReference<LifecycleOwner> mLifecycleOwner;
     public FastSafeIterableMap<LifecycleObserver, ObserverWithState> mObserverMap = new FastSafeIterableMap<>();
     public int mAddingObserverCounter = 0;
@@ -86,11 +84,11 @@ public class LifecycleRegistry extends Lifecycle {
 
     /* loaded from: classes.dex */
     public static class ObserverWithState {
-        public GenericLifecycleObserver mLifecycleObserver;
+        public LifecycleEventObserver mLifecycleObserver;
         public Lifecycle.State mState;
 
         public ObserverWithState(LifecycleObserver lifecycleObserver, Lifecycle.State state) {
-            this.mLifecycleObserver = Lifecycling.getCallback(lifecycleObserver);
+            this.mLifecycleObserver = Lifecycling.lifecycleEventObserver(lifecycleObserver);
             this.mState = state;
         }
 
@@ -221,21 +219,21 @@ public class LifecycleRegistry extends Lifecycle {
 
     private void sync() {
         LifecycleOwner lifecycleOwner = this.mLifecycleOwner.get();
-        if (lifecycleOwner == null) {
-            Log.w(LOG_TAG, "LifecycleOwner is garbage collected, you shouldn't try dispatch new events from it.");
+        if (lifecycleOwner != null) {
+            while (!isSynced()) {
+                this.mNewEventOccurred = false;
+                if (this.mState.compareTo(this.mObserverMap.eldest().getValue().mState) < 0) {
+                    backwardPass(lifecycleOwner);
+                }
+                Map.Entry<LifecycleObserver, ObserverWithState> newest = this.mObserverMap.newest();
+                if (!this.mNewEventOccurred && newest != null && this.mState.compareTo(newest.getValue().mState) > 0) {
+                    forwardPass(lifecycleOwner);
+                }
+            }
+            this.mNewEventOccurred = false;
             return;
         }
-        while (!isSynced()) {
-            this.mNewEventOccurred = false;
-            if (this.mState.compareTo(this.mObserverMap.eldest().getValue().mState) < 0) {
-                backwardPass(lifecycleOwner);
-            }
-            Map.Entry<LifecycleObserver, ObserverWithState> newest = this.mObserverMap.newest();
-            if (!this.mNewEventOccurred && newest != null && this.mState.compareTo(newest.getValue().mState) > 0) {
-                forwardPass(lifecycleOwner);
-            }
-        }
-        this.mNewEventOccurred = false;
+        throw new IllegalStateException("LifecycleOwner of this LifecycleRegistry is alreadygarbage collected. It is too late to change lifecycle state.");
     }
 
     public static Lifecycle.Event upEvent(Lifecycle.State state) {
@@ -298,12 +296,18 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     @MainThread
+    @Deprecated
     public void markState(@NonNull Lifecycle.State state) {
-        moveToState(state);
+        setCurrentState(state);
     }
 
     @Override // androidx.lifecycle.Lifecycle
     public void removeObserver(@NonNull LifecycleObserver lifecycleObserver) {
         this.mObserverMap.remove(lifecycleObserver);
+    }
+
+    @MainThread
+    public void setCurrentState(@NonNull Lifecycle.State state) {
+        moveToState(state);
     }
 }

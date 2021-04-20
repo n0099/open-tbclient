@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.h0.z0.w;
 import tbclient.GetForumsFromForumClass.DataReq;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SquareForumListReq extends NetMessage {
     public int pageLimit;
     public int pageNum;

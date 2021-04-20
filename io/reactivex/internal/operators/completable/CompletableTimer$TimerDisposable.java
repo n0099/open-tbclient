@@ -1,23 +1,23 @@
 package io.reactivex.internal.operators.completable;
 
-import f.a.t.b;
+import f.b.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class CompletableTimer$TimerDisposable extends AtomicReference<b> implements b, Runnable {
     public static final long serialVersionUID = 3167244060586201109L;
-    public final f.a.b actual;
+    public final f.b.b actual;
 
-    public CompletableTimer$TimerDisposable(f.a.b bVar) {
+    public CompletableTimer$TimerDisposable(f.b.b bVar) {
         this.actual = bVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */

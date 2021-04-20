@@ -4,17 +4,17 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.c2.h.c;
-import d.b.i0.c2.h.e;
-import d.b.i0.c2.k.e.i;
-import d.b.i0.r2.b0.b;
+import d.b.i0.d2.h.c;
+import d.b.i0.d2.h.e;
+import d.b.i0.d2.k.e.k;
+import d.b.i0.s2.f0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public String cacheKey;
     public Context context;
@@ -56,10 +56,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         int i2 = this.updateType;
         if (i2 == 3) {
-            i.b().e(this.cacheKey, this.isFromMark, bArr);
+            k.b().e(this.cacheKey, this.isFromMark, bArr);
         } else if (i2 != 4) {
         } else {
-            i.b().f(this.cacheKey, bArr);
+            k.b().f(this.cacheKey, bArr);
         }
     }
 
@@ -77,20 +77,20 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             this.mAppealInfo = cVar;
             AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
             if (appealInfo != null) {
-                cVar.f52414a = appealInfo.source;
-                cVar.f52416c = appealInfo.appeal_url;
+                cVar.f53809a = appealInfo.source;
+                cVar.f53811c = appealInfo.appeal_url;
             }
             SimpleForum simpleForum = pbPageResIdl.data.forum;
             if (simpleForum != null) {
-                this.mAppealInfo.f52415b = simpleForum.name;
+                this.mAppealInfo.f53810b = simpleForum.name;
                 return;
             }
             return;
         }
         e eVar = new e();
         this.pbData = eVar;
-        eVar.j0(2);
-        this.pbData.i0(pbPageResIdl.data, this.context);
+        eVar.k0(2);
+        this.pbData.j0(pbPageResIdl.data, this.context);
         DataRes dataRes = pbPageResIdl.data;
         if (dataRes != null) {
             JSONObject b2 = b.b(dataRes.thread);

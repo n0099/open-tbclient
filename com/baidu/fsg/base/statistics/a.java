@@ -18,10 +18,10 @@ import java.security.NoSuchAlgorithmException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5267a = "utf-8";
+    public static final String f5302a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5268b = "c82c403505338808201aad86f8194734";
+    public static final String f5303b = "c82c403505338808201aad86f8194734";
 
     public static void a(Context context, String str, String str2, boolean z) {
         if (context == null) {

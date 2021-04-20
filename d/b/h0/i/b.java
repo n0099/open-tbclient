@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<TbPageContext<?>> f50226a = null;
+    public static WeakReference<TbPageContext<?>> f50633a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f50227b = false;
+    public static boolean f50634b = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -32,7 +32,7 @@ public abstract class b {
     }
 
     public boolean b() {
-        return f50227b;
+        return f50634b;
     }
 
     public abstract void c();
@@ -46,25 +46,25 @@ public abstract class b {
     public abstract void g(int i);
 
     public void h() {
-        WeakReference<TbPageContext<?>> weakReference = f50226a;
+        WeakReference<TbPageContext<?>> weakReference = f50633a;
         if (weakReference != null) {
             weakReference.get();
-            f50226a.clear();
-            f50226a = null;
+            f50633a.clear();
+            f50633a = null;
         }
     }
 
     public abstract void i();
 
     public void j(TbPageContext<?> tbPageContext) {
-        WeakReference<TbPageContext<?>> weakReference = f50226a;
+        WeakReference<TbPageContext<?>> weakReference = f50633a;
         if (weakReference == null) {
-            f50226a = new WeakReference<>(tbPageContext);
+            f50633a = new WeakReference<>(tbPageContext);
             return;
         }
         weakReference.clear();
-        f50226a = null;
-        f50226a = new WeakReference<>(tbPageContext);
+        f50633a = null;
+        f50633a = new WeakReference<>(tbPageContext);
     }
 
     public abstract void k(a aVar);

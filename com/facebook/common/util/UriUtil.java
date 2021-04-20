@@ -9,7 +9,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UriUtil {
     public static final String DATA_SCHEME = "data";
     public static final String HTTPS_SCHEME = "https";

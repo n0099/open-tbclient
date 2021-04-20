@@ -23,16 +23,16 @@ import java.lang.ref.WeakReference;
 public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0.r.q.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4535e;
+    public Context f4570e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4536f;
+    public int f4571f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f4537g;
+    public TbImageView f4572g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f4538h;
+    public View f4573h;
     public ImageView i;
     public ImageView j;
     public TextView k;
@@ -56,10 +56,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
             if (VideoImageNoPlayerLayout.this.q != null) {
                 b0 b0Var = VideoImageNoPlayerLayout.this.q;
                 VideoImageNoPlayerLayout videoImageNoPlayerLayout = VideoImageNoPlayerLayout.this;
-                b0Var.a(videoImageNoPlayerLayout.f4537g, videoImageNoPlayerLayout.r);
+                b0Var.a(videoImageNoPlayerLayout.f4572g, videoImageNoPlayerLayout.r);
             }
             if (VideoImageNoPlayerLayout.this.s != null) {
-                VideoImageNoPlayerLayout.this.s.onClick(VideoImageNoPlayerLayout.this.f4537g);
+                VideoImageNoPlayerLayout.this.s.onClick(VideoImageNoPlayerLayout.this.f4572g);
             }
         }
     }
@@ -77,9 +77,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
 
     public VideoImageNoPlayerLayout(Context context) {
         super(context);
-        this.f4536f = 3;
+        this.f4571f = 3;
         this.p = false;
-        this.f4535e = context;
+        this.f4570e = context;
         f();
     }
 
@@ -89,17 +89,17 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
         this.n = (RelativeLayout) findViewById(R.id.operable_video_container);
         this.o = (RelativeLayout) findViewById(R.id.video_container);
         new WeakReference(TbadkCoreApplication.getInst());
-        this.f4537g = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.f4538h = findViewById(R.id.video_thumbnail_mask);
+        this.f4572g = (TbImageView) findViewById(R.id.video_thumbnail);
+        this.f4573h = findViewById(R.id.video_thumbnail_mask);
         this.i = (ImageView) findViewById(R.id.video_play);
         this.j = (ImageView) findViewById(R.id.video_pause);
         this.k = (TextView) findViewById(R.id.video_play_count);
         this.l = (TextView) findViewById(R.id.video_play_flag);
         this.m = (TextView) findViewById(R.id.video_duration);
-        this.f4537g.setConrers(15);
-        this.f4537g.setRadiusById(R.string.J_X05);
-        this.f4537g.setDrawCorner(true);
-        this.f4537g.setPlaceHolder(3);
+        this.f4572g.setConrers(15);
+        this.f4572g.setRadiusById(R.string.J_X05);
+        this.f4572g.setDrawCorner(true);
+        this.f4572g.setPlaceHolder(3);
         setOnClickListener(new a());
         SkinManager.setBackgroundResource(this, R.color.CAM_X0206);
     }
@@ -113,14 +113,14 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
         }
         OriginalThreadInfo originalThreadInfo = aVar.n().r1;
         originalThreadInfo.r.is_vertical.intValue();
-        String str = originalThreadInfo.f13216f;
+        String str = originalThreadInfo.f12877f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
-        long j = originalThreadInfo.f13215e;
+        long j = originalThreadInfo.f12876e;
         this.m.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.k.setText(String.format(this.f4535e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.k.setText(String.format(this.f4570e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.l.setVisibility(8);
-        this.f4537g.W(originalThreadInfo.r.thumbnail_url, 10, false);
+        this.f4572g.W(originalThreadInfo.r.thumbnail_url, 10, false);
     }
 
     @Override // android.view.View
@@ -129,16 +129,16 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
     }
 
     public void h(TbPageContext tbPageContext, int i) {
-        if (this.f4536f != i) {
-            c.a(this.f4538h).l(R.array.Mask_X001);
-            c.a(this.f4538h).h(R.string.J_X05);
+        if (this.f4571f != i) {
+            c.d(this.f4573h).o(R.array.Mask_X001);
+            c.d(this.f4573h).k(R.string.J_X05);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
             this.i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             this.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_pause44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
         }
-        this.f4536f = i;
+        this.f4571f = i;
     }
 
     public final void i() {

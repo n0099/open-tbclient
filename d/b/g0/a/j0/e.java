@@ -15,30 +15,30 @@ import d.b.g0.a.k;
 import d.b.g0.a.p.c.k0;
 import d.b.g0.a.p.c.l;
 /* loaded from: classes2.dex */
-public final class e implements c.InterfaceC0705c {
+public final class e implements c.InterfaceC0717c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44805c = k.f45051a;
+    public static final boolean f45197c = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.j0.c f44806a;
+    public d.b.g0.a.j0.c f45198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f44807b;
+    public volatile boolean f45199b;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k0 f44808e;
+        public final /* synthetic */ k0 f45200e;
 
         public a(e eVar, k0 k0Var) {
-            this.f44808e = k0Var;
+            this.f45200e = k0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f44808e.a();
+            this.f45200e.a();
         }
     }
 
@@ -46,22 +46,22 @@ public final class e implements c.InterfaceC0705c {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f44809e;
+        public final /* synthetic */ int f45201e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f44810f;
+        public final /* synthetic */ Bundle f45202f;
 
         public b(int i, Bundle bundle) {
-            this.f44809e = i;
-            this.f44810f = bundle;
+            this.f45201e = i;
+            this.f45202f = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.f44805c) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + this.f44809e);
+            if (e.f45197c) {
+                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + this.f45201e);
             }
-            d.b.g0.a.n1.c.f.b.i(e.this.a(), this.f44810f);
+            d.b.g0.a.n1.c.f.b.i(e.this.a(), this.f45202f);
         }
     }
 
@@ -69,7 +69,7 @@ public final class e implements c.InterfaceC0705c {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f44812a = new e(null);
+        public static final e f45204a = new e(null);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -77,7 +77,7 @@ public final class e implements c.InterfaceC0705c {
     }
 
     public static e c() {
-        return c.f44812a;
+        return c.f45204a;
     }
 
     @Override // d.b.g0.a.j0.b
@@ -87,17 +87,17 @@ public final class e implements c.InterfaceC0705c {
     }
 
     public d.b.g0.a.j0.c d() {
-        return this.f44806a;
+        return this.f45198a;
     }
 
     public void e(Bundle bundle) {
-        if (this.f44807b) {
+        if (this.f45199b) {
             return;
         }
         synchronized (this) {
-            if (!this.f44807b) {
+            if (!this.f45199b) {
                 f(bundle);
-                this.f44807b = true;
+                this.f45199b = true;
             }
         }
     }
@@ -105,13 +105,13 @@ public final class e implements c.InterfaceC0705c {
     public final void f(Bundle bundle) {
         g(bundle);
         SwanLauncher.j().l(null);
-        b.C0619b.e();
+        b.C0631b.e();
         o0.a();
         ExecutorUtilsExt.postOnElastic(new a(this, d.b.g0.a.w0.a.W()), "requestBatchRebateInfo", 2);
     }
 
     public final void g(Bundle bundle) {
-        if (f44805c) {
+        if (f45197c) {
             Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
         }
         l f2 = d.b.g0.a.w0.a.f();
@@ -119,7 +119,7 @@ public final class e implements c.InterfaceC0705c {
             return;
         }
         int b2 = f2.b();
-        if (f44805c) {
+        if (f45197c) {
             Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + b2);
         }
         if (f2.d()) {
@@ -132,21 +132,21 @@ public final class e implements c.InterfaceC0705c {
             bundle.putString("bundle_key_preload_preload_scene", "0");
         }
         if (bundle.getBoolean("bundle_key_preload_delay", false) && f2.f()) {
-            if (f44805c) {
+            if (f45197c) {
                 Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + b2);
             }
             d.b.g0.a.i2.k0.U(new b(b2, bundle), d.b.g0.a.w0.a.f().e());
             return;
         }
-        if (f44805c) {
+        if (f45197c) {
             Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + b2);
         }
         d.b.g0.a.n1.c.f.b.i(a(), bundle);
     }
 
     public e() {
-        this.f44807b = false;
-        this.f44806a = new d.b.g0.a.j0.c(this);
+        this.f45199b = false;
+        this.f45198a = new d.b.g0.a.j0.c(this);
         d.b.g0.a.l0.f.a.d().f();
     }
 }

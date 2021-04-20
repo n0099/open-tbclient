@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImmutableMap<K, V> extends HashMap<K, V> {
     public ImmutableMap(Map<? extends K, ? extends V> map) {
         super(map);

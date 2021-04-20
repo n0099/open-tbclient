@@ -18,7 +18,7 @@ import java.util.Set;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40944a = Log.isLoggable("NCHelper", 3);
+    public static boolean f41233a = Log.isLoggable("NCHelper", 3);
 
     @TargetApi(26)
     public static NotificationChannel a(String str, NotificationChannel notificationChannel) {
@@ -39,47 +39,47 @@ public class ak {
     public static String a(ao aoVar) {
         String b2 = aoVar.b();
         try {
-            NotificationChannel notificationChannel = new NotificationChannel(b2, com.xiaomi.push.g.m322b(aoVar.m573a(), aoVar.m574a()), 3);
-            if (f40944a) {
+            NotificationChannel notificationChannel = new NotificationChannel(b2, com.xiaomi.push.g.m326b(aoVar.m577a(), aoVar.m578a()), 3);
+            if (f41233a) {
                 a("create default channel:" + notificationChannel);
             }
             a(aoVar, notificationChannel);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("NCHelper", "create default channel error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m56a("NCHelper", "create default channel error " + e2);
         }
         return b2;
     }
 
     @TargetApi(26)
     public static String a(ao aoVar, String str, CharSequence charSequence, String str2, int i, int i2, String str3) {
-        String m575a = aoVar.m575a(str);
+        String m579a = aoVar.m579a(str);
         try {
-            if (f40944a) {
-                a("createChannel: appChannelId:" + m575a + " serverChannelId:" + str + " serverChannelName:" + ((Object) charSequence) + " serverChannelDesc:" + str2 + " serverChannelNotifyType:" + i + " serverChannelName:" + ((Object) charSequence) + " serverChannelImportance:" + i2 + " channelSoundStr:" + str3);
+            if (f41233a) {
+                a("createChannel: appChannelId:" + m579a + " serverChannelId:" + str + " serverChannelName:" + ((Object) charSequence) + " serverChannelDesc:" + str2 + " serverChannelNotifyType:" + i + " serverChannelName:" + ((Object) charSequence) + " serverChannelImportance:" + i2 + " channelSoundStr:" + str3);
             }
-            NotificationChannel notificationChannel = new NotificationChannel(m575a, charSequence, i2);
+            NotificationChannel notificationChannel = new NotificationChannel(m579a, charSequence, i2);
             notificationChannel.setDescription(str2);
             notificationChannel.enableVibration((i & 2) != 0);
             notificationChannel.enableLights((i & 4) != 0);
             if ((i & 1) == 0) {
                 notificationChannel.setSound(null, null);
             } else if (!TextUtils.isEmpty(str3)) {
-                if (str3.startsWith("android.resource://" + aoVar.m574a())) {
+                if (str3.startsWith("android.resource://" + aoVar.m578a())) {
                     notificationChannel.setSound(Uri.parse(str3), Notification.AUDIO_ATTRIBUTES_DEFAULT);
                 }
             }
-            if (f40944a) {
+            if (f41233a) {
                 a("create channel:" + notificationChannel);
             }
             a(aoVar, notificationChannel);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m52a("NCHelper", "create channel error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m56a("NCHelper", "create channel error " + e2);
         }
-        return m575a;
+        return m579a;
     }
 
     public static void a(Context context, String str) {
-        if (!com.xiaomi.push.l.m517a(context) || TextUtils.isEmpty(str)) {
+        if (!com.xiaomi.push.l.m521a(context) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -87,9 +87,9 @@ public class ak {
             Set<String> keySet = a(context).getAll().keySet();
             ArrayList arrayList = new ArrayList();
             for (String str2 : keySet) {
-                if (a2.m577a(str2)) {
+                if (a2.m581a(str2)) {
                     arrayList.add(str2);
-                    if (f40944a) {
+                    if (f41233a) {
                         a("delete channel copy record:" + str2);
                     }
                 }
@@ -100,7 +100,7 @@ public class ak {
     }
 
     public static void a(Context context, List<String> list) {
-        if (f40944a) {
+        if (f41233a) {
             a("deleteCopiedChannelRecord:" + list);
         }
         if (list.isEmpty()) {
@@ -121,51 +121,51 @@ public class ak {
         if (TextUtils.isEmpty(notificationChannel.getId())) {
             throw new Exception("serverChannel id cannot be empty");
         }
-        Context m573a = aoVar.m573a();
+        Context m577a = aoVar.m577a();
         String id = notificationChannel.getId();
-        String a2 = ao.a(id, aoVar.m574a());
-        if (f40944a) {
+        String a2 = ao.a(id, aoVar.m578a());
+        if (f41233a) {
             a("appChannelId:" + id + " oldChannelId:" + a2);
         }
-        if (!com.xiaomi.push.l.m517a(m573a) || TextUtils.equals(id, a2)) {
-            NotificationChannel m572a = aoVar.m572a(id);
-            if (f40944a) {
-                a("elseLogic getNotificationChannel:" + m572a);
+        if (!com.xiaomi.push.l.m521a(m577a) || TextUtils.equals(id, a2)) {
+            NotificationChannel m576a = aoVar.m576a(id);
+            if (f41233a) {
+                a("elseLogic getNotificationChannel:" + m576a);
             }
-            if (m572a != null) {
+            if (m576a != null) {
                 return;
             }
         } else {
-            NotificationManager notificationManager = (NotificationManager) m573a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            NotificationManager notificationManager = (NotificationManager) m577a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             NotificationChannel notificationChannel2 = notificationManager.getNotificationChannel(a2);
-            NotificationChannel m572a2 = aoVar.m572a(id);
-            if (f40944a) {
+            NotificationChannel m576a2 = aoVar.m576a(id);
+            if (f41233a) {
                 a("xmsfChannel:" + notificationChannel2);
-                a("appChannel:" + m572a2);
+                a("appChannel:" + m576a2);
             }
             if (notificationChannel2 != null) {
                 NotificationChannel a3 = a(id, notificationChannel2);
-                if (f40944a) {
+                if (f41233a) {
                     a("copyXmsf copyXmsfChannel:" + a3);
                 }
-                if (m572a2 != null) {
-                    aoVar.a(a3, !a(m572a2));
+                if (m576a2 != null) {
+                    aoVar.a(a3, !a(m576a2));
                 } else {
                     aoVar.a(a3);
                 }
-                b(m573a, id);
+                b(m577a, id);
                 notificationManager.deleteNotificationChannel(a2);
                 return;
-            } else if (m572a2 != null) {
-                if (m565a(m573a, id) || !a(notificationChannel, m572a2)) {
+            } else if (m576a2 != null) {
+                if (m569a(m577a, id) || !a(notificationChannel, m576a2)) {
                     return;
                 }
-                if (f40944a) {
+                if (f41233a) {
                     a("appHack updateNotificationChannel:" + notificationChannel);
                 }
-                aoVar.a(notificationChannel, !a(m572a2));
+                aoVar.a(notificationChannel, !a(m576a2));
                 return;
-            } else if (f40944a) {
+            } else if (f41233a) {
                 a("appHack createNotificationChannel:" + notificationChannel);
             }
         }
@@ -173,7 +173,7 @@ public class ak {
     }
 
     public static void a(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m52a("NCHelper", str);
+        com.xiaomi.channel.commonutils.logger.b.m56a("NCHelper", str);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x004c A[ORIG_RETURN, RETURN] */
@@ -186,12 +186,12 @@ public class ak {
         try {
             i = ((Integer) com.xiaomi.push.bh.b((Object) notificationChannel, "getUserLockedFields", new Object[0])).intValue();
             try {
-                if (f40944a) {
+                if (f41233a) {
                     a("isUserLockedChannel:" + i + " " + notificationChannel);
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.xiaomi.channel.commonutils.logger.b.m52a("NCHelper", "is user locked error" + e);
+                com.xiaomi.channel.commonutils.logger.b.m56a("NCHelper", "is user locked error" + e);
                 if (i <= 0) {
                 }
             }
@@ -212,62 +212,62 @@ public class ak {
         if (TextUtils.equals(notificationChannel.getName(), notificationChannel2.getName())) {
             z = false;
         } else {
-            if (f40944a) {
+            if (f41233a) {
                 a("appHack channelConfigLowerCompare:getName");
             }
             z = true;
         }
         if (!TextUtils.equals(notificationChannel.getDescription(), notificationChannel2.getDescription())) {
-            if (f40944a) {
+            if (f41233a) {
                 a("appHack channelConfigLowerCompare:getDescription");
             }
             z = true;
         }
         if (notificationChannel.getImportance() != notificationChannel2.getImportance()) {
             notificationChannel.setImportance(Math.min(notificationChannel.getImportance(), notificationChannel2.getImportance()));
-            if (f40944a) {
+            if (f41233a) {
                 a("appHack channelConfigLowerCompare:getImportance  " + notificationChannel.getImportance() + " " + notificationChannel2.getImportance());
             }
             z = true;
         }
         if (notificationChannel.shouldVibrate() != notificationChannel2.shouldVibrate()) {
             notificationChannel.enableVibration(false);
-            if (f40944a) {
+            if (f41233a) {
                 a("appHack channelConfigLowerCompare:enableVibration");
             }
             z = true;
         }
         if (notificationChannel.shouldShowLights() != notificationChannel2.shouldShowLights()) {
             notificationChannel.enableLights(false);
-            if (f40944a) {
+            if (f41233a) {
                 a("appHack channelConfigLowerCompare:enableLights");
             }
             z = true;
         }
         if ((notificationChannel.getSound() != null) != (notificationChannel2.getSound() != null)) {
             notificationChannel.setSound(null, null);
-            if (f40944a) {
+            if (f41233a) {
                 a("appHack channelConfigLowerCompare:setSound");
             }
         } else {
             z2 = z;
         }
-        if (f40944a) {
+        if (f41233a) {
             a("appHack channelConfigLowerCompare:isDifferent:" + z2);
         }
         return z2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m565a(Context context, String str) {
-        if (f40944a) {
+    public static boolean m569a(Context context, String str) {
+        if (f41233a) {
             a("checkCopeidChannel:newFullChannelId:" + str + GlideException.IndentedAppendable.INDENT + a(context).getBoolean(str, false));
         }
         return a(context).getBoolean(str, false);
     }
 
     public static void b(Context context, String str) {
-        if (f40944a) {
+        if (f41233a) {
             a("recordCopiedChannel:" + str);
         }
         a(context).edit().putBoolean(str, true).apply();

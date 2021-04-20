@@ -32,8 +32,8 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
                 a aVar = new a();
                 this.mAddressListData = aVar;
                 if (aVar.c(getAddressListResIdl.data)) {
-                    b i2 = b.i();
-                    i2.s("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                    b j = b.j();
+                    j.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
             Error error = getAddressListResIdl.error;

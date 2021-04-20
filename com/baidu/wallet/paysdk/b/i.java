@@ -17,11 +17,11 @@ public final class i {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f25444a = new i();
+        public static i f25129a = new i();
     }
 
     public static i a() {
-        return a.f25444a;
+        return a.f25129a;
     }
 
     public i() {

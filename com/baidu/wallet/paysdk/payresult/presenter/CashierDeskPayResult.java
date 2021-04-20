@@ -26,10 +26,10 @@ import java.util.List;
 public class CashierDeskPayResult extends H5PayResultProcess implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25674a;
+    public String f25359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public H5LifeCycleCallback f25675b = null;
+    public H5LifeCycleCallback f25360b = null;
 
     /* loaded from: classes5.dex */
     public enum PayScenario {
@@ -114,13 +114,13 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
 
     @Override // com.baidu.wallet.paysdk.payresult.presenter.H5PayResultProcess
     public void show() {
-        this.f25674a = a();
+        this.f25359a = a();
         PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-        if (this.f25674a == null) {
+        if (this.f25359a == null) {
             afterShow();
             return;
         }
-        if (this.f25675b == null) {
+        if (this.f25360b == null) {
             H5LifeCycleCallback h5LifeCycleCallback = new H5LifeCycleCallback() { // from class: com.baidu.wallet.paysdk.payresult.presenter.CashierDeskPayResult.1
                 @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityDestroyed(Activity activity) {
@@ -128,14 +128,14 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                     CashierDeskPayResult.this.afterShow();
                 }
             };
-            this.f25675b = h5LifeCycleCallback;
+            this.f25360b = h5LifeCycleCallback;
             h5LifeCycleCallback.push();
         }
         Bundle bundle = new Bundle();
         bundle.putBoolean("with_anim", false);
         bundle.putBoolean("show_share", false);
-        bundle.putString("url", this.f25674a);
-        bundle.putParcelable("lifecycleLsnr", this.f25675b);
+        bundle.putString("url", this.f25359a);
+        bundle.putParcelable("lifecycleLsnr", this.f25360b);
         BaiduWalletDelegate.getInstance().openH5Module(this.mContext, bundle);
         PayBaseBeanActivity.exitEbpay();
     }

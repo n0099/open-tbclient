@@ -2,18 +2,18 @@ package d.b.h0.m0.o;
 
 import android.os.Build;
 import com.baidu.tbadk.TbSingleton;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f50357a;
+    public c f50764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50358b;
+    public String f50765b;
 
     public a(String str) {
-        this.f50358b = str;
+        this.f50765b = str;
     }
 
     public final void a(String str, int i) {
@@ -36,18 +36,18 @@ public class a {
 
     public void b() {
         if (Build.VERSION.SDK_INT >= 16) {
-            if (this.f50357a == null) {
-                this.f50357a = new c();
+            if (this.f50764a == null) {
+                this.f50764a = new c();
             }
-            this.f50357a.c();
+            this.f50764a.c();
         }
     }
 
     public void c() {
-        c cVar = this.f50357a;
+        c cVar = this.f50764a;
         if (cVar != null && Build.VERSION.SDK_INT >= 16) {
             cVar.d();
-            a(this.f50358b, this.f50357a.b());
+            a(this.f50765b, this.f50764a.b());
         }
     }
 }

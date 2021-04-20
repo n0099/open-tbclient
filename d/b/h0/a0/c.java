@@ -8,34 +8,37 @@ import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class c {
 
-    /* renamed from: f  reason: collision with root package name */
-    public static c f49674f = new c();
+    /* renamed from: g  reason: collision with root package name */
+    public static c f50066g = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.e.k.a<String, d.b.b.j.d.a> f49675a;
+    public d.b.c.e.k.a<String, d.b.c.j.d.a> f50067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.b.e.k.a<String, d.b.b.j.d.a> f49676b;
+    public d.b.c.e.k.a<String, d.b.c.j.d.a> f50068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.b.e.k.a<String, Bitmap> f49677c;
+    public d.b.c.e.k.a<String, Bitmap> f50069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.b.e.k.b<d.b.h0.b1.i.a.a> f49678d;
+    public d.b.c.e.k.a<String, d.b.c.j.d.a> f50070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.b1.i.c.b f49679e;
+    public d.b.c.e.k.b<d.b.h0.b1.i.a.a> f50071e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.h0.b1.i.c.b f50072f;
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.b.e.k.a<String, d.b.b.j.d.a> {
+    public class a extends d.b.c.e.k.a<String, d.b.c.j.d.a> {
         public a(c cVar, int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.a
+        @Override // d.b.c.e.k.a
         /* renamed from: o */
-        public void b(boolean z, String str, d.b.b.j.d.a aVar, d.b.b.j.d.a aVar2) {
+        public void b(boolean z, String str, d.b.c.j.d.a aVar, d.b.c.j.d.a aVar2) {
             if (aVar != null) {
                 aVar.x();
             }
@@ -43,15 +46,15 @@ public class c {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends d.b.b.e.k.a<String, d.b.b.j.d.a> {
+    public class b extends d.b.c.e.k.a<String, d.b.c.j.d.a> {
         public b(c cVar, int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.a
+        @Override // d.b.c.e.k.a
         /* renamed from: o */
-        public void b(boolean z, String str, d.b.b.j.d.a aVar, d.b.b.j.d.a aVar2) {
+        public void b(boolean z, String str, d.b.c.j.d.a aVar, d.b.c.j.d.a aVar2) {
             if (aVar != null) {
                 BdLog.isDebugMode();
                 aVar.x();
@@ -60,9 +63,9 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.a
+        @Override // d.b.c.e.k.a
         /* renamed from: p */
-        public int m(String str, d.b.b.j.d.a aVar) {
+        public int m(String str, d.b.c.j.d.a aVar) {
             if (aVar != null) {
                 return aVar.B();
             }
@@ -72,13 +75,13 @@ public class c {
 
     /* renamed from: d.b.h0.a0.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1044c extends d.b.b.e.k.a<String, Bitmap> {
-        public C1044c(c cVar, int i) {
+    public class C1056c extends d.b.c.e.k.a<String, Bitmap> {
+        public C1056c(c cVar, int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.a
+        @Override // d.b.c.e.k.a
         /* renamed from: o */
         public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
             if (bitmap != null) {
@@ -88,131 +91,148 @@ public class c {
     }
 
     public c() {
-        this.f49675a = null;
-        this.f49676b = null;
-        this.f49677c = null;
-        this.f49675a = new a(this, 0);
-        this.f49676b = new b(this, 0);
-        this.f49677c = new C1044c(this, 0);
+        this.f50067a = null;
+        this.f50068b = null;
+        this.f50069c = null;
+        this.f50070d = null;
+        this.f50067a = new a(this, 0);
+        this.f50068b = new b(this, 0);
+        this.f50069c = new C1056c(this, 0);
+        this.f50070d = new d.b.c.e.k.a<>(Integer.MAX_VALUE);
     }
 
-    public static c j() {
-        return f49674f;
+    public static c k() {
+        return f50066g;
     }
 
     public void a(String str, Bitmap bitmap) {
         if (StringUtils.isNull(str) || bitmap == null) {
             return;
         }
-        this.f49677c.h(str, bitmap);
+        this.f50069c.h(str, bitmap);
     }
 
-    public void b(String str, d.b.b.j.d.a aVar) {
+    public void b(String str, d.b.c.j.d.a aVar) {
         c(str, aVar, false);
     }
 
-    public void c(String str, d.b.b.j.d.a aVar, boolean z) {
-        d.b.b.e.k.a<String, d.b.b.j.d.a> aVar2;
-        if (aVar == null || (aVar2 = this.f49675a) == null) {
+    public void c(String str, d.b.c.j.d.a aVar, boolean z) {
+        d.b.c.e.k.a<String, d.b.c.j.d.a> aVar2;
+        if (aVar == null || (aVar2 = this.f50067a) == null) {
             return;
         }
         aVar2.h(str, aVar);
     }
 
-    public void d(String str, d.b.b.j.d.a aVar) {
+    public void d(String str, d.b.c.j.d.a aVar) {
         e(str, aVar, false);
     }
 
-    public void e(String str, d.b.b.j.d.a aVar, boolean z) {
-        if (aVar == null || this.f49676b == null) {
+    public void e(String str, d.b.c.j.d.a aVar, boolean z) {
+        if (aVar == null || this.f50068b == null) {
             return;
         }
         BdLog.isDebugMode();
-        this.f49676b.h(str, aVar);
+        this.f50068b.h(str, aVar);
     }
 
-    public void f(String str) {
-        this.f49675a.i(str);
+    public void f(String str, d.b.c.j.d.a aVar) {
+        d.b.c.e.k.a<String, d.b.c.j.d.a> aVar2;
+        if (aVar == null || (aVar2 = this.f50070d) == null) {
+            return;
+        }
+        aVar2.h(str, aVar);
     }
 
     public void g(String str) {
-        this.f49676b.i(str);
+        this.f50067a.i(str);
     }
 
-    public boolean h(int i) {
-        return this.f49676b.e(i);
+    public void h(String str) {
+        this.f50068b.i(str);
     }
 
-    public Bitmap i(String str) {
+    public boolean i(int i) {
+        return this.f50068b.e(i);
+    }
+
+    public Bitmap j(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.f49677c.f(str);
+        return this.f50069c.f(str);
     }
 
-    public d.b.b.j.d.a k(String str) {
-        return this.f49675a.f(str);
+    public d.b.c.j.d.a l(String str) {
+        return this.f50067a.f(str);
     }
 
-    public d.b.b.j.d.a l(String str) {
-        return this.f49676b.f(str);
+    public d.b.c.j.d.a m(String str) {
+        return this.f50068b.f(str);
     }
 
-    public int m() {
-        return this.f49676b.g();
+    public int n() {
+        return this.f50068b.g();
     }
 
-    public d.b.b.e.k.b<d.b.h0.b1.i.a.a> n(int i) {
+    public d.b.c.j.d.a o(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        return this.f50070d.f(str);
+    }
+
+    public d.b.c.e.k.b<d.b.h0.b1.i.a.a> p(int i) {
         d.b.h0.b1.i.c.b bVar;
-        if (this.f49678d != null && (bVar = this.f49679e) != null) {
+        if (this.f50071e != null && (bVar = this.f50072f) != null) {
             if (bVar.g() == i) {
-                return this.f49678d;
+                return this.f50071e;
             }
-            this.f49679e.j(i);
-            this.f49678d.c();
+            this.f50072f.j(i);
+            this.f50071e.c();
         }
-        if (this.f49679e == null) {
-            this.f49679e = new d.b.h0.b1.i.c.b(i);
+        if (this.f50072f == null) {
+            this.f50072f = new d.b.h0.b1.i.c.b(i);
         }
-        if (this.f49678d == null) {
-            this.f49678d = new d.b.b.e.k.b<>(this.f49679e, 6, 0);
+        if (this.f50071e == null) {
+            this.f50071e = new d.b.c.e.k.b<>(this.f50072f, 6, 0);
         }
-        return this.f49678d;
+        return this.f50071e;
     }
 
-    public void o(int i, int i2) {
-        r(i);
-        s(i2);
-        q(60);
+    public void q(int i, int i2) {
+        t(i);
+        u(i2);
+        s(60);
     }
 
-    public void p() {
-        d.b.b.e.k.b<d.b.h0.b1.i.a.a> bVar = this.f49678d;
+    public void r() {
+        d.b.c.e.k.b<d.b.h0.b1.i.a.a> bVar = this.f50071e;
         if (bVar != null) {
             bVar.g(0);
-            this.f49678d.f(0);
-            this.f49678d.c();
-            this.f49678d = null;
+            this.f50071e.f(0);
+            this.f50071e.c();
+            this.f50071e = null;
         }
-    }
-
-    public void q(int i) {
-        this.f49677c.k(i);
-    }
-
-    public void r(int i) {
-        this.f49675a.k(i);
     }
 
     public void s(int i) {
-        this.f49676b.k(i);
+        this.f50069c.k(i);
     }
 
-    public String t() {
-        return this.f49676b.l() + "/" + this.f49676b.g() + "/" + this.f49676b.d() + "_" + this.f49675a.l() + "/" + this.f49675a.g() + "/" + this.f49675a.d();
+    public void t(int i) {
+        this.f50067a.k(i);
     }
 
     public String toString() {
-        return "pic:" + this.f49676b.toString() + "  photo:" + this.f49675a.toString();
+        return "pic:" + this.f50068b.toString() + "  photo:" + this.f50067a.toString();
+    }
+
+    public void u(int i) {
+        this.f50068b.k(i);
+    }
+
+    public String v() {
+        return this.f50068b.l() + "/" + this.f50068b.g() + "/" + this.f50068b.d() + "_" + this.f50067a.l() + "/" + this.f50067a.g() + "/" + this.f50067a.d();
     }
 }

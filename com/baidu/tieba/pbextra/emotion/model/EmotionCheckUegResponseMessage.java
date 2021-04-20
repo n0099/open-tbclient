@@ -3,7 +3,7 @@ package com.baidu.tieba.pbextra.emotion.model;
 import android.text.TextUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionCheckUegResponseMessage extends JsonHttpResponsedMessage {
     public static String STATUS_FAIL = "2";
     public static String STATUS_OK = "1";

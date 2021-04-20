@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionVoteEntryView;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.f;
 import d.b.h0.r.f0.g;
 import d.b.i0.l0.y.c.c;
@@ -27,47 +27,47 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f56708a;
+    public TbPageContext f58114a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f56709b;
+    public BdTypeListView f58115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f56710c;
+    public g f58116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f56711d;
+    public RelativeLayout f58117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f56712e;
+    public NoNetworkView f58118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbListView f56713f;
+    public PbListView f58119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.l0.y.a f56714g;
+    public d.b.i0.l0.y.a f58120g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ForumEmotionVoteEntryView f56715h;
+    public ForumEmotionVoteEntryView f58121h;
     public d.b.h0.d0.g i;
     public NoDataView j;
     public LinearLayout k;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.f56708a = tbPageContext;
+        this.f58114a = tbPageContext;
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_forum_emotion_center, (ViewGroup) null);
-        this.f56711d = relativeLayout;
-        this.f56712e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.f56711d.findViewById(R.id.forum_emotion_list);
-        this.f56709b = bdTypeListView;
+        this.f58117d = relativeLayout;
+        this.f58118e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.f58117d.findViewById(R.id.forum_emotion_list);
+        this.f58115b = bdTypeListView;
         bdTypeListView.addHeaderView(this.k);
-        this.f56709b.setDivider(null);
-        g gVar = new g(this.f56708a);
-        this.f56710c = gVar;
+        this.f58115b.setDivider(null);
+        g gVar = new g(this.f58114a);
+        this.f58116c = gVar;
         gVar.Z(bdUniqueId);
-        this.f56709b.setPullRefresh(this.f56710c);
+        this.f58115b.setPullRefresh(this.f58116c);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f56713f = pbListView;
+        this.f58119f = pbListView;
         pbListView.a();
         j();
         i();
@@ -76,37 +76,37 @@ public class a {
     }
 
     public void a() {
-        this.f56709b.z();
+        this.f58115b.z();
     }
 
     public BdTypeListView b() {
-        return this.f56709b;
+        return this.f58115b;
     }
 
     public View c() {
-        return this.f56712e;
+        return this.f58118e;
     }
 
     public ViewGroup d() {
-        return this.f56711d;
+        return this.f58117d;
     }
 
     public ForumEmotionVoteEntryView e() {
-        return this.f56715h;
+        return this.f58121h;
     }
 
     public void f() {
-        PbListView pbListView = this.f56713f;
+        PbListView pbListView = this.f58119f;
         if (pbListView != null) {
             pbListView.f();
         }
-        this.f56709b.setNextPage(null);
+        this.f58115b.setNextPage(null);
     }
 
     public void g() {
         d.b.h0.d0.g gVar = this.i;
         if (gVar != null) {
-            gVar.dettachView(this.f56711d);
+            gVar.dettachView(this.f58117d);
             this.i = null;
         }
     }
@@ -116,38 +116,38 @@ public class a {
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
-        this.f56714g.c().setVisibility(0);
-        this.f56715h.setVisibility(0);
+        this.f58120g.c().setVisibility(0);
+        this.f58121h.setVisibility(0);
     }
 
     public final void i() {
-        d.b.i0.l0.y.a aVar = new d.b.i0.l0.y.a(this.f56708a);
-        this.f56714g = aVar;
+        d.b.i0.l0.y.a aVar = new d.b.i0.l0.y.a(this.f58114a);
+        this.f58120g = aVar;
         aVar.c().setVisibility(8);
-        this.f56709b.addHeaderView(this.f56714g.c());
+        this.f58115b.addHeaderView(this.f58120g.c());
     }
 
     public final void j() {
-        LinearLayout linearLayout = new LinearLayout(this.f56708a.getPageActivity());
+        LinearLayout linearLayout = new LinearLayout(this.f58114a.getPageActivity());
         this.k = linearLayout;
         linearLayout.setGravity(17);
-        this.f56709b.addHeaderView(this.k);
+        this.f58115b.addHeaderView(this.k);
     }
 
     public final void k() {
-        ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.f56708a.getPageActivity());
-        this.f56715h = forumEmotionVoteEntryView;
-        this.f56709b.addHeaderView(forumEmotionVoteEntryView);
+        ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.f58114a.getPageActivity());
+        this.f58121h = forumEmotionVoteEntryView;
+        this.f58115b.addHeaderView(forumEmotionVoteEntryView);
     }
 
     public void l(int i) {
-        this.f56713f.o(R.color.CAM_X0204);
-        this.f56713f.d(i);
-        this.f56710c.I(i);
-        this.f56709b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-        SkinManager.setBackgroundColor(this.f56711d, R.color.CAM_X0201);
-        this.f56712e.c(this.f56708a, i);
-        ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.f56715h;
+        this.f58119f.o(R.color.CAM_X0204);
+        this.f58119f.d(i);
+        this.f58116c.I(i);
+        this.f58115b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+        SkinManager.setBackgroundColor(this.f58117d, R.color.CAM_X0201);
+        this.f58118e.c(this.f58114a, i);
+        ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.f58121h;
         if (forumEmotionVoteEntryView != null) {
             forumEmotionVoteEntryView.b(i);
         }
@@ -159,65 +159,65 @@ public class a {
         }
         g();
         if (forumEmotionData.banner != null) {
-            this.f56714g.c().setVisibility(0);
-            this.f56714g.f(this.f56708a.getUniqueId());
-            this.f56714g.e(new c(forumEmotionData.banner));
-            this.f56714g.g();
+            this.f58120g.c().setVisibility(0);
+            this.f58120g.f(this.f58114a.getUniqueId());
+            this.f58120g.e(new c(forumEmotionData.banner));
+            this.f58120g.g();
         }
         List<String> list = forumEmotionData.forum_avatar;
         if (list != null) {
-            this.f56715h.setAvatarList(list);
+            this.f58121h.setAvatarList(list);
         }
     }
 
     public void n(f.g gVar) {
-        this.f56710c.b(gVar);
+        this.f58116c.b(gVar);
     }
 
     public void o(BdListView.p pVar) {
-        this.f56709b.setOnSrollToBottomListener(pVar);
+        this.f58115b.setOnSrollToBottomListener(pVar);
     }
 
     public void p() {
-        PbListView pbListView = this.f56713f;
+        PbListView pbListView = this.f58119f;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f56709b.setNextPage(this.f56713f);
+                this.f58115b.setNextPage(this.f58119f);
             }
-            this.f56713f.M();
-            this.f56713f.O();
+            this.f58119f.M();
+            this.f58119f.O();
         }
     }
 
     public void q() {
-        TbPageContext tbPageContext = this.f56708a;
-        if (tbPageContext == null || this.f56711d == null) {
+        TbPageContext tbPageContext = this.f58114a;
+        if (tbPageContext == null || this.f58117d == null) {
             return;
         }
         d.b.h0.d0.g gVar = new d.b.h0.d0.g(tbPageContext.getPageActivity());
         this.i = gVar;
-        gVar.attachView(this.f56711d, false);
+        gVar.attachView(this.f58117d, false);
         this.i.onChangeSkinType();
     }
 
     public void r() {
         if (this.j == null) {
-            this.j = NoDataViewFactory.b(this.f56708a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f56708a.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f56708a.getString(R.string.emotion_error_net_tip)), null, true);
+            this.j = NoDataViewFactory.b(this.f58114a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f58114a.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f58114a.getString(R.string.emotion_error_net_tip)), null, true);
         }
         this.j.setVisibility(0);
-        this.f56714g.c().setVisibility(4);
-        this.f56715h.setVisibility(4);
-        this.j.f(this.f56708a, TbadkCoreApplication.getInst().getSkinType());
+        this.f58120g.c().setVisibility(4);
+        this.f58121h.setVisibility(4);
+        this.j.f(this.f58114a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void s() {
-        PbListView pbListView = this.f56713f;
+        PbListView pbListView = this.f58119f;
         if (pbListView != null) {
             if (pbListView.b().getParent() == null) {
-                this.f56709b.setNextPage(this.f56713f);
+                this.f58115b.setNextPage(this.f58119f);
             }
-            this.f56713f.A(this.f56708a.getResources().getString(R.string.list_no_more));
-            this.f56713f.f();
+            this.f58119f.A(this.f58114a.getResources().getString(R.string.list_no_more));
+            this.f58119f.f();
         }
     }
 }

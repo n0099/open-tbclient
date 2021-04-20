@@ -1,26 +1,26 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28123a = true;
+    public boolean f27808a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28124b = true;
+    public boolean f27809b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28125c = true;
+    public boolean f27810c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28126d = true;
+    public boolean f27811d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28127e = true;
+    public boolean f27812e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28128f = true;
+    public boolean f27813f = true;
 
     public String toString() {
-        return "ClickArea{clickUpperContentArea=" + this.f28123a + ", clickUpperNonContentArea=" + this.f28124b + ", clickLowerContentArea=" + this.f28125c + ", clickLowerNonContentArea=" + this.f28126d + ", clickButtonArea=" + this.f28127e + ", clickVideoArea=" + this.f28128f + '}';
+        return "ClickArea{clickUpperContentArea=" + this.f27808a + ", clickUpperNonContentArea=" + this.f27809b + ", clickLowerContentArea=" + this.f27810c + ", clickLowerNonContentArea=" + this.f27811d + ", clickButtonArea=" + this.f27812e + ", clickVideoArea=" + this.f27813f + '}';
     }
 }

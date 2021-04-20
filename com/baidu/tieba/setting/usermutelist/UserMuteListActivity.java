@@ -18,20 +18,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.usermutelist.UserMuteQueryModel;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.s.a;
-import d.b.i0.u2.f.a;
+import d.b.i0.v2.f.a;
 import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public static final BdUniqueId MESSAGE_ID_USER_MUTE_LIST = BdUniqueId.gen();
     public String delUserId;
-    public d.b.i0.u2.f.a mAdapter;
-    public d.b.b.a.f mCtx;
+    public d.b.i0.v2.f.a mAdapter;
+    public d.b.c.a.f mCtx;
     public d.b.h0.r.f0.c mToastMute;
     public UserMuteQueryModel mUserMuteQueryModel;
-    public d.b.i0.u2.f.b mView;
+    public d.b.i0.v2.f.b mView;
     public d.b.h0.r.f0.a mWaitingDialog;
     public ArrayList<MuteUser> mData = new ArrayList<>();
     public boolean isNeedRefresh = false;
@@ -44,7 +44,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public a.e mRemoveClickHandler = new f();
     public a.d mHeaderClickHandler = new g();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.e {
         public a() {
         }
@@ -55,7 +55,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements UserMuteQueryModel.b {
         public b() {
         }
@@ -78,7 +78,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -104,7 +104,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public d(int i) {
             super(i);
@@ -117,7 +117,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
         public e(int i) {
             super(i);
@@ -145,14 +145,14 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements a.e {
         public f() {
         }
 
-        @Override // d.b.i0.u2.f.a.e
+        @Override // d.b.i0.v2.f.a.e
         public void a(long j, String str) {
-            if (!d.b.b.e.p.j.z()) {
+            if (!d.b.c.e.p.j.z()) {
                 UserMuteListActivity.this.showToast(R.string.neterror);
                 return;
             }
@@ -166,12 +166,12 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g implements a.d {
         public g() {
         }
 
-        @Override // d.b.i0.u2.f.a.d
+        @Override // d.b.i0.v2.f.a.d
         public void a(long j, String str) {
             UserMuteListActivity userMuteListActivity = UserMuteListActivity.this;
             Activity pageActivity = UserMuteListActivity.this.getPageContext().getPageActivity();
@@ -179,7 +179,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class h implements AbsListView.OnScrollListener {
         public h() {
         }
@@ -191,12 +191,12 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             if (absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                UserMuteListActivity.this.mUserMuteQueryModel.u(d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), UserMuteListActivity.this.page, UserMuteListActivity.this.rN);
+                UserMuteListActivity.this.mUserMuteQueryModel.u(d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), UserMuteListActivity.this.page, UserMuteListActivity.this.rN);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class i implements DialogInterface.OnCancelListener {
         public i() {
         }
@@ -210,20 +210,20 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class j implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f21098e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f20783e;
 
         public j(UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-            this.f21098e = userMuteAddAndDelCustomMessage;
+            this.f20783e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // d.b.h0.r.s.a.e
         public void onClick(d.b.h0.r.s.a aVar) {
             UserMuteListActivity.this.showLoadingDialog();
-            MessageManager.getInstance().sendMessage(this.f21098e);
+            MessageManager.getInstance().sendMessage(this.f20783e);
             aVar.dismiss();
         }
     }
@@ -236,7 +236,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog() {
-        if (!d.b.b.e.p.j.z()) {
+        if (!d.b.c.e.p.j.z()) {
             this.mView.h();
             return;
         }
@@ -269,20 +269,20 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mAdapter = new d.b.i0.u2.f.a(this, this.mRemoveClickHandler, this.mHeaderClickHandler);
+        this.mAdapter = new d.b.i0.v2.f.a(this, this.mRemoveClickHandler, this.mHeaderClickHandler);
         this.mUserMuteQueryModel = new UserMuteQueryModel(this.mCallback);
-        d.b.i0.u2.f.b bVar = new d.b.i0.u2.f.b(this, this.mAdapter);
+        d.b.i0.v2.f.b bVar = new d.b.i0.v2.f.b(this, this.mAdapter);
         this.mView = bVar;
         bVar.e().setAdapter((ListAdapter) this.mAdapter);
         this.mView.e().setOnScrollListener(new h());
         showLoadingDialog();
         registerListener(this.mRemoveItemListener);
         registerListener(this.mNeedRefreshListener);
-        this.mUserMuteQueryModel.t(d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
+        this.mUserMuteQueryModel.t(d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
         this.mCtx = getPageContext();
         d.b.h0.r.f0.c cVar = new d.b.h0.r.f0.c();
         this.mToastMute = cVar;
-        cVar.f50484a = 1000L;
+        cVar.f50891a = 1000L;
         registerListener(this.mUserMuteDelListener);
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
         BdUniqueId bdUniqueId = MESSAGE_ID_USER_MUTE_LIST;
@@ -306,7 +306,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         if (this.isNeedRefresh) {
             this.isNeedRefresh = false;
             showLoadingDialog();
-            this.mUserMuteQueryModel.t(d.b.b.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
+            this.mUserMuteQueryModel.t(d.b.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
     }
 }

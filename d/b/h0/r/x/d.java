@@ -10,10 +10,10 @@ import java.lang.reflect.Field;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f51070a = {"com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.advert.sdk.AdvertSDKStatic", "com.baidu.tieba.funad.FunAdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.flutter.FlutterStatic"};
+    public static String[] f51480a = {"com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.advert.sdk.AdvertSDKStatic", "com.baidu.tieba.funad.FunAdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.flutter.FlutterStatic"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f51071b;
+    public static boolean f51481b;
 
     public static void a() {
         try {
@@ -30,12 +30,12 @@ public class d {
                 e2.printStackTrace();
             }
             Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
-            if (d.b.h0.r.d0.b.i().j("static_opt_open", 0) <= 0) {
+            if (d.b.h0.r.d0.b.j().k("static_opt_open", 0) <= 0) {
                 z = false;
             }
-            f51071b = z;
+            f51481b = z;
             long currentTimeMillis = System.currentTimeMillis();
-            if (f51071b) {
+            if (f51481b) {
                 if (b()) {
                     MultiDexHelper.loadClass(BdBaseApplication.getInst());
                 } else {
@@ -56,10 +56,10 @@ public class d {
     public static boolean b() {
         String[] strArr;
         try {
-            if (f51070a.length <= 0) {
+            if (f51480a.length <= 0) {
                 return false;
             }
-            for (String str : f51070a) {
+            for (String str : f51480a) {
                 long currentTimeMillis = System.currentTimeMillis();
                 Class.forName(str);
                 Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.FileUtils;
+import com.baidu.android.util.io.PathUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -25,26 +26,26 @@ public class a extends a0 {
 
     /* renamed from: d.b.g0.a.b1.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0612a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
+    public class C0624a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43529e;
+        public final /* synthetic */ CallbackHandler f43921e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43530f;
+        public final /* synthetic */ String f43922f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f43531g;
+        public final /* synthetic */ Context f43923g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f43532h;
+        public final /* synthetic */ File f43924h;
         public final /* synthetic */ UnitedSchemeEntity i;
 
-        public C0612a(CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f43529e = callbackHandler;
-            this.f43530f = str;
-            this.f43531g = context;
-            this.f43532h = file;
+        public C0624a(CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
+            this.f43921e = callbackHandler;
+            this.f43922f = str;
+            this.f43923g = context;
+            this.f43924h = file;
             this.i = unitedSchemeEntity;
         }
 
@@ -53,9 +54,9 @@ public class a extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                a.this.u(this.f43531g, this.f43532h, this.i, this.f43529e, this.f43530f);
+                a.this.u(this.f43923g, this.f43924h, this.i, this.f43921e, this.f43922f);
             } else {
-                d.b.g0.a.v1.c.c.o(hVar, this.f43529e, this.f43530f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f43921e, this.f43922f);
             }
         }
     }
@@ -64,39 +65,39 @@ public class a extends a0 {
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f43533a;
+        public final /* synthetic */ Context f43925a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f43534b;
+        public final /* synthetic */ File f43926b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43535c;
+        public final /* synthetic */ CallbackHandler f43927c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f43536d;
+        public final /* synthetic */ String f43928d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43537e;
+        public final /* synthetic */ UnitedSchemeEntity f43929e;
 
         public b(Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f43533a = context;
-            this.f43534b = file;
-            this.f43535c = callbackHandler;
-            this.f43536d = str;
-            this.f43537e = unitedSchemeEntity;
+            this.f43925a = context;
+            this.f43926b = file;
+            this.f43927c = callbackHandler;
+            this.f43928d = str;
+            this.f43929e = unitedSchemeEntity;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", str + "");
             }
-            a.this.x(this.f43533a, this.f43534b, this.f43535c, this.f43536d);
+            a.this.x(this.f43925a, this.f43926b, this.f43927c, this.f43928d);
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            UnitedSchemeUtility.safeCallback(this.f43535c, this.f43537e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f43536d);
+            UnitedSchemeUtility.safeCallback(this.f43927c, this.f43929e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f43928d);
         }
     }
 
@@ -104,18 +105,18 @@ public class a extends a0 {
     public class c implements h.n.b<File> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43539e;
+        public final /* synthetic */ CallbackHandler f43931e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43540f;
+        public final /* synthetic */ String f43932f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f43541g;
+        public final /* synthetic */ Context f43933g;
 
         public c(CallbackHandler callbackHandler, String str, Context context) {
-            this.f43539e = callbackHandler;
-            this.f43540f = str;
-            this.f43541g = context;
+            this.f43931e = callbackHandler;
+            this.f43932f = str;
+            this.f43933g = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,16 +124,16 @@ public class a extends a0 {
         /* renamed from: a */
         public void call(File file) {
             if (file == null) {
-                this.f43539e.handleSchemeDispatchCallback(this.f43540f, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
+                this.f43931e.handleSchemeDispatchCallback(this.f43932f, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
                 return;
             }
             Uri fromFile = Uri.fromFile(file);
-            a.this.w(this.f43541g, file.getPath(), -1L);
-            this.f43541g.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
-            if (a0.f46288b) {
+            a.this.w(this.f43933g, file.getPath(), -1L);
+            this.f43933g.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
+            if (a0.f46680b) {
                 Log.i("SaveVideoAction", "saveToAlbum : file = " + file);
             }
-            this.f43539e.handleSchemeDispatchCallback(this.f43540f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f43931e.handleSchemeDispatchCallback(this.f43932f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
@@ -140,10 +141,10 @@ public class a extends a0 {
     public class d implements h.n.f<File, File> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f43543e;
+        public final /* synthetic */ Context f43935e;
 
         public d(Context context) {
-            this.f43543e = context;
+            this.f43935e = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,7 +155,7 @@ public class a extends a0 {
             if (TextUtils.isEmpty(h2) || !file.getPath().startsWith(h2)) {
                 return null;
             }
-            return a.this.q(this.f43543e, file);
+            return a.this.q(this.f43935e, file);
         }
     }
 
@@ -171,7 +172,7 @@ public class a extends a0 {
                 return file2;
             }
         }
-        File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "baidu" + File.separator + FileUtils.SEARCHBOX_FOLDER + File.separator + "Video");
+        File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + FileUtils.SEARCHBOX_FOLDER + File.separator + "Video");
         if (file3.exists() || file3.mkdirs()) {
             return file3;
         }
@@ -195,7 +196,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         } else if (eVar.Z()) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -210,7 +211,7 @@ public class a extends a0 {
             try {
                 File file = null;
                 if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                    String u = d.b.g0.a.a2.b.u(optString, eVar.f45740f);
+                    String u = d.b.g0.a.a2.b.u(optString, eVar.f46132f);
                     if (!TextUtils.isEmpty(u)) {
                         file = new File(u);
                     }
@@ -226,14 +227,14 @@ public class a extends a0 {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                         return false;
                     }
-                    eVar.R().g(context, "mapp_images", new C0612a(callbackHandler, optString2, context, file, unitedSchemeEntity));
+                    eVar.R().g(context, "mapp_images", new C0624a(callbackHandler, optString2, context, file, unitedSchemeEntity));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     return true;
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + file);
                 return false;
             } catch (Exception e2) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     e2.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);

@@ -4,15 +4,15 @@ import com.baidu.pyramid.annotation.Service;
 import d.b.g0.a.k;
 import d.b.g0.a.t1.k.w;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends j {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f46286b = k.f45051a;
+    public static final boolean f46678b = k.f45443a;
 
     @Override // d.b.g0.a.t1.j
     public void a() {
-        this.f46287a.clear();
+        this.f46679a.clear();
         b(new d.b.g0.a.y0.a(this));
         b(new d.b.g0.a.c0.d.d.a(this));
         b(new d.b.g0.a.c0.d.e.a(this));
@@ -28,7 +28,7 @@ public class i extends j {
         b(new d.b.g0.a.l0.g.c.i(this));
         b(new d.b.g0.a.l0.g.c.c(this));
         b(new d.b.g0.a.l0.g.c.h(this));
-        if (f46286b) {
+        if (f46678b) {
             b(new d.b.g0.a.t1.k.f(this));
             b(new d.b.g0.g.n.a.a(this));
             b(new d.b.g0.g.f.e(this));

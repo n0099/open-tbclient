@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 /* loaded from: classes3.dex */
-public class e extends d.b.b.c.f.c {
+public class e extends d.b.c.c.f.c {
     public e(int i) {
         super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.c.f.g
+    @Override // d.b.c.c.f.g
     /* renamed from: c */
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {

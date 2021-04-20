@@ -11,7 +11,7 @@ import com.baidu.swan.apps.res.ui.BdBaseImageView;
 public class SelectorImageView extends BdBaseImageView {
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f12738g = 255;
+    public static int f12399g = 255;
 
     /* loaded from: classes3.dex */
     public static class a implements View.OnTouchListener {
@@ -55,7 +55,7 @@ public class SelectorImageView extends BdBaseImageView {
                 setImageAlpha(76);
             } else if (action == 1 || action == 3) {
                 Log.d("ACTION_UP", "ACTION_UP");
-                setImageAlpha(f12738g);
+                setImageAlpha(f12399g);
             }
         }
         return super.onTouchEvent(motionEvent);
@@ -68,7 +68,7 @@ public class SelectorImageView extends BdBaseImageView {
         if (!z) {
             setImageAlpha(255);
         } else {
-            setImageAlpha(f12738g);
+            setImageAlpha(f12399g);
         }
     }
 

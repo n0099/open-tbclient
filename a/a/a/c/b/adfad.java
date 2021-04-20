@@ -15,31 +15,31 @@ import java.util.ArrayList;
 public class adfad implements a.a.a.c.a.ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f1408a;
+    public final String f1394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ac.bv f1409b;
+    public final ac.bv f1395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f1410c;
+    public volatile int f1396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile long f1411d;
+    public volatile long f1397d;
 
     public adfad(String str, ac.bv bvVar) {
-        this.f1408a = str;
-        this.f1409b = bvVar;
+        this.f1394a = str;
+        this.f1395b = bvVar;
     }
 
     public final void a() {
         HttpURLConnection httpURLConnection;
         Log.d("RtcDownSo", "execute connnection");
-        this.f1411d = System.currentTimeMillis();
+        this.f1397d = System.currentTimeMillis();
         try {
             HttpURLConnection httpURLConnection2 = null;
             try {
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.f1408a).openConnection();
+                    httpURLConnection = (HttpURLConnection) new URL(this.f1394a).openConnection();
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -87,21 +87,21 @@ public class adfad implements a.a.a.c.a.ac {
     public final void a(DownloadException downloadException) {
         switch (downloadException.getErrorCode()) {
             case 106:
-                synchronized (this.f1409b) {
-                    this.f1410c = 106;
-                    ((shuoy) this.f1409b).d();
+                synchronized (this.f1395b) {
+                    this.f1396c = 106;
+                    ((shuoy) this.f1395b).d();
                 }
                 return;
             case 107:
-                synchronized (this.f1409b) {
-                    this.f1410c = 107;
-                    ((shuoy) this.f1409b).b();
+                synchronized (this.f1395b) {
+                    this.f1396c = 107;
+                    ((shuoy) this.f1395b).b();
                 }
                 return;
             case 108:
-                synchronized (this.f1409b) {
-                    this.f1410c = 108;
-                    ((shuoy) this.f1409b).a(downloadException);
+                synchronized (this.f1395b) {
+                    this.f1396c = 108;
+                    ((shuoy) this.f1395b).a(downloadException);
                 }
                 return;
             default:
@@ -126,67 +126,67 @@ public class adfad implements a.a.a.c.a.ac {
         if (c()) {
             throw new DownloadException(106, "Connection Paused!");
         }
-        this.f1410c = 103;
+        this.f1396c = 103;
         long currentTimeMillis = System.currentTimeMillis();
-        long j = this.f1411d;
-        shuoy shuoyVar = (shuoy) this.f1409b;
+        long j = this.f1397d;
+        shuoy shuoyVar = (shuoy) this.f1395b;
         if (((adfad) shuoyVar.i).b()) {
             shuoyVar.b();
             return;
         }
-        shuoyVar.f1426g = 103;
-        ac acVar = shuoyVar.f1421b;
-        acVar.f1407b.s(currentTimeMillis - j);
-        acVar.f1407b.j(z);
-        acVar.f1407b.r(103);
-        acVar.f1406a.post(acVar.f1407b);
-        shuoyVar.f1427h.a(z);
-        shuoyVar.f1427h.f1414c = contentLength;
-        shuoyVar.f1426g = 104;
+        shuoyVar.f1412g = 103;
+        ac acVar = shuoyVar.f1407b;
+        acVar.f1393b.s(currentTimeMillis - j);
+        acVar.f1393b.j(z);
+        acVar.f1393b.r(103);
+        acVar.f1392a.post(acVar.f1393b);
+        shuoyVar.f1413h.a(z);
+        shuoyVar.f1413h.f1400c = contentLength;
+        shuoyVar.f1412g = 104;
         shuoyVar.j.clear();
         if (z) {
             ArrayList<lbvzx> arrayList = new ArrayList();
-            int a2 = shuoyVar.f1424e.a();
+            int a2 = shuoyVar.f1410e.a();
             int i = 0;
             int i2 = 0;
             while (i2 < a2) {
                 long j2 = contentLength / a2;
                 long j3 = j2 * i2;
-                arrayList.add(new lbvzx(i2, shuoyVar.f1423d, shuoyVar.f1420a.c(), j3, i2 == a2 + (-1) ? contentLength : (j2 + j3) - 1, 0L));
+                arrayList.add(new lbvzx(i2, shuoyVar.f1409d, shuoyVar.f1406a.c(), j3, i2 == a2 + (-1) ? contentLength : (j2 + j3) - 1, 0L));
                 i2++;
             }
             for (lbvzx lbvzxVar : arrayList) {
-                i = (int) (i + lbvzxVar.f1419d);
+                i = (int) (i + lbvzxVar.f1405d);
             }
-            shuoyVar.f1427h.a(i);
+            shuoyVar.f1413h.a(i);
             for (lbvzx lbvzxVar2 : arrayList) {
-                shuoyVar.j.add(new gasd(shuoyVar.f1427h, lbvzxVar2, shuoyVar));
+                shuoyVar.j.add(new gasd(shuoyVar.f1413h, lbvzxVar2, shuoyVar));
             }
         } else {
-            shuoyVar.j.add(new rwq(shuoyVar.f1427h, new lbvzx(0, shuoyVar.f1423d, shuoyVar.f1420a.c(), 0L, 0L, 0L), shuoyVar));
+            shuoyVar.j.add(new rwq(shuoyVar.f1413h, new lbvzx(0, shuoyVar.f1409d, shuoyVar.f1406a.c(), 0L, 0L, 0L), shuoyVar));
         }
         for (a.a.a.c.a.bv bvVar : shuoyVar.j) {
-            shuoyVar.f1422c.execute(bvVar);
+            shuoyVar.f1408c.execute(bvVar);
         }
     }
 
     public boolean b() {
-        return this.f1410c == 107;
+        return this.f1396c == 107;
     }
 
     public boolean c() {
-        return this.f1410c == 106;
+        return this.f1396c == 106;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
-        this.f1410c = 102;
-        shuoy shuoyVar = (shuoy) this.f1409b;
-        shuoyVar.f1426g = 102;
-        ac acVar = shuoyVar.f1421b;
-        acVar.f1407b.r(102);
-        acVar.f1406a.post(acVar.f1407b);
+        this.f1396c = 102;
+        shuoy shuoyVar = (shuoy) this.f1395b;
+        shuoyVar.f1412g = 102;
+        ac acVar = shuoyVar.f1407b;
+        acVar.f1393b.r(102);
+        acVar.f1392a.post(acVar.f1393b);
         try {
             a();
         } catch (DownloadException e2) {

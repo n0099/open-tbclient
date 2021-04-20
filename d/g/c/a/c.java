@@ -1,16 +1,19 @@
 package d.g.c.a;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.FIELD, ElementType.METHOD})
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
+import java.nio.charset.Charset;
+import org.apache.commons.base.CharEncoding;
 /* loaded from: classes6.dex */
-public @interface c {
-    String[] alternate() default {};
+public final class c {
 
-    String value();
+    /* renamed from: a  reason: collision with root package name */
+    public static final Charset f66938a;
+
+    static {
+        Charset.forName("US-ASCII");
+        Charset.forName("ISO-8859-1");
+        f66938a = Charset.forName("UTF-8");
+        Charset.forName(CharEncoding.UTF_16BE);
+        Charset.forName(CharEncoding.UTF_16LE);
+        Charset.forName("UTF-16");
+    }
 }

@@ -18,29 +18,29 @@ import h.d;
 import h.n.f;
 import org.json.JSONObject;
 import rx.schedulers.Schedulers;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46382e;
+        public final /* synthetic */ CallbackHandler f46774e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46383f;
+        public final /* synthetic */ String f46775f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46384g;
+        public final /* synthetic */ UnitedSchemeEntity f46776g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46385h;
+        public final /* synthetic */ String f46777h;
 
         public a(CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity, String str2) {
-            this.f46382e = callbackHandler;
-            this.f46383f = str;
-            this.f46384g = unitedSchemeEntity;
-            this.f46385h = str2;
+            this.f46774e = callbackHandler;
+            this.f46775f = str;
+            this.f46776g = unitedSchemeEntity;
+            this.f46777h = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,35 +48,35 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                b.this.m(this.f46384g, this.f46382e, this.f46385h, this.f46383f);
+                b.this.m(this.f46776g, this.f46774e, this.f46777h, this.f46775f);
             } else {
-                d.b.g0.a.v1.c.c.o(hVar, this.f46382e, this.f46383f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f46774e, this.f46775f);
             }
         }
     }
 
     /* renamed from: d.b.g0.a.t1.k.h0.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0837b implements h.n.b<Boolean> {
+    /* loaded from: classes3.dex */
+    public class C0849b implements h.n.b<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46386e;
+        public final /* synthetic */ String f46778e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.C0708b f46387f;
+        public final /* synthetic */ b.C0720b f46779f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46388g;
+        public final /* synthetic */ CallbackHandler f46780g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46389h;
+        public final /* synthetic */ UnitedSchemeEntity f46781h;
         public final /* synthetic */ String i;
 
-        public C0837b(b bVar, String str, b.C0708b c0708b, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str2) {
-            this.f46386e = str;
-            this.f46387f = c0708b;
-            this.f46388g = callbackHandler;
-            this.f46389h = unitedSchemeEntity;
+        public C0849b(b bVar, String str, b.C0720b c0720b, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str2) {
+            this.f46778e = str;
+            this.f46779f = c0720b;
+            this.f46780g = callbackHandler;
+            this.f46781h = unitedSchemeEntity;
             this.i = str2;
         }
 
@@ -87,41 +87,41 @@ public class b extends a0 {
             e y;
             d.b.g0.a.n1.c.e.a q;
             if (bool.booleanValue()) {
-                if (!TextUtils.isEmpty(this.f46386e) && (y = e.y()) != null && (q = y.q()) != null) {
-                    SwanAppDeleteInfo swanAppDeleteInfo = new SwanAppDeleteInfo(this.f46386e);
-                    swanAppDeleteInfo.b(d.b.g0.a.j0.j.c.l(this.f46387f).c());
+                if (!TextUtils.isEmpty(this.f46778e) && (y = e.y()) != null && (q = y.q()) != null) {
+                    SwanAppDeleteInfo swanAppDeleteInfo = new SwanAppDeleteInfo(this.f46778e);
+                    swanAppDeleteInfo.b(d.b.g0.a.j0.j.c.l(this.f46779f).c());
                     q.M(8, swanAppDeleteInfo);
                 }
                 d.b.g0.a.c0.c.g("history", "remove success");
-                if (a0.f46288b) {
-                    Log.d("SwanAppAction", "RMSwanHistory --- success & appid : " + this.f46386e);
+                if (a0.f46680b) {
+                    Log.d("SwanAppAction", "RMSwanHistory --- success & appid : " + this.f46778e);
                 }
-                UnitedSchemeUtility.safeCallback(this.f46388g, this.f46389h, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.i);
+                UnitedSchemeUtility.safeCallback(this.f46780g, this.f46781h, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.i);
                 return;
             }
             d.b.g0.a.c0.c.l("history", "execute fail --- no match app id");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "RMSwanHistory --- no match app id");
             }
-            UnitedSchemeUtility.safeCallback(this.f46388g, this.f46389h, UnitedSchemeUtility.wrapCallbackParams(1001, "no match app id").toString(), this.i);
+            UnitedSchemeUtility.safeCallback(this.f46780g, this.f46781h, UnitedSchemeUtility.wrapCallbackParams(1001, "no match app id").toString(), this.i);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements f<String, Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.C0708b f46390e;
+        public final /* synthetic */ b.C0720b f46782e;
 
-        public c(b bVar, b.C0708b c0708b) {
-            this.f46390e = c0708b;
+        public c(b bVar, b.C0720b c0720b) {
+            this.f46782e = c0720b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.f
         /* renamed from: a */
         public Boolean call(String str) {
-            return Boolean.valueOf(d.b.g0.a.g0.d.b.g(AppRuntime.getAppContext().getContentResolver(), str, false, this.f46390e));
+            return Boolean.valueOf(d.b.g0.a.g0.d.b.g(AppRuntime.getAppContext().getContentResolver(), str, false, this.f46782e));
         }
     }
 
@@ -133,7 +133,7 @@ public class b extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (eVar == null) {
             d.b.g0.a.c0.c.b("history", "none swanApp");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "RMSwanHistory --- empty swanApp");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty swanApp");
@@ -142,7 +142,7 @@ public class b extends a0 {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
             d.b.g0.a.c0.c.b("history", "empty joParams");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "RMSwanHistory --- empty joParams");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
@@ -151,7 +151,7 @@ public class b extends a0 {
         String optString = optParamsAsJo.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             d.b.g0.a.c0.c.b("history", "empty cb");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "RMSwanHistory --- empty cb");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty cb");
@@ -160,7 +160,7 @@ public class b extends a0 {
         String optString2 = optParamsAsJo.optString("appid");
         if (TextUtils.isEmpty(optString2)) {
             d.b.g0.a.c0.c.b("history", "empty appId");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", "RMSwanHistory --- empty appId");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty appId");
@@ -175,7 +175,7 @@ public class b extends a0 {
         d.b.g0.a.c0.c.g("history", "start remove history");
         d.b.g0.a.j0.j.c k = d.b.g0.a.j0.j.c.k();
         k.m(4);
-        b.C0708b j = k.j();
-        d.j(str).F(Schedulers.io()).l(new c(this, j)).p(h.l.b.a.b()).D(new C0837b(this, str, j, callbackHandler, unitedSchemeEntity, str2));
+        b.C0720b j = k.j();
+        d.j(str).F(Schedulers.io()).l(new c(this, j)).p(h.l.b.a.b()).D(new C0849b(this, str, j, callbackHandler, unitedSchemeEntity, str2));
     }
 }

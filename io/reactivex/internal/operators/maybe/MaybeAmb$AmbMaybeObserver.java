@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.a.i;
-import f.a.t.a;
-import f.a.t.b;
+import f.b.i;
+import f.b.t.a;
+import f.b.t.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class MaybeAmb$AmbMaybeObserver<T> extends AtomicBoolean implements i<T>, b {
@@ -14,19 +14,19 @@ public final class MaybeAmb$AmbMaybeObserver<T> extends AtomicBoolean implements
         this.actual = iVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         if (compareAndSet(false, true)) {
             this.set.dispose();
         }
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return get();
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onComplete() {
         if (compareAndSet(false, true)) {
             this.set.dispose();
@@ -34,22 +34,22 @@ public final class MaybeAmb$AmbMaybeObserver<T> extends AtomicBoolean implements
         }
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onError(Throwable th) {
         if (compareAndSet(false, true)) {
             this.set.dispose();
             this.actual.onError(th);
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSubscribe(b bVar) {
         this.set.b(bVar);
     }
 
-    @Override // f.a.i
+    @Override // f.b.i
     public void onSuccess(T t) {
         if (compareAndSet(false, true)) {
             this.set.dispose();

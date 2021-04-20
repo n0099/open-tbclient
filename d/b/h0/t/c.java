@@ -1,33 +1,28 @@
 package d.b.h0.t;
 
 import org.json.JSONObject;
-import tbclient.BusinessAccountInfo;
+import tbclient.TailInfo;
 /* loaded from: classes3.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f51456a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f51457b;
-
     public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
+        try {
+            jSONObject.optString("icon_url");
+            jSONObject.optString("icon_link");
+            jSONObject.optString("content");
+            jSONObject.optInt("tail_type");
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        this.f51456a = jSONObject.optInt("is_business_account") == 1;
-        this.f51457b = jSONObject.optInt("is_forum_business_account") == 1;
-        jSONObject.optString("business_name");
-        jSONObject.optString("identifi_explain");
     }
 
-    public void b(BusinessAccountInfo businessAccountInfo) {
-        if (businessAccountInfo == null) {
-            return;
+    public void b(TailInfo tailInfo) {
+        try {
+            String str = tailInfo.icon_url;
+            String str2 = tailInfo.icon_link;
+            String str3 = tailInfo.content;
+            tailInfo.tail_type.intValue();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        this.f51456a = businessAccountInfo.is_business_account.intValue() == 1;
-        this.f51457b = businessAccountInfo.is_forum_business_account.intValue() == 1;
-        String str = businessAccountInfo.business_name;
-        String str2 = businessAccountInfo.identifi_explain;
     }
 }

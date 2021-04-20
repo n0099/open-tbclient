@@ -8,10 +8,10 @@ import java.util.TimerTask;
 public final class bd extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bc f23080a;
+    public final /* synthetic */ bc f22765a;
 
     public bd(bc bcVar) {
-        this.f23080a = bcVar;
+        this.f22765a = bcVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -21,11 +21,11 @@ public final class bd extends TimerTask {
         Timer timer2;
         Message message = new Message();
         message.what = 3;
-        handler = this.f23080a.f23079a.r;
+        handler = this.f22765a.f22764a.r;
         handler.sendMessage(message);
-        timer = this.f23080a.f23079a.q;
+        timer = this.f22765a.f22764a.q;
         timer.cancel();
-        timer2 = this.f23080a.f23079a.q;
+        timer2 = this.f22765a.f22764a.q;
         timer2.purge();
     }
 }

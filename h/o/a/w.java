@@ -1,90 +1,185 @@
 package h.o.a;
 
+import h.d;
 import h.g;
-import h.h;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 /* loaded from: classes7.dex */
-public final class w<T> implements h.d<T> {
+public class w<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<T> f67830e;
+    public final a<T> f68832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f67831f;
+    public final b<T> f68833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TimeUnit f67832g;
+    public final h.d<? extends T> f68834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.g f67833h;
+    public final h.g f68835h;
 
     /* loaded from: classes7.dex */
-    public static final class a<T> extends h.i<T> implements h.n.a {
+    public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b<T> extends h.n.i<c<T>, Long, T, g.a, h.k> {
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c<T> extends h.j<T> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final h.u.d f68836e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.i<? super T> f67834f;
+        public final h.q.e<T> f68837f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f67835g;
+        public final b<T> f68838g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f67836h;
-        public final TimeUnit i;
-        public T j;
-        public Throwable k;
+        public final h.d<? extends T> f68839h;
+        public final g.a i;
+        public final h.o.b.a j = new h.o.b.a();
+        public boolean k;
+        public long l;
 
-        public a(h.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
-            this.f67834f = iVar;
-            this.f67835g = aVar;
-            this.f67836h = j;
-            this.i = timeUnit;
-        }
-
-        @Override // h.i
-        public void b(Throwable th) {
-            this.k = th;
-            this.f67835g.c(this, this.f67836h, this.i);
-        }
-
-        @Override // h.i
-        public void c(T t) {
-            this.j = t;
-            this.f67835g.c(this, this.f67836h, this.i);
-        }
-
-        @Override // h.n.a
-        public void call() {
-            try {
-                Throwable th = this.k;
-                if (th != null) {
-                    this.k = null;
-                    this.f67834f.b(th);
-                } else {
-                    T t = this.j;
-                    this.j = null;
-                    this.f67834f.c(t);
-                }
-            } finally {
-                this.f67835g.unsubscribe();
+        /* loaded from: classes7.dex */
+        public class a extends h.j<T> {
+            public a() {
             }
+
+            @Override // h.e
+            public void onCompleted() {
+                c.this.f68837f.onCompleted();
+            }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                c.this.f68837f.onError(th);
+            }
+
+            @Override // h.e
+            public void onNext(T t) {
+                c.this.f68837f.onNext(t);
+            }
+
+            @Override // h.j
+            public void setProducer(h.f fVar) {
+                c.this.j.c(fVar);
+            }
+        }
+
+        public c(h.q.e<T> eVar, b<T> bVar, h.u.d dVar, h.d<? extends T> dVar2, g.a aVar) {
+            this.f68837f = eVar;
+            this.f68838g = bVar;
+            this.f68836e = dVar;
+            this.f68839h = dVar2;
+            this.i = aVar;
+        }
+
+        public void b(long j) {
+            boolean z;
+            synchronized (this) {
+                z = true;
+                if (j != this.l || this.k) {
+                    z = false;
+                } else {
+                    this.k = true;
+                }
+            }
+            if (z) {
+                if (this.f68839h == null) {
+                    this.f68837f.onError(new TimeoutException());
+                    return;
+                }
+                a aVar = new a();
+                this.f68839h.L(aVar);
+                this.f68836e.a(aVar);
+            }
+        }
+
+        @Override // h.e
+        public void onCompleted() {
+            boolean z;
+            synchronized (this) {
+                z = true;
+                if (this.k) {
+                    z = false;
+                } else {
+                    this.k = true;
+                }
+            }
+            if (z) {
+                this.f68836e.unsubscribe();
+                this.f68837f.onCompleted();
+            }
+        }
+
+        @Override // h.e
+        public void onError(Throwable th) {
+            boolean z;
+            synchronized (this) {
+                z = true;
+                if (this.k) {
+                    z = false;
+                } else {
+                    this.k = true;
+                }
+            }
+            if (z) {
+                this.f68836e.unsubscribe();
+                this.f68837f.onError(th);
+            }
+        }
+
+        @Override // h.e
+        public void onNext(T t) {
+            long j;
+            boolean z;
+            synchronized (this) {
+                if (!this.k) {
+                    j = this.l + 1;
+                    this.l = j;
+                    z = true;
+                } else {
+                    j = this.l;
+                    z = false;
+                }
+            }
+            if (z) {
+                this.f68837f.onNext(t);
+                this.f68836e.a(this.f68838g.a(this, Long.valueOf(j), t, this.i));
+            }
+        }
+
+        @Override // h.j
+        public void setProducer(h.f fVar) {
+            this.j.c(fVar);
         }
     }
 
-    public w(h.d<T> dVar, long j, TimeUnit timeUnit, h.g gVar) {
-        this.f67830e = dVar;
-        this.f67833h = gVar;
-        this.f67831f = j;
-        this.f67832g = timeUnit;
+    public w(a<T> aVar, b<T> bVar, h.d<? extends T> dVar, h.g gVar) {
+        this.f68832e = aVar;
+        this.f68833f = bVar;
+        this.f68834g = dVar;
+        this.f68835h = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // h.n.b
+    @Override // h.n.f
     /* renamed from: a */
-    public void call(h.i<? super T> iVar) {
-        g.a createWorker = this.f67833h.createWorker();
-        a aVar = new a(iVar, createWorker, this.f67831f, this.f67832g);
-        iVar.a(createWorker);
-        iVar.a(aVar);
-        this.f67830e.call(aVar);
+    public h.j<? super T> call(h.j<? super T> jVar) {
+        g.a createWorker = this.f68835h.createWorker();
+        jVar.add(createWorker);
+        h.q.e eVar = new h.q.e(jVar);
+        h.u.d dVar = new h.u.d();
+        eVar.add(dVar);
+        c cVar = new c(eVar, this.f68833f, dVar, this.f68834g, createWorker);
+        eVar.add(cVar);
+        eVar.setProducer(cVar.j);
+        dVar.a(this.f68832e.a(cVar, 0L, createWorker));
+        return cVar;
     }
 }

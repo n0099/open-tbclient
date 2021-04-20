@@ -32,7 +32,7 @@ public class o0 {
                 wire.parseFrom(bArr, cls);
             }
             if (bArr == null) {
-                byte[] bArr2 = (byte[]) d.b.b.e.b.a.a.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
+                byte[] bArr2 = (byte[]) d.b.c.e.b.a.a.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
                 wire.parseFrom(bArr2, cls);
                 d(file, bArr2);
             }
@@ -84,8 +84,8 @@ public class o0 {
                         BdLog.e(th.getMessage());
                         return bArr;
                     } finally {
-                        d.b.b.e.p.m.e(fileInputStream);
-                        d.b.b.e.p.m.f(byteArrayOutputStream);
+                        d.b.c.e.p.m.e(fileInputStream);
+                        d.b.c.e.p.m.f(byteArrayOutputStream);
                     }
                 }
             } catch (Throwable th2) {
@@ -112,26 +112,26 @@ public class o0 {
                 for (Field field : cls2.getDeclaredFields()) {
                     Class<?> type = field.getType();
                     if (type != null) {
-                        if (d.b.b.e.b.a.a.g(type, Message.class)) {
+                        if (d.b.c.e.b.a.a.g(type, Message.class)) {
                             Object c2 = c(type, hashSet);
                             if (c2 != null) {
-                                if (d.b.b.e.b.a.a.g(c2.getClass(), Message.class)) {
+                                if (d.b.c.e.b.a.a.g(c2.getClass(), Message.class)) {
                                     field.setAccessible(true);
                                     field.set(newInstance, c2);
                                 } else {
                                     BdLog.e("");
                                 }
                             }
-                        } else if (d.b.b.e.b.a.a.g(type, List.class)) {
+                        } else if (d.b.c.e.b.a.a.g(type, List.class)) {
                             Type genericType = field.getGenericType();
                             if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
                                 try {
                                     Class cls3 = (Class) actualTypeArguments[0];
-                                    if (d.b.b.e.b.a.a.g(cls3, Message.class)) {
+                                    if (d.b.c.e.b.a.a.g(cls3, Message.class)) {
                                         ArrayList arrayList = new ArrayList();
                                         Object c3 = c(cls3, hashSet);
                                         if (c3 != null) {
-                                            if (d.b.b.e.b.a.a.g(c3.getClass(), Message.class)) {
+                                            if (d.b.c.e.b.a.a.g(c3.getClass(), Message.class)) {
                                                 arrayList.add(c3);
                                             } else {
                                                 BdLog.e("");
@@ -166,7 +166,7 @@ public class o0 {
                     try {
                         fileOutputStream2.write(bArr, 0, bArr.length);
                         fileOutputStream2.flush();
-                        d.b.b.e.p.m.f(fileOutputStream2);
+                        d.b.c.e.p.m.f(fileOutputStream2);
                         return true;
                     } catch (Throwable th) {
                         th = th;
@@ -175,7 +175,7 @@ public class o0 {
                             BdLog.e(th.getMessage());
                             return false;
                         } finally {
-                            d.b.b.e.p.m.f(fileOutputStream);
+                            d.b.c.e.p.m.f(fileOutputStream);
                         }
                     }
                 }

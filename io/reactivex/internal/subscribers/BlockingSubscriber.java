@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscribers;
 
-import f.a.g;
+import f.b.g;
 import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.NotificationLite;
@@ -42,7 +42,7 @@ public final class BlockingSubscriber<T> extends AtomicReference<d> implements g
         this.queue.offer(NotificationLite.next(t));
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             this.queue.offer(NotificationLite.subscription(this));

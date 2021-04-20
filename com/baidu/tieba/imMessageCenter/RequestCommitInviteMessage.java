@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CommitInviteMsg.CommitInviteMsgReqIdl;
 import protobuf.CommitInviteMsg.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestCommitInviteMessage extends TbSocketMessage {
     public DataReq mReqData;
 

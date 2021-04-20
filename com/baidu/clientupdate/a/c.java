@@ -10,19 +10,19 @@ import org.json.JSONObject;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f4569a;
+    public final /* synthetic */ b f4604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CharSequence f4570b;
+    public final CharSequence f4605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f4571c;
+    public byte[] f4606c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
-        this.f4569a = bVar;
-        this.f4571c = null;
-        this.f4570b = charSequence;
-        this.f4571c = bArr;
+        this.f4604a = bVar;
+        this.f4606c = null;
+        this.f4605b = charSequence;
+        this.f4606c = bArr;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x00ee  */
@@ -40,16 +40,16 @@ public class c extends Thread {
         HttpURLConnection httpURLConnection2 = null;
         try {
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f4570b.toString()).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f4605b.toString()).openConnection();
                 try {
                     httpURLConnection.setConnectTimeout(5000);
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                    httpURLConnection.setRequestProperty("Content-Length", String.valueOf(this.f4571c.length));
+                    httpURLConnection.setRequestProperty("Content-Length", String.valueOf(this.f4606c.length));
                     OutputStream outputStream = httpURLConnection.getOutputStream();
-                    outputStream.write(this.f4571c, 0, this.f4571c.length);
+                    outputStream.write(this.f4606c, 0, this.f4606c.length);
                     outputStream.close();
                 } catch (Exception e3) {
                     e2 = e3;
@@ -89,17 +89,17 @@ public class c extends Thread {
             inputStream.close();
             LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
             if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                aVar2 = this.f4569a.f4568c;
+                aVar2 = this.f4604a.f4603c;
                 aVar2.c();
                 if (httpURLConnection == null) {
                     return;
                 }
                 httpURLConnection.disconnect();
             }
-            aVar = this.f4569a.f4568c;
+            aVar = this.f4604a.f4603c;
         } else {
             LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-            aVar = this.f4569a.f4568c;
+            aVar = this.f4604a.f4603c;
         }
         aVar.e();
         if (httpURLConnection == null) {

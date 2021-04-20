@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.alipay.sdk.data.a;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.Socket;
@@ -437,7 +436,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder connectTimeout(long j, TimeUnit timeUnit) {
-            this.connectTimeout = Util.checkDuration(a.i, j, timeUnit);
+            this.connectTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 
@@ -562,7 +561,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder readTimeout(long j, TimeUnit timeUnit) {
-            this.readTimeout = Util.checkDuration(a.i, j, timeUnit);
+            this.readTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 
@@ -594,7 +593,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder writeTimeout(long j, TimeUnit timeUnit) {
-            this.writeTimeout = Util.checkDuration(a.i, j, timeUnit);
+            this.writeTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 

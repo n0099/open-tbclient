@@ -6,7 +6,7 @@ import com.facebook.common.references.ResourceReleaser;
 import com.facebook.common.references.SharedReference;
 import com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker;
 import java.io.Closeable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CloseableReferenceFactory {
     public final CloseableReference.LeakHandler mLeakHandler;
 

@@ -45,15 +45,15 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
             for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                 if (presentGiftListByCategoryId1 != null) {
                     i0 i0Var = new i0();
-                    i0Var.f50809a = presentGiftListByCategoryId1.gift_id.intValue();
-                    i0Var.f50810b = presentGiftListByCategoryId1.gift_name;
-                    i0Var.f50811c = presentGiftListByCategoryId1.price.intValue();
-                    i0Var.f50812d = presentGiftListByCategoryId1.thumbnail_url;
+                    i0Var.f51216a = presentGiftListByCategoryId1.gift_id.intValue();
+                    i0Var.f51217b = presentGiftListByCategoryId1.gift_name;
+                    i0Var.f51218c = presentGiftListByCategoryId1.price.intValue();
+                    i0Var.f51219d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    i0Var.f50813e = presentGiftListByCategoryId1.gift_desc;
-                    i0Var.f50814f = presentGiftListByCategoryId1.activity_type.intValue();
-                    i0Var.f50815g = presentGiftListByCategoryId1.mark_url;
-                    i0Var.f50816h = presentGiftListByCategoryId1.begin_time.intValue();
+                    i0Var.f51220e = presentGiftListByCategoryId1.gift_desc;
+                    i0Var.f51221f = presentGiftListByCategoryId1.activity_type.intValue();
+                    i0Var.f51222g = presentGiftListByCategoryId1.mark_url;
+                    i0Var.f51223h = presentGiftListByCategoryId1.begin_time.intValue();
                     i0Var.i = presentGiftListByCategoryId1.end_time.intValue();
                     i0Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();

@@ -71,7 +71,7 @@ public class o extends b<d.b.i0.x.e0.n> {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1);
@@ -93,19 +93,19 @@ public class o extends b<d.b.i0.x.e0.n> {
             v(this.v, 2);
             v(this.w, 3);
         }
-        this.f62180e = i;
+        this.f63755e = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int d2 = d.b.b.e.m.b.d((String) view.getTag(), -1);
+        int d2 = d.b.c.e.m.b.d((String) view.getTag(), -1);
         d.b.i0.x.e0.n nVar = this.C;
-        if (nVar == null || ListUtils.getItem(nVar.f62224h, d2) == null) {
+        if (nVar == null || ListUtils.getItem(nVar.f63799h, d2) == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(this.D).param("obj_locate", String.valueOf(this.C.j)).param("obj_name", this.C.f62224h.get(d2).f62219b));
+        TiebaStatic.log(new StatisticItem(this.D).param("obj_locate", String.valueOf(this.C.j)).param("obj_name", this.C.f63799h.get(d2).f63794b));
         if (d2 >= 0 && !d.b.h0.p0.b.b(l())) {
-            l().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(l().getPageActivity()).createNormalConfig(String.valueOf(this.C.f62224h.get(d2).f62218a), this.C.f62224h.get(d2).f62219b, "")));
+            l().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(l().getPageActivity()).createNormalConfig(String.valueOf(this.C.f63799h.get(d2).f63793a), this.C.f63799h.get(d2).f63794b, "")));
         }
     }
 
@@ -136,10 +136,10 @@ public class o extends b<d.b.i0.x.e0.n> {
     public final void v(TextView textView, int i) {
         d.b.i0.x.e0.m mVar;
         d.b.i0.x.e0.n nVar = this.C;
-        if (nVar == null || ListUtils.getCount(nVar.f62224h) < 4 || (mVar = (d.b.i0.x.e0.m) ListUtils.getItem(this.C.f62224h, i)) == null) {
+        if (nVar == null || ListUtils.getCount(nVar.f63799h) < 4 || (mVar = (d.b.i0.x.e0.m) ListUtils.getItem(this.C.f63799h, i)) == null) {
             return;
         }
-        int i2 = mVar.f62220c;
+        int i2 = mVar.f63795c;
         if (i2 == 1) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_new), (Drawable) null);
         } else if (i2 == 2) {
@@ -154,14 +154,14 @@ public class o extends b<d.b.i0.x.e0.n> {
     @Override // d.b.i0.x.b
     /* renamed from: w */
     public void n(d.b.i0.x.e0.n nVar) {
-        if (nVar != null && !StringUtils.isNull(nVar.f62223g) && ListUtils.getCount(nVar.f62224h) >= 4) {
+        if (nVar != null && !StringUtils.isNull(nVar.f63798g) && ListUtils.getCount(nVar.f63799h) >= 4) {
             if (this.m.getVisibility() != 0) {
                 this.m.setVisibility(0);
             }
             this.C = nVar;
-            this.A.setVisibility(nVar.f62221e ? 0 : 8);
-            A(this.C.f62222f);
-            this.n.setText(this.C.f62223g.trim());
+            this.A.setVisibility(nVar.f63796e ? 0 : 8);
+            A(this.C.f63797f);
+            this.n.setText(this.C.f63798g.trim());
             z(this.t, 0);
             z(this.u, 1);
             z(this.v, 2);
@@ -186,10 +186,10 @@ public class o extends b<d.b.i0.x.e0.n> {
     }
 
     public final void z(TextView textView, int i) {
-        d.b.i0.x.e0.m mVar = this.C.f62224h.get(i);
-        if (StringUtils.isNull(mVar.f62219b)) {
+        d.b.i0.x.e0.m mVar = this.C.f63799h.get(i);
+        if (StringUtils.isNull(mVar.f63794b)) {
             return;
         }
-        textView.setText(mVar.f62219b.trim());
+        textView.setText(mVar.f63794b.trim());
     }
 }

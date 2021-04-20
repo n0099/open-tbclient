@@ -4,11 +4,11 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EllipsizeRichTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f19875e;
+    public SpannableStringBuilder f19560e;
 
     public EllipsizeRichTextView(Context context) {
         super(context);
@@ -16,7 +16,7 @@ public class EllipsizeRichTextView extends TextView {
     }
 
     public final void a() {
-        this.f19875e = new SpannableStringBuilder();
+        this.f19560e = new SpannableStringBuilder();
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -34,16 +34,16 @@ public class EllipsizeRichTextView extends TextView {
         if (text == null || text.length() <= lineVisibleEnd) {
             return;
         }
-        SpannableStringBuilder spannableStringBuilder = this.f19875e;
+        SpannableStringBuilder spannableStringBuilder = this.f19560e;
         if (spannableStringBuilder == null) {
             a();
         } else {
             spannableStringBuilder.clear();
         }
-        SpannableStringBuilder spannableStringBuilder2 = this.f19875e;
+        SpannableStringBuilder spannableStringBuilder2 = this.f19560e;
         if (spannableStringBuilder2 != null) {
             spannableStringBuilder2.append(text.subSequence(0, lineVisibleEnd));
-            setText(this.f19875e);
+            setText(this.f19560e);
         }
     }
 

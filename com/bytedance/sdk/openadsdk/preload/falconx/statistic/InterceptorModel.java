@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InterceptorModel {
     @c(a = "ac")
     public String ac;

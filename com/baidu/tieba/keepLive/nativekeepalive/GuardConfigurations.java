@@ -1,13 +1,13 @@
 package com.baidu.tieba.keepLive.nativekeepalive;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GuardConfigurations {
     public final DaemonConfiguration DAEMON_ASSISTANT_CONFIG;
     public final DaemonListener LISTENER;
     public final DaemonConfiguration PERSISTENT_CONFIG;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DaemonConfiguration {
         public final String PROCESS_NAME;
         public final String RECEIVER_NAME;
@@ -20,7 +20,7 @@ public class GuardConfigurations {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface DaemonListener {
         void onDaemonAssistantStart(Context context);
 

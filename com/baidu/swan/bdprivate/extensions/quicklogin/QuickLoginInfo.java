@@ -13,7 +13,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public int loginMode;
     public String serviceAgreement;
     public boolean supportQuickLogin;
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new a();
 
     /* loaded from: classes3.dex */

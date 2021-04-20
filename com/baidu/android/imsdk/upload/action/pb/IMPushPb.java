@@ -8036,7 +8036,7 @@ public final class IMPushPb {
         public int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        public Common f2528common;
+        public Common f2563common;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
         public MetaData metadata;
@@ -8050,7 +8050,7 @@ public final class IMPushPb {
             public MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            public Common f2529common = Common.getDefaultInstance();
+            public Common f2564common = Common.getDefaultInstance();
             public Object sdkName = "";
             public List<Action> actions = Collections.emptyList();
 
@@ -8094,7 +8094,7 @@ public final class IMPushPb {
             }
 
             public Builder clearCommon() {
-                this.f2529common = Common.getDefaultInstance();
+                this.f2564common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 return this;
             }
@@ -8134,7 +8134,7 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f2529common;
+                return this.f2564common;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8195,10 +8195,10 @@ public final class IMPushPb {
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f2529common != Common.getDefaultInstance()) {
-                    this.f2529common = Common.newBuilder(this.f2529common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f2564common != Common.getDefaultInstance()) {
+                    this.f2564common = Common.newBuilder(this.f2564common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f2529common = common2;
+                    this.f2564common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
@@ -8231,7 +8231,7 @@ public final class IMPushPb {
 
             public Builder setCommon(Common common2) {
                 if (common2 != null) {
-                    this.f2529common = common2;
+                    this.f2564common = common2;
                     this.bitField0 |= 2;
                     return this;
                 }
@@ -8291,7 +8291,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f2528common = this.f2529common;
+                pushImClient.f2563common = this.f2564common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -8315,7 +8315,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f2529common = Common.getDefaultInstance();
+                this.f2564common = Common.getDefaultInstance();
                 int i = this.bitField0 & (-3);
                 this.bitField0 = i;
                 this.sdkName = "";
@@ -8381,7 +8381,7 @@ public final class IMPushPb {
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f2529common = builder.build();
+                this.f2564common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
@@ -8459,7 +8459,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f2528common = Common.getDefaultInstance();
+            this.f2563common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -8502,7 +8502,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f2528common;
+            return this.f2563common;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8553,7 +8553,7 @@ public final class IMPushPb {
             }
             int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
             if ((this.bitField0 & 2) == 2) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2528common);
+                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2563common);
             }
             if ((this.bitField0 & 4) == 4) {
                 computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -8617,7 +8617,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f2528common);
+                codedOutputStream.writeMessage(41, this.f2563common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -8723,12 +8723,12 @@ public final class IMPushPb {
                                     }
                                     this.bitField0 |= 1;
                                 } else if (readTag == 330) {
-                                    builder = (this.bitField0 & 2) == 2 ? this.f2528common.toBuilder() : null;
+                                    builder = (this.bitField0 & 2) == 2 ? this.f2563common.toBuilder() : null;
                                     Common common2 = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
-                                    this.f2528common = common2;
+                                    this.f2563common = common2;
                                     if (builder != null) {
                                         builder.mergeFrom(common2);
-                                        this.f2528common = builder.buildPartial();
+                                        this.f2563common = builder.buildPartial();
                                     }
                                     this.bitField0 |= 2;
                                 } else if (readTag == 1042) {

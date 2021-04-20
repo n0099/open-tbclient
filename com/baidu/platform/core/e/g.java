@@ -5,17 +5,17 @@ import com.baidu.platform.base.SearchType;
 public /* synthetic */ class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f10423a;
+    public static final /* synthetic */ int[] f9981a;
 
     static {
         int[] iArr = new int[SearchType.values().length];
-        f10423a = iArr;
+        f9981a = iArr;
         try {
             iArr[SearchType.POI_DETAIL_SHARE.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f10423a[SearchType.LOCATION_SEARCH_SHARE.ordinal()] = 2;
+            f9981a[SearchType.LOCATION_SEARCH_SHARE.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
     }

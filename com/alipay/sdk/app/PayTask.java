@@ -16,7 +16,7 @@ import com.alipay.sdk.util.n;
 import com.baidu.android.lbspay.channelpay.alipay.Result;
 import com.baidu.android.lbspay.presenter.LBSTransAuthPresenter;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.facebook.cache.disk.DefaultDiskStorage;
@@ -34,83 +34,83 @@ import org.json.JSONObject;
 public class PayTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f1786a = com.alipay.sdk.util.e.class;
+    public static final Object f1811a = com.alipay.sdk.util.e.class;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f1787h = 0;
+    public static long f1812h = 0;
     public static final long i = 3000;
     public static long j = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f1788b;
+    public Activity f1813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f1789c;
+    public com.alipay.sdk.widget.a f1814c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1790d = "wappaygw.alipay.com/service/rest.htm";
+    public String f1815d = "wappaygw.alipay.com/service/rest.htm";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1791e = "mclient.alipay.com/service/rest.htm";
+    public String f1816e = "mclient.alipay.com/service/rest.htm";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1792f = "mclient.alipay.com/home/exterfaceAssign.htm";
+    public String f1817f = "mclient.alipay.com/home/exterfaceAssign.htm";
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, a> f1793g = new HashMap();
+    public Map<String, a> f1818g = new HashMap();
 
     /* loaded from: classes.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1795b;
+        public String f1820b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f1796c;
+        public String f1821c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f1797d;
+        public String f1822d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f1798e;
+        public String f1823e;
 
         public a() {
-            this.f1795b = "";
-            this.f1796c = "";
-            this.f1797d = "";
-            this.f1798e = "";
+            this.f1820b = "";
+            this.f1821c = "";
+            this.f1822d = "";
+            this.f1823e = "";
         }
 
         public String a() {
-            return this.f1795b;
+            return this.f1820b;
         }
 
         public String b() {
-            return this.f1797d;
+            return this.f1822d;
         }
 
         public String c() {
-            return this.f1796c;
+            return this.f1821c;
         }
 
         public String d() {
-            return this.f1798e;
+            return this.f1823e;
         }
 
         public void a(String str) {
-            this.f1795b = str;
+            this.f1820b = str;
         }
 
         public void b(String str) {
-            this.f1797d = str;
+            this.f1822d = str;
         }
 
         public void c(String str) {
-            this.f1796c = str;
+            this.f1821c = str;
         }
 
         public void d(String str) {
-            this.f1798e = str;
+            this.f1823e = str;
         }
 
         public /* synthetic */ a(PayTask payTask, g gVar) {
@@ -119,10 +119,10 @@ public class PayTask {
     }
 
     public PayTask(Activity activity) {
-        this.f1788b = activity;
-        com.alipay.sdk.sys.b.a().a(this.f1788b, com.alipay.sdk.data.c.b());
+        this.f1813b = activity;
+        com.alipay.sdk.sys.b.a().a(this.f1813b, com.alipay.sdk.data.c.b());
         com.alipay.sdk.app.statistic.a.a(activity);
-        this.f1789c = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2015b);
+        this.f1814c = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2040b);
     }
 
     public static final String a(String... strArr) {
@@ -147,9 +147,9 @@ public class PayTask {
         k kVar = null;
         try {
             try {
-                JSONObject c2 = new com.alipay.sdk.packet.impl.e().a(this.f1788b.getApplicationContext(), str).c();
+                JSONObject c2 = new com.alipay.sdk.packet.impl.e().a(this.f1813b.getApplicationContext(), str).c();
                 String optString = c2.optString("end_code", null);
-                List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(c2.optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f1862d));
+                List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(c2.optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f1887d));
                 for (int i2 = 0; i2 < a2.size(); i2++) {
                     if (a2.get(i2).b() == com.alipay.sdk.protocol.a.Update) {
                         com.alipay.sdk.protocol.b.a(a2.get(i2));
@@ -193,10 +193,10 @@ public class PayTask {
             try {
                 com.alipay.sdk.sys.b.a().a(context, com.alipay.sdk.data.c.b());
                 long elapsedRealtime = SystemClock.elapsedRealtime() / 1000;
-                if (elapsedRealtime - f1787h < com.alipay.sdk.data.a.g().e()) {
+                if (elapsedRealtime - f1812h < com.alipay.sdk.data.a.g().e()) {
                     return false;
                 }
-                f1787h = elapsedRealtime;
+                f1812h = elapsedRealtime;
                 com.alipay.sdk.data.a.g().a(context.getApplicationContext());
                 return true;
             } catch (Exception e2) {
@@ -207,21 +207,21 @@ public class PayTask {
     }
 
     public void dismissLoading() {
-        com.alipay.sdk.widget.a aVar = this.f1789c;
+        com.alipay.sdk.widget.a aVar = this.f1814c;
         if (aVar != null) {
             aVar.c();
-            this.f1789c = null;
+            this.f1814c = null;
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x00dc, code lost:
-        if (r9.startsWith("http://" + r16.f1791e) != false) goto L90;
+        if (r9.startsWith("http://" + r16.f1816e) != false) goto L90;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x0179, code lost:
-        if (r9.startsWith("http://" + r16.f1792f) != false) goto L81;
+        if (r9.startsWith("http://" + r16.f1817f) != false) goto L81;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x003f, code lost:
-        if (r9.startsWith("http://" + r16.f1790d) != false) goto L95;
+        if (r9.startsWith("http://" + r16.f1815d) != false) goto L95;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -230,25 +230,25 @@ public class PayTask {
         try {
             if (!TextUtils.isEmpty(str)) {
                 String trim = str.trim();
-                if (!trim.startsWith("https://" + this.f1790d)) {
+                if (!trim.startsWith("https://" + this.f1815d)) {
                 }
-                String trim2 = trim.replaceFirst("(http|https)://" + this.f1790d + "\\?", "").trim();
+                String trim2 = trim.replaceFirst("(http|https)://" + this.f1815d + "\\?", "").trim();
                 if (!TextUtils.isEmpty(trim2)) {
-                    return "_input_charset=\"utf-8\"&ordertoken=\"" + n.a("<request_token>", "</request_token>", n.b(trim2).get("req_data")) + "\"&pay_channel_id=\"alipay_sdk\"&bizcontext=\"" + new com.alipay.sdk.sys.a(this.f1788b).a(Config.STAT_SDK_CHANNEL, "h5tonative") + "\"";
+                    return "_input_charset=\"utf-8\"&ordertoken=\"" + n.a("<request_token>", "</request_token>", n.b(trim2).get("req_data")) + "\"&pay_channel_id=\"alipay_sdk\"&bizcontext=\"" + new com.alipay.sdk.sys.a(this.f1813b).a(Config.STAT_SDK_CHANNEL, "h5tonative") + "\"";
                 }
-                if (!trim.startsWith("https://" + this.f1791e)) {
+                if (!trim.startsWith("https://" + this.f1816e)) {
                 }
-                String trim3 = trim.replaceFirst("(http|https)://" + this.f1791e + "\\?", "").trim();
+                String trim3 = trim.replaceFirst("(http|https)://" + this.f1816e + "\\?", "").trim();
                 if (!TextUtils.isEmpty(trim3)) {
-                    return "_input_charset=\"utf-8\"&ordertoken=\"" + n.a("<request_token>", "</request_token>", n.b(trim3).get("req_data")) + "\"&pay_channel_id=\"alipay_sdk\"&bizcontext=\"" + new com.alipay.sdk.sys.a(this.f1788b).a(Config.STAT_SDK_CHANNEL, "h5tonative") + "\"";
+                    return "_input_charset=\"utf-8\"&ordertoken=\"" + n.a("<request_token>", "</request_token>", n.b(trim3).get("req_data")) + "\"&pay_channel_id=\"alipay_sdk\"&bizcontext=\"" + new com.alipay.sdk.sys.a(this.f1813b).a(Config.STAT_SDK_CHANNEL, "h5tonative") + "\"";
                 }
-                if (!trim.startsWith("https://" + this.f1792f)) {
+                if (!trim.startsWith("https://" + this.f1817f)) {
                 }
                 if (trim.contains("alipay.wap.create.direct.pay.by.user") || trim.contains("create_forex_trade_wap")) {
-                    if (!TextUtils.isEmpty(trim.replaceFirst("(http|https)://" + this.f1792f + "\\?", "").trim())) {
+                    if (!TextUtils.isEmpty(trim.replaceFirst("(http|https)://" + this.f1817f + "\\?", "").trim())) {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("url", str);
-                        jSONObject.put("bizcontext", new com.alipay.sdk.sys.a(this.f1788b).a(Config.STAT_SDK_CHANNEL, "h5tonative"));
+                        jSONObject.put("bizcontext", new com.alipay.sdk.sys.a(this.f1813b).a(Config.STAT_SDK_CHANNEL, "h5tonative"));
                         return "new_external_info==" + jSONObject.toString();
                     }
                 }
@@ -262,21 +262,21 @@ public class PayTask {
                             sb.append("&biz_sub_type=\"TRADE\"");
                             sb.append("&biz_type=\"trade\"");
                             String str2 = b2.get(DpStatConstants.KEY_APP_NAME);
-                            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(b2.get(IXAdRequestInfo.CELL_ID))) {
+                            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(b2.get(IAdRequestParam.CELL_ID))) {
                                 str2 = "ali1688";
                             } else if (TextUtils.isEmpty(str2) && (!TextUtils.isEmpty(b2.get("sid")) || !TextUtils.isEmpty(b2.get("s_id")))) {
                                 str2 = TbConfig.PassConfig.TPL;
                             }
                             sb.append("&app_name=\"" + str2 + "\"");
-                            if (a(true, true, "extern_token", sb, b2, "extern_token", IXAdRequestInfo.CELL_ID, "sid", "s_id")) {
+                            if (a(true, true, "extern_token", sb, b2, "extern_token", IAdRequestParam.CELL_ID, "sid", "s_id")) {
                                 a(true, false, "appenv", sb, b2, "appenv");
                                 sb.append("&pay_channel_id=\"alipay_sdk\"");
                                 a aVar = new a(this, null);
                                 aVar.a(b2.get("return_url"));
                                 aVar.c(b2.get("show_url"));
                                 aVar.b(b2.get("pay_order_id"));
-                                String str3 = sb.toString() + "&bizcontext=\"" + new com.alipay.sdk.sys.a(this.f1788b).a(Config.STAT_SDK_CHANNEL, "h5tonative") + "\"";
-                                this.f1793g.put(str3, aVar);
+                                String str3 = sb.toString() + "&bizcontext=\"" + new com.alipay.sdk.sys.a(this.f1813b).a(Config.STAT_SDK_CHANNEL, "h5tonative") + "\"";
+                                this.f1818g.put(str3, aVar);
                                 return str3;
                             }
                             return "";
@@ -293,25 +293,25 @@ public class PayTask {
                         String a4 = a(parse.getQueryParameter("payPhaseId"), parse.getQueryParameter("pay_phase_id"), parse.getQueryParameter("out_relation_id"));
                         String[] strArr = new String[4];
                         strArr[0] = parse.getQueryParameter(DpStatConstants.KEY_APP_NAME);
-                        strArr[1] = !TextUtils.isEmpty(parse.getQueryParameter(IXAdRequestInfo.CELL_ID)) ? "ali1688" : "";
+                        strArr[1] = !TextUtils.isEmpty(parse.getQueryParameter(IAdRequestParam.CELL_ID)) ? "ali1688" : "";
                         strArr[2] = !TextUtils.isEmpty(parse.getQueryParameter("sid")) ? TbConfig.PassConfig.TPL : "";
                         strArr[3] = !TextUtils.isEmpty(parse.getQueryParameter("s_id")) ? TbConfig.PassConfig.TPL : "";
                         String a5 = a(strArr);
-                        String a6 = a(parse.getQueryParameter("extern_token"), parse.getQueryParameter(IXAdRequestInfo.CELL_ID), parse.getQueryParameter("sid"), parse.getQueryParameter("s_id"));
+                        String a6 = a(parse.getQueryParameter("extern_token"), parse.getQueryParameter(IAdRequestParam.CELL_ID), parse.getQueryParameter("sid"), parse.getQueryParameter("s_id"));
                         String a7 = a(parse.getQueryParameter("appenv"));
                         if (!TextUtils.isEmpty(a3) && !TextUtils.isEmpty(a5) && !TextUtils.isEmpty(a6)) {
-                            String format = String.format("trade_no=\"%s\"&pay_phase_id=\"%s\"&biz_type=\"trade\"&biz_sub_type=\"TRADE\"&app_name=\"%s\"&extern_token=\"%s\"&appenv=\"%s\"&pay_channel_id=\"alipay_sdk\"&bizcontext=\"%s\"", a3, a4, a5, a6, a7, new com.alipay.sdk.sys.a(this.f1788b).a(Config.STAT_SDK_CHANNEL, "h5tonative"));
+                            String format = String.format("trade_no=\"%s\"&pay_phase_id=\"%s\"&biz_type=\"trade\"&biz_sub_type=\"TRADE\"&app_name=\"%s\"&extern_token=\"%s\"&appenv=\"%s\"&pay_channel_id=\"alipay_sdk\"&bizcontext=\"%s\"", a3, a4, a5, a6, a7, new com.alipay.sdk.sys.a(this.f1813b).a(Config.STAT_SDK_CHANNEL, "h5tonative"));
                             a aVar2 = new a(this, null);
                             aVar2.a(queryParameter);
                             aVar2.c(queryParameter2);
                             aVar2.b(queryParameter3);
                             aVar2.d(a3);
-                            this.f1793g.put(format, aVar2);
+                            this.f1818g.put(format, aVar2);
                             return format;
                         }
                     }
                 }
-                String a8 = new com.alipay.sdk.sys.a(this.f1788b).a(Config.STAT_SDK_CHANNEL, "h5tonative");
+                String a8 = new com.alipay.sdk.sys.a(this.f1813b).a(Config.STAT_SDK_CHANNEL, "h5tonative");
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("url", trim);
                 jSONObject2.put("bizcontext", a8);
@@ -324,7 +324,7 @@ public class PayTask {
     }
 
     public synchronized String fetchTradeToken() {
-        return com.alipay.sdk.util.i.a(this.f1788b.getApplicationContext());
+        return com.alipay.sdk.util.i.a(this.f1813b.getApplicationContext());
     }
 
     public String getVersion() {
@@ -343,8 +343,8 @@ public class PayTask {
                 hashMap.put(substring, a(str2, substring));
             }
         }
-        if (hashMap.containsKey(l.f1992a)) {
-            h5PayResultModel.setResultCode(hashMap.get(l.f1992a));
+        if (hashMap.containsKey(l.f2017a)) {
+            h5PayResultModel.setResultCode(hashMap.get(l.f2017a));
         }
         h5PayResultModel.setReturnUrl(a(str, hashMap));
         if (TextUtils.isEmpty(h5PayResultModel.getReturnUrl())) {
@@ -381,10 +381,10 @@ public class PayTask {
             }
         }
         String a2 = a(str);
-        com.alipay.sdk.util.i.a(this.f1788b.getApplicationContext(), a2);
-        com.alipay.sdk.data.a.g().a(this.f1788b.getApplicationContext());
+        com.alipay.sdk.util.i.a(this.f1813b.getApplicationContext(), a2);
+        com.alipay.sdk.data.a.g().a(this.f1813b.getApplicationContext());
         dismissLoading();
-        com.alipay.sdk.app.statistic.a.b(this.f1788b.getApplicationContext(), str);
+        com.alipay.sdk.app.statistic.a.b(this.f1813b.getApplicationContext(), str);
         return a2;
     }
 
@@ -402,7 +402,7 @@ public class PayTask {
     }
 
     public void showLoading() {
-        com.alipay.sdk.widget.a aVar = this.f1789c;
+        com.alipay.sdk.widget.a aVar = this.f1814c;
         if (aVar != null) {
             aVar.b();
         }
@@ -443,9 +443,9 @@ public class PayTask {
     }
 
     private String a(String str, Map<String, String> map) throws UnsupportedEncodingException {
-        boolean equals = Result.RESULT_SUCCESS.equals(map.get(l.f1992a));
+        boolean equals = Result.RESULT_SUCCESS.equals(map.get(l.f2017a));
         String str2 = map.get("result");
-        a remove = this.f1793g.remove(str);
+        a remove = this.f1818g.remove(str);
         String[] strArr = new String[2];
         strArr[0] = remove != null ? remove.b() : "";
         strArr[1] = remove != null ? remove.d() : "";
@@ -487,25 +487,25 @@ public class PayTask {
     }
 
     private String a(String str) {
-        String a2 = new com.alipay.sdk.sys.a(this.f1788b).a(str);
+        String a2 = new com.alipay.sdk.sys.a(this.f1813b).a(str);
         if (a2.contains("paymethod=\"expressGateway\"")) {
             return b(a2);
         }
-        List<a.C0016a> f2 = com.alipay.sdk.data.a.g().f();
+        List<a.C0015a> f2 = com.alipay.sdk.data.a.g().f();
         if (!com.alipay.sdk.data.a.g().q || f2 == null) {
-            f2 = i.f1817a;
+            f2 = i.f1842a;
         }
-        if (n.b(this.f1788b, f2)) {
-            com.alipay.sdk.util.e eVar = new com.alipay.sdk.util.e(this.f1788b, a());
+        if (n.b(this.f1813b, f2)) {
+            com.alipay.sdk.util.e eVar = new com.alipay.sdk.util.e(this.f1813b, a());
             String a3 = eVar.a(a2);
             eVar.a();
-            if (!TextUtils.equals(a3, com.alipay.sdk.util.e.f1969a) && !TextUtils.equals(a3, com.alipay.sdk.util.e.f1970b)) {
+            if (!TextUtils.equals(a3, com.alipay.sdk.util.e.f1994a) && !TextUtils.equals(a3, com.alipay.sdk.util.e.f1995b)) {
                 if (TextUtils.isEmpty(a3)) {
                     return j.c();
                 }
-                if (a3.contains(PayResultActivity.f1776a)) {
+                if (a3.contains(PayResultActivity.f1801a)) {
                     com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.Q, "");
-                    return a(a2, f2, a3, this.f1788b);
+                    return a(a2, f2, a3, this.f1813b);
                 }
                 return a3;
             }
@@ -516,37 +516,37 @@ public class PayTask {
         return b(a2);
     }
 
-    public static String a(String str, List<a.C0016a> list, String str2, Activity activity) {
+    public static String a(String str, List<a.C0015a> list, String str2, Activity activity) {
         n.a a2 = n.a(activity, list);
-        if (a2 == null || a2.a() || a2.b() || !TextUtils.equals(a2.f2002a.packageName, PayResultActivity.f1778c)) {
+        if (a2 == null || a2.a() || a2.b() || !TextUtils.equals(a2.f2027a.packageName, PayResultActivity.f1803c)) {
             return str2;
         }
-        com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1900a, "PayTask:payResult: NOT_LOGIN");
+        com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1925a, "PayTask:payResult: NOT_LOGIN");
         String valueOf = String.valueOf(str.hashCode());
-        PayResultActivity.f1777b.put(valueOf, new Object());
+        PayResultActivity.f1802b.put(valueOf, new Object());
         Intent intent = new Intent(activity, PayResultActivity.class);
-        intent.putExtra(PayResultActivity.f1780e, str);
-        intent.putExtra(PayResultActivity.f1781f, activity.getPackageName());
-        intent.putExtra(PayResultActivity.f1779d, valueOf);
+        intent.putExtra(PayResultActivity.f1805e, str);
+        intent.putExtra(PayResultActivity.f1806f, activity.getPackageName());
+        intent.putExtra(PayResultActivity.f1804d, valueOf);
         activity.startActivity(intent);
-        synchronized (PayResultActivity.f1777b.get(valueOf)) {
+        synchronized (PayResultActivity.f1802b.get(valueOf)) {
             try {
-                com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1900a, "PayTask:payResult: wait");
-                PayResultActivity.f1777b.get(valueOf).wait();
+                com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1925a, "PayTask:payResult: wait");
+                PayResultActivity.f1802b.get(valueOf).wait();
             } catch (InterruptedException e2) {
-                com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1900a, "PayTask:payResult: InterruptedException:" + e2);
+                com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1925a, "PayTask:payResult: InterruptedException:" + e2);
                 return j.c();
             }
         }
-        String str3 = PayResultActivity.a.f1785b;
-        com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1900a, "PayTask:payResult: result:" + str3);
+        String str3 = PayResultActivity.a.f1810b;
+        com.alipay.sdk.util.c.b(com.alipay.sdk.net.a.f1925a, "PayTask:payResult: result:" + str3);
         return str3;
     }
 
     private void a(JSONObject jSONObject) {
         try {
             String optString = jSONObject.optString("tid");
-            String optString2 = jSONObject.optString(com.alipay.sdk.tid.b.f1951e);
+            String optString2 = jSONObject.optString(com.alipay.sdk.tid.b.f1976e);
             if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
                 return;
             }
@@ -567,7 +567,7 @@ public class PayTask {
         boolean b2;
         String a2;
         String[] c2 = bVar.c();
-        Intent intent = new Intent(this.f1788b, H5PayActivity.class);
+        Intent intent = new Intent(this.f1813b, H5PayActivity.class);
         try {
             JSONObject d2 = n.d(new String(com.alipay.sdk.encrypt.a.a(c2[2])));
             intent.putExtra("url", c2[0]);
@@ -576,10 +576,10 @@ public class PayTask {
             intent.putExtra("method", d2.optString("method", "POST"));
             j.a(false);
             j.a((String) null);
-            this.f1788b.startActivity(intent);
-            synchronized (f1786a) {
+            this.f1813b.startActivity(intent);
+            synchronized (f1811a) {
                 try {
-                    f1786a.wait();
+                    f1811a.wait();
                     b2 = j.b();
                     a2 = j.a();
                     j.a(false);
@@ -627,17 +627,17 @@ public class PayTask {
 
     private String a(com.alipay.sdk.protocol.b bVar) {
         String[] c2 = bVar.c();
-        Intent intent = new Intent(this.f1788b, H5PayActivity.class);
+        Intent intent = new Intent(this.f1813b, H5PayActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("url", c2[0]);
         if (c2.length == 2) {
             bundle.putString("cookie", c2[1]);
         }
         intent.putExtras(bundle);
-        this.f1788b.startActivity(intent);
-        synchronized (f1786a) {
+        this.f1813b.startActivity(intent);
+        synchronized (f1811a) {
             try {
-                f1786a.wait();
+                f1811a.wait();
             } catch (InterruptedException e2) {
                 com.alipay.sdk.util.c.a(e2);
                 return j.c();

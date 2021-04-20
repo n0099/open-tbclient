@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 /* loaded from: classes.dex */
 public class ParseContext {
     public final Object fieldName;
+    public final int level;
     public Object object;
     public final ParseContext parent;
     public transient String path;
@@ -13,6 +14,7 @@ public class ParseContext {
         this.parent = parseContext;
         this.object = obj;
         this.fieldName = obj2;
+        this.level = parseContext == null ? 0 : parseContext.level + 1;
     }
 
     public String toString() {

@@ -16,8 +16,8 @@ import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.nps.runtime.InitException;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import d.b.z.c.a.f;
-import d.b.z.c.a.g;
+import d.b.w.c.a.f;
+import d.b.w.c.a.g;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -30,74 +30,74 @@ public class NPSManager {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9293e;
+        public final /* synthetic */ String f8851e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9294f;
+        public final /* synthetic */ String f8852f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IInvokeCallback f9295g;
+        public final /* synthetic */ IInvokeCallback f8853g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f9296h;
+        public final /* synthetic */ int f8854h;
         public final /* synthetic */ Class i;
 
         public a(String str, String str2, IInvokeCallback iInvokeCallback, int i, Class cls) {
-            this.f9293e = str;
-            this.f9294f = str2;
-            this.f9295g = iInvokeCallback;
-            this.f9296h = i;
+            this.f8851e = str;
+            this.f8852f = str2;
+            this.f8853g = iInvokeCallback;
+            this.f8854h = i;
             this.i = cls;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(this.f9293e) && !TextUtils.isEmpty(this.f9294f)) {
-                int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.f9293e, this.f9296h);
+            if (!TextUtils.isEmpty(this.f8851e) && !TextUtils.isEmpty(this.f8852f)) {
+                int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.f8851e, this.f8854h);
                 if (prepareBundle != 41) {
-                    if (d.b.z.h.b.a()) {
+                    if (d.b.w.h.b.a()) {
                         Log.i(NPSManager.TAG, "loadClazz, retCode=" + prepareBundle);
                     }
-                    this.f9295g.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
+                    this.f8853g.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
                     return;
                 }
-                NPSPackageManager.getInstance().recordBundleRunning(this.f9293e);
-                Bundle bundleInternal = NPSManager.this.getBundleInternal(this.f9293e);
+                NPSPackageManager.getInstance().recordBundleRunning(this.f8851e);
+                Bundle bundleInternal = NPSManager.this.getBundleInternal(this.f8851e);
                 if (bundleInternal == null) {
-                    if (d.b.z.h.b.a()) {
+                    if (d.b.w.h.b.a()) {
                         Log.i(NPSManager.TAG, "loadClazz, retCode=5");
                     }
-                    this.f9295g.onResult(5, Constant.MSG.retMsgInvalidPkg(this.f9293e), null);
+                    this.f8853g.onResult(5, Constant.MSG.retMsgInvalidPkg(this.f8851e), null);
                     return;
                 }
                 try {
-                    Class loadClass = bundleInternal.loadClass(this.f9294f, this.i);
+                    Class loadClass = bundleInternal.loadClass(this.f8852f, this.i);
                     f.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess());
-                    if (d.b.z.h.b.a()) {
+                    if (d.b.w.h.b.a()) {
                         Log.i(NPSManager.TAG, "loadClazz, retCode=14");
                     }
-                    this.f9295g.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
+                    this.f8853g.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
                     return;
                 } catch (InvokeException e2) {
                     f.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg());
-                    if (d.b.z.h.b.a()) {
+                    if (d.b.w.h.b.a()) {
                         Log.i(NPSManager.TAG, "loadClazz, retCode=" + e2.errCode());
                     }
-                    this.f9295g.onResult(e2.errCode(), e2.errMsg(), null);
+                    this.f8853g.onResult(e2.errCode(), e2.errMsg(), null);
                     return;
                 } catch (InitException e3) {
                     f.a().b().recordInvokeResult(e3.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e3.errMsg());
-                    if (d.b.z.h.b.a()) {
+                    if (d.b.w.h.b.a()) {
                         Log.i(NPSManager.TAG, "loadClazz, retCode=" + e3.errCode());
                     }
-                    this.f9295g.onResult(e3.errCode(), e3.errMsg(), null);
+                    this.f8853g.onResult(e3.errCode(), e3.errMsg(), null);
                     return;
                 }
             }
-            if (d.b.z.h.b.a()) {
+            if (d.b.w.h.b.a()) {
                 Log.i(NPSManager.TAG, "loadClazz, retCode=5");
             }
-            this.f9295g.onResult(5, Constant.MSG.retMsgErrParam(this.f9293e, this.f9294f), null);
+            this.f8853g.onResult(5, Constant.MSG.retMsgErrParam(this.f8851e, this.f8852f), null);
         }
     }
 
@@ -144,7 +144,7 @@ public class NPSManager {
     }
 
     private void registerRestartReceiver() {
-        ContextHolder.getApplicationContext().registerReceiver(new b(), new IntentFilter(d.b.z.h.a.f64926a));
+        ContextHolder.getApplicationContext().registerReceiver(new b(), new IntentFilter(d.b.w.h.a.f65591a));
     }
 
     public Bundle getBundle(String str) {
@@ -237,7 +237,7 @@ public class NPSManager {
     }
 
     public synchronized void init(Context context, Configurations configurations, boolean z) {
-        d.b.z.h.b.b(configurations.debug);
+        d.b.w.h.b.b(configurations.debug);
         registerRestartReceiver();
         if (z) {
             NPSPackageManager.getInstance().init();

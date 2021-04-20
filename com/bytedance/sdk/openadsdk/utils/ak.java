@@ -13,7 +13,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebSettings;
 import androidx.annotation.NonNull;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -31,17 +33,17 @@ import java.util.regex.Pattern;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f30378a = "";
+    public static volatile String f30063a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30379b;
+    public static String f30064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30380c;
+    public static String f30065c;
 
     public static String a(int i) {
         switch (i) {
@@ -99,7 +101,7 @@ public class ak {
         }
         launchIntentForPackage.setPackage(null);
         launchIntentForPackage.addFlags(2097152);
-        launchIntentForPackage.addFlags(268435456);
+        launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         return launchIntentForPackage;
     }
 
@@ -142,7 +144,7 @@ public class ak {
             try {
                 Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + Uri.encode(str)));
                 if (!(context instanceof Activity)) {
-                    intent.setFlags(268435456);
+                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 }
                 b.a(context, intent, null);
                 return true;
@@ -237,7 +239,7 @@ public class ak {
 
     public static String h(String str) {
         JSONObject b2 = b(str);
-        return b2 != null ? b2.optString("req_id", "") : "";
+        return b2 != null ? b2.optString(IAdRequestParam.REQ_ID, "") : "";
     }
 
     public static double g(String str) {
@@ -300,12 +302,12 @@ public class ak {
     public static synchronized String f() {
         String str;
         synchronized (ak.class) {
-            if (TextUtils.isEmpty(f30379b) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+            if (TextUtils.isEmpty(f30064b) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
                 PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
-                f30379b = String.valueOf(packageInfo.versionCode);
-                f30380c = packageInfo.versionName;
+                f30064b = String.valueOf(packageInfo.versionCode);
+                f30065c = packageInfo.versionName;
             }
-            str = f30379b;
+            str = f30064b;
         }
         return str;
     }
@@ -336,12 +338,12 @@ public class ak {
     public static synchronized String g() {
         String str;
         synchronized (ak.class) {
-            if (TextUtils.isEmpty(f30380c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+            if (TextUtils.isEmpty(f30065c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
                 PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
-                f30379b = String.valueOf(packageInfo.versionCode);
-                f30380c = packageInfo.versionName;
+                f30064b = String.valueOf(packageInfo.versionCode);
+                f30065c = packageInfo.versionName;
             }
-            str = f30380c;
+            str = f30065c;
         }
         return str;
     }
@@ -518,38 +520,38 @@ public class ak {
     }
 
     public static String b() {
-        if (!TextUtils.isEmpty(f30378a)) {
-            return f30378a;
+        if (!TextUtils.isEmpty(f30063a)) {
+            return f30063a;
         }
         try {
-            f30378a = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", 86400000L);
-            if (TextUtils.isEmpty(f30378a)) {
+            f30063a = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", 86400000L);
+            if (TextUtils.isEmpty(f30063a)) {
                 synchronized (TextUtils.class) {
-                    if (TextUtils.isEmpty(f30378a)) {
+                    if (TextUtils.isEmpty(f30063a)) {
                         if (Build.VERSION.SDK_INT < 17) {
                             if (Looper.myLooper() == Looper.getMainLooper()) {
-                                f30378a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                                f30063a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
                             } else {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.1
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         try {
-                                            String unused = ak.f30378a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                                            String unused = ak.f30063a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
                                         } catch (Exception unused2) {
                                         }
                                     }
                                 });
                             }
                         } else {
-                            f30378a = WebSettings.getDefaultUserAgent(com.bytedance.sdk.openadsdk.core.p.a());
+                            f30063a = WebSettings.getDefaultUserAgent(com.bytedance.sdk.openadsdk.core.p.a());
                         }
-                        com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", f30378a);
+                        com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", f30063a);
                     }
                 }
             }
         } catch (Exception unused) {
         }
-        return f30378a;
+        return f30063a;
     }
 
     public static boolean a() {

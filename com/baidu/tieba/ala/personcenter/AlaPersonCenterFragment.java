@@ -14,31 +14,31 @@ import d.b.i0.t.j.c.a;
 public class AlaPersonCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15036e;
+    public TbPageContext f14699e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15037f;
+    public String f14700f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15038g;
+    public String f14701g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15039h;
+    public String f14702h;
     public a i;
 
     public void E0(String str) {
     }
 
     public void F0(String str) {
-        this.f15037f = str;
+        this.f14700f = str;
     }
 
     public void G0(String str) {
-        this.f15038g = str;
+        this.f14701g = str;
     }
 
     public void H0(String str) {
-        this.f15039h = str;
+        this.f14702h = str;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -68,12 +68,12 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-        this.f15036e = pageContext;
+        this.f14699e = pageContext;
         a aVar = new a(pageContext, true);
         this.i = aVar;
-        aVar.s(this.f15038g);
-        this.i.r(this.f15037f);
-        this.i.t(this.f15039h);
+        aVar.s(this.f14701g);
+        this.i.r(this.f14700f);
+        this.i.t(this.f14702h);
         if (getArguments() != null) {
             this.i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
         }

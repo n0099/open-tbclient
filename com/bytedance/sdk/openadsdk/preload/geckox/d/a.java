@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.d;
 
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends com.bytedance.sdk.openadsdk.preload.b.a<UpdatePackage, UpdatePackage> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.a

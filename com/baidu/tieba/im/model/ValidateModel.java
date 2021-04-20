@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-import d.b.i0.d1.h.d;
-import d.b.i0.d1.k.b;
+import d.b.i0.e1.h.d;
+import d.b.i0.e1.k.b;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ValidateModel {
     public static ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo == null) {

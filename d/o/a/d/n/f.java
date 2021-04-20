@@ -8,7 +8,7 @@ import d.o.a.d.f.n;
 import d.o.a.e.a.j;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static JSONObject a(@NonNull JSONObject jSONObject, d.o.a.b.a.c.a aVar) {
         k.r(jSONObject, "open_url", k.m(aVar.f(), "open_url_not_exist"));

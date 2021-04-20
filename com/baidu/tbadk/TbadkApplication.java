@@ -24,10 +24,9 @@ import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
 import com.baidu.tieba.service.SignAlertReceiver;
-import com.baidubce.auth.NTLMEngineImpl;
-import d.b.b.e.m.c;
-import d.b.b.h.h.b;
-import d.b.b.h.j.g.d;
+import d.b.c.e.m.c;
+import d.b.c.h.h.b;
+import d.b.c.h.j.g.d;
 import d.b.h0.m0.l;
 import java.util.Calendar;
 import java.util.Iterator;
@@ -264,9 +263,9 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int j = d.b.h0.r.d0.b.i().j("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.O().v0(j);
-        if (checkSyncPatchBlacklist() && d.b.b.h.g.d.l() && j == 0 && PluginPackageManager.O().n0()) {
+        int k = d.b.h0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
+        PluginPackageManager.O().v0(k);
+        if (checkSyncPatchBlacklist() && d.b.c.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.O().k0();
             l.b().B(System.currentTimeMillis() - currentTimeMillis);
@@ -278,7 +277,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        d.b.h0.r.d0.b.i().B("account_share");
+        d.b.h0.r.d0.b.j().C("account_share");
     }
 
     public void loginShareSave(String str) {
@@ -330,7 +329,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             BdLog.isDebugMode();
             return;
         }
-        PendingIntent broadcast = PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+        PendingIntent broadcast = PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 536870912);
         if (broadcast != null) {
             alarmManager.cancel(broadcast);
             BdLog.isDebugMode();

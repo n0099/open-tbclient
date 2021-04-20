@@ -9,28 +9,28 @@ import java.util.Locale;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, HashMap<String, Object>> f4715a = new HashMap<>();
+    public static final HashMap<String, HashMap<String, Object>> f4750a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4716b = null;
+    public static String f4751b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f4717c = 10;
+    public static int f4752c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4718d = 200;
+    public static int f4753d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f4719e = true;
+    public static boolean f4754e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f4720f = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
+    public static long f4755f = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
 
     /* renamed from: g  reason: collision with root package name */
-    public static HashMap<String, Integer> f4721g = new HashMap<>();
+    public static HashMap<String, Integer> f4756g = new HashMap<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f4722h;
+    public static boolean f4757h;
     public static boolean i;
     public static boolean j;
     public static boolean k;
@@ -41,7 +41,7 @@ public final class a {
 
     static {
         new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
-        f4722h = true;
+        f4757h = true;
         i = true;
         j = true;
         k = false;
@@ -54,8 +54,8 @@ public final class a {
     public static String a(String str) {
         HashMap<String, Object> hashMap;
         Object obj;
-        if (f4722h) {
-            if (m == null || (hashMap = f4715a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
+        if (f4757h) {
+            if (m == null || (hashMap = f4750a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
                 return "https://crab.baidu.com/api_int/add_crab";
             }
             return ((String) obj) + "api_int/add_crab";
@@ -66,8 +66,8 @@ public final class a {
     public static String b(String str) {
         HashMap<String, Object> hashMap;
         Object obj;
-        if (f4722h) {
-            if (m == null || (hashMap = f4715a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
+        if (f4757h) {
+            if (m == null || (hashMap = f4750a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
                 return "https://crab.baidu.com/api_anr/add_crab";
             }
             return ((String) obj) + "api_int/add_crab";
@@ -78,8 +78,8 @@ public final class a {
     public static String c(String str) {
         HashMap<String, Object> hashMap;
         Object obj;
-        if (f4722h) {
-            if (m == null || (hashMap = f4715a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
+        if (f4757h) {
+            if (m == null || (hashMap = f4750a.get(str)) == null || (obj = hashMap.get("domain_url")) == null) {
                 return "https://crab.baidu.com/api/newsync2";
             }
             return ((String) obj) + "api_int/add_crab";

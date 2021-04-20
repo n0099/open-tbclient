@@ -28,28 +28,28 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f46877c = k.f45051a;
+    public static final boolean f47269c = k.f45443a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Timer f46878a;
+    public Timer f47270a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.g0.a.x.c.b f46879b;
+    public d.b.g0.a.x.c.b f47271b;
 
     /* renamed from: d.b.g0.a.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0875a extends TimerTask {
+    public class C0887a extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.x.c.b f46880e;
+        public final /* synthetic */ d.b.g0.a.x.c.b f47272e;
 
-        public C0875a(d.b.g0.a.x.c.b bVar) {
-            this.f46880e = bVar;
+        public C0887a(d.b.g0.a.x.c.b bVar) {
+            this.f47272e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            d.b.g0.a.x.c.b bVar = this.f46880e;
+            d.b.g0.a.x.c.b bVar = this.f47272e;
             if (bVar != null) {
                 bVar.a();
             }
@@ -61,19 +61,19 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f46882a = new a(null);
+        public static final a f47274a = new a(null);
     }
 
-    public /* synthetic */ a(C0875a c0875a) {
+    public /* synthetic */ a(C0887a c0887a) {
         this();
     }
 
     public static a b() {
-        return b.f46882a;
+        return b.f47274a;
     }
 
     public void a() {
-        d.b.g0.a.x.c.b bVar = this.f46879b;
+        d.b.g0.a.x.c.b bVar = this.f47271b;
         if (bVar != null) {
             bVar.cancel();
         }
@@ -108,7 +108,7 @@ public class a {
             }
             jSONObject.put("eType", str3);
         } catch (JSONException e2) {
-            if (f46877c) {
+            if (f47269c) {
                 e2.printStackTrace();
             }
         }
@@ -119,7 +119,7 @@ public class a {
         try {
             CameraPreview.j();
         } catch (Exception e2) {
-            if (f46877c) {
+            if (f47269c) {
                 e2.printStackTrace();
             }
         }
@@ -139,18 +139,18 @@ public class a {
             File file = new File(str);
             if (file.exists()) {
                 boolean delete = file.delete();
-                if (f46877c) {
+                if (f47269c) {
                     Log.d("SwanAppCameraManager", "delete = " + delete);
                 }
             }
             if (file.getParentFile() != null) {
                 boolean mkdirs = file.getParentFile().mkdirs();
-                if (f46877c) {
+                if (f47269c) {
                     Log.d("SwanAppCameraManager", "mkdirs = " + mkdirs);
                 }
             }
             boolean createNewFile = file.createNewFile();
-            if (f46877c) {
+            if (f47269c) {
                 Log.d("SwanAppCameraManager", "createNewFile = " + createNewFile);
             }
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
@@ -171,13 +171,13 @@ public class a {
             d.a(bufferedOutputStream);
             return true;
         } catch (Exception e2) {
-            if (f46877c) {
+            if (f47269c) {
                 e2.printStackTrace();
                 return false;
             }
             return false;
         } catch (OutOfMemoryError e3) {
-            if (f46877c) {
+            if (f47269c) {
                 e3.printStackTrace();
                 return false;
             }
@@ -186,15 +186,15 @@ public class a {
     }
 
     public void i(int i, d.b.g0.a.x.c.b bVar) {
-        this.f46879b = bVar;
+        this.f47271b = bVar;
         Timer timer = new Timer();
-        this.f46878a = timer;
-        timer.schedule(new C0875a(bVar), i);
+        this.f47270a = timer;
+        timer.schedule(new C0887a(bVar), i);
     }
 
     public void j() {
-        this.f46879b = null;
-        Timer timer = this.f46878a;
+        this.f47271b = null;
+        Timer timer = this.f47270a;
         if (timer != null) {
             timer.cancel();
         }

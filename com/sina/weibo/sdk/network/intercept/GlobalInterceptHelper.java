@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.network.intercept;
 
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GlobalInterceptHelper {
     public static GlobalInterceptHelper globalInterceptHelper;
     public HashMap<String, IRequestIntercept> globalIntercept;

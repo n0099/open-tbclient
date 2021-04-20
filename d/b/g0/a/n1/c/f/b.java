@@ -11,7 +11,6 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidubce.services.vod.VodClient;
 import d.b.g0.a.j1.i;
 import d.b.g0.a.k;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
@@ -21,64 +20,64 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45383b;
+    public static String f45775b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45382a = k.f45051a;
+    public static final boolean f45774a = k.f45443a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f45384c = false;
+    public static boolean f45776c = false;
 
     /* loaded from: classes2.dex */
     public static class a implements d.b.g0.a.e0.k.d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f45385a;
+        public final /* synthetic */ Context f45777a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f45386b;
+        public final /* synthetic */ c f45778b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Bundle f45387c;
+        public final /* synthetic */ Bundle f45779c;
 
         public a(Context context, c cVar, Bundle bundle) {
-            this.f45385a = context;
-            this.f45386b = cVar;
-            this.f45387c = bundle;
+            this.f45777a = context;
+            this.f45778b = cVar;
+            this.f45779c = bundle;
         }
 
         @Override // d.b.g0.a.e0.k.d.b
         public void a() {
-            boolean unused = b.f45384c = true;
+            boolean unused = b.f45776c = true;
             d.b.g0.g.i0.f.d.c();
-            b.f(this.f45385a, this.f45386b, this.f45387c);
+            b.f(this.f45777a, this.f45778b, this.f45779c);
         }
     }
 
     /* renamed from: d.b.g0.a.n1.c.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0746b implements d.b.g0.a.i2.u0.b<Exception> {
+    public static class C0758b implements d.b.g0.a.i2.u0.b<Exception> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45388e;
+        public final /* synthetic */ Context f45780e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f45389f;
+        public final /* synthetic */ c f45781f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Bundle f45390g;
+        public final /* synthetic */ Bundle f45782g;
 
-        public C0746b(Context context, c cVar, Bundle bundle) {
-            this.f45388e = context;
-            this.f45389f = cVar;
-            this.f45390g = bundle;
+        public C0758b(Context context, c cVar, Bundle bundle) {
+            this.f45780e = context;
+            this.f45781f = cVar;
+            this.f45782g = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: a */
         public void onCallback(Exception exc) {
-            b.e(this.f45388e, this.f45389f, this.f45390g);
+            b.e(this.f45780e, this.f45781f, this.f45782g);
         }
     }
 
@@ -88,12 +87,12 @@ public final class b {
             jSONObject.put("master", d.b.g0.a.e0.w.d.L().Z());
             jSONObject.put("slave", d.b.g0.a.e0.w.d.L().b0());
         } catch (JSONException e2) {
-            if (f45382a) {
+            if (f45774a) {
                 throw new RuntimeException(e2);
             }
         }
         String jSONObject2 = jSONObject.toString();
-        if (f45382a) {
+        if (f45774a) {
             Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
         }
         return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
@@ -105,12 +104,12 @@ public final class b {
         String str = isMainProcess ? FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT : "aiapp";
         long currentTimeMillis = System.currentTimeMillis();
         if (j) {
-            if (isMainProcess && TextUtils.isEmpty(f45383b)) {
+            if (isMainProcess && TextUtils.isEmpty(f45775b)) {
                 try {
-                    f45383b = new WebView(context).getSettings().getUserAgentString();
+                    f45775b = new WebView(context).getSettings().getUserAgentString();
                 } catch (Exception e2) {
-                    f45383b = "exception::" + e2.toString();
-                    if (f45382a) {
+                    f45775b = "exception::" + e2.toString();
+                    if (f45774a) {
                         e2.printStackTrace();
                     }
                 }
@@ -118,10 +117,10 @@ public final class b {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", currentTimeMillis);
-                jSONObject.put(VodClient.PARA_PROCESS, cVar.f45391f.index);
-                jSONObject.put("ua", f45383b);
+                jSONObject.put("process", cVar.f45783f.index);
+                jSONObject.put("ua", f45775b);
             } catch (JSONException e3) {
-                if (f45382a) {
+                if (f45774a) {
                     e3.printStackTrace();
                 }
             }
@@ -137,10 +136,10 @@ public final class b {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("time", currentTimeMillis2);
-                jSONObject2.put(VodClient.PARA_PROCESS, cVar.f45391f.index);
+                jSONObject2.put("process", cVar.f45783f.index);
                 jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
             } catch (JSONException e4) {
-                if (f45382a) {
+                if (f45774a) {
                     e4.printStackTrace();
                 }
             }
@@ -166,18 +165,18 @@ public final class b {
         }
         bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
         bundle.putString("bundle_key_preload_src", str);
-        bundle.putInt("bundle_key_process", cVar.f45391f.index);
+        bundle.putInt("bundle_key_process", cVar.f45783f.index);
         bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
         d.b.g0.g.i0.f.d.j(bundle);
         cVar.W(context, bundle);
     }
 
     public static void f(Context context, c cVar, Bundle bundle) {
-        SwanLauncher.j().l(new C0746b(context, cVar, bundle));
+        SwanLauncher.j().l(new C0758b(context, cVar, bundle));
     }
 
     public static void g(Context context, c cVar, Bundle bundle) {
-        if (f45384c) {
+        if (f45776c) {
             d.b.g0.g.i0.f.d.d();
             f(context, cVar, bundle);
             return;
@@ -198,7 +197,7 @@ public final class b {
         try {
             context.startService(intent);
         } catch (Exception e2) {
-            if (f45382a) {
+            if (f45774a) {
                 e2.printStackTrace();
             }
         }
@@ -209,11 +208,11 @@ public final class b {
     }
 
     public static void k(Context context, c cVar, Bundle bundle) {
-        if (f45382a) {
+        if (f45774a) {
             e j = e.j();
             j.t("b4 tryPreload client=" + cVar);
         }
-        if (!ProcessUtils.isMainProcess() || cVar == null || !cVar.f45391f.isSwanAppProcess() || cVar.x()) {
+        if (!ProcessUtils.isMainProcess() || cVar == null || !cVar.f45783f.isSwanAppProcess() || cVar.x()) {
             return;
         }
         g(context, cVar, bundle);

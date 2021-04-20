@@ -13,97 +13,97 @@ import d.b.g0.a.y0.e.b;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47199a = k.f45051a;
+    public static final boolean f47591a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f47200b = false;
+    public static volatile boolean f47592b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f47201c = false;
+    public static volatile boolean f47593c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f47202d = false;
+    public static volatile boolean f47594d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f47203e = false;
+    public static volatile boolean f47595e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f47204f = false;
+    public static volatile boolean f47596f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public static HashMap<String, String> f47205g;
+    public static HashMap<String, String> f47597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f47206h;
+    public static String f47598h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.f f47207e;
+        public final /* synthetic */ d.b.g0.a.z1.k.f f47599e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47208f;
+        public final /* synthetic */ String f47600f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47209g;
+        public final /* synthetic */ String f47601g;
 
         public a(d.b.g0.a.z1.k.f fVar, String str, String str2) {
-            this.f47207e = fVar;
-            this.f47208f = str;
-            this.f47209g = str2;
+            this.f47599e = fVar;
+            this.f47600f = str;
+            this.f47601g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f47207e.b(h.l(this.f47208f));
-            this.f47207e.d(this.f47209g);
-            h.onEvent(this.f47207e);
+            this.f47599e.b(h.l(this.f47600f));
+            this.f47599e.d(this.f47601g);
+            h.onEvent(this.f47599e);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.z1.k.f f47210e;
+        public final /* synthetic */ d.b.g0.a.z1.k.f f47602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47211f;
+        public final /* synthetic */ String f47603f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f47212g;
+        public final /* synthetic */ String f47604g;
 
         public b(d.b.g0.a.z1.k.f fVar, String str, String str2) {
-            this.f47210e = fVar;
-            this.f47211f = str;
-            this.f47212g = str2;
+            this.f47602e = fVar;
+            this.f47603f = str;
+            this.f47604g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f47210e.d(this.f47211f);
-            this.f47210e.b(h.l(this.f47212g));
-            h.onEvent(this.f47210e);
+            this.f47602e.d(this.f47603f);
+            this.f47602e.b(h.l(this.f47604g));
+            h.onEvent(this.f47602e);
         }
     }
 
     public static void A(boolean z) {
-        f47203e = z;
+        f47595e = z;
     }
 
     public static void B(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f47205g == null) {
-            f47205g = new HashMap<>();
+        if (f47597g == null) {
+            f47597g = new HashMap<>();
         }
-        f47205g.put(str, str2);
+        f47597g.put(str, str2);
     }
 
     public static void C() {
@@ -116,7 +116,7 @@ public final class e {
         if (!(m instanceof d.b.g0.a.e0.l.e) || (T2 = ((d.b.g0.a.e0.l.e) m).T2()) == null) {
             return;
         }
-        f47206h = T2.c();
+        f47598h = T2.c();
     }
 
     public static void D() {
@@ -136,12 +136,12 @@ public final class e {
         if (e() || f() || dVar == null || (y = d.b.g0.a.r1.e.y()) == null || (J = y.J()) == null) {
             return;
         }
-        if (f47199a) {
+        if (f47591a) {
             Log.d("SwanAppLaunchUbc", "real start handle arrival report ");
         }
         x(true);
         y(true);
-        c(J, dVar.f45453b, "0", dVar.f45454c, b(dVar.f45458g), false);
+        c(J, dVar.f45845b, "0", dVar.f45846c, b(dVar.f45850g), false);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -193,7 +193,7 @@ public final class e {
             try {
                 jSONObject.put("valuetype", str);
             } catch (JSONException e2) {
-                if (f47199a) {
+                if (f47591a) {
                     e2.printStackTrace();
                 }
             }
@@ -204,7 +204,7 @@ public final class e {
             try {
                 jSONObject2.put("valuetype", str2);
             } catch (JSONException e3) {
-                if (f47199a) {
+                if (f47591a) {
                     e3.printStackTrace();
                 }
             }
@@ -215,25 +215,25 @@ public final class e {
     public static synchronized boolean d() {
         boolean z;
         synchronized (e.class) {
-            z = f47200b;
+            z = f47592b;
         }
         return z;
     }
 
     public static boolean e() {
-        return f47201c;
+        return f47593c;
     }
 
     public static boolean f() {
-        return f47202d;
+        return f47594d;
     }
 
     public static boolean g() {
-        return f47203e;
+        return f47595e;
     }
 
     public static boolean h() {
-        return f47204f;
+        return f47596f;
     }
 
     public static void i(b.a aVar, String str) {
@@ -254,15 +254,15 @@ public final class e {
             j2 = j - k;
         }
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47251a = h.n(aVar.F());
-        fVar.f47255e = G;
+        fVar.f47643a = h.n(aVar.F());
+        fVar.f47647e = G;
         if (d.b.g0.a.c0.d.d.e.d()) {
-            fVar.f47253c = "remote-debug";
+            fVar.f47645c = "remote-debug";
         } else {
-            fVar.f47253c = aVar.S();
+            fVar.f47645c = aVar.S();
         }
-        fVar.f47252b = Config.LAUNCH;
-        fVar.f47254d = str;
+        fVar.f47644b = Config.LAUNCH;
+        fVar.f47646d = str;
         fVar.a("arrivetime", String.valueOf(j2));
         if (jSONObject != null) {
             fVar.e(jSONObject);
@@ -271,7 +271,7 @@ public final class e {
         if (O != null) {
             fVar.d(O.getString(UBCCloudControlProcessor.UBC_KEY));
         }
-        if (f47199a) {
+        if (f47591a) {
             StringBuilder sb = new StringBuilder();
             sb.append("handle record arrival event, arrivalValue ");
             sb.append(str);
@@ -289,7 +289,7 @@ public final class e {
     }
 
     public static void l(b.a aVar) {
-        if (aVar == null || f47203e) {
+        if (aVar == null || f47595e) {
             return;
         }
         A(true);
@@ -297,10 +297,10 @@ public final class e {
     }
 
     public static void m(b.a aVar) {
-        if (f47199a) {
+        if (f47591a) {
             Log.d("SwanAppLaunchUbc", "handle relaunch arrival");
         }
-        d.b.g0.a.f1.e.e(f47206h);
+        d.b.g0.a.f1.e.e(f47598h);
         if (e() || f()) {
             return;
         }
@@ -329,11 +329,11 @@ public final class e {
             return;
         }
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47251a = h.n(bVar.F());
-        fVar.f47255e = bVar.G();
-        fVar.f47253c = bVar.S();
-        fVar.f47252b = Config.LAUNCH;
-        fVar.f47254d = "realsuccess";
+        fVar.f47643a = h.n(bVar.F());
+        fVar.f47647e = bVar.G();
+        fVar.f47645c = bVar.S();
+        fVar.f47644b = Config.LAUNCH;
+        fVar.f47646d = "realsuccess";
         fVar.d(O.getString(UBCCloudControlProcessor.UBC_KEY));
         h.onEvent(fVar);
         O.remove("page_display_flag_for_statistic");
@@ -341,17 +341,17 @@ public final class e {
     }
 
     public static void q(String str) {
-        if (f47204f) {
+        if (f47596f) {
             Log.d("SwanAppLaunchUbc", "handle record slave id case relaunch");
             d.b.g0.a.f1.e.e(str);
-            f47204f = false;
+            f47596f = false;
         }
     }
 
     public static void r(String str, b.a aVar) {
-        HashMap<String, String> hashMap = f47205g;
-        String str2 = hashMap != null ? hashMap.get(f47206h) : "";
-        if (f47199a) {
+        HashMap<String, String> hashMap = f47597g;
+        String str2 = hashMap != null ? hashMap.get(f47598h) : "";
+        if (f47591a) {
             StringBuilder sb = new StringBuilder();
             sb.append("handle relaunch , launchPage : ");
             sb.append(str);
@@ -364,15 +364,15 @@ public final class e {
             return;
         }
         u();
-        f47204f = true;
+        f47596f = true;
     }
 
     public static void s(@NonNull d.b.g0.a.y0.e.b bVar) {
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
-        fVar.f47251a = h.n(0);
-        fVar.f47255e = bVar.G();
-        fVar.f47253c = bVar.S();
-        fVar.f47252b = "show";
+        fVar.f47643a = h.n(0);
+        fVar.f47647e = bVar.G();
+        fVar.f47645c = bVar.S();
+        fVar.f47644b = "show";
         ExecutorUtilsExt.postOnElastic(new a(fVar, bVar.V(), bVar.n0().getString(UBCCloudControlProcessor.UBC_KEY)), "onShow606", 2);
     }
 
@@ -397,19 +397,19 @@ public final class e {
 
     public static synchronized void x(boolean z) {
         synchronized (e.class) {
-            f47201c = z;
+            f47593c = z;
         }
     }
 
     public static synchronized void y(boolean z) {
         synchronized (e.class) {
-            f47202d = z;
+            f47594d = z;
         }
     }
 
     public static synchronized void z(boolean z) {
         synchronized (e.class) {
-            f47200b = z;
+            f47592b = z;
         }
     }
 }

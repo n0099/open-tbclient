@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import d.b.b.e.m.g;
-import d.b.b.e.p.l;
+import d.b.c.e.m.g;
+import d.b.c.e.p.l;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class IdentityReviewActivity extends BaseActivity {
@@ -52,8 +52,8 @@ public class IdentityReviewActivity extends BaseActivity {
     public int positiveStatus = 0;
     public int negativeStatus = 0;
     public View.OnClickListener onClickListener = new a();
-    public d.b.b.e.l.c<d.b.b.j.d.a> mCallBack = new b();
-    public d.b.b.c.g.a mNetMessageListener = new c(CmdConfigHttp.CMD_COMMIT_CARD_INFO, 309643);
+    public d.b.c.e.l.c<d.b.c.j.d.a> mCallBack = new b();
+    public d.b.c.c.g.a mNetMessageListener = new c(CmdConfigHttp.CMD_COMMIT_CARD_INFO, 309643);
     public HttpMessageListener mHttpMessageListener = new d(CmdConfigHttp.CMD_CHECK_CARD_INFO);
 
     /* loaded from: classes4.dex */
@@ -83,13 +83,13 @@ public class IdentityReviewActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.b.b.e.l.c<d.b.b.j.d.a> {
+    public class b extends d.b.c.e.l.c<d.b.c.j.d.a> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.l.c
-        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+        @Override // d.b.c.e.l.c
+        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
             super.onLoaded((b) aVar, str, i);
             if (str != null && aVar != null) {
                 if (str.equals(IdentityReviewActivity.this.positiveImgePath)) {
@@ -101,19 +101,19 @@ public class IdentityReviewActivity extends BaseActivity {
                 }
             }
             if (str != null) {
-                d.b.h0.a0.c j = d.b.h0.a0.c.j();
-                j.g(str + 32);
+                d.b.h0.a0.c k = d.b.h0.a0.c.k();
+                k.h(str + 32);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends d.b.b.c.g.a {
+    public class c extends d.b.c.c.g.a {
         public c(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
@@ -202,10 +202,10 @@ public class IdentityReviewActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 101) {
-                d.b.b.e.l.d.h().m(this.positiveImgePath, 32, this.mCallBack, getUniqueId());
+                d.b.c.e.l.d.h().m(this.positiveImgePath, 32, this.mCallBack, getUniqueId());
                 this.positiveStatus = 1;
             } else if (i == 102) {
-                d.b.b.e.l.d.h().m(this.negativeImagePath, 32, this.mCallBack, getUniqueId());
+                d.b.c.e.l.d.h().m(this.negativeImagePath, 32, this.mCallBack, getUniqueId());
                 this.negativeStatus = 1;
             }
             TextView textView = this.mNextButon;

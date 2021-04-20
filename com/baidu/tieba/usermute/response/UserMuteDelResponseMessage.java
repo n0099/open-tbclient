@@ -2,7 +2,7 @@ package com.baidu.tieba.usermute.response;
 
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class UserMuteDelResponseMessage extends JsonHttpResponsedMessage {

@@ -3,10 +3,11 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes6.dex */
+import com.alibaba.fastjson.asm.Label;
+/* loaded from: classes5.dex */
 public class b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -17,7 +18,7 @@ public class b {
         if (context != null && intent != null) {
             try {
                 if (!(context instanceof Activity)) {
-                    intent.addFlags(268435456);
+                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 }
                 context.startActivity(intent);
                 if (aVar != null) {

@@ -16,28 +16,28 @@ import org.json.JSONObject;
 public class aw {
 
     /* renamed from: b  reason: collision with root package name */
-    public static aw f9014b = new aw();
+    public static aw f8588b = new aw();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f9015a;
+    public a f8589a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f9017d;
+    public Handler f8591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f9018e;
+    public volatile int f8592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9019f;
+    public int f8593f;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f9016c = new HandlerThread("fullTraceHandleThread");
+    public HandlerThread f8590c = new HandlerThread("fullTraceHandleThread");
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f9020g = new JSONObject();
+    public JSONObject f8594g = new JSONObject();
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f9021h = new JSONArray();
+    public JSONArray f8595h = new JSONArray();
     public JSONArray i = new JSONArray();
     public JSONArray j = new JSONArray();
     public JSONArray k = new JSONArray();
@@ -48,9 +48,9 @@ public class aw {
     }
 
     public aw() {
-        this.f9016c.start();
-        this.f9016c.setPriority(10);
-        this.f9017d = new Handler(this.f9016c.getLooper());
+        this.f8590c.start();
+        this.f8590c.setPriority(10);
+        this.f8591d = new Handler(this.f8590c.getLooper());
     }
 
     private void b(JSONObject jSONObject) {
@@ -63,10 +63,10 @@ public class aw {
     }
 
     public void c(Context context, boolean z) {
-        this.f9020g = new JSONObject();
+        this.f8594g = new JSONObject();
         b(context);
         this.i = new JSONArray();
-        this.f9021h = new JSONArray();
+        this.f8595h = new JSONArray();
         this.j = new JSONArray();
         this.k = new JSONArray();
         if (!z) {
@@ -82,15 +82,15 @@ public class aw {
             b();
         }
         try {
-            b(context, this.f9020g);
+            b(context, this.f8594g);
         } catch (Exception unused) {
         }
-        if (this.f9021h.length() == 0 && this.i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
+        if (this.f8595h.length() == 0 && this.i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, this.f9020g);
+            jSONObject.put(Config.HEADER_PART, this.f8594g);
         } catch (Exception unused2) {
         }
         try {
@@ -98,7 +98,7 @@ public class aw {
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("ev", this.f9021h);
+            jSONObject.put("ev", this.f8595h);
         } catch (Exception unused4) {
         }
         try {
@@ -110,15 +110,15 @@ public class aw {
         } catch (Exception unused6) {
         }
         try {
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f9012b));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8586b));
         } catch (Exception unused7) {
         }
         try {
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f9011a));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8585a));
         } catch (Exception unused8) {
         }
         try {
-            jSONObject.put("sd", au.a().a(au.a.f9013c));
+            jSONObject.put("sd", au.a().a(au.a.f8587c));
         } catch (Exception unused9) {
         }
         c(context, jSONObject);
@@ -144,7 +144,7 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
@@ -152,7 +152,7 @@ public class aw {
     }
 
     public static aw a() {
-        return f9014b;
+        return f8588b;
     }
 
     public void a(Context context) {
@@ -205,14 +205,14 @@ public class aw {
     public void c(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f9020g.toString()));
+            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f8594g.toString()));
             jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.i.toString()));
-            jSONObject.put("ev", new JSONArray(this.f9021h.toString()));
+            jSONObject.put("ev", new JSONArray(this.f8595h.toString()));
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f9012b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f9011a));
-            jSONObject.put("sd", au.a().a(au.a.f9013c));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8586b));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8585a));
+            jSONObject.put("sd", au.a().a(au.a.f8587c));
         } catch (Exception unused) {
         }
         String jSONObject2 = jSONObject.toString();
@@ -220,7 +220,7 @@ public class aw {
         if (length >= 184320) {
             return;
         }
-        this.f9018e = length;
+        this.f8592e = length;
         String u = bw.u(context);
         bo.a(context, u + Config.STAT_FULL_CACHE_FILE_NAME, jSONObject2, false);
     }
@@ -234,7 +234,7 @@ public class aw {
         Iterator<aq> it = arrayList.iterator();
         while (it.hasNext()) {
             aq next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f9012b), au.a().a(next.f(), au.a.f9013c), bj.c(next.c()));
+            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f8586b), au.a().a(next.f(), au.a.f8587c), bj.c(next.c()));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -244,14 +244,14 @@ public class aw {
     }
 
     public void b(Context context) {
-        CooperService.instance().getHeadObject().installHeader(context, this.f9020g);
+        CooperService.instance().getHeadObject().installHeader(context, this.f8594g);
     }
 
     private void b(Context context, JSONObject jSONObject) {
         CooperService.instance().getHeadObject().installHeader(context, jSONObject);
         try {
             jSONObject.put("t", System.currentTimeMillis());
-            jSONObject.put(Config.SEQUENCE_INDEX, this.f9019f);
+            jSONObject.put(Config.SEQUENCE_INDEX, this.f8593f);
             jSONObject.put("ss", BDStatCore.instance().getSessionStartTime());
             jSONObject.put("at", "1");
             jSONObject.put("sign", CooperService.instance().getUUID());
@@ -260,7 +260,7 @@ public class aw {
     }
 
     private void c() {
-        this.f9019f = 0;
+        this.f8593f = 0;
     }
 
     private void c(Context context, JSONObject jSONObject) {
@@ -279,14 +279,14 @@ public class aw {
     }
 
     private void b() {
-        this.f9019f++;
+        this.f8593f++;
     }
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.f9015a != null) {
+        if (this.f8589a != null) {
             try {
-                this.f9015a.a(new JSONObject(str));
+                this.f8589a.a(new JSONObject(str));
             } catch (Exception unused) {
             }
         }
@@ -301,7 +301,7 @@ public class aw {
         Iterator<ap> it = arrayList.iterator();
         while (it.hasNext()) {
             ap next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f9013c));
+            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f8587c));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -315,7 +315,7 @@ public class aw {
     }
 
     public void a(final Context context, final String str, final String str2, final int i, final long j, final String str3, final JSONArray jSONArray, final String str4, final JSONArray jSONArray2, final String str5, final Map<String, String> map, final boolean z, final JSONObject jSONObject, final String str6) {
-        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
+        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
             @Override // java.lang.Runnable
             public void run() {
                 long sessionStartTime = BDStatCore.instance().getSessionStartTime();
@@ -334,7 +334,7 @@ public class aw {
     }
 
     public void b(final Context context, final ArrayList<aq> arrayList) {
-        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
+        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.d(context, arrayList);
@@ -356,7 +356,7 @@ public class aw {
         if (a2 <= 0) {
             return;
         }
-        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f9012b), au.a().a(aoVar.b(), au.a.f9013c)));
+        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f8586b), au.a().a(aoVar.b(), au.a.f8587c)));
         c(context);
     }
 
@@ -372,11 +372,11 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        EventAnalysis.doEventMerge(this.f9021h, jSONObject);
+        EventAnalysis.doEventMerge(this.f8595h, jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -452,11 +452,11 @@ public class aw {
     }
 
     private boolean a(Context context, String str) {
-        return (str != null ? str.getBytes().length : 0) + this.f9018e > 184320;
+        return (str != null ? str.getBytes().length : 0) + this.f8592e > 184320;
     }
 
     public void a(final Context context, final boolean z) {
-        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
+        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.b(context, z);
@@ -465,7 +465,7 @@ public class aw {
     }
 
     public void a(final JSONObject jSONObject) {
-        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
+        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject2 = jSONObject;
@@ -479,7 +479,7 @@ public class aw {
     }
 
     public void a(final Context context, final ao aoVar) {
-        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
+        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
             @Override // java.lang.Runnable
             public void run() {
                 if (BDStatCore.instance().getSessionStartTime() <= 0) {
@@ -491,7 +491,7 @@ public class aw {
     }
 
     public void a(final Context context, final ArrayList<ap> arrayList) {
-        this.f9017d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
+        this.f8591d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.c(context, arrayList);
@@ -541,7 +541,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -571,7 +571,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f9018e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8592e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }

@@ -21,26 +21,26 @@ import java.util.zip.ZipFile;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48226a = k.f45051a;
+    public static final boolean f48618a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f48227b = d.b.g0.a.u0.d.d() + "/v8_so/";
+    public static final String f48619b = d.b.g0.a.u0.d.d() + "/v8_so/";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f48228c = d.b.g0.a.w0.a.L().f();
+    public static final boolean f48620c = d.b.g0.a.w0.a.L().f();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f48229d = d.b.g0.a.w0.a.L().d();
+    public static final String[] f48621d = d.b.g0.a.w0.a.L().d();
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f48230e = null;
+    public static String f48622e = null;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: d.b.g0.g.i0.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class RunnableC0967a implements Runnable {
+        public static class RunnableC0979a implements Runnable {
             @Override // java.lang.Runnable
             public void run() {
                 e.a();
@@ -48,13 +48,13 @@ public class e {
         }
 
         public static void a() {
-            ExecutorUtilsExt.postOnElastic(new RunnableC0967a(), "V8SoCleaner", 3);
+            ExecutorUtilsExt.postOnElastic(new RunnableC0979a(), "V8SoCleaner", 3);
         }
     }
 
     public static void a() {
         File[] listFiles;
-        File file = new File(f48227b);
+        File file = new File(f48619b);
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return;
         }
@@ -71,10 +71,10 @@ public class e {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("v8.engine");
         arrayList.add("zeusv8");
-        if (f48228c) {
+        if (f48620c) {
             arrayList.add("com.baidu.zeus");
         }
-        String[] strArr = f48229d;
+        String[] strArr = f48621d;
         if (strArr != null && strArr.length != 0) {
             arrayList.addAll(Arrays.asList(strArr));
         }
@@ -86,8 +86,8 @@ public class e {
     }
 
     public static String d() {
-        if (f48228c) {
-            return f48230e;
+        if (f48620c) {
+            return f48622e;
         }
         return null;
     }
@@ -119,13 +119,13 @@ public class e {
     }
 
     public static boolean g(@NonNull Context context, @NonNull SoLoader soLoader) {
-        if (f48228c) {
+        if (f48620c) {
             File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
             if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
                 return false;
             }
-            f48230e = findSoFilesInLibrary.getAbsolutePath();
-            m("loadV8EngineSo: v8 dependentFile:" + f48230e);
+            f48622e = findSoFilesInLibrary.getAbsolutePath();
+            m("loadV8EngineSo: v8 dependentFile:" + f48622e);
         }
         return l(null, soLoader) && e("v8.engine", soLoader);
     }
@@ -153,14 +153,14 @@ public class e {
         m("loadV8EngineSoByMap:" + hashMap);
         String str = hashMap.get("com.baidu.zeus");
         boolean z = false;
-        if (f48228c && str == null) {
+        if (f48620c && str == null) {
             return f.d(false, false);
         }
         boolean f2 = f(hashMap.get("zeusv8"), soLoader);
         boolean l = l(hashMap, soLoader);
         boolean f3 = f(hashMap.get("v8.engine"), soLoader);
         if (f3) {
-            f48230e = str;
+            f48622e = str;
         }
         if (l && f3) {
             z = true;
@@ -169,10 +169,10 @@ public class e {
     }
 
     public static f j(@NonNull Context context, @NonNull SoLoader soLoader) {
-        f48230e = null;
+        f48622e = null;
         HashMap hashMap = new HashMap();
         String z = k0.z();
-        File file = new File(f48227b, z);
+        File file = new File(f48619b, z);
         Iterator<String> it = b().iterator();
         while (true) {
             boolean z2 = true;
@@ -212,7 +212,7 @@ public class e {
                 }
             } catch (Exception e2) {
                 soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:" + e2.getMessage());
-                if (f48226a) {
+                if (f48618a) {
                     Log.e("V8InnerSoLoader", "loadV8EngineSoWithCustomPath:" + e2);
                 }
             }
@@ -223,7 +223,7 @@ public class e {
     }
 
     public static f k(@NonNull Context context, @NonNull SoLoader soLoader) {
-        f48230e = null;
+        f48622e = null;
         HashMap hashMap = new HashMap();
         Iterator<String> it = b().iterator();
         while (it.hasNext()) {
@@ -236,7 +236,7 @@ public class e {
 
     public static boolean l(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
         boolean f2;
-        String[] strArr = f48229d;
+        String[] strArr = f48621d;
         boolean z = true;
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
@@ -254,7 +254,7 @@ public class e {
     }
 
     public static void m(String str) {
-        if (f48226a) {
+        if (f48618a) {
             Log.d("V8InnerSoLoader", str);
         }
     }

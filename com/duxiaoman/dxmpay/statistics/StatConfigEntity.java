@@ -1,7 +1,7 @@
 package com.duxiaoman.dxmpay.statistics;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatConfigEntity implements Serializable {
     public int wifi = 1;
     public int mobile_net = 5;

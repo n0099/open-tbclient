@@ -2,8 +2,8 @@ package com.baidu.tieba.themeCenter.card.category;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.i3.g.a.a;
-import d.b.i0.i3.h.e;
+import d.b.i0.j3.g.a.a;
+import d.b.i0.j3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;

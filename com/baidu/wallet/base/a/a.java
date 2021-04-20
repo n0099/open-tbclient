@@ -2,7 +2,6 @@ package com.baidu.wallet.base.a;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class a {
                 if (!TextUtils.isEmpty(strArr[i])) {
                     arrayList.add(strArr[i]);
                 } else {
-                    arrayList.add(SchemeCollecter.CLASSIFY_EMPTY);
+                    arrayList.add("empty");
                 }
             }
         } catch (Exception unused) {

@@ -8,7 +8,7 @@ import java.util.List;
 import protobuf.GetMaskInfo.DataRes;
 import protobuf.GetMaskInfo.GetMaskInfoResIdl;
 import protobuf.GetMaskInfo.UserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static final int FALSE = 0;
     public ArrayList<BlackListItemData> blackList;

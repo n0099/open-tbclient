@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.b.f.u;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static a a(Context context, String str, JSONObject jSONObject, DownloadInfo downloadInfo) {
         if (downloadInfo == null || context == null || jSONObject == null) {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.permissionhelper.app.ActivityCompat;
@@ -15,8 +16,8 @@ import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.a.f;
-import d.b.b.a.j;
+import d.b.c.a.f;
+import d.b.c.a.j;
 import d.b.h0.r.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -235,7 +236,7 @@ public class PermissionJudgePolicy {
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 Intent intent = new Intent();
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);

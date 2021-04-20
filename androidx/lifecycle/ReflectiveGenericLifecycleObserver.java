@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ClassesInfoCache;
 import androidx.lifecycle.Lifecycle;
 /* loaded from: classes.dex */
@@ -13,7 +14,7 @@ public class ReflectiveGenericLifecycleObserver implements LifecycleEventObserve
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
         this.mInfo.invokeCallbacks(lifecycleOwner, event, this.mWrapped);
     }
 }

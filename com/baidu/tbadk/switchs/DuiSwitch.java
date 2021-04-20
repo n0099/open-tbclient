@@ -7,12 +7,12 @@ public class DuiSwitch extends BaseNormalSwitch {
         return mInstance.isOn();
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.b.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.c.e.f.a
     public int getDefaultType() {
         return super.getDefaultType();
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.b.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.c.e.f.a
     public String getName() {
         return "dui_switch";
     }

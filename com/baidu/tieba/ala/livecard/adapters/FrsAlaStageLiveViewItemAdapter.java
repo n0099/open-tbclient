@@ -15,32 +15,32 @@ import java.util.List;
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f15025a;
+    public TbPageContext<?> f14688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f15026b = new ArrayList<>();
+    public ArrayList<a> f14689b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<a2> f15027c = new ArrayList();
+    public List<a2> f14690c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15028d;
+    public String f14691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f15029e;
+    public BdUniqueId f14692e;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.f15025a = tbPageContext;
-        this.f15029e = bdUniqueId;
+        this.f14688a = tbPageContext;
+        this.f14692e = bdUniqueId;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.f15026b.get(i).c());
+        viewGroup.removeView(this.f14689b.get(i).c());
     }
 
     public final a e() {
-        return new a(this.f15025a, this.f15029e);
+        return new a(this.f14688a, this.f14692e);
     }
 
     public void f(List<a2> list, c cVar) {
@@ -48,52 +48,52 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         if (list == null || list.isEmpty()) {
             return;
         }
-        this.f15027c.clear();
-        this.f15027c.addAll(list);
-        int size = this.f15026b.size();
-        int size2 = this.f15027c.size();
+        this.f14690c.clear();
+        this.f14690c.addAll(list);
+        int size = this.f14689b.size();
+        int size2 = this.f14690c.size();
         if (size > size2) {
             ArrayList arrayList = new ArrayList();
             for (int i = size2; i < size; i++) {
-                arrayList.add(this.f15026b.get(i));
+                arrayList.add(this.f14689b.get(i));
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 a aVar2 = (a) arrayList.get(i2);
                 if (aVar2.c() != null && aVar2.c().getParent() != null) {
                     ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
                 }
-                this.f15026b.remove(aVar2);
+                this.f14689b.remove(aVar2);
             }
             arrayList.clear();
         }
         for (int i3 = 0; i3 < size2; i3++) {
             if (i3 >= size) {
                 aVar = e();
-                aVar.g(this.f15025a.getUniqueId());
+                aVar.g(this.f14688a.getUniqueId());
                 aVar.h(cVar);
-                this.f15026b.add(aVar);
+                this.f14689b.add(aVar);
             } else {
-                aVar = this.f15026b.get(i3);
+                aVar = this.f14689b.get(i3);
             }
-            if (this.f15027c.get(i3) != null && aVar != null) {
-                aVar.f(this.f15027c.get(i3), this.f15028d);
+            if (this.f14690c.get(i3) != null && aVar != null) {
+                aVar.f(this.f14690c.get(i3), this.f14691d);
             }
         }
         notifyDataSetChanged();
     }
 
     public void g(String str) {
-        this.f15028d = str;
+        this.f14691d = str;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f15026b);
+        return ListUtils.getCount(this.f14689b);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ArrayList<a> arrayList = this.f15026b;
+        ArrayList<a> arrayList = this.f14689b;
         if (arrayList == null) {
             return super.instantiateItem(viewGroup, i);
         }

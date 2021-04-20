@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.config.AppConfig;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import java.net.URL;
 /* loaded from: classes3.dex */
 public class ImageLoggerHelper {

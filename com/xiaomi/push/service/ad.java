@@ -5,7 +5,7 @@ import com.xiaomi.push.ai;
 public final class ad extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40938a;
+    public final /* synthetic */ int f41227a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ao f876a;
@@ -16,17 +16,17 @@ public final class ad extends ai.a {
     public ad(String str, ao aoVar, int i) {
         this.f877a = str;
         this.f876a = aoVar;
-        this.f40938a = i;
+        this.f41227a = i;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo165a() {
+    public String mo169a() {
         return this.f877a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f876a.a(this.f40938a);
+        this.f876a.a(this.f41227a);
     }
 }

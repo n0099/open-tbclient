@@ -13,7 +13,7 @@ import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicLogoUnion;
 import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicRootView;
 import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicTextView;
 import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicVideoView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static DynamicBaseWidget a(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         if (context == null || dynamicRootView == null || fVar == null || fVar.e() == null) {

@@ -14,21 +14,21 @@ import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f66205a;
+    public Handler f67198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66206b;
+    public Context f67199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f66207c;
+    public c f67200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f66208d = new ServiceConnectionC1813a();
+    public ServiceConnection f67201d = new ServiceConnectionC1848a();
 
     /* renamed from: d.k.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class ServiceConnectionC1813a implements ServiceConnection {
-        public ServiceConnectionC1813a() {
+    public class ServiceConnectionC1848a implements ServiceConnection {
+        public ServiceConnectionC1848a() {
         }
 
         @Override // android.content.ServiceConnection
@@ -41,8 +41,8 @@ public class a {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            a.this.f66205a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-            a.this.f66205a.removeMessages(2);
+            a.this.f67198a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+            a.this.f67198a.removeMessages(2);
         }
 
         @Override // android.content.ServiceConnection
@@ -63,12 +63,12 @@ public class a {
         public void handleMessage(Message message) {
             int i = message.what;
             if (i == 0) {
-                a.this.f66207c.b(-1, null);
+                a.this.f67200c.b(-1, null);
             } else if (i != 1) {
                 if (i != 2) {
                     return;
                 }
-                a.this.f66207c.b(-2, null);
+                a.this.f67200c.b(-2, null);
             } else {
                 OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                 int i2 = -4;
@@ -77,17 +77,17 @@ public class a {
                 i2 = -4;
                 try {
                     try {
-                        a.this.f66207c.a(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                        a.this.f67200c.a(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                         try {
-                            a.this.f66206b.unbindService(a.this.f66208d);
+                            a.this.f67199b.unbindService(a.this.f67201d);
                         } catch (Exception e2) {
-                            a.this.f66207c.b(-4, e2);
+                            a.this.f67200c.b(-4, e2);
                         }
                     } catch (RemoteException e3) {
-                        a.this.f66207c.b(-3, e3);
+                        a.this.f67200c.b(-3, e3);
                         try {
-                            Context context = a.this.f66206b;
-                            ServiceConnection serviceConnection = a.this.f66208d;
+                            Context context = a.this.f67199b;
+                            ServiceConnection serviceConnection = a.this.f67201d;
                             context.unbindService(serviceConnection);
                             i2 = serviceConnection;
                         } catch (Exception unused) {
@@ -95,9 +95,9 @@ public class a {
                     }
                 } catch (Throwable th) {
                     try {
-                        a.this.f66206b.unbindService(a.this.f66208d);
+                        a.this.f67199b.unbindService(a.this.f67201d);
                     } catch (Exception e4) {
-                        a.this.f66207c.b(i2, e4);
+                        a.this.f67200c.b(i2, e4);
                     }
                     throw th;
                 }
@@ -113,9 +113,9 @@ public class a {
     }
 
     public a(Context context, c cVar, Handler handler) {
-        this.f66206b = context;
-        this.f66207c = cVar;
-        this.f66205a = new b(handler == null ? Looper.getMainLooper() : handler.getLooper());
+        this.f67199b = context;
+        this.f67200c = cVar;
+        this.f67198a = new b(handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
     public static void d(Context context, c cVar) {
@@ -129,11 +129,11 @@ public class a {
     public final void f() {
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
-        if (this.f66206b.bindService(intent, this.f66208d, 1)) {
-            Handler handler = this.f66205a;
+        if (this.f67199b.bindService(intent, this.f67201d, 1)) {
+            Handler handler = this.f67198a;
             handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
             return;
         }
-        this.f66205a.sendEmptyMessage(0);
+        this.f67198a.sendEmptyMessage(0);
     }
 }

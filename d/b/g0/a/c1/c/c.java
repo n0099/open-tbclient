@@ -46,24 +46,24 @@ public class c extends PopupWindow implements View.OnClickListener {
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f43751e;
+        public final /* synthetic */ View f44143e;
 
         public b(View view) {
-            this.f43751e = view;
+            this.f44143e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            c.this.Z.a(this.f43751e.getHeight());
+            c.this.Z.a(this.f44143e.getHeight());
             c.this.c0();
-            this.f43751e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            this.f44143e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
         }
     }
 
     /* renamed from: d.b.g0.a.c1.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0632c extends AnimatorListenerAdapter {
-        public C0632c() {
+    public class C0644c extends AnimatorListenerAdapter {
+        public C0644c() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -109,7 +109,7 @@ public class c extends PopupWindow implements View.OnClickListener {
             ObjectAnimator c2 = d.b.g0.i.c.c(this.Y);
             ObjectAnimator e2 = d.b.g0.i.c.e(this.Z);
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.addListener(new C0632c());
+            animatorSet.addListener(new C0644c());
             animatorSet.playTogether(c2, e2);
             animatorSet.start();
         }

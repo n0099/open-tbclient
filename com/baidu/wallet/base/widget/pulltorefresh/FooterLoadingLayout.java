@@ -15,16 +15,16 @@ import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 public class FooterLoadingLayout extends LoadingLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f24079a;
+    public ProgressBar f23764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24080b;
+    public TextView f23765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f24081c;
+    public CharSequence f23766c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f24082d;
+    public CharSequence f23767d;
 
     public FooterLoadingLayout(Context context) {
         super(context);
@@ -32,8 +32,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     private void a(Context context) {
-        this.f24079a = (ProgressBar) findViewById(ResUtils.id(getContext(), "bd_wallet_progress_footer"));
-        this.f24080b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
+        this.f23764a = (ProgressBar) findViewById(ResUtils.id(getContext(), "bd_wallet_progress_footer"));
+        this.f23765b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
         setState(LoadingLayout.State.RESET);
     }
 
@@ -50,38 +50,38 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onNoMoreData() {
-        this.f24080b.setVisibility(0);
-        if (TextUtils.isEmpty(this.f24082d)) {
-            this.f24080b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
+        this.f23765b.setVisibility(0);
+        if (TextUtils.isEmpty(this.f23767d)) {
+            this.f23765b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
         } else {
-            this.f24080b.setText(this.f24082d);
+            this.f23765b.setText(this.f23767d);
         }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onRefreshing() {
-        this.f24079a.setVisibility(0);
-        this.f24080b.setVisibility(0);
-        if (TextUtils.isEmpty(this.f24081c)) {
-            this.f24080b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+        this.f23764a.setVisibility(0);
+        this.f23765b.setVisibility(0);
+        if (TextUtils.isEmpty(this.f23766c)) {
+            this.f23765b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
         } else {
-            this.f24080b.setText(this.f24081c);
+            this.f23765b.setText(this.f23766c);
         }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onReset() {
-        if (TextUtils.isEmpty(this.f24081c)) {
-            this.f24080b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+        if (TextUtils.isEmpty(this.f23766c)) {
+            this.f23765b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
         } else {
-            this.f24080b.setText(this.f24081c);
+            this.f23765b.setText(this.f23766c);
         }
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onStateChanged(LoadingLayout.State state, LoadingLayout.State state2) {
-        this.f24079a.setVisibility(8);
-        this.f24080b.setVisibility(4);
+        this.f23764a.setVisibility(8);
+        this.f23765b.setVisibility(4);
         super.onStateChanged(state, state2);
     }
 
@@ -94,8 +94,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f24082d = charSequence;
-        TextView textView = this.f24080b;
+        this.f23767d = charSequence;
+        TextView textView = this.f23765b;
         if (textView != null) {
             textView.setText(charSequence);
         }
@@ -106,8 +106,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f24081c = charSequence;
-        TextView textView = this.f24080b;
+        this.f23766c = charSequence;
+        TextView textView = this.f23765b;
         if (textView != null) {
             textView.setText(charSequence);
         }

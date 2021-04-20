@@ -23,7 +23,7 @@ import javax.net.ssl.X509TrustManager;
 /* loaded from: classes5.dex */
 public class y implements Cloneable {
     public static final List<com.bytedance.sdk.a.b.w> F = d.c.c.a.b.a.e.n(com.bytedance.sdk.a.b.w.HTTP_2, com.bytedance.sdk.a.b.w.HTTP_1_1);
-    public static final List<o> G = d.c.c.a.b.a.e.n(o.f65522f, o.f65523g);
+    public static final List<o> G = d.c.c.a.b.a.e.n(o.f66367f, o.f66368g);
     public final boolean A;
     public final int B;
     public final int C;
@@ -31,16 +31,16 @@ public class y implements Cloneable {
     public final int E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final r f65561e;
+    public final r f66406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Proxy f65562f;
+    public final Proxy f66407f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<com.bytedance.sdk.a.b.w> f65563g;
+    public final List<com.bytedance.sdk.a.b.w> f66408g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<o> f65564h;
+    public final List<o> f66409h;
     public final List<w> i;
     public final List<w> j;
     public final t.c k;
@@ -64,7 +64,7 @@ public class y implements Cloneable {
     public static class a extends d.c.c.a.b.a.b {
         @Override // d.c.c.a.b.a.b
         public int a(c.a aVar) {
-            return aVar.f65466c;
+            return aVar.f66311c;
         }
 
         @Override // d.c.c.a.b.a.b
@@ -74,7 +74,7 @@ public class y implements Cloneable {
 
         @Override // d.c.c.a.b.a.b
         public d.c.c.a.b.a.c.d c(n nVar) {
-            return nVar.f65518e;
+            return nVar.f66363e;
         }
 
         @Override // d.c.c.a.b.a.b
@@ -114,7 +114,7 @@ public class y implements Cloneable {
     }
 
     static {
-        d.c.c.a.b.a.b.f65184a = new a();
+        d.c.c.a.b.a.b.f66029a = new a();
     }
 
     public y() {
@@ -170,7 +170,7 @@ public class y implements Cloneable {
     }
 
     public Proxy g() {
-        return this.f65562f;
+        return this.f66407f;
     }
 
     public ProxySelector h() {
@@ -183,7 +183,7 @@ public class y implements Cloneable {
 
     public d.c.c.a.b.a.a.d j() {
         g gVar = this.n;
-        return gVar != null ? gVar.f65479e : this.o;
+        return gVar != null ? gVar.f66324e : this.o;
     }
 
     public s k() {
@@ -231,15 +231,15 @@ public class y implements Cloneable {
     }
 
     public r v() {
-        return this.f65561e;
+        return this.f66406e;
     }
 
     public List<com.bytedance.sdk.a.b.w> w() {
-        return this.f65563g;
+        return this.f66408g;
     }
 
     public List<o> x() {
-        return this.f65564h;
+        return this.f66409h;
     }
 
     public List<w> y() {
@@ -252,20 +252,20 @@ public class y implements Cloneable {
 
     public y(b bVar) {
         boolean z;
-        this.f65561e = bVar.f65565a;
-        this.f65562f = bVar.f65566b;
-        this.f65563g = bVar.f65567c;
-        this.f65564h = bVar.f65568d;
-        this.i = d.c.c.a.b.a.e.m(bVar.f65569e);
-        this.j = d.c.c.a.b.a.e.m(bVar.f65570f);
-        this.k = bVar.f65571g;
-        this.l = bVar.f65572h;
+        this.f66406e = bVar.f66410a;
+        this.f66407f = bVar.f66411b;
+        this.f66408g = bVar.f66412c;
+        this.f66409h = bVar.f66413d;
+        this.i = d.c.c.a.b.a.e.m(bVar.f66414e);
+        this.j = d.c.c.a.b.a.e.m(bVar.f66415f);
+        this.k = bVar.f66416g;
+        this.l = bVar.f66417h;
         this.m = bVar.i;
         this.n = bVar.j;
         this.o = bVar.k;
         this.p = bVar.l;
         loop0: while (true) {
-            for (o oVar : this.f65564h) {
+            for (o oVar : this.f66409h) {
                 z = z || oVar.b();
             }
         }
@@ -304,28 +304,28 @@ public class y implements Cloneable {
         public int A;
 
         /* renamed from: a  reason: collision with root package name */
-        public r f65565a;
+        public r f66410a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Proxy f65566b;
+        public Proxy f66411b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<com.bytedance.sdk.a.b.w> f65567c;
+        public List<com.bytedance.sdk.a.b.w> f66412c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<o> f65568d;
+        public List<o> f66413d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<w> f65569e;
+        public final List<w> f66414e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<w> f65570f;
+        public final List<w> f66415f;
 
         /* renamed from: g  reason: collision with root package name */
-        public t.c f65571g;
+        public t.c f66416g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ProxySelector f65572h;
+        public ProxySelector f66417h;
         public q i;
         public g j;
         public d.c.c.a.b.a.a.d k;
@@ -346,22 +346,22 @@ public class y implements Cloneable {
         public int z;
 
         public b() {
-            this.f65569e = new ArrayList();
-            this.f65570f = new ArrayList();
-            this.f65565a = new r();
-            this.f65567c = y.F;
-            this.f65568d = y.G;
-            this.f65571g = t.a(t.f65549a);
-            this.f65572h = ProxySelector.getDefault();
-            this.i = q.f65540a;
+            this.f66414e = new ArrayList();
+            this.f66415f = new ArrayList();
+            this.f66410a = new r();
+            this.f66412c = y.F;
+            this.f66413d = y.G;
+            this.f66416g = t.a(t.f66394a);
+            this.f66417h = ProxySelector.getDefault();
+            this.i = q.f66385a;
             this.l = SocketFactory.getDefault();
-            this.o = d.c.c.a.b.a.k.e.f65436a;
-            this.p = k.f65496c;
-            f fVar = f.f65478a;
+            this.o = d.c.c.a.b.a.k.e.f66281a;
+            this.p = k.f66341c;
+            f fVar = f.f66323a;
             this.q = fVar;
             this.r = fVar;
             this.s = new n();
-            this.t = s.f65548a;
+            this.t = s.f66393a;
             this.u = true;
             this.v = true;
             this.w = true;
@@ -372,7 +372,7 @@ public class y implements Cloneable {
         }
 
         public b a(long j, TimeUnit timeUnit) {
-            this.x = d.c.c.a.b.a.e.e(com.alipay.sdk.data.a.i, j, timeUnit);
+            this.x = d.c.c.a.b.a.e.e("timeout", j, timeUnit);
             return this;
         }
 
@@ -386,7 +386,7 @@ public class y implements Cloneable {
         }
 
         public b d(long j, TimeUnit timeUnit) {
-            this.y = d.c.c.a.b.a.e.e(com.alipay.sdk.data.a.i, j, timeUnit);
+            this.y = d.c.c.a.b.a.e.e("timeout", j, timeUnit);
             return this;
         }
 
@@ -396,21 +396,21 @@ public class y implements Cloneable {
         }
 
         public b f(long j, TimeUnit timeUnit) {
-            this.z = d.c.c.a.b.a.e.e(com.alipay.sdk.data.a.i, j, timeUnit);
+            this.z = d.c.c.a.b.a.e.e("timeout", j, timeUnit);
             return this;
         }
 
         public b(y yVar) {
-            this.f65569e = new ArrayList();
-            this.f65570f = new ArrayList();
-            this.f65565a = yVar.f65561e;
-            this.f65566b = yVar.f65562f;
-            this.f65567c = yVar.f65563g;
-            this.f65568d = yVar.f65564h;
-            this.f65569e.addAll(yVar.i);
-            this.f65570f.addAll(yVar.j);
-            this.f65571g = yVar.k;
-            this.f65572h = yVar.l;
+            this.f66414e = new ArrayList();
+            this.f66415f = new ArrayList();
+            this.f66410a = yVar.f66406e;
+            this.f66411b = yVar.f66407f;
+            this.f66412c = yVar.f66408g;
+            this.f66413d = yVar.f66409h;
+            this.f66414e.addAll(yVar.i);
+            this.f66415f.addAll(yVar.j);
+            this.f66416g = yVar.k;
+            this.f66417h = yVar.l;
             this.i = yVar.m;
             this.k = yVar.o;
             this.j = yVar.n;

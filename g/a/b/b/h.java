@@ -8,62 +8,62 @@ import java.lang.reflect.Modifier;
 public class h {
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f67565g;
+    public static h f68571g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f67566h;
+    public static h f68572h;
     public static h i;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67567a = true;
+    public boolean f68573a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f67568b = true;
+    public boolean f68574b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f67569c = false;
+    public boolean f68575c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f67570d = false;
+    public boolean f68576d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67571e = false;
+    public boolean f68577e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67572f;
+    public int f68578f;
 
     static {
         h hVar = new h();
-        f67565g = hVar;
-        hVar.f67567a = true;
-        hVar.f67568b = false;
-        hVar.f67569c = false;
-        hVar.f67570d = false;
-        hVar.f67571e = true;
-        hVar.f67572f = 0;
+        f68571g = hVar;
+        hVar.f68573a = true;
+        hVar.f68574b = false;
+        hVar.f68575c = false;
+        hVar.f68576d = false;
+        hVar.f68577e = true;
+        hVar.f68578f = 0;
         h hVar2 = new h();
-        f67566h = hVar2;
-        hVar2.f67567a = true;
-        hVar2.f67568b = true;
-        hVar2.f67569c = false;
-        hVar2.f67570d = false;
-        hVar2.f67571e = false;
-        f67565g.f67572f = 1;
+        f68572h = hVar2;
+        hVar2.f68573a = true;
+        hVar2.f68574b = true;
+        hVar2.f68575c = false;
+        hVar2.f68576d = false;
+        hVar2.f68577e = false;
+        f68571g.f68578f = 1;
         h hVar3 = new h();
         i = hVar3;
-        hVar3.f67567a = false;
-        hVar3.f67568b = true;
-        hVar3.f67569c = false;
-        hVar3.f67570d = true;
-        hVar3.f67571e = false;
-        hVar3.f67572f = 2;
+        hVar3.f68573a = false;
+        hVar3.f68574b = true;
+        hVar3.f68575c = false;
+        hVar3.f68576d = true;
+        hVar3.f68577e = false;
+        hVar3.f68578f = 2;
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr == null) {
             return;
         }
-        if (!this.f67568b) {
+        if (!this.f68574b) {
             if (clsArr.length == 0) {
                 stringBuffer.append("()");
                 return;
@@ -78,7 +78,7 @@ public class h {
     }
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
-        if (!this.f67569c || clsArr == null || clsArr.length == 0) {
+        if (!this.f68575c || clsArr == null || clsArr.length == 0) {
             return;
         }
         stringBuffer.append(" throws ");
@@ -100,7 +100,7 @@ public class h {
     }
 
     public String e(int i2) {
-        if (this.f67570d) {
+        if (this.f68576d) {
             String modifier = Modifier.toString(i2);
             if (modifier.length() == 0) {
                 return "";
@@ -114,11 +114,11 @@ public class h {
     }
 
     public String f(Class cls, String str) {
-        return h(cls, str, this.f67571e);
+        return h(cls, str, this.f68577e);
     }
 
     public String g(Class cls) {
-        return h(cls, cls.getName(), this.f67567a);
+        return h(cls, cls.getName(), this.f68573a);
     }
 
     public String h(Class cls, String str, boolean z) {

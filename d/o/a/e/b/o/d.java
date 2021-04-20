@@ -6,34 +6,34 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f67230e = "d";
+    public static final String f68223e = "d";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f67231f = false;
+    public static volatile boolean f68224f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f67232g = -1;
+    public static long f68225g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f67233h;
+    public static volatile d f68226h;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f67234a = m.a();
+    public final m f68227a = m.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f67235b = new AtomicInteger();
+    public final AtomicInteger f68228b = new AtomicInteger();
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f67236c = new a(d.o.a.e.b.k.e.a());
+    public final a f68229c = new a(d.o.a.e.b.k.e.a());
 
     /* renamed from: d  reason: collision with root package name */
-    public long f67237d;
+    public long f68230d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -58,14 +58,14 @@ public class d {
     }
 
     public static d a() {
-        if (f67233h == null) {
+        if (f68226h == null) {
             synchronized (d.class) {
-                if (f67233h == null) {
-                    f67233h = new d();
+                if (f68226h == null) {
+                    f68226h = new d();
                 }
             }
         }
-        return f67233h;
+        return f68226h;
     }
 
     public static long d() {
@@ -73,16 +73,16 @@ public class d {
     }
 
     public static void e() {
-        f67231f = d.o.a.e.b.l.e.d0(d.o.a.e.b.g.d.l());
+        f68224f = d.o.a.e.b.l.e.d0(d.o.a.e.b.g.d.l());
     }
 
     public void b() {
         try {
-            String str = f67230e;
-            d.o.a.e.b.c.a.h(str, "startSampling: mSamplingCounter = " + this.f67235b);
-            if (this.f67235b.getAndIncrement() == 0) {
-                this.f67236c.a();
-                this.f67237d = SystemClock.uptimeMillis();
+            String str = f68223e;
+            d.o.a.e.b.c.a.h(str, "startSampling: mSamplingCounter = " + this.f68228b);
+            if (this.f68228b.getAndIncrement() == 0) {
+                this.f68229c.a();
+                this.f68230d = SystemClock.uptimeMillis();
             }
         } catch (Throwable unused) {
         }
@@ -90,10 +90,10 @@ public class d {
 
     public void c() {
         try {
-            String str = f67230e;
-            d.o.a.e.b.c.a.h(str, "stopSampling: mSamplingCounter = " + this.f67235b);
-            if (this.f67235b.decrementAndGet() == 0) {
-                this.f67236c.b();
+            String str = f68223e;
+            d.o.a.e.b.c.a.h(str, "stopSampling: mSamplingCounter = " + this.f68228b);
+            if (this.f68228b.decrementAndGet() == 0) {
+                this.f68229c.b();
                 g();
             }
         } catch (Throwable unused) {
@@ -104,20 +104,20 @@ public class d {
         long mobileRxBytes;
         try {
             e();
-            if (f67231f) {
+            if (f68224f) {
                 mobileRxBytes = d();
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
             }
-            long j = mobileRxBytes - f67232g;
-            if (f67232g >= 0) {
+            long j = mobileRxBytes - f68225g;
+            if (f68225g >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f67234a.c(j, uptimeMillis - this.f67237d);
-                    this.f67237d = uptimeMillis;
+                    this.f68227a.c(j, uptimeMillis - this.f68230d);
+                    this.f68230d = uptimeMillis;
                 }
             }
-            f67232g = mobileRxBytes;
+            f68225g = mobileRxBytes;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -125,6 +125,6 @@ public class d {
 
     public void g() {
         f();
-        f67232g = -1L;
+        f68225g = -1L;
     }
 }

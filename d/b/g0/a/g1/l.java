@@ -31,20 +31,20 @@ public final class l extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("websocket", "handleSubAction subAction: " + str);
         }
         if (eVar == null) {
             d.b.g0.a.c0.c.b("websocket", "param is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("websocket", "websocket --- illegal swanApp");
             }
             return false;
-        } else if (TextUtils.isEmpty(eVar.f45740f)) {
+        } else if (TextUtils.isEmpty(eVar.f46132f)) {
             d.b.g0.a.c0.c.b("websocket", "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none swanApp id");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("websocket", "websocket --- none swanApp id");
             }
             return false;
@@ -53,7 +53,7 @@ public final class l extends a0 {
             if (optParamsAsJo == null) {
                 d.b.g0.a.c0.c.b("websocket", "no params found");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "no params found");
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("websocket", "websocket --- none params found");
                 }
                 return false;
@@ -85,7 +85,7 @@ public final class l extends a0 {
         if (!jSONObject.has("taskID")) {
             d.b.g0.a.c0.c.b("websocket", "taskID lose");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "taskID lose");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("websocket", "close --- taskID lose");
             }
             return false;
@@ -105,7 +105,7 @@ public final class l extends a0 {
             } catch (Exception e2) {
                 d.b.g0.a.c0.c.b("websocket", e2.getMessage());
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("websocket", "close --- " + e2.getMessage());
                 }
                 k Y = eVar.Y();
@@ -157,7 +157,7 @@ public final class l extends a0 {
                         } catch (Exception e2) {
                             d.b.g0.a.c0.c.b("websocket", e2.getMessage());
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
-                            if (a0.f46288b) {
+                            if (a0.f46680b) {
                                 Log.d("websocket", "connect --- " + e2.getMessage());
                             }
                             return false;
@@ -172,14 +172,14 @@ public final class l extends a0 {
             }
             d.b.g0.a.c0.c.b("websocket", "websocket callback lose");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "websocket callback lose");
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("websocket", "connect --- websocket callback lose");
             }
             return false;
         }
         d.b.g0.a.c0.c.b("websocket", "url or cb lose");
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "url or cb lose");
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("websocket", "connect --- url or cb lose");
         }
         return false;
@@ -207,7 +207,7 @@ public final class l extends a0 {
             } catch (Exception e2) {
                 d.b.g0.a.c0.c.b("websocket", e2.getMessage());
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("websocket", "send --- " + e2.getMessage());
                 }
                 return false;
@@ -215,7 +215,7 @@ public final class l extends a0 {
         }
         d.b.g0.a.c0.c.b("websocket", "taskID or data lose");
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "taskID or data lose");
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("websocket", "send --- taskID or data lose");
         }
         return false;
@@ -225,20 +225,20 @@ public final class l extends a0 {
     public static final class a implements IWebSocketListener {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f44547f;
+        public final /* synthetic */ WeakReference f44939f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44548g;
+        public final /* synthetic */ String f44940g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f44549h;
+        public final /* synthetic */ String f44941h;
         public final /* synthetic */ String i;
         public final /* synthetic */ String j;
 
         public a(WeakReference weakReference, String str, String str2, String str3, String str4) {
-            this.f44547f = weakReference;
-            this.f44548g = str;
-            this.f44549h = str2;
+            this.f44939f = weakReference;
+            this.f44940g = str;
+            this.f44941h = str2;
             this.i = str3;
             this.j = str4;
         }
@@ -259,7 +259,7 @@ public final class l extends a0 {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "websocket closed");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.f44547f.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.f44939f.get();
             if (callbackHandler != null) {
                 callbackHandler.handleSchemeDispatchCallback(this.i, jSONObject3.toString());
             }
@@ -280,7 +280,7 @@ public final class l extends a0 {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "error happen");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.f44547f.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.f44939f.get();
             if (callbackHandler != null) {
                 callbackHandler.handleSchemeDispatchCallback(this.j, jSONObject3.toString());
             }
@@ -300,9 +300,9 @@ public final class l extends a0 {
             jSONObject2.put("status", "0");
             jSONObject2.put("message", "message received");
             jSONObject2.put("data", jSONObject);
-            CallbackHandler callbackHandler = (CallbackHandler) this.f44547f.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.f44939f.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.f44549h, jSONObject2.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f44941h, jSONObject2.toString());
             }
         }
 
@@ -315,9 +315,9 @@ public final class l extends a0 {
             jSONObject3.put("status", "0");
             jSONObject3.put("message", "websocket open success");
             jSONObject3.put("data", jSONObject2);
-            CallbackHandler callbackHandler = (CallbackHandler) this.f44547f.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.f44939f.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.f44548g, jSONObject3.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f44940g, jSONObject3.toString());
             }
         }
 
@@ -333,9 +333,9 @@ public final class l extends a0 {
             jSONObject2.put("status", "0");
             jSONObject2.put("message", "message received");
             jSONObject2.put("data", jSONObject);
-            CallbackHandler callbackHandler = (CallbackHandler) this.f44547f.get();
+            CallbackHandler callbackHandler = (CallbackHandler) this.f44939f.get();
             if (callbackHandler != null) {
-                callbackHandler.handleSchemeDispatchCallback(this.f44549h, jSONObject2.toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f44941h, jSONObject2.toString());
             }
         }
     }

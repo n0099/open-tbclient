@@ -9,19 +9,19 @@ public class a extends f {
 
     /* renamed from: d.b.g0.a.e0.p.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0674a implements Runnable {
+    public class RunnableC0686a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f44216e;
+        public final /* synthetic */ int f44608e;
 
-        public RunnableC0674a(int i) {
-            this.f44216e = i;
+        public RunnableC0686a(int i) {
+            this.f44608e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.G != null) {
-                int i = this.f44216e;
+                int i = this.f44608e;
                 if (i == -1) {
                     a.this.G.onError();
                 } else if (i == 0) {
@@ -49,44 +49,44 @@ public class a extends f {
     }
 
     @Override // d.b.g0.a.e0.p.f, d.b.g0.l.h.g
-    public void C(d.b.g0.l.k.a aVar) {
-        super.C(aVar);
-        G0(-1);
+    public void B(d.b.g0.l.k.a aVar) {
+        super.B(aVar);
+        F0(-1);
     }
 
     @Override // d.b.g0.l.h.g
-    public void F() {
-        super.F();
-        G0(0);
+    public void E() {
+        super.E();
+        F0(0);
     }
 
-    public final void G0(int i) {
-        k0.T(new RunnableC0674a(i));
+    public final void F0(int i) {
+        k0.T(new RunnableC0686a(i));
     }
 
     @Override // d.b.g0.a.e0.p.j
-    public int K() {
+    public int J() {
         return 1;
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public PMSDownloadType i0() {
+    public PMSDownloadType h0() {
         return null;
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public void t0() {
-        super.t0();
-        if (D0() == null) {
-            G0(1);
-            y0("page_route_download", "0");
+    public void s0() {
+        super.s0();
+        if (C0() == null) {
+            F0(1);
+            x0("page_route_download", "0");
             return;
         }
-        G0(-1);
+        F0(-1);
     }
 
     @Override // d.b.g0.a.e0.p.f
-    public void u0(Throwable th) {
-        G0(-1);
+    public void t0(Throwable th) {
+        F0(-1);
     }
 }

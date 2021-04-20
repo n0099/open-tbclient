@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LaunchFromWX {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
         public static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
@@ -65,7 +65,7 @@ public class LaunchFromWX {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

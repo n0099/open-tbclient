@@ -8,10 +8,10 @@ import com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener;
 public class aa implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f10074a;
+    public final /* synthetic */ c f9632a;
 
     public aa(c cVar) {
-        this.f10074a = cVar;
+        this.f9632a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,14 +22,14 @@ public class aa implements View.OnClickListener {
         Context context;
         if (com.baidu.platform.comapi.walknavi.d.e.c().p()) {
             if (com.baidu.platform.comapi.walknavi.d.e.c().j()) {
-                context = this.f10074a.l;
+                context = this.f9632a.l;
                 Toast.makeText(context, "模型下载中, 请稍候", 0).show();
                 return;
             }
-            iWMoreNPCModelOnClickListener = this.f10074a.V;
+            iWMoreNPCModelOnClickListener = this.f9632a.V;
             if (iWMoreNPCModelOnClickListener != null) {
-                iWMoreNPCModelOnClickListener2 = this.f10074a.V;
-                view2 = this.f10074a.N;
+                iWMoreNPCModelOnClickListener2 = this.f9632a.V;
+                view2 = this.f9632a.N;
                 iWMoreNPCModelOnClickListener2.onMoreNPCModelOnClick(view2);
             }
         }

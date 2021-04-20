@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
-import d.b.i0.d1.c;
+import d.b.i0.e1.c;
 import d.b.i0.q.b;
 /* loaded from: classes4.dex */
 public class TaskRegisterStatic {

@@ -9,10 +9,10 @@ import java.util.TreeMap;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f1718a;
+    public static Map<String, String> f1743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f1719b = {"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
+    public static final String[] f1744b = {"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
 
     public static String a(Map<String, String> map) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -41,18 +41,18 @@ public final class e {
     public static synchronized Map<String, String> a(Context context, Map<String, String> map) {
         Map<String, String> map2;
         synchronized (e.class) {
-            if (f1718a == null) {
+            if (f1743a == null) {
                 c(context, map);
             }
-            f1718a.putAll(d.a());
-            map2 = f1718a;
+            f1743a.putAll(d.a());
+            map2 = f1743a;
         }
         return map2;
     }
 
     public static synchronized void a() {
         synchronized (e.class) {
-            f1718a = null;
+            f1743a = null;
         }
     }
 
@@ -62,9 +62,9 @@ public final class e {
         synchronized (e.class) {
             a(context, map);
             TreeMap treeMap = new TreeMap();
-            for (String str : f1719b) {
-                if (f1718a.containsKey(str)) {
-                    treeMap.put(str, f1718a.get(str));
+            for (String str : f1744b) {
+                if (f1743a.containsKey(str)) {
+                    treeMap.put(str, f1743a.get(str));
                 }
             }
             a2 = com.alipay.security.mobile.module.a.a.b.a(a(treeMap));
@@ -75,11 +75,11 @@ public final class e {
     public static synchronized void c(Context context, Map<String, String> map) {
         synchronized (e.class) {
             TreeMap treeMap = new TreeMap();
-            f1718a = treeMap;
+            f1743a = treeMap;
             treeMap.putAll(b.a(context, map));
-            f1718a.putAll(d.a(context));
-            f1718a.putAll(c.a(context));
-            f1718a.putAll(a.a(context, map));
+            f1743a.putAll(d.a(context));
+            f1743a.putAll(c.a(context));
+            f1743a.putAll(a.a(context, map));
         }
     }
 }

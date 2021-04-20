@@ -28,34 +28,34 @@ import org.json.JSONObject;
 public class b extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43331c;
+    public int f43723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43332d;
+    public String f43724d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43333e;
+    public String f43725e;
 
     /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.i2.u0.b<h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43334e;
+        public final /* synthetic */ CallbackHandler f43726e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43335f;
+        public final /* synthetic */ UnitedSchemeEntity f43727f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f43336g;
+        public final /* synthetic */ Context f43728g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43337h;
+        public final /* synthetic */ d.b.g0.a.r1.e f43729h;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, d.b.g0.a.r1.e eVar) {
-            this.f43334e = callbackHandler;
-            this.f43335f = unitedSchemeEntity;
-            this.f43336g = context;
-            this.f43337h = eVar;
+            this.f43726e = callbackHandler;
+            this.f43727f = unitedSchemeEntity;
+            this.f43728g = context;
+            this.f43729h = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,44 +63,44 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(h<b.e> hVar) {
             if (d.b.g0.a.v1.c.c.h(hVar)) {
-                b.this.v(this.f43336g, this.f43335f, this.f43334e, this.f43337h);
+                b.this.v(this.f43728g, this.f43727f, this.f43726e, this.f43729h);
                 return;
             }
-            d.b.g0.a.v1.c.c.n(hVar, this.f43334e, this.f43335f);
+            d.b.g0.a.v1.c.c.n(hVar, this.f43726e, this.f43727f);
             d.b.g0.a.c0.c.b("chooseImage", "camera authorize failure");
         }
     }
 
     /* renamed from: d.b.g0.a.b1.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0604b implements d.b.g0.a.k1.b {
+    public class C0616b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43338a;
+        public final /* synthetic */ UnitedSchemeEntity f43730a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43339b;
+        public final /* synthetic */ CallbackHandler f43731b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43340c;
+        public final /* synthetic */ d.b.g0.a.r1.e f43732c;
 
-        public C0604b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-            this.f43338a = unitedSchemeEntity;
-            this.f43339b = callbackHandler;
-            this.f43340c = eVar;
+        public C0616b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
+            this.f43730a = unitedSchemeEntity;
+            this.f43731b = callbackHandler;
+            this.f43732c = eVar;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", str + "");
             }
-            b.this.t(this.f43338a, this.f43339b, this.f43340c);
+            b.this.t(this.f43730a, this.f43731b, this.f43732c);
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            UnitedSchemeUtility.safeCallback(this.f43339b, this.f43338a, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), b.this.f43333e);
+            UnitedSchemeUtility.safeCallback(this.f43731b, this.f43730a, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), b.this.f43725e);
         }
     }
 
@@ -108,39 +108,39 @@ public class b extends a0 {
     public class c implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f43342a;
+        public final /* synthetic */ Context f43734a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43343b;
+        public final /* synthetic */ UnitedSchemeEntity f43735b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43344c;
+        public final /* synthetic */ CallbackHandler f43736c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43345d;
+        public final /* synthetic */ d.b.g0.a.r1.e f43737d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f43346e;
+        public final /* synthetic */ boolean f43738e;
 
         public c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar, boolean z) {
-            this.f43342a = context;
-            this.f43343b = unitedSchemeEntity;
-            this.f43344c = callbackHandler;
-            this.f43345d = eVar;
-            this.f43346e = z;
+            this.f43734a = context;
+            this.f43735b = unitedSchemeEntity;
+            this.f43736c = callbackHandler;
+            this.f43737d = eVar;
+            this.f43738e = z;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.d("SwanAppAction", str + "");
             }
-            b.this.x(this.f43342a, this.f43343b, this.f43344c, this.f43345d, this.f43346e);
+            b.this.x(this.f43734a, this.f43735b, this.f43736c, this.f43737d, this.f43738e);
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            UnitedSchemeUtility.safeCallback(this.f43344c, this.f43343b, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), b.this.f43333e);
+            UnitedSchemeUtility.safeCallback(this.f43736c, this.f43735b, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), b.this.f43725e);
         }
     }
 
@@ -148,32 +148,32 @@ public class b extends a0 {
     public class d implements d.b.g0.a.b1.d.d.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43348a;
+        public final /* synthetic */ d.b.g0.a.r1.e f43740a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43349b;
+        public final /* synthetic */ CallbackHandler f43741b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43350c;
+        public final /* synthetic */ UnitedSchemeEntity f43742c;
 
         public d(d.b.g0.a.r1.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f43348a = eVar;
-            this.f43349b = callbackHandler;
-            this.f43350c = unitedSchemeEntity;
+            this.f43740a = eVar;
+            this.f43741b = callbackHandler;
+            this.f43742c = unitedSchemeEntity;
         }
 
         @Override // d.b.g0.a.b1.d.d.d
         public void a(boolean z, String str, Object obj) {
             if (z && (obj instanceof ArrayList)) {
                 ArrayList arrayList = (ArrayList) obj;
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         Log.d("chooseImage", "tempPath = " + ((MediaModel) it.next()).d());
                     }
                 }
                 d.b.g0.a.c0.c.g("chooseImage", "choose success");
-                UnitedSchemeUtility.safeCallback(this.f43349b, this.f43350c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.b.g0.a.b1.d.c.d.m(arrayList, this.f43348a, "Image"), 0).toString(), b.this.f43333e);
+                UnitedSchemeUtility.safeCallback(this.f43741b, this.f43742c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.b.g0.a.b1.d.c.d.m(arrayList, this.f43740a, "Image"), 0).toString(), b.this.f43725e);
             }
             d.b.g0.a.b1.d.c.e.a();
         }
@@ -183,22 +183,22 @@ public class b extends a0 {
     public class e implements d.b.g0.a.b1.d.d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43352a;
+        public final /* synthetic */ d.b.g0.a.r1.e f43744a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.b1.d.d.d f43353b;
+        public final /* synthetic */ d.b.g0.a.b1.d.d.d f43745b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43354c;
+        public final /* synthetic */ CallbackHandler f43746c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43355d;
+        public final /* synthetic */ UnitedSchemeEntity f43747d;
 
         public e(d.b.g0.a.r1.e eVar, d.b.g0.a.b1.d.d.d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            this.f43352a = eVar;
-            this.f43353b = dVar;
-            this.f43354c = callbackHandler;
-            this.f43355d = unitedSchemeEntity;
+            this.f43744a = eVar;
+            this.f43745b = dVar;
+            this.f43746c = callbackHandler;
+            this.f43747d = unitedSchemeEntity;
         }
 
         @Override // d.b.g0.a.b1.d.d.b
@@ -209,15 +209,15 @@ public class b extends a0 {
             d.b.g0.a.b1.d.c.e.i(imageModel);
             Bundle bundle = new Bundle();
             bundle.putString("swanTmpPath", d.b.g0.a.z0.f.V().y().j());
-            bundle.putBoolean("compressed", TextUtils.equals(b.this.f43332d, "compressed"));
-            bundle.putString("swanAppId", this.f43352a.f45740f);
+            bundle.putBoolean("compressed", TextUtils.equals(b.this.f43724d, "compressed"));
+            bundle.putString("swanAppId", this.f43744a.f46132f);
             bundle.putParcelableArrayList("mediaModels", d.b.g0.a.b1.d.c.e.e());
-            d.b.g0.a.b1.d.c.d.h(this.f43352a.n(), bundle, this.f43353b);
+            d.b.g0.a.b1.d.c.d.h(this.f43744a.n(), bundle, this.f43745b);
         }
 
         @Override // d.b.g0.a.b1.d.d.b
         public void b(String str) {
-            UnitedSchemeUtility.safeCallback(this.f43354c, this.f43355d, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), b.this.f43333e);
+            UnitedSchemeUtility.safeCallback(this.f43746c, this.f43747d, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), b.this.f43725e);
         }
     }
 
@@ -225,34 +225,34 @@ public class b extends a0 {
     public class f implements d.b.g0.a.b1.d.d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43357a;
+        public final /* synthetic */ CallbackHandler f43749a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43358b;
+        public final /* synthetic */ UnitedSchemeEntity f43750b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43359c;
+        public final /* synthetic */ d.b.g0.a.r1.e f43751c;
 
         public f(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, d.b.g0.a.r1.e eVar) {
-            this.f43357a = callbackHandler;
-            this.f43358b = unitedSchemeEntity;
-            this.f43359c = eVar;
+            this.f43749a = callbackHandler;
+            this.f43750b = unitedSchemeEntity;
+            this.f43751c = eVar;
         }
 
         @Override // d.b.g0.a.b1.d.d.c
         public void a(String str) {
             d.b.g0.a.c0.c.g("chooseImage", str);
-            UnitedSchemeUtility.safeCallback(this.f43357a, this.f43358b, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), b.this.f43333e);
+            UnitedSchemeUtility.safeCallback(this.f43749a, this.f43750b, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), b.this.f43725e);
         }
 
         @Override // d.b.g0.a.b1.d.d.c
         public void b(List list) {
             if (list != null && list.size() > 0) {
                 d.b.g0.a.c0.c.g("chooseImage", "choose success");
-                UnitedSchemeUtility.safeCallback(this.f43357a, this.f43358b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.b.g0.a.b1.d.c.d.m(list, this.f43359c, "Image"), 0).toString(), b.this.f43333e);
+                UnitedSchemeUtility.safeCallback(this.f43749a, this.f43750b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(d.b.g0.a.b1.d.c.d.m(list, this.f43751c, "Image"), 0).toString(), b.this.f43725e);
                 return;
             }
-            UnitedSchemeUtility.safeCallback(this.f43357a, this.f43358b, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), b.this.f43333e);
+            UnitedSchemeUtility.safeCallback(this.f43749a, this.f43750b, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), b.this.f43725e);
         }
     }
 
@@ -264,7 +264,7 @@ public class b extends a0 {
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
         if (eVar != null && eVar.n() != null) {
             if (eVar.Z()) {
-                if (a0.f46288b) {
+                if (a0.f46680b) {
                     Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
@@ -272,7 +272,7 @@ public class b extends a0 {
             }
             JSONObject b2 = v.b(unitedSchemeEntity.getParam("params"));
             String optString = b2.optString("cb");
-            this.f43333e = optString;
+            this.f43725e = optString;
             if (TextUtils.isEmpty(optString)) {
                 d.b.g0.a.c0.c.b("chooseImage", "empty cb");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -280,18 +280,18 @@ public class b extends a0 {
             }
             try {
                 int parseInt = Integer.parseInt(b2.optString("count"));
-                this.f43331c = parseInt;
+                this.f43723c = parseInt;
                 if (parseInt < 1 || parseInt > 9) {
-                    this.f43331c = 9;
+                    this.f43723c = 9;
                 }
             } catch (NumberFormatException unused) {
                 d.b.g0.a.c0.c.b("chooseImage", "count format error");
-                this.f43331c = 9;
+                this.f43723c = 9;
             }
-            this.f43332d = r(b2.optJSONArray("sizeType"));
+            this.f43724d = r(b2.optJSONArray("sizeType"));
             JSONArray optJSONArray = b2.optJSONArray("sourceType");
             String s = s(optJSONArray);
-            d.b.g0.a.c0.c.g("chooseImage", "sizeType: " + this.f43332d + ",sourceType: " + s);
+            d.b.g0.a.c0.c.g("chooseImage", "sizeType: " + this.f43724d + ",sourceType: " + s);
             if (TextUtils.equals(s, "album")) {
                 u(context, unitedSchemeEntity, callbackHandler, eVar, w(optJSONArray));
             } else {
@@ -316,7 +316,7 @@ public class b extends a0 {
     }
 
     public final void t(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        d.b.g0.a.b1.d.c.b.f(eVar.n(), eVar.f45740f, new e(eVar, new d(eVar, callbackHandler, unitedSchemeEntity), callbackHandler, unitedSchemeEntity));
+        d.b.g0.a.b1.d.c.b.f(eVar.n(), eVar.f46132f, new e(eVar, new d(eVar, callbackHandler, unitedSchemeEntity), callbackHandler, unitedSchemeEntity));
     }
 
     public final void u(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar, boolean z) {
@@ -324,7 +324,7 @@ public class b extends a0 {
     }
 
     public final void v(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        d.b.g0.a.k1.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new C0604b(unitedSchemeEntity, callbackHandler, eVar));
+        d.b.g0.a.k1.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new C0616b(unitedSchemeEntity, callbackHandler, eVar));
     }
 
     public final boolean w(JSONArray jSONArray) {
@@ -344,10 +344,10 @@ public class b extends a0 {
         Bundle bundle = new Bundle();
         bundle.putString("launchType", "Image");
         bundle.putBoolean("isShowCamera", z);
-        bundle.putInt("count", this.f43331c);
+        bundle.putInt("count", this.f43723c);
         bundle.putString("mode", "single");
-        bundle.putBoolean("compressed", TextUtils.equals(this.f43332d, "compressed"));
-        bundle.putString("swanAppId", eVar.f45740f);
+        bundle.putBoolean("compressed", TextUtils.equals(this.f43724d, "compressed"));
+        bundle.putString("swanAppId", eVar.f46132f);
         bundle.putString("swanTmpPath", d.b.g0.a.z0.f.V().y().j());
         d.b.g0.a.b1.d.c.d.l(context, bundle, new f(callbackHandler, unitedSchemeEntity, eVar));
     }

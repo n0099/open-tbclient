@@ -7,16 +7,16 @@ import java.io.IOException;
 public abstract class AbstractHttpMessageConverter<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3746a = "";
+    public String f3781a = "";
 
     public String a() {
-        return this.f3746a;
+        return this.f3781a;
     }
 
     public abstract T b(Class<?> cls, e eVar) throws IOException, RestRuntimeException;
 
     public void a(String str) {
-        this.f3746a = str;
+        this.f3781a = str;
     }
 
     public final T a(Class<?> cls, e eVar) throws IOException {

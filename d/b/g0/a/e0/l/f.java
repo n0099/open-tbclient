@@ -20,29 +20,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class f {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44011e = k.f45051a;
+    public static final boolean f44403e = k.f45443a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f44012f = new HashSet();
+    public static final Set<String> f44404f = new HashSet();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f44013g = d.b.g0.a.a.aiapps_slide_in_from_right;
+    public static final int f44405g = d.b.g0.a.a.aiapps_slide_in_from_right;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f44014h = d.b.g0.a.a.aiapps_slide_out_to_right;
+    public static final int f44406h = d.b.g0.a.a.aiapps_slide_out_to_right;
     public static final int i = d.b.g0.a.a.aiapps_hold;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.m.a.a.k f44015a;
+    public d.b.g0.m.a.a.k f44407a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Queue<Runnable> f44017c = new LinkedList();
+    public Queue<Runnable> f44409c = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c> f44016b = new ArrayList<>();
+    public ArrayList<c> f44408b = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<a> f44018d = new CopyOnWriteArrayList();
+    public final List<a> f44410d = new CopyOnWriteArrayList();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -55,53 +55,53 @@ public final class f {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public m f44019a;
+        public m f44411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44020b;
+        public String f44412b;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.e0.l.c f44022e;
+            public final /* synthetic */ d.b.g0.a.e0.l.c f44414e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.e0.l.c f44023f;
+            public final /* synthetic */ d.b.g0.a.e0.l.c f44415f;
 
             public a(b bVar, d.b.g0.a.e0.l.c cVar, d.b.g0.a.e0.l.c cVar2) {
-                this.f44022e = cVar;
-                this.f44023f = cVar2;
+                this.f44414e = cVar;
+                this.f44415f = cVar2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.a.e0.l.c cVar = this.f44022e;
-                if (cVar != null && cVar.V()) {
-                    this.f44022e.g1(false);
+                d.b.g0.a.e0.l.c cVar = this.f44414e;
+                if (cVar != null && cVar.T()) {
+                    this.f44414e.g1(false);
                 }
-                d.b.g0.a.e0.l.c cVar2 = this.f44022e;
+                d.b.g0.a.e0.l.c cVar2 = this.f44414e;
                 if (cVar2 instanceof e) {
                     ((e) cVar2).A3();
                 }
-                this.f44023f.g1(true);
+                this.f44415f.g1(true);
             }
         }
 
         /* renamed from: d.b.g0.a.e0.l.f$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0663b implements Runnable {
+        public class RunnableC0675b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.e0.l.c f44024e;
+            public final /* synthetic */ d.b.g0.a.e0.l.c f44416e;
 
-            public RunnableC0663b(b bVar, d.b.g0.a.e0.l.c cVar) {
-                this.f44024e = cVar;
+            public RunnableC0675b(b bVar, d.b.g0.a.e0.l.c cVar) {
+                this.f44416e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.a.e0.l.c cVar = this.f44024e;
+                d.b.g0.a.e0.l.c cVar = this.f44416e;
                 if (cVar != null) {
                     cVar.g1(true);
                 }
@@ -112,15 +112,15 @@ public final class f {
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.e0.l.c f44025e;
+            public final /* synthetic */ d.b.g0.a.e0.l.c f44417e;
 
             public c(b bVar, d.b.g0.a.e0.l.c cVar) {
-                this.f44025e = cVar;
+                this.f44417e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.g0.a.e0.l.c cVar = this.f44025e;
+                d.b.g0.a.e0.l.c cVar = this.f44417e;
                 if (cVar != null) {
                     cVar.g1(false);
                 }
@@ -128,75 +128,75 @@ public final class f {
         }
 
         public b(String str) {
-            this.f44019a = f.this.f44015a.a();
-            this.f44020b = str;
+            this.f44411a = f.this.f44407a.a();
+            this.f44412b = str;
         }
 
         public void a() {
-            if (!TextUtils.isEmpty(this.f44020b)) {
-                e.v3(this.f44020b);
+            if (!TextUtils.isEmpty(this.f44412b)) {
+                e.v3(this.f44412b);
             }
-            while (!f.this.f44017c.isEmpty()) {
-                if (f.this.f44017c.peek() != null) {
-                    ((Runnable) f.this.f44017c.poll()).run();
+            while (!f.this.f44409c.isEmpty()) {
+                if (f.this.f44409c.peek() != null) {
+                    ((Runnable) f.this.f44409c.poll()).run();
                 }
             }
             d();
-            this.f44019a.d();
+            this.f44411a.d();
         }
 
         public boolean b() {
             a();
-            return f.this.f44015a.c();
+            return f.this.f44407a.c();
         }
 
         public void c(d.b.g0.a.e0.l.c cVar) {
-            m mVar = this.f44019a;
+            m mVar = this.f44411a;
             mVar.e(cVar);
             mVar.d();
-            f.this.f44015a.c();
+            f.this.f44407a.c();
         }
 
         public final void d() {
-            if (f.this.f44016b.isEmpty()) {
+            if (f.this.f44408b.isEmpty()) {
                 return;
             }
-            int size = f.this.f44016b.size();
+            int size = f.this.f44408b.size();
             int i = size - 1;
             for (int i2 = i; i2 >= 0; i2--) {
                 if (i2 >= i) {
-                    if (f.f44011e) {
+                    if (f.f44403e) {
                         Log.d("SwanAppFragmentManager", "show fragment i " + i2 + " ,size: " + size);
                     }
-                    this.f44019a.h((Fragment) f.this.f44016b.get(i2));
+                    this.f44411a.h((Fragment) f.this.f44408b.get(i2));
                 } else {
-                    this.f44019a.e((Fragment) f.this.f44016b.get(i2));
+                    this.f44411a.e((Fragment) f.this.f44408b.get(i2));
                 }
             }
         }
 
         public final boolean e(String str) {
-            return f.f44012f.contains(str);
+            return f.f44404f.contains(str);
         }
 
         public b f() {
-            List<Fragment> d2 = f.this.f44015a.d();
-            if (d2 != null && d2.size() != f.this.f44016b.size()) {
+            List<Fragment> d2 = f.this.f44407a.d();
+            if (d2 != null && d2.size() != f.this.f44408b.size()) {
                 for (Fragment fragment : d2) {
-                    if (fragment != null && !f.this.f44016b.contains(fragment)) {
-                        if (f.f44011e) {
+                    if (fragment != null && !f.this.f44408b.contains(fragment)) {
+                        if (f.f44403e) {
                             Log.d("SwanAppFragmentManager", "popAllFragments remove: " + fragment);
                         }
-                        for (a aVar : f.this.f44018d) {
+                        for (a aVar : f.this.f44410d) {
                             if (aVar != null) {
                                 aVar.b(fragment);
                             }
                         }
-                        this.f44019a.f(fragment);
+                        this.f44411a.f(fragment);
                     }
                 }
             }
-            h(f.this.f44016b.size());
+            h(f.this.f44408b.size());
             return this;
         }
 
@@ -206,10 +206,10 @@ public final class f {
         }
 
         public b h(int i) {
-            if (f.this.f44016b.isEmpty()) {
+            if (f.this.f44408b.isEmpty()) {
                 return this;
             }
-            ArrayList arrayList = (ArrayList) f.this.f44016b.clone();
+            ArrayList arrayList = (ArrayList) f.this.f44408b.clone();
             int size = arrayList.size();
             int i2 = size - i;
             d.b.g0.a.e0.l.c cVar = (i2 < 0 || i <= 0) ? null : (d.b.g0.a.e0.l.c) arrayList.get(i2);
@@ -218,28 +218,28 @@ public final class f {
                 if (size <= i2 - 1 || size < 0) {
                     break;
                 }
-                for (a aVar : f.this.f44018d) {
+                for (a aVar : f.this.f44410d) {
                     if (aVar != null) {
                         aVar.b((Fragment) arrayList.get(size));
                     }
                 }
-                this.f44019a.f((Fragment) arrayList.get(size));
-                f.this.f44016b.remove(size);
+                this.f44411a.f((Fragment) arrayList.get(size));
+                f.this.f44408b.remove(size);
             }
-            f.this.f44017c.offer(new c(this, cVar));
+            f.this.f44409c.offer(new c(this, cVar));
             q();
             return this;
         }
 
         public b i() {
-            if (f.this.f44016b.isEmpty()) {
+            if (f.this.f44408b.isEmpty()) {
                 return this;
             }
-            ArrayList arrayList = (ArrayList) f.this.f44016b.clone();
+            ArrayList arrayList = (ArrayList) f.this.f44408b.clone();
             for (int size = arrayList.size() - 1; size >= 0; size--) {
                 if (!((d.b.g0.a.e0.l.c) arrayList.get(size)).V1()) {
-                    this.f44019a.f((Fragment) arrayList.get(size));
-                    f.this.f44016b.remove(size);
+                    this.f44411a.f((Fragment) arrayList.get(size));
+                    f.this.f44408b.remove(size);
                 }
             }
             q();
@@ -248,9 +248,9 @@ public final class f {
 
         public b j(d.b.g0.a.e0.l.c cVar) {
             r(cVar);
-            this.f44019a.b(d.b.g0.a.f.ai_apps_container, cVar, "SwanAppFragment");
-            f.this.f44016b.add(cVar);
-            for (a aVar : f.this.f44018d) {
+            this.f44411a.b(d.b.g0.a.f.ai_apps_container, cVar, "SwanAppFragment");
+            f.this.f44408b.add(cVar);
+            for (a aVar : f.this.f44410d) {
                 if (aVar != null) {
                     aVar.a(cVar);
                 }
@@ -269,16 +269,16 @@ public final class f {
             } else if ("authority".equals(str)) {
                 cVar = d.b.g0.a.e0.l.b.N2();
             } else if ("pluginFunPage".equals(str)) {
-                cVar = g.F2(bVar.f44364c, bVar.f44363b);
+                cVar = g.F2(bVar.f44756c, bVar.f44755b);
             } else if (e(str)) {
                 cVar = i.J2(bVar, str);
             } else if (TextUtils.equals("settings", str)) {
                 cVar = h.C2();
             } else if ("normal".equals(str)) {
                 c.a aVar = new c.a();
-                aVar.d(bVar.f44362a);
-                aVar.e(bVar.f44363b);
-                aVar.b(bVar.f44364c);
+                aVar.d(bVar.f44754a);
+                aVar.e(bVar.f44755b);
+                aVar.b(bVar.f44756c);
                 aVar.c(z);
                 cVar = e.o3(aVar.a());
             } else {
@@ -292,23 +292,23 @@ public final class f {
         }
 
         public b m(int i) {
-            int size = f.this.f44016b.size();
-            if (!f.this.f44016b.isEmpty() && i >= 0 && i < size) {
-                this.f44019a.f((d.b.g0.a.e0.l.c) f.this.f44016b.remove(i));
+            int size = f.this.f44408b.size();
+            if (!f.this.f44408b.isEmpty() && i >= 0 && i < size) {
+                this.f44411a.f((d.b.g0.a.e0.l.c) f.this.f44408b.remove(i));
             }
             return this;
         }
 
         public b n(int i, int i2) {
-            this.f44019a.g(i, i2);
+            this.f44411a.g(i, i2);
             return this;
         }
 
         public void o(d.b.g0.a.e0.l.c cVar) {
-            m mVar = this.f44019a;
+            m mVar = this.f44411a;
             mVar.h(cVar);
             mVar.d();
-            f.this.f44015a.c();
+            f.this.f44407a.c();
         }
 
         public b p(d.b.g0.a.e1.b bVar) {
@@ -321,30 +321,30 @@ public final class f {
         }
 
         public final void q() {
-            f.this.f44017c.offer(new RunnableC0663b(this, f.this.m()));
+            f.this.f44409c.offer(new RunnableC0675b(this, f.this.m()));
         }
 
         public final void r(d.b.g0.a.e0.l.c cVar) {
-            f.this.f44017c.offer(new a(this, f.this.m(), cVar));
+            f.this.f44409c.offer(new a(this, f.this.m(), cVar));
         }
     }
 
     static {
-        f44012f.add("adLanding");
-        f44012f.add("wxPay");
-        f44012f.add("default_webview");
-        f44012f.add("allianceLogin");
-        f44012f.add("allianceChooseAddress");
-        f44012f.add("qrCodePay");
+        f44404f.add("adLanding");
+        f44404f.add("wxPay");
+        f44404f.add("default_webview");
+        f44404f.add("allianceLogin");
+        f44404f.add("allianceChooseAddress");
+        f44404f.add("qrCodePay");
     }
 
     public f(FragmentActivity fragmentActivity) {
-        this.f44015a = fragmentActivity.getSupportFragmentManager();
+        this.f44407a = fragmentActivity.getSupportFragmentManager();
     }
 
     public void g(@Nullable a aVar) {
         if (aVar != null) {
-            this.f44018d.add(aVar);
+            this.f44410d.add(aVar);
         }
     }
 
@@ -357,36 +357,36 @@ public final class f {
     }
 
     public c j(int i2) {
-        if (this.f44016b.isEmpty() || i2 < 0 || i2 >= this.f44016b.size()) {
+        if (this.f44408b.isEmpty() || i2 < 0 || i2 >= this.f44408b.size()) {
             return null;
         }
-        return this.f44016b.get(i2);
+        return this.f44408b.get(i2);
     }
 
     public int k() {
-        return this.f44016b.size();
+        return this.f44408b.size();
     }
 
     public e l() {
-        if (this.f44016b.isEmpty()) {
+        if (this.f44408b.isEmpty()) {
             return null;
         }
-        int size = this.f44016b.size();
+        int size = this.f44408b.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (this.f44016b.get(i2).V1()) {
-                return (e) this.f44016b.get(i2);
+            if (this.f44408b.get(i2).V1()) {
+                return (e) this.f44408b.get(i2);
             }
         }
         return null;
     }
 
     public c m() {
-        return j(this.f44016b.size() - 1);
+        return j(this.f44408b.size() - 1);
     }
 
     public <T extends c> T n(Class<T> cls) {
-        for (int size = this.f44016b.size() - 1; size >= 0; size--) {
-            T t = (T) this.f44016b.get(size);
+        for (int size = this.f44408b.size() - 1; size >= 0; size--) {
+            T t = (T) this.f44408b.get(size);
             if (t.getClass() == cls) {
                 return t;
             }
@@ -395,8 +395,8 @@ public final class f {
     }
 
     public e o() {
-        for (int size = this.f44016b.size() - 1; size >= 0; size--) {
-            c cVar = this.f44016b.get(size);
+        for (int size = this.f44408b.size() - 1; size >= 0; size--) {
+            c cVar = this.f44408b.get(size);
             if (cVar instanceof e) {
                 return (e) cVar;
             }
@@ -408,6 +408,6 @@ public final class f {
         if (aVar == null) {
             return;
         }
-        this.f44018d.remove(aVar);
+        this.f44410d.remove(aVar);
     }
 }

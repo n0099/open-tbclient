@@ -3,17 +3,17 @@ package com.ss.android.socialbase.downloader.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c implements Parcelable, Comparable {
     public static final Parcelable.Creator<c> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f38948a;
+    public final String f39237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f38949b;
+    public final String f39238b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -31,26 +31,26 @@ public class c implements Parcelable, Comparable {
     }
 
     public c(String str, String str2) {
-        this.f38948a = str;
-        this.f38949b = str2;
+        this.f39237a = str;
+        this.f39238b = str2;
     }
 
     public String a() {
-        return this.f38948a;
+        return this.f39237a;
     }
 
     public String b() {
-        return this.f38949b;
+        return this.f39238b;
     }
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
         if (obj instanceof c) {
             c cVar = (c) obj;
-            if (TextUtils.equals(this.f38948a, cVar.a())) {
+            if (TextUtils.equals(this.f39237a, cVar.a())) {
                 return 0;
             }
-            String str = this.f38948a;
+            String str = this.f39237a;
             if (str == null) {
                 return -1;
             }
@@ -76,24 +76,24 @@ public class c implements Parcelable, Comparable {
             return false;
         }
         c cVar = (c) obj;
-        return TextUtils.equals(this.f38948a, cVar.f38948a) && TextUtils.equals(this.f38949b, cVar.f38949b);
+        return TextUtils.equals(this.f39237a, cVar.f39237a) && TextUtils.equals(this.f39238b, cVar.f39238b);
     }
 
     public int hashCode() {
-        String str = this.f38948a;
+        String str = this.f39237a;
         int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-        String str2 = this.f38949b;
+        String str2 = this.f39238b;
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f38948a);
-        parcel.writeString(this.f38949b);
+        parcel.writeString(this.f39237a);
+        parcel.writeString(this.f39238b);
     }
 
     public c(Parcel parcel) {
-        this.f38948a = parcel.readString();
-        this.f38949b = parcel.readString();
+        this.f39237a = parcel.readString();
+        this.f39238b = parcel.readString();
     }
 }

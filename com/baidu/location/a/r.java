@@ -3,10 +3,10 @@ package com.baidu.location.a;
 public class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f6580a;
+    public final /* synthetic */ p f6615a;
 
     public r(p pVar) {
-        this.f6580a = pVar;
+        this.f6615a = pVar;
     }
 
     @Override // java.lang.Runnable

@@ -9,7 +9,6 @@ import android.os.Looper;
 import android.os.SystemClock;
 /* loaded from: classes6.dex */
 public final class FunAdSdk {
-    public static final String PLATFORM_BAIDU = "baidu";
     public static final String PLATFORM_CSJ = "csj";
     public static final String PLATFORM_GDT = "gdt";
     public static final String PLATFORM_JY = "jy";
@@ -69,28 +68,23 @@ public final class FunAdSdk {
                         a.a("SDK依赖性错误：请在build.gradle里正确集成win-norm-xxx-release-xxx.aar");
                     }
                     try {
-                        Class.forName("com.baidu.mobads.AdView");
-                    } catch (ClassNotFoundException unused2) {
-                        a.a("SDK依赖性错误：请在build.gradle里正确集成Baidu_MobAds_SDK-release.aar");
-                    }
-                    try {
                         Class.forName("com.qq.e.ads.nativ.NativeUnifiedADDataAdapter");
-                    } catch (ClassNotFoundException unused3) {
+                    } catch (ClassNotFoundException unused2) {
                         a.a("SDK依赖性错误：请在build.gradle里正确集成GDTSDK.unionNormal.xxx.aar");
                     }
                     try {
                         Class.forName("com.kwad.sdk.api.KsAdSDK");
-                    } catch (ClassNotFoundException unused4) {
+                    } catch (ClassNotFoundException unused3) {
                         a.a("SDK依赖性错误：请在build.gradle里正确集成ks_adsdk-xxx.aar");
                     }
                     try {
                         Class.forName("com.bytedance.sdk.openadsdk.TTAdSdk");
-                    } catch (ClassNotFoundException unused5) {
+                    } catch (ClassNotFoundException unused4) {
                         a.a("SDK依赖性错误：请在build.gradle里正确集成open_ad_sdk.aar");
                     }
                     try {
                         Class.forName("com.fun.openid.sdk.FunOpenIDSdk");
-                    } catch (ClassNotFoundException unused6) {
+                    } catch (ClassNotFoundException unused5) {
                         a.a("SDK依赖性错误：请在build.gradle里正确集成fun_openid_sdk_xxx.aar");
                     }
                     j.f1063a.f1072b = System.currentTimeMillis() - j.f1065c;

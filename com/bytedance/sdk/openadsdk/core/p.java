@@ -8,46 +8,46 @@ import com.bytedance.sdk.openadsdk.c.g;
 import com.bytedance.sdk.openadsdk.h.c.c;
 import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f28569a;
+    public static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f28254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f28570b;
+    public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f28255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f28571c;
+    public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f28256c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile q<com.bytedance.sdk.openadsdk.c.a> f28572d;
+    public static volatile q<com.bytedance.sdk.openadsdk.c.a> f28257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.m.a f28573e;
+    public static volatile com.bytedance.sdk.openadsdk.m.a f28258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.h.c.a f28574f;
+    public static volatile com.bytedance.sdk.openadsdk.h.c.a f28259f;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile Context f28575g;
+    public static volatile Context f28260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.core.h.h f28576h;
+    public static volatile com.bytedance.sdk.openadsdk.core.h.h f28261h;
     public static final AtomicBoolean i = new AtomicBoolean(false);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         @SuppressLint({"StaticFieldLeak"})
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile Application f28578a;
+        public static volatile Application f28263a;
 
         static {
             try {
                 Object b2 = b();
-                f28578a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
+                f28263a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
                 com.bytedance.sdk.openadsdk.utils.u.f("MyApplication", "application get success");
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.c("MyApplication", "application get failed", th);
@@ -56,7 +56,7 @@ public class p {
 
         @Nullable
         public static Application a() {
-            return f28578a;
+            return f28263a;
         }
 
         public static Object b() {
@@ -72,128 +72,128 @@ public class p {
     }
 
     public static Context a() {
-        if (f28575g == null) {
+        if (f28260g == null) {
             a(null);
         }
-        return f28575g;
+        return f28260g;
     }
 
     public static void b() {
-        f28569a = null;
-        f28573e = null;
-        f28574f = null;
+        f28254a = null;
+        f28258e = null;
+        f28259f = null;
     }
 
     public static com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> c() {
         if (!com.bytedance.sdk.openadsdk.core.h.g.a()) {
             return com.bytedance.sdk.openadsdk.c.b.c();
         }
-        if (f28569a == null) {
+        if (f28254a == null) {
             synchronized (p.class) {
-                if (f28569a == null) {
+                if (f28254a == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f28569a = new com.bytedance.sdk.openadsdk.c.c();
+                        f28254a = new com.bytedance.sdk.openadsdk.c.c();
                     } else {
-                        f28569a = new com.bytedance.sdk.openadsdk.c.b<>(new com.bytedance.sdk.openadsdk.c.f(f28575g), f(), l(), b(f28575g));
+                        f28254a = new com.bytedance.sdk.openadsdk.c.b<>(new com.bytedance.sdk.openadsdk.c.f(f28260g), f(), l(), b(f28260g));
                     }
                 }
             }
         }
-        return f28569a;
+        return f28254a;
     }
 
     public static com.bytedance.sdk.openadsdk.c.b<c.a> d() {
         if (!com.bytedance.sdk.openadsdk.core.h.g.a()) {
             return com.bytedance.sdk.openadsdk.c.b.d();
         }
-        if (f28571c == null) {
+        if (f28256c == null) {
             synchronized (p.class) {
-                if (f28571c == null) {
+                if (f28256c == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f28571c = new com.bytedance.sdk.openadsdk.c.m(false);
+                        f28256c = new com.bytedance.sdk.openadsdk.c.m(false);
                     } else {
-                        f28571c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
+                        f28256c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
                     }
                 }
             }
         }
-        return f28571c;
+        return f28256c;
     }
 
     public static com.bytedance.sdk.openadsdk.c.b<c.a> e() {
         if (!com.bytedance.sdk.openadsdk.core.h.g.a()) {
             return com.bytedance.sdk.openadsdk.c.b.d();
         }
-        if (f28570b == null) {
+        if (f28255b == null) {
             synchronized (p.class) {
-                if (f28570b == null) {
+                if (f28255b == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f28570b = new com.bytedance.sdk.openadsdk.c.m(true);
+                        f28255b = new com.bytedance.sdk.openadsdk.c.m(true);
                     } else {
-                        f28570b = a("ttad_bk_stats", "AdStatsEventThread", true);
+                        f28255b = a("ttad_bk_stats", "AdStatsEventThread", true);
                     }
                 }
             }
         }
-        return f28570b;
+        return f28255b;
     }
 
     public static q<com.bytedance.sdk.openadsdk.c.a> f() {
-        if (f28572d == null) {
+        if (f28257d == null) {
             synchronized (p.class) {
-                if (f28572d == null) {
-                    f28572d = new r(f28575g);
+                if (f28257d == null) {
+                    f28257d = new r(f28260g);
                 }
             }
         }
-        return f28572d;
+        return f28257d;
     }
 
     public static com.bytedance.sdk.openadsdk.m.a g() {
         if (!com.bytedance.sdk.openadsdk.core.h.g.a()) {
             return com.bytedance.sdk.openadsdk.m.b.c();
         }
-        if (f28573e == null) {
+        if (f28258e == null) {
             synchronized (com.bytedance.sdk.openadsdk.m.a.class) {
-                if (f28573e == null) {
+                if (f28258e == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f28573e = new com.bytedance.sdk.openadsdk.m.c();
+                        f28258e = new com.bytedance.sdk.openadsdk.m.c();
                     } else {
-                        f28573e = new com.bytedance.sdk.openadsdk.m.b(f28575g, new com.bytedance.sdk.openadsdk.m.g(f28575g));
+                        f28258e = new com.bytedance.sdk.openadsdk.m.b(f28260g, new com.bytedance.sdk.openadsdk.m.g(f28260g));
                     }
                 }
             }
         }
-        return f28573e;
+        return f28258e;
     }
 
     public static com.bytedance.sdk.openadsdk.core.h.h h() {
-        if (f28576h == null) {
+        if (f28261h == null) {
             synchronized (com.bytedance.sdk.openadsdk.core.h.h.class) {
-                if (f28576h == null) {
-                    f28576h = new com.bytedance.sdk.openadsdk.core.h.h();
+                if (f28261h == null) {
+                    f28261h = new com.bytedance.sdk.openadsdk.core.h.h();
                 }
             }
         }
-        return f28576h;
+        return f28261h;
     }
 
     public static com.bytedance.sdk.openadsdk.h.c.a i() {
         if (!com.bytedance.sdk.openadsdk.core.h.g.a()) {
             return com.bytedance.sdk.openadsdk.h.c.c.c();
         }
-        if (f28574f == null) {
+        if (f28259f == null) {
             synchronized (com.bytedance.sdk.openadsdk.h.c.c.class) {
-                if (f28574f == null) {
+                if (f28259f == null) {
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        f28574f = new com.bytedance.sdk.openadsdk.h.c.d();
+                        f28259f = new com.bytedance.sdk.openadsdk.h.c.d();
                     } else {
-                        f28574f = new com.bytedance.sdk.openadsdk.h.c.c();
+                        f28259f = new com.bytedance.sdk.openadsdk.h.c.c();
                     }
                 }
             }
         }
-        return f28574f;
+        return f28259f;
     }
 
     public static void j() {
@@ -217,13 +217,13 @@ public class p {
 
     public static synchronized void a(Context context) {
         synchronized (p.class) {
-            if (f28575g == null) {
+            if (f28260g == null) {
                 if (context != null) {
-                    f28575g = context.getApplicationContext();
+                    f28260g = context.getApplicationContext();
                 } else if (a.a() != null) {
                     try {
-                        f28575g = a.a();
-                        if (f28575g != null) {
+                        f28260g = a.a();
+                        if (f28260g != null) {
                         }
                     } catch (Throwable unused) {
                     }
@@ -249,13 +249,13 @@ public class p {
         g.b b2;
         com.bytedance.sdk.openadsdk.c.e lVar;
         if (z) {
-            lVar = new com.bytedance.sdk.openadsdk.c.n(f28575g);
+            lVar = new com.bytedance.sdk.openadsdk.c.n(f28260g);
             b2 = g.b.a();
         } else {
             b2 = g.b.b();
-            lVar = new com.bytedance.sdk.openadsdk.c.l(f28575g);
+            lVar = new com.bytedance.sdk.openadsdk.c.l(f28260g);
         }
-        g.a b3 = b(f28575g);
+        g.a b3 = b(f28260g);
         return new com.bytedance.sdk.openadsdk.c.b<>(lVar, null, b2, b3, new com.bytedance.sdk.openadsdk.c.o(str, str2, lVar, null, b2, b3));
     }
 }

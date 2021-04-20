@@ -6,28 +6,28 @@ import com.baidu.ar.npc.ArBridge;
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f4192a;
+    public final /* synthetic */ int f4227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f4193b;
+    public final /* synthetic */ int f4228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ float f4194c;
+    public final /* synthetic */ float f4229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ float f4195d;
+    public final /* synthetic */ float f4230d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ float f4196e;
+    public final /* synthetic */ float f4231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ float f4197f;
+    public final /* synthetic */ float f4232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ int f4198g;
+    public final /* synthetic */ int f4233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ float f4199h;
+    public final /* synthetic */ float f4234h;
     public final /* synthetic */ float i;
     public final /* synthetic */ float j;
     public final /* synthetic */ float k;
@@ -36,14 +36,14 @@ public class o implements Runnable {
 
     public o(ArBridge arBridge, int i, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, long j) {
         this.m = arBridge;
-        this.f4192a = i;
-        this.f4193b = i2;
-        this.f4194c = f2;
-        this.f4195d = f3;
-        this.f4196e = f4;
-        this.f4197f = f5;
-        this.f4198g = i3;
-        this.f4199h = f6;
+        this.f4227a = i;
+        this.f4228b = i2;
+        this.f4229c = f2;
+        this.f4230d = f3;
+        this.f4231e = f4;
+        this.f4232f = f5;
+        this.f4233g = i3;
+        this.f4234h = f6;
         this.i = f7;
         this.j = f8;
         this.k = f9;
@@ -60,14 +60,14 @@ public class o implements Runnable {
         sb.append(eVar.name());
         Log.d("orientation", sb.toString());
         ArBridge arBridge = this.m;
-        int i = this.f4192a;
-        int i2 = this.f4193b;
-        float f2 = this.f4194c;
-        float f3 = this.f4195d;
-        float f4 = this.f4196e;
-        float f5 = this.f4197f;
-        int i3 = this.f4198g;
-        float f6 = this.f4199h;
+        int i = this.f4227a;
+        int i2 = this.f4228b;
+        float f2 = this.f4229c;
+        float f3 = this.f4230d;
+        float f4 = this.f4231e;
+        float f5 = this.f4232f;
+        int i3 = this.f4233g;
+        float f6 = this.f4234h;
         float f7 = this.i;
         float f8 = this.j;
         float f9 = this.k;

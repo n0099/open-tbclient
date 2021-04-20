@@ -18,31 +18,31 @@ import com.baidu.tieba.R;
 public class a extends ItemizedOverlay {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f10265b;
+    public View f9823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f10266c;
+    public ImageView f9824c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f10267d;
+    public ImageView f9825d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f10268e;
+    public Context f9826e;
 
     /* renamed from: com.baidu.platform.comapi.wnplatform.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0130a {
+    public static class C0129a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f10269a = new a();
+        public static final a f9827a = new a();
     }
 
     public static a b() {
-        return C0130a.f10269a;
+        return C0129a.f9827a;
     }
 
     public void a(Context context, int[] iArr, int[] iArr2, int[] iArr3) {
-        this.f10268e = context;
+        this.f9826e = context;
         Bundle bundle = new Bundle();
         removeAll();
         for (int i = 0; i < iArr.length; i++) {
@@ -80,18 +80,18 @@ public class a extends ItemizedOverlay {
     private BitmapDescriptor a(Context context, int i, int i2) {
         try {
             View inflate = ((Activity) context).getLayoutInflater().inflate(R.array.aiapps_loading_tips_prepare, (ViewGroup) null);
-            this.f10265b = inflate;
+            this.f9823b = inflate;
             ImageView imageView = (ImageView) inflate.findViewById(R.dimen.abc_text_size_display_1_material);
-            this.f10266c = imageView;
+            this.f9824c = imageView;
             imageView.setImageResource(i);
-            ImageView imageView2 = (ImageView) this.f10265b.findViewById(R.dimen.abc_text_size_display_2_material);
-            this.f10267d = imageView2;
+            ImageView imageView2 = (ImageView) this.f9823b.findViewById(R.dimen.abc_text_size_display_2_material);
+            this.f9825d = imageView2;
             imageView2.setImageResource(i2);
-            this.f10265b.setDrawingCacheEnabled(true);
-            this.f10265b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.f10265b.layout(0, 0, this.f10265b.getMeasuredWidth(), this.f10265b.getMeasuredHeight());
-            this.f10265b.buildDrawingCache();
-            return BitmapDescriptorFactory.fromBitmap(this.f10265b.getDrawingCache());
+            this.f9823b.setDrawingCacheEnabled(true);
+            this.f9823b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.f9823b.layout(0, 0, this.f9823b.getMeasuredWidth(), this.f9823b.getMeasuredHeight());
+            this.f9823b.buildDrawingCache();
+            return BitmapDescriptorFactory.fromBitmap(this.f9823b.getDrawingCache());
         } catch (Exception unused) {
             return null;
         }

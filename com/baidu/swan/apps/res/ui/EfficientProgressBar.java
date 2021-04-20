@@ -16,16 +16,16 @@ import android.view.animation.Transformation;
 public class EfficientProgressBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12460e;
+    public int f12121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12461f;
+    public int f12122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12462g;
+    public int f12123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f12463h;
+    public long f12124h;
     public Transformation i;
     public Interpolator j;
     public AnimationSet k;
@@ -34,8 +34,8 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.f12462g = g(66);
-        this.f12463h = -1L;
+        this.f12123g = g(66);
+        this.f12124h = -1L;
         this.i = new Transformation();
         this.j = new DecelerateInterpolator(2.0f);
         this.m = -1.0f;
@@ -54,7 +54,7 @@ public class EfficientProgressBar extends View {
         if (getVisibility() == 0) {
             if (z) {
                 this.k = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.f12461f / 10000.0f, 1.0f);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.f12122f / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.j);
                 this.k.addAnimation(alphaAnimation);
@@ -73,7 +73,7 @@ public class EfficientProgressBar extends View {
     @TargetApi(11)
     public final void e() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
-        float f2 = width > 0 ? ((10000 - this.f12461f) / 10000.0f) * width : -1.0f;
+        float f2 = width > 0 ? ((10000 - this.f12122f) / 10000.0f) * width : -1.0f;
         if (f2 > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f2);
@@ -83,9 +83,9 @@ public class EfficientProgressBar extends View {
     }
 
     public void f() {
-        this.f12461f = 0;
-        this.f12460e = 0;
-        this.f12463h = -1L;
+        this.f12122f = 0;
+        this.f12121e = 0;
+        this.f12124h = -1L;
         this.k = null;
         h(0, false);
         setVisibility(4);
@@ -99,7 +99,7 @@ public class EfficientProgressBar extends View {
         if (i > 10000) {
             i = 10000;
         }
-        this.f12461f = i;
+        this.f12122f = i;
         e();
         if (z) {
             postInvalidateDelayed(50L);
@@ -109,11 +109,11 @@ public class EfficientProgressBar extends View {
     }
 
     public final void i() {
-        this.f12461f = 0;
-        this.f12460e = 0;
+        this.f12122f = 0;
+        this.f12121e = 0;
         this.k = null;
-        this.f12463h = System.currentTimeMillis();
-        h(this.f12461f, false);
+        this.f12124h = System.currentTimeMillis();
+        h(this.f12122f, false);
         setVisibility(0);
     }
 
@@ -128,13 +128,13 @@ public class EfficientProgressBar extends View {
                     this.k = null;
                     f();
                 }
-            } else if (this.f12463h != -1 && this.f12461f < this.f12462g) {
+            } else if (this.f12124h != -1 && this.f12122f < this.f12123g) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int a2 = a(currentTimeMillis - this.f12463h);
-                int i = this.f12461f + a2;
-                this.f12461f = i;
+                int a2 = a(currentTimeMillis - this.f12124h);
+                int i = this.f12122f + a2;
+                this.f12122f = i;
                 if (a2 != 0) {
-                    this.f12463h = currentTimeMillis;
+                    this.f12124h = currentTimeMillis;
                     h(i, true);
                 }
             }
@@ -167,15 +167,15 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgress(int i, boolean z) {
-        if (i == 100 && b(this.f12460e) == 100) {
+        if (i == 100 && b(this.f12121e) == 100) {
             return;
         }
-        this.f12460e = g(i);
+        this.f12121e = g(i);
         if (i == 100) {
             if (this.k == null) {
                 c(z);
             }
-        } else if (this.f12463h == -1) {
+        } else if (this.f12124h == -1) {
             i();
         }
     }
@@ -186,8 +186,8 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12462g = g(66);
-        this.f12463h = -1L;
+        this.f12123g = g(66);
+        this.f12124h = -1L;
         this.i = new Transformation();
         this.j = new DecelerateInterpolator(2.0f);
         this.m = -1.0f;
@@ -196,8 +196,8 @@ public class EfficientProgressBar extends View {
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12462g = g(66);
-        this.f12463h = -1L;
+        this.f12123g = g(66);
+        this.f12124h = -1L;
         this.i = new Transformation();
         this.j = new DecelerateInterpolator(2.0f);
         this.m = -1.0f;

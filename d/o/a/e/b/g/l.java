@@ -2,7 +2,7 @@ package d.o.a.e.b.g;
 
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface l {
     List<String> a();
 

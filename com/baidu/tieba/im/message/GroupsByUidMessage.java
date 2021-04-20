@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupsByUidMessage extends TbSocketMessage {
     public long friendUid;
     public int height;

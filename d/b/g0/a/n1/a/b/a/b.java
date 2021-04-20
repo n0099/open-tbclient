@@ -5,13 +5,13 @@ import android.os.Bundle;
 public class b extends a<Bundle> {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45343b;
+    public String f45735b;
 
     public b(String str) {
-        this.f45343b = str;
+        this.f45735b = str;
     }
 
     public String c() {
-        return this.f45343b;
+        return this.f45735b;
     }
 }

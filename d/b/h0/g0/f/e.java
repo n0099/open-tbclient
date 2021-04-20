@@ -8,27 +8,27 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import d.b.h0.g0.d.b;
-import d.b.i0.c3.t;
+import d.b.i0.d3.t;
 /* loaded from: classes3.dex */
 public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewEventCenter f50216e;
+    public final ViewEventCenter f50623e;
 
     /* renamed from: f  reason: collision with root package name */
-    public D f50217f;
+    public D f50624f;
 
     /* renamed from: g  reason: collision with root package name */
-    public S f50218g;
+    public S f50625g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f50219h;
+    public final View f50626h;
     public TbPageContext<?> i;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.i = tbPageContext;
-        this.f50219h = view;
-        this.f50216e = viewEventCenter;
+        this.f50626h = view;
+        this.f50623e = viewEventCenter;
     }
 
     public Activity a() {
@@ -40,11 +40,11 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public D c() {
-        return this.f50217f;
+        return this.f50624f;
     }
 
     public ViewEventCenter d() {
-        return this.f50216e;
+        return this.f50623e;
     }
 
     public TbPageContext<?> e() {
@@ -56,11 +56,11 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public View g() {
-        return this.f50219h;
+        return this.f50626h;
     }
 
     public S h() {
-        return this.f50218g;
+        return this.f50625g;
     }
 
     public String i(int i) {
@@ -72,7 +72,7 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public void k(D d2) {
-        this.f50217f = d2;
+        this.f50624f = d2;
     }
 
     public void l(D d2, S s) {
@@ -81,6 +81,6 @@ public abstract class e<D, S extends d.b.h0.g0.d.b> implements t {
     }
 
     public void m(S s) {
-        this.f50218g = s;
+        this.f50625g = s;
     }
 }

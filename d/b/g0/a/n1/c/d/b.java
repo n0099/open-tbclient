@@ -15,24 +15,24 @@ import java.util.Iterator;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45374a = k.f45051a;
+    public static final boolean f45766a = k.f45443a;
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends d.b.g0.a.n1.a.a.a> cls) {
         Iterator<c> it = e.j().p().iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next != null && next.D()) {
-                b(next.f45391f, bundle, cls, null);
+                b(next.f45783f, bundle, cls, null);
             }
         }
     }
 
     public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends d.b.g0.a.n1.a.a.a> cls, @Nullable d.b.g0.a.n1.a.b.c.c cVar) {
-        if (f45374a) {
+        if (f45766a) {
             Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, 125);
-        obtain.replyTo = e.j().f45400c;
+        obtain.replyTo = e.j().f45792c;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {

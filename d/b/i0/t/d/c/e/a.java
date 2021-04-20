@@ -8,20 +8,20 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<SdkLiveInfoData> f60321a;
+    public ArrayList<SdkLiveInfoData> f61885a;
 
     public void a(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("live_list")) == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f60321a = new ArrayList<>(optJSONArray.length());
+        this.f61885a = new ArrayList<>(optJSONArray.length());
         for (int i = 0; i < optJSONArray.length(); i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             if (optJSONObject != null) {
                 SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                 sdkLiveInfoData.fromJson(optJSONObject);
-                this.f60321a.add(sdkLiveInfoData);
+                this.f61885a.add(sdkLiveInfoData);
             }
         }
     }

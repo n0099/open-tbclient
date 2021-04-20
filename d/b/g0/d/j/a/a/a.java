@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nps.utils.Constant;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.sapi2.views.SmsLoginView;
@@ -32,43 +31,43 @@ import org.json.JSONObject;
 @Service
 /* loaded from: classes3.dex */
 public class a implements f {
-    public static final boolean j = k.f45051a;
+    public static final boolean j = k.f45443a;
     public static final String k = f.a.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47507a;
+    public String f47899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f47508b;
+    public d f47900b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47509c;
+    public String f47901c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47510d;
+    public String f47902d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47511e;
+    public String f47903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47512f;
+    public String f47904f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47513g;
+    public String f47905g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f47514h;
+    public Context f47906h;
     public CallbackHandler i;
 
     /* renamed from: d.b.g0.d.j.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0923a implements d.b.g0.a.q.g.a.a {
+    public class C0935a implements d.b.g0.a.q.g.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppDownloadAction.SwanAppDownloadType f47515a;
+        public final /* synthetic */ SwanAppDownloadAction.SwanAppDownloadType f47907a;
 
-        public C0923a(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-            this.f47515a = swanAppDownloadType;
+        public C0935a(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
+            this.f47907a = swanAppDownloadType;
         }
 
         @Override // d.b.g0.a.q.g.a.a
@@ -90,7 +89,7 @@ public class a implements f {
             if (a.j) {
                 Log.d("SwanAdDownloadImpl", "onStateChange   onStateChange:" + swanAdDownloadState + ", onProgressChange:" + i);
             }
-            switch (c.f47522a[this.f47515a.ordinal()]) {
+            switch (c.f47914a[this.f47907a.ordinal()]) {
                 case 1:
                     a.this.u(swanAdDownloadState, String.valueOf(i));
                     return;
@@ -142,37 +141,37 @@ public class a implements f {
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47517a;
+        public final /* synthetic */ String f47909a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f47518b;
+        public final /* synthetic */ String f47910b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47519c;
+        public final /* synthetic */ String f47911c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f47520d;
+        public final /* synthetic */ boolean f47912d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f47521e;
+        public final /* synthetic */ Context f47913e;
 
         public b(a aVar, String str, String str2, String str3, boolean z, Context context) {
-            this.f47517a = str;
-            this.f47518b = str2;
-            this.f47519c = str3;
-            this.f47520d = z;
-            this.f47521e = context;
+            this.f47909a = str;
+            this.f47910b = str2;
+            this.f47911c = str3;
+            this.f47912d = z;
+            this.f47913e = context;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f47517a));
-            String str2 = this.f47517a;
+            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f47909a));
+            String str2 = this.f47909a;
             request.setDestinationInExternalPublicDir("", str2.substring(str2.lastIndexOf("/") + 1));
-            if (!TextUtils.isEmpty(this.f47518b) && !TextUtils.isEmpty(this.f47519c)) {
+            if (!TextUtils.isEmpty(this.f47910b) && !TextUtils.isEmpty(this.f47911c)) {
                 request.setNotificationVisibility(1);
-                request.setTitle(this.f47518b);
-                request.setDescription(this.f47519c);
+                request.setTitle(this.f47910b);
+                request.setDescription(this.f47911c);
                 request.setVisibleInDownloadsUi(true);
                 request.allowScanningByMediaScanner();
                 request.setMimeType("application/vnd.android.package-archive");
@@ -180,10 +179,10 @@ public class a implements f {
             DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService("download");
             if (downloadManager != null) {
                 downloadManager.enqueue(request);
-                if (this.f47520d) {
+                if (this.f47912d) {
                     return;
                 }
-                d.b.g0.a.i2.e.f(this.f47521e, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                d.b.g0.a.i2.e.f(this.f47913e, new Intent("android.intent.action.VIEW_DOWNLOADS"));
             }
         }
 
@@ -200,33 +199,33 @@ public class a implements f {
     public static /* synthetic */ class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47522a;
+        public static final /* synthetic */ int[] f47914a;
 
         static {
             int[] iArr = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            f47522a = iArr;
+            f47914a = iArr;
             try {
                 iArr[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47522a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                f47914a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47522a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                f47914a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f47522a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                f47914a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f47522a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
+                f47914a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f47522a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
+                f47914a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -239,18 +238,18 @@ public class a implements f {
 
     @Override // d.b.g0.a.p.c.f
     public boolean b(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler) {
-        this.f47514h = context;
+        this.f47906h = context;
         this.i = callbackHandler;
-        this.f47512f = jSONObject.optString("cb");
-        this.f47513g = jSONObject.optString("onProgressUpdate");
-        this.f47509c = jSONObject.optString("url");
-        this.f47510d = jSONObject.optString("name");
-        this.f47511e = String.valueOf(this.f47509c.hashCode());
-        if (!TextUtils.isEmpty(this.f47512f) && !TextUtils.isEmpty(this.f47509c)) {
+        this.f47904f = jSONObject.optString("cb");
+        this.f47905g = jSONObject.optString("onProgressUpdate");
+        this.f47901c = jSONObject.optString("url");
+        this.f47902d = jSONObject.optString("name");
+        this.f47903e = String.valueOf(this.f47901c.hashCode());
+        if (!TextUtils.isEmpty(this.f47904f) && !TextUtils.isEmpty(this.f47901c)) {
             if (swanAppDownloadType == SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP) {
                 x();
             }
-            return d.b.g0.e.a.l.c.a(context, jSONObject, swanAppDownloadType, new C0923a(swanAppDownloadType));
+            return d.b.g0.e.a.l.c.a(context, jSONObject, swanAppDownloadType, new C0935a(swanAppDownloadType));
         }
         o(false, "Missing parameters");
         return false;
@@ -310,12 +309,12 @@ public class a implements f {
     }
 
     public final void r() {
-        this.i.handleSchemeDispatchCallback(this.f47513g, m(SwanAdDownloadState.DOWNLOAD_FAILED, "0", this.f47511e));
-        this.i.handleSchemeDispatchCallback(this.f47512f, o(true, null));
-        String str = this.f47507a;
+        this.i.handleSchemeDispatchCallback(this.f47905g, m(SwanAdDownloadState.DOWNLOAD_FAILED, "0", this.f47903e));
+        this.i.handleSchemeDispatchCallback(this.f47904f, o(true, null));
+        String str = this.f47899a;
         if (str != null) {
             this.i.handleSchemeDispatchCallback(str, o(false, "onStopped"));
-            this.f47507a = null;
+            this.f47899a = null;
         }
     }
 
@@ -324,36 +323,36 @@ public class a implements f {
             Log.d("SwanAdDownloadImpl", "handleInstallApp");
         }
         String concat = new File(d.b.g0.e.a.l.b.n()).getAbsolutePath().concat("/");
-        String concat2 = concat.concat(this.f47511e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+        String concat2 = concat.concat(this.f47903e + ".apk");
         if (new File(concat2).exists()) {
             x();
             if (d.b.g0.e.a.l.e.c(concat2, false)) {
                 return;
             }
-            this.i.handleSchemeDispatchCallback(this.f47512f, o(false, "install apk error"));
+            this.i.handleSchemeDispatchCallback(this.f47904f, o(false, "install apk error"));
             return;
         }
-        this.i.handleSchemeDispatchCallback(this.f47512f, o(false, "Apk Not Found"));
+        this.i.handleSchemeDispatchCallback(this.f47904f, o(false, "Apk Not Found"));
     }
 
     public final void t(@NonNull String str) {
-        this.i.handleSchemeDispatchCallback(this.f47513g, m(SwanAdDownloadState.DOWNLOAD_PAUSED, str, this.f47511e));
-        this.i.handleSchemeDispatchCallback(this.f47512f, o(true, null));
-        String str2 = this.f47507a;
+        this.i.handleSchemeDispatchCallback(this.f47905g, m(SwanAdDownloadState.DOWNLOAD_PAUSED, str, this.f47903e));
+        this.i.handleSchemeDispatchCallback(this.f47904f, o(true, null));
+        String str2 = this.f47899a;
         if (str2 != null) {
             this.i.handleSchemeDispatchCallback(str2, o(false, MissionEvent.MESSAGE_PAUSE));
-            this.f47507a = null;
+            this.f47899a = null;
         }
     }
 
     public final void u(@NonNull SwanAdDownloadState swanAdDownloadState, @NonNull String str) {
-        this.i.handleSchemeDispatchCallback(this.f47513g, m(swanAdDownloadState, str, this.f47511e));
+        this.i.handleSchemeDispatchCallback(this.f47905g, m(swanAdDownloadState, str, this.f47903e));
         if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED && "-1".equals(str)) {
-            this.i.handleSchemeDispatchCallback(this.f47512f, n(swanAdDownloadState, str, this.f47511e, SwanAdDownloadState.DELETED.value()));
+            this.i.handleSchemeDispatchCallback(this.f47904f, n(swanAdDownloadState, str, this.f47903e, SwanAdDownloadState.DELETED.value()));
         } else if (TextUtils.equals(str, "100")) {
-            this.i.handleSchemeDispatchCallback(this.f47512f, m(SwanAdDownloadState.DOWNLOADED, str, this.f47511e));
+            this.i.handleSchemeDispatchCallback(this.f47904f, m(SwanAdDownloadState.DOWNLOADED, str, this.f47903e));
         } else {
-            this.i.handleSchemeDispatchCallback(this.f47512f, m(swanAdDownloadState, str, this.f47511e));
+            this.i.handleSchemeDispatchCallback(this.f47904f, m(swanAdDownloadState, str, this.f47903e));
         }
     }
 
@@ -364,29 +363,29 @@ public class a implements f {
     }
 
     public final void w(@NonNull SwanAdDownloadState swanAdDownloadState, @NonNull String str) {
-        this.f47507a = this.f47512f;
-        this.i.handleSchemeDispatchCallback(this.f47513g, m(swanAdDownloadState, str, this.f47511e));
+        this.f47899a = this.f47904f;
+        this.i.handleSchemeDispatchCallback(this.f47905g, m(swanAdDownloadState, str, this.f47903e));
         if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
-            this.i.handleSchemeDispatchCallback(this.f47512f, o(true, "onSuccess"));
-            this.f47507a = null;
+            this.i.handleSchemeDispatchCallback(this.f47904f, o(true, "onSuccess"));
+            this.f47899a = null;
         }
     }
 
     public final void x() {
-        if (this.f47508b == null) {
-            this.f47508b = new d(this, null);
+        if (this.f47900b == null) {
+            this.f47900b = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme("package");
-            this.f47514h.registerReceiver(this.f47508b, intentFilter);
+            this.f47906h.registerReceiver(this.f47900b, intentFilter);
         }
     }
 
     public void y() {
-        d dVar = this.f47508b;
+        d dVar = this.f47900b;
         if (dVar != null) {
-            this.f47514h.unregisterReceiver(dVar);
-            this.f47508b = null;
+            this.f47906h.unregisterReceiver(dVar);
+            this.f47900b = null;
         }
     }
 
@@ -403,14 +402,14 @@ public class a implements f {
             if (intent == null || intent.getData() == null || !PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
                 return;
             }
-            if (TextUtils.equals(a.this.f47510d, intent.getData().getSchemeSpecificPart())) {
+            if (TextUtils.equals(a.this.f47902d, intent.getData().getSchemeSpecificPart())) {
                 a aVar = a.this;
-                aVar.i.handleSchemeDispatchCallback(aVar.f47512f, aVar.o(true, null));
+                aVar.i.handleSchemeDispatchCallback(aVar.f47904f, aVar.o(true, null));
                 a.this.y();
             }
         }
 
-        public /* synthetic */ d(a aVar, C0923a c0923a) {
+        public /* synthetic */ d(a aVar, C0935a c0935a) {
             this();
         }
     }

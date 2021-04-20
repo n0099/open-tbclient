@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.m.b;
-import d.b.b.e.p.l;
-import d.b.i0.c3.j0.a;
+import d.b.c.e.m.b;
+import d.b.c.e.p.l;
+import d.b.i0.d3.j0.a;
 import tbclient.SkinInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ThreadSkinView extends TbImageView {
     public TbPageContext w0;
     public SkinInfo x0;

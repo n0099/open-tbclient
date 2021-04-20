@@ -117,9 +117,9 @@ public class f extends b<d.b.i0.d0.d> {
         this.o = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
         this.v = view.findViewById(R.id.divider_line_1);
         this.w = view.findViewById(R.id.divider_line_2);
-        int dimensionPixelSize = this.f62182g.getResources().getDimensionPixelSize(R.dimen.tbds44);
+        int dimensionPixelSize = this.f63757g.getResources().getDimensionPixelSize(R.dimen.tbds44);
         if (this.p == null) {
-            this.p = new d(this.f62181f, null, null);
+            this.p = new d(this.f63756f, null, null);
         }
         this.p.x(0, 0, 0, 0);
         this.p.y(8);
@@ -131,7 +131,7 @@ public class f extends b<d.b.i0.d0.d> {
         this.p.m().setVisibility(8);
         this.o.addView(this.p.m());
         if (this.q == null) {
-            this.q = new e(this.f62181f);
+            this.q = new e(this.f63756f);
         }
         this.q.x(8);
         this.q.y(0, dimensionPixelSize, 0, 0);
@@ -142,7 +142,7 @@ public class f extends b<d.b.i0.d0.d> {
         this.q.m().setVisibility(8);
         this.o.addView(this.q.m());
         if (this.r == null) {
-            this.r = new e(this.f62181f);
+            this.r = new e(this.f63756f);
         }
         this.r.x(8);
         this.r.y(0, dimensionPixelSize, 0, 0);
@@ -161,10 +161,10 @@ public class f extends b<d.b.i0.d0.d> {
         if (dVar == null || dVar.g() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dVar.g().f58605b)) {
-            this.n.setText(dVar.g().f58605b);
+        if (!TextUtils.isEmpty(dVar.g().f60273b)) {
+            this.n.setText(dVar.g().f60273b);
         }
-        List<a2> list = dVar.g().f58604a;
+        List<a2> list = dVar.g().f60272a;
         if (ListUtils.getCount(list) >= 1) {
             d.b.i0.d0.a aVar = new d.b.i0.d0.a();
             this.s = aVar;

@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47478a = k.f45051a;
+    public static final boolean f47870a = k.f45443a;
 
     @Nullable
     public static String a(String str) {
@@ -39,7 +39,7 @@ public class a {
             try {
                 jSONObject.put("info", "encrypt request param fail with exception : " + e2.getMessage());
             } catch (JSONException e3) {
-                if (f47478a) {
+                if (f47870a) {
                     e3.printStackTrace();
                 }
             }
@@ -54,7 +54,7 @@ public class a {
         if (aVar == null || bVar == null) {
             return;
         }
-        String str = TextUtils.isEmpty(bVar.f47475a) ? "unknown" : bVar.f47475a;
+        String str = TextUtils.isEmpty(bVar.f47867a) ? "unknown" : bVar.f47867a;
         switch (str.hashCode()) {
             case -1395470197:
                 if (str.equals("bd09ll")) {
@@ -89,10 +89,10 @@ public class a {
                 break;
         }
         int i = c2 != 0 ? c2 != 1 ? c2 != 2 ? c2 != 3 ? -1 : 3 : 2 : 1 : 0;
-        a.c cVar = aVar.f47459c;
-        cVar.f47472a = i;
-        cVar.f47473b = bVar.f47476b;
-        cVar.f47474c = bVar.f47477c;
+        a.c cVar = aVar.f47851c;
+        cVar.f47864a = i;
+        cVar.f47865b = bVar.f47868b;
+        cVar.f47866c = bVar.f47869c;
     }
 
     public static int c() {
@@ -132,7 +132,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (f47478a) {
+        if (f47870a) {
             Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
         }
         c.b bVar = new c.b(10003);

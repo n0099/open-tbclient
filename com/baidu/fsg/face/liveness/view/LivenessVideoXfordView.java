@@ -21,28 +21,28 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LivenessVideoXfordView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f6112a = 230.0f;
+    public static final float f6147a = 230.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f6113b = 20.0f;
+    public static final float f6148b = 20.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f6114c;
+    public float f6149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f6115d;
+    public float f6150d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6116e;
+    public int f6151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f6117f;
+    public Paint f6152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f6118g;
+    public Paint f6153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f6119h;
+    public Paint f6154h;
     public Paint i;
     public Paint j;
     public Xfermode k;
@@ -73,8 +73,8 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context) {
         super(context);
-        this.f6114c = 230.0f;
-        this.f6115d = 20.0f;
+        this.f6149c = 230.0f;
+        this.f6150d = 20.0f;
         a();
     }
 
@@ -97,9 +97,9 @@ public class LivenessVideoXfordView extends FrameLayout {
             return;
         }
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6117f);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6152f);
         RectF rectF2 = this.l;
-        canvas.drawCircle(getWidth() / 2, rectF2.top + (rectF2.height() / 2.0f), this.o, this.f6118g);
+        canvas.drawCircle(getWidth() / 2, rectF2.top + (rectF2.height() / 2.0f), this.o, this.f6153g);
         canvas.restoreToCount(saveLayer);
         VideoXfordViewState videoXfordViewState = this.n;
         if (videoXfordViewState == VideoXfordViewState.FAILURE) {
@@ -112,11 +112,11 @@ public class LivenessVideoXfordView extends FrameLayout {
                 canvas.drawCircle(getWidth() / 2, rectF4.top + (rectF4.height() / 2.0f), (this.m.width() / 2.0f) + ((int) ((getHeight() - this.l.width()) * this.p * 0.025d)), this.j);
             }
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSING) {
-            canvas.drawArc(this.m, this.f6114c, this.f6115d, false, this.f6119h);
-            canvas.drawArc(this.m, (this.f6114c + 180.0f) % 360.0f, this.f6115d, false, this.f6119h);
+            canvas.drawArc(this.m, this.f6149c, this.f6150d, false, this.f6154h);
+            canvas.drawArc(this.m, (this.f6149c + 180.0f) % 360.0f, this.f6150d, false, this.f6154h);
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSED) {
             RectF rectF5 = this.l;
-            canvas.drawCircle(getWidth() / 2, rectF5.top + (rectF5.height() / 2.0f), this.m.width() / 2.0f, this.f6119h);
+            canvas.drawCircle(getWidth() / 2, rectF5.top + (rectF5.height() / 2.0f), this.m.width() / 2.0f, this.f6154h);
         }
     }
 
@@ -139,7 +139,7 @@ public class LivenessVideoXfordView extends FrameLayout {
         }
         this.l = new RectF(rect);
         int i = rect.left;
-        int i2 = this.f6116e;
+        int i2 = this.f6151e;
         this.m = new RectF(i - i2, rect.top - i2, rect.right + i2, rect.bottom + i2);
         this.o = rect.width() / 2;
         invalidate();
@@ -156,8 +156,8 @@ public class LivenessVideoXfordView extends FrameLayout {
             b();
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSING) {
             this.w = aVar;
-            this.f6114c = 20.0f;
-            this.f6115d = 20.0f;
+            this.f6149c = 20.0f;
+            this.f6150d = 20.0f;
             this.q.removeCallbacksAndMessages(null);
             c();
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSED) {
@@ -176,23 +176,23 @@ public class LivenessVideoXfordView extends FrameLayout {
     }
 
     private void a() {
-        this.f6116e = getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_xfordview_circle_gap);
+        this.f6151e = getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_xfordview_circle_gap);
         Paint paint = new Paint();
-        this.f6117f = paint;
+        this.f6152f = paint;
         paint.setColor(Color.rgb(255, 255, 255));
-        this.f6117f.setStyle(Paint.Style.FILL);
-        this.f6117f.setAntiAlias(true);
+        this.f6152f.setStyle(Paint.Style.FILL);
+        this.f6152f.setAntiAlias(true);
         Paint paint2 = new Paint();
-        this.f6118g = paint2;
+        this.f6153g = paint2;
         paint2.setColor(Color.argb(0, 0, 0, 0));
-        this.f6118g.setStyle(Paint.Style.FILL);
-        this.f6118g.setAntiAlias(true);
+        this.f6153g.setStyle(Paint.Style.FILL);
+        this.f6153g.setAntiAlias(true);
         Paint paint3 = new Paint();
-        this.f6119h = paint3;
+        this.f6154h = paint3;
         paint3.setColor(Color.rgb(103, 155, (int) GDiffPatcher.COPY_INT_UBYTE));
-        this.f6119h.setStyle(Paint.Style.STROKE);
-        this.f6119h.setStrokeWidth(12.0f);
-        this.f6119h.setAntiAlias(true);
+        this.f6154h.setStyle(Paint.Style.STROKE);
+        this.f6154h.setStrokeWidth(12.0f);
+        this.f6154h.setAntiAlias(true);
         Paint paint4 = new Paint();
         this.i = paint4;
         paint4.setColor(Color.rgb((int) GDiffPatcher.COPY_USHORT_INT, 90, 92));
@@ -207,7 +207,7 @@ public class LivenessVideoXfordView extends FrameLayout {
         this.j.setAntiAlias(true);
         PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.k = porterDuffXfermode;
-        this.f6118g.setXfermode(porterDuffXfermode);
+        this.f6153g.setXfermode(porterDuffXfermode);
         this.q = new Handler(Looper.getMainLooper());
         this.r = new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoXfordView.1
             @Override // java.lang.Runnable
@@ -242,8 +242,8 @@ public class LivenessVideoXfordView extends FrameLayout {
                     return;
                 }
                 LivenessVideoXfordView.this.v += 2;
-                LivenessVideoXfordView.this.f6115d = livenessVideoXfordView.v + 20.0f;
-                LivenessVideoXfordView.this.f6114c = ((livenessVideoXfordView2.v * 1) + 230.0f) % 360.0f;
+                LivenessVideoXfordView.this.f6150d = livenessVideoXfordView.v + 20.0f;
+                LivenessVideoXfordView.this.f6149c = ((livenessVideoXfordView2.v * 1) + 230.0f) % 360.0f;
                 LivenessVideoXfordView.this.invalidate();
                 LivenessVideoXfordView.this.t.postDelayed(LivenessVideoXfordView.this.u, 3L);
             }
@@ -258,8 +258,8 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6114c = 230.0f;
-        this.f6115d = 20.0f;
+        this.f6149c = 230.0f;
+        this.f6150d = 20.0f;
         a();
     }
 }

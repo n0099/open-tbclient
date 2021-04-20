@@ -20,11 +20,11 @@ public class z extends d.b.i.a<d.b.h0.r.q.a> {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1118a c1118a) {
+        public boolean a(a.C1131a c1131a) {
             if (z.this.k != null && z.this.k.n() != null) {
                 d.b.i0.x.m.a(z.this.k.n().o0());
-                d.b.i0.x.m.l(z.this.j.f4489e, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.b.i0.x.m.l(z.this.j.f4490f, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(z.this.j.f4524e, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.b.i0.x.m.l(z.this.j.f4525f, z.this.k.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }

@@ -12,42 +12,42 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f29899a;
+    public static volatile f f29584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Context> f29900b;
+    public static WeakReference<Context> f29585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<a> f29901c;
+    public static List<a> f29586c;
 
     static {
         List<a> synchronizedList = Collections.synchronizedList(new ArrayList());
-        f29901c = synchronizedList;
+        f29586c = synchronizedList;
         synchronizedList.add(new com.bytedance.sdk.openadsdk.multipro.d.c());
-        f29901c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
-        f29901c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
-        f29901c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
-        for (a aVar : f29901c) {
+        f29586c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
+        f29586c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
+        f29586c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
+        for (a aVar : f29586c) {
             aVar.b();
         }
     }
 
     public static f b(Context context) {
         if (context != null) {
-            f29900b = new WeakReference<>(context.getApplicationContext());
+            f29585b = new WeakReference<>(context.getApplicationContext());
         }
-        if (f29899a == null) {
+        if (f29584a == null) {
             synchronized (f.class) {
-                if (f29899a == null) {
-                    f29899a = new f();
+                if (f29584a == null) {
+                    f29584a = new f();
                 }
             }
         }
-        return f29899a;
+        return f29584a;
     }
 
     private boolean c(Uri uri) {
@@ -62,7 +62,7 @@ public class f implements a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        for (a aVar : f29901c) {
+        for (a aVar : f29586c) {
             aVar.a(context);
         }
     }
@@ -117,7 +117,7 @@ public class f implements a {
             u.b("TTProviderManager", "uri is error3");
             return null;
         }
-        for (a aVar : f29901c) {
+        for (a aVar : f29586c) {
             if (str.equals(aVar.a())) {
                 return aVar;
             }

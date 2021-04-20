@@ -1,32 +1,32 @@
 package d.o.a.d.n;
 
 import java.lang.ref.SoftReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c<P, R> implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public P f66771e;
+    public P f67764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public R f66772f;
+    public R f67765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66773g;
+    public int f67766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SoftReference<a<P, R>> f66774h;
+    public SoftReference<a<P, R>> f67767h;
     public c<?, P> i;
     public c<R, ?> j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a<PARAM, RESULT> {
         RESULT a(PARAM param);
     }
 
     public c(int i, a<P, R> aVar, P p) {
-        this.f66773g = i;
-        this.f66774h = new SoftReference<>(aVar);
-        this.f66771e = p;
+        this.f67766g = i;
+        this.f67767h = new SoftReference<>(aVar);
+        this.f67764e = p;
     }
 
     public static <P, R> c<P, R> c(a<P, R> aVar, P p) {
@@ -56,27 +56,27 @@ public class c<P, R> implements Runnable {
     }
 
     public final R e() {
-        return this.f66772f;
+        return this.f67765f;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         c<?, P> cVar;
-        if (this.f66773g == 0 && !k.s()) {
+        if (this.f67766g == 0 && !k.s()) {
             d.o.a.d.k.b().n().post(this);
-        } else if (this.f66773g == 1 && k.s()) {
+        } else if (this.f67766g == 1 && k.s()) {
             d.o.a.d.i.a().b(this);
-        } else if (this.f66773g == 2 && k.s()) {
+        } else if (this.f67766g == 2 && k.s()) {
             d.o.a.d.i.a().f(this);
         } else {
-            if (this.f66771e == null && (cVar = this.i) != null) {
-                this.f66771e = cVar.e();
+            if (this.f67764e == null && (cVar = this.i) != null) {
+                this.f67764e = cVar.e();
             }
-            a<P, R> aVar = this.f66774h.get();
+            a<P, R> aVar = this.f67767h.get();
             if (aVar == null) {
                 return;
             }
-            this.f66772f = aVar.a(this.f66771e);
+            this.f67765f = aVar.a(this.f67764e);
             c<R, ?> cVar2 = this.j;
             if (cVar2 != null) {
                 cVar2.run();

@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @DoNotStrip
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public static final int NUMBER_OF_FRAMES_TO_PREPARE = 3;
     @Nullable

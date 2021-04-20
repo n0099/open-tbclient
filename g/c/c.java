@@ -30,16 +30,16 @@ public class c implements WebSocket {
     public static boolean y = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<ByteBuffer> f67623e;
+    public final BlockingQueue<ByteBuffer> f68629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d f67624f;
+    public final d f68630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SelectionKey f67625g;
+    public SelectionKey f68631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ByteChannel f67626h;
+    public ByteChannel f68632h;
     public List<Draft> k;
     public Draft l;
     public WebSocket.Role m;
@@ -59,9 +59,9 @@ public class c implements WebSocket {
     public c(d dVar, Draft draft) {
         this.l = null;
         if (dVar != null && (draft != null || this.m != WebSocket.Role.SERVER)) {
-            this.f67623e = new LinkedBlockingQueue();
+            this.f68629e = new LinkedBlockingQueue();
             new LinkedBlockingQueue();
-            this.f67624f = dVar;
+            this.f68630f = dVar;
             this.m = WebSocket.Role.CLIENT;
             if (draft != null) {
                 this.l = draft.f();
@@ -87,9 +87,9 @@ public class c implements WebSocket {
         }
         L(WebSocket.READYSTATE.OPEN);
         try {
-            this.f67624f.onWebsocketOpen(this, fVar);
+            this.f68630f.onWebsocketOpen(this, fVar);
         } catch (RuntimeException e2) {
-            this.f67624f.onWebsocketError(this, e2);
+            this.f68630f.onWebsocketError(this, e2);
         }
     }
 
@@ -158,10 +158,10 @@ public class c implements WebSocket {
         this.o = bVar;
         this.s = bVar.d();
         try {
-            this.f67624f.onWebsocketHandshakeSentAsClient(this, this.o);
+            this.f68630f.onWebsocketHandshakeSentAsClient(this, this.o);
             P(this.l.j(this.o, this.m));
         } catch (RuntimeException e2) {
-            this.f67624f.onWebsocketError(this, e2);
+            this.f68630f.onWebsocketError(this, e2);
             throw new InvalidHandshakeException("rejected because of" + e2);
         } catch (InvalidDataException unused) {
             throw new InvalidHandshakeException("Handshake data rejected by client.");
@@ -183,8 +183,8 @@ public class c implements WebSocket {
             sb.append('}');
             printStream.println(sb.toString());
         }
-        this.f67623e.add(byteBuffer);
-        this.f67624f.onWriteDemand(this);
+        this.f68629e.add(byteBuffer);
+        this.f68630f.onWriteDemand(this);
     }
 
     public final void P(List<ByteBuffer> list) {
@@ -221,9 +221,9 @@ public class c implements WebSocket {
                 try {
                     if (!z) {
                         try {
-                            this.f67624f.onWebsocketCloseInitiated(this, i, str);
+                            this.f68630f.onWebsocketCloseInitiated(this, i, str);
                         } catch (RuntimeException e2) {
-                            this.f67624f.onWebsocketError(this, e2);
+                            this.f68630f.onWebsocketError(this, e2);
                         }
                     }
                     if (B()) {
@@ -234,7 +234,7 @@ public class c implements WebSocket {
                         sendFrame(bVar);
                     }
                 } catch (InvalidDataException e3) {
-                    this.f67624f.onWebsocketError(this, e3);
+                    this.f68630f.onWebsocketError(this, e3);
                     o(1006, "generated frame is invalid", false);
                 }
             }
@@ -265,26 +265,26 @@ public class c implements WebSocket {
         if (t() == WebSocket.READYSTATE.OPEN && i == 1006) {
             L(WebSocket.READYSTATE.CLOSING);
         }
-        if (this.f67625g != null) {
-            this.f67625g.cancel();
+        if (this.f68631g != null) {
+            this.f68631g.cancel();
         }
-        if (this.f67626h != null) {
+        if (this.f68632h != null) {
             try {
-                this.f67626h.close();
+                this.f68632h.close();
             } catch (IOException e2) {
                 if (e2.getMessage().equals("Broken pipe")) {
                     if (y) {
                         System.out.println("Caught IOException: Broken pipe during closeConnection()");
                     }
                 } else {
-                    this.f67624f.onWebsocketError(this, e2);
+                    this.f68630f.onWebsocketError(this, e2);
                 }
             }
         }
         try {
-            this.f67624f.onWebsocketClose(this, i, str, z);
+            this.f68630f.onWebsocketClose(this, i, str, z);
         } catch (RuntimeException e3) {
-            this.f67624f.onWebsocketError(this, e3);
+            this.f68630f.onWebsocketError(this, e3);
         }
         if (this.l != null) {
             this.l.s();
@@ -346,7 +346,7 @@ public class c implements WebSocket {
                 this.l.o(this, framedata);
             }
         } catch (InvalidDataException e2) {
-            this.f67624f.onWebsocketError(this, e2);
+            this.f68630f.onWebsocketError(this, e2);
             e(e2);
         }
     }
@@ -408,14 +408,14 @@ public class c implements WebSocket {
                     if (f2.b(aVar) == Draft.HandshakeState.MATCHED) {
                         this.s = aVar.d();
                         try {
-                            i onWebsocketHandshakeReceivedAsServer = this.f67624f.onWebsocketHandshakeReceivedAsServer(this, f2, aVar);
+                            i onWebsocketHandshakeReceivedAsServer = this.f68630f.onWebsocketHandshakeReceivedAsServer(this, f2, aVar);
                             f2.n(aVar, onWebsocketHandshakeReceivedAsServer);
                             P(f2.j(onWebsocketHandshakeReceivedAsServer, this.m));
                             this.l = f2;
                             C(aVar);
                             return true;
                         } catch (RuntimeException e4) {
-                            this.f67624f.onWebsocketError(this, e4);
+                            this.f68630f.onWebsocketError(this, e4);
                             i(e4);
                             return false;
                         } catch (InvalidDataException e5) {
@@ -452,11 +452,11 @@ public class c implements WebSocket {
             h hVar = (h) v3;
             if (this.l.a(this.o, hVar) == Draft.HandshakeState.MATCHED) {
                 try {
-                    this.f67624f.onWebsocketHandshakeReceivedAsClient(this, this.o, hVar);
+                    this.f68630f.onWebsocketHandshakeReceivedAsClient(this, this.o, hVar);
                     C(hVar);
                     return true;
                 } catch (RuntimeException e6) {
-                    this.f67624f.onWebsocketError(this, e6);
+                    this.f68630f.onWebsocketError(this, e6);
                     o(-1, e6.getMessage(), false);
                     return false;
                 } catch (InvalidDataException e7) {
@@ -495,11 +495,11 @@ public class c implements WebSocket {
         this.p = str;
         this.r = Boolean.valueOf(z);
         this.i = true;
-        this.f67624f.onWriteDemand(this);
+        this.f68630f.onWriteDemand(this);
         try {
-            this.f67624f.onWebsocketClosing(this, i, str, z);
+            this.f68630f.onWebsocketClosing(this, i, str, z);
         } catch (RuntimeException e2) {
-            this.f67624f.onWebsocketError(this, e2);
+            this.f68630f.onWebsocketError(this, e2);
         }
         if (this.l != null) {
             this.l.s();
@@ -521,7 +521,7 @@ public class c implements WebSocket {
     }
 
     public InetSocketAddress s() {
-        return this.f67624f.getLocalSocketAddress(this);
+        return this.f68630f.getLocalSocketAddress(this);
     }
 
     @Override // org.java_websocket.WebSocket
@@ -538,15 +538,15 @@ public class c implements WebSocket {
     }
 
     public InetSocketAddress u() {
-        return this.f67624f.getRemoteSocketAddress(this);
+        return this.f68630f.getRemoteSocketAddress(this);
     }
 
     public d v() {
-        return this.f67624f;
+        return this.f68630f;
     }
 
     public boolean w() {
-        return !this.f67623e.isEmpty();
+        return !this.f68629e.isEmpty();
     }
 
     public boolean x() {

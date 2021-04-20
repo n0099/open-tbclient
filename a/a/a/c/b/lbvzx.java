@@ -3,24 +3,24 @@ package a.a.a.c.b;
 public class lbvzx {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1416a;
+    public String f1402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1417b;
+    public long f1403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1418c;
+    public long f1404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1419d;
+    public long f1405d;
 
     public lbvzx() {
     }
 
     public lbvzx(int i, String str, String str2, long j, long j2, long j3) {
-        this.f1416a = str2;
-        this.f1417b = j;
-        this.f1418c = j2;
-        this.f1419d = j3;
+        this.f1402a = str2;
+        this.f1403b = j;
+        this.f1404c = j2;
+        this.f1405d = j3;
     }
 }

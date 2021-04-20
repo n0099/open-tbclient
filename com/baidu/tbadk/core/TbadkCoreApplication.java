@@ -56,6 +56,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.bdhttpdns.BDHttpDns;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.StartupCountStatsController;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
@@ -135,20 +136,20 @@ import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.ubc.UBCIPCManager;
-import d.b.b.a.b;
-import d.b.b.a.k.a;
-import d.b.b.e.i.a;
-import d.b.b.e.p.l;
+import d.b.c.a.b;
+import d.b.c.a.k.a;
+import d.b.c.e.i.a;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.x0;
-import d.b.h0.s.c.a0;
-import d.b.h0.s.c.x;
+import d.b.h0.s.c.c0;
+import d.b.h0.s.c.z;
 import d.b.h0.y0.a;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.k;
-import d.b.h0.z0.z;
-import d.b.i0.t1.c;
-import d.b.q.f.a.b;
+import d.b.h0.z0.x;
+import d.b.i0.u1.c;
+import d.b.p.f.a.b;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -172,7 +173,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 @ModifyClass
 /* loaded from: classes3.dex */
-public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.InterfaceC1586c {
+public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.InterfaceC1646c {
     public static final long ACTION_TEST = 1;
     public static final String ACTIVE_CLEAR_TAG = "active_clear";
     public static final int APP_EVENT_LOGIN = 1;
@@ -212,7 +213,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public boolean isFriendFeedNew;
     public boolean isRemoteProcess;
     public int keyboardHeight;
-    public x listItemRule;
+    public z listItemRule;
     public d.b.h0.s.c.c mActivitySwitch;
     public d.b.h0.s.c.d mAdAdSense;
     public ClientGuard mClientGuard;
@@ -227,9 +228,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public boolean mIsNeedNewUserLead;
     public long mLastSyncFinishTime;
     public int mPicReqSwitchType;
-    public a0 mProfileData;
+    public c0 mProfileData;
     public ShareItem mShareItem;
-    public d.b.i0.t1.c mSplash;
+    public d.b.i0.u1.c mSplash;
     public SparseArray<Integer> mWaitDownloadTheme;
     public String mYijianfankuiFname;
     public PayMemberInfoData payInfo;
@@ -242,7 +243,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public String uegVoiceWarning;
     public String urlText;
     public long useTimeInterval;
-    public d.b.h0.s.c.s mConsumePathData = null;
+    public d.b.h0.s.c.u mConsumePathData = null;
     public int hybridBridgeTimeout = 1000;
     public boolean mThemeWebviewOpened = false;
     public boolean mCapableOfWebp = false;
@@ -304,7 +305,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public CombineDownload mCombineDownload = null;
     public ArrayList<BaseActivity<?>> mRemoteActivity = null;
     public int mFontSize = 3;
-    public HashMap<String, SoftReference<d.b.b.j.d.a>> mFaces = null;
+    public HashMap<String, SoftReference<d.b.c.j.d.a>> mFaces = null;
     public boolean isPhoneCalling = false;
     public ExecutorService imagePvThread = null;
     public Hashtable<String, Integer> mHasLikeList = null;
@@ -322,8 +323,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public boolean showPayInfoRedTip = true;
     public boolean mNeedShowNewVersion = false;
     public boolean mIsNewRegUser = false;
-    public d.b.i0.c3.n0.d mReadThreadHistory = null;
-    public d.b.i0.c3.n0.c mPhotoLiveReadHistory = null;
+    public d.b.i0.d3.n0.d mReadThreadHistory = null;
+    public d.b.i0.d3.n0.c mPhotoLiveReadHistory = null;
     public l.c mToast = null;
     public int mReadThreadPlayerScreenMaxHeight = 0;
     public String mChannelId = "";
@@ -353,7 +354,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-            UtilHelper.commenDealIntent(d.b.b.a.b.f().b() == null ? TbadkCoreApplication.this.getApp() : d.b.b.a.b.f().b(), customMessage.getData());
+            UtilHelper.commenDealIntent(d.b.c.a.b.f().b() == null ? TbadkCoreApplication.this.getApp() : d.b.c.a.b.f().b(), customMessage.getData());
             return null;
         }
     }
@@ -363,7 +364,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         public c() {
         }
 
-        @Override // d.b.b.e.i.a.c
+        @Override // d.b.c.e.i.a.c
         public void onLocationGeted(int i, String str, Address address) {
             if (i != 0 || address == null) {
                 return;
@@ -377,9 +378,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
                 TbadkCoreApplication.this.setLocationLat(valueOf);
                 TbadkCoreApplication.this.setLocationLng(valueOf2);
                 TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                d.b.i0.r2.a0.a.e().i(valueOf);
-                d.b.i0.r2.a0.a.e().j(valueOf2);
-                d.b.i0.r2.a0.a.e().k(System.currentTimeMillis());
+                d.b.i0.s2.d0.a.e().i(valueOf);
+                d.b.i0.s2.d0.a.e().j(valueOf2);
+                d.b.i0.s2.d0.a.e().k(System.currentTimeMillis());
             } catch (IllegalStateException e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -393,13 +394,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.b.e.i.a.l().i(true, TbadkCoreApplication.this.locationCallBack);
+            d.b.c.e.i.a.l().i(true, TbadkCoreApplication.this.locationCallBack);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements a.InterfaceC0531a {
-        @Override // d.b.b.a.k.a.InterfaceC0531a
+    public static class e implements a.InterfaceC0549a {
+        @Override // d.b.c.a.k.a.InterfaceC0549a
         public void a(SQLiteDatabase sQLiteDatabase) {
             TbadkCoreApplication.resetTDatabaseCreateTime();
         }
@@ -418,18 +419,18 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     /* loaded from: classes3.dex */
-    public class g implements d.b.b.c.e.c.k.b {
+    public class g implements d.b.c.c.e.c.k.b {
         public g() {
         }
 
-        @Override // d.b.b.c.e.c.k.b
+        @Override // d.b.c.c.e.c.k.b
         public boolean a() {
             return !TbadkCoreApplication.this.isExitAppCloseWebSocket();
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class h implements d.b.b.c.e.c.k.c {
+    public static class h implements d.b.c.c.e.c.k.c {
 
         /* loaded from: classes3.dex */
         public class a implements k.b {
@@ -446,7 +447,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             }
         }
 
-        @Override // d.b.b.c.e.c.k.c
+        @Override // d.b.c.c.e.c.k.c
         public void a() {
             d.b.h0.z0.k.e().c(new a(this));
         }
@@ -459,7 +460,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
         @Override // d.b.h0.y0.a.b
         public void a(boolean z, boolean z2) {
-            d.b.b.e.n.f.h(z2);
+            d.b.c.e.n.f.h(z2);
         }
     }
 
@@ -472,12 +473,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.l0.d.d)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.d3.l0.d.d)) {
                 return;
             }
-            d.b.i0.c3.l0.d.d dVar = (d.b.i0.c3.l0.d.d) customResponsedMessage.getData();
-            DescriptionTableInfo.setModuleSet(dVar.f53500a);
-            DescriptionTableInfo.setDescriptionTable(dVar.f53501b);
+            d.b.i0.d3.l0.d.d dVar = (d.b.i0.d3.l0.d.d) customResponsedMessage.getData();
+            DescriptionTableInfo.setModuleSet(dVar.f54944a);
+            DescriptionTableInfo.setDescriptionTable(dVar.f54945b);
         }
     }
 
@@ -501,19 +502,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         public l() {
         }
 
-        @Override // d.b.b.e.p.l.c
+        @Override // d.b.c.e.p.l.c
         public void a() {
             TbadkCoreApplication.this.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.custom_toast_textview, (ViewGroup) null);
         }
 
-        @Override // d.b.b.e.p.l.c
+        @Override // d.b.c.e.p.l.c
         public void b(String str) {
             if (c() instanceof TextView) {
                 ((TextView) c()).setText(str);
             }
         }
 
-        @Override // d.b.b.e.p.l.c
+        @Override // d.b.c.e.p.l.c
         public View c() {
             return TbadkCoreApplication.this.mCustomToastView;
         }
@@ -523,15 +524,15 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f13180e;
+        public final /* synthetic */ boolean f12841e;
 
         public m(boolean z) {
-            this.f13180e = z;
+            this.f12841e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new d.b.h0.e0.a(this.f13180e)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new d.b.h0.e0.a(this.f12841e)));
         }
     }
 
@@ -555,20 +556,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public class o implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BDHttpDns f13183e;
+        public final /* synthetic */ BDHttpDns f12844e;
 
         public o(BDHttpDns bDHttpDns) {
-            this.f13183e = bDHttpDns;
+            this.f12844e = bDHttpDns;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f13183e.p("prefetch");
+            this.f12844e.p("prefetch");
         }
     }
 
     /* loaded from: classes3.dex */
-    public class p implements d.b.b.c.e.c.k.e {
+    public class p implements d.b.c.c.e.c.k.e {
 
         /* loaded from: classes3.dex */
         public class a implements k.b {
@@ -588,20 +589,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         public p() {
         }
 
-        @Override // d.b.b.c.e.c.k.e
+        @Override // d.b.c.c.e.c.k.e
         public void a() {
             d.b.h0.z0.k.e().c(new a(this));
         }
     }
 
     /* loaded from: classes3.dex */
-    public class q extends d.b.b.c.f.d {
+    public class q extends d.b.c.c.f.d {
         public q(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.c.f.f
+        @Override // d.b.c.c.f.f
         /* renamed from: a */
         public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             if (TbadkCoreApplication.this.checkInterrupt() && TbConfig.DownFlowCmd.sInterruptCMDs.contains(Integer.valueOf(httpMessage.getCmd()))) {
@@ -612,13 +613,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     /* loaded from: classes3.dex */
-    public class r extends d.b.b.c.f.k {
+    public class r extends d.b.c.c.f.k {
         public r(int i) {
             super(i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.c.f.f
+        @Override // d.b.c.c.f.f
         /* renamed from: a */
         public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
             if (TbadkCoreApplication.this.checkInterrupt() && TbConfig.DownFlowCmd.sInterruptCMDs.contains(Integer.valueOf(socketMessage.getCmd()))) {
@@ -660,17 +661,17 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public class t extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13189a;
+        public final /* synthetic */ Context f12850a;
 
         public t(Context context) {
-            this.f13189a = context;
+            this.f12850a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(CertVerifyHelper.isOfficial(this.f13189a));
+            return Boolean.valueOf(CertVerifyHelper.isOfficial(this.f12850a));
         }
     }
 
@@ -805,11 +806,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     private int getCrashLimitCount() {
         try {
-            int j2 = d.b.h0.r.d0.b.i().j("crash_limit_count", 100);
-            if (j2 < 10) {
+            int k2 = d.b.h0.r.d0.b.j().k("crash_limit_count", 100);
+            if (k2 < 10) {
                 return 10;
             }
-            return j2;
+            return k2;
         } catch (Throwable unused) {
             return 100;
         }
@@ -956,12 +957,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         this.mFontSize = TbadkSettings.getInst().loadInt("font_size", 2);
         this.mVideoAutoPlayConfig = TbadkSettings.getInst().loadInt("video_auto_play_new", -1);
         try {
-            d.b.b.e.i.a.l().o();
+            d.b.c.e.i.a.l().o();
         } catch (Throwable th) {
             th.printStackTrace();
         }
         try {
-            d.b.h0.z0.x.b().e();
+            x.b().e();
             if (isMainProcess(false)) {
                 d.b.h0.f.a.d().f();
             }
@@ -969,9 +970,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             BdLog.e(e2.getMessage());
         }
         if (isMainProcess(true)) {
-            d.b.h0.a0.c.j().o(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+            d.b.h0.a0.c.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
         } else {
-            d.b.h0.a0.c.j().o(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+            d.b.h0.a0.c.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
         }
         loadLcsSwitchStratgy();
         initSettings();
@@ -983,19 +984,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         messageManager.addMessageRule(new d.b.h0.r0.c(0));
         messageManager.addResponsedMessageRule(new d.b.h0.r0.e(0));
         messageManager.addRemovedMessageRule(new d.b.h0.r0.d(0));
-        messageManager.addResponsedMessageRule(new d.b.i0.w0.c());
-        messageManager.addResponsedMessageRule(new d.b.i0.w0.b());
+        messageManager.addResponsedMessageRule(new d.b.i0.x0.c());
+        messageManager.addResponsedMessageRule(new d.b.i0.x0.b());
         messageManager.addResponsedMessageRule(new d.b.h0.r0.a());
         messageManager.addResponsedMessageRule(new d.b.h0.r0.b());
-        messageManager.addResponsedMessageRule(new d.b.i0.m3.c.a());
+        messageManager.addResponsedMessageRule(new d.b.i0.n3.c.a());
         initAppSettings();
         ViewHelper.initSkinDataOnStartup(getContext());
         TbConfig.initBigImageWidth(getContext());
         TbConfig.initFriendPhotoConfig(getContext());
         if (IS_SUPPORT_EXCEPTION_HANDLER) {
-            d.b.i0.h3.d.a();
+            d.b.i0.i3.d.a();
         }
-        d.b.i0.p3.f.d();
+        d.b.i0.q3.f.d();
         boolean isMainProcess = isMainProcess(false);
         long currentTimeMillis = System.currentTimeMillis();
         TiebaStatic.init(getContext(), isMainProcess);
@@ -1040,8 +1041,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     private void initBearSdk() {
-        if (isMainProcess(false) && isNeedBearAd(d.b.h0.r.d0.b.i().j("splash_ad_strategy_key", 0))) {
-            d.b.i0.q0.a.h().j();
+        if (isMainProcess(false) && isNeedBearAd(d.b.h0.r.d0.b.j().k("splash_ad_strategy_key", 0))) {
+            d.b.i0.r0.a.h().j();
         }
     }
 
@@ -1055,16 +1056,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             arrayList.add(d.b.h0.r.x.b.class.getName());
             arrayList.add(d.b.h0.r.x.a.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
-            d.b.b.c.a.a().c(arrayList);
+            d.b.c.c.a.a().c(arrayList);
         }
     }
 
     private void initCustomToastView() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.mToast == null && d.b.b.e.p.l.u() == null) {
+        if (this.mToast == null && d.b.c.e.p.l.u() == null) {
             l lVar = new l();
             this.mToast = lVar;
-            d.b.b.e.p.l.G(lVar);
+            d.b.c.e.p.l.G(lVar);
             d.b.h0.m0.l.b().L(System.currentTimeMillis() - currentTimeMillis);
         }
     }
@@ -1074,7 +1075,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     private void initICDN() {
-        d.b.b.e.j.a.c.f41772f = UseHttpdnsSdkSwitch.isOn();
+        d.b.c.e.j.a.c.f42269f = UseHttpdnsSdkSwitch.isOn();
         if (UseHttpdnsSdkSwitch.isOn()) {
             BDHttpDns j2 = BDHttpDns.j(getApplicationContext());
             j2.n(false);
@@ -1102,7 +1103,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     private void initIM() {
         long currentTimeMillis = System.currentTimeMillis();
-        d.b.i0.d1.a.a();
+        d.b.i0.e1.a.a();
         d.b.h0.m0.l.b().p(System.currentTimeMillis() - currentTimeMillis);
     }
 
@@ -1113,7 +1114,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     private void initJpusbSdk() {
         if (isMainProcess(true)) {
-            d.b.i0.h3.b.b().d(this);
+            d.b.i0.i3.b.b().d(this);
         }
     }
 
@@ -1126,7 +1127,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     private void initLoki() {
-        if (Loki.isLokiService(d.b.d0.b.a.a.b())) {
+        if (Loki.isLokiService(d.b.b0.b.a.a.b())) {
             Loki.initService();
             return;
         }
@@ -1147,7 +1148,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     private void initQuickWebViewManager() {
         if (isMainProcess(true)) {
-            d.b.i0.p2.b.o().s();
+            d.b.i0.q2.b.o().s();
             long currentTimeMillis = System.currentTimeMillis();
             d.b.h0.s.d.d.d().m();
             d.b.h0.m0.l.b().z(System.currentTimeMillis() - currentTimeMillis);
@@ -1218,17 +1219,17 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         arrayList.add(new BasicNameValuePair("cuid", getUniqueIdentifier()));
         new UseHttpdnsSdkSwitch();
         if (UseHttpdnsSdkSwitch.isOn()) {
-            d.b.b.c.e.c.h.h(TiebaIMConfig.url);
+            d.b.c.c.e.c.h.h(TiebaIMConfig.url);
         } else {
             String h2 = d.b.h0.s.j.a.f().h();
             if (TextUtils.isEmpty(h2)) {
-                d.b.b.c.e.c.h.h(TiebaIMConfig.url);
+                d.b.c.c.e.c.h.h(TiebaIMConfig.url);
             } else {
-                d.b.b.c.e.c.h.h(h2);
+                d.b.c.c.e.c.h.h(h2);
             }
         }
-        d.b.b.c.e.c.h.e(TiebaIMConfig.wsExtensions);
-        d.b.b.c.e.c.h.f(arrayList);
+        d.b.c.c.e.c.h.e(TiebaIMConfig.wsExtensions);
+        d.b.c.c.e.c.h.f(arrayList);
         BdSocketDaemonService.setLinkServiceDisconnectCallBack(new h());
         BdSocketLinkService.init();
         d.b.h0.c0.a.b(0, 0, 0, 1, 9);
@@ -1237,8 +1238,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     private void initStatSdk() {
         if (isMainProcess(true)) {
-            d.b.i0.h3.c.b().a(this);
-            d.b.i0.h3.c.b().e(this, getFrom(), true);
+            d.b.i0.i3.c.b().a(this);
+            d.b.i0.i3.c.b().e(this, getFrom(), true);
         }
     }
 
@@ -1247,7 +1248,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     private void initUETool() {
-        if (isDebugMode() && isMainProcess(false) && d.b.h0.r.d0.b.i().g("key_ue_tool_switch", false)) {
+        if (isDebugMode() && isMainProcess(false) && d.b.h0.r.d0.b.j().g("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }
@@ -1258,17 +1259,17 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         BdSocketLinkService.setCanOpenWebSocket(new g());
         int[] imTimeOut = getImTimeOut();
         if (imTimeOut != null && imTimeOut.length == 3) {
-            d.b.b.c.j.c.c().d(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
+            d.b.c.c.j.c.c().d(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
         }
         int[] socketReconnStratgy = getSocketReconnStratgy();
         if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
-            d.b.b.c.e.c.h.g(socketReconnStratgy);
+            d.b.c.c.e.c.h.g(socketReconnStratgy);
         }
         d.b.h0.s.j.e.j().k();
         MessageManager.getInstance().getSocketClient().H(d.b.h0.s.j.e.j());
         MessageManager.getInstance().addResponsedMessageRule(new d.b.h0.s.j.i());
         try {
-            d.b.b.c.e.c.j.d.a().d(TiebaIMConfig.getRSAPublicKey());
+            d.b.c.c.e.c.j.d.a().d(TiebaIMConfig.getRSAPublicKey());
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -1280,9 +1281,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     private void intReadThreadHistory(boolean z) {
         if (z) {
-            this.mReadThreadHistory = new d.b.i0.c3.n0.d(300);
-            this.mPhotoLiveReadHistory = new d.b.i0.c3.n0.c(300);
-            d.b.b.a.b.f().r(this);
+            this.mReadThreadHistory = new d.b.i0.d3.n0.d(300);
+            this.mPhotoLiveReadHistory = new d.b.i0.d3.n0.c(300);
+            d.b.c.a.b.f().r(this);
         }
     }
 
@@ -1298,7 +1299,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         if (i2 == -1) {
             i2 = 0;
         }
-        if ((i2 != 0 || (!d.b.b.e.p.j.H() && d.b.b.e.p.j.z())) && i2 != 2) {
+        if ((i2 != 0 || (!d.b.c.e.p.j.H() && d.b.c.e.p.j.z())) && i2 != 2) {
             if (i2 == 1) {
             }
             return false;
@@ -1337,9 +1338,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         synchronized (this.mPluginNotify) {
             try {
                 long j2 = 850;
-                long k2 = d.b.h0.r.d0.b.i().k("plugin_wait_time", 850L);
-                if (k2 > 0) {
-                    j2 = k2;
+                long l2 = d.b.h0.r.d0.b.j().l("plugin_wait_time", 850L);
+                if (l2 > 0) {
+                    j2 = l2;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 this.mPluginNotify.wait(j2);
@@ -1385,7 +1386,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         if (str == null || str.length() <= 0) {
             return;
         }
-        d.b.h0.r.d0.b.i().w("client_id", TbConfig.getVersion() + TrackUI.SEPERATOR + str);
+        d.b.h0.r.d0.b.j().x("client_id", TbConfig.getVersion() + TrackUI.SEPERATOR + str);
     }
 
     private void saveFromToFile(String str) {
@@ -1479,7 +1480,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         ApplicationInfo applicationInfo = null;
         try {
             applicationInfo = getContext().getPackageManager().getApplicationInfo(getContext().getPackageName(), 128);
-            TbConfig.setVersionType(d.b.b.e.m.b.d(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+            TbConfig.setVersionType(d.b.c.e.m.b.d(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
         } catch (Exception e2) {
             TbConfig.setVersionType(3);
             BdLog.e(e2.getMessage());
@@ -1576,7 +1577,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         super.attachBaseContext(context);
         fixOppoTimeout();
         try {
-            d.b.i0.t1.a.j(this);
+            d.b.i0.u1.a.j(this);
         } catch (Throwable th) {
             if (th.getMessage() != null) {
                 this.mMultidexError = th.getMessage();
@@ -1589,7 +1590,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             clientGuard.onAttachBaseContext(context);
         }
         AppRuntimeInit.onApplicationattachBaseContext(this);
-        d.b.d0.b.a.e.b(this);
+        d.b.b0.b.a.e.b(this);
     }
 
     public boolean canSendForegroundMessage() {
@@ -1635,7 +1636,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         if (str != null) {
             sb.append(str);
         }
-        sb.append(d.b.b.e.p.o.a());
+        sb.append(d.b.c.e.p.o.a());
         if (sb.length() > i2) {
             sb.setLength(i2);
         }
@@ -1722,11 +1723,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public d.b.h0.s.c.b getActivityPrizeData() {
         if (this.activityPrizeData == null) {
             this.activityPrizeData = new d.b.h0.s.c.b();
-            d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-            String o2 = i2.o("activity_prize_data" + getCurrentAccount(), "");
-            if (!StringUtils.isNull(o2)) {
+            d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+            String p2 = j2.p("activity_prize_data" + getCurrentAccount(), "");
+            if (!StringUtils.isNull(p2)) {
                 try {
-                    this.activityPrizeData.i(new JSONObject(o2));
+                    this.activityPrizeData.i(new JSONObject(p2));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -1744,14 +1745,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public int getAdVideoPageStyle() {
-        return d.b.h0.r.d0.b.i().j("video_page_style", 3);
+        return d.b.h0.r.d0.b.j().k("video_page_style", 3);
     }
 
     public String getAndroidId() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             if (TextUtils.isEmpty(this.mAndroidId)) {
                 try {
-                    this.mAndroidId = Settings.System.getString(getInst().getContentResolver(), "android_id");
+                    this.mAndroidId = Settings.System.getString(getInst().getContentResolver(), IAdRequestParam.ANDROID_ID);
                 } catch (Exception unused) {
                 }
             }
@@ -1773,7 +1774,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public int getCardShowType() {
         if (!this.hasInit) {
-            this.cardShowType = d.b.h0.r.d0.b.i().j("key_card_show_type", 0);
+            this.cardShowType = d.b.h0.r.d0.b.j().k("key_card_show_type", 0);
         }
         return this.cardShowType;
     }
@@ -1790,26 +1791,26 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return this.mConfigVersion;
     }
 
-    public d.b.h0.s.c.s getConsumePathData() {
+    public d.b.h0.s.c.u getConsumePathData() {
         return this.mConsumePathData;
     }
 
     public String getCuid() {
-        if (d.b.b.e.p.k.isEmpty(this.mCuid)) {
+        if (d.b.c.e.p.k.isEmpty(this.mCuid)) {
             initCuid();
         }
         return this.mCuid;
     }
 
     public String getCuidGalaxy2() {
-        if (d.b.b.e.p.k.isEmpty(this.cuid_galaxy2)) {
+        if (d.b.c.e.p.k.isEmpty(this.cuid_galaxy2)) {
             initCuidGalaxy2();
         }
         return this.cuid_galaxy2;
     }
 
     public String getCuidGalaxy3() {
-        if (d.b.b.e.p.k.isEmpty(this.cuid_galaxy3)) {
+        if (d.b.c.e.p.k.isEmpty(this.cuid_galaxy3)) {
             initCuidGalaxy3();
         }
         return this.cuid_galaxy3;
@@ -1847,12 +1848,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return d.b.h0.z0.m.g().f();
     }
 
-    public d.b.b.j.d.a getFace(String str) {
-        SoftReference<d.b.b.j.d.a> softReference = this.mFaces.get(str);
+    public d.b.c.j.d.a getFace(String str) {
+        SoftReference<d.b.c.j.d.a> softReference = this.mFaces.get(str);
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
         }
-        d.b.b.j.d.a a2 = TbFaceManager.e().a(str);
+        d.b.c.j.d.a a2 = TbFaceManager.e().a(str);
         if (a2 != null) {
             this.mFaces.put(str, new SoftReference<>(a2));
         }
@@ -1882,8 +1883,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public int getFrsAutoPlay() {
         int i2;
         if (TbConfig.FORCE_UPDATE || (i2 = this.mVideoAutoPlayConfig) == -1) {
-            boolean z = d.b.h0.r.d0.b.i().j("auto_play_video_frs", 0) == 1;
-            if (d.b.h0.r.d0.b.i().j("auto_play_video_frs_have_4g", 0) == 1) {
+            boolean z = d.b.h0.r.d0.b.j().k("auto_play_video_frs", 0) == 1;
+            if (d.b.h0.r.d0.b.j().k("auto_play_video_frs_have_4g", 0) == 1) {
                 return 2;
             }
             return z ? 0 : 1;
@@ -1922,8 +1923,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public int getHomePageAutoPlay() {
         int i2;
         if (TbConfig.FORCE_UPDATE || (i2 = this.mVideoAutoPlayConfig) == -1) {
-            boolean z = d.b.h0.r.d0.b.i().j("auto_play_video_homepage", 0) == 1;
-            if (d.b.h0.r.d0.b.i().j("auto_play_video_homepage_have_4g", 0) == 1) {
+            boolean z = d.b.h0.r.d0.b.j().k("auto_play_video_homepage", 0) == 1;
+            if (d.b.h0.r.d0.b.j().k("auto_play_video_homepage_have_4g", 0) == 1) {
                 return 2;
             }
             return z ? 0 : 1;
@@ -1965,7 +1966,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public String getImei() {
-        if (d.b.b.e.p.k.isEmpty(this.mImei)) {
+        if (d.b.c.e.p.k.isEmpty(this.mImei)) {
             initImei();
         }
         return this.mImei;
@@ -1994,7 +1995,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public boolean getIsAbstract() {
         int i2 = this.mIsAbstractOn;
         if (i2 == 0) {
-            if (d.b.b.e.p.j.H()) {
+            if (d.b.c.e.p.j.H()) {
                 return true;
             }
         } else if (i2 == 1) {
@@ -2063,9 +2064,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return this.mLikeChanged;
     }
 
-    public x getListItemRule() {
+    public z getListItemRule() {
         if (this.listItemRule == null) {
-            this.listItemRule = new x();
+            this.listItemRule = new z();
         }
         return this.listItemRule;
     }
@@ -2088,9 +2089,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public final int getMainTabBottomBarHeight() {
         if (DeviceInfoUtil.isfullScreen()) {
-            return d.b.b.e.p.l.g(this, R.dimen.tbds162);
+            return d.b.c.e.p.l.g(this, R.dimen.tbds162);
         }
-        return d.b.b.e.p.l.g(this, R.dimen.tbds152);
+        return d.b.c.e.p.l.g(this, R.dimen.tbds152);
     }
 
     public final int getMainTabBottomBarHeightId() {
@@ -2124,11 +2125,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return this.mPerformSampleCount;
     }
 
-    public d.b.i0.c3.n0.c getPhotoLiveReadThreadHistory() {
+    public d.b.i0.d3.n0.c getPhotoLiveReadThreadHistory() {
         return this.mPhotoLiveReadHistory;
     }
 
-    public a0 getProfileData() {
+    public c0 getProfileData() {
         return this.mProfileData;
     }
 
@@ -2150,7 +2151,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return loadString("push_channel_userId", "");
     }
 
-    public d.b.i0.c3.n0.d getReadThreadHistory() {
+    public d.b.i0.d3.n0.d getReadThreadHistory() {
         return this.mReadThreadHistory;
     }
 
@@ -2247,10 +2248,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         return iArr;
     }
 
-    @Override // d.b.i0.t1.c.InterfaceC1586c
-    public d.b.i0.t1.c getSplash() {
+    @Override // d.b.i0.u1.c.InterfaceC1646c
+    public d.b.i0.u1.c getSplash() {
         if (this.mSplash == null) {
-            this.mSplash = new d.b.i0.t1.c(this);
+            this.mSplash = new d.b.i0.u1.c(this);
         }
         return this.mSplash;
     }
@@ -2346,10 +2347,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     public int getVideoAutoPlay() {
         int i2;
         if (TbConfig.FORCE_UPDATE || (i2 = this.mVideoAutoPlayConfig) == -1) {
-            boolean z = d.b.h0.r.d0.b.i().j("auto_play_video_homepage", 0) == 1;
-            boolean z2 = d.b.h0.r.d0.b.i().j("auto_play_video_frs", 0) == 1;
-            boolean z3 = d.b.h0.r.d0.b.i().j("auto_play_video_homepage_have_4g", 0) == 1;
-            boolean z4 = d.b.h0.r.d0.b.i().j("auto_play_video_frs_have_4g", 0) == 1;
+            boolean z = d.b.h0.r.d0.b.j().k("auto_play_video_homepage", 0) == 1;
+            boolean z2 = d.b.h0.r.d0.b.j().k("auto_play_video_frs", 0) == 1;
+            boolean z3 = d.b.h0.r.d0.b.j().k("auto_play_video_homepage_have_4g", 0) == 1;
+            boolean z4 = d.b.h0.r.d0.b.j().k("auto_play_video_frs_have_4g", 0) == 1;
             if (z3 || z4) {
                 return 2;
             }
@@ -2376,7 +2377,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public String getYunpushChannelId() {
         if (TextUtils.isEmpty(this.mChannelId)) {
-            this.mChannelId = d.b.h0.r.d0.b.i().o("yunpush_channel_id", "");
+            this.mChannelId = d.b.h0.r.d0.b.j().p("yunpush_channel_id", "");
         }
         return this.mChannelId;
     }
@@ -2394,8 +2395,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             setServiceOnCreateCallBack();
             this.mAppInitHandler.sendEmptyMessage(2);
         } else if (i2 == 2) {
-            d.b.b.e.a.d.g().h(TbConfig.getTempDirName());
-            d.b.i0.q2.a.g().j();
+            d.b.c.e.a.d.g().h(TbConfig.getTempDirName());
+            d.b.i0.r2.a.g().j();
             boolean isMainProcess = isMainProcess(false);
             d.b.h0.u.a.l().o(isMainProcess);
             intReadThreadHistory(isMainProcess);
@@ -2422,7 +2423,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             }
             Boolean bool = this.isCdnTachometerProcess;
             if ((bool != null && bool.booleanValue()) || this.isPluginInstallProcess) {
-                d.b.b.h.h.b.e("TbadkApplication_onCreate", "cdn_process");
+                d.b.c.h.h.b.e("TbadkApplication_onCreate", "cdn_process");
                 this.mAppInitHandler.sendEmptyMessage(7);
                 return;
             }
@@ -2503,13 +2504,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public void initAxeSdk() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b.C1751b.c(getApplicationContext()).b().t();
+            b.C1763b.c(getApplicationContext()).b().t();
         }
     }
 
     public void initCrabSdk() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
-            d.b.i0.h3.a.getInstance().initSdk(this);
+            d.b.i0.i3.a.getInstance().initSdk(this);
         }
     }
 
@@ -2517,7 +2518,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         String loadString = loadString("cuid", null);
         if (loadString != null && loadString.startsWith("baidutiebaapp")) {
             saveString("new_cuid", loadString);
-            d.b.h0.r.d0.b.i().B("cuid");
+            d.b.h0.r.d0.b.j().C("cuid");
             this.mCuid = loadString;
             return;
         }
@@ -2564,7 +2565,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             String loadString = loadString("new_cuid_galaxy3", null);
             this.cuid_galaxy3 = loadString;
             if (loadString == null || loadString.length() <= 0) {
-                String a2 = d.b.q.b.d(getContext()).a();
+                String a2 = d.b.p.b.d(getContext()).a();
                 this.cuid_galaxy3 = a2;
                 saveString("new_cuid_galaxy3", a2);
             }
@@ -2618,7 +2619,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         getInst().setIsLocationON(this.mIsLocationOn);
         this.mIsExitAppCloseWebSocket = TbadkSettings.getInst().loadBoolean("is_exit_app_not_start_websocket", false);
         this.mFaceShopVersion = TbadkSettings.getInst().loadInt("faceshop_version", -1);
-        this.useTimeInterval = d.b.h0.r.d0.b.i().k("use_time_interval", TbConfig.DEFALT_USE_TIME_INTERVAL);
+        this.useTimeInterval = d.b.h0.r.d0.b.j().l("use_time_interval", TbConfig.DEFALT_USE_TIME_INTERVAL);
     }
 
     public void initSignedForum() {
@@ -2637,14 +2638,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void initTrackConfig() {
-        d.b.b.e.n.f.h(TbSingleton.getInstance().isIsOpenTrack());
+        d.b.c.e.n.f.h(TbSingleton.getInstance().isIsOpenTrack());
     }
 
     public void initUBC() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             d.b.l.b.a.b().c("tieba");
             AppConfig.init(false, false, false, false);
-            if (d.b.d0.b.a.a.g()) {
+            if (d.b.b0.b.a.a.g()) {
                 UBCIPCManager.b();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
@@ -2742,7 +2743,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     public boolean isImmersiveStickyCanUse() {
         if (!this.isImmersiveStickyPrefHasRead) {
-            this.isImmersiveStickyCanUse = d.b.h0.r.d0.b.i().g("switch_immersive_sticky_status", true);
+            this.isImmersiveStickyCanUse = d.b.h0.r.d0.b.j().g("switch_immersive_sticky_status", true);
             this.isImmersiveStickyPrefHasRead = true;
         }
         return this.isImmersiveStickyCanUse;
@@ -3003,11 +3004,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public boolean loadBoolean(String str, boolean z) {
-        return d.b.h0.r.d0.b.i().g(str, z);
+        return d.b.h0.r.d0.b.j().g(str, z);
     }
 
     public int loadInt(String str, int i2) {
-        return d.b.h0.r.d0.b.i().j(str, i2);
+        return d.b.h0.r.d0.b.j().k(str, i2);
     }
 
     public void loadLcsSwitchStratgy() {
@@ -3027,14 +3028,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public long loadLong(String str, long j2) {
-        return d.b.h0.r.d0.b.i().k(str, j2);
+        return d.b.h0.r.d0.b.j().l(str, j2);
     }
 
     public void loadPatchs() {
     }
 
     public String loadString(String str, String str2) {
-        return d.b.h0.r.d0.b.i().o(str, str2);
+        return d.b.h0.r.d0.b.j().p(str, str2);
     }
 
     public void login(TbPageContext<?> tbPageContext, CustomMessage<LoginActivityConfig> customMessage) {
@@ -3056,7 +3057,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         d.b.h0.z0.m.g().m(z);
     }
 
-    @Override // d.b.b.a.b.a
+    @Override // d.b.c.a.b.a
     public void onActivityClosed() {
         getInst().onLowMemory();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2002014));
@@ -3064,14 +3065,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
 
     @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
-        int m2 = d.b.h0.a0.c.j().m();
-        int max = (int) Math.max(m2 * 0.8d, TbConfig.getBigImageMaxUsedMemory());
-        if (max < m2) {
+        int n2 = d.b.h0.a0.c.k().n();
+        int max = (int) Math.max(n2 * 0.8d, TbConfig.getBigImageMaxUsedMemory());
+        if (max < n2) {
             BdLog.isDebugMode();
-            d.b.h0.a0.c.j().s(max);
+            d.b.h0.a0.c.k().u(max);
         }
         BitmapHelper.clearCashBitmap();
-        d.b.b.e.p.d.d().b();
+        d.b.c.e.p.d.d().b();
     }
 
     @Override // android.app.Application
@@ -3082,7 +3083,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         super.onCreate(this);
         isMainProcess(false);
         PermissionUtil.syncAgreeStatus(isMainProcess(false));
-        d.b.h0.f0.g.e().f(this);
+        d.b.h0.f0.h.f().g(this);
         PermissionUtil.registerMutiProcessPrivacyPolicy();
         if (this.isYunPushProcess) {
             InitVersion();
@@ -3091,8 +3092,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         }
         initDimenAdapt();
         cleanDirectoryNewStatIfNeed();
-        this.mPicReqSwitchType = d.b.h0.r.d0.b.i().j("key_pic_req_switch", 0);
-        if (d.b.h0.r.d0.b.i().j("static_opt_open", 0) > 0) {
+        this.mPicReqSwitchType = d.b.h0.r.d0.b.j().k("key_pic_req_switch", 0);
+        if (d.b.h0.r.d0.b.j().k("static_opt_open", 0) > 0) {
             CmdRouter.init(this);
         }
         setWebViewDataDirectorySuffix();
@@ -3131,14 +3132,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void onUserChanged() {
-        if (!d.b.b.e.p.l.C()) {
+        if (!d.b.c.e.p.l.C()) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2005007));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
         d.b.h0.s.d.b.g0().X(true);
         NotificationHelper.cancelAllNotification(this);
-        d.b.i0.c3.n0.a.n();
+        d.b.i0.d3.n0.a.n();
     }
 
     public String readClientId(Context context) {
@@ -3186,7 +3187,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void removeClientId(Context context) {
-        d.b.h0.r.d0.b.i().B("client_id");
+        d.b.h0.r.d0.b.j().C("client_id");
     }
 
     public void resetIsImmersiveStickyPrefHasRead(boolean z) {
@@ -3194,11 +3195,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void saveBoolean(String str, boolean z) {
-        d.b.h0.r.d0.b.i().s(str, z);
+        d.b.h0.r.d0.b.j().t(str, z);
     }
 
     public void saveInt(String str, int i2) {
-        d.b.h0.r.d0.b.i().u(str, i2);
+        d.b.h0.r.d0.b.j().v(str, i2);
     }
 
     public void saveKeepLiveSwitch(boolean z) {
@@ -3206,11 +3207,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void saveLong(String str, long j2) {
-        d.b.h0.r.d0.b.i().v(str, j2);
+        d.b.h0.r.d0.b.j().w(str, j2);
     }
 
     public void saveString(String str, String str2) {
-        d.b.h0.r.d0.b.i().w(str, str2);
+        d.b.h0.r.d0.b.j().x(str, str2);
     }
 
     public void sendImagePv(int i2, int i3, String str) {
@@ -3222,7 +3223,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void setActiveVersion(String str) {
-        if (d.b.b.e.p.k.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) {
+        if (d.b.c.e.p.k.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) {
             return;
         }
         FileHelper.DataDir.cleanDirectory(FileHelper.DataDir.PACKAGE_VERSION_LAST_DIR);
@@ -3242,7 +3243,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         if (dVar == null || dVar.a() == null) {
             return;
         }
-        d.b.h0.s.c.h a2 = this.mAdAdSense.a();
+        d.b.h0.s.c.j a2 = this.mAdAdSense.a();
         MessageManager.getInstance().registerStickyMode(2001434);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001434, a2));
     }
@@ -3277,8 +3278,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         this.mConfigVersion = str;
     }
 
-    public void setConsumePathData(d.b.h0.s.c.s sVar) {
-        this.mConsumePathData = sVar;
+    public void setConsumePathData(d.b.h0.s.c.u uVar) {
+        this.mConsumePathData = uVar;
     }
 
     public void setCurAiAppid(String str) {
@@ -3407,7 +3408,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
             sb.append(FieldBuilder.SE);
         }
         TbadkSettings.getInst().saveString("socket_time_out", sb.toString());
-        d.b.b.c.j.c.c().d(iArr[0], iArr[1], iArr[2]);
+        d.b.c.c.j.c.c().d(iArr[0], iArr[1], iArr[2]);
     }
 
     public void setInstallOtherApp(String str) {
@@ -3554,8 +3555,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         this.isBackground = z;
     }
 
-    public void setProfileData(a0 a0Var) {
-        this.mProfileData = a0Var;
+    public void setProfileData(c0 c0Var) {
+        this.mProfileData = c0Var;
     }
 
     public void setPromotedMessage(String str, boolean z) {
@@ -3676,7 +3677,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void setUseTimeInterval(long j2) {
-        d.b.h0.r.d0.b.i().v("use_time_interval", j2);
+        d.b.h0.r.d0.b.j().w("use_time_interval", j2);
         this.useTimeInterval = j2;
     }
 
@@ -3712,7 +3713,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
     }
 
     public void setYunpushChannelId(String str) {
-        d.b.h0.r.d0.b.i().w("yunpush_channel_id", str);
+        d.b.h0.r.d0.b.j().x("yunpush_channel_id", str);
     }
 
     public boolean shouldGPUOn() {
@@ -3808,7 +3809,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements b.a, c.In
         if (this.imagePvThread == null) {
             this.imagePvThread = Executors.newSingleThreadExecutor();
         }
-        z zVar = new z(i2, i3);
+        d.b.h0.z0.z zVar = new d.b.h0.z0.z(i2, i3);
         zVar.a(str);
         this.imagePvThread.execute(zVar);
         TiebaStatic.eventStat(getInst().getApp(), "img_browse", null, 1, "img_num", Integer.valueOf(i2), "img_total", Integer.valueOf(i3), "img_type", str, "img_begin", Integer.valueOf(i4), "img_end", Integer.valueOf(i5));

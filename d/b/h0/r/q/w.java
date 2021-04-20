@@ -5,16 +5,16 @@ import com.baidu.adp.BdUniqueId;
 public class w extends a implements d.b.h0.g0.b.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f50913f = BdUniqueId.gen();
+    public static final BdUniqueId f51320f = BdUniqueId.gen();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f50914g = {0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
+    public static final int[] f51321g = {0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50915e = 6;
+    public int f51322e = 6;
 
     public void A(int i) {
-        this.f50915e = i;
+        this.f51322e = i;
     }
 
     @Override // d.b.h0.r.q.a
@@ -28,6 +28,6 @@ public class w extends a implements d.b.h0.g0.b.a {
     }
 
     public int z() {
-        return this.f50915e;
+        return this.f51322e;
     }
 }

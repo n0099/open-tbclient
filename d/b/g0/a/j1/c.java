@@ -8,16 +8,16 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 public class c extends ProviderDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f44876a = -1;
+    public static long f45268a = -1;
 
     public static long a() {
-        long j = f44876a;
+        long j = f45268a;
         if (j >= 0) {
             return j;
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(d.b.g0.a.w0.a.c(), c.class, null);
         long j2 = callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getLong("result", 0L) : 0L;
-        f44876a = j2;
+        f45268a = j2;
         return j2;
     }
 

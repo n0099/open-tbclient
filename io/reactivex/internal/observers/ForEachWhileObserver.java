@@ -1,10 +1,10 @@
 package io.reactivex.internal.observers;
 
-import f.a.o;
-import f.a.t.b;
-import f.a.w.a;
-import f.a.w.g;
-import f.a.w.i;
+import f.b.o;
+import f.b.t.b;
+import f.b.w.a;
+import f.b.w.g;
+import f.b.w.i;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
@@ -22,17 +22,17 @@ public final class ForEachWhileObserver<T> extends AtomicReference<b> implements
         this.onComplete = aVar;
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.a.t.b
+    @Override // f.b.t.b
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onComplete() {
         if (this.done) {
             return;
@@ -41,27 +41,27 @@ public final class ForEachWhileObserver<T> extends AtomicReference<b> implements
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            f.a.u.a.a(th);
-            f.a.a0.a.f(th);
+            f.b.u.a.a(th);
+            f.b.a0.a.f(th);
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onError(Throwable th) {
         if (this.done) {
-            f.a.a0.a.f(th);
+            f.b.a0.a.f(th);
             return;
         }
         this.done = true;
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            f.a.u.a.a(th2);
-            f.a.a0.a.f(new CompositeException(th, th2));
+            f.b.u.a.a(th2);
+            f.b.a0.a.f(new CompositeException(th, th2));
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -73,13 +73,13 @@ public final class ForEachWhileObserver<T> extends AtomicReference<b> implements
             dispose();
             onComplete();
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             dispose();
             onError(th);
         }
     }
 
-    @Override // f.a.o
+    @Override // f.b.o
     public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
     }

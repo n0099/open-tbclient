@@ -30,8 +30,8 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.b.e.m.h;
-import d.b.b.e.p.l;
+import d.b.c.e.m.h;
+import d.b.c.e.p.l;
 import d.b.h0.r.l.a;
 import d.b.h0.s.i.b;
 /* loaded from: classes4.dex */
@@ -51,7 +51,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public boolean firstRegist = false;
     public int currAction = -1;
     public CustomMessageListener mAccountChangeListener = new a(2001385);
-    public final a.InterfaceC1082a mReLoginCallback = new b();
+    public final a.InterfaceC1095a mReLoginCallback = new b();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -70,7 +70,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1082a {
+    public class b implements a.InterfaceC1095a {
 
         /* loaded from: classes4.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -86,7 +86,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public b() {
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1082a
+        @Override // d.b.h0.r.l.a.InterfaceC1095a
         public void a(String str, int i, String str2) {
             d.b.h0.r.z.a.a("account", -1L, 0, "login_silent_fail", i, str2, new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
@@ -97,7 +97,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1082a
+        @Override // d.b.h0.r.l.a.InterfaceC1095a
         public void b(String str) {
             if (NotLoginGuideActivity.this.getLoadingDialog() == null || !NotLoginGuideActivity.this.getLoadingDialog().c()) {
                 NotLoginGuideActivity notLoginGuideActivity = NotLoginGuideActivity.this;
@@ -105,7 +105,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1082a
+        @Override // d.b.h0.r.l.a.InterfaceC1095a
         public void c(AccountData accountData) {
             d.b.h0.r.z.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
@@ -132,15 +132,15 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f14485e;
+        public final /* synthetic */ AccountData f14162e;
 
         public d(AccountData accountData) {
-            this.f14485e = accountData;
+            this.f14162e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.h0.r.l.c.g(this.f14485e);
+            d.b.h0.r.l.c.g(this.f14162e);
         }
     }
 
@@ -235,10 +235,10 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         } else if (!this.firstRegist && !TbadkCoreApplication.getInst().getIsFirstUse() && MessageManager.getInstance().findTask(2015001) != null) {
             sendMessage(new CustomMessage(2015001, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, true)));
         } else {
-            d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-            if (i.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-                i2.s("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+                j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
             sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
         }

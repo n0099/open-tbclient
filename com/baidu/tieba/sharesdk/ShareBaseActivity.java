@@ -3,7 +3,7 @@ package com.baidu.tieba.sharesdk;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> {
     public void finishWithResult(int i, int i2, Bundle bundle, String str) {
         Intent intent = new Intent();

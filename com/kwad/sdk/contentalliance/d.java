@@ -20,8 +20,8 @@ public class d implements com.kwad.sdk.plugin.b {
         if (com.kwad.sdk.core.config.c.m()) {
             ArrayList arrayList = new ArrayList();
             for (com.kwad.sdk.core.response.model.b bVar : list) {
-                if (bVar != null && bVar.f34075c) {
-                    arrayList.add(new KsScene.Builder(bVar.f34073a).build());
+                if (bVar != null && bVar.f34364c) {
+                    arrayList.add(new KsScene.Builder(bVar.f34362a).build());
                 }
             }
             com.kwad.sdk.contentalliance.home.b.a(arrayList);

@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.AlaVideoContainer;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import d.b.h0.r.q.a2;
 import d.b.h0.z0.i0;
 import d.b.i0.x.m;
@@ -111,8 +111,8 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         this.p.hideDisagree();
         this.p.setShareReportFrom(1);
         d.b.h0.r.q.e eVar = new d.b.h0.r.q.e();
-        eVar.f50763b = 2;
-        eVar.f50769h = 2;
+        eVar.f51170b = 2;
+        eVar.f51176h = 2;
         this.p.setAgreeStatisticData(eVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -121,8 +121,8 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         this.q.setShareReportFrom(1);
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.text_bottom_2);
         this.G = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f13536f.setOnClickListener(this);
-        this.G.f13536f.getCommentContainer().setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f13197f.setOnClickListener(this);
+        this.G.f13197f.getCommentContainer().setOnClickListener(this);
         this.G.setFrom(2);
         this.G.setShareReportFrom(1);
         this.G.setSourceFromForPb(3);
@@ -153,7 +153,7 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
     public ThreadCommentAndPraiseInfoLayout R() {
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.G;
         if (threadSourceShareAndPraiseLayout != null) {
-            return threadSourceShareAndPraiseLayout.f13536f;
+            return threadSourceShareAndPraiseLayout.f13197f;
         }
         return null;
     }
@@ -181,12 +181,12 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             return;
         }
         if (((a2) this.o).q1().share_info.record_tid <= 0) {
-            S(this.f62181f);
+            S(this.f63756f);
             return;
         }
         PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((a2) this.o).q1().share_info.record_tid), null, "frs_page");
         createNormalCfg.setVideo_source(((a2) this.o).X1() ? "floor5" : "frs");
-        createNormalCfg.setFromSmartFrs(((a2) this.o).s2());
+        createNormalCfg.setFromSmartFrs(((a2) this.o).t2());
         createNormalCfg.setSmartFrsPosition(((a2) this.o).k1());
         createNormalCfg.setStartFrom(3);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -243,7 +243,7 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             } else {
                 this.F.setVisibility(8);
             }
-            this.K.setVisibility((d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) ? 0 : 0);
+            this.K.setVisibility((d.b.i0.q0.b.e().g() || d.b.i0.q0.a.h().j()) ? 0 : 0);
             F(this.x);
             o(l(), TbadkCoreApplication.getInst().getSkinType());
             O();
@@ -290,11 +290,11 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
 
     @Override // d.b.i0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        if (this.f62180e != i) {
+        if (this.f63755e != i) {
             y(tbPageContext, i);
-            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.x);
-            a2.h(R.string.J_X06);
-            a2.d(R.color.CAM_X0205, R.color.CAM_X0206);
+            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.x);
+            d2.k(R.string.J_X06);
+            d2.g(R.color.CAM_X0205, R.color.CAM_X0206);
             SkinManager.setBackgroundColor(this.E, R.color.CAM_X0204);
             AlaVideoContainer alaVideoContainer = this.D;
             if (alaVideoContainer != null) {
@@ -302,7 +302,7 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
             }
             this.y.onChangeSkinType(l(), TbadkCoreApplication.getInst().getSkinType());
             this.p.onChangeSkinType();
-            this.f62180e = i;
+            this.f63755e = i;
             HeadImageView headImageView = this.B;
             if (headImageView != null) {
                 headImageView.setPlaceHolder(1);
@@ -327,21 +327,21 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (d.b.i0.p0.b.e().g() || d.b.i0.p0.a.h().j()) {
+        if (d.b.i0.q0.b.e().g() || d.b.i0.q0.a.h().j()) {
             return;
         }
         int i = 1;
-        if (view != this.x && view != this.p.getCommentContainer() && this.w != view && view != this.G.f13536f.getCommentContainer() && view != this.q.getCommentContainer()) {
+        if (view != this.x && view != this.p.getCommentContainer() && this.w != view && view != this.G.f13197f.getCommentContainer() && view != this.q.getCommentContainer()) {
             if (view.getId() == R.id.video_container) {
                 if (i() != null) {
                     i().a(view, this.o);
                 }
                 TiebaStatic.log(new StatisticItem("c12323"));
                 if (((a2) this.o).q1().live_status == 1) {
-                    S(this.f62181f);
+                    S(this.f63756f);
                     return;
                 } else {
-                    T(this.f62181f);
+                    T(this.f63756f);
                     return;
                 }
             }
@@ -356,12 +356,12 @@ public class c extends d.b.i0.x.a<a2> implements z, d.b.i0.m.e {
         }
         TiebaStatic.log(new StatisticItem("c12323"));
         if (((a2) this.o).q1().live_status == 1) {
-            S(this.f62181f);
+            S(this.f63756f);
             i = 5;
         } else {
-            T(this.f62181f);
+            T(this.f63756f);
         }
-        if (view == this.p.getCommentContainer() || view == this.G.f13536f.getCommentContainer()) {
+        if (view == this.p.getCommentContainer() || view == this.G.f13197f.getCommentContainer()) {
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 2);
             statisticItem.param("tid", ((a2) this.o).w1());

@@ -7,10 +7,10 @@ import android.widget.VideoView;
 public class CustomVideoView extends VideoView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21694e;
+    public int f21379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21695f;
+    public int f21380f;
 
     public CustomVideoView(Context context) {
         super(context);
@@ -18,19 +18,19 @@ public class CustomVideoView extends VideoView {
 
     @Override // android.widget.VideoView, android.view.SurfaceView, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.f21695f == 0 && this.f21694e == 0) {
+        if (this.f21380f == 0 && this.f21379e == 0) {
             super.onMeasure(i, i2);
         } else {
-            setMeasuredDimension(this.f21694e, this.f21695f);
+            setMeasuredDimension(this.f21379e, this.f21380f);
         }
     }
 
     public void setVideoHeight(int i) {
-        this.f21695f = i;
+        this.f21380f = i;
     }
 
     public void setVideoWidth(int i) {
-        this.f21694e = i;
+        this.f21379e = i;
     }
 
     public CustomVideoView(Context context, AttributeSet attributeSet) {

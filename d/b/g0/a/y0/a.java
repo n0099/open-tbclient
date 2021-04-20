@@ -26,33 +26,33 @@ public class a extends a0 {
 
     /* renamed from: d.b.g0.a.y0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0880a implements d.c {
+    public class C0892a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a f47063a;
+        public final /* synthetic */ c.a f47455a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f47064b;
+        public final /* synthetic */ String f47456b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47065c;
+        public final /* synthetic */ String f47457c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47066d;
+        public final /* synthetic */ CallbackHandler f47458d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f47067e;
+        public final /* synthetic */ UnitedSchemeEntity f47459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47068f;
+        public final /* synthetic */ String f47460f;
 
-        public C0880a(a aVar, c.a aVar2, String str, String str2, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str3) {
-            this.f47063a = aVar2;
-            this.f47064b = str;
-            this.f47065c = str2;
-            this.f47066d = callbackHandler;
-            this.f47067e = unitedSchemeEntity;
-            this.f47068f = str3;
+        public C0892a(a aVar, c.a aVar2, String str, String str2, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str3) {
+            this.f47455a = aVar2;
+            this.f47456b = str;
+            this.f47457c = str2;
+            this.f47458d = callbackHandler;
+            this.f47459e = unitedSchemeEntity;
+            this.f47460f = str3;
         }
 
         @Override // d.b.g0.a.u0.d.c
@@ -66,19 +66,19 @@ public class a extends a0 {
             aVar.h(9L);
             aVar.e("debug download pkg fail");
             e.a().f(aVar);
-            d.b.g0.a.y0.d.a.d(d.b.g0.a.w0.a.c(), aVar, 0, this.f47065c);
+            d.b.g0.a.y0.d.a.d(d.b.g0.a.w0.a.c(), aVar, 0, this.f47457c);
             d.b.g0.a.z1.k.d dVar = new d.b.g0.a.z1.k.d();
             dVar.p(aVar);
-            dVar.r(this.f47063a);
+            dVar.r(this.f47455a);
             h.H(dVar);
-            this.f47067e.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.f47459e.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         }
 
         @Override // d.b.g0.a.u0.d.c
         public void onSuccess() {
-            ((c.a) this.f47063a.v0(true)).R0("1.6.0");
-            SwanLauncher.j().n(this.f47063a, null);
-            a.l(this.f47064b, this.f47065c, this.f47066d, this.f47067e, this.f47068f);
+            ((c.a) this.f47455a.v0(true)).R0("1.6.0");
+            SwanLauncher.j().n(this.f47455a, null);
+            a.l(this.f47456b, this.f47457c, this.f47458d, this.f47459e, this.f47460f);
         }
     }
 
@@ -86,28 +86,28 @@ public class a extends a0 {
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47069a;
+        public final /* synthetic */ CallbackHandler f47461a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f47070b;
+        public final /* synthetic */ UnitedSchemeEntity f47462b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47071c;
+        public final /* synthetic */ String f47463c;
 
         public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f47069a = callbackHandler;
-            this.f47070b = unitedSchemeEntity;
-            this.f47071c = str;
+            this.f47461a = callbackHandler;
+            this.f47462b = unitedSchemeEntity;
+            this.f47463c = str;
         }
 
         @Override // d.b.g0.a.y0.a.d
         public void a() {
-            a.k(this.f47069a, this.f47070b, this.f47071c, 0);
+            a.k(this.f47461a, this.f47462b, this.f47463c, 0);
         }
 
         @Override // d.b.g0.a.y0.a.d
         public void b() {
-            a.k(this.f47069a, this.f47070b, this.f47071c, 1001);
+            a.k(this.f47461a, this.f47462b, this.f47463c, 1001);
         }
     }
 
@@ -115,24 +115,24 @@ public class a extends a0 {
     public static class c extends d.b.g0.a.n1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f47072c;
+        public final /* synthetic */ d f47464c;
 
         public c(d dVar) {
-            this.f47072c = dVar;
+            this.f47464c = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.g0.a.n1.a.b.c.b, d.b.g0.a.n1.a.b.c.c, d.b.g0.a.n1.a.b.c.a
         public void onEvent(@NonNull d.b.g0.a.n1.a.b.a.b bVar) {
             if (bVar.a() != null && bVar.a().getInt("ok") == 0) {
-                d dVar = this.f47072c;
+                d dVar = this.f47464c;
                 if (dVar != null) {
                     dVar.a();
                     return;
                 }
                 return;
             }
-            d dVar2 = this.f47072c;
+            d dVar2 = this.f47464c;
             if (dVar2 != null) {
                 dVar2.b();
             }
@@ -249,10 +249,10 @@ public class a extends a0 {
                 aVar3.m0("srcAppId", G);
                 aVar3.m0("srcAppPage", k0.n().d());
             }
-            if (a0.f46288b && !TextUtils.isEmpty(optString5)) {
-                d.C0849d c0849d = new d.C0849d();
-                c0849d.f46599a = optString5;
-                d.b.g0.a.u0.d.t(c0849d, new C0880a(this, aVar3, optString4, optString, callbackHandler, unitedSchemeEntity, optString8));
+            if (a0.f46680b && !TextUtils.isEmpty(optString5)) {
+                d.C0861d c0861d = new d.C0861d();
+                c0861d.f46991a = optString5;
+                d.b.g0.a.u0.d.t(c0861d, new C0892a(this, aVar3, optString4, optString, callbackHandler, unitedSchemeEntity, optString8));
                 return true;
             } else if (TextUtils.isEmpty(optString5)) {
                 aVar3.v0(false);

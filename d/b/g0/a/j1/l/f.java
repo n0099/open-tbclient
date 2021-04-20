@@ -7,66 +7,66 @@ import d.b.g0.a.k;
 public class f implements e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f44916d = k.f45051a;
+    public static final boolean f45308d = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile f f44917e;
+    public static volatile f f45309e;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile d f44918b;
+    public volatile d f45310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile d.b.g0.a.j1.o.a f44919c;
+    public volatile d.b.g0.a.j1.o.a f45311c;
 
     public f() {
         i();
     }
 
     public static f h() {
-        if (f44917e == null) {
+        if (f45309e == null) {
             synchronized (f.class) {
-                if (f44917e == null) {
-                    f44917e = new f();
+                if (f45309e == null) {
+                    f45309e = new f();
                 }
             }
         }
-        return f44917e;
+        return f45309e;
     }
 
     @Override // d.b.g0.a.j1.l.e
     public void b(long j) {
         if (k()) {
-            if (f44916d) {
+            if (f45308d) {
                 Log.d("StartUpInfoMarker", "aiapp start at - " + j);
             }
-            this.f44918b.b(j);
-            this.f44919c.b(j);
+            this.f45310b.b(j);
+            this.f45311c.b(j);
         }
     }
 
     @Override // d.b.g0.a.j1.l.e
     public void e(long j) {
         if (k()) {
-            if (f44916d) {
+            if (f45308d) {
                 Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
             }
-            this.f44918b.e(j);
-            this.f44919c.e(j);
+            this.f45310b.e(j);
+            this.f45311c.e(j);
             m(j);
         }
     }
 
     public final void i() {
-        if (this.f44918b == null) {
-            this.f44918b = new b();
+        if (this.f45310b == null) {
+            this.f45310b = new b();
         }
-        if (this.f44919c == null) {
-            this.f44919c = new d.b.g0.a.j1.o.c();
+        if (this.f45311c == null) {
+            this.f45311c = new d.b.g0.a.j1.o.c();
         }
     }
 
     public final boolean j() {
-        if (f44916d) {
+        if (f45308d) {
             return true;
         }
         d.b.g0.a.r1.e O = d.b.g0.a.r1.e.O();
@@ -82,7 +82,7 @@ public class f implements e {
     }
 
     public d.b.g0.a.j1.o.a l() {
-        return this.f44919c;
+        return this.f45311c;
     }
 
     public final void m(long j) {

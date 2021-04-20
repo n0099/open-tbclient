@@ -42,15 +42,15 @@ public class d extends d.b.i0.x.b<d.b.i0.t.d.g.b.b> {
     /* renamed from: u */
     public void n(d.b.i0.t.d.g.b.b bVar) {
         if (bVar != null) {
-            this.m.k(bVar.f60608e);
-            this.n.k(bVar.f60609f);
+            this.m.k(bVar.f62172e);
+            this.n.k(bVar.f62173f);
         }
     }
 
     public void v(d.b.i0.t.d.g.b.b bVar, int i) {
         if (bVar != null) {
-            this.m.l(bVar.f60608e, i);
-            this.n.l(bVar.f60609f, i);
+            this.m.l(bVar.f62172e, i);
+            this.n.l(bVar.f62173f, i);
         }
     }
 

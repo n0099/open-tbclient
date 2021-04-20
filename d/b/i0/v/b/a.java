@@ -5,28 +5,28 @@ import tbclient.Search.DataRes;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f61896a;
+    public long f62905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61897b;
+    public long f62906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61898c;
+    public String f62907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61899d;
+    public String f62908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61900e;
+    public long f62909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61901f;
+    public int f62910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61902g;
+    public int f62911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61903h;
+    public int f62912h;
     public int i;
     public String j;
     public boolean k;
@@ -37,17 +37,17 @@ public class a {
             return;
         }
         Long l = dataRes.uid;
-        this.f61897b = l == null ? 0L : l.longValue();
-        this.f61898c = dataRes.portrait;
-        this.f61899d = dataRes.name_show;
+        this.f62906b = l == null ? 0L : l.longValue();
+        this.f62907c = dataRes.portrait;
+        this.f62908d = dataRes.name_show;
         Long l2 = dataRes.apply_id;
-        this.f61900e = l2 == null ? 0L : l2.longValue();
+        this.f62909e = l2 == null ? 0L : l2.longValue();
         Integer num = dataRes.vote_num;
-        this.f61901f = num == null ? 0 : num.intValue();
+        this.f62910f = num == null ? 0 : num.intValue();
         Integer num2 = dataRes.agree_num;
-        this.f61902g = num2 == null ? 0 : num2.intValue();
+        this.f62911g = num2 == null ? 0 : num2.intValue();
         Integer num3 = dataRes.thread_num;
-        this.f61903h = num3 == null ? 0 : num3.intValue();
+        this.f62912h = num3 == null ? 0 : num3.intValue();
         Integer num4 = dataRes.post_num;
         this.i = num4 == null ? 0 : num4.intValue();
         Boolean bool = dataRes.is_vote;

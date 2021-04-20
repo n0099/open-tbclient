@@ -7,15 +7,15 @@ import d.b.g0.a.j1.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements a<JSONObject> {
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f47135b = new JSONArray();
+    public JSONArray f47527b = new JSONArray();
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
-            if (a.f47134a) {
+            if (a.f47526a) {
                 Log.d("LaunchTraceCollector", "event is empty");
                 return;
             }
@@ -28,7 +28,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("info", str2);
             b(jSONObject);
         } catch (JSONException e2) {
-            if (a.f47134a) {
+            if (a.f47526a) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e2));
             }
         }
@@ -36,28 +36,28 @@ public class b implements a<JSONObject> {
 
     public void b(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f47135b.put(jSONObject);
+            this.f47527b.put(jSONObject);
         }
     }
 
     public void c() {
-        this.f47135b = new JSONArray();
+        this.f47527b = new JSONArray();
     }
 
     public JSONObject d() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.f47135b);
+            jSONObject.put("launchLog", this.f47527b);
             jSONObject.put("performance", e.a());
         } catch (JSONException e2) {
-            if (a.f47134a) {
+            if (a.f47526a) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
             }
         }
         try {
             jSONObject.put("abtest", d.b.g0.a.w0.a.N().getRawSwitch());
         } catch (Exception e3) {
-            if (a.f47134a) {
+            if (a.f47526a) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e3));
             }
         }

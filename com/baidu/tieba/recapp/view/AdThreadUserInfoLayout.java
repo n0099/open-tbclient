@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public AfterAdjustChildWidthListener J;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface AfterAdjustChildWidthListener {
         void afterChildWidth();
     }

@@ -13,37 +13,37 @@ import java.net.URLEncoder;
 public class HttpRequest {
     public static final String TAG = "HttpRequest";
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:144:0x01bc */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0098 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x009b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x009e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x00a1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x00a4 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:144:0x01be */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x009a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x009d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x00a3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x00a6 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0152 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0162 A[Catch: IOException -> 0x01a2, TRY_ENTER, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x0167 A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x016c A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x0171 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0180 A[Catch: IOException -> 0x01a2, TRY_ENTER, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0185 A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x018a A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x018f A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x019e A[Catch: IOException -> 0x01a2, TRY_ENTER, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x01a6 A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x01ab A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:139:0x01b0 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x01c8 A[Catch: IOException -> 0x01c4, TryCatch #13 {IOException -> 0x01c4, blocks: (B:147:0x01c0, B:151:0x01c8, B:153:0x01cd, B:155:0x01d2), top: B:159:0x01c0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:153:0x01cd A[Catch: IOException -> 0x01c4, TryCatch #13 {IOException -> 0x01c4, blocks: (B:147:0x01c0, B:151:0x01c8, B:153:0x01cd, B:155:0x01d2), top: B:159:0x01c0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x01d2 A[Catch: IOException -> 0x01c4, TRY_LEAVE, TryCatch #13 {IOException -> 0x01c4, blocks: (B:147:0x01c0, B:151:0x01c8, B:153:0x01cd, B:155:0x01d2), top: B:159:0x01c0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:159:0x01c0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x0124 A[Catch: IOException -> 0x01a2, TRY_ENTER, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0129 A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x012e A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0133 A[Catch: IOException -> 0x01a2, TRY_LEAVE, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0143 A[Catch: IOException -> 0x01a2, TRY_ENTER, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0148 A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x014d A[Catch: IOException -> 0x01a2, TryCatch #28 {IOException -> 0x01a2, blocks: (B:39:0x00c7, B:41:0x00cc, B:43:0x00d1, B:45:0x00d6, B:83:0x0124, B:85:0x0129, B:87:0x012e, B:89:0x0133, B:95:0x0143, B:97:0x0148, B:99:0x014d, B:101:0x0152, B:107:0x0162, B:109:0x0167, B:111:0x016c, B:113:0x0171, B:119:0x0180, B:121:0x0185, B:123:0x018a, B:125:0x018f, B:131:0x019e, B:135:0x01a6, B:137:0x01ab, B:139:0x01b0), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0154 A[Catch: IOException -> 0x01a4, TRY_LEAVE, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0164 A[Catch: IOException -> 0x01a4, TRY_ENTER, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x0169 A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x016e A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x0173 A[Catch: IOException -> 0x01a4, TRY_LEAVE, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x0182 A[Catch: IOException -> 0x01a4, TRY_ENTER, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0187 A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x018c A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x0191 A[Catch: IOException -> 0x01a4, TRY_LEAVE, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x01a0 A[Catch: IOException -> 0x01a4, TRY_ENTER, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x01a8 A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x01ad A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x01b2 A[Catch: IOException -> 0x01a4, TRY_LEAVE, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x01ca A[Catch: IOException -> 0x01c6, TryCatch #11 {IOException -> 0x01c6, blocks: (B:147:0x01c2, B:151:0x01ca, B:153:0x01cf, B:155:0x01d4), top: B:159:0x01c2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x01cf A[Catch: IOException -> 0x01c6, TryCatch #11 {IOException -> 0x01c6, blocks: (B:147:0x01c2, B:151:0x01ca, B:153:0x01cf, B:155:0x01d4), top: B:159:0x01c2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x01d4 A[Catch: IOException -> 0x01c6, TRY_LEAVE, TryCatch #11 {IOException -> 0x01c6, blocks: (B:147:0x01c2, B:151:0x01ca, B:153:0x01cf, B:155:0x01d4), top: B:159:0x01c2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:159:0x01c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0126 A[Catch: IOException -> 0x01a4, TRY_ENTER, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x012b A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0130 A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0135 A[Catch: IOException -> 0x01a4, TRY_LEAVE, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0145 A[Catch: IOException -> 0x01a4, TRY_ENTER, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x014a A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x014f A[Catch: IOException -> 0x01a4, TryCatch #27 {IOException -> 0x01a4, blocks: (B:39:0x00c9, B:41:0x00ce, B:43:0x00d3, B:45:0x00d8, B:83:0x0126, B:85:0x012b, B:87:0x0130, B:89:0x0135, B:95:0x0145, B:97:0x014a, B:99:0x014f, B:101:0x0154, B:107:0x0164, B:109:0x0169, B:111:0x016e, B:113:0x0173, B:119:0x0182, B:121:0x0187, B:123:0x018c, B:125:0x0191, B:131:0x01a0, B:135:0x01a8, B:137:0x01ad, B:139:0x01b2), top: B:162:0x000a }] */
     /* JADX WARN: Type inference failed for: r0v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r0v1 */
     /* JADX WARN: Type inference failed for: r0v10, types: [java.io.OutputStream] */
@@ -135,88 +135,88 @@ public class HttpRequest {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (UnsupportedEncodingException e7) {
-                str2 = 0;
-                r0 = 0;
-                byteArrayOutputStream2 = null;
-                e6 = e7;
-                str = 0;
-            } catch (MalformedURLException e8) {
-                str2 = 0;
-                r0 = 0;
-                byteArrayOutputStream2 = null;
-                e5 = e8;
-                str = 0;
-            } catch (ProtocolException e9) {
-                str2 = 0;
-                r0 = 0;
-                byteArrayOutputStream2 = null;
-                e4 = e9;
-                str = 0;
-            } catch (IOException e10) {
-                str2 = 0;
-                r0 = 0;
-                byteArrayOutputStream2 = null;
-                e3 = e10;
-                str = 0;
-            } catch (Exception e11) {
-                str2 = 0;
-                r0 = 0;
-                byteArrayOutputStream2 = null;
-                e2 = e11;
-                str = 0;
-            } catch (Throwable th2) {
-                th = th2;
-                httpURLConnection = null;
-                byteArrayOutputStream = null;
-            }
-            try {
-                System.setProperty("sun.net.client.defaultConnectTimeout", "8000");
-                System.setProperty("sun.net.client.defaultReadTimeout", "8000");
-                str.setDoOutput(true);
-                str.setDoInput(true);
-                str.setRequestMethod("POST");
-                str.setUseCaches(false);
-                str.setInstanceFollowRedirects(true);
-                str.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                str.connect();
-                r0 = str.getOutputStream();
+                try {
+                    System.setProperty("sun.net.client.defaultConnectTimeout", "8000");
+                    System.setProperty("sun.net.client.defaultReadTimeout", "8000");
+                    str.setDoOutput(true);
+                    str.setDoInput(true);
+                    str.setRequestMethod("POST");
+                    str.setUseCaches(false);
+                    str.setInstanceFollowRedirects(true);
+                    str.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    str.connect();
+                    r0 = str.getOutputStream();
+                } catch (UnsupportedEncodingException e7) {
+                    e = e7;
+                    r0 = 0;
+                    byteArrayOutputStream2 = null;
+                } catch (MalformedURLException e8) {
+                    e = e8;
+                    r0 = 0;
+                    byteArrayOutputStream2 = null;
+                } catch (ProtocolException e9) {
+                    e = e9;
+                    r0 = 0;
+                    byteArrayOutputStream2 = null;
+                } catch (IOException e10) {
+                    e = e10;
+                    r0 = 0;
+                    byteArrayOutputStream2 = null;
+                } catch (Exception e11) {
+                    e = e11;
+                    r0 = 0;
+                    byteArrayOutputStream2 = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    byteArrayOutputStream = null;
+                    httpURLConnection = str;
+                    byteArrayOutputStream3 = byteArrayOutputStream;
+                    httpURLConnection2 = httpURLConnection;
+                    r8 = byteArrayOutputStream;
+                    if (byteArrayOutputStream4 != null) {
+                    }
+                    if (byteArrayOutputStream3 != null) {
+                    }
+                    if (r8 != 0) {
+                    }
+                    if (httpURLConnection2 != null) {
+                    }
+                    throw th;
+                }
             } catch (UnsupportedEncodingException e12) {
-                e = e12;
+                str2 = 0;
                 r0 = 0;
                 byteArrayOutputStream2 = null;
+                e6 = e12;
+                str = 0;
             } catch (MalformedURLException e13) {
-                e = e13;
+                str2 = 0;
                 r0 = 0;
                 byteArrayOutputStream2 = null;
+                e5 = e13;
+                str = 0;
             } catch (ProtocolException e14) {
-                e = e14;
+                str2 = 0;
                 r0 = 0;
                 byteArrayOutputStream2 = null;
+                e4 = e14;
+                str = 0;
             } catch (IOException e15) {
-                e = e15;
+                str2 = 0;
                 r0 = 0;
                 byteArrayOutputStream2 = null;
+                e3 = e15;
+                str = 0;
             } catch (Exception e16) {
-                e = e16;
+                str2 = 0;
                 r0 = 0;
                 byteArrayOutputStream2 = null;
+                e2 = e16;
+                str = 0;
             } catch (Throwable th3) {
                 th = th3;
+                httpURLConnection = null;
                 byteArrayOutputStream = null;
-                httpURLConnection = str;
-                byteArrayOutputStream3 = byteArrayOutputStream;
-                httpURLConnection2 = httpURLConnection;
-                r8 = byteArrayOutputStream;
-                if (byteArrayOutputStream4 != null) {
-                }
-                if (byteArrayOutputStream3 != null) {
-                }
-                if (r8 != 0) {
-                }
-                if (httpURLConnection2 != null) {
-                }
-                throw th;
             }
         } catch (IOException e17) {
             e17.printStackTrace();

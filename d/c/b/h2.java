@@ -11,21 +11,21 @@ import org.json.JSONObject;
 public abstract class h2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f65002a;
+    public boolean f65847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65003b;
+    public boolean f65848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65004c;
+    public boolean f65849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65005d;
+    public boolean f65850d;
 
     public h2(boolean z, boolean z2) {
-        this.f65003b = z;
-        this.f65004c = z2;
-        this.f65005d = false;
+        this.f65848b = z;
+        this.f65849c = z2;
+        this.f65850d = false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x00db A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -85,7 +85,7 @@ public abstract class h2 {
                     e = e2;
                     try {
                         if (Build.VERSION.SDK_INT >= 23) {
-                            if (x1.f().f65105g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
+                            if (x1.f().f65950g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
                                 r0.b(e);
                             } else {
                                 throw new SecurityException(e);
@@ -143,8 +143,8 @@ public abstract class h2 {
     public abstract boolean b(JSONObject jSONObject);
 
     public h2(boolean z, boolean z2, boolean z3) {
-        this.f65003b = z;
-        this.f65004c = z2;
-        this.f65005d = z3;
+        this.f65848b = z;
+        this.f65849c = z2;
+        this.f65850d = z3;
     }
 }

@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import d.b.b.a.j;
+import d.b.c.a.j;
 import d.b.h0.m.c;
 import d.b.h0.m.d;
 /* loaded from: classes3.dex */
 public class BannerGifView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public GifView f13730e;
+    public GifView f13391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13731f;
+    public ImageView f13392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13732g;
+    public View f13393g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13733h;
+    public float f13394h;
     public String i;
     public String j;
     public boolean k;
@@ -59,7 +59,7 @@ public class BannerGifView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == BannerGifView.this.f13731f) {
+            if (view == BannerGifView.this.f13392f) {
                 BannerGifView.this.setCloseVisibility(false);
             }
         }
@@ -67,7 +67,7 @@ public class BannerGifView extends RelativeLayout {
 
     public BannerGifView(Context context) {
         super(context);
-        this.f13733h = 5.744f;
+        this.f13394h = 5.744f;
         this.k = false;
         this.n = new a();
         this.o = new b();
@@ -80,7 +80,7 @@ public class BannerGifView extends RelativeLayout {
         if (i != 1 && i != 4) {
             z = false;
         }
-        this.f13732g.setVisibility((this.k && z) ? 8 : 8);
+        this.f13393g.setVisibility((this.k && z) ? 8 : 8);
     }
 
     public final void e() {
@@ -96,25 +96,25 @@ public class BannerGifView extends RelativeLayout {
 
     public final void f() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
-        this.f13731f = (ImageView) inflate.findViewById(R.id.btn_close);
-        this.f13732g = inflate.findViewById(R.id.image_mask);
+        this.f13392f = (ImageView) inflate.findViewById(R.id.btn_close);
+        this.f13393g = inflate.findViewById(R.id.image_mask);
         GifView gifView = (GifView) inflate.findViewById(R.id.image_gif);
-        this.f13730e = gifView;
+        this.f13391e = gifView;
         gifView.setShowStaticDrawable(false);
-        this.f13730e.setSupportNoImage(false);
-        this.f13730e.setAutoPlay(true);
-        this.f13731f.setOnClickListener(this.o);
-        this.f13730e.setOnInterceptClickListener(this.n);
+        this.f13391e.setSupportNoImage(false);
+        this.f13391e.setAutoPlay(true);
+        this.f13392f.setOnClickListener(this.o);
+        this.f13391e.setOnInterceptClickListener(this.n);
         g(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void g(int i) {
-        SkinManager.setBackgroundColor(this.f13732g, R.color.black_alpha30, i);
+        SkinManager.setBackgroundColor(this.f13393g, R.color.black_alpha30, i);
         d(i);
     }
 
     public GifView getGifView() {
-        return this.f13730e;
+        return this.f13391e;
     }
 
     public String getUrl() {
@@ -129,7 +129,7 @@ public class BannerGifView extends RelativeLayout {
         View.MeasureSpec.getSize(i2);
         getPaddingBottom();
         getPaddingTop();
-        float f2 = this.f13733h;
+        float f2 = this.f13394h;
         if (f2 > 0.0f) {
             i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / f2) + 0.5f), 1073741824);
         }
@@ -145,15 +145,15 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setCloseVisibility(boolean z) {
-        this.f13731f.setVisibility(z ? 0 : 8);
+        this.f13392f.setVisibility(z ? 0 : 8);
     }
 
     public void setDefaultResid(int i) {
-        SkinManager.setImageResource(this.f13730e, i);
+        SkinManager.setImageResource(this.f13391e, i);
     }
 
     public void setErrorResid(int i) {
-        this.f13730e.setErrorResid(i);
+        this.f13391e.setErrorResid(i);
     }
 
     public void setIWindowChangedListener(c cVar) {
@@ -170,7 +170,7 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setRatio(float f2) {
-        this.f13733h = f2;
+        this.f13394h = f2;
         invalidate();
     }
 }

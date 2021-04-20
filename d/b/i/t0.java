@@ -17,15 +17,15 @@ public class t0 extends h {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.q.a f51823e;
+        public final /* synthetic */ d.b.h0.r.q.a f52247e;
 
         public a(d.b.h0.r.q.a aVar) {
-            this.f51823e = aVar;
+            this.f52247e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ThreadCardUtils.jumpToPB(this.f51823e, (Context) t0.this.l.getPageActivity(), t0.this.m, false);
+            ThreadCardUtils.jumpToPB(this.f52247e, (Context) t0.this.l.getPageActivity(), t0.this.m, false);
         }
     }
 
@@ -46,7 +46,7 @@ public class t0 extends h {
     }
 
     public final boolean u(d.b.h0.r.q.a aVar) {
-        return (aVar == null || aVar.n() == null || aVar.n().O0() == null || aVar.n().O0().getOptions() == null || aVar.n().O0().getOptions().size() <= 0 || aVar.n().y2()) ? false : true;
+        return (aVar == null || aVar.n() == null || aVar.n().O0() == null || aVar.n().O0().getOptions() == null || aVar.n().O0().getOptions().size() <= 0 || aVar.n().z2()) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

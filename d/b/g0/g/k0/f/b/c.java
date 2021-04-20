@@ -9,10 +9,10 @@ public class c {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f48254e;
+        public final /* synthetic */ b f48646e;
 
         public a(c cVar, b bVar) {
-            this.f48254e = bVar;
+            this.f48646e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ public class c {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.d.a aVar) {
             JSONObject jSONObject;
-            if (aVar != null && (jSONObject = aVar.f46839g) != null) {
+            if (aVar != null && (jSONObject = aVar.f47231g) != null) {
                 d.b.g0.a.c0.c.a("OpenData", "onOpenDataCallback success: ", jSONObject);
-                this.f48254e.a(aVar.f46839g);
+                this.f48646e.a(aVar.f47231g);
                 return;
             }
-            this.f48254e.a(null);
+            this.f48646e.a(null);
         }
     }
 

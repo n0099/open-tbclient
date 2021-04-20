@@ -2,7 +2,7 @@ package com.baidu.swan.apps.commonsync;
 
 import com.alipay.sdk.cons.b;
 import com.baidu.searchbox.NoProGuard;
-import d.g.c.a.c;
+import d.g.d.a.c;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -38,7 +38,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
 
     /* loaded from: classes2.dex */
     public class OtherData implements NoProGuard {
-        @c(b.f1858h)
+        @c(b.f1883h)
         public String appKey;
         @c("frame_type")
         public int frameType = -1;

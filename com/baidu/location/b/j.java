@@ -8,10 +8,10 @@ import com.baidu.location.b.i;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ i.a f6660a;
+    public final /* synthetic */ i.a f6695a;
 
     public j(i.a aVar) {
-        this.f6660a = aVar;
+        this.f6695a = aVar;
     }
 
     @Override // java.lang.Runnable

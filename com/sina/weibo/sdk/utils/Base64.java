@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.utils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Base64 {
     public static char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
     public static byte[] codes = new byte[256];

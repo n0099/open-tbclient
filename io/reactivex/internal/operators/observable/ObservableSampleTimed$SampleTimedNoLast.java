@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import f.a.o;
-import f.a.p;
+import f.b.o;
+import f.b.p;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public final class ObservableSampleTimed$SampleTimedNoLast<T> extends ObservableSampleTimed$SampleTimedObserver<T> {

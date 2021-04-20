@@ -33,11 +33,11 @@ import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.t0.a, HotTopicSelectModel.c {
     public TextView mCancelBtn;
     public ImageView mClearView;
@@ -47,18 +47,18 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
     public ExpandableListView mLvNoSearch;
     public ViewGroup mMainLayout;
     public NoDataView mNoDataView;
-    public d.b.i0.c1.e mNoSearchAdapter;
+    public d.b.i0.d1.e mNoSearchAdapter;
     public Intent mResultIntent;
-    public d.b.i0.c1.b mSuggestAdatper;
+    public d.b.i0.d1.b mSuggestAdatper;
     public BdListView mSuggestView;
     public TextView mTopicText;
-    public final List<d.b.i0.c1.d> mSearchList = new ArrayList();
+    public final List<d.b.i0.d1.d> mSearchList = new ArrayList();
     public final View.OnClickListener mOnClickListener = new a();
     public final AdapterView.OnItemClickListener mOnItemClickListener = new b();
     public final ExpandableListView.OnGroupClickListener mOnGroupClickListener = new c();
     public final ExpandableListView.OnChildClickListener mOnChildClickListener = new d();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -73,14 +73,14 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements AdapterView.OnItemClickListener {
         public b() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d.b.i0.c1.d dVar = (d.b.i0.c1.d) ListUtils.getItem(HotTopicSelectActivity.this.mSuggestAdatper.d(), i);
+            d.b.i0.d1.d dVar = (d.b.i0.d1.d) ListUtils.getItem(HotTopicSelectActivity.this.mSuggestAdatper.d(), i);
             if (dVar != null) {
                 String b2 = dVar.b();
                 HotTopicSelectActivity.this.createIntent(b2);
@@ -89,7 +89,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements ExpandableListView.OnGroupClickListener {
         public c() {
         }
@@ -104,20 +104,20 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements ExpandableListView.OnChildClickListener {
         public d() {
         }
 
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i2, long j) {
-            d.b.i0.c1.d child;
+            d.b.i0.d1.d child;
             if (HotTopicSelectActivity.this.mNoSearchAdapter == null || (child = HotTopicSelectActivity.this.mNoSearchAdapter.getChild(i, i2)) == null) {
                 return false;
             }
             String b2 = child.b();
             HotTopicSelectActivity.this.createIntent(b2);
-            d.b.i0.c1.c group = HotTopicSelectActivity.this.mNoSearchAdapter.getGroup(i);
+            d.b.i0.d1.c group = HotTopicSelectActivity.this.mNoSearchAdapter.getGroup(i);
             if (group != null) {
                 HotTopicSelectActivity.this.addClickStats(b2, group.c() == 0 ? 1 : 2);
                 return false;
@@ -126,7 +126,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnFocusChangeListener {
         public e() {
         }
@@ -140,7 +140,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements TextView.OnEditorActionListener {
         public f() {
         }
@@ -160,7 +160,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements TextWatcher {
         public g() {
         }
@@ -202,7 +202,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         this.mLvNoSearch.setVisibility(0);
         this.mSuggestView.setVisibility(8);
         this.mSuggestAdatper.b();
-        d.b.i0.c1.e eVar = this.mNoSearchAdapter;
+        d.b.i0.d1.e eVar = this.mNoSearchAdapter;
         if (eVar != null && !ListUtils.isEmpty(eVar.f())) {
             this.mListCustomView.setVisibility(0);
             return;
@@ -232,8 +232,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         finish();
     }
 
-    private d.b.i0.c1.d createSearchData(String str) {
-        d.b.i0.c1.d dVar = new d.b.i0.c1.d();
+    private d.b.i0.d1.d createSearchData(String str) {
+        d.b.i0.d1.d dVar = new d.b.i0.d1.d();
         dVar.d(str);
         return dVar;
     }
@@ -267,11 +267,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         layoutParams.gravity = 17;
         this.mMainLayout.addView(this.mNoDataView, layoutParams);
         this.mNoDataView.setVisibility(8);
-        d.b.i0.c1.b bVar = new d.b.i0.c1.b(getPageContext());
+        d.b.i0.d1.b bVar = new d.b.i0.d1.b(getPageContext());
         this.mSuggestAdatper = bVar;
         this.mSuggestView.setAdapter((ListAdapter) bVar);
         this.mLvNoSearch = (ExpandableListView) findViewById(R.id.home_no_search_listview);
-        d.b.i0.c1.e eVar = new d.b.i0.c1.e(getPageContext());
+        d.b.i0.d1.e eVar = new d.b.i0.d1.e(getPageContext());
         this.mNoSearchAdapter = eVar;
         this.mLvNoSearch.setAdapter(eVar);
         this.mSuggestView.setOnItemClickListener(this.mOnItemClickListener);
@@ -283,7 +283,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         initInputEdit();
     }
 
-    private void parseAndDealData(d.b.i0.c1.c cVar, boolean z) {
+    private void parseAndDealData(d.b.i0.d1.c cVar, boolean z) {
         if (cVar == null || ListUtils.isEmpty(cVar.b())) {
             return;
         }
@@ -356,11 +356,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         if (noDataView != null) {
             noDataView.f(getPageContext(), i);
         }
-        d.b.i0.c1.b bVar = this.mSuggestAdatper;
+        d.b.i0.d1.b bVar = this.mSuggestAdatper;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
-        d.b.i0.c1.e eVar = this.mNoSearchAdapter;
+        d.b.i0.d1.e eVar = this.mNoSearchAdapter;
         if (eVar != null) {
             eVar.notifyDataSetChanged();
         }
@@ -414,7 +414,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataNoSearchSuccess(d.b.i0.c1.c cVar, d.b.i0.c1.c cVar2) {
+    public void onHotSelectDataNoSearchSuccess(d.b.i0.d1.c cVar, d.b.i0.d1.c cVar2) {
         this.mListCustomView.setVisibility(0);
         this.mLvNoSearch.setVisibility(0);
         this.mSuggestView.setVisibility(8);
@@ -436,14 +436,14 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.b.h0.
         this.mSuggestView.setVisibility(0);
         hideLoadingView(this.mMainLayout);
         String searchKey = getSearchKey();
-        d.b.i0.c1.d createSearchData = createSearchData(searchKey);
+        d.b.i0.d1.d createSearchData = createSearchData(searchKey);
         this.mSearchList.clear();
         this.mSearchList.add(createSearchData);
         this.mSuggestAdatper.e(searchKey, this.mSearchList);
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataSearchSuccess(d.b.i0.c1.c cVar) {
+    public void onHotSelectDataSearchSuccess(d.b.i0.d1.c cVar) {
         this.mListCustomView.setVisibility(0);
         this.mLvNoSearch.setVisibility(8);
         this.mSuggestView.setVisibility(0);

@@ -7,32 +7,32 @@ import com.baidu.wallet.core.NoProguard;
 public class ScanCoderWrapper implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public IScanCodeListener f26731a;
+    public IScanCodeListener f26416a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ScanCoderWrapper f26732a = new ScanCoderWrapper();
+        public static ScanCoderWrapper f26417a = new ScanCoderWrapper();
     }
 
     public static ScanCoderWrapper getInstance() {
-        return a.f26732a;
+        return a.f26417a;
     }
 
     public void dispatchUrl(Context context, String str, IScannerDispatchListener iScannerDispatchListener) {
-        IScanCodeListener iScanCodeListener = this.f26731a;
+        IScanCodeListener iScanCodeListener = this.f26416a;
         if (iScanCodeListener != null) {
             iScanCodeListener.dispatchUrl(context, str, iScannerDispatchListener);
         }
     }
 
     public void initListener(IScanCodeListener iScanCodeListener) {
-        this.f26731a = iScanCodeListener;
+        this.f26416a = iScanCodeListener;
     }
 
     public boolean shouldDispatchUrl(String str) {
-        IScanCodeListener iScanCodeListener = this.f26731a;
+        IScanCodeListener iScanCodeListener = this.f26416a;
         if (iScanCodeListener != null) {
             return iScanCodeListener.shouldDispatchUrl(str);
         }

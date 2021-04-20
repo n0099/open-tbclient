@@ -6,29 +6,29 @@ import android.os.Looper;
 public class j {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f51699b;
+    public long f52123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f51700c;
+    public long f52124c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51701d;
+    public long f52125d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51702e;
+    public long f52126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f51703f;
+    public long f52127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f51704g;
+    public long f52128g;
     public b i;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f51698a = new Handler(Looper.getMainLooper());
+    public Handler f52122a = new Handler(Looper.getMainLooper());
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51705h = false;
+    public boolean f52129h = false;
     public Runnable j = new a();
 
     /* loaded from: classes3.dex */
@@ -39,25 +39,25 @@ public class j {
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (j.this.f51704g > j.this.f51703f) {
+            if (j.this.f52128g > j.this.f52127f) {
                 j jVar = j.this;
-                jVar.f51703f = currentTimeMillis - jVar.f51701d;
+                jVar.f52127f = currentTimeMillis - jVar.f52125d;
                 j jVar2 = j.this;
-                jVar2.f51704g = jVar2.f51703f;
+                jVar2.f52128g = jVar2.f52127f;
             }
-            long j = currentTimeMillis - j.this.f51703f;
-            j.this.f51700c += j.this.f51701d;
-            if (j.this.f51700c < j.this.f51699b) {
-                j.this.f51698a.postDelayed(j.this.j, (j.this.f51701d * 2) - j);
+            long j = currentTimeMillis - j.this.f52127f;
+            j.this.f52124c += j.this.f52125d;
+            if (j.this.f52124c < j.this.f52123b) {
+                j.this.f52122a.postDelayed(j.this.j, (j.this.f52125d * 2) - j);
                 if (j.this.i != null) {
-                    j.this.i.b(j.this.f51699b, j.this.f51699b - j.this.f51700c);
+                    j.this.i.b(j.this.f52123b, j.this.f52123b - j.this.f52124c);
                 }
             } else {
                 j jVar3 = j.this;
-                jVar3.f51700c = jVar3.f51699b;
+                jVar3.f52124c = jVar3.f52123b;
                 j.this.m();
             }
-            j.this.f51703f = currentTimeMillis;
+            j.this.f52127f = currentTimeMillis;
         }
     }
 
@@ -69,34 +69,34 @@ public class j {
     }
 
     public j(long j, long j2) {
-        this.f51699b = j;
-        this.f51701d = j2;
+        this.f52123b = j;
+        this.f52125d = j2;
     }
 
     public final void m() {
         b bVar = this.i;
         if (bVar != null) {
-            bVar.a(this.f51699b);
+            bVar.a(this.f52123b);
         }
     }
 
     public long n() {
-        return this.f51700c;
+        return this.f52124c;
     }
 
     public void o() {
-        if (this.f51705h) {
+        if (this.f52129h) {
             return;
         }
-        this.f51705h = true;
-        this.f51704g = System.currentTimeMillis();
-        this.f51698a.removeCallbacks(this.j);
+        this.f52129h = true;
+        this.f52128g = System.currentTimeMillis();
+        this.f52122a.removeCallbacks(this.j);
     }
 
     public void p() {
-        if (this.f51705h) {
-            this.f51705h = false;
-            this.f51698a.postDelayed(this.j, this.f51701d - (this.f51704g - this.f51703f));
+        if (this.f52129h) {
+            this.f52129h = false;
+            this.f52122a.postDelayed(this.j, this.f52125d - (this.f52128g - this.f52127f));
         }
     }
 
@@ -106,21 +106,21 @@ public class j {
 
     public void r() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.f51702e = currentTimeMillis;
-        this.f51703f = currentTimeMillis;
+        this.f52126e = currentTimeMillis;
+        this.f52127f = currentTimeMillis;
         b bVar = this.i;
         if (bVar != null) {
-            long j = this.f51699b;
-            bVar.b(j, j - this.f51700c);
+            long j = this.f52123b;
+            bVar.b(j, j - this.f52124c);
         }
-        this.f51698a.postDelayed(this.j, this.f51701d);
+        this.f52122a.postDelayed(this.j, this.f52125d);
     }
 
     public void s() {
-        this.f51705h = false;
-        long j = this.f51702e;
-        this.f51703f = j;
-        this.f51704g = j;
-        this.f51698a.removeCallbacks(this.j);
+        this.f52129h = false;
+        long j = this.f52126e;
+        this.f52127f = j;
+        this.f52128g = j;
+        this.f52122a.removeCallbacks(this.j);
     }
 }

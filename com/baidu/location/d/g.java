@@ -15,18 +15,18 @@ import java.util.zip.GZIPInputStream;
 public class g extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f6708a;
+    public final /* synthetic */ String f6743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f6709b;
+    public final /* synthetic */ boolean f6744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f6710c;
+    public final /* synthetic */ e f6745c;
 
     public g(e eVar, String str, boolean z) {
-        this.f6710c = eVar;
-        this.f6708a = str;
-        this.f6709b = z;
+        this.f6745c = eVar;
+        this.f6743a = str;
+        this.f6744b = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:108:0x01d7 A[LOOP:0: B:3:0x0022->B:108:0x01d7, LOOP_END] */
@@ -45,17 +45,17 @@ public class g extends Thread {
         OutputStream outputStream;
         OutputStream outputStream2;
         boolean z;
-        this.f6710c.f6706h = j.c();
-        this.f6710c.b();
-        this.f6710c.a();
-        int i = this.f6710c.i;
+        this.f6745c.f6741h = j.c();
+        this.f6745c.b();
+        this.f6745c.a();
+        int i = this.f6745c.i;
         OutputStream outputStream3 = null;
         HttpURLConnection httpURLConnection = null;
         while (i > 0) {
             try {
-                URL url = new URL(this.f6710c.f6706h);
+                URL url = new URL(this.f6745c.f6741h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.f6710c.k.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.f6745c.k.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
@@ -70,13 +70,13 @@ public class g extends Thread {
                     httpURLConnection2.setDoInput(true);
                     httpURLConnection2.setDoOutput(true);
                     httpURLConnection2.setUseCaches(false);
-                    httpURLConnection2.setConnectTimeout(a.f6670b);
-                    httpURLConnection2.setReadTimeout(a.f6670b);
+                    httpURLConnection2.setConnectTimeout(a.f6705b);
+                    httpURLConnection2.setReadTimeout(a.f6705b);
                     httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                     httpURLConnection2.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
-                    if (!TextUtils.isEmpty(this.f6708a)) {
-                        httpURLConnection2.setRequestProperty("Host", this.f6708a);
+                    if (!TextUtils.isEmpty(this.f6743a)) {
+                        httpURLConnection2.setRequestProperty("Host", this.f6743a);
                     }
                     OutputStream outputStream4 = httpURLConnection2.getOutputStream();
                     try {
@@ -107,17 +107,17 @@ public class g extends Thread {
                                     }
                                     byteArrayOutputStream.write(bArr, 0, read);
                                 }
-                                this.f6710c.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                if (this.f6709b) {
-                                    this.f6710c.m = byteArrayOutputStream.toByteArray();
+                                this.f6745c.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                if (this.f6744b) {
+                                    this.f6745c.m = byteArrayOutputStream.toByteArray();
                                 }
-                                this.f6710c.a(true);
+                                this.f6745c.a(true);
                                 z = true;
                             } catch (Error unused3) {
                                 outputStream2 = outputStream4;
                                 httpURLConnection = httpURLConnection2;
                                 try {
-                                    Log.d(a.f6669a, "NetworkCommunicationError!");
+                                    Log.d(a.f6704a, "NetworkCommunicationError!");
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -125,21 +125,21 @@ public class g extends Thread {
                                         try {
                                             outputStream2.close();
                                         } catch (Exception unused4) {
-                                            Log.d(a.f6669a, "close os IOException!");
+                                            Log.d(a.f6704a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception unused5) {
-                                            Log.d(a.f6669a, "close is IOException!");
+                                            Log.d(a.f6704a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
                                         try {
                                             byteArrayOutputStream.close();
                                         } catch (Exception unused6) {
-                                            Log.d(a.f6669a, "close baos IOException!");
+                                            Log.d(a.f6704a, "close baos IOException!");
                                         }
                                     }
                                     z = false;
@@ -155,21 +155,21 @@ public class g extends Thread {
                                         try {
                                             outputStream3.close();
                                         } catch (Exception unused7) {
-                                            Log.d(a.f6669a, "close os IOException!");
+                                            Log.d(a.f6704a, "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception unused8) {
-                                            Log.d(a.f6669a, "close is IOException!");
+                                            Log.d(a.f6704a, "close is IOException!");
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
                                         try {
                                             byteArrayOutputStream.close();
                                         } catch (Exception unused9) {
-                                            Log.d(a.f6669a, "close baos IOException!");
+                                            Log.d(a.f6704a, "close baos IOException!");
                                         }
                                     }
                                     throw th;
@@ -177,7 +177,7 @@ public class g extends Thread {
                             } catch (Exception unused10) {
                                 outputStream = outputStream4;
                                 httpURLConnection = httpURLConnection2;
-                                Log.d(a.f6669a, "NetworkCommunicationException!");
+                                Log.d(a.f6704a, "NetworkCommunicationException!");
                                 if (httpURLConnection != null) {
                                     httpURLConnection.disconnect();
                                 }
@@ -185,14 +185,14 @@ public class g extends Thread {
                                     try {
                                         outputStream.close();
                                     } catch (Exception unused11) {
-                                        Log.d(a.f6669a, "close os IOException!");
+                                        Log.d(a.f6704a, "close os IOException!");
                                     }
                                 }
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
                                     } catch (Exception unused12) {
-                                        Log.d(a.f6669a, "close is IOException!");
+                                        Log.d(a.f6704a, "close is IOException!");
                                     }
                                 }
                                 if (byteArrayOutputStream != null) {
@@ -227,21 +227,21 @@ public class g extends Thread {
                             try {
                                 outputStream4.close();
                             } catch (Exception unused13) {
-                                Log.d(a.f6669a, "close os IOException!");
+                                Log.d(a.f6704a, "close os IOException!");
                             }
                         }
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
                             } catch (Exception unused14) {
-                                Log.d(a.f6669a, "close is IOException!");
+                                Log.d(a.f6704a, "close is IOException!");
                             }
                         }
                         if (byteArrayOutputStream != null) {
                             try {
                                 byteArrayOutputStream.close();
                             } catch (Exception unused15) {
-                                Log.d(a.f6669a, "close baos IOException!");
+                                Log.d(a.f6704a, "close baos IOException!");
                             }
                         }
                         httpURLConnection = httpURLConnection2;
@@ -292,7 +292,7 @@ public class g extends Thread {
             return;
         }
         e.p++;
-        e eVar = this.f6710c;
+        e eVar = this.f6745c;
         eVar.j = null;
         eVar.a(false);
     }

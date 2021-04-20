@@ -1,79 +1,22 @@
 package d.b.i0.r.a.h;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
-import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import d.b.h0.k.c;
 /* loaded from: classes4.dex */
-public class b {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static b f59681c = new b();
+public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1499b f59682a;
+    public static final boolean f60928a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f59683b = new a(CmdConfigHttp.CMD_GET_SPLASH_INFO);
-
-    /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage instanceof SplashHttpResponse) {
-                SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
-                if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                    if (b.this.f59682a != null) {
-                        b.this.f59682a.b(splashHttpResponse.getResultMsg());
-                        return;
-                    }
-                    return;
-                }
-                BdLog.e("Response of splash has error");
-                if (b.this.f59682a != null) {
-                    b.this.f59682a.a(splashHttpResponse.getResultMsg());
-                    return;
-                }
-                return;
-            }
-            BdLog.e("Not response of splash request");
-        }
+    static {
+        f60928a = d.b.a0.a.b.a.f41817a.get() != null && d.b.a0.a.b.a.f41817a.get().D();
     }
 
-    /* renamed from: d.b.i0.r.a.h.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1499b {
-        void a(String str);
+    String a();
 
-        void b(String str);
-    }
+    AdLoadState b();
 
-    public static String b() {
-        return "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics";
-    }
+    void c(c cVar);
 
-    public static String c() {
-        return "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics";
-    }
-
-    public static b d() {
-        return f59681c;
-    }
-
-    public void e(TbPageContext<?> tbPageContext, InterfaceC1499b interfaceC1499b, AdInfo adInfo) {
-        this.f59682a = interfaceC1499b;
-        this.f59683b.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.f59683b);
-        SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
-    }
+    void show();
 }

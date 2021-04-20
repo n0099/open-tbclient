@@ -10,23 +10,23 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
-import d.b.b.e.p.l;
+import d.b.c.e.m.e;
+import d.b.c.e.p.l;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class RecordingAnimView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4247e;
+    public int f4282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f4248f;
+    public Paint f4283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Random f4249g;
+    public Random f4284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4250h;
+    public int f4285h;
     public int i;
     public boolean j;
     public boolean k;
@@ -51,9 +51,9 @@ public class RecordingAnimView extends View {
 
     public RecordingAnimView(Context context) {
         super(context);
-        this.f4247e = 3;
-        this.f4249g = new Random();
-        this.f4250h = 0;
+        this.f4282e = 3;
+        this.f4284g = new Random();
+        this.f4285h = 0;
         this.i = 8;
         this.j = false;
         this.k = true;
@@ -85,11 +85,11 @@ public class RecordingAnimView extends View {
     public final void d() {
         this.q = c(TbadkCoreApplication.getInst().getSkinType());
         Paint paint = new Paint();
-        this.f4248f = paint;
+        this.f4283f = paint;
         paint.setDither(true);
-        this.f4248f.setAntiAlias(true);
-        this.f4248f.setStyle(Paint.Style.FILL);
-        this.f4248f.setColor(SkinManager.getColor(this.q));
+        this.f4283f.setAntiAlias(true);
+        this.f4283f.setStyle(Paint.Style.FILL);
+        this.f4283f.setColor(SkinManager.getColor(this.q));
     }
 
     public final void e() {
@@ -104,7 +104,7 @@ public class RecordingAnimView extends View {
                 nextInt = (int) ((1.0d - (this.o[i % 22] / 10.0d)) * this.m);
             } else {
                 int i3 = this.m;
-                nextInt = i3 > 0 ? this.f4249g.nextInt(i3) : 0;
+                nextInt = i3 > 0 ? this.f4284g.nextInt(i3) : 0;
             }
             int i4 = this.p + i2;
             int i5 = this.m;
@@ -118,14 +118,14 @@ public class RecordingAnimView extends View {
     }
 
     public void f(int i) {
-        if (i == this.f4247e || this.f4248f == null) {
+        if (i == this.f4282e || this.f4283f == null) {
             return;
         }
         int c2 = c(i);
         this.q = c2;
-        this.f4248f.setColor(SkinManager.getColor(i, c2));
+        this.f4283f.setColor(SkinManager.getColor(i, c2));
         invalidate();
-        this.f4247e = i;
+        this.f4282e = i;
     }
 
     public void g() {
@@ -154,7 +154,7 @@ public class RecordingAnimView extends View {
                 e();
                 RectF[] rectFArr = this.n;
                 if (i < rectFArr.length) {
-                    canvas.drawRoundRect(rectFArr[i], 10.0f, 10.0f, this.f4248f);
+                    canvas.drawRoundRect(rectFArr[i], 10.0f, 10.0f, this.f4283f);
                 }
             }
         }
@@ -163,10 +163,10 @@ public class RecordingAnimView extends View {
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     public void onMeasure(int i, int i2) {
-        if (this.f4250h > 0) {
+        if (this.f4285h > 0) {
             int mode = View.MeasureSpec.getMode(i);
             int i3 = this.p;
-            int i4 = this.f4250h;
+            int i4 = this.f4285h;
             int i5 = i3 * ((i4 * 2) - 1);
             this.l = i5;
             this.i = i4;
@@ -176,19 +176,19 @@ public class RecordingAnimView extends View {
         this.m = getMeasuredHeight();
         int measuredWidth = getMeasuredWidth();
         this.l = measuredWidth;
-        if (this.f4250h <= 0) {
+        if (this.f4285h <= 0) {
             this.i = (measuredWidth / this.p) / 2;
         }
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.f4250h = i;
+            this.f4285h = i;
         }
     }
 
     public void setColumnColor(int i) {
-        Paint paint = this.f4248f;
+        Paint paint = this.f4283f;
         if (paint != null) {
             paint.setColor(SkinManager.getColor(i));
         }
@@ -204,9 +204,9 @@ public class RecordingAnimView extends View {
 
     public RecordingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4247e = 3;
-        this.f4249g = new Random();
-        this.f4250h = 0;
+        this.f4282e = 3;
+        this.f4284g = new Random();
+        this.f4285h = 0;
         this.i = 8;
         this.j = false;
         this.k = true;

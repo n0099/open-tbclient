@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class e extends d.b.b.j.e.a<d.b.i0.t.j.d.g, CardViewHolder<d.b.i0.t.j.h.a>> {
+public class e extends d.b.c.j.e.a<d.b.i0.t.j.d.g, CardViewHolder<d.b.i0.t.j.h.a>> {
     public TbPageContext m;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.j.d.g f60828e;
+        public final /* synthetic */ d.b.i0.t.j.d.g f62392e;
 
         public a(d.b.i0.t.j.d.g gVar) {
-            this.f60828e = gVar;
+            this.f62392e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.this.j0(this.f60828e);
+            e.this.j0(this.f62392e);
         }
     }
 
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.g.f60867f);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.j.d.g.f62431f);
         this.m = tbPageContext;
     }
 
@@ -39,7 +39,7 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.j.d.g, CardViewHolder<d.b.i0.t.j.h.a
             return;
         }
         aVar.z(0);
-        aVar.A(this.f42358e.getResources().getString(R.string.ala_person_live_admin));
+        aVar.A(this.f42855e.getResources().getString(R.string.ala_person_live_admin));
         aVar.o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -52,14 +52,14 @@ public class e extends d.b.b.j.e.a<d.b.i0.t.j.d.g, CardViewHolder<d.b.i0.t.j.h.a
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public CardViewHolder<d.b.i0.t.j.h.a> R(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.b.i0.t.j.h.a(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.j.d.g gVar, CardViewHolder<d.b.i0.t.j.h.a> cardViewHolder) {
         if (cardViewHolder.b() == null) {

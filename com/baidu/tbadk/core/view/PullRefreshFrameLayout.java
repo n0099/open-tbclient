@@ -23,16 +23,16 @@ public class PullRefreshFrameLayout extends FrameLayout {
     public static final float I;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13465e;
+    public boolean f13126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13466f;
+    public boolean f13127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13467g;
+    public boolean f13128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13468h;
+    public int f13129h;
     public double i;
     public int j;
     public int k;
@@ -124,10 +124,10 @@ public class PullRefreshFrameLayout extends FrameLayout {
     public class d implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f13472e;
+        public final /* synthetic */ int f13133e;
 
         public d(int i) {
-            this.f13472e = i;
+            this.f13133e = i;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -135,7 +135,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             int i = (((float) (floatValue * 0.3d)) > 0.0f ? 1 : (((float) (floatValue * 0.3d)) == 0.0f ? 0 : -1));
             PullRefreshFrameLayout.this.s.setAlpha(floatValue);
-            PullRefreshFrameLayout.this.t.topMargin = (int) (this.f13472e * floatValue);
+            PullRefreshFrameLayout.this.t.topMargin = (int) (this.f13133e * floatValue);
             PullRefreshFrameLayout.this.s.setLayoutParams(PullRefreshFrameLayout.this.t);
         }
     }
@@ -209,9 +209,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context) {
         super(context);
-        this.f13465e = false;
-        this.f13466f = false;
-        this.f13467g = false;
+        this.f13126e = false;
+        this.f13127f = false;
+        this.f13128g = false;
         this.l = false;
         this.m = true;
         this.n = D;
@@ -244,15 +244,15 @@ public class PullRefreshFrameLayout extends FrameLayout {
         FrameLayout.LayoutParams layoutParams = this.t;
         layoutParams.topMargin = i3;
         this.s.setLayoutParams(layoutParams);
-        int i6 = this.f13468h + i2;
-        this.f13468h = i6;
+        int i6 = this.f13129h + i2;
+        this.f13129h = i6;
         int i7 = this.n;
         if (i6 > i7) {
-            this.f13468h = i7;
+            this.f13129h = i7;
         } else if (i6 < 0) {
-            this.f13468h = 0;
+            this.f13129h = 0;
         }
-        double d2 = (this.f13468h * 1.0d) / this.n;
+        double d2 = (this.f13129h * 1.0d) / this.n;
         this.i = d2;
         i iVar = this.u;
         if (iVar != null) {
@@ -332,19 +332,19 @@ public class PullRefreshFrameLayout extends FrameLayout {
                     if (action == 2) {
                         int i2 = y - this.k;
                         int i3 = x - this.j;
-                        if (!this.f13465e) {
-                            if (!this.f13466f) {
-                                if (this.f13467g) {
+                        if (!this.f13126e) {
+                            if (!this.f13127f) {
+                                if (this.f13128g) {
                                     if (i2 > 0 && Math.abs(i2) > Math.abs(i3)) {
-                                        this.f13466f = false;
-                                        this.f13465e = true;
+                                        this.f13127f = false;
+                                        this.f13126e = true;
                                     } else if (i2 < 0) {
-                                        this.f13466f = true;
-                                        this.f13465e = false;
+                                        this.f13127f = true;
+                                        this.f13126e = false;
                                     }
                                 } else {
-                                    this.f13466f = true;
-                                    this.f13465e = false;
+                                    this.f13127f = true;
+                                    this.f13126e = false;
                                 }
                             }
                         }
@@ -353,8 +353,8 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 }
                 s();
             } else {
-                this.f13465e = false;
-                this.f13466f = false;
+                this.f13126e = false;
+                this.f13127f = false;
                 this.k = y;
                 this.j = x;
             }
@@ -445,9 +445,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
         this.i = 0.0d;
         this.k = 0;
         this.j = 0;
-        this.f13468h = 0;
-        this.f13465e = false;
-        this.f13466f = false;
+        this.f13129h = 0;
+        this.f13126e = false;
+        this.f13127f = false;
     }
 
     public void setEnable(boolean z) {
@@ -461,7 +461,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
     }
 
     public void setInterceptScrollDown(boolean z) {
-        this.f13467g = z;
+        this.f13128g = z;
     }
 
     public void setOnCancelCallBack(f fVar) {
@@ -499,9 +499,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13465e = false;
-        this.f13466f = false;
-        this.f13467g = false;
+        this.f13126e = false;
+        this.f13127f = false;
+        this.f13128g = false;
         this.l = false;
         this.m = true;
         this.n = D;
@@ -514,9 +514,9 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     public PullRefreshFrameLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13465e = false;
-        this.f13466f = false;
-        this.f13467g = false;
+        this.f13126e = false;
+        this.f13127f = false;
+        this.f13128g = false;
         this.l = false;
         this.m = true;
         this.n = D;

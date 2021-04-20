@@ -6,57 +6,57 @@ import com.kwai.filedownloader.services.e;
 public class m implements t {
 
     /* renamed from: a  reason: collision with root package name */
-    public final t f37044a;
+    public final t f37333a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final m f37045a = new m();
+        public static final m f37334a = new m();
     }
 
     public m() {
-        this.f37044a = com.kwai.filedownloader.f.e.a().f37016d ? new n() : new o();
+        this.f37333a = com.kwai.filedownloader.f.e.a().f37305d ? new n() : new o();
     }
 
     public static m a() {
-        return a.f37045a;
+        return a.f37334a;
     }
 
     public static e.a b() {
-        if (a().f37044a instanceof n) {
-            return (e.a) a().f37044a;
+        if (a().f37333a instanceof n) {
+            return (e.a) a().f37333a;
         }
         return null;
     }
 
     @Override // com.kwai.filedownloader.t
     public void a(Context context) {
-        this.f37044a.a(context);
+        this.f37333a.a(context);
     }
 
     @Override // com.kwai.filedownloader.t
     public boolean a(int i) {
-        return this.f37044a.a(i);
+        return this.f37333a.a(i);
     }
 
     @Override // com.kwai.filedownloader.t
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
-        return this.f37044a.a(str, str2, z, i, i2, i3, z2, bVar, z3);
+        return this.f37333a.a(str, str2, z, i, i2, i3, z2, bVar, z3);
     }
 
     @Override // com.kwai.filedownloader.t
     public byte b(int i) {
-        return this.f37044a.b(i);
+        return this.f37333a.b(i);
     }
 
     @Override // com.kwai.filedownloader.t
     public boolean c() {
-        return this.f37044a.c();
+        return this.f37333a.c();
     }
 
     @Override // com.kwai.filedownloader.t
     public boolean c(int i) {
-        return this.f37044a.c(i);
+        return this.f37333a.c(i);
     }
 }

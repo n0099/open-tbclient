@@ -1,325 +1,227 @@
 package d.b.i0.n2;
 
-import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.annotation.IdRes;
-import androidx.core.content.ContextCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.ClickableHeaderImageView;
-import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.pushdialog.PushDialogVideoView;
-import com.tencent.connect.common.Constants;
-import d.b.b.e.m.e;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
-import d.b.h0.b1.m.i;
-import d.b.i0.i2.o;
-import java.text.DecimalFormat;
-import java.util.Iterator;
-import java.util.Locale;
-/* loaded from: classes5.dex */
-public class c implements View.OnClickListener {
+import com.baidu.tieba.postsearch.PostSearchActivity;
+import d.b.c.e.p.l;
+import d.b.h0.r.s.a;
+import java.util.ArrayList;
+/* loaded from: classes3.dex */
+public class c {
 
-    /* renamed from: e  reason: collision with root package name */
-    public final PushDialogActivity f57143e;
+    /* renamed from: a  reason: collision with root package name */
+    public PostSearchActivity f58537a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Drawable f57144f;
+    /* renamed from: b  reason: collision with root package name */
+    public View f58538b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f58539c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public BdListView f58540d;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f57145g;
+    public d.b.h0.r.s.a f58543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f57146h;
-    public EditorScrollView i;
-    public TbImageView j;
-    public TextView k;
-    public ImageView l;
-    public TextView m;
-    public TbRichTextView n;
-    public PushDialogVideoView o;
-    public ClickableHeaderImageView p;
-    public TextView q;
-    public TextView r;
-    public CommonUserLikeButton s;
-    public View t;
-    public TextView u;
-    public d.b.h0.b1.m.a v;
-    public long w;
-    public i x;
-    public boolean y = false;
+    public NoDataView f58544h;
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnScrollChangedListener {
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.i0.o1.d f58541e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f58542f = null;
+    public boolean i = false;
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
         public a() {
         }
 
-        @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-        public void onScrollChanged() {
-            if (c.this.y) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 1).param("tid", c.this.f57143e.getTid()));
-            c.this.y = true;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            c.this.l();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    /* loaded from: classes3.dex */
+    public class b implements AdapterView.OnItemClickListener {
         public b() {
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            if (c.this.f57143e == null || c.this.f57143e.getScreenLockUtils() == null) {
-                return;
-            }
-            c.this.f57143e.getScreenLockUtils().d();
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+            TiebaStatic.log(new StatisticItem("c12403").param("fid", c.this.f58537a.mForumId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fname", c.this.f58537a.mForumName));
+            String str = (String) c.this.f58540d.getItemAtPosition(i + 1);
+            c.this.f58537a.setEditSearchText(str);
+            c.this.f58537a.startSearch(str);
+            PostSearchActivity unused = c.this.f58537a;
+            TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", str).param("obj_source", "3").param("obj_type", "2").param("fid", c.this.f58537a.mForumId));
         }
     }
 
-    public c(PushDialogActivity pushDialogActivity, int i) {
-        this.f57143e = pushDialogActivity;
-        pushDialogActivity.setContentView(i);
-        this.f57146h = d(R.id.root_view);
-        this.f57145g = d(R.id.dialog_wrapper_view);
-        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.push_dialog_content_layout);
-        this.i = editorScrollView;
-        editorScrollView.setOverScrollMode(2);
-        this.i.setListener(new a());
-        if (this.f57145g.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f57145g.getLayoutParams();
-            int i2 = l.i(this.f57143e);
-            layoutParams.height = i2 / 2;
-            layoutParams.topMargin = (int) (i2 * 0.22f);
-            this.f57145g.postInvalidate();
+    /* renamed from: d.b.i0.n2.c$c  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class View$OnTouchListenerC1406c implements View.OnTouchListener {
+        public View$OnTouchListenerC1406c() {
         }
-        if (l.z()) {
-            Drawable a2 = d.b.i0.o3.b.a();
-            this.f57144f = a2;
-            if (a2 != null && this.f57143e.getWindow() != null) {
-                this.f57143e.getWindow().setBackgroundDrawable(this.f57144f);
-            }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            c.this.f58537a.hideSoftKeyPad();
+            return false;
         }
-        View d2 = d(R.id.push_dialog_bottom_layout);
-        this.t = d2;
-        d2.setOnClickListener(this);
-        this.u = (TextView) d(R.id.comment_num);
-        TbImageView tbImageView = (TbImageView) d(R.id.push_dialog_title_img);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.drawable.tb_launcher_icon);
-        this.j.setAutoChangeStyle(false);
-        this.k = (TextView) d(R.id.push_dialog_title_text);
-        this.m = (TextView) d(R.id.push_dialog_content_title);
-        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.push_dialog_user_head);
-        this.p = clickableHeaderImageView;
-        clickableHeaderImageView.setBorderSurroundContent(true);
-        this.p.setIsRound(true);
-        this.p.setEnabled(false);
-        this.p.setAutoChangeStyle(false);
-        this.p.setBorderWidth(l.g(this.f57143e, R.dimen.tbds1));
-        this.p.setBorderColor(ContextCompat.getColor(this.f57143e, R.color.black_alpha15));
-        this.v = new d.b.h0.b1.m.a();
-        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.push_dialog_content);
-        this.n = tbRichTextView;
-        tbRichTextView.setTextColor(ContextCompat.getColor(this.f57143e, R.color.CAM_X0107));
-        this.v.s(l.g(this.f57143e, R.dimen.tbds38));
-        this.v.v(l.g(this.f57143e, R.dimen.tbds42));
-        this.v.j(l.g(this.f57143e, R.dimen.tbds23));
-        this.v.o(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
-        this.v.i(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        this.n.setLayoutStrategy(this.v);
-        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.push_dialog_video);
-        this.o = pushDialogVideoView;
-        pushDialogVideoView.setPageContext(this.f57143e.getPageContext());
-        this.q = (TextView) d(R.id.push_dialog_user_name);
-        this.r = (TextView) d(R.id.push_dialog_user_god_info);
-        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.push_dialog_user_like_btn);
-        this.s = commonUserLikeButton;
-        commonUserLikeButton.setAfterOnClickListener(this);
-        ImageView imageView = (ImageView) d(R.id.dialog_close_btn);
-        this.l = imageView;
-        imageView.setOnClickListener(this);
     }
 
-    public final View d(@IdRes int i) {
-        return this.f57143e.findViewById(i);
+    /* loaded from: classes3.dex */
+    public class d implements a.e {
+        public d(c cVar) {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements a.e {
+        public e() {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+            c.this.f58537a.getModel().g();
+            c.this.f58540d.setVisibility(8);
+            c.this.n();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements View.OnTouchListener {
+        public f() {
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            c.this.f58537a.hideSoftKeyPad();
+            return false;
+        }
+    }
+
+    public c(PostSearchActivity postSearchActivity, View view) {
+        this.f58537a = postSearchActivity;
+        this.f58538b = view;
+        h();
     }
 
     public void e() {
-        i iVar;
-        PushDialogVideoView pushDialogVideoView = this.o;
-        if (pushDialogVideoView != null) {
-            pushDialogVideoView.setNetworkChange();
-            if (!j.x() || !this.o.z() || (iVar = this.x) == null || iVar.c() <= 0 || this.x.b() <= 0) {
-                return;
-            }
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
-            double c2 = ((this.x.c() * (1.0f - ((this.o.getCurrentPosition() * 1.0f) / (this.x.b() * 1000)))) * 1.0f) / 1048576.0f;
-            if (c2 >= 0.1d) {
-                l.L(this.f57143e.getPageContext().getPageActivity(), String.format(this.f57143e.getPageContext().getString(R.string.push_dialog_video_net_change_tip), decimalFormat.format(c2)));
-            }
-        }
+        this.f58539c.setVisibility(8);
     }
 
     public void f() {
-        PushDialogVideoView pushDialogVideoView = this.o;
-        if (pushDialogVideoView != null) {
-            pushDialogVideoView.B();
+        this.i = false;
+        this.f58537a.hideLoadingView(this.f58539c);
+    }
+
+    public void g() {
+        NoDataView noDataView = this.f58544h;
+        if (noDataView != null) {
+            noDataView.setVisibility(8);
         }
     }
 
-    public void h() {
-        PushDialogVideoView pushDialogVideoView = this.o;
-        if (pushDialogVideoView != null) {
-            pushDialogVideoView.E();
+    public final void h() {
+        this.f58539c = this.f58537a.findViewById(R.id.history_frame);
+        this.f58540d = (BdListView) this.f58538b.findViewById(R.id.history_list);
+        BdListViewHelper.d(this.f58537a.getActivity(), this.f58540d, BdListViewHelper.HeadType.DEFAULT);
+        d.b.i0.o1.d dVar = new d.b.i0.o1.d(this.f58537a.getPageContext().getPageActivity(), null);
+        this.f58541e = dVar;
+        dVar.b(false);
+        this.f58540d.setAdapter((ListAdapter) this.f58541e);
+        View inflate = LayoutInflater.from(this.f58537a.getPageContext().getPageActivity()).inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
+        this.f58542f = inflate;
+        this.f58540d.addFooterView(inflate);
+        this.f58542f.setOnClickListener(new a());
+        this.f58540d.setOnItemClickListener(new b());
+        this.f58540d.setOnTouchListener(new View$OnTouchListenerC1406c());
+    }
+
+    public boolean i() {
+        if (this.f58539c.getVisibility() != 0 || this.i) {
+            return false;
+        }
+        NoDataView noDataView = this.f58544h;
+        return noDataView == null || 8 == noDataView.getVisibility();
+    }
+
+    public void j(int i) {
+        d.b.h0.s0.a.a(this.f58537a.getPageContext(), this.f58542f);
+        this.f58541e.notifyDataSetChanged();
+        NoDataView noDataView = this.f58544h;
+        if (noDataView != null) {
+            noDataView.f(this.f58537a.getPageContext(), i);
         }
     }
 
-    public void i() {
-        PushDialogVideoView pushDialogVideoView = this.o;
-        if (pushDialogVideoView != null) {
-            pushDialogVideoView.F();
-        }
-    }
-
-    public void j(d.b.i0.n2.d.a aVar) {
-        int g2;
-        int g3;
-        if (aVar == null) {
+    public void k(ArrayList<String> arrayList) {
+        this.f58539c.setVisibility(0);
+        f();
+        if (arrayList != null && arrayList.size() != 0) {
+            g();
+            this.f58540d.setVisibility(0);
+            this.f58541e.a(arrayList);
+            this.f58541e.notifyDataSetChanged();
             return;
         }
-        this.j.W(aVar.a(), 17, false);
-        this.k.setText(aVar.b());
-        if (aVar.d() != null) {
-            this.p.setData(aVar.d());
-            this.q.setText(aVar.d().getName_show());
-            if (aVar.d().getGodUserData() != null && (!StringUtils.isNull(aVar.d().getGodUserData().getForumName()) || !StringUtils.isNull(aVar.d().getGodUserData().getIntro()))) {
-                this.r.setText(aVar.d().getGodUserData().getForumName() + "吧 " + aVar.d().getGodIntro());
-                this.r.setVisibility(0);
-            } else {
-                this.r.setVisibility(8);
-            }
-            if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.d().getUserId())) {
-                this.s.setVisibility(8);
-            } else {
-                new d.b.h0.r.f0.q.c(this.f57143e.getPageContext(), this.s).n(aVar.d());
-                this.s.g(0);
-                this.s.setVisibility(0);
-            }
-            d.b.i0.n2.d.b c2 = aVar.c();
-            if (c2 == null) {
-                this.f57143e.getScreenLockUtils().d();
-                this.f57143e.finish();
-                return;
-            }
-            boolean z = c2.a() == null || ListUtils.isEmpty(c2.a().u());
-            if (StringUtils.isNull(c2.d()) && z) {
-                this.f57143e.getScreenLockUtils().d();
-                this.f57143e.finish();
-                return;
-            }
-            if (c2.a() != null) {
-                Iterator<TbRichTextData> it = c2.a().u().iterator();
-                while (it.hasNext()) {
-                    TbRichTextData next = it.next();
-                    if (next != null) {
-                        this.x = next.D();
-                    }
-                    if (this.x != null) {
-                        break;
-                    }
-                }
-            }
-            this.w = c2.c();
-            if (this.x == null) {
-                this.o.setVisibility(8);
-                this.n.setVisibility(0);
-                boolean z2 = j.v() || j.H();
-                this.v.w(z2);
-                if (z2) {
-                    g2 = (l.k(TbadkCoreApplication.getInst()) - (l.g(this.f57143e, R.dimen.tbds22) * 2)) - (l.g(this.f57143e, R.dimen.tbds44) * 2);
-                    g3 = (int) (g2 * 1.618f);
-                } else {
-                    g2 = l.g(this.f57143e, R.dimen.tbds360);
-                    g3 = l.g(this.f57143e, R.dimen.tbds202);
-                }
-                this.v.k(z2);
-                this.v.q(g2);
-                this.v.p(g3);
-                this.n.setText(c2.a());
-            } else {
-                this.n.setVisibility(8);
-                this.o.setVisibility(0);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-                int k = l.k(this.f57143e) - l.g(this.f57143e, R.dimen.tbds132);
-                layoutParams.width = k;
-                layoutParams.height = (int) (k * 0.5625f);
-                this.o.setLayoutParams(layoutParams);
-                this.o.setTbRichTextVideoInfo(this.x);
-                this.o.stopPlay();
-                this.o.setThumbnail(this.x.e());
-                this.o.setVideoUrl(this.x.f(), String.valueOf(this.w));
-                this.o.I();
-                o oVar = new o();
-                oVar.f56164a = Constants.VIA_REPORT_TYPE_WPA_STATE;
-                oVar.f56166c = String.valueOf(this.w);
-                oVar.f56168e = TbadkCoreApplication.getCurrentAccount();
-                this.o.setVideoViewBusiness(oVar);
-            }
-            if (StringUtils.isNull(c2.d())) {
-                this.m.setVisibility(8);
-            } else {
-                this.m.setText(c2.d());
-                this.m.setVisibility(0);
-            }
-            this.u.setText(String.format(Locale.CHINA, this.f57143e.getString(R.string.bottom_comment), Integer.valueOf(c2.b())));
-            if (this.f57143e.getScreenLockUtils().c()) {
-                return;
-            }
-            this.f57143e.getScreenLockUtils().e();
-            return;
-        }
-        this.f57143e.getScreenLockUtils().d();
-        this.f57143e.finish();
+        this.f58540d.setVisibility(8);
+        n();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.l) {
-            TiebaStatic.log(new StatisticItem("c13198").param("tid", this.f57143e.getTid()));
-            e.a().postDelayed(new b(), 100L);
-            this.f57143e.finish();
-        } else if (view == this.t) {
-            TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 4).param("tid", this.f57143e.getTid()));
-            if (this.w == 0) {
-                this.f57143e.finish();
-                return;
-            }
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f57143e);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(this.w + "", null, null)));
-            this.f57143e.getScreenLockUtils().e();
-            this.f57143e.finish();
-        } else if (view == this.s) {
-            TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 3).param("tid", this.f57143e.getTid()));
+    public final void l() {
+        if (this.f58543g == null) {
+            this.f58543g = new d.b.h0.r.s.a(this.f58537a.getPageContext().getPageActivity()).setMessage(this.f58537a.getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(this.f58537a.getPageContext().getString(R.string.clear_all_text), new e()).setNegativeButton(this.f58537a.getPageContext().getString(R.string.cancel), new d(this)).create(this.f58537a.getPageContext());
         }
+        this.f58543g.show();
+    }
+
+    public void m() {
+        this.i = true;
+        PostSearchActivity postSearchActivity = this.f58537a;
+        postSearchActivity.showLoadingView(this.f58539c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.ds386));
+    }
+
+    public final void n() {
+        o(R.string.new_text_no_search_record);
+    }
+
+    public final void o(int i) {
+        if (this.f58544h == null) {
+            NoDataView a2 = NoDataViewFactory.a(this.f58537a.getPageContext().getPageActivity(), this.f58539c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f58537a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.text_no_search_record), null);
+            this.f58544h = a2;
+            a2.f(this.f58537a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.f58544h.setOnTouchListener(new f());
+        }
+        this.f58544h.setTextOption(NoDataViewFactory.e.d(null, this.f58537a.getResources().getString(i)));
+        this.f58544h.setVisibility(0);
+    }
+
+    public void p() {
+        this.f58540d.setVisibility(8);
+        o(R.string.new_text_no_search_result);
     }
 }

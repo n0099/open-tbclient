@@ -1,14 +1,19 @@
 package d.g.c.a;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.FIELD, ElementType.TYPE})
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes6.dex */
-public @interface e {
-    double value();
+public abstract class e {
+    public static e compile(String str) {
+        return m.a(str);
+    }
+
+    public static boolean isPcreLike() {
+        return m.d();
+    }
+
+    public abstract int flags();
+
+    public abstract d matcher(CharSequence charSequence);
+
+    public abstract String pattern();
+
+    public abstract String toString();
 }

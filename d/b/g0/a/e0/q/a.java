@@ -15,27 +15,27 @@ import d.b.g0.a.n1.c.f.e;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44237a = k.f45051a;
+    public static final boolean f44629a = k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f44238b = new f(null);
+    public static f f44630b = new f(null);
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f44239c = new g(null);
+    public static g f44631c = new g(null);
 
     /* renamed from: d.b.g0.a.e0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0678a implements d {
+    public class C0690a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f44240a;
+        public final /* synthetic */ e f44632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f44241b;
+        public final /* synthetic */ PrefetchEvent f44633b;
 
-        public C0678a(e eVar, PrefetchEvent prefetchEvent) {
-            this.f44240a = eVar;
-            this.f44241b = prefetchEvent;
+        public C0690a(e eVar, PrefetchEvent prefetchEvent) {
+            this.f44632a = eVar;
+            this.f44633b = prefetchEvent;
         }
 
         @Override // d.b.g0.a.e0.q.a.d
@@ -44,9 +44,9 @@ public final class a {
                 return;
             }
             if (!cVar.x()) {
-                a.this.h(cVar, this.f44241b, this.f44240a);
+                a.this.h(cVar, this.f44633b, this.f44632a);
             } else {
-                this.f44240a.a(cVar, null);
+                this.f44632a.a(cVar, null);
             }
         }
     }
@@ -55,15 +55,15 @@ public final class a {
     public class b implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f44243a;
+        public final /* synthetic */ d f44635a;
 
         public b(a aVar, d dVar) {
-            this.f44243a = dVar;
+            this.f44635a = dVar;
         }
 
         @Override // d.b.g0.a.n1.c.f.c.b
         public void a(d.b.g0.a.n1.c.f.c cVar) {
-            this.f44243a.a(cVar);
+            this.f44635a.a(cVar);
         }
     }
 
@@ -71,36 +71,36 @@ public final class a {
     public class c implements a.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.n1.c.f.c f44244a;
+        public final /* synthetic */ d.b.g0.a.n1.c.f.c f44636a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f44245b;
+        public final /* synthetic */ e f44637b;
 
         public c(a aVar, d.b.g0.a.n1.c.f.c cVar, e eVar) {
-            this.f44244a = cVar;
-            this.f44245b = eVar;
+            this.f44636a = cVar;
+            this.f44637b = eVar;
         }
 
         @Override // d.b.g0.a.e0.h.a.a.c
         public void a(int i) {
-            if (a.f44237a) {
+            if (a.f44629a) {
                 Log.d("PrefetchEnv", "prepareBundle failed: " + i);
             }
         }
 
         @Override // d.b.g0.a.e0.h.a.a.c
         public void b() {
-            if (a.f44237a) {
-                Log.d("PrefetchEnv", "prepareBundle success isPreloaded: " + this.f44244a.C());
+            if (a.f44629a) {
+                Log.d("PrefetchEnv", "prepareBundle success isPreloaded: " + this.f44636a.C());
             }
-            if (this.f44244a.C()) {
-                this.f44245b.a(this.f44244a, null);
+            if (this.f44636a.C()) {
+                this.f44637b.a(this.f44636a, null);
             }
         }
 
         @Override // d.b.g0.a.e0.h.a.a.c
         public void c() {
-            if (a.f44237a) {
+            if (a.f44629a) {
                 Log.d("PrefetchEnv", "prepareBundle swanAppIdInvalid");
             }
         }
@@ -132,7 +132,7 @@ public final class a {
             return TextUtils.equals(str, prefetchEvent.appId);
         }
 
-        public /* synthetic */ f(C0678a c0678a) {
+        public /* synthetic */ f(C0690a c0690a) {
             this();
         }
     }
@@ -146,10 +146,10 @@ public final class a {
         @Override // d.b.g0.a.n1.c.f.e.c
         /* renamed from: b */
         public boolean a(String str, d.b.g0.a.n1.c.f.c cVar) {
-            return cVar.x() && TextUtils.equals(str, cVar.f45392g);
+            return cVar.x() && TextUtils.equals(str, cVar.f45784g);
         }
 
-        public /* synthetic */ g(C0678a c0678a) {
+        public /* synthetic */ g(C0690a c0690a) {
             this();
         }
     }
@@ -164,11 +164,11 @@ public final class a {
     }
 
     public static d.b.g0.a.n1.c.f.c d(@NonNull PrefetchEvent prefetchEvent) {
-        return d.b.g0.a.n1.c.f.e.j().o(prefetchEvent.appId, f44238b);
+        return d.b.g0.a.n1.c.f.e.j().o(prefetchEvent.appId, f44630b);
     }
 
     public static d.b.g0.a.n1.c.f.c e(@NonNull PrefetchEvent prefetchEvent) {
-        return d.b.g0.a.n1.c.f.e.j().o(prefetchEvent.appId, f44239c);
+        return d.b.g0.a.n1.c.f.e.j().o(prefetchEvent.appId, f44631c);
     }
 
     public final boolean f(PMSAppInfo pMSAppInfo) {
@@ -190,7 +190,7 @@ public final class a {
     }
 
     public void i(@NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
-        j(prefetchEvent, new C0678a(eVar, prefetchEvent));
+        j(prefetchEvent, new C0690a(eVar, prefetchEvent));
     }
 
     @Nullable
@@ -207,12 +207,12 @@ public final class a {
         }
         d.b.g0.a.n1.c.f.c d3 = d.b.g0.a.n1.c.f.e.j().d();
         if (d3.x()) {
-            if (f44237a) {
+            if (f44629a) {
                 Log.e("PrefetchEnv", "prepareEnv isSwanAppLoaded.");
             }
             dVar.a(null);
         } else if (d3.C()) {
-            if (f44237a) {
+            if (f44629a) {
                 Log.d("PrefetchEnv", "prepareEnv isPreloaded.");
             }
             dVar.a(d3);

@@ -7,12 +7,12 @@ import tbclient.FrsPage.RecommendBook;
 public class h0 extends a2 {
     public static final BdUniqueId E3 = BdUniqueId.gen();
 
-    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         return E3;
     }
 
-    public void y4(RecommendBook recommendBook) {
+    public void z4(RecommendBook recommendBook) {
         if (recommendBook == null) {
             return;
         }

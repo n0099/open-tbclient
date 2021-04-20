@@ -9,11 +9,11 @@ import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.b.g0.a.k;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46592a = k.f45051a;
+    public static final boolean f46984a = k.f45443a;
 
     public final String a(UnitedSchemeEntity unitedSchemeEntity) {
         String[] paths;
@@ -37,7 +37,7 @@ public class c extends UnitedSchemeBaseInterceptor {
     public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         String a2 = a(unitedSchemeEntity);
         boolean b2 = d.b.g0.a.t.f.a.b(a2, callbackHandler);
-        if (f46592a) {
+        if (f46984a) {
             Log.d("SwanWebSafeInterceptor", "intercept: result=" + b2 + ", path=" + a2);
         }
         if (b2) {

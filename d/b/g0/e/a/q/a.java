@@ -9,19 +9,19 @@ import com.baidu.webkit.internal.utils.UtilsBlink;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f47679a = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, UtilsBlink.VER_TYPE_SEPARATOR, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
+    public static final byte[] f48071a = {48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, UtilsBlink.VER_TYPE_SEPARATOR, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f47680b = new byte[128];
+    public static final byte[] f48072b = new byte[128];
 
     static {
         int i = 0;
         while (true) {
-            byte[] bArr = f47679a;
+            byte[] bArr = f48071a;
             if (i >= bArr.length) {
                 return;
             }
-            f47680b[bArr[i]] = (byte) i;
+            f48072b[bArr[i]] = (byte) i;
             i++;
         }
     }
@@ -38,7 +38,7 @@ public class a {
         int i = 0;
         int i2 = 0;
         while (i < bytes.length) {
-            byte[] bArr2 = f47679a;
+            byte[] bArr2 = f48071a;
             bArr[i2] = bArr2[(bytes[i] & 252) >> 2];
             int i3 = i + 1;
             bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];

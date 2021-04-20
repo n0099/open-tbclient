@@ -29,16 +29,16 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f49691d;
+    public static c f50084d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, e> f49692a = new HashMap<>();
+    public final HashMap<String, e> f50085a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<BdUniqueId, d.b.h0.b.f.a> f49693b = new HashMap<>();
+    public final HashMap<BdUniqueId, d.b.h0.b.f.a> f50086b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<BdUniqueId, e> f49694c = new HashMap<>();
+    public final HashMap<BdUniqueId, e> f50087c = new HashMap<>();
 
     public c() {
         m();
@@ -46,14 +46,14 @@ public class c {
     }
 
     public static c d() {
-        if (f49691d == null) {
+        if (f50084d == null) {
             synchronized (c.class) {
-                if (f49691d == null) {
-                    f49691d = new c();
+                if (f50084d == null) {
+                    f50084d = new c();
                 }
             }
         }
-        return f49691d;
+        return f50084d;
     }
 
     public static String e() {
@@ -62,18 +62,18 @@ public class c {
 
     public final void a() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921506, 1));
-        d.b.h0.r.d0.b.i().u("static_opt_open", d.G() ? 1 : 0);
+        d.b.h0.r.d0.b.j().v("static_opt_open", d.I() ? 1 : 0);
     }
 
     public synchronized e b(String str) {
-        return this.f49692a.get(str);
+        return this.f50085a.get(str);
     }
 
     public final HashMap<String, e> c() {
         HashMap<String, e> hashMap = new HashMap<>();
         try {
             e();
-            JSONArray jSONArray = new JSONArray(d.b.h0.r.d0.b.i().o(e(), "[]"));
+            JSONArray jSONArray = new JSONArray(d.b.h0.r.d0.b.j().p(e(), "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 if (jSONObject != null) {
@@ -88,7 +88,7 @@ public class c {
     }
 
     public e f(BdUniqueId bdUniqueId) {
-        d.b.h0.b.f.a aVar = this.f49693b.get(bdUniqueId);
+        d.b.h0.b.f.a aVar = this.f50086b.get(bdUniqueId);
         if (aVar == null) {
             return null;
         }
@@ -96,15 +96,15 @@ public class c {
     }
 
     public Map<BdUniqueId, e> g() {
-        return this.f49694c;
+        return this.f50087c;
     }
 
     public void h(JSONArray jSONArray) {
         try {
             String e2 = e();
             if (jSONArray == null) {
-                this.f49692a.clear();
-                d.b.h0.r.d0.b.i().B(e2);
+                this.f50085a.clear();
+                d.b.h0.r.d0.b.j().C(e2);
                 return;
             }
             HashMap<String, e> hashMap = new HashMap<>();
@@ -116,7 +116,7 @@ public class c {
                 }
             }
             j(hashMap);
-            d.b.h0.r.d0.b.i().w(e2, jSONArray.toString());
+            d.b.h0.r.d0.b.j().x(e2, jSONArray.toString());
             a();
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -135,17 +135,17 @@ public class c {
     }
 
     public final void j(HashMap<String, e> hashMap) {
-        synchronized (this.f49692a) {
-            this.f49692a.clear();
+        synchronized (this.f50085a) {
+            this.f50085a.clear();
             if (hashMap != null) {
-                this.f49692a.putAll(hashMap);
+                this.f50085a.putAll(hashMap);
             }
             k();
         }
     }
 
     public final void k() {
-        for (Map.Entry<BdUniqueId, d.b.h0.b.f.a> entry : this.f49693b.entrySet()) {
+        for (Map.Entry<BdUniqueId, d.b.h0.b.f.a> entry : this.f50086b.entrySet()) {
             d.b.h0.b.f.a value = entry.getValue();
             if (value != null) {
                 o(value);
@@ -155,9 +155,9 @@ public class c {
     }
 
     public final void l() {
-        this.f49694c.clear();
-        for (BdUniqueId bdUniqueId : this.f49693b.keySet()) {
-            this.f49694c.put(bdUniqueId, f(bdUniqueId));
+        this.f50087c.clear();
+        for (BdUniqueId bdUniqueId : this.f50086b.keySet()) {
+            this.f50087c.put(bdUniqueId, f(bdUniqueId));
         }
     }
 
@@ -186,7 +186,7 @@ public class c {
         if (aVar == null || aVar.c() == null) {
             return;
         }
-        this.f49693b.put(aVar.c(), aVar);
+        this.f50086b.put(aVar.c(), aVar);
     }
 
     public final void o(d.b.h0.b.f.a aVar) {
@@ -201,7 +201,7 @@ public class c {
         }
         Iterator<String> it = a2.iterator();
         while (it.hasNext()) {
-            eVar = this.f49692a.get(it.next());
+            eVar = this.f50085a.get(it.next());
             if (eVar != null) {
                 break;
             }

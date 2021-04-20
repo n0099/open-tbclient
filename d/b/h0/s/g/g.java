@@ -20,8 +20,8 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.UrlNeedCuidSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
-import d.b.b.e.p.k;
-import d.b.b.e.p.q;
+import d.b.c.e.p.k;
+import d.b.c.e.p.q;
 import d.b.h0.s.g.b;
 import java.io.File;
 import java.net.URI;
@@ -30,48 +30,48 @@ import java.net.URISyntaxException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f51363a;
+    public final Context f51780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f51364b;
+    public c f51781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f51365c;
+    public d f51782c;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f51368f;
+    public b f51785f;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51366d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+    public String f51783d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51367e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f51366d;
+    public String f51784e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f51783d;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.InterfaceC1098b f51369g = new a();
+    public b.InterfaceC1111b f51786g = new a();
 
     /* loaded from: classes3.dex */
-    public class a implements b.InterfaceC1098b {
+    public class a implements b.InterfaceC1111b {
         public a() {
         }
 
-        @Override // d.b.h0.s.g.b.InterfaceC1098b
+        @Override // d.b.h0.s.g.b.InterfaceC1111b
         public void a(ShareItem shareItem) {
-            g.this.f51365c.a(g.this.q(shareItem, l.f11528a), 3, false);
+            g.this.f51782c.a(g.this.q(shareItem, l.f11112a), 3, false);
         }
     }
 
     public g(Context context, c cVar) {
         e eVar;
-        this.f51364b = null;
-        this.f51365c = null;
-        this.f51363a = context;
-        this.f51364b = cVar;
+        this.f51781b = null;
+        this.f51782c = null;
+        this.f51780a = context;
+        this.f51781b = cVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, e.class);
         if (runTask.getData() == null || (eVar = (e) runTask.getData()) == null) {
             return;
         }
-        this.f51365c = eVar.a(this.f51363a, this.f51364b);
+        this.f51782c = eVar.a(this.f51780a, this.f51781b);
     }
 
     public static String d(String str, String str2) {
@@ -140,83 +140,83 @@ public class g {
     }
 
     public void h(ShareItem shareItem) {
-        if (this.f51365c == null || shareItem == null) {
+        if (this.f51782c == null || shareItem == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 32, shareItem.Z ? this.f51366d : "");
-        this.f51365c.a(q(shareItem, Share.QQFRIEND), 8, true);
+        shareItem.s = c(shareItem.s, 80, 32, shareItem.Z ? this.f51783d : "");
+        this.f51782c.a(q(shareItem, Share.QQFRIEND), 8, true);
     }
 
     public void i(ShareItem shareItem) {
-        if (this.f51365c == null) {
+        if (this.f51782c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 32, shareItem.Z ? this.f51366d : "");
-        this.f51365c.a(q(shareItem, "qzone"), 4, true);
+        shareItem.s = c(shareItem.s, 80, 32, shareItem.Z ? this.f51783d : "");
+        this.f51782c.a(q(shareItem, "qzone"), 4, true);
     }
 
     public void j(ShareItem shareItem) {
-        if (this.f51365c == null) {
+        if (this.f51782c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.Z ? this.f51366d : "");
-        this.f51365c.a(q(shareItem, "renren"), 7, true);
+        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.Z ? this.f51783d : "");
+        this.f51782c.a(q(shareItem, "renren"), 7, true);
     }
 
     public void k(ShareItem shareItem) {
-        if (this.f51365c == null) {
+        if (this.f51782c == null) {
             return;
         }
         if (!d.b.h0.s.g.a.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
             BdToast.c(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).q();
             return;
         }
-        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.Z ? this.f51367e : "");
-        this.f51365c.a(q(shareItem, "sina_weibo"), 6, true);
+        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.Z ? this.f51784e : "");
+        this.f51782c.a(q(shareItem, "sina_weibo"), 6, true);
     }
 
     public void l(ShareItem shareItem) {
-        if (this.f51365c == null) {
+        if (this.f51782c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.Z ? this.f51366d : "");
-        this.f51365c.a(q(shareItem, "tencent_weibo"), 5, true);
+        shareItem.s = c(shareItem.s, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 20, shareItem.Z ? this.f51783d : "");
+        this.f51782c.a(q(shareItem, "tencent_weibo"), 5, true);
     }
 
     public void m(ShareItem shareItem) {
-        if (this.f51365c == null || shareItem == null) {
+        if (this.f51782c == null || shareItem == null) {
             return;
         }
         if (StringUtils.isNull(shareItem.J)) {
-            shareItem.s = c(shareItem.s, 80, 20, shareItem.Z ? this.f51366d : "");
+            shareItem.s = c(shareItem.s, 80, 20, shareItem.Z ? this.f51783d : "");
         }
         if (shareItem.d0 && !k.isEmpty(shareItem.c0)) {
             shareItem.v = Uri.parse(shareItem.c0);
-            this.f51365c.a(q(shareItem, l.f11528a), 3, false);
+            this.f51782c.a(q(shareItem, l.f11112a), 3, false);
         } else if (shareItem.d0 && k.isEmpty(shareItem.c0) && !k.isEmpty(shareItem.J) && !"0".equals(shareItem.J)) {
-            if (this.f51368f == null) {
+            if (this.f51785f == null) {
                 b bVar = new b();
-                this.f51368f = bVar;
-                bVar.c(this.f51369g);
+                this.f51785f = bVar;
+                bVar.c(this.f51786g);
             }
-            this.f51368f.b(shareItem);
+            this.f51785f.b(shareItem);
         } else {
             if (shareItem.y == 4) {
-                if (this.f51368f == null) {
-                    this.f51368f = new b();
+                if (this.f51785f == null) {
+                    this.f51785f = new b();
                 }
-                this.f51368f.b(shareItem);
+                this.f51785f.b(shareItem);
             }
-            this.f51365c.a(q(shareItem, l.f11528a), 3, false);
+            this.f51782c.a(q(shareItem, l.f11112a), 3, false);
         }
     }
 
     public void n(ShareItem shareItem) {
-        if (this.f51365c == null || shareItem == null) {
+        if (this.f51782c == null || shareItem == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 20, shareItem.Z ? this.f51366d : "");
-        this.f51365c.a(q(shareItem, Share.WEIXIN_TIMELINE), 2, false);
+        shareItem.s = c(shareItem.s, 80, 20, shareItem.Z ? this.f51783d : "");
+        this.f51782c.a(q(shareItem, Share.WEIXIN_TIMELINE), 2, false);
     }
 
     public final ShareItem q(ShareItem shareItem, String str) {
@@ -225,7 +225,7 @@ public class g {
         }
         Uri uri = shareItem.v;
         if ((uri == null || uri.equals("")) && shareItem.c() == null) {
-            str.startsWith(l.f11528a);
+            str.startsWith(l.f11112a);
             shareItem.v = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
         }
         Uri uri2 = shareItem.v;

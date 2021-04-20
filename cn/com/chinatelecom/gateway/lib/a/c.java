@@ -8,16 +8,16 @@ import kotlin.jvm.internal.ByteCompanionObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1504a = "c";
+    public static final String f1490a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f1505b = {1732584193, -271733879, -1732584194, 271733878, -1009589776};
+    public final int[] f1491b = {1732584193, -271733879, -1732584194, 271733878, -1009589776};
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f1506c = new int[5];
+    public int[] f1492c = new int[5];
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f1507d = new int[80];
+    public int[] f1493d = new int[80];
 
     private int a(int i, int i2) {
         return (i >>> (32 - i2)) | (i << i2);
@@ -33,48 +33,48 @@ public class c {
 
     private void a() {
         for (int i = 16; i <= 79; i++) {
-            int[] iArr = this.f1507d;
+            int[] iArr = this.f1493d;
             iArr[i] = a(((iArr[i - 3] ^ iArr[i - 8]) ^ iArr[i - 14]) ^ iArr[i - 16], 1);
         }
         int[] iArr2 = new int[5];
         for (int i2 = 0; i2 < 5; i2++) {
-            iArr2[i2] = this.f1506c[i2];
+            iArr2[i2] = this.f1492c[i2];
         }
         for (int i3 = 0; i3 <= 19; i3++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1507d[i3] + 1518500249;
+            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1493d[i3] + 1518500249;
         }
         for (int i4 = 20; i4 <= 39; i4++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1507d[i4] + 1859775393;
+            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f1493d[i4] + 1859775393;
         }
         for (int i5 = 40; i5 <= 59; i5++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1507d[i5]) - 1894007588;
+            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1493d[i5]) - 1894007588;
         }
         for (int i6 = 60; i6 <= 79; i6++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1507d[i6]) - 899497514;
+            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f1493d[i6]) - 899497514;
         }
         for (int i7 = 0; i7 < 5; i7++) {
-            int[] iArr3 = this.f1506c;
+            int[] iArr3 = this.f1492c;
             iArr3[i7] = iArr3[i7] + iArr2[i7];
         }
         int i8 = 0;
         while (true) {
-            int[] iArr4 = this.f1507d;
+            int[] iArr4 = this.f1493d;
             if (i8 >= iArr4.length) {
                 return;
             }
@@ -92,7 +92,7 @@ public class c {
 
     public static byte[] a(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            CtAuth.info(f1504a, "when getHmacSHA1,the key is null");
+            CtAuth.info(f1490a, "when getHmacSHA1,the key is null");
             return null;
         }
         try {
@@ -123,7 +123,7 @@ public class c {
             }
             return cVar.a(a(bArr2, cVar.a(a(bArr, e.b(str)))));
         } catch (Throwable th) {
-            CtAuth.warn(f1504a, "getHmacSHA1 error", th);
+            CtAuth.warn(f1490a, "getHmacSHA1 error", th);
             return null;
         }
     }
@@ -163,13 +163,13 @@ public class c {
     }
 
     private int c(byte[] bArr) {
-        int[] iArr = this.f1505b;
-        System.arraycopy(iArr, 0, this.f1506c, 0, iArr.length);
+        int[] iArr = this.f1491b;
+        System.arraycopy(iArr, 0, this.f1492c, 0, iArr.length);
         byte[] d2 = d(bArr);
         int length = d2.length / 64;
         for (int i = 0; i < length; i++) {
             for (int i2 = 0; i2 < 16; i2++) {
-                this.f1507d[i2] = a(d2, (i * 64) + (i2 * 4));
+                this.f1493d[i2] = a(d2, (i * 64) + (i2 * 4));
             }
             a();
         }
@@ -230,7 +230,7 @@ public class c {
         byte[] bArr2 = new byte[20];
         int i = 0;
         while (true) {
-            int[] iArr = this.f1506c;
+            int[] iArr = this.f1492c;
             if (i >= iArr.length) {
                 return bArr2;
             }

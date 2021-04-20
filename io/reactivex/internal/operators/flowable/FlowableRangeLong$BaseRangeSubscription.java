@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.x.i.b;
+import f.b.x.i.b;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 /* loaded from: classes7.dex */
@@ -20,14 +20,14 @@ public abstract class FlowableRangeLong$BaseRangeSubscription extends BasicQueue
         this.cancelled = true;
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final void clear() {
         this.index = this.end;
     }
 
     public abstract void fastPath();
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final boolean isEmpty() {
         return this.index == this.end;
     }
@@ -43,7 +43,7 @@ public abstract class FlowableRangeLong$BaseRangeSubscription extends BasicQueue
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.c
     public final int requestFusion(int i) {
         return i & 1;
     }
@@ -51,7 +51,7 @@ public abstract class FlowableRangeLong$BaseRangeSubscription extends BasicQueue
     public abstract void slowPath(long j);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicQueueSubscription, f.b.x.c.f
     public final Long poll() {
         long j = this.index;
         if (j == this.end) {

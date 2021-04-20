@@ -1,6 +1,6 @@
 package io.reactivex.processors;
 
-import f.a.b0.a;
+import f.b.b0.a;
 import g.d.c;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 /* loaded from: classes7.dex */
@@ -32,7 +32,7 @@ public final class AsyncProcessor<T> extends a<T> {
 
         public void onError(Throwable th) {
             if (isCancelled()) {
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             } else {
                 this.actual.onError(th);
             }

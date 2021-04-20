@@ -11,31 +11,31 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9945a = true;
+    public static boolean f9503a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9946b;
+    public Context f9504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.d.a.a f9947c;
+    public com.baidu.platform.comapi.walknavi.d.a.a f9505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.d.a.f.b f9948d;
+    public com.baidu.platform.comapi.walknavi.d.a.f.b f9506d;
 
     /* renamed from: f  reason: collision with root package name */
-    public C0122b f9950f;
+    public C0121b f9508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f9951g;
+    public a f9509g;
     public com.baidu.platform.comapi.walknavi.d.a.a.b i;
     public com.baidu.platform.comapi.walknavi.d.a.d.b l;
     public f m;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.d.a.f.c f9949e = null;
+    public com.baidu.platform.comapi.walknavi.d.a.f.c f9507e = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.platform.comapi.walknavi.d.a.a.a f9952h = new com.baidu.platform.comapi.walknavi.d.a.a.a();
+    public com.baidu.platform.comapi.walknavi.d.a.a.a f9510h = new com.baidu.platform.comapi.walknavi.d.a.a.a();
     public c j = c.INITIAL_STATE;
     public boolean k = false;
 
@@ -43,19 +43,19 @@ public class b {
     public static class a implements com.baidu.platform.comapi.walknavi.d.a.f.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public SoftReference<b> f9953a;
+        public SoftReference<b> f9511a;
 
         public a(b bVar) {
-            this.f9953a = new SoftReference<>(bVar);
+            this.f9511a = new SoftReference<>(bVar);
         }
 
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.f.a
         public void b(String str) {
             try {
-                if (this.f9953a.get() != null) {
-                    this.f9953a.get().j = c.DOWNLOAD_FINISHED;
-                    if (this.f9953a.get().f9947c != null) {
-                        this.f9953a.get().f9947c.a(6, str);
+                if (this.f9511a.get() != null) {
+                    this.f9511a.get().j = c.DOWNLOAD_FINISHED;
+                    if (this.f9511a.get().f9505c != null) {
+                        this.f9511a.get().f9505c.a(6, str);
                     }
                 }
             } catch (Exception e2) {
@@ -68,12 +68,12 @@ public class b {
         public void a(String str) {
             try {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("download res finished");
-                if (this.f9953a.get() != null) {
-                    this.f9953a.get().j = c.DOWNLOAD_FINISHED;
-                    if (this.f9953a.get().f9947c != null) {
-                        this.f9953a.get().f9947c.a(0, str);
-                        if (this.f9953a.get().i != null) {
-                            this.f9953a.get().m.a(this.f9953a.get().i.c(), str);
+                if (this.f9511a.get() != null) {
+                    this.f9511a.get().j = c.DOWNLOAD_FINISHED;
+                    if (this.f9511a.get().f9505c != null) {
+                        this.f9511a.get().f9505c.a(0, str);
+                        if (this.f9511a.get().i != null) {
+                            this.f9511a.get().m.a(this.f9511a.get().i.c(), str);
                         }
                     }
                 }
@@ -83,16 +83,16 @@ public class b {
         }
 
         private int b(int i) {
-            return (this.f9953a.get() == null || !this.f9953a.get().k) ? i : (i / 2) + 50;
+            return (this.f9511a.get() == null || !this.f9511a.get().k) ? i : (i / 2) + 50;
         }
 
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.a
         public void a(int i) {
             try {
-                if (this.f9953a.get() == null || this.f9953a.get().f9947c == null) {
+                if (this.f9511a.get() == null || this.f9511a.get().f9505c == null) {
                     return;
                 }
-                this.f9953a.get().f9947c.a(b(i));
+                this.f9511a.get().f9505c.a(b(i));
             } catch (Exception e2) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("download onProgress exception: " + e2.getMessage());
             }
@@ -101,14 +101,14 @@ public class b {
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.a
         public void a(boolean z, float f2) {
             try {
-                if (this.f9953a.get() != null) {
-                    this.f9953a.get().j = c.DOWNLOAD_FINISHED;
-                    if (this.f9953a.get().f9947c != null) {
+                if (this.f9511a.get() != null) {
+                    this.f9511a.get().j = c.DOWNLOAD_FINISHED;
+                    if (this.f9511a.get().f9505c != null) {
                         com.baidu.platform.comapi.walknavi.d.a.g.a.a("isUpdate=" + z + ", size=" + f2);
-                        if (this.f9953a.get().l != null && this.f9953a.get().i != null && this.f9953a.get().l.a(this.f9953a.get().i.h())) {
+                        if (this.f9511a.get().l != null && this.f9511a.get().i != null && this.f9511a.get().l.a(this.f9511a.get().i.h())) {
                             z = true;
                         }
-                        this.f9953a.get().f9947c.a(z, f2);
+                        this.f9511a.get().f9505c.a(z, f2);
                     }
                 }
             } catch (Exception e2) {
@@ -118,10 +118,10 @@ public class b {
 
         public void a() {
             try {
-                if (this.f9953a.get() != null) {
-                    this.f9953a.get().j = c.INITIAL_STATE;
+                if (this.f9511a.get() != null) {
+                    this.f9511a.get().j = c.INITIAL_STATE;
                 }
-                this.f9953a.clear();
+                this.f9511a.clear();
             } catch (Exception e2) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("download destroy exception: " + e2.getMessage());
             }
@@ -130,25 +130,25 @@ public class b {
 
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0122b implements f.a<JSONObject> {
+    public static class C0121b implements f.a<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public SoftReference<b> f9954a;
+        public SoftReference<b> f9512a;
 
-        public C0122b(b bVar) {
-            this.f9954a = new SoftReference<>(bVar);
+        public C0121b(b bVar) {
+            this.f9512a = new SoftReference<>(bVar);
         }
 
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.f.a
         public void b(String str) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("http error msg = " + str);
             try {
-                if (this.f9954a.get() != null) {
-                    this.f9954a.get().j = c.INITIAL_STATE;
-                    if (this.f9954a.get().f9947c != null) {
-                        this.f9954a.get().f9947c.a(5, str);
+                if (this.f9512a.get() != null) {
+                    this.f9512a.get().j = c.INITIAL_STATE;
+                    if (this.f9512a.get().f9505c != null) {
+                        this.f9512a.get().f9505c.a(5, str);
                     }
-                    this.f9954a.get().f9949e = null;
+                    this.f9512a.get().f9507e = null;
                 }
             } catch (Exception e2) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("query onErrorResponse exception: " + e2.getMessage());
@@ -159,8 +159,8 @@ public class b {
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.f.a
         public void a(JSONObject jSONObject) {
             try {
-                if (this.f9954a.get() != null) {
-                    this.f9954a.get().a(jSONObject);
+                if (this.f9512a.get() != null) {
+                    this.f9512a.get().a(jSONObject);
                 }
             } catch (Exception e2) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("query onResponse exception: " + e2.getMessage());
@@ -169,10 +169,10 @@ public class b {
 
         public void a() {
             try {
-                if (this.f9954a.get() != null) {
-                    this.f9954a.get().j = c.INITIAL_STATE;
+                if (this.f9512a.get() != null) {
+                    this.f9512a.get().j = c.INITIAL_STATE;
                 }
-                this.f9954a.clear();
+                this.f9512a.clear();
             } catch (Exception e2) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("query destroy exception: " + e2.getMessage());
             }
@@ -188,19 +188,19 @@ public class b {
     }
 
     public b(Context context) {
-        this.f9946b = context;
+        this.f9504b = context;
         this.l = new com.baidu.platform.comapi.walknavi.d.a.d.b(context);
-        this.m = new f(this.f9946b);
-        com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9946b.getPackageName());
+        this.m = new f(this.f9504b);
+        com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9504b.getPackageName());
     }
 
     private void h() {
-        com.baidu.platform.comapi.walknavi.d.a.f.b bVar = this.f9948d;
+        com.baidu.platform.comapi.walknavi.d.a.f.b bVar = this.f9506d;
         if (bVar != null) {
             bVar.cancel(true);
-            this.f9948d = null;
+            this.f9506d = null;
         }
-        a aVar = this.f9951g;
+        a aVar = this.f9509g;
         if (aVar != null) {
             aVar.a();
         }
@@ -215,20 +215,20 @@ public class b {
         c cVar = this.j;
         if (cVar != c.INITIAL_STATE && cVar != c.DOWNLOAD_FINISHED) {
             if (cVar == c.QUERYING) {
-                com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9947c;
+                com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9505c;
                 if (aVar2 != null) {
                     aVar2.a(7, "query in progress");
                     return;
                 }
                 return;
-            } else if (cVar != c.DOWNLOADING || (aVar = this.f9947c) == null) {
+            } else if (cVar != c.DOWNLOADING || (aVar = this.f9505c) == null) {
                 return;
             } else {
                 aVar.a(8, "download in progress");
                 return;
             }
         }
-        a(this.f9952h);
+        a(this.f9510h);
     }
 
     private void d() {
@@ -238,7 +238,7 @@ public class b {
         } else if (TextUtils.isEmpty(bVar.d())) {
         } else {
             this.j = c.DOWNLOADING;
-            this.f9951g = new a(this);
+            this.f9509g = new a(this);
             e();
         }
     }
@@ -249,7 +249,7 @@ public class b {
         if (bVar == null) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("ERROR!! bundle data is null");
         } else if (TextUtils.isEmpty(bVar.h())) {
-            this.f9951g.b("so url is null");
+            this.f9509g.b("so url is null");
         } else {
             this.l.a(new com.baidu.platform.comapi.walknavi.d.a.c(this));
             this.l.b(bVar.h());
@@ -258,32 +258,32 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f9948d = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.i.c(), this.i.e(), this.i.d(), com.baidu.platform.comapi.walknavi.d.a.g.d.f10007d, this.f9951g);
+        this.f9506d = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.i.c(), this.i.e(), this.i.d(), com.baidu.platform.comapi.walknavi.d.a.g.d.f9565d, this.f9509g);
     }
 
     private void g() {
-        com.baidu.platform.comapi.walknavi.d.a.f.c cVar = this.f9949e;
+        com.baidu.platform.comapi.walknavi.d.a.f.c cVar = this.f9507e;
         if (cVar != null) {
             cVar.a();
-            this.f9949e = null;
+            this.f9507e = null;
         }
-        C0122b c0122b = this.f9950f;
-        if (c0122b != null) {
-            c0122b.a();
+        C0121b c0121b = this.f9508f;
+        if (c0121b != null) {
+            c0121b.a();
         }
     }
 
     public void b(String str, com.baidu.platform.comapi.walknavi.d.a.a aVar) {
         b();
-        f9945a = false;
-        this.f9952h.a(str);
-        this.f9952h.a(4);
-        this.f9947c = aVar;
-        if (g.a(this.f9946b) != null) {
+        f9503a = false;
+        this.f9510h.a(str);
+        this.f9510h.a(4);
+        this.f9505c = aVar;
+        if (g.a(this.f9504b) != null) {
             c();
             return;
         }
-        com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9947c;
+        com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9505c;
         if (aVar2 != null) {
             aVar2.a(1, "no network");
         }
@@ -291,15 +291,15 @@ public class b {
 
     public void a(String str, com.baidu.platform.comapi.walknavi.d.a.a aVar) {
         b();
-        f9945a = true;
-        this.f9952h.a(str);
-        this.f9952h.a(4);
-        this.f9947c = aVar;
-        if (g.a(this.f9946b) != null) {
+        f9503a = true;
+        this.f9510h.a(str);
+        this.f9510h.a(4);
+        this.f9505c = aVar;
+        if (g.a(this.f9504b) != null) {
             c();
             return;
         }
-        com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9947c;
+        com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9505c;
         if (aVar2 != null) {
             aVar2.a(1, "no network");
         }
@@ -341,10 +341,10 @@ public class b {
 
     private void a(com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
         this.j = c.QUERYING;
-        C0122b c0122b = new C0122b(this);
-        this.f9950f = c0122b;
-        com.baidu.platform.comapi.walknavi.d.a.f.c a2 = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.f9946b, aVar, c0122b);
-        this.f9949e = a2;
+        C0121b c0121b = new C0121b(this);
+        this.f9508f = c0121b;
+        com.baidu.platform.comapi.walknavi.d.a.f.c a2 = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.f9504b, aVar, c0121b);
+        this.f9507e = a2;
         if (a2 == null) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("Http Request Occur Error! Please Check");
         }
@@ -360,40 +360,40 @@ public class b {
         }
         com.baidu.platform.comapi.walknavi.d.a.a.b a2 = com.baidu.platform.comapi.walknavi.d.a.c.a.a(jSONObject);
         this.i = a2;
-        if (a2 == null && (aVar = this.f9947c) != null) {
+        if (a2 == null && (aVar = this.f9505c) != null) {
             aVar.a(-1, "ar resource is null");
         }
         if (this.i.a() != 0) {
             this.j = c.INITIAL_STATE;
             int a3 = this.i.a();
             if (a3 == 1051) {
-                com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9947c;
+                com.baidu.platform.comapi.walknavi.d.a.a aVar2 = this.f9505c;
                 if (aVar2 != null) {
                     aVar2.a(3, this.i.b());
                 }
             } else if (a3 != 1052) {
-                com.baidu.platform.comapi.walknavi.d.a.a aVar3 = this.f9947c;
+                com.baidu.platform.comapi.walknavi.d.a.a aVar3 = this.f9505c;
                 if (aVar3 != null) {
                     aVar3.a(-1, this.i.b());
                 }
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("error code = " + this.i.a() + ", error msg = " + this.i.b());
             } else {
-                com.baidu.platform.comapi.walknavi.d.a.a aVar4 = this.f9947c;
+                com.baidu.platform.comapi.walknavi.d.a.a aVar4 = this.f9505c;
                 if (aVar4 != null) {
                     aVar4.a(4, this.i.b());
                 }
             }
-            this.f9949e = null;
+            this.f9507e = null;
         } else if (!this.i.f() && this.i.g()) {
-            this.f9949e = null;
+            this.f9507e = null;
             d();
         } else {
             this.j = c.INITIAL_STATE;
-            com.baidu.platform.comapi.walknavi.d.a.a aVar5 = this.f9947c;
+            com.baidu.platform.comapi.walknavi.d.a.a aVar5 = this.f9505c;
             if (aVar5 != null) {
                 aVar5.a(2, "not support AR");
             }
-            this.f9949e = null;
+            this.f9507e = null;
         }
     }
 }

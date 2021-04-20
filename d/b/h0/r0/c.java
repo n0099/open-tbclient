@@ -22,13 +22,13 @@ import com.baidu.tbadk.switchs.NetDeleteSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.StringU;
 import com.baidu.util.Base64Encoder;
-import d.b.b.e.p.j;
-import d.b.b.e.p.q;
+import d.b.c.e.p.j;
+import d.b.c.e.p.q;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
-public class c extends d.b.b.c.f.d {
+public class c extends d.b.c.c.f.d {
     public c(int i) {
         super(i);
     }
@@ -218,7 +218,7 @@ public class c extends d.b.b.c.f.d {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // d.b.b.c.f.f
+    @Override // d.b.c.c.f.f
     public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         HttpMessage httpMessage2 = httpMessage;
         h(httpMessage2, httpMessageTask);

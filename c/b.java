@@ -8,46 +8,46 @@ import java.util.concurrent.Executors;
 public final class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f1459c = new b();
+    public static final b f1445c = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f1460a;
+    public final ExecutorService f1446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f1461b;
+    public final Executor f1447b;
 
     /* renamed from: c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ExecutorC0013b implements Executor {
+    public static class ExecutorC0012b implements Executor {
 
         /* renamed from: e  reason: collision with root package name */
-        public ThreadLocal<Integer> f1462e;
+        public ThreadLocal<Integer> f1448e;
 
-        public ExecutorC0013b() {
-            this.f1462e = new ThreadLocal<>();
+        public ExecutorC0012b() {
+            this.f1448e = new ThreadLocal<>();
         }
 
         public final int a() {
-            Integer num = this.f1462e.get();
+            Integer num = this.f1448e.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.f1462e.remove();
+                this.f1448e.remove();
             } else {
-                this.f1462e.set(Integer.valueOf(intValue));
+                this.f1448e.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
 
         public final int b() {
-            Integer num = this.f1462e.get();
+            Integer num = this.f1448e.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.f1462e.set(Integer.valueOf(intValue));
+            this.f1448e.set(Integer.valueOf(intValue));
             return intValue;
         }
 
@@ -66,17 +66,17 @@ public final class b {
     }
 
     public b() {
-        this.f1460a = !c() ? Executors.newCachedThreadPool() : c.a.b();
+        this.f1446a = !c() ? Executors.newCachedThreadPool() : c.a.b();
         Executors.newSingleThreadScheduledExecutor();
-        this.f1461b = new ExecutorC0013b();
+        this.f1447b = new ExecutorC0012b();
     }
 
     public static ExecutorService a() {
-        return f1459c.f1460a;
+        return f1445c.f1446a;
     }
 
     public static Executor b() {
-        return f1459c.f1461b;
+        return f1445c.f1447b;
     }
 
     public static boolean c() {

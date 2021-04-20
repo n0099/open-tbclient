@@ -1,9 +1,9 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.w.h;
-import f.a.x.c.f;
-import f.a.x.e.a.d;
+import f.b.g;
+import f.b.w.h;
+import f.b.x.c.f;
+import f.b.x.e.a.d;
 import g.d.b;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -36,16 +36,16 @@ public abstract class FlowableConcatMap$BaseConcatMapSubscriber<T, R> extends At
 
     public abstract void drain();
 
-    @Override // f.a.x.e.a.d
+    @Override // f.b.x.e.a.d
     public final void innerComplete() {
         this.active = false;
         drain();
     }
 
-    @Override // f.a.x.e.a.d
+    @Override // f.b.x.e.a.d
     public abstract /* synthetic */ void innerError(Throwable th);
 
-    @Override // f.a.x.e.a.d
+    @Override // f.b.x.e.a.d
     public abstract /* synthetic */ void innerNext(T t);
 
     @Override // g.d.c
@@ -67,12 +67,12 @@ public abstract class FlowableConcatMap$BaseConcatMapSubscriber<T, R> extends At
         drain();
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public final void onSubscribe(g.d.d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.sourceMode = requestFusion;

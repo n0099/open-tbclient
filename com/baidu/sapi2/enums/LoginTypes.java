@@ -6,21 +6,21 @@ public enum LoginTypes {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11217a;
+    public int f10801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11218b;
+    public String f10802b;
 
     LoginTypes(int i, String str) {
-        this.f11217a = i;
-        this.f11218b = str;
+        this.f10801a = i;
+        this.f10802b = str;
     }
 
     public String getName() {
-        return this.f11218b;
+        return this.f10802b;
     }
 
     public int getType() {
-        return this.f11217a;
+        return this.f10801a;
     }
 }

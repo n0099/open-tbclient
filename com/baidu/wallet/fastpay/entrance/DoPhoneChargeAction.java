@@ -3,6 +3,7 @@ package com.baidu.wallet.fastpay.entrance;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 public class DoPhoneChargeAction implements RouterAction {
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f24365a;
+    public LoginBackListenerProxy f24050a;
 
     @Override // com.baidu.wallet.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
@@ -50,13 +51,13 @@ public class DoPhoneChargeAction implements RouterAction {
             if (context instanceof Activity) {
                 LogUtil.d("DoPhoneChargeAction", "context is activity!");
             } else {
-                intent.setFlags(268435456);
+                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
-            this.f24365a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
+            this.f24050a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i, String str) {
                     if (i == 603) {
-                        WalletLoginHelper.getInstance().onlyLogin(DoPhoneChargeAction.this.f24365a);
+                        WalletLoginHelper.getInstance().onlyLogin(DoPhoneChargeAction.this.f24050a);
                         return;
                     }
                     context.startActivity(intent);
@@ -83,7 +84,7 @@ public class DoPhoneChargeAction implements RouterAction {
                     }
                 }
             });
-            WalletLoginHelper.getInstance().verifyPassLogin(true, this.f24365a);
+            WalletLoginHelper.getInstance().verifyPassLogin(true, this.f24050a);
         }
     }
 }

@@ -14,14 +14,14 @@ public final class o {
             return null;
         }
         n nVar = new n();
-        nVar.f37263a = jSONObject.optInt("rateType", nVar.f37263a);
-        nVar.f37264b = jSONObject.optInt("bwEstimateType", nVar.f37264b);
-        nVar.f37265c = jSONObject.optInt("absLowResLowDevice", nVar.f37265c);
-        nVar.f37266d = jSONObject.optInt("adapt4G", nVar.f37266d);
-        nVar.f37267e = jSONObject.optInt("adaptWifi", nVar.f37267e);
-        nVar.f37268f = jSONObject.optDouble("adaptOtherNet", nVar.f37268f);
-        nVar.f37269g = jSONObject.optInt("absLowRate4G", nVar.f37269g);
-        nVar.f37270h = jSONObject.optInt("absLowRateWifi", nVar.f37270h);
+        nVar.f37552a = jSONObject.optInt("rateType", nVar.f37552a);
+        nVar.f37553b = jSONObject.optInt("bwEstimateType", nVar.f37553b);
+        nVar.f37554c = jSONObject.optInt("absLowResLowDevice", nVar.f37554c);
+        nVar.f37555d = jSONObject.optInt("adapt4G", nVar.f37555d);
+        nVar.f37556e = jSONObject.optInt("adaptWifi", nVar.f37556e);
+        nVar.f37557f = jSONObject.optDouble("adaptOtherNet", nVar.f37557f);
+        nVar.f37558g = jSONObject.optInt("absLowRate4G", nVar.f37558g);
+        nVar.f37559h = jSONObject.optInt("absLowRateWifi", nVar.f37559h);
         nVar.i = jSONObject.optDouble("absLowRes4G", nVar.i);
         nVar.j = jSONObject.optDouble("absLowResWifi", nVar.j);
         nVar.k = jSONObject.optDouble("shortKeepInterval", nVar.k);

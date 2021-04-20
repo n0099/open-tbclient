@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
-import d.b.b.e.p.j;
-import d.b.i0.l1.c;
-import d.b.i0.l1.f;
+import d.b.c.e.p.j;
+import d.b.i0.m1.c;
+import d.b.i0.m1.f;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
@@ -38,7 +38,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, d.b.i0.l1.k.b.a aVar) {
+        public void a(int i, String str, d.b.i0.m1.k.b.a aVar) {
             AlaShareInBarEmptyActivity.this.closeLoadingDialog();
             if (i == 0 && aVar != null) {
                 BdToast.h(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(f.share_alert_success), c.icon_pure_toast_succeed40_svg, 3000, true).q();

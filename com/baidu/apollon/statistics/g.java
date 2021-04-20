@@ -13,28 +13,28 @@ import org.json.JSONTokener;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3873a = "wifi";
+    public static final String f3908a = "wifi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3874b = "3G";
+    public static final String f3909b = "3G";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3875c = "time";
+    public static final String f3910c = "time";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3876d = "count";
+    public static final String f3911d = "count";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3877e = "now";
+    public static final String f3912e = "now";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3878f = "never";
+    public static final String f3913f = "never";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3879g = "now";
+    public static final String f3914g = "now";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3880h = "strategy_timestamp";
+    public static final String f3915h = "strategy_timestamp";
     public static final int i = 0;
     public static final int j = 200;
     public static final String k = "g";
@@ -58,11 +58,11 @@ public class g {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f3881a = new g();
+        public static final g f3916a = new g();
     }
 
     public static g a() {
-        return a.f3881a;
+        return a.f3916a;
     }
 
     private void c(String str) {
@@ -71,7 +71,7 @@ public class g {
         }
         try {
             JSONObject jSONObject = (JSONObject) new JSONTokener(str).nextValue();
-            jSONObject.put(f3880h, System.currentTimeMillis());
+            jSONObject.put(f3915h, System.currentTimeMillis());
             BasicStoreTools.getInstance().setStrategy(this.q, jSONObject.toString());
             this.r = jSONObject;
         } catch (Exception e2) {
@@ -88,7 +88,7 @@ public class g {
 
     private void g() {
         JSONObject jSONObject = this.r;
-        if (jSONObject != null && jSONObject.has(f3880h)) {
+        if (jSONObject != null && jSONObject.has(f3915h)) {
             synchronized (this.u) {
                 JSONObject optJSONObject = this.r.optJSONObject("data");
                 if (optJSONObject == null) {
@@ -97,7 +97,7 @@ public class g {
                 boolean z = true;
                 if (optJSONObject != null) {
                     this.v = optJSONObject.optInt("wifi", 1);
-                    this.w = optJSONObject.optInt(f3874b, 5);
+                    this.w = optJSONObject.optInt(f3909b, 5);
                     if (1 == optJSONObject.optInt(PackageTable.DISABLE, 0)) {
                         z = false;
                     }
@@ -110,7 +110,7 @@ public class g {
                         }
                     }
                     Arrays.sort(this.x);
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(f3878f);
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(f3913f);
                     this.y = optJSONArray2 == null ? new String[0] : new String[optJSONArray2.length()];
                     for (int i3 = 0; i3 < this.y.length; i3++) {
                         this.y[i3] = optJSONArray2.optString(i3);
@@ -136,11 +136,11 @@ public class g {
     public boolean b() {
         long j2;
         JSONObject jSONObject = this.r;
-        if (jSONObject == null || !jSONObject.has(f3880h)) {
+        if (jSONObject == null || !jSONObject.has(f3915h)) {
             return true;
         }
         try {
-            j2 = this.r.getLong(f3880h);
+            j2 = this.r.getLong(f3915h);
         } catch (Exception e2) {
             e2.printStackTrace();
             j2 = 0;
@@ -240,11 +240,11 @@ public class g {
     }
 
     public boolean a(e eVar) {
-        if (this.s != null && eVar != null && !TextUtils.isEmpty(eVar.f3870h)) {
+        if (this.s != null && eVar != null && !TextUtils.isEmpty(eVar.f3905h)) {
             synchronized (this.u) {
-                if (this.s.has(eVar.f3870h)) {
+                if (this.s.has(eVar.f3905h)) {
                     try {
-                        JSONObject optJSONObject = this.s.optJSONObject(eVar.f3870h);
+                        JSONObject optJSONObject = this.s.optJSONObject(eVar.f3905h);
                         if (optJSONObject == null) {
                             return true;
                         }

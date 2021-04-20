@@ -23,25 +23,25 @@ import org.json.JSONObject;
 public class s implements j0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45435a = d.b.g0.a.k.f45051a;
+    public static final boolean f45827a = d.b.g0.a.k.f45443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f45436b = 0;
+    public static int f45828b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f45437c = 1;
+    public static int f45829c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f45438d = 2;
+    public static int f45830d = 2;
 
     /* loaded from: classes2.dex */
     public class a implements d.b.g0.a.o1.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.i f45439a;
+        public final /* synthetic */ a.i f45831a;
 
         public a(a.i iVar) {
-            this.f45439a = iVar;
+            this.f45831a = iVar;
         }
 
         @Override // d.b.g0.a.o1.a
@@ -51,21 +51,21 @@ public class s implements j0 {
                 if (jSONObject.optInt("errno") == 0) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optJSONObject != null) {
-                        this.f45439a.a(optJSONObject.optString("tip"), s.this.i(optJSONObject.optJSONArray("list")), false);
+                        this.f45831a.a(optJSONObject.optString("tip"), s.this.i(optJSONObject.optJSONArray("list")), false);
                         return;
                     }
                 } else {
                     str = jSONObject.optString("tipmsg");
-                    this.f45439a.a(str, null, false);
+                    this.f45831a.a(str, null, false);
                 }
             }
             str = null;
-            this.f45439a.a(str, null, false);
+            this.f45831a.a(str, null, false);
         }
 
         @Override // d.b.g0.a.o1.a
         public void onFail(String str) {
-            this.f45439a.a(str, null, false);
+            this.f45831a.a(str, null, false);
         }
     }
 
@@ -74,17 +74,17 @@ public class s implements j0 {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.b.g0.a.o1.a f45441a;
+        public final d.b.g0.a.o1.a f45833a;
 
         public b(@Nullable d.b.g0.a.o1.a aVar) {
-            this.f45441a = aVar;
+            this.f45833a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i) {
-            d.b.g0.a.o1.a aVar = this.f45441a;
+            d.b.g0.a.o1.a aVar = this.f45833a;
             if (aVar == null) {
                 return;
             }
@@ -103,7 +103,7 @@ public class s implements j0 {
                 return null;
             }
             String string = response.body().string();
-            if (s.f45435a) {
+            if (s.f45827a) {
                 Log.d("SwanAppPushIdImpl", "statusCode:" + i + ", response=" + string);
             }
             if (TextUtils.isEmpty(string)) {
@@ -114,10 +114,10 @@ public class s implements j0 {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (s.f45435a) {
+            if (s.f45827a) {
                 Log.e("SwanAppPushIdImpl", "SimpleResponseCallback", exc);
             }
-            d.b.g0.a.o1.a aVar = this.f45441a;
+            d.b.g0.a.o1.a aVar = this.f45833a;
             if (aVar != null) {
                 aVar.onFail(exc.toString());
             }
@@ -148,7 +148,7 @@ public class s implements j0 {
     public void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.i iVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(com.alipay.sdk.cons.b.f1858h, str);
+            jSONObject.put(com.alipay.sdk.cons.b.f1883h, str);
             JSONArray jSONArray = new JSONArray();
             if (set != null && set.size() > 0) {
                 for (String str2 : set) {
@@ -157,7 +157,7 @@ public class s implements j0 {
             }
             jSONObject.put("template_ids", jSONArray);
         } catch (JSONException e2) {
-            if (f45435a) {
+            if (f45827a) {
                 e2.printStackTrace();
             }
         }
@@ -176,7 +176,7 @@ public class s implements j0 {
     public void c(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, d.b.g0.a.n0.b bVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(com.alipay.sdk.cons.b.f1858h, str);
+            jSONObject.put(com.alipay.sdk.cons.b.f1883h, str);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("sub_id", str2);
             if (z) {
@@ -192,21 +192,21 @@ public class s implements j0 {
             jSONArray2.put(jSONObject2);
             jSONObject.put("detail", jSONArray2);
         } catch (JSONException e2) {
-            if (f45435a) {
+            if (f45827a) {
                 e2.printStackTrace();
             }
         }
-        SwanAppNetworkUtils.k(h(f45438d), jSONObject.toString(), new b(bVar));
+        SwanAppNetworkUtils.k(h(f45830d), jSONObject.toString(), new b(bVar));
     }
 
     @Override // d.b.g0.a.p.c.j0
     public void d(String str, d.b.g0.a.i1.g.a aVar) {
-        o(h(f45437c), str, aVar);
+        o(h(f45829c), str, aVar);
     }
 
     @Override // d.b.g0.a.p.c.j0
     public void e(@NonNull String str, d.b.g0.a.n0.b bVar) {
-        String h2 = h(f45436b);
+        String h2 = h(f45828b);
         ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) d.b.g0.k.e.a.f().postFormRequest().url(h2)).cookieManager(d.b.g0.a.w0.a.m().a())).addParam("appkey", str).build().executeAsyncOnUIBack(new b(bVar));
     }
 
@@ -216,10 +216,10 @@ public class s implements j0 {
         String str;
         String str2 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
         String str3 = "delta=smartapp_formid";
-        if (i == f45436b) {
+        if (i == f45828b) {
             sb = new StringBuilder(k());
             str = "rasign=" + d.b.g0.a.b0.b.b().c(seconds);
-        } else if (i == f45438d) {
+        } else if (i == f45830d) {
             sb = new StringBuilder(l());
             str = "rasign=" + d.b.g0.a.b0.b.b().c(seconds);
         } else {

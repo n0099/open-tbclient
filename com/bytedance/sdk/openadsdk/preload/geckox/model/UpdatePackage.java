@@ -5,7 +5,7 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UpdatePackage {
     public String accessKey;
     @c(a = "channel")
@@ -23,7 +23,7 @@ public class UpdatePackage {
     public long version;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Content {
         @c(a = "package")
         public Package fullPackage;
@@ -34,7 +34,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileType {
         public static final int COMPRESSED_FILE = 0;
         public static final int MY_ARCHIVE_FILE = 2;
@@ -42,7 +42,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Package {
         @c(a = "id")
         public long id;
@@ -106,7 +106,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Strategy {
         @c(a = "del_if_download_failed")
         public boolean deleteIfFail;

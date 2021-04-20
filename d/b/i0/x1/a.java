@@ -1,58 +1,16 @@
 package d.b.i0.x1;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import d.b.i0.c1.c.d;
+import d.b.i0.c1.c.e;
 /* loaded from: classes3.dex */
-public class a {
+public interface a {
+    void netCallback(int i, e eVar);
 
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile a f62331b;
+    void netLoadMoreCallback(int i, d dVar);
 
-    /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f62332a;
+    void netPkCallback(int i, long j, long j2, int i2);
 
-    /* renamed from: d.b.i0.x1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1656a implements FileFilter {
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            return Pattern.matches("cpu[0-9]", file.getName());
-        }
-    }
+    void refreshFullData(int i);
 
-    public a() {
-        int c2 = c();
-        c2 = c2 <= 0 ? 1 : c2;
-        int i = c2 > 4 ? 4 : c2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f62332a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-    }
-
-    public static a b() {
-        if (f62331b == null) {
-            synchronized (a.class) {
-                if (f62331b == null) {
-                    f62331b = new a();
-                }
-            }
-        }
-        return f62331b;
-    }
-
-    public void a(Runnable runnable) {
-        this.f62332a.execute(runnable);
-    }
-
-    public final int c() {
-        try {
-            return new File("/sys/devices/system/cpu/").listFiles(new C1656a()).length;
-        } catch (Exception unused) {
-            return 1;
-        }
-    }
+    void shareTopic(e eVar);
 }

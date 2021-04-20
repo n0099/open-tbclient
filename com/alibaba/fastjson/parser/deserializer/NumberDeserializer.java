@@ -2,6 +2,7 @@ package com.alibaba.fastjson.parser.deserializer;
 
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
+import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
@@ -11,9 +12,7 @@ import java.math.BigDecimal;
 public class NumberDeserializer implements ObjectDeserializer {
     public static final NumberDeserializer instance = new NumberDeserializer();
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: java.lang.StringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.math.BigDecimal, T, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r9v24, types: [java.math.BigDecimal, T] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         JSONLexer jSONLexer = defaultJSONParser.lexer;
@@ -42,15 +41,19 @@ public class NumberDeserializer implements ObjectDeserializer {
             return (T) Double.valueOf(Double.parseDouble(numberString));
         } else if (jSONLexer.token() == 3) {
             if (type != Double.TYPE && type != Double.class) {
-                ?? r1 = (T) jSONLexer.decimalValue();
-                jSONLexer.nextToken(16);
                 if (type != Short.TYPE && type != Short.class) {
-                    return (type == Byte.TYPE || type == Byte.class) ? (T) Byte.valueOf(r1.byteValue()) : r1;
-                } else if (r1.compareTo(BigDecimal.valueOf(32767L)) <= 0 && r1.compareTo(BigDecimal.valueOf(-32768L)) >= 0) {
-                    return (T) Short.valueOf(r1.shortValue());
-                } else {
-                    throw new JSONException("short overflow : " + ((Object) r1));
+                    if (type != Byte.TYPE && type != Byte.class) {
+                        ?? r9 = (T) jSONLexer.decimalValue();
+                        jSONLexer.nextToken(16);
+                        return jSONLexer.isEnabled(Feature.UseBigDecimal) ? r9 : (T) Double.valueOf(r9.doubleValue());
+                    }
+                    BigDecimal decimalValue = jSONLexer.decimalValue();
+                    jSONLexer.nextToken(16);
+                    return (T) Byte.valueOf(TypeUtils.byteValue(decimalValue));
                 }
+                BigDecimal decimalValue2 = jSONLexer.decimalValue();
+                jSONLexer.nextToken(16);
+                return (T) Short.valueOf(TypeUtils.shortValue(decimalValue2));
             }
             String numberString2 = jSONLexer.numberString();
             jSONLexer.nextToken(16);

@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import d.b.b.c.f.j;
-import d.b.b.c.f.k;
+import d.b.c.c.f.j;
+import d.b.c.c.f.k;
 /* loaded from: classes3.dex */
 public class c {
 
@@ -19,7 +19,7 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.c.f.f
+        @Override // d.b.c.c.f.f
         /* renamed from: a */
         public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
             if (socketMessage == null || socketMessage.getExtra() == null || !(socketMessage.getExtra() instanceof NetMessage) || d.b.h0.s.j.c.a().c(socketMessage.getCmd())) {
@@ -38,7 +38,7 @@ public class c {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-        @Override // d.b.b.c.f.g
+        @Override // d.b.c.c.f.g
         public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
             SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
             c(socketResponsedMessage2);
@@ -55,8 +55,8 @@ public class c {
 
     /* renamed from: d.b.h0.r.x.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1093c extends CustomMessageListener {
-        public C1093c(int i) {
+    public static class C1106c extends CustomMessageListener {
+        public C1106c(int i) {
             super(i);
         }
 
@@ -75,8 +75,8 @@ public class c {
         aVar.setPriority(Integer.MIN_VALUE);
         MessageManager.getInstance().addMessageRule(aVar);
         MessageManager.getInstance().addResponsedMessageRule(new b(0));
-        C1093c c1093c = new C1093c(2000999);
-        c1093c.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(c1093c);
+        C1106c c1106c = new C1106c(2000999);
+        c1106c.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(c1106c);
     }
 }

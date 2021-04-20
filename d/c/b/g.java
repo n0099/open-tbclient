@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class g extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f64995e;
+    public final Context f65840e;
 
     public g(Context context) {
         super(false, false);
-        this.f64995e = context;
+        this.f65840e = context;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
-        SharedPreferences sharedPreferences = this.f64995e.getSharedPreferences("snssdk_openudid", 0);
+        SharedPreferences sharedPreferences = this.f65840e.getSharedPreferences("snssdk_openudid", 0);
         String string = sharedPreferences.getString("clientudid", null);
         if (!j.n(string)) {
             try {

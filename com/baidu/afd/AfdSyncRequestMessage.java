@@ -7,6 +7,7 @@ import android.webkit.CookieManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,8 +16,8 @@ import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
-import d.b.b.e.p.j;
-import d.b.c.h;
+import d.b.c.e.p.j;
+import d.b.d.h;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,7 +62,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("imei", TbadkCoreApplication.getInst().getImei());
         addParam("fmt", "json");
-        addParam("android_id", androidId());
+        addParam(IAdRequestParam.ANDROID_ID, androidId());
         addParam("ot", "2");
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
         addParam("nt", String.valueOf(j.I()));
@@ -72,7 +73,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     public static String androidId() {
         if (TextUtils.isEmpty(_ANDROID_ID)) {
             try {
-                _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), "android_id");
+                _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception unused) {
             }
         }

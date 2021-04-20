@@ -12,7 +12,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RoundedBitmapDrawable extends RoundedDrawable {
     @Nullable
     public final Bitmap mBitmap;

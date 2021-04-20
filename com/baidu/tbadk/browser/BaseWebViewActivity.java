@@ -39,12 +39,12 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.flutter.util.OpenFlutter;
-import d.b.b.e.p.j;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
+import com.baidu.tieba.flutter.base.util.OpenFlutter;
+import d.b.c.e.p.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
 import d.b.h0.r.l.a;
-import d.b.h0.s.c.g;
+import d.b.h0.s.c.i;
 import d.b.h0.z0.n0;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -128,7 +128,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (!TextUtils.isEmpty(BaseWebViewActivity.this.getShareInfo())) {
                 BaseWebViewActivity baseWebViewActivity = BaseWebViewActivity.this;
                 ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
-                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f13131e;
+                ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.f12792e;
                 if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
                     d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(BaseWebViewActivity.this);
                     if (threadAchievementShareDialogView.h(BaseWebViewActivity.this.getPageContext(), aVar)) {
@@ -303,11 +303,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         a.b d2 = d.b.h0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
         String str2 = "";
         if (d2 != null) {
-            String str3 = d2.f50629a;
+            String str3 = d2.f51036a;
             if (str3 == null) {
                 str3 = "";
             }
-            str = d2.f50630b;
+            str = d2.f51037b;
             if (str == null) {
                 str = "";
             }
@@ -457,7 +457,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.v = Uri.parse(str4);
         }
-        shareItem.f13718g = true;
+        shareItem.f13379g = true;
         shareItem.q = this.mUrl;
         shareItem.D = 13;
         Bundle bundle = new Bundle();
@@ -572,7 +572,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (id == R.id.webview_more_pop_item_share_friend_layout) {
             this.mView.e();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
-            d.b.b.e.m.e.a().post(this.mShareRunnable);
+            d.b.c.e.m.e.a().post(this.mShareRunnable);
             this.mShareResultToFe = true;
         } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
             this.mView.e();
@@ -601,7 +601,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (k.isEmpty(shareInfoUrl2)) {
                 shareInfoUrl2 = str;
             }
-            d.b.b.e.p.a.a(shareInfoUrl2);
+            d.b.c.e.p.a.a(shareInfoUrl2);
             l.L(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
         } else if (id == R.id.root_view) {
             if (isTranslucent()) {
@@ -610,7 +610,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         } else if (id == R.id.widget_navi_share_button) {
             if (this.mView.x) {
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
-                d.b.b.e.m.e.a().post(this.mShareRunnable);
+                d.b.c.e.m.e.a().post(this.mShareRunnable);
                 this.mShareResultToFe = true;
                 return;
             }
@@ -620,13 +620,13 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.b.a.b.f().h("MainTabActivity")) {
+        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.c.a.b.f().h("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
-        if (getIntent() != null && getIntent().getBooleanExtra(TbWebViewActivityConfig.KEY_IS_FROM_SCHEMA, false) && !d.b.b.a.b.f().h("MainTabActivity")) {
+        if (getIntent() != null && getIntent().getBooleanExtra(TbWebViewActivityConfig.KEY_IS_FROM_SCHEMA, false) && !d.b.c.a.b.f().h("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
-        if (getIntent() != null && getIntent().getBooleanExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, false) && !d.b.b.a.b.f().h("MainTabActivity")) {
+        if (getIntent() != null && getIntent().getBooleanExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, false) && !d.b.c.a.b.f().h("MainTabActivity")) {
             this.mIsFromPush = getIntent().getBooleanExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, false);
         }
         if (this.mIsFromSchema) {
@@ -645,7 +645,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.w(this.mUrlTitle);
         }
         if (!this.mView.m() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
-            ViewHelper.addStateBarViewSpace(this.mView.f50258b, R.color.CAM_X0303, false);
+            ViewHelper.addStateBarViewSpace(this.mView.f50665b, R.color.CAM_X0303, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -742,7 +742,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> a2 = g.a();
+        List<String> a2 = i.a();
         if (ListUtils.isEmpty(a2)) {
             return null;
         }

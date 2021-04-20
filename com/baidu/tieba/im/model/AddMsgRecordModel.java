@@ -4,11 +4,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
-import d.b.i0.d1.k.b;
+import d.b.i0.e1.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AddMsgRecordModel extends BdBaseModel {
     private MsgRecord generateMsgRecord(int i, String str) {
         if ((i != 1 && i != 2 && i != 3) || str == null || str.length() == 0) {

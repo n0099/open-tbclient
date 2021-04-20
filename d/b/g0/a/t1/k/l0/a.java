@@ -17,7 +17,7 @@ import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMenuButtonBoundingClientRect");
@@ -29,7 +29,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
         f W = d.b.g0.a.z0.f.V().W();
@@ -85,12 +85,12 @@ public class a extends a0 {
             jSONObject.put(TipsConfigItem.TipConfigData.BOTTOM, I5);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 e2.printStackTrace();
             }
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
         }
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
         }
         return wrapCallbackParams;

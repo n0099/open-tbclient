@@ -8,36 +8,36 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 import d.b.h0.r.f0.n.b;
 /* loaded from: classes3.dex */
 public class CommonLikeButton extends AppCompatTextView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13614e;
+    public String f13275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13615f;
+    public String f13276f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13616g;
+    public boolean f13277g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f13617h;
+    public View.OnClickListener f13278h;
     public boolean i;
 
     public CommonLikeButton(Context context) {
         super(context);
-        this.f13614e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f13615f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f13616g = false;
+        this.f13275e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f13276f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f13277g = false;
         this.i = false;
         f();
     }
 
     @Override // d.b.h0.r.f0.n.b
     public void b(View view) {
-        View.OnClickListener onClickListener = this.f13617h;
+        View.OnClickListener onClickListener = this.f13278h;
         if (onClickListener != null) {
             onClickListener.onClick(view);
         }
@@ -51,14 +51,14 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     @Override // d.b.h0.r.f0.n.b
     public void e(boolean z) {
         setVisibility(0);
-        this.f13616g = z;
+        this.f13277g = z;
         if (z) {
             setClickable(false);
-            setText(this.f13614e);
+            setText(this.f13275e);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.f13615f);
+            setText(this.f13276f);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
         }
         g(TbadkCoreApplication.getInst().getSkinType());
@@ -72,7 +72,7 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     }
 
     public void g(int i) {
-        if (this.f13616g) {
+        if (this.f13277g) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.CAM_X0109);
             setBackgroundDrawable(null);
@@ -88,7 +88,7 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     }
 
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
-        this.f13617h = onClickListener;
+        this.f13278h = onClickListener;
     }
 
     public void setBackGroundIsTransMode(boolean z) {
@@ -98,18 +98,18 @@ public class CommonLikeButton extends AppCompatTextView implements b {
 
     public CommonLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13614e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f13615f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f13616g = false;
+        this.f13275e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f13276f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f13277g = false;
         this.i = false;
         f();
     }
 
     public CommonLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13614e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f13615f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f13616g = false;
+        this.f13275e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f13276f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f13277g = false;
         this.i = false;
         f();
     }

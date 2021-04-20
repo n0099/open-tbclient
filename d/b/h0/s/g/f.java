@@ -3,14 +3,14 @@ package d.b.h0.s.g;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 /* loaded from: classes3.dex */
 public class f {
     public static int a() {
         if (k.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return 3;
         }
-        return d.b.h0.r.d0.b.i().j("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+        return d.b.h0.r.d0.b.j().k("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
     }
 
     public static int b() {
@@ -36,7 +36,7 @@ public class f {
 
     public static void c(int i) {
         if (i > 0 && !k.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            d.b.h0.r.d0.b.i().u("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            d.b.h0.r.d0.b.j().v("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
         }
     }
 }

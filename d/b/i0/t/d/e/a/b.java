@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.r.q.a2;
 import d.b.i0.t.d.e.b.b;
 /* loaded from: classes4.dex */
@@ -25,48 +25,48 @@ public class b extends d.b.i0.t.d.e.a.a {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.t.d.e.b.b f60487e;
+        public final /* synthetic */ d.b.i0.t.d.e.b.b f62051e;
 
         public a(d.b.i0.t.d.e.b.b bVar) {
-            this.f60487e = bVar;
+            this.f62051e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             StatisticItem statisticItem = new StatisticItem("c12659");
-            statisticItem.param("tid", this.f60487e.f60509a.w1());
+            statisticItem.param("tid", this.f62051e.f62073a.w1());
             TiebaStatic.log(statisticItem);
             b bVar = b.this;
-            bVar.b(bVar.f60483e, this.f60487e.f60509a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB);
+            bVar.b(bVar.f62047e, this.f62051e.f62073a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB);
         }
     }
 
     /* renamed from: d.b.i0.t.d.e.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1549b {
+    public static class C1602b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f60489a;
+        public TbImageView f62053a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f60490b;
+        public TextView f62054b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f60491c;
+        public TextView f62055c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f60492d;
+        public TextView f62056d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f60493e;
+        public TextView f62057e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f60494f;
+        public TextView f62058f;
 
-        public C1549b() {
+        public C1602b() {
         }
 
-        public /* synthetic */ C1549b(a aVar) {
+        public /* synthetic */ C1602b(a aVar) {
             this();
         }
     }
@@ -78,67 +78,67 @@ public class b extends d.b.i0.t.d.e.a.a {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2;
-        C1549b c1549b;
+        C1602b c1602b;
         a2 a2Var;
         if (view == null) {
-            c1549b = new C1549b(null);
-            view2 = LayoutInflater.from(this.f60484f).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
+            c1602b = new C1602b(null);
+            view2 = LayoutInflater.from(this.f62048f).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.recent_history_living_img);
-            c1549b.f60489a = tbImageView;
+            c1602b.f62053a = tbImageView;
             tbImageView.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
-            c1549b.f60490b = (TextView) view2.findViewById(R.id.recent_history_living_title);
-            c1549b.f60491c = (TextView) view2.findViewById(R.id.recent_history_living_audience_count);
-            c1549b.f60492d = (TextView) view2.findViewById(R.id.recent_history_living_user_name);
-            c1549b.f60493e = (TextView) view2.findViewById(R.id.recent_history_living_living_tag);
-            c1549b.f60494f = (TextView) view2.findViewById(R.id.recent_history_living_send_gift_tag);
+            c1602b.f62054b = (TextView) view2.findViewById(R.id.recent_history_living_title);
+            c1602b.f62055c = (TextView) view2.findViewById(R.id.recent_history_living_audience_count);
+            c1602b.f62056d = (TextView) view2.findViewById(R.id.recent_history_living_user_name);
+            c1602b.f62057e = (TextView) view2.findViewById(R.id.recent_history_living_living_tag);
+            c1602b.f62058f = (TextView) view2.findViewById(R.id.recent_history_living_send_gift_tag);
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(c1549b.f60490b, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(c1549b.f60491c, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(c1549b.f60492d, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(c1549b.f60494f, R.color.CAM_X0301);
-            view2.setTag(c1549b);
+            SkinManager.setViewTextColor(c1602b.f62054b, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(c1602b.f62055c, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(c1602b.f62056d, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(c1602b.f62058f, R.color.CAM_X0301);
+            view2.setTag(c1602b);
         } else {
             view2 = view;
-            c1549b = (C1549b) view.getTag();
+            c1602b = (C1602b) view.getTag();
         }
         d.b.i0.t.d.e.b.b item = getItem(i);
-        if (item != null && (a2Var = item.f60509a) != null && a2Var.T() != null && item.f60509a.q1() != null) {
-            MetaData T = item.f60509a.T();
-            c1549b.f60489a.W(item.f60509a.q1().cover, 10, false);
-            c1549b.f60490b.setText(item.f60509a.x1());
-            this.f60486h = 0;
-            c1549b.f60493e.setVisibility(8);
-            c1549b.f60494f.setVisibility(8);
-            if (!ListUtils.isEmpty(item.f60512d)) {
-                for (b.a aVar : item.f60512d) {
+        if (item != null && (a2Var = item.f62073a) != null && a2Var.T() != null && item.f62073a.q1() != null) {
+            MetaData T = item.f62073a.T();
+            c1602b.f62053a.W(item.f62073a.q1().cover, 10, false);
+            c1602b.f62054b.setText(item.f62073a.x1());
+            this.f62050h = 0;
+            c1602b.f62057e.setVisibility(8);
+            c1602b.f62058f.setVisibility(8);
+            if (!ListUtils.isEmpty(item.f62076d)) {
+                for (b.a aVar : item.f62076d) {
                     if (aVar != null) {
-                        int i2 = aVar.f60513a;
+                        int i2 = aVar.f62077a;
                         if (1 == i2) {
-                            c1549b.f60493e.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar.f60514b)) {
-                                c1549b.f60493e.setText(aVar.f60514b);
+                            c1602b.f62057e.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar.f62078b)) {
+                                c1602b.f62057e.setText(aVar.f62078b);
                             }
-                            this.f60486h++;
+                            this.f62050h++;
                         } else if (2 == i2) {
-                            c1549b.f60494f.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar.f60514b)) {
-                                c1549b.f60494f.setText(aVar.f60514b);
+                            c1602b.f62058f.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar.f62078b)) {
+                                c1602b.f62058f.setText(aVar.f62078b);
                             }
-                            this.f60486h++;
+                            this.f62050h++;
                         }
                     }
                 }
             }
             String name_show = T.getName_show();
-            int i3 = this.f60486h <= 1 ? 14 : 13;
+            int i3 = this.f62050h <= 1 ? 14 : 13;
             if (k.byteLength(name_show) > i3) {
                 name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i3, StringHelper.STRING_MORE);
             }
-            c1549b.f60492d.setText(name_show);
-            c1549b.f60491c.setText(this.f60484f.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, StringHelper.numberUniformFormatExtra(item.f60509a.q1().audience_count)));
+            c1602b.f62056d.setText(name_show);
+            c1602b.f62055c.setText(this.f62048f.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, StringHelper.numberUniformFormatExtra(item.f62073a.q1().audience_count)));
             view2.setOnClickListener(new a(item));
             StatisticItem statisticItem = new StatisticItem("c12658");
-            statisticItem.param("tid", item.f60509a.w1());
+            statisticItem.param("tid", item.f62073a.w1());
             d.b.i0.t.d.d.a.c().a(statisticItem);
         }
         return view2;

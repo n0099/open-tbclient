@@ -18,28 +18,28 @@ public abstract class n<T> implements Comparable<n<T>> {
     public static long p;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w.a f9384a;
+    public final w.a f8942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f9385b;
+    public final int f8943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f9386c;
+    public final String f8944c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9387d;
+    public String f8945d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9388e;
+    public String f8946e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f9389f;
+    public final int f8947f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final q.a f9390g;
+    public final q.a f8948g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f9391h;
+    public Integer f8949h;
     public p i;
     public boolean j;
     public boolean k;
@@ -57,18 +57,18 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public n(int i, String str, q.a aVar) {
-        this.f9384a = w.a.f9416a ? new w.a() : null;
+        this.f8942a = w.a.f8974a ? new w.a() : null;
         this.j = true;
         this.k = false;
         this.l = false;
         this.m = 0L;
         this.o = null;
-        this.f9385b = i;
-        this.f9386c = str;
-        this.f9388e = a(i, str);
-        this.f9390g = aVar;
+        this.f8943b = i;
+        this.f8944c = str;
+        this.f8946e = a(i, str);
+        this.f8948g = aVar;
         a((s) new e());
-        this.f9389f = d(str);
+        this.f8947f = d(str);
     }
 
     public static int d(String str) {
@@ -81,7 +81,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public int a() {
-        return this.f9385b;
+        return this.f8943b;
     }
 
     public abstract q<T> a(l lVar);
@@ -93,8 +93,8 @@ public abstract class n<T> implements Comparable<n<T>> {
     public abstract void a(T t);
 
     public String c() {
-        String str = this.f9387d;
-        return str != null ? str : this.f9386c;
+        String str = this.f8945d;
+        return str != null ? str : this.f8944c;
     }
 
     @Override // java.lang.Comparable
@@ -188,7 +188,7 @@ public abstract class n<T> implements Comparable<n<T>> {
         sb.append(" ");
         sb.append(s());
         sb.append(" ");
-        sb.append(this.f9391h);
+        sb.append(this.f8949h);
         return sb.toString();
     }
 
@@ -212,16 +212,16 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public int b() {
-        return this.f9389f;
+        return this.f8947f;
     }
 
     public void c(String str) {
-        this.f9387d = str;
+        this.f8945d = str;
     }
 
     public void a(String str) {
-        if (w.a.f9416a) {
-            this.f9384a.a(str, Thread.currentThread().getId());
+        if (w.a.f8974a) {
+            this.f8942a.a(str, Thread.currentThread().getId());
         } else if (this.m == 0) {
             this.m = SystemClock.elapsedRealtime();
         }
@@ -232,14 +232,14 @@ public abstract class n<T> implements Comparable<n<T>> {
         if (pVar != null) {
             pVar.b(this);
         }
-        if (w.a.f9416a) {
+        if (w.a.f8974a) {
             long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 new Handler(Looper.getMainLooper()).post(new o(this, str, id));
                 return;
             }
-            this.f9384a.a(str, id);
-            this.f9384a.a(toString());
+            this.f8942a.a(str, id);
+            this.f8942a.a(toString());
             return;
         }
         long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;
@@ -249,7 +249,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public String d() {
-        return this.f9386c;
+        return this.f8944c;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
@@ -262,7 +262,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public final n<?> a(int i) {
-        this.f9391h = Integer.valueOf(i);
+        this.f8949h = Integer.valueOf(i);
         return this;
     }
 
@@ -278,7 +278,7 @@ public abstract class n<T> implements Comparable<n<T>> {
         try {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 sb.append(URLEncoder.encode(entry.getKey(), str));
-                sb.append(com.alipay.sdk.encrypt.a.f1897h);
+                sb.append(com.alipay.sdk.encrypt.a.f1922h);
                 sb.append(URLEncoder.encode(entry.getValue(), str));
                 sb.append(Typography.amp);
             }
@@ -289,7 +289,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public void b(v vVar) {
-        q.a aVar = this.f9390g;
+        q.a aVar = this.f8948g;
         if (aVar != null) {
             aVar.a(vVar);
         }
@@ -306,7 +306,7 @@ public abstract class n<T> implements Comparable<n<T>> {
         a s = s();
         a s2 = nVar.s();
         if (s == s2) {
-            return this.f9391h.intValue() - nVar.f9391h.intValue();
+            return this.f8949h.intValue() - nVar.f8949h.intValue();
         }
         return s2.ordinal() - s.ordinal();
     }

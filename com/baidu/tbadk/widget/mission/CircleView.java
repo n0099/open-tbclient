@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class CircleView extends View {
     public static int i = 20;
@@ -15,16 +15,16 @@ public class CircleView extends View {
     public static final int k = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
 
     /* renamed from: e  reason: collision with root package name */
-    public float f14226e;
+    public float f13902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f14227f;
+    public float f13903f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f14228g;
+    public float f13904g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f14229h;
+    public Paint f13905h;
 
     public CircleView(Context context) {
         super(context);
@@ -35,22 +35,22 @@ public class CircleView extends View {
         i = l.g(context, R.dimen.tbds94);
         j = l.g(context, R.dimen.tbds94);
         Paint paint = new Paint();
-        this.f14229h = paint;
+        this.f13905h = paint;
         paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
-        this.f14229h.setAntiAlias(true);
-        this.f14229h.setStyle(Paint.Style.STROKE);
-        this.f14229h.setStrokeWidth(k);
+        this.f13905h.setAntiAlias(true);
+        this.f13905h.setStyle(Paint.Style.STROKE);
+        this.f13905h.setStrokeWidth(k);
     }
 
     public void b() {
-        this.f14229h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
+        this.f13905h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
         invalidate();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(this.f14226e, this.f14227f, this.f14228g, this.f14229h);
+        canvas.drawCircle(this.f13902e, this.f13903f, this.f13904g, this.f13905h);
     }
 
     @Override // android.view.View
@@ -72,9 +72,9 @@ public class CircleView extends View {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f14226e = i2 / 2.0f;
-        this.f14227f = i3 / 2.0f;
-        this.f14228g = (Math.min(i2, i3) / 2.0f) - k;
+        this.f13902e = i2 / 2.0f;
+        this.f13903f = i3 / 2.0f;
+        this.f13904g = (Math.min(i2, i3) / 2.0f) - k;
     }
 
     public CircleView(Context context, AttributeSet attributeSet) {

@@ -12,21 +12,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.b.e.m.e;
+import d.b.c.e.m.e;
 /* loaded from: classes5.dex */
 public class CommonTipView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22036e;
+    public int f21721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f22037f;
+    public Animation f21722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TranslateAnimation f22038g;
+    public TranslateAnimation f21723g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f22039h;
+    public Runnable f21724h;
     public Runnable i;
 
     /* loaded from: classes5.dex */
@@ -83,7 +83,7 @@ public class CommonTipView extends TextView {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             CommonTipView commonTipView = CommonTipView.this;
-            commonTipView.postDelayed(commonTipView.f22039h, CommonTipView.this.f22036e);
+            commonTipView.postDelayed(commonTipView.f21724h, CommonTipView.this.f21721e);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -97,10 +97,10 @@ public class CommonTipView extends TextView {
 
     public CommonTipView(Context context) {
         super(context);
-        this.f22036e = 4000;
-        this.f22037f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f22038g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f22039h = new a();
+        this.f21721e = 4000;
+        this.f21722f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f21723g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f21724h = new a();
         this.i = new b();
         g();
     }
@@ -113,18 +113,18 @@ public class CommonTipView extends TextView {
     }
 
     public final void f() {
-        removeCallbacks(this.f22039h);
+        removeCallbacks(this.f21724h);
         if (getParent() != null) {
-            startAnimation(this.f22037f);
+            startAnimation(this.f21722f);
         }
     }
 
     public final void g() {
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds24));
         setGravity(17);
-        this.f22037f.setAnimationListener(new c());
-        this.f22038g.setDuration(400L);
-        this.f22038g.setAnimationListener(new d());
+        this.f21722f.setAnimationListener(new c());
+        this.f21723g.setDuration(400L);
+        this.f21723g.setAnimationListener(new d());
     }
 
     public void h(int i) {
@@ -133,7 +133,7 @@ public class CommonTipView extends TextView {
     }
 
     public void i() {
-        removeCallbacks(this.f22039h);
+        removeCallbacks(this.f21724h);
         e.a().removeCallbacks(this.i);
         e();
     }
@@ -146,7 +146,7 @@ public class CommonTipView extends TextView {
         layoutParams.setMargins(0, 0, 0, 0);
         frameLayout.addView(this, layoutParams);
         h(i);
-        startAnimation(this.f22038g);
+        startAnimation(this.f21723g);
     }
 
     public void k(LinearLayout linearLayout, int i) {
@@ -157,31 +157,31 @@ public class CommonTipView extends TextView {
         layoutParams.gravity = 48;
         linearLayout.addView(this, layoutParams);
         h(i);
-        startAnimation(this.f22038g);
+        startAnimation(this.f21723g);
     }
 
     public void setTipDuration(int i) {
         if (i > 0) {
-            this.f22036e = i;
+            this.f21721e = i;
         }
     }
 
     public CommonTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22036e = 4000;
-        this.f22037f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f22038g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f22039h = new a();
+        this.f21721e = 4000;
+        this.f21722f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f21723g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f21724h = new a();
         this.i = new b();
         g();
     }
 
     public CommonTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f22036e = 4000;
-        this.f22037f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f22038g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f22039h = new a();
+        this.f21721e = 4000;
+        this.f21722f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f21723g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f21724h = new a();
         this.i = new b();
         g();
     }

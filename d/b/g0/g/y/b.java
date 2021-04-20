@@ -21,50 +21,50 @@ import rx.schedulers.Schedulers;
 public class b extends d.b.g0.a.n1.a.a.a implements d.b.g0.a.n1.c.f.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f48687g = k.f45051a;
+    public static final boolean f49079g = k.f45443a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Set<String> f48688h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
+    public static final Set<String> f49080h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
     public static long i = TimeUnit.SECONDS.toMillis(10);
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48689f = SwanAppProcessInfo.UNKNOWN.index;
+    public int f49081f = SwanAppProcessInfo.UNKNOWN.index;
 
     /* loaded from: classes3.dex */
     public class a implements h.n.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48690e;
+        public final /* synthetic */ boolean f49082e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f48691f;
+        public final /* synthetic */ Bundle f49083f;
 
         public a(boolean z, Bundle bundle) {
-            this.f48690e = z;
-            this.f48691f = bundle;
+            this.f49082e = z;
+            this.f49083f = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(String str) {
-            if (this.f48690e) {
-                if (b.f48687g) {
+            if (this.f49082e) {
+                if (b.f49079g) {
                     Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + b.i);
                 }
                 e.j().b(b.this, b.i);
             }
             d.b.g0.a.j0.c d2 = d.b.g0.a.j0.e.c().d();
             if (d2 != null) {
-                List<String> singletonList = Collections.singletonList(this.f48691f.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+                List<String> singletonList = Collections.singletonList(this.f49083f.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
                 d.b.g0.a.j0.j.c k = d.b.g0.a.j0.j.c.k();
                 k.h(6);
                 d2.h(singletonList, true, k.j());
             }
-            if (b.f48687g) {
+            if (b.f49079g) {
                 Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d2);
             }
-            if (this.f48690e) {
+            if (this.f49082e) {
                 return;
             }
             b.this.h();
@@ -73,9 +73,9 @@ public class b extends d.b.g0.a.n1.a.a.a implements d.b.g0.a.n1.c.f.a {
 
     @Override // d.b.g0.a.n1.c.f.a
     public void a(String str, d.b.g0.a.n1.c.f.c cVar) {
-        if (cVar.f45391f.index == this.f48689f && f48688h.contains(str)) {
+        if (cVar.f45783f.index == this.f49081f && f49080h.contains(str)) {
             e.j().g(this);
-            if (f48687g) {
+            if (f49079g) {
                 Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
             }
             h();
@@ -85,18 +85,18 @@ public class b extends d.b.g0.a.n1.a.a.a implements d.b.g0.a.n1.c.f.a {
     @Override // d.b.g0.a.n1.a.a.a
     public void b(@NonNull Bundle bundle) {
         int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-        this.f48689f = i2;
+        this.f49081f = i2;
         boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-        if (f48687g) {
-            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f48689f);
+        if (f49079g) {
+            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f49081f);
             Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
         }
         d.j("").p(Schedulers.io()).D(new a(checkProcessId, bundle));
     }
 
     public final void h() {
-        String string = this.f45337a.getString("scheme");
-        if (f48687g) {
+        String string = this.f45729a.getString("scheme");
+        if (f49079g) {
             Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
         }
         if (TextUtils.isEmpty(string)) {
@@ -107,8 +107,8 @@ public class b extends d.b.g0.a.n1.a.a.a implements d.b.g0.a.n1.c.f.a {
 
     @Override // d.b.g0.a.n1.c.f.a
     public void timeout() {
-        if (f48687g) {
-            Log.i("SwanGameReloadDelegate", com.alipay.sdk.data.a.i);
+        if (f49079g) {
+            Log.i("SwanGameReloadDelegate", "timeout");
         }
         h();
     }

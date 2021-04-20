@@ -36,28 +36,28 @@ import java.util.regex.Pattern;
 public class d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f49554g = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+    public static final Pattern f49946g = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f49555h = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
+    public static final Pattern f49947h = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49556a;
+    public boolean f49948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f49557b;
+    public long f49949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public t f49558c;
+    public t f49950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.b.h0.a.e f49559d;
+    public d.b.h0.a.e f49951d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f49560e = new AtomicBoolean(false);
+    public AtomicBoolean f49952e = new AtomicBoolean(false);
 
     /* renamed from: f  reason: collision with root package name */
-    public e.b f49561f = new a();
+    public e.b f49953f = new a();
 
     /* loaded from: classes3.dex */
     public class a implements e.b {
@@ -99,15 +99,15 @@ public class d {
 
     /* renamed from: d.b.h0.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1042d extends d.b.b.c.g.a {
-        public C1042d(int i, int i2) {
+    public class C1054d extends d.b.c.c.g.a {
+        public C1054d(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage responsedMessage) {
             d.b.h0.a.g decryptData;
-            d.this.f49560e.compareAndSet(true, false);
+            d.this.f49952e.compareAndSet(true, false);
             if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                 decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
             } else if (!(responsedMessage instanceof DecryptCodeSocketRespMsg)) {
@@ -121,7 +121,7 @@ public class d {
             UtilHelper.clearClipBoard();
             int g2 = decryptData.g();
             if (g2 == 1 || g2 == 0) {
-                if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f49590g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
+                if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f49982g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
                     return;
                 }
                 TbadkCoreApplication.getInst().setCurAiAppid(null);
@@ -174,11 +174,11 @@ public class d {
             Matcher matcher;
             if (strArr != null && strArr.length >= 1) {
                 String str = strArr[0];
-                if (d.b.b.e.p.k.isEmpty(str)) {
+                if (d.b.c.e.p.k.isEmpty(str)) {
                     return null;
                 }
                 String x = d.this.x();
-                if (!d.b.b.e.p.k.isEmpty(x) && (matcher = Pattern.compile(x).matcher(str)) != null && matcher.find()) {
+                if (!d.b.c.e.p.k.isEmpty(x) && (matcher = Pattern.compile(x).matcher(str)) != null && matcher.find()) {
                     return str;
                 }
             }
@@ -190,10 +190,10 @@ public class d {
         public void onPostExecute(String str) {
             super.onPostExecute((f) str);
             if (str == null) {
-                if (d.this.f49558c == null || !d.this.z()) {
+                if (d.this.f49950c == null || !d.this.z()) {
                     return;
                 }
-                d.this.f49558c.b();
+                d.this.f49950c.b();
                 return;
             }
             d.this.m(str);
@@ -211,7 +211,7 @@ public class d {
             Matcher matcher;
             if (strArr != null && strArr.length >= 1) {
                 String str = strArr[0];
-                if (!d.b.b.e.p.k.isEmpty(str) && (matcher = d.f49555h.matcher(str)) != null && matcher.find()) {
+                if (!d.b.c.e.p.k.isEmpty(str) && (matcher = d.f49947h.matcher(str)) != null && matcher.find()) {
                     return str;
                 }
             }
@@ -239,7 +239,7 @@ public class d {
             Matcher matcher;
             if (strArr != null && strArr.length >= 1) {
                 String str = strArr[0];
-                if (!d.b.b.e.p.k.isEmpty(str) && (matcher = d.f49554g.matcher(str)) != null && matcher.find()) {
+                if (!d.b.c.e.p.k.isEmpty(str) && (matcher = d.f49946g.matcher(str)) != null && matcher.find()) {
                     return str;
                 }
             }
@@ -250,10 +250,10 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((h) str);
-            if (str == null || d.this.f49560e.get()) {
+            if (str == null || d.this.f49952e.get()) {
                 return;
             }
-            d.this.f49560e.compareAndSet(false, true);
+            d.this.f49952e.compareAndSet(false, true);
             DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
             decryptCodeReqMsg.setCode(str);
             MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -264,28 +264,28 @@ public class d {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f49570a = new d();
+        public static final d f49962a = new d();
     }
 
     public static final d w() {
-        return i.f49570a;
+        return i.f49962a;
     }
 
     public final void A() {
-        MessageManager.getInstance().registerListener(new C1042d(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
+        MessageManager.getInstance().registerListener(new C1054d(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
         MessageManager.getInstance().registerListener(new e(2001011));
     }
 
     public final void B() {
-        d.b.i0.c3.d0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, d.b.i0.c3.d0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
+        d.b.i0.d3.d0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, d.b.i0.d3.d0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
         tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void k(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         new f().execute(str);
@@ -299,11 +299,11 @@ public class d {
     }
 
     public final void m(String str) {
-        this.f49559d.c(str);
+        this.f49951d.c(str);
     }
 
     public void n(String str) {
-        if (d.b.b.e.p.k.isEmpty(str) || !str.contains("^sZqulxTVsT$")) {
+        if (d.b.c.e.p.k.isEmpty(str) || !str.contains("^sZqulxTVsT$")) {
             return;
         }
         m(str);
@@ -315,7 +315,7 @@ public class d {
 
     public final void p(String str, String str2) {
         TbPageContext<?> v;
-        if (d.b.b.e.p.k.isEmpty(str2) || (v = v(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
+        if (d.b.c.e.p.k.isEmpty(str2) || (v = v(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
             return;
         }
         UrlManager.getInstance().dealOneLink(v, str, new String[]{str2});
@@ -324,10 +324,10 @@ public class d {
     public final void q(String str) {
         Activity currentActivity;
         Uri parse;
-        if (d.b.b.e.p.k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
+        if (d.b.c.e.p.k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
             return;
         }
-        if (str.startsWith(d.b.h0.a.f.f49575a)) {
+        if (str.startsWith(d.b.h0.a.f.f49967a)) {
             Uri.Builder buildUpon = Uri.parse(str).buildUpon();
             buildUpon.appendQueryParameter(d.b.h0.a.f.w, d.b.h0.a.f.L);
             parse = buildUpon.build();
@@ -336,31 +336,31 @@ public class d {
     }
 
     public final void r(y yVar) {
-        if (yVar == null || yVar.b() == null || d.b.b.e.p.k.isEmpty(yVar.b().f49660a) || !z()) {
+        if (yVar == null || yVar.b() == null || d.b.c.e.p.k.isEmpty(yVar.b().f50052a) || !z()) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, yVar.b().f49660a));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, yVar.b().f50052a));
     }
 
     public void s(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         new h().execute(str);
     }
 
     public void t(String str) {
-        if (d.b.b.e.p.k.isEmpty(str)) {
+        if (d.b.c.e.p.k.isEmpty(str)) {
             return;
         }
         new g().execute(str);
     }
 
     public final String u() {
-        if (System.currentTimeMillis() - this.f49557b < 2000) {
+        if (System.currentTimeMillis() - this.f49949b < 2000) {
             return null;
         }
-        this.f49557b = System.currentTimeMillis();
+        this.f49949b = System.currentTimeMillis();
         return UtilHelper.getClipBoardContent();
     }
 
@@ -375,32 +375,32 @@ public class d {
     }
 
     public final String x() {
-        return new String(Base64.decode(d.b.h0.r.d0.b.i().o("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
+        return new String(Base64.decode(d.b.h0.r.d0.b.j().p("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
     }
 
     public void y(Activity activity) {
-        if (this.f49556a) {
+        if (this.f49948a) {
             return;
         }
         B();
         A();
         d.b.h0.a.e eVar = new d.b.h0.a.e();
-        this.f49559d = eVar;
-        eVar.g(this.f49561f);
-        this.f49558c = new t();
+        this.f49951d = eVar;
+        eVar.g(this.f49953f);
+        this.f49950c = new t();
         String u = u();
-        if (!d.b.b.e.p.k.isEmpty(u)) {
+        if (!d.b.c.e.p.k.isEmpty(u)) {
             w().l(u);
         } else if (UtilHelper.isActivityStartFromScheme(activity)) {
-            d.b.b.e.m.e.a().postDelayed(new b(), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+            d.b.c.e.m.e.a().postDelayed(new b(), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
         } else if (RomTypeUtil.isEmui() || RomTypeUtil.isOnePlus()) {
-            d.b.b.e.m.e.a().postDelayed(new c(), 2000L);
+            d.b.c.e.m.e.a().postDelayed(new c(), 2000L);
         }
-        this.f49556a = true;
+        this.f49948a = true;
     }
 
     public final boolean z() {
         String topActivityClassName = UtilHelper.getTopActivityClassName();
-        return !d.b.b.e.p.k.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
+        return !d.b.c.e.p.k.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
     }
 }

@@ -24,7 +24,7 @@ public class c extends a {
         if (aVar != null) {
             d.b.g0.a.a0.b.c C = aVar.C();
             if (!C.a()) {
-                d.b.g0.a.c0.c.b("CameraRemoveAction", "remove camera fail: " + C.f43117b);
+                d.b.g0.a.c0.c.b("CameraRemoveAction", "remove camera fail: " + C.f43509b);
             }
             k(unitedSchemeEntity, callbackHandler, true);
             return true;
@@ -35,7 +35,7 @@ public class c extends a {
 
     public d.b.g0.a.a0.b.b m(UnitedSchemeEntity unitedSchemeEntity) {
         String l = l(unitedSchemeEntity);
-        if (k.f45051a) {
+        if (k.f45443a) {
             Log.d("CameraRemoveAction", "parseData:" + l);
         }
         return new d.b.g0.a.x.e.a(l);

@@ -2,50 +2,56 @@ package a.a.a.a.u;
 
 import a.a.a.a.s.e;
 import android.util.Pair;
-import androidx.exifinterface.media.ExifInterface;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class j extends c {
+public class j extends b {
     public j(e.a aVar) {
         super(aVar);
     }
 
-    @Override // a.a.a.a.u.c
-    public Pair<p, JSONObject> c(Object obj) {
-        Object obj2;
-        Method method;
-        JSONObject jSONObject;
+    @Override // a.a.a.a.u.b
+    public Pair<o, JSONObject> c(Object obj) {
         if (obj == null) {
             return null;
         }
         try {
             Field declaredField = obj.getClass().getDeclaredField("a");
             declaredField.setAccessible(true);
-            obj2 = declaredField.get(obj);
+            Object obj2 = declaredField.get(obj);
+            if (obj2 == null) {
+                return null;
+            }
+            Field declaredField2 = obj2.getClass().getDeclaredField("b");
+            declaredField2.setAccessible(true);
+            Object obj3 = declaredField2.get(obj2);
+            if (obj3 == null) {
+                return null;
+            }
+            Field declaredField3 = obj3.getClass().getDeclaredField("d");
+            declaredField3.setAccessible(true);
+            Object obj4 = declaredField3.get(obj3);
+            if (obj4 == null) {
+                return null;
+            }
+            Field declaredField4 = obj4.getClass().getDeclaredField("a");
+            declaredField4.setAccessible(true);
+            Object obj5 = declaredField4.get(obj4);
+            if (obj5 == null) {
+                return null;
+            }
+            Field declaredField5 = obj5.getClass().getDeclaredField("c");
+            declaredField5.setAccessible(true);
+            Object obj6 = declaredField5.get(obj5);
+            if (obj6 != null && (obj6 instanceof JSONObject)) {
+                JSONObject jSONObject = (JSONObject) obj6;
+                jSONObject.toString();
+                return new Pair<>(a.a.a.a.a.a(jSONObject), jSONObject);
+            }
+            return null;
         } catch (Exception e2) {
             a.a.a.a.v.d.a(e2);
-        }
-        if (obj2 == null) {
             return null;
         }
-        Field declaredField2 = obj2.getClass().getDeclaredField("a");
-        declaredField2.setAccessible(true);
-        Object obj3 = declaredField2.get(obj2);
-        if (obj3 == null) {
-            return null;
-        }
-        Field declaredField3 = obj3.getClass().getDeclaredField("g");
-        declaredField3.setAccessible(true);
-        Object obj4 = declaredField3.get(obj3);
-        if (obj4 == null || (method = obj4.getClass().getMethod(ExifInterface.LONGITUDE_EAST, new Class[0])) == null) {
-            return null;
-        }
-        Object invoke = method.invoke(obj4, new Object[0]);
-        if ((invoke instanceof JSONObject) && (jSONObject = (JSONObject) invoke) != null) {
-            return new Pair<>(a.a.a.a.a.a(jSONObject), jSONObject);
-        }
-        return null;
     }
 }

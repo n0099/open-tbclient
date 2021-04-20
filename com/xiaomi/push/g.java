@@ -55,30 +55,30 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m317a(Context context, String str) {
+    public static ApplicationInfo m321a(Context context, String str) {
         if (str.equals(context.getPackageName())) {
             return context.getApplicationInfo();
         }
         try {
             return context.getPackageManager().getApplicationInfo(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("not found app info " + str);
+            com.xiaomi.channel.commonutils.logger.b.m55a("not found app info " + str);
             return null;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m318a(Context context, String str) {
-        ApplicationInfo m317a = m317a(context, str);
+    public static Drawable m322a(Context context, String str) {
+        ApplicationInfo m321a = m321a(context, str);
         Drawable drawable = null;
-        if (m317a != null) {
+        if (m321a != null) {
             try {
-                drawable = m317a.loadIcon(context.getPackageManager());
+                drawable = m321a.loadIcon(context.getPackageManager());
                 if (drawable == null && Build.VERSION.SDK_INT >= 9) {
-                    drawable = m317a.loadLogo(context.getPackageManager());
+                    drawable = m321a.loadLogo(context.getPackageManager());
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m51a("get app icon drawable failed, " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m55a("get app icon drawable failed, " + e2);
             }
         }
         return drawable != null ? drawable : new ColorDrawable(0);
@@ -103,7 +103,7 @@ public class g {
                 return bool.booleanValue() ? a.ALLOWED : a.NOT_ALLOWED;
             }
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("are notifications enabled error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m55a("are notifications enabled error " + e2);
         }
         return a.UNKNOWN;
     }
@@ -119,7 +119,7 @@ public class g {
             applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
             a2 = a(context, applicationInfo);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m51a("get app op error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m55a("get app op error " + th);
         }
         if (a2 != a.UNKNOWN) {
             return a2;
@@ -170,7 +170,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m319a(Context context, String str) {
+    public static String m323a(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
@@ -182,7 +182,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m320a(Context context) {
+    public static boolean m324a(Context context) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null && runningAppProcesses.size() >= 1) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -195,7 +195,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m321a(Context context, String str) {
+    public static boolean m325a(Context context, String str) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -209,10 +209,10 @@ public class g {
     }
 
     public static int b(Context context, String str) {
-        ApplicationInfo m317a = m317a(context, str);
-        if (m317a != null) {
-            int i = m317a.icon;
-            return (i != 0 || Build.VERSION.SDK_INT < 9) ? i : m317a.logo;
+        ApplicationInfo m321a = m321a(context, str);
+        if (m321a != null) {
+            int i = m321a.icon;
+            return (i != 0 || Build.VERSION.SDK_INT < 9) ? i : m321a.logo;
         }
         return 0;
     }
@@ -243,7 +243,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m322b(Context context, String str) {
+    public static String m326b(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -256,7 +256,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m323b(Context context, String str) {
+    public static boolean m327b(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);

@@ -7,7 +7,7 @@ import java.util.UUID;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1733a = "";
+    public static String f1758a = "";
 
     public static long a(Context context) {
         String a2 = com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "update_time_interval");
@@ -74,19 +74,19 @@ public class h {
         String str;
         SharedPreferences.Editor edit;
         synchronized (h.class) {
-            if (com.alipay.security.mobile.module.a.a.a(f1733a)) {
+            if (com.alipay.security.mobile.module.a.a.a(f1758a)) {
                 String a2 = com.alipay.security.mobile.module.b.e.a(context, "alipay_vkey_random", "random", "");
-                f1733a = a2;
+                f1758a = a2;
                 if (com.alipay.security.mobile.module.a.a.a(a2)) {
                     String a3 = com.alipay.security.mobile.module.a.a.b.a(UUID.randomUUID().toString());
-                    f1733a = a3;
+                    f1758a = a3;
                     if (a3 != null && (edit = context.getSharedPreferences("alipay_vkey_random", 0).edit()) != null) {
                         edit.putString("random", a3);
                         edit.commit();
                     }
                 }
             }
-            str = f1733a;
+            str = f1758a;
         }
         return str;
     }

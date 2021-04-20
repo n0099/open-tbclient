@@ -22,14 +22,14 @@ public final class TimedValue<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.time.TimedValue */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: copy-RFiDyg4$default  reason: not valid java name */
-    public static /* synthetic */ TimedValue m1598copyRFiDyg4$default(TimedValue timedValue, Object obj, double d2, int i, Object obj2) {
+    public static /* synthetic */ TimedValue m1602copyRFiDyg4$default(TimedValue timedValue, Object obj, double d2, int i, Object obj2) {
         if ((i & 1) != 0) {
             obj = timedValue.value;
         }
         if ((i & 2) != 0) {
             d2 = timedValue.duration;
         }
-        return timedValue.m1599copyRFiDyg4(obj, d2);
+        return timedValue.m1603copyRFiDyg4(obj, d2);
     }
 
     public final T component1() {
@@ -41,7 +41,7 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: copy-RFiDyg4  reason: not valid java name */
-    public final TimedValue<T> m1599copyRFiDyg4(T t, double d2) {
+    public final TimedValue<T> m1603copyRFiDyg4(T t, double d2) {
         return new TimedValue<>(t, d2);
     }
 
@@ -72,7 +72,7 @@ public final class TimedValue<T> {
     }
 
     public String toString() {
-        return "TimedValue(value=" + this.value + ", duration=" + Duration.m1588toStringimpl(this.duration) + SmallTailInfo.EMOTION_SUFFIX;
+        return "TimedValue(value=" + this.value + ", duration=" + Duration.m1592toStringimpl(this.duration) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public /* synthetic */ TimedValue(Object obj, double d2, DefaultConstructorMarker defaultConstructorMarker) {

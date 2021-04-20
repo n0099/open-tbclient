@@ -12,11 +12,11 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9889a = new AsyncHttpClient();
+    public AsyncHttpClient f9447a = new AsyncHttpClient();
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0120a<T> {
+    public interface InterfaceC0119a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -70,7 +70,7 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0120a<c> interfaceC0120a) {
+    public void a(String str, InterfaceC0119a<c> interfaceC0119a) {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
         builder.encodedAuthority("api.map.baidu.com");
@@ -80,10 +80,10 @@ public class a {
         a(builder, "action", "0");
         String authToken = HttpClient.getAuthToken();
         if (authToken == null) {
-            interfaceC0120a.a((InterfaceC0120a<c>) new c(PanoStateError.PANO_NO_TOKEN));
+            interfaceC0119a.a((InterfaceC0119a<c>) new c(PanoStateError.PANO_NO_TOKEN));
             return;
         }
         a(builder, "token", authToken);
-        this.f9889a.get(a(builder), new b(this, interfaceC0120a));
+        this.f9447a.get(a(builder), new b(this, interfaceC0119a));
     }
 }

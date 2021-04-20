@@ -32,7 +32,7 @@ public class ThreadDelegateStatic extends b {
                 if (aVar.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                     return;
                 }
-                fragmentTabStructure.f50155a.setArguments(new Bundle());
+                fragmentTabStructure.f50548a.setArguments(new Bundle());
             }
         }
     }
@@ -46,9 +46,9 @@ public class ThreadDelegateStatic extends b {
     @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f50155a = ThreadFragment.T0();
-        cVar.f50159e = 1;
-        cVar.f50156b = R.string.collect_thread;
+        cVar.f50548a = ThreadFragment.T0();
+        cVar.f50552e = 1;
+        cVar.f50549b = R.string.collect_thread;
         return cVar;
     }
 

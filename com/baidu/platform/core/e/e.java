@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.platform.base.e {
@@ -66,11 +66,11 @@ public class e extends com.baidu.platform.base.e {
             str2 = "bt";
             str4 = str7;
         }
-        aVar.a(IXAdRequestInfo.SN, str5);
+        aVar.a(IAdRequestParam.SN, str5);
         aVar.a("en", str6);
         String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
-        this.f9821a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
-        this.f9821a.a("from", "android_map_sdk");
+        this.f9379a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+        this.f9379a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

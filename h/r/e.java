@@ -3,9 +3,9 @@ package h.r;
 public final class e extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f67996a = new e();
+    public static final e f69006a = new e();
 
     public static d f() {
-        return f67996a;
+        return f69006a;
     }
 }

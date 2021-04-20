@@ -22,13 +22,13 @@ import tbclient.VideoInfo;
 public class f extends d.b.i0.t.d.f.f.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public View f60598f;
+    public View f62162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCyberVideoView f60599g;
+    public TbCyberVideoView f62163g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f60600h;
+    public ImageView f62164h;
     public TbImageView i;
     public TextView j;
     public VideoInfo k;
@@ -88,15 +88,15 @@ public class f extends d.b.i0.t.d.f.f.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(f.this.f60582d.f60527b)) {
+            if (TextUtils.isEmpty(f.this.f62146d.f62091b)) {
                 return;
             }
             UrlManager urlManager = UrlManager.getInstance();
             f fVar = f.this;
-            urlManager.dealOneLink(fVar.f60581c, new String[]{fVar.f60582d.f60527b}, true);
+            urlManager.dealOneLink(fVar.f62145c, new String[]{fVar.f62146d.f62091b}, true);
             d.b.i0.t.d.d.a c2 = d.b.i0.t.d.d.a.c();
             f fVar2 = f.this;
-            c2.f("c12909", fVar2.f60582d.f60530e, 2, fVar2.m);
+            c2.f("c12909", fVar2.f62146d.f62094e, 2, fVar2.m);
         }
     }
 
@@ -111,55 +111,55 @@ public class f extends d.b.i0.t.d.f.f.a {
     public void b(d.b.i0.t.d.f.c.a aVar) {
         String x1;
         super.b(aVar);
-        if (!ListUtils.isEmpty(this.f60582d.f60528c) && this.f60582d.f60528c.get(0) != null) {
-            this.k = this.f60582d.f60528c.get(0).u1();
-            this.m = this.f60582d.f60528c.get(0).o0();
+        if (!ListUtils.isEmpty(this.f62146d.f62092c) && this.f62146d.f62092c.get(0) != null) {
+            this.k = this.f62146d.f62092c.get(0).u1();
+            this.m = this.f62146d.f62092c.get(0).o0();
         }
         VideoInfo videoInfo = this.k;
         if (videoInfo != null) {
             this.i.W(videoInfo.thumbnail_url, 10, false);
-            if (!TextUtils.isEmpty(this.f60582d.f60528c.get(0).l1())) {
-                x1 = this.f60582d.f60528c.get(0).l1().toString();
+            if (!TextUtils.isEmpty(this.f62146d.f62092c.get(0).l1())) {
+                x1 = this.f62146d.f62092c.get(0).l1().toString();
             } else {
-                x1 = this.f60582d.f60528c.get(0).x1();
+                x1 = this.f62146d.f62092c.get(0).x1();
             }
             if (!TextUtils.isEmpty(x1)) {
                 this.j.setText(x1);
             }
             this.l = this.k.video_url;
-            d.b.i0.t.d.d.a.c().f("c12908", this.f60582d.f60530e, 2, this.m);
+            d.b.i0.t.d.d.a.c().f("c12908", this.f62146d.f62094e, 2, this.m);
         }
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public View c() {
-        return this.f60598f;
+        return this.f62162f;
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void d() {
-        this.f60598f = LayoutInflater.from(this.f60581c.getPageActivity()).inflate(R.layout.special_video_view, (ViewGroup) null);
-        this.f60598f.setLayoutParams(new FrameLayout.LayoutParams(this.f60579a, this.f60580b));
-        TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) this.f60598f.findViewById(R.id.video_view);
-        this.f60599g = tbCyberVideoView;
+        this.f62162f = LayoutInflater.from(this.f62145c.getPageActivity()).inflate(R.layout.special_video_view, (ViewGroup) null);
+        this.f62162f.setLayoutParams(new FrameLayout.LayoutParams(this.f62143a, this.f62144b));
+        TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) this.f62162f.findViewById(R.id.video_view);
+        this.f62163g = tbCyberVideoView;
         tbCyberVideoView.setOnPreparedListener(this.n);
-        this.f60599g.setOnErrorListener(this.o);
-        this.f60599g.setOnSurfaceDestroyedListener(this.p);
-        this.f60599g.setOnCompletionListener(new d());
-        this.f60599g.setStageType(null);
-        this.f60600h = (ImageView) this.f60598f.findViewById(R.id.video_play_btn);
-        TbImageView tbImageView = (TbImageView) this.f60598f.findViewById(R.id.video_cover_img);
+        this.f62163g.setOnErrorListener(this.o);
+        this.f62163g.setOnSurfaceDestroyedListener(this.p);
+        this.f62163g.setOnCompletionListener(new d());
+        this.f62163g.setStageType(null);
+        this.f62164h = (ImageView) this.f62162f.findViewById(R.id.video_play_btn);
+        TbImageView tbImageView = (TbImageView) this.f62162f.findViewById(R.id.video_cover_img);
         this.i = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
         this.i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.j = (TextView) this.f60598f.findViewById(R.id.video_title);
-        this.f60598f.setOnClickListener(new e());
+        this.j = (TextView) this.f62162f.findViewById(R.id.video_title);
+        this.f62162f.setOnClickListener(new e());
         i(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public boolean f(d.b.i0.t.d.f.c.a aVar) {
-        return (aVar == null || 2 != aVar.f60529d || TextUtils.isEmpty(aVar.f60526a)) ? false : true;
+        return (aVar == null || 2 != aVar.f62093d || TextUtils.isEmpty(aVar.f62090a)) ? false : true;
     }
 
     @Override // d.b.i0.t.d.f.f.a
@@ -169,10 +169,10 @@ public class f extends d.b.i0.t.d.f.f.a {
     @Override // d.b.i0.t.d.f.f.a
     public void h() {
         super.h();
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f60598f.getLayoutParams();
-        layoutParams.width = this.f60579a;
-        layoutParams.height = this.f60580b;
-        this.f60598f.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f62162f.getLayoutParams();
+        layoutParams.width = this.f62143a;
+        layoutParams.height = this.f62144b;
+        this.f62162f.setLayoutParams(layoutParams);
     }
 
     @Override // d.b.i0.t.d.f.f.a
@@ -182,35 +182,35 @@ public class f extends d.b.i0.t.d.f.f.a {
 
     @Override // d.b.i0.t.d.f.f.a
     public void j() {
-        TbCyberVideoView tbCyberVideoView = this.f60599g;
+        TbCyberVideoView tbCyberVideoView = this.f62163g;
         if (tbCyberVideoView != null) {
             tbCyberVideoView.stopPlayback();
-            this.f60599g.G();
-            this.f60599g = null;
+            this.f62163g.G();
+            this.f62163g = null;
         }
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void k() {
-        TbCyberVideoView tbCyberVideoView = this.f60599g;
+        TbCyberVideoView tbCyberVideoView = this.f62163g;
         if (tbCyberVideoView == null || tbCyberVideoView.isPlaying()) {
-            this.f60600h.setVisibility(0);
-            this.f60599g.pause();
+            this.f62164h.setVisibility(0);
+            this.f62163g.pause();
         }
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void l() {
-        TbCyberVideoView tbCyberVideoView = this.f60599g;
+        TbCyberVideoView tbCyberVideoView = this.f62163g;
         if (tbCyberVideoView == null || !tbCyberVideoView.isPlaying()) {
-            this.f60600h.setVisibility(8);
-            this.f60599g.start();
+            this.f62164h.setVisibility(8);
+            this.f62163g.start();
         }
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void m() {
-        TbCyberVideoView tbCyberVideoView = this.f60599g;
+        TbCyberVideoView tbCyberVideoView = this.f62163g;
         if (tbCyberVideoView == null || tbCyberVideoView.isPlaying()) {
             return;
         }
@@ -218,27 +218,27 @@ public class f extends d.b.i0.t.d.f.f.a {
         if (TextUtils.isEmpty(this.l) || !m0.b(1, this.l)) {
             return;
         }
-        this.f60599g.setVideoPath(this.l);
-        this.f60599g.setLooping(true);
+        this.f62163g.setVideoPath(this.l);
+        this.f62163g.setLooping(true);
     }
 
     @Override // d.b.i0.t.d.f.f.a
     public void n() {
-        TbCyberVideoView tbCyberVideoView = this.f60599g;
+        TbCyberVideoView tbCyberVideoView = this.f62163g;
         if (tbCyberVideoView != null) {
             tbCyberVideoView.stopPlayback();
         }
     }
 
     public final void q() {
-        d.b.i0.t.d.d.a.c().f("c12910", this.f60582d.f60530e, 2, this.m);
+        d.b.i0.t.d.d.a.c().f("c12910", this.f62146d.f62094e, 2, this.m);
         this.i.setVisibility(8);
-        this.f60600h.setVisibility(8);
-        TbCyberVideoView tbCyberVideoView = this.f60599g;
+        this.f62164h.setVisibility(8);
+        TbCyberVideoView tbCyberVideoView = this.f62163g;
         if (tbCyberVideoView != null) {
             tbCyberVideoView.setVolume(0.0f, 0.0f);
             try {
-                this.f60599g.start();
+                this.f62163g.start();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -7,21 +7,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-import d.b.i0.d1.f.b;
+import d.b.i0.e1.f.b;
 /* loaded from: classes.dex */
 public class FloatRecordView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f4235e = null;
+    public ImageView f4270e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f4236f = null;
+    public LinearLayout f4271f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f4237g = null;
+    public LinearLayout f4272g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f4238h = null;
+    public LinearLayout f4273h = null;
     public int i = 0;
     public long j = 0;
     public int k = 0;
@@ -31,56 +31,56 @@ public class FloatRecordView implements b {
     }
 
     public LinearLayout a() {
-        return this.f4238h;
+        return this.f4273h;
     }
 
     public LinearLayout b() {
-        return this.f4237g;
+        return this.f4272g;
     }
 
     public LinearLayout c() {
-        return this.f4236f;
+        return this.f4271f;
     }
 
-    @Override // d.b.i0.d1.f.b
+    @Override // d.b.i0.e1.f.b
     public void closeRecordCancel() {
-        this.f4238h.setVisibility(8);
+        this.f4273h.setVisibility(8);
     }
 
-    @Override // d.b.i0.d1.f.b
+    @Override // d.b.i0.e1.f.b
     public void closeRecordTooShort() {
-        this.f4237g.setVisibility(8);
+        this.f4272g.setVisibility(8);
     }
 
     public final void d(Context context, ViewGroup viewGroup) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
-        this.f4236f = linearLayout;
-        this.f4235e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
-        this.f4237g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
-        this.f4238h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
+        this.f4271f = linearLayout;
+        this.f4270e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
+        this.f4272g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
+        this.f4273h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
     }
 
     public void e() {
-        this.f4237g.setVisibility(0);
+        this.f4272g.setVisibility(0);
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onDeletedVoice(String str) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onSendVoice(String str, int i) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowErr(int i, String str) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowRecordTime(int i) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onShowRecording(int i) {
         this.i = Math.max(i, this.i);
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -94,43 +94,43 @@ public class FloatRecordView implements b {
             this.k = 0;
             int i3 = this.i;
             if (i3 < 2) {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
             } else if (i3 < 10) {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
             } else if (i3 < 20) {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
             } else if (i3 < 30) {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
             } else if (i3 < 40) {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
             } else if (i3 < 50) {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
             } else {
-                this.f4235e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                this.f4270e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
             }
         }
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onStartedRecorder(boolean z) {
     }
 
-    @Override // d.b.b.e.q.f
+    @Override // d.b.c.e.q.f
     public void onStopingRecorder() {
     }
 
-    @Override // d.b.i0.d1.f.b
+    @Override // d.b.i0.e1.f.b
     public void showRecordCancel() {
-        this.f4238h.setVisibility(0);
+        this.f4273h.setVisibility(0);
     }
 
-    @Override // d.b.i0.d1.f.b
+    @Override // d.b.i0.e1.f.b
     public void startRecordVoice() {
-        this.f4236f.setVisibility(0);
+        this.f4271f.setVisibility(0);
     }
 
-    @Override // d.b.i0.d1.f.b
+    @Override // d.b.i0.e1.f.b
     public void stopRecordVoice() {
-        this.f4236f.setVisibility(8);
+        this.f4271f.setVisibility(8);
     }
 }

@@ -14,32 +14,32 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ad;
 import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f27654a;
+    public final Context f27339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f27655b;
+    public c f27340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f27656c;
+    public c f27341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f27657d;
+    public ImageView f27342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f27658e;
+    public ImageView f27343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b f27659f;
+    public com.bytedance.sdk.openadsdk.dislike.b f27344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27660g;
+    public int f27345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27661h;
+    public boolean f27346h;
     public boolean i;
     public boolean j;
 
@@ -47,13 +47,13 @@ public class d extends FrameLayout {
         super(context);
         this.i = false;
         this.j = false;
-        this.f27654a = context;
+        this.f27339a = context;
         g();
     }
 
     private void g() {
-        c cVar = new c(this.f27654a);
-        this.f27655b = cVar;
+        c cVar = new c(this.f27339a);
+        this.f27340b = cVar;
         addView(cVar, new FrameLayout.LayoutParams(-1, -1));
         i();
         h();
@@ -64,26 +64,26 @@ public class d extends FrameLayout {
             return;
         }
         this.j = true;
-        ImageView imageView = new ImageView(this.f27654a);
-        this.f27657d = imageView;
+        ImageView imageView = new ImageView(this.f27339a);
+        this.f27342d = imageView;
         imageView.setImageResource(ad.d(p.a(), "tt_dislike_icon"));
-        this.f27657d.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f27657d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
+        this.f27342d.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f27342d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.f27659f != null) {
-                    d.this.f27659f.showDislikeDialog();
+                if (d.this.f27344f != null) {
+                    d.this.f27344f.showDislikeDialog();
                 }
             }
         });
-        int a2 = (int) al.a(this.f27654a, 15.0f);
-        int a3 = (int) al.a(this.f27654a, 10.0f);
+        int a2 = (int) al.a(this.f27339a, 15.0f);
+        int a3 = (int) al.a(this.f27339a, 10.0f);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a2, a2);
         layoutParams.gravity = 8388661;
         layoutParams.topMargin = a3;
         layoutParams.rightMargin = a3;
-        addView(this.f27657d, layoutParams);
-        al.a(this.f27657d, a2, a2, a2, a2);
+        addView(this.f27342d, layoutParams);
+        al.a(this.f27342d, a2, a2, a2, a2);
     }
 
     private void i() {
@@ -91,21 +91,21 @@ public class d extends FrameLayout {
             return;
         }
         this.i = true;
-        ImageView imageView = new ImageView(this.f27654a);
-        this.f27658e = imageView;
+        ImageView imageView = new ImageView(this.f27339a);
+        this.f27343e = imageView;
         imageView.setImageResource(ad.d(p.a(), "tt_ad_logo_small"));
-        this.f27658e.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f27343e.setScaleType(ImageView.ScaleType.FIT_XY);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(20, 20);
         layoutParams.gravity = 8388693;
-        addView(this.f27658e, layoutParams);
+        addView(this.f27343e, layoutParams);
     }
 
     private void j() {
-        ImageView imageView = this.f27658e;
+        ImageView imageView = this.f27343e;
         if (imageView != null) {
             bringChildToFront(imageView);
         }
-        ImageView imageView2 = this.f27657d;
+        ImageView imageView2 = this.f27342d;
         if (imageView2 != null) {
             bringChildToFront(imageView2);
         }
@@ -113,9 +113,9 @@ public class d extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        c cVar = this.f27655b;
-        this.f27655b = this.f27656c;
-        this.f27656c = cVar;
+        c cVar = this.f27340b;
+        this.f27340b = this.f27341c;
+        this.f27341c = cVar;
         cVar.b();
     }
 
@@ -126,26 +126,26 @@ public class d extends FrameLayout {
     }
 
     public c c() {
-        return this.f27656c;
+        return this.f27341c;
     }
 
     public View d() {
-        return this.f27657d;
+        return this.f27342d;
     }
 
     public void e() {
-        if (this.f27661h) {
+        if (this.f27346h) {
             return;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(a(this.f27655b)).with(b(this.f27656c));
-        animatorSet.setDuration(this.f27660g).start();
-        this.f27656c.setVisibility(0);
-        this.f27661h = true;
+        animatorSet.play(a(this.f27340b)).with(b(this.f27341c));
+        animatorSet.setDuration(this.f27345g).start();
+        this.f27341c.setVisibility(0);
+        this.f27346h = true;
     }
 
     public boolean f() {
-        c cVar = this.f27656c;
+        c cVar = this.f27341c;
         return (cVar == null || cVar.a() == null) ? false : true;
     }
 
@@ -157,7 +157,7 @@ public class d extends FrameLayout {
     }
 
     public c b() {
-        return this.f27655b;
+        return this.f27340b;
     }
 
     private ObjectAnimator b(final c cVar) {
@@ -169,7 +169,7 @@ public class d extends FrameLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                d.this.f27661h = false;
+                d.this.f27346h = false;
                 d.this.k();
                 c cVar2 = cVar;
                 if (cVar2 != null) {
@@ -197,10 +197,10 @@ public class d extends FrameLayout {
     }
 
     public void a() {
-        c cVar = new c(this.f27654a);
-        this.f27656c = cVar;
+        c cVar = new c(this.f27339a);
+        this.f27341c = cVar;
         cVar.setVisibility(8);
-        addView(this.f27656c, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.f27341c, new FrameLayout.LayoutParams(-1, -1));
     }
 
     @Override // android.view.ViewGroup
@@ -210,7 +210,7 @@ public class d extends FrameLayout {
     }
 
     public void a(com.bytedance.sdk.openadsdk.dislike.b bVar) {
-        this.f27659f = bVar;
+        this.f27344f = bVar;
     }
 
     @Override // android.view.ViewGroup
@@ -220,7 +220,7 @@ public class d extends FrameLayout {
     }
 
     public void a(int i) {
-        this.f27660g = i;
+        this.f27345g = i;
     }
 
     private ObjectAnimator a(c cVar) {
@@ -235,7 +235,7 @@ public class d extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(l lVar) {
-        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f27659f;
+        com.bytedance.sdk.openadsdk.dislike.b bVar = this.f27344f;
         if (bVar == null || lVar == null) {
             return;
         }

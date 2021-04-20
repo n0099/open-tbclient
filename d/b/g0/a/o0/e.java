@@ -12,8 +12,8 @@ public class e {
             if (h2 != 1) {
                 return null;
             }
-            return new d.b.g0.g.m.b(swanAppActivity, eVar.f45740f);
+            return new d.b.g0.g.m.b(swanAppActivity, eVar.f46132f);
         }
-        return new d.b.g0.a.o0.f.a(swanAppActivity, eVar.f45740f);
+        return new d.b.g0.a.o0.f.a(swanAppActivity, eVar.f46132f);
     }
 }

@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import com.compatible.menukey.MenuKeyUtils;
-import d.b.b.e.p.l;
+import d.b.c.e.p.l;
 /* loaded from: classes3.dex */
 public class ViewCommonUtil {
     public static int[] getScreenFullSize(Activity activity) {

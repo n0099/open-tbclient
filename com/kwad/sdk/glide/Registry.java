@@ -18,28 +18,28 @@ import java.util.List;
 public class Registry {
 
     /* renamed from: a  reason: collision with root package name */
-    public final p f35018a;
+    public final p f35307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.e.a f35019b;
+    public final com.kwad.sdk.glide.e.a f35308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.e.e f35020c;
+    public final com.kwad.sdk.glide.e.e f35309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.e.f f35021d;
+    public final com.kwad.sdk.glide.e.f f35310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.a.f f35022e;
+    public final com.kwad.sdk.glide.load.a.f f35311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.resource.e.f f35023f;
+    public final com.kwad.sdk.glide.load.resource.e.f f35312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.kwad.sdk.glide.e.b f35024g;
+    public final com.kwad.sdk.glide.e.b f35313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.kwad.sdk.glide.e.d f35025h = new com.kwad.sdk.glide.e.d();
+    public final com.kwad.sdk.glide.e.d f35314h = new com.kwad.sdk.glide.e.d();
     public final com.kwad.sdk.glide.e.c i = new com.kwad.sdk.glide.e.c();
     public final Pools.Pool<List<Throwable>> j;
 
@@ -85,22 +85,22 @@ public class Registry {
     public Registry() {
         Pools.Pool<List<Throwable>> a2 = com.kwad.sdk.glide.g.a.a.a();
         this.j = a2;
-        this.f35018a = new p(a2);
-        this.f35019b = new com.kwad.sdk.glide.e.a();
-        this.f35020c = new com.kwad.sdk.glide.e.e();
-        this.f35021d = new com.kwad.sdk.glide.e.f();
-        this.f35022e = new com.kwad.sdk.glide.load.a.f();
-        this.f35023f = new com.kwad.sdk.glide.load.resource.e.f();
-        this.f35024g = new com.kwad.sdk.glide.e.b();
+        this.f35307a = new p(a2);
+        this.f35308b = new com.kwad.sdk.glide.e.a();
+        this.f35309c = new com.kwad.sdk.glide.e.e();
+        this.f35310d = new com.kwad.sdk.glide.e.f();
+        this.f35311e = new com.kwad.sdk.glide.load.a.f();
+        this.f35312f = new com.kwad.sdk.glide.load.resource.e.f();
+        this.f35313g = new com.kwad.sdk.glide.e.b();
         a(Arrays.asList(com.bumptech.glide.Registry.BUCKET_GIF, com.bumptech.glide.Registry.BUCKET_BITMAP, com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE));
     }
 
     @NonNull
     private <Data, TResource, Transcode> List<com.kwad.sdk.glide.load.engine.g<Data, TResource, Transcode>> c(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
         ArrayList arrayList = new ArrayList();
-        for (Class cls4 : this.f35020c.b(cls, cls2)) {
-            for (Class cls5 : this.f35023f.b(cls4, cls3)) {
-                arrayList.add(new com.kwad.sdk.glide.load.engine.g(cls, cls4, cls5, this.f35020c.a(cls, cls4), this.f35023f.a(cls4, cls5), this.j));
+        for (Class cls4 : this.f35309c.b(cls, cls2)) {
+            for (Class cls5 : this.f35312f.b(cls4, cls3)) {
+                arrayList.add(new com.kwad.sdk.glide.load.engine.g(cls, cls4, cls5, this.f35309c.a(cls, cls4), this.f35312f.a(cls4, cls5), this.j));
             }
         }
         return arrayList;
@@ -108,31 +108,31 @@ public class Registry {
 
     @NonNull
     public Registry a(@NonNull ImageHeaderParser imageHeaderParser) {
-        this.f35024g.a(imageHeaderParser);
+        this.f35313g.a(imageHeaderParser);
         return this;
     }
 
     @NonNull
     public Registry a(@NonNull e.a<?> aVar) {
-        this.f35022e.a(aVar);
+        this.f35311e.a(aVar);
         return this;
     }
 
     @NonNull
     public <Data> Registry a(@NonNull Class<Data> cls, @NonNull com.kwad.sdk.glide.load.a<Data> aVar) {
-        this.f35019b.a(cls, aVar);
+        this.f35308b.a(cls, aVar);
         return this;
     }
 
     @NonNull
     public <TResource> Registry a(@NonNull Class<TResource> cls, @NonNull com.kwad.sdk.glide.load.g<TResource> gVar) {
-        this.f35021d.a(cls, gVar);
+        this.f35310d.a(cls, gVar);
         return this;
     }
 
     @NonNull
     public <Model, Data> Registry a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<Model, Data> oVar) {
-        this.f35018a.a(cls, cls2, oVar);
+        this.f35307a.a(cls, cls2, oVar);
         return this;
     }
 
@@ -144,13 +144,13 @@ public class Registry {
 
     @NonNull
     public <TResource, Transcode> Registry a(@NonNull Class<TResource> cls, @NonNull Class<Transcode> cls2, @NonNull com.kwad.sdk.glide.load.resource.e.e<TResource, Transcode> eVar) {
-        this.f35023f.a(cls, cls2, eVar);
+        this.f35312f.a(cls, cls2, eVar);
         return this;
     }
 
     @NonNull
     public <Data, TResource> Registry a(@NonNull String str, @NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull com.kwad.sdk.glide.load.f<Data, TResource> fVar) {
-        this.f35020c.a(str, fVar, cls, cls2);
+        this.f35309c.a(str, fVar, cls, cls2);
         return this;
     }
 
@@ -160,13 +160,13 @@ public class Registry {
         arrayList.addAll(list);
         arrayList.add(0, com.bumptech.glide.Registry.BUCKET_PREPEND_ALL);
         arrayList.add(com.bumptech.glide.Registry.BUCKET_APPEND_ALL);
-        this.f35020c.a(arrayList);
+        this.f35309c.a(arrayList);
         return this;
     }
 
     @NonNull
     public <X> com.kwad.sdk.glide.load.a<X> a(@NonNull X x) {
-        com.kwad.sdk.glide.load.a<X> a2 = this.f35019b.a(x.getClass());
+        com.kwad.sdk.glide.load.a<X> a2 = this.f35308b.a(x.getClass());
         if (a2 != null) {
             return a2;
         }
@@ -189,7 +189,7 @@ public class Registry {
 
     @NonNull
     public List<ImageHeaderParser> a() {
-        List<ImageHeaderParser> a2 = this.f35024g.a();
+        List<ImageHeaderParser> a2 = this.f35313g.a();
         if (a2.isEmpty()) {
             throw new NoImageHeaderParserException();
         }
@@ -197,12 +197,12 @@ public class Registry {
     }
 
     public boolean a(@NonNull s<?> sVar) {
-        return this.f35021d.a(sVar.a()) != null;
+        return this.f35310d.a(sVar.a()) != null;
     }
 
     @NonNull
     public <TResource> Registry b(@NonNull Class<TResource> cls, @NonNull com.kwad.sdk.glide.load.g<TResource> gVar) {
-        this.f35021d.b(cls, gVar);
+        this.f35310d.b(cls, gVar);
         return this;
     }
 
@@ -214,18 +214,18 @@ public class Registry {
 
     @NonNull
     public <Data, TResource> Registry b(@NonNull String str, @NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull com.kwad.sdk.glide.load.f<Data, TResource> fVar) {
-        this.f35020c.b(str, fVar, cls, cls2);
+        this.f35309c.b(str, fVar, cls, cls2);
         return this;
     }
 
     @NonNull
     public <X> com.kwad.sdk.glide.load.a.e<X> b(@NonNull X x) {
-        return this.f35022e.a((com.kwad.sdk.glide.load.a.f) x);
+        return this.f35311e.a((com.kwad.sdk.glide.load.a.f) x);
     }
 
     @NonNull
     public <X> com.kwad.sdk.glide.load.g<X> b(@NonNull s<X> sVar) {
-        com.kwad.sdk.glide.load.g<X> a2 = this.f35021d.a(sVar.a());
+        com.kwad.sdk.glide.load.g<X> a2 = this.f35310d.a(sVar.a());
         if (a2 != null) {
             return a2;
         }
@@ -234,24 +234,24 @@ public class Registry {
 
     @NonNull
     public <Model, TResource, Transcode> List<Class<?>> b(@NonNull Class<Model> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        List<Class<?>> a2 = this.f35025h.a(cls, cls2, cls3);
+        List<Class<?>> a2 = this.f35314h.a(cls, cls2, cls3);
         if (a2 == null) {
             a2 = new ArrayList<>();
-            for (Class<?> cls4 : this.f35018a.a((Class<?>) cls)) {
-                for (Class<?> cls5 : this.f35020c.b(cls4, cls2)) {
-                    if (!this.f35023f.b(cls5, cls3).isEmpty() && !a2.contains(cls5)) {
+            for (Class<?> cls4 : this.f35307a.a((Class<?>) cls)) {
+                for (Class<?> cls5 : this.f35309c.b(cls4, cls2)) {
+                    if (!this.f35312f.b(cls5, cls3).isEmpty() && !a2.contains(cls5)) {
                         a2.add(cls5);
                     }
                 }
             }
-            this.f35025h.a(cls, cls2, cls3, Collections.unmodifiableList(a2));
+            this.f35314h.a(cls, cls2, cls3, Collections.unmodifiableList(a2));
         }
         return a2;
     }
 
     @NonNull
     public <Model> List<n<Model, ?>> c(@NonNull Model model) {
-        List<n<Model, ?>> a2 = this.f35018a.a((p) model);
+        List<n<Model, ?>> a2 = this.f35307a.a((p) model);
         if (a2.isEmpty()) {
             throw new NoModelLoaderAvailableException(model);
         }

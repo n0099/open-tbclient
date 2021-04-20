@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbPageReadLocalRequestMessage extends CustomMessage<Object> {
     public String cacheKey;
     public Context context;

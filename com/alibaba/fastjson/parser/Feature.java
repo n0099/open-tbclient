@@ -21,7 +21,12 @@ public enum Feature {
     SupportNonPublicField,
     IgnoreAutoType,
     DisableFieldSmartMatch,
-    SupportAutoType;
+    SupportAutoType,
+    NonStringKeyAsString,
+    CustomMapDeserializer,
+    ErrorOnEnumNotMatch,
+    SafeMode,
+    TrimStringFieldValue;
     
     public final int mask = 1 << ordinal();
 

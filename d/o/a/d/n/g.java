@@ -1,7 +1,7 @@
 package d.o.a.d.n;
 
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static long a(File file) {
         if (file == null || !file.exists()) {

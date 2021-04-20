@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import d.b.i0.z0.f.c;
-import d.b.i0.z0.f.i.a;
-/* loaded from: classes3.dex */
+import d.b.i0.a1.f.c;
+import d.b.i0.a1.f.i.a;
+/* loaded from: classes4.dex */
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     public c mLowFlowsView;
 
@@ -49,7 +49,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
             cVar.loadData();
         }
         if (getIntent() != null) {
-            d.b.i0.z0.f.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra(LowFlowsActivityConfig.TAB_CODE));
+            d.b.i0.a1.f.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra(LowFlowsActivityConfig.TAB_CODE));
         }
     }
 }

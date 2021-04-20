@@ -25,16 +25,16 @@ import d.b.i.u;
 public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f4352e;
+    public BdUniqueId f4387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k0<T> f4353f;
+    public k0<T> f4388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0 f4354g;
+    public b0 f4389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public q0 f4355h;
+    public q0 f4390h;
     public u i;
     public j0 j;
     public d0 k;
@@ -43,27 +43,27 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
     public ThreadCardViewHolder(k0<T> k0Var) {
         super(k0Var.j());
-        this.f4353f = k0Var;
+        this.f4388f = k0Var;
     }
 
     @Override // com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder
     public View a() {
-        return this.f4353f.j();
+        return this.f4388f.j();
     }
 
     public k0<T> b() {
-        return this.f4353f;
+        return this.f4388f;
     }
 
     public final TbPageContext c() {
-        return ((TbPageContextSupport) this.f4353f.j().getContext()).getPageContext();
+        return ((TbPageContextSupport) this.f4388f.j().getContext()).getPageContext();
     }
 
     public final void d(c cVar) {
         if (cVar == null || cVar.b() == null) {
             return;
         }
-        this.f4353f.n(cVar);
+        this.f4388f.n(cVar);
     }
 
     public final boolean e(a2 a2Var) {
@@ -73,7 +73,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
     public void f(T t) {
         NEGFeedBackView nEGFeedBackView;
         if (t == null) {
-            this.f4353f.j().setVisibility(8);
+            this.f4388f.j().setVisibility(8);
             return;
         }
         if (t.n() != null) {
@@ -83,27 +83,27 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
             t.n().T().getName_show();
         }
         boolean z = false;
-        this.f4353f.j().setVisibility(0);
-        b0 b0Var = this.f4354g;
+        this.f4388f.j().setVisibility(0);
+        b0 b0Var = this.f4389g;
         if (b0Var != null && b0Var.i != null) {
             if (!t.s() && t.g() != null) {
-                this.f4354g.m(t);
-                this.f4354g.a(t.g());
-                this.f4354g.i.setVisibility(0);
+                this.f4389g.m(t);
+                this.f4389g.a(t.g());
+                this.f4389g.i.setVisibility(0);
                 z = true;
             } else {
-                b0 b0Var2 = this.f4354g;
+                b0 b0Var2 = this.f4389g;
                 if (b0Var2 != null && (nEGFeedBackView = b0Var2.i) != null) {
                     nEGFeedBackView.setVisibility(8);
                 }
             }
         }
-        if (this.f4355h != null) {
+        if (this.f4390h != null) {
             if (e(t.n())) {
-                d(this.f4355h);
+                d(this.f4390h);
             } else {
-                this.f4355h.l(t);
-                this.f4355h.a(t.n());
+                this.f4390h.l(t);
+                this.f4390h.a(t.n());
             }
         }
         j0 j0Var = this.j;
@@ -132,11 +132,11 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
                 d(this.m);
             }
         }
-        this.f4353f.l(t);
+        this.f4388f.l(t);
     }
 
     public void h() {
-        this.f4353f.n(this.j);
+        this.f4388f.n(this.j);
     }
 
     public void i(int i, l0 l0Var) {
@@ -147,18 +147,18 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
     }
 
     public void j(d.b.i0.x.b0<T> b0Var) {
-        this.f4353f.p(b0Var);
+        this.f4388f.p(b0Var);
     }
 
     public void k(BdUniqueId bdUniqueId) {
-        this.f4352e = bdUniqueId;
+        this.f4387e = bdUniqueId;
     }
 
     public f l() {
         if (this.m == null) {
             this.m = new f(c());
         }
-        this.f4353f.b(this.m);
+        this.f4388f.b(this.m);
         return this.m;
     }
 
@@ -168,12 +168,12 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
             return;
         }
         if (this.l == null) {
-            j jVar = new j(c(), d.R());
+            j jVar = new j(c(), d.T());
             this.l = jVar;
             jVar.q(aVar);
         }
-        this.l.r(this.f4352e);
-        this.f4353f.b(this.l);
+        this.l.r(this.f4387e);
+        this.f4388f.b(this.l);
     }
 
     public u n() {
@@ -182,46 +182,46 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
     public u o(boolean z) {
         if (this.i == null) {
-            this.i = new u(this.f4353f.g());
+            this.i = new u(this.f4388f.g());
         }
-        this.i.s(this.f4352e);
+        this.i.s(this.f4387e);
         this.i.q(z);
-        this.f4353f.b(this.i);
+        this.f4388f.b(this.i);
         return this.i;
     }
 
     public b0 p(boolean z) {
-        if (this.f4354g == null) {
+        if (this.f4389g == null) {
             b0 b0Var = new b0(c(), z);
-            this.f4354g = b0Var;
-            b0Var.i.setUniqueId(this.f4352e);
+            this.f4389g = b0Var;
+            b0Var.i.setUniqueId(this.f4387e);
         }
-        this.f4353f.b(this.f4354g);
-        return this.f4354g;
+        this.f4388f.b(this.f4389g);
+        return this.f4389g;
     }
 
     public void q(boolean z, Align align, NEGFeedBackView.b bVar) {
         if (!z) {
-            d(this.f4354g);
+            d(this.f4389g);
             return;
         }
-        if (this.f4354g == null) {
+        if (this.f4389g == null) {
             b0 b0Var = new b0(c(), align);
-            this.f4354g = b0Var;
-            b0Var.i.setUniqueId(this.f4352e);
-            this.f4354g.u(bVar);
+            this.f4389g = b0Var;
+            b0Var.i.setUniqueId(this.f4387e);
+            this.f4389g.u(bVar);
         }
-        this.f4354g.l(align);
-        this.f4353f.b(this.f4354g);
+        this.f4389g.l(align);
+        this.f4388f.b(this.f4389g);
     }
 
     public d0 r(int i) {
         if (this.k == null) {
-            d0 d0Var = new d0(this.f4353f.j().getContext(), i);
+            d0 d0Var = new d0(this.f4388f.j().getContext(), i);
             this.k = d0Var;
-            d0Var.q(this.f4352e);
+            d0Var.q(this.f4387e);
         }
-        this.f4353f.b(this.k);
+        this.f4388f.b(this.k);
         return this.k;
     }
 
@@ -229,21 +229,21 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         if (this.j == null) {
             j0 j0Var = new j0(c());
             this.j = j0Var;
-            j0Var.o(this.f4352e);
+            j0Var.o(this.f4387e);
         }
-        this.f4353f.b(this.j);
+        this.f4388f.b(this.j);
         return this.j;
     }
 
     public void u(boolean z, Align align) {
         if (!z) {
-            d(this.f4355h);
+            d(this.f4390h);
             return;
         }
-        if (this.f4355h == null) {
-            this.f4355h = new q0(c(), align);
+        if (this.f4390h == null) {
+            this.f4390h = new q0(c(), align);
         }
-        this.f4355h.k(align);
-        this.f4353f.b(this.f4355h);
+        this.f4390h.k(align);
+        this.f4388f.b(this.f4390h);
     }
 }

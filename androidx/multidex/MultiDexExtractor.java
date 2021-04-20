@@ -230,7 +230,7 @@ public final class MultiDexExtractor implements Closeable {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("Extraction ");
-                    sb.append(z ? "succeeded" : e.f1969a);
+                    sb.append(z ? "succeeded" : e.f1994a);
                     sb.append(" '");
                     sb.append(extractedDex.getAbsolutePath());
                     sb.append("': length ");

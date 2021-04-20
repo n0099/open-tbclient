@@ -1,7 +1,7 @@
 package io.reactivex.subjects;
 
-import f.a.d0.a;
-import f.a.o;
+import f.b.d0.a;
+import f.b.o;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 /* loaded from: classes7.dex */
 public final class AsyncSubject<T> extends a<T> {
@@ -16,7 +16,7 @@ public final class AsyncSubject<T> extends a<T> {
             this.parent = asyncSubject;
         }
 
-        @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+        @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
         public void dispose() {
             if (super.tryDispose()) {
                 this.parent.c(this);
@@ -32,7 +32,7 @@ public final class AsyncSubject<T> extends a<T> {
 
         public void onError(Throwable th) {
             if (isDisposed()) {
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
             } else {
                 this.actual.onError(th);
             }

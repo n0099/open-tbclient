@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -23,18 +22,18 @@ public class h extends a0 {
     public class a implements d.b.g0.a.i2.u0.b<d.b.g0.a.v1.c.h<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47382e;
+        public final /* synthetic */ CallbackHandler f47774e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47383f;
+        public final /* synthetic */ String f47775f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f47384g;
+        public final /* synthetic */ Activity f47776g;
 
         public a(CallbackHandler callbackHandler, String str, Activity activity) {
-            this.f47382e = callbackHandler;
-            this.f47383f = str;
-            this.f47384g = activity;
+            this.f47774e = callbackHandler;
+            this.f47775f = str;
+            this.f47776g = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,11 +41,11 @@ public class h extends a0 {
         /* renamed from: a */
         public void onCallback(d.b.g0.a.v1.c.h<b.e> hVar) {
             if (!d.b.g0.a.v1.c.c.h(hVar)) {
-                d.b.g0.a.v1.c.c.o(hVar, this.f47382e, this.f47383f);
+                d.b.g0.a.v1.c.c.o(hVar, this.f47774e, this.f47775f);
                 return;
             }
             d.b.g0.a.c0.c.g("ReadContacts", "request authorize success");
-            h.this.p(this.f47384g, this.f47382e, this.f47383f);
+            h.this.p(this.f47776g, this.f47774e, this.f47775f);
         }
     }
 
@@ -54,29 +53,29 @@ public class h extends a0 {
     public class b implements d.b.g0.a.k1.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f47386a;
+        public final /* synthetic */ Activity f47778a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f47387b;
+        public final /* synthetic */ CallbackHandler f47779b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47388c;
+        public final /* synthetic */ String f47780c;
 
         public b(Activity activity, CallbackHandler callbackHandler, String str) {
-            this.f47386a = activity;
-            this.f47387b = callbackHandler;
-            this.f47388c = str;
+            this.f47778a = activity;
+            this.f47779b = callbackHandler;
+            this.f47780c = str;
         }
 
         @Override // d.b.g0.a.k1.b
         public void a(String str) {
-            h.this.m(this.f47386a, this.f47387b, this.f47388c);
+            h.this.m(this.f47778a, this.f47779b, this.f47780c);
             d.b.g0.a.c0.c.b("ReadContacts", str + "");
         }
 
         @Override // d.b.g0.a.k1.b
         public void b(int i, String str) {
-            d.b.g0.a.v1.c.c.m(10005, this.f47387b, this.f47388c);
+            d.b.g0.a.v1.c.c.m(10005, this.f47779b, this.f47780c);
             d.b.g0.a.c0.c.b("ReadContacts", str + "");
         }
     }
@@ -136,7 +135,7 @@ public class h extends a0 {
                     i = i2;
                 }
                 if (jSONObject != null) {
-                    String string = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+                    String string = query.getString(query.getColumnIndex("mimetype"));
                     switch (string.hashCode()) {
                         case -1079224304:
                             if (string.equals("vnd.android.cursor.item/name")) {
@@ -215,13 +214,13 @@ public class h extends a0 {
     public final void m(Activity activity, CallbackHandler callbackHandler, String str) {
         try {
             JSONObject l = l(activity);
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.i("ReadContactsAction", "read contacts:" + l.toString());
             }
             d.b.g0.a.c0.c.b("ReadContacts", "read contacts:" + l.toString());
             o(callbackHandler, str, 0, l);
         } catch (JSONException e2) {
-            if (a0.f46288b) {
+            if (a0.f46680b) {
                 Log.e("ReadContactsAction", "read contacts error caused by JsonException");
                 e2.printStackTrace();
             }

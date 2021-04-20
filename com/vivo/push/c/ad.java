@@ -7,34 +7,34 @@ import java.util.List;
 public final class ad implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f39410a;
+    public final /* synthetic */ int f39699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f39411b;
+    public final /* synthetic */ List f39700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f39412c;
+    public final /* synthetic */ List f39701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f39413d;
+    public final /* synthetic */ String f39702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ac f39414e;
+    public final /* synthetic */ ac f39703e;
 
     public ad(ac acVar, int i, List list, List list2, String str) {
-        this.f39414e = acVar;
-        this.f39410a = i;
-        this.f39411b = list;
-        this.f39412c = list2;
-        this.f39413d = str;
+        this.f39703e = acVar;
+        this.f39699a = i;
+        this.f39700b = list;
+        this.f39701c = list2;
+        this.f39702d = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        ac acVar = this.f39414e;
-        PushMessageCallback pushMessageCallback = ((ab) acVar).f39409b;
-        context = acVar.f39589a;
-        pushMessageCallback.onSetTags(context, this.f39410a, this.f39411b, this.f39412c, this.f39413d);
+        ac acVar = this.f39703e;
+        PushMessageCallback pushMessageCallback = ((ab) acVar).f39698b;
+        context = acVar.f39878a;
+        pushMessageCallback.onSetTags(context, this.f39699a, this.f39700b, this.f39701c, this.f39702d);
     }
 }

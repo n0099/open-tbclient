@@ -5,14 +5,14 @@ import com.baidu.platform.comapi.walknavi.d.g;
 public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f10034a;
+    public final /* synthetic */ c f9592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ g f10035b;
+    public final /* synthetic */ g f9593b;
 
     public h(g gVar, c cVar) {
-        this.f10035b = gVar;
-        this.f10034a = cVar;
+        this.f9593b = gVar;
+        this.f9592a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
@@ -21,17 +21,17 @@ public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
         g.a aVar2;
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onProgress = " + i);
         if (i == 100) {
-            this.f10035b.n = false;
-            g.b bVar = this.f10035b.f10023b;
-            bVar.f10032c = 0;
-            bVar.f10031b = "";
+            this.f9593b.n = false;
+            g.b bVar = this.f9593b.f9581b;
+            bVar.f9590c = 0;
+            bVar.f9589b = "";
         }
-        aVar = this.f10035b.o;
+        aVar = this.f9593b.o;
         if (aVar != null) {
-            g gVar = this.f10035b;
-            gVar.f10023b.f10032c = i;
+            g gVar = this.f9593b;
+            gVar.f9581b.f9590c = i;
             aVar2 = gVar.o;
-            aVar2.a(this.f10035b.f10023b);
+            aVar2.a(this.f9593b.f9581b);
         }
     }
 
@@ -41,12 +41,12 @@ public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i, String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f10034a);
-        this.f10035b.n = false;
-        g.b bVar = this.f10035b.f10023b;
-        bVar.f10032c = 0;
-        bVar.f10031b = "";
-        c cVar = this.f10034a;
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f9592a);
+        this.f9593b.n = false;
+        g.b bVar = this.f9593b.f9581b;
+        bVar.f9590c = 0;
+        bVar.f9589b = "";
+        c cVar = this.f9592a;
         if (cVar != null) {
             cVar.a(i, str);
         }

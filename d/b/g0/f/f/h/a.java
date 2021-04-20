@@ -10,68 +10,68 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47830a;
+    public String f48222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47831b;
+    public String f48223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f47832c;
+    public String f48224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f47833d;
+    public String f48225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47834e;
+    public String f48226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47835f;
+    public String f48227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47836g;
+    public String f48228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47837h;
+    public String f48229h;
     public String i;
     public String j;
 
     public a() {
-        this.f47830a = "swan";
-        this.f47833d = "";
-        this.f47834e = "";
-        this.f47835f = "";
-        this.f47836g = "";
-        this.f47837h = "";
+        this.f48222a = "swan";
+        this.f48225d = "";
+        this.f48226e = "";
+        this.f48227f = "";
+        this.f48228g = "";
+        this.f48229h = "";
         this.i = "";
         if (e.O() == null) {
             return;
         }
         b.a J = e.O().J();
-        this.f47830a = h.n(J.F());
-        this.f47832c = J.G();
-        this.f47831b = J.S();
-        this.f47835f = J.n0().getString("aiapp_extra_need_download", "");
-        this.f47836g = J.n0().getString("aiapp_extra_preset_pkg", "");
-        this.f47837h = J.V();
+        this.f48222a = h.n(J.F());
+        this.f48224c = J.G();
+        this.f48223b = J.S();
+        this.f48227f = J.n0().getString("aiapp_extra_need_download", "");
+        this.f48228g = J.n0().getString("aiapp_extra_preset_pkg", "");
+        this.f48229h = J.V();
         this.i = J.b0();
         this.j = J.U();
-        this.f47833d = J.n1();
-        this.f47834e = J.o1();
+        this.f48225d = J.n1();
+        this.f48226e = J.o1();
     }
 
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("from", this.f47830a);
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f47832c);
-            jSONObject.put("source", this.f47831b);
-            jSONObject.put("needDown", this.f47835f);
-            jSONObject.put("isPreset", this.f47836g);
-            jSONObject.put("scheme", this.f47837h);
+            jSONObject.put("from", this.f48222a);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f48224c);
+            jSONObject.put("source", this.f48223b);
+            jSONObject.put("needDown", this.f48227f);
+            jSONObject.put("isPreset", this.f48228g);
+            jSONObject.put("scheme", this.f48229h);
             jSONObject.put("extPage", this.i);
             jSONObject.put("launchId", this.j);
-            jSONObject.put("appVersion", this.f47833d);
-            jSONObject.put("thirdVersion", this.f47834e);
+            jSONObject.put("appVersion", this.f48225d);
+            jSONObject.put("thirdVersion", this.f48226e);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -79,25 +79,25 @@ public class a {
     }
 
     public a(JSONObject jSONObject) {
-        this.f47830a = "swan";
-        this.f47833d = "";
-        this.f47834e = "";
-        this.f47835f = "";
-        this.f47836g = "";
-        this.f47837h = "";
+        this.f48222a = "swan";
+        this.f48225d = "";
+        this.f48226e = "";
+        this.f48227f = "";
+        this.f48228g = "";
+        this.f48229h = "";
         this.i = "";
         if (jSONObject == null || jSONObject.length() == 0) {
             return;
         }
-        this.f47830a = jSONObject.optString("from", "swan");
-        this.f47832c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-        this.f47831b = jSONObject.optString("source");
-        this.f47835f = jSONObject.optString("needDown");
-        this.f47836g = jSONObject.optString("isPreset");
-        this.f47837h = jSONObject.optString("scheme");
+        this.f48222a = jSONObject.optString("from", "swan");
+        this.f48224c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        this.f48223b = jSONObject.optString("source");
+        this.f48227f = jSONObject.optString("needDown");
+        this.f48228g = jSONObject.optString("isPreset");
+        this.f48229h = jSONObject.optString("scheme");
         this.i = jSONObject.optString("extPage");
         this.j = jSONObject.optString("launchId", null);
-        this.f47833d = jSONObject.optString("appVersion");
-        this.f47834e = jSONObject.optString("thirdVersion");
+        this.f48225d = jSONObject.optString("appVersion");
+        this.f48226e = jSONObject.optString("thirdVersion");
     }
 }

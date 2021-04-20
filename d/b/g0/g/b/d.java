@@ -18,28 +18,28 @@ public class d {
     public static volatile d i;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f47888a;
+    public HandlerThread f48280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f47889b;
+    public e f48281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.g0.g.b.b f47890c;
+    public d.b.g0.g.b.b f48282c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f47891d;
+    public long f48283d;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.g0.g.b.c f47894g;
+    public d.b.g0.g.b.c f48286g;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47892e = 0;
+    public int f48284e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f47893f = 300000;
+    public long f48285f = 300000;
 
     /* renamed from: h  reason: collision with root package name */
-    public e.c f47895h = new C0951d();
+    public e.c f48287h = new C0963d();
 
     /* loaded from: classes3.dex */
     public class a implements a.d {
@@ -48,7 +48,7 @@ public class d {
 
         @Override // d.b.g0.g.b.a.d
         public void onFail(String str) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
             }
         }
@@ -67,10 +67,10 @@ public class d {
     public class b implements a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47897a;
+        public final /* synthetic */ String f48289a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.d f47898b;
+        public final /* synthetic */ a.d f48290b;
 
         /* loaded from: classes3.dex */
         public class a implements e.c {
@@ -79,44 +79,44 @@ public class d {
 
             @Override // d.b.g0.g.b.e.c
             public void onFail(String str) {
-                b.this.f47898b.onFail(str);
+                b.this.f48290b.onFail(str);
             }
 
             @Override // d.b.g0.g.b.e.c
             public void onSuccess(Object obj) {
                 Activity o;
                 f fVar = (f) obj;
-                if (k.f45051a) {
+                if (k.f45443a) {
                     Log.d("AntiAddictionManager", fVar.toString());
                 }
-                int i = fVar.f47906a;
+                int i = fVar.f48298a;
                 if (i == 0) {
-                    b.this.f47898b.onSuccess();
+                    b.this.f48290b.onSuccess();
                 } else if (1 == i) {
-                    b.this.f47898b.onFail(fVar.f47907b);
+                    b.this.f48290b.onFail(fVar.f48299b);
                 } else {
-                    b.this.f47898b.onFail(fVar.f47907b);
-                    if (TextUtils.isEmpty(fVar.f47907b) || (o = d.this.o()) == null) {
+                    b.this.f48290b.onFail(fVar.f48299b);
+                    if (TextUtils.isEmpty(fVar.f48299b) || (o = d.this.o()) == null) {
                         return;
                     }
-                    d.this.f47894g.f(o, fVar.f47907b, o.getString(h.swan_game_anti_addiction_dialog_ok), true, null);
+                    d.this.f48286g.f(o, fVar.f48299b, o.getString(h.swan_game_anti_addiction_dialog_ok), true, null);
                 }
             }
         }
 
         public b(String str, a.d dVar) {
-            this.f47897a = str;
-            this.f47898b = dVar;
+            this.f48289a = str;
+            this.f48290b = dVar;
         }
 
         @Override // d.b.g0.g.b.a.d
         public void onFail(String str) {
-            this.f47898b.onFail(str);
+            this.f48290b.onFail(str);
         }
 
         @Override // d.b.g0.g.b.a.d
         public void onSuccess() {
-            d.b.g0.g.b.e.c(this.f47897a, new a());
+            d.b.g0.g.b.e.c(this.f48289a, new a());
         }
     }
 
@@ -133,13 +133,13 @@ public class d {
 
     /* renamed from: d.b.g0.g.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0951d implements e.c {
-        public C0951d() {
+    public class C0963d implements e.c {
+        public C0963d() {
         }
 
         @Override // d.b.g0.g.b.e.c
         public void onFail(String str) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 Log.e("AntiAddictionManager", str);
             }
         }
@@ -147,13 +147,13 @@ public class d {
         @Override // d.b.g0.g.b.e.c
         public void onSuccess(Object obj) {
             g gVar = (g) obj;
-            if (k.f45051a) {
+            if (k.f45443a) {
                 Log.d("AntiAddictionManager", gVar.toString());
             }
-            d.this.f47891d = System.currentTimeMillis();
-            if (d.this.t(gVar.f47910c)) {
-                d.this.s(gVar.f47911d * 1000);
-                d.this.q(gVar.f47908a, gVar.f47909b);
+            d.this.f48283d = System.currentTimeMillis();
+            if (d.this.t(gVar.f48302c)) {
+                d.this.s(gVar.f48303d * 1000);
+                d.this.q(gVar.f48300a, gVar.f48301b);
             }
         }
     }
@@ -173,10 +173,10 @@ public class d {
         }
 
         public void c() {
-            if (1 == d.this.f47892e) {
+            if (1 == d.this.f48284e) {
                 return;
             }
-            sendEmptyMessageDelayed(1, d.this.f47893f);
+            sendEmptyMessageDelayed(1, d.this.f48285f);
         }
 
         @Override // android.os.Handler
@@ -227,27 +227,27 @@ public class d {
         l();
         z(true);
         y();
-        this.f47894g = new d.b.g0.g.b.c();
+        this.f48286g = new d.b.g0.g.b.c();
     }
 
     public final void l() {
-        if (this.f47888a == null) {
+        if (this.f48280a == null) {
             HandlerThread handlerThread = new HandlerThread("anti_addiction_monitor");
-            this.f47888a = handlerThread;
+            this.f48280a = handlerThread;
             handlerThread.start();
-            this.f47889b = new e(this.f47888a.getLooper());
+            this.f48281b = new e(this.f48280a.getLooper());
         }
     }
 
     public final synchronized void m() {
-        this.f47889b.a();
-        if (this.f47888a != null) {
-            this.f47888a.quitSafely();
-            this.f47888a = null;
+        this.f48281b.a();
+        if (this.f48280a != null) {
+            this.f48280a.quitSafely();
+            this.f48280a = null;
         }
-        if (this.f47894g != null) {
-            this.f47894g.e();
-            this.f47894g = null;
+        if (this.f48286g != null) {
+            this.f48286g.e();
+            this.f48286g = null;
         }
     }
 
@@ -255,7 +255,7 @@ public class d {
         if (u()) {
             z(false);
         }
-        this.f47889b.a();
+        this.f48281b.a();
     }
 
     public final Activity o() {
@@ -268,7 +268,7 @@ public class d {
 
     public final void q(int i2, String str) {
         if (i2 < 0) {
-            if (k.f45051a) {
+            if (k.f45443a) {
                 Log.e("AntiAddictionManager", "server AntiAddiction state error = " + i2 + " msg = " + str);
             }
         } else if (i2 != 0) {
@@ -280,7 +280,7 @@ public class d {
             if (o == null) {
                 return;
             }
-            this.f47894g.f(o, o.getString(h.swan_game_anti_addiction_dialog_message), o.getString(h.swan_game_anti_addiction_dialog_auth), true, new c());
+            this.f48286g.f(o, o.getString(h.swan_game_anti_addiction_dialog_message), o.getString(h.swan_game_anti_addiction_dialog_auth), true, new c());
         }
     }
 
@@ -290,14 +290,14 @@ public class d {
 
     public final void s(long j) {
         if (300000 < j) {
-            this.f47893f = j;
+            this.f48285f = j;
         } else {
-            this.f47893f = 300000L;
+            this.f48285f = 300000L;
         }
     }
 
     public final boolean t(int i2) {
-        this.f47892e = i2;
+        this.f48284e = i2;
         if (1 == i2) {
             n();
             return false;
@@ -306,16 +306,16 @@ public class d {
     }
 
     public final boolean u() {
-        return this.f47892e == 0;
+        return this.f48284e == 0;
     }
 
     public final void v(int i2, String str) {
-        d.b.g0.g.b.b bVar = this.f47890c;
+        d.b.g0.g.b.b bVar = this.f48282c;
         if (bVar != null) {
             try {
                 bVar.A(i2, str);
             } catch (JSONException e2) {
-                if (k.f45051a) {
+                if (k.f45443a) {
                     e2.printStackTrace();
                 }
             }
@@ -323,13 +323,13 @@ public class d {
     }
 
     public void x(d.b.g0.g.b.b bVar) {
-        this.f47890c = bVar;
+        this.f48282c = bVar;
     }
 
     public synchronized void y() {
-        if (u() && !this.f47889b.b()) {
-            this.f47891d = System.currentTimeMillis();
-            this.f47889b.c();
+        if (u() && !this.f48281b.b()) {
+            this.f48283d = System.currentTimeMillis();
+            this.f48281b.c();
         }
     }
 
@@ -338,14 +338,14 @@ public class d {
         if (z) {
             j = 0;
         } else {
-            j = System.currentTimeMillis() - this.f47891d;
+            j = System.currentTimeMillis() - this.f48283d;
             if (180000 > j) {
                 return;
             }
         }
-        if (k.f45051a) {
+        if (k.f45443a) {
             Log.d("AntiAddictionManager", "Request upUseTime");
         }
-        d.b.g0.g.b.e.d(j, this.f47895h);
+        d.b.g0.g.b.e.d(j, this.f48287h);
     }
 }

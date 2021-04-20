@@ -29,7 +29,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43870a = k.f45051a;
+    public static final boolean f44262a = k.f45443a;
 
     public static void a(File file, File file2) throws IOException {
         FileChannel fileChannel;
@@ -232,13 +232,13 @@ public class e {
         }
         String jSONObject2 = jSONObject.toString();
         if (TextUtils.isEmpty(jSONObject2)) {
-            if (f43870a) {
+            if (f44262a) {
                 Log.d("SwanAppCoreUtils", "reportFatalInfo: empty");
                 return;
             }
             return;
         }
-        if (f43870a) {
+        if (f44262a) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
         c.b bVar = new c.b(10006);
@@ -257,11 +257,11 @@ public class e {
             jSONObject.put("errMessage", str3);
             jSONObject.put("isMainThread", k0.K());
             String jSONObject2 = jSONObject.toString();
-            if (f43870a && TextUtils.isEmpty(jSONObject2)) {
+            if (f44262a && TextUtils.isEmpty(jSONObject2)) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
                 return;
             }
-            if (f43870a) {
+            if (f44262a) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
             c.b bVar = new c.b(10008);
@@ -269,7 +269,7 @@ public class e {
             bVar.h(d.b.g0.a.r1.e.T());
             bVar.l();
         } catch (Exception e2) {
-            if (f43870a) {
+            if (f44262a) {
                 e2.printStackTrace();
             }
         }

@@ -5,20 +5,20 @@ import java.util.concurrent.ConcurrentHashMap;
 public class B2 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static B2 f39633b;
+    public static B2 f39922b;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f39634a = new ConcurrentHashMap();
+    public ConcurrentHashMap f39923a = new ConcurrentHashMap();
 
     public static B2 a() {
-        if (f39633b == null) {
+        if (f39922b == null) {
             synchronized (B2.class) {
-                if (f39633b == null) {
-                    f39633b = new B2();
+                if (f39922b == null) {
+                    f39922b = new B2();
                 }
             }
         }
-        return f39633b;
+        return f39922b;
     }
 
     public static String a(String str, String str2, String str3) {
@@ -31,14 +31,14 @@ public class B2 {
     public z2 a(String str) {
         z2 z2Var;
         synchronized (B2.class) {
-            z2Var = (z2) this.f39634a.remove(str);
+            z2Var = (z2) this.f39923a.remove(str);
         }
         return z2Var;
     }
 
     public void a(String str, z2 z2Var) {
         synchronized (B2.class) {
-            this.f39634a.put(str, z2Var);
+            this.f39923a.put(str, z2Var);
         }
     }
 }

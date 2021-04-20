@@ -13,7 +13,7 @@ import d.b.g0.a.q1.b.c.a;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideLoading");
@@ -21,7 +21,7 @@ public class a extends a0 {
 
     @Override // d.b.g0.a.t1.k.a0
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("HideLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (!(context instanceof SwanAppActivity)) {
@@ -36,7 +36,7 @@ public class a extends a0 {
             return false;
         }
         d.b.g0.a.e0.l.c m = swanAppFragmentManager.m();
-        if (!(m instanceof a.InterfaceC0765a)) {
+        if (!(m instanceof a.InterfaceC0777a)) {
             d.b.g0.a.c0.c.b("hideLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
@@ -45,7 +45,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
             return false;
         } else {
-            d.b.g0.a.q1.b.c.a floatLayer = ((a.InterfaceC0765a) m).getFloatLayer();
+            d.b.g0.a.q1.b.c.a floatLayer = ((a.InterfaceC0777a) m).getFloatLayer();
             if (floatLayer != null && (floatLayer.e() instanceof FrameLayout) && (((FrameLayout) floatLayer.e()).getChildAt(0) instanceof LoadingView)) {
                 floatLayer.g();
             }

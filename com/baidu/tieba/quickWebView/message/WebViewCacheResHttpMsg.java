@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.p2.e.a;
+import d.b.i0.q2.e.a;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public Map<String, a> mModuleInfos;
 

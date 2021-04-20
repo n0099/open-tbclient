@@ -13,12 +13,12 @@ import javax.crypto.spec.SecretKeySpec;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2057a = new String("idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#");
+    public static String f2082a = new String("idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#");
 
     public static String a() {
         String str = new String();
-        for (int i = 0; i < f2057a.length() - 1; i += 4) {
-            str = str + f2057a.charAt(i);
+        for (int i = 0; i < f2082a.length() - 1; i += 4) {
+            str = str + f2082a.charAt(i);
         }
         return str;
     }

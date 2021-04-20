@@ -10,33 +10,33 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.b.e.p.j;
+import d.b.c.e.p.j;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f60224a;
+    public JSONObject f61788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f60225b;
+    public HttpMessageListener f61789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f60226c = BdUniqueId.gen();
+    public BdUniqueId f61790c = BdUniqueId.gen();
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f60227d = BdUniqueId.gen();
+    public BdUniqueId f61791d = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f60228e = new b(2000994);
+    public CustomMessageListener f61792e = new b(2000994);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f60229f = new c(2921324);
+    public CustomMessageListener f61793f = new c(2921324);
 
     /* renamed from: d.b.i0.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1537a extends HttpMessageListener {
-        public C1537a(int i) {
+    public class C1590a extends HttpMessageListener {
+        public C1590a(int i) {
             super(i);
         }
 
@@ -44,7 +44,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                a.this.f60224a = null;
+                a.this.f61788a = null;
             }
         }
     }
@@ -58,9 +58,9 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f60224a != null) {
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f61788a != null) {
                 a aVar = a.this;
-                aVar.h(aVar.f60224a, a.this.f60227d);
+                aVar.h(aVar.f61788a, a.this.f61791d);
             }
         }
     }
@@ -82,14 +82,14 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext) {
-        if (this.f60225b == null) {
-            this.f60225b = new C1537a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        if (this.f61789b == null) {
+            this.f61789b = new C1590a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
         }
-        MessageManager.getInstance().registerListener(this.f60225b);
-        MessageManager.getInstance().registerListener(this.f60228e);
-        this.f60229f.setTag(tbPageContext.getUniqueId());
-        this.f60229f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f60229f);
+        MessageManager.getInstance().registerListener(this.f61789b);
+        MessageManager.getInstance().registerListener(this.f61792e);
+        this.f61793f.setTag(tbPageContext.getUniqueId());
+        this.f61793f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f61793f);
     }
 
     public final void f(JSONObject jSONObject) {
@@ -97,17 +97,17 @@ public class a {
             return;
         }
         if (j.A()) {
-            h(jSONObject, this.f60226c);
+            h(jSONObject, this.f61790c);
         } else {
-            this.f60224a = jSONObject;
+            this.f61788a = jSONObject;
         }
     }
 
     public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f60225b);
-        MessageManager.getInstance().unRegisterListener(this.f60228e);
-        MessageManager.getInstance().unRegisterListener(this.f60229f);
-        this.f60224a = null;
+        MessageManager.getInstance().unRegisterListener(this.f61789b);
+        MessageManager.getInstance().unRegisterListener(this.f61792e);
+        MessageManager.getInstance().unRegisterListener(this.f61793f);
+        this.f61788a = null;
     }
 
     public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {

@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.w.h;
+import f.b.g;
+import f.b.w.h;
 import g.d.b;
 import g.d.c;
 import g.d.d;
@@ -16,34 +16,34 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
     public static final long serialVersionUID = 6725975399620862591L;
     public final c<? super T> actual;
     public final h<? super T, ? extends b<U>> debounceSelector;
-    public final AtomicReference<f.a.t.b> debouncer = new AtomicReference<>();
+    public final AtomicReference<f.b.t.b> debouncer = new AtomicReference<>();
     public boolean done;
     public volatile long index;
     public d s;
 
     /* loaded from: classes7.dex */
-    public static final class a<T, U> extends f.a.e0.a<U> {
+    public static final class a<T, U> extends f.b.e0.a<U> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final FlowableDebounce$DebounceSubscriber<T, U> f68030f;
+        public final FlowableDebounce$DebounceSubscriber<T, U> f69036f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f68031g;
+        public final long f69037g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final T f68032h;
+        public final T f69038h;
         public boolean i;
         public final AtomicBoolean j = new AtomicBoolean();
 
         public a(FlowableDebounce$DebounceSubscriber<T, U> flowableDebounce$DebounceSubscriber, long j, T t) {
-            this.f68030f = flowableDebounce$DebounceSubscriber;
-            this.f68031g = j;
-            this.f68032h = t;
+            this.f69036f = flowableDebounce$DebounceSubscriber;
+            this.f69037g = j;
+            this.f69038h = t;
         }
 
         public void c() {
             if (this.j.compareAndSet(false, true)) {
-                this.f68030f.emit(this.f68031g, this.f68032h);
+                this.f69036f.emit(this.f69037g, this.f69038h);
             }
         }
 
@@ -59,11 +59,11 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
         @Override // g.d.c
         public void onError(Throwable th) {
             if (this.i) {
-                f.a.a0.a.f(th);
+                f.b.a0.a.f(th);
                 return;
             }
             this.i = true;
-            this.f68030f.onError(th);
+            this.f69036f.onError(th);
         }
 
         @Override // g.d.c
@@ -92,7 +92,7 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
         if (j == this.index) {
             if (get() != 0) {
                 this.actual.onNext(t);
-                f.a.x.i.b.e(this, 1L);
+                f.b.x.i.b.e(this, 1L);
                 return;
             }
             cancel();
@@ -106,7 +106,7 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
             return;
         }
         this.done = true;
-        f.a.t.b bVar = this.debouncer.get();
+        f.b.t.b bVar = this.debouncer.get();
         if (DisposableHelper.isDisposed(bVar)) {
             return;
         }
@@ -128,26 +128,26 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
         }
         long j = this.index + 1;
         this.index = j;
-        f.a.t.b bVar = this.debouncer.get();
+        f.b.t.b bVar = this.debouncer.get();
         if (bVar != null) {
             bVar.dispose();
         }
         try {
             b<U> apply = this.debounceSelector.apply(t);
-            f.a.x.b.a.b(apply, "The publisher supplied is null");
+            f.b.x.b.a.b(apply, "The publisher supplied is null");
             b<U> bVar2 = apply;
             a aVar = new a(this, j, t);
             if (this.debouncer.compareAndSet(bVar, aVar)) {
                 bVar2.subscribe(aVar);
             }
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             cancel();
             this.actual.onError(th);
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
@@ -159,7 +159,7 @@ public final class FlowableDebounce$DebounceSubscriber<T, U> extends AtomicLong 
     @Override // g.d.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
-            f.a.x.i.b.a(this, j);
+            f.b.x.i.b.a(this, j);
         }
     }
 }

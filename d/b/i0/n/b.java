@@ -7,7 +7,7 @@ public class b {
         if (str == null) {
             return;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
         mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
         mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});

@@ -14,16 +14,16 @@ import java.util.List;
 public class e extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.profile.home.c f32902b;
+    public com.kwad.sdk.contentalliance.profile.home.c f33191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewPager f32903c;
+    public ViewPager f33192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProfileHomeParam f32904d;
+    public ProfileHomeParam f33193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.profile.home.a.a f32905e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.e.1
+    public com.kwad.sdk.contentalliance.profile.home.a.a f33194e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.e.1
         @Override // com.kwad.sdk.contentalliance.profile.home.a.a
         public void a(@NonNull UserProfile userProfile) {
             e.this.a(userProfile);
@@ -44,39 +44,39 @@ public class e extends com.kwad.sdk.contentalliance.profile.home.b.a {
         }
         ArrayList arrayList = new ArrayList();
         PagerSlidingTabStrip.c a2 = a(String.valueOf(tabInfo.tabId), tabInfo.tabName);
-        a2.a(o, 0, this.f32903c);
+        a2.a(o, 0, this.f33192c);
         Bundle bundle = new Bundle();
         ProfileTabVideoParam profileTabVideoParam = new ProfileTabVideoParam();
-        profileTabVideoParam.mEntryScene = this.f32904d.mEntryScene;
-        profileTabVideoParam.mURLPackage = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a.f32870b.getUrlPackage();
-        ProfileHomeParam profileHomeParam = this.f32904d;
+        profileTabVideoParam.mEntryScene = this.f33193d.mEntryScene;
+        profileTabVideoParam.mURLPackage = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a.f33159b.getUrlPackage();
+        ProfileHomeParam profileHomeParam = this.f33193d;
         profileTabVideoParam.mCurrentPhotoId = profileHomeParam.mCurrentPhotoId;
         profileTabVideoParam.mAuthorId = profileHomeParam.mAuthorId;
         profileTabVideoParam.mTabId = tabInfo.tabId;
         profileTabVideoParam.mTabName = tabInfo.tabName;
         bundle.putSerializable("KEY_PROFILE_TAB_VIDEO_PARAM", profileTabVideoParam);
         arrayList.add(new com.kwad.sdk.lib.widget.viewpager.tabstrip.b(a2, com.kwad.sdk.contentalliance.profile.tabvideo.c.class, bundle));
-        this.f32902b.a(arrayList);
+        this.f33191b.a(arrayList);
         a(tabInfo.tabName);
     }
 
     private void a(String str) {
-        com.kwad.sdk.core.report.e.a(((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a.f32870b, str);
+        com.kwad.sdk.core.report.e.a(((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a.f33159b, str);
     }
 
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a;
-        this.f32902b = bVar.f32869a;
-        this.f32903c = bVar.f32871c;
-        this.f32904d = bVar.f32872d;
-        bVar.f32874f.add(this.f32905e);
+        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a;
+        this.f33191b = bVar.f33158a;
+        this.f33192c = bVar.f33160c;
+        this.f33193d = bVar.f33161d;
+        bVar.f33163f.add(this.f33194e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32868a.f32874f.remove(this.f32905e);
+        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a.f33163f.remove(this.f33194e);
     }
 }

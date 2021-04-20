@@ -38,11 +38,11 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(UInt uInt) {
-        return m1505containsWZ4Q5Ns(uInt.m756unboximpl());
+        return m1509containsWZ4Q5Ns(uInt.m760unboximpl());
     }
 
     /* renamed from: contains-WZ4Q5Ns  reason: not valid java name */
-    public boolean m1505containsWZ4Q5Ns(int i) {
+    public boolean m1509containsWZ4Q5Ns(int i) {
         return UnsignedKt.uintCompare(getFirst(), i) <= 0 && UnsignedKt.uintCompare(i, getLast()) <= 0;
     }
 
@@ -74,7 +74,7 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
 
     @Override // kotlin.ranges.UIntProgression
     public String toString() {
-        return UInt.m750toStringimpl(getFirst()) + IStringUtil.TOP_PATH + UInt.m750toStringimpl(getLast());
+        return UInt.m754toStringimpl(getFirst()) + IStringUtil.TOP_PATH + UInt.m754toStringimpl(getLast());
     }
 
     public /* synthetic */ UIntRange(int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -84,12 +84,12 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.ranges.ClosedRange
     public UInt getEndInclusive() {
-        return UInt.m707boximpl(getLast());
+        return UInt.m711boximpl(getLast());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.ranges.ClosedRange
     public UInt getStart() {
-        return UInt.m707boximpl(getFirst());
+        return UInt.m711boximpl(getFirst());
     }
 }

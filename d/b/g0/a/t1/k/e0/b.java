@@ -13,7 +13,7 @@ import d.b.g0.a.r1.e;
 import d.b.g0.a.t1.j;
 import d.b.g0.a.t1.k.a0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
     public b(j jVar) {
         super(jVar, "/swanAPI/setBackgroundTextStyle");
@@ -27,7 +27,7 @@ public class b extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        if (a0.f46288b) {
+        if (a0.f46680b) {
             Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
         }
         f W = d.b.g0.a.z0.f.V().W();

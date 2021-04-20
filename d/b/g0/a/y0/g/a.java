@@ -11,28 +11,28 @@ import java.util.Map;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f47108d = k.f45051a;
+    public static final boolean f47500d = k.f45443a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, a> f47109e = new HashMap();
+    public static final Map<String, a> f47501e = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f47110a = new HashMap();
+    public Map<String, String> f47502a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f47111b;
+    public final b f47503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f47112c;
+    public final String f47504c;
 
     /* renamed from: d.b.g0.a.y0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0885a implements d.b.g0.a.i2.u0.b<b> {
-        public C0885a() {
+    public class C0897a implements d.b.g0.a.i2.u0.b<b> {
+        public C0897a() {
         }
 
         public final void a(String str, String str2) {
-            if (a.f47108d) {
+            if (a.f47500d) {
                 Log.i(str, str2);
             }
         }
@@ -41,27 +41,27 @@ public final class a {
         @Override // d.b.g0.a.i2.u0.b
         /* renamed from: b */
         public void onCallback(b bVar) {
-            if (a.f47108d) {
+            if (a.f47500d) {
                 c();
             }
         }
 
         public final synchronized void c() {
             a("SwanLaunch", "\n\n\n");
-            a("SwanLaunch", ">>>>>> SWAN Launch Log For " + a.this.f47112c);
+            a("SwanLaunch", ">>>>>> SWAN Launch Log For " + a.this.f47504c);
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : a.this.f47110a.entrySet()) {
+            for (Map.Entry entry : a.this.f47502a.entrySet()) {
                 sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
             }
-            for (b.C0886b c0886b : a.this.f47111b.i()) {
+            for (b.C0898b c0898b : a.this.f47503b.i()) {
                 StringBuilder sb2 = new StringBuilder();
-                for (String str : c0886b.f47120b) {
+                for (String str : c0898b.f47512b) {
                     sb2.append(str);
                     sb2.append(" ");
                 }
-                for (String str2 : c0886b.f47119a) {
-                    String h2 = a.this.f47111b.h();
-                    a(TextUtils.isEmpty(c0886b.f47121c) ? h2 : c0886b.f47121c, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h2, sb, sb2, str2));
+                for (String str2 : c0898b.f47511a) {
+                    String h2 = a.this.f47503b.h();
+                    a(TextUtils.isEmpty(c0898b.f47513c) ? h2 : c0898b.f47513c, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h2, sb, sb2, str2));
                 }
             }
         }
@@ -71,38 +71,38 @@ public final class a {
         b bVar = new b();
         bVar.g("SwanLaunch");
         bVar.l(c());
-        this.f47111b = bVar;
-        this.f47112c = str;
+        this.f47503b = bVar;
+        this.f47504c = str;
     }
 
     public static a d(String str) {
-        a aVar = f47109e.get(str);
+        a aVar = f47501e.get(str);
         if (aVar == null) {
             a aVar2 = new a(str);
-            f47109e.put(str, aVar2);
+            f47501e.put(str, aVar2);
             return aVar2;
         }
         return aVar;
     }
 
     public final d.b.g0.a.i2.u0.b<b> c() {
-        return new C0885a();
+        return new C0897a();
     }
 
-    public b.C0886b e() {
-        return this.f47111b.d();
+    public b.C0898b e() {
+        return this.f47503b.d();
     }
 
-    public b.C0886b f(String str) {
-        return this.f47111b.e(str);
+    public b.C0898b f(String str) {
+        return this.f47503b.e(str);
     }
 
-    public b.C0886b g(String str, String str2) {
-        return this.f47111b.f(str, str2);
+    public b.C0898b g(String str, String str2) {
+        return this.f47503b.f(str, str2);
     }
 
     public synchronized a h() {
-        this.f47111b.j();
+        this.f47503b.j();
         return this;
     }
 }

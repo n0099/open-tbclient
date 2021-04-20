@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdNative;
@@ -16,14 +17,14 @@ import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.utils.ai;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class v implements TTAdManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28644a = "com.union_test.toutiao";
+    public String f28329a = "com.union_test.toutiao";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28645b = "5001121";
+    public String f28330b = "5001121";
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -88,7 +89,7 @@ public class v implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public boolean onlyVerityPlayable(String str, int i, String str2, String str3, String str4) {
-        if (this.f28644a.equals(p.a().getPackageName()) && this.f28645b.equals(i.d().g()) && !TextUtils.isEmpty(str)) {
+        if (this.f28329a.equals(p.a().getPackageName()) && this.f28330b.equals(i.d().g()) && !TextUtils.isEmpty(str)) {
             try {
                 Method a2 = ai.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                 if (a2 != null) {
@@ -124,7 +125,7 @@ public class v implements TTAdManager {
             }
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("type", 2);
         if (context != null) {
             com.bytedance.sdk.openadsdk.utils.b.a(context, intent, null);

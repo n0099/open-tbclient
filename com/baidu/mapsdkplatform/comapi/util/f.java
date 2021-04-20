@@ -14,9 +14,10 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.util.io.PathUtils;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
@@ -27,25 +28,25 @@ public class f {
     public static final String A = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7887b;
+    public static String f7922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7888c;
+    public static String f7923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7889d;
+    public static String f7924d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f7890e;
+    public static String f7925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f7891f;
+    public static int f7926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f7892g;
+    public static int f7927g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f7893h;
+    public static int f7928h;
     public static int i;
     public static int j;
     public static int k;
@@ -58,9 +59,9 @@ public class f {
     public static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7886a = "02";
-    public static String n = "baidu";
-    public static String o = "baidu";
+    public static String f7921a = "02";
+    public static String n = PathUtils.DIRCTORY_BAIDU;
+    public static String o = PathUtils.DIRCTORY_BAIDU;
     public static String p = "";
     public static String q = "";
     public static String r = "";
@@ -100,13 +101,13 @@ public class f {
     public static Bundle b() {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f7886a);
+        bundle.putString("resid", f7921a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString(IXAdRequestInfo.OS, k());
+        bundle.putString(IAdRequestParam.OS, k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
@@ -133,7 +134,7 @@ public class f {
         String str = "pcn";
         Object obj = "cuid";
         String str2 = "dpi";
-        String str3 = IXAdRequestInfo.OS;
+        String str3 = IAdRequestParam.OS;
         Object obj2 = "sv";
         String str4 = "mb";
         String str5 = "channel";
@@ -145,9 +146,9 @@ public class f {
         if (context.getCacheDir() != null) {
             t = context.getCacheDir().getAbsolutePath();
         }
-        f7888c = Build.MODEL;
-        f7889d = "Android" + Build.VERSION.SDK;
-        f7887b = context.getPackageName();
+        f7923c = Build.MODEL;
+        f7924d = "Android" + Build.VERSION.SDK;
+        f7922b = context.getPackageName();
         c(context);
         d(context);
         e(context);
@@ -157,7 +158,7 @@ public class f {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
                 E = locationManager.isProviderEnabled("network") ? 1 : 0;
-                F.put("resid", AppMD5.encodeUrlParamsValue(f7886a));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f7921a));
                 Map<String, String> map2 = F;
                 str6 = AppMD5.encodeUrlParamsValue(m());
                 map2.put("channel", str6);
@@ -167,7 +168,7 @@ public class f {
                 Map<String, String> map4 = F;
                 str4 = AppMD5.encodeUrlParamsValue(i());
                 map4.put("sv", str4);
-                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+                F.put(IAdRequestParam.OS, AppMD5.encodeUrlParamsValue(k()));
                 Map<String, String> map5 = F;
                 obj2 = Integer.valueOf(l());
                 str3 = AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), obj2));
@@ -181,7 +182,7 @@ public class f {
                 format = String.format("%d,%d", Integer.valueOf(h()), obj);
             } catch (Exception unused) {
                 Log.w("baidumapsdk", "LocationManager error");
-                F.put("resid", AppMD5.encodeUrlParamsValue(f7886a));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f7921a));
                 Map<String, String> map7 = F;
                 str6 = AppMD5.encodeUrlParamsValue(m());
                 map7.put("channel", str6);
@@ -191,7 +192,7 @@ public class f {
                 Map<String, String> map9 = F;
                 str4 = AppMD5.encodeUrlParamsValue(i());
                 map9.put("sv", str4);
-                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+                F.put(IAdRequestParam.OS, AppMD5.encodeUrlParamsValue(k()));
                 Map<String, String> map10 = F;
                 obj2 = Integer.valueOf(l());
                 str3 = AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), obj2));
@@ -211,7 +212,7 @@ public class f {
                 aVar.a();
             }
         } catch (Throwable th) {
-            F.put(str6, AppMD5.encodeUrlParamsValue(f7886a));
+            F.put(str6, AppMD5.encodeUrlParamsValue(f7921a));
             F.put(str5, AppMD5.encodeUrlParamsValue(m()));
             F.put(str4, AppMD5.encodeUrlParamsValue(g()));
             F.put(obj2, AppMD5.encodeUrlParamsValue(i()));
@@ -245,14 +246,14 @@ public class f {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             String apiVersion = VersionInfo.getApiVersion();
-            f7890e = apiVersion;
+            f7925e = apiVersion;
             if (apiVersion != null && !apiVersion.equals("")) {
-                f7890e = f7890e.replace('_', IStringUtil.EXTENSION_SEPARATOR);
+                f7925e = f7925e.replace('_', IStringUtil.EXTENSION_SEPARATOR);
             }
-            f7891f = packageInfo.versionCode;
+            f7926f = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException unused) {
-            f7890e = BuildConfig.VERSION_NAME;
-            f7891f = 1;
+            f7925e = BuildConfig.VERSION_NAME;
+            f7926f = 1;
         }
     }
 
@@ -268,8 +269,8 @@ public class f {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         Display defaultDisplay = windowManager != null ? windowManager.getDefaultDisplay() : null;
         if (defaultDisplay != null) {
-            f7892g = defaultDisplay.getWidth();
-            f7893h = defaultDisplay.getHeight();
+            f7927g = defaultDisplay.getWidth();
+            f7928h = defaultDisplay.getHeight();
             defaultDisplay.getMetrics(displayMetrics);
         }
         y = displayMetrics.density;
@@ -290,7 +291,7 @@ public class f {
     }
 
     public static void e(Context context) {
-        m = Settings.Secure.getString(context.getContentResolver(), "android_id");
+        m = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
     }
 
     public static void f() {
@@ -302,13 +303,13 @@ public class f {
         }
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f7886a);
+        bundle.putString("resid", f7921a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString(IXAdRequestInfo.OS, k());
+        bundle.putString(IAdRequestParam.OS, k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
@@ -330,23 +331,23 @@ public class f {
     }
 
     public static String g() {
-        return f7888c;
+        return f7923c;
     }
 
     public static int h() {
-        return f7892g;
+        return f7927g;
     }
 
     public static String i() {
-        return f7890e;
+        return f7925e;
     }
 
     public static int j() {
-        return f7893h;
+        return f7928h;
     }
 
     public static String k() {
-        return f7889d;
+        return f7924d;
     }
 
     public static int l() {

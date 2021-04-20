@@ -5,36 +5,36 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class e implements Handler.Callback {
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile Handler f67103e = new Handler(a.f67104a, this);
+    public volatile Handler f68096e = new Handler(a.f68097a, this);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Looper f67104a;
+        public static final Looper f68097a;
 
         static {
             HandlerThread handlerThread = new HandlerThread("DownloadWatchDog");
             handlerThread.start();
-            f67104a = handlerThread.getLooper();
+            f68097a = handlerThread.getLooper();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         long a();
     }
 
     public static Looper a() {
-        return a.f67104a;
+        return a.f68097a;
     }
 
     public void b(b bVar, long j) {
-        Handler handler = this.f67103e;
+        Handler handler = this.f68096e;
         if (handler == null) {
             return;
         }
@@ -45,11 +45,11 @@ public final class e implements Handler.Callback {
     }
 
     public void c() {
-        Handler handler = this.f67103e;
+        Handler handler = this.f68096e;
         if (handler == null) {
             return;
         }
-        this.f67103e = null;
+        this.f68096e = null;
         handler.removeCallbacksAndMessages(null);
     }
 

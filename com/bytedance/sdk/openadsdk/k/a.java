@@ -10,43 +10,43 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements k {
     public static final AtomicLong m = new AtomicLong();
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.k.a.a f29555a;
+    public volatile com.bytedance.sdk.openadsdk.k.a.a f29240a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.k.b.c f29556b;
+    public final com.bytedance.sdk.openadsdk.k.b.c f29241b;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.k.d.a f29559e;
+    public com.bytedance.sdk.openadsdk.k.d.a f29244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile List<i.b> f29560f;
+    public volatile List<i.b> f29245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile String f29561g;
+    public volatile String f29246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile String f29562h;
+    public volatile String f29247h;
     public volatile i i;
     public volatile l j;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f29557c = new AtomicInteger();
+    public final AtomicInteger f29242c = new AtomicInteger();
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicLong f29558d = new AtomicLong();
+    public final AtomicLong f29243d = new AtomicLong();
     public volatile boolean k = false;
     public final long l = m.incrementAndGet();
     public final AtomicInteger n = new AtomicInteger(0);
     public int o = -1;
 
     public a(com.bytedance.sdk.openadsdk.k.a.a aVar, com.bytedance.sdk.openadsdk.k.b.c cVar) {
-        this.f29555a = aVar;
-        this.f29556b = cVar;
+        this.f29240a = aVar;
+        this.f29241b = cVar;
     }
 
     public void a(Boolean bool, String str, @NonNull Throwable th) {
@@ -72,9 +72,9 @@ public abstract class a implements k {
 
     public int f() {
         if (this.i != null) {
-            return this.i.f29708c.f29709a;
+            return this.i.f29393c.f29394a;
         }
-        return this.f29555a instanceof com.bytedance.sdk.openadsdk.k.a.b ? 1 : 0;
+        return this.f29240a instanceof com.bytedance.sdk.openadsdk.k.a.b ? 1 : 0;
     }
 
     public boolean g() {
@@ -89,16 +89,16 @@ public abstract class a implements k {
         com.bytedance.sdk.openadsdk.k.e.b b2 = com.bytedance.sdk.openadsdk.k.e.c.a().b();
         com.bytedance.sdk.openadsdk.k.e.f fVar = new com.bytedance.sdk.openadsdk.k.e.f();
         HashMap hashMap = new HashMap();
-        fVar.f29644b = aVar.f29732a;
-        fVar.f29643a = 0;
+        fVar.f29329b = aVar.f29417a;
+        fVar.f29328a = 0;
         if ("HEAD".equalsIgnoreCase(str)) {
-            fVar.f29643a = 4;
+            fVar.f29328a = 4;
         }
-        List<i.b> list = this.f29560f;
+        List<i.b> list = this.f29245f;
         if (list != null && !list.isEmpty()) {
             for (i.b bVar : list) {
-                if (!"Range".equalsIgnoreCase(bVar.f29716a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f29716a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f29716a) && !"Host".equalsIgnoreCase(bVar.f29716a)) {
-                    hashMap.put(bVar.f29716a, bVar.f29717b);
+                if (!"Range".equalsIgnoreCase(bVar.f29401a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f29401a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f29401a) && !"Host".equalsIgnoreCase(bVar.f29401a)) {
+                    hashMap.put(bVar.f29401a, bVar.f29402b);
                 }
             }
         }
@@ -106,7 +106,7 @@ public abstract class a implements k {
         if (a2 != null) {
             hashMap.put("Range", a2);
         }
-        if (e.f29636f) {
+        if (e.f29321f) {
             hashMap.put("Cache-Control", "no-cache");
         }
         d c2 = d.c();
@@ -116,13 +116,13 @@ public abstract class a implements k {
         c b3 = z ? c2.b() : a3.c();
         if (a4 != null || b3 != null) {
             if (a4 != null) {
-                fVar.f29645c = a4.a(aVar.f29733b);
+                fVar.f29330c = a4.a(aVar.f29418b);
             }
             if (b3 != null) {
-                fVar.f29646d = b3.a(aVar.f29733b);
+                fVar.f29331d = b3.a(aVar.f29418b);
             }
         }
-        fVar.f29647e = hashMap;
+        fVar.f29332e = hashMap;
         if (this.k) {
             this.k = false;
             return null;
@@ -134,7 +134,7 @@ public abstract class a implements k {
         if (i <= 0 || i2 < 0) {
             return;
         }
-        int i3 = e.f29637g;
+        int i3 = e.f29322g;
         int f2 = f();
         if (i3 == 1 || (i3 == 2 && f2 == 1)) {
             int i4 = (int) ((i2 / i) * 100.0f);
@@ -150,7 +150,7 @@ public abstract class a implements k {
                     @Override // java.lang.Runnable
                     public void run() {
                         a aVar = a.this;
-                        com.bytedance.sdk.openadsdk.k.d.a aVar2 = aVar.f29559e;
+                        com.bytedance.sdk.openadsdk.k.d.a aVar2 = aVar.f29244e;
                         if (aVar2 != null) {
                             aVar2.a(aVar.j, a.this.o);
                         }

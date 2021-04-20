@@ -9,28 +9,28 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13813a = 0;
+        public int f13474a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13814b = 0;
+        public int f13475b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13815c = 0;
+        public int f13476c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13816d = 0;
+        public int f13477d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13817e = 0;
+        public int f13478e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f13818f = 0;
+        public int f13479f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f13819g = 0;
+        public int f13480g = 0;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f13820h = 0;
+        public int f13481h = 0;
         public int i = 0;
         public int j = 0;
 
@@ -44,27 +44,27 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public int getMsgAgree() {
-        return this.mData.f13813a;
+        return this.mData.f13474a;
     }
 
     public int getMsgAtme() {
-        return this.mData.f13815c;
+        return this.mData.f13476c;
     }
 
     public int getMsgBookmark() {
-        return this.mData.f13818f;
+        return this.mData.f13479f;
     }
 
     public int getMsgChat() {
-        return this.mData.f13816d;
+        return this.mData.f13477d;
     }
 
     public int getMsgFans() {
-        return this.mData.f13817e;
+        return this.mData.f13478e;
     }
 
     public int getMsgGiftNum() {
-        return this.mData.f13819g;
+        return this.mData.f13480g;
     }
 
     public int getMsgOfficialMerge() {
@@ -72,11 +72,11 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.f13820h;
+        return this.mData.f13481h;
     }
 
     public int getMsgReplyme() {
-        return this.mData.f13814b;
+        return this.mData.f13475b;
     }
 
     public int getMsgStrangerChat() {
@@ -84,27 +84,27 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setMsgAgree(int i) {
-        this.mData.f13813a = i;
+        this.mData.f13474a = i;
     }
 
     public void setMsgAtme(int i) {
-        this.mData.f13815c = i;
+        this.mData.f13476c = i;
     }
 
     public void setMsgBookmark(int i) {
-        this.mData.f13818f = i;
+        this.mData.f13479f = i;
     }
 
     public void setMsgChat(int i) {
-        this.mData.f13816d = i;
+        this.mData.f13477d = i;
     }
 
     public void setMsgFans(int i) {
-        this.mData.f13817e = i;
+        this.mData.f13478e = i;
     }
 
     public void setMsgGiftNum(int i) {
-        this.mData.f13819g = i;
+        this.mData.f13480g = i;
     }
 
     public void setMsgOfficialMerge(int i) {
@@ -112,11 +112,11 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.f13820h = i;
+        this.mData.f13481h = i;
     }
 
     public void setMsgReplyme(int i) {
-        this.mData.f13814b = i;
+        this.mData.f13475b = i;
     }
 
     public void setMsgStrangerChat(int i) {
@@ -127,12 +127,12 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         super(2001120);
         a aVar = new a(this);
         this.mData = aVar;
-        aVar.f13813a = i;
-        this.mData.f13814b = i2;
-        this.mData.f13815c = i3;
-        this.mData.f13816d = i4;
-        this.mData.f13818f = i5;
-        this.mData.f13819g = i6;
-        this.mData.f13820h = i7;
+        aVar.f13474a = i;
+        this.mData.f13475b = i2;
+        this.mData.f13476c = i3;
+        this.mData.f13477d = i4;
+        this.mData.f13479f = i5;
+        this.mData.f13480g = i6;
+        this.mData.f13481h = i7;
     }
 }

@@ -16,17 +16,17 @@ import java.util.Map;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f48890a;
+    public static volatile a f49282a;
 
     public static a h() {
-        if (f48890a == null) {
+        if (f49282a == null) {
             synchronized (a.class) {
-                if (f48890a == null) {
-                    f48890a = new b();
+                if (f49282a == null) {
+                    f49282a = new b();
                 }
             }
         }
-        return f48890a;
+        return f49282a;
     }
 
     public abstract boolean a(f fVar, PMSAppInfo pMSAppInfo);

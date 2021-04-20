@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.w.h;
-import f.a.x.b.a;
+import f.b.w.h;
+import f.b.x.b.a;
 import g.d.c;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
@@ -27,7 +27,7 @@ public final class FlowableMapNotification$MapNotificationSubscriber<T, R> exten
             a.b(call, "The onComplete publisher returned is null");
             complete(call);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.actual.onError(th);
         }
     }
@@ -39,7 +39,7 @@ public final class FlowableMapNotification$MapNotificationSubscriber<T, R> exten
             a.b(apply, "The onError publisher returned is null");
             complete(apply);
         } catch (Throwable th2) {
-            f.a.u.a.a(th2);
+            f.b.u.a.a(th2);
             this.actual.onError(new CompositeException(th, th2));
         }
     }
@@ -52,7 +52,7 @@ public final class FlowableMapNotification$MapNotificationSubscriber<T, R> exten
             this.produced++;
             this.actual.onNext(apply);
         } catch (Throwable th) {
-            f.a.u.a.a(th);
+            f.b.u.a.a(th);
             this.actual.onError(th);
         }
     }

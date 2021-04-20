@@ -5,14 +5,14 @@ import d.b.h0.r.q.w;
 public class a extends w {
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55473h;
+    public boolean f56596h;
 
     public a(boolean z) {
         A(10);
-        this.f55473h = z;
+        this.f56596h = z;
     }
 
     public boolean B() {
-        return this.f55473h;
+        return this.f56596h;
     }
 }

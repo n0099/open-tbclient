@@ -10,45 +10,45 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2697a;
+    public String f2732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2698b;
+    public String f2733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2699c;
+    public int f2734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<e> f2700d;
+    public ArrayList<e> f2735d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<f> f2701e;
+    public ArrayList<f> f2736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2702f;
+    public String f2737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2703g;
+    public String f2738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f2704h;
+    public a f2739h;
     public int i = 0;
 
     /* loaded from: classes.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2705a;
+        public int f2740a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2706b;
+        public int f2741b;
 
         public a() {
         }
     }
 
     public c(Context context, String str) {
-        this.f2697a = str;
+        this.f2732a = str;
         a(context, str);
     }
 
@@ -175,30 +175,30 @@ public class c {
     }
 
     public a a() {
-        return this.f2704h;
+        return this.f2739h;
     }
 
     public void a(int i) {
-        this.f2699c = i;
+        this.f2734c = i;
     }
 
     public void a(int i, int i2) {
         a aVar = new a();
-        this.f2704h = aVar;
-        aVar.f2705a = i;
-        aVar.f2706b = i2;
+        this.f2739h = aVar;
+        aVar.f2740a = i;
+        aVar.f2741b = i2;
     }
 
     public void a(String str) {
-        this.f2698b = str;
+        this.f2733b = str;
     }
 
     public void a(ArrayList<e> arrayList) {
-        this.f2700d = arrayList;
+        this.f2735d = arrayList;
     }
 
     public String b() {
-        return this.f2698b;
+        return this.f2733b;
     }
 
     public void b(int i) {
@@ -206,35 +206,35 @@ public class c {
     }
 
     public void b(String str) {
-        this.f2702f = str;
+        this.f2737f = str;
     }
 
     public void b(ArrayList<f> arrayList) {
-        this.f2701e = arrayList;
+        this.f2736e = arrayList;
     }
 
     public int c() {
-        return this.f2699c;
+        return this.f2734c;
     }
 
     public void c(String str) {
-        this.f2703g = str;
+        this.f2738g = str;
     }
 
     public ArrayList<e> d() {
-        return this.f2700d;
+        return this.f2735d;
     }
 
     public ArrayList<f> e() {
-        return this.f2701e;
+        return this.f2736e;
     }
 
     public String f() {
-        return this.f2702f;
+        return this.f2737f;
     }
 
     public String g() {
-        return this.f2703g;
+        return this.f2738g;
     }
 
     public int h() {
@@ -242,6 +242,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f2697a;
+        return this.f2732a;
     }
 }

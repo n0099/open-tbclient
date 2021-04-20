@@ -17,51 +17,51 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, f> f39308a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, f> f39597a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39309b = null;
+    public static String f39598b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f39310c;
+    public Context f39599c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39311d;
+    public String f39600d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f39312e = null;
+    public JSONObject f39601e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39313f = 0;
+    public long f39602f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39314g = 0;
+    public int f39603g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39315h = true;
+    public boolean f39604h = true;
 
     public f(Context context, String str) {
-        this.f39310c = null;
-        this.f39311d = null;
-        this.f39310c = context.getApplicationContext();
-        this.f39311d = str;
+        this.f39599c = null;
+        this.f39600d = null;
+        this.f39599c = context.getApplicationContext();
+        this.f39600d = str;
         a();
         b();
     }
 
     private void b() {
-        if (this.f39314g != 0) {
+        if (this.f39603g != 0) {
             d("update thread is running, return");
             return;
         }
-        this.f39314g = 1;
+        this.f39603g = 1;
         final Bundle bundle = new Bundle();
-        bundle.putString("appid", this.f39311d);
-        bundle.putString("appid_for_getting_config", this.f39311d);
+        bundle.putString("appid", this.f39600d);
+        bundle.putString("appid_for_getting_config", this.f39600d);
         bundle.putString("status_os", Build.VERSION.RELEASE);
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
@@ -71,11 +71,11 @@ public class f {
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 try {
-                    f.this.a(j.d(HttpUtils.openUrl2(f.this.f39310c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f39335a));
+                    f.this.a(j.d(HttpUtils.openUrl2(f.this.f39599c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f39624a));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                f.this.f39314g = 0;
+                f.this.f39603g = 0;
             }
         }.start();
     }
@@ -86,18 +86,18 @@ public class f {
         String str3 = "";
         try {
             try {
-                if (this.f39311d != null) {
-                    str2 = str + "." + this.f39311d;
+                if (this.f39600d != null) {
+                    str2 = str + "." + this.f39600d;
                 } else {
                     str2 = str;
                 }
-                open = this.f39310c.openFileInput(str2);
+                open = this.f39599c.openFileInput(str2);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return "";
             }
         } catch (FileNotFoundException unused) {
-            open = this.f39310c.getAssets().open(str);
+            open = this.f39599c.getAssets().open(str);
         }
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName("UTF-8")));
         StringBuffer stringBuffer = new StringBuffer();
@@ -135,25 +135,25 @@ public class f {
     }
 
     private void d(String str) {
-        if (this.f39315h) {
-            com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", str + "; appid: " + this.f39311d);
+        if (this.f39604h) {
+            com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", str + "; appid: " + this.f39600d);
         }
     }
 
     public static f a(Context context, String str) {
         f fVar;
-        synchronized (f39308a) {
+        synchronized (f39597a) {
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance begin");
             if (str != null) {
-                f39309b = str;
+                f39598b = str;
             }
             if (str == null) {
-                str = f39309b != null ? f39309b : "0";
+                str = f39598b != null ? f39598b : "0";
             }
-            fVar = f39308a.get(str);
+            fVar = f39597a.get(str);
             if (fVar == null) {
                 fVar = new f(context, str);
-                f39308a.put(str, fVar);
+                f39597a.put(str, fVar);
             }
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance end");
         }
@@ -163,7 +163,7 @@ public class f {
     public boolean b(String str) {
         d("get " + str);
         c();
-        Object opt = this.f39312e.opt(str);
+        Object opt = this.f39601e.opt(str);
         if (opt == null) {
             return false;
         }
@@ -178,18 +178,18 @@ public class f {
 
     private void a() {
         try {
-            this.f39312e = new JSONObject(c("com.tencent.open.config.json"));
+            this.f39601e = new JSONObject(c("com.tencent.open.config.json"));
         } catch (JSONException unused) {
-            this.f39312e = new JSONObject();
+            this.f39601e = new JSONObject();
         }
     }
 
     private void a(String str, String str2) {
         try {
-            if (this.f39311d != null) {
-                str = str + "." + this.f39311d;
+            if (this.f39600d != null) {
+                str = str + "." + this.f39600d;
             }
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f39310c.openFileOutput(str, 0), Charset.forName("UTF-8"));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f39599c.openFileOutput(str, 0), Charset.forName("UTF-8"));
             outputStreamWriter.write(str2);
             outputStreamWriter.flush();
             outputStreamWriter.close();
@@ -199,11 +199,11 @@ public class f {
     }
 
     private void c() {
-        int optInt = this.f39312e.optInt("Common_frequency");
+        int optInt = this.f39601e.optInt("Common_frequency");
         if (optInt == 0) {
             optInt = 1;
         }
-        if (SystemClock.elapsedRealtime() - this.f39313f >= optInt * 3600000) {
+        if (SystemClock.elapsedRealtime() - this.f39602f >= optInt * 3600000) {
             b();
         }
     }
@@ -211,14 +211,14 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject) {
         d("cgi back, do update");
-        this.f39312e = jSONObject;
+        this.f39601e = jSONObject;
         a("com.tencent.open.config.json", jSONObject.toString());
-        this.f39313f = SystemClock.elapsedRealtime();
+        this.f39602f = SystemClock.elapsedRealtime();
     }
 
     public int a(String str) {
         d("get " + str);
         c();
-        return this.f39312e.optInt(str);
+        return this.f39601e.optInt(str);
     }
 }

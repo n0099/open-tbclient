@@ -16,7 +16,6 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkSettings;
@@ -28,65 +27,65 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.service.ChangeSkinReceiver;
-import d.b.b.e.m.h;
-import d.b.b.e.p.j;
-import d.b.b.e.p.l;
+import d.b.c.e.m.h;
+import d.b.c.e.p.j;
+import d.b.c.e.p.l;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class b {
     public static b l;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f50633c;
+    public d f51040c;
     public int i;
     public ChangeSkinReceiver k;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountData f50631a = null;
+    public AccountData f51038a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f50632b = false;
+    public boolean f51039b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50634d = 0;
+    public int f51041d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50635e = 0;
+    public int f51042e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50636f = 0;
+    public int f51043f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50637g = 0;
+    public int f51044g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50638h = true;
+    public boolean f51045h = true;
     public boolean j = true;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f50639e;
+        public final /* synthetic */ AccountData f51046e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f50640f;
+        public final /* synthetic */ Context f51047f;
 
         public a(AccountData accountData, Context context) {
-            this.f50639e = accountData;
-            this.f50640f = context;
+            this.f51046e = accountData;
+            this.f51047f = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.M(this.f50639e, this.f50640f);
+            b.this.M(this.f51046e, this.f51047f);
         }
     }
 
     /* renamed from: d.b.h0.r.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1083b implements Runnable {
-        public RunnableC1083b() {
+    public class RunnableC1096b implements Runnable {
+        public RunnableC1096b() {
         }
 
         @Override // java.lang.Runnable
@@ -99,7 +98,7 @@ public class b {
     public static class c implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            d.b.i0.c3.n0.a.a("", 7);
+            d.b.i0.d3.n0.a.a("", 7);
         }
     }
 
@@ -113,15 +112,15 @@ public class b {
             if (b.this.E() && intent != null && "com.baidu.tieba.action.accountChange".equals(intent.getAction())) {
                 Serializable serializableExtra = intent.getSerializableExtra("intent_data_accountData");
                 if (serializableExtra instanceof AccountData) {
-                    b.this.f50631a = (AccountData) serializableExtra;
+                    b.this.f51038a = (AccountData) serializableExtra;
                 } else {
-                    b.this.f50631a = null;
+                    b.this.f51038a = null;
                 }
                 d.b.h0.f0.f.g(b.this.C());
-                if (b.this.f50631a != null) {
-                    d.b.h0.f0.f.f(b.this.f50631a.getBDUSS());
-                    d.b.h0.f0.f.i(b.this.f50631a.getTbs());
-                    d.b.h0.f0.f.h(b.this.f50631a.getStoken());
+                if (b.this.f51038a != null) {
+                    d.b.h0.f0.f.f(b.this.f51038a.getBDUSS());
+                    d.b.h0.f0.f.i(b.this.f51038a.getTbs());
+                    d.b.h0.f0.f.h(b.this.f51038a.getStoken());
                 }
             }
         }
@@ -133,7 +132,7 @@ public class b {
 
     public static void H() {
         h.a().b(new c());
-        d.b.h0.r.d0.b.i().v("app_inverval", System.currentTimeMillis());
+        d.b.h0.r.d0.b.j().w("app_inverval", System.currentTimeMillis());
     }
 
     public static void I(AccountData accountData) {
@@ -182,11 +181,11 @@ public class b {
     }
 
     public void A() {
-        if (!D(false) && E() && this.f50633c == null) {
-            this.f50633c = new d(this, null);
+        if (!D(false) && E() && this.f51040c == null) {
+            this.f51040c = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.action.accountChange");
-            TbadkCoreApplication.getInst().registerReceiver(this.f50633c, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.f51040c, intentFilter);
         }
     }
 
@@ -213,30 +212,30 @@ public class b {
     }
 
     public boolean F() {
-        return this.f50638h;
+        return this.f51045h;
     }
 
     public void G(AccountData accountData, Application application) {
         BdLog.e("账号切换");
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        String o = i.o("current_used_theme_" + g(), null);
-        if (StringUtils.isNull(o)) {
-            this.f50635e = 0;
-            this.f50636f = 0;
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        String p = j.p("current_used_theme_" + g(), null);
+        if (StringUtils.isNull(p)) {
+            this.f51042e = 0;
+            this.f51043f = 0;
         } else {
-            String[] split = o.split("/");
+            String[] split = p.split("/");
             if (split != null && split.length >= 2) {
-                this.f50635e = d.b.b.e.m.b.d(split[0], 0);
-                this.f50636f = d.b.b.e.m.b.d(split[1], 0);
+                this.f51042e = d.b.c.e.m.b.d(split[0], 0);
+                this.f51043f = d.b.c.e.m.b.d(split[1], 0);
             } else {
-                this.f50635e = 0;
-                this.f50636f = 0;
+                this.f51042e = 0;
+                this.f51043f = 0;
             }
         }
-        this.f50634d = TbadkSettings.getInst().loadInt("skin_", 0);
+        this.f51041d = TbadkSettings.getInst().loadInt("skin_", 0);
         this.j = true;
         e();
-        d.b.b.e.m.e.a().postDelayed(new RunnableC1083b(), 600L);
+        d.b.c.e.m.e.a().postDelayed(new RunnableC1096b(), 600L);
         MessageManager.getInstance().sendMessage(new CustomMessage(2005006, accountData));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
@@ -245,29 +244,29 @@ public class b {
     }
 
     public void J(AccountData accountData, String str, String str2) {
-        if (accountData == null && this.f50631a != null) {
-            this.f50632b = true;
-        } else if (this.f50631a == null && accountData != null) {
-            this.f50632b = true;
+        if (accountData == null && this.f51038a != null) {
+            this.f51039b = true;
+        } else if (this.f51038a == null && accountData != null) {
+            this.f51039b = true;
         } else {
-            AccountData accountData2 = this.f50631a;
+            AccountData accountData2 = this.f51038a;
             if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                this.f50632b = true;
+                this.f51039b = true;
             }
         }
-        if (this.f50631a == null && accountData != null) {
-            this.f50631a = accountData;
+        if (this.f51038a == null && accountData != null) {
+            this.f51038a = accountData;
         }
-        if (this.f50631a == null) {
+        if (this.f51038a == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f50631a.setBDUSS(str);
+            this.f51038a.setBDUSS(str);
         }
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f50631a.setTbs(str2);
+        this.f51038a.setTbs(str2);
     }
 
     public void K(AccountData accountData, Context context) {
@@ -292,7 +291,7 @@ public class b {
     public void L(AccountData accountData, Context context) {
         String str;
         String str2;
-        this.f50631a = accountData;
+        this.f51038a = accountData;
         String str3 = null;
         if (accountData != null) {
             str3 = accountData.getID();
@@ -306,19 +305,19 @@ public class b {
     }
 
     public void M(AccountData accountData, Context context) {
-        if (!this.f50632b) {
-            if (accountData == null && this.f50631a != null) {
-                this.f50632b = true;
-            } else if (this.f50631a == null && accountData != null) {
-                this.f50632b = true;
+        if (!this.f51039b) {
+            if (accountData == null && this.f51038a != null) {
+                this.f51039b = true;
+            } else if (this.f51038a == null && accountData != null) {
+                this.f51039b = true;
             } else {
-                AccountData accountData2 = this.f50631a;
+                AccountData accountData2 = this.f51038a;
                 if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                    this.f50632b = true;
+                    this.f51039b = true;
                 }
             }
         }
-        this.f50631a = accountData;
+        this.f51038a = accountData;
         if (context != null) {
             if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
                 UtilHelper.startPushService(context);
@@ -327,7 +326,7 @@ public class b {
             }
         }
         I(accountData);
-        if (this.f50632b) {
+        if (this.f51039b) {
             G(accountData, TbadkCoreApplication.getInst());
             BdSocketLinkService.setHasAbsoluteClose(false);
             BdSocketLinkService.setAvailable(true);
@@ -342,7 +341,7 @@ public class b {
     }
 
     public void N(int i) {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             accountData.setMemberType(i);
         }
@@ -358,7 +357,7 @@ public class b {
     }
 
     public void P(int i) {
-        this.f50634d = i;
+        this.f51041d = i;
     }
 
     public void Q(String str) {
@@ -366,23 +365,23 @@ public class b {
             return;
         }
         synchronized (this) {
-            if (this.f50631a != null) {
-                this.f50631a.setTbs(str);
+            if (this.f51038a != null) {
+                this.f51038a.setTbs(str);
             }
         }
     }
 
     public void R(boolean z) {
-        this.f50638h = z;
+        this.f51045h = z;
     }
 
     public void S() {
         int i;
-        if (this.f50634d == 2 && (i = this.f50635e) > 0) {
-            T(i, this.f50636f);
+        if (this.f51041d == 2 && (i = this.f51042e) > 0) {
+            T(i, this.f51043f);
             return;
         }
-        int i2 = this.f50634d;
+        int i2 = this.f51041d;
         if (i2 == 1) {
             O(i2);
         } else {
@@ -394,25 +393,25 @@ public class b {
         if (i <= 0) {
             return;
         }
-        if (!this.j && i == this.f50635e && this.f50634d == 2) {
+        if (!this.j && i == this.f51042e && this.f51041d == 2) {
             return;
         }
         this.j = false;
-        String str = i + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+        String str = i + ".apk";
         try {
             SkinManager.setSkinRes(str);
             PackageInfo apkFileMetaData = FileHelper.getApkFileMetaData(str);
             if (apkFileMetaData != null && apkFileMetaData.applicationInfo != null && apkFileMetaData.applicationInfo.metaData != null) {
-                this.f50637g = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COLOR_VALUE);
-                this.f50638h = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COVER_VALUE) != 1;
-                this.f50635e = i;
+                this.f51044g = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COLOR_VALUE);
+                this.f51045h = apkFileMetaData.applicationInfo.metaData.getInt(SkinManager.THEME_ICON_COVER_VALUE) != 1;
+                this.f51042e = i;
                 BitmapHelper.clearThemeCashBitmap();
-                d.b.h0.r.d0.b.i().w("current_used_theme_" + g(), i + "/" + this.f50636f);
+                d.b.h0.r.d0.b.j().x("current_used_theme_" + g(), i + "/" + this.f51043f);
                 O(2);
                 return;
             }
             O(0);
-            this.f50635e = 0;
+            this.f51042e = 0;
         } catch (Throwable th) {
             O(0);
             BdLog.e(th);
@@ -420,7 +419,7 @@ public class b {
     }
 
     public void U(int i) {
-        this.f50637g = i;
+        this.f51044g = i;
     }
 
     public void a(int i) {
@@ -431,7 +430,7 @@ public class b {
     }
 
     public boolean d(String str, int i) {
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
         return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
     }
@@ -444,7 +443,7 @@ public class b {
         if (str == null) {
             return;
         }
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
         mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
         mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
@@ -453,7 +452,7 @@ public class b {
     }
 
     public String g() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             return accountData.getID();
         }
@@ -470,19 +469,19 @@ public class b {
     }
 
     public long i() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
-            return d.b.b.e.m.b.f(accountData.getID(), 0L);
+            return d.b.c.e.m.b.f(accountData.getID(), 0L);
         }
         return 0L;
     }
 
     public AccountData j() {
-        return this.f50631a;
+        return this.f51038a;
     }
 
     public String k() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             return accountData.getAccount();
         }
@@ -490,7 +489,7 @@ public class b {
     }
 
     public String l() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             return accountData.getAccountNameShow();
         }
@@ -498,7 +497,7 @@ public class b {
     }
 
     public AccountData m() {
-        return this.f50631a;
+        return this.f51038a;
     }
 
     public String n() {
@@ -513,7 +512,7 @@ public class b {
     }
 
     public String o() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             return accountData.getBDUSS();
         }
@@ -521,7 +520,7 @@ public class b {
     }
 
     public int p() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             return accountData.getMemberType();
         }
@@ -537,36 +536,36 @@ public class b {
     }
 
     public int r() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData == null || accountData.getVipInfo() == null) {
             return 0;
         }
-        return this.f50631a.getVipInfo().getVipLevel();
+        return this.f51038a.getVipInfo().getVipLevel();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     public String t(int i) {
         Cursor cursor;
-        d.b.b.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        d.b.c.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Cursor cursor2 = null;
         try {
             try {
                 cursor = mainDBDatabaseManager.j("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
                 try {
                     String string = cursor.moveToFirst() ? cursor.getString(2) : null;
-                    d.b.b.e.m.a.a(cursor);
+                    d.b.c.e.m.a.a(cursor);
                     return string;
                 } catch (Exception e2) {
                     e = e2;
                     mainDBDatabaseManager.i(e, "getNoAccountData");
-                    d.b.b.e.m.a.a(cursor);
+                    d.b.c.e.m.a.a(cursor);
                     return null;
                 }
             } catch (Throwable th) {
                 th = th;
                 cursor2 = i;
-                d.b.b.e.m.a.a(cursor2);
+                d.b.c.e.m.a.a(cursor2);
                 throw th;
             }
         } catch (Exception e3) {
@@ -574,7 +573,7 @@ public class b {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            d.b.b.e.m.a.a(cursor2);
+            d.b.c.e.m.a.a(cursor2);
             throw th;
         }
     }
@@ -584,11 +583,11 @@ public class b {
     }
 
     public int v() {
-        return this.f50634d;
+        return this.f51041d;
     }
 
     public String w() {
-        AccountData accountData = this.f50631a;
+        AccountData accountData = this.f51038a;
         if (accountData != null) {
             return accountData.getTbs();
         }
@@ -596,11 +595,11 @@ public class b {
     }
 
     public int x() {
-        return this.f50637g;
+        return this.f51044g;
     }
 
     public int y() {
-        return this.f50635e;
+        return this.f51042e;
     }
 
     public void z() {

@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27016a;
+    public static String f26701a;
 
     public static int a(String str) {
         String[] split = str.split("_");
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f27016a)) {
+        if (TextUtils.isEmpty(f26701a)) {
             Context d2 = com.baidu.webkit.logsdk.a.b.d();
             if (d2 == null || d2.getFilesDir() == null) {
                 return "";
@@ -40,16 +40,16 @@ public final class c {
             if (str.endsWith(File.separator)) {
                 str = str.substring(0, str.length() - 1);
             }
-            f27016a = str;
-            new File(f27016a).mkdirs();
-            e("BdLogSDK", "Workspace = " + f27016a);
-            return f27016a;
+            f26701a = str;
+            new File(f26701a).mkdirs();
+            e("BdLogSDK", "Workspace = " + f26701a);
+            return f26701a;
         }
-        return f27016a;
+        return f26701a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
-        String str2 = bVar.f26995e.get(str);
+        String str2 = bVar.f26680e.get(str);
         if (TextUtils.isEmpty(str2)) {
             com.baidu.webkit.logsdk.b c2 = com.baidu.webkit.logsdk.a.b.a().c();
             d(com.baidu.webkit.logsdk.b.b.e());
@@ -57,7 +57,7 @@ public final class c {
             d(com.baidu.webkit.logsdk.b.b.g());
             String a2 = c2.a(d2);
             if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(a2)) {
-                bVar.f26995e.put(str, a2);
+                bVar.f26680e.put(str, a2);
             }
             return a2;
         }
@@ -179,8 +179,8 @@ public final class c {
     }
 
     public static void a(String str, String str2, String str3) {
-        if (!com.baidu.webkit.logsdk.a.f26957b || TextUtils.isEmpty(str3)) {
-            if (com.baidu.webkit.logsdk.a.f26956a) {
+        if (!com.baidu.webkit.logsdk.a.f26642b || TextUtils.isEmpty(str3)) {
+            if (com.baidu.webkit.logsdk.a.f26641a) {
                 Log.i(str, str2);
                 return;
             }
@@ -191,7 +191,7 @@ public final class c {
 
     public static void a(Throwable th) {
         th.printStackTrace();
-        if (com.baidu.webkit.logsdk.a.f26957b) {
+        if (com.baidu.webkit.logsdk.a.f26642b) {
             System.exit(0);
         }
     }
@@ -203,8 +203,8 @@ public final class c {
         return stringBuffer.toString();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x006a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a4 */
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
     /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.nio.channels.FileChannel */
     /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.nio.channels.FileChannel */
@@ -362,7 +362,7 @@ public final class c {
     }
 
     public static void e(String str, String str2) {
-        if (com.baidu.webkit.logsdk.a.f26956a) {
+        if (com.baidu.webkit.logsdk.a.f26641a) {
             Log.w(str, str2);
         }
     }

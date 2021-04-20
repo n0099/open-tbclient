@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
-import f.a.g;
-import f.a.u.a;
-import f.a.w.h;
-import f.a.x.c.f;
-import f.a.x.i.b;
+import f.b.g;
+import f.b.u.a;
+import f.b.w.h;
+import f.b.x.c.f;
+import f.b.x.i.b;
 import g.d.c;
 import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -74,7 +74,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public void clear() {
         this.current = null;
         this.queue.clear();
@@ -187,7 +187,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
                     } else {
                         try {
                             Object obj = (R) it.next();
-                            f.a.x.b.a.b(obj, "The iterator returned a null value");
+                            f.b.x.b.a.b(obj, "The iterator returned a null value");
                             cVar.onNext(obj);
                             if (checkTerminated(this.done, false, cVar, fVar)) {
                                 return;
@@ -226,7 +226,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public boolean isEmpty() {
         Iterator<? extends R> it = this.current;
         if (it == null) {
@@ -251,7 +251,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
             drain();
             return;
         }
-        f.a.a0.a.f(th);
+        f.b.a0.a.f(th);
     }
 
     @Override // g.d.c
@@ -266,12 +266,12 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
         }
     }
 
-    @Override // f.a.g, g.d.c
+    @Override // f.b.g, g.d.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
-            if (dVar instanceof f.a.x.c.d) {
-                f.a.x.c.d dVar2 = (f.a.x.c.d) dVar;
+            if (dVar instanceof f.b.x.c.d) {
+                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
                 int requestFusion = dVar2.requestFusion(3);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;
@@ -293,7 +293,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.f
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
     public R poll() throws Exception {
         Iterator<? extends R> it = this.current;
         while (true) {
@@ -314,7 +314,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
             }
         }
         R next = it.next();
-        f.a.x.b.a.b(next, "The iterator returned a null value");
+        f.b.x.b.a.b(next, "The iterator returned a null value");
         if (!it.hasNext()) {
             this.current = null;
         }
@@ -329,7 +329,7 @@ public final class FlowableFlattenIterable$FlattenIterableSubscriber<T, R> exten
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.a.x.c.c
+    @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.c
     public int requestFusion(int i) {
         return ((i & 1) == 0 || this.fusionMode != 1) ? 0 : 1;
     }

@@ -3,86 +3,86 @@ package com.bytedance.sdk.openadsdk.core.d;
 import android.text.TextUtils;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28113a;
+    public String f27798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28114b;
+    public String f27799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28115c;
+    public String f27800c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f28116d;
+    public JSONArray f27801d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28117e;
+    public String f27802e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28118f;
+    public String f27803f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, String> f28119g = new HashMap<>();
+    public HashMap<String, String> f27804g = new HashMap<>();
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f28119g.put(str, str2);
+        this.f27804g.put(str, str2);
     }
 
     public String b() {
-        return this.f28113a;
+        return this.f27798a;
     }
 
     public String c() {
-        return this.f28114b;
+        return this.f27799b;
     }
 
     public String d() {
-        return this.f28115c;
+        return this.f27800c;
     }
 
     public JSONArray e() {
-        return this.f28116d;
+        return this.f27801d;
     }
 
     public String f() {
-        return this.f28117e;
+        return this.f27802e;
     }
 
     public String g() {
-        return this.f28118f;
+        return this.f27803f;
     }
 
     public void b(String str) {
-        this.f28114b = str;
+        this.f27799b = str;
     }
 
     public void c(String str) {
-        this.f28115c = str;
+        this.f27800c = str;
     }
 
     public void d(String str) {
-        this.f28117e = str;
+        this.f27802e = str;
     }
 
     public void e(String str) {
-        this.f28118f = str;
+        this.f27803f = str;
     }
 
     public HashMap<String, String> a() {
-        return this.f28119g;
+        return this.f27804g;
     }
 
     public void a(String str) {
-        this.f28113a = str;
+        this.f27798a = str;
     }
 
     public void a(JSONArray jSONArray) {
-        this.f28116d = jSONArray;
+        this.f27801d = jSONArray;
     }
 }

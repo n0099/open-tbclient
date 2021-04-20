@@ -15,10 +15,10 @@ public final class b extends d.b.g0.a.n1.a.a.a {
         String string3 = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
         String string4 = bundle.getString("hostName");
         if (ProcessUtils.isMainProcess()) {
-            if (string != null && (b3 = c.f45429b.b()) != null) {
+            if (string != null && (b3 = c.f45821b.b()) != null) {
                 b3.a(string, string3, string4);
             }
-            if (string2 == null || (b2 = c.f45429b.b()) == null) {
+            if (string2 == null || (b2 = c.f45821b.b()) == null) {
                 return;
             }
             b2.b(string2, string3, string4);

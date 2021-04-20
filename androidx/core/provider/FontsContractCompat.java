@@ -244,15 +244,15 @@ public class FontsContractCompat {
         Cursor cursor = null;
         try {
             if (Build.VERSION.SDK_INT > 16) {
-                cursor = context.getContentResolver().query(build, new String[]{"_id", Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);
+                cursor = context.getContentResolver().query(build, new String[]{"_id", "file_id", Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);
             } else {
-                cursor = context.getContentResolver().query(build, new String[]{"_id", Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null);
+                cursor = context.getContentResolver().query(build, new String[]{"_id", "file_id", Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null);
             }
             if (cursor != null && cursor.getCount() > 0) {
                 int columnIndex = cursor.getColumnIndex("result_code");
                 ArrayList arrayList2 = new ArrayList();
                 int columnIndex2 = cursor.getColumnIndex("_id");
-                int columnIndex3 = cursor.getColumnIndex(Columns.FILE_ID);
+                int columnIndex3 = cursor.getColumnIndex("file_id");
                 int columnIndex4 = cursor.getColumnIndex(Columns.TTC_INDEX);
                 int columnIndex5 = cursor.getColumnIndex(Columns.WEIGHT);
                 int columnIndex6 = cursor.getColumnIndex(Columns.ITALIC);

@@ -2,59 +2,58 @@ package com.bytedance.sdk.openadsdk.c;
 
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.utils.u;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27592a;
+    public String f27277a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f27593b;
+    public com.bytedance.sdk.openadsdk.core.d.l f27278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Boolean f27594c;
+    public Boolean f27279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Boolean f27595d;
+    public Boolean f27280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Boolean f27596e;
+    public Boolean f27281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f27597f;
+    public JSONObject f27282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f27598g;
+    public JSONArray f27283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f27599h;
+    public JSONArray f27284h;
     public boolean i;
     public final Object j;
 
     public p(int i, String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        this.f27592a = "embeded_ad";
+        this.f27277a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f27594c = bool;
-        this.f27595d = bool;
-        this.f27596e = bool;
+        this.f27279c = bool;
+        this.f27280d = bool;
+        this.f27281e = bool;
         this.i = false;
         this.j = new Object();
-        this.f27592a = str;
-        this.f27593b = lVar;
-        this.f27597f = new JSONObject();
-        this.f27598g = new JSONArray();
-        this.f27599h = new JSONArray();
-        a(this.f27597f, "webview_source", Integer.valueOf(i));
+        this.f27277a = str;
+        this.f27278b = lVar;
+        this.f27282f = new JSONObject();
+        this.f27283g = new JSONArray();
+        this.f27284h = new JSONArray();
+        a(this.f27282f, "webview_source", Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean n() {
-        return this.f27596e.booleanValue() || (this.f27595d.booleanValue() && this.f27594c.booleanValue());
+        return this.f27281e.booleanValue() || (this.f27280d.booleanValue() && this.f27279c.booleanValue());
     }
 
     public void i() {
@@ -64,8 +63,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "native_endcard_close", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "native_endcard_close", jSONObject);
                 }
             }
         });
@@ -78,9 +77,9 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "type", "native_enterBackground");
-                    p.this.a(p.this.f27598g, jSONObject);
+                    p.this.a(p.this.f27283g, jSONObject);
                 }
             }
         });
@@ -93,16 +92,16 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "type", "native_enterForeground");
-                    p.this.a(p.this.f27598g, jSONObject);
+                    p.this.a(p.this.f27283g, jSONObject);
                 }
             }
         });
     }
 
     public void l() {
-        this.f27594c = Boolean.TRUE;
+        this.f27279c = Boolean.TRUE;
     }
 
     public void m() {
@@ -114,24 +113,24 @@ public class p {
                         if (p.this.i) {
                             return;
                         }
-                        if (p.this.f27598g != null && p.this.f27598g.length() != 0) {
+                        if (p.this.f27283g != null && p.this.f27283g.length() != 0) {
                             try {
-                                p.this.f27597f.put("native_switchBackgroundAndForeground", p.this.f27598g);
+                                p.this.f27282f.put("native_switchBackgroundAndForeground", p.this.f27283g);
                             } catch (Exception unused) {
                             }
                         }
-                        if (p.this.f27599h != null && p.this.f27599h.length() != 0) {
+                        if (p.this.f27284h != null && p.this.f27284h.length() != 0) {
                             try {
-                                p.this.f27597f.put("intercept_source", p.this.f27599h);
+                                p.this.f27282f.put("intercept_source", p.this.f27284h);
                             } catch (Exception unused2) {
                             }
                         }
                         HashMap hashMap = new HashMap();
-                        hashMap.put("webview_time_track", p.this.f27597f);
-                        if (com.bytedance.sdk.openadsdk.core.i.d().w() && p.this.f27597f != null) {
-                            u.b("WebviewTimeTrack", p.this.f27597f.toString());
+                        hashMap.put("webview_time_track", p.this.f27282f);
+                        if (com.bytedance.sdk.openadsdk.core.i.d().w() && p.this.f27282f != null) {
+                            u.b("WebviewTimeTrack", p.this.f27282f.toString());
                         }
-                        d.h(com.bytedance.sdk.openadsdk.core.p.a(), p.this.f27593b, p.this.f27592a, "webview_time_track", hashMap);
+                        d.h(com.bytedance.sdk.openadsdk.core.p.a(), p.this.f27278b, p.this.f27277a, "webview_time_track", hashMap);
                         p.this.i = true;
                     }
                 }
@@ -146,8 +145,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "render_success", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "render_success", jSONObject);
                 }
             }
         });
@@ -160,8 +159,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "native_render_start", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "native_render_start", jSONObject);
                 }
             }
         });
@@ -174,8 +173,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "native_render_end", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "native_render_end", jSONObject);
                 }
             }
         });
@@ -188,8 +187,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "webview_load_start", (Object) jSONObject, false);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "webview_load_start", (Object) jSONObject, false);
                 }
             }
         });
@@ -202,8 +201,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "webview_load_success", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "webview_load_success", jSONObject);
                 }
             }
         });
@@ -227,8 +226,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "native_endcard_show", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "native_endcard_show", jSONObject);
                 }
             }
         });
@@ -247,7 +246,7 @@ public class p {
                         p.this.a(jSONObject, "type", "intercept_js");
                         p.this.a(jSONObject, "url", str);
                         p.this.a(jSONObject, "duration", Long.valueOf(j2 - j));
-                        p.this.a(p.this.f27599h, jSONObject);
+                        p.this.a(p.this.f27284h, jSONObject);
                     }
                 }
             }
@@ -264,9 +263,9 @@ public class p {
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "jsb", str);
-                    p.this.a(p.this.f27597f, "webview_jsb_end", jSONObject);
+                    p.this.a(p.this.f27282f, "webview_jsb_end", jSONObject);
                 }
             }
         });
@@ -277,13 +276,13 @@ public class p {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (p.this.j) {
-                    if (p.this.f27597f != null && jSONObject != null) {
+                    if (p.this.f27282f != null && jSONObject != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();
-                            p.this.a(p.this.f27597f, next, jSONObject.opt(next));
+                            p.this.a(p.this.f27282f, next, jSONObject.opt(next));
                         }
-                        p.this.f27595d = Boolean.TRUE;
+                        p.this.f27280d = Boolean.TRUE;
                         p.this.m();
                     }
                 }
@@ -298,8 +297,8 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
-                    p.this.a(p.this.f27597f, "render_start", jSONObject);
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    p.this.a(p.this.f27282f, "render_start", jSONObject);
                 }
             }
         });
@@ -323,12 +322,12 @@ public class p {
                 synchronized (p.this.j) {
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "code", Integer.valueOf(i));
                     if (str != null) {
                         p.this.a(jSONObject, "msg", str);
                     }
-                    p.this.a(p.this.f27597f, "render_error", jSONObject);
+                    p.this.a(p.this.f27282f, "render_error", jSONObject);
                 }
             }
         });
@@ -343,8 +342,8 @@ public class p {
                     if (jSONObject2 == null) {
                         jSONObject2 = new JSONObject();
                     }
-                    p.this.a(jSONObject2, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(System.currentTimeMillis()));
-                    p.this.a(p.this.f27597f, "webview_load_error", jSONObject2);
+                    p.this.a(jSONObject2, "ts", Long.valueOf(System.currentTimeMillis()));
+                    p.this.a(p.this.f27282f, "webview_load_error", jSONObject2);
                 }
             }
         });
@@ -363,7 +362,7 @@ public class p {
                         p.this.a(jSONObject, "type", "intercept_html");
                         p.this.a(jSONObject, "url", str);
                         p.this.a(jSONObject, "duration", Long.valueOf(j2 - j));
-                        p.this.a(p.this.f27599h, jSONObject);
+                        p.this.a(p.this.f27284h, jSONObject);
                     }
                 }
             }
@@ -380,24 +379,24 @@ public class p {
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    p.this.a(jSONObject, TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(currentTimeMillis));
+                    p.this.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
                     p.this.a(jSONObject, "jsb", str);
-                    p.this.a(p.this.f27597f, "webview_jsb_start", jSONObject);
+                    p.this.a(p.this.f27282f, "webview_jsb_start", jSONObject);
                 }
             }
         });
     }
 
     public void a(boolean z) {
-        this.f27596e = Boolean.valueOf(z);
+        this.f27281e = Boolean.valueOf(z);
     }
 
     public p() {
-        this.f27592a = "embeded_ad";
+        this.f27277a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f27594c = bool;
-        this.f27595d = bool;
-        this.f27596e = bool;
+        this.f27279c = bool;
+        this.f27280d = bool;
+        this.f27281e = bool;
         this.i = false;
         this.j = new Object();
     }

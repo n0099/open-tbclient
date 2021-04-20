@@ -7,7 +7,7 @@ import com.xiaomi.push.service.XMPushService;
 public class bg extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public fa f41001a;
+    public fa f41290a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f925a;
@@ -16,7 +16,7 @@ public class bg extends XMPushService.i {
         super(4);
         this.f925a = null;
         this.f925a = xMPushService;
-        this.f41001a = faVar;
+        this.f41290a = faVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -27,8 +27,8 @@ public class bg extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            if (this.f41001a != null) {
-                this.f925a.a(this.f41001a);
+            if (this.f41290a != null) {
+                this.f925a.a(this.f41290a);
             }
         } catch (fw e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);

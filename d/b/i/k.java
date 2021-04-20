@@ -28,8 +28,8 @@ public class k extends h {
     public k(Context context) {
         super(context);
         this.n = new a();
-        int g2 = d.b.b.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = d.b.b.e.p.l.g(context, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        int g2 = d.b.c.e.p.l.g(context, R.dimen.M_H_X003);
+        int g3 = d.b.c.e.p.l.g(context, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
         r(g2);
         q(g3);
         ForumEnterLayout forumEnterLayout = new ForumEnterLayout(context);
@@ -48,14 +48,14 @@ public class k extends h {
     }
 
     public void t() {
-        if (d.b.h0.b.d.R()) {
-            int g2 = d.b.b.e.p.l.g(this.f51763f, R.dimen.M_H_X003);
-            int g3 = d.b.b.e.p.l.g(this.f51763f, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        if (d.b.h0.b.d.T()) {
+            int g2 = d.b.c.e.p.l.g(this.f52187f, R.dimen.M_H_X003);
+            int g3 = d.b.c.e.p.l.g(this.f52187f, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
             r(g2);
             q(g3);
             return;
         }
-        int g4 = d.b.b.e.p.l.g(this.f51763f, R.dimen.tbds10);
+        int g4 = d.b.c.e.p.l.g(this.f52187f, R.dimen.tbds10);
         r(g4);
         q(0);
         v(this.m, g4, 0);
@@ -66,7 +66,7 @@ public class k extends h {
     /* renamed from: u */
     public void a(d.b.h0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f51762e.i());
+        this.m.setSourceForPb(this.f52186e.i());
         this.m.setData(aVar);
     }
 

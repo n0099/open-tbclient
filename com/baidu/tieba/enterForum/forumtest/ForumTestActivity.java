@@ -67,16 +67,16 @@ public class ForumTestActivity extends BaseActivity implements d.b.i0.i0.e.a.b {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f15379e;
+        public final /* synthetic */ ShareItem f15042e;
 
         public b(ShareItem shareItem) {
-            this.f15379e = shareItem;
+            this.f15042e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.b.e.p.a.a(this.f15379e.t);
-            d.b.b.e.p.l.L(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
+            d.b.c.e.p.a.a(this.f15042e.t);
+            d.b.c.e.p.l.L(ForumTestActivity.this, view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
@@ -111,12 +111,12 @@ public class ForumTestActivity extends BaseActivity implements d.b.i0.i0.e.a.b {
 
         @Override // d.b.h0.z0.q.a
         public void onError(int i, String str) {
-            d.b.b.e.p.l.K(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
+            d.b.c.e.p.l.K(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
         }
 
         @Override // d.b.h0.z0.q.a
         public void onSuccess(String str) {
-            d.b.b.e.p.l.K(TbadkCoreApplication.getInst(), R.string.save_success);
+            d.b.c.e.p.l.K(TbadkCoreApplication.getInst(), R.string.save_success);
         }
     }
 

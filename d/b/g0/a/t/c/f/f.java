@@ -13,10 +13,10 @@ public class f extends d.b.g0.a.t.b.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46045e;
+        public final /* synthetic */ String f46437e;
 
         public a(String str) {
-            this.f46045e = str;
+            this.f46437e = str;
         }
 
         @Override // java.lang.Runnable
@@ -24,20 +24,20 @@ public class f extends d.b.g0.a.t.b.d {
             d.b.g0.a.e0.l.f W = d.b.g0.a.z0.f.V().W();
             if (W == null) {
                 d.b.g0.a.c0.c.b("Api-PullDownRefresh", "manager is null");
-                f.this.c(this.f46045e, new d.b.g0.a.t.e.b(1001));
+                f.this.c(this.f46437e, new d.b.g0.a.t.e.b(1001));
             } else if (!(W.m() instanceof d.b.g0.a.e0.l.e)) {
                 d.b.g0.a.c0.c.b("Api-PullDownRefresh", "top fragment error");
-                f.this.c(this.f46045e, new d.b.g0.a.t.e.b(1001));
+                f.this.c(this.f46437e, new d.b.g0.a.t.e.b(1001));
             } else {
                 d.b.g0.a.e0.l.e eVar = (d.b.g0.a.e0.l.e) W.m();
-                if (eVar.Y() == null) {
+                if (eVar.b0() == null) {
                     d.b.g0.a.c0.c.b("Api-PullDownRefresh", "view is null");
-                    f.this.c(this.f46045e, new d.b.g0.a.t.e.b(1001));
+                    f.this.c(this.f46437e, new d.b.g0.a.t.e.b(1001));
                     return;
                 }
-                eVar.Y().w(false);
+                eVar.b0().w(false);
                 d.b.g0.a.c0.c.g("Api-PullDownRefresh", "refresh complete");
-                f.this.c(this.f46045e, new d.b.g0.a.t.e.b(0));
+                f.this.c(this.f46437e, new d.b.g0.a.t.e.b(0));
             }
         }
     }
@@ -47,13 +47,13 @@ public class f extends d.b.g0.a.t.b.d {
     }
 
     public d.b.g0.a.t.e.b q(String str) {
-        if (d.b.g0.a.t.b.d.f45929c) {
+        if (d.b.g0.a.t.b.d.f46321c) {
             Log.d("Api-PullDownRefresh", "stop pull down refresh");
         }
         Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-PullDownRefresh", str);
         d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
         if (!bVar.b()) {
-            if (d.b.g0.a.t.b.d.f45929c) {
+            if (d.b.g0.a.t.b.d.f46321c) {
                 d.b.g0.a.c0.c.b("Api-PullDownRefresh", "parse fail");
             }
             return bVar;

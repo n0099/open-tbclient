@@ -106,7 +106,7 @@ public class MethodWriter implements MethodVisitor {
         }
         this.code.putByte(i);
         ByteVector byteVector = this.code;
-        label.put(this, byteVector, byteVector.length - 1);
+        label.put(this, byteVector, byteVector.length - 1, i == 200);
     }
 
     @Override // com.alibaba.fastjson.asm.MethodVisitor

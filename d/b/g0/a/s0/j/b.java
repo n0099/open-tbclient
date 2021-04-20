@@ -20,32 +20,32 @@ import d.b.g0.a.z0.h;
 import d.b.g0.a.z0.i;
 /* loaded from: classes2.dex */
 public class b {
-    public static final boolean i = k.f45051a;
+    public static final boolean i = k.f45443a;
     public static final ViewGroup.LayoutParams j = new FrameLayout.LayoutParams(-1, -1);
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45872a;
+    public Context f46264a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f45873b;
+    public View f46265b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f45874c;
+    public FrameLayout f46266c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45875d;
+    public int f46267d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45876e;
+    public int f46268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45877f;
+    public String f46269f;
 
     /* renamed from: g  reason: collision with root package name */
-    public InterfaceC0790b f45878g;
+    public InterfaceC0802b f46270g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f45879h;
+    public c f46271h;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -54,15 +54,15 @@ public class b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f45873b != null) {
-                b.this.f45873b.requestFocus();
+            if (b.this.f46265b != null) {
+                b.this.f46265b.requestFocus();
             }
         }
     }
 
     /* renamed from: d.b.g0.a.s0.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0790b {
+    public interface InterfaceC0802b {
         void onCustomViewHidden();
     }
 
@@ -70,14 +70,14 @@ public class b {
     public static class c implements h {
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f45881a;
+        public Activity f46273a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45882b;
+        public String f46274b;
 
         public c(Activity activity, String str) {
-            this.f45881a = activity;
-            this.f45882b = str;
+            this.f46273a = activity;
+            this.f46274b = str;
         }
 
         @Override // d.b.g0.a.z0.h
@@ -94,16 +94,16 @@ public class b {
 
         @Override // d.b.g0.a.z0.h
         public void d(d dVar) {
-            if (TextUtils.equals(dVar.c(), this.f45882b)) {
-                b.f(this.f45881a, true);
-                ((ViewGroup) this.f45881a.getWindow().getDecorView()).setSystemUiVisibility(4098);
+            if (TextUtils.equals(dVar.c(), this.f46274b)) {
+                b.f(this.f46273a, true);
+                ((ViewGroup) this.f46273a.getWindow().getDecorView()).setSystemUiVisibility(4098);
             }
         }
     }
 
     public b(Context context, String str) {
-        this.f45872a = context;
-        this.f45877f = str;
+        this.f46264a = context;
+        this.f46269f = str;
     }
 
     public static void f(Activity activity, boolean z) {
@@ -115,12 +115,12 @@ public class b {
         if (i) {
             Log.d("SwanCustomViewHelper", "addComponentToFullScreen: " + str);
         }
-        d.b.g0.a.a0.b.a b2 = d.b.g0.a.a0.d.a.b(this.f45877f, str);
+        d.b.g0.a.a0.b.a b2 = d.b.g0.a.a0.d.a.b(this.f46269f, str);
         if (b2 == null) {
             return;
         }
-        if ("coverView".equals(b2.n().f43112e) || "coverImage".equals(b2.n().f43112e)) {
-            if (this.f45874c == null) {
+        if ("coverView".equals(b2.n().f43504e) || "coverImage".equals(b2.n().f43504e)) {
+            if (this.f46266c == null) {
                 return;
             }
             SwanAppComponentContainerView m = b2.m();
@@ -130,34 +130,34 @@ public class b {
             ViewParent parent = m.getParent();
             if (parent instanceof ViewGroup) {
                 ((ViewGroup) parent).removeView(m);
-                this.f45874c.addView(m);
+                this.f46266c.addView(m);
             }
         }
     }
 
     public void d() {
-        if (this.f45873b == null) {
+        if (this.f46265b == null) {
             return;
         }
         if (i) {
             Log.i("SwanCustomViewHelper", "hideCustomView");
         }
-        Context context = this.f45872a;
+        Context context = this.f46264a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
-            i.f(this.f45879h);
-            this.f45879h = null;
+            i.f(this.f46271h);
+            this.f46271h = null;
             f(activity, false);
             ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-            viewGroup.removeView(this.f45874c);
-            this.f45874c = null;
-            this.f45873b = null;
-            InterfaceC0790b interfaceC0790b = this.f45878g;
-            if (interfaceC0790b != null) {
-                interfaceC0790b.onCustomViewHidden();
+            viewGroup.removeView(this.f46266c);
+            this.f46266c = null;
+            this.f46265b = null;
+            InterfaceC0802b interfaceC0802b = this.f46270g;
+            if (interfaceC0802b != null) {
+                interfaceC0802b.onCustomViewHidden();
             }
-            activity.setRequestedOrientation(this.f45875d);
-            viewGroup.setSystemUiVisibility(this.f45876e);
+            activity.setRequestedOrientation(this.f46267d);
+            viewGroup.setSystemUiVisibility(this.f46268e);
         }
     }
 
@@ -166,11 +166,11 @@ public class b {
         if (i) {
             Log.d("SwanCustomViewHelper", "removeComponentFromFullScreen: " + str);
         }
-        d.b.g0.a.a0.b.a b2 = d.b.g0.a.a0.d.a.b(this.f45877f, str);
+        d.b.g0.a.a0.b.a b2 = d.b.g0.a.a0.d.a.b(this.f46269f, str);
         if (b2 == null) {
             return;
         }
-        if ("coverView".equals(b2.n().f43112e) || "coverImage".equals(b2.n().f43112e)) {
+        if ("coverView".equals(b2.n().f43504e) || "coverImage".equals(b2.n().f43504e)) {
             SwanAppComponentContainerView m = b2.m();
             if (m == null) {
                 return;
@@ -183,39 +183,39 @@ public class b {
         }
     }
 
-    public void g(View view, int i2, @Nullable InterfaceC0790b interfaceC0790b) {
+    public void g(View view, int i2, @Nullable InterfaceC0802b interfaceC0802b) {
         if (i) {
             Log.i("SwanCustomViewHelper", "showCustomView");
         }
-        Context context = this.f45872a;
+        Context context = this.f46264a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
-            if (this.f45873b != null) {
-                if (interfaceC0790b != null) {
-                    interfaceC0790b.onCustomViewHidden();
-                    this.f45878g = interfaceC0790b;
+            if (this.f46265b != null) {
+                if (interfaceC0802b != null) {
+                    interfaceC0802b.onCustomViewHidden();
+                    this.f46270g = interfaceC0802b;
                     return;
                 }
                 return;
             }
-            this.f45875d = activity.getRequestedOrientation();
+            this.f46267d = activity.getRequestedOrientation();
             ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
             SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-            this.f45874c = swanAppInlineFullScreenContainer;
+            this.f46266c = swanAppInlineFullScreenContainer;
             swanAppInlineFullScreenContainer.addView(view, j);
-            viewGroup.addView(this.f45874c, j);
-            this.f45873b = view;
+            viewGroup.addView(this.f46266c, j);
+            this.f46265b = view;
             f(activity, true);
             activity.setRequestedOrientation(i2);
             if (d.b.g0.a.w0.a.z().a() && (activity instanceof SwanAppActivity)) {
                 ((SwanAppActivity) activity).onNightModeCoverChanged(true, false);
             }
-            this.f45876e = viewGroup.getSystemUiVisibility();
+            this.f46268e = viewGroup.getSystemUiVisibility();
             viewGroup.setSystemUiVisibility(4098);
-            if (this.f45879h == null) {
-                this.f45879h = new c(activity, this.f45877f);
+            if (this.f46271h == null) {
+                this.f46271h = new c(activity, this.f46269f);
             }
-            i.e(this.f45879h);
+            i.e(this.f46271h);
             k0.T(new a());
         }
     }

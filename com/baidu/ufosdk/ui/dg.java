@@ -3,15 +3,15 @@ package com.baidu.ufosdk.ui;
 public final class dg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f23175a;
+    public final /* synthetic */ df f22860a;
 
     public dg(df dfVar) {
-        this.f23175a = dfVar;
+        this.f22860a = dfVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        df dfVar = this.f23175a;
-        com.baidu.ufosdk.e.a.e(dfVar.f23171a, dfVar.f23172b, dfVar.f23173c);
+        df dfVar = this.f22860a;
+        com.baidu.ufosdk.e.a.e(dfVar.f22856a, dfVar.f22857b, dfVar.f22858c);
     }
 }

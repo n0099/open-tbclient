@@ -53,6 +53,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.FloatRange;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -114,11 +115,11 @@ import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.google.protobuf.CodedInputStream;
-import d.b.b.a.i;
-import d.b.b.a.j;
-import d.b.b.e.p.k;
-import d.b.b.e.p.l;
-import d.b.b.e.p.m;
+import d.b.c.a.i;
+import d.b.c.a.j;
+import d.b.c.e.p.k;
+import d.b.c.e.p.l;
+import d.b.c.e.p.m;
 import d.b.h0.l.a;
 import d.b.h0.l0.c;
 import d.b.h0.r.a0.b;
@@ -221,7 +222,7 @@ public class UtilHelper {
 
     public static void callPhone(Context context, String str) {
         Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str));
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e2) {
@@ -365,7 +366,7 @@ public class UtilHelper {
                 if (b.b() != null) {
                     intent.setClass(context, b.b());
                     if (!(context instanceof Activity) && intent != null) {
-                        intent.addFlags(268435456);
+                        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     }
                     context.startActivity(intent);
                 }
@@ -466,7 +467,7 @@ public class UtilHelper {
                 z = true;
                 break;
             case 13:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(context, d.b.b.e.m.b.f(intent.getStringExtra("groupid"), 0L), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(context, d.b.c.e.m.b.f(intent.getStringExtra("groupid"), 0L), 0)));
                 z = true;
                 break;
             case 14:
@@ -474,7 +475,7 @@ public class UtilHelper {
                 z = true;
                 break;
             case 15:
-                c.c().a(new PayConfig(d.b.b.e.m.b.d(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra(MemberPayStatistic.REFER_PAGE), intent.getStringExtra(MemberPayStatistic.CLICK_ZONE)), context);
+                c.c().a(new PayConfig(d.b.c.e.m.b.d(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra(MemberPayStatistic.REFER_PAGE), intent.getStringExtra(MemberPayStatistic.CLICK_ZONE)), context);
                 break;
             case 18:
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(context, "", false)));
@@ -488,7 +489,7 @@ public class UtilHelper {
                 String stringExtra6 = intent.getStringExtra("barid");
                 String stringExtra7 = intent.getStringExtra("barname");
                 String stringExtra8 = intent.getStringExtra("portrait");
-                long f2 = d.b.b.e.m.b.f(stringExtra6, -1L);
+                long f2 = d.b.c.e.m.b.f(stringExtra6, -1L);
                 if (f2 > 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(context, f2, stringExtra7, stringExtra8, 0)));
                     z = true;
@@ -531,15 +532,15 @@ public class UtilHelper {
                 z = true;
                 break;
             case 27:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(context, d.b.b.e.m.b.f(intent.getStringExtra("uid"), 0L), intent.getStringExtra("uname"), null, 0, intent.getIntExtra("user_type", 0))));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(context, d.b.c.e.m.b.f(intent.getStringExtra("uid"), 0L), intent.getStringExtra("uname"), null, 0, intent.getIntExtra("user_type", 0))));
                 z = true;
                 break;
             case 28:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(context, d.b.b.e.m.b.f(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(context, d.b.c.e.m.b.f(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null)));
                 z = true;
                 break;
             case 29:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(context, d.b.b.e.m.b.f(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null, 2)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(context, d.b.c.e.m.b.f(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null, 2)));
                 z = true;
                 break;
             case 30:
@@ -655,7 +656,7 @@ public class UtilHelper {
         if (context != null && !k.isEmpty(str)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             if (isIntentAvailable(context, intent)) {
                 try {
@@ -771,7 +772,7 @@ public class UtilHelper {
     }
 
     public static Bitmap getCacheBitmapFromView(View view) {
-        d.b.h0.a0.c.j().h(l.k(TbadkCoreApplication.getInst()) * l.i(TbadkCoreApplication.getInst()) * 2);
+        d.b.h0.a0.c.k().i(l.k(TbadkCoreApplication.getInst()) * l.i(TbadkCoreApplication.getInst()) * 2);
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache(true);
         Bitmap drawingCache = view.getDrawingCache();
@@ -790,7 +791,7 @@ public class UtilHelper {
     }
 
     public static String getClientIP() {
-        if (d.b.b.e.p.j.H()) {
+        if (d.b.c.e.p.j.H()) {
             return getWifiMac(TbadkCoreApplication.getInst().getApp());
         }
         return getGprsIpv4Address();
@@ -992,7 +993,7 @@ public class UtilHelper {
     public static int getLightStatusBarHeight() {
         if (canUseStyleImmersiveSticky()) {
             try {
-                return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.b.b.e.m.b.d(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+                return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.b.c.e.m.b.d(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1044,7 +1045,7 @@ public class UtilHelper {
         if (simOperator == null || simOperator.length() < 4 || k.isEmptyStringAfterTrim(simOperator) || (substring = simOperator.substring(0, 3)) == null || !substring.equals("460")) {
             return 0;
         }
-        int d2 = d.b.b.e.m.b.d(simOperator.substring(3), 0);
+        int d2 = d.b.c.e.m.b.d(simOperator.substring(3), 0);
         if (d2 != 0) {
             if (d2 != 1) {
                 if (d2 != 2) {
@@ -1192,7 +1193,7 @@ public class UtilHelper {
 
     public static int getStatusBarHeight() {
         try {
-            return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.b.b.e.m.b.d(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+            return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.b.c.e.m.b.d(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
         } catch (Exception e2) {
             e2.printStackTrace();
             return 0;
@@ -1209,7 +1210,7 @@ public class UtilHelper {
 
     public static int getStatusBarHeight_ltoe9_0() {
         try {
-            return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.b.b.e.m.b.d(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+            return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.b.c.e.m.b.d(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
         } catch (Exception e2) {
             e2.printStackTrace();
             return 0;
@@ -1268,16 +1269,16 @@ public class UtilHelper {
     public static String getTiebaApkMd5() {
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String o = d.b.h0.r.d0.b.i().o("version_name", "");
+            String p = d.b.h0.r.d0.b.j().p("version_name", "");
             if (TextUtils.isEmpty(versionName)) {
                 return null;
             }
-            if (versionName.equals(o)) {
-                return d.b.h0.r.d0.b.i().o("apk_md5", "");
+            if (versionName.equals(p)) {
+                return d.b.h0.r.d0.b.j().p("apk_md5", "");
             }
-            d.b.h0.r.d0.b.i().w("version_name", versionName);
+            d.b.h0.r.d0.b.j().x("version_name", versionName);
             String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-            d.b.h0.r.d0.b.i().w("apk_md5", aPKMd5);
+            d.b.h0.r.d0.b.j().x("apk_md5", aPKMd5);
             return aPKMd5;
         } catch (PackageManager.NameNotFoundException e2) {
             BdLog.detailException(e2);
@@ -1306,7 +1307,7 @@ public class UtilHelper {
     public static String getTopActivityClassName() {
         Activity b2;
         ComponentName componentName;
-        if (d.b.b.a.b.f() == null || (b2 = d.b.b.a.b.f().b()) == null || (componentName = b2.getComponentName()) == null) {
+        if (d.b.c.a.b.f() == null || (b2 = d.b.c.a.b.f().b()) == null || (componentName = b2.getComponentName()) == null) {
             return null;
         }
         return componentName.getClassName();
@@ -1562,7 +1563,7 @@ public class UtilHelper {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
             intent.setDataAndType(getUriFromFile(GetFile, intent, context), "application/vnd.android.package-archive");
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             if (isHaveActivityCanHandleIntent(intent)) {
                 context.startActivity(intent);
             }
@@ -1587,7 +1588,7 @@ public class UtilHelper {
         if (str == null || !str.toLowerCase().contains("arm")) {
             try {
                 bArr = new byte[1024];
-                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7664a);
+                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7699a);
                 try {
                     try {
                     } catch (Exception e3) {
@@ -1695,8 +1696,8 @@ public class UtilHelper {
         String o;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (o = l.o(str)) != null && o.length() >= 3) {
-            int d2 = d.b.b.e.m.b.d(l.o(o.substring(0, 1)), 0);
-            int d3 = d.b.b.e.m.b.d(l.o(o.substring(1, 2)), 0);
+            int d2 = d.b.c.e.m.b.d(l.o(o.substring(0, 1)), 0);
+            int d3 = d.b.c.e.m.b.d(l.o(o.substring(1, 2)), 0);
             if (d2 == 6 && d3 <= 1) {
                 return true;
             }
@@ -1971,7 +1972,7 @@ public class UtilHelper {
     }
 
     public static boolean isTopActivity(String str) {
-        Activity b2 = d.b.b.a.b.f().b();
+        Activity b2 = d.b.c.a.b.f().b();
         return (b2 == null || b2.getClass().getSimpleName() == null || !b2.getClass().getSimpleName().equals(str)) ? false : true;
     }
 
@@ -2042,7 +2043,7 @@ public class UtilHelper {
         }).create(j.a(activity)).show();
     }
 
-    public static void setBitmapByTag(View view, String str, d.b.b.j.d.a aVar) {
+    public static void setBitmapByTag(View view, String str, d.b.c.j.d.a aVar) {
         if (view == null || str == null) {
             return;
         }
@@ -2108,7 +2109,7 @@ public class UtilHelper {
     public static void setNavigationBarBackground_K(Activity activity, int i) {
         activity.getWindow().addFlags(134217728);
         View view = new View(activity);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, d.b.b.e.p.a.b(activity));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, d.b.c.e.p.a.b(activity));
         layoutParams.gravity = 80;
         view.setLayoutParams(layoutParams);
         view.setBackgroundColor(i);
@@ -2166,7 +2167,7 @@ public class UtilHelper {
                 str2 = str2.substring(0, PbFullScreenEditorActivity.REPLY_MAX_SIZE);
             }
             intent.putExtra("android.intent.extra.TEXT", str2);
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.setType("text/plain");
             context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.share_to)));
         } catch (Exception e2) {
@@ -2188,7 +2189,7 @@ public class UtilHelper {
             }
             Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
             intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.share_format), str3, str4, str5));
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.setType("text/plain");
             context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_to)));
         } catch (Exception e2) {
@@ -2297,7 +2298,7 @@ public class UtilHelper {
     public static void smsPhone(Context context, String str) {
         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
         intent.putExtra("sms_body", "");
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e2) {
@@ -2310,7 +2311,7 @@ public class UtilHelper {
     public static void smsTo(Context context, String str, String str2) {
         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
         intent.putExtra("sms_body", str2 + "");
-        intent.addFlags(268435456);
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e2) {
@@ -2326,7 +2327,7 @@ public class UtilHelper {
                 Intent intent = new Intent("android.intent.action.MAIN");
                 intent.addCategory("android.intent.category.LAUNCHER");
                 intent.setComponent(new ComponentName(str, str2));
-                intent.addFlags(268435456);
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 context.startActivity(intent);
                 return true;
             } catch (Throwable th) {
@@ -2352,9 +2353,9 @@ public class UtilHelper {
             intent.putExtra("BROWSER_RESTART", true);
             intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
             intent.putExtra("isBackToLauncher", true);
-            intent.addFlags(268435456);
+            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             if (TbConfig.IS_START_BAIDU_KUANG_CLOSE_SELF) {
-                d.b.b.a.b.f().o();
+                d.b.c.a.b.f().o();
             }
             context.startActivity(intent);
         } catch (Exception unused) {
@@ -2421,7 +2422,7 @@ public class UtilHelper {
         } else {
             String[] split = str.split(":");
             for (int i3 = 0; i3 < split.length; i3++) {
-                stringBuffer.append(String.valueOf(d.b.b.e.m.b.e(split[i3], 0, 16)));
+                stringBuffer.append(String.valueOf(d.b.c.e.m.b.e(split[i3], 0, 16)));
                 if (i3 < split.length - 1) {
                     stringBuffer.append(".");
                 }
@@ -2443,12 +2444,12 @@ public class UtilHelper {
     }
 
     public static boolean useNavigationBarStyleImmersiveSticky(Activity activity, boolean z) {
-        if (Build.VERSION.SDK_INT < 19 || activity == null || !d.b.h0.r.d0.b.i().g("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+        if (Build.VERSION.SDK_INT < 19 || activity == null || !d.b.h0.r.d0.b.j().g("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
             return false;
         }
         for (AccessibilityServiceInfo accessibilityServiceInfo : ((AccessibilityManager) activity.getSystemService("accessibility")).getEnabledAccessibilityServiceList(1)) {
             if (!StringUtils.isNull(accessibilityServiceInfo.getSettingsActivityName()) && accessibilityServiceInfo.getSettingsActivityName().contains("talkback")) {
-                d.b.h0.r.d0.b.i().s("switch_immersive_sticky_status", false);
+                d.b.h0.r.d0.b.j().t("switch_immersive_sticky_status", false);
                 TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                 return false;
             }
@@ -2459,7 +2460,7 @@ public class UtilHelper {
             StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process();
             return true;
         } else if (!StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process()) {
-            d.b.h0.r.d0.b.i().s("switch_immersive_sticky_status", false);
+            d.b.h0.r.d0.b.j().t("switch_immersive_sticky_status", false);
             TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
             return false;
         } else if (Build.VERSION.SDK_INT < 21) {

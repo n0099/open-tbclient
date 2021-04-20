@@ -22,26 +22,26 @@ import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.PersonalChatDisplayResponse;
-import d.b.i0.e1.a.c.c;
-import d.b.i0.e1.a.c.e;
+import d.b.i0.f1.a.c.c;
+import d.b.i0.f1.a.c.e;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InviteFriendListActivity extends BaseActivity<InviteFriendListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener {
     public static final int MAX_INVITED_COUNT = 100;
     public boolean isFromInviteChat;
     public boolean isFromSearch;
     public e mModel;
-    public d.b.i0.e1.a.c.d mView;
+    public d.b.i0.f1.a.c.d mView;
     public boolean isLoaded = false;
     public List<d.b.h0.s.f.a> friendList = null;
     public LinkedList<d.b.h0.s.f.a> searchedList = new LinkedList<>();
     public final AtomicBoolean isLoading = new AtomicBoolean(false);
     public CustomMessageListener friendListResponsedMessageListener = new b(2001184);
-    public final d.b.b.c.g.c mListener = new d(205002);
+    public final d.b.c.c.g.c mListener = new d(205002);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public a(int i) {
             super(i);
@@ -56,7 +56,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public b(int i) {
             super(i);
@@ -84,7 +84,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements DialogInterface.OnCancelListener {
         public c() {
         }
@@ -97,10 +97,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class d extends d.b.c.c.g.c {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -140,7 +140,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     }
 
     private void initView() {
-        d.b.i0.e1.a.c.d dVar = new d.b.i0.e1.a.c.d(this, this.isFromInviteChat);
+        d.b.i0.f1.a.c.d dVar = new d.b.i0.f1.a.c.d(this, this.isFromInviteChat);
         this.mView = dVar;
         dVar.O(100);
     }
@@ -160,7 +160,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.i0.e1.a.c.d dVar = this.mView;
+        d.b.i0.f1.a.c.d dVar = this.mView;
         if (dVar == null) {
             return;
         }
@@ -198,7 +198,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     public void onDestroy() {
         super.onDestroy();
         this.mModel.cancelLoadData();
-        d.b.i0.e1.a.c.d dVar = this.mView;
+        d.b.i0.f1.a.c.d dVar = this.mView;
         if (dVar != null) {
             dVar.J();
         }
@@ -227,7 +227,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
         } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
         } else {
-            TbCheckBox tbCheckBox = ((c.a) tag).f54327d;
+            TbCheckBox tbCheckBox = ((c.a) tag).f55768d;
             tbCheckBox.setChecked(!tbCheckBox.d());
         }
     }

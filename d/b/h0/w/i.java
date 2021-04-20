@@ -15,11 +15,11 @@ public class i extends d.b.h0.w.y.a {
     public LinkedList<h> q;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC1112a {
+    public class a implements a.InterfaceC1125a {
         public a() {
         }
 
-        @Override // d.b.h0.w.y.a.InterfaceC1112a
+        @Override // d.b.h0.w.y.a.InterfaceC1125a
         public View getView(int i, View view, ViewGroup viewGroup) {
             DLauncher F = i.this.F(i);
             if (F.getLayoutParams() == null) {
@@ -47,7 +47,7 @@ public class i extends d.b.h0.w.y.a {
     }
 
     public final DLauncher F(int i) {
-        if (i < 0 || i >= e()) {
+        if (i < 0 || i >= f()) {
             return null;
         }
         return (DLauncher) this.q.get(i);
@@ -63,7 +63,7 @@ public class i extends d.b.h0.w.y.a {
     }
 
     @Override // d.b.h0.w.y.a
-    public int e() {
+    public int f() {
         LinkedList<h> linkedList = this.q;
         if (linkedList != null) {
             return linkedList.size();

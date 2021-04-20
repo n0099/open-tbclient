@@ -53,7 +53,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
-    public static final boolean N0 = d.b.g0.a.k.f45051a;
+    public static final boolean N0 = d.b.g0.a.k.f45443a;
     public TextView A0;
     public d.b.g0.a.j2.a B0;
     public long[] C0 = new long[5];
@@ -67,23 +67,23 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
 
     /* renamed from: d.b.g0.a.e0.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0651a implements Runnable {
+    public class RunnableC0663a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnLongClickListener f43928e;
+        public final /* synthetic */ View.OnLongClickListener f44320e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f43929f;
+        public final /* synthetic */ View f44321f;
 
-        public RunnableC0651a(View.OnLongClickListener onLongClickListener, View view) {
-            this.f43928e = onLongClickListener;
-            this.f43929f = view;
+        public RunnableC0663a(View.OnLongClickListener onLongClickListener, View view) {
+            this.f44320e = onLongClickListener;
+            this.f44321f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.b.g0.a.c2.j.b.a.d().g();
-            this.f43928e.onLongClick(this.f43929f);
+            this.f44320e.onLongClick(this.f44321f);
         }
     }
 
@@ -91,24 +91,24 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public class b implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f43931e;
+        public final /* synthetic */ Runnable f44323e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f43932f;
+        public final /* synthetic */ long f44324f;
 
         public b(Runnable runnable, long j) {
-            this.f43931e = runnable;
-            this.f43932f = j;
+            this.f44323e = runnable;
+            this.f44324f = j;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                view.postDelayed(this.f43931e, this.f43932f);
+                view.postDelayed(this.f44323e, this.f44324f);
                 return false;
             } else if (action == 1 || action == 3) {
-                view.removeCallbacks(this.f43931e);
+                view.removeCallbacks(this.f44323e);
                 return false;
             } else {
                 return false;
@@ -117,40 +117,40 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements b.InterfaceC0757b {
+    public class c implements b.InterfaceC0769b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppRelatedSwanListAdapter f43934a;
+        public final /* synthetic */ SwanAppRelatedSwanListAdapter f44326a;
 
         /* renamed from: d.b.g0.a.e0.l.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0652a implements Runnable {
+        public class RunnableC0664a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.b.g0.a.p1.a f43936e;
+            public final /* synthetic */ d.b.g0.a.p1.a f44328e;
 
-            public RunnableC0652a(d.b.g0.a.p1.a aVar) {
-                this.f43936e = aVar;
+            public RunnableC0664a(d.b.g0.a.p1.a aVar) {
+                this.f44328e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a.this.M0.setVisibility(0);
-                c.this.f43934a.d(this.f43936e);
+                c.this.f44326a.d(this.f44328e);
             }
         }
 
         public c(SwanAppRelatedSwanListAdapter swanAppRelatedSwanListAdapter) {
-            this.f43934a = swanAppRelatedSwanListAdapter;
+            this.f44326a = swanAppRelatedSwanListAdapter;
         }
 
-        @Override // d.b.g0.a.p1.b.InterfaceC0757b
+        @Override // d.b.g0.a.p1.b.InterfaceC0769b
         public void a(d.b.g0.a.p1.a aVar) {
             if (aVar != null) {
-                if ((aVar.f45461a == null) || (aVar.f45461a.size() <= 0)) {
+                if ((aVar.f45853a == null) || (aVar.f45853a.size() <= 0)) {
                     return;
                 }
-                k0.X(new RunnableC0652a(aVar));
+                k0.X(new RunnableC0664a(aVar));
                 SwanAppRelatedSwanListAdapter.c("aboutrelated", null, "show");
             }
         }
@@ -161,8 +161,8 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
 
         /* renamed from: d.b.g0.a.e0.l.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0653a implements d.e {
-            public C0653a() {
+        public class C0665a implements d.e {
+            public C0665a() {
             }
 
             @Override // d.b.g0.g.f.d.e
@@ -185,7 +185,7 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
             } else if (d.b.g0.a.c0.a.a()) {
                 d.b.g0.a.c0.a.d(a.this.l());
             } else {
-                d.b.g0.g.f.d.m().o(new C0653a());
+                d.b.g0.g.f.d.m().o(new C0665a());
             }
         }
     }
@@ -214,17 +214,17 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public class f implements d.b.g0.a.m0.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43941a;
+        public final /* synthetic */ String f44333a;
 
         public f(String str) {
-            this.f43941a = str;
+            this.f44333a = str;
         }
 
         @Override // d.b.g0.a.m0.b.a
         public void a() {
             d.b.g0.a.g0.c.a.t();
             if (d.b.g0.a.c1.a.l(a.this.f())) {
-                d.b.g0.a.c1.a.q("aboutconcern", this.f43941a);
+                d.b.g0.a.c1.a.q("aboutconcern", this.f44333a);
                 return;
             }
             d.b.g0.a.q1.b.f.d e2 = d.b.g0.a.q1.b.f.d.e(a.this.l(), d.b.g0.a.h.aiapps_fav_success);
@@ -256,12 +256,12 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public class h implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public FullScreenFloatView f43944e;
+        public FullScreenFloatView f44336e;
 
         /* renamed from: d.b.g0.a.e0.l.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0654a implements d.e {
-            public C0654a() {
+        public class C0666a implements d.e {
+            public C0666a() {
             }
 
             @Override // d.b.g0.g.f.d.e
@@ -283,19 +283,19 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
                 return;
             }
             if (a.N0) {
-                if (this.f43944e == null) {
-                    this.f43944e = d.b.g0.a.z0.f.V().B(a.this.f0);
+                if (this.f44336e == null) {
+                    this.f44336e = d.b.g0.a.z0.f.V().B(a.this.f0);
                 }
                 if (a.this.Q1()) {
                     if (d.b.g0.a.c0.a.a()) {
                         d.b.g0.a.c0.a.c(a.this.l(), false);
                         return;
                     } else {
-                        d.b.g0.g.f.d.m().o(new C0654a());
+                        d.b.g0.g.f.d.m().o(new C0666a());
                         return;
                     }
                 }
-                this.f43944e.setVisibility(this.f43944e.getVisibility() == 0 ? 8 : 0);
+                this.f44336e.setVisibility(this.f44336e.getVisibility() == 0 ? 8 : 0);
             } else if (a.this.Q1()) {
                 a.this.Z2();
             } else {
@@ -308,17 +308,17 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public SwanAppPropertyWindow f43947e;
+        public SwanAppPropertyWindow f44339e;
 
         public i() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f43947e == null) {
-                this.f43947e = d.b.g0.a.z0.f.V().H(a.this.f0);
+            if (this.f44339e == null) {
+                this.f44339e = d.b.g0.a.z0.f.V().H(a.this.f0);
             }
-            this.f43947e.setVisibility(this.f43947e.getVisibility() == 0 ? 8 : 0);
+            this.f44339e.setVisibility(this.f44339e.getVisibility() == 0 ? 8 : 0);
         }
     }
 
@@ -326,15 +326,15 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public class j implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.y0.e.b f43949e;
+        public final /* synthetic */ d.b.g0.a.y0.e.b f44341e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.r1.e f43950f;
+        public final /* synthetic */ d.b.g0.a.r1.e f44342f;
 
         /* renamed from: d.b.g0.a.e0.l.a$j$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0655a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0655a(j jVar) {
+        public class DialogInterface$OnClickListenerC0667a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0667a(j jVar) {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -343,8 +343,8 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
         }
 
         public j(d.b.g0.a.y0.e.b bVar, d.b.g0.a.r1.e eVar) {
-            this.f43949e = bVar;
-            this.f43950f = eVar;
+            this.f44341e = bVar;
+            this.f44342f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -360,16 +360,16 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
             sb.append(d.b.g0.a.e0.w.d.L().d0());
             sb.append("\n");
             sb.append("APS VERSION: ");
-            sb.append(TextUtils.isEmpty(this.f43949e.n1()) ? "" : this.f43949e.n1());
+            sb.append(TextUtils.isEmpty(this.f44341e.n1()) ? "" : this.f44341e.n1());
             sb.append("\n");
             sb.append("APPID VERSION: ");
-            sb.append(d.b.g0.a.u.a.c(this.f43950f.f45740f));
+            sb.append(d.b.g0.a.u.a.c(this.f44342f.f46132f));
             sb.append("\n");
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), this.f43949e.a1());
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), this.f44341e.a1());
             sb.append("小程序包大小: ");
             sb.append(TextUtils.isEmpty(formatFileSize) ? "" : formatFileSize);
             sb.append("(");
-            sb.append(this.f43949e.a1());
+            sb.append(this.f44341e.a1());
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append("\n");
             g.a aVar = new g.a(a.this.f0);
@@ -377,7 +377,7 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
             aVar.y(sb.toString());
             aVar.n(new d.b.g0.a.j2.g.a());
             aVar.m(false);
-            aVar.O(d.b.g0.a.h.aiapps_ok, new DialogInterface$OnClickListenerC0655a(this));
+            aVar.O(d.b.g0.a.h.aiapps_ok, new DialogInterface$OnClickListenerC0667a(this));
             aVar.X();
         }
     }
@@ -387,8 +387,8 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
 
         /* renamed from: d.b.g0.a.e0.l.a$k$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0656a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0656a(k kVar) {
+        public class DialogInterface$OnClickListenerC0668a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0668a(k kVar) {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -419,7 +419,7 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
             aVar2.y(e2);
             aVar2.n(new d.b.g0.a.j2.g.a());
             aVar2.m(false);
-            aVar2.O(d.b.g0.a.h.aiapps_ok, new DialogInterface$OnClickListenerC0656a(this));
+            aVar2.O(d.b.g0.a.h.aiapps_ok, new DialogInterface$OnClickListenerC0668a(this));
             aVar2.X();
         }
     }
@@ -429,24 +429,24 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
 
         /* renamed from: d.b.g0.a.e0.l.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0657a extends k.a {
+        public class C0669a extends k.a {
 
             /* renamed from: d.b.g0.a.e0.l.a$l$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class RunnableC0658a implements Runnable {
+            public class RunnableC0670a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f43955e;
+                public final /* synthetic */ String f44347e;
 
-                public RunnableC0658a(String str) {
-                    this.f43955e = str;
+                public RunnableC0670a(String str) {
+                    this.f44347e = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     g.a aVar = new g.a(a.this.f0);
                     aVar.U(d.b.g0.a.h.aiapps_debug_report_performance);
-                    aVar.y(this.f43955e);
+                    aVar.y(this.f44347e);
                     aVar.n(new d.b.g0.a.j2.g.a());
                     aVar.m(false);
                     aVar.O(d.b.g0.a.h.aiapps_ok, null);
@@ -454,12 +454,12 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
                 }
             }
 
-            public C0657a() {
+            public C0669a() {
             }
 
             @Override // d.b.g0.a.j1.k.a
             public void c(String str) {
-                a.this.f0.runOnUiThread(new RunnableC0658a(str));
+                a.this.f0.runOnUiThread(new RunnableC0670a(str));
             }
         }
 
@@ -471,7 +471,7 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
             if (a.this.f0 == null) {
                 return;
             }
-            d.b.g0.a.j1.k.e().g(new C0657a());
+            d.b.g0.a.j1.k.e().g(new C0669a());
         }
     }
 
@@ -479,19 +479,19 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public class m implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.b.g0.a.c0.f.a f43957e;
+        public d.b.g0.a.c0.f.a f44349e;
 
         /* renamed from: d.b.g0.a.e0.l.a$m$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0659a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0659a() {
+        public class DialogInterface$OnClickListenerC0671a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0671a() {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 d.b.g0.a.c0.f.a.g(1);
-                m.this.f43957e = new d.b.g0.a.c0.f.a(d.b.g0.a.w0.a.c());
-                m.this.f43957e.h();
+                m.this.f44349e = new d.b.g0.a.c0.f.a(d.b.g0.a.w0.a.c());
+                m.this.f44349e.h();
             }
         }
 
@@ -524,10 +524,10 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
         }
 
         public final void b() {
-            d.b.g0.a.c0.f.a aVar = this.f43957e;
+            d.b.g0.a.c0.f.a aVar = this.f44349e;
             if (aVar != null) {
                 aVar.i();
-                this.f43957e = null;
+                this.f44349e = null;
             }
         }
 
@@ -539,7 +539,7 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
             aVar.n(new d.b.g0.a.j2.g.a());
             aVar.m(true);
             if (d.b.g0.a.c0.f.a.e() == 0) {
-                aVar.O(d.b.g0.a.h.aiapps_debug_inspect_normal, new DialogInterface$OnClickListenerC0659a());
+                aVar.O(d.b.g0.a.h.aiapps_debug_inspect_normal, new DialogInterface$OnClickListenerC0671a());
             }
             if (d.b.g0.a.c0.f.a.e() != 2) {
                 aVar.I(d.b.g0.a.h.aiapps_debug_inspect_enhance, new b());
@@ -680,10 +680,10 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
     public final void M2(String str, String str2) {
         d.b.g0.a.z1.k.f fVar = new d.b.g0.a.z1.k.f();
         if (!TextUtils.isEmpty(str)) {
-            fVar.f47252b = str;
+            fVar.f47644b = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            fVar.f47254d = str2;
+            fVar.f47646d = str2;
         }
         t1(fVar);
     }
@@ -823,7 +823,7 @@ public class a extends d.b.g0.a.e0.l.c implements View.OnClickListener {
         if (view == null || onLongClickListener == null || j2 <= 0) {
             return;
         }
-        view.setOnTouchListener(new b(new RunnableC0651a(onLongClickListener, view), j2));
+        view.setOnTouchListener(new b(new RunnableC0663a(onLongClickListener, view), j2));
     }
 
     @Override // d.b.g0.a.e0.l.c

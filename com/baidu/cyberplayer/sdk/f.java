@@ -3,28 +3,28 @@ package com.baidu.cyberplayer.sdk;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4935a = 0;
+    public int f4970a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4936b = 0;
+    public int f4971b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4937c = 1;
+    public int f4972c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4938d = 1;
+    public int f4973d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4939e = 0;
+    public int f4974e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4940f = 0;
+    public int f4975f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4941g = 0;
+    public int f4976g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4942h = 0;
+    public int f4977h = 0;
     public int i = 0;
     public int j;
     public float[] k;
@@ -40,14 +40,14 @@ public class f {
     }
 
     public void a() {
-        this.f4935a = 0;
-        this.f4936b = 0;
-        this.f4937c = 1;
-        this.f4938d = 1;
-        this.f4939e = 0;
-        this.f4940f = 0;
-        this.f4941g = 0;
-        this.f4942h = 0;
+        this.f4970a = 0;
+        this.f4971b = 0;
+        this.f4972c = 1;
+        this.f4973d = 1;
+        this.f4974e = 0;
+        this.f4975f = 0;
+        this.f4976g = 0;
+        this.f4977h = 0;
         this.i = 0;
         float[] fArr = this.k;
         fArr[0] = 1.0f;
@@ -56,35 +56,35 @@ public class f {
     }
 
     public boolean a(int i) {
-        if (this.f4940f != i) {
-            this.f4940f = i;
-            this.f4941g = ((this.f4939e + 360) - i) % 360;
+        if (this.f4975f != i) {
+            this.f4975f = i;
+            this.f4976g = ((this.f4974e + 360) - i) % 360;
             return true;
         }
         return false;
     }
 
     public boolean a(int i, int i2) {
-        if (this.f4935a == i && this.f4936b == i2) {
+        if (this.f4970a == i && this.f4971b == i2) {
             return false;
         }
-        this.f4935a = i;
-        this.f4936b = i2;
+        this.f4970a = i;
+        this.f4971b = i2;
         return true;
     }
 
     public boolean a(int i, int i2, int i3, int i4) {
-        if (this.f4942h == i && i2 == this.i && this.f4937c == i3 && this.f4938d == i4) {
+        if (this.f4977h == i && i2 == this.i && this.f4972c == i3 && this.f4973d == i4) {
             return false;
         }
-        this.f4942h = i;
+        this.f4977h = i;
         this.i = i2;
         if (i4 == 0 || i3 == 0) {
-            this.f4937c = 1;
-            this.f4938d = 1;
+            this.f4972c = 1;
+            this.f4973d = 1;
         } else {
-            this.f4937c = i3;
-            this.f4938d = i4;
+            this.f4972c = i3;
+            this.f4973d = i4;
         }
         return true;
     }
@@ -139,22 +139,22 @@ public class f {
         float f5;
         float f6;
         float f7;
-        if (this.f4935a == 0 || this.f4936b == 0 || this.f4942h == 0 || this.i == 0) {
+        if (this.f4970a == 0 || this.f4971b == 0 || this.f4977h == 0 || this.i == 0) {
             return;
         }
         int i3 = this.j;
         boolean z = i3 == 0 || i3 == 2;
         float f8 = 1.0f;
-        float f9 = (this.f4936b * 1.0f) / this.f4935a;
-        float f10 = (this.i * 1.0f) / this.f4942h;
-        int i4 = this.f4941g;
+        float f9 = (this.f4971b * 1.0f) / this.f4970a;
+        float f10 = (this.i * 1.0f) / this.f4977h;
+        int i4 = this.f4976g;
         if ((i4 != 90 && i4 != 270) || (i = this.i) == 0) {
             if (z) {
-                f2 = this.f4938d * 1.0f;
-                i2 = this.f4937c;
+                f2 = this.f4973d * 1.0f;
+                i2 = this.f4972c;
                 f10 *= f2 / i2;
             }
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4942h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4937c + " mVideoSarDen:" + this.f4938d + " mSurfaceWidth:" + this.f4935a + " mSurfaceHeight:" + this.f4936b + " mDisplayMode:" + this.j);
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4977h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4972c + " mVideoSarDen:" + this.f4973d + " mSurfaceWidth:" + this.f4970a + " mSurfaceHeight:" + this.f4971b + " mDisplayMode:" + this.j);
             float f11 = 0.0f;
             switch (this.j) {
             }
@@ -166,13 +166,13 @@ public class f {
             fArr2[1] = f3;
             CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f11 + " translateY:" + f3);
         }
-        f10 = (this.f4942h * 1.0f) / i;
+        f10 = (this.f4977h * 1.0f) / i;
         if (z) {
-            f2 = this.f4937c * 1.0f;
-            i2 = this.f4938d;
+            f2 = this.f4972c * 1.0f;
+            i2 = this.f4973d;
             f10 *= f2 / i2;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4942h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4937c + " mVideoSarDen:" + this.f4938d + " mSurfaceWidth:" + this.f4935a + " mSurfaceHeight:" + this.f4936b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4977h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4972c + " mVideoSarDen:" + this.f4973d + " mSurfaceWidth:" + this.f4970a + " mSurfaceHeight:" + this.f4971b + " mDisplayMode:" + this.j);
         float f112 = 0.0f;
         switch (this.j) {
             case 1:
@@ -189,8 +189,8 @@ public class f {
                 f5 = 0.5625f;
                 break;
             case 6:
-                float f12 = (this.f4942h * 1.0f) / this.f4935a;
-                f4 = (this.i * 1.0f) / this.f4936b;
+                float f12 = (this.f4977h * 1.0f) / this.f4970a;
+                f4 = (this.i * 1.0f) / this.f4971b;
                 f8 = f12;
                 f3 = 0.0f;
                 break;
@@ -253,9 +253,9 @@ public class f {
     }
 
     public boolean b(int i) {
-        if (this.f4939e != i) {
-            this.f4939e = i;
-            this.f4941g = ((360 - this.f4940f) + i) % 360;
+        if (this.f4974e != i) {
+            this.f4974e = i;
+            this.f4976g = ((360 - this.f4975f) + i) % 360;
             return true;
         }
         return false;
@@ -287,11 +287,11 @@ public class f {
     }
 
     public int g() {
-        return this.f4941g;
+        return this.f4976g;
     }
 
     public int h() {
-        return this.f4942h;
+        return this.f4977h;
     }
 
     public int i() {
@@ -299,10 +299,10 @@ public class f {
     }
 
     public int j() {
-        return this.f4935a;
+        return this.f4970a;
     }
 
     public int k() {
-        return this.f4936b;
+        return this.f4971b;
     }
 }

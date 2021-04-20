@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11736a;
+    public Context f11397a;
 
     public a(Context context) {
-        this.f11736a = context;
+        this.f11397a = context;
     }
 
     public final boolean a(String str) {
@@ -27,7 +27,7 @@ public final class a {
             String str2 = d.b() + "p/1/r";
             new StringBuilder().append(str2);
             b.a();
-            a2 = g.a(this.f11736a, str2, str, false, false);
+            a2 = g.a(this.f11397a, str2, str, false, false);
         } catch (Throwable unused) {
             d.a();
         }

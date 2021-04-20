@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import d.b.i0.x.b0;
 /* loaded from: classes4.dex */
-public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.a, LiveTabConcernNotificationViewHolder> {
+public class d extends d.b.c.j.e.a<d.b.i0.t.d.c.f.b.a, LiveTabConcernNotificationViewHolder> {
     public TbPageContext m;
     public boolean n;
     public b0<d.b.i0.t.d.c.f.b.a> o;
@@ -39,14 +39,14 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.a, LiveTabConcernNotificatio
     }
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.a.f60357e);
+        super(tbPageContext.getPageActivity(), d.b.i0.t.d.c.f.b.a.f61921e);
         this.n = false;
         this.o = new a();
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public LiveTabConcernNotificationViewHolder R(ViewGroup viewGroup) {
         d.b.i0.t.d.c.f.d.e eVar = new d.b.i0.t.d.c.f.d.e(this.m, viewGroup);
@@ -55,11 +55,11 @@ public class d extends d.b.b.j.e.a<d.b.i0.t.d.c.f.b.a, LiveTabConcernNotificatio
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.b.j.e.a
+    @Override // d.b.c.j.e.a
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, d.b.i0.t.d.c.f.b.a aVar, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         d.b.i0.t.d.c.f.d.e eVar;
-        if (liveTabConcernNotificationViewHolder == null || (eVar = liveTabConcernNotificationViewHolder.f14798a) == null) {
+        if (liveTabConcernNotificationViewHolder == null || (eVar = liveTabConcernNotificationViewHolder.f14461a) == null) {
             return null;
         }
         this.n = false;

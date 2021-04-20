@@ -28,7 +28,7 @@ public final class UIntProgressionIterator extends UIntIterator {
             z = false;
         }
         this.hasNext = z;
-        this.step = UInt.m713constructorimpl(i3);
+        this.step = UInt.m717constructorimpl(i3);
         this.next = this.hasNext ? i : this.finalElement;
     }
 
@@ -47,7 +47,7 @@ public final class UIntProgressionIterator extends UIntIterator {
                 throw new NoSuchElementException();
             }
         } else {
-            this.next = UInt.m713constructorimpl(this.step + i);
+            this.next = UInt.m717constructorimpl(this.step + i);
         }
         return i;
     }

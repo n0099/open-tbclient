@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.b.b.e.m.b;
+import d.b.c.e.m.b;
 import d.b.h0.r.k;
 import d.b.h0.r.q.a2;
 import d.b.h0.r.q.c;
 import d.b.h0.r.q.d;
-import d.b.i0.r2.t;
+import d.b.i0.s2.w;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
@@ -148,7 +148,7 @@ public class AppData extends OrmObject {
                     }
                     return (this.legoCard.getAppInfoModel() == null || c.c(this.legoCard.getAppInfoModel())) ? 0 : 42;
                 }
-                t.z();
+                w.A();
                 return 31;
             }
             return 34;
@@ -334,7 +334,7 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo i = d.b.i0.i1.o.b.i(str);
+        ICardInfo i = d.b.i0.j1.o.b.i(str);
         if (i != null) {
             ICardInfo viewItem = i.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
@@ -411,7 +411,7 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : list) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) != 1 || TextUtils.isEmpty(this.goods.lego_card) || (i = d.b.i0.i1.o.b.i(this.goods.lego_card)) == null) {
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) != 1 || TextUtils.isEmpty(this.goods.lego_card) || (i = d.b.i0.j1.o.b.i(this.goods.lego_card)) == null) {
                         return;
                     }
                     ICardInfo viewItem = i.getViewItem(0, 1);

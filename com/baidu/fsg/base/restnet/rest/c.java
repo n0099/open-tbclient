@@ -6,32 +6,32 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5233a = 30000;
+    public static final int f5268a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5234b = 30000;
+    public static final int f5269b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5235c = 10;
+    public static final int f5270c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5236d = 10;
+    public static final int f5271d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5237e = 8192;
+    public static final int f5272e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5238f = 3;
+    public static final int f5273f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5239g = 1000;
+    public static final int f5274g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5240h = "RestHttpNetwork";
+    public static final String f5275h = "RestHttpNetwork";
     public final b i;
     public final g j = new g(3, 1000);
 

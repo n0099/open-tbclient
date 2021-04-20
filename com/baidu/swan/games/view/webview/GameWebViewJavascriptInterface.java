@@ -8,7 +8,7 @@ import d.b.g0.g.k0.j.a;
 @Keep
 /* loaded from: classes3.dex */
 public class GameWebViewJavascriptInterface {
-    public static final boolean DEBUG = k.f45051a;
+    public static final boolean DEBUG = k.f45443a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swan";
     public static final String TAG = "GameJavascriptInterface";
 

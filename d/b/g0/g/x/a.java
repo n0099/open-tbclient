@@ -9,10 +9,10 @@ import d.b.g0.a.k;
 public class a extends d.b.g0.g.d.i.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f48633h = k.f45051a;
+    public static final boolean f49025h = k.f45443a;
 
     public <T> void q(String str, String str2, ResponseCallback<T> responseCallback) {
-        if (f48633h) {
+        if (f49025h) {
             Log.d("requestWithUrlAndBody", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
         }
         if (TextUtils.isEmpty(str)) {

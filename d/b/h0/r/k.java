@@ -6,32 +6,32 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 public class k {
 
     /* renamed from: f  reason: collision with root package name */
-    public static k f50622f;
+    public static k f51029f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50623a = 0;
+    public int f51030a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50624b = 0;
+    public int f51031b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50625c = null;
+    public String f51032c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50626d = true;
+    public boolean f51033d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50627e = 0;
+    public int f51034e = 0;
 
     public static k c() {
         k kVar;
-        k kVar2 = f50622f;
+        k kVar2 = f51029f;
         if (kVar2 == null) {
             synchronized (k.class) {
-                if (f50622f == null) {
-                    f50622f = new k();
+                if (f51029f == null) {
+                    f51029f = new k();
                 }
-                kVar = f50622f;
+                kVar = f51029f;
             }
             return kVar;
         }
@@ -39,67 +39,67 @@ public class k {
     }
 
     public String a() {
-        return this.f50625c;
+        return this.f51032c;
     }
 
     public int b() {
-        d.b.h0.r.d0.b i = d.b.h0.r.d0.b.i();
-        int j = i.j(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-        this.f50624b = j;
-        return j;
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        int k = j.k(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
+        this.f51031b = k;
+        return k;
     }
 
     public int d() {
-        int j = d.b.h0.r.d0.b.i().j("image_quality", 0);
-        this.f50623a = j;
-        return j;
+        int k = d.b.h0.r.d0.b.j().k("image_quality", 0);
+        this.f51030a = k;
+        return k;
     }
 
     public int e() {
-        return this.f50627e;
+        return this.f51034e;
     }
 
     public void f() {
-        this.f50623a = d.b.h0.r.d0.b.i().j("image_quality", 0);
-        d.b.h0.r.d0.b.i().j("new_abstract_state", 0);
-        this.f50627e = d.b.h0.r.d0.b.i().j("view_image_quality", 0);
-        boolean g2 = d.b.h0.r.d0.b.i().g("show_images", true);
-        this.f50626d = g2;
+        this.f51030a = d.b.h0.r.d0.b.j().k("image_quality", 0);
+        d.b.h0.r.d0.b.j().k("new_abstract_state", 0);
+        this.f51034e = d.b.h0.r.d0.b.j().k("view_image_quality", 0);
+        boolean g2 = d.b.h0.r.d0.b.j().g("show_images", true);
+        this.f51033d = g2;
         if (g2) {
             return;
         }
-        this.f50626d = true;
-        d.b.h0.r.d0.b.i().B("show_images");
-        d.b.h0.r.d0.b.i().u("view_image_quality", 0);
-        this.f50627e = 0;
+        this.f51033d = true;
+        d.b.h0.r.d0.b.j().C("show_images");
+        d.b.h0.r.d0.b.j().v("view_image_quality", 0);
+        this.f51034e = 0;
     }
 
     public boolean g() {
-        return this.f50626d;
+        return this.f51033d;
     }
 
     public void h(String str) {
-        this.f50625c = str;
+        this.f51032c = str;
     }
 
     public void i(int i) {
-        if (this.f50624b == i) {
+        if (this.f51031b == i) {
             return;
         }
-        this.f50624b = i;
-        d.b.h0.r.d0.b i2 = d.b.h0.r.d0.b.i();
-        i2.u(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
+        this.f51031b = i;
+        d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+        j.v(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 
     public void j(boolean z) {
     }
 
     public void k(int i) {
-        if (this.f50627e == i) {
+        if (this.f51034e == i) {
             return;
         }
-        this.f50627e = i;
-        d.b.h0.r.d0.b.i().u("view_image_quality", i);
+        this.f51034e = i;
+        d.b.h0.r.d0.b.j().v("view_image_quality", i);
         TbImageHelper.getInstance().updateFrsShowBigImage();
         TbImageHelper.getInstance().updateUrlQuality();
     }

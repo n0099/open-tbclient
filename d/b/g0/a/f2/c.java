@@ -5,13 +5,13 @@ import java.util.Locale;
 public final class c<ValueT> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f44458a;
+    public final String f44850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueT f44459b;
+    public ValueT f44851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<ValueT> f44460c;
+    public a<ValueT> f44852c;
 
     /* loaded from: classes3.dex */
     public interface a<ValueT> {
@@ -21,17 +21,17 @@ public final class c<ValueT> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: d.b.g0.a.f2.e */
     /* JADX WARN: Multi-variable type inference failed */
     public c(String str) {
-        this.f44458a = str;
+        this.f44850a = str;
         e.a().h(this);
     }
 
     public CharSequence a() {
-        ValueT valuet = this.f44459b;
+        ValueT valuet = this.f44851b;
         return valuet == null ? "" : valuet.toString();
     }
 
     public boolean b() {
-        return c(this.f44460c);
+        return c(this.f44852c);
     }
 
     public boolean c(a<ValueT> aVar) {
@@ -49,18 +49,18 @@ public final class c<ValueT> {
     /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: d.b.g0.a.f2.e */
     /* JADX WARN: Multi-variable type inference failed */
     public boolean d(ValueT valuet) {
-        this.f44459b = valuet;
+        this.f44851b = valuet;
         e.a().e(this);
         return true;
     }
 
     public c<ValueT> e(a<ValueT> aVar) {
-        this.f44460c = aVar;
+        this.f44852c = aVar;
         b();
         return this;
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.f44458a, a());
+        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.f44850a, a());
     }
 }

@@ -16,65 +16,65 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.R;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<RecommendDetailActivity> f18096e;
+    public TbPageContext<RecommendDetailActivity> f17773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f18097f;
+    public d f17774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18098g;
+    public boolean f17775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18099h;
+    public boolean f17776h;
     public long i;
-    public d.b.b.c.g.a j;
+    public d.b.c.c.g.a j;
     public CustomMessageListener k;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.b.b.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends d.b.c.c.g.a {
         public a(int i, int i2) {
             super(i, i2);
         }
 
-        @Override // d.b.b.c.g.a
+        @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            RecommendDetailModel.this.f18099h = true;
-            if (RecommendDetailModel.this.f18096e == null || RecommendDetailModel.this.f18097f == null) {
+            RecommendDetailModel.this.f17776h = true;
+            if (RecommendDetailModel.this.f17773e == null || RecommendDetailModel.this.f17774f == null) {
                 return;
             }
             if (responsedMessage == null) {
-                RecommendDetailModel.this.f18097f.onFailed(RecommendDetailModel.this.f18096e.getString(R.string.neterror));
+                RecommendDetailModel.this.f17774f.onFailed(RecommendDetailModel.this.f17773e.getString(R.string.neterror));
             } else if (responsedMessage.getError() != 0) {
                 if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    RecommendDetailModel.this.f18097f.onFailed(RecommendDetailModel.this.f18096e.getString(R.string.neterror));
+                    RecommendDetailModel.this.f17774f.onFailed(RecommendDetailModel.this.f17773e.getString(R.string.neterror));
                 } else {
-                    RecommendDetailModel.this.f18097f.onFailed(responsedMessage.getErrorString());
+                    RecommendDetailModel.this.f17774f.onFailed(responsedMessage.getErrorString());
                 }
             } else {
                 if (responsedMessage instanceof RecommendDetailHttpResponseMessage) {
                     RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                     if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
-                        RecommendDetailModel.this.f18098g = true;
-                        RecommendDetailModel.this.f18097f.onSuccess(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                        RecommendDetailModel.this.f17775g = true;
+                        RecommendDetailModel.this.f17774f.onSuccess(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                     }
                 }
                 if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                     RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                     if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
-                        RecommendDetailModel.this.f18098g = true;
-                        RecommendDetailModel.this.f18097f.onSuccess(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                        RecommendDetailModel.this.f17775g = true;
+                        RecommendDetailModel.this.f17774f.onSuccess(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends d.b.b.c.g.c {
+    /* loaded from: classes4.dex */
+    public class b extends d.b.c.c.g.c {
         public b(int i) {
             super(i);
         }
@@ -87,31 +87,31 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
                 if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                    if (requestUpdateMaskInfoMessage.getMaskType() != 6 || RecommendDetailModel.this.f18096e == null || RecommendDetailModel.this.f18097f == null) {
+                    if (requestUpdateMaskInfoMessage.getMaskType() != 6 || RecommendDetailModel.this.f17773e == null || RecommendDetailModel.this.f17774f == null) {
                         return;
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            RecommendDetailModel.this.f18096e.showToast(R.string.neterror);
+                            RecommendDetailModel.this.f17773e.showToast(R.string.neterror);
                         } else {
-                            RecommendDetailModel.this.f18096e.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                            RecommendDetailModel.this.f17773e.showToast(responseUpdateMaskInfoMessage.getErrorString());
                         }
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            RecommendDetailModel.this.f18097f.onAcceptMsg(false);
+                            RecommendDetailModel.this.f17774f.onAcceptMsg(false);
                         } else {
-                            RecommendDetailModel.this.f18097f.onUnAcceptMsg(false);
+                            RecommendDetailModel.this.f17774f.onUnAcceptMsg(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        RecommendDetailModel.this.f18097f.onAcceptMsg(true);
+                        RecommendDetailModel.this.f17774f.onAcceptMsg(true);
                     } else {
-                        RecommendDetailModel.this.f18097f.onUnAcceptMsg(true);
+                        RecommendDetailModel.this.f17774f.onUnAcceptMsg(true);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public c(int i) {
             super(i);
@@ -125,15 +125,15 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 return;
             }
             UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-            if (RecommendDetailModel.this.f18097f != null && userInfoBigVip != null) {
-                RecommendDetailModel.this.f18098g = true;
-                RecommendDetailModel.this.f18097f.onSuccess(userInfoBigVip, false);
+            if (RecommendDetailModel.this.f17774f != null && userInfoBigVip != null) {
+                RecommendDetailModel.this.f17775g = true;
+                RecommendDetailModel.this.f17774f.onSuccess(userInfoBigVip, false);
             }
             RecommendDetailModel.this.B();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void onAcceptMsg(boolean z);
 
@@ -146,12 +146,12 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     public RecommendDetailModel(TbPageContext<RecommendDetailActivity> tbPageContext, d dVar) {
         super(tbPageContext);
-        this.f18098g = false;
-        this.f18099h = false;
+        this.f17775g = false;
+        this.f17776h = false;
         this.j = new a(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
         this.k = new c(2001306);
-        this.f18096e = tbPageContext;
-        this.f18097f = dVar;
+        this.f17773e = tbPageContext;
+        this.f17774f = dVar;
         MessageManager.getInstance().registerListener(this.j);
         MessageManager.getInstance().registerListener(this.k);
         z();
@@ -197,11 +197,11 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     public boolean x() {
-        return this.f18098g;
+        return this.f17775g;
     }
 
     public boolean y() {
-        return this.f18099h;
+        return this.f17776h;
     }
 
     public final void z() {

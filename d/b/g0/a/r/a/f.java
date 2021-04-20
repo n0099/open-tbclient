@@ -8,39 +8,39 @@ import kotlin.jvm.internal.Intrinsics;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.b.g0.a.m.a f45694a;
+    public static d.b.g0.a.m.a f46086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.b.g0.a.m.c f45695b;
+    public static d.b.g0.a.m.c f46087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f45696c;
+    public static boolean f46088c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final f f45697d;
+    public static final f f46089d;
 
     static {
         f fVar = new f();
-        f45697d = fVar;
+        f46089d = fVar;
         Intrinsics.checkExpressionValueIsNotNull(fVar.getClass().getSimpleName(), "SwanAppAllianceLoginHelper.javaClass.simpleName");
     }
 
     public final void a() {
-        d.f45692a.a();
-        h.f45699a.b();
+        d.f46084a.a();
+        h.f46091a.b();
         f(false);
     }
 
     public final boolean b() {
-        return f45696c;
+        return f46088c;
     }
 
     public final d.b.g0.a.m.a c() {
-        return f45694a;
+        return f46086a;
     }
 
     public final d.b.g0.a.m.c d() {
-        return f45695b;
+        return f46087b;
     }
 
     public final boolean e() {
@@ -72,6 +72,6 @@ public final class f {
     }
 
     public final void h(boolean z) {
-        f45696c = z;
+        f46088c = z;
     }
 }

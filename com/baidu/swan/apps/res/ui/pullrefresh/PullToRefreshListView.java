@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
     public LoadingLayout A;
     public AbsListView.OnScrollListener B;

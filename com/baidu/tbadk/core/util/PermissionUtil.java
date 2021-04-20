@@ -3,7 +3,9 @@ package com.baidu.tbadk.core.util;
 import android.app.Activity;
 import android.content.Context;
 import androidx.collection.ArrayMap;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.permissionhelper.ApiUtil;
@@ -16,9 +18,10 @@ import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.b.e.j.b.a;
-import d.b.b.e.p.l;
+import d.b.c.e.j.b.a;
+import d.b.c.e.p.l;
 import d.b.h0.f0.b;
+import d.b.h0.f0.h;
 import d.b.h0.z0.g;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -54,6 +57,7 @@ public class PermissionUtil {
             BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
             BdStatisticsManager.getInstance().setAndroidId(TbadkCoreApplication.getInst().getAndroidId());
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), PermissionUtil.isAgreePrivacyPolicy);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921544));
             return true;
         }
     };
@@ -260,7 +264,7 @@ public class PermissionUtil {
     }
 
     public static String getLastCachedOid(Context context) {
-        return !isAgreePrivacyPolicy() ? "" : d.b.q.b.d(context).e();
+        return !isAgreePrivacyPolicy() ? "" : d.b.p.b.d(context).e();
     }
 
     public static String getLocalMacAddress(Context context) {
@@ -268,7 +272,7 @@ public class PermissionUtil {
     }
 
     public static boolean isAgreePrivacyPolicy() {
-        return isAgreePrivacyPolicy || d.b.h0.r.d0.b.i().g("key_secret_is_show", false) || d.b.h0.r.d0.b.i().g("key_secret_is_show_new", false);
+        return isAgreePrivacyPolicy || d.b.h0.r.d0.b.j().g("key_secret_is_show", false) || d.b.h0.r.d0.b.j().g("key_secret_is_show_new", false);
     }
 
     public static Context providerContext(Context context) {
@@ -276,7 +280,7 @@ public class PermissionUtil {
     }
 
     public static void registerMutiProcessPrivacyPolicy() {
-        d.b.h0.f0.g.e().j(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+        h.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
     }
 
     public static boolean requestRecordAudioPermission(Activity activity, int i) {
@@ -368,18 +372,18 @@ public class PermissionUtil {
 
     public static void setIsAgreePrivacyPolicy(boolean z) {
         isAgreePrivacyPolicy = z;
-        d.b.h0.r.d0.b.i().s("key_secret_is_show_new", z);
-        d.b.h0.f0.g.g(new PrivacyPolicyEvent(Boolean.valueOf(z)));
+        d.b.h0.r.d0.b.j().t("key_secret_is_show_new", z);
+        h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, "privacy agree");
     }
 
     public static void syncAgreeStatus(boolean z) {
-        if (z && d.b.h0.r.d0.b.i().g("key_secret_is_show", false)) {
+        if (z && d.b.h0.r.d0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            d.b.h0.r.d0.b.i().s("key_secret_is_show_new", true);
-            d.b.h0.r.d0.b.i().B("key_secret_is_show");
+            d.b.h0.r.d0.b.j().t("key_secret_is_show_new", true);
+            d.b.h0.r.d0.b.j().C("key_secret_is_show");
         }
     }
 

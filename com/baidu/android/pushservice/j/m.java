@@ -26,6 +26,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.a.b;
@@ -73,19 +74,19 @@ import java.util.regex.Pattern;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3396a = -1;
+    public static int f3431a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f3397b = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
+    public static final String[] f3432b = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3398c = -1;
+    public static int f3433c = -1;
 
     public static boolean A(Context context) {
-        if (f3398c == -1) {
-            f3398c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
+        if (f3433c == -1) {
+            f3433c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
         }
-        return f3398c == 0;
+        return f3433c == 0;
     }
 
     public static boolean B(Context context) {
@@ -188,7 +189,7 @@ public final class m {
     }
 
     public static void a(Context context, Intent intent, long j) {
-        PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, 268435456);
+        PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, Label.FORWARD_REFERENCE_TYPE_SHORT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         alarmManager.cancel(broadcast);
         alarmManager.set(3, SystemClock.elapsedRealtime() + j, broadcast);
@@ -258,7 +259,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                f3396a = z ? 1 : 0;
+                f3431a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -1055,13 +1056,13 @@ public final class m {
     public static synchronized boolean i(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (f3396a == -1) {
+            if (f3431a == -1) {
                 try {
-                    f3396a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f3431a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception unused) {
                 }
             }
-            z = f3396a == 1;
+            z = f3431a == 1;
         }
         return z;
     }
@@ -1417,7 +1418,7 @@ public final class m {
                 Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
                 return "permission Push-SDK for oppo proxy need is not exist !";
             } else {
-                for (String str : f3397b) {
+                for (String str : f3432b) {
                     if (!a(str, strArr2)) {
                         String str2 = str + " permission Push-SDK need is not exist !";
                         Log.e("BDPushSDK-Utility", str2);

@@ -1,25 +1,19 @@
 package d.b.h0.f0.r;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.share.ShareEvent;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import d.b.h0.f0.b;
 /* loaded from: classes3.dex */
-public class a implements b<ShareEvent> {
+public class a implements b<PrePageKeyEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.h0.f0.b
     /* renamed from: a */
-    public boolean onEvent(ShareEvent shareEvent) {
-        if (TbadkCoreApplication.getInst().isMainProcess(true) && shareEvent.status == 1) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
-            String str = shareEvent.tid;
-            if (!TextUtils.isEmpty(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
-                return true;
-            }
+    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
+        if (prePageKeyEvent == null && StringUtil.isEmpty(prePageKeyEvent.prePageKey)) {
+            return false;
         }
-        return false;
+        TbPageExtraHelper.u(prePageKeyEvent.prePageKey);
+        return true;
     }
 }

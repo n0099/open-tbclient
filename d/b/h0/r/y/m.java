@@ -12,28 +12,28 @@ public class m {
     public static final AtomicLong i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f51100a;
+    public final String f51510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f51101b;
+    public final String f51511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Object> f51102c;
+    public final Map<String, Object> f51512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, Object> f51103d;
+    public final Map<String, Object> f51513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f51104e;
+    public final int f51514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f51105f;
+    public final String f51515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f51106g;
+    public final long f51516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f51107h;
+    public final long f51517h;
 
     /* loaded from: classes3.dex */
     public static final class b extends m {
@@ -78,27 +78,27 @@ public class m {
 
     public String b() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(this.f51100a)) {
-            jSONObject.put("cmd", this.f51100a);
+        if (!TextUtils.isEmpty(this.f51510a)) {
+            jSONObject.put("cmd", this.f51510a);
         }
-        if (!TextUtils.isEmpty(this.f51101b)) {
-            jSONObject.put("method", this.f51101b);
+        if (!TextUtils.isEmpty(this.f51511b)) {
+            jSONObject.put("method", this.f51511b);
         }
-        Map<String, Object> map = this.f51102c;
+        Map<String, Object> map = this.f51512c;
         if (map != null && !map.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            e(this.f51102c, jSONObject2);
+            e(this.f51512c, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        Map<String, Object> map2 = this.f51103d;
+        Map<String, Object> map2 = this.f51513d;
         if (map2 != null && !map2.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            e(this.f51103d, jSONObject3);
+            e(this.f51513d, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
         jSONObject.put("messageType", f());
-        if (!TextUtils.isEmpty(this.f51105f)) {
-            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f51105f);
+        if (!TextUtils.isEmpty(this.f51515f)) {
+            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f51515f);
         }
         return c(jSONObject.toString());
     }
@@ -115,7 +115,7 @@ public class m {
     }
 
     public final String f() {
-        int i2 = this.f51104e;
+        int i2 = this.f51514e;
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 == 3) {
@@ -135,13 +135,13 @@ public class m {
     }
 
     public m(int i2, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
-        this.f51100a = str;
-        this.f51101b = str2;
-        this.f51102c = map;
-        this.f51103d = map2;
-        this.f51104e = i2;
-        this.f51105f = str3;
-        this.f51106g = j;
-        this.f51107h = System.currentTimeMillis();
+        this.f51510a = str;
+        this.f51511b = str2;
+        this.f51512c = map;
+        this.f51513d = map2;
+        this.f51514e = i2;
+        this.f51515f = str3;
+        this.f51516g = j;
+        this.f51517h = System.currentTimeMillis();
     }
 }

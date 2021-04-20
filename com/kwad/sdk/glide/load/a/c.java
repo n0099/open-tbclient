@@ -8,16 +8,16 @@ public final class c extends OutputStream {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final OutputStream f35249a;
+    public final OutputStream f35538a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f35250b;
+    public byte[] f35539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35251c;
+    public com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35540c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35252d;
+    public int f35541d;
 
     public c(@NonNull OutputStream outputStream, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
         this(outputStream, bVar, 65536);
@@ -25,30 +25,30 @@ public final class c extends OutputStream {
 
     @VisibleForTesting
     public c(@NonNull OutputStream outputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, int i) {
-        this.f35249a = outputStream;
-        this.f35251c = bVar;
-        this.f35250b = (byte[]) bVar.a(i, byte[].class);
+        this.f35538a = outputStream;
+        this.f35540c = bVar;
+        this.f35539b = (byte[]) bVar.a(i, byte[].class);
     }
 
     private void a() {
-        int i = this.f35252d;
+        int i = this.f35541d;
         if (i > 0) {
-            this.f35249a.write(this.f35250b, 0, i);
-            this.f35252d = 0;
+            this.f35538a.write(this.f35539b, 0, i);
+            this.f35541d = 0;
         }
     }
 
     private void b() {
-        if (this.f35252d == this.f35250b.length) {
+        if (this.f35541d == this.f35539b.length) {
             a();
         }
     }
 
     private void c() {
-        byte[] bArr = this.f35250b;
+        byte[] bArr = this.f35539b;
         if (bArr != null) {
-            this.f35251c.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
-            this.f35250b = null;
+            this.f35540c.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+            this.f35539b = null;
         }
     }
 
@@ -56,10 +56,10 @@ public final class c extends OutputStream {
     public void close() {
         try {
             flush();
-            this.f35249a.close();
+            this.f35538a.close();
             c();
         } catch (Throwable th) {
-            this.f35249a.close();
+            this.f35538a.close();
             throw th;
         }
     }
@@ -67,14 +67,14 @@ public final class c extends OutputStream {
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() {
         a();
-        this.f35249a.flush();
+        this.f35538a.flush();
     }
 
     @Override // java.io.OutputStream
     public void write(int i) {
-        byte[] bArr = this.f35250b;
-        int i2 = this.f35252d;
-        this.f35252d = i2 + 1;
+        byte[] bArr = this.f35539b;
+        int i2 = this.f35541d;
+        this.f35541d = i2 + 1;
         bArr[i2] = (byte) i;
         b();
     }
@@ -90,13 +90,13 @@ public final class c extends OutputStream {
         do {
             int i4 = i2 - i3;
             int i5 = i + i3;
-            if (this.f35252d == 0 && i4 >= this.f35250b.length) {
-                this.f35249a.write(bArr, i5, i4);
+            if (this.f35541d == 0 && i4 >= this.f35539b.length) {
+                this.f35538a.write(bArr, i5, i4);
                 return;
             }
-            int min = Math.min(i4, this.f35250b.length - this.f35252d);
-            System.arraycopy(bArr, i5, this.f35250b, this.f35252d, min);
-            this.f35252d += min;
+            int min = Math.min(i4, this.f35539b.length - this.f35541d);
+            System.arraycopy(bArr, i5, this.f35539b, this.f35541d, min);
+            this.f35541d += min;
             i3 += min;
             b();
         } while (i3 < i2);

@@ -10,21 +10,21 @@ public enum PassFaceRecogType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9700a;
+    public String f9258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9701b;
+    public int f9259b;
 
     PassFaceRecogType(String str, int i) {
-        this.f9700a = str;
-        this.f9701b = i;
+        this.f9258a = str;
+        this.f9259b = i;
     }
 
     public String getRecogTypeName() {
-        return this.f9700a;
+        return this.f9258a;
     }
 
     public int getRecogTypeNum() {
-        return this.f9701b;
+        return this.f9259b;
     }
 }

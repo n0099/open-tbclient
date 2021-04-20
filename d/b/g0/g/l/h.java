@@ -9,24 +9,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class h implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f48453e;
+    public final i f48845e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Runnable f48454f;
+    public final Runnable f48846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48455g;
+    public String f48847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f48456h;
+    public String[] f48848h;
     public AtomicBoolean i = new AtomicBoolean(false);
     public List<h> j = Collections.synchronizedList(new ArrayList());
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.f48453e = iVar;
-        this.f48454f = runnable;
-        this.f48455g = str;
-        this.f48456h = strArr;
+        this.f48845e = iVar;
+        this.f48846f = runnable;
+        this.f48847g = str;
+        this.f48848h = strArr;
     }
 
     public void a(h hVar) {
@@ -37,11 +37,11 @@ public class h implements Runnable {
     }
 
     public String[] b() {
-        return this.f48456h;
+        return this.f48848h;
     }
 
     public String c() {
-        return this.f48455g;
+        return this.f48847g;
     }
 
     public boolean d() {
@@ -53,7 +53,7 @@ public class h implements Runnable {
     }
 
     public void f() {
-        p.k(this, this.f48455g);
+        p.k(this, this.f48847g);
     }
 
     public void g(h hVar) {
@@ -61,7 +61,7 @@ public class h implements Runnable {
     }
 
     public void h() {
-        this.f48454f.run();
+        this.f48846f.run();
     }
 
     public void i() {
@@ -73,7 +73,7 @@ public class h implements Runnable {
         try {
             h();
         } finally {
-            this.f48453e.g(this);
+            this.f48845e.g(this);
         }
     }
 }

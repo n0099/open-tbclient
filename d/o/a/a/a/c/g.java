@@ -1,10 +1,10 @@
 package d.o.a.a.a.c;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66330a = true;
+    public boolean f67323a = true;
 
     @Override // d.o.a.a.a.c.b
     public int a() {
@@ -17,7 +17,7 @@ public class g implements b {
 
     @Override // d.o.a.a.a.c.b
     public void a(boolean z) {
-        this.f66330a = z;
+        this.f67323a = z;
     }
 
     @Override // d.o.a.a.a.c.b
@@ -51,6 +51,6 @@ public class g implements b {
 
     @Override // d.o.a.a.a.c.b
     public boolean g() {
-        return this.f66330a;
+        return this.f67323a;
     }
 }

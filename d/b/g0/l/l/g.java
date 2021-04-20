@@ -8,14 +8,14 @@ import okhttp3.Response;
 public class g implements StatResponseCallback<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final f.a f48935a;
+    public final f.a f49327a;
 
     public g(f.a aVar) {
-        this.f48935a = aVar;
+        this.f49327a = aVar;
     }
 
     public final boolean a() {
-        return this.f48935a != null;
+        return this.f49327a != null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class g implements StatResponseCallback<String> {
     /* renamed from: b */
     public void onSuccess(String str, int i) {
         if (a()) {
-            this.f48935a.b(str, i);
+            this.f49327a.b(str, i);
         }
     }
 
@@ -40,7 +40,7 @@ public class g implements StatResponseCallback<String> {
             str = response.body().string();
         }
         if (a()) {
-            this.f48935a.a(str2, str, networkStatRecord.toUBCJson());
+            this.f49327a.a(str2, str, networkStatRecord.toUBCJson());
         }
         return str;
     }
@@ -48,7 +48,7 @@ public class g implements StatResponseCallback<String> {
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
         if (a()) {
-            this.f48935a.onFail(exc);
+            this.f49327a.onFail(exc);
         }
     }
 }

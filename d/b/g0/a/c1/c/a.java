@@ -24,7 +24,7 @@ public class a {
         } catch (JSONException e2) {
             d.b.g0.a.l1.d.a.a(Log.getStackTraceString(e2));
         }
-        gVar.f45069b = jSONObject;
+        gVar.f45461b = jSONObject;
         f.V().z(str, gVar);
     }
 }

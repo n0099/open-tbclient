@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.e;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface c {
     void a();
 

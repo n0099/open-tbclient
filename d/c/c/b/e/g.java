@@ -7,37 +7,37 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<String>> f65760a = new LinkedHashMap();
+    public final Map<String, List<String>> f66605a = new LinkedHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65761b;
+    public String f66606b;
 
     public g(String str) {
-        this.f65761b = str;
+        this.f66606b = str;
     }
 
     public String a() {
         StringBuilder sb;
         String str;
-        if (this.f65760a.isEmpty()) {
-            return this.f65761b;
+        if (this.f66605a.isEmpty()) {
+            return this.f66606b;
         }
-        String b2 = b(this.f65760a, "UTF-8");
-        String str2 = this.f65761b;
+        String b2 = b(this.f66605a, "UTF-8");
+        String str2 = this.f66606b;
         if (str2 == null || str2.length() == 0) {
             return b2;
         }
-        if (this.f65761b.indexOf(63) >= 0) {
+        if (this.f66606b.indexOf(63) >= 0) {
             sb = new StringBuilder();
-            sb.append(this.f65761b);
+            sb.append(this.f66606b);
             str = "&";
         } else {
             sb = new StringBuilder();
-            sb.append(this.f65761b);
+            sb.append(this.f66606b);
             str = "?";
         }
         sb.append(str);
@@ -70,30 +70,30 @@ public class g {
     }
 
     public void c(String str, double d2) {
-        List<String> list = this.f65760a.get(str);
+        List<String> list = this.f66605a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(d2));
-        this.f65760a.put(str, list);
+        this.f66605a.put(str, list);
     }
 
     public void d(String str, int i) {
-        List<String> list = this.f65760a.get(str);
+        List<String> list = this.f66605a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(i));
-        this.f65760a.put(str, list);
+        this.f66605a.put(str, list);
     }
 
     public void e(String str, String str2) {
-        List<String> list = this.f65760a.get(str);
+        List<String> list = this.f66605a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(str2));
-        this.f65760a.put(str, list);
+        this.f66605a.put(str, list);
     }
 
     public final String f(String str, String str2) {

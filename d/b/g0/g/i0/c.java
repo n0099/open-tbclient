@@ -1,7 +1,7 @@
 package d.b.g0.g.i0;
 
 import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.b.g0.a.a2.g.h;
@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f48211c = new c();
+    public static c f48603c = new c();
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f48212d = "banner_ad_close_btn_show_key";
+    public static String f48604d = "banner_ad_close_btn_show_key";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f48213e = "banner_ad_close_duration_key";
+    public static String f48605e = "banner_ad_close_duration_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f48214f = "gdt_banner_ad_app_id_key";
+    public static String f48606f = "gdt_banner_ad_app_id_key";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f48215g = "gdt_video_ad_app_id_key";
+    public static String f48607g = "gdt_video_ad_app_id_key";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f48216h = "gdt_banner_ad_id_key";
+    public static String f48608h = "gdt_banner_ad_id_key";
     public static String i = "gdt_video_ad_id_key";
     public static String j = "gdt_video_ad_config_time";
     public static String k = "video_interaction_optimization";
@@ -34,10 +34,10 @@ public class c {
     public static String m = "first_request_optimization";
 
     /* renamed from: a  reason: collision with root package name */
-    public long f48217a;
+    public long f48609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f48218b;
+    public long f48610b;
 
     /* loaded from: classes3.dex */
     public class a extends StringResponseCallback {
@@ -117,7 +117,7 @@ public class c {
     }
 
     public static c A() {
-        return f48211c;
+        return f48603c;
     }
 
     public boolean B() {
@@ -129,11 +129,11 @@ public class c {
     }
 
     public void D() {
-        this.f48217a = System.currentTimeMillis();
+        this.f48609a = System.currentTimeMillis();
     }
 
     public void E() {
-        this.f48218b = System.currentTimeMillis();
+        this.f48610b = System.currentTimeMillis();
     }
 
     public void F() {
@@ -141,7 +141,7 @@ public class c {
         if (y == null || d.b.g0.a.w0.a.l() == null || d.b.g0.a.w0.a.m() == null) {
             return;
         }
-        y.V().getRequest().cookieManager(d.b.g0.a.w0.a.m().a()).url(d.b.g0.a.w0.a.l().f()).addUrlParam(com.alipay.sdk.cons.b.f1858h, y.B()).addUrlParam("host", y.getPackageName()).addUrlParam(IXAdRequestInfo.OS, "android").build().executeAsync(new b());
+        y.V().getRequest().cookieManager(d.b.g0.a.w0.a.m().a()).url(d.b.g0.a.w0.a.l().f()).addUrlParam(com.alipay.sdk.cons.b.f1883h, y.B()).addUrlParam("host", y.getPackageName()).addUrlParam(IAdRequestParam.OS, "android").build().executeAsync(new b());
     }
 
     public final void G(long j2) {
@@ -157,7 +157,7 @@ public class c {
     }
 
     public final void J(String str) {
-        h.a().putBoolean(f48212d, "1".equals(str));
+        h.a().putBoolean(f48604d, "1".equals(str));
     }
 
     public void K(String str, String str2) {
@@ -165,7 +165,7 @@ public class c {
     }
 
     public final void L(String str) {
-        h.a().putString(f48213e, str);
+        h.a().putString(f48605e, str);
     }
 
     public void M(boolean z) {
@@ -173,7 +173,7 @@ public class c {
     }
 
     public final void N(String str) {
-        h.a().putString(f48216h, str);
+        h.a().putString(f48608h, str);
     }
 
     public final void O(long j2) {
@@ -185,11 +185,11 @@ public class c {
     }
 
     public final void Q(String str) {
-        h.a().putString(f48214f, str);
+        h.a().putString(f48606f, str);
     }
 
     public final void R(String str) {
-        h.a().putString(f48215g, str);
+        h.a().putString(f48607g, str);
     }
 
     public void S(boolean z) {
@@ -201,11 +201,11 @@ public class c {
     }
 
     public boolean k() {
-        return this.f48217a != 0 && System.currentTimeMillis() - this.f48217a <= p();
+        return this.f48609a != 0 && System.currentTimeMillis() - this.f48609a <= p();
     }
 
     public boolean l() {
-        return this.f48218b != 0 && System.currentTimeMillis() - this.f48218b <= o();
+        return this.f48610b != 0 && System.currentTimeMillis() - this.f48610b <= o();
     }
 
     public void m() {
@@ -229,7 +229,7 @@ public class c {
     }
 
     public boolean q() {
-        return h.a().getBoolean(f48212d, true);
+        return h.a().getBoolean(f48604d, true);
     }
 
     public final long r(String str) {
@@ -241,7 +241,7 @@ public class c {
     }
 
     public final long s() {
-        String string = h.a().getString(f48213e, "1");
+        String string = h.a().getString(f48605e, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : VideoCloudSetting.HOUR_MILLISECOND;
     }
 
@@ -254,7 +254,7 @@ public class c {
     }
 
     public String v() {
-        return h.a().getString(f48216h, "");
+        return h.a().getString(f48608h, "");
     }
 
     public Long w() {
@@ -266,10 +266,10 @@ public class c {
     }
 
     public String y() {
-        return h.a().getString(f48214f, "");
+        return h.a().getString(f48606f, "");
     }
 
     public String z() {
-        return h.a().getString(f48215g, "");
+        return h.a().getString(f48607g, "");
     }
 }

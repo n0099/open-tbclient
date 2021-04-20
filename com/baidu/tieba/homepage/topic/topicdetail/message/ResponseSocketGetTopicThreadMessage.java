@@ -3,14 +3,14 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
-import d.b.b.j.e.n;
-import d.b.i0.z0.j.a.c.c;
+import d.b.c.j.e.n;
+import d.b.i0.a1.j.a.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage {
     public boolean hasMore;
     public List<n> mDataList;

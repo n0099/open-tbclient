@@ -5,24 +5,24 @@ import tbclient.DefaultInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51850a;
+    public String f52274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51851b;
+    public String f52275b;
 
     public String a() {
-        return this.f51850a;
+        return this.f52274a;
     }
 
     public String b() {
-        return this.f51851b;
+        return this.f52275b;
     }
 
     public void c(DefaultInfo defaultInfo) {
         if (defaultInfo == null) {
             return;
         }
-        this.f51850a = defaultInfo.icon;
-        this.f51851b = defaultInfo.url;
+        this.f52274a = defaultInfo.icon;
+        this.f52275b = defaultInfo.url;
     }
 }

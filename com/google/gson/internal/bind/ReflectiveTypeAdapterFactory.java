@@ -8,9 +8,9 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
 import com.google.gson.internal.Excluder;
 import com.google.gson.stream.JsonToken;
-import d.g.c.a.c;
-import d.g.c.b.e;
-import d.g.c.b.g;
+import d.g.d.a.c;
+import d.g.d.b.e;
+import d.g.d.b.g;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -23,44 +23,44 @@ import java.util.Map;
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.g.c.b.b f30960e;
+    public final d.g.d.b.b f31249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final FieldNamingStrategy f30961f;
+    public final FieldNamingStrategy f31250f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Excluder f30962g;
+    public final Excluder f31251g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final JsonAdapterAnnotationTypeAdapterFactory f30963h;
-    public final d.g.c.b.k.b i = d.g.c.b.k.b.a();
+    public final JsonAdapterAnnotationTypeAdapterFactory f31252h;
+    public final d.g.d.b.k.b i = d.g.d.b.k.b.a();
 
     /* loaded from: classes6.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final e<T> f30964a;
+        public final e<T> f31253a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<String, b> f30965b;
+        public final Map<String, b> f31254b;
 
         public Adapter(e<T> eVar, Map<String, b> map) {
-            this.f30964a = eVar;
-            this.f30965b = map;
+            this.f31253a = eVar;
+            this.f31254b = map;
         }
 
         @Override // com.google.gson.TypeAdapter
-        public T read(d.g.c.d.a aVar) throws IOException {
+        public T read(d.g.d.d.a aVar) throws IOException {
             if (aVar.M() == JsonToken.NULL) {
                 aVar.I();
                 return null;
             }
-            T a2 = this.f30964a.a();
+            T a2 = this.f31253a.a();
             try {
                 aVar.o();
                 while (aVar.y()) {
-                    b bVar = this.f30965b.get(aVar.G());
-                    if (bVar != null && bVar.f30973c) {
+                    b bVar = this.f31254b.get(aVar.G());
+                    if (bVar != null && bVar.f31262c) {
                         bVar.a(aVar, a2);
                     }
                     aVar.W();
@@ -75,16 +75,16 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
 
         @Override // com.google.gson.TypeAdapter
-        public void write(d.g.c.d.b bVar, T t) throws IOException {
+        public void write(d.g.d.d.b bVar, T t) throws IOException {
             if (t == null) {
                 bVar.B();
                 return;
             }
             bVar.r();
             try {
-                for (b bVar2 : this.f30965b.values()) {
+                for (b bVar2 : this.f31254b.values()) {
                     if (bVar2.c(t)) {
-                        bVar.z(bVar2.f30971a);
+                        bVar.z(bVar2.f31260a);
                         bVar2.b(bVar, t);
                     }
                 }
@@ -99,49 +99,49 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public class a extends b {
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Field f30966d;
+        public final /* synthetic */ Field f31255d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f30967e;
+        public final /* synthetic */ boolean f31256e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TypeAdapter f30968f;
+        public final /* synthetic */ TypeAdapter f31257f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Gson f30969g;
+        public final /* synthetic */ Gson f31258g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.c.a f30970h;
+        public final /* synthetic */ d.g.d.c.a f31259h;
         public final /* synthetic */ boolean i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ReflectiveTypeAdapterFactory reflectiveTypeAdapterFactory, String str, boolean z, boolean z2, Field field, boolean z3, TypeAdapter typeAdapter, Gson gson, d.g.c.c.a aVar, boolean z4) {
+        public a(ReflectiveTypeAdapterFactory reflectiveTypeAdapterFactory, String str, boolean z, boolean z2, Field field, boolean z3, TypeAdapter typeAdapter, Gson gson, d.g.d.c.a aVar, boolean z4) {
             super(str, z, z2);
-            this.f30966d = field;
-            this.f30967e = z3;
-            this.f30968f = typeAdapter;
-            this.f30969g = gson;
-            this.f30970h = aVar;
+            this.f31255d = field;
+            this.f31256e = z3;
+            this.f31257f = typeAdapter;
+            this.f31258g = gson;
+            this.f31259h = aVar;
             this.i = z4;
         }
 
         @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.b
-        public void a(d.g.c.d.a aVar, Object obj) throws IOException, IllegalAccessException {
-            Object read = this.f30968f.read(aVar);
+        public void a(d.g.d.d.a aVar, Object obj) throws IOException, IllegalAccessException {
+            Object read = this.f31257f.read(aVar);
             if (read == null && this.i) {
                 return;
             }
-            this.f30966d.set(obj, read);
+            this.f31255d.set(obj, read);
         }
 
         @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.b
-        public void b(d.g.c.d.b bVar, Object obj) throws IOException, IllegalAccessException {
-            (this.f30967e ? this.f30968f : new TypeAdapterRuntimeTypeWrapper(this.f30969g, this.f30968f, this.f30970h.e())).write(bVar, this.f30966d.get(obj));
+        public void b(d.g.d.d.b bVar, Object obj) throws IOException, IllegalAccessException {
+            (this.f31256e ? this.f31257f : new TypeAdapterRuntimeTypeWrapper(this.f31258g, this.f31257f, this.f31259h.e())).write(bVar, this.f31255d.get(obj));
         }
 
         @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.b
         public boolean c(Object obj) throws IOException, IllegalAccessException {
-            return this.f30972b && this.f30966d.get(obj) != obj;
+            return this.f31261b && this.f31255d.get(obj) != obj;
         }
     }
 
@@ -149,42 +149,42 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public static abstract class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f30971a;
+        public final String f31260a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f30972b;
+        public final boolean f31261b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f30973c;
+        public final boolean f31262c;
 
         public b(String str, boolean z, boolean z2) {
-            this.f30971a = str;
-            this.f30972b = z;
-            this.f30973c = z2;
+            this.f31260a = str;
+            this.f31261b = z;
+            this.f31262c = z2;
         }
 
-        public abstract void a(d.g.c.d.a aVar, Object obj) throws IOException, IllegalAccessException;
+        public abstract void a(d.g.d.d.a aVar, Object obj) throws IOException, IllegalAccessException;
 
-        public abstract void b(d.g.c.d.b bVar, Object obj) throws IOException, IllegalAccessException;
+        public abstract void b(d.g.d.d.b bVar, Object obj) throws IOException, IllegalAccessException;
 
         public abstract boolean c(Object obj) throws IOException, IllegalAccessException;
     }
 
-    public ReflectiveTypeAdapterFactory(d.g.c.b.b bVar, FieldNamingStrategy fieldNamingStrategy, Excluder excluder, JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory) {
-        this.f30960e = bVar;
-        this.f30961f = fieldNamingStrategy;
-        this.f30962g = excluder;
-        this.f30963h = jsonAdapterAnnotationTypeAdapterFactory;
+    public ReflectiveTypeAdapterFactory(d.g.d.b.b bVar, FieldNamingStrategy fieldNamingStrategy, Excluder excluder, JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory) {
+        this.f31249e = bVar;
+        this.f31250f = fieldNamingStrategy;
+        this.f31251g = excluder;
+        this.f31252h = jsonAdapterAnnotationTypeAdapterFactory;
     }
 
     public static boolean c(Field field, boolean z, Excluder excluder) {
         return (excluder.d(field.getType(), z) || excluder.g(field, z)) ? false : true;
     }
 
-    public final b a(Gson gson, Field field, String str, d.g.c.c.a<?> aVar, boolean z, boolean z2) {
+    public final b a(Gson gson, Field field, String str, d.g.d.c.a<?> aVar, boolean z, boolean z2) {
         boolean b2 = g.b(aVar.c());
-        d.g.c.a.b bVar = (d.g.c.a.b) field.getAnnotation(d.g.c.a.b.class);
-        TypeAdapter<?> a2 = bVar != null ? this.f30963h.a(this.f30960e, gson, aVar, bVar) : null;
+        d.g.d.a.b bVar = (d.g.d.a.b) field.getAnnotation(d.g.d.a.b.class);
+        TypeAdapter<?> a2 = bVar != null ? this.f31252h.a(this.f31249e, gson, aVar, bVar) : null;
         boolean z3 = a2 != null;
         if (a2 == null) {
             a2 = gson.getAdapter(aVar);
@@ -193,26 +193,26 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     public boolean b(Field field, boolean z) {
-        return c(field, z, this.f30962g);
+        return c(field, z, this.f31251g);
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, d.g.c.c.a<T> aVar) {
+    public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
         Class<? super T> c2 = aVar.c();
         if (Object.class.isAssignableFrom(c2)) {
-            return new Adapter(this.f30960e.a(aVar), d(gson, aVar, c2));
+            return new Adapter(this.f31249e.a(aVar), d(gson, aVar, c2));
         }
         return null;
     }
 
-    public final Map<String, b> d(Gson gson, d.g.c.c.a<?> aVar, Class<?> cls) {
+    public final Map<String, b> d(Gson gson, d.g.d.c.a<?> aVar, Class<?> cls) {
         b bVar;
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         if (cls.isInterface()) {
             return linkedHashMap;
         }
         Type e2 = aVar.e();
-        d.g.c.c.a<?> aVar2 = aVar;
+        d.g.d.c.a<?> aVar2 = aVar;
         Class<?> cls2 = cls;
         while (cls2 != Object.class) {
             Field[] declaredFields = cls2.getDeclaredFields();
@@ -238,7 +238,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         int i4 = size;
                         List<String> list = e3;
                         Field field2 = field;
-                        bVar2 = bVar3 == null ? (b) linkedHashMap.put(str, a(gson, field, str, d.g.c.c.a.b(p), z2, b3)) : bVar3;
+                        bVar2 = bVar3 == null ? (b) linkedHashMap.put(str, a(gson, field, str, d.g.d.c.a.b(p), z2, b3)) : bVar3;
                         i2 = i3 + 1;
                         b2 = z2;
                         e3 = list;
@@ -246,13 +246,13 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         field = field2;
                     }
                     if (bVar2 != null) {
-                        throw new IllegalArgumentException(e2 + " declares multiple JSON fields named " + bVar.f30971a);
+                        throw new IllegalArgumentException(e2 + " declares multiple JSON fields named " + bVar.f31260a);
                     }
                 }
                 i++;
                 z = false;
             }
-            aVar2 = d.g.c.c.a.b(C$Gson$Types.p(aVar2.e(), cls2, cls2.getGenericSuperclass()));
+            aVar2 = d.g.d.c.a.b(C$Gson$Types.p(aVar2.e(), cls2, cls2.getGenericSuperclass()));
             cls2 = aVar2.c();
         }
         return linkedHashMap;
@@ -261,7 +261,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public final List<String> e(Field field) {
         c cVar = (c) field.getAnnotation(c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.f30961f.translateName(field));
+            return Collections.singletonList(this.f31250f.translateName(field));
         }
         String value = cVar.value();
         String[] alternate = cVar.alternate();

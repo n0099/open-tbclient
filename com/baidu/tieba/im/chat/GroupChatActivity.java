@@ -21,39 +21,39 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.GroupMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.b.b.e.p.k;
+import d.b.c.e.p.k;
 import d.b.h0.z0.f0;
 import d.b.h0.z0.h0;
 import d.b.h0.z0.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f17749a;
+        public final /* synthetic */ GroupData f17426a;
 
         public a(GroupData groupData) {
-            this.f17749a = groupData;
+            this.f17426a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.b.h0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.b.i0.d1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17749a.getGroupId())));
+            return Boolean.valueOf(d.b.i0.e1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17426a.getGroupId())));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f17751a;
+        public final /* synthetic */ GroupData f17428a;
 
         public b(GroupData groupData) {
-            this.f17751a = groupData;
+            this.f17428a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             } else {
                 GroupChatActivity.this.mListView.showNotNotfiy();
             }
-            if (GroupChatActivity.this.mListModel == null || (groupData = this.f17751a) == null) {
+            if (GroupChatActivity.this.mListModel == null || (groupData = this.f17428a) == null) {
                 return;
             }
             String name = groupData.getName();
@@ -80,7 +80,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements AbsMsglistView.f {
         public c() {
         }
@@ -130,7 +130,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(d.b.i0.d1.f.c cVar) {
+    public boolean first(d.b.i0.e1.f.c cVar) {
         this.mListModel.loadFirst(cVar);
         return true;
     }
@@ -196,7 +196,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         initCurId();
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.TalkableActivity, d.b.b.e.h.b
+    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.TalkableActivity, d.b.c.e.h.b
     public void onItemViewLongClick(View view, int i, int i2, long j) {
         ChatMessage msg;
         super.onItemViewLongClick(view, i, i2, j);

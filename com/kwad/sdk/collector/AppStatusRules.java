@@ -3,7 +3,6 @@ package com.kwad.sdk.collector;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
@@ -141,7 +140,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 return;
             }
             try {
-                this.packageName = jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+                this.packageName = jSONObject.optString("packageName");
                 JSONArray optJSONArray = jSONObject.optJSONArray("paths");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -165,7 +164,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.packageName);
+            o.a(jSONObject, "packageName", this.packageName);
             o.a(jSONObject, "paths", this.paths);
             return jSONObject;
         }

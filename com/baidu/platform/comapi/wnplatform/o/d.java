@@ -7,30 +7,30 @@ import java.io.BufferedReader;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10355a = "d";
+    public static String f9913a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10356b;
+    public static String f9914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f10357c = new Handler();
+    public static Handler f9915c = new Handler();
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f10358d = 0;
+    public static int f9916d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f10359e = 0;
+    public static int f9917e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BufferedReader f10360f = null;
+    public static BufferedReader f9918f = null;
 
     public static void a(Context context) {
         try {
-            f10358d = 0;
-            f10359e = 0;
-            if (f10360f != null) {
-                f10360f.close();
-                f10360f = null;
+            f9916d = 0;
+            f9917e = 0;
+            if (f9918f != null) {
+                f9918f.close();
+                f9918f = null;
             }
         } catch (Exception unused) {
         }

@@ -3,6 +3,7 @@ package com.baidu.android.lbspay.channelpay.baidu;
 import android.app.Activity;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.activity.LBSTransCashierActivity;
 import com.baidu.android.lbspay.channelpay.AbstractChannelPay;
@@ -63,7 +64,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                 return;
             }
             Intent intent = new Intent(activity, LBSTransCashierActivity.class);
-            intent.setFlags(268435456);
+            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.putExtra(CashierDataNew.DELIVERY_CASHIER_DATA, this.mOrderInfo);
             activity.startActivity(intent);
         } else {

@@ -7,28 +7,28 @@ import tbclient.OrderList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f51842a;
+    public String f52266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f51843b;
+    public long f52267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51844c;
+    public int f52268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51845d;
+    public long f52269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51846e;
+    public long f52270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51847f;
+    public String f52271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f51848g;
+    public long f52272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51849h;
+    public String f52273h;
     public String i;
     public String j;
     public String k;
@@ -39,7 +39,7 @@ public class a {
     }
 
     public String b() {
-        return this.f51849h;
+        return this.f52273h;
     }
 
     public String c() {
@@ -47,19 +47,19 @@ public class a {
     }
 
     public long d() {
-        return this.f51845d;
+        return this.f52269d;
     }
 
     public long e() {
-        return this.f51846e;
+        return this.f52270e;
     }
 
     public long f() {
-        return this.f51848g;
+        return this.f52272g;
     }
 
     public String g() {
-        return this.f51842a;
+        return this.f52266a;
     }
 
     public String h() {
@@ -67,33 +67,33 @@ public class a {
     }
 
     public int i() {
-        return this.f51844c;
+        return this.f52268c;
     }
 
     public String j() {
-        return this.f51847f;
+        return this.f52271f;
     }
 
     public long k() {
-        return this.f51843b;
+        return this.f52267b;
     }
 
     public void l(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f51842a = jSONObject.optString("order_id");
+        this.f52266a = jSONObject.optString("order_id");
         jSONObject.optLong("scene_id");
-        this.f51843b = jSONObject.optLong("scores");
-        this.f51844c = jSONObject.optInt("status");
-        this.f51845d = jSONObject.optLong("create_time");
-        this.f51846e = jSONObject.optLong("finish_time");
-        this.f51847f = jSONObject.optString("title");
-        this.f51848g = jSONObject.optLong("money");
+        this.f52267b = jSONObject.optLong("scores");
+        this.f52268c = jSONObject.optInt("status");
+        this.f52269d = jSONObject.optLong("create_time");
+        this.f52270e = jSONObject.optLong("finish_time");
+        this.f52271f = jSONObject.optString("title");
+        this.f52272g = jSONObject.optLong("money");
         jSONObject.optString("preg_field");
         this.k = jSONObject.optString("user_name");
         this.l = jSONObject.optString("user_nickname");
-        this.f51849h = jSONObject.optString("activity_desc");
+        this.f52273h = jSONObject.optString("activity_desc");
         this.i = jSONObject.optString("activity_url");
         this.j = jSONObject.optString("button_name");
     }
@@ -102,16 +102,16 @@ public class a {
         if (orderList == null) {
             return;
         }
-        this.f51842a = orderList.order_id;
+        this.f52266a = orderList.order_id;
         orderList.scene_id.intValue();
-        this.f51843b = orderList.scores.longValue();
-        this.f51844c = orderList.status.intValue();
-        this.f51845d = orderList.create_time.longValue();
-        this.f51846e = orderList.finish_time.longValue();
-        this.f51847f = orderList.title;
-        this.f51848g = orderList.money.longValue();
+        this.f52267b = orderList.scores.longValue();
+        this.f52268c = orderList.status.intValue();
+        this.f52269d = orderList.create_time.longValue();
+        this.f52270e = orderList.finish_time.longValue();
+        this.f52271f = orderList.title;
+        this.f52272g = orderList.money.longValue();
         String str = orderList.preg_field;
-        this.f51849h = orderList.activity_desc;
+        this.f52273h = orderList.activity_desc;
         this.i = orderList.activity_url;
         this.j = orderList.button_name;
     }

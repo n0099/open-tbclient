@@ -5,18 +5,18 @@ import java.util.EnumSet;
 public final /* synthetic */ class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NetcheckTaskListenerWrapper f31635a;
+    public final NetcheckTaskListenerWrapper f31924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final EnumSet f31636b;
+    public final EnumSet f31925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31637c;
+    public final String f31926c;
 
     public c(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, EnumSet enumSet, String str) {
-        this.f31635a = netcheckTaskListenerWrapper;
-        this.f31636b = enumSet;
-        this.f31637c = str;
+        this.f31924a = netcheckTaskListenerWrapper;
+        this.f31925b = enumSet;
+        this.f31926c = str;
     }
 
     public static Runnable a(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, EnumSet enumSet, String str) {
@@ -25,6 +25,6 @@ public final /* synthetic */ class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f31635a.f31624a.a(this.f31636b, this.f31637c);
+        this.f31924a.f31913a.a(this.f31925b, this.f31926c);
     }
 }

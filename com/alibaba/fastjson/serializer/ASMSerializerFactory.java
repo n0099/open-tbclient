@@ -281,7 +281,7 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitFieldInsn(180, str4, fieldInfo.name + "_asm_list_item_ser_", ObjectSerializer_desc);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x008a  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x009b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -297,6 +297,10 @@ public class ASMSerializerFactory implements Opcodes {
         methodVisitor.visitLabel(label);
         JSONField annotation = fieldInfo.getAnnotation();
         int of = annotation != null ? SerializerFeature.of(annotation.serialzeFeatures()) : 0;
+        JSONType jSONType = context.beanInfo.jsonType;
+        if (jSONType != null) {
+            of |= SerializerFeature.of(jSONType.serialzeFeatures());
+        }
         if (cls == String.class) {
             mask = SerializerFeature.WriteMapNullValue.getMask();
             mask2 = SerializerFeature.WriteNullStringAsEmpty.getMask();
@@ -998,35 +1002,51 @@ public class ASMSerializerFactory implements Opcodes {
     private void generateWriteAsArray(Class<?> cls, MethodVisitor methodVisitor, FieldInfo[] fieldInfoArr, Context context) throws Exception {
         String str;
         int i;
-        String str2;
         int i2;
+        String str2;
+        String str3;
         ASMSerializerFactory aSMSerializerFactory;
         Label label;
-        String str3;
+        String str4;
         int i3;
         java.lang.reflect.Type type;
         int i4;
         Label label2;
         Label label3;
         Label label4;
-        Label label5;
         int i5;
         int i6;
-        String str4;
-        int i7;
-        Label label6;
         String str5;
-        Label label7;
+        int i7;
+        Label label5;
         ASMSerializerFactory aSMSerializerFactory2 = this;
         FieldInfo[] fieldInfoArr2 = fieldInfoArr;
-        String str6 = "out";
-        int i8 = 25;
+        Label label6 = new Label();
+        methodVisitor.visitVarInsn(25, 1);
+        methodVisitor.visitVarInsn(25, 0);
+        String str6 = JSONSerializer;
+        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str6, "hasPropertyFilters", "(" + SerializeFilterable_desc + ")Z");
+        methodVisitor.visitJumpInsn(Opcodes.IFNE, label6);
+        methodVisitor.visitVarInsn(25, 0);
+        methodVisitor.visitVarInsn(25, 1);
+        methodVisitor.visitVarInsn(25, 2);
+        methodVisitor.visitVarInsn(25, 3);
+        methodVisitor.visitVarInsn(25, 4);
+        methodVisitor.visitVarInsn(21, 5);
+        String str7 = JavaBeanSerializer;
+        StringBuilder sb = new StringBuilder();
+        sb.append("(L");
+        sb.append(JSONSerializer);
+        String str8 = ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V";
+        sb.append(";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
+        methodVisitor.visitMethodInsn(183, str7, "writeNoneASM", sb.toString());
+        methodVisitor.visitInsn(Opcodes.RETURN);
+        methodVisitor.visitLabel(label6);
+        String str9 = "out";
         methodVisitor.visitVarInsn(25, context.var("out"));
         methodVisitor.visitVarInsn(16, 91);
-        String str7 = SerializeWriter;
-        int i9 = Opcodes.INVOKEVIRTUAL;
-        String str8 = "(I)V";
-        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str7, AlbumActivityConfig.FROM_WRITE, "(I)V");
+        String str10 = "(I)V";
+        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, "(I)V");
         int length = fieldInfoArr2.length;
         if (length == 0) {
             methodVisitor.visitVarInsn(25, context.var("out"));
@@ -1034,62 +1054,62 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, "(I)V");
             return;
         }
-        int i10 = 0;
-        while (i10 < length) {
-            int i11 = i10 == length + (-1) ? 93 : 44;
-            FieldInfo fieldInfo = fieldInfoArr2[i10];
+        int i8 = 0;
+        while (i8 < length) {
+            int i9 = i8 == length + (-1) ? 93 : 44;
+            FieldInfo fieldInfo = fieldInfoArr2[i8];
             Class<?> cls2 = fieldInfo.fieldClass;
             methodVisitor.visitLdcInsn(fieldInfo.name);
             methodVisitor.visitVarInsn(58, Context.fieldName);
             if (cls2 != Byte.TYPE && cls2 != Short.TYPE && cls2 != Integer.TYPE) {
                 if (cls2 == Long.TYPE) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     methodVisitor.visitInsn(89);
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, "writeLong", "(J)V");
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeLong", "(J)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
                 } else if (cls2 == Float.TYPE) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     methodVisitor.visitInsn(89);
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
                     methodVisitor.visitInsn(4);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, "writeFloat", "(FZ)V");
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeFloat", "(FZ)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
                 } else if (cls2 == Double.TYPE) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     methodVisitor.visitInsn(89);
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
                     methodVisitor.visitInsn(4);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, "writeDouble", "(DZ)V");
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeDouble", "(DZ)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
                 } else if (cls2 == Boolean.TYPE) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     methodVisitor.visitInsn(89);
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, AlbumActivityConfig.FROM_WRITE, "(Z)V");
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, "(Z)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
                 } else if (cls2 == Character.TYPE) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
                     methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Character", "toString", "(C)Ljava/lang/String;");
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, "writeString", "(Ljava/lang/String;C)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeString", "(Ljava/lang/String;C)V");
                 } else if (cls2 == String.class) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, "writeString", "(Ljava/lang/String;C)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeString", "(Ljava/lang/String;C)V");
                 } else if (cls2.isEnum()) {
-                    methodVisitor.visitVarInsn(i8, context.var(str6));
+                    methodVisitor.visitVarInsn(25, context.var(str9));
                     methodVisitor.visitInsn(89);
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, "writeEnum", "(Ljava/lang/Enum;)V");
-                    methodVisitor.visitVarInsn(16, i11);
-                    methodVisitor.visitMethodInsn(i9, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeEnum", "(Ljava/lang/Enum;)V");
+                    methodVisitor.visitVarInsn(16, i9);
+                    methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
                 } else if (List.class.isAssignableFrom(cls2)) {
                     java.lang.reflect.Type type2 = fieldInfo.fieldType;
                     if (type2 instanceof Class) {
@@ -1099,118 +1119,117 @@ public class ASMSerializerFactory implements Opcodes {
                     }
                     Class<?> cls3 = (!(type instanceof Class) || (cls3 = type) == Object.class) ? null : null;
                     aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
-                    i = length;
+                    i2 = length;
                     methodVisitor.visitTypeInsn(192, "java/util/List");
-                    i2 = i10;
+                    i = i8;
                     methodVisitor.visitVarInsn(58, context.var("list"));
                     if (cls3 == String.class && context.writeDirect) {
-                        methodVisitor.visitVarInsn(25, context.var(str6));
+                        methodVisitor.visitVarInsn(25, context.var(str9));
                         methodVisitor.visitVarInsn(25, context.var("list"));
-                        String str9 = SerializeWriter;
-                        i7 = Opcodes.INVOKEVIRTUAL;
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str9, AlbumActivityConfig.FROM_WRITE, "(Ljava/util/List;)V");
-                        str = str6;
-                        str4 = str8;
-                        i4 = i11;
+                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, "(Ljava/util/List;)V");
+                        str = str9;
+                        i4 = i9;
+                        str2 = str8;
+                        str5 = str10;
                         i5 = 25;
                         i6 = 16;
+                        i7 = Opcodes.INVOKEVIRTUAL;
                     } else {
+                        Label label7 = new Label();
                         Label label8 = new Label();
-                        Label label9 = new Label();
-                        i4 = i11;
+                        i4 = i9;
                         methodVisitor.visitVarInsn(25, context.var("list"));
-                        methodVisitor.visitJumpInsn(Opcodes.IFNONNULL, label9);
-                        methodVisitor.visitVarInsn(25, context.var(str6));
+                        methodVisitor.visitJumpInsn(Opcodes.IFNONNULL, label8);
+                        methodVisitor.visitVarInsn(25, context.var(str9));
                         java.lang.reflect.Type type3 = type;
+                        String str11 = str8;
                         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeNull", "()V");
-                        methodVisitor.visitJumpInsn(167, label8);
-                        methodVisitor.visitLabel(label9);
+                        methodVisitor.visitJumpInsn(167, label7);
+                        methodVisitor.visitLabel(label8);
                         methodVisitor.visitVarInsn(25, context.var("list"));
                         methodVisitor.visitMethodInsn(185, "java/util/List", "size", "()I");
                         methodVisitor.visitVarInsn(54, context.var("size"));
-                        methodVisitor.visitVarInsn(25, context.var(str6));
+                        methodVisitor.visitVarInsn(25, context.var(str9));
                         methodVisitor.visitVarInsn(16, 91);
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
+                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
+                        Label label9 = new Label();
                         Label label10 = new Label();
                         Label label11 = new Label();
-                        Label label12 = new Label();
                         methodVisitor.visitInsn(3);
                         methodVisitor.visitVarInsn(54, context.var("i"));
-                        methodVisitor.visitLabel(label10);
+                        methodVisitor.visitLabel(label9);
                         methodVisitor.visitVarInsn(21, context.var("i"));
                         methodVisitor.visitVarInsn(21, context.var("size"));
-                        methodVisitor.visitJumpInsn(162, label12);
+                        methodVisitor.visitJumpInsn(162, label11);
                         methodVisitor.visitVarInsn(21, context.var("i"));
-                        methodVisitor.visitJumpInsn(153, label11);
-                        methodVisitor.visitVarInsn(25, context.var(str6));
+                        methodVisitor.visitJumpInsn(153, label10);
+                        methodVisitor.visitVarInsn(25, context.var(str9));
                         methodVisitor.visitVarInsn(16, 44);
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str8);
-                        methodVisitor.visitLabel(label11);
+                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str10);
+                        methodVisitor.visitLabel(label10);
                         methodVisitor.visitVarInsn(25, context.var("list"));
                         methodVisitor.visitVarInsn(21, context.var("i"));
                         methodVisitor.visitMethodInsn(185, "java/util/List", "get", "(I)Ljava/lang/Object;");
                         methodVisitor.visitVarInsn(58, context.var("list_item"));
+                        Label label12 = new Label();
                         Label label13 = new Label();
-                        Label label14 = new Label();
-                        String str10 = str8;
+                        String str12 = str10;
                         methodVisitor.visitVarInsn(25, context.var("list_item"));
-                        methodVisitor.visitJumpInsn(Opcodes.IFNONNULL, label14);
-                        methodVisitor.visitVarInsn(25, context.var(str6));
-                        String str11 = str6;
+                        methodVisitor.visitJumpInsn(Opcodes.IFNONNULL, label13);
+                        methodVisitor.visitVarInsn(25, context.var(str9));
+                        String str13 = str9;
                         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeNull", "()V");
-                        methodVisitor.visitJumpInsn(167, label13);
-                        methodVisitor.visitLabel(label14);
+                        methodVisitor.visitJumpInsn(167, label12);
+                        methodVisitor.visitLabel(label13);
+                        Label label14 = new Label();
                         Label label15 = new Label();
-                        Label label16 = new Label();
                         if (cls3 == null || !Modifier.isPublic(cls3.getModifiers())) {
-                            label2 = label15;
-                            label3 = label10;
-                            label4 = label13;
-                            label5 = label16;
+                            label2 = label9;
+                            label3 = label12;
+                            str2 = str11;
+                            label4 = label15;
                         } else {
                             methodVisitor.visitVarInsn(25, context.var("list_item"));
-                            label3 = label10;
+                            label2 = label9;
                             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;");
                             methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
-                            methodVisitor.visitJumpInsn(166, label16);
+                            methodVisitor.visitJumpInsn(166, label15);
                             aSMSerializerFactory2._getListFieldItemSer(context, methodVisitor, fieldInfo, cls3);
                             methodVisitor.visitVarInsn(58, context.var("list_item_desc"));
+                            Label label16 = new Label();
                             Label label17 = new Label();
-                            Label label18 = new Label();
                             if (context.writeDirect) {
                                 methodVisitor.visitVarInsn(25, context.var("list_item_desc"));
                                 methodVisitor.visitTypeInsn(193, JavaBeanSerializer);
-                                methodVisitor.visitJumpInsn(153, label17);
+                                methodVisitor.visitJumpInsn(153, label16);
                                 methodVisitor.visitVarInsn(25, context.var("list_item_desc"));
-                                label4 = label13;
                                 methodVisitor.visitTypeInsn(192, JavaBeanSerializer);
                                 methodVisitor.visitVarInsn(25, 1);
                                 methodVisitor.visitVarInsn(25, context.var("list_item"));
                                 if (context.nonContext) {
                                     methodVisitor.visitInsn(1);
-                                    label6 = label16;
+                                    label3 = label12;
                                 } else {
                                     methodVisitor.visitVarInsn(21, context.var("i"));
-                                    label6 = label16;
+                                    label3 = label12;
                                     methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                                 }
                                 methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
                                 methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
-                                String str12 = JavaBeanSerializer;
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("(L");
-                                sb.append(JSONSerializer);
-                                str5 = ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V";
-                                sb.append(str5);
-                                label7 = label15;
-                                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str12, "writeAsArrayNonContext", sb.toString());
-                                methodVisitor.visitJumpInsn(167, label18);
-                                methodVisitor.visitLabel(label17);
+                                String str14 = JavaBeanSerializer;
+                                StringBuilder sb2 = new StringBuilder();
+                                sb2.append("(L");
+                                sb2.append(JSONSerializer);
+                                str2 = str11;
+                                sb2.append(str2);
+                                label5 = label15;
+                                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str14, "writeAsArrayNonContext", sb2.toString());
+                                methodVisitor.visitJumpInsn(167, label17);
+                                methodVisitor.visitLabel(label16);
                             } else {
-                                label4 = label13;
-                                label6 = label16;
-                                str5 = ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V";
-                                label7 = label15;
+                                label3 = label12;
+                                str2 = str11;
+                                label5 = label15;
                             }
                             methodVisitor.visitVarInsn(25, context.var("list_item_desc"));
                             methodVisitor.visitVarInsn(25, 1);
@@ -1223,14 +1242,13 @@ public class ASMSerializerFactory implements Opcodes {
                             }
                             methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
                             methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
-                            String str13 = ObjectSerializer;
-                            methodVisitor.visitMethodInsn(185, str13, AlbumActivityConfig.FROM_WRITE, "(L" + JSONSerializer + str5);
-                            methodVisitor.visitLabel(label18);
-                            label2 = label7;
-                            methodVisitor.visitJumpInsn(167, label2);
-                            label5 = label6;
+                            String str15 = ObjectSerializer;
+                            methodVisitor.visitMethodInsn(185, str15, AlbumActivityConfig.FROM_WRITE, "(L" + JSONSerializer + str2);
+                            methodVisitor.visitLabel(label17);
+                            methodVisitor.visitJumpInsn(167, label14);
+                            label4 = label5;
                         }
-                        methodVisitor.visitLabel(label5);
+                        methodVisitor.visitLabel(label4);
                         methodVisitor.visitVarInsn(25, 1);
                         methodVisitor.visitVarInsn(25, context.var("list_item"));
                         if (context.nonContext) {
@@ -1246,73 +1264,74 @@ public class ASMSerializerFactory implements Opcodes {
                         } else {
                             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONSerializer, "writeWithFieldName", "(Ljava/lang/Object;Ljava/lang/Object;)V");
                         }
-                        methodVisitor.visitLabel(label2);
-                        methodVisitor.visitLabel(label4);
+                        methodVisitor.visitLabel(label14);
+                        methodVisitor.visitLabel(label3);
                         methodVisitor.visitIincInsn(context.var("i"), 1);
-                        methodVisitor.visitJumpInsn(167, label3);
-                        methodVisitor.visitLabel(label12);
-                        str = str11;
+                        methodVisitor.visitJumpInsn(167, label2);
+                        methodVisitor.visitLabel(label11);
+                        str = str13;
                         i5 = 25;
                         methodVisitor.visitVarInsn(25, context.var(str));
                         i6 = 16;
                         methodVisitor.visitVarInsn(16, 93);
-                        String str14 = SerializeWriter;
-                        str4 = str10;
+                        String str16 = SerializeWriter;
+                        str5 = str12;
                         i7 = Opcodes.INVOKEVIRTUAL;
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str14, AlbumActivityConfig.FROM_WRITE, str4);
-                        methodVisitor.visitLabel(label8);
+                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str16, AlbumActivityConfig.FROM_WRITE, str5);
+                        methodVisitor.visitLabel(label7);
                     }
                     methodVisitor.visitVarInsn(i5, context.var(str));
                     methodVisitor.visitVarInsn(i6, i4);
-                    methodVisitor.visitMethodInsn(i7, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str4);
+                    methodVisitor.visitMethodInsn(i7, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str5);
                     aSMSerializerFactory = this;
-                    str2 = str4;
+                    str3 = str5;
                 } else {
-                    String str15 = str6;
-                    i = length;
-                    String str16 = str8;
-                    i2 = i10;
+                    String str17 = str9;
+                    i = i8;
+                    int i10 = i9;
+                    i2 = length;
+                    str2 = str8;
+                    String str18 = str10;
+                    Label label18 = new Label();
                     Label label19 = new Label();
-                    Label label20 = new Label();
                     _get(methodVisitor, context, fieldInfo);
                     methodVisitor.visitInsn(89);
                     methodVisitor.visitVarInsn(58, context.var("field_" + fieldInfo.fieldClass.getName()));
-                    methodVisitor.visitJumpInsn(Opcodes.IFNONNULL, label20);
-                    methodVisitor.visitVarInsn(25, context.var(str15));
-                    int i12 = i11;
+                    methodVisitor.visitJumpInsn(Opcodes.IFNONNULL, label19);
+                    methodVisitor.visitVarInsn(25, context.var(str17));
                     methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeNull", "()V");
-                    methodVisitor.visitJumpInsn(167, label19);
-                    methodVisitor.visitLabel(label20);
+                    methodVisitor.visitJumpInsn(167, label18);
+                    methodVisitor.visitLabel(label19);
+                    Label label20 = new Label();
                     Label label21 = new Label();
-                    Label label22 = new Label();
                     methodVisitor.visitVarInsn(25, context.var("field_" + fieldInfo.fieldClass.getName()));
                     methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;");
                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
-                    methodVisitor.visitJumpInsn(166, label22);
+                    methodVisitor.visitJumpInsn(166, label21);
                     _getFieldSer(context, methodVisitor, fieldInfo);
                     methodVisitor.visitVarInsn(58, context.var("fied_ser"));
+                    Label label22 = new Label();
                     Label label23 = new Label();
-                    Label label24 = new Label();
                     if (context.writeDirect && Modifier.isPublic(cls2.getModifiers())) {
                         methodVisitor.visitVarInsn(25, context.var("fied_ser"));
                         methodVisitor.visitTypeInsn(193, JavaBeanSerializer);
-                        methodVisitor.visitJumpInsn(153, label23);
+                        methodVisitor.visitJumpInsn(153, label22);
                         methodVisitor.visitVarInsn(25, context.var("fied_ser"));
-                        str3 = "writeWithFieldName";
+                        str4 = "writeWithFieldName";
                         methodVisitor.visitTypeInsn(192, JavaBeanSerializer);
                         methodVisitor.visitVarInsn(25, 1);
                         methodVisitor.visitVarInsn(25, context.var("field_" + fieldInfo.fieldClass.getName()));
                         methodVisitor.visitVarInsn(25, Context.fieldName);
                         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
                         methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
-                        String str17 = JavaBeanSerializer;
-                        label = label22;
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str17, "writeAsArrayNonContext", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
-                        methodVisitor.visitJumpInsn(167, label24);
-                        methodVisitor.visitLabel(label23);
+                        String str19 = JavaBeanSerializer;
+                        label = label21;
+                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str19, "writeAsArrayNonContext", "(L" + JSONSerializer + str2);
+                        methodVisitor.visitJumpInsn(167, label23);
+                        methodVisitor.visitLabel(label22);
                     } else {
-                        label = label22;
-                        str3 = "writeWithFieldName";
+                        label = label21;
+                        str4 = "writeWithFieldName";
                     }
                     methodVisitor.visitVarInsn(25, context.var("fied_ser"));
                     methodVisitor.visitVarInsn(25, 1);
@@ -1320,69 +1339,71 @@ public class ASMSerializerFactory implements Opcodes {
                     methodVisitor.visitVarInsn(25, Context.fieldName);
                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
                     methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
-                    String str18 = ObjectSerializer;
-                    methodVisitor.visitMethodInsn(185, str18, AlbumActivityConfig.FROM_WRITE, "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
-                    methodVisitor.visitLabel(label24);
-                    methodVisitor.visitJumpInsn(167, label21);
+                    String str20 = ObjectSerializer;
+                    methodVisitor.visitMethodInsn(185, str20, AlbumActivityConfig.FROM_WRITE, "(L" + JSONSerializer + str2);
+                    methodVisitor.visitLabel(label23);
+                    methodVisitor.visitJumpInsn(167, label20);
                     methodVisitor.visitLabel(label);
                     String format = fieldInfo.getFormat();
                     methodVisitor.visitVarInsn(25, 1);
                     methodVisitor.visitVarInsn(25, context.var("field_" + fieldInfo.fieldClass.getName()));
                     if (format != null) {
                         methodVisitor.visitLdcInsn(format);
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONSerializer, "writeWithFormat", "(Ljava/lang/Object;Ljava/lang/String;)V");
+                        String str21 = JSONSerializer;
                         i3 = Opcodes.INVOKEVIRTUAL;
+                        methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str21, "writeWithFormat", "(Ljava/lang/Object;Ljava/lang/String;)V");
                     } else {
                         methodVisitor.visitVarInsn(25, Context.fieldName);
                         java.lang.reflect.Type type4 = fieldInfo.fieldType;
                         if ((type4 instanceof Class) && ((Class) type4).isPrimitive()) {
+                            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONSerializer, str4, "(Ljava/lang/Object;Ljava/lang/Object;)V");
                             i3 = Opcodes.INVOKEVIRTUAL;
-                            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONSerializer, str3, "(Ljava/lang/Object;Ljava/lang/Object;)V");
                         } else {
                             methodVisitor.visitVarInsn(25, 0);
-                            String str19 = context.className;
-                            methodVisitor.visitFieldInsn(180, str19, fieldInfo.name + "_asm_fieldType", "Ljava/lang/reflect/Type;");
+                            String str22 = context.className;
+                            methodVisitor.visitFieldInsn(180, str22, fieldInfo.name + "_asm_fieldType", "Ljava/lang/reflect/Type;");
                             methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
-                            String str20 = JSONSerializer;
+                            String str23 = JSONSerializer;
                             i3 = Opcodes.INVOKEVIRTUAL;
-                            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str20, str3, "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
+                            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str23, str4, "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
                         }
                     }
-                    methodVisitor.visitLabel(label21);
-                    methodVisitor.visitLabel(label19);
-                    str = str15;
+                    methodVisitor.visitLabel(label20);
+                    methodVisitor.visitLabel(label18);
+                    str = str17;
                     methodVisitor.visitVarInsn(25, context.var(str));
-                    methodVisitor.visitVarInsn(16, i12);
-                    str2 = str16;
-                    methodVisitor.visitMethodInsn(i3, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str2);
+                    methodVisitor.visitVarInsn(16, i10);
+                    str3 = str18;
+                    methodVisitor.visitMethodInsn(i3, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str3);
                     aSMSerializerFactory = this;
                 }
                 aSMSerializerFactory = aSMSerializerFactory2;
-                str = str6;
-                i = length;
+                str = str9;
+                i = i8;
+                i2 = length;
                 str2 = str8;
-                i2 = i10;
+                str3 = str10;
             } else {
-                str = str6;
-                i = length;
+                str = str9;
+                i = i8;
+                i2 = length;
                 str2 = str8;
-                i2 = i10;
+                str3 = str10;
                 methodVisitor.visitVarInsn(25, context.var(str));
                 methodVisitor.visitInsn(89);
                 aSMSerializerFactory = this;
                 aSMSerializerFactory._get(methodVisitor, context, fieldInfo);
-                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeInt", str2);
-                methodVisitor.visitVarInsn(16, i11);
-                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str2);
+                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeInt", str3);
+                methodVisitor.visitVarInsn(16, i9);
+                methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, AlbumActivityConfig.FROM_WRITE, str3);
             }
-            i10 = i2 + 1;
-            str6 = str;
-            aSMSerializerFactory2 = aSMSerializerFactory;
-            str8 = str2;
-            length = i;
-            i8 = 25;
-            i9 = Opcodes.INVOKEVIRTUAL;
             fieldInfoArr2 = fieldInfoArr;
+            i8 = i + 1;
+            str10 = str3;
+            str8 = str2;
+            length = i2;
+            str9 = str;
+            aSMSerializerFactory2 = aSMSerializerFactory;
         }
     }
 
@@ -1393,6 +1414,7 @@ public class ASMSerializerFactory implements Opcodes {
         int i;
         String str3;
         Class<?> cls2;
+        boolean z;
         FieldInfo[] fieldInfoArr2 = fieldInfoArr;
         Label label2 = new Label();
         int length = fieldInfoArr2.length;
@@ -1409,14 +1431,19 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitJumpInsn(Opcodes.IFNE, label4);
             int length2 = fieldInfoArr2.length;
             int i2 = 0;
-            boolean z = false;
-            while (i2 < length2) {
+            while (true) {
+                if (i2 >= length2) {
+                    z = false;
+                    break;
+                }
                 int i3 = length2;
                 if (fieldInfoArr2[i2].method != null) {
                     z = true;
+                    break;
+                } else {
+                    i2++;
+                    length2 = i3;
                 }
-                i2++;
-                length2 = i3;
             }
             if (z) {
                 methodVisitor.visitVarInsn(25, context.var("out"));
@@ -1632,22 +1659,24 @@ public class ASMSerializerFactory implements Opcodes {
     }
 
     public JavaBeanSerializer createJavaBeanSerializer(SerializeBeanInfo serializeBeanInfo) throws Exception {
-        String name;
+        String str;
+        String str2;
         boolean z;
         Class<SerializeBeanInfo> cls;
-        String str;
+        String str3;
         boolean z2;
         boolean z3;
-        String str2;
+        String str4;
         boolean z4;
         boolean z5;
-        String str3;
+        String str5;
         JSONType jSONType;
         FieldInfo[] fieldInfoArr;
         int i;
         ClassWriter classWriter;
         int i2;
-        String str4;
+        String str6;
+        String name;
         Method method;
         Class<SerializeBeanInfo> cls2 = SerializeBeanInfo.class;
         Class<?> cls3 = serializeBeanInfo.beanType;
@@ -1669,24 +1698,30 @@ public class ASMSerializerFactory implements Opcodes {
                     return new JavaBeanSerializer(serializeBeanInfo);
                 }
             }
-            String str5 = "ASMSerializer_" + this.seed.incrementAndGet() + "_" + cls3.getSimpleName();
-            String str6 = name.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + "/" + str5;
-            String str7 = ASMSerializerFactory.class.getPackage().getName() + "." + str5;
+            String str7 = "ASMSerializer_" + this.seed.incrementAndGet() + "_" + cls3.getSimpleName();
+            Package r2 = ASMSerializerFactory.class.getPackage();
+            if (r2 != null) {
+                str = r2.getName() + "." + str7;
+                str2 = name.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + "/" + str7;
+            } else {
+                str = str7;
+                str2 = str;
+            }
             ClassWriter classWriter2 = new ClassWriter();
-            classWriter2.visit(49, 33, str6, JavaBeanSerializer, new String[]{ObjectSerializer});
+            classWriter2.visit(49, 33, str2, JavaBeanSerializer, new String[]{ObjectSerializer});
             int length = fieldInfoArr3.length;
             int i3 = 0;
             while (i3 < length) {
                 FieldInfo fieldInfo3 = fieldInfoArr3[i3];
                 if (fieldInfo3.fieldClass.isPrimitive() || fieldInfo3.fieldClass == String.class) {
                     i2 = length;
-                    str4 = str7;
+                    str6 = str;
                 } else {
                     StringBuilder sb = new StringBuilder();
                     i2 = length;
                     sb.append(fieldInfo3.name);
                     sb.append("_asm_fieldType");
-                    str4 = str7;
+                    str6 = str;
                     new FieldWriter(classWriter2, 1, sb.toString(), "Ljava/lang/reflect/Type;").visitEnd();
                     if (List.class.isAssignableFrom(fieldInfo3.fieldClass)) {
                         new FieldWriter(classWriter2, 1, fieldInfo3.name + "_asm_list_item_ser_", ObjectSerializer_desc).visitEnd();
@@ -1695,9 +1730,9 @@ public class ASMSerializerFactory implements Opcodes {
                 }
                 i3++;
                 length = i2;
-                str7 = str4;
+                str = str6;
             }
-            String str8 = str7;
+            String str8 = str;
             MethodWriter methodWriter = new MethodWriter(classWriter2, 1, "<init>", "(" + ASMUtils.desc(cls2) + ")V", null, null);
             methodWriter.visitVarInsn(25, 0);
             methodWriter.visitVarInsn(25, 1);
@@ -1720,7 +1755,7 @@ public class ASMSerializerFactory implements Opcodes {
                         methodWriter.visitLdcInsn(Integer.valueOf(i4));
                         methodWriter.visitMethodInsn(183, JavaBeanSerializer, "getFieldType", "(I)Ljava/lang/reflect/Type;");
                     }
-                    methodWriter.visitFieldInsn(Opcodes.PUTFIELD, str6, fieldInfo4.name + "_asm_fieldType", "Ljava/lang/reflect/Type;");
+                    methodWriter.visitFieldInsn(Opcodes.PUTFIELD, str2, fieldInfo4.name + "_asm_fieldType", "Ljava/lang/reflect/Type;");
                 }
                 i4++;
                 classWriter2 = classWriter;
@@ -1745,24 +1780,24 @@ public class ASMSerializerFactory implements Opcodes {
                     break;
                 }
                 if (i5 == 0) {
-                    str2 = AlbumActivityConfig.FROM_WRITE;
+                    str4 = AlbumActivityConfig.FROM_WRITE;
                     z5 = z;
                     z4 = true;
                 } else if (i5 == 1) {
-                    str2 = "writeNormal";
+                    str4 = "writeNormal";
                     z5 = z;
                     z4 = false;
                 } else {
-                    str2 = "writeDirectNonContext";
+                    str4 = "writeDirectNonContext";
                     z4 = true;
                     z5 = true;
                 }
                 ClassWriter classWriter4 = classWriter3;
                 String str9 = str8;
                 int i6 = i5;
-                String str10 = str6;
-                Context context = new Context(fieldInfoArr3, serializeBeanInfo, str6, z4, z5);
-                MethodWriter methodWriter2 = new MethodWriter(classWriter4, 1, str2, "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V", null, new String[]{"java/io/IOException"});
+                String str10 = str2;
+                Context context = new Context(fieldInfoArr3, serializeBeanInfo, str2, z4, z5);
+                MethodWriter methodWriter2 = new MethodWriter(classWriter4, 1, str4, "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V", null, new String[]{"java/io/IOException"});
                 Label label = new Label();
                 methodWriter2.visitVarInsn(25, 2);
                 methodWriter2.visitJumpInsn(Opcodes.IFNONNULL, label);
@@ -1774,7 +1809,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodWriter2.visitFieldInsn(180, JSONSerializer, "out", SerializeWriter_desc);
                 methodWriter2.visitVarInsn(58, context.var("out"));
                 if (z6 || context.writeDirect || !(jSONType2 == null || jSONType2.alphabetic())) {
-                    str3 = str10;
+                    str5 = str10;
                 } else {
                     Label label2 = new Label();
                     methodWriter2.visitVarInsn(25, context.var("out"));
@@ -1786,8 +1821,8 @@ public class ASMSerializerFactory implements Opcodes {
                     methodWriter2.visitVarInsn(25, 3);
                     methodWriter2.visitVarInsn(25, 4);
                     methodWriter2.visitVarInsn(21, 5);
-                    str3 = str10;
-                    methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str3, "writeUnsorted", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
+                    str5 = str10;
+                    methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str5, "writeUnsorted", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
                     methodWriter2.visitInsn(Opcodes.RETURN);
                     methodWriter2.visitLabel(label2);
                 }
@@ -1815,7 +1850,7 @@ public class ASMSerializerFactory implements Opcodes {
                     methodWriter2.visitVarInsn(25, 3);
                     methodWriter2.visitVarInsn(25, 4);
                     methodWriter2.visitVarInsn(21, 5);
-                    methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str3, "writeNormal", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
+                    methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str5, "writeNormal", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
                     methodWriter2.visitInsn(Opcodes.RETURN);
                     methodWriter2.visitLabel(label4);
                     methodWriter2.visitVarInsn(25, context.var("out"));
@@ -1828,7 +1863,7 @@ public class ASMSerializerFactory implements Opcodes {
                     methodWriter2.visitVarInsn(25, 3);
                     methodWriter2.visitVarInsn(25, 4);
                     methodWriter2.visitVarInsn(21, 5);
-                    methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str3, "writeDirectNonContext", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
+                    methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str5, "writeDirectNonContext", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V");
                     i = Opcodes.RETURN;
                     methodWriter2.visitInsn(Opcodes.RETURN);
                     methodWriter2.visitLabel(label3);
@@ -1841,7 +1876,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodWriter2.visitMaxs(7, context.variantIndex + 2);
                 methodWriter2.visitEnd();
                 i5 = i6 + 1;
-                str6 = str3;
+                str2 = str5;
                 jSONType2 = jSONType;
                 cls2 = cls;
                 fieldInfoArr2 = fieldInfoArr;
@@ -1851,7 +1886,7 @@ public class ASMSerializerFactory implements Opcodes {
             FieldInfo[] fieldInfoArr4 = fieldInfoArr2;
             ClassWriter classWriter5 = classWriter3;
             String str12 = str8;
-            String str13 = str6;
+            String str13 = str2;
             if (!z6) {
                 Context context2 = new Context(fieldInfoArr3, serializeBeanInfo, str13, false, z);
                 MethodWriter methodWriter3 = new MethodWriter(classWriter5, 1, "writeUnsorted", "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V", null, new String[]{"java/io/IOException"});
@@ -1869,20 +1904,20 @@ public class ASMSerializerFactory implements Opcodes {
             int i7 = 0;
             for (int i8 = 3; i7 < i8; i8 = 3) {
                 if (i7 == 0) {
-                    str = "writeAsArray";
+                    str3 = "writeAsArray";
                     z3 = z;
                     z2 = true;
                 } else if (i7 == 1) {
-                    str = "writeAsArrayNormal";
+                    str3 = "writeAsArrayNormal";
                     z3 = z;
                     z2 = false;
                 } else {
-                    str = "writeAsArrayNonContext";
+                    str3 = "writeAsArrayNonContext";
                     z2 = true;
                     z3 = true;
                 }
                 Context context3 = new Context(fieldInfoArr3, serializeBeanInfo, str13, z2, z3);
-                MethodWriter methodWriter4 = new MethodWriter(classWriter5, 1, str, "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V", null, new String[]{"java/io/IOException"});
+                MethodWriter methodWriter4 = new MethodWriter(classWriter5, 1, str3, "(L" + JSONSerializer + ";Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/reflect/Type;I)V", null, new String[]{"java/io/IOException"});
                 methodWriter4.visitVarInsn(25, 1);
                 methodWriter4.visitFieldInsn(180, JSONSerializer, "out", SerializeWriter_desc);
                 methodWriter4.visitVarInsn(58, context3.var("out"));

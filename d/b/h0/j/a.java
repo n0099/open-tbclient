@@ -11,7 +11,7 @@ public class a extends Thread {
 
     /* renamed from: d.b.h0.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1066a implements MessageQueue.IdleHandler {
+    public static class C1079a implements MessageQueue.IdleHandler {
         @Override // android.os.MessageQueue.IdleHandler
         public boolean queueIdle() {
             try {
@@ -29,7 +29,7 @@ public class a extends Thread {
     }
 
     public static void a() {
-        Looper.myQueue().addIdleHandler(new C1066a());
+        Looper.myQueue().addIdleHandler(new C1079a());
     }
 
     public final void b() {

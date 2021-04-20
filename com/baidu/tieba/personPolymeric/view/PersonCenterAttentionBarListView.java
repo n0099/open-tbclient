@@ -12,36 +12,36 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import d.b.i0.h2.e.c;
-import d.b.i0.h2.e.f;
+import d.b.i0.i2.e.c;
+import d.b.i0.i2.e.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonCenterAttentionBarListView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20466e;
+    public Context f20158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f20467f;
+    public c f20159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20468g;
+    public TextView f20160g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListViewPager f20469h;
+    public ListViewPager f20161h;
     public View i;
     public View j;
-    public d.b.b.e.k.b<PersonCommonForumItemView> k;
+    public d.b.c.e.k.b<PersonCommonForumItemView> k;
 
-    /* loaded from: classes5.dex */
-    public class a implements d.b.b.e.k.c<PersonCommonForumItemView> {
+    /* loaded from: classes3.dex */
+    public class a implements d.b.c.e.k.c<PersonCommonForumItemView> {
         public a() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             e(personCommonForumItemView2);
@@ -50,7 +50,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             h(personCommonForumItemView2);
@@ -62,7 +62,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: f */
         public void b(PersonCommonForumItemView personCommonForumItemView) {
             if (personCommonForumItemView != null) {
@@ -71,10 +71,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b.e.k.c
+        @Override // d.b.c.e.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
-            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f20466e);
+            return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.f20158e);
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -82,7 +82,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends PagerAdapter {
         public b() {
         }
@@ -98,10 +98,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (PersonCenterAttentionBarListView.this.f20467f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f20467f.f55274e)) {
+            if (PersonCenterAttentionBarListView.this.f20159f == null || ListUtils.isEmpty(PersonCenterAttentionBarListView.this.f20159f.f57132e)) {
                 return 0;
             }
-            return PersonCenterAttentionBarListView.this.f20467f.f55274e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f20467f.f55274e.size() / 4 : (PersonCenterAttentionBarListView.this.f20467f.f55274e.size() / 4) + 1;
+            return PersonCenterAttentionBarListView.this.f20159f.f57132e.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.f20159f.f57132e.size() / 4 : (PersonCenterAttentionBarListView.this.f20159f.f57132e.size() / 4) + 1;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -110,7 +110,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             if (ListUtils.isEmpty(e2)) {
                 return null;
             }
-            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f20466e);
+            PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.f20158e);
             personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.k);
             personCommonForumCardView.setData(e2);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
@@ -132,19 +132,19 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public PersonCenterAttentionBarListView(Context context) {
         super(context);
         new b(this, null);
-        this.k = new d.b.b.e.k.b<>(new a(), 12, 0);
+        this.k = new d.b.c.e.k.b<>(new a(), 12, 0);
         f(context);
     }
 
     public final List<f> e(int i) {
-        c cVar = this.f20467f;
-        if (cVar == null || ListUtils.isEmpty(cVar.f55274e)) {
+        c cVar = this.f20159f;
+        if (cVar == null || ListUtils.isEmpty(cVar.f57132e)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         int i2 = i * 4;
         for (int i3 = i2; i3 < i2 + 4; i3++) {
-            f fVar = (f) ListUtils.getItem(this.f20467f.f55274e, i3);
+            f fVar = (f) ListUtils.getItem(this.f20159f.f57132e, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -153,13 +153,13 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     }
 
     public final void f(Context context) {
-        this.f20466e = context;
+        this.f20158e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.person_info_common_forum_layout, this);
         this.i = inflate;
-        this.f20468g = (TextView) inflate.findViewById(R.id.common_forum_title);
-        this.f20469h = (ListViewPager) this.i.findViewById(R.id.common_forum_viewpager);
+        this.f20160g = (TextView) inflate.findViewById(R.id.common_forum_title);
+        this.f20161h = (ListViewPager) this.i.findViewById(R.id.common_forum_viewpager);
         this.j = this.i.findViewById(R.id.divider_line);
-        this.f20469h.setOffscreenPageLimit(1);
+        this.f20161h.setOffscreenPageLimit(1);
     }
 
     public int getLayout() {
@@ -169,14 +169,14 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public PersonCenterAttentionBarListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         new b(this, null);
-        this.k = new d.b.b.e.k.b<>(new a(), 12, 0);
+        this.k = new d.b.c.e.k.b<>(new a(), 12, 0);
         f(context);
     }
 
     public PersonCenterAttentionBarListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         new b(this, null);
-        this.k = new d.b.b.e.k.b<>(new a(), 12, 0);
+        this.k = new d.b.c.e.k.b<>(new a(), 12, 0);
         f(context);
     }
 }
