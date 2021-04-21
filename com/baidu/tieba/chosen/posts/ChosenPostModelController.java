@@ -29,43 +29,43 @@ import com.baidu.tieba.chosen.unlike.UnlikeSocketReponse;
 import java.util.List;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes4.dex */
-public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<d.b.i0.y.a.d.a, d.b.i0.y.a.d.b> {
+public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<d.b.j0.y.a.d.a, d.b.j0.y.a.d.b> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ChosenPostActivity f14947e;
+    public ChosenPostActivity f14955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ChosenPostModel f14948f;
+    public ChosenPostModel f14956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ChosenPostCacheModel f14949g;
+    public ChosenPostCacheModel f14957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.h0.g0.d.a f14950h;
-    public d.b.i0.y.a.d.a i;
-    public CacheModel.c<d.b.i0.y.a.d.b> j;
+    public d.b.i0.g0.d.a f14958h;
+    public d.b.j0.y.a.d.a i;
+    public CacheModel.c<d.b.j0.y.a.d.b> j;
     public d.b.c.c.g.a k;
 
     /* loaded from: classes4.dex */
-    public class a implements CacheModel.c<d.b.i0.y.a.d.b> {
+    public class a implements CacheModel.c<d.b.j0.y.a.d.b> {
         public a() {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataGet(ReadCacheRespMsg<List<d.b.i0.y.a.d.b>> readCacheRespMsg, ReadCacheMessage<d.b.i0.y.a.d.b> readCacheMessage) {
-            d.b.i0.y.a.d.b bVar;
-            List<d.b.i0.y.a.d.b> data = readCacheRespMsg.getData();
+        public void onCacheDataGet(ReadCacheRespMsg<List<d.b.j0.y.a.d.b>> readCacheRespMsg, ReadCacheMessage<d.b.j0.y.a.d.b> readCacheMessage) {
+            d.b.j0.y.a.d.b bVar;
+            List<d.b.j0.y.a.d.b> data = readCacheRespMsg.getData();
             if (data != null && !data.isEmpty() && (bVar = data.get(0)) != null) {
-                d.b.h0.g0.c.b bVar2 = new d.b.h0.g0.c.b(4099, bVar, null, null);
+                d.b.i0.g0.c.b bVar2 = new d.b.i0.g0.c.b(4099, bVar, null, null);
                 bVar2.i(ChosenPostModelController.this.getUniqueId());
-                ChosenPostModelController.this.f14947e.getEventCenter().dispatchMvcEvent(bVar2);
+                ChosenPostModelController.this.f14955e.getEventCenter().dispatchMvcEvent(bVar2);
             }
             ChosenPostModelController.this.i.b();
-            ChosenPostModelController.this.f14948f.N();
+            ChosenPostModelController.this.f14956f.N();
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataWrite(WriteCacheRespMsg<List<d.b.i0.y.a.d.b>> writeCacheRespMsg, WriteCacheMessage<d.b.i0.y.a.d.b> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<d.b.j0.y.a.d.b>> writeCacheRespMsg, WriteCacheMessage<d.b.j0.y.a.d.b> writeCacheMessage) {
         }
     }
 
@@ -81,7 +81,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                BdToast d2 = BdToast.d(ChosenPostModelController.this.f14947e.getActivity(), responsedMessage.getErrorString(), 0);
+                BdToast d2 = BdToast.d(ChosenPostModelController.this.f14955e.getActivity(), responsedMessage.getErrorString(), 0);
                 d2.a();
                 d2.q();
             } else if (responsedMessage instanceof UnlikeHttpResponse) {
@@ -94,38 +94,38 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
 
     public ChosenPostModelController(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity.getPageContext());
-        this.f14950h = new d.b.h0.g0.d.a();
+        this.f14958h = new d.b.i0.g0.d.a();
         this.j = new a();
         this.k = new b(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
-        this.f14947e = chosenPostActivity;
+        this.f14955e = chosenPostActivity;
         C();
         D();
         registerListener(this.k);
     }
 
-    public boolean A(d.b.i0.y.a.d.a aVar, d.b.i0.y.a.d.b bVar) {
-        this.f14947e.getViewController().v(bVar);
+    public boolean A(d.b.j0.y.a.d.a aVar, d.b.j0.y.a.d.b bVar) {
+        this.f14955e.getViewController().v(bVar);
         if (bVar != null) {
-            this.f14950h.g(false);
-            this.f14950h.f(false);
-            this.f14947e.getViewController().w(this.f14950h);
+            this.f14958h.g(false);
+            this.f14958h.f(false);
+            this.f14955e.getViewController().w(this.f14958h);
             return true;
         }
         return true;
     }
 
     public boolean B(boolean z) {
-        this.f14950h.g(true);
-        this.f14947e.getViewController().w(this.f14950h);
+        this.f14958h.g(true);
+        this.f14955e.getViewController().w(this.f14958h);
         E(true);
         this.i.b();
-        this.f14948f.N();
+        this.f14956f.N();
         return true;
     }
 
     public final void C() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, d.b.i0.d3.d0.a.a(TbConfig.HOT_THREAD_UNLIKE, 307007));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, d.b.j0.d3.d0.a.a(TbConfig.HOT_THREAD_UNLIKE, 307007));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
@@ -139,21 +139,21 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     public final void E(boolean z) {
-        d.b.h0.g0.c.b bVar;
+        d.b.i0.g0.c.b bVar;
         if (z) {
-            bVar = new d.b.h0.g0.c.b(4097, null, null, null);
+            bVar = new d.b.i0.g0.c.b(4097, null, null, null);
         } else {
-            bVar = new d.b.h0.g0.c.b(4098, null, null, null);
+            bVar = new d.b.i0.g0.c.b(4098, null, null, null);
         }
         bVar.i(getUniqueId());
-        this.f14947e.getEventCenter().dispatchMvcEvent(bVar);
+        this.f14955e.getEventCenter().dispatchMvcEvent(bVar);
     }
 
     public final void F(long j) {
-        d.b.h0.g0.c.b bVar = new d.b.h0.g0.c.b(4102, null, null, null);
+        d.b.i0.g0.c.b bVar = new d.b.i0.g0.c.b(4102, null, null, null);
         bVar.g(Long.valueOf(j));
         bVar.i(getUniqueId());
-        this.f14947e.getEventCenter().dispatchMvcEvent(bVar);
+        this.f14955e.getEventCenter().dispatchMvcEvent(bVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -167,8 +167,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void f(MvcHttpResponsedMessage<d.b.i0.y.a.d.b> mvcHttpResponsedMessage, MvcHttpMessage<d.b.i0.y.a.d.a, d.b.i0.y.a.d.b> mvcHttpMessage, MvcNetMessage<d.b.i0.y.a.d.a, d.b.i0.y.a.d.b> mvcNetMessage) {
-        d.b.i0.y.a.d.b bVar;
+    public void f(MvcHttpResponsedMessage<d.b.j0.y.a.d.b> mvcHttpResponsedMessage, MvcHttpMessage<d.b.j0.y.a.d.a, d.b.j0.y.a.d.b> mvcHttpMessage, MvcNetMessage<d.b.j0.y.a.d.a, d.b.j0.y.a.d.b> mvcNetMessage) {
+        d.b.j0.y.a.d.b bVar;
         if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
             bVar = null;
         } else {
@@ -186,14 +186,14 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.f14947e.onServerError(errorData);
-            this.f14947e.getViewController().onServerError(errorData);
+            this.f14955e.onServerError(errorData);
+            this.f14955e.getViewController().onServerError(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage<d.b.i0.y.a.d.b, ?> mvcSocketResponsedMessage, MvcSocketMessage<d.b.i0.y.a.d.a, d.b.i0.y.a.d.b> mvcSocketMessage, MvcNetMessage<d.b.i0.y.a.d.a, d.b.i0.y.a.d.b> mvcNetMessage) {
-        d.b.i0.y.a.d.b bVar;
+    public void n(MvcSocketResponsedMessage<d.b.j0.y.a.d.b, ?> mvcSocketResponsedMessage, MvcSocketMessage<d.b.j0.y.a.d.a, d.b.j0.y.a.d.b> mvcSocketMessage, MvcNetMessage<d.b.j0.y.a.d.a, d.b.j0.y.a.d.b> mvcNetMessage) {
+        d.b.j0.y.a.d.b bVar;
         if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
             bVar = null;
         } else {
@@ -211,39 +211,39 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.f14947e.onServerError(errorData);
-            this.f14947e.getViewController().onServerError(errorData);
+            this.f14955e.onServerError(errorData);
+            this.f14955e.getViewController().onServerError(errorData);
         }
     }
 
     public boolean w() {
-        this.f14949g.H();
+        this.f14957g.H();
         return true;
     }
 
     public void x(Bundle bundle) {
-        this.i = new d.b.i0.y.a.d.a();
-        ChosenPostModel chosenPostModel = new ChosenPostModel(this.f14947e.getPageContext(), this.i);
-        this.f14948f = chosenPostModel;
+        this.i = new d.b.j0.y.a.d.a();
+        ChosenPostModel chosenPostModel = new ChosenPostModel(this.f14955e.getPageContext(), this.i);
+        this.f14956f = chosenPostModel;
         chosenPostModel.V(this);
-        ChosenPostCacheModel chosenPostCacheModel = new ChosenPostCacheModel(this.f14947e.getPageContext());
-        this.f14949g = chosenPostCacheModel;
+        ChosenPostCacheModel chosenPostCacheModel = new ChosenPostCacheModel(this.f14955e.getPageContext());
+        this.f14957g = chosenPostCacheModel;
         chosenPostCacheModel.K(this.j);
     }
 
     public boolean y() {
         this.i.b();
-        this.f14948f.N();
-        this.f14950h.f(true);
-        this.f14950h.h(true);
+        this.f14956f.N();
+        this.f14958h.f(true);
+        this.f14958h.h(true);
         E(false);
-        this.f14947e.getViewController().w(this.f14950h);
+        this.f14955e.getViewController().w(this.f14958h);
         return true;
     }
 
-    public boolean z(d.b.h0.g0.c.b bVar) {
+    public boolean z(d.b.i0.g0.c.b bVar) {
         if (bVar.b() == 4100) {
-            this.f14948f.N();
+            this.f14956f.N();
             return false;
         } else if (bVar.b() == 4101) {
             Object c2 = bVar.c();

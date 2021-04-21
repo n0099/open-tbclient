@@ -36,7 +36,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a011";
     }

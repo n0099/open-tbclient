@@ -7,7 +7,7 @@ import com.xiaomi.push.service.av;
 public class gs implements av.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40896a;
+    public int f40991a;
 
     /* renamed from: a  reason: collision with other field name */
     public fl f447a;
@@ -42,11 +42,11 @@ public class gs implements av.b.a {
     public void c() {
         ew ewVar;
         b();
-        if (!this.f451a || this.f40896a == 11) {
+        if (!this.f451a || this.f40991a == 11) {
             return;
         }
         ex m350a = gx.m348a().m350a();
-        int i = gu.f40898a[this.f450a.ordinal()];
+        int i = gu.f40993a[this.f450a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 ewVar = ew.BIND_SUCCESS;
@@ -56,7 +56,7 @@ public class gs implements av.b.a {
                 m350a.d(this.f449a.f911b);
                 m350a.f345b = 1;
                 try {
-                    m350a.a((byte) Integer.parseInt(this.f449a.f41256g));
+                    m350a.a((byte) Integer.parseInt(this.f449a.f41351g));
                 } catch (NumberFormatException unused) {
                 }
                 gx.m348a().a(m350a);
@@ -64,7 +64,7 @@ public class gs implements av.b.a {
             }
             return;
         }
-        int i2 = this.f40896a;
+        int i2 = this.f40991a;
         if (i2 == 17) {
             ewVar = ew.BIND_TCP_READ_TIMEOUT;
         } else if (i2 == 21) {
@@ -72,7 +72,7 @@ public class gs implements av.b.a {
         } else {
             try {
                 gv.a c2 = gv.c(gx.a().a());
-                m350a.f342a = c2.f40899a.a();
+                m350a.f342a = c2.f40994a.a();
                 m350a.c(c2.f452a);
             } catch (NullPointerException unused2) {
                 m350a = null;
@@ -94,7 +94,7 @@ public class gs implements av.b.a {
     public void a(av.c cVar, av.c cVar2, int i) {
         if (!this.f451a && cVar == av.c.binding) {
             this.f450a = cVar2;
-            this.f40896a = i;
+            this.f40991a = i;
             this.f451a = true;
         }
         this.f448a.a(new gt(this, 4));

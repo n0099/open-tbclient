@@ -6,7 +6,7 @@ import android.util.JsonToken;
 public class ac implements aj<com.ksad.lottie.e.d> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ac f31624a = new ac();
+    public static final ac f31719a = new ac();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

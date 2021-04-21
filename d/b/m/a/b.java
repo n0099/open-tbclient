@@ -21,16 +21,16 @@ public final class b implements Choreographer.FrameCallback {
     public static final b j = new b();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64723e = false;
+    public boolean f64987e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64724f = 0;
+    public long f64988f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64725g = 41666666;
+    public long f64989g = 41666666;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f64726h = 16666665;
+    public long f64990h = 16666665;
     public int i = 0;
 
     public static /* synthetic */ void a(b bVar) {
@@ -89,15 +89,15 @@ public final class b implements Choreographer.FrameCallback {
     }
 
     public final void b() {
-        this.f64724f = 0L;
+        this.f64988f = 0L;
         this.i = 0;
     }
 
     public final void c() {
-        if (this.f64723e) {
+        if (this.f64987e) {
             return;
         }
-        this.f64723e = true;
+        this.f64987e = true;
         b();
         try {
             if (Looper.getMainLooper() != Looper.myLooper()) {
@@ -115,7 +115,7 @@ public final class b implements Choreographer.FrameCallback {
     }
 
     public final void d() {
-        this.f64723e = false;
+        this.f64987e = false;
         b();
         if (Looper.getMainLooper() != Looper.myLooper()) {
             new Handler(Looper.getMainLooper()).post(new e(this));
@@ -133,14 +133,14 @@ public final class b implements Choreographer.FrameCallback {
     public final void doFrame(long j2) {
         ExecutorService executorService;
         try {
-            if (this.f64724f != 0) {
-                long j3 = j2 - this.f64724f;
-                if (j3 > this.f64725g) {
-                    this.i = (int) (this.i + (j3 / this.f64726h));
+            if (this.f64988f != 0) {
+                long j3 = j2 - this.f64988f;
+                if (j3 > this.f64989g) {
+                    this.i = (int) (this.i + (j3 / this.f64990h));
                 } else if (this.i > 0) {
                     if (this.i > 30) {
-                        com.baidu.crabsdk.c.a.c("^^ block skip frames = " + this.i + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.i * this.f64726h) + "ms");
-                        if (TimeUnit.NANOSECONDS.toMillis(this.i * this.f64726h) >= com.baidu.crabsdk.a.a.f4678g) {
+                        com.baidu.crabsdk.c.a.c("^^ block skip frames = " + this.i + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.i * this.f64990h) + "ms");
+                        if (TimeUnit.NANOSECONDS.toMillis(this.i * this.f64990h) >= com.baidu.crabsdk.a.a.f4678g) {
                             executorService = com.baidu.crabsdk.a.c.f4691e;
                             executorService.execute(new c(this));
                         }
@@ -149,7 +149,7 @@ public final class b implements Choreographer.FrameCallback {
                     this.i--;
                 }
             }
-            this.f64724f = j2;
+            this.f64988f = j2;
         } catch (Throwable th) {
             com.baidu.crabsdk.c.a.d("doFrame:" + th.toString());
         }

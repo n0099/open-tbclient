@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-import d.b.h0.b1.e.c;
-import d.b.h0.b1.e.d;
+import d.b.i0.b1.e.c;
+import d.b.i0.b1.e.d;
 /* loaded from: classes3.dex */
 public class SimpleDragSortListView extends BdListView {
     public c K;
@@ -19,47 +19,47 @@ public class SimpleDragSortListView extends BdListView {
         public a() {
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void a() {
             SimpleDragSortListView.super.layoutChildren();
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void b(Canvas canvas) {
             SimpleDragSortListView.super.dispatchDraw(canvas);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void c(ListAdapter listAdapter) {
             SimpleDragSortListView.super.setAdapter(listAdapter);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void onDraw(Canvas canvas) {
             SimpleDragSortListView.super.onDraw(canvas);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
             return SimpleDragSortListView.super.onInterceptTouchEvent(motionEvent);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void onMeasure(int i, int i2) {
             SimpleDragSortListView.super.onMeasure(i, i2);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void onSizeChanged(int i, int i2, int i3, int i4) {
             SimpleDragSortListView.super.onSizeChanged(i, i2, i3, i4);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public boolean onTouchEvent(MotionEvent motionEvent) {
             return SimpleDragSortListView.super.onTouchEvent(motionEvent);
         }
 
-        @Override // d.b.h0.b1.e.d
+        @Override // d.b.i0.b1.e.d
         public void requestLayout() {
             SimpleDragSortListView.super.requestLayout();
         }

@@ -3,11 +3,11 @@ package com.vivo.push.b;
 public final class d extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f39667a;
+    public boolean f39762a;
 
     public d(boolean z) {
         super(100);
-        this.f39667a = z;
+        this.f39762a = z;
     }
 
     @Override // com.vivo.push.y
@@ -19,7 +19,7 @@ public final class d extends com.vivo.push.y {
     }
 
     public final boolean d() {
-        return this.f39667a;
+        return this.f39762a;
     }
 
     @Override // com.vivo.push.y

@@ -8,27 +8,27 @@ import java.lang.reflect.Method;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39744a = new Object();
+    public static final Object f39839a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f39745b;
+    public static volatile b f39840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f39746c;
+    public e f39841c;
 
     public static b a() {
-        if (f39745b == null) {
-            synchronized (f39744a) {
-                if (f39745b == null) {
-                    f39745b = new b();
+        if (f39840b == null) {
+            synchronized (f39839a) {
+                if (f39840b == null) {
+                    f39840b = new b();
                 }
             }
         }
-        return f39745b;
+        return f39840b;
     }
 
     public final e a(Context context) {
-        e eVar = this.f39746c;
+        e eVar = this.f39841c;
         if (eVar != null) {
             return eVar;
         }
@@ -37,7 +37,7 @@ public final class b {
             Method method = Class.forName(str).getMethod("getInstance", Context.class);
             p.d("ConfigManagerFactory", "createConfig success is " + str);
             e eVar2 = (e) method.invoke(null, context);
-            this.f39746c = eVar2;
+            this.f39841c = eVar2;
             return eVar2;
         } catch (Exception e2) {
             e2.printStackTrace();

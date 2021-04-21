@@ -5,59 +5,59 @@ import android.os.SystemClock;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37005a;
+    public long f37100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f37006b;
+    public long f37101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37007c;
+    public boolean f37102c;
 
     public aj() {
         g();
     }
 
     private void g() {
-        this.f37005a = 0L;
-        this.f37006b = -1L;
+        this.f37100a = 0L;
+        this.f37101b = -1L;
     }
 
     public void a() {
         g();
-        this.f37007c = true;
-        this.f37006b = SystemClock.elapsedRealtime();
+        this.f37102c = true;
+        this.f37101b = SystemClock.elapsedRealtime();
     }
 
     public void b() {
-        if (this.f37007c && this.f37006b < 0) {
-            this.f37006b = SystemClock.elapsedRealtime();
+        if (this.f37102c && this.f37101b < 0) {
+            this.f37101b = SystemClock.elapsedRealtime();
         }
     }
 
     public void c() {
-        if (this.f37007c && this.f37006b > 0) {
-            this.f37005a += SystemClock.elapsedRealtime() - this.f37006b;
-            this.f37006b = -1L;
+        if (this.f37102c && this.f37101b > 0) {
+            this.f37100a += SystemClock.elapsedRealtime() - this.f37101b;
+            this.f37101b = -1L;
         }
     }
 
     public long d() {
-        if (this.f37007c) {
-            this.f37007c = false;
-            if (this.f37006b > 0) {
-                this.f37005a += SystemClock.elapsedRealtime() - this.f37006b;
-                this.f37006b = -1L;
+        if (this.f37102c) {
+            this.f37102c = false;
+            if (this.f37101b > 0) {
+                this.f37100a += SystemClock.elapsedRealtime() - this.f37101b;
+                this.f37101b = -1L;
             }
-            return this.f37005a;
+            return this.f37100a;
         }
         return 0L;
     }
 
     public boolean e() {
-        return this.f37007c;
+        return this.f37102c;
     }
 
     public long f() {
-        return this.f37005a;
+        return this.f37100a;
     }
 }

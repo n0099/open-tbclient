@@ -9,36 +9,36 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.i0.t.j.c.a;
+import d.b.j0.t.j.c.a;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f14699e;
+    public TbPageContext f14707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14700f;
+    public String f14708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14701g;
+    public String f14709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14702h;
+    public String f14710h;
     public a i;
 
     public void E0(String str) {
     }
 
     public void F0(String str) {
-        this.f14700f = str;
+        this.f14708f = str;
     }
 
     public void G0(String str) {
-        this.f14701g = str;
+        this.f14709g = str;
     }
 
     public void H0(String str) {
-        this.f14702h = str;
+        this.f14710h = str;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -68,12 +68,12 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-        this.f14699e = pageContext;
+        this.f14707e = pageContext;
         a aVar = new a(pageContext, true);
         this.i = aVar;
-        aVar.s(this.f14701g);
-        this.i.r(this.f14700f);
-        this.i.t(this.f14702h);
+        aVar.s(this.f14709g);
+        this.i.r(this.f14708f);
+        this.i.t(this.f14710h);
         if (getArguments() != null) {
             this.i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
         }

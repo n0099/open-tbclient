@@ -19,21 +19,21 @@ import java.util.List;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f11300a;
+    public static a f11308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0156a f11301b;
+    public C0158a f11309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SQLiteDatabase f11302c;
+    public SQLiteDatabase f11310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f11303d;
+    public Context f11311d;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0156a extends SQLiteOpenHelper {
-        public C0156a(Context context) {
+    public class C0158a extends SQLiteOpenHelper {
+        public C0158a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 
@@ -55,11 +55,11 @@ public final class a {
     }
 
     public a(Context context) {
-        this.f11303d = context;
-        C0156a c0156a = new C0156a(context);
-        this.f11301b = c0156a;
+        this.f11311d = context;
+        C0158a c0158a = new C0158a(context);
+        this.f11309b = c0158a;
         try {
-            this.f11302c = c0156a.getWritableDatabase();
+            this.f11310c = c0158a.getWritableDatabase();
         } catch (Throwable unused) {
             d.a();
         }
@@ -68,10 +68,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f11300a == null) {
-                f11300a = new a(context);
+            if (f11308a == null) {
+                f11308a = new a(context);
             }
-            aVar = f11300a;
+            aVar = f11308a;
         }
         return aVar;
     }
@@ -87,7 +87,7 @@ public final class a {
         Cursor cursor;
         boolean z = true;
         try {
-            cursor = this.f11302c.query("c", null, "b=?", new String[]{str}, null, null, null);
+            cursor = this.f11310c.query("c", null, "b=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.getCount() > 0) {
@@ -114,11 +114,11 @@ public final class a {
     }
 
     public final int c() {
-        e eVar = new e(this.f11303d);
+        e eVar = new e(this.f11311d);
         long currentTimeMillis = System.currentTimeMillis();
-        int i = eVar.f11394e.getInt("re_net_over", 7) * AlaAttentionManager.ALA_LIVE_PUSH_REMIND_TIME_INTERVAL;
+        int i = eVar.f11402e.getInt("re_net_over", 7) * AlaAttentionManager.ALA_LIVE_PUSH_REMIND_TIME_INTERVAL;
         try {
-            return this.f11302c.delete(r.f7699a, "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - i)});
+            return this.f11310c.delete(r.f7699a, "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - i)});
         } catch (Exception unused) {
             d.a();
             return -1;
@@ -127,15 +127,15 @@ public final class a {
 
     public final long a(com.baidu.sofire.d.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("b", aVar.f11380b);
-        contentValues.put("c", Integer.valueOf(aVar.f11381c));
-        contentValues.put("d", Long.valueOf(aVar.f11383e));
-        contentValues.put("e", Integer.valueOf(aVar.f11385g));
-        contentValues.put("g", Integer.valueOf(aVar.f11384f));
-        contentValues.put("f", Integer.valueOf(aVar.f11386h));
+        contentValues.put("b", aVar.f11388b);
+        contentValues.put("c", Integer.valueOf(aVar.f11389c));
+        contentValues.put("d", Long.valueOf(aVar.f11391e));
+        contentValues.put("e", Integer.valueOf(aVar.f11393g));
+        contentValues.put("g", Integer.valueOf(aVar.f11392f));
+        contentValues.put("f", Integer.valueOf(aVar.f11394h));
         contentValues.put("i", Integer.valueOf(aVar.i));
         contentValues.put("j", aVar.j);
-        String str = aVar.f11382d;
+        String str = aVar.f11390d;
         try {
             str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), "xVOTuxgN3lkRN2v4".getBytes("utf-8")), 0);
         } catch (Exception unused) {
@@ -143,7 +143,7 @@ public final class a {
         }
         contentValues.put("h", str);
         try {
-            return this.f11302c.insert(r.f7699a, null, contentValues);
+            return this.f11310c.insert(r.f7699a, null, contentValues);
         } catch (Throwable unused2) {
             d.a();
             return -1L;
@@ -152,7 +152,7 @@ public final class a {
 
     private int b(int i) {
         try {
-            return this.f11302c.delete(r.f7699a, "a=?", new String[]{String.valueOf(i)});
+            return this.f11310c.delete(r.f7699a, "a=?", new String[]{String.valueOf(i)});
         } catch (Throwable unused) {
             d.a();
             return -1;
@@ -179,7 +179,7 @@ public final class a {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f11302c.query(r.f7699a, null, null, null, null, null, null, null);
+                cursor = this.f11310c.query(r.f7699a, null, null, null, null, null, null, null);
                 r1 = cursor != null ? cursor.getCount() : 0;
             } catch (Throwable th) {
                 if (cursor != null) {
@@ -201,7 +201,7 @@ public final class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", str);
         try {
-            return this.f11302c.insert("c", null, contentValues);
+            return this.f11310c.insert("c", null, contentValues);
         } catch (Throwable unused) {
             d.a();
             return -1L;
@@ -217,27 +217,27 @@ public final class a {
         }
         try {
             try {
-                this.f11302c.beginTransaction();
+                this.f11310c.beginTransaction();
                 for (Integer num : list) {
                     i = b(num.intValue());
                     if (i <= 0) {
-                        com.baidu.sofire.f.a.f11398d = System.currentTimeMillis();
+                        com.baidu.sofire.f.a.f11406d = System.currentTimeMillis();
                     }
                 }
-                this.f11302c.setTransactionSuccessful();
-                this.f11302c.endTransaction();
+                this.f11310c.setTransactionSuccessful();
+                this.f11310c.endTransaction();
             } catch (Throwable unused2) {
-                com.baidu.sofire.f.a.f11398d = System.currentTimeMillis();
+                com.baidu.sofire.f.a.f11406d = System.currentTimeMillis();
                 d.a();
-                this.f11302c.endTransaction();
+                this.f11310c.endTransaction();
             }
             return i;
         } catch (Throwable th) {
             try {
                 try {
-                    this.f11302c.endTransaction();
+                    this.f11310c.endTransaction();
                 } catch (Throwable unused3) {
-                    com.baidu.sofire.f.a.f11398d = System.currentTimeMillis();
+                    com.baidu.sofire.f.a.f11406d = System.currentTimeMillis();
                     d.a();
                     throw th;
                 }
@@ -271,8 +271,8 @@ public final class a {
         Cursor query;
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
-        e eVar = new e(this.f11303d);
-        int i2 = eVar.f11394e.getInt("re_net_wt", 3) * 3600000;
+        e eVar = new e(this.f11311d);
+        int i2 = eVar.f11402e.getInt("re_net_wt", 3) * 3600000;
         if (i == 2) {
             str = "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 )";
         } else {
@@ -283,21 +283,21 @@ public final class a {
         try {
             try {
                 if (i == 2) {
-                    query = this.f11302c.query(r.f7699a, null, str2, null, null, null, "d desc", Integer.toString(100));
+                    query = this.f11310c.query(r.f7699a, null, str2, null, null, null, "d desc", Integer.toString(100));
                 } else {
-                    query = this.f11302c.query(r.f7699a, null, str2, null, null, null, "d desc", Integer.toString(eVar.x()));
+                    query = this.f11310c.query(r.f7699a, null, str2, null, null, null, "d desc", Integer.toString(eVar.x()));
                 }
                 cursor = query;
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         com.baidu.sofire.d.a aVar = new com.baidu.sofire.d.a();
-                        aVar.f11379a = cursor.getInt(cursor.getColumnIndex("a"));
-                        aVar.f11380b = cursor.getString(cursor.getColumnIndex("b"));
-                        aVar.f11381c = cursor.getInt(cursor.getColumnIndex("c"));
-                        aVar.f11383e = cursor.getLong(cursor.getColumnIndex("d"));
-                        aVar.f11384f = cursor.getInt(cursor.getColumnIndex("g"));
-                        aVar.f11385g = cursor.getInt(cursor.getColumnIndex("e"));
-                        aVar.f11386h = cursor.getInt(cursor.getColumnIndex("f"));
+                        aVar.f11387a = cursor.getInt(cursor.getColumnIndex("a"));
+                        aVar.f11388b = cursor.getString(cursor.getColumnIndex("b"));
+                        aVar.f11389c = cursor.getInt(cursor.getColumnIndex("c"));
+                        aVar.f11391e = cursor.getLong(cursor.getColumnIndex("d"));
+                        aVar.f11392f = cursor.getInt(cursor.getColumnIndex("g"));
+                        aVar.f11393g = cursor.getInt(cursor.getColumnIndex("e"));
+                        aVar.f11394h = cursor.getInt(cursor.getColumnIndex("f"));
                         aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                         aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                         String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -306,7 +306,7 @@ public final class a {
                         } catch (Exception unused) {
                             d.a();
                         }
-                        aVar.f11382d = string;
+                        aVar.f11390d = string;
                         arrayList.add(aVar);
                     }
                 }
@@ -347,17 +347,17 @@ public final class a {
         Cursor cursor = null;
         try {
             try {
-                cursor = this.f11302c.query(r.f7699a, null, "i=5", null, null, null, "d desc", "100");
+                cursor = this.f11310c.query(r.f7699a, null, "i=5", null, null, null, "d desc", "100");
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         com.baidu.sofire.d.a aVar = new com.baidu.sofire.d.a();
-                        aVar.f11379a = cursor.getInt(cursor.getColumnIndex("a"));
-                        aVar.f11380b = cursor.getString(cursor.getColumnIndex("b"));
-                        aVar.f11381c = cursor.getInt(cursor.getColumnIndex("c"));
-                        aVar.f11383e = cursor.getLong(cursor.getColumnIndex("d"));
-                        aVar.f11384f = cursor.getInt(cursor.getColumnIndex("g"));
-                        aVar.f11385g = cursor.getInt(cursor.getColumnIndex("e"));
-                        aVar.f11386h = cursor.getInt(cursor.getColumnIndex("f"));
+                        aVar.f11387a = cursor.getInt(cursor.getColumnIndex("a"));
+                        aVar.f11388b = cursor.getString(cursor.getColumnIndex("b"));
+                        aVar.f11389c = cursor.getInt(cursor.getColumnIndex("c"));
+                        aVar.f11391e = cursor.getLong(cursor.getColumnIndex("d"));
+                        aVar.f11392f = cursor.getInt(cursor.getColumnIndex("g"));
+                        aVar.f11393g = cursor.getInt(cursor.getColumnIndex("e"));
+                        aVar.f11394h = cursor.getInt(cursor.getColumnIndex("f"));
                         aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                         aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                         String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -366,7 +366,7 @@ public final class a {
                         } catch (Exception unused) {
                             d.a();
                         }
-                        aVar.f11382d = string;
+                        aVar.f11390d = string;
                         arrayList.add(aVar);
                     }
                 }
@@ -416,23 +416,23 @@ public final class a {
         try {
             try {
                 if (i == 2) {
-                    cursor = this.f11302c.query(r.f7699a, null, str2, null, null, null, "d desc", "100");
+                    cursor = this.f11310c.query(r.f7699a, null, str2, null, null, null, "d desc", "100");
                 } else {
-                    int x = new e(this.f11303d).x();
+                    int x = new e(this.f11311d).x();
                     new StringBuilder(" 3g limit").append(Integer.toString(x));
                     b.a();
-                    cursor = this.f11302c.query(r.f7699a, null, str2, null, null, null, "d desc", Integer.toString(x));
+                    cursor = this.f11310c.query(r.f7699a, null, str2, null, null, null, "d desc", Integer.toString(x));
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         com.baidu.sofire.d.a aVar = new com.baidu.sofire.d.a();
-                        aVar.f11379a = cursor.getInt(cursor.getColumnIndex("a"));
-                        aVar.f11380b = cursor.getString(cursor.getColumnIndex("b"));
-                        aVar.f11381c = cursor.getInt(cursor.getColumnIndex("c"));
-                        aVar.f11383e = cursor.getLong(cursor.getColumnIndex("d"));
-                        aVar.f11384f = cursor.getInt(cursor.getColumnIndex("g"));
-                        aVar.f11385g = cursor.getInt(cursor.getColumnIndex("e"));
-                        aVar.f11386h = cursor.getInt(cursor.getColumnIndex("f"));
+                        aVar.f11387a = cursor.getInt(cursor.getColumnIndex("a"));
+                        aVar.f11388b = cursor.getString(cursor.getColumnIndex("b"));
+                        aVar.f11389c = cursor.getInt(cursor.getColumnIndex("c"));
+                        aVar.f11391e = cursor.getLong(cursor.getColumnIndex("d"));
+                        aVar.f11392f = cursor.getInt(cursor.getColumnIndex("g"));
+                        aVar.f11393g = cursor.getInt(cursor.getColumnIndex("e"));
+                        aVar.f11394h = cursor.getInt(cursor.getColumnIndex("f"));
                         aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                         aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                         String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -441,7 +441,7 @@ public final class a {
                         } catch (Exception unused) {
                             d.a();
                         }
-                        aVar.f11382d = string;
+                        aVar.f11390d = string;
                         arrayList.add(aVar);
                     }
                 }

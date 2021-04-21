@@ -3,10 +3,10 @@ package com.baidu.prologue.service.network;
 import android.content.Context;
 import android.os.Handler;
 import com.bumptech.glide.request.SingleRequest;
-import d.b.a0.a.c.g;
-import d.b.a0.d.a.e;
-import d.b.a0.d.a.k;
-import d.b.a0.d.a.l;
+import d.b.b0.a.c.g;
+import d.b.b0.d.a.e;
+import d.b.b0.d.a.k;
+import d.b.b0.d.a.l;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -118,12 +118,12 @@ public final class Request {
             this.f10065a = lVar;
         }
 
-        @Override // d.b.a0.d.a.k
+        @Override // d.b.b0.d.a.k
         public void a(Throwable th) {
             Request.this.g(new RunnableC0134b(th));
         }
 
-        @Override // d.b.a0.d.a.k
+        @Override // d.b.b0.d.a.k
         public void b(long j, InputStream inputStream) {
             Request.this.g(new a(new String(Request.h(inputStream))));
         }
@@ -185,7 +185,7 @@ public final class Request {
             }
             if ("GET".equals(this.f10074d)) {
                 try {
-                    this.f10073c = new URL(d.b.a0.d.a.b.b(this.f10073c.toString(), this.f10076f));
+                    this.f10073c = new URL(d.b.b0.d.a.b.b(this.f10073c.toString(), this.f10076f));
                 } catch (MalformedURLException e2) {
                     this.j = new RequestError("Failed to create url", e2);
                 } catch (URISyntaxException e3) {
@@ -246,12 +246,12 @@ public final class Request {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 } catch (IOException e2) {
-                    g.f41831a.e(SingleRequest.TAG, "failed to read is", e2);
+                    g.f42120a.e(SingleRequest.TAG, "failed to read is", e2);
                 }
             }
             return byteArrayOutputStream.toByteArray();
         } finally {
-            d.b.a0.a.c.k.a(byteArrayOutputStream);
+            d.b.b0.a.c.k.a(byteArrayOutputStream);
         }
     }
 
@@ -286,7 +286,7 @@ public final class Request {
         this.f10058d = cVar.f10076f;
         boolean unused = cVar.f10077g;
         this.f10059e = cVar.f10078h != null ? cVar.f10078h : this;
-        this.f10061g = d.b.a0.d.a.c.c(this.f10060f);
+        this.f10061g = d.b.b0.d.a.c.c(this.f10060f);
         this.j = cVar.i;
     }
 }

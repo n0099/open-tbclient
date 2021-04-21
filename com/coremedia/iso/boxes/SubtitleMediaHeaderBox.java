@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class SubtitleMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "sthd";
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

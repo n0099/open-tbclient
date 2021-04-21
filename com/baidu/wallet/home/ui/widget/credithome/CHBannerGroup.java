@@ -20,13 +20,13 @@ import java.util.List;
 public class CHBannerGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public FocusImageViewGroup f24315a;
+    public FocusImageViewGroup f24323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f24316b;
+    public LinearLayout f24324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WalletBannerItem[] f24317c;
+    public WalletBannerItem[] f24325c;
 
     public CHBannerGroup(Context context) {
         super(context);
@@ -40,9 +40,9 @@ public class CHBannerGroup extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_banner_group"), this);
-        this.f24315a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
-        this.f24316b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24315a.getLayoutParams();
+        this.f24323a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
+        this.f24324b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24323a.getLayoutParams();
         int displayWidth = DisplayUtils.getDisplayWidth(getContext()) - DisplayUtils.dip2px(getContext(), 40.0f);
         int i = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
         if (layoutParams == null) {
@@ -51,15 +51,15 @@ public class CHBannerGroup extends BaseItemLayout {
             layoutParams.width = displayWidth;
             layoutParams.height = i;
         }
-        this.f24315a.setChildLeft(DisplayUtils.dip2px(getContext(), 20.0f));
-        this.f24315a.setLayoutParams(layoutParams);
-        this.f24315a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBannerGroup.1
+        this.f24323a.setChildLeft(DisplayUtils.dip2px(getContext(), 20.0f));
+        this.f24323a.setLayoutParams(layoutParams);
+        this.f24323a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos() { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBannerGroup.1
             @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
             public void setCurrPos(int i2, int i3) {
                 int i4 = 0;
                 while (i4 < i3) {
-                    if (CHBannerGroup.this.f24316b.getChildAt(i4) != null) {
-                        CHBannerGroup.this.f24316b.getChildAt(i4).setSelected(i4 == i2);
+                    if (CHBannerGroup.this.f24324b.getChildAt(i4) != null) {
+                        CHBannerGroup.this.f24324b.getChildAt(i4).setSelected(i4 == i2);
                     }
                     i4++;
                 }
@@ -77,11 +77,11 @@ public class CHBannerGroup extends BaseItemLayout {
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-        this.f24317c = dataItemArr;
-        this.f24315a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
+        this.f24325c = dataItemArr;
+        this.f24323a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
         int drawable = ResUtils.drawable(getContext(), "wallet_home_ch_indicators");
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 8.5f), DisplayUtils.dip2px(getContext(), 2.0f));
-        WalletBannerItem[] walletBannerItemArr = this.f24317c;
+        WalletBannerItem[] walletBannerItemArr = this.f24325c;
         if (walletBannerItemArr.length > 1) {
             int length = walletBannerItemArr.length <= 10 ? walletBannerItemArr.length : 10;
             int i = 0;
@@ -89,14 +89,14 @@ public class CHBannerGroup extends BaseItemLayout {
                 View view = new View(getContext());
                 view.setBackgroundResource(drawable);
                 view.setSelected(i == 0);
-                this.f24316b.addView(view, layoutParams);
+                this.f24324b.addView(view, layoutParams);
                 layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                 i++;
             }
-            this.f24316b.setVisibility(0);
+            this.f24324b.setVisibility(0);
             return;
         }
-        this.f24316b.setVisibility(8);
+        this.f24324b.setVisibility(8);
     }
 
     public CHBannerGroup(Context context, AttributeSet attributeSet) {

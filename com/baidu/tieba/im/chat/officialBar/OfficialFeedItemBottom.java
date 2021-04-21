@@ -9,57 +9,57 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.i0.e1.l.c.a;
+import d.b.j0.e1.l.c.a;
 /* loaded from: classes4.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17552e;
+    public Context f17560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17553f;
+    public TextView f17561f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17554g;
+    public TextView f17562g;
 
     public OfficialFeedItemBottom(Context context) {
         this(context, null);
     }
 
     public void a(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17554g.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17562g.getLayoutParams();
         layoutParams.topMargin = i;
-        this.f17554g.setLayoutParams(layoutParams);
+        this.f17562g.setLayoutParams(layoutParams);
     }
 
     public final void b() {
         setOrientation(1);
-        LayoutInflater.from(this.f17552e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.f17553f = (TextView) findViewById(R.id.message_no_image_title);
-        this.f17554g = (TextView) findViewById(R.id.message_info);
+        LayoutInflater.from(this.f17560e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
+        this.f17561f = (TextView) findViewById(R.id.message_no_image_title);
+        this.f17562g = (TextView) findViewById(R.id.message_info);
         c();
     }
 
     public void c() {
-        SkinManager.setViewTextColor(this.f17554g, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.f17553f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f17562g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f17561f, R.color.CAM_X0105);
     }
 
-    public void setData(a.C1266a c1266a, boolean z) {
-        int i = TextUtils.isEmpty(c1266a.f55430b) ? 8 : 0;
-        this.f17553f.setText(c1266a.f55429a);
-        this.f17554g.setText(c1266a.f55430b);
-        this.f17554g.setVisibility(i);
+    public void setData(a.C1289a c1289a, boolean z) {
+        int i = TextUtils.isEmpty(c1289a.f55851b) ? 8 : 0;
+        this.f17561f.setText(c1289a.f55850a);
+        this.f17562g.setText(c1289a.f55851b);
+        this.f17562g.setVisibility(i);
         if (z) {
-            this.f17553f.setVisibility(8);
+            this.f17561f.setVisibility(8);
         } else {
-            this.f17553f.setVisibility(0);
+            this.f17561f.setVisibility(0);
         }
     }
 
     public OfficialFeedItemBottom(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17552e = context;
+        this.f17560e = context;
         b();
     }
 }

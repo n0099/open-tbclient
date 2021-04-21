@@ -7,21 +7,21 @@ import org.json.JSONObject;
 public class a2 extends v1 {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long[] f65796g = {60000};
+    public static final long[] f65891g = {60000};
 
     /* renamed from: d  reason: collision with root package name */
-    public final a0 f65797d;
+    public final a0 f65892d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j f65798e;
+    public final j f65893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f65799f;
+    public long f65894f;
 
     public a2(Context context, j jVar, a0 a0Var) {
         super(context);
-        this.f65797d = a0Var;
-        this.f65798e = jVar;
+        this.f65892d = a0Var;
+        this.f65893e = jVar;
     }
 
     @Override // d.c.b.v1
@@ -31,12 +31,12 @@ public class a2 extends v1 {
 
     @Override // d.c.b.v1
     public long b() {
-        return this.f65799f + 60000;
+        return this.f65894f + 60000;
     }
 
     @Override // d.c.b.v1
     public long[] c() {
-        return f65796g;
+        return f65891g;
     }
 
     @Override // d.c.b.v1
@@ -48,11 +48,11 @@ public class a2 extends v1 {
             a.q("play_session", b2);
             a.a();
         }
-        if (this.f65798e.v() != 0) {
-            JSONObject i2 = this.f65798e.i();
+        if (this.f65893e.v() != 0) {
+            JSONObject i2 = this.f65893e.i();
             if (i2 != null) {
-                boolean m = this.f65797d.m(i2);
-                this.f65799f = System.currentTimeMillis();
+                boolean m = this.f65892d.m(i2);
+                this.f65894f = System.currentTimeMillis();
                 return m;
             }
             r0.b(null);

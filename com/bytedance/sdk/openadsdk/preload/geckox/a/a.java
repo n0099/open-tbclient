@@ -22,48 +22,48 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0335a {
+    public static class C0337a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f29877a;
+        public String f29885a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29878b;
+        public String f29886b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f29879c;
+        public int f29887c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f29880d;
+        public long f29888d;
 
         /* renamed from: e  reason: collision with root package name */
-        public File f29881e;
+        public File f29889e;
 
-        public C0335a(String str, String str2, int i, long j, File file) {
-            this.f29877a = str;
-            this.f29878b = str2;
-            this.f29879c = i;
-            this.f29880d = j;
-            this.f29881e = file;
+        public C0337a(String str, String str2, int i, long j, File file) {
+            this.f29885a = str;
+            this.f29886b = str2;
+            this.f29887c = i;
+            this.f29888d = j;
+            this.f29889e = file;
         }
     }
 
-    public static void b(Context context, List<C0335a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static void b(Context context, List<C0337a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        for (C0335a c0335a : list) {
-            File file = c0335a.f29881e;
+        for (C0337a c0337a : list) {
+            File file = c0337a.f29889e;
             long uptimeMillis = SystemClock.uptimeMillis();
             boolean a2 = d.a(file);
             long uptimeMillis2 = SystemClock.uptimeMillis();
             if (a2) {
                 if (aVar != null) {
-                    aVar.b(c0335a.f29878b);
+                    aVar.b(c0337a.f29886b);
                 }
-                b.a(context).a(c0335a.f29877a, c0335a.f29878b, c0335a.f29879c, 200, c0335a.f29880d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0337a.f29885a, c0337a.f29886b, c0337a.f29887c, 200, c0337a.f29888d, 0, null, uptimeMillis2 - uptimeMillis, 1);
             } else {
-                b.a(context).a(c0335a.f29877a, c0335a.f29878b, c0335a.f29879c, 201, c0335a.f29880d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0337a.f29885a, c0337a.f29886b, c0337a.f29887c, 201, c0337a.f29888d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
             }
         }
     }
@@ -72,7 +72,7 @@ public class a {
         if (map == null || map.isEmpty()) {
             return;
         }
-        final List<C0335a> list = null;
+        final List<C0337a> list = null;
         try {
             list = a(map, file);
         } catch (Exception e2) {
@@ -93,7 +93,7 @@ public class a {
         });
     }
 
-    public static List<C0335a> a(Map<String, ComponentModel.b> map, File file) {
+    public static List<C0337a> a(Map<String, ComponentModel.b> map, File file) {
         ComponentModel.b value;
         List<ComponentModel.a> list;
         Iterator<Map.Entry<String, ComponentModel.b>> it;
@@ -116,17 +116,17 @@ public class a {
             Map.Entry<String, ComponentModel.b> next = it6.next();
             String key = next.getKey();
             File file6 = new File(file, key);
-            if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f30001a) != null && !list.isEmpty()) {
-                List<ComponentModel.a> list3 = value.f30001a;
+            if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f30009a) != null && !list.isEmpty()) {
+                List<ComponentModel.a> list3 = value.f30009a;
                 HashSet hashSet = new HashSet();
                 Iterator<ComponentModel.a> it7 = list3.iterator();
                 while (it7.hasNext()) {
                     ComponentModel.a next2 = it7.next();
-                    String str3 = next2.f29998a;
+                    String str3 = next2.f30006a;
                     if (!hashSet.contains(str3)) {
                         hashSet.add(str3);
-                        int i = next2.f29999b;
-                        List<Long> list4 = next2.f30000c;
+                        int i = next2.f30007b;
+                        List<Long> list4 = next2.f30008c;
                         File file7 = new File(file6, str3);
                         String str4 = "";
                         String str5 = "--pending-delete";
@@ -136,7 +136,7 @@ public class a {
                                     File file8 = new File(file6, str3);
                                     File file9 = new File(file6, str3 + "--pending-delete");
                                     file8.renameTo(file9);
-                                    arrayList.add(new C0335a(key, str3, i, 0L, file9));
+                                    arrayList.add(new C0337a(key, str3, i, 0L, file9));
                                 }
                             } else if (list4 != null && (b3 = k.b(file7)) != null && !b3.isEmpty()) {
                                 for (Long l : b3) {
@@ -150,7 +150,7 @@ public class a {
                                         file5 = file6;
                                         str2 = str4;
                                         list2 = list4;
-                                        arrayList.add(new C0335a(key, str3, i, l.longValue(), file10));
+                                        arrayList.add(new C0337a(key, str3, i, l.longValue(), file10));
                                     } else {
                                         it4 = it6;
                                         it5 = it7;
@@ -187,7 +187,7 @@ public class a {
                                         new File(file12, next3 + "").renameTo(file13);
                                         it3 = it8;
                                         file3 = file12;
-                                        arrayList.add(new C0335a(key, str3, i, next3.longValue(), file13));
+                                        arrayList.add(new C0337a(key, str3, i, next3.longValue(), file13));
                                     } else {
                                         it3 = it8;
                                         file3 = file11;
@@ -215,7 +215,7 @@ public class a {
         if (bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f30010common = common2;
+            statisticModel.f30018common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (statisticModel.packages.isEmpty()) {
                 return;
@@ -236,12 +236,12 @@ public class a {
 
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.b bVar, String str, String str2) throws Exception {
         com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = bVar.h().a(str, str2);
-        if (a2.f29986c == 200) {
-            if (new JSONObject(a2.f29985b).getInt("status") != 0) {
+        if (a2.f29994c == 200) {
+            if (new JSONObject(a2.f29993b).getInt("status") != 0) {
                 throw new RuntimeException("upload failed");
             }
             return;
         }
-        throw new NetworkErrorException("net work get failed, code: " + a2.f29986c + ", url:" + str);
+        throw new NetworkErrorException("net work get failed, code: " + a2.f29994c + ", url:" + str);
     }
 }

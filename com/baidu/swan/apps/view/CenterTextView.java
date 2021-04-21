@@ -11,10 +11,10 @@ import android.widget.TextView;
 public class CenterTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f12335e;
+    public StaticLayout f12343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f12336f;
+    public TextPaint f12344f;
 
     public CenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,15 +22,15 @@ public class CenterTextView extends TextView {
 
     public final void a() {
         TextPaint textPaint = new TextPaint(1);
-        this.f12336f = textPaint;
+        this.f12344f = textPaint;
         textPaint.setTextSize(getTextSize());
-        this.f12336f.setColor(getCurrentTextColor());
-        this.f12335e = new StaticLayout(getText(), this.f12336f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        this.f12344f.setColor(getCurrentTextColor());
+        this.f12343e = new StaticLayout(getText(), this.f12344f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
-        StaticLayout staticLayout = this.f12335e;
+        StaticLayout staticLayout = this.f12343e;
         if (staticLayout != null) {
             staticLayout.draw(canvas);
         }

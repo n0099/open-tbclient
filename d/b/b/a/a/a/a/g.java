@@ -5,43 +5,43 @@ import java.util.Arrays;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41921a;
+    public int f42087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f41922b;
+    public byte[] f42088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41923c;
+    public int f42089c;
 
     public g() {
         int i;
-        i = c.f41914d;
-        this.f41921a = i;
-        this.f41922b = new byte[i];
+        i = c.f42080d;
+        this.f42087a = i;
+        this.f42088b = new byte[i];
     }
 
     public f a() {
-        return new f(Arrays.copyOf(this.f41922b, this.f41923c));
+        return new f(Arrays.copyOf(this.f42088b, this.f42089c));
     }
 
     public g b(byte b2) {
-        c(this.f41923c + 1);
-        byte[] bArr = this.f41922b;
-        int i = this.f41923c;
-        this.f41923c = i + 1;
+        c(this.f42089c + 1);
+        byte[] bArr = this.f42088b;
+        int i = this.f42089c;
+        this.f42089c = i + 1;
         bArr[i] = b2;
         return this;
     }
 
     public final void c(int i) {
-        byte[] bArr = this.f41922b;
+        byte[] bArr = this.f42088b;
         if (i - bArr.length > 0) {
             int length = bArr.length;
             int i2 = length + (length >> 1);
             if (i2 - i >= 0) {
                 i = i2;
             }
-            this.f41922b = Arrays.copyOf(this.f41922b, i);
+            this.f42088b = Arrays.copyOf(this.f42088b, i);
         }
     }
 }

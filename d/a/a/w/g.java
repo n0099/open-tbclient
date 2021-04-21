@@ -8,7 +8,7 @@ import java.io.IOException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41749a = JsonReader.a.a("ty", "d");
+    public static JsonReader.a f41844a = JsonReader.a.a("ty", "d");
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
@@ -30,7 +30,7 @@ public class g {
                 str = null;
                 break;
             }
-            int D = jsonReader.D(f41749a);
+            int D = jsonReader.D(f41844a);
             if (D == 0) {
                 str = jsonReader.z();
                 break;

@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import d.b.z.c;
-import d.b.z.f;
-import d.b.z.g;
-import d.b.z.k.d.b;
-import d.b.z.p.a.a;
+import d.b.a0.c;
+import d.b.a0.f;
+import d.b.a0.g;
+import d.b.a0.k.d.b;
+import d.b.a0.p.a.a;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CouponEntranceView extends FrameLayout {
     public TextView f10014h;
     public View i;
     public a j;
-    public a.C1810a k;
+    public a.C0562a k;
 
     public CouponEntranceView(Context context) {
         this(context, null);
@@ -58,20 +58,20 @@ public class CouponEntranceView extends FrameLayout {
 
     public void d() {
         String str;
-        List<a.C1810a> list;
+        List<a.C0562a> list;
         this.k = null;
         a aVar = this.j;
-        if (!((aVar == null || (list = aVar.f65753b) == null || list.size() <= 0) ? false : true)) {
+        if (!((aVar == null || (list = aVar.f42055b) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C1810a> it = this.j.f65753b.iterator();
+        Iterator<a.C0562a> it = this.j.f42055b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            a.C1810a next = it.next();
-            if (next.f65760g == 1) {
+            a.C0562a next = it.next();
+            if (next.f42062g == 1) {
                 this.k = next;
                 break;
             }
@@ -81,19 +81,19 @@ public class CouponEntranceView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        b.c().b(this.f10011e, this.k.f65758e);
-        this.f10012f.setText(this.k.f65755b);
-        a.C1810a c1810a = this.k;
-        if (c1810a.f65754a == -1) {
-            str = c1810a.f65756c;
+        b.c().b(this.f10011e, this.k.f42060e);
+        this.f10012f.setText(this.k.f42057b);
+        a.C0562a c0562a = this.k;
+        if (c0562a.f42056a == -1) {
+            str = c0562a.f42058c;
             this.f10013g.setVisibility(8);
         } else {
-            str = "-" + a(this.k.f65759f.longValue()) + "元";
+            str = "-" + a(this.k.f42061f.longValue()) + "元";
             this.f10013g.setVisibility(0);
-            this.f10013g.setText(this.k.f65756c);
+            this.f10013g.setText(this.k.f42058c);
         }
         this.f10014h.setText(str);
-        if (this.j.f65752a) {
+        if (this.j.f42054a) {
             this.f10014h.setTextColor(getResources().getColor(c.coupon_description));
             this.i.setVisibility(0);
             setEnabled(true);
@@ -104,7 +104,7 @@ public class CouponEntranceView extends FrameLayout {
         setEnabled(false);
     }
 
-    public a.C1810a getSelectedItem() {
+    public a.C0562a getSelectedItem() {
         return this.k;
     }
 

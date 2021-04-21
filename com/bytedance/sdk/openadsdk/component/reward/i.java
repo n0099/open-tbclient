@@ -11,28 +11,28 @@ import com.bytedance.sdk.openadsdk.utils.ag;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27497a;
+    public String f27505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f27498b;
+    public Context f27506b;
 
     public i(Context context, String str) {
-        this.f27498b = context;
-        this.f27497a = TextUtils.isEmpty(str) ? "" : str;
+        this.f27506b = context;
+        this.f27505a = TextUtils.isEmpty(str) ? "" : str;
     }
 
     @Nullable
     private Context b() {
-        Context context = this.f27498b;
+        Context context = this.f27506b;
         return context == null ? p.a() : context;
     }
 
     private String c() {
-        return this.f27497a + "_adslot";
+        return this.f27505a + "_adslot";
     }
 
     private String d() {
-        return this.f27497a + "_adslot_preload";
+        return this.f27505a + "_adslot_preload";
     }
 
     @Nullable
@@ -51,7 +51,7 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             str = "0";
         }
-        return this.f27497a + "_cache_" + str;
+        return this.f27505a + "_cache_" + str;
     }
 
     public String a(String str) {

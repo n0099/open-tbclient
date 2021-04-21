@@ -1,7 +1,7 @@
 package g.c.i;
 /* loaded from: classes7.dex */
 public interface i extends c, h {
-    void f(short s);
+    void e(short s);
 
-    void h(String str);
+    void g(String str);
 }

@@ -5,14 +5,14 @@ import android.content.Context;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f40536a = false;
+    public static volatile boolean f40631a = false;
 
     public static void a(Class<?> cls, Context context) {
-        if (f40536a) {
+        if (f40631a) {
             return;
         }
         try {
-            f40536a = true;
+            f40631a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
             com.xiaomi.channel.commonutils.logger.b.m55a("mdid:load lib error " + th);

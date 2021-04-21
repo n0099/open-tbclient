@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.e0;
-import d.g.c.c.j0;
-import d.g.c.c.m;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.e0;
+import d.h.c.c.j0;
+import d.h.c.c.m;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,10 +37,10 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
     public static class a<E> extends ImmutableCollection.a<E> {
 
         /* renamed from: d  reason: collision with root package name */
-        public Object[] f30829d;
+        public Object[] f30924d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30830e;
+        public int f30925e;
 
         public a() {
             super(4);
@@ -51,17 +51,17 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         /* renamed from: h */
         public a<E> a(E e2) {
             n.p(e2);
-            if (this.f30829d != null && ImmutableSet.chooseTableSize(this.f30785b) <= this.f30829d.length) {
+            if (this.f30924d != null && ImmutableSet.chooseTableSize(this.f30880b) <= this.f30924d.length) {
                 k(e2);
                 return this;
             }
-            this.f30829d = null;
+            this.f30924d = null;
             super.f(e2);
             return this;
         }
 
         public a<E> i(E... eArr) {
-            if (this.f30829d != null) {
+            if (this.f30924d != null) {
                 for (E e2 : eArr) {
                     a(e2);
                 }
@@ -80,16 +80,16 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         }
 
         public final void k(E e2) {
-            int length = this.f30829d.length - 1;
+            int length = this.f30924d.length - 1;
             int hashCode = e2.hashCode();
             int c2 = e0.c(hashCode);
             while (true) {
                 int i = c2 & length;
-                Object[] objArr = this.f30829d;
+                Object[] objArr = this.f30924d;
                 Object obj = objArr[i];
                 if (obj == null) {
                     objArr[i] = e2;
-                    this.f30830e += hashCode;
+                    this.f30925e += hashCode;
                     super.f(e2);
                     return;
                 } else if (obj.equals(e2)) {
@@ -102,30 +102,30 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
 
         public ImmutableSet<E> l() {
             ImmutableSet<E> construct;
-            int i = this.f30785b;
+            int i = this.f30880b;
             if (i != 0) {
                 if (i != 1) {
-                    if (this.f30829d == null || ImmutableSet.chooseTableSize(i) != this.f30829d.length) {
-                        construct = ImmutableSet.construct(this.f30785b, this.f30784a);
-                        this.f30785b = construct.size();
+                    if (this.f30924d == null || ImmutableSet.chooseTableSize(i) != this.f30924d.length) {
+                        construct = ImmutableSet.construct(this.f30880b, this.f30879a);
+                        this.f30880b = construct.size();
                     } else {
-                        Object[] copyOf = ImmutableSet.shouldTrim(this.f30785b, this.f30784a.length) ? Arrays.copyOf(this.f30784a, this.f30785b) : this.f30784a;
-                        int i2 = this.f30830e;
-                        Object[] objArr = this.f30829d;
-                        construct = new RegularImmutableSet<>(copyOf, i2, objArr, objArr.length - 1, this.f30785b);
+                        Object[] copyOf = ImmutableSet.shouldTrim(this.f30880b, this.f30879a.length) ? Arrays.copyOf(this.f30879a, this.f30880b) : this.f30879a;
+                        int i2 = this.f30925e;
+                        Object[] objArr = this.f30924d;
+                        construct = new RegularImmutableSet<>(copyOf, i2, objArr, objArr.length - 1, this.f30880b);
                     }
-                    this.f30786c = true;
-                    this.f30829d = null;
+                    this.f30881c = true;
+                    this.f30924d = null;
                     return construct;
                 }
-                return ImmutableSet.of(this.f30784a[0]);
+                return ImmutableSet.of(this.f30879a[0]);
             }
             return ImmutableSet.of();
         }
 
         public a(int i) {
             super(i);
-            this.f30829d = new Object[ImmutableSet.chooseTableSize(i)];
+            this.f30924d = new Object[ImmutableSet.chooseTableSize(i)];
         }
     }
 

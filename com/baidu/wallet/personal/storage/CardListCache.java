@@ -23,22 +23,22 @@ import java.io.Serializable;
 public class CardListCache extends MyDb {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f26266f = {"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
+    public static final String[] f26274f = {"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
 
     /* renamed from: a  reason: collision with root package name */
-    public CardListResponse f26267a;
+    public CardListResponse f26275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CardListResponse f26268b;
+    public CardListResponse f26276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b<CardListResponse> f26269c;
+    public b<CardListResponse> f26277c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<CardListResponse> f26270d;
+    public a<CardListResponse> f26278d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f26271e;
+    public Handler f26279e;
 
     /* loaded from: classes5.dex */
     public interface a<Value extends Serializable> {
@@ -54,30 +54,30 @@ public class CardListCache extends MyDb {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f26273a = 2;
+        public static int f26281a = 2;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final CardListCache f26274b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f26273a);
+        public static final CardListCache f26282b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f26281a);
     }
 
     public static CardListCache getInstance() {
-        return c.f26274b;
+        return c.f26282b;
     }
 
     public void getCardList(b<CardListResponse> bVar) {
-        this.f26269c = bVar;
+        this.f26277c = bVar;
         if (bVar == null) {
             return;
         }
-        this.f26271e.obtainMessage(10001).sendToTarget();
+        this.f26279e.obtainMessage(10001).sendToTarget();
     }
 
     public void getEemCardList(a<CardListResponse> aVar) {
-        this.f26270d = aVar;
+        this.f26278d = aVar;
         if (aVar == null) {
             return;
         }
-        this.f26271e.obtainMessage(10002).sendToTarget();
+        this.f26279e.obtainMessage(10002).sendToTarget();
     }
 
     public String getUserId() {
@@ -113,8 +113,8 @@ public class CardListCache extends MyDb {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         this.mDb = sQLiteDatabase;
-        MyDb.createTable(sQLiteDatabase, "tb_card_list", f26266f);
-        MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26266f);
+        MyDb.createTable(sQLiteDatabase, "tb_card_list", f26274f);
+        MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26274f);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -126,7 +126,7 @@ public class CardListCache extends MyDb {
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         this.mDb = sQLiteDatabase;
         if (i2 > i) {
-            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26266f);
+            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26274f);
         }
     }
 
@@ -139,9 +139,9 @@ public class CardListCache extends MyDb {
             return;
         }
         if (i == 599) {
-            this.f26271e.obtainMessage(10000, a2).sendToTarget();
+            this.f26279e.obtainMessage(10000, a2).sendToTarget();
         } else if (i == 607) {
-            this.f26271e.obtainMessage(10003, a2).sendToTarget();
+            this.f26279e.obtainMessage(10003, a2).sendToTarget();
         }
     }
 
@@ -149,7 +149,7 @@ public class CardListCache extends MyDb {
         super(context, str, i);
         HandlerThread handlerThread = new HandlerThread("sdk_db_thread");
         handlerThread.start();
-        this.f26271e = new Handler(handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
+        this.f26279e = new Handler(handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (BaiduWalletDelegate.getInstance().getAppContext() == null) {
@@ -160,17 +160,17 @@ public class CardListCache extends MyDb {
                     CardListCache.this.a((String) message.obj, "tb_card_list");
                 } else if (10001 == i2) {
                     CardListCache cardListCache = CardListCache.this;
-                    cardListCache.f26267a = cardListCache.a("tb_card_list");
-                    if (CardListCache.this.f26269c != null) {
-                        CardListCache.this.f26269c.a(CardListCache.this.f26267a);
+                    cardListCache.f26275a = cardListCache.a("tb_card_list");
+                    if (CardListCache.this.f26277c != null) {
+                        CardListCache.this.f26277c.a(CardListCache.this.f26275a);
                     }
                 } else if (10003 == i2) {
                     CardListCache.this.a((String) message.obj, "tb_eem_card_list");
                 } else if (10002 == i2) {
                     CardListCache cardListCache2 = CardListCache.this;
-                    cardListCache2.f26268b = cardListCache2.a("tb_eem_card_list");
-                    if (CardListCache.this.f26270d != null) {
-                        CardListCache.this.f26270d.a(CardListCache.this.f26268b);
+                    cardListCache2.f26276b = cardListCache2.a("tb_eem_card_list");
+                    if (CardListCache.this.f26278d != null) {
+                        CardListCache.this.f26278d.a(CardListCache.this.f26276b);
                     }
                 }
             }

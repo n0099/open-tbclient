@@ -28,8 +28,8 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 import com.squareup.wire.Wire;
 import d.b.c.e.p.l;
 import d.b.c.j.e.n;
-import d.b.i0.i2.e.i;
-import d.b.i0.i2.e.j;
+import d.b.j0.i2.e.i;
+import d.b.j0.i2.e.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;

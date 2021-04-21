@@ -1,57 +1,25 @@
 package d.b.h0.a.b0;
 
-import java.util.ArrayList;
-/* loaded from: classes3.dex */
+import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
+/* loaded from: classes2.dex */
 public class a {
-    public static int C = 1;
-    public static int D = 2;
-    public static int E = 3;
-    public static int F = 4;
-    public static int G = 5;
-    public static int H = 1;
-    public static int I = 2;
-    public String A;
-    public String B;
+    public static String a() {
+        return "https://gamecenter.baidu.com";
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f49903a;
+    public static String b() {
+        return String.format("%s/smtapp/ad/auto", d());
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f49904b;
+    public static String c() {
+        return String.format("%s/smtapp/ad/similar", d());
+    }
 
-    /* renamed from: c  reason: collision with root package name */
-    public int f49905c;
+    public static String d() {
+        return BaseUrlManager.ONLINE_URL;
+    }
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f49906d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f49907e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f49908f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f49909g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f49910h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public double n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public long t;
-    public long u;
-    public ArrayList<String> v = new ArrayList<>();
-    public ArrayList<String> w = new ArrayList<>();
-    public int x = 0;
-    public String y;
-    public String z;
+    public static String e() {
+        return String.format("%s/searchbox?action=userx&type=attribute", d());
+    }
 }

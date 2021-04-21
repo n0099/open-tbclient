@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.c.f0;
+import d.h.c.c.f0;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;

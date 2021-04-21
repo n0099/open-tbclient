@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
-import d.b.g0.a.i2.h0;
-import d.b.g0.i.n;
+import d.b.h0.a.i2.h0;
+import d.b.h0.i.n;
 /* loaded from: classes4.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     public SwanAppBdActionBar mActionBar;
-    public d.b.g0.a.y0.e.b mLaunchInfo;
-    public d.b.h0.r.f0.a mLoadingDialog;
+    public d.b.h0.a.y0.e.b mLaunchInfo;
+    public d.b.i0.r.f0.a mLoadingDialog;
     public RelativeLayout mRootView;
     public n mToolMenu;
 
@@ -78,7 +78,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(getPageContext());
+        d.b.i0.r.f0.a aVar = new d.b.i0.r.f0.a(getPageContext());
         this.mLoadingDialog = aVar;
         aVar.j("加载中...");
         this.mLoadingDialog.f(true);

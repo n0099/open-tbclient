@@ -7,15 +7,15 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.app.event.EventBusWrapper;
-import d.b.g0.a.h;
-/* loaded from: classes2.dex */
+import d.b.h0.a.h;
+/* loaded from: classes3.dex */
 public class NetworkErrorView extends CommonEmptyView {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f12130a;
+        public Object f12138a;
 
         public a(int i) {
         }
@@ -28,7 +28,7 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public static void c(View view) {
         a aVar = new a(1);
-        aVar.f12130a = view;
+        aVar.f12138a = view;
         EventBusWrapper.post(aVar);
     }
 
@@ -55,11 +55,11 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyViewVisiblity(int i) {
-        this.f12103e.setVisibility(i);
+        this.f12111e.setVisibility(i);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        TextView textView = this.f12106h;
+        TextView textView = this.f12114h;
         if (textView != null) {
             textView.setVisibility(z ? 0 : 4);
         }

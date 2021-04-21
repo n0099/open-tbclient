@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.b.i0.y1.d;
+import d.b.j0.y1.d;
 /* loaded from: classes3.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public NewFaceSyncUploadModel() {

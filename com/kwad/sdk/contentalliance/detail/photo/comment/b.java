@@ -6,23 +6,23 @@ import com.kwad.sdk.core.response.model.PhotoComment;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public PhotoComment f32529a;
+    public PhotoComment f32624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f32530b;
+    public AdTemplate f32625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32531c;
+    public long f32626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32532d = false;
+    public boolean f32627d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32533e;
+    public int f32628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32534f;
+    public boolean f32629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32535g;
+    public String f32630g;
 }

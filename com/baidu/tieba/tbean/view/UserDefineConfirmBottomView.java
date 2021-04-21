@@ -15,16 +15,16 @@ import com.baidu.tieba.R;
 public class UserDefineConfirmBottomView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21164e;
+    public Context f21172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f21165f;
+    public RelativeLayout f21173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f21166g;
+    public LinearLayout f21174g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21167h;
+    public TextView f21175h;
     public TextView i;
     public TextView j;
     public View.OnClickListener k;
@@ -36,29 +36,29 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     }
 
     public final void a(Context context) {
-        this.f21164e = context;
+        this.f21172e = context;
         LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
         setOrientation(1);
-        this.f21165f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-        this.f21166g = (LinearLayout) findViewById(R.id.big_tbean_root);
-        this.f21167h = (TextView) findViewById(R.id.big_tbean_toast_tv);
+        this.f21173f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
+        this.f21174g = (LinearLayout) findViewById(R.id.big_tbean_root);
+        this.f21175h = (TextView) findViewById(R.id.big_tbean_toast_tv);
         this.i = (TextView) findViewById(R.id.big_tbean_jump_tv);
         this.j = (TextView) findViewById(R.id.user_define_confirm_tv);
-        this.f21165f.setOnClickListener(null);
+        this.f21173f.setOnClickListener(null);
     }
 
     public void b(boolean z) {
         if (z) {
-            this.f21166g.setVisibility(0);
+            this.f21174g.setVisibility(0);
         } else {
-            this.f21166g.setVisibility(4);
+            this.f21174g.setVisibility(4);
         }
     }
 
     public void setBigTbeanToastText(int i) {
-        String format = String.format(this.f21164e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i));
+        String format = String.format(this.f21172e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i));
         this.l = format;
-        this.f21167h.setText(format);
+        this.f21175h.setText(format);
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
@@ -69,19 +69,19 @@ public class UserDefineConfirmBottomView extends LinearLayout {
 
     public void setPayEnabled(boolean z) {
         if (z) {
-            this.f21167h.setText(this.l);
-            this.f21167h.setGravity(3);
+            this.f21175h.setText(this.l);
+            this.f21175h.setGravity(3);
             b(true);
             this.j.setEnabled(true);
-            this.f21166g.setVisibility(0);
+            this.f21174g.setVisibility(0);
             this.i.setVisibility(0);
             return;
         }
-        this.f21167h.setText(R.string.user_define_max_money);
-        this.f21167h.setGravity(17);
+        this.f21175h.setText(R.string.user_define_max_money);
+        this.f21175h.setGravity(17);
         this.j.setEnabled(false);
         b(false);
-        this.f21166g.setVisibility(0);
+        this.f21174g.setVisibility(0);
         this.i.setVisibility(8);
     }
 

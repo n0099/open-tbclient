@@ -5,7 +5,7 @@ import com.kwad.sdk.glide.h;
 public abstract class h<CHILD extends h<CHILD, TranscodeType>, TranscodeType> implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.glide.request.b.c<? super TranscodeType> f35521a = com.kwad.sdk.glide.request.b.a.a();
+    public com.kwad.sdk.glide.request.b.c<? super TranscodeType> f35616a = com.kwad.sdk.glide.request.b.a.a();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: a */
@@ -18,6 +18,6 @@ public abstract class h<CHILD extends h<CHILD, TranscodeType>, TranscodeType> im
     }
 
     public final com.kwad.sdk.glide.request.b.c<? super TranscodeType> b() {
-        return this.f35521a;
+        return this.f35616a;
     }
 }

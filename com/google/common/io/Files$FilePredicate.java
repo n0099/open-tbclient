@@ -1,7 +1,7 @@
 package com.google.common.io;
 
-import d.g.c.a.o;
-import d.g.c.e.a;
+import d.h.c.a.o;
+import d.h.c.e.a;
 import java.io.File;
 /* loaded from: classes6.dex */
 public enum Files$FilePredicate implements o<File> {
@@ -12,7 +12,7 @@ public enum Files$FilePredicate implements o<File> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.io.Files$FilePredicate, d.g.c.a.o
+        @Override // com.google.common.io.Files$FilePredicate, d.h.c.a.o
         public boolean apply(File file) {
             return file.isDirectory();
         }
@@ -24,13 +24,13 @@ public enum Files$FilePredicate implements o<File> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.io.Files$FilePredicate, d.g.c.a.o
+        @Override // com.google.common.io.Files$FilePredicate, d.h.c.a.o
         public boolean apply(File file) {
             return file.isFile();
         }
     };
 
-    @Override // d.g.c.a.o
+    @Override // d.h.c.a.o
     public abstract /* synthetic */ boolean apply(T t);
 
     /* synthetic */ Files$FilePredicate(a aVar) {

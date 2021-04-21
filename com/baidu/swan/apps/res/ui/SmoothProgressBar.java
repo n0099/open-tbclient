@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static final int i;
 
@@ -24,23 +24,23 @@ public class SmoothProgressBar extends RotateProgressBar {
     }
 
     private void a() {
-        this.f12134h = (int) ((((this.f12134h * 12.0f) / i) / 2.0f) + 0.5f);
+        this.f12142h = (int) ((((this.f12142h * 12.0f) / i) / 2.0f) + 0.5f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.RotateProgressBar, android.widget.ProgressBar, android.view.View
     public synchronized void onDraw(Canvas canvas) {
-        Drawable drawable = this.f12132f;
+        Drawable drawable = this.f12140f;
         if (drawable != null) {
             drawable.draw(canvas);
-            if (SystemClock.uptimeMillis() - this.f12133g >= this.f12134h) {
-                this.f12133g = SystemClock.uptimeMillis();
-                int i2 = this.f12131e + (10000 / i);
-                this.f12131e = i2;
+            if (SystemClock.uptimeMillis() - this.f12141g >= this.f12142h) {
+                this.f12141g = SystemClock.uptimeMillis();
+                int i2 = this.f12139e + (10000 / i);
+                this.f12139e = i2;
                 if (i2 >= 10000) {
-                    this.f12131e = i2 - 10000;
+                    this.f12139e = i2 - 10000;
                 }
-                drawable.setLevel(this.f12131e);
-                postInvalidateDelayed(this.f12134h);
+                drawable.setLevel(this.f12139e);
+                postInvalidateDelayed(this.f12142h);
             }
         }
     }

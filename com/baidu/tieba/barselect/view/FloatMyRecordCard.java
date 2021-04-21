@@ -19,23 +19,23 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 import d.b.c.e.m.b;
-import d.b.i0.v.b.d;
-import d.b.i0.v.b.e;
-import d.b.i0.v.b.f;
+import d.b.j0.v.b.d;
+import d.b.j0.v.b.e;
+import d.b.j0.v.b.f;
 /* loaded from: classes4.dex */
 public class FloatMyRecordCard extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14865e;
+    public Context f14873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14866f;
+    public int f14874f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f14867g;
+    public f f14875g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f14868h;
+    public d f14876h;
     public TextView i;
     public BazhuHeadView j;
     public TextView k;
@@ -51,11 +51,11 @@ public class FloatMyRecordCard extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (FloatMyRecordCard.this.f14868h == null || FloatMyRecordCard.this.f14868h.l() == 0) {
+            if (FloatMyRecordCard.this.f14876h == null || FloatMyRecordCard.this.f14876h.l() == 0) {
                 return;
             }
             long f2 = b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = FloatMyRecordCard.this.f14868h.l();
+            long l = FloatMyRecordCard.this.f14876h.l();
             if (FloatMyRecordCard.this.getContext() instanceof Activity) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(l, l == f2, false)));
             }
@@ -80,7 +80,7 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public final void c() {
-        this.f14865e = getContext();
+        this.f14873e = getContext();
         setOrientation(0);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.float_my_record_card, (ViewGroup) this, true);
@@ -88,7 +88,7 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        d dVar = this.f14868h;
+        d dVar = this.f14876h;
         if (dVar == null) {
             return;
         }
@@ -96,25 +96,25 @@ public class FloatMyRecordCard extends LinearLayout {
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i);
-        setGrade(this.f14868h.d());
+        setGrade(this.f14876h.d());
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i);
         this.n.c(i);
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
-        setGrade(this.f14868h.d());
+        setGrade(this.f14876h.d());
     }
 
     public void setData(f fVar) {
         d dVar;
         String str;
-        this.f14867g = fVar;
+        this.f14875g = fVar;
         if (fVar != null && fVar.a() != null) {
-            e a2 = this.f14867g.a();
+            e a2 = this.f14875g.a();
             if (a2 != null) {
-                this.f14866f = a2.g();
+                this.f14874f = a2.g();
             }
-            this.f14868h = this.f14867g.f();
+            this.f14876h = this.f14875g.f();
         }
-        if (this.f14867g != null && (dVar = this.f14868h) != null && this.f14866f == d.b.i0.v.e.d.f62970c) {
+        if (this.f14875g != null && (dVar = this.f14876h) != null && this.f14874f == d.b.j0.v.e.d.f63391c) {
             int i = dVar.i();
             if (i < 10) {
                 this.i.setText("0" + i);
@@ -126,18 +126,18 @@ public class FloatMyRecordCard extends LinearLayout {
             } else if (i == 3) {
                 this.i.setTextColor(getResources().getColor(R.color.common_color_10266));
             }
-            this.j.k(this.f14868h.g());
+            this.j.k(this.f14876h.g());
             this.j.setOnClickListener(this.o);
-            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14868h.e(), 14, StringHelper.STRING_MORE));
-            setGrade(this.f14868h.d());
-            if (this.f14868h.c() < 1000) {
-                String str2 = "0000" + this.f14868h.c();
+            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14876h.e(), 14, StringHelper.STRING_MORE));
+            setGrade(this.f14876h.d());
+            if (this.f14876h.c() < 1000) {
+                String str2 = "0000" + this.f14876h.c();
                 str = str2.substring(str2.length() - 4, str2.length());
             } else {
-                str = "" + this.f14868h.c();
+                str = "" + this.f14876h.c();
             }
             this.m.setText("NO." + str);
-            this.n.setMyRecordData(this.f14868h);
+            this.n.setMyRecordData(this.f14876h);
             return;
         }
         setVisibility(8);

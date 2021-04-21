@@ -21,33 +21,33 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f35202a;
+    public AdTemplate f35297a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f35203b;
+    public AdInfo f35298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC0419a f35204c;
+    public InterfaceC0422a f35299c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f35205d;
+    public Context f35300d;
 
     /* renamed from: e  reason: collision with root package name */
-    public s.a f35206e;
+    public s.a f35301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f35207f;
+    public g f35302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f35208g;
+    public float f35303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g.a f35209h;
+    public g.a f35304h;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0419a {
+    public interface InterfaceC0422a {
         void a();
 
         void b();
@@ -65,8 +65,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f35208g = 0.0f;
-        this.f35209h = new g.a() { // from class: com.kwad.sdk.feed.widget.base.a.1
+        this.f35303g = 0.0f;
+        this.f35304h = new g.a() { // from class: com.kwad.sdk.feed.widget.base.a.1
             @Override // com.kwad.sdk.core.view.g.a
             public void a(boolean z) {
                 if (z) {
@@ -76,8 +76,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
                 }
             }
         };
-        this.f35206e = new s.a();
-        this.f35205d = context;
+        this.f35301e = new s.a();
+        this.f35300d = context;
         f();
     }
 
@@ -87,21 +87,21 @@ public abstract class a extends com.kwad.sdk.core.view.b {
             b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b2);
         }
-        b2.setViewCallback(new a.InterfaceC0404a() { // from class: com.kwad.sdk.feed.widget.base.a.2
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0404a
+        b2.setViewCallback(new a.InterfaceC0407a() { // from class: com.kwad.sdk.feed.widget.base.a.2
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0407a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0404a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0407a
             public void a(View view) {
                 a.this.j();
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0404a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0407a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0404a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0407a
             public void b() {
             }
         });
@@ -119,28 +119,28 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     }
 
     private void f() {
-        FrameLayout.inflate(this.f35205d, getLayoutId(), this);
+        FrameLayout.inflate(this.f35300d, getLayoutId(), this);
         setRatio(getHWRatio());
         c();
-        this.f35207f = new g(this, 70);
+        this.f35302f = new g(this, 70);
         a(this);
     }
 
     @Override // com.kwad.sdk.core.view.b
     public void a() {
-        this.f35207f.a(this.f35209h);
-        this.f35207f.a();
+        this.f35302f.a(this.f35304h);
+        this.f35302f.a();
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f35202a = adTemplate;
-        this.f35203b = c.j(adTemplate);
+        this.f35297a = adTemplate;
+        this.f35298b = c.j(adTemplate);
     }
 
     @Override // com.kwad.sdk.core.view.b
     public void b() {
-        this.f35207f.b(this.f35209h);
-        this.f35207f.b();
+        this.f35302f.b(this.f35304h);
+        this.f35302f.b();
     }
 
     public abstract void c();
@@ -153,10 +153,10 @@ public abstract class a extends com.kwad.sdk.core.view.b {
         int action = motionEvent.getAction();
         if (action == 0) {
             s.a aVar = new s.a(getWidth(), getHeight());
-            this.f35206e = aVar;
+            this.f35301e = aVar;
             aVar.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.f35206e.b(motionEvent.getX(), motionEvent.getY());
+            this.f35301e.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -171,50 +171,50 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     public abstract int getLayoutId();
 
     public float getRatio() {
-        return this.f35208g;
+        return this.f35303g;
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return this.f35206e;
+        return this.f35301e;
     }
 
     public void j() {
-        InterfaceC0419a interfaceC0419a;
-        if (!this.f35202a.mPvReported && (interfaceC0419a = this.f35204c) != null) {
-            interfaceC0419a.b();
+        InterfaceC0422a interfaceC0422a;
+        if (!this.f35297a.mPvReported && (interfaceC0422a = this.f35299c) != null) {
+            interfaceC0422a.b();
         }
-        com.kwad.sdk.core.report.b.a(this.f35202a, (JSONObject) null);
+        com.kwad.sdk.core.report.b.a(this.f35297a, (JSONObject) null);
     }
 
     public void k() {
-        com.kwad.sdk.core.report.b.a(this.f35202a, getTouchCoords());
-        InterfaceC0419a interfaceC0419a = this.f35204c;
-        if (interfaceC0419a != null) {
-            interfaceC0419a.a();
+        com.kwad.sdk.core.report.b.a(this.f35297a, getTouchCoords());
+        InterfaceC0422a interfaceC0422a = this.f35299c;
+        if (interfaceC0422a != null) {
+            interfaceC0422a.a();
         }
     }
 
     public void l() {
-        com.kwad.sdk.core.report.b.a(this.f35202a);
-        InterfaceC0419a interfaceC0419a = this.f35204c;
-        if (interfaceC0419a != null) {
-            interfaceC0419a.c();
+        com.kwad.sdk.core.report.b.a(this.f35297a);
+        InterfaceC0422a interfaceC0422a = this.f35299c;
+        if (interfaceC0422a != null) {
+            interfaceC0422a.c();
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.f35208g != 0.0f) {
+        if (this.f35303g != 0.0f) {
             int size = View.MeasureSpec.getSize(i);
             com.kwad.sdk.core.d.a.a("BaseFeedView", "widthSize:" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.f35208g), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.f35303g), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
-    public void setAdClickListener(InterfaceC0419a interfaceC0419a) {
-        this.f35204c = interfaceC0419a;
+    public void setAdClickListener(InterfaceC0422a interfaceC0422a) {
+        this.f35299c = interfaceC0422a;
     }
 
     public void setMargin(int i) {
@@ -223,6 +223,6 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     }
 
     public void setRatio(float f2) {
-        this.f35208g = f2;
+        this.f35303g = f2;
     }
 }

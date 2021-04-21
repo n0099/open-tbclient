@@ -14,81 +14,81 @@ import org.json.JSONObject;
 public class g extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public final ProfileVideoDetailParam f32889c;
+    public final ProfileVideoDetailParam f32984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SceneImpl f32890d;
+    public SceneImpl f32985d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f32891e = false;
+    public volatile boolean f32986e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32892f;
+    public int f32987f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32893g;
+    public String f32988g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData> f32894h;
+    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData> f32989h;
 
     public g(SceneImpl sceneImpl, ProfileVideoDetailParam profileVideoDetailParam) {
-        this.f32890d = sceneImpl;
-        this.f32889c = profileVideoDetailParam;
+        this.f32985d = sceneImpl;
+        this.f32984c = profileVideoDetailParam;
     }
 
     public static /* synthetic */ int a(g gVar) {
-        int i = gVar.f32892f;
-        gVar.f32892f = i + 1;
+        int i = gVar.f32987f;
+        gVar.f32987f = i + 1;
         return i;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.a
     public void a(final boolean z, boolean z2, int i) {
-        if (this.f32891e) {
+        if (this.f32986e) {
             return;
         }
-        this.f32891e = true;
+        this.f32986e = true;
         a(z, z2, i, 0);
         if (com.kwad.sdk.contentalliance.home.c.a()) {
-            this.f32852b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.1
+            this.f32947b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        g.this.f32851a.clear();
+                        g.this.f32946a.clear();
                     }
-                    g.this.f32851a.addAll(com.kwad.sdk.contentalliance.home.c.b());
-                    if (!g.this.f32851a.isEmpty()) {
+                    g.this.f32946a.addAll(com.kwad.sdk.contentalliance.home.c.b());
+                    if (!g.this.f32946a.isEmpty()) {
                         g gVar = g.this;
-                        List<AdTemplate> list = gVar.f32851a;
-                        gVar.f32893g = list.get(list.size() - 1).mPcursor;
+                        List<AdTemplate> list = gVar.f32946a;
+                        gVar.f32988g = list.get(list.size() - 1).mPcursor;
                     }
                     com.kwad.sdk.contentalliance.home.c.c();
                     g.this.a(z, 0);
-                    g.this.f32891e = false;
+                    g.this.f32986e = false;
                 }
             });
         } else if (!e()) {
-            this.f32852b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.2
+            this.f32947b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.2
                 @Override // java.lang.Runnable
                 public void run() {
                     g gVar = g.this;
-                    com.kwad.sdk.core.network.f fVar = com.kwad.sdk.core.network.f.f34164g;
+                    com.kwad.sdk.core.network.f fVar = com.kwad.sdk.core.network.f.f34259g;
                     gVar.a(fVar.k, fVar.l);
-                    g.this.f32891e = false;
+                    g.this.f32986e = false;
                 }
             });
         } else {
             final p.a aVar = new p.a();
-            aVar.f34125e = this.f32893g;
-            com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.f32890d);
-            fVar.f33941b = this.f32890d.getPageScene();
-            aVar.f34121a = fVar;
-            ProfileVideoDetailParam profileVideoDetailParam = this.f32889c;
-            aVar.f34123c = profileVideoDetailParam.mAuthorId;
-            aVar.f34124d = profileVideoDetailParam.mTabId;
+            aVar.f34220e = this.f32988g;
+            com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.f32985d);
+            fVar.f34036b = this.f32985d.getPageScene();
+            aVar.f34216a = fVar;
+            ProfileVideoDetailParam profileVideoDetailParam = this.f32984c;
+            aVar.f34218c = profileVideoDetailParam.mAuthorId;
+            aVar.f34219d = profileVideoDetailParam.mTabId;
             com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
-            cVar.f33929d = this.f32892f;
-            aVar.f34122b = cVar;
+            cVar.f34024d = this.f32987f;
+            aVar.f34217b = cVar;
             com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData> iVar = new com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.g.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.i
@@ -96,7 +96,7 @@ public class g extends a {
                 /* renamed from: a */
                 public AdResultData b(String str) {
                     JSONObject jSONObject = new JSONObject(str);
-                    AdResultData adResultData = new AdResultData(aVar.f34121a.f33940a);
+                    AdResultData adResultData = new AdResultData(aVar.f34216a.f34035a);
                     adResultData.parseJson(jSONObject);
                     return adResultData;
                 }
@@ -109,15 +109,15 @@ public class g extends a {
                     return new p(aVar);
                 }
             };
-            this.f32894h = iVar;
+            this.f32989h = iVar;
             iVar.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.network.g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.a.g.4
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i2, final String str) {
-                    g.this.f32852b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.2
+                    g.this.f32947b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             g.this.a(i2, str);
-                            g.this.f32891e = false;
+                            g.this.f32986e = false;
                         }
                     });
                 }
@@ -125,14 +125,14 @@ public class g extends a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull final AdResultData adResultData) {
-                    g.this.f32852b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.1
+                    g.this.f32947b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.a.g.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass4 anonymousClass4 = AnonymousClass4.this;
                             if (z) {
-                                g.this.f32851a.clear();
+                                g.this.f32946a.clear();
                             }
-                            if (g.this.f32851a.isEmpty()) {
+                            if (g.this.f32946a.isEmpty()) {
                                 m.e();
                             }
                             ArrayList arrayList = new ArrayList();
@@ -141,11 +141,11 @@ public class g extends a {
                                     arrayList.add(adTemplate);
                                 }
                             }
-                            g.this.f32851a.addAll(arrayList);
-                            g.this.f32893g = adResultData.pcursor;
+                            g.this.f32946a.addAll(arrayList);
+                            g.this.f32988g = adResultData.pcursor;
                             AnonymousClass4 anonymousClass42 = AnonymousClass4.this;
                             g.this.a(z, 0);
-                            g.this.f32891e = false;
+                            g.this.f32986e = false;
                             g.a(g.this);
                         }
                     });
@@ -157,14 +157,14 @@ public class g extends a {
     @Override // com.kwad.sdk.contentalliance.home.a.a, com.kwad.sdk.contentalliance.home.a.b
     public void d() {
         super.d();
-        com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData> iVar = this.f32894h;
+        com.kwad.sdk.core.network.i<com.kwad.sdk.core.network.g, AdResultData> iVar = this.f32989h;
         if (iVar != null) {
             iVar.e();
         }
-        this.f32891e = false;
+        this.f32986e = false;
     }
 
     public boolean e() {
-        return !"0".equals(this.f32893g);
+        return !"0".equals(this.f32988g);
     }
 }

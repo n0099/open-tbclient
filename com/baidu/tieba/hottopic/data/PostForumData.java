@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import d.b.c.j.e.n;
-import d.b.i0.x.e0.a;
+import d.b.j0.x.e0.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

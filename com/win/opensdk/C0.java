@@ -21,28 +21,28 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public class C0 extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39932a;
+    public Context f40027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public F0 f39933b;
+    public F0 f40028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39934c;
+    public boolean f40029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public K0 f39935d;
+    public K0 f40030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39936e;
+    public boolean f40031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f39937f;
+    public Handler f40032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39938g;
+    public long f40033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f39939h;
+    public long f40034h;
     public boolean i;
     public final Runnable j;
     public long k;
@@ -54,13 +54,13 @@ public class C0 extends WebView {
 
     public C0(Context context, AttributeSet attributeSet, int i, K0 k0) {
         super(context.getApplicationContext(), attributeSet, i);
-        this.f39937f = new Handler(Looper.getMainLooper());
-        this.f39938g = 1000L;
-        this.f39939h = 200L;
+        this.f40032f = new Handler(Looper.getMainLooper());
+        this.f40033g = 1000L;
+        this.f40034h = 200L;
         this.j = new z0(this);
         this.n = new A0(this);
-        this.f39935d = k0;
-        this.f39932a = context;
+        this.f40030d = k0;
+        this.f40027a = context;
         setHorizontalScrollbarOverlay(false);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollbarOverlay(false);
@@ -95,14 +95,14 @@ public class C0 extends WebView {
         if (Build.VERSION.SDK_INT >= 17) {
             getSettings().setMediaPlaybackRequiresUserGesture(false);
         }
-        this.f39933b = new I0(this);
-        setWebViewClient(new N0(this, this.f39933b));
-        setWebChromeClient(new M0(this, this.f39933b));
+        this.f40028b = new I0(this);
+        setWebViewClient(new N0(this, this.f40028b));
+        setWebChromeClient(new M0(this, this.f40028b));
     }
 
     public void a() {
         boolean g2;
-        if (System.currentTimeMillis() - this.k < this.f39939h) {
+        if (System.currentTimeMillis() - this.k < this.f40034h) {
             return;
         }
         int[] iArr = new int[2];
@@ -119,18 +119,18 @@ public class C0 extends WebView {
         getWidth();
         int[] d2 = G.d(getViewContext());
         this.l = width > 0 && i < d2[0] && height > 0 && i2 < d2[1];
-        F0 f0 = this.f39933b;
+        F0 f0 = this.f40028b;
         if (f0 != null) {
             I0 i0 = (I0) f0;
-            C0 c0 = i0.f39968a;
-            if (c0 != null && i0.f39971d != (g2 = c0.g())) {
+            C0 c0 = i0.f40063a;
+            if (c0 != null && i0.f40066d != (g2 = c0.g())) {
                 i0.a(g2);
             }
-            F0 f02 = this.f39933b;
+            F0 f02 = this.f40028b;
             int width2 = getWidth();
             int height2 = getHeight();
             I0 i02 = (I0) f02;
-            if (i02.f39968a != null) {
+            if (i02.f40063a != null) {
                 try {
                     int[] iArr2 = new int[4];
                     if (iArr2[0] != i || iArr2[1] != i2 || iArr2[2] != width2 || iArr2[3] != height2) {
@@ -138,15 +138,15 @@ public class C0 extends WebView {
                         iArr2[1] = i2;
                         iArr2[2] = width2;
                         iArr2[3] = height2;
-                        int[] iArr3 = {i, i2 - (i02.f39968a.getViewContext() instanceof Activity ? ((Activity) i02.f39968a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), width2, height2};
-                        G.a(i02.f39968a.getViewContext(), iArr3);
+                        int[] iArr3 = {i, i2 - (i02.f40063a.getViewContext() instanceof Activity ? ((Activity) i02.f40063a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), width2, height2};
+                        G.a(i02.f40063a.getViewContext(), iArr3);
                         int i3 = iArr3[0];
                         int i4 = iArr3[1];
                         int i5 = iArr3[2];
                         int i6 = iArr3[3];
-                        C0 c02 = i02.f39968a;
+                        C0 c02 = i02.f40063a;
                         G.a(c02, "javascript:window.mraidbridge.setCurrentPosition(" + i3 + "," + i4 + "," + i5 + "," + i6 + SmallTailInfo.EMOTION_SUFFIX);
-                        C0 c03 = i02.f39968a;
+                        C0 c03 = i02.f40063a;
                         StringBuilder sb = new StringBuilder();
                         sb.append("javascript:window.mraidbridge.notifySizeChangeEvent(");
                         sb.append(i5);
@@ -161,8 +161,8 @@ public class C0 extends WebView {
             int i7 = getViewContext().getResources().getConfiguration().orientation;
             if (this.m != i7) {
                 this.m = i7;
-                ((I0) this.f39933b).b();
-                ((I0) this.f39933b).c();
+                ((I0) this.f40028b).b();
+                ((I0) this.f40028b).c();
             }
         }
         this.k = System.currentTimeMillis();
@@ -198,16 +198,16 @@ public class C0 extends WebView {
     public final void b(int i, int i2) {
         boolean g2;
         if (i == 0 && i2 == 0) {
-            this.f39934c = true;
+            this.f40029c = true;
             h();
         } else {
-            this.f39934c = false;
-            this.f39936e = true;
-            this.f39937f.removeCallbacks(this.j);
+            this.f40029c = false;
+            this.f40031e = true;
+            this.f40032f.removeCallbacks(this.j);
         }
-        I0 i0 = (I0) this.f39933b;
-        C0 c0 = i0.f39968a;
-        if (c0 == null || i0.f39971d == (g2 = c0.g())) {
+        I0 i0 = (I0) this.f40028b;
+        C0 c0 = i0.f40063a;
+        if (c0 == null || i0.f40066d == (g2 = c0.g())) {
             return;
         }
         i0.a(g2);
@@ -235,17 +235,17 @@ public class C0 extends WebView {
     }
 
     public boolean d() {
-        return this.f39935d == K0.INTERSTITIAL;
+        return this.f40030d == K0.INTERSTITIAL;
     }
 
     @Override // android.webkit.WebView
     public void destroy() {
         try {
-            if (this.f39937f != null) {
-                this.f39937f.removeCallbacksAndMessages(null);
+            if (this.f40032f != null) {
+                this.f40032f.removeCallbacksAndMessages(null);
             }
-            this.f39936e = true;
-            this.f39937f.removeCallbacks(this.j);
+            this.f40031e = true;
+            this.f40032f.removeCallbacks(this.j);
             removeAllViews();
             stopLoading();
         } catch (Exception unused) {
@@ -258,11 +258,11 @@ public class C0 extends WebView {
     }
 
     public boolean f() {
-        return this.f39935d == K0.Video;
+        return this.f40030d == K0.Video;
     }
 
     public boolean g() {
-        return this.l && this.f39934c;
+        return this.l && this.f40029c;
     }
 
     public R0 getAttachView() {
@@ -274,7 +274,7 @@ public class C0 extends WebView {
     }
 
     public K0 getMraidMideaType() {
-        return this.f39935d;
+        return this.f40030d;
     }
 
     public L0 getMraidState() {
@@ -282,18 +282,18 @@ public class C0 extends WebView {
     }
 
     public Context getViewContext() {
-        if (this.f39932a == null) {
-            this.f39932a = getContext();
+        if (this.f40027a == null) {
+            this.f40027a = getContext();
         }
-        Context context = this.f39932a;
+        Context context = this.f40027a;
         return context instanceof MutableContextWrapper ? ((MutableContextWrapper) context).getBaseContext() : context;
     }
 
     public final void h() {
-        if (this.f39934c) {
-            this.f39936e = false;
-            this.f39937f.removeCallbacks(this.j);
-            this.f39937f.post(this.j);
+        if (this.f40029c) {
+            this.f40031e = false;
+            this.f40032f.removeCallbacks(this.j);
+            this.f40032f.post(this.j);
         }
     }
 

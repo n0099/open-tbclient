@@ -9,16 +9,16 @@ import java.util.List;
 public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, FrameSequence> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f35463a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.ByteBufferFsDecoder.DisableAnimation", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f35558a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.ByteBufferFsDecoder.DisableAnimation", Boolean.FALSE);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f35464b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.framesequence.ByteBufferFsDecoder.DisableWebp", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f35559b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.framesequence.ByteBufferFsDecoder.DisableWebp", Boolean.FALSE);
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<ImageHeaderParser> f35465c;
+    public final List<ImageHeaderParser> f35560c;
 
     public a(List<ImageHeaderParser> list) {
-        this.f35465c = list;
+        this.f35560c = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,16 +38,16 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, FrameSequence> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(ByteBuffer byteBuffer, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f35463a)).booleanValue()) {
+        if (((Boolean) eVar.a(f35558a)).booleanValue()) {
             return false;
         }
         byteBuffer.mark();
-        ImageHeaderParser.ImageType a2 = com.kwad.sdk.glide.load.b.a(this.f35465c, byteBuffer);
+        ImageHeaderParser.ImageType a2 = com.kwad.sdk.glide.load.b.a(this.f35560c, byteBuffer);
         byteBuffer.reset();
         if (a2 == ImageHeaderParser.ImageType.GIF) {
             return true;
         }
-        if (((Boolean) eVar.a(f35464b)).booleanValue() || !(a2 == ImageHeaderParser.ImageType.WEBP || a2 == ImageHeaderParser.ImageType.WEBP_A)) {
+        if (((Boolean) eVar.a(f35559b)).booleanValue() || !(a2 == ImageHeaderParser.ImageType.WEBP || a2 == ImageHeaderParser.ImageType.WEBP_A)) {
             return false;
         }
         return WebpHeaderParser.a(WebpHeaderParser.a(byteBuffer));

@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
 /* loaded from: classes5.dex */

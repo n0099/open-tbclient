@@ -9,53 +9,53 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.i0.q0.v;
+import d.b.j0.q0.v;
 /* loaded from: classes4.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f15911d;
+    public static final int f15919d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f15912e;
+    public static final int f15920e;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15913a;
+    public View f15921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15914b;
+    public TextView f15922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f15915c;
+    public Context f15923c;
 
     static {
         UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-        f15911d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        f15912e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        f15919d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        f15920e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
     public ReadProgressViewHolder(View view, Context context) {
         super(view);
-        this.f15913a = view;
+        this.f15921a = view;
         TextView textView = (TextView) view.findViewById(R.id.view_frs_read_progress);
-        this.f15914b = textView;
-        int i = f15912e;
-        textView.setPadding(0, i, 0, i - f15911d);
-        this.f15915c = context;
+        this.f15922b = textView;
+        int i = f15920e;
+        textView.setPadding(0, i, 0, i - f15919d);
+        this.f15923c = context;
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f15914b, R.color.CAM_X0304);
+        SkinManager.setViewTextColor(this.f15922b, R.color.CAM_X0304);
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_card_refresh16, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
         pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-        this.f15914b.setCompoundDrawables(pureDrawable, null, null, null);
+        this.f15922b.setCompoundDrawables(pureDrawable, null, null, null);
     }
 
     public void c(v vVar) {
         if (vVar == null) {
             return;
         }
-        this.f15914b.setText(R.string.read_here);
+        this.f15922b.setText(R.string.read_here);
         b();
     }
 }

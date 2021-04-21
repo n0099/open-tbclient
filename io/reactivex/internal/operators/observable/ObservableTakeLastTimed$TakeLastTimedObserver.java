@@ -15,7 +15,7 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
     public final long count;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69079d;
+    public b f69226d;
     public final boolean delayError;
     public Throwable error;
     public final a<Object> queue;
@@ -39,7 +39,7 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
             return;
         }
         this.cancelled = true;
-        this.f69079d.dispose();
+        this.f69226d.dispose();
         if (compareAndSet(false, true)) {
             this.queue.clear();
         }
@@ -112,8 +112,8 @@ public final class ObservableTakeLastTimed$TakeLastTimedObserver<T> extends Atom
 
     @Override // f.b.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69079d, bVar)) {
-            this.f69079d = bVar;
+        if (DisposableHelper.validate(this.f69226d, bVar)) {
+            this.f69226d = bVar;
             this.actual.onSubscribe(this);
         }
     }

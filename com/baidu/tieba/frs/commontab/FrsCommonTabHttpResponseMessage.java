@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.q0.l1.d;
+import d.b.j0.q0.l1.d;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes4.dex */

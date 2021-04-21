@@ -8,33 +8,33 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<a<d.a.a.u.j.h, Path>> f41609a;
+    public final List<a<d.a.a.u.j.h, Path>> f41704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a<Integer, Integer>> f41610b;
+    public final List<a<Integer, Integer>> f41705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Mask> f41611c;
+    public final List<Mask> f41706c;
 
     public g(List<Mask> list) {
-        this.f41611c = list;
-        this.f41609a = new ArrayList(list.size());
-        this.f41610b = new ArrayList(list.size());
+        this.f41706c = list;
+        this.f41704a = new ArrayList(list.size());
+        this.f41705b = new ArrayList(list.size());
         for (int i = 0; i < list.size(); i++) {
-            this.f41609a.add(list.get(i).b().a());
-            this.f41610b.add(list.get(i).c().a());
+            this.f41704a.add(list.get(i).b().a());
+            this.f41705b.add(list.get(i).c().a());
         }
     }
 
     public List<a<d.a.a.u.j.h, Path>> a() {
-        return this.f41609a;
+        return this.f41704a;
     }
 
     public List<Mask> b() {
-        return this.f41611c;
+        return this.f41706c;
     }
 
     public List<a<Integer, Integer>> c() {
-        return this.f41610b;
+        return this.f41705b;
     }
 }

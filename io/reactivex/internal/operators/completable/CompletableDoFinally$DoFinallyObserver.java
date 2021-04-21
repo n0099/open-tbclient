@@ -10,7 +10,7 @@ public final class CompletableDoFinally$DoFinallyObserver extends AtomicInteger 
     public final b actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public f.b.t.b f69034d;
+    public f.b.t.b f69181d;
     public final a onFinally;
 
     public CompletableDoFinally$DoFinallyObserver(b bVar, a aVar) {
@@ -20,13 +20,13 @@ public final class CompletableDoFinally$DoFinallyObserver extends AtomicInteger 
 
     @Override // f.b.t.b
     public void dispose() {
-        this.f69034d.dispose();
+        this.f69181d.dispose();
         runFinally();
     }
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f69034d.isDisposed();
+        return this.f69181d.isDisposed();
     }
 
     @Override // f.b.b
@@ -43,8 +43,8 @@ public final class CompletableDoFinally$DoFinallyObserver extends AtomicInteger 
 
     @Override // f.b.b
     public void onSubscribe(f.b.t.b bVar) {
-        if (DisposableHelper.validate(this.f69034d, bVar)) {
-            this.f69034d = bVar;
+        if (DisposableHelper.validate(this.f69181d, bVar)) {
+            this.f69181d = bVar;
             this.actual.onSubscribe(this);
         }
     }

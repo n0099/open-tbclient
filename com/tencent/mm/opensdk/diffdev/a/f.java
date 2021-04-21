@@ -5,14 +5,14 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class f extends AsyncTask<Void, Void, a> {
     public OAuthListener k;
     public String n;
     public int t;
     public String url;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public OAuthErrCode m;
         public String u;
@@ -24,54 +24,55 @@ public final class f extends AsyncTask<Void, Void, a> {
             OAuthErrCode oAuthErrCode2;
             a aVar = new a();
             Log.d("MicroMsg.SDK.NoopingResult", "star parse NoopingResult");
-            if (bArr != null && bArr.length != 0) {
+            if (bArr == null || bArr.length == 0) {
+                Log.e("MicroMsg.SDK.NoopingResult", "parse fail, buf is null");
+                oAuthErrCode = OAuthErrCode.WechatAuth_Err_NetworkErr;
+            } else {
                 try {
-                } catch (Exception e2) {
-                    format = String.format("parse fail, build String fail, ex = %s", e2.getMessage());
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(new String(bArr, "utf-8"));
-                    int i = jSONObject.getInt("wx_errcode");
-                    aVar.v = i;
-                    Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i)));
-                    int i2 = aVar.v;
-                    if (i2 == 408) {
-                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
-                    } else if (i2 != 500) {
-                        switch (i2) {
-                            case 402:
-                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Timeout;
-                                break;
-                            case 403:
-                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Cancel;
-                                break;
-                            case 404:
-                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
-                                break;
-                            case 405:
-                                aVar.m = OAuthErrCode.WechatAuth_Err_OK;
-                                aVar.u = jSONObject.getString("wx_code");
-                                break;
-                            default:
-                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
-                                break;
+                    try {
+                        JSONObject jSONObject = new JSONObject(new String(bArr, "utf-8"));
+                        int i = jSONObject.getInt("wx_errcode");
+                        aVar.v = i;
+                        Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i)));
+                        int i2 = aVar.v;
+                        if (i2 == 408) {
+                            oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
+                        } else if (i2 != 500) {
+                            switch (i2) {
+                                case 402:
+                                    oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Timeout;
+                                    break;
+                                case 403:
+                                    oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Cancel;
+                                    break;
+                                case 404:
+                                    oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
+                                    break;
+                                case 405:
+                                    aVar.m = OAuthErrCode.WechatAuth_Err_OK;
+                                    aVar.u = jSONObject.getString("wx_code");
+                                    break;
+                                default:
+                                    oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
+                                    break;
+                            }
+                            return aVar;
+                        } else {
+                            oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
                         }
+                        aVar.m = oAuthErrCode2;
                         return aVar;
-                    } else {
-                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
+                    } catch (Exception e2) {
+                        format = String.format("parse json fail, ex = %s", e2.getMessage());
+                        Log.e("MicroMsg.SDK.NoopingResult", format);
+                        oAuthErrCode = OAuthErrCode.WechatAuth_Err_NormalErr;
+                        aVar.m = oAuthErrCode;
+                        return aVar;
                     }
-                    aVar.m = oAuthErrCode2;
-                    return aVar;
                 } catch (Exception e3) {
-                    format = String.format("parse json fail, ex = %s", e3.getMessage());
-                    Log.e("MicroMsg.SDK.NoopingResult", format);
-                    oAuthErrCode = OAuthErrCode.WechatAuth_Err_NormalErr;
-                    aVar.m = oAuthErrCode;
-                    return aVar;
+                    format = String.format("parse fail, build String fail, ex = %s", e3.getMessage());
                 }
             }
-            Log.e("MicroMsg.SDK.NoopingResult", "parse fail, buf is null");
-            oAuthErrCode = OAuthErrCode.WechatAuth_Err_NetworkErr;
             aVar.m = oAuthErrCode;
             return aVar;
         }

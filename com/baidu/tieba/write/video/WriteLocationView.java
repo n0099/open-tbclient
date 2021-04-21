@@ -11,7 +11,7 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 public class WriteLocationView extends LocationInfoView {
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationModel f22042h;
+    public LocationModel f22050h;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -25,12 +25,12 @@ public class WriteLocationView extends LocationInfoView {
             if (customResponsedMessage instanceof ResponsedSelectLocation) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    WriteLocationView.this.f22042h.H(false);
-                    WriteLocationView.this.f22042h.G(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    WriteLocationView.this.f22050h.H(false);
+                    WriteLocationView.this.f22050h.G(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     WriteLocationView.this.e(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                WriteLocationView.this.f22042h.H(true);
+                WriteLocationView.this.f22050h.H(true);
                 WriteLocationView.this.e(0, true, null);
             }
         }

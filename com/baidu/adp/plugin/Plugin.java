@@ -164,7 +164,7 @@ public class Plugin {
     }
 
     private void addStaticClassToInitList(String str) {
-        if (TextUtils.isEmpty(str) || !str.endsWith(r.f42531a) || this.mStaticClassFiles == null || PluginPackageManager.O().a0(str)) {
+        if (TextUtils.isEmpty(str) || !str.endsWith(r.f42771a) || this.mStaticClassFiles == null || PluginPackageManager.O().a0(str)) {
             return;
         }
         synchronized (this.mStaticClassFielsLock) {
@@ -229,10 +229,10 @@ public class Plugin {
                     }
                     ClassLoader classLoader4 = this.mDexClassLoader;
                     a.c k = d.b.c.h.k.a.k(classLoader3, classLoader4, this.mPackageName + ".Static", false, this.mPluginApkFile.getAbsolutePath());
-                    if (k == null || !k.f42809a) {
+                    if (k == null || !k.f43049a) {
                         d.b.c.h.h.a b2 = d.b.c.h.h.a.b();
                         String str = this.mPackageName;
-                        b2.r("plugin_load", "createClassLoader_failed", str, "patch apk inject failed!" + k.f42810b);
+                        b2.r("plugin_load", "createClassLoader_failed", str, "patch apk inject failed!" + k.f43050b);
                         cVar.f2221a = false;
                         cVar.f2222b = "patchClassLoaderInject_failed";
                         cVar.f2223c = "inject failed, patch failed!";
@@ -258,13 +258,13 @@ public class Plugin {
                 this.mCurrentPluginMode = 1;
                 ClassLoader classLoader6 = this.mDexClassLoader;
                 a.c k2 = d.b.c.h.k.a.k(classLoader5, classLoader6, this.mPackageName + ".Static", true, this.mPluginApkFile.getAbsolutePath());
-                if (k2 != null && !k2.f42809a) {
+                if (k2 != null && !k2.f43049a) {
                     if (PluginPackageManager.O().c0()) {
                         d.b.c.h.h.a.b().g("plugin_inject_failed");
                     }
                     cVar.f2222b = "inject_failed";
-                    cVar.f2223c = k2.f42810b;
-                    d.b.c.h.h.a.b().r("plugin_load", "inject_failed", this.mPackageName, k2.f42810b);
+                    cVar.f2223c = k2.f43050b;
+                    d.b.c.h.h.a.b().r("plugin_load", "inject_failed", this.mPackageName, k2.f43050b);
                     this.mCurrentPluginMode = 2;
                     StringBuilder sb = new StringBuilder();
                     StringBuilder sb2 = new StringBuilder();
@@ -284,15 +284,15 @@ public class Plugin {
                     DexClassLoader dexClassLoader = new DexClassLoader(sb.length() > 0 ? sb.substring(0, sb.length() - 1) : "", this.mPluginDataRoot.getAbsolutePath(), sb2.length() > 0 ? sb2.substring(0, sb2.length() - 1) : "", classLoader5);
                     Context context = this.mContext;
                     a.c l = d.b.c.h.k.a.l(context, dexClassLoader, this.mPackageName + ".Static");
-                    if (l != null && !l.f42809a) {
+                    if (l != null && !l.f43049a) {
                         if (PluginPackageManager.O().c0()) {
-                            d.b.c.h.h.a.b().r("plugin_load", "replaceparent_failed", this.mPackageName, l.f42810b);
+                            d.b.c.h.h.a.b().r("plugin_load", "replaceparent_failed", this.mPackageName, l.f43050b);
                         }
                         cVar.f2221a = false;
                         cVar.f2222b = "replaceparent_failed";
-                        cVar.f2223c = l.f42810b;
+                        cVar.f2223c = l.f43050b;
                         return cVar;
-                    } else if (l != null && l.f42809a) {
+                    } else if (l != null && l.f43049a) {
                         d.b.c.h.h.a.b().g("plugin_second_inject_succ");
                     }
                 }

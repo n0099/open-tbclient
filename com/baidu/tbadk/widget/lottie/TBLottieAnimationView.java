@@ -13,7 +13,7 @@ import d.a.a.e;
 import d.a.a.h;
 import d.b.c.e.p.f;
 import d.b.c.e.p.k;
-import d.b.h0.b1.k.b;
+import d.b.i0.b1.k.b;
 import java.io.File;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
@@ -21,16 +21,16 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public static final String k = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.b1.k.b f13895e;
+    public d.b.i0.b1.k.b f13903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13896f;
+    public String f13904f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13897g;
+    public boolean f13905g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13898h;
+    public boolean f13906h;
     public boolean i;
     public b.a j;
 
@@ -39,7 +39,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         public a() {
         }
 
-        @Override // d.b.h0.b1.k.b.a
+        @Override // d.b.i0.b1.k.b.a
         public void a(boolean z, String str) {
             if (!z || k.isEmpty(str)) {
                 return;
@@ -52,10 +52,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public class b implements h<d> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f13900a;
+        public final /* synthetic */ boolean f13908a;
 
         public b(boolean z) {
-            this.f13900a = z;
+            this.f13908a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
                 return;
             }
             TBLottieAnimationView.this.setComposition(dVar);
-            if (this.f13900a) {
+            if (this.f13908a) {
                 TBLottieAnimationView.this.playAnimation();
             }
         }
@@ -74,8 +74,8 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public TBLottieAnimationView(Context context) {
         super(context);
-        this.f13897g = false;
-        this.f13898h = false;
+        this.f13905g = false;
+        this.f13906h = false;
         this.i = false;
         this.j = new a();
     }
@@ -117,7 +117,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         if (k.isEmpty(str)) {
             return;
         }
-        d.b.h0.b1.k.a aVar = new d.b.h0.b1.k.a();
+        d.b.i0.b1.k.a aVar = new d.b.i0.b1.k.a();
         aVar.e(str);
         aVar.d(getFristLoadInternal());
         setImageAssetDelegate(aVar);
@@ -127,7 +127,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         if (k.isEmpty(str)) {
             return;
         }
-        boolean z = this.f13897g;
+        boolean z = this.f13905g;
         cancelAnimation();
         InputStream o = o(str, "data.json");
         if (o == null) {
@@ -139,11 +139,11 @@ public class TBLottieAnimationView extends LottieAnimationView {
     @Override // com.airbnb.lottie.LottieAnimationView
     public void cancelAnimation() {
         super.cancelAnimation();
-        this.f13897g = false;
+        this.f13905g = false;
     }
 
     public boolean getFristLoadInternal() {
-        return this.f13898h;
+        return this.f13906h;
     }
 
     public void n() {
@@ -161,19 +161,19 @@ public class TBLottieAnimationView extends LottieAnimationView {
     @Override // com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
         super.pauseAnimation();
-        this.f13897g = false;
+        this.f13905g = false;
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
     public void playAnimation() {
         super.playAnimation();
-        this.f13897g = true;
+        this.f13905g = true;
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
     public void resumeAnimation() {
         super.resumeAnimation();
-        this.f13897g = true;
+        this.f13905g = true;
     }
 
     public void setAnimationDir(String str) {
@@ -185,39 +185,39 @@ public class TBLottieAnimationView extends LottieAnimationView {
     }
 
     public void setAnimationUrl(String str) {
-        if (k.isEmpty(str) || str.equals(this.f13896f)) {
+        if (k.isEmpty(str) || str.equals(this.f13904f)) {
             return;
         }
-        this.f13896f = str;
-        d.b.h0.b1.k.b bVar = new d.b.h0.b1.k.b(getAnimationPath(), str, this.j);
-        this.f13895e = bVar;
+        this.f13904f = str;
+        d.b.i0.b1.k.b bVar = new d.b.i0.b1.k.b(getAnimationPath(), str, this.j);
+        this.f13903e = bVar;
         bVar.execute(new Void[0]);
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
     public void setComposition(@NonNull d dVar) {
         super.setComposition(dVar);
-        if (this.f13897g) {
+        if (this.f13905g) {
             playAnimation();
         }
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.f13898h = z;
+        this.f13906h = z;
     }
 
     public TBLottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13897g = false;
-        this.f13898h = false;
+        this.f13905g = false;
+        this.f13906h = false;
         this.i = false;
         this.j = new a();
     }
 
     public TBLottieAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13897g = false;
-        this.f13898h = false;
+        this.f13905g = false;
+        this.f13906h = false;
         this.i = false;
         this.j = new a();
     }

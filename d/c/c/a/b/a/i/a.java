@@ -21,39 +21,39 @@ import javax.net.ssl.X509TrustManager;
 public class a extends e {
 
     /* renamed from: c  reason: collision with root package name */
-    public final d<Socket> f66237c;
+    public final d<Socket> f66332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d<Socket> f66238d;
+    public final d<Socket> f66333d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<Socket> f66239e;
+    public final d<Socket> f66334e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d<Socket> f66240f;
+    public final d<Socket> f66335f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f66241g = c.a();
+    public final c f66336g = c.a();
 
     /* renamed from: d.c.c.a.b.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1819a extends d.c.c.a.b.a.k.c {
+    public static final class C1822a extends d.c.c.a.b.a.k.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f66242a;
+        public final Object f66337a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f66243b;
+        public final Method f66338b;
 
-        public C1819a(Object obj, Method method) {
-            this.f66242a = obj;
-            this.f66243b = method;
+        public C1822a(Object obj, Method method) {
+            this.f66337a = obj;
+            this.f66338b = method;
         }
 
         @Override // d.c.c.a.b.a.k.c
         public List<Certificate> b(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
             try {
-                return (List) this.f66243b.invoke(this.f66242a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
+                return (List) this.f66338b.invoke(this.f66337a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             } catch (InvocationTargetException e3) {
@@ -64,7 +64,7 @@ public class a extends e {
         }
 
         public boolean equals(Object obj) {
-            return obj instanceof C1819a;
+            return obj instanceof C1822a;
         }
 
         public int hashCode() {
@@ -76,20 +76,20 @@ public class a extends e {
     public static final class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509TrustManager f66244a;
+        public final X509TrustManager f66339a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f66245b;
+        public final Method f66340b;
 
         public b(X509TrustManager x509TrustManager, Method method) {
-            this.f66245b = method;
-            this.f66244a = x509TrustManager;
+            this.f66340b = method;
+            this.f66339a = x509TrustManager;
         }
 
         @Override // d.c.c.a.b.a.k.f
         public X509Certificate a(X509Certificate x509Certificate) {
             try {
-                TrustAnchor trustAnchor = (TrustAnchor) this.f66245b.invoke(this.f66244a, x509Certificate);
+                TrustAnchor trustAnchor = (TrustAnchor) this.f66340b.invoke(this.f66339a, x509Certificate);
                 if (trustAnchor != null) {
                     return trustAnchor.getTrustedCert();
                 }
@@ -107,13 +107,13 @@ public class a extends e {
             }
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return this.f66244a.equals(bVar.f66244a) && this.f66245b.equals(bVar.f66245b);
+                return this.f66339a.equals(bVar.f66339a) && this.f66340b.equals(bVar.f66340b);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f66244a.hashCode() + (this.f66245b.hashCode() * 31);
+            return this.f66339a.hashCode() + (this.f66340b.hashCode() * 31);
         }
     }
 
@@ -121,18 +121,18 @@ public class a extends e {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Method f66246a;
+        public final Method f66341a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f66247b;
+        public final Method f66342b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Method f66248c;
+        public final Method f66343c;
 
         public c(Method method, Method method2, Method method3) {
-            this.f66246a = method;
-            this.f66247b = method2;
-            this.f66248c = method3;
+            this.f66341a = method;
+            this.f66342b = method2;
+            this.f66343c = method3;
         }
 
         public static c a() {
@@ -153,11 +153,11 @@ public class a extends e {
         }
 
         public Object b(String str) {
-            Method method = this.f66246a;
+            Method method = this.f66341a;
             if (method != null) {
                 try {
                     Object invoke = method.invoke(null, new Object[0]);
-                    this.f66247b.invoke(invoke, str);
+                    this.f66342b.invoke(invoke, str);
                     return invoke;
                 } catch (Exception unused) {
                 }
@@ -168,7 +168,7 @@ public class a extends e {
         public boolean c(Object obj) {
             if (obj != null) {
                 try {
-                    this.f66248c.invoke(obj, new Object[0]);
+                    this.f66343c.invoke(obj, new Object[0]);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -179,10 +179,10 @@ public class a extends e {
     }
 
     public a(Class<?> cls, d<Socket> dVar, d<Socket> dVar2, d<Socket> dVar3, d<Socket> dVar4) {
-        this.f66237c = dVar;
-        this.f66238d = dVar2;
-        this.f66239e = dVar3;
-        this.f66240f = dVar4;
+        this.f66332c = dVar;
+        this.f66333d = dVar2;
+        this.f66334e = dVar3;
+        this.f66335f = dVar4;
     }
 
     public static e a() {
@@ -228,7 +228,7 @@ public class a extends e {
     public d.c.c.a.b.a.k.c b(X509TrustManager x509TrustManager) {
         try {
             Class<?> cls = Class.forName("android.net.http.X509TrustManagerExtensions");
-            return new C1819a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
+            return new C1822a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
         } catch (Exception unused) {
             return super.b(x509TrustManager);
         }
@@ -236,14 +236,14 @@ public class a extends e {
 
     @Override // d.c.c.a.b.a.i.e
     public Object c(String str) {
-        return this.f66241g.b(str);
+        return this.f66336g.b(str);
     }
 
     @Override // d.c.c.a.b.a.i.e
     public String d(SSLSocket sSLSocket) {
         byte[] bArr;
-        d<Socket> dVar = this.f66239e;
-        if (dVar == null || !dVar.d(sSLSocket) || (bArr = (byte[]) this.f66239e.g(sSLSocket, new Object[0])) == null) {
+        d<Socket> dVar = this.f66334e;
+        if (dVar == null || !dVar.d(sSLSocket) || (bArr = (byte[]) this.f66334e.g(sSLSocket, new Object[0])) == null) {
             return null;
         }
         return new String(bArr, d.c.c.a.b.a.e.j);
@@ -277,7 +277,7 @@ public class a extends e {
 
     @Override // d.c.c.a.b.a.i.e
     public void g(String str, Object obj) {
-        if (this.f66241g.c(obj)) {
+        if (this.f66336g.c(obj)) {
             return;
         }
         f(5, str, null);
@@ -309,14 +309,14 @@ public class a extends e {
     @Override // d.c.c.a.b.a.i.e
     public void i(SSLSocket sSLSocket, String str, List<w> list) {
         if (str != null) {
-            this.f66237c.e(sSLSocket, Boolean.TRUE);
-            this.f66238d.e(sSLSocket, str);
+            this.f66332c.e(sSLSocket, Boolean.TRUE);
+            this.f66333d.e(sSLSocket, str);
         }
-        d<Socket> dVar = this.f66240f;
+        d<Socket> dVar = this.f66335f;
         if (dVar == null || !dVar.d(sSLSocket)) {
             return;
         }
-        this.f66240f.g(sSLSocket, e.n(list));
+        this.f66335f.g(sSLSocket, e.n(list));
     }
 
     @Override // d.c.c.a.b.a.i.e

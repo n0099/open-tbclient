@@ -13,10 +13,10 @@ import java.util.Map;
 public final class de extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f22855a;
+    public final /* synthetic */ FeedbackListActivity f22863a;
 
     public de(FeedbackListActivity feedbackListActivity) {
-        this.f22855a = feedbackListActivity;
+        this.f22863a = feedbackListActivity;
     }
 
     @Override // android.os.Handler
@@ -38,51 +38,51 @@ public final class de extends Handler {
         super.handleMessage(message);
         com.baidu.ufosdk.f.c.b("FeedbackListActivity -> msg.what = " + message.what);
         if (message.what == 0) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22855a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f22863a);
             dVar.d(dVar.d() + 1);
-            linearLayout3 = this.f22855a.f22709b;
+            linearLayout3 = this.f22863a.f22717b;
             linearLayout3.setVisibility(8);
-            linearLayout4 = this.f22855a.f22710c;
+            linearLayout4 = this.f22863a.f22718c;
             linearLayout4.setVisibility(0);
-            this.f22855a.f22712e = (List) message.obj;
+            this.f22863a.f22720e = (List) message.obj;
             int i = 0;
             while (true) {
-                list = this.f22855a.f22712e;
+                list = this.f22863a.f22720e;
                 if (i >= list.size()) {
                     break;
                 }
-                list3 = this.f22855a.f22712e;
+                list3 = this.f22863a.f22720e;
                 if (!((String) ((Map) list3.get(i)).get("newmsg")).equals("0")) {
-                    handler = this.f22855a.A;
+                    handler = this.f22863a.A;
                     handler.obtainMessage(2, Integer.valueOf(i)).sendToTarget();
                     break;
                 }
                 i++;
             }
-            list2 = this.f22855a.f22712e;
+            list2 = this.f22863a.f22720e;
             if (list2.size() == 0) {
-                textView3 = this.f22855a.s;
+                textView3 = this.f22863a.s;
                 textView3.setVisibility(0);
             } else {
-                textView2 = this.f22855a.s;
+                textView2 = this.f22863a.s;
                 textView2.setVisibility(8);
             }
-            duVar = this.f22855a.u;
+            duVar = this.f22863a.u;
             duVar.notifyDataSetChanged();
         }
         if (message.what == 1) {
-            linearLayout = this.f22855a.f22710c;
+            linearLayout = this.f22863a.f22718c;
             linearLayout.setVisibility(8);
-            Context applicationContext = this.f22855a.getApplicationContext();
-            textView = this.f22855a.f22711d;
+            Context applicationContext = this.f22863a.getApplicationContext();
+            textView = this.f22863a.f22719d;
             com.baidu.ufosdk.f.i.a(applicationContext, textView);
-            linearLayout2 = this.f22855a.f22709b;
+            linearLayout2 = this.f22863a.f22717b;
             linearLayout2.setVisibility(0);
-            view = this.f22855a.v;
+            view = this.f22863a.v;
             view.setVisibility(8);
         }
         if (message.what == 2) {
-            listView = this.f22855a.t;
+            listView = this.f22863a.t;
             listView.setSelection(Integer.parseInt(message.obj.toString()));
         }
     }

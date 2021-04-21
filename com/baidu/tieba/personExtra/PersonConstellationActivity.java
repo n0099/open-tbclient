@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.b1.o.a.d.e;
+import d.b.i0.b1.o.a.d.e;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class PersonConstellationActivity extends BaseActivity {
@@ -36,7 +36,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public TextView mShowStatusLabel;
     public TextView mShowStatusTipView;
     public BdSwitchView mSwitchView;
-    public d.b.h0.b1.o.a.f.b mTimePickerView;
+    public d.b.i0.b1.o.a.f.b mTimePickerView;
     public BdSwitchView.b mSwitchChangeListener = new a();
     public View.OnClickListener mClickListener = new b();
     public e mTimeSelectListener = new d();
@@ -76,7 +76,7 @@ public class PersonConstellationActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements d.b.h0.b1.o.a.d.a {
+    public class c implements d.b.i0.b1.o.a.d.a {
 
         /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
@@ -108,7 +108,7 @@ public class PersonConstellationActivity extends BaseActivity {
         public c() {
         }
 
-        @Override // d.b.h0.b1.o.a.d.a
+        @Override // d.b.i0.b1.o.a.d.a
         public void a(View view) {
             SkinManager.setBackgroundResource(view, R.drawable.person_birthday_select_top_bg);
             TextView textView = (TextView) view.findViewById(R.id.person_constellation_cancle);
@@ -125,7 +125,7 @@ public class PersonConstellationActivity extends BaseActivity {
         public d() {
         }
 
-        @Override // d.b.h0.b1.o.a.d.e
+        @Override // d.b.i0.b1.o.a.d.e
         public void a(Date date, View view) {
             if (date == null) {
                 return;
@@ -243,7 +243,7 @@ public class PersonConstellationActivity extends BaseActivity {
 
     public void showTimePicker() {
         if (this.mTimePickerView == null) {
-            d.b.h0.b1.o.a.b.a aVar = new d.b.h0.b1.o.a.b.a(getActivity(), this.mTimeSelectListener);
+            d.b.i0.b1.o.a.b.a aVar = new d.b.i0.b1.o.a.b.a(getActivity(), this.mTimeSelectListener);
             aVar.k(R.layout.person_birthday_select_layout, new c());
             aVar.f(18);
             aVar.p(new boolean[]{true, true, true, false, false, false});

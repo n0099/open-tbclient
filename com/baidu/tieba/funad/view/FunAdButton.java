@@ -17,16 +17,16 @@ import d.b.c.e.p.l;
 public class FunAdButton extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16484e;
+    public int f16492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16485f;
+    public int f16493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16486g;
+    public int f16494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16487h;
+    public int f16495h;
     public final int i;
     public int j;
     public int k;
@@ -49,10 +49,10 @@ public class FunAdButton extends View {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16488e;
+        public final /* synthetic */ String f16496e;
 
         public a(String str) {
-            this.f16488e = str;
+            this.f16496e = str;
         }
 
         @Override // java.lang.Runnable
@@ -60,7 +60,7 @@ public class FunAdButton extends View {
             if (FunAdButton.this.y) {
                 return;
             }
-            FunAdButton.this.setText(this.f16488e);
+            FunAdButton.this.setText(this.f16496e);
         }
     }
 
@@ -141,10 +141,10 @@ public class FunAdButton extends View {
     }
 
     public void h() {
-        SkinManager.setBackgroundResource(this, this.f16487h);
-        this.l = SkinManager.getColor(this.f16484e);
-        this.m = SkinManager.getColor(this.f16485f);
-        this.q = SkinManager.getColor(this.f16486g);
+        SkinManager.setBackgroundResource(this, this.f16495h);
+        this.l = SkinManager.getColor(this.f16492e);
+        this.m = SkinManager.getColor(this.f16493f);
+        this.q = SkinManager.getColor(this.f16494g);
     }
 
     public void i() {
@@ -177,7 +177,7 @@ public class FunAdButton extends View {
     }
 
     public void setBackgroundSkin(int i) {
-        this.f16487h = i;
+        this.f16495h = i;
     }
 
     public void setButtonTextColor(int i) {
@@ -218,7 +218,7 @@ public class FunAdButton extends View {
     }
 
     public void setTextColorInitSkin(int i) {
-        this.f16485f = i;
+        this.f16493f = i;
     }
 
     public void setTextDelay(String str, long j) {
@@ -238,17 +238,17 @@ public class FunAdButton extends View {
 
     public FunAdButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f16484e = R.color.CAM_X0101;
-        this.f16485f = R.color.CAM_X0304;
-        this.f16486g = R.color.CAM_X0302;
-        this.f16487h = R.drawable.ad_download_progress_button_bg;
+        this.f16492e = R.color.CAM_X0101;
+        this.f16493f = R.color.CAM_X0304;
+        this.f16494g = R.color.CAM_X0302;
+        this.f16495h = R.drawable.ad_download_progress_button_bg;
         this.i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.j = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.k = 0;
-        this.l = SkinManager.getColor(this.f16484e);
-        this.m = SkinManager.getColor(this.f16485f);
+        this.l = SkinManager.getColor(this.f16492e);
+        this.m = SkinManager.getColor(this.f16493f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f16486g);
+        this.q = SkinManager.getColor(this.f16494g);
         this.s = 100;
         this.t = 0;
         this.w = 0;

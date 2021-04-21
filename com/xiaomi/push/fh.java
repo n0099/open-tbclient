@@ -10,7 +10,7 @@ import com.xiaomi.push.service.av;
 public class fh extends fs {
 
     /* renamed from: a  reason: collision with root package name */
-    public fc f40791a;
+    public fc f40886a;
 
     /* renamed from: a  reason: collision with other field name */
     public fd f378a;
@@ -41,9 +41,9 @@ public class fh extends fs {
 
     private void h() {
         try {
-            this.f40791a = new fc(((fs) this).f408a.getInputStream(), this);
+            this.f40886a = new fc(((fs) this).f408a.getInputStream(), this);
             this.f378a = new fd(((fs) this).f408a.getOutputStream(), this);
-            fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f40798b + SmallTailInfo.EMOTION_SUFFIX);
+            fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f40893b + SmallTailInfo.EMOTION_SUFFIX);
             this.f379a = fiVar;
             fiVar.start();
         } catch (Exception e2) {
@@ -59,9 +59,9 @@ public class fh extends fs {
 
     @Override // com.xiaomi.push.fs
     public synchronized void a(int i, Exception exc) {
-        if (this.f40791a != null) {
-            this.f40791a.b();
-            this.f40791a = null;
+        if (this.f40886a != null) {
+            this.f40886a.b();
+            this.f40886a = null;
         }
         if (this.f378a != null) {
             try {
@@ -152,7 +152,7 @@ public class fh extends fs {
         }
         try {
             int a2 = fdVar.a(faVar);
-            ((fl) this).f40800d = System.currentTimeMillis();
+            ((fl) this).f40895d = System.currentTimeMillis();
             String f2 = faVar.f();
             if (!TextUtils.isEmpty(f2)) {
                 gq.a(((fl) this).f393a, f2, a2, false, true, System.currentTimeMillis());

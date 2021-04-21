@@ -13,9 +13,9 @@ public class e extends f<Integer> {
 
     public int p(d.a.a.y.a<Integer> aVar, float f2) {
         Integer num;
-        if (aVar.f41801b != null && aVar.f41802c != null) {
-            d.a.a.y.c<A> cVar = this.f41599e;
-            if (cVar != 0 && (num = (Integer) cVar.b(aVar.f41804e, aVar.f41805f.floatValue(), aVar.f41801b, aVar.f41802c, f2, e(), f())) != null) {
+        if (aVar.f41896b != null && aVar.f41897c != null) {
+            d.a.a.y.c<A> cVar = this.f41694e;
+            if (cVar != 0 && (num = (Integer) cVar.b(aVar.f41899e, aVar.f41900f.floatValue(), aVar.f41896b, aVar.f41897c, f2, e(), f())) != null) {
                 return num.intValue();
             }
             return d.a.a.x.g.l(aVar.g(), aVar.d(), f2);

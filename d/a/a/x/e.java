@@ -11,10 +11,10 @@ public class e extends a implements Choreographer.FrameCallback {
     public d.a.a.d n;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f41789g = 1.0f;
+    public float f41884g = 1.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41790h = false;
+    public boolean f41885h = false;
     public long i = 0;
     public float j = 0.0f;
     public int k = 0;
@@ -28,7 +28,7 @@ public class e extends a implements Choreographer.FrameCallback {
     }
 
     public void B(float f2) {
-        this.f41789g = f2;
+        this.f41884g = f2;
     }
 
     public final void C() {
@@ -69,14 +69,14 @@ public class e extends a implements Choreographer.FrameCallback {
         f();
         if (z) {
             if (getRepeatCount() != -1 && this.k >= getRepeatCount()) {
-                this.j = this.f41789g < 0.0f ? m() : l();
+                this.j = this.f41884g < 0.0f ? m() : l();
                 s();
                 c(o());
             } else {
                 d();
                 this.k++;
                 if (getRepeatMode() == 2) {
-                    this.f41790h = !this.f41790h;
+                    this.f41885h = !this.f41885h;
                     v();
                 } else {
                     this.j = o() ? l() : m();
@@ -158,7 +158,7 @@ public class e extends a implements Choreographer.FrameCallback {
         if (dVar == null) {
             return Float.MAX_VALUE;
         }
-        return (1.0E9f / dVar.h()) / Math.abs(this.f41789g);
+        return (1.0E9f / dVar.h()) / Math.abs(this.f41884g);
     }
 
     public float l() {
@@ -180,7 +180,7 @@ public class e extends a implements Choreographer.FrameCallback {
     }
 
     public float n() {
-        return this.f41789g;
+        return this.f41884g;
     }
 
     public final boolean o() {
@@ -217,10 +217,10 @@ public class e extends a implements Choreographer.FrameCallback {
     @Override // android.animation.ValueAnimator
     public void setRepeatMode(int i) {
         super.setRepeatMode(i);
-        if (i == 2 || !this.f41790h) {
+        if (i == 2 || !this.f41885h) {
             return;
         }
-        this.f41790h = false;
+        this.f41885h = false;
         v();
     }
 

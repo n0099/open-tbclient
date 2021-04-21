@@ -14,7 +14,7 @@ import java.util.List;
 public class MyReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public Callback f11264a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
+    public Callback f11272a = new Callback() { // from class: com.baidu.sofire.MyReceiver.1
         @Override // com.baidu.sofire.ac.Callback
         public final Object onEnd(Object... objArr) {
             return super.onEnd(objArr);
@@ -22,18 +22,18 @@ public class MyReceiver extends BroadcastReceiver {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11265b = false;
+    public boolean f11273b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f11266c = 0;
+    public long f11274c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11267d = 0;
+    public long f11275d = 0;
 
     public final MyReceiver a() {
         try {
-            this.f11266c = System.currentTimeMillis();
-            this.f11265b = true;
+            this.f11274c = System.currentTimeMillis();
+            this.f11273b = true;
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
@@ -51,17 +51,17 @@ public class MyReceiver extends BroadcastReceiver {
             sb.append(", ins=");
             sb.append(this);
             b.a();
-            if (!this.f11265b || System.currentTimeMillis() - this.f11266c >= 2000) {
+            if (!this.f11273b || System.currentTimeMillis() - this.f11274c >= 2000) {
                 if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                    if (System.currentTimeMillis() - this.f11267d < 100 || !com.baidu.sofire.g.d.g(context)) {
+                    if (System.currentTimeMillis() - this.f11275d < 100 || !com.baidu.sofire.g.d.g(context)) {
                         return;
                     }
-                    this.f11267d = System.currentTimeMillis();
+                    this.f11275d = System.currentTimeMillis();
                 }
                 new StringBuilder("_2_").append(intent.toString());
                 b.a();
                 final Context applicationContext = context.getApplicationContext();
-                final boolean z = this.f11265b;
+                final boolean z = this.f11273b;
                 t.a(applicationContext).a(new Runnable() { // from class: com.baidu.sofire.MyReceiver.2
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -85,7 +85,7 @@ public class MyReceiver extends BroadcastReceiver {
                             } else {
                                 z2 = false;
                             }
-                            if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.g.d.f11409a && !z2 && com.baidu.sofire.g.d.f(applicationContext)) {
+                            if (z && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.g.d.f11417a && !z2 && com.baidu.sofire.g.d.f(applicationContext)) {
                                 new U(applicationContext.getApplicationContext(), 3, false).start();
                             }
                             if (z) {
@@ -102,11 +102,11 @@ public class MyReceiver extends BroadcastReceiver {
                                     if (apkInfo.intentFilters != null) {
                                         for (int i2 = 0; i2 < apkInfo.intentFilters.size(); i2++) {
                                             com.baidu.sofire.core.g gVar = apkInfo.intentFilters.get(i2);
-                                            if (gVar.f11372d.match(intent.getAction(), intent.getType(), intent.getScheme(), intent.getData(), intent.getCategories(), "PIF") >= 0) {
+                                            if (gVar.f11380d.match(intent.getAction(), intent.getType(), intent.getScheme(), intent.getData(), intent.getCategories(), "PIF") >= 0) {
                                                 new StringBuilder().append(apkInfo);
                                                 b.a();
-                                                Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f11370b);
-                                                loadClass.getDeclaredMethod(gVar.f11371c, Context.class, Intent.class).invoke(loadClass.newInstance(), applicationContext.getApplicationContext(), intent);
+                                                Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f11378b);
+                                                loadClass.getDeclaredMethod(gVar.f11379c, Context.class, Intent.class).invoke(loadClass.newInstance(), applicationContext.getApplicationContext(), intent);
                                             }
                                         }
                                     }

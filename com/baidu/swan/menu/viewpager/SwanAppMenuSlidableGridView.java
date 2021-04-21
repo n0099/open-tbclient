@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
-import d.b.g0.i.g;
-import d.b.g0.i.h;
+import d.b.h0.i.g;
+import d.b.h0.i.h;
 /* loaded from: classes3.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
@@ -30,7 +30,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     public void f(Context context) {
-        PointPageIndicator e2 = new d.b.g0.i.r.a(context).e(h.menu_indicator_normal, h.menu_indicator_selected);
+        PointPageIndicator e2 = new d.b.h0.i.r.a(context).e(h.menu_indicator_normal, h.menu_indicator_selected);
         e2.f((int) getResources().getDimension(g.common_grid_indicator_margin));
         this.l = e2;
         this.m[0] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);

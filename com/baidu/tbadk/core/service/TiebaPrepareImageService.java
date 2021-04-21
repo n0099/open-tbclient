@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import d.b.h0.z0.p0;
+import d.b.i0.z0.p0;
 /* loaded from: classes3.dex */
 public class TiebaPrepareImageService extends BdBaseService {
     public static final String DISPLAY_SIZE = "display_size";
@@ -51,24 +51,24 @@ public class TiebaPrepareImageService extends BdBaseService {
     public class b extends BdAsyncTask<Object, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12961a;
+        public int f12969a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f12962b;
+        public Uri f12970b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12963c;
+        public String f12971c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12964d = null;
+        public String f12972d = null;
 
         public b(int i, Uri uri, String str) {
-            this.f12961a = 0;
-            this.f12962b = null;
-            this.f12963c = null;
-            this.f12961a = i;
-            this.f12962b = uri;
-            this.f12963c = str;
+            this.f12969a = 0;
+            this.f12970b = null;
+            this.f12971c = null;
+            this.f12969a = i;
+            this.f12970b = uri;
+            this.f12971c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public class TiebaPrepareImageService extends BdBaseService {
             TiebaPrepareImageService.IS_DECODING = true;
             boolean z2 = false;
             try {
-                c2 = p0.c(this.f12961a, TiebaPrepareImageService.this, this.f12962b, this.f12963c, TiebaPrepareImageService.this.mMaxSize);
+                c2 = p0.c(this.f12969a, TiebaPrepareImageService.this, this.f12970b, this.f12971c, TiebaPrepareImageService.this.mMaxSize);
             } catch (Exception unused) {
                 TiebaPrepareImageService.IS_DECODING = false;
             } catch (Throwable th) {
@@ -91,17 +91,17 @@ public class TiebaPrepareImageService extends BdBaseService {
                 if (FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null) {
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c2, TiebaPrepareImageService.this.mDisplaySize > 0 ? TiebaPrepareImageService.this.mDisplaySize : 100);
                     if (resizeBitmap == null || FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.f12964d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                        this.f12972d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     } else {
                         TiebaPrepareImageService.IS_DECODING = false;
                         z2 = z;
                         return Boolean.valueOf(z2);
                     }
                 } else {
-                    this.f12964d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.f12972d = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                 }
             } else {
-                this.f12964d = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+                this.f12972d = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
             }
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
@@ -121,7 +121,7 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((b) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            String str = this.f12964d;
+            String str = this.f12972d;
             if (str != null) {
                 intent.putExtra("error", str);
             }

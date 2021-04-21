@@ -12,30 +12,30 @@ import java.util.List;
 public class b extends BaseBean<GetOrderResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24040a;
+    public String f24048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24041b;
+    public String f24049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24042c;
+    public String f24050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24043d;
+    public String f24051d;
 
     public <T> b(Context context) {
         super(context);
-        this.f24040a = "";
-        this.f24041b = "";
-        this.f24042c = "";
-        this.f24043d = "";
+        this.f24048a = "";
+        this.f24049b = "";
+        this.f24050c = "";
+        this.f24051d = "";
     }
 
     public void a(String str, String str2, String str3, String str4) {
-        this.f24040a = str2;
-        this.f24041b = str;
-        this.f24042c = str3;
-        this.f24043d = str4;
+        this.f24048a = str2;
+        this.f24049b = str;
+        this.f24050c = str3;
+        this.f24051d = str4;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -46,10 +46,10 @@ public class b extends BaseBean<GetOrderResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f24041b)));
-        arrayList.add(new RestNameValuePair("price", this.f24040a));
-        arrayList.add(new RestNameValuePair("is_huodong_price", this.f24042c));
-        arrayList.add(new RestNameValuePair("device_token", this.f24043d));
+        arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f24049b)));
+        arrayList.add(new RestNameValuePair("price", this.f24048a));
+        arrayList.add(new RestNameValuePair("is_huodong_price", this.f24050c));
+        arrayList.add(new RestNameValuePair("device_token", this.f24051d));
         return arrayList;
     }
 

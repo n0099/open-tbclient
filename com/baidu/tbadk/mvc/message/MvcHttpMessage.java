@@ -1,8 +1,8 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import d.b.h0.g0.b.f;
-import d.b.h0.g0.b.h;
+import d.b.i0.g0.b.f;
+import d.b.i0.g0.b.h;
 /* loaded from: classes3.dex */
 public class MvcHttpMessage<T extends f, D extends h> extends HttpMessage {
     public boolean isNeedCache;

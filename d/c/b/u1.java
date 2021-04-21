@@ -6,14 +6,14 @@ import org.json.JSONObject;
 public class u1 extends v1 {
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65928d;
+    public boolean f66023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j f65929e;
+    public final j f66024e;
 
     public u1(Context context, j jVar) {
         super(context);
-        this.f65929e = jVar;
+        this.f66024e = jVar;
     }
 
     @Override // d.c.b.v1
@@ -23,25 +23,25 @@ public class u1 extends v1 {
 
     @Override // d.c.b.v1
     public long b() {
-        return this.f65928d ? Long.MAX_VALUE : 0L;
+        return this.f66023d ? Long.MAX_VALUE : 0L;
     }
 
     @Override // d.c.b.v1
     public long[] c() {
-        return b2.f65800f;
+        return b2.f65895f;
     }
 
     @Override // d.c.b.v1
     public boolean d() {
-        if (this.f65929e.v() != 0) {
-            JSONObject c2 = this.f65929e.c();
+        if (this.f66024e.v() != 0) {
+            JSONObject c2 = this.f66024e.c();
             if (c2 != null) {
-                this.f65928d = x.i(y.a(this.f65933a, this.f65929e.c(), x.b().c(), true, a.k()), c2);
+                this.f66023d = x.i(y.a(this.f66028a, this.f66024e.c(), x.b().c(), true, a.k()), c2);
             } else {
                 r0.b(null);
             }
         }
-        return this.f65928d;
+        return this.f66023d;
     }
 
     @Override // d.c.b.v1

@@ -8,12 +8,12 @@ import d.b.c.e.p.h;
 public class StringU {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14126a;
+    public static boolean f14134a;
 
     static {
         try {
             boolean j = h.f().j("stringu", 2);
-            f14126a = j;
+            f14134a = j;
             if (j) {
                 a("stringu_so_load_success", null);
             } else {
@@ -39,7 +39,7 @@ public class StringU {
     */
     public static String b(String str) {
         String str2;
-        if (!f14126a || TextUtils.isEmpty(str)) {
+        if (!f14134a || TextUtils.isEmpty(str)) {
             str2 = "";
         } else {
             try {

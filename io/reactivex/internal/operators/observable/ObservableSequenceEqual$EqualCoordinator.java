@@ -46,8 +46,8 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
         this.resources.dispose();
         if (getAndIncrement() == 0) {
             j<T>[] jVarArr = this.observers;
-            jVarArr[0].f68511f.clear();
-            jVarArr[1].f68511f.clear();
+            jVarArr[0].f68658f.clear();
+            jVarArr[1].f68658f.clear();
         }
     }
 
@@ -61,18 +61,18 @@ public final class ObservableSequenceEqual$EqualCoordinator<T> extends AtomicInt
         }
         j<T>[] jVarArr = this.observers;
         j<T> jVar = jVarArr[0];
-        a<T> aVar = jVar.f68511f;
+        a<T> aVar = jVar.f68658f;
         j<T> jVar2 = jVarArr[1];
-        a<T> aVar2 = jVar2.f68511f;
+        a<T> aVar2 = jVar2.f68658f;
         int i = 1;
         while (!this.cancelled) {
-            boolean z = jVar.f68513h;
+            boolean z = jVar.f68660h;
             if (z && (th2 = jVar.i) != null) {
                 cancel(aVar, aVar2);
                 this.actual.onError(th2);
                 return;
             }
-            boolean z2 = jVar2.f68513h;
+            boolean z2 = jVar2.f68660h;
             if (z2 && (th = jVar2.i) != null) {
                 cancel(aVar, aVar2);
                 this.actual.onError(th);

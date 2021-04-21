@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.extend.XGridLayout;
 import com.baidu.tieba.R;
 import d.b.c.a.j;
-import d.b.h0.m.c;
-import d.b.h0.m.e;
-import d.b.h0.m.f;
-import d.b.h0.r.q.k0;
-import d.b.h0.r.q.l;
 import d.b.i.p;
 import d.b.i.q;
+import d.b.i0.m.c;
+import d.b.i0.m.e;
+import d.b.i0.m.f;
+import d.b.i0.r.q.k0;
+import d.b.i0.r.q.l;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GridIconLayout extends FrameLayout implements q, p<k0> {
@@ -38,7 +38,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
 
     /* renamed from: h  reason: collision with root package name */
     public e<l> f4451h;
-    public d.b.h0.b1.f.a.a i;
+    public d.b.i0.b1.f.a.a i;
 
     /* loaded from: classes.dex */
     public class a implements e<l> {
@@ -46,7 +46,7 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.m.e
+        @Override // d.b.i0.m.e
         /* renamed from: b */
         public void a(View view, l lVar, int i, long j) {
             if (lVar != null) {
@@ -59,15 +59,15 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     }
 
     /* loaded from: classes.dex */
-    public class b extends d.b.h0.b1.f.a.a<l> {
+    public class b extends d.b.i0.b1.f.a.a<l> {
         public b(Context context, int i) {
             super(context, i);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.b1.f.a.a
+        @Override // d.b.i0.b1.f.a.a
         /* renamed from: i */
-        public void f(d.b.h0.b1.f.a.c cVar, l lVar, int i) {
+        public void f(d.b.i0.b1.f.a.c cVar, l lVar, int i) {
             RoundTbImageView roundTbImageView = (RoundTbImageView) cVar.b(R.id.iv_icon);
             roundTbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             roundTbImageView.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -108,9 +108,9 @@ public class GridIconLayout extends FrameLayout implements q, p<k0> {
     @Override // d.b.i.p
     /* renamed from: e */
     public void a(k0 k0Var) {
-        if (k0Var != null && !ListUtils.isEmpty(k0Var.f51234e)) {
+        if (k0Var != null && !ListUtils.isEmpty(k0Var.f51570e)) {
             setVisibility(0);
-            List<l> list = k0Var.f51234e;
+            List<l> list = k0Var.f51570e;
             this.f4448e.setAutoGridSpan(list, 5);
             this.f4448e.setAdapter(this.i);
             this.i.h(this.f4451h);

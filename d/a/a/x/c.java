@@ -8,7 +8,7 @@ import java.util.Set;
 public class c implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f41787a = new HashSet();
+    public static final Set<String> f41882a = new HashSet();
 
     @Override // d.a.a.i
     public void a(String str) {
@@ -17,7 +17,7 @@ public class c implements i {
 
     @Override // d.a.a.i
     public void b(String str, Throwable th) {
-        if (d.a.a.c.f41409a) {
+        if (d.a.a.c.f41504a) {
             Log.d("LOTTIE", str, th);
         }
     }
@@ -29,15 +29,15 @@ public class c implements i {
 
     @Override // d.a.a.i
     public void d(String str, Throwable th) {
-        if (f41787a.contains(str)) {
+        if (f41882a.contains(str)) {
             return;
         }
         Log.w("LOTTIE", str, th);
-        f41787a.add(str);
+        f41882a.add(str);
     }
 
     public void e(String str, Throwable th) {
-        if (d.a.a.c.f41409a) {
+        if (d.a.a.c.f41504a) {
             Log.d("LOTTIE", str, th);
         }
     }

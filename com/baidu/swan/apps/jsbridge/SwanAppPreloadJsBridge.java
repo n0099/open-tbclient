@@ -3,13 +3,13 @@ package com.baidu.swan.apps.jsbridge;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import d.b.g0.a.e0.k.a;
-import d.b.g0.a.k;
-import d.b.g0.a.n1.c.f.b;
+import d.b.h0.a.e0.k.a;
+import d.b.h0.a.k;
+import d.b.h0.a.n1.c.f.b;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppPreloadJsBridge {
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
     public static final String TAG = "SwanAppPreloadJsBridge";
     public a mJSContainer;

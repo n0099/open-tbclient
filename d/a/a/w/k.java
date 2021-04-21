@@ -6,7 +6,7 @@ import java.io.IOException;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41759a = JsonReader.a.a("fFamily", "fName", "fStyle", "ascent");
+    public static final JsonReader.a f41854a = JsonReader.a.a("fFamily", "fName", "fStyle", "ascent");
 
     public static d.a.a.u.b a(JsonReader jsonReader) throws IOException {
         jsonReader.o();
@@ -15,7 +15,7 @@ public class k {
         String str3 = null;
         float f2 = 0.0f;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41759a);
+            int D = jsonReader.D(f41854a);
             if (D == 0) {
                 str = jsonReader.z();
             } else if (D == 1) {

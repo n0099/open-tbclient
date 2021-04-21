@@ -7,8 +7,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-import d.b.h0.k0.d;
-import d.b.i0.j3.e.j;
+import d.b.i0.k0.d;
+import d.b.j0.j3.e.j;
 /* loaded from: classes5.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     public BackgroundPreviewModel.b mCallback = new a();
@@ -54,7 +54,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "b009";
     }
@@ -67,7 +67,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50646a = true;
+            pageStayDurationItem.f50982a = true;
             pageStayDurationItem.i = String.valueOf(this.mPropId);
         }
         return pageStayDurationItem;
@@ -139,7 +139,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (z) {
-            d.b.h0.z.b.a().d();
+            d.b.i0.z.b.a().d();
         }
     }
 }

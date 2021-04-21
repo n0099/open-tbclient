@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityOpenPageAuto;
-import d.b.h0.r.a0.b;
-import d.b.h0.s.d.f;
-import d.b.h0.t.k;
-import d.b.i0.s.a;
+import d.b.i0.r.a0.b;
+import d.b.i0.s.d.f;
+import d.b.i0.t.k;
+import d.b.j0.s.a;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpenPage {

@@ -1,71 +1,37 @@
 package d.b.g0.q;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class a<T> {
+import android.content.Context;
+import android.util.Log;
+import java.lang.reflect.Method;
+/* loaded from: classes2.dex */
+public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.b.g0.q.c.b<T>> f49731a = new ArrayList(6);
+    public Object f43746a;
 
-    public void a(d.b.g0.q.c.b<T> bVar) {
-        if (bVar == null || this.f49731a.contains(bVar)) {
-            return;
-        }
-        this.f49731a.add(bVar);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public Class<?> f43747b;
 
-    public T b() {
-        ArrayList<d.b.g0.q.c.b> arrayList = new ArrayList();
-        Iterator<d.b.g0.q.c.b<T>> it = this.f49731a.iterator();
-        T t = null;
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            d.b.g0.q.c.b<T> next = it.next();
-            T t2 = next.get();
-            if (c(t2)) {
-                t = t2;
-                break;
-            }
-            arrayList.add(next);
-            t = t2;
-        }
-        if (arrayList.size() > 0) {
-            for (d.b.g0.q.c.b bVar : arrayList) {
-                bVar.put(t);
-            }
-        }
-        return t;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public Method f43748c;
 
-    public final boolean c(T t) {
-        char[] charArray;
-        if (t != null && (t instanceof String)) {
-            String str = (String) t;
-            if (str.length() != 32) {
-                return false;
-            }
-            for (char c2 : str.toCharArray()) {
-                if ((c2 < 'A' || c2 > 'Z') && (c2 < '0' || c2 > '9')) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public String f43749d;
 
-    public void d(T t) {
-        if (c(t)) {
-            return;
+    public final String a(Context context, Method method) {
+        Object obj = this.f43746a;
+        if (obj == null || method == null) {
+            return null;
         }
-        for (d.b.g0.q.c.b<T> bVar : this.f49731a) {
-            if (bVar.a()) {
-                bVar.put(t);
+        try {
+            Object invoke = method.invoke(obj, context);
+            if (invoke != null) {
+                return (String) invoke;
             }
+            return null;
+        } catch (Exception e2) {
+            Log.d("IdentifierManager", "invoke exception!", e2);
+            return null;
         }
     }
 }

@@ -10,24 +10,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import d.b.c.e.d.l;
-import d.b.h0.r.r.a;
-import d.b.i0.h2.b;
+import d.b.i0.r.r.a;
+import d.b.j0.h2.b;
 /* loaded from: classes3.dex */
 public class PersonBarModel extends BdBaseModel {
     public static final String i;
     public static TbHttpMessageTask j;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20017e;
+    public b f20025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20018f;
+    public boolean f20026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20019g;
+    public String f20027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20020h;
+    public int f20028h;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
@@ -40,8 +40,8 @@ public class PersonBarModel extends BdBaseModel {
 
     public PersonBarModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f20017e = new b();
-        this.f20018f = z;
+        this.f20025e = new b();
+        this.f20026f = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -55,18 +55,18 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public String getId() {
-        return this.f20019g;
+        return this.f20027g;
     }
 
     public b s() {
-        return this.f20017e;
+        return this.f20025e;
     }
 
     public void setSex(int i2) {
     }
 
     public boolean t() {
-        return this.f20018f;
+        return this.f20026f;
     }
 
     public void u() {
@@ -87,7 +87,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void w(String str) {
-        if (this.f20020h == 1 && this.f20018f) {
+        if (this.f20028h == 1 && this.f20026f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -103,10 +103,10 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void x(int i2) {
-        this.f20020h = i2;
+        this.f20028h = i2;
     }
 
     public void y(String str) {
-        this.f20019g = str;
+        this.f20027g = str;
     }
 }

@@ -15,14 +15,14 @@ import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import d.b.h0.r.q.a2;
-import d.b.i0.e.e.e;
-import d.b.i0.s2.d;
-import d.b.i0.s2.f;
-import d.b.i0.s2.h;
-import d.b.i0.s2.l;
-import d.b.i0.s2.v;
-import d.b.i0.s2.x;
+import d.b.i0.r.q.a2;
+import d.b.j0.e.e.e;
+import d.b.j0.s2.d;
+import d.b.j0.s2.f;
+import d.b.j0.s2.h;
+import d.b.j0.s2.l;
+import d.b.j0.s2.v;
+import d.b.j0.s2.x;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +31,7 @@ public class RecAppStatic {
 
     /* loaded from: classes4.dex */
     public static class a implements l.a {
-        @Override // d.b.i0.s2.l.a
+        @Override // d.b.j0.s2.l.a
         public int a(Context context, String[] strArr) {
             if (strArr != null && strArr[0] != null) {
                 Uri parse = Uri.parse(strArr[0]);
@@ -94,9 +94,9 @@ public class RecAppStatic {
     }
 
     static {
-        v.f61741a.set(new x());
+        v.f62162a.set(new x());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        d.b.i0.o.a.l().e(new a());
+        d.b.j0.o.a.l().e(new a());
         e.b().c(1, new h());
         e.b().c(2, new f());
         a2.u3.set(true);
@@ -110,6 +110,6 @@ public class RecAppStatic {
         d.t().a();
         d.t().f();
         BdLog.isDebugMode();
-        d.b.i0.o.d.h.a.f58659a.set(new d.b.i0.s2.a0.b());
+        d.b.j0.o.d.h.a.f59080a.set(new d.b.j0.s2.a0.b());
     }
 }

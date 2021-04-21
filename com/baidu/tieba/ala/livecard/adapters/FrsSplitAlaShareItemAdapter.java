@@ -8,15 +8,15 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.z1;
-import d.b.i0.m.e;
-import d.b.i0.m.f;
-import d.b.i0.q0.j;
-import d.b.i0.q0.k;
-import d.b.i0.t.i.e.c;
-import d.b.i0.x.b0;
-import d.b.i0.x.z;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.z1;
+import d.b.j0.m.e;
+import d.b.j0.m.f;
+import d.b.j0.q0.j;
+import d.b.j0.q0.k;
+import d.b.j0.t.i.e.c;
+import d.b.j0.x.b0;
+import d.b.j0.x.z;
 /* loaded from: classes4.dex */
 public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> implements z, f {
     public String w;
@@ -28,11 +28,11 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f14693a;
+        public c f14701a;
 
         public FrsPageAlaShareHolder(c cVar) {
             super(cVar.m());
-            this.f14693a = cVar;
+            this.f14701a = cVar;
         }
     }
 
@@ -42,7 +42,7 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.x.b0
+        @Override // d.b.j0.x.b0
         /* renamed from: d */
         public void a(View view, a2 a2Var) {
             CustomMessage customMessage;
@@ -66,17 +66,17 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
         this.z = new a();
     }
 
-    @Override // d.b.i0.x.z
+    @Override // d.b.j0.x.z
     public void a(String str) {
         this.w = str;
     }
 
-    @Override // d.b.i0.m.f
+    @Override // d.b.j0.m.f
     public void o(String str) {
         this.y = str;
     }
 
-    @Override // d.b.i0.x.z
+    @Override // d.b.j0.x.z
     public void p(int i) {
     }
 
@@ -97,7 +97,7 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.q0.k, d.b.c.j.e.a
+    @Override // d.b.j0.q0.k, d.b.c.j.e.a
     /* renamed from: w0 */
     public View X(int i, View view, ViewGroup viewGroup, z1 z1Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         CustomMessage customMessage = new CustomMessage(2921017);
@@ -108,14 +108,14 @@ public class FrsSplitAlaShareItemAdapter extends k<z1, FrsPageAlaShareHolder> im
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (z1Var != null) {
-            c cVar = frsPageAlaShareHolder.f14693a;
+            c cVar = frsPageAlaShareHolder.f14701a;
             if (cVar instanceof e) {
                 cVar.setPage(this.y);
             }
-            frsPageAlaShareHolder.f14693a.a(this.w);
-            j.h(frsPageAlaShareHolder.f14693a.P(), this.n);
-            j.h(frsPageAlaShareHolder.f14693a.R(), this.n);
-            frsPageAlaShareHolder.f14693a.n(z1Var.w);
+            frsPageAlaShareHolder.f14701a.a(this.w);
+            j.h(frsPageAlaShareHolder.f14701a.P(), this.n);
+            j.h(frsPageAlaShareHolder.f14701a.R(), this.n);
+            frsPageAlaShareHolder.f14701a.n(z1Var.w);
             z1Var.w.y4();
         }
         return frsPageAlaShareHolder.a();

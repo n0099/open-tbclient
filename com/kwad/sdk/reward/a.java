@@ -16,29 +16,29 @@ public class a extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f36507b;
+    public com.kwad.sdk.reward.a.b f36602b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f36508c;
+    public KsVideoPlayConfig f36603c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f36509d;
+    public JSONObject f36604d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36510e;
+    public int f36605e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f36511f;
+    public AdTemplate f36606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f36512g;
+    public Activity f36607g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public AdBaseFrameLayout f36513h;
+    public AdBaseFrameLayout f36608h;
     @NonNull
     public com.kwad.sdk.reward.c.a i;
     @Nullable
@@ -53,13 +53,13 @@ public class a extends com.kwad.sdk.core.e.b {
     public boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f36506a = new ArrayList();
+    public List<com.kwad.sdk.reward.a.a> f36601a = new ArrayList();
     public Set<com.kwad.sdk.reward.a.e> n = new HashSet();
     public Set<com.kwad.sdk.reward.a.d> o = new HashSet();
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f36506a.clear();
+        this.f36601a.clear();
         this.n.clear();
         this.i.h();
         com.kwad.sdk.core.download.b.b bVar = this.j;

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public abstract class d implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34328a;
+    public String f34423a;
 
     public void a(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -14,7 +14,7 @@ public abstract class d implements com.kwad.sdk.core.b {
         }
         try {
             if (jSONObject.has("actionId")) {
-                this.f34328a = jSONObject.optString("actionId");
+                this.f34423a = jSONObject.optString("actionId");
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -24,7 +24,7 @@ public abstract class d implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "actionId", this.f34328a);
+        com.kwad.sdk.utils.o.a(jSONObject, "actionId", this.f34423a);
         return jSONObject;
     }
 }

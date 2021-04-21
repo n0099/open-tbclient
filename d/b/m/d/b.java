@@ -6,14 +6,14 @@ import com.baidu.crabsdk.sender.k;
 public final class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f64746e;
+    public final /* synthetic */ Context f65010e;
 
     public b(Context context) {
-        this.f64746e = context;
+        this.f65010e = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        k.i(this.f64746e);
+        k.i(this.f65010e);
     }
 }

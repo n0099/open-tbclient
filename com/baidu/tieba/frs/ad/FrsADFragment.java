@@ -32,30 +32,30 @@ import d.b.c.e.p.k;
 import d.b.c.e.p.l;
 import d.b.c.j.e.n;
 import d.b.c.j.e.w;
-import d.b.i0.q0.q0;
-import d.b.i0.q0.s0;
-import d.b.i0.q0.t;
+import d.b.j0.q0.q0;
+import d.b.j0.q0.s0;
+import d.b.j0.q0.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 {
 
     /* renamed from: f  reason: collision with root package name */
-    public ADRequestModel.b f15791f;
+    public ADRequestModel.b f15799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ADRequestModel f15792g;
+    public ADRequestModel f15800g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f15793h;
+    public TbPageContext f15801h;
     public long i;
-    public d.b.i0.q0.h1.a l;
+    public d.b.j0.q0.h1.a l;
     public boolean m;
-    public List<d.b.i0.q0.h1.c> n;
-    public d.b.h0.d0.c p;
+    public List<d.b.j0.q0.h1.c> n;
+    public d.b.i0.d0.c p;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.q0.h1.e f15790e = null;
+    public d.b.j0.q0.h1.e f15798e = null;
     public int j = 0;
     public int k = 0;
     public ArrayList<n> o = new ArrayList<>();
@@ -91,7 +91,7 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
 
         @Override // com.baidu.tieba.frs.adModel.ADRequestModel.b
         public void a(ADHttpResponseMessage aDHttpResponseMessage) {
-            if (aDHttpResponseMessage == null || FrsADFragment.this.f15790e == null) {
+            if (aDHttpResponseMessage == null || FrsADFragment.this.f15798e == null) {
                 return;
             }
             if (aDHttpResponseMessage.getError() == 0) {
@@ -106,7 +106,7 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
 
         @Override // com.baidu.tieba.frs.adModel.ADRequestModel.b
         public void b(ADSocketResponseMessage aDSocketResponseMessage) {
-            if (aDSocketResponseMessage == null || FrsADFragment.this.f15790e == null) {
+            if (aDSocketResponseMessage == null || FrsADFragment.this.f15798e == null) {
                 return;
             }
             if (aDSocketResponseMessage.getError() == 0) {
@@ -156,7 +156,7 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
                     FrsADFragment.this.U0(0);
                     return;
                 }
-                d.b.i0.q0.h1.e eVar = FrsADFragment.this.f15790e;
+                d.b.j0.q0.h1.e eVar = FrsADFragment.this.f15798e;
                 if (eVar != null) {
                     eVar.p();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
@@ -187,7 +187,7 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
                     FrsADFragment.this.Y0();
                     return;
                 }
-                d.b.i0.q0.h1.e eVar = FrsADFragment.this.f15790e;
+                d.b.j0.q0.h1.e eVar = FrsADFragment.this.f15798e;
                 if (eVar != null) {
                     eVar.p();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
@@ -203,13 +203,13 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
 
         @Override // d.b.c.j.e.w
         public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            d.b.i0.q0.h1.c cVar;
-            if (nVar == null || !(nVar instanceof d.b.i0.q0.h1.c) || (cVar = (d.b.i0.q0.h1.c) nVar) == null || cVar.o() == null) {
+            d.b.j0.q0.h1.c cVar;
+            if (nVar == null || !(nVar instanceof d.b.j0.q0.h1.c) || (cVar = (d.b.j0.q0.h1.c) nVar) == null || cVar.o() == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(new Pair(BaseWebViewActivity.KEY_SHOW_FRS_TAB_AD, "1"));
-            UrlManager.getInstance().dealOneLink(FrsADFragment.this.f15793h, new String[]{d.b.h0.l.a.c(cVar.o(), arrayList)});
+            UrlManager.getInstance().dealOneLink(FrsADFragment.this.f15801h, new String[]{d.b.i0.l.a.c(cVar.o(), arrayList)});
             if (k.isEmpty(cVar.j())) {
                 return;
             }
@@ -217,25 +217,25 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
         }
     }
 
-    @Override // d.b.i0.q0.q0
+    @Override // d.b.j0.q0.q0
     public void B0() {
-        d.b.i0.q0.h1.e eVar = this.f15790e;
+        d.b.j0.q0.h1.e eVar = this.f15798e;
         if (eVar == null || eVar.a() == null) {
             return;
         }
-        this.f15790e.a().scrollToPosition(0);
+        this.f15798e.a().scrollToPosition(0);
     }
 
-    @Override // d.b.i0.q0.q0
+    @Override // d.b.j0.q0.q0
     public void E() {
-        if (this.f15790e != null) {
+        if (this.f15798e != null) {
             B0();
-            this.f15790e.p();
+            this.f15798e.p();
         }
     }
 
     public BdTypeRecyclerView R0() {
-        d.b.i0.q0.h1.e eVar = this.f15790e;
+        d.b.j0.q0.h1.e eVar = this.f15798e;
         if (eVar == null) {
             return null;
         }
@@ -243,13 +243,13 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
     }
 
     public final void S0() {
-        this.f15790e.k(true);
-        this.f15790e.m(true);
-        d.b.h0.d0.c cVar = this.p;
+        this.f15798e.k(true);
+        this.f15798e.m(true);
+        d.b.i0.d0.c cVar = this.p;
         if (cVar == null || !cVar.isViewAttached()) {
             return;
         }
-        this.p.dettachView(this.f15790e.b());
+        this.p.dettachView(this.f15798e.b());
     }
 
     public final void T0(Bundle bundle) {
@@ -268,25 +268,25 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
     }
 
     public final void U0(int i) {
-        if (this.f15792g == null) {
+        if (this.f15800g == null) {
             return;
         }
         S0();
         this.k = i;
         if (i == 0 || i == 2) {
-            this.f15792g.t(this.i, 0, 20);
+            this.f15800g.t(this.i, 0, 20);
         } else if (i == 1) {
-            this.f15792g.t(this.i, this.j, 20);
+            this.f15800g.t(this.i, this.j, 20);
         }
     }
 
     public final void V0() {
-        if (this.o == null || this.f15790e == null) {
+        if (this.o == null || this.f15798e == null) {
             return;
         }
         this.o.add(new t());
-        this.f15790e.c().d(this.o);
-        this.f15790e.c().b();
+        this.f15798e.c().d(this.o);
+        this.f15798e.c().b();
     }
 
     public final void W0(boolean z, boolean z2) {
@@ -300,43 +300,43 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
         if (z2) {
             for (int i = 0; i < this.o.size(); i++) {
                 n nVar = (n) ListUtils.getItem(this.o, i);
-                if (nVar instanceof d.b.i0.q0.h1.c) {
-                    ((d.b.i0.q0.h1.c) nVar).w(false);
+                if (nVar instanceof d.b.j0.q0.h1.c) {
+                    ((d.b.j0.q0.h1.c) nVar).w(false);
                 }
             }
         }
         this.o.addAll(this.n);
-        d.b.h0.b.f.a.d(this.o);
-        this.f15790e.c().d(this.o);
-        this.f15790e.c().b();
+        d.b.i0.b.f.a.d(this.o);
+        this.f15798e.c().d(this.o);
+        this.f15798e.c().b();
     }
 
     public final void X0() {
         if (!this.m) {
             if (ListUtils.isEmpty(this.n)) {
-                this.f15790e.d();
+                this.f15798e.d();
                 return;
             } else {
-                this.f15790e.o();
+                this.f15798e.o();
                 return;
             }
         }
-        this.f15790e.n();
+        this.f15798e.n();
     }
 
     public final void Y0() {
-        this.f15790e.k(false);
-        showLoadingView(this.f15790e.b(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
+        this.f15798e.k(false);
+        showLoadingView(this.f15798e.b(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
     }
 
     public final void Z0() {
-        this.f15790e.k(false);
-        this.f15790e.m(false);
-        this.f15790e.d();
-        this.f15790e.a().getData().clear();
-        this.f15790e.f();
+        this.f15798e.k(false);
+        this.f15798e.m(false);
+        this.f15798e.d();
+        this.f15798e.a().getData().clear();
+        this.f15798e.f();
         if (this.p == null) {
-            d.b.h0.d0.c cVar = new d.b.h0.d0.c(getPageContext().getContext(), getNetRefreshListener());
+            d.b.i0.d0.c cVar = new d.b.i0.d0.c(getPageContext().getContext(), getNetRefreshListener());
             this.p = cVar;
             cVar.e(null);
             this.p.d(null);
@@ -345,7 +345,7 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
             this.p.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         this.p.onChangeSkinType();
-        this.p.attachView(this.f15790e.b(), true);
+        this.p.attachView(this.f15798e.b(), true);
         this.p.a(0);
     }
 
@@ -357,9 +357,9 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
         return tbPageTag;
     }
 
-    @Override // d.b.i0.q0.s0
+    @Override // d.b.j0.q0.s0
     public void m() {
-        if (this.f15790e == null) {
+        if (this.f15798e == null) {
             return;
         }
         if (j.z()) {
@@ -370,26 +370,26 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
             }
             return;
         }
-        this.f15790e.j(false);
+        this.f15798e.j(false);
     }
 
     public final void n() {
-        this.f15790e.k(true);
-        hideLoadingView(this.f15790e.b());
+        this.f15798e.k(true);
+        hideLoadingView(this.f15798e.b());
     }
 
-    @Override // d.b.i0.q0.s0
+    @Override // d.b.j0.q0.s0
     public void o() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.q0.h1.e eVar = this.f15790e;
+        d.b.j0.q0.h1.e eVar = this.f15798e;
         if (eVar != null) {
             eVar.g(i);
         }
-        d.b.h0.d0.c cVar = this.p;
+        d.b.i0.d0.c cVar = this.p;
         if (cVar == null || !cVar.isViewAttached()) {
             return;
         }
@@ -399,13 +399,13 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f15793h = getPageContext();
+        this.f15801h = getPageContext();
         T0(bundle);
         registerListener(this.u);
         registerListener(this.v);
         registerListener(this.s);
-        if (this.f15792g == null) {
-            this.f15792g = new ADRequestModel(this.f15793h);
+        if (this.f15800g == null) {
+            this.f15800g = new ADRequestModel(this.f15801h);
         }
         this.q = UtilHelper.getScreenHeight(getActivity());
     }
@@ -413,19 +413,19 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.frs_ad_fragment, (ViewGroup) null);
-        d.b.i0.q0.h1.e eVar = new d.b.i0.q0.h1.e(this, inflate);
-        this.f15790e = eVar;
+        d.b.j0.q0.h1.e eVar = new d.b.j0.q0.h1.e(this, inflate);
+        this.f15798e = eVar;
         eVar.l(this.t);
-        d.b.i0.q0.h1.a aVar = new d.b.i0.q0.h1.a(this, this.f15790e.a());
+        d.b.j0.q0.h1.a aVar = new d.b.j0.q0.h1.a(this, this.f15798e.a());
         this.l = aVar;
         aVar.f(this.w);
-        if (this.f15791f == null) {
-            this.f15791f = new b();
+        if (this.f15799f == null) {
+            this.f15799f = new b();
         }
-        if (this.f15792g == null) {
-            this.f15792g = new ADRequestModel(this.f15793h);
+        if (this.f15800g == null) {
+            this.f15800g = new ADRequestModel(this.f15801h);
         }
-        this.f15792g.u(this.f15791f);
+        this.f15800g.u(this.f15799f);
         if (!j.z()) {
             Z0();
         }
@@ -435,11 +435,11 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.s);
-        d.b.i0.q0.h1.e eVar = this.f15790e;
+        d.b.j0.q0.h1.e eVar = this.f15798e;
         if (eVar != null) {
             eVar.h();
         }
-        ADRequestModel aDRequestModel = this.f15792g;
+        ADRequestModel aDRequestModel = this.f15800g;
         if (aDRequestModel != null) {
             aDRequestModel.onDestroy();
         }
@@ -477,12 +477,12 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        d.b.i0.q0.h1.e eVar = this.f15790e;
+        d.b.j0.q0.h1.e eVar = this.f15798e;
         if (eVar == null) {
             return;
         }
         if (eVar != null && eVar.a() != null) {
-            this.f15790e.a().stopScroll();
+            this.f15798e.a().stopScroll();
         }
         X0();
         if (l.C() && this.m) {
@@ -491,24 +491,24 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
     }
 
     public final void w() {
-        if (this.f15790e == null) {
+        if (this.f15798e == null) {
             return;
         }
         n();
-        this.f15790e.i();
+        this.f15798e.i();
         int i = this.k;
         if (i == 0) {
             if (!ListUtils.isEmpty(this.n)) {
                 W0(true, false);
-                this.f15790e.o();
+                this.f15798e.o();
                 return;
             }
             V0();
         } else if (i == 2) {
-            this.f15790e.j(false);
+            this.f15798e.j(false);
             if (!ListUtils.isEmpty(this.n)) {
                 W0(true, false);
-                this.f15790e.o();
+                this.f15798e.o();
                 return;
             }
             V0();
@@ -516,7 +516,7 @@ public class FrsADFragment extends BaseFragment implements q0, BdListView.p, s0 
             if (!ListUtils.isEmpty(this.n)) {
                 W0(false, true);
             } else {
-                this.f15790e.o();
+                this.f15798e.o();
             }
         }
     }

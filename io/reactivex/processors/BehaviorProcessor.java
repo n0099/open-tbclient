@@ -15,16 +15,16 @@ import java.util.concurrent.locks.Lock;
 public final class BehaviorProcessor<T> extends a<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lock f69106f;
+    public final Lock f69253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<Object> f69107g;
+    public final AtomicReference<Object> f69254g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f69108h;
+    public long f69255h;
 
     /* loaded from: classes7.dex */
-    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1893a<Object> {
+    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1897a<Object> {
         public static final long serialVersionUID = 3293175281126227086L;
         public final c<? super T> actual;
         public volatile boolean cancelled;
@@ -61,10 +61,10 @@ public final class BehaviorProcessor<T> extends a<T> {
                     return;
                 }
                 BehaviorProcessor<T> behaviorProcessor = this.state;
-                Lock lock = behaviorProcessor.f69106f;
+                Lock lock = behaviorProcessor.f69253f;
                 lock.lock();
-                this.index = behaviorProcessor.f69108h;
-                Object obj = behaviorProcessor.f69107g.get();
+                this.index = behaviorProcessor.f69255h;
+                Object obj = behaviorProcessor.f69254g.get();
                 lock.unlock();
                 this.emitting = obj != null;
                 this.next = true;
@@ -129,7 +129,7 @@ public final class BehaviorProcessor<T> extends a<T> {
             }
         }
 
-        @Override // f.b.x.i.a.InterfaceC1893a, f.b.w.i
+        @Override // f.b.x.i.a.InterfaceC1897a, f.b.w.i
         public boolean test(Object obj) {
             if (this.cancelled) {
                 return true;

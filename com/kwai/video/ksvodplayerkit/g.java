@@ -37,28 +37,28 @@ public class g implements d {
     public long F;
 
     /* renamed from: a  reason: collision with root package name */
-    public KwaiPlayerDebugInfoView f37613a;
+    public KwaiPlayerDebugInfoView f37708a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f37615c;
+    public Surface f37710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SurfaceHolder f37616d;
+    public SurfaceHolder f37711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IKwaiMediaPlayer f37617e;
+    public IKwaiMediaPlayer f37712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IKwaiMediaPlayer f37618f;
+    public IKwaiMediaPlayer f37713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37619g;
+    public String f37714g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f37620h;
+    public Map<String, String> f37715h;
     public KSVodPlayerBuilder i;
     public boolean j;
-    public d.InterfaceC0466d t;
+    public d.InterfaceC0469d t;
     public d.b u;
     public d.c v;
     public com.kwai.video.ksvodplayerkit.b w;
@@ -67,7 +67,7 @@ public class g implements d {
     public d.a z;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f37614b = new Object();
+    public final Object f37709b = new Object();
     public int k = 0;
     public long l = -1;
     public boolean m = true;
@@ -91,9 +91,9 @@ public class g implements d {
         @Override // com.kwai.video.player.IMediaPlayer.OnInfoListener
         public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
             if (i == 3) {
-                synchronized (g.this.f37614b) {
-                    if (g.this.i.f37512e != null) {
-                        g.this.l = System.currentTimeMillis() - g.this.i.f37512e.f37667d;
+                synchronized (g.this.f37709b) {
+                    if (g.this.i.f37607e != null) {
+                        g.this.l = System.currentTimeMillis() - g.this.i.f37607e.f37762d;
                     }
                 }
                 if (g.this.v != null) {
@@ -171,36 +171,36 @@ public class g implements d {
             if (g.this.r.get() == 9) {
                 return;
             }
-            synchronized (g.this.f37614b) {
-                if (g.this.f37618f == null || g.this.f37617e == null) {
+            synchronized (g.this.f37709b) {
+                if (g.this.f37713f == null || g.this.f37712e == null) {
                     z = false;
                 } else {
-                    if (!g.this.m && g.this.i.f37514g) {
-                        g.this.f37617e.start();
+                    if (!g.this.m && g.this.i.f37609g) {
+                        g.this.f37712e.start();
                     }
-                    g.this.f37618f = null;
-                    if (g.this.f37615c != null) {
-                        g.this.f37617e.setSurface(g.this.f37615c);
+                    g.this.f37713f = null;
+                    if (g.this.f37710c != null) {
+                        g.this.f37712e.setSurface(g.this.f37710c);
                     }
-                    if (g.this.f37616d != null) {
-                        g.this.f37617e.setDisplay(g.this.f37616d);
+                    if (g.this.f37711d != null) {
+                        g.this.f37712e.setDisplay(g.this.f37711d);
                     }
                     z = true;
-                    if (g.this.f37613a != null && i.a().m()) {
-                        g.this.f37613a.stopMonitor();
-                        g.this.f37613a.startMonitor(g.this.f37617e);
+                    if (g.this.f37708a != null && i.a().m()) {
+                        g.this.f37708a.stopMonitor();
+                        g.this.f37708a.startMonitor(g.this.f37712e);
                     }
                 }
             }
             if (z || i.a().b() || g.this.i.i == 2) {
-                String str = g.this.f37619g;
+                String str = g.this.f37714g;
                 if (g.this.A != null && g.this.A.i() != null) {
                     str = g.this.A.i();
                 }
                 long c2 = f.a().c(str);
                 if (c2 > 0) {
                     com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "createKwaiMediaPlayer use record history progress, seekto:" + c2);
-                    g.this.f37617e.seekTo(c2);
+                    g.this.f37712e.seekTo(c2);
                 }
             }
             if (z && g.this.v != null) {
@@ -234,36 +234,36 @@ public class g implements d {
     public class a extends AwesomeCacheCallback {
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwai.video.ksvodplayerkit.b f37631b;
+        public com.kwai.video.ksvodplayerkit.b f37726b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f37632c = new c();
+        public c f37727c = new c();
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f37633d = false;
+        public boolean f37728d = false;
 
         public a(com.kwai.video.ksvodplayerkit.b bVar) {
-            this.f37631b = bVar;
+            this.f37726b = bVar;
         }
 
         public void a(com.kwai.video.ksvodplayerkit.b bVar) {
-            this.f37631b = bVar;
+            this.f37726b = bVar;
         }
 
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onDownloadFinish(AcCallBackInfo acCallBackInfo) {
             com.kwai.video.ksvodplayerkit.b bVar;
             String str;
-            c cVar = this.f37632c;
-            cVar.f37565f = acCallBackInfo.host;
-            cVar.f37564e = acCallBackInfo.currentUri;
+            c cVar = this.f37727c;
+            cVar.f37660f = acCallBackInfo.host;
+            cVar.f37659e = acCallBackInfo.currentUri;
             int i = acCallBackInfo.transferConsumeMs;
             cVar.k = i;
             cVar.m = acCallBackInfo.kwaiSign;
             cVar.n = acCallBackInfo.xKsCache;
             String str2 = acCallBackInfo.cdnStatJson;
             cVar.o = str2;
-            cVar.f37567h = acCallBackInfo.sessionUUID;
+            cVar.f37662h = acCallBackInfo.sessionUUID;
             cVar.i = acCallBackInfo.downloadUUID;
             cVar.o = str2;
             cVar.j = acCallBackInfo.httpResponseCode;
@@ -272,14 +272,14 @@ public class g implements d {
             cVar.q = i2;
             cVar.l = i;
             if (i2 == 1) {
-                com.kwai.video.ksvodplayerkit.b bVar2 = this.f37631b;
-                if (bVar2 != null && !this.f37633d) {
+                com.kwai.video.ksvodplayerkit.b bVar2 = this.f37726b;
+                if (bVar2 != null && !this.f37728d) {
                     cVar.r++;
                     bVar2.b(cVar);
                 }
-                if (acCallBackInfo.progressPosition >= acCallBackInfo.totalBytes && (bVar = this.f37631b) != null && !this.f37633d) {
-                    this.f37633d = true;
-                    bVar.c(this.f37632c);
+                if (acCallBackInfo.progressPosition >= acCallBackInfo.totalBytes && (bVar = this.f37726b) != null && !this.f37728d) {
+                    this.f37728d = true;
+                    bVar.c(this.f37727c);
                 }
                 g.this.i();
             } else if (i2 != 2) {
@@ -287,10 +287,10 @@ public class g implements d {
                 String str3 = acCallBackInfo.currentUri;
                 String str4 = null;
                 if (g.this.i.i == 2) {
-                    str3 = g.this.C != null ? g.this.C.f37527a : null;
+                    str3 = g.this.C != null ? g.this.C.f37622a : null;
                 }
-                f.a().a(str3, g.this.f37617e != null ? g.this.f37617e.getCurrentPosition() : 0L);
-                if (com.kwai.video.ksvodplayerkit.c.a.a(g.this.i.f37508a) && g.this.A != null) {
+                f.a().a(str3, g.this.f37712e != null ? g.this.f37712e.getCurrentPosition() : 0L);
+                if (com.kwai.video.ksvodplayerkit.c.a.a(g.this.i.f37603a) && g.this.A != null) {
                     g.this.A.a(false);
                     if (g.this.A.f() > 0 && !g.this.A.e() && g.this.B.addAndGet(1) < i.a().e() && g.this.A.a()) {
                         if (g.this.i.i == 1) {
@@ -299,12 +299,12 @@ public class g implements d {
                             com.kwai.video.ksvodplayerkit.b.c h2 = g.this.A.h();
                             if (h2 != null) {
                                 str4 = com.kwai.video.ksvodplayerkit.b.d.a(h2);
-                                g.this.f37620h.put("Host", h2.f37525d);
+                                g.this.f37715h.put("Host", h2.f37620d);
                             }
                             str = str4;
                         } else {
-                            g.this.f37620h.put("Host", g.this.A.d());
-                            str = g.this.A.b().f37486b;
+                            g.this.f37715h.put("Host", g.this.A.d());
+                            str = g.this.A.b().f37581b;
                         }
                         if (str != null && g.this.a(str)) {
                             com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", "onDownloadFinish stop_reason:" + acCallBackInfo.stopReason + " refreshDataSource count:" + g.this.B.get() + ", new url:" + str);
@@ -314,14 +314,14 @@ public class g implements d {
                 }
                 g.this.r.set(9);
                 com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", "onDownloadFinish stop_reason:" + acCallBackInfo.stopReason + ", already retry all urls, stop play");
-                com.kwai.video.ksvodplayerkit.b bVar3 = this.f37631b;
+                com.kwai.video.ksvodplayerkit.b bVar3 = this.f37726b;
                 if (bVar3 != null) {
-                    bVar3.d(this.f37632c);
+                    bVar3.d(this.f37727c);
                     return;
                 }
                 return;
             } else {
-                com.kwai.video.ksvodplayerkit.b bVar4 = this.f37631b;
+                com.kwai.video.ksvodplayerkit.b bVar4 = this.f37726b;
                 if (bVar4 != null) {
                     bVar4.e(cVar);
                 }
@@ -332,33 +332,33 @@ public class g implements d {
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onSessionProgress(AcCallBackInfo acCallBackInfo) {
             com.kwai.video.ksvodplayerkit.b bVar;
-            c cVar = this.f37632c;
-            cVar.f37563d = acCallBackInfo.contentLength;
-            cVar.f37562c = acCallBackInfo.totalBytes;
-            cVar.f37566g = acCallBackInfo.ip;
+            c cVar = this.f37727c;
+            cVar.f37658d = acCallBackInfo.contentLength;
+            cVar.f37657c = acCallBackInfo.totalBytes;
+            cVar.f37661g = acCallBackInfo.ip;
             long j = acCallBackInfo.cachedBytes;
-            cVar.f37560a = j;
+            cVar.f37655a = j;
             long j2 = acCallBackInfo.progressPosition;
-            cVar.f37561b = j2;
+            cVar.f37656b = j2;
             if (j2 <= 0 && j > 0) {
-                cVar.f37561b = j;
+                cVar.f37656b = j;
             }
-            com.kwai.video.ksvodplayerkit.b bVar2 = this.f37631b;
+            com.kwai.video.ksvodplayerkit.b bVar2 = this.f37726b;
             if (bVar2 != null) {
-                bVar2.a(this.f37632c);
+                bVar2.a(this.f37727c);
             }
-            if (acCallBackInfo.progressPosition >= acCallBackInfo.totalBytes && (bVar = this.f37631b) != null && !this.f37633d) {
-                this.f37633d = true;
-                bVar.c(this.f37632c);
-                c cVar2 = this.f37632c;
+            if (acCallBackInfo.progressPosition >= acCallBackInfo.totalBytes && (bVar = this.f37726b) != null && !this.f37728d) {
+                this.f37728d = true;
+                bVar.c(this.f37727c);
+                c cVar2 = this.f37727c;
                 cVar2.r++;
-                this.f37631b.b(cVar2);
+                this.f37726b.b(cVar2);
             }
-            com.kwai.video.ksvodplayerkit.a.b.c("KSVodPlayer", "onSessionProgress ,cachedBytes:" + this.f37632c.f37561b + ",mPreloadThresholdBytes:" + i.a().s());
-            if (g.this.v == null || !this.f37632c.a()) {
+            com.kwai.video.ksvodplayerkit.a.b.c("KSVodPlayer", "onSessionProgress ,cachedBytes:" + this.f37727c.f37656b + ",mPreloadThresholdBytes:" + i.a().s());
+            if (g.this.v == null || !this.f37727c.a()) {
                 return;
             }
-            com.kwai.video.ksvodplayerkit.a.b.c("KSVodPlayer", "notifyCanPreloadNext ,cachedBytes:" + this.f37632c.f37561b + ",mTotalBytesOfSource:" + this.f37632c.f37562c);
+            com.kwai.video.ksvodplayerkit.a.b.c("KSVodPlayer", "notifyCanPreloadNext ,cachedBytes:" + this.f37727c.f37656b + ",mTotalBytesOfSource:" + this.f37727c.f37657c);
             g.this.i();
         }
     }
@@ -367,28 +367,28 @@ public class g implements d {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37634a;
+        public String f37729a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37635b;
+        public String f37730b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37636c;
+        public String f37731c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f37637d;
+        public long f37732d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37638e;
+        public String f37733e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f37639f;
+        public long f37734f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f37640g;
+        public long f37735g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f37641h;
+        public long f37736h;
     }
 
     public g(KSVodPlayerBuilder kSVodPlayerBuilder) {
@@ -398,49 +398,49 @@ public class g implements d {
         List<com.kwai.video.ksvodplayerkit.b.i> list2;
         this.r.set(0);
         this.i = kSVodPlayerBuilder;
-        this.f37619g = kSVodPlayerBuilder.f37509b;
-        this.f37620h = kSVodPlayerBuilder.f37511d;
+        this.f37714g = kSVodPlayerBuilder.f37604b;
+        this.f37715h = kSVodPlayerBuilder.f37606d;
         this.B.set(0);
-        if (TextUtils.isEmpty(this.f37619g) && (((list = this.i.f37510c) == null || list.isEmpty() || TextUtils.isEmpty(this.i.f37510c.get(0))) && ((hVar2 = this.i.f37515h) == null || (list2 = hVar2.f37536b) == null || list2.isEmpty()))) {
+        if (TextUtils.isEmpty(this.f37714g) && (((list = this.i.f37605c) == null || list.isEmpty() || TextUtils.isEmpty(this.i.f37605c.get(0))) && ((hVar2 = this.i.f37610h) == null || (list2 = hVar2.f37631b) == null || list2.isEmpty()))) {
             throw new IllegalArgumentException("Wrong Input Arguments! Play url can't be null!");
         }
-        if (this.f37620h == null) {
-            this.f37620h = new HashMap();
+        if (this.f37715h == null) {
+            this.f37715h = new HashMap();
         }
         Map<String, String> map = this.i.k;
         if (map != null) {
-            this.f37620h.putAll(map);
+            this.f37715h.putAll(map);
         }
         KSVodPlayerBuilder kSVodPlayerBuilder2 = this.i;
-        if (kSVodPlayerBuilder2.i != 1 || (hVar = kSVodPlayerBuilder2.f37515h) == null) {
+        if (kSVodPlayerBuilder2.i != 1 || (hVar = kSVodPlayerBuilder2.f37610h) == null) {
             KSVodPlayerBuilder kSVodPlayerBuilder3 = this.i;
             if (kSVodPlayerBuilder3.i == 2) {
-                com.kwai.video.ksvodplayerkit.HttpDns.d dVar = new com.kwai.video.ksvodplayerkit.HttpDns.d(this.f37619g);
+                com.kwai.video.ksvodplayerkit.HttpDns.d dVar = new com.kwai.video.ksvodplayerkit.HttpDns.d(this.f37714g);
                 this.A = dVar;
                 com.kwai.video.ksvodplayerkit.b.c h2 = dVar.h();
                 try {
-                    this.f37619g = com.kwai.video.ksvodplayerkit.b.d.a(h2);
+                    this.f37714g = com.kwai.video.ksvodplayerkit.b.d.a(h2);
                 } catch (Exception e2) {
                     com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", "Wrong Input Arguments", e2);
                 }
-                this.f37620h.put("Host", h2.f37525d);
+                this.f37715h.put("Host", h2.f37620d);
             } else {
-                String str = this.f37619g;
-                str = str == null ? kSVodPlayerBuilder3.f37510c.get(0) : str;
-                this.f37619g = str;
-                if (com.kwai.video.ksvodplayerkit.c.c.a(str) && !f.a().b(this.f37619g)) {
+                String str = this.f37714g;
+                str = str == null ? kSVodPlayerBuilder3.f37605c.get(0) : str;
+                this.f37714g = str;
+                if (com.kwai.video.ksvodplayerkit.c.c.a(str) && !f.a().b(this.f37714g)) {
                     ArrayList arrayList = new ArrayList();
-                    List<String> list3 = this.i.f37510c;
+                    List<String> list3 = this.i.f37605c;
                     if (list3 == null || list3.isEmpty()) {
-                        arrayList.add(this.f37619g);
+                        arrayList.add(this.f37714g);
                     } else {
-                        arrayList.addAll(this.i.f37510c);
+                        arrayList.addAll(this.i.f37605c);
                     }
                     com.kwai.video.ksvodplayerkit.HttpDns.d dVar2 = new com.kwai.video.ksvodplayerkit.HttpDns.d(arrayList);
                     this.A = dVar2;
-                    if (dVar2.b() != null && !TextUtils.isEmpty(this.A.b().f37486b)) {
-                        this.f37619g = this.A.b().f37486b;
-                        this.f37620h.put("Host", this.A.d());
+                    if (dVar2.b() != null && !TextUtils.isEmpty(this.A.b().f37581b)) {
+                        this.f37714g = this.A.b().f37581b;
+                        this.f37715h.put("Host", this.A.d());
                     }
                 }
             }
@@ -448,16 +448,16 @@ public class g implements d {
             com.kwai.video.ksvodplayerkit.HttpDns.d dVar3 = new com.kwai.video.ksvodplayerkit.HttpDns.d(hVar);
             this.A = dVar3;
             try {
-                this.f37619g = com.kwai.video.ksvodplayerkit.b.m.a(dVar3.g());
+                this.f37714g = com.kwai.video.ksvodplayerkit.b.m.a(dVar3.g());
             } catch (Exception e3) {
                 com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", "Wrong Input Arguments", e3);
             }
-            this.f37619g = com.kwai.video.ksvodplayerkit.b.m.a(this.A.g());
+            this.f37714g = com.kwai.video.ksvodplayerkit.b.m.a(this.A.g());
         }
-        if (this.f37619g == null) {
+        if (this.f37714g == null) {
             com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", "Wrong Input Arguments", new Exception("new KSVodPlayer"));
         }
-        this.f37617e = a(this.i.a());
+        this.f37712e = a(this.i.a());
         this.r.set(1);
     }
 
@@ -470,7 +470,7 @@ public class g implements d {
         if (this.i.l != null) {
             kwaiPlayerVodBuilder.setProductContext(new ProductContext.Builder().setBizType(this.i.l).setPlayIndex(this.B.get()).build());
         }
-        KSVodPlayerBuilder.VodPlayEnterType vodPlayEnterType = this.i.f37513f;
+        KSVodPlayerBuilder.VodPlayEnterType vodPlayEnterType = this.i.f37608f;
         if (vodPlayEnterType == KSVodPlayerBuilder.VodPlayEnterType.CLICK) {
             kwaiPlayerVodBuilder.setMaxBufferStrategy(1).setMaxBufferTimeBspMs(i.a().r()).setStartPlayBlockBufferMs(i.a().c(), i.a().d());
         } else if (vodPlayEnterType == KSVodPlayerBuilder.VodPlayEnterType.SLIDE) {
@@ -484,28 +484,28 @@ public class g implements d {
         }
         com.kwai.video.ksvodplayerkit.c.b bVar = this.i.m;
         if (bVar != null) {
-            kwaiPlayerVodBuilder.setUseMediaCodecByteBuffer(bVar.f37568a);
-            if (bVar.f37569b) {
-                kwaiPlayerVodBuilder.setMediaCodecAvcHeightLimit(bVar.f37571d);
-                kwaiPlayerVodBuilder.setMediaCodecAvcWidthLimit(bVar.f37570c);
+            kwaiPlayerVodBuilder.setUseMediaCodecByteBuffer(bVar.f37663a);
+            if (bVar.f37664b) {
+                kwaiPlayerVodBuilder.setMediaCodecAvcHeightLimit(bVar.f37666d);
+                kwaiPlayerVodBuilder.setMediaCodecAvcWidthLimit(bVar.f37665c);
                 kwaiPlayerVodBuilder.setUseHardwareDcoderFlag(1);
             }
-            if (bVar.f37572e) {
-                kwaiPlayerVodBuilder.setMediaCodecHevcHeightLimit(bVar.f37571d);
-                kwaiPlayerVodBuilder.setMediaCodecHevcWidthLimit(bVar.f37570c);
+            if (bVar.f37667e) {
+                kwaiPlayerVodBuilder.setMediaCodecHevcHeightLimit(bVar.f37666d);
+                kwaiPlayerVodBuilder.setMediaCodecHevcWidthLimit(bVar.f37665c);
                 kwaiPlayerVodBuilder.setUseHardwareDcoderFlag(2);
             }
-            if (bVar.f37569b && bVar.f37572e) {
+            if (bVar.f37664b && bVar.f37667e) {
                 kwaiPlayerVodBuilder.setUseHardwareDcoderFlag(4096);
             }
-            int i = bVar.f37573f;
+            int i = bVar.f37668f;
             if (i > 0) {
                 kwaiPlayerVodBuilder.setMediaCodecMaxNum(i);
             }
         }
         KSVodPlayerBuilder kSVodPlayerBuilder = this.i;
-        if (kSVodPlayerBuilder.i == 1 && kSVodPlayerBuilder.f37515h != null) {
-            kwaiPlayerVodBuilder.setVodManifest(com.kwai.video.ksvodplayerkit.c.a.d(kSVodPlayerBuilder.f37508a), com.kwai.video.ksvodplayerkit.c.c.a(this.i.f37508a), com.kwai.video.ksvodplayerkit.c.c.b(this.i.f37508a), i.a().k(), i.a().l(), 0);
+        if (kSVodPlayerBuilder.i == 1 && kSVodPlayerBuilder.f37610h != null) {
+            kwaiPlayerVodBuilder.setVodManifest(com.kwai.video.ksvodplayerkit.c.a.d(kSVodPlayerBuilder.f37603a), com.kwai.video.ksvodplayerkit.c.c.a(this.i.f37603a), com.kwai.video.ksvodplayerkit.c.c.b(this.i.f37603a), i.a().k(), i.a().l(), 0);
         } else if (this.i.i == 2) {
             kwaiPlayerVodBuilder.setEnableAccurateSeek(false).setEnableSegmentCache(true).setEnableSeekForwardOffset(true);
             int i2 = this.i.j;
@@ -513,16 +513,16 @@ public class g implements d {
                 a(i2);
             }
         } else {
-            kwaiPlayerVodBuilder.setCacheKey(f.a().a(this.f37619g));
+            kwaiPlayerVodBuilder.setCacheKey(f.a().a(this.f37714g));
         }
         if (i.a().b() && this.i.i == 0) {
-            long c2 = f.a().c(this.f37619g);
+            long c2 = f.a().c(this.f37714g);
             if (c2 > 0) {
                 com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "createKwaiMediaPlayer use record history progress, seekto:" + c2);
                 kwaiPlayerVodBuilder.seekAtStart(c2);
             }
         }
-        if (com.kwai.video.ksvodplayerkit.c.c.b(this.f37619g)) {
+        if (com.kwai.video.ksvodplayerkit.c.c.b(this.f37714g)) {
             kwaiPlayerVodBuilder.setEnableAccurateSeek(false);
         }
         IKwaiMediaPlayer build = kwaiPlayerVodBuilder.build();
@@ -537,7 +537,7 @@ public class g implements d {
         if (i.a().i()) {
             aspectAwesomeCache.setDataSourceType(0);
         }
-        if (com.kwai.video.ksvodplayerkit.c.c.b(this.f37619g)) {
+        if (com.kwai.video.ksvodplayerkit.c.c.b(this.f37714g)) {
             aspectAwesomeCache.setDataSourceType(2);
         }
         if (i.a().n() > 0) {
@@ -549,24 +549,24 @@ public class g implements d {
         build.setOnVideoSizeChangedListener(this.K);
         build.setOnSeekCompleteListener(this.G);
         build.setOnBufferingUpdateListener(this.L);
-        if (!TextUtils.isEmpty(this.f37619g)) {
+        if (!TextUtils.isEmpty(this.f37714g)) {
             try {
                 if (this.i.i == 2) {
-                    build.setKwaiManifest(this.C != null ? this.C.f37527a : "no_prefer_url", this.f37619g, this.f37620h);
+                    build.setKwaiManifest(this.C != null ? this.C.f37622a : "no_prefer_url", this.f37714g, this.f37715h);
                 } else {
-                    build.setDataSource(this.f37619g, this.f37620h);
+                    build.setDataSource(this.f37714g, this.f37715h);
                 }
-                com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "createKwaiMediaPlayer, url:" + this.f37619g);
+                com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "createKwaiMediaPlayer, url:" + this.f37714g);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", "setDataSource error", new Exception("setDataSource"));
             }
         }
-        Surface surface = this.f37615c;
+        Surface surface = this.f37710c;
         if (surface != null) {
             build.setSurface(surface);
         }
-        SurfaceHolder surfaceHolder = this.f37616d;
+        SurfaceHolder surfaceHolder = this.f37711d;
         if (surfaceHolder != null) {
             build.setDisplay(surfaceHolder);
         }
@@ -578,19 +578,19 @@ public class g implements d {
         String str = kwaiPlayerResultQos.videoStatJson;
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("qos", str);
-        if (this.i.f37512e != null) {
+        if (this.i.f37607e != null) {
             b bVar = new b();
-            l lVar = this.i.f37512e;
-            bVar.f37636c = lVar.f37666c;
-            bVar.f37635b = lVar.f37665b;
-            bVar.f37634a = lVar.f37664a;
-            bVar.f37638e = lVar.f37668e;
-            bVar.f37637d = this.l;
-            bVar.f37639f = this.E;
-            bVar.f37640g = this.F;
-            bVar.f37641h = lVar.f37667d;
+            l lVar = this.i.f37607e;
+            bVar.f37731c = lVar.f37761c;
+            bVar.f37730b = lVar.f37760b;
+            bVar.f37729a = lVar.f37759a;
+            bVar.f37733e = lVar.f37763e;
+            bVar.f37732d = this.l;
+            bVar.f37734f = this.E;
+            bVar.f37735g = this.F;
+            bVar.f37736h = lVar.f37762d;
             jSONObject.put("stats", m.a(bVar));
-            com.kwai.video.ksvodplayerkit.d.g a2 = com.kwai.video.ksvodplayerkit.d.c.a().a(this.i.f37512e.f37666c);
+            com.kwai.video.ksvodplayerkit.d.g a2 = com.kwai.video.ksvodplayerkit.d.c.a().a(this.i.f37607e.f37761c);
             if (a2 != null) {
                 jSONObject.put("prefetch", com.kwai.video.ksvodplayerkit.d.h.a(a2));
             }
@@ -602,27 +602,27 @@ public class g implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str) {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                this.f37617e.setOnErrorListener(null);
-                this.f37617e.setOnPreparedListener(null);
-                this.f37617e.setOnVideoSizeChangedListener(null);
-                this.f37617e.setOnInfoListener(null);
-                this.f37617e.setOnBufferingUpdateListener(null);
-                this.f37617e.releaseAsync();
-                this.f37617e = null;
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                this.f37712e.setOnErrorListener(null);
+                this.f37712e.setOnPreparedListener(null);
+                this.f37712e.setOnVideoSizeChangedListener(null);
+                this.f37712e.setOnInfoListener(null);
+                this.f37712e.setOnBufferingUpdateListener(null);
+                this.f37712e.releaseAsync();
+                this.f37712e = null;
             }
-            this.f37619g = str;
-            this.f37618f = a(this.i.a());
+            this.f37714g = str;
+            this.f37713f = a(this.i.a());
             if (this.n != 1.0f || this.o != 1.0f) {
-                this.f37618f.setVolume(this.n, this.o);
+                this.f37713f.setVolume(this.n, this.o);
             }
             if (this.k != 0) {
-                this.f37618f.setVideoScalingMode(this.k);
+                this.f37713f.setVideoScalingMode(this.k);
             }
             this.r.set(2);
-            this.f37618f.prepareAsync();
-            this.f37617e = this.f37618f;
+            this.f37713f.prepareAsync();
+            this.f37712e = this.f37713f;
         }
         d.c cVar = this.v;
         if (cVar != null) {
@@ -662,20 +662,20 @@ public class g implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean j() {
-        if (!com.kwai.video.ksvodplayerkit.c.a.a(this.i.f37508a) || this.B.addAndGet(1) >= i.a().e()) {
+        if (!com.kwai.video.ksvodplayerkit.c.a.a(this.i.f37603a) || this.B.addAndGet(1) >= i.a().e()) {
             return false;
         }
         return g();
     }
 
     public int a() {
-        synchronized (this.f37614b) {
-            if (this.f37617e == null || !(this.r.get() == 1 || this.r.get() == 7)) {
+        synchronized (this.f37709b) {
+            if (this.f37712e == null || !(this.r.get() == 1 || this.r.get() == 7)) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("prepareAsync error, playback state:");
                 sb.append(this.r.get());
                 sb.append(",mCurrentPlayer == null:");
-                sb.append(this.f37617e == null);
+                sb.append(this.f37712e == null);
                 com.kwai.video.ksvodplayerkit.a.b.e("KSVodPlayer", sb.toString(), new Exception("prepareAsync"));
                 return -1;
             }
@@ -684,14 +684,14 @@ public class g implements d {
             }
             com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "prepareAsync");
             this.r.set(2);
-            this.f37617e.prepareAsync();
-            if (this.i.f37515h != null) {
-                this.A.a(this.f37617e.getVodAdaptiveUrl());
+            this.f37712e.prepareAsync();
+            if (this.i.f37610h != null) {
+                this.A.a(this.f37712e.getVodAdaptiveUrl());
                 if (i.a().b()) {
-                    long c2 = f.a().c(this.f37617e.getVodAdaptiveUrl());
+                    long c2 = f.a().c(this.f37712e.getVodAdaptiveUrl());
                     if (c2 > 0) {
                         com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "prepareAsync, multi rate use history play progress");
-                        this.f37617e.seekTo(c2);
+                        this.f37712e.seekTo(c2);
                     }
                 }
             }
@@ -700,17 +700,17 @@ public class g implements d {
     }
 
     public void a(float f2) {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                this.f37617e.setSpeed(f2);
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                this.f37712e.setSpeed(f2);
             }
         }
     }
 
     public void a(float f2, float f3) {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                this.f37617e.setVolume(f2, f3);
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                this.f37712e.setVolume(f2, f3);
             }
             this.n = f2;
             this.o = f3;
@@ -719,43 +719,43 @@ public class g implements d {
 
     public void a(int i) {
         com.kwai.video.ksvodplayerkit.b.c h2;
-        synchronized (this.f37614b) {
-            if (this.i.i == 2 && (h2 = this.A.h()) != null && h2.f37524c != null) {
-                Iterator<com.kwai.video.ksvodplayerkit.b.f> it = h2.f37524c.f37526a.iterator();
+        synchronized (this.f37709b) {
+            if (this.i.i == 2 && (h2 = this.A.h()) != null && h2.f37619c != null) {
+                Iterator<com.kwai.video.ksvodplayerkit.b.f> it = h2.f37619c.f37621a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     com.kwai.video.ksvodplayerkit.b.f next = it.next();
-                    if (next.f37533g == i) {
+                    if (next.f37628g == i) {
                         this.C = next;
                         break;
                     }
                 }
                 if (this.C == null) {
-                    this.C = h2.f37524c.f37526a.get(0);
+                    this.C = h2.f37619c.f37621a.get(0);
                 }
                 if (this.C != null) {
-                    this.A.a(this.C.f37527a);
+                    this.A.a(this.C.f37622a);
                 }
             }
         }
     }
 
     public void a(long j) {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
                 this.p = true;
-                this.f37617e.seekTo(j);
+                this.f37712e.seekTo(j);
             }
         }
     }
 
     public void a(Surface surface) {
-        synchronized (this.f37614b) {
-            this.f37615c = surface;
-            if (this.f37617e != null) {
-                this.f37617e.setSurface(surface);
+        synchronized (this.f37709b) {
+            this.f37710c = surface;
+            if (this.f37712e != null) {
+                this.f37712e.setSurface(surface);
             }
         }
     }
@@ -764,24 +764,24 @@ public class g implements d {
         if (surfaceHolder == null) {
             return;
         }
-        synchronized (this.f37614b) {
-            this.f37616d = surfaceHolder;
-            if (this.f37617e != null) {
-                this.f37617e.setDisplay(surfaceHolder);
+        synchronized (this.f37709b) {
+            this.f37711d = surfaceHolder;
+            if (this.f37712e != null) {
+                this.f37712e.setDisplay(surfaceHolder);
             }
         }
     }
 
     public void a(com.kwai.video.ksvodplayerkit.b bVar) {
         this.w = bVar;
-        if (this.f37617e != null && bVar != null) {
+        if (this.f37712e != null && bVar != null) {
             a aVar = this.y;
             if (aVar != null) {
                 aVar.a(bVar);
             } else {
                 this.y = new a(bVar);
             }
-            this.f37617e.getAspectAwesomeCache().setAwesomeCacheCallback(this.y);
+            this.f37712e.getAspectAwesomeCache().setAwesomeCacheCallback(this.y);
         }
         if (bVar == null) {
             this.y = null;
@@ -800,8 +800,8 @@ public class g implements d {
         this.v = cVar;
     }
 
-    public void a(d.InterfaceC0466d interfaceC0466d) {
-        this.t = interfaceC0466d;
+    public void a(d.InterfaceC0469d interfaceC0469d) {
+        this.t = interfaceC0469d;
     }
 
     public void a(d.e eVar) {
@@ -813,23 +813,23 @@ public class g implements d {
     }
 
     public void a(l lVar) {
-        synchronized (this.f37614b) {
-            this.i.f37512e = lVar;
+        synchronized (this.f37709b) {
+            this.i.f37607e = lVar;
         }
     }
 
     public void a(KwaiPlayerDebugInfoView kwaiPlayerDebugInfoView) {
-        this.f37613a = kwaiPlayerDebugInfoView;
+        this.f37708a = kwaiPlayerDebugInfoView;
         if (i.a().m()) {
-            this.f37613a.setVisibility(0);
+            this.f37708a.setVisibility(0);
         }
     }
 
     public void a(boolean z) {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
                 this.j = z;
-                this.f37617e.setLooping(z);
+                this.f37712e.setLooping(z);
             }
         }
     }
@@ -840,7 +840,7 @@ public class g implements d {
         OnPlayerReleaseListener onPlayerReleaseListener = new OnPlayerReleaseListener() { // from class: com.kwai.video.ksvodplayerkit.g.7
             @Override // com.kwai.player.OnPlayerReleaseListener
             public void onRelease(KwaiPlayerResultQos kwaiPlayerResultQos) {
-                synchronized (g.this.f37614b) {
+                synchronized (g.this.f37709b) {
                     if (g.this.D) {
                         com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayer", "logVideoStatJson already reported!");
                         return;
@@ -860,16 +860,16 @@ public class g implements d {
                 }
             }
         };
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                this.f37617e.setOnPreparedListener(null);
-                this.f37617e.setOnInfoListener(null);
-                this.f37617e.setOnErrorListener(null);
-                this.f37617e.setOnVideoSizeChangedListener(null);
-                this.f37617e.setOnSeekCompleteListener(null);
-                this.f37617e.setOnBufferingUpdateListener(null);
-                this.f37617e.releaseAsync(onPlayerReleaseListener);
-                this.f37617e = null;
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                this.f37712e.setOnPreparedListener(null);
+                this.f37712e.setOnInfoListener(null);
+                this.f37712e.setOnErrorListener(null);
+                this.f37712e.setOnVideoSizeChangedListener(null);
+                this.f37712e.setOnSeekCompleteListener(null);
+                this.f37712e.setOnBufferingUpdateListener(null);
+                this.f37712e.releaseAsync(onPlayerReleaseListener);
+                this.f37712e = null;
             }
         }
     }
@@ -878,55 +878,55 @@ public class g implements d {
     }
 
     public boolean b() {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                return this.f37617e.isPlaying();
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                return this.f37712e.isPlaying();
             }
             return false;
         }
     }
 
     public long c() {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                return this.f37617e.getCurrentPosition();
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                return this.f37712e.getCurrentPosition();
             }
             return 0L;
         }
     }
 
     public long d() {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null) {
-                return this.f37617e.getDuration();
+        synchronized (this.f37709b) {
+            if (this.f37712e != null) {
+                return this.f37712e.getDuration();
             }
             return -1L;
         }
     }
 
     public void e() {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null && !this.f37617e.isPlaying()) {
+        synchronized (this.f37709b) {
+            if (this.f37712e != null && !this.f37712e.isPlaying()) {
                 if (this.F == 0) {
                     this.F = System.currentTimeMillis();
                 }
-                if (this.f37613a != null && i.a().m()) {
-                    this.f37613a.startMonitor(this.f37617e);
+                if (this.f37708a != null && i.a().m()) {
+                    this.f37708a.startMonitor(this.f37712e);
                 }
                 com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", IntentConfig.START);
-                this.f37617e.start();
+                this.f37712e.start();
             }
         }
-        if (e.a(this.f37619g)) {
+        if (e.a(this.f37714g)) {
             i();
         }
     }
 
     public void f() {
-        synchronized (this.f37614b) {
-            if (this.f37617e != null && this.f37617e.isPlaying()) {
+        synchronized (this.f37709b) {
+            if (this.f37712e != null && this.f37712e.isPlaying()) {
                 com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "pause");
-                this.f37617e.pause();
+                this.f37712e.pause();
             }
         }
     }
@@ -941,14 +941,14 @@ public class g implements d {
             if (dVar != null) {
                 dVar.a(true);
                 if (this.A.f() > 0) {
-                    if (this.i.f37515h != null) {
+                    if (this.i.f37610h != null) {
                         str2 = com.kwai.video.ksvodplayerkit.b.m.a(this.A.g());
                     } else {
-                        if (this.f37620h == null) {
-                            this.f37620h = new HashMap();
+                        if (this.f37715h == null) {
+                            this.f37715h = new HashMap();
                         }
-                        this.f37620h.put("Host", this.A.d());
-                        str2 = this.A.b().f37486b;
+                        this.f37715h.put("Host", this.A.d());
+                        str2 = this.A.b().f37581b;
                     }
                     if (str2 != null && a(str2)) {
                         com.kwai.video.ksvodplayerkit.a.b.b("KSVodPlayer", "refreshDataSource success!");
@@ -964,7 +964,7 @@ public class g implements d {
     }
 
     public IKwaiMediaPlayer h() {
-        IKwaiMediaPlayer iKwaiMediaPlayer = this.f37617e;
+        IKwaiMediaPlayer iKwaiMediaPlayer = this.f37712e;
         if (iKwaiMediaPlayer != null) {
             return iKwaiMediaPlayer;
         }

@@ -20,19 +20,19 @@ import com.baidu.wallet.base.widget.BdMenuItem;
 public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26085a = O2OMenuView.class.getSimpleName();
+    public static final String f26093a = O2OMenuView.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26086b;
+    public boolean f26094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f26087c;
+    public ListView f26095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f26088d;
+    public a f26096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OnO2OMenuItemSelectListener f26089e;
+    public OnO2OMenuItemSelectListener f26097e;
 
     /* loaded from: classes5.dex */
     public interface OnO2OMenuItemSelectListener {
@@ -43,18 +43,18 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
     public class a extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f26092b;
+        public String[] f26100b;
 
         public a() {
         }
 
         public void a(String[] strArr) {
-            this.f26092b = strArr;
+            this.f26100b = strArr;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            String[] strArr = this.f26092b;
+            String[] strArr = this.f26100b;
             if (strArr != null) {
                 return strArr.length;
             }
@@ -79,7 +79,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
             } else {
                 o2OMenuItemView = (O2OMenuItemView) view;
             }
-            o2OMenuItemView.updateItem(this.f26092b[i]);
+            o2OMenuItemView.updateItem(this.f26100b[i]);
             return o2OMenuItemView;
         }
     }
@@ -87,7 +87,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
     @SuppressLint({"NewApi"})
     public O2OMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f26086b = false;
+        this.f26094b = false;
         a();
     }
 
@@ -108,17 +108,17 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
     }
 
     public void layoutMenu(String[] strArr) {
-        Log.d(f26085a, "layout menu view");
-        a aVar = this.f26088d;
+        Log.d(f26093a, "layout menu view");
+        a aVar = this.f26096d;
         if (aVar != null) {
             aVar.a(strArr);
-            this.f26088d.notifyDataSetChanged();
+            this.f26096d.notifyDataSetChanged();
             return;
         }
         a aVar2 = new a();
-        this.f26088d = aVar2;
+        this.f26096d = aVar2;
         aVar2.a(strArr);
-        this.f26087c.setAdapter((ListAdapter) this.f26088d);
+        this.f26095c.setAdapter((ListAdapter) this.f26096d);
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
@@ -127,45 +127,45 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuSetChanged() {
-        this.f26086b = false;
+        this.f26094b = false;
     }
 
     public void setMenuSelectListener(OnO2OMenuItemSelectListener onO2OMenuItemSelectListener) {
-        this.f26089e = onO2OMenuItemSelectListener;
+        this.f26097e = onO2OMenuItemSelectListener;
     }
 
     private void a() {
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
-        this.f26087c = new ListView(getContext());
+        this.f26095c = new ListView(getContext());
         int dip2px = DisplayUtils.dip2px(getContext(), 115.0f);
-        this.f26087c.setDivider(new ColorDrawable(getSeparatorColor()));
-        this.f26087c.setDividerHeight(1);
-        this.f26087c.setSelector(new ColorDrawable(0));
-        this.f26087c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.O2OMenuView.1
+        this.f26095c.setDivider(new ColorDrawable(getSeparatorColor()));
+        this.f26095c.setDividerHeight(1);
+        this.f26095c.setSelector(new ColorDrawable(0));
+        this.f26095c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.O2OMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (view != null && (view instanceof O2OMenuItemView)) {
                     String string = ((O2OMenuItemView) view).getString();
-                    if (O2OMenuView.this.f26089e != null) {
-                        O2OMenuView.this.f26089e.onMenuItemClick(string);
+                    if (O2OMenuView.this.f26097e != null) {
+                        O2OMenuView.this.f26097e.onMenuItemClick(string);
                     }
                 }
             }
         });
-        addView(this.f26087c, new LinearLayout.LayoutParams(dip2px, -2));
+        addView(this.f26095c, new LinearLayout.LayoutParams(dip2px, -2));
         setFocusableInTouchMode(true);
     }
 
     public O2OMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26086b = false;
+        this.f26094b = false;
         a();
     }
 
     public O2OMenuView(Context context) {
         super(context);
-        this.f26086b = false;
+        this.f26094b = false;
         a();
     }
 }

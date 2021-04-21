@@ -14,35 +14,35 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ApplicationStatus {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Integer f22315b;
+    public static Integer f22323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Activity f22316c;
+    public static Activity f22324c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f22317d;
+    public static f f22325d;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f22314a = new Object();
+    public static Object f22322a = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<Activity, d> f22318e = new ConcurrentHashMap();
+    public static final Map<Activity, d> f22326e = new ConcurrentHashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d.b.j0.a.b<e> f22319f = new d.b.j0.a.b<>();
+    public static final d.b.k0.a.b<e> f22327f = new d.b.k0.a.b<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final d.b.j0.a.b<f> f22320g = new d.b.j0.a.b<>();
+    public static final d.b.k0.a.b<f> f22328g = new d.b.k0.a.b<>();
 
     /* loaded from: classes5.dex */
     public static class a implements BaseChromiumApplication.c {
         @Override // com.baidu.turbonet.base.BaseChromiumApplication.c
         public void a(Activity activity, boolean z) {
             int h2;
-            if (!z || activity == ApplicationStatus.f22316c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
+            if (!z || activity == ApplicationStatus.f22324c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
                 return;
             }
-            Activity unused = ApplicationStatus.f22316c = activity;
+            Activity unused = ApplicationStatus.f22324c = activity;
         }
     }
 
@@ -99,11 +99,11 @@ public class ApplicationStatus {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ApplicationStatus.f22317d != null) {
+            if (ApplicationStatus.f22325d != null) {
                 return;
             }
-            f unused = ApplicationStatus.f22317d = new a(this);
-            ApplicationStatus.k(ApplicationStatus.f22317d);
+            f unused = ApplicationStatus.f22325d = new a(this);
+            ApplicationStatus.k(ApplicationStatus.f22325d);
         }
     }
 
@@ -120,7 +120,7 @@ public class ApplicationStatus {
     public static int g() {
         boolean z = false;
         boolean z2 = false;
-        for (d dVar : f22318e.values()) {
+        for (d dVar : f22326e.values()) {
             int b2 = dVar.b();
             if (b2 != 4 && b2 != 5 && b2 != 6) {
                 return 1;
@@ -140,17 +140,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (f22314a) {
-            if (f22315b == null) {
-                f22315b = Integer.valueOf(g());
+        synchronized (f22322a) {
+            if (f22323b == null) {
+                f22323b = Integer.valueOf(g());
             }
-            intValue = f22315b.intValue();
+            intValue = f22323b.intValue();
         }
         return intValue;
     }
 
     public static int h(Activity activity) {
-        d dVar = f22318e.get(activity);
+        d dVar = f22326e.get(activity);
         if (dVar != null) {
             return dVar.b();
         }
@@ -164,37 +164,37 @@ public class ApplicationStatus {
 
     public static void j(Activity activity, int i) {
         if (activity != null) {
-            if (f22316c == null || i == 1 || i == 3 || i == 2) {
-                f22316c = activity;
+            if (f22324c == null || i == 1 || i == 3 || i == 2) {
+                f22324c = activity;
             }
             int stateForApplication = getStateForApplication();
             if (i == 1) {
-                f22318e.put(activity, new d(null));
+                f22326e.put(activity, new d(null));
             }
-            synchronized (f22314a) {
-                f22315b = null;
+            synchronized (f22322a) {
+                f22323b = null;
             }
-            d dVar = f22318e.get(activity);
+            d dVar = f22326e.get(activity);
             dVar.c(i);
             Iterator<e> it = dVar.a().iterator();
             while (it.hasNext()) {
                 it.next().a(activity, i);
             }
-            Iterator<e> it2 = f22319f.iterator();
+            Iterator<e> it2 = f22327f.iterator();
             while (it2.hasNext()) {
                 it2.next().a(activity, i);
             }
             int stateForApplication2 = getStateForApplication();
             if (stateForApplication2 != stateForApplication) {
-                Iterator<f> it3 = f22320g.iterator();
+                Iterator<f> it3 = f22328g.iterator();
                 while (it3.hasNext()) {
                     it3.next().a(stateForApplication2);
                 }
             }
             if (i == 6) {
-                f22318e.remove(activity);
-                if (activity == f22316c) {
-                    f22316c = null;
+                f22326e.remove(activity);
+                if (activity == f22324c) {
+                    f22324c = null;
                     return;
                 }
                 return;
@@ -205,7 +205,7 @@ public class ApplicationStatus {
     }
 
     public static void k(f fVar) {
-        f22320g.e(fVar);
+        f22328g.e(fVar);
     }
 
     public static native void nativeOnApplicationStateChange(int i);
@@ -219,26 +219,26 @@ public class ApplicationStatus {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f22321a;
+        public int f22329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.j0.a.b<e> f22322b;
+        public d.b.k0.a.b<e> f22330b;
 
         public d() {
-            this.f22321a = 6;
-            this.f22322b = new d.b.j0.a.b<>();
+            this.f22329a = 6;
+            this.f22330b = new d.b.k0.a.b<>();
         }
 
-        public d.b.j0.a.b<e> a() {
-            return this.f22322b;
+        public d.b.k0.a.b<e> a() {
+            return this.f22330b;
         }
 
         public int b() {
-            return this.f22321a;
+            return this.f22329a;
         }
 
         public void c(int i) {
-            this.f22321a = i;
+            this.f22329a = i;
         }
 
         public /* synthetic */ d(a aVar) {

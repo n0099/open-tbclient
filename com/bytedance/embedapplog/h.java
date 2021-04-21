@@ -22,7 +22,7 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C0295a(iBinder);
+            return new C0297a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -56,13 +56,13 @@ public interface h extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0295a implements h {
+        public static class C0297a implements h {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f26843a;
+            public IBinder f26851a;
 
-            public C0295a(IBinder iBinder) {
-                this.f26843a = iBinder;
+            public C0297a(IBinder iBinder) {
+                this.f26851a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.h
@@ -71,7 +71,7 @@ public interface h extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                    this.f26843a.transact(1, obtain, obtain2, 0);
+                    this.f26851a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -82,7 +82,7 @@ public interface h extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26843a;
+                return this.f26851a;
             }
 
             @Override // com.bytedance.embedapplog.h
@@ -92,7 +92,7 @@ public interface h extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f26843a.transact(3, obtain, obtain2, 0);
+                    this.f26851a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -108,7 +108,7 @@ public interface h extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f26843a.transact(2, obtain, obtain2, 0);
+                    this.f26851a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

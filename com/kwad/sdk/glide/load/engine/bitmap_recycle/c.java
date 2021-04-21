@@ -6,58 +6,58 @@ import androidx.annotation.VisibleForTesting;
 public class c implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f35761a = new b();
+    public final b f35856a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    public final h<a, Bitmap> f35762b = new h<>();
+    public final h<a, Bitmap> f35857b = new h<>();
 
     @VisibleForTesting
     /* loaded from: classes6.dex */
     public static class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f35763a;
+        public final b f35858a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35764b;
+        public int f35859b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f35765c;
+        public int f35860c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Bitmap.Config f35766d;
+        public Bitmap.Config f35861d;
 
         public a(b bVar) {
-            this.f35763a = bVar;
+            this.f35858a = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.f35763a.a(this);
+            this.f35858a.a(this);
         }
 
         public void a(int i, int i2, Bitmap.Config config) {
-            this.f35764b = i;
-            this.f35765c = i2;
-            this.f35766d = config;
+            this.f35859b = i;
+            this.f35860c = i2;
+            this.f35861d = config;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f35764b == aVar.f35764b && this.f35765c == aVar.f35765c && this.f35766d == aVar.f35766d;
+                return this.f35859b == aVar.f35859b && this.f35860c == aVar.f35860c && this.f35861d == aVar.f35861d;
             }
             return false;
         }
 
         public int hashCode() {
-            int i = ((this.f35764b * 31) + this.f35765c) * 31;
-            Bitmap.Config config = this.f35766d;
+            int i = ((this.f35859b * 31) + this.f35860c) * 31;
+            Bitmap.Config config = this.f35861d;
             return i + (config != null ? config.hashCode() : 0);
         }
 
         public String toString() {
-            return c.c(this.f35764b, this.f35765c, this.f35766d);
+            return c.c(this.f35859b, this.f35860c, this.f35861d);
         }
     }
 
@@ -88,17 +88,17 @@ public class c implements l {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a() {
-        return this.f35762b.a();
+        return this.f35857b.a();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a(int i, int i2, Bitmap.Config config) {
-        return this.f35762b.a((h<a, Bitmap>) this.f35761a.a(i, i2, config));
+        return this.f35857b.a((h<a, Bitmap>) this.f35856a.a(i, i2, config));
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public void a(Bitmap bitmap) {
-        this.f35762b.a(this.f35761a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
+        this.f35857b.a(this.f35856a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
@@ -117,6 +117,6 @@ public class c implements l {
     }
 
     public String toString() {
-        return "AttributeStrategy:\n  " + this.f35762b;
+        return "AttributeStrategy:\n  " + this.f35857b;
     }
 }

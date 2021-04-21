@@ -16,29 +16,29 @@ import java.util.Collections;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41773a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", "sw", IAdRequestParam.SCREEN_HEIGHT, Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", "sr", "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
+    public static final JsonReader.a f41868a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", "sw", IAdRequestParam.SCREEN_HEIGHT, Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", "sr", "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41774b = JsonReader.a.a("d", "a");
+    public static final JsonReader.a f41869b = JsonReader.a.a("d", "a");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final JsonReader.a f41775c = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE);
+    public static final JsonReader.a f41870c = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE);
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41776a;
+        public static final /* synthetic */ int[] f41871a;
 
         static {
             int[] iArr = new int[Layer.MatteType.values().length];
-            f41776a = iArr;
+            f41871a = iArr;
             try {
                 iArr[Layer.MatteType.LUMA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41776a[Layer.MatteType.LUMA_INVERTED.ordinal()] = 2;
+                f41871a[Layer.MatteType.LUMA_INVERTED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -80,7 +80,7 @@ public class s {
         String str2 = null;
         String str3 = "UNSET";
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41773a)) {
+            switch (jsonReader.D(f41868a)) {
                 case 0:
                     str3 = jsonReader.z();
                     break;
@@ -121,7 +121,7 @@ public class s {
                         break;
                     } else {
                         matteType2 = Layer.MatteType.values()[x2];
-                        int i6 = a.f41776a[matteType2.ordinal()];
+                        int i6 = a.f41871a[matteType2.ordinal()];
                         if (i6 == 1) {
                             dVar.a("Unsupported matte type: Luma");
                         } else if (i6 == 2) {
@@ -151,7 +151,7 @@ public class s {
                 case 12:
                     jsonReader.o();
                     while (jsonReader.t()) {
-                        int D = jsonReader.D(f41774b);
+                        int D = jsonReader.D(f41869b);
                         if (D == 0) {
                             jVar = d.d(jsonReader, dVar);
                         } else if (D != 1) {
@@ -176,7 +176,7 @@ public class s {
                     while (jsonReader.t()) {
                         jsonReader.o();
                         while (jsonReader.t()) {
-                            if (jsonReader.D(f41775c) != 0) {
+                            if (jsonReader.D(f41870c) != 0) {
                                 jsonReader.E();
                                 jsonReader.F();
                             } else {

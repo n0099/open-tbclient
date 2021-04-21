@@ -23,38 +23,38 @@ import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
 import d.b.c.e.m.b;
 import d.b.c.e.p.l;
-import d.b.h0.r.q.a2;
-import d.b.i0.d2.h.e;
-import d.b.i0.d2.k.e.c1.a;
-import d.b.i0.d2.k.e.f;
-import d.b.i0.d2.k.e.r0;
-import d.b.i0.d2.k.e.t;
+import d.b.i0.r.q.a2;
+import d.b.j0.d2.h.e;
+import d.b.j0.d2.k.e.c1.a;
+import d.b.j0.d2.k.e.f;
+import d.b.j0.d2.k.e.r0;
+import d.b.j0.d2.k.e.t;
 /* loaded from: classes3.dex */
 public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19219a;
+    public int f19227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19220b;
+    public View f19228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f19221c;
+    public ImageView f19229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f19222d;
+    public View f19230d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbRichTextView f19223e;
+    public TbRichTextView f19231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19224f;
+    public View f19232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19225g;
+    public TbImageView f19233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f19226h;
+    public TbImageView f19234h;
     public ThreadSkinView i;
     public TextView j;
     public LinearLayout k;
@@ -66,35 +66,35 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public a q;
     public ThreadForumEnterButtonContainer r;
     public PbBusinessPromotionContainer s;
-    public d.b.i0.d2.k.e.e1.a t;
+    public d.b.j0.d2.k.e.e1.a t;
     public VoteView u;
 
     public PbFirstFloorViewHolder(TbPageContext tbPageContext, View view, boolean z, int i) {
         super(view);
-        this.f19219a = 3;
+        this.f19227a = 3;
         this.o = new t(view);
         ImageView imageView = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.f19221c = imageView;
+        this.f19229c = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         matrix.postTranslate(0.0f, -r0.f());
-        this.f19221c.setImageMatrix(matrix);
-        this.f19222d = view.findViewById(R.id.blank_view_above_rich_text);
-        this.f19223e = (TbRichTextView) view.findViewById(R.id.richText);
-        this.f19220b = view;
-        int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f19223e.getPaddingLeft()) - this.f19223e.getPaddingRight();
-        f fVar = new f(this.f19223e.getLayoutStrategy());
+        this.f19229c.setImageMatrix(matrix);
+        this.f19230d = view.findViewById(R.id.blank_view_above_rich_text);
+        this.f19231e = (TbRichTextView) view.findViewById(R.id.richText);
+        this.f19228b = view;
+        int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f19231e.getPaddingLeft()) - this.f19231e.getPaddingRight();
+        f fVar = new f(this.f19231e.getLayoutStrategy());
         fVar.D = k;
-        this.f19223e.setLayoutStrategy(fVar);
-        this.f19226h = (TbImageView) view.findViewById(R.id.game_activity_banner);
+        this.f19231e.setLayoutStrategy(fVar);
+        this.f19234h = (TbImageView) view.findViewById(R.id.game_activity_banner);
         int min = Math.min(k - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i);
-        this.f19223e.getLayoutStrategy().q(min);
-        this.f19223e.getLayoutStrategy().p((int) (min * 1.618f));
-        this.f19223e.setTextSize(TbConfig.getContentSize());
-        this.f19223e.setDisplayImage(z, false);
-        this.f19223e.setVoiceViewRes(R.layout.voice_play_btn_new);
-        this.f19224f = view.findViewById(R.id.divider_bottom_first_floor);
-        this.f19225g = (TbImageView) view.findViewById(R.id.user_head_mask);
+        this.f19231e.getLayoutStrategy().q(min);
+        this.f19231e.getLayoutStrategy().p((int) (min * 1.618f));
+        this.f19231e.setTextSize(TbConfig.getContentSize());
+        this.f19231e.setDisplayImage(z, false);
+        this.f19231e.setVoiceViewRes(R.layout.voice_play_btn_new);
+        this.f19232f = view.findViewById(R.id.divider_bottom_first_floor);
+        this.f19233g = (TbImageView) view.findViewById(R.id.user_head_mask);
         this.i = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
         this.k = (LinearLayout) view.findViewById(R.id.pb_list_content);
         this.j = (TextView) view.findViewById(R.id.pb_item_tail_content);
@@ -104,7 +104,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
         this.r = threadForumEnterButtonContainer;
         threadForumEnterButtonContainer.setFrom(1);
-        this.t = new d.b.i0.d2.k.e.e1.a(tbPageContext);
+        this.t = new d.b.j0.d2.k.e.e1.a(tbPageContext);
         this.s = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
         this.p = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
         VoteView voteView = (VoteView) view.findViewById(R.id.vote_view);
@@ -113,15 +113,15 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void b(boolean z, int i) {
-        View view = this.f19222d;
+        View view = this.f19230d;
         if (view == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i;
-            this.f19222d.setLayoutParams(layoutParams);
-            this.f19222d.setVisibility(0);
+            this.f19230d.setLayoutParams(layoutParams);
+            this.f19230d.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -158,19 +158,19 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
 
     public void d(e eVar, boolean z, boolean z2) {
         if (eVar != null && eVar.j) {
-            this.f19221c.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.f19221c.setVisibility(0);
+            this.f19229c.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.f19229c.setVisibility(0);
         } else if (z && z2) {
-            this.f19221c.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.f19221c.setVisibility(0);
+            this.f19229c.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.f19229c.setVisibility(0);
         } else if (z) {
-            this.f19221c.setImageResource(R.drawable.pic_pb_refined_n);
-            this.f19221c.setVisibility(0);
+            this.f19229c.setImageResource(R.drawable.pic_pb_refined_n);
+            this.f19229c.setVisibility(0);
         } else if (z2) {
-            this.f19221c.setImageResource(R.drawable.pic_pb_stick_n);
-            this.f19221c.setVisibility(0);
+            this.f19229c.setImageResource(R.drawable.pic_pb_stick_n);
+            this.f19229c.setVisibility(0);
         } else {
-            this.f19221c.setVisibility(8);
+            this.f19229c.setVisibility(8);
         }
     }
 }

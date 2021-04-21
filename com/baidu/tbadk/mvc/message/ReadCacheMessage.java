@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import d.b.h0.g0.b.d;
+import d.b.i0.g0.b.d;
 /* loaded from: classes3.dex */
 public class ReadCacheMessage<T> extends CustomMessage<T> {
     public boolean isNeedUid;

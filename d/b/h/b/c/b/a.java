@@ -7,10 +7,10 @@ import com.baidu.permissionhelper.app.ActivityCompat;
 public final class a implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BdUploadHandler f49862e;
+    public final /* synthetic */ BdUploadHandler f43789e;
 
     public a(BdUploadHandler bdUploadHandler) {
-        this.f49862e = bdUploadHandler;
+        this.f43789e = bdUploadHandler;
     }
 
     @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -24,9 +24,9 @@ public final class a implements ActivityCompat.OnRequestPermissionsResultCallbac
                 }
             }
             if (z) {
-                createCameraIntentAfterCheckPermission = this.f49862e.createCameraIntentAfterCheckPermission();
-                this.f49862e.mCanHandleResult = true;
-                this.f49862e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
+                createCameraIntentAfterCheckPermission = this.f43789e.createCameraIntentAfterCheckPermission();
+                this.f43789e.mCanHandleResult = true;
+                this.f43789e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
             }
             d.b.h.a.j.a.b().d(4099);
         }

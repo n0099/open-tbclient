@@ -5,87 +5,87 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.text.TextUtils;
 /* loaded from: classes7.dex */
-public final class d implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
+public final class d implements d.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.q.a.a.a.b.d.a f41383a;
+    public d.r.a.a.a.b.d.a f41478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.q.a.a.a.a.a f41384b;
+    public d.r.a.a.a.a.a f41479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f41385c;
+    public Context f41480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41386d = "";
+    public String f41481d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41387e = "";
+    public String f41482e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41388f = "";
+    public String f41483f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41389g = "";
+    public String f41484g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41390h = false;
+    public boolean f41485h = false;
 
-    public d(Context context, d.q.a.a.a.a.a aVar) {
-        this.f41384b = aVar;
-        this.f41385c = context;
+    public d(Context context, d.r.a.a.a.a.a aVar) {
+        this.f41479b = aVar;
+        this.f41480c = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
-        d.q.a.a.a.a.a aVar;
+        d.r.a.a.a.a.a aVar;
         try {
             boolean c2 = c();
-            this.f41390h = c2;
+            this.f41485h = c2;
             if (c2) {
-                String b2 = this.f41383a.b();
-                this.f41386d = b2;
+                String b2 = this.f41478a.b();
+                this.f41481d = b2;
                 if (TextUtils.isEmpty(b2)) {
-                    this.f41386d = "";
+                    this.f41481d = "";
                 }
-                String h2 = this.f41383a.h();
-                this.f41389g = h2;
+                String h2 = this.f41478a.h();
+                this.f41484g = h2;
                 if (TextUtils.isEmpty(h2)) {
-                    this.f41389g = "";
+                    this.f41484g = "";
                 }
-                String g2 = this.f41383a.g();
-                this.f41388f = g2;
+                String g2 = this.f41478a.g();
+                this.f41483f = g2;
                 if (TextUtils.isEmpty(g2)) {
-                    this.f41388f = "";
+                    this.f41483f = "";
                 }
-                String e2 = this.f41383a.e();
-                this.f41387e = e2;
+                String e2 = this.f41478a.e();
+                this.f41482e = e2;
                 if (TextUtils.isEmpty(e2)) {
-                    this.f41387e = "";
+                    this.f41482e = "";
                 }
-                if (!TextUtils.isEmpty(this.f41386d)) {
-                    this.f41384b.a(true, this);
+                if (!TextUtils.isEmpty(this.f41481d)) {
+                    this.f41479b.a(true, this);
                 }
-                aVar = this.f41384b;
+                aVar = this.f41479b;
             } else {
-                aVar = this.f41384b;
+                aVar = this.f41479b;
             }
             aVar.a(false, null);
         } catch (Throwable th) {
             try {
-                d.q.a.a.c.b.b.c(th);
+                d.r.a.a.c.b.b.c(th);
             } finally {
                 d();
             }
         }
     }
 
-    @Override // d.q.a.a.a.b.b
-    public final void a(d.q.a.a.a.a.a aVar) {
-        this.f41383a = new d.q.a.a.a.b.d.a(this.f41385c, this);
+    @Override // d.r.a.a.a.b.b
+    public final void a(d.r.a.a.a.a.a aVar) {
+        this.f41478a = new d.r.a.a.a.b.d.a(this.f41480c, this);
     }
 
-    @Override // d.q.a.a.a.b.b
+    @Override // d.r.a.a.a.b.b
     public final boolean a() {
         return false;
     }
@@ -95,23 +95,23 @@ public final class d implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         return null;
     }
 
-    @Override // d.q.a.a.a.b.b
+    @Override // d.r.a.a.a.b.b
     public final String b() {
-        return this.f41386d;
+        return this.f41481d;
     }
 
-    @Override // d.q.a.a.a.b.b
+    @Override // d.r.a.a.a.b.b
     public final boolean c() {
-        d.q.a.a.a.b.d.a aVar = this.f41383a;
+        d.r.a.a.a.b.d.a aVar = this.f41478a;
         if (aVar != null) {
             return aVar.f();
         }
         return false;
     }
 
-    @Override // d.q.a.a.a.b.b
+    @Override // d.r.a.a.a.b.b
     public final void d() {
-        d.q.a.a.a.b.d.a aVar = this.f41383a;
+        d.r.a.a.a.b.d.a aVar = this.f41478a;
         if (aVar != null) {
             aVar.i();
         }
@@ -119,7 +119,7 @@ public final class d implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        d.q.a.a.a.a.a aVar = this.f41384b;
+        d.r.a.a.a.a.a aVar = this.f41479b;
         if (aVar != null) {
             aVar.a(false, this);
         }

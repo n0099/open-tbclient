@@ -16,48 +16,48 @@ import java.util.List;
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.contentalliance.home.c.a.b> {
 
     /* renamed from: c  reason: collision with root package name */
-    public SlidePlayViewPager f33021c;
+    public SlidePlayViewPager f33116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f33022d;
+    public c f33117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33023e;
+    public int f33118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a> f33024f;
+    public List<a> f33119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f33025g;
+    public AdTemplate f33120g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f33026h;
+    public com.kwad.sdk.contentalliance.detail.video.b f33121h;
     @Nullable
     public View i;
 
     public b(KsFragment ksFragment, RecyclerView recyclerView, SlidePlayViewPager slidePlayViewPager) {
         super(ksFragment, recyclerView);
-        this.f33024f = new LinkedList();
-        this.f33021c = slidePlayViewPager;
+        this.f33119f = new LinkedList();
+        this.f33116c = slidePlayViewPager;
     }
 
     private void b(AdTemplate adTemplate, @Nullable View view, boolean z) {
-        int indexOf = this.f36260a.indexOf(adTemplate);
+        int indexOf = this.f36355a.indexOf(adTemplate);
         com.kwad.sdk.core.d.a.a("SlideProfileAdapter", "notifyVideoStateChange selectedPosition:" + indexOf);
         if (indexOf != -1) {
-            for (a aVar : this.f33024f) {
+            for (a aVar : this.f33119f) {
                 aVar.a(indexOf, view, z);
             }
         }
     }
 
     private void l() {
-        int indexOf = this.f36260a.indexOf(this.f33025g);
+        int indexOf = this.f36355a.indexOf(this.f33120g);
         com.kwad.sdk.core.d.a.a("SlideProfileAdapter", "notifyOnSelectChanged selectedPosition:" + indexOf);
         if (indexOf != -1) {
-            for (a aVar : this.f33024f) {
-                aVar.a(indexOf, this.f33025g);
+            for (a aVar : this.f33119f) {
+                aVar.a(indexOf, this.f33120g);
             }
         }
     }
@@ -68,7 +68,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     public AdTemplate a() {
-        return this.f33025g;
+        return this.f33120g;
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.c
@@ -88,13 +88,13 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.home.c.a.b bVar, int i) {
         super.a((b) bVar, i);
-        bVar.f33018a = this.f33021c;
-        bVar.f33019b = this.i;
-        bVar.f33020c = this;
+        bVar.f33113a = this.f33116c;
+        bVar.f33114b = this.i;
+        bVar.f33115c = this;
     }
 
     public void a(c cVar) {
-        this.f33022d = cVar;
+        this.f33117d = cVar;
     }
 
     public void a(AdTemplate adTemplate, View view, boolean z) {
@@ -102,29 +102,29 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     public void a(AdTemplate adTemplate, @Nullable com.kwad.sdk.contentalliance.detail.video.b bVar) {
-        this.f33025g = adTemplate;
-        this.f33026h = bVar;
+        this.f33120g = adTemplate;
+        this.f33121h = bVar;
         l();
     }
 
     public void b(int i) {
-        this.f33023e = i;
+        this.f33118e = i;
     }
 
     public com.kwad.sdk.contentalliance.detail.video.b c() {
-        return this.f33026h;
+        return this.f33121h;
     }
 
     public List<a> d() {
-        return this.f33024f;
+        return this.f33119f;
     }
 
     public c e() {
-        return this.f33022d;
+        return this.f33117d;
     }
 
     public int f() {
-        return this.f33023e;
+        return this.f33118e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

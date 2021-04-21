@@ -25,7 +25,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
-import d.b.h0.r.l.f;
+import d.b.i0.r.l.f;
 /* loaded from: classes3.dex */
 public abstract class BasePersonInfoActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static final String CURRTABINDEX = "CurrTabIndex";
@@ -64,7 +64,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             BasePersonInfoActivity basePersonInfoActivity = BasePersonInfoActivity.this;
             if (basePersonInfoActivity.mIsChooseBarMode && basePersonInfoActivity.requestCode != 23011) {
                 MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                d.b.h0.r.a0.b.g(BasePersonInfoActivity.this.getPageContext().getPageActivity(), 200, false);
+                d.b.i0.r.a0.b.g(BasePersonInfoActivity.this.getPageContext().getPageActivity(), 200, false);
             }
             BasePersonInfoActivity.this.finish();
         }
@@ -119,13 +119,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12974c = fragment;
-        bVar.f12972a = i;
+        bVar.f12982c = fragment;
+        bVar.f12980a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setMinimumHeight(l.g(getActivity(), R.dimen.ds88));
-        bVar.f12973b = fragmentTabIndicator;
+        bVar.f12981b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -300,7 +300,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0) {
             if (this.mIsChooseBarMode && this.requestCode != 23011) {
-                d.b.h0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
+                d.b.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
             }
             finish();
             return true;
@@ -347,13 +347,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (this.mIsHost || this.mAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12973b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12981b;
         if (i <= 0) {
             fragmentTabIndicator.setText(getNoPersonalTabTitle());
         } else {
             fragmentTabIndicator.setText(String.format(getPersonalTabTitle(), Integer.valueOf(i)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12973b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12981b;
         if (i2 <= 0) {
             fragmentTabIndicator2.setText(getNoCommonTabTitle());
         } else {

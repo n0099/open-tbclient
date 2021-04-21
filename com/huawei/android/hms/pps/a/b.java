@@ -12,13 +12,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.huawei.android.hms.pps.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0363a implements b {
+        public static class C0366a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f31389a;
+            public IBinder f31484a;
 
-            public C0363a(IBinder iBinder) {
-                this.f31389a = iBinder;
+            public C0366a(IBinder iBinder) {
+                this.f31484a = iBinder;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -27,7 +27,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f31389a.transact(1, obtain, obtain2, 0);
+                    this.f31484a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -38,7 +38,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f31389a;
+                return this.f31484a;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -47,7 +47,7 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f31389a.transact(2, obtain, obtain2, 0);
+                    this.f31484a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

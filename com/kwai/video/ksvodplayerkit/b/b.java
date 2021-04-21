@@ -7,17 +7,17 @@ public final class b {
     public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("adaptationId", aVar.f37519a);
+            jSONObject.put("adaptationId", aVar.f37614a);
         } catch (Exception unused) {
         }
         try {
-            jSONObject.put("duration", aVar.f37520b);
+            jSONObject.put("duration", aVar.f37615b);
         } catch (Exception unused2) {
         }
         try {
-            if (aVar.f37521c != null && !aVar.f37521c.isEmpty()) {
+            if (aVar.f37616c != null && !aVar.f37616c.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (j jVar : aVar.f37521c) {
+                for (j jVar : aVar.f37616c) {
                     jSONArray.put(k.a(jVar));
                 }
                 jSONObject.put("representation", jSONArray);

@@ -1,0 +1,149 @@
+package d.b.j0.j1.q;
+
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import d.b.c.e.m.d;
+import d.b.j0.j1.p.e;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class c {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Animation f57917a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Animation f57918b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f57919c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ViewGroup f57920d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public InterfaceC1385c f57921e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.j0.j1.q.b f57922f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f57923g = false;
+
+    /* loaded from: classes4.dex */
+    public class a implements AdapterView.OnItemClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f57924e;
+
+        public a(Context context) {
+            this.f57924e = context;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+            e item = c.this.f57922f.getItem(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
+            c.this.f(this.f57924e);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends d {
+        public b() {
+        }
+
+        @Override // d.b.c.e.m.d, android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            c.this.f57923g = false;
+            if (c.this.f57921e != null) {
+                c.this.f57921e.a();
+            }
+            c.this.f57920d.removeView(c.this.f57919c);
+        }
+    }
+
+    /* renamed from: d.b.j0.j1.q.c$c  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public interface InterfaceC1385c {
+        void a();
+    }
+
+    public c(ViewGroup viewGroup) {
+        this.f57920d = viewGroup;
+    }
+
+    public void f(Context context) {
+        View view = this.f57919c;
+        if (view != null) {
+            view.startAnimation(i(context));
+        }
+    }
+
+    public final View g(Context context, List<e> list, int i) {
+        View inflate = LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_more, (ViewGroup) null);
+        GridView gridView = (GridView) inflate.findViewById(R.id.scroll_fragment_more_content);
+        gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
+        d.b.j0.j1.q.b bVar = new d.b.j0.j1.q.b(context, i);
+        this.f57922f = bVar;
+        bVar.b(list);
+        gridView.setAdapter((ListAdapter) this.f57922f);
+        gridView.setOnItemClickListener(new a(context));
+        return inflate;
+    }
+
+    public final Animation h(Context context) {
+        if (this.f57917a == null) {
+            this.f57917a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+        }
+        return this.f57917a;
+    }
+
+    public final Animation i(Context context) {
+        if (this.f57918b == null) {
+            this.f57918b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+        }
+        this.f57918b.setAnimationListener(new b());
+        return this.f57918b;
+    }
+
+    public boolean j() {
+        return this.f57923g;
+    }
+
+    public void k(int i) {
+        SkinManager.setBackgroundColor(this.f57919c, R.color.CAM_X0111);
+        d.b.j0.j1.q.b bVar = this.f57922f;
+        if (bVar != null) {
+            bVar.notifyDataSetChanged();
+        }
+    }
+
+    public void l(InterfaceC1385c interfaceC1385c) {
+        this.f57921e = interfaceC1385c;
+    }
+
+    public void m(Context context, List<e> list, int i) {
+        if (this.f57923g) {
+            return;
+        }
+        this.f57923g = true;
+        View g2 = g(context, list, i);
+        this.f57919c = g2;
+        this.f57920d.addView(g2);
+        SkinManager.setBackgroundColor(this.f57919c, R.color.CAM_X0111);
+        this.f57919c.startAnimation(h(context));
+    }
+}

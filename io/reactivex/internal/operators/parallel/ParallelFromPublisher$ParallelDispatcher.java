@@ -32,21 +32,21 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
     public final class a implements d {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f69087e;
+        public final int f69234e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f69088f;
+        public final int f69235f;
 
         public a(int i, int i2) {
-            this.f69087e = i;
-            this.f69088f = i2;
+            this.f69234e = i;
+            this.f69235f = i2;
         }
 
         @Override // g.d.d
         public void cancel() {
-            if (ParallelFromPublisher$ParallelDispatcher.this.requests.compareAndSet(this.f69087e + this.f69088f, 0L, 1L)) {
+            if (ParallelFromPublisher$ParallelDispatcher.this.requests.compareAndSet(this.f69234e + this.f69235f, 0L, 1L)) {
                 ParallelFromPublisher$ParallelDispatcher parallelFromPublisher$ParallelDispatcher = ParallelFromPublisher$ParallelDispatcher.this;
-                int i = this.f69088f;
+                int i = this.f69235f;
                 parallelFromPublisher$ParallelDispatcher.cancel(i + i);
             }
         }
@@ -57,12 +57,12 @@ public final class ParallelFromPublisher$ParallelDispatcher<T> extends AtomicInt
             if (SubscriptionHelper.validate(j)) {
                 AtomicLongArray atomicLongArray = ParallelFromPublisher$ParallelDispatcher.this.requests;
                 do {
-                    j2 = atomicLongArray.get(this.f69087e);
+                    j2 = atomicLongArray.get(this.f69234e);
                     if (j2 == Long.MAX_VALUE) {
                         return;
                     }
-                } while (!atomicLongArray.compareAndSet(this.f69087e, j2, b.c(j2, j)));
-                if (ParallelFromPublisher$ParallelDispatcher.this.subscriberCount.get() == this.f69088f) {
+                } while (!atomicLongArray.compareAndSet(this.f69234e, j2, b.c(j2, j)));
+                if (ParallelFromPublisher$ParallelDispatcher.this.subscriberCount.get() == this.f69235f) {
                     ParallelFromPublisher$ParallelDispatcher.this.drain();
                 }
             }

@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16962a;
+    public int f16970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16963b;
+    public int f16971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16964c;
+    public int f16972c;
 
     public CommonSpaceItemDecoration(int i, int i2, int i3) {
-        this.f16962a = i;
-        this.f16963b = i2;
-        this.f16964c = i3;
+        this.f16970a = i;
+        this.f16971b = i2;
+        this.f16972c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -28,23 +28,23 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.f16962a;
+                rect.top = this.f16970a;
             } else {
-                rect.top = this.f16963b;
+                rect.top = this.f16971b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.f16964c;
+                rect.bottom = this.f16972c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.f16962a;
+            rect.left = this.f16970a;
         } else {
-            rect.left = this.f16963b;
+            rect.left = this.f16971b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.f16964c;
+            rect.right = this.f16972c;
         }
     }
 }

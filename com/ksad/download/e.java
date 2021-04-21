@@ -5,48 +5,48 @@ import com.kwad.sdk.core.download.DownloadParams;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f31455a;
+    public f f31550a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f31456a = new e();
+        public static final e f31551a = new e();
     }
 
     public static e a() {
-        return a.f31456a;
+        return a.f31551a;
     }
 
     public synchronized void a(int i) {
-        if (this.f31455a != null) {
-            this.f31455a.a(i);
+        if (this.f31550a != null) {
+            this.f31550a.a(i);
         }
     }
 
     public synchronized void a(DownloadTask downloadTask) {
         if (downloadTask.isCanceled()) {
             a(downloadTask.getId());
-        } else if (this.f31455a != null) {
-            this.f31455a.a(downloadTask);
+        } else if (this.f31550a != null) {
+            this.f31550a.a(downloadTask);
         }
     }
 
     public synchronized void a(DownloadTask downloadTask, boolean z) {
         if (downloadTask.isCanceled()) {
             a(downloadTask.getId());
-        } else if (this.f31455a != null) {
-            this.f31455a.a(downloadTask, z);
+        } else if (this.f31550a != null) {
+            this.f31550a.a(downloadTask, z);
         }
     }
 
     public void a(f fVar) {
-        this.f31455a = fVar;
+        this.f31550a = fVar;
     }
 
     public synchronized void b(DownloadTask downloadTask) {
-        if (this.f31455a != null) {
-            this.f31455a.b(downloadTask);
+        if (this.f31550a != null) {
+            this.f31550a.b(downloadTask);
         }
         Object tag = downloadTask.getTag();
         if (tag instanceof DownloadParams) {

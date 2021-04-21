@@ -1,13 +1,13 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.e;
-import d.g.c.a.g;
-import d.g.c.a.j;
-import d.g.c.a.k;
-import d.g.c.a.m;
-import d.g.c.a.n;
-import d.g.c.a.o;
+import d.h.c.a.e;
+import d.h.c.a.g;
+import d.h.c.a.j;
+import d.h.c.a.k;
+import d.h.c.a.m;
+import d.h.c.a.n;
+import d.h.c.a.o;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +19,7 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
         public final List<? extends o<? super T>> components;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(T t) {
             for (int i = 0; i < this.components.size(); i++) {
                 if (!this.components.get(i).apply(t)) {
@@ -29,7 +29,7 @@ public final class Predicates {
             return true;
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof AndPredicate) {
                 return this.components.equals(((AndPredicate) obj).components);
@@ -55,36 +55,36 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g<A, ? extends B> f30593f;
+        public final g<A, ? extends B> f30688f;
         public final o<B> p;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(A a2) {
-            return this.p.apply(this.f30593f.apply(a2));
+            return this.p.apply(this.f30688f.apply(a2));
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof CompositionPredicate) {
                 CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                return this.f30593f.equals(compositionPredicate.f30593f) && this.p.equals(compositionPredicate.p);
+                return this.f30688f.equals(compositionPredicate.f30688f) && this.p.equals(compositionPredicate.p);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f30593f.hashCode() ^ this.p.hashCode();
+            return this.f30688f.hashCode() ^ this.p.hashCode();
         }
 
         public String toString() {
-            return this.p + "(" + this.f30593f + SmallTailInfo.EMOTION_SUFFIX;
+            return this.p + "(" + this.f30688f + SmallTailInfo.EMOTION_SUFFIX;
         }
 
         public CompositionPredicate(o<B> oVar, g<A, ? extends B> gVar) {
             n.p(oVar);
             this.p = oVar;
             n.p(gVar);
-            this.f30593f = gVar;
+            this.f30688f = gVar;
         }
     }
 
@@ -112,7 +112,7 @@ public final class Predicates {
             this.pattern = eVar;
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof ContainsPatternPredicate) {
                 ContainsPatternPredicate containsPatternPredicate = (ContainsPatternPredicate) obj;
@@ -134,7 +134,7 @@ public final class Predicates {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(CharSequence charSequence) {
             return this.pattern.matcher(charSequence).a();
         }
@@ -145,7 +145,7 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
         public final Collection<?> target;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(T t) {
             try {
                 return this.target.contains(t);
@@ -154,7 +154,7 @@ public final class Predicates {
             }
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof InPredicate) {
                 return this.target.equals(((InPredicate) obj).target);
@@ -181,12 +181,12 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
         public final Class<?> clazz;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(Object obj) {
             return this.clazz.isInstance(obj);
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             return (obj instanceof InstanceOfPredicate) && this.clazz == ((InstanceOfPredicate) obj).clazz;
         }
@@ -210,12 +210,12 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
         public final T target;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(T t) {
             return this.target.equals(t);
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof IsEqualToPredicate) {
                 return this.target.equals(((IsEqualToPredicate) obj).target);
@@ -246,12 +246,12 @@ public final class Predicates {
             this.predicate = oVar;
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(T t) {
             return !this.predicate.apply(t);
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof NotPredicate) {
                 return this.predicate.equals(((NotPredicate) obj).predicate);
@@ -271,7 +271,7 @@ public final class Predicates {
     /* loaded from: classes6.dex */
     public enum ObjectPredicate implements o<Object> {
         ALWAYS_TRUE { // from class: com.google.common.base.Predicates.ObjectPredicate.1
-            @Override // com.google.common.base.Predicates.ObjectPredicate, d.g.c.a.o
+            @Override // com.google.common.base.Predicates.ObjectPredicate, d.h.c.a.o
             public boolean apply(Object obj) {
                 return true;
             }
@@ -282,7 +282,7 @@ public final class Predicates {
             }
         },
         ALWAYS_FALSE { // from class: com.google.common.base.Predicates.ObjectPredicate.2
-            @Override // com.google.common.base.Predicates.ObjectPredicate, d.g.c.a.o
+            @Override // com.google.common.base.Predicates.ObjectPredicate, d.h.c.a.o
             public boolean apply(Object obj) {
                 return false;
             }
@@ -293,7 +293,7 @@ public final class Predicates {
             }
         },
         IS_NULL { // from class: com.google.common.base.Predicates.ObjectPredicate.3
-            @Override // com.google.common.base.Predicates.ObjectPredicate, d.g.c.a.o
+            @Override // com.google.common.base.Predicates.ObjectPredicate, d.h.c.a.o
             public boolean apply(Object obj) {
                 return obj == null;
             }
@@ -304,7 +304,7 @@ public final class Predicates {
             }
         },
         NOT_NULL { // from class: com.google.common.base.Predicates.ObjectPredicate.4
-            @Override // com.google.common.base.Predicates.ObjectPredicate, d.g.c.a.o
+            @Override // com.google.common.base.Predicates.ObjectPredicate, d.h.c.a.o
             public boolean apply(Object obj) {
                 return obj != null;
             }
@@ -315,7 +315,7 @@ public final class Predicates {
             }
         };
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public abstract /* synthetic */ boolean apply(T t);
 
         public <T> o<T> withNarrowedType() {
@@ -328,7 +328,7 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
         public final List<? extends o<? super T>> components;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(T t) {
             for (int i = 0; i < this.components.size(); i++) {
                 if (this.components.get(i).apply(t)) {
@@ -338,7 +338,7 @@ public final class Predicates {
             return false;
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (obj instanceof OrPredicate) {
                 return this.components.equals(((OrPredicate) obj).components);
@@ -364,7 +364,7 @@ public final class Predicates {
         public static final long serialVersionUID = 0;
         public final Class<?> clazz;
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             return (obj instanceof SubtypeOfPredicate) && this.clazz == ((SubtypeOfPredicate) obj).clazz;
         }
@@ -383,7 +383,7 @@ public final class Predicates {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(Class<?> cls) {
             return this.clazz.isAssignableFrom(cls);
         }

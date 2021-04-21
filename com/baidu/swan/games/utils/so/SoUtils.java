@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import d.b.g0.a.k;
-import d.b.g0.g.i0.f.c;
+import d.b.h0.a.k;
+import d.b.h0.g.i0.f.c;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ public final class SoUtils {
     public static final String SO_EVENT_ID_NEW_SO = "25";
     public static final String SO_EVENT_ID_V8_SO = "26";
     public static final String TAG = "SoUtils";
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static a sUbcImpl = new c();
     public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 

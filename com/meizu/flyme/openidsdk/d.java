@@ -3,7 +3,7 @@ package com.meizu.flyme.openidsdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import d.j.b.a.a;
+import d.k.b.a.a;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class d extends BroadcastReceiver {
@@ -26,7 +26,7 @@ public class d extends BroadcastReceiver {
         }
         boolean z = false;
         int intExtra = intent.getIntExtra("openIdNotifyFlag", 0);
-        d.j.b.a.d.e("shouldUpdateId, notifyFlag : " + intExtra);
+        d.k.b.a.d.e("shouldUpdateId, notifyFlag : " + intExtra);
         if (intExtra != 1) {
             if (intExtra == 2) {
                 ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("openIdPackageList");
@@ -36,7 +36,7 @@ public class d extends BroadcastReceiver {
             }
         }
         if (z) {
-            a g2 = d.j.b.a.d.b().g(intent.getStringExtra("openIdType"));
+            a g2 = d.k.b.a.d.b().g(intent.getStringExtra("openIdType"));
             if (g2 == null) {
                 return;
             }

@@ -53,35 +53,35 @@ public class c {
     public static volatile c v = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f42711b;
+    public ArrayList<String> f42951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BroadcastReceiver f42712c;
+    public BroadcastReceiver f42952c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.c.h.g.a f42714e;
+    public d.b.c.h.g.a f42954e;
     public PluginInstallTask i;
     public PluginInstallTask k;
     public Messenger m;
     public ServiceConnection n;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42710a = false;
+    public boolean f42950a = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42713d = false;
+    public boolean f42953d = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42715f = true;
+    public boolean f42955f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f42716g = null;
+    public h f42956g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f42717h = new Object();
+    public final Object f42957h = new Object();
     public LinkedList<PluginInstallTask> j = new LinkedList<>();
     public LinkedList<PluginInstallTask> l = new LinkedList<>();
-    public Handler o = new HandlerC0563c(Looper.getMainLooper());
+    public Handler o = new HandlerC0582c(Looper.getMainLooper());
     public Messenger p = new Messenger(this.o);
     public Runnable q = new d();
     public Runnable r = new e();
@@ -190,7 +190,7 @@ public class c {
                     d.b.c.h.j.h.a.b().e(str);
                 } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                     if (z) {
-                        c.this.f42715f = false;
+                        c.this.f42955f = false;
                     }
                     c.this.C(str, z);
                     d.b.c.h.j.h.a.b().d(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
@@ -218,25 +218,25 @@ public class c {
     public class b implements ServiceConnection {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f42718e;
+        public final /* synthetic */ Intent f42958e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f42719f;
+        public final /* synthetic */ Context f42959f;
 
         public b(Intent intent, Context context) {
-            this.f42718e = intent;
-            this.f42719f = context;
+            this.f42958e = intent;
+            this.f42959f = context;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             c.this.m = new Messenger(iBinder);
-            String stringExtra = this.f42718e.getStringExtra("package_name");
+            String stringExtra = this.f42958e.getStringExtra("package_name");
             if (c.this.i == null || !TextUtils.equals(stringExtra, c.this.i.f2229f)) {
                 return;
             }
             try {
-                this.f42719f.startService(this.f42718e);
+                this.f42959f.startService(this.f42958e);
             } catch (Throwable unused) {
             }
         }
@@ -249,8 +249,8 @@ public class c {
 
     /* renamed from: d.b.c.h.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0563c extends Handler {
-        public HandlerC0563c(Looper looper) {
+    public class HandlerC0582c extends Handler {
+        public HandlerC0582c(Looper looper) {
             super(looper);
         }
 
@@ -318,27 +318,27 @@ public class c {
     public class h extends BdAsyncTask<String, Object, String[]> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f42726a;
+        public Context f42966a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f42727b = {"com.baidu.tieba.pluginInjectAll", "com.baidu.tieba.pluginLive", "com.baidu.tieba.pluginPhotoLive"};
+        public String[] f42967b = {"com.baidu.tieba.pluginInjectAll", "com.baidu.tieba.pluginLive", "com.baidu.tieba.pluginPhotoLive"};
 
         /* loaded from: classes.dex */
         public class a implements Comparator<String> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ HashMap f42729e;
+            public final /* synthetic */ HashMap f42969e;
 
             public a(h hVar, HashMap hashMap) {
-                this.f42729e = hashMap;
+                this.f42969e = hashMap;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(String str, String str2) {
-                PluginStatus pluginStatus = (PluginStatus) this.f42729e.get(str);
-                PluginStatus pluginStatus2 = (PluginStatus) this.f42729e.get(str2);
+                PluginStatus pluginStatus = (PluginStatus) this.f42969e.get(str);
+                PluginStatus pluginStatus2 = (PluginStatus) this.f42969e.get(str2);
                 if (pluginStatus == null || pluginStatus2 == null) {
                     if (pluginStatus == null || pluginStatus2 != null) {
                         return (pluginStatus != null || pluginStatus2 == null) ? 0 : 1;
@@ -350,8 +350,8 @@ public class c {
         }
 
         public h(Context context) {
-            this.f42726a = null;
-            this.f42726a = context;
+            this.f42966a = null;
+            this.f42966a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -360,7 +360,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public String[] doInBackground(String... strArr) {
-            Context context = this.f42726a;
+            Context context = this.f42966a;
             InputStream inputStream = null;
             if (context == null) {
                 return null;
@@ -428,7 +428,7 @@ public class c {
                 return false;
             }
             if (Build.VERSION.SDK_INT <= 10) {
-                for (String str2 : this.f42727b) {
+                for (String str2 : this.f42967b) {
                     if (str.contains(str2)) {
                         return true;
                     }
@@ -451,7 +451,7 @@ public class c {
                     String str = strArr[i];
                     if (str != null && str.endsWith(".apk") && c(str)) {
                         c cVar = c.this;
-                        Context context = this.f42726a;
+                        Context context = this.f42966a;
                         if (cVar.D(context, "plugins/" + str, "install_from_start")) {
                             i2 = 1;
                         }
@@ -460,18 +460,18 @@ public class c {
                 }
                 i = i2;
             }
-            if (i != 0 || c.this.f42714e == null) {
+            if (i != 0 || c.this.f42954e == null) {
                 return;
             }
-            c.this.f42714e.a(c.this.f42715f);
+            c.this.f42954e.a(c.this.f42955f);
         }
     }
 
     public c() {
-        this.f42711b = null;
-        this.f42712c = null;
-        this.f42711b = new ArrayList<>();
-        this.f42712c = new a();
+        this.f42951b = null;
+        this.f42952c = null;
+        this.f42951b = new ArrayList<>();
+        this.f42952c = new a();
         Q();
     }
 
@@ -496,14 +496,14 @@ public class c {
     }
 
     public final void C(String str, boolean z) {
-        if (this.f42711b.contains(str)) {
-            this.f42711b.remove(str);
+        if (this.f42951b.contains(str)) {
+            this.f42951b.remove(str);
         }
-        if (!this.f42713d && z && this.f42711b.isEmpty()) {
-            this.f42713d = true;
-            d.b.c.h.g.a aVar = this.f42714e;
+        if (!this.f42953d && z && this.f42951b.isEmpty()) {
+            this.f42953d = true;
+            d.b.c.h.g.a aVar = this.f42954e;
             if (aVar != null) {
-                aVar.a(this.f42715f);
+                aVar.a(this.f42955f);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000988));
             v();
@@ -570,8 +570,8 @@ public class c {
                     fileInputStream = null;
                 }
                 if (x.compareTo(Util.x(inputStream)) == 0) {
-                    if (this.f42714e != null) {
-                        this.f42714e.b(substring);
+                    if (this.f42954e != null) {
+                        this.f42954e.b(substring);
                     }
                     pluginSetting = P;
                     try {
@@ -608,16 +608,16 @@ public class c {
     }
 
     public void E(Context context, d.b.c.h.g.a aVar) {
-        this.f42714e = aVar;
-        h hVar = this.f42716g;
+        this.f42954e = aVar;
+        h hVar = this.f42956g;
         if (hVar != null) {
             hVar.cancel();
-            this.f42716g = null;
+            this.f42956g = null;
         }
         h hVar2 = new h(context);
-        this.f42716g = hVar2;
+        this.f42956g = hVar2;
         hVar2.setPriority(4);
-        this.f42716g.execute(new String[0]);
+        this.f42956g.execute(new String[0]);
     }
 
     public void F(Context context, String str) {
@@ -746,7 +746,7 @@ public class c {
     }
 
     public final void Q() {
-        if (this.f42710a) {
+        if (this.f42950a) {
             return;
         }
         try {
@@ -759,8 +759,8 @@ public class c {
             if (!TextUtils.isEmpty(Build.BRAND) && Build.BRAND.toLowerCase().equals(RomUtils.MANUFACTURER_OPPO)) {
                 intentFilter.setPriority(1000);
             }
-            applicationContext.registerReceiver(this.f42712c, intentFilter);
-            this.f42710a = true;
+            applicationContext.registerReceiver(this.f42952c, intentFilter);
+            this.f42950a = true;
         } catch (Exception e2) {
             BdLog.e(e2);
         }
@@ -815,7 +815,7 @@ public class c {
         if (r8 != null) {
             pluginInstallTask.f2229f = r8;
             if (w(pluginInstallTask) && z2) {
-                this.f42711b.add(r8);
+                this.f42951b.add(r8);
                 return;
             }
             return;
@@ -918,7 +918,7 @@ public class c {
     }
 
     public final boolean x(PluginInstallTask pluginInstallTask) {
-        synchronized (this.f42717h) {
+        synchronized (this.f42957h) {
             if (pluginInstallTask == null) {
                 try {
                     pluginInstallTask = this.j.poll();
@@ -960,7 +960,7 @@ public class c {
     }
 
     public final boolean y(PluginInstallTask pluginInstallTask) {
-        synchronized (this.f42717h) {
+        synchronized (this.f42957h) {
             if (pluginInstallTask == null) {
                 try {
                     pluginInstallTask = this.l.poll();

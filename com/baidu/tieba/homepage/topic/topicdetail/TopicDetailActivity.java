@@ -21,7 +21,7 @@ import d.b.c.e.m.b;
 import d.b.c.e.p.j;
 import d.b.c.e.p.k;
 import d.b.c.j.e.n;
-import d.b.h0.a.f;
+import d.b.i0.a.f;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.b.i0.a1.j.a.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.b.j0.a1.j.a.a {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public long mCurPageNum = 1;
@@ -46,7 +46,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public a() {
         }
 
-        @Override // d.b.h0.a.f.b
+        @Override // d.b.i0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.u) instanceof String)) {
                 String str = (String) hashMap.get(f.u);
@@ -107,12 +107,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a024";
     }
 
-    @Override // d.b.i0.a1.j.a.a
+    @Override // d.b.j0.a1.j.a.a
     public void loadData() {
         int i;
         String substring;
@@ -166,10 +166,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.b.i0.a1.j.a.a
-    public void netCallback(int i, d.b.i0.a1.j.a.c.a aVar) {
+    @Override // d.b.j0.a1.j.a.a
+    public void netCallback(int i, d.b.j0.a1.j.a.c.a aVar) {
         this.mTopicDetailView.r();
-        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f52928f)) {
+        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f53349f)) {
             this.mTopicDetailView.s();
             this.mTopicDetailView.setData(aVar);
             return;
@@ -177,7 +177,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         this.mTopicDetailView.E(true);
     }
 
-    @Override // d.b.i0.a1.j.a.a
+    @Override // d.b.j0.a1.j.a.a
     public void netThreadCallback(int i, boolean z, List<n> list) {
         this.mTopicDetailView.setNextData(i, z, list);
     }

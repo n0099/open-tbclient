@@ -37,14 +37,14 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f12974c = fragment;
-        bVar.f12972a = i;
+        bVar.f12982c = fragment;
+        bVar.f12980a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12973b = fragmentTabIndicator;
+        bVar.f12981b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 

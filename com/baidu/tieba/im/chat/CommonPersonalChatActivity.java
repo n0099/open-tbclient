@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.b.i0.e1.w.c;
+import d.b.j0.e1.w.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

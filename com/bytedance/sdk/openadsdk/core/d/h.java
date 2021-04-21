@@ -3,28 +3,28 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27833a = 0;
+    public int f27841a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27834b = 1;
+    public int f27842b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27835c = 1;
+    public int f27843c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27836d = 1;
+    public int f27844d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27837e = 1;
+    public int f27845e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27838f = 0;
+    public int f27846f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27839g = 0;
+    public int f27847g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27840h = 0;
+    public int f27848h = 0;
     public int i = 300;
     public int j = -1;
     public int k = 1;
@@ -38,31 +38,31 @@ public class h {
     }
 
     public int c() {
-        return this.f27837e;
+        return this.f27845e;
     }
 
     public int d() {
-        return this.f27838f;
+        return this.f27846f;
     }
 
     public int e() {
-        return this.f27839g;
+        return this.f27847g;
     }
 
     public int f() {
-        return this.f27834b;
+        return this.f27842b;
     }
 
     public int g() {
-        return this.f27835c;
+        return this.f27843c;
     }
 
     public int h() {
-        return this.f27836d;
+        return this.f27844d;
     }
 
     public int i() {
-        return this.f27840h;
+        return this.f27848h;
     }
 
     public int j() {
@@ -70,7 +70,7 @@ public class h {
     }
 
     public int k() {
-        return this.f27833a;
+        return this.f27841a;
     }
 
     public void a(int i) {
@@ -82,31 +82,31 @@ public class h {
     }
 
     public void c(int i) {
-        this.f27837e = i;
+        this.f27845e = i;
     }
 
     public void d(int i) {
-        this.f27838f = i;
+        this.f27846f = i;
     }
 
     public void e(int i) {
-        this.f27839g = i;
+        this.f27847g = i;
     }
 
     public void f(int i) {
-        this.f27834b = i;
+        this.f27842b = i;
     }
 
     public void g(int i) {
-        this.f27835c = i;
+        this.f27843c = i;
     }
 
     public void h(int i) {
-        this.f27836d = i;
+        this.f27844d = i;
     }
 
     public void i(int i) {
-        this.f27840h = i;
+        this.f27848h = i;
     }
 
     public void j(int i) {
@@ -114,6 +114,6 @@ public class h {
     }
 
     public void k(int i) {
-        this.f27833a = i;
+        this.f27841a = i;
     }
 }

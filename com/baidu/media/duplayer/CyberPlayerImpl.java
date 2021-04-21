@@ -15,7 +15,7 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.media.kernelnet.KernelNetApi;
 import com.baidu.media.pcdn.PcdnApi;
-import d.b.v.a.c;
+import d.b.w.a.c;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Iterator;
@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.b;
 /* loaded from: classes2.dex */
-public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC1933b, b.c, b.d, b.e, b.f, b.g, b.i {
+public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC1937b, b.c, b.d, b.e, b.f, b.g, b.i {
 
     /* renamed from: e  reason: collision with root package name */
     public IjkMediaPlayer f7969e;
@@ -59,7 +59,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
             this.q = i;
             ijkMediaPlayer.c(i);
             this.f7969e.a((b.f) this);
-            this.f7969e.a((b.InterfaceC1933b) this);
+            this.f7969e.a((b.InterfaceC1937b) this);
             this.f7969e.a((b.a) this);
             this.f7969e.a((b.g) this);
             this.f7969e.a((b.i) this);
@@ -142,7 +142,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
         return onErrorListener != null && onErrorListener.onError(i, i2, obj);
     }
 
-    @Override // tv.danmaku.ijk.media.player.b.InterfaceC1933b
+    @Override // tv.danmaku.ijk.media.player.b.InterfaceC1937b
     public void b(b bVar) {
         this.t = 5;
         this.u = 5;

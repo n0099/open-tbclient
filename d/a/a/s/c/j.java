@@ -17,12 +17,12 @@ public class j extends f<PointF> {
     public PointF i(d.a.a.y.a<PointF> aVar, float f2) {
         PointF pointF;
         PointF pointF2;
-        PointF pointF3 = aVar.f41801b;
-        if (pointF3 != null && (pointF = aVar.f41802c) != null) {
+        PointF pointF3 = aVar.f41896b;
+        if (pointF3 != null && (pointF = aVar.f41897c) != null) {
             PointF pointF4 = pointF3;
             PointF pointF5 = pointF;
-            d.a.a.y.c<A> cVar = this.f41599e;
-            if (cVar == 0 || (pointF2 = (PointF) cVar.b(aVar.f41804e, aVar.f41805f.floatValue(), pointF4, pointF5, f2, e(), f())) == null) {
+            d.a.a.y.c<A> cVar = this.f41694e;
+            if (cVar == 0 || (pointF2 = (PointF) cVar.b(aVar.f41899e, aVar.f41900f.floatValue(), pointF4, pointF5, f2, e(), f())) == null) {
                 PointF pointF6 = this.i;
                 float f3 = pointF4.x;
                 float f4 = pointF4.y;

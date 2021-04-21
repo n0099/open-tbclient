@@ -7,28 +7,28 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28074a;
+    public String f28082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28075b = 1;
+    public int f28083b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28076c = 1;
+    public int f28084c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28077d = 2;
+    public int f28085d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28078e = 1;
+    public int f28086e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28079f = 100;
+    public int f28087f = 100;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28080g = 0;
+    public int f28088g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28081h = 2;
+    public int f28089h = 2;
     public int i = 1;
     public int j = 3;
     public int k = -1;
@@ -112,37 +112,37 @@ public class a {
     }
 
     public a n(int i) {
-        this.f28075b = i;
+        this.f28083b = i;
         return this;
     }
 
     public a o(int i) {
-        this.f28076c = i;
+        this.f28084c = i;
         return this;
     }
 
     public a p(int i) {
-        this.f28077d = i;
+        this.f28085d = i;
         return this;
     }
 
     public a q(int i) {
-        this.f28078e = i;
+        this.f28086e = i;
         return this;
     }
 
     public a r(int i) {
-        this.f28079f = i;
+        this.f28087f = i;
         return this;
     }
 
     public a s(int i) {
-        this.f28080g = i;
+        this.f28088g = i;
         return this;
     }
 
     public a t(int i) {
-        this.f28081h = i;
+        this.f28089h = i;
         return this;
     }
 
@@ -167,7 +167,7 @@ public class a {
     }
 
     public a a(String str) {
-        this.f28074a = str;
+        this.f28082a = str;
         return this;
     }
 

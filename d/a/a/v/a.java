@@ -18,10 +18,10 @@ import java.io.InputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41731a;
+    public final Context f41826a;
 
     public a(Context context) {
-        this.f41731a = context.getApplicationContext();
+        this.f41826a = context.getApplicationContext();
     }
 
     public static String b(String str, FileExtension fileExtension, boolean z) {
@@ -68,7 +68,7 @@ public class a {
     }
 
     public final File d() {
-        File file = new File(this.f41731a.getCacheDir(), "lottie_network_cache");
+        File file = new File(this.f41826a.getCacheDir(), "lottie_network_cache");
         if (file.isFile()) {
             file.delete();
         }

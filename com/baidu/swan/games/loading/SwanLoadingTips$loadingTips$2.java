@@ -2,8 +2,8 @@ package com.baidu.swan.games.loading;
 
 import android.app.Application;
 import android.content.res.Resources;
-import d.b.g0.a.b;
-import d.b.g0.a.w0.a;
+import d.b.h0.a.b;
+import d.b.h0.a.w0.a;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;

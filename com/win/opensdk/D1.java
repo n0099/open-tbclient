@@ -5,18 +5,18 @@ import com.win.opensdk.top.PProvider;
 public class D1 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PProvider f39945a;
+    public final /* synthetic */ PProvider f40040a;
 
     public D1(PProvider pProvider) {
-        this.f39945a = pProvider;
+        this.f40040a = pProvider;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PProvider pProvider = this.f39945a;
-        pProvider.f40333a = pProvider.getContext();
-        PProvider pProvider2 = this.f39945a;
-        if (pProvider2.f40333a == null) {
+        PProvider pProvider = this.f40040a;
+        pProvider.f40428a = pProvider.getContext();
+        PProvider pProvider2 = this.f40040a;
+        if (pProvider2.f40428a == null) {
             return;
         }
         pProvider2.a();

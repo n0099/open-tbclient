@@ -1,8 +1,8 @@
 package com.google.common.hash;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.n;
-import d.g.c.d.j;
+import d.h.c.a.n;
+import d.h.c.d.j;
 import java.io.Serializable;
 import java.nio.charset.Charset;
 /* loaded from: classes6.dex */

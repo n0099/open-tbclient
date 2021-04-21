@@ -6,85 +6,85 @@ import java.util.ArrayList;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43474a;
+    public final String f43483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, a> f43475b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    public final LruCache<String, a> f43484b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f43476c;
+    public boolean f43485c;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f43477a;
+        public ArrayList<String> f43486a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f43478b;
+        public ArrayList<String> f43487b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f43479c;
+        public long f43488c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f43480d;
+        public long f43489d;
 
         public void a(long j) {
-            this.f43479c = j;
+            this.f43488c = j;
         }
 
         public void b(ArrayList<String> arrayList) {
-            this.f43477a = arrayList;
+            this.f43486a = arrayList;
         }
 
         public boolean c() {
-            return i() + this.f43479c < System.currentTimeMillis() / 1000;
+            return i() + this.f43488c < System.currentTimeMillis() / 1000;
         }
 
         public ArrayList<String> d() {
-            return this.f43477a;
+            return this.f43486a;
         }
 
         public void e(long j) {
-            this.f43480d = j;
+            this.f43489d = j;
         }
 
         public void f(ArrayList<String> arrayList) {
-            this.f43478b = arrayList;
+            this.f43487b = arrayList;
         }
 
         public ArrayList<String> g() {
-            return this.f43478b;
+            return this.f43487b;
         }
 
         public long h() {
-            return this.f43479c;
+            return this.f43488c;
         }
 
         public long i() {
-            return this.f43480d;
+            return this.f43489d;
         }
     }
 
     public h(String str, boolean z) {
-        this.f43476c = false;
-        this.f43474a = str;
-        this.f43476c = z;
+        this.f43485c = false;
+        this.f43483a = str;
+        this.f43485c = z;
     }
 
     public a a(String str) {
-        a aVar = this.f43475b.get(str);
-        if (aVar != null && aVar.c() && this.f43476c) {
-            this.f43475b.remove(str);
-            k.a("Remove expired entry from %s cache while reading, host(%s)", this.f43474a, str);
+        a aVar = this.f43484b.get(str);
+        if (aVar != null && aVar.c() && this.f43485c) {
+            this.f43484b.remove(str);
+            k.a("Remove expired entry from %s cache while reading, host(%s)", this.f43483a, str);
             return null;
         }
         return aVar;
     }
 
     public void b() {
-        this.f43475b.evictAll();
-        k.a("Clear %s cache", this.f43474a);
+        this.f43484b.evictAll();
+        k.a("Clear %s cache", this.f43483a);
     }
 
     public void c(String str, a aVar) {
@@ -93,9 +93,9 @@ public class h {
         if ((d2 == null || d2.isEmpty()) && (g2 == null || g2.isEmpty())) {
             return;
         }
-        this.f43475b.put(str, aVar);
+        this.f43484b.put(str, aVar);
         Object[] objArr = new Object[5];
-        objArr[0] = this.f43474a;
+        objArr[0] = this.f43483a;
         objArr[1] = str;
         objArr[2] = d2 != null ? d2.toString() : null;
         objArr[3] = g2 != null ? g2.toString() : null;
@@ -104,12 +104,12 @@ public class h {
     }
 
     public void d(boolean z) {
-        this.f43476c = z;
+        this.f43485c = z;
     }
 
     public ArrayList<String> e() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.f43475b.snapshot().keySet()) {
+        for (String str : this.f43484b.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -120,7 +120,7 @@ public class h {
         if (a2 == null || !a2.c()) {
             return;
         }
-        this.f43475b.remove(str);
-        k.a("Remove expired entry from %s cache, host(%s)", this.f43474a, str);
+        this.f43484b.remove(str);
+        k.a("Remove expired entry from %s cache, host(%s)", this.f43483a, str);
     }
 }

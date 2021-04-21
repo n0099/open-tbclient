@@ -21,13 +21,13 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.y1.h.e.a.a f18985e;
+    public d.b.j0.y1.h.e.a.a f18993e;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f18987g = new a(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
+    public final HttpMessageListener f18995g = new a(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f18986f = new ArrayList();
+    public List<String> f18994f = new ArrayList();
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -40,11 +40,11 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003386 && (httpResponsedMessage instanceof SingleThreadEmotionResponseMessage)) {
                 SingleThreadEmotionResponseMessage singleThreadEmotionResponseMessage = (SingleThreadEmotionResponseMessage) httpResponsedMessage;
-                if (SingleThreadEmotionModel.this.f18985e != null) {
+                if (SingleThreadEmotionModel.this.f18993e != null) {
                     if (singleThreadEmotionResponseMessage.data != null) {
-                        SingleThreadEmotionModel.this.f18985e.onSuccess(SingleThreadEmotionModel.this.w(singleThreadEmotionResponseMessage.data.pkg_list));
+                        SingleThreadEmotionModel.this.f18993e.onSuccess(SingleThreadEmotionModel.this.w(singleThreadEmotionResponseMessage.data.pkg_list));
                     } else {
-                        SingleThreadEmotionModel.this.f18985e.onFail();
+                        SingleThreadEmotionModel.this.f18993e.onFail();
                     }
                 }
             }
@@ -59,7 +59,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         @Override // java.lang.Runnable
         public void run() {
             SingleThreadEmotionModel.this.A();
-            List<MyEmotionGroupData> f2 = d.b.i0.y1.c.i().f();
+            List<MyEmotionGroupData> f2 = d.b.j0.y1.c.i().f();
             JSONArray jSONArray = new JSONArray();
             if (f2 != null && !f2.isEmpty()) {
                 for (MyEmotionGroupData myEmotionGroupData : f2) {
@@ -78,15 +78,15 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<SingleThreadEmotionModel> f18990e;
+        public WeakReference<SingleThreadEmotionModel> f18998e;
 
         public c(SingleThreadEmotionModel singleThreadEmotionModel, SingleThreadEmotionModel singleThreadEmotionModel2) {
-            this.f18990e = new WeakReference<>(singleThreadEmotionModel2);
+            this.f18998e = new WeakReference<>(singleThreadEmotionModel2);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SingleThreadEmotionModel singleThreadEmotionModel = this.f18990e.get();
+            SingleThreadEmotionModel singleThreadEmotionModel = this.f18998e.get();
             if (singleThreadEmotionModel != null) {
                 singleThreadEmotionModel.sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD));
             }
@@ -95,26 +95,26 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
 
     public SingleThreadEmotionModel() {
         registerTask();
-        this.f18987g.setTag(getUniqueId());
-        this.f18987g.setSelfListener(true);
-        registerListener(this.f18987g);
+        this.f18995g.setTag(getUniqueId());
+        this.f18995g.setSelfListener(true);
+        registerListener(this.f18995g);
     }
 
     public final synchronized void A() {
-        this.f18986f.clear();
+        this.f18994f.clear();
     }
 
-    public void B(d.b.i0.y1.h.e.a.a aVar) {
-        this.f18985e = aVar;
+    public void B(d.b.j0.y1.h.e.a.a aVar) {
+        this.f18993e = aVar;
     }
 
     public final synchronized void C(String str) {
-        this.f18986f.add(str);
+        this.f18994f.add(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        d.b.i0.y1.a.b().a(new b());
+        d.b.j0.y1.a.b().a(new b());
         return false;
     }
 
@@ -151,7 +151,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     }
 
     public final synchronized List<String> x() {
-        return new ArrayList(this.f18986f);
+        return new ArrayList(this.f18994f);
     }
 
     public void y() {
@@ -159,8 +159,8 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     }
 
     public void z() {
-        if (this.f18987g != null) {
-            MessageManager.getInstance().unRegisterListener(this.f18987g);
+        if (this.f18995g != null) {
+            MessageManager.getInstance().unRegisterListener(this.f18995g);
         }
     }
 }

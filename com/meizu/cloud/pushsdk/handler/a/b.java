@@ -29,7 +29,7 @@ public class b extends c {
 
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        d.j.a.a.a.d("AbstractMessageHandler", "start MessageV2Handler match");
+        d.k.a.a.a.d("AbstractMessageHandler", "start MessageV2Handler match");
         return a(0, g(intent)) && PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_SHOW.equals(i(intent));
     }
 

@@ -7,19 +7,19 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32078a = "newversion";
+    public static String f32173a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32079b = "curversion";
+    public static String f32174b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f32080c = "apiversion";
+    public static String f32175c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f32081d = "_enable";
+    public static String f32176d = "_enable";
 
     public static String a(Context context) {
-        return a(context, f32080c);
+        return a(context, f32175c);
     }
 
     public static String a(Context context, String str) {
@@ -59,6 +59,6 @@ public class f {
     }
 
     public static void b(Context context, String str) {
-        a(context, f32080c, str);
+        a(context, f32175c, str);
     }
 }

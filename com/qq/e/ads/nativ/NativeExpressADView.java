@@ -24,29 +24,29 @@ import org.json.JSONObject;
 public class NativeExpressADView extends FrameLayout implements ApkDownloadComplianceInterface, DownloadConfirmListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public NEADVI f38426a;
+    public NEADVI f38521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38427b;
+    public boolean f38522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f38428c;
+    public volatile boolean f38523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f38429d;
+    public volatile boolean f38524d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NativeExpressMediaListener f38430e;
+    public NativeExpressMediaListener f38525e;
     public Map<String, String> ext;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdData f38431f;
+    public AdData f38526f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f38432g;
+    public volatile boolean f38527g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewBindStatusListener f38433h;
+    public ViewBindStatusListener f38528h;
     public DownloadConfirmListener i;
 
     /* loaded from: classes6.dex */
@@ -62,12 +62,12 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
 
     public NativeExpressADView(final NEADI neadi, final Context context, final ADSize aDSize, final String str, final String str2, final JSONObject jSONObject, final HashMap<String, Object> hashMap) {
         super(context);
-        this.f38427b = false;
-        this.f38428c = false;
-        this.f38429d = false;
+        this.f38522b = false;
+        this.f38523c = false;
+        this.f38524d = false;
         this.ext = new HashMap();
-        this.f38432g = false;
-        this.f38431f = a(hashMap);
+        this.f38527g = false;
+        this.f38526f = a(hashMap);
         GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.nativ.NativeExpressADView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -82,18 +82,18 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    NativeExpressADView.this.f38426a = pOFactory.getNativeExpressADView(neadi, context, NativeExpressADView.this, aDSize, str, str2, jSONObject, hashMap);
-                                    NativeExpressADView.this.f38427b = true;
-                                    if (NativeExpressADView.this.f38430e != null) {
-                                        NativeExpressADView.this.setMediaListener(NativeExpressADView.this.f38430e);
+                                    NativeExpressADView.this.f38521a = pOFactory.getNativeExpressADView(neadi, context, NativeExpressADView.this, aDSize, str, str2, jSONObject, hashMap);
+                                    NativeExpressADView.this.f38522b = true;
+                                    if (NativeExpressADView.this.f38525e != null) {
+                                        NativeExpressADView.this.setMediaListener(NativeExpressADView.this.f38525e);
                                     }
-                                    if (NativeExpressADView.this.f38428c) {
+                                    if (NativeExpressADView.this.f38523c) {
                                         NativeExpressADView.this.preloadVideo();
                                     }
-                                    if (NativeExpressADView.this.f38429d) {
+                                    if (NativeExpressADView.this.f38524d) {
                                         NativeExpressADView.this.render();
                                     }
-                                    if (NativeExpressADView.this.f38432g) {
+                                    if (NativeExpressADView.this.f38527g) {
                                         NativeExpressADView.this.negativeFeedback();
                                     }
                                 }
@@ -140,7 +140,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     }
 
     public void destroy() {
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi != null) {
             neadvi.destroy();
         }
@@ -148,7 +148,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi != null) {
             return neadvi.getApkInfoUrl();
         }
@@ -156,27 +156,27 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     }
 
     public AdData getBoundData() {
-        return this.f38431f;
+        return this.f38526f;
     }
 
     public void negativeFeedback() {
-        if (!this.f38427b) {
-            this.f38432g = true;
+        if (!this.f38522b) {
+            this.f38527g = true;
             return;
         }
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi == null) {
             GDTLogger.e("Native Express negativeFeedback  core is null");
             return;
         }
         neadvi.reportAdNegative();
-        this.f38432g = false;
+        this.f38527g = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ViewBindStatusListener viewBindStatusListener = this.f38433h;
+        ViewBindStatusListener viewBindStatusListener = this.f38528h;
         if (viewBindStatusListener != null) {
             viewBindStatusListener.onAttachedToWindow();
         }
@@ -185,7 +185,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ViewBindStatusListener viewBindStatusListener = this.f38433h;
+        ViewBindStatusListener viewBindStatusListener = this.f38528h;
         if (viewBindStatusListener != null) {
             viewBindStatusListener.onDetachedFromWindow();
         }
@@ -202,7 +202,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        ViewBindStatusListener viewBindStatusListener = this.f38433h;
+        ViewBindStatusListener viewBindStatusListener = this.f38528h;
         if (viewBindStatusListener != null) {
             viewBindStatusListener.onFinishTemporaryDetach();
         }
@@ -211,18 +211,18 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        ViewBindStatusListener viewBindStatusListener = this.f38433h;
+        ViewBindStatusListener viewBindStatusListener = this.f38528h;
         if (viewBindStatusListener != null) {
             viewBindStatusListener.onStartTemporaryDetach();
         }
     }
 
     public void preloadVideo() {
-        if (!this.f38427b) {
-            this.f38428c = true;
+        if (!this.f38522b) {
+            this.f38523c = true;
             return;
         }
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi != null) {
             neadvi.preloadVideo();
         } else {
@@ -231,11 +231,11 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     }
 
     public void render() {
-        if (!this.f38427b) {
-            this.f38429d = true;
+        if (!this.f38522b) {
+            this.f38524d = true;
             return;
         }
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi != null) {
             neadvi.render();
         } else {
@@ -244,7 +244,7 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     }
 
     public void setAdSize(ADSize aDSize) {
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi != null) {
             neadvi.setAdSize(aDSize);
         }
@@ -253,15 +253,15 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         this.i = downloadConfirmListener;
-        NEADVI neadvi = this.f38426a;
+        NEADVI neadvi = this.f38521a;
         if (neadvi != null) {
             neadvi.setDownloadConfirmListener(this);
         }
     }
 
     public void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener) {
-        this.f38430e = nativeExpressMediaListener;
-        NEADVI neadvi = this.f38426a;
+        this.f38525e = nativeExpressMediaListener;
+        NEADVI neadvi = this.f38521a;
         if (neadvi == null || nativeExpressMediaListener == null) {
             return;
         }
@@ -269,6 +269,6 @@ public class NativeExpressADView extends FrameLayout implements ApkDownloadCompl
     }
 
     public void setViewBindStatusListener(ViewBindStatusListener viewBindStatusListener) {
-        this.f38433h = viewBindStatusListener;
+        this.f38528h = viewBindStatusListener;
     }
 }

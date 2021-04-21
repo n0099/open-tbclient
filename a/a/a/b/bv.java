@@ -19,26 +19,26 @@ public class bv implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         a aVar = this.f1383a;
-        while (aVar.f64538g && aVar.f64533b != null && !Thread.interrupted()) {
-            if (aVar.f64534c) {
-                AudioRecord audioRecord = aVar.f64533b;
-                byte[] bArr = aVar.f64532a;
+        while (aVar.f64754g && aVar.f64749b != null && !Thread.interrupted()) {
+            if (aVar.f64750c) {
+                AudioRecord audioRecord = aVar.f64749b;
+                byte[] bArr = aVar.f64748a;
                 int read = audioRecord.read(bArr, 0, bArr.length);
-                if (read <= 0 || (aVar.f64537f && read != aVar.f64532a.length)) {
+                if (read <= 0 || (aVar.f64753f && read != aVar.f64748a.length)) {
                     Log.w("AudioCaptureDevice", "[AudioRecord] warning, no data to read or wrong data size.");
                 } else {
-                    if (aVar.f64535d) {
-                        Arrays.fill(aVar.f64532a, (byte) 0);
+                    if (aVar.f64751d) {
+                        Arrays.fill(aVar.f64748a, (byte) 0);
                     }
-                    if (aVar.f64539h != null) {
+                    if (aVar.f64755h != null) {
                         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
                         bufferInfo.size = read;
                         bufferInfo.offset = 0;
-                        bufferInfo.presentationTimeUs = (System.nanoTime() - aVar.f64536e) / 1000;
+                        bufferInfo.presentationTimeUs = (System.nanoTime() - aVar.f64752e) / 1000;
                         ByteBuffer allocate = ByteBuffer.allocate(read);
-                        allocate.put(aVar.f64532a, 0, read);
+                        allocate.put(aVar.f64748a, 0, read);
                         allocate.flip();
-                        aVar.f64539h.a(allocate, bufferInfo);
+                        aVar.f64755h.a(allocate, bufferInfo);
                     }
                 }
             } else {

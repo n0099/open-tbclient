@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.ArCoreApk;
-import d.g.b.a.o;
+import d.h.b.a.o;
 /* loaded from: classes6.dex */
 public final class u extends com.google.a.b.a.a.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ o f30576a;
+    public final /* synthetic */ o f30671a;
 
     public u(o oVar) {
-        this.f30576a = oVar;
+        this.f30671a = oVar;
     }
 
     @Override // com.google.a.b.a.a.a.d
@@ -28,18 +28,18 @@ public final class u extends com.google.a.b.a.a.a.e {
         int i = bundle.getInt("error.code", -100);
         if (i == -5) {
             Log.e("ARCore-InstallService", "The device is not supported.");
-            this.f30576a.f66923f.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
+            this.f30671a.f67070f.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
         } else if (i == -3) {
             Log.e("ARCore-InstallService", "The Google Play application must be updated.");
-            this.f30576a.f66923f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.f30671a.f67070f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         } else if (i != 0) {
             StringBuilder sb = new StringBuilder(33);
             sb.append("requestInfo returned: ");
             sb.append(i);
             Log.e("ARCore-InstallService", sb.toString());
-            this.f30576a.f66923f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.f30671a.f67070f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         } else {
-            this.f30576a.f66923f.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+            this.f30671a.f67070f.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
         }
     }
 }

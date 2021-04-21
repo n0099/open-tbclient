@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.h0.z.a;
-import d.b.h0.z.b;
+import d.b.i0.z.a;
+import d.b.i0.z.b;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
 /* loaded from: classes3.dex */

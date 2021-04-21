@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-import d.b.i0.l0.y.d.b;
+import d.b.j0.l0.y.d.b;
 /* loaded from: classes4.dex */
 public class EmotionChangeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f15437e;
+    public final HttpMessageListener f15445e;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -44,11 +44,11 @@ public class EmotionChangeModel extends BdBaseModel {
 
     public EmotionChangeModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f15437e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f15445e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f15437e.setTag(getUniqueId());
-        this.f15437e.setSelfListener(true);
-        registerListener(this.f15437e);
+        this.f15445e.setTag(getUniqueId());
+        this.f15445e.setSelfListener(true);
+        registerListener(this.f15445e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

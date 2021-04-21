@@ -16,13 +16,13 @@ import tbclient.Personalized.DataRes;
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12920e;
+    public b f12928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12921f = 1;
+    public int f12929f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.c.c.g.a f12922g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+    public d.b.c.c.g.a f12930g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
 
     /* loaded from: classes3.dex */
     public class a extends d.b.c.c.g.a {
@@ -38,7 +38,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            if (responsedMessage == null || FeedRecModel.this.f12920e == null) {
+            if (responsedMessage == null || FeedRecModel.this.f12928e == null) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() != null) {
@@ -49,7 +49,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                     z = feedRecRequest.getNeedForumlist() == 1;
                     r1 = z2;
                     if (responsedMessage.getError() == 0) {
-                        FeedRecModel.this.f12920e.a(responsedMessage.getError(), responsedMessage.getErrorString());
+                        FeedRecModel.this.f12928e.a(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -59,7 +59,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                         dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                     }
                     BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                    FeedRecModel.this.f12920e.b(dataRes, r1, z);
+                    FeedRecModel.this.f12928e.b(dataRes, r1, z);
                     return;
                 }
             }
@@ -80,14 +80,14 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         setUniqueId(BdUniqueId.gen());
         t();
         u();
-        registerListener(this.f12922g);
+        registerListener(this.f12930g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i = this.f12921f;
-        this.f12921f = i + 1;
+        int i = this.f12929f;
+        this.f12929f = i + 1;
         feedRecRequest.setRequestTime(i);
         feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -102,7 +102,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public final void t() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.b.i0.d3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.b.j0.d3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
         tbHttpMessageTask.setPriority(4);
@@ -110,7 +110,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public final void u() {
-        d.b.h0.v0.b bVar = new d.b.h0.v0.b(309264);
+        d.b.i0.v0.b bVar = new d.b.i0.v0.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.g(true);
         bVar.setPriority(4);
@@ -118,6 +118,6 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void v(b bVar) {
-        this.f12920e = bVar;
+        this.f12928e = bVar;
     }
 }

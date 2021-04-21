@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import d.o.a.e.b.o.k;
+import d.p.a.e.b.o.k;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -17,13 +17,13 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
-public class f implements d.o.a.e.b.o.a {
+public class f implements d.p.a.e.b.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28893a;
+    public final WeakReference<Context> f28901a;
 
     public f(Context context) {
-        this.f28893a = new WeakReference<>(context);
+        this.f28901a = new WeakReference<>(context);
     }
 
     @Nullable
@@ -56,7 +56,7 @@ public class f implements d.o.a.e.b.o.a {
         }
     }
 
-    @Override // d.o.a.e.b.o.a
+    @Override // d.p.a.e.b.o.a
     public k downloadWithConnection(int i, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         final int responseCode;
         final HttpURLConnection a2 = a(str, list);
@@ -66,21 +66,21 @@ public class f implements d.o.a.e.b.o.a {
             String contentEncoding = a2.getContentEncoding();
             final GZIPInputStream gZIPInputStream = (TextUtils.isEmpty(contentEncoding) || !contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) ? inputStream : new GZIPInputStream(inputStream);
             return new k() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.f.1
-                @Override // d.o.a.e.b.o.k
+                @Override // d.p.a.e.b.o.k
                 public InputStream a() {
                     return gZIPInputStream;
                 }
 
-                @Override // d.o.a.e.b.o.i
+                @Override // d.p.a.e.b.o.i
                 public int b() {
                     return responseCode;
                 }
 
-                @Override // d.o.a.e.b.o.i
+                @Override // d.p.a.e.b.o.i
                 public void c() {
                 }
 
-                @Override // d.o.a.e.b.o.k
+                @Override // d.p.a.e.b.o.k
                 public void d() {
                     try {
                         a2.disconnect();
@@ -88,7 +88,7 @@ public class f implements d.o.a.e.b.o.a {
                     }
                 }
 
-                @Override // d.o.a.e.b.o.i
+                @Override // d.p.a.e.b.o.i
                 public String a(String str2) {
                     return (String) a3.get(str2);
                 }

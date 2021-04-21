@@ -5,18 +5,18 @@ import android.content.DialogInterface;
 public class DelegateOnDismissListener implements DialogInterface.OnDismissListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public DialogInterface.OnDismissListener f23745a;
+    public DialogInterface.OnDismissListener f23753a;
 
     public DelegateOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-        this.f23745a = onDismissListener;
+        this.f23753a = onDismissListener;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        DialogInterface.OnDismissListener onDismissListener = this.f23745a;
+        DialogInterface.OnDismissListener onDismissListener = this.f23753a;
         if (onDismissListener != null) {
             onDismissListener.onDismiss(dialogInterface);
-            this.f23745a = null;
+            this.f23753a = null;
         }
     }
 }

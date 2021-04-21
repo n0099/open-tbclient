@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import d.b.c.e.f.a;
-import d.b.h0.r.d0.b;
+import d.b.i0.r.d0.b;
 /* loaded from: classes3.dex */
 public class PicReqSwitch extends a {
     public static final String PIC_REQ_SWITCH_KEY = "pic_req_switch_key";

@@ -5,9 +5,9 @@ import android.content.Context;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41977a;
+    public Context f42217a;
 
     public b(Context context) {
-        this.f41977a = context;
+        this.f42217a = context;
     }
 }

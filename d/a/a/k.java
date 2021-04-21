@@ -10,28 +10,28 @@ public interface k {
     public static final Integer[] D;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Integer f41486a = 1;
+    public static final Integer f41581a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Integer f41487b = 2;
+    public static final Integer f41582b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Integer f41488c = 3;
+    public static final Integer f41583c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Integer f41489d = 4;
+    public static final Integer f41584d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final PointF f41490e = new PointF();
+    public static final PointF f41585e = new PointF();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final PointF f41491f = new PointF();
+    public static final PointF f41586f = new PointF();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final PointF f41492g = new PointF();
+    public static final PointF f41587g = new PointF();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final PointF f41493h = new PointF();
+    public static final PointF f41588h = new PointF();
     public static final Float i;
     public static final PointF j;
     public static final d.a.a.y.d k;

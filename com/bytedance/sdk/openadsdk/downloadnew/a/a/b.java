@@ -15,67 +15,67 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b implements d.o.a.a.a.a.f {
+public class b implements d.p.a.a.a.a.f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28865a;
+    public final WeakReference<Context> f28873a;
 
     /* loaded from: classes5.dex */
     public static class a extends g {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.o.a.a.a.d.d f28866a;
+        public final d.p.a.a.a.d.d f28874a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f28867b;
+        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f28875b;
 
         /* renamed from: c  reason: collision with root package name */
-        public l f28868c;
+        public l f28876c;
 
-        public a(d.o.a.a.a.d.d dVar) {
+        public a(d.p.a.a.a.d.d dVar) {
             super("LogTask");
-            this.f28866a = dVar;
+            this.f28874a = dVar;
             if (dVar == null || dVar.d() == null) {
                 return;
             }
-            String optString = this.f28866a.d().optString("ad_extra_data");
+            String optString = this.f28874a.d().optString("ad_extra_data");
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
             try {
                 com.bytedance.sdk.openadsdk.downloadnew.a.b.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(new JSONObject(optString).optJSONObject("open_ad_sdk_download_extra"));
-                this.f28867b = a2;
-                a2.b(this.f28866a.b());
-                if (this.f28867b != null) {
-                    this.f28868c = this.f28867b.f28899a;
+                this.f28875b = a2;
+                a2.b(this.f28874a.b());
+                if (this.f28875b != null) {
+                    this.f28876c = this.f28875b.f28907a;
                 }
             } catch (Exception unused) {
             }
         }
 
-        public static a a(d.o.a.a.a.d.d dVar) {
+        public static a a(d.p.a.a.a.d.d dVar) {
             return new a(dVar);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                if (this.f28866a == null) {
+                if (this.f28874a == null) {
                     return;
                 }
-                String a2 = this.f28866a.a();
+                String a2 = this.f28874a.a();
                 u.f("LibEventLogger", "tag " + a2);
-                u.f("LibEventLogger", "label " + this.f28866a.b());
-                if (this.f28867b != null && !TextUtils.isEmpty(this.f28867b.f28900b)) {
-                    a2 = this.f28867b.f28900b;
+                u.f("LibEventLogger", "label " + this.f28874a.b());
+                if (this.f28875b != null && !TextUtils.isEmpty(this.f28875b.f28908b)) {
+                    a2 = this.f28875b.f28908b;
                 }
-                if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f28866a.b(), this.f28868c, new HashMap()) && this.f28867b != null && this.f28868c != null && !TextUtils.isEmpty(this.f28866a.a()) && !TextUtils.isEmpty(this.f28866a.b())) {
-                    JSONObject e2 = b.e(this.f28866a);
-                    String str = this.f28867b.f28900b;
-                    if (!a(this.f28866a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f28866a.b())) {
+                if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f28874a.b(), this.f28876c, new HashMap()) && this.f28875b != null && this.f28876c != null && !TextUtils.isEmpty(this.f28874a.a()) && !TextUtils.isEmpty(this.f28874a.b())) {
+                    JSONObject e2 = b.e(this.f28874a);
+                    String str = this.f28875b.f28908b;
+                    if (!a(this.f28874a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f28874a.b())) {
                         return;
                     }
-                    com.bytedance.sdk.openadsdk.c.d.b(a(), this.f28868c, str, this.f28866a.b(), e2);
+                    com.bytedance.sdk.openadsdk.c.d.b(a(), this.f28876c, str, this.f28874a.b(), e2);
                 }
             } catch (Throwable th) {
                 u.a("LibEventLogger", "upload event log error", th);
@@ -87,22 +87,22 @@ public class b implements d.o.a.a.a.a.f {
         }
 
         private boolean a(String str) {
-            return !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f28866a.a()) || "draw_ad".equals(this.f28866a.a()) || "draw_ad_landingpage".equals(this.f28866a.a()) || "banner_ad".equals(this.f28866a.a()) || "banner_call".equals(this.f28866a.a()) || "banner_ad_landingpage".equals(this.f28866a.a()) || "feed_call".equals(this.f28866a.a()) || "embeded_ad_landingpage".equals(this.f28866a.a()) || "interaction".equals(this.f28866a.a()) || "interaction_call".equals(this.f28866a.a()) || "interaction_landingpage".equals(this.f28866a.a()) || "slide_banner_ad".equals(this.f28866a.a()) || "splash_ad".equals(this.f28866a.a()) || "fullscreen_interstitial_ad".equals(this.f28866a.a()) || "splash_ad_landingpage".equals(this.f28866a.a()) || "rewarded_video".equals(this.f28866a.a()) || "rewarded_video_landingpage".equals(this.f28866a.a()) || "openad_sdk_download_complete_tag".equals(this.f28866a.a()) || "download_notification".equals(this.f28866a.a()) || "landing_h5_download_ad_button".equals(this.f28866a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f28866a.a()) || "feed_video_middle_page".equals(this.f28866a.a()) || "stream".equals(this.f28866a.a()));
+            return !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f28874a.a()) || "draw_ad".equals(this.f28874a.a()) || "draw_ad_landingpage".equals(this.f28874a.a()) || "banner_ad".equals(this.f28874a.a()) || "banner_call".equals(this.f28874a.a()) || "banner_ad_landingpage".equals(this.f28874a.a()) || "feed_call".equals(this.f28874a.a()) || "embeded_ad_landingpage".equals(this.f28874a.a()) || "interaction".equals(this.f28874a.a()) || "interaction_call".equals(this.f28874a.a()) || "interaction_landingpage".equals(this.f28874a.a()) || "slide_banner_ad".equals(this.f28874a.a()) || "splash_ad".equals(this.f28874a.a()) || "fullscreen_interstitial_ad".equals(this.f28874a.a()) || "splash_ad_landingpage".equals(this.f28874a.a()) || "rewarded_video".equals(this.f28874a.a()) || "rewarded_video_landingpage".equals(this.f28874a.a()) || "openad_sdk_download_complete_tag".equals(this.f28874a.a()) || "download_notification".equals(this.f28874a.a()) || "landing_h5_download_ad_button".equals(this.f28874a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f28874a.a()) || "feed_video_middle_page".equals(this.f28874a.a()) || "stream".equals(this.f28874a.a()));
         }
     }
 
     public b(Context context) {
-        this.f28865a = new WeakReference<>(context);
+        this.f28873a = new WeakReference<>(context);
     }
 
-    private void d(d.o.a.a.a.d.d dVar) {
+    private void d(d.p.a.a.a.d.d dVar) {
         if (dVar == null) {
             return;
         }
         com.bytedance.sdk.openadsdk.l.e.a(a.a(dVar), 5);
     }
 
-    public static JSONObject e(d.o.a.a.a.d.d dVar) {
+    public static JSONObject e(d.p.a.a.a.d.d dVar) {
         JSONObject d2;
         if (dVar == null || (d2 = dVar.d()) == null) {
             return null;
@@ -119,7 +119,7 @@ public class b implements d.o.a.a.a.a.f {
         }
     }
 
-    private boolean f(d.o.a.a.a.d.d dVar) {
+    private boolean f(d.p.a.a.a.d.d dVar) {
         dVar.c();
         if (dVar == null) {
             return false;
@@ -131,20 +131,20 @@ public class b implements d.o.a.a.a.a.f {
         return dVar2.contains("open_ad_sdk_download_extra");
     }
 
-    @Override // d.o.a.a.a.a.f
-    public void a(@NonNull d.o.a.a.a.d.d dVar) {
+    @Override // d.p.a.a.a.a.f
+    public void a(@NonNull d.p.a.a.a.d.d dVar) {
         u.b("LibEventLogger", "onV3Event: " + String.valueOf(dVar));
         a(dVar, true);
     }
 
-    @Override // d.o.a.a.a.a.f
-    public void b(@NonNull d.o.a.a.a.d.d dVar) {
+    @Override // d.p.a.a.a.a.f
+    public void b(@NonNull d.p.a.a.a.d.d dVar) {
         u.b("LibEventLogger", "onEvent: " + String.valueOf(dVar));
         a(dVar, false);
         d(dVar);
     }
 
-    private void a(d.o.a.a.a.d.d dVar, boolean z) {
+    private void a(d.p.a.a.a.d.d dVar, boolean z) {
         TTDownloadEventLogger o = i.d().o();
         if (o == null || dVar == null) {
             return;

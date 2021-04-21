@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
 import d.b.c.j.e.a;
-import d.b.i0.a1.b.f.b;
+import d.b.j0.a1.b.f.b;
 /* loaded from: classes4.dex */
 public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     public static int m;
@@ -21,26 +21,26 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     public static class ConcernTipViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f16698a;
+        public TextView f16706a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f16699b;
+        public View f16707b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f16700c;
+        public int f16708c;
 
         public ConcernTipViewHolder(View view) {
             super(view);
-            this.f16700c = 3;
-            this.f16698a = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.f16699b = view.findViewById(R.id.concern_tip_top_line);
+            this.f16708c = 3;
+            this.f16706a = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.f16707b = view.findViewById(R.id.concern_tip_top_line);
         }
 
         public void b(int i) {
-            if (this.f16700c != i) {
+            if (this.f16708c != i) {
                 SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.f16698a, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f16699b, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.f16706a, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f16707b, R.color.CAM_X0205);
             }
         }
     }
@@ -69,15 +69,15 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public View X(int i, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
-        concernTipViewHolder.f16698a.setText(bVar.f52410f);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16698a.getLayoutParams();
-        if (bVar.f52411g) {
+        concernTipViewHolder.f16706a.setText(bVar.f52831f);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16706a.getLayoutParams();
+        if (bVar.f52832g) {
             layoutParams.height = n;
-            concernTipViewHolder.f16699b.setVisibility(0);
-        } else if (bVar.f52412h) {
+            concernTipViewHolder.f16707b.setVisibility(0);
+        } else if (bVar.f52833h) {
             layoutParams.height = m;
         }
-        concernTipViewHolder.f16698a.setLayoutParams(layoutParams);
+        concernTipViewHolder.f16706a.setLayoutParams(layoutParams);
         concernTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
         return concernTipViewHolder.a();
     }

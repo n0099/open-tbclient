@@ -32,21 +32,21 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.b.c.e.p.j;
-import d.b.h0.r.k;
-import d.b.h0.r.s.a;
+import d.b.i0.r.k;
+import d.b.i0.r.s.a;
 /* loaded from: classes3.dex */
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements Object {
-    public d.b.i0.l3.b mCancelController;
+    public d.b.j0.l3.b mCancelController;
     public d.b.c.e.k.b<GifView> mGifViewPool;
     public HomeWatcherReceiver mHomeWatcherReceiver;
     public d.b.c.e.k.b<ImageView> mImageViewPool;
     public d.b.c.e.k.b<RelativeLayout> mMemeViewPool;
-    public d.b.i0.o2.a mModel;
+    public d.b.j0.o2.a mModel;
     public d.b.c.e.k.b<TextView> mTextViewPool;
     public d.b.c.e.k.b<LinearLayout> mTextVoiceViewPool;
-    public d.b.i0.o2.c mView;
+    public d.b.j0.o2.c mView;
     public d.b.c.e.k.b<View> mVoiceViewPool;
-    public d.b.i0.p3.b screenLockUtils;
+    public d.b.j0.p3.b screenLockUtils;
     public boolean hasNetBack = false;
     public String lifeSequence = "push_dialog";
     public CustomMessageListener mNetworkChangedListener = new a(2000994);
@@ -95,8 +95,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             public a(b bVar) {
             }
 
-            @Override // d.b.h0.r.s.a.e
-            public void onClick(d.b.h0.r.s.a aVar) {
+            @Override // d.b.i0.r.s.a.e
+            public void onClick(d.b.i0.r.s.a aVar) {
                 if (aVar == null || !aVar.isShowing()) {
                     return;
                 }
@@ -114,10 +114,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f13356c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().f13354a) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f13364c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().f13362a) {
                     return;
                 }
-                d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(PushDialogActivity.this);
+                d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(PushDialogActivity.this);
                 aVar.setMessage(PushDialogActivity.this.getString(R.string.push_dialog_attention_failed));
                 aVar.setNegativeButton(R.string.confirm, new a(this));
                 aVar.create(PushDialogActivity.this.getPageContext()).show();
@@ -424,7 +424,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a059";
     }
@@ -457,7 +457,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         return R.id.push_dialog_content;
     }
 
-    public d.b.i0.p3.b getScreenLockUtils() {
+    public d.b.j0.p3.b getScreenLockUtils() {
         return this.screenLockUtils;
     }
 
@@ -476,7 +476,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     }
 
     public String getTid() {
-        d.b.i0.o2.a aVar = this.mModel;
+        d.b.j0.o2.a aVar = this.mModel;
         if (aVar == null) {
             return null;
         }
@@ -499,9 +499,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.lifeSequence = str;
         TiebaStatic.eventStat(this, "push_dialog", str);
         super.onCreate(bundle);
-        this.screenLockUtils = d.b.i0.u2.a.j().f62790d;
+        this.screenLockUtils = d.b.j0.u2.a.j().f63211d;
         if (this.mCancelController == null) {
-            this.mCancelController = new d.b.i0.l3.b();
+            this.mCancelController = new d.b.j0.l3.b();
         }
         this.mCancelController.g(true);
         setSwipeBackEnabled(false);
@@ -511,8 +511,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             window.addFlags(524288);
         }
         getWindow().getDecorView().setDrawingCacheEnabled(false);
-        this.mView = new d.b.i0.o2.c(this, R.layout.activtiy_push_dialog);
-        d.b.i0.o2.a aVar = new d.b.i0.o2.a(this);
+        this.mView = new d.b.j0.o2.c(this, R.layout.activtiy_push_dialog);
+        d.b.j0.o2.a aVar = new d.b.j0.o2.a(this);
         this.mModel = aVar;
         aVar.e();
         registerListener(this.mNetworkChangedListener);
@@ -539,7 +539,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         if (homeWatcherReceiver != null) {
             unregisterReceiver(homeWatcherReceiver);
         }
-        d.b.i0.l3.b bVar = this.mCancelController;
+        d.b.j0.l3.b bVar = this.mCancelController;
         if (bVar != null) {
             bVar.g(false);
         }
@@ -560,13 +560,13 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public void onLinkClicked(Context context, String str, boolean z) {
     }
 
-    public void onNetCallback(boolean z, d.b.i0.o2.d.a aVar) {
+    public void onNetCallback(boolean z, d.b.j0.o2.d.a aVar) {
         String str = this.lifeSequence + "_3";
         this.lifeSequence = str;
         TiebaStatic.eventStat(this, "push_dialog", str);
         this.hasNetBack = true;
         if (z && aVar != null) {
-            d.b.i0.o2.c cVar = this.mView;
+            d.b.j0.o2.c cVar = this.mView;
             if (cVar != null) {
                 cVar.j(aVar);
                 TiebaStatic.log(new StatisticItem("c13197").param("tid", getTid()));

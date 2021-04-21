@@ -10,7 +10,7 @@ public class d {
     }
 
     public static com.ksad.lottie.model.a.b a(JsonReader jsonReader, com.ksad.lottie.d dVar, boolean z) {
-        return new com.ksad.lottie.model.a.b(a(jsonReader, z ? com.ksad.lottie.d.f.a() : 1.0f, dVar, i.f31628a));
+        return new com.ksad.lottie.model.a.b(a(jsonReader, z ? com.ksad.lottie.d.f.a() : 1.0f, dVar, i.f31723a));
     }
 
     public static com.ksad.lottie.model.a.c a(JsonReader jsonReader, com.ksad.lottie.d dVar, int i) {
@@ -28,26 +28,26 @@ public class d {
     }
 
     public static com.ksad.lottie.model.a.d b(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.d(a(jsonReader, dVar, o.f31630a));
+        return new com.ksad.lottie.model.a.d(a(jsonReader, dVar, o.f31725a));
     }
 
     public static com.ksad.lottie.model.a.f c(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.f(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, y.f31635a));
+        return new com.ksad.lottie.model.a.f(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, y.f31730a));
     }
 
     public static com.ksad.lottie.model.a.g d(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.g(a(jsonReader, dVar, ac.f31624a));
+        return new com.ksad.lottie.model.a.g(a(jsonReader, dVar, ac.f31719a));
     }
 
     public static com.ksad.lottie.model.a.h e(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.h(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, ad.f31625a));
+        return new com.ksad.lottie.model.a.h(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, ad.f31720a));
     }
 
     public static com.ksad.lottie.model.a.j f(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.j(a(jsonReader, dVar, h.f31627a));
+        return new com.ksad.lottie.model.a.j(a(jsonReader, dVar, h.f31722a));
     }
 
     public static com.ksad.lottie.model.a.a g(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.a(a(jsonReader, dVar, f.f31626a));
+        return new com.ksad.lottie.model.a.a(a(jsonReader, dVar, f.f31721a));
     }
 }

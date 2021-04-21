@@ -1,33 +1,171 @@
 package d.b.i0.d0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import d.b.c.j.e.n;
-/* loaded from: classes4.dex */
-public class c implements n {
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.widget.NestedScrollView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+/* loaded from: classes3.dex */
+public class c extends d.b.i0.d0.a {
 
-    /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f53667f = BdUniqueId.gen();
+    /* renamed from: a  reason: collision with root package name */
+    public NestedScrollView f50821a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f50822b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f50823c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f50824d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f53668e;
+    public TextView f50825e;
 
-    public FeatureCardCompetition a() {
-        return this.f53668e;
+    /* renamed from: f  reason: collision with root package name */
+    public TBSpecificationBtn f50826f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout f50827g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f50828h;
+    public Rect i;
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            c.this.a(-1);
+        }
     }
 
-    public void e(FeatureCardCompetition featureCardCompetition) {
-        if (featureCardCompetition == null) {
+    public c(Context context, View.OnClickListener onClickListener) {
+        super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
+        this.f50828h = 0;
+        this.i = new Rect();
+        this.f50821a = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
+        this.f50822b = (LinearLayout) this.attachedView.findViewById(R.id.container);
+        this.f50823c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.f50824d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.f50825e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.f50827g = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.f50826f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        d.b.i0.r.f0.m.a aVar = new d.b.i0.r.f0.m.a();
+        this.f50826f.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.f50826f.setTextSize(R.dimen.tbds42);
+        this.f50826f.setConfig(aVar);
+        this.f50826f.setOnClickListener(onClickListener);
+        this.attachedView.setOnClickListener(null);
+    }
+
+    public void a(int i) {
+        if (this.f50828h <= 0) {
+            this.f50828h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        }
+        NestedScrollView nestedScrollView = this.f50821a;
+        if (nestedScrollView == null) {
             return;
         }
-        this.f53668e = featureCardCompetition;
-        String str = featureCardCompetition.title;
-        Integer num = featureCardCompetition.floor;
-        Integer num2 = featureCardCompetition.type;
+        if (i == 0) {
+            nestedScrollView.post(new a());
+        }
+        if (this.f50821a.getLocalVisibleRect(this.i)) {
+            int i2 = this.i.bottom;
+            int abs = Math.abs(this.f50822b.getTop());
+            int abs2 = i2 - Math.abs(this.f50822b.getBottom());
+            ViewGroup.LayoutParams layoutParams = this.f50822b.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                int i3 = this.f50828h;
+                if (abs < i3) {
+                    marginLayoutParams.topMargin = i3;
+                    this.f50822b.setLayoutParams(marginLayoutParams);
+                } else if (abs == i3) {
+                    if (abs2 > i3) {
+                        marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
+                        this.f50822b.setLayoutParams(marginLayoutParams);
+                    }
+                } else if (abs > i3) {
+                    if (abs2 < i3) {
+                        marginLayoutParams.topMargin = i3;
+                    } else if (abs2 == i3) {
+                        marginLayoutParams.topMargin = i3;
+                    } else if (abs2 > i3) {
+                        marginLayoutParams.topMargin = (abs + abs2) / 2;
+                    }
+                    this.f50822b.setLayoutParams(marginLayoutParams);
+                }
+            }
+        }
     }
 
-    @Override // d.b.c.j.e.n
-    public BdUniqueId getType() {
-        return f53667f;
+    public View b() {
+        return this.attachedView;
+    }
+
+    public void c(String str) {
+        if (str == null) {
+            return;
+        }
+        this.f50826f.setText(str);
+    }
+
+    public void d(String str) {
+        if (str == null) {
+            this.f50824d.setVisibility(8);
+            return;
+        }
+        this.f50824d.setVisibility(0);
+        this.f50824d.setText(str);
+    }
+
+    public void e(String str) {
+        if (str == null) {
+            return;
+        }
+        this.f50825e.setText(str);
+    }
+
+    public void f() {
+        this.f50826f.setVisibility(0);
+        this.f50825e.setVisibility(0);
+        SkinManager.setViewTextColor(this.f50824d, R.color.CAM_X0109, 1);
+    }
+
+    public void onChangeSkinType() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setImageResource(this.f50823c, R.drawable.new_pic_emotion_08);
+        SkinManager.setViewTextColor(this.f50824d, R.color.CAM_X0109, 1, skinType);
+        SkinManager.setViewTextColor(this.f50825e, R.color.CAM_X0107, 1, skinType);
+        SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
+        TBSpecificationBtn tBSpecificationBtn = this.f50826f;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.k();
+        }
+    }
+
+    @Override // d.b.i0.d0.a
+    public void onViewAttached() {
+        super.onViewAttached();
+        onChangeSkinType();
+    }
+
+    @Override // d.b.i0.d0.a
+    public void onViewDettached() {
+        super.onViewDettached();
+        this.f50823c.setImageResource(0);
     }
 }

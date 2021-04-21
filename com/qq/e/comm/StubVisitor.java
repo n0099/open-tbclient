@@ -8,17 +8,17 @@ import com.qq.e.comm.util.SystemUtil;
 public class StubVisitor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile StubVisitor f38548a;
+    public static volatile StubVisitor f38643a;
 
     public static StubVisitor getInstance() {
-        if (f38548a == null) {
+        if (f38643a == null) {
             synchronized (StubVisitor.class) {
-                if (f38548a == null) {
-                    f38548a = new StubVisitor();
+                if (f38643a == null) {
+                    f38643a = new StubVisitor();
                 }
             }
         }
-        return f38548a;
+        return f38643a;
     }
 
     public String appendPathName(String str) {

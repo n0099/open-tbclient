@@ -1,10 +1,10 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.i0;
-import d.g.c.c.k0;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.i0;
+import d.h.c.c.k0;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
@@ -79,32 +79,32 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public class a extends c1<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30816e;
+        public int f30911e;
 
         /* renamed from: f  reason: collision with root package name */
-        public E f30817f;
+        public E f30912f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f30818g;
+        public final /* synthetic */ Iterator f30913g;
 
         public a(ImmutableMultiset immutableMultiset, Iterator it) {
-            this.f30818g = it;
+            this.f30913g = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30816e > 0 || this.f30818g.hasNext();
+            return this.f30911e > 0 || this.f30913g.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
-            if (this.f30816e <= 0) {
-                i0.a aVar = (i0.a) this.f30818g.next();
-                this.f30817f = (E) aVar.getElement();
-                this.f30816e = aVar.getCount();
+            if (this.f30911e <= 0) {
+                i0.a aVar = (i0.a) this.f30913g.next();
+                this.f30912f = (E) aVar.getElement();
+                this.f30911e = aVar.getCount();
             }
-            this.f30816e--;
-            return this.f30817f;
+            this.f30911e--;
+            return this.f30912f;
         }
     }
 
@@ -112,20 +112,20 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public static class b<E> extends ImmutableCollection.b<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public k0<E> f30819a;
+        public k0<E> f30914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f30820b;
+        public boolean f30915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f30821c;
+        public boolean f30916c;
 
         public b() {
             this(4);
         }
 
-        /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: d.g.c.c.k0<E>, d.g.c.c.k0<T> */
-        /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: d.g.c.c.k0<E>, d.g.c.c.k0<T> */
+        /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: d.h.c.c.k0<E>, d.h.c.c.k0<T> */
+        /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: d.h.c.c.k0<E>, d.h.c.c.k0<T> */
         public static <T> k0<T> l(Iterable<T> iterable) {
             if (iterable instanceof RegularImmutableMultiset) {
                 return (k0<E>) ((RegularImmutableMultiset) iterable).contents;
@@ -155,14 +155,14 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 i0 d2 = Multisets.d(iterable);
                 k0 l = l(d2);
                 if (l != null) {
-                    k0<E> k0Var = this.f30819a;
+                    k0<E> k0Var = this.f30914a;
                     k0Var.d(Math.max(k0Var.C(), l.C()));
                     for (int e2 = l.e(); e2 >= 0; e2 = l.s(e2)) {
                         j(l.i(e2), l.k(e2));
                     }
                 } else {
                     Set<i0.a<E>> entrySet = d2.entrySet();
-                    k0<E> k0Var2 = this.f30819a;
+                    k0<E> k0Var2 = this.f30914a;
                     k0Var2.d(Math.max(k0Var2.C(), entrySet.size()));
                     for (i0.a<E> aVar : d2.entrySet()) {
                         j(aVar.getElement(), aVar.getCount());
@@ -183,39 +183,39 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
             if (i == 0) {
                 return this;
             }
-            if (this.f30820b) {
-                this.f30819a = new k0<>((k0<? extends E>) this.f30819a);
-                this.f30821c = false;
+            if (this.f30915b) {
+                this.f30914a = new k0<>((k0<? extends E>) this.f30914a);
+                this.f30916c = false;
             }
-            this.f30820b = false;
+            this.f30915b = false;
             n.p(e2);
-            k0<E> k0Var = this.f30819a;
+            k0<E> k0Var = this.f30914a;
             k0Var.u(e2, i + k0Var.f(e2));
             return this;
         }
 
         public ImmutableMultiset<E> k() {
-            if (this.f30819a.C() == 0) {
+            if (this.f30914a.C() == 0) {
                 return ImmutableMultiset.of();
             }
-            if (this.f30821c) {
-                this.f30819a = new k0<>((k0<? extends E>) this.f30819a);
-                this.f30821c = false;
+            if (this.f30916c) {
+                this.f30914a = new k0<>((k0<? extends E>) this.f30914a);
+                this.f30916c = false;
             }
-            this.f30820b = true;
-            return new RegularImmutableMultiset(this.f30819a);
+            this.f30915b = true;
+            return new RegularImmutableMultiset(this.f30914a);
         }
 
         public b(int i) {
-            this.f30820b = false;
-            this.f30821c = false;
-            this.f30819a = k0.c(i);
+            this.f30915b = false;
+            this.f30916c = false;
+            this.f30914a = k0.c(i);
         }
 
         public b(boolean z) {
-            this.f30820b = false;
-            this.f30821c = false;
-            this.f30819a = null;
+            this.f30915b = false;
+            this.f30916c = false;
+            this.f30914a = null;
         }
     }
 
@@ -249,7 +249,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return RegularImmutableMultiset.EMPTY;
     }
 
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     @Deprecated
     public final int add(E e2, int i) {
         throw new UnsupportedOperationException();
@@ -285,28 +285,28 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public abstract /* synthetic */ int count(Object obj);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     public abstract ImmutableSet<E> elementSet();
 
-    @Override // java.util.Collection, d.g.c.c.i0
+    @Override // java.util.Collection, d.h.c.c.i0
     public boolean equals(Object obj) {
         return Multisets.f(this, obj);
     }
 
     public abstract i0.a<E> getEntry(int i);
 
-    @Override // java.util.Collection, d.g.c.c.i0
+    @Override // java.util.Collection, d.h.c.c.i0
     public int hashCode() {
         return Sets.b(entrySet());
     }
 
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     @Deprecated
     public final int remove(Object obj, int i) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     @Deprecated
     public final int setCount(E e2, int i) {
         throw new UnsupportedOperationException();
@@ -337,7 +337,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     public ImmutableSet<i0.a<E>> entrySet() {
         ImmutableSet<i0.a<E>> immutableSet = this.entrySet;
         if (immutableSet == null) {
@@ -354,7 +354,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return new a(this, entrySet().iterator());
     }
 
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     @Deprecated
     public final boolean setCount(E e2, int i, int i2) {
         throw new UnsupportedOperationException();

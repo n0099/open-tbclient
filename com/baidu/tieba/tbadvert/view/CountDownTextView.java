@@ -9,34 +9,34 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21136e;
+    public int f21144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21137f;
+    public String f21145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f21138g;
+    public c f21146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f21139h;
+    public Handler f21147h;
     public final Runnable i;
 
     /* loaded from: classes5.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f21140e;
+        public final WeakReference<CountDownTextView> f21148e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f21140e.get();
+            CountDownTextView countDownTextView = this.f21148e.get();
             if (countDownTextView != null) {
                 countDownTextView.b(1);
             }
         }
 
         public b(CountDownTextView countDownTextView) {
-            this.f21140e = new WeakReference<>(countDownTextView);
+            this.f21148e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -47,39 +47,39 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.f21136e = 0;
-        this.f21137f = "";
-        this.f21138g = null;
-        this.f21139h = new Handler();
+        this.f21144e = 0;
+        this.f21145f = "";
+        this.f21146g = null;
+        this.f21147h = new Handler();
         this.i = new b();
     }
 
     public final void b(int i) {
-        int i2 = this.f21136e - i;
-        this.f21136e = i2;
+        int i2 = this.f21144e - i;
+        this.f21144e = i2;
         if (i2 == 0) {
-            c cVar = this.f21138g;
+            c cVar = this.f21146g;
             if (cVar != null) {
                 cVar.a(this);
             }
-            this.f21139h.removeCallbacksAndMessages(null);
+            this.f21147h.removeCallbacksAndMessages(null);
             return;
         }
         if (i2 > 0) {
-            setText(String.format("%s %s", this.f21137f, Integer.valueOf(i2)));
+            setText(String.format("%s %s", this.f21145f, Integer.valueOf(i2)));
         }
-        this.f21139h.removeCallbacks(this.i);
-        this.f21139h.postDelayed(this.i, 1000L);
+        this.f21147h.removeCallbacks(this.i);
+        this.f21147h.postDelayed(this.i, 1000L);
     }
 
     public final void c() {
-        this.f21139h.removeCallbacksAndMessages(null);
+        this.f21147h.removeCallbacksAndMessages(null);
     }
 
     public void d(String str, int i) {
-        this.f21137f = str;
+        this.f21145f = str;
         if (i > 0) {
-            this.f21136e = i;
+            this.f21144e = i;
         }
     }
 
@@ -106,6 +106,6 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(c cVar) {
-        this.f21138g = cVar;
+        this.f21146g = cVar;
     }
 }

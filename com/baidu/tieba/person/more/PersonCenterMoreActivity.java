@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.c.e.p.l;
-import d.b.i0.f2.j.b;
-import d.b.i0.g2.e.h;
-import d.b.i0.x.b0;
+import d.b.j0.f2.j.b;
+import d.b.j0.g2.e.h;
+import d.b.j0.x.b0;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public h mItemData;
@@ -34,7 +34,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.x.b0
+        @Override // d.b.j0.x.b0
         /* renamed from: d */
         public void a(View view, h hVar) {
             PersonCenterMoreActivity.this.mItemData = hVar;
@@ -77,7 +77,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            d.b.h0.l.a.s(getPageContext().getPageActivity(), true, str);
+            d.b.i0.l.a.s(getPageContext().getPageActivity(), true, str);
         }
     }
 

@@ -29,16 +29,16 @@ import d.b.c.e.p.j;
 import d.b.c.e.p.l;
 import d.b.c.j.e.n;
 import d.b.c.j.e.w;
-import d.b.h0.d0.h;
-import d.b.h0.r.f0.f;
-import d.b.h0.r.f0.g;
+import d.b.i0.d0.h;
+import d.b.i0.r.f0.f;
+import d.b.i0.r.f0.g;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConcernTabFragment extends SpecialForumTabBaseFragment {
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14537h;
+    public View f14545h;
     public BdTypeRecyclerView i;
     public BdSwipeRefreshLayout j;
     public PbListView k;
@@ -78,7 +78,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.b
         public void a(int i, String str) {
             ConcernTabFragment concernTabFragment = ConcernTabFragment.this;
-            concernTabFragment.hideLoadingView(concernTabFragment.f14537h);
+            concernTabFragment.hideLoadingView(concernTabFragment.f14545h);
             ConcernTabFragment.this.V0();
             ConcernTabFragment.this.b1();
         }
@@ -89,7 +89,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             ConcernTabFragment.this.r = true;
             ConcernTabFragment.this.Z0(false);
             ConcernTabFragment concernTabFragment = ConcernTabFragment.this;
-            concernTabFragment.hideLoadingView(concernTabFragment.f14537h);
+            concernTabFragment.hideLoadingView(concernTabFragment.f14545h);
             if (ListUtils.getCount(list) == 0) {
                 ConcernTabFragment.this.b1();
             } else {
@@ -125,7 +125,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         public d() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (j.z()) {
                 ConcernTabFragment.this.o.y();
@@ -139,59 +139,59 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.t.d.f.b.a f14542a;
+        public d.b.j0.t.d.f.b.a f14550a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.i0.t.d.f.b.b f14543b;
+        public d.b.j0.t.d.f.b.b f14551b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.i0.t.d.f.b.c f14544c;
+        public d.b.j0.t.d.f.b.c f14552c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<d.b.c.j.e.a> f14545d = new LinkedList();
+        public List<d.b.c.j.e.a> f14553d = new LinkedList();
 
         /* loaded from: classes4.dex */
         public class a implements w {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ConcernTabFragment f14547e;
+            public final /* synthetic */ ConcernTabFragment f14555e;
 
             public a(ConcernTabFragment concernTabFragment) {
-                this.f14547e = concernTabFragment;
+                this.f14555e = concernTabFragment;
             }
 
             @Override // d.b.c.j.e.w
             public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-                if (nVar == null || !(nVar instanceof d.b.i0.t.d.f.c.f)) {
+                if (nVar == null || !(nVar instanceof d.b.j0.t.d.f.c.f)) {
                     return;
                 }
-                d.b.i0.t.d.f.c.f fVar = (d.b.i0.t.d.f.c.f) nVar;
-                if (fVar.f62106f == null) {
+                d.b.j0.t.d.f.c.f fVar = (d.b.j0.t.d.f.c.f) nVar;
+                if (fVar.f62527f == null) {
                     return;
                 }
                 if (!l.C()) {
                     ConcernTabFragment.this.getPageContext().showToast(R.string.neterror);
                     return;
                 }
-                if (fVar.f62107g) {
+                if (fVar.f62528g) {
                     TiebaStatic.log(new StatisticItem("c12896"));
                 } else {
                     TiebaStatic.log(new StatisticItem("c12894"));
                 }
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.fillWithInfoData(fVar.f62106f);
+                alaLiveInfoCoreData.fillWithInfoData(fVar.f62527f);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(ConcernTabFragment.this.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SPECIAL_CONCERN_TAB, TbadkCoreApplication.getCurrentAccount(), false, "")));
             }
         }
 
         public e() {
-            this.f14542a = new d.b.i0.t.d.f.b.a(ConcernTabFragment.this.getPageContext());
-            this.f14543b = new d.b.i0.t.d.f.b.b(ConcernTabFragment.this.getPageContext());
-            this.f14544c = new d.b.i0.t.d.f.b.c(ConcernTabFragment.this.getPageContext());
-            this.f14543b.c0(new a(ConcernTabFragment.this));
-            this.f14545d.add(this.f14542a);
-            this.f14545d.add(this.f14543b);
-            this.f14545d.add(this.f14544c);
+            this.f14550a = new d.b.j0.t.d.f.b.a(ConcernTabFragment.this.getPageContext());
+            this.f14551b = new d.b.j0.t.d.f.b.b(ConcernTabFragment.this.getPageContext());
+            this.f14552c = new d.b.j0.t.d.f.b.c(ConcernTabFragment.this.getPageContext());
+            this.f14551b.c0(new a(ConcernTabFragment.this));
+            this.f14553d.add(this.f14550a);
+            this.f14553d.add(this.f14551b);
+            this.f14553d.add(this.f14552c);
         }
     }
 
@@ -235,7 +235,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
 
     public final void Y0() {
         this.o.y();
-        showLoadingView(this.f14537h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
+        showLoadingView(this.f14545h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
     public void Z0(boolean z) {
@@ -306,9 +306,9 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f14537h == null) {
+        if (this.f14545h == null) {
             View inflate = layoutInflater.inflate(R.layout.special_bar_concern_tab, viewGroup, false);
-            this.f14537h = inflate;
+            this.f14545h = inflate;
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) inflate.findViewById(R.id.content_thread);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -328,21 +328,21 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             this.k.C(SkinManager.getColor(R.color.CAM_X0107));
             this.k.y(R.color.CAM_X0110);
             this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f14537h.findViewById(R.id.pull_refresh_layout);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f14545h.findViewById(R.id.pull_refresh_layout);
             this.j = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.l);
             e eVar = new e();
             this.n = eVar;
-            this.i.a(eVar.f14545d);
+            this.i.a(eVar.f14553d);
         }
-        if (this.f14537h.getParent() != null) {
-            ((ViewGroup) this.f14537h.getParent()).removeView(this.f14537h);
+        if (this.f14545h.getParent() != null) {
+            ((ViewGroup) this.f14545h.getParent()).removeView(this.f14545h);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if (TbadkCoreApplication.isLogin()) {
             Y0();
         }
-        return this.f14537h;
+        return this.f14545h;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -351,7 +351,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         this.i.setOnSrollToBottomListener(null);
         this.i.setScrollable(null);
         this.o.onDestroy();
-        hideLoadingView(this.f14537h);
+        hideLoadingView(this.f14545h);
         MessageManager.getInstance().unRegisterListener(this.s);
     }
 

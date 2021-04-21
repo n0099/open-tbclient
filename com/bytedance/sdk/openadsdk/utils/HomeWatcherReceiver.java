@@ -9,7 +9,7 @@ import com.baidu.tieba.pushdialog.PushDialogActivity;
 public class HomeWatcherReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f30038a;
+    public a f30046a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -19,7 +19,7 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     }
 
     public void a(a aVar) {
-        this.f30038a = aVar;
+        this.f30046a = aVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -34,13 +34,13 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
             Log.i("HomeReceiver", "reason: " + stringExtra);
             if ("homekey".equals(stringExtra)) {
                 Log.i("HomeReceiver", "homekey");
-                a aVar = this.f30038a;
+                a aVar = this.f30046a;
                 if (aVar != null) {
                     aVar.J();
                 }
             } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS.equals(stringExtra)) {
                 Log.i("HomeReceiver", "long press home key or activity switch");
-                a aVar2 = this.f30038a;
+                a aVar2 = this.f30046a;
                 if (aVar2 != null) {
                     aVar2.K();
                 }

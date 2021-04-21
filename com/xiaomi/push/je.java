@@ -3,10 +3,10 @@ package com.xiaomi.push;
 public class je {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41165a = Integer.MAX_VALUE;
+    public static int f41260a = Integer.MAX_VALUE;
 
     public static void a(jb jbVar, byte b2) {
-        a(jbVar, b2, f41165a);
+        a(jbVar, b2, f41260a);
     }
 
     public static void a(jb jbVar, byte b2, int i) {
@@ -44,7 +44,7 @@ public class je {
             case 12:
                 jbVar.m509a();
                 while (true) {
-                    byte b3 = jbVar.m505a().f41156a;
+                    byte b3 = jbVar.m505a().f41251a;
                     if (b3 == 0) {
                         jbVar.f();
                         return;
@@ -57,8 +57,8 @@ public class je {
                 ja m507a = jbVar.m507a();
                 while (i2 < m507a.f811a) {
                     int i3 = i - 1;
-                    a(jbVar, m507a.f41161a, i3);
-                    a(jbVar, m507a.f41162b, i3);
+                    a(jbVar, m507a.f41256a, i3);
+                    a(jbVar, m507a.f41257b, i3);
                     i2++;
                 }
                 jbVar.h();
@@ -66,7 +66,7 @@ public class je {
             case 14:
                 jf m508a = jbVar.m508a();
                 while (i2 < m508a.f812a) {
-                    a(jbVar, m508a.f41166a, i - 1);
+                    a(jbVar, m508a.f41261a, i - 1);
                     i2++;
                 }
                 jbVar.j();
@@ -74,7 +74,7 @@ public class je {
             case 15:
                 iz m506a = jbVar.m506a();
                 while (i2 < m506a.f808a) {
-                    a(jbVar, m506a.f41157a, i - 1);
+                    a(jbVar, m506a.f41252a, i - 1);
                     i2++;
                 }
                 jbVar.i();

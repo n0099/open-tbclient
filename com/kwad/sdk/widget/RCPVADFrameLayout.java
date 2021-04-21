@@ -11,7 +11,7 @@ import com.kwad.sdk.utils.s;
 public class RCPVADFrameLayout extends RCPVFrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final s.a f37104a = new s.a();
+    public static final s.a f37199a = new s.a();
 
     public RCPVADFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,16 +29,16 @@ public class RCPVADFrameLayout extends RCPVFrameLayout {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            f37104a.a(getWidth(), getHeight());
-            f37104a.a(motionEvent.getX(), motionEvent.getY());
+            f37199a.a(getWidth(), getHeight());
+            f37199a.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f37104a.b(motionEvent.getX(), motionEvent.getY());
+            f37199a.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return f37104a;
+        return f37199a;
     }
 }

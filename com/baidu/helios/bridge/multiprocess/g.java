@@ -13,8 +13,8 @@ import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
-import d.b.p.d.a;
-import d.b.p.g.c.a.c;
+import d.b.q.d.a;
+import d.b.q.g.c.a.c;
 /* loaded from: classes2.dex */
 public class g extends a implements IBinder.DeathRecipient {
 
@@ -23,18 +23,18 @@ public class g extends a implements IBinder.DeathRecipient {
 
     /* renamed from: h  reason: collision with root package name */
     public e f6244h;
-    public d.b.p.d.d.b i;
+    public d.b.q.d.d.b i;
     public String j;
 
-    public g(d.b.p.d.d.b bVar, String str) {
+    public g(d.b.q.d.d.b bVar, String str) {
         this.i = bVar;
         this.j = str;
     }
 
     public static Bundle j(a.d dVar) {
         Bundle bundle = new Bundle();
-        bundle.putInt("errcode", dVar.f64959b);
-        bundle.putString("id", dVar.f64958a);
+        bundle.putInt("errcode", dVar.f65223b);
+        bundle.putString("id", dVar.f65222a);
         return bundle;
     }
 
@@ -63,7 +63,7 @@ public class g extends a implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // d.b.p.d.a
+    @Override // d.b.q.d.a
     public void a(String str, Bundle bundle, final a.c<String> cVar) {
         try {
             this.f6244h.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
@@ -87,7 +87,7 @@ public class g extends a implements IBinder.DeathRecipient {
         this.i.j();
     }
 
-    @Override // d.b.p.d.a
+    @Override // d.b.q.d.a
     public boolean d(String str) {
         try {
             return this.f6244h.a(str);
@@ -96,12 +96,12 @@ public class g extends a implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // d.b.p.d.a
+    @Override // d.b.q.d.a
     public void e(a.b bVar) {
-        this.f6244h = p(this.f64951e.f64955c);
+        this.f6244h = p(this.f65215e.f65219c);
     }
 
-    @Override // d.b.p.d.a
+    @Override // d.b.q.d.a
     public a.d f(String str, Bundle bundle) {
         try {
             Bundle a2 = this.f6244h.a(str, bundle);

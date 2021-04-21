@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class fl {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicInteger f40797a = new AtomicInteger(0);
+    public static final AtomicInteger f40892a = new AtomicInteger(0);
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f388a;
@@ -61,39 +61,39 @@ public abstract class fl {
     public String f399b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40799c = 2;
+    public int f40894c = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f40798b = f40797a.getAndIncrement();
+    public final int f40893b = f40892a.getAndIncrement();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f40801e = 0;
+    public long f40896e = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f40800d = 0;
+    public long f40895d = 0;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public fq f40802a;
+        public fq f40897a;
 
         /* renamed from: a  reason: collision with other field name */
         public fy f402a;
 
         public a(fq fqVar, fy fyVar) {
-            this.f40802a = fqVar;
+            this.f40897a = fqVar;
             this.f402a = fyVar;
         }
 
         public void a(fa faVar) {
-            this.f40802a.a(faVar);
+            this.f40897a.a(faVar);
         }
 
         public void a(gc gcVar) {
             fy fyVar = this.f402a;
             if (fyVar == null || fyVar.a(gcVar)) {
-                this.f40802a.a(gcVar);
+                this.f40897a.a(gcVar);
             }
         }
     }
@@ -156,7 +156,7 @@ public abstract class fl {
     }
 
     public void a(int i, int i2, Exception exc) {
-        int i3 = this.f40799c;
+        int i3 = this.f40894c;
         if (i != i3) {
             com.xiaomi.channel.commonutils.logger.b.m55a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(i3), a(i), com.xiaomi.push.service.az.a(i2)));
         }
@@ -165,24 +165,24 @@ public abstract class fl {
         }
         if (i == 1) {
             this.f393a.a(10);
-            if (this.f40799c != 0) {
+            if (this.f40894c != 0) {
                 com.xiaomi.channel.commonutils.logger.b.m55a("try set connected while not connecting.");
             }
-            this.f40799c = i;
+            this.f40894c = i;
             for (fo foVar : this.f395a) {
                 foVar.b(this);
             }
         } else if (i == 0) {
-            if (this.f40799c != 2) {
+            if (this.f40894c != 2) {
                 com.xiaomi.channel.commonutils.logger.b.m55a("try set connecting while not disconnected.");
             }
-            this.f40799c = i;
+            this.f40894c = i;
             for (fo foVar2 : this.f395a) {
                 foVar2.a(this);
             }
         } else if (i == 2) {
             this.f393a.a(10);
-            int i4 = this.f40799c;
+            int i4 = this.f40894c;
             if (i4 == 0) {
                 for (fo foVar3 : this.f395a) {
                     foVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
@@ -192,7 +192,7 @@ public abstract class fl {
                     foVar4.a(this, i2, exc);
                 }
             }
-            this.f40799c = i;
+            this.f40894c = i;
         }
     }
 
@@ -215,7 +215,7 @@ public abstract class fl {
     public abstract void a(av.b bVar);
 
     public synchronized void a(String str) {
-        if (this.f40799c == 0) {
+        if (this.f40894c == 0) {
             com.xiaomi.channel.commonutils.logger.b.m55a("setChallenge hash = " + bl.a(str).substring(0, 8));
             this.f394a = str;
             a(1, 0, null);
@@ -234,11 +234,11 @@ public abstract class fl {
     }
 
     public synchronized boolean a(long j) {
-        return this.f40801e >= j;
+        return this.f40896e >= j;
     }
 
     public int b() {
-        return this.f40799c;
+        return this.f40894c;
     }
 
     /* renamed from: b  reason: collision with other method in class */
@@ -294,16 +294,16 @@ public abstract class fl {
 
     /* renamed from: b  reason: collision with other method in class */
     public boolean m311b() {
-        return this.f40799c == 0;
+        return this.f40894c == 0;
     }
 
     public synchronized void c() {
-        this.f40801e = System.currentTimeMillis();
+        this.f40896e = System.currentTimeMillis();
     }
 
     /* renamed from: c  reason: collision with other method in class */
     public boolean m312c() {
-        return this.f40799c == 1;
+        return this.f40894c == 1;
     }
 
     public void d() {

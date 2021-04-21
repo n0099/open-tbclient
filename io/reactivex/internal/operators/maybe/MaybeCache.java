@@ -11,16 +11,16 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
     public static final CacheDisposable[] j = new CacheDisposable[0];
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<j<T>> f69045e;
+    public final AtomicReference<j<T>> f69192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<CacheDisposable<T>[]> f69046f;
+    public final AtomicReference<CacheDisposable<T>[]> f69193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public T f69047g;
+    public T f69194g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Throwable f69048h;
+    public Throwable f69195h;
 
     /* loaded from: classes7.dex */
     public static final class CacheDisposable<T> extends AtomicReference<MaybeCache<T>> implements b {
@@ -55,18 +55,18 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
                 d(cacheDisposable);
                 return;
             }
-            j<T> andSet = this.f69045e.getAndSet(null);
+            j<T> andSet = this.f69192e.getAndSet(null);
             if (andSet != null) {
                 andSet.a(this);
             }
         } else if (cacheDisposable.isDisposed()) {
         } else {
-            Throwable th = this.f69048h;
+            Throwable th = this.f69195h;
             if (th != null) {
                 iVar.onError(th);
                 return;
             }
-            Object obj = (T) this.f69047g;
+            Object obj = (T) this.f69194g;
             if (obj != null) {
                 iVar.onSuccess(obj);
             } else {
@@ -79,7 +79,7 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
         CacheDisposable<T>[] cacheDisposableArr;
         CacheDisposable<T>[] cacheDisposableArr2;
         do {
-            cacheDisposableArr = this.f69046f.get();
+            cacheDisposableArr = this.f69193f.get();
             if (cacheDisposableArr == j) {
                 return false;
             }
@@ -87,7 +87,7 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
             cacheDisposableArr2 = new CacheDisposable[length + 1];
             System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr2, 0, length);
             cacheDisposableArr2[length] = cacheDisposable;
-        } while (!this.f69046f.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
+        } while (!this.f69193f.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
         return true;
     }
 
@@ -97,7 +97,7 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
         CacheDisposable<T>[] cacheDisposableArr;
         CacheDisposable[] cacheDisposableArr2;
         do {
-            cacheDisposableArr = this.f69046f.get();
+            cacheDisposableArr = this.f69193f.get();
             int length = cacheDisposableArr.length;
             if (length == 0) {
                 return;
@@ -125,13 +125,13 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
                 System.arraycopy(cacheDisposableArr, i2 + 1, cacheDisposableArr3, i2, (length - i2) - 1);
                 cacheDisposableArr2 = cacheDisposableArr3;
             }
-        } while (!this.f69046f.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
+        } while (!this.f69193f.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
     }
 
     @Override // f.b.i
     public void onComplete() {
         CacheDisposable<T>[] andSet;
-        for (CacheDisposable<T> cacheDisposable : this.f69046f.getAndSet(j)) {
+        for (CacheDisposable<T> cacheDisposable : this.f69193f.getAndSet(j)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onComplete();
             }
@@ -141,8 +141,8 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
     @Override // f.b.i
     public void onError(Throwable th) {
         CacheDisposable<T>[] andSet;
-        this.f69048h = th;
-        for (CacheDisposable<T> cacheDisposable : this.f69046f.getAndSet(j)) {
+        this.f69195h = th;
+        for (CacheDisposable<T> cacheDisposable : this.f69193f.getAndSet(j)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onError(th);
             }
@@ -156,8 +156,8 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
     @Override // f.b.i
     public void onSuccess(T t) {
         CacheDisposable<T>[] andSet;
-        this.f69047g = t;
-        for (CacheDisposable<T> cacheDisposable : this.f69046f.getAndSet(j)) {
+        this.f69194g = t;
+        for (CacheDisposable<T> cacheDisposable : this.f69193f.getAndSet(j)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onSuccess(t);
             }

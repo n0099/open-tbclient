@@ -98,19 +98,19 @@ public class BdWebkitManager implements INoProGuard {
                     d.b.h.b.d.c.a aVar2 = BdSailorPlatform.getStatic();
                     aVar2.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
                     z2 = WebKitFactory.setEngine(1);
-                    String str2 = d.b.h.b.f.b.a.f49885c;
+                    String str2 = d.b.h.b.f.b.a.f43812c;
                     Log.d(str2, "zeus version = " + WebKitFactory.getZeusVersionName());
                 } else {
                     z2 = false;
                 }
                 if (z2) {
-                    String str3 = d.b.h.b.f.b.a.f49885c;
+                    String str3 = d.b.h.b.f.b.a.f43812c;
                     Log.d(str3, "zeus version = " + WebKitFactory.getZeusVersionName());
-                    String str4 = d.b.h.b.f.b.a.f49885c;
+                    String str4 = d.b.h.b.f.b.a.f43812c;
                     Log.d(str4, "sdk version = " + WebKitFactory.getSdkVersionName());
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                     BdSailorPlatform.getStatic().b("init-webkit", "success");
-                    BdSailorPlatform.getStatic().f49870d = true;
+                    BdSailorPlatform.getStatic().f43797d = true;
                 } else {
                     LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();
                     aVar.b(loadErrorCode);
@@ -120,7 +120,7 @@ public class BdWebkitManager implements INoProGuard {
                 aVar.b(new LoadErrorCode(99, "not support"));
                 BdSailorPlatform.getStatic().b("init-webkit", "notSupport");
             }
-            BdSailorPlatform.getStatic().f49870d = false;
+            BdSailorPlatform.getStatic().f43797d = false;
         } else if (BdZeusUtil.isWebkitLoaded()) {
             return;
         } else {
@@ -135,7 +135,7 @@ public class BdWebkitManager implements INoProGuard {
                 BdSailorPlatform.getWebkitManager().onLoadSysSDKSuccess();
             }
         }
-        ZeusPerformanceTiming.setZeusWebkitInitStatistics(BdSailorPlatform.getStatic().f49868b);
+        ZeusPerformanceTiming.setZeusWebkitInitStatistics(BdSailorPlatform.getStatic().f43795b);
     }
 
     public void installZeusFromDownload(String str) {
@@ -143,18 +143,18 @@ public class BdWebkitManager implements INoProGuard {
         BdSailorPlatform.getInstance().getAppContext();
         int i = mWebkitType$25688051;
         if (str != null) {
-            aVar.f49886a = (byte) 0;
+            aVar.f43813a = (byte) 0;
             if (a.f4364c == i) {
                 WebKitFactory.destroy();
-                Log.d(d.b.h.b.f.b.a.f49885c, "sdk version =  =" + WebKitFactory.getSdkVersionName());
+                Log.d(d.b.h.b.f.b.a.f43812c, "sdk version =  =" + WebKitFactory.getSdkVersionName());
             }
             if (!str.startsWith("file://")) {
                 str = "file://" + str;
             }
             BdZeusUtil.printKernellog("install plugin from download");
             WebKitFactory.installAsync(str, aVar);
-            aVar.f49887b = System.currentTimeMillis();
-            Log.i(d.b.h.b.f.b.a.f49885c, "full update started!");
+            aVar.f43814b = System.currentTimeMillis();
+            Log.i(d.b.h.b.f.b.a.f43812c, "full update started!");
         }
     }
 

@@ -57,22 +57,22 @@ import protobuf.MaskInfo;
 public class SettingStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static MaskInfo f20725a = null;
+    public static MaskInfo f20733a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f20726b = false;
+    public static boolean f20734b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f20727c = false;
+    public static boolean f20735c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d.b.c.c.g.c f20728d = new a(1001);
+    public static final d.b.c.c.g.c f20736d = new a(1001);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f20729e = new b(2005016);
+    public static final CustomMessageListener f20737e = new b(2005016);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final CustomMessageListener f20730f = new c(2001311);
+    public static final CustomMessageListener f20738f = new c(2001311);
 
     /* loaded from: classes4.dex */
     public static class a extends d.b.c.c.g.c {
@@ -87,7 +87,7 @@ public class SettingStatic {
             if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) || !(socketResponsedMessage instanceof ResponseOnlineMessage) || (maskInfo = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) == null) {
                 return;
             }
-            MaskInfo unused = SettingStatic.f20725a = maskInfo;
+            MaskInfo unused = SettingStatic.f20733a = maskInfo;
             SettingStatic.k();
         }
     }
@@ -101,10 +101,10 @@ public class SettingStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.f20727c = false;
-            MaskInfo unused2 = SettingStatic.f20725a = null;
-            boolean unused3 = SettingStatic.f20726b = false;
-            d.b.h0.z.b.a().d();
+            boolean unused = SettingStatic.f20735c = false;
+            MaskInfo unused2 = SettingStatic.f20733a = null;
+            boolean unused3 = SettingStatic.f20734b = false;
+            d.b.i0.z.b.a().d();
         }
     }
 
@@ -117,7 +117,7 @@ public class SettingStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.f20726b = true;
+            boolean unused = SettingStatic.f20734b = true;
             SettingStatic.k();
         }
     }
@@ -126,7 +126,7 @@ public class SettingStatic {
     public static class d implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            d.b.h0.s.d.d.d().A();
+            d.b.i0.s.d.d.d().A();
         }
     }
 
@@ -139,8 +139,8 @@ public class SettingStatic {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
                 TbadkCoreApplication.getInst().deleteAccountAllInfo(currentAccount);
-                d.b.h0.s.a.a.b().a();
-                d.b.h0.r.z.a.a("account", -1L, 0, "logout_delete_account", 0, "", new Object[0]);
+                d.b.i0.s.a.a.b().a();
+                d.b.i0.r.z.a.a("account", -1L, 0, "logout_delete_account", 0, "", new Object[0]);
                 TbadkCoreApplication.setCurrentAccount(null, data);
                 TbadkCoreApplication.getInst().onUserChanged();
                 LoginActivityConfig loginActivityConfig = new LoginActivityConfig(data, true);
@@ -206,21 +206,21 @@ public class SettingStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        d.b.i0.d3.d0.a.f(303016, ResponsedPrivacySocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, d.b.i0.d3.d0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
+        d.b.j0.d3.d0.a.f(303016, ResponsedPrivacySocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, d.b.j0.d3.d0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(f20729e);
-        MessageManager.getInstance().registerListener(f20728d);
-        MessageManager.getInstance().registerListener(f20730f);
-        d.b.i0.d3.d0.a.f(104101, ResponseUpdateMaskMessage.class, false);
-        d.b.i0.d3.d0.a.f(104106, ResponseUpdateForumMask.class, false);
+        MessageManager.getInstance().registerListener(f20737e);
+        MessageManager.getInstance().registerListener(f20736d);
+        MessageManager.getInstance().registerListener(f20738f);
+        d.b.j0.d3.d0.a.f(104101, ResponseUpdateMaskMessage.class, false);
+        d.b.j0.d3.d0.a.f(104106, ResponseUpdateForumMask.class, false);
         e();
         f();
         i();
         g();
         h();
-        SwitchManager.getInstance().registerSwitch(d.b.i0.v2.b.a.b.class);
+        SwitchManager.getInstance().registerSwitch(d.b.j0.v2.b.a.b.class);
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2016302, new h());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
@@ -280,113 +280,113 @@ public class SettingStatic {
         String[] split;
         String[] split2;
         String[] split3;
-        if (!f20726b || f20725a == null || f20727c) {
+        if (!f20734b || f20733a == null || f20735c) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             return;
         }
-        MaskInfo maskInfo = f20725a;
+        MaskInfo maskInfo = f20733a;
         Integer num2 = maskInfo.remindMask;
-        if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && f20725a.shieldStatus.intValue() == 0) {
-            if (!d.b.h0.r.d0.b.j().g("had_sync_setting_switch" + currentAccount, false)) {
+        if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && f20733a.shieldStatus.intValue() == 0) {
+            if (!d.b.i0.r.d0.b.j().g("had_sync_setting_switch" + currentAccount, false)) {
                 z = true;
                 if (!z) {
-                    d.b.h0.r.d0.b.j().t("had_sync_setting_switch" + currentAccount, true);
-                    if (!d.b.h0.s.d.d.d().s()) {
+                    d.b.i0.r.d0.b.j().t("had_sync_setting_switch" + currentAccount, true);
+                    if (!d.b.i0.s.d.d.d().s()) {
                         l(14, false);
                     } else {
-                        if (!d.b.h0.s.d.d.d().o()) {
+                        if (!d.b.i0.s.d.d.d().o()) {
                             l(2, false);
                         }
-                        if (!d.b.h0.s.d.d.d().r()) {
+                        if (!d.b.i0.s.d.d.d().r()) {
                             l(3, false);
                         }
-                        if (!d.b.h0.s.d.d.d().n()) {
+                        if (!d.b.i0.s.d.d.d().n()) {
                             l(4, false);
                         }
-                        if (!d.b.h0.s.d.d.d().p()) {
+                        if (!d.b.i0.s.d.d.d().p()) {
                             l(5, false);
                         }
-                        if (!d.b.h0.s.d.d.d().t()) {
+                        if (!d.b.i0.s.d.d.d().t()) {
                             l(1, false);
                         }
-                        if (!d.b.h0.s.d.d.d().w()) {
+                        if (!d.b.i0.s.d.d.d().w()) {
                             l(20, false);
                         }
                     }
                 } else {
-                    Integer num3 = f20725a.remindMask;
+                    Integer num3 = f20733a.remindMask;
                     if (num3 != null) {
                         if (num3.intValue() == 0) {
-                            d.b.h0.s.d.d.d().B(true);
-                        } else if (f20725a.remindMask.intValue() == 1) {
-                            d.b.h0.s.d.d.d().B(false);
+                            d.b.i0.s.d.d.d().B(true);
+                        } else if (f20733a.remindMask.intValue() == 1) {
+                            d.b.i0.s.d.d.d().B(false);
                             z2 = false;
-                            num = f20725a.shieldStatus;
+                            num = f20733a.shieldStatus;
                             if (num != null) {
                                 int intValue = num.intValue();
                                 boolean z3 = (intValue & 16) == 0;
-                                d.b.h0.s.d.d.d().D(z3);
+                                d.b.i0.s.d.d.d().D(z3);
                                 boolean z4 = (intValue & 1) == 0;
-                                d.b.h0.s.d.d.d().H(z4);
+                                d.b.i0.s.d.d.d().H(z4);
                                 boolean z5 = (intValue & 2) == 0;
-                                d.b.h0.s.d.d.d().C(z5);
+                                d.b.i0.s.d.d.d().C(z5);
                                 boolean z6 = (intValue & 4) == 0;
-                                d.b.h0.s.d.d.d().G(z6);
-                                d.b.h0.s.d.d.d().P((intValue & 2048) == 0);
+                                d.b.i0.s.d.d.d().G(z6);
+                                d.b.i0.s.d.d.d().P((intValue & 2048) == 0);
                                 boolean z7 = (intValue & 4096) == 0;
-                                d.b.h0.s.d.d.d().K(z7);
+                                d.b.i0.s.d.d.d().K(z7);
                                 if (z4 || z5 || z6 || z3 || z2 || z7) {
-                                    d.b.h0.s.d.d.d().E(300);
+                                    d.b.i0.s.d.d.d().E(300);
                                 } else {
-                                    d.b.h0.s.d.d.d().E(0);
+                                    d.b.i0.s.d.d.d().E(0);
                                 }
                             }
                             d.b.c.e.m.h.a().b(new d());
                         }
                     }
                     z2 = true;
-                    num = f20725a.shieldStatus;
+                    num = f20733a.shieldStatus;
                     if (num != null) {
                     }
                     d.b.c.e.m.h.a().b(new d());
                 }
-                if (!TextUtils.isEmpty(f20725a.maskFids) && (split3 = f20725a.maskFids.split(",")) != null && split3.length > 0) {
+                if (!TextUtils.isEmpty(f20733a.maskFids) && (split3 = f20733a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        d.b.i0.e1.t.d.j().g(currentAccount, str, false, null);
+                        d.b.j0.e1.t.d.j().g(currentAccount, str, false, null);
                     }
                 }
-                if (!TextUtils.isEmpty(f20725a.maskGids) && (split2 = f20725a.maskGids.split(",")) != null && split2.length > 0) {
+                if (!TextUtils.isEmpty(f20733a.maskGids) && (split2 = f20733a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        d.b.i0.e1.t.b.k().g(currentAccount, str2, false, null);
+                        d.b.j0.e1.t.b.k().g(currentAccount, str2, false, null);
                     }
                 }
-                if (!TextUtils.isEmpty(f20725a.maskUids) && (split = f20725a.maskUids.split(",")) != null && split.length > 0) {
+                if (!TextUtils.isEmpty(f20733a.maskUids) && (split = f20733a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        d.b.i0.e1.t.e.j().g(currentAccount, str3, false, null);
+                        d.b.j0.e1.t.e.j().g(currentAccount, str3, false, null);
                     }
                 }
-                f20727c = true;
+                f20735c = true;
             }
         }
         z = false;
         if (!z) {
         }
-        if (!TextUtils.isEmpty(f20725a.maskFids)) {
+        if (!TextUtils.isEmpty(f20733a.maskFids)) {
             while (r7 < r6) {
             }
         }
-        if (!TextUtils.isEmpty(f20725a.maskGids)) {
+        if (!TextUtils.isEmpty(f20733a.maskGids)) {
             while (r7 < r6) {
             }
         }
-        if (!TextUtils.isEmpty(f20725a.maskUids)) {
+        if (!TextUtils.isEmpty(f20733a.maskUids)) {
             while (r6 < r3) {
             }
         }
-        f20727c = true;
+        f20735c = true;
     }
 
     public static final void l(int i, boolean z) {

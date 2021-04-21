@@ -15,7 +15,7 @@ import kotlin.text.Typography;
 public class a implements Closeable {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Reader f29777b;
+    public final Reader f29785b;
     public long i;
     public int j;
     public String k;
@@ -25,44 +25,44 @@ public class a implements Closeable {
     public int[] o;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29778c = false;
+    public boolean f29786c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final char[] f29779d = new char[1024];
+    public final char[] f29787d = new char[1024];
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29780e = 0;
+    public int f29788e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29781f = 0;
+    public int f29789f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29782g = 0;
+    public int f29790g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29783h = 0;
+    public int f29791h = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29776a = 0;
+    public int f29784a = 0;
 
     static {
-        f.f29731a = new f() { // from class: com.bytedance.sdk.openadsdk.preload.a.d.a.1
+        f.f29739a = new f() { // from class: com.bytedance.sdk.openadsdk.preload.a.d.a.1
             @Override // com.bytedance.sdk.openadsdk.preload.a.b.f
             public void a(a aVar) throws IOException {
                 if (aVar instanceof e) {
                     ((e) aVar).o();
                     return;
                 }
-                int i = aVar.f29776a;
+                int i = aVar.f29784a;
                 if (i == 0) {
                     i = aVar.r();
                 }
                 if (i == 13) {
-                    aVar.f29776a = 9;
+                    aVar.f29784a = 9;
                 } else if (i == 12) {
-                    aVar.f29776a = 8;
+                    aVar.f29784a = 8;
                 } else if (i == 14) {
-                    aVar.f29776a = 10;
+                    aVar.f29784a = 10;
                 } else {
                     throw new IllegalStateException("Expected a name but was " + aVar.f() + aVar.s());
                 }
@@ -79,7 +79,7 @@ public class a implements Closeable {
         this.n = new String[32];
         this.o = new int[32];
         if (reader != null) {
-            this.f29777b = reader;
+            this.f29785b = reader;
             return;
         }
         throw new NullPointerException("in == null");
@@ -89,7 +89,7 @@ public class a implements Closeable {
         int i;
         String str;
         String str2;
-        char c2 = this.f29779d[this.f29780e];
+        char c2 = this.f29787d[this.f29788e];
         if (c2 == 't' || c2 == 'T') {
             i = 5;
             str = "true";
@@ -107,19 +107,19 @@ public class a implements Closeable {
         }
         int length = str.length();
         for (int i2 = 1; i2 < length; i2++) {
-            if (this.f29780e + i2 >= this.f29781f && !b(i2 + 1)) {
+            if (this.f29788e + i2 >= this.f29789f && !b(i2 + 1)) {
                 return 0;
             }
-            char c3 = this.f29779d[this.f29780e + i2];
+            char c3 = this.f29787d[this.f29788e + i2];
             if (c3 != str.charAt(i2) && c3 != str2.charAt(i2)) {
                 return 0;
             }
         }
-        if ((this.f29780e + length < this.f29781f || b(length + 1)) && a(this.f29779d[this.f29780e + length])) {
+        if ((this.f29788e + length < this.f29789f || b(length + 1)) && a(this.f29787d[this.f29788e + length])) {
             return 0;
         }
-        this.f29780e += length;
-        this.f29776a = i;
+        this.f29788e += length;
+        this.f29784a = i;
         return i;
     }
 
@@ -152,8 +152,8 @@ public class a implements Closeable {
      */
     /* JADX WARN: Code restructure failed: missing block: B:67:0x00af, code lost:
         r18.i = r11;
-        r18.f29780e += r8;
-        r18.f29776a = 15;
+        r18.f29788e += r8;
+        r18.f29784a = 15;
      */
     /* JADX WARN: Code restructure failed: missing block: B:68:0x00ba, code lost:
         return 15;
@@ -172,7 +172,7 @@ public class a implements Closeable {
      */
     /* JADX WARN: Code restructure failed: missing block: B:77:0x00c6, code lost:
         r18.j = r8;
-        r18.f29776a = 16;
+        r18.f29784a = 16;
      */
     /* JADX WARN: Code restructure failed: missing block: B:78:0x00cc, code lost:
         return 16;
@@ -184,9 +184,9 @@ public class a implements Closeable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private int t() throws IOException {
-        char[] cArr = this.f29779d;
-        int i = this.f29780e;
-        int i2 = this.f29781f;
+        char[] cArr = this.f29787d;
+        int i = this.f29788e;
+        int i2 = this.f29789f;
         int i3 = 0;
         int i4 = 0;
         char c2 = 0;
@@ -201,8 +201,8 @@ public class a implements Closeable {
                 if (!b(i4 + 1)) {
                     break;
                 }
-                i = this.f29780e;
-                i2 = this.f29781f;
+                i = this.f29788e;
+                i2 = this.f29789f;
             }
             char c3 = cArr[i + i4];
             if (c3 != '+') {
@@ -277,9 +277,9 @@ public class a implements Closeable {
         do {
             int i2 = 0;
             while (true) {
-                int i3 = this.f29780e;
-                if (i3 + i2 < this.f29781f) {
-                    char c2 = this.f29779d[i3 + i2];
+                int i3 = this.f29788e;
+                if (i3 + i2 < this.f29789f) {
+                    char c2 = this.f29787d[i3 + i2];
                     if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
                         if (c2 != '#') {
                             if (c2 != ',') {
@@ -301,30 +301,30 @@ public class a implements Closeable {
                             }
                         }
                     }
-                } else if (i2 < this.f29779d.length) {
+                } else if (i2 < this.f29787d.length) {
                     if (b(i2 + 1)) {
                     }
                 } else {
                     if (sb2 == null) {
                         sb2 = new StringBuilder(Math.max(i2, 16));
                     }
-                    sb2.append(this.f29779d, this.f29780e, i2);
-                    this.f29780e += i2;
+                    sb2.append(this.f29787d, this.f29788e, i2);
+                    this.f29788e += i2;
                 }
             }
             i = i2;
             if (sb2 != null) {
-                sb = new String(this.f29779d, this.f29780e, i);
+                sb = new String(this.f29787d, this.f29788e, i);
             } else {
-                sb2.append(this.f29779d, this.f29780e, i);
+                sb2.append(this.f29787d, this.f29788e, i);
                 sb = sb2.toString();
             }
-            this.f29780e += i;
+            this.f29788e += i;
             return sb;
         } while (b(1));
         if (sb2 != null) {
         }
-        this.f29780e += i;
+        this.f29788e += i;
         return sb;
     }
 
@@ -338,9 +338,9 @@ public class a implements Closeable {
         do {
             int i = 0;
             while (true) {
-                int i2 = this.f29780e;
-                if (i2 + i < this.f29781f) {
-                    char c2 = this.f29779d[i2 + i];
+                int i2 = this.f29788e;
+                if (i2 + i < this.f29789f) {
+                    char c2 = this.f29787d[i2 + i];
                     if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
                         if (c2 != '#') {
                             if (c2 != ',') {
@@ -363,16 +363,16 @@ public class a implements Closeable {
                         }
                     }
                 } else {
-                    this.f29780e = i2 + i;
+                    this.f29788e = i2 + i;
                 }
             }
-            this.f29780e += i;
+            this.f29788e += i;
             return;
         } while (b(1));
     }
 
     private void w() throws IOException {
-        if (!this.f29778c) {
+        if (!this.f29786c) {
             throw b("Use JsonReader.setLenient(true) to accept malformed JSON");
         }
     }
@@ -380,17 +380,17 @@ public class a implements Closeable {
     private void x() throws IOException {
         char c2;
         do {
-            if (this.f29780e >= this.f29781f && !b(1)) {
+            if (this.f29788e >= this.f29789f && !b(1)) {
                 return;
             }
-            char[] cArr = this.f29779d;
-            int i = this.f29780e;
+            char[] cArr = this.f29787d;
+            int i = this.f29788e;
             int i2 = i + 1;
-            this.f29780e = i2;
+            this.f29788e = i2;
             c2 = cArr[i];
             if (c2 == '\n') {
-                this.f29782g++;
-                this.f29783h = i2;
+                this.f29790g++;
+                this.f29791h = i2;
                 return;
             }
         } while (c2 != '\r');
@@ -399,17 +399,17 @@ public class a implements Closeable {
     private char y() throws IOException {
         int i;
         int i2;
-        if (this.f29780e == this.f29781f && !b(1)) {
+        if (this.f29788e == this.f29789f && !b(1)) {
             throw b("Unterminated escape sequence");
         }
-        char[] cArr = this.f29779d;
-        int i3 = this.f29780e;
+        char[] cArr = this.f29787d;
+        int i3 = this.f29788e;
         int i4 = i3 + 1;
-        this.f29780e = i4;
+        this.f29788e = i4;
         char c2 = cArr[i3];
         if (c2 == '\n') {
-            this.f29782g++;
-            this.f29783h = i4;
+            this.f29790g++;
+            this.f29791h = i4;
         } else if (c2 != '\"' && c2 != '\'' && c2 != '/' && c2 != '\\') {
             if (c2 != 'b') {
                 if (c2 != 'f') {
@@ -417,20 +417,20 @@ public class a implements Closeable {
                         if (c2 != 'r') {
                             if (c2 != 't') {
                                 if (c2 == 'u') {
-                                    if (i4 + 4 > this.f29781f && !b(4)) {
+                                    if (i4 + 4 > this.f29789f && !b(4)) {
                                         throw b("Unterminated escape sequence");
                                     }
                                     char c3 = 0;
-                                    int i5 = this.f29780e;
+                                    int i5 = this.f29788e;
                                     int i6 = i5 + 4;
                                     while (i5 < i6) {
-                                        char c4 = this.f29779d[i5];
+                                        char c4 = this.f29787d[i5];
                                         char c5 = (char) (c3 << 4);
                                         if (c4 < '0' || c4 > '9') {
                                             if (c4 >= 'a' && c4 <= 'f') {
                                                 i = c4 - 'a';
                                             } else if (c4 < 'A' || c4 > 'F') {
-                                                throw new NumberFormatException("\\u" + new String(this.f29779d, this.f29780e, 4));
+                                                throw new NumberFormatException("\\u" + new String(this.f29787d, this.f29788e, 4));
                                             } else {
                                                 i = c4 - 'A';
                                             }
@@ -441,7 +441,7 @@ public class a implements Closeable {
                                         c3 = (char) (c5 + i2);
                                         i5++;
                                     }
-                                    this.f29780e += 4;
+                                    this.f29788e += 4;
                                     return c3;
                                 }
                                 throw b("Invalid escape sequence");
@@ -461,22 +461,22 @@ public class a implements Closeable {
 
     private void z() throws IOException {
         b(true);
-        int i = this.f29780e - 1;
-        this.f29780e = i;
-        if (i + 5 <= this.f29781f || b(5)) {
-            char[] cArr = this.f29779d;
+        int i = this.f29788e - 1;
+        this.f29788e = i;
+        if (i + 5 <= this.f29789f || b(5)) {
+            char[] cArr = this.f29787d;
             if (cArr[i] == ')' && cArr[i + 1] == ']' && cArr[i + 2] == '}' && cArr[i + 3] == '\'' && cArr[i + 4] == '\n') {
-                this.f29780e += 5;
+                this.f29788e += 5;
             }
         }
     }
 
     public final void a(boolean z) {
-        this.f29778c = z;
+        this.f29786c = z;
     }
 
     public void b() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -486,20 +486,20 @@ public class a implements Closeable {
             int[] iArr = this.o;
             int i3 = i2 - 1;
             iArr[i3] = iArr[i3] + 1;
-            this.f29776a = 0;
+            this.f29784a = 0;
             return;
         }
         throw new IllegalStateException("Expected END_ARRAY but was " + f() + s());
     }
 
     public void c() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
         if (i == 1) {
             a(3);
-            this.f29776a = 0;
+            this.f29784a = 0;
             return;
         }
         throw new IllegalStateException("Expected BEGIN_OBJECT but was " + f() + s());
@@ -507,14 +507,14 @@ public class a implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f29776a = 0;
+        this.f29784a = 0;
         this.l[0] = 8;
         this.m = 1;
-        this.f29777b.close();
+        this.f29785b.close();
     }
 
     public void d() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -525,14 +525,14 @@ public class a implements Closeable {
             int[] iArr = this.o;
             int i3 = i2 - 1;
             iArr[i3] = iArr[i3] + 1;
-            this.f29776a = 0;
+            this.f29784a = 0;
             return;
         }
         throw new IllegalStateException("Expected END_OBJECT but was " + f() + s());
     }
 
     public boolean e() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -540,7 +540,7 @@ public class a implements Closeable {
     }
 
     public b f() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -579,7 +579,7 @@ public class a implements Closeable {
 
     public String g() throws IOException {
         String b2;
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -592,14 +592,14 @@ public class a implements Closeable {
         } else {
             throw new IllegalStateException("Expected a name but was " + f() + s());
         }
-        this.f29776a = 0;
+        this.f29784a = 0;
         this.n[this.m - 1] = b2;
         return b2;
     }
 
     public String h() throws IOException {
         String str;
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -615,12 +615,12 @@ public class a implements Closeable {
         } else if (i == 15) {
             str = Long.toString(this.i);
         } else if (i == 16) {
-            str = new String(this.f29779d, this.f29780e, this.j);
-            this.f29780e += this.j;
+            str = new String(this.f29787d, this.f29788e, this.j);
+            this.f29788e += this.j;
         } else {
             throw new IllegalStateException("Expected a string but was " + f() + s());
         }
-        this.f29776a = 0;
+        this.f29784a = 0;
         int[] iArr = this.o;
         int i2 = this.m - 1;
         iArr[i2] = iArr[i2] + 1;
@@ -628,18 +628,18 @@ public class a implements Closeable {
     }
 
     public boolean i() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
         if (i == 5) {
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
             return true;
         } else if (i == 6) {
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr2 = this.o;
             int i3 = this.m - 1;
             iArr2[i3] = iArr2[i3] + 1;
@@ -650,12 +650,12 @@ public class a implements Closeable {
     }
 
     public void j() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
         if (i == 7) {
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
@@ -665,20 +665,20 @@ public class a implements Closeable {
     }
 
     public double k() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
         if (i == 15) {
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
             return this.i;
         }
         if (i == 16) {
-            this.k = new String(this.f29779d, this.f29780e, this.j);
-            this.f29780e += this.j;
+            this.k = new String(this.f29787d, this.f29788e, this.j);
+            this.f29788e += this.j;
         } else if (i == 8 || i == 9) {
             this.k = b(i == 8 ? '\'' : Typography.quote);
         } else if (i == 10) {
@@ -686,13 +686,13 @@ public class a implements Closeable {
         } else if (i != 11) {
             throw new IllegalStateException("Expected a double but was " + f() + s());
         }
-        this.f29776a = 11;
+        this.f29784a = 11;
         double parseDouble = Double.parseDouble(this.k);
-        if (!this.f29778c && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
+        if (!this.f29786c && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
             throw new d("JSON forbids NaN and infinities: " + parseDouble + s());
         }
         this.k = null;
-        this.f29776a = 0;
+        this.f29784a = 0;
         int[] iArr2 = this.o;
         int i3 = this.m - 1;
         iArr2[i3] = iArr2[i3] + 1;
@@ -700,20 +700,20 @@ public class a implements Closeable {
     }
 
     public long l() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
         if (i == 15) {
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
             return this.i;
         }
         if (i == 16) {
-            this.k = new String(this.f29779d, this.f29780e, this.j);
-            this.f29780e += this.j;
+            this.k = new String(this.f29787d, this.f29788e, this.j);
+            this.f29788e += this.j;
         } else if (i != 8 && i != 9 && i != 10) {
             throw new IllegalStateException("Expected a long but was " + f() + s());
         } else {
@@ -724,7 +724,7 @@ public class a implements Closeable {
             }
             try {
                 long parseLong = Long.parseLong(this.k);
-                this.f29776a = 0;
+                this.f29784a = 0;
                 int[] iArr2 = this.o;
                 int i3 = this.m - 1;
                 iArr2[i3] = iArr2[i3] + 1;
@@ -732,12 +732,12 @@ public class a implements Closeable {
             } catch (NumberFormatException unused) {
             }
         }
-        this.f29776a = 11;
+        this.f29784a = 11;
         double parseDouble = Double.parseDouble(this.k);
         long j = (long) parseDouble;
         if (j == parseDouble) {
             this.k = null;
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr3 = this.o;
             int i4 = this.m - 1;
             iArr3[i4] = iArr3[i4] + 1;
@@ -747,7 +747,7 @@ public class a implements Closeable {
     }
 
     public int m() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
@@ -755,7 +755,7 @@ public class a implements Closeable {
             long j = this.i;
             int i2 = (int) j;
             if (j == i2) {
-                this.f29776a = 0;
+                this.f29784a = 0;
                 int[] iArr = this.o;
                 int i3 = this.m - 1;
                 iArr[i3] = iArr[i3] + 1;
@@ -764,8 +764,8 @@ public class a implements Closeable {
             throw new NumberFormatException("Expected an int but was " + this.i + s());
         }
         if (i == 16) {
-            this.k = new String(this.f29779d, this.f29780e, this.j);
-            this.f29780e += this.j;
+            this.k = new String(this.f29787d, this.f29788e, this.j);
+            this.f29788e += this.j;
         } else if (i != 8 && i != 9 && i != 10) {
             throw new IllegalStateException("Expected an int but was " + f() + s());
         } else {
@@ -776,7 +776,7 @@ public class a implements Closeable {
             }
             try {
                 int parseInt = Integer.parseInt(this.k);
-                this.f29776a = 0;
+                this.f29784a = 0;
                 int[] iArr2 = this.o;
                 int i4 = this.m - 1;
                 iArr2[i4] = iArr2[i4] + 1;
@@ -784,12 +784,12 @@ public class a implements Closeable {
             } catch (NumberFormatException unused) {
             }
         }
-        this.f29776a = 11;
+        this.f29784a = 11;
         double parseDouble = Double.parseDouble(this.k);
         int i5 = (int) parseDouble;
         if (i5 == parseDouble) {
             this.k = null;
-            this.f29776a = 0;
+            this.f29784a = 0;
             int[] iArr3 = this.o;
             int i6 = this.m - 1;
             iArr3[i6] = iArr3[i6] + 1;
@@ -801,7 +801,7 @@ public class a implements Closeable {
     public void n() throws IOException {
         int i = 0;
         do {
-            int i2 = this.f29776a;
+            int i2 = this.f29784a;
             if (i2 == 0) {
                 i2 = r();
             }
@@ -822,15 +822,15 @@ public class a implements Closeable {
                     } else if (i2 == 9 || i2 == 13) {
                         c(Typography.quote);
                     } else if (i2 == 16) {
-                        this.f29780e += this.j;
+                        this.f29788e += this.j;
                     }
-                    this.f29776a = 0;
+                    this.f29784a = 0;
                 }
                 i--;
-                this.f29776a = 0;
+                this.f29784a = 0;
             }
             i++;
-            this.f29776a = 0;
+            this.f29784a = 0;
         } while (i != 0);
         int[] iArr = this.o;
         int i3 = this.m;
@@ -861,7 +861,7 @@ public class a implements Closeable {
     }
 
     public final boolean q() {
-        return this.f29778c;
+        return this.f29786c;
     }
 
     public int r() throws IOException {
@@ -876,7 +876,7 @@ public class a implements Closeable {
             if (b3 != 44) {
                 if (b3 != 59) {
                     if (b3 == 93) {
-                        this.f29776a = 4;
+                        this.f29784a = 4;
                         return 4;
                     }
                     throw b("Unterminated array");
@@ -888,7 +888,7 @@ public class a implements Closeable {
             if (i2 == 5 && (b2 = b(true)) != 44) {
                 if (b2 != 59) {
                     if (b2 == 125) {
-                        this.f29776a = 2;
+                        this.f29784a = 2;
                         return 2;
                     }
                     throw b("Unterminated object");
@@ -897,23 +897,23 @@ public class a implements Closeable {
             }
             int b4 = b(true);
             if (b4 == 34) {
-                this.f29776a = 13;
+                this.f29784a = 13;
                 return 13;
             } else if (b4 == 39) {
                 w();
-                this.f29776a = 12;
+                this.f29784a = 12;
                 return 12;
             } else if (b4 == 125) {
                 if (i2 != 5) {
-                    this.f29776a = 2;
+                    this.f29784a = 2;
                     return 2;
                 }
                 throw b("Expected name");
             } else {
                 w();
-                this.f29780e--;
+                this.f29788e--;
                 if (a((char) b4)) {
-                    this.f29776a = 14;
+                    this.f29784a = 14;
                     return 14;
                 }
                 throw b("Expected name");
@@ -924,11 +924,11 @@ public class a implements Closeable {
             if (b5 != 58) {
                 if (b5 == 61) {
                     w();
-                    if (this.f29780e < this.f29781f || b(1)) {
-                        char[] cArr = this.f29779d;
-                        int i3 = this.f29780e;
+                    if (this.f29788e < this.f29789f || b(1)) {
+                        char[] cArr = this.f29787d;
+                        int i3 = this.f29788e;
                         if (cArr[i3] == '>') {
-                            this.f29780e = i3 + 1;
+                            this.f29788e = i3 + 1;
                         }
                     }
                 } else {
@@ -936,36 +936,36 @@ public class a implements Closeable {
                 }
             }
         } else if (i2 == 6) {
-            if (this.f29778c) {
+            if (this.f29786c) {
                 z();
             }
             this.l[this.m - 1] = 7;
         } else if (i2 == 7) {
             if (b(false) == -1) {
-                this.f29776a = 17;
+                this.f29784a = 17;
                 return 17;
             }
             w();
-            this.f29780e--;
+            this.f29788e--;
         } else if (i2 == 8) {
             throw new IllegalStateException("JsonReader is closed");
         }
         int b6 = b(true);
         if (b6 == 34) {
-            this.f29776a = 9;
+            this.f29784a = 9;
             return 9;
         } else if (b6 == 39) {
             w();
-            this.f29776a = 8;
+            this.f29784a = 8;
             return 8;
         } else {
             if (b6 != 44 && b6 != 59) {
                 if (b6 == 91) {
-                    this.f29776a = 3;
+                    this.f29784a = 3;
                     return 3;
                 } else if (b6 != 93) {
                     if (b6 != 123) {
-                        this.f29780e--;
+                        this.f29788e--;
                         int o = o();
                         if (o != 0) {
                             return o;
@@ -974,17 +974,17 @@ public class a implements Closeable {
                         if (t != 0) {
                             return t;
                         }
-                        if (a(this.f29779d[this.f29780e])) {
+                        if (a(this.f29787d[this.f29788e])) {
                             w();
-                            this.f29776a = 10;
+                            this.f29784a = 10;
                             return 10;
                         }
                         throw b("Expected value");
                     }
-                    this.f29776a = 1;
+                    this.f29784a = 1;
                     return 1;
                 } else if (i2 == 1) {
-                    this.f29776a = 4;
+                    this.f29784a = 4;
                     return 4;
                 }
             }
@@ -992,14 +992,14 @@ public class a implements Closeable {
                 throw b("Unexpected value");
             }
             w();
-            this.f29780e--;
-            this.f29776a = 7;
+            this.f29788e--;
+            this.f29784a = 7;
             return 7;
         }
     }
 
     public String s() {
-        return " at line " + (this.f29782g + 1) + " column " + ((this.f29780e - this.f29783h) + 1) + " path " + p();
+        return " at line " + (this.f29790g + 1) + " column " + ((this.f29788e - this.f29791h) + 1) + " path " + p();
     }
 
     public String toString() {
@@ -1007,44 +1007,44 @@ public class a implements Closeable {
     }
 
     public void a() throws IOException {
-        int i = this.f29776a;
+        int i = this.f29784a;
         if (i == 0) {
             i = r();
         }
         if (i == 3) {
             a(1);
             this.o[this.m - 1] = 0;
-            this.f29776a = 0;
+            this.f29784a = 0;
             return;
         }
         throw new IllegalStateException("Expected BEGIN_ARRAY but was " + f() + s());
     }
 
     private void c(char c2) throws IOException {
-        char[] cArr = this.f29779d;
+        char[] cArr = this.f29787d;
         do {
-            int i = this.f29780e;
-            int i2 = this.f29781f;
+            int i = this.f29788e;
+            int i2 = this.f29789f;
             while (i < i2) {
                 int i3 = i + 1;
                 char c3 = cArr[i];
                 if (c3 == c2) {
-                    this.f29780e = i3;
+                    this.f29788e = i3;
                     return;
                 } else if (c3 == '\\') {
-                    this.f29780e = i3;
+                    this.f29788e = i3;
                     y();
-                    i = this.f29780e;
-                    i2 = this.f29781f;
+                    i = this.f29788e;
+                    i2 = this.f29789f;
                 } else {
                     if (c3 == '\n') {
-                        this.f29782g++;
-                        this.f29783h = i3;
+                        this.f29790g++;
+                        this.f29791h = i3;
                     }
                     i = i3;
                 }
             }
-            this.f29780e = i;
+            this.f29788e = i;
         } while (b(1));
         throw b("Unterminated string");
     }
@@ -1057,17 +1057,17 @@ public class a implements Closeable {
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
         r1.append(r0, r3, r2 - r3);
-        r9.f29780e = r2;
+        r9.f29788e = r2;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String b(char c2) throws IOException {
-        char[] cArr = this.f29779d;
+        char[] cArr = this.f29787d;
         StringBuilder sb = null;
         do {
-            int i = this.f29780e;
-            int i2 = this.f29781f;
+            int i = this.f29788e;
+            int i2 = this.f29789f;
             while (true) {
                 int i3 = i2;
                 int i4 = i;
@@ -1075,7 +1075,7 @@ public class a implements Closeable {
                     int i5 = i + 1;
                     char c3 = cArr[i];
                     if (c3 == c2) {
-                        this.f29780e = i5;
+                        this.f29788e = i5;
                         int i6 = (i5 - i4) - 1;
                         if (sb == null) {
                             return new String(cArr, i4, i6);
@@ -1083,19 +1083,19 @@ public class a implements Closeable {
                         sb.append(cArr, i4, i6);
                         return sb.toString();
                     } else if (c3 == '\\') {
-                        this.f29780e = i5;
+                        this.f29788e = i5;
                         int i7 = (i5 - i4) - 1;
                         if (sb == null) {
                             sb = new StringBuilder(Math.max((i7 + 1) * 2, 16));
                         }
                         sb.append(cArr, i4, i7);
                         sb.append(y());
-                        i = this.f29780e;
-                        i2 = this.f29781f;
+                        i = this.f29788e;
+                        i2 = this.f29789f;
                     } else {
                         if (c3 == '\n') {
-                            this.f29782g++;
-                            this.f29783h = i5;
+                            this.f29790g++;
+                            this.f29791h = i5;
                         }
                         i = i5;
                     }
@@ -1153,117 +1153,117 @@ public class a implements Closeable {
     private boolean a(String str) throws IOException {
         int length = str.length();
         while (true) {
-            if (this.f29780e + length > this.f29781f && !b(length)) {
+            if (this.f29788e + length > this.f29789f && !b(length)) {
                 return false;
             }
-            char[] cArr = this.f29779d;
-            int i = this.f29780e;
+            char[] cArr = this.f29787d;
+            int i = this.f29788e;
             if (cArr[i] != '\n') {
                 for (int i2 = 0; i2 < length; i2++) {
-                    if (this.f29779d[this.f29780e + i2] != str.charAt(i2)) {
+                    if (this.f29787d[this.f29788e + i2] != str.charAt(i2)) {
                         break;
                     }
                 }
                 return true;
             }
-            this.f29782g++;
-            this.f29783h = i + 1;
-            this.f29780e++;
+            this.f29790g++;
+            this.f29791h = i + 1;
+            this.f29788e++;
         }
     }
 
     private boolean b(int i) throws IOException {
         int i2;
-        char[] cArr = this.f29779d;
-        int i3 = this.f29783h;
-        int i4 = this.f29780e;
-        this.f29783h = i3 - i4;
-        int i5 = this.f29781f;
+        char[] cArr = this.f29787d;
+        int i3 = this.f29791h;
+        int i4 = this.f29788e;
+        this.f29791h = i3 - i4;
+        int i5 = this.f29789f;
         if (i5 != i4) {
             int i6 = i5 - i4;
-            this.f29781f = i6;
+            this.f29789f = i6;
             System.arraycopy(cArr, i4, cArr, 0, i6);
         } else {
-            this.f29781f = 0;
+            this.f29789f = 0;
         }
-        this.f29780e = 0;
+        this.f29788e = 0;
         do {
-            Reader reader = this.f29777b;
-            int i7 = this.f29781f;
+            Reader reader = this.f29785b;
+            int i7 = this.f29789f;
             int read = reader.read(cArr, i7, cArr.length - i7);
             if (read == -1) {
                 return false;
             }
-            int i8 = this.f29781f + read;
-            this.f29781f = i8;
-            if (this.f29782g == 0 && (i2 = this.f29783h) == 0 && i8 > 0 && cArr[0] == 65279) {
-                this.f29780e++;
-                this.f29783h = i2 + 1;
+            int i8 = this.f29789f + read;
+            this.f29789f = i8;
+            if (this.f29790g == 0 && (i2 = this.f29791h) == 0 && i8 > 0 && cArr[0] == 65279) {
+                this.f29788e++;
+                this.f29791h = i2 + 1;
                 i++;
             }
-        } while (this.f29781f < i);
+        } while (this.f29789f < i);
         return true;
     }
 
     private int b(boolean z) throws IOException {
-        char[] cArr = this.f29779d;
-        int i = this.f29780e;
-        int i2 = this.f29781f;
+        char[] cArr = this.f29787d;
+        int i = this.f29788e;
+        int i2 = this.f29789f;
         while (true) {
             if (i == i2) {
-                this.f29780e = i;
+                this.f29788e = i;
                 if (!b(1)) {
                     if (z) {
                         throw new EOFException("End of input" + s());
                     }
                     return -1;
                 }
-                i = this.f29780e;
-                i2 = this.f29781f;
+                i = this.f29788e;
+                i2 = this.f29789f;
             }
             int i3 = i + 1;
             char c2 = cArr[i];
             if (c2 == '\n') {
-                this.f29782g++;
-                this.f29783h = i3;
+                this.f29790g++;
+                this.f29791h = i3;
             } else if (c2 != ' ' && c2 != '\r' && c2 != '\t') {
                 if (c2 == '/') {
-                    this.f29780e = i3;
+                    this.f29788e = i3;
                     if (i3 == i2) {
-                        this.f29780e = i3 - 1;
+                        this.f29788e = i3 - 1;
                         boolean b2 = b(2);
-                        this.f29780e++;
+                        this.f29788e++;
                         if (!b2) {
                             return c2;
                         }
                     }
                     w();
-                    int i4 = this.f29780e;
+                    int i4 = this.f29788e;
                     char c3 = cArr[i4];
                     if (c3 == '*') {
-                        this.f29780e = i4 + 1;
+                        this.f29788e = i4 + 1;
                         if (a("*/")) {
-                            i = this.f29780e + 2;
-                            i2 = this.f29781f;
+                            i = this.f29788e + 2;
+                            i2 = this.f29789f;
                         } else {
                             throw b("Unterminated comment");
                         }
                     } else if (c3 != '/') {
                         return c2;
                     } else {
-                        this.f29780e = i4 + 1;
+                        this.f29788e = i4 + 1;
                         x();
-                        i = this.f29780e;
-                        i2 = this.f29781f;
+                        i = this.f29788e;
+                        i2 = this.f29789f;
                     }
                 } else if (c2 == '#') {
-                    this.f29780e = i3;
+                    this.f29788e = i3;
                     w();
                     x();
-                    i = this.f29780e;
-                    i2 = this.f29781f;
+                    i = this.f29788e;
+                    i2 = this.f29789f;
                 } else {
-                    this.f29780e = i3;
+                    this.f29788e = i3;
                     return c2;
                 }
             }

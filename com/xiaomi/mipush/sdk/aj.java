@@ -12,9 +12,9 @@ public class aj {
 
     public static AbstractPushManager b(Context context, e eVar) {
         l.a m119a = l.m119a(eVar);
-        if (m119a == null || TextUtils.isEmpty(m119a.f40489a) || TextUtils.isEmpty(m119a.f40490b)) {
+        if (m119a == null || TextUtils.isEmpty(m119a.f40584a) || TextUtils.isEmpty(m119a.f40585b)) {
             return null;
         }
-        return (AbstractPushManager) bh.a(m119a.f40489a, m119a.f40490b, context);
+        return (AbstractPushManager) bh.a(m119a.f40584a, m119a.f40585b, context);
     }
 }

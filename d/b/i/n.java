@@ -14,7 +14,7 @@ import d.b.i.u0.a;
 /* loaded from: classes.dex */
 public class n extends h {
     public ThreadGodReplyLayout l;
-    public d.b.h0.r.q.a m;
+    public d.b.i0.r.q.a m;
     public StatisticItem n;
 
     /* loaded from: classes.dex */
@@ -34,21 +34,21 @@ public class n extends h {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f52232e;
+        public final /* synthetic */ View.OnClickListener f50200e;
 
         public b(View.OnClickListener onClickListener) {
-            this.f52232e = onClickListener;
+            this.f50200e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f52187f);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(n.this.f50155f);
             String w1 = n.this.m.n().w1();
             PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(w1, n.this.m.n().z1().E() + "", 1, "other");
-            createNormalCfg.setStartFrom(n.this.f52186e.i());
+            createNormalCfg.setStartFrom(n.this.f50154e.i());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            n.this.f52186e.o(new a.C1131a(1));
-            this.f52232e.onClick(view);
+            n.this.f50154e.o(new a.C1072a(1));
+            this.f50200e.onClick(view);
         }
     }
 
@@ -58,8 +58,8 @@ public class n extends h {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1131a c1131a) {
-            d.b.i0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        public boolean a(a.C1072a c1072a) {
+            d.b.j0.x.m.l(n.this.l.getGodReplyContent(), n.this.m.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             return false;
         }
     }
@@ -96,12 +96,12 @@ public class n extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: v */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.m = aVar;
         PostData z1 = aVar.n().z1();
         if (this.n != null && z1 != null && z1.t() != null && z1.t().getUserId() != null) {
             this.n.param("tid", aVar.n().A).param("post_id", z1.E()).param("uid", z1.t().getUserId());
-            d.b.i0.x.t.b().a(this.n);
+            d.b.j0.x.t.b().a(this.n);
         }
         this.l.setData(aVar.n());
     }

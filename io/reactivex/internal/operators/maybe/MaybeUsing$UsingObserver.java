@@ -13,7 +13,7 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
     public final i<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69064d;
+    public b f69211d;
     public final g<? super D> disposer;
     public final boolean eager;
 
@@ -26,8 +26,8 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
 
     @Override // f.b.t.b
     public void dispose() {
-        this.f69064d.dispose();
-        this.f69064d = DisposableHelper.DISPOSED;
+        this.f69211d.dispose();
+        this.f69211d = DisposableHelper.DISPOSED;
         disposeResourceAfter();
     }
 
@@ -45,12 +45,12 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f69064d.isDisposed();
+        return this.f69211d.isDisposed();
     }
 
     @Override // f.b.i
     public void onComplete() {
-        this.f69064d = DisposableHelper.DISPOSED;
+        this.f69211d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -73,7 +73,7 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
 
     @Override // f.b.i
     public void onError(Throwable th) {
-        this.f69064d = DisposableHelper.DISPOSED;
+        this.f69211d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -95,15 +95,15 @@ public final class MaybeUsing$UsingObserver<T, D> extends AtomicReference<Object
 
     @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69064d, bVar)) {
-            this.f69064d = bVar;
+        if (DisposableHelper.validate(this.f69211d, bVar)) {
+            this.f69211d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
     @Override // f.b.i
     public void onSuccess(T t) {
-        this.f69064d = DisposableHelper.DISPOSED;
+        this.f69211d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {

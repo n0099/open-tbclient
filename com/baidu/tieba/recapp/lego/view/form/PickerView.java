@@ -101,19 +101,19 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     public boolean g(FormCard.b bVar) {
         if (super.g(bVar)) {
             FormCard.e eVar = (FormCard.e) bVar;
-            this.z = eVar.f20415a;
-            String str = eVar.f20416b;
+            this.z = eVar.f20423a;
+            String str = eVar.f20424b;
             this.G = str;
             this.x.setText(str);
             this.x.setTextSize(0, this.n);
-            ((ViewGroup.MarginLayoutParams) this.x.getLayoutParams()).leftMargin = this.f20510g;
+            ((ViewGroup.MarginLayoutParams) this.x.getLayoutParams()).leftMargin = this.f20518g;
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.y.getLayoutParams();
-            int i = this.f20510g;
+            int i = this.f20518g;
             marginLayoutParams.width = i;
             marginLayoutParams.rightMargin = i;
             int i2 = this.z;
             if (i2 == 6) {
-                String[] strArr = eVar.f20422d;
+                String[] strArr = eVar.f20430d;
                 if (strArr == null || strArr.length <= 0) {
                     return false;
                 }
@@ -153,8 +153,8 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     }
 
     public final void m() {
-        Drawable drawable = this.f20509f.getDrawable(R.drawable.form_picker_arrow);
-        ImageView imageView = new ImageView(this.f20508e);
+        Drawable drawable = this.f20517f.getDrawable(R.drawable.form_picker_arrow);
+        ImageView imageView = new ImageView(this.f20516e);
         this.y = imageView;
         imageView.setBackgroundDrawable(drawable);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -164,7 +164,7 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     }
 
     public final void n() {
-        TextView textView = new TextView(this.f20508e);
+        TextView textView = new TextView(this.f20516e);
         this.x = textView;
         textView.setTextSize(0, this.n);
         this.x.setTextColor(this.m);
@@ -225,21 +225,21 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
             if (strArr == null || strArr.length <= 0) {
                 return;
             }
-            o(new AlertDialog.Builder(this.f20508e).setTitle(this.G).setItems(this.F, this.I).show());
+            o(new AlertDialog.Builder(this.f20516e).setTitle(this.G).setItems(this.F, this.I).show());
         } else if (i == 7) {
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this.f20508e, this, this.A, this.B, this.C);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this.f20516e, this, this.A, this.B, this.C);
             datePickerDialog.getDatePicker().setDescendantFocusability(393216);
             datePickerDialog.show();
             o(datePickerDialog);
         } else if (i != 8) {
         } else {
-            TimePicker timePicker = new TimePicker(this.f20508e);
+            TimePicker timePicker = new TimePicker(this.f20516e);
             timePicker.setCurrentHour(Integer.valueOf(this.E));
             timePicker.setCurrentMinute(Integer.valueOf(this.D));
             timePicker.setDescendantFocusability(393216);
             timePicker.setOnTimeChangedListener(this);
             timePicker.setIs24HourView(Boolean.TRUE);
-            o(new AlertDialog.Builder(this.f20508e).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
+            o(new AlertDialog.Builder(this.f20516e).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
         }
     }
 

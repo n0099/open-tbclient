@@ -9,7 +9,7 @@ import java.util.List;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41772a = JsonReader.a.a(Config.APP_KEY);
+    public static JsonReader.a f41867a = JsonReader.a.a(Config.APP_KEY);
 
     public static <T> List<d.a.a.y.a<T>> a(JsonReader jsonReader, d.a.a.d dVar, float f2, j0<T> j0Var) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -19,7 +19,7 @@ public class r {
         }
         jsonReader.o();
         while (jsonReader.t()) {
-            if (jsonReader.D(f41772a) != 0) {
+            if (jsonReader.D(f41867a) != 0) {
                 jsonReader.F();
             } else if (jsonReader.B() == JsonReader.Token.BEGIN_ARRAY) {
                 jsonReader.n();
@@ -53,16 +53,16 @@ public class r {
             d.a.a.y.a<T> aVar = list.get(i2);
             i2++;
             d.a.a.y.a<T> aVar2 = list.get(i2);
-            aVar.f41805f = Float.valueOf(aVar2.f41804e);
-            if (aVar.f41802c == null && (t = aVar2.f41801b) != null) {
-                aVar.f41802c = t;
+            aVar.f41900f = Float.valueOf(aVar2.f41899e);
+            if (aVar.f41897c == null && (t = aVar2.f41896b) != null) {
+                aVar.f41897c = t;
                 if (aVar instanceof d.a.a.s.c.h) {
                     ((d.a.a.s.c.h) aVar).i();
                 }
             }
         }
         d.a.a.y.a<T> aVar3 = list.get(i);
-        if ((aVar3.f41801b == null || aVar3.f41802c == null) && list.size() > 1) {
+        if ((aVar3.f41896b == null || aVar3.f41897c == null) && list.size() > 1) {
             list.remove(aVar3);
         }
     }

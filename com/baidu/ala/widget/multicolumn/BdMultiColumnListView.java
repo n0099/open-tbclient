@@ -322,10 +322,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = BdMultiColumnListView.this.getLastVisiblePosition();
                     int i = 0;
                     int i2 = -1;
-                    if (BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a) {
-                        int c2 = firstVisiblePosition - ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
+                    if (BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a) {
+                        int c2 = firstVisiblePosition - ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
                         i2 = c2 < 0 ? 0 : c2;
-                        int c3 = lastVisiblePosition - ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
+                        int c3 = lastVisiblePosition - ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
                         if (c3 >= BdMultiColumnListView.this.mAdapter.getCount()) {
                             c3 = BdMultiColumnListView.this.mAdapter.getCount() - 1;
                         }
@@ -406,8 +406,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
     private int getHeaderIndex() {
         if (this.mPrePage != null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter instanceof d.i.a.a.b.a) {
-                return ((d.i.a.a.b.a) listAdapter).c() - 1;
+            if (listAdapter instanceof d.j.a.a.b.a) {
+                return ((d.j.a.a.b.a) listAdapter).c() - 1;
             }
             return -1;
         }
@@ -430,7 +430,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         super.setOnItemClickListener(new PLA_AdapterView.d() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.6
             @Override // com.huewu.pla.lib.internal.PLA_AdapterView.d
             public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
-                int c2 = BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a ? ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c() : 0;
+                int c2 = BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a ? ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c() : 0;
                 if (i < c2) {
                     if (BdMultiColumnListView.this.mPrePage == null || view != BdMultiColumnListView.this.mPrePage.b()) {
                         if (BdMultiColumnListView.this.mOnHeaderClickListener != null) {
@@ -443,7 +443,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     return;
                 }
                 int i2 = i - c2;
-                ListAdapter wrappedAdapter = BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a ? ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).getWrappedAdapter() : BdMultiColumnListView.this.mAdapter;
+                ListAdapter wrappedAdapter = BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a ? ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).getWrappedAdapter() : BdMultiColumnListView.this.mAdapter;
                 if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount()) {
                     if (BdMultiColumnListView.this.mNextPage == null || view != BdMultiColumnListView.this.mNextPage.b()) {
                         if (BdMultiColumnListView.this.mOnFooterClickListener != null) {
@@ -645,7 +645,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         super.setOnItemLongClickListener(new PLA_AdapterView.e() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.8
             @Override // com.huewu.pla.lib.internal.PLA_AdapterView.e
             public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
-                int c2 = BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a ? ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c() : 0;
+                int c2 = BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a ? ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c() : 0;
                 if (i < c2) {
                     return true;
                 }
@@ -672,7 +672,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         super.setOnItemSelectedListener(new PLA_AdapterView.f() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.9
             @Override // com.huewu.pla.lib.internal.PLA_AdapterView.f
             public void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
-                int c2 = BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a ? ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c() : 0;
+                int c2 = BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a ? ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c() : 0;
                 if (i < c2) {
                     return;
                 }
@@ -822,10 +822,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = BdMultiColumnListView.this.getLastVisiblePosition();
                     int i = 0;
                     int i2 = -1;
-                    if (BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a) {
-                        int c2 = firstVisiblePosition - ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
+                    if (BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a) {
+                        int c2 = firstVisiblePosition - ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
                         i2 = c2 < 0 ? 0 : c2;
-                        int c3 = lastVisiblePosition - ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
+                        int c3 = lastVisiblePosition - ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
                         if (c3 >= BdMultiColumnListView.this.mAdapter.getCount()) {
                             c3 = BdMultiColumnListView.this.mAdapter.getCount() - 1;
                         }
@@ -930,10 +930,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = BdMultiColumnListView.this.getLastVisiblePosition();
                     int i2 = 0;
                     int i22 = -1;
-                    if (BdMultiColumnListView.this.mAdapter instanceof d.i.a.a.b.a) {
-                        int c2 = firstVisiblePosition - ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
+                    if (BdMultiColumnListView.this.mAdapter instanceof d.j.a.a.b.a) {
+                        int c2 = firstVisiblePosition - ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
                         i22 = c2 < 0 ? 0 : c2;
-                        int c3 = lastVisiblePosition - ((d.i.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
+                        int c3 = lastVisiblePosition - ((d.j.a.a.b.a) BdMultiColumnListView.this.mAdapter).c();
                         if (c3 >= BdMultiColumnListView.this.mAdapter.getCount()) {
                             c3 = BdMultiColumnListView.this.mAdapter.getCount() - 1;
                         }

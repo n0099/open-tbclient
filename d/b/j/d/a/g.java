@@ -5,20 +5,20 @@ import androidx.exifinterface.media.ExifInterface;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile byte[] f64415a;
+    public static volatile byte[] f52610a;
 
     public static byte[] a() {
-        if (f64415a == null) {
+        if (f52610a == null) {
             synchronized (g.class) {
-                if (f64415a == null) {
+                if (f52610a == null) {
                     byte[] bArr = new byte[16];
                     System.arraycopy(d.b.j.d.c.b.b(), 0, bArr, 0, 16);
                     c cVar = new c();
                     cVar.a(2, bArr, bArr);
-                    f64415a = cVar.b(new byte[]{-71, -100, -115, 26, 39, -124, 14, 14, ExifInterface.MARKER_APP1, -46, -56, 1, 25, -127, -99, -107, ExifInterface.MARKER_SOF10, 51, 46, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
+                    f52610a = cVar.b(new byte[]{-71, -100, -115, 26, 39, -124, 14, 14, ExifInterface.MARKER_APP1, -46, -56, 1, 25, -127, -99, -107, ExifInterface.MARKER_SOF10, 51, 46, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
                 }
             }
         }
-        return f64415a;
+        return f52610a;
     }
 }

@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.j;
 import d.b.c.e.p.k;
-import d.b.h0.z0.l;
-import d.b.i0.h2.h;
-import d.b.i0.h2.i;
+import d.b.i0.z0.l;
+import d.b.j0.h2.h;
+import d.b.j0.h2.i;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class SmartAppBrowseHistoryActivity extends BaseActivity {
@@ -33,7 +33,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public FrameLayout mListContainer;
     public h mModel;
     public NavigationBar mNavigationBar;
-    public d.b.h0.d0.h mNetRefreshView;
+    public d.b.i0.d0.h mNetRefreshView;
     public NoDataView mNoDataView;
     public TextView mNoMoreDataView;
     public NoNetworkView mNoNetworkView;
@@ -50,8 +50,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.b.i0.h2.h.b
-        public void a(boolean z, d.b.i0.h2.a aVar) {
+        @Override // d.b.j0.h2.h.b
+        public void a(boolean z, d.b.j0.h2.a aVar) {
             if (!z || aVar == null) {
                 SmartAppBrowseHistoryActivity.this.dealNoDataView(true);
                 SmartAppBrowseHistoryActivity.this.dealNoMoreDataView(0);
@@ -69,7 +69,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public b() {
         }
 
-        @Override // d.b.i0.h2.i.b
+        @Override // d.b.j0.h2.i.b
         public void a(String str) {
             if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
                 SmartAppBrowseHistoryActivity.this.mAdapter.k(str);
@@ -92,7 +92,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public void onClick(View view) {
             if (view.getTag() instanceof SmartApp) {
                 SmartApp smartApp = (SmartApp) view.getTag();
-                if (!d.b.i0.s.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
+                if (!d.b.j0.s.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
                     if (k.isEmpty(smartApp.h5_url)) {
                         return;
                     }
@@ -202,7 +202,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
         this.mRecyclerView.setVisibility(8);
         if (this.mNetRefreshView == null) {
-            this.mNetRefreshView = new d.b.h0.d0.h(getActivity(), this.mOnNoNetButtonClickListener);
+            this.mNetRefreshView = new d.b.i0.d0.h(getActivity(), this.mOnNoNetButtonClickListener);
         }
         this.mNetRefreshView.j(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
         this.mNetRefreshView.l(getString(R.string.neterror));
@@ -251,7 +251,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mNoNetworkView.c(getPageContext(), i);
-        d.b.h0.d0.h hVar = this.mNetRefreshView;
+        d.b.i0.d0.h hVar = this.mNetRefreshView;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }

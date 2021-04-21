@@ -19,7 +19,7 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Wire;
 import d.b.c.e.l.d;
 import d.b.c.j.d.a;
-import d.b.h0.a0.c;
+import d.b.i0.a0.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {

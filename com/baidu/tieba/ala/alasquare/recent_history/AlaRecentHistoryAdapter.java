@@ -9,20 +9,20 @@ import com.baidu.tieba.R;
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f14481b = {TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
+    public static final String[] f14489b = {TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f14482c = {100, 200};
+    public static final int[] f14490c = {100, 200};
 
     /* renamed from: a  reason: collision with root package name */
-    public Fragment[] f14483a;
+    public Fragment[] f14491a;
 
     public AlaRecentHistoryAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
         Fragment[] fragmentArr = new Fragment[2];
-        this.f14483a = fragmentArr;
+        this.f14491a = fragmentArr;
         fragmentArr[0] = AlaRecentHistoryFragment.J0(0);
-        this.f14483a[1] = AlaRecentHistoryFragment.J0(1);
+        this.f14491a[1] = AlaRecentHistoryFragment.J0(1);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -32,16 +32,16 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.f14483a[i];
+        return this.f14491a[i];
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public int getPageType(int i) {
-        return f14482c[i];
+        return f14490c[i];
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
-        return f14481b[i];
+        return f14489b[i];
     }
 }

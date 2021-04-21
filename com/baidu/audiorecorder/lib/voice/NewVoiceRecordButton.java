@@ -23,8 +23,8 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.c.a.j;
 import d.b.c.e.q.f;
-import d.b.h0.r.s.a;
-import d.b.h0.w.n;
+import d.b.i0.r.s.a;
+import d.b.i0.w.n;
 /* loaded from: classes.dex */
 public class NewVoiceRecordButton extends LinearLayout implements f, n {
 
@@ -44,7 +44,7 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
     public int k;
     public VoiceData$VoiceModel l;
     public boolean m;
-    public d.b.h0.r.s.a n;
+    public d.b.i0.r.s.a n;
     public PermissionJudgePolicy o;
 
     /* loaded from: classes.dex */
@@ -75,8 +75,8 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         public b() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -86,10 +86,10 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         public c() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
-            NewVoiceRecordButton.this.d(new d.b.h0.w.a(11, -1, null));
+            NewVoiceRecordButton.this.d(new d.b.i0.w.a(11, -1, null));
         }
     }
 
@@ -114,20 +114,20 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         j();
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public void b() {
         setVisibility(0);
     }
 
-    @Override // d.b.h0.w.n
-    public void d(d.b.h0.w.a aVar) {
+    @Override // d.b.i0.w.n
+    public void d(d.b.i0.w.a aVar) {
         EditorTools editorTools = this.j;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
     }
 
-    public d.b.i0.d3.p0.a getRecorderManager() {
+    public d.b.j0.d3.p0.a getRecorderManager() {
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager == null || voiceManager.getRecorderManager() == null) {
             return null;
@@ -135,7 +135,7 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         return voiceManager.getRecorderManager();
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public int getToolId() {
         return this.k;
     }
@@ -152,12 +152,12 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         return null;
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public void init() {
     }
 
@@ -173,7 +173,7 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         this.f4277h = (TextView) findViewById(R.id.tv_duration);
         this.i = (TextView) findViewById(R.id.tv_tip);
         this.f4274e.setOnTouchListener(new a());
-        d.b.i0.d3.p0.a recorderManager = getRecorderManager();
+        d.b.j0.d3.p0.a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.b(this);
         }
@@ -188,7 +188,7 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
 
     public final void l() {
         if (this.n == null) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(j.a(getContext()).getPageActivity());
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(j.a(getContext()).getPageActivity());
             this.n = aVar;
             aVar.setMessage(getContext().getString(R.string.voice_restart_tip)).setPositiveButton(getContext().getString(R.string.voice_restart), new c()).setNegativeButton(getContext().getString(R.string.cancel), new b()).create(j.a(getContext()));
         }
@@ -209,9 +209,9 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         }
         VoiceData$VoiceModel voiceData$VoiceModel = this.l;
         if (voiceData$VoiceModel != null) {
-            d.b.h0.r.g0.a.a(d.b.h0.r.g0.a.b(voiceData$VoiceModel.voiceId));
+            d.b.i0.r.g0.a.a(d.b.i0.r.g0.a.b(voiceData$VoiceModel.voiceId));
         }
-        d.b.i0.d3.p0.a recorderManager = getRecorderManager();
+        d.b.j0.d3.p0.a recorderManager = getRecorderManager();
         if (recorderManager == null || !recorderManager.d()) {
             return;
         }
@@ -225,26 +225,26 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         this.f4276g.setVisibility(4);
         this.i.setText(getResources().getText(R.string.voice_record_press_to_record));
         this.f4277h.setVisibility(4);
-        d.b.i0.d3.p0.a recorderManager = getRecorderManager();
+        d.b.j0.d3.p0.a recorderManager = getRecorderManager();
         if (this.m && recorderManager != null) {
             recorderManager.stopRecord();
         }
         this.m = false;
     }
 
-    @Override // d.b.h0.w.b
-    public void onAction(d.b.h0.w.a aVar) {
+    @Override // d.b.i0.w.b
+    public void onAction(d.b.i0.w.a aVar) {
         if (aVar == null) {
             return;
         }
-        int i = aVar.f51942a;
+        int i = aVar.f52278a;
         if (i == 1) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 6));
         } else if (i == 9) {
             k();
         } else if (i != 52) {
         } else {
-            Object obj = aVar.f51944c;
+            Object obj = aVar.f52280c;
             if (obj instanceof VoiceData$VoiceModel) {
                 this.l = (VoiceData$VoiceModel) obj;
                 this.i.setText(getResources().getText(R.string.voice_restart));
@@ -254,7 +254,7 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         }
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public void onChangeSkinType(int i) {
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1, i);
         SkinManager.setViewTextColor(this.f4277h, R.color.CAM_X0302, 1, i);
@@ -278,7 +278,7 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
         voiceData$VoiceModel.voiceId = str;
         voiceData$VoiceModel.voice_status = 1;
         this.i.setText(getResources().getText(R.string.voice_restart));
-        d(new d.b.h0.w.a(10, -1, this.l));
+        d(new d.b.i0.w.a(10, -1, this.l));
     }
 
     @Override // d.b.c.e.q.f
@@ -311,12 +311,12 @@ public class NewVoiceRecordButton extends LinearLayout implements f, n {
     public void onStopingRecorder() {
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public void setEditorTools(EditorTools editorTools) {
         this.j = editorTools;
     }
 
-    @Override // d.b.h0.w.n
+    @Override // d.b.i0.w.n
     public void setToolId(int i) {
         this.k = i;
     }

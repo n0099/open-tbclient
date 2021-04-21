@@ -40,19 +40,19 @@ import org.json.JSONObject;
 public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
 
     /* renamed from: d  reason: collision with root package name */
-    public AdBaseFrameLayout f32715d;
+    public AdBaseFrameLayout f32810d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f32716e;
+    public AdTemplate f32811e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f32717f;
+    public View f32812f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f32718g;
+    public View f32813g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f32719h;
+    public ImageView f32814h;
     public ImageView i;
     public LottieAnimationView j;
     public ImageView k;
@@ -111,15 +111,15 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        this.f32718g.clearAnimation();
+        this.f32813g.clearAnimation();
         AnimatorSet animatorSet = new AnimatorSet();
         this.l = animatorSet;
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
         this.l.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.7
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                a.this.f32718g.setScaleX(1.0f);
-                a.this.f32718g.setScaleY(1.0f);
+                a.this.f32813g.setScaleX(1.0f);
+                a.this.f32813g.setScaleY(1.0f);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -129,7 +129,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
                 }
             }
         });
-        this.l.playSequentially(b(this.f32718g));
+        this.l.playSequentially(b(this.f32813g));
         this.l.setStartDelay(j);
         this.l.setDuration(1000L);
         this.l.start();
@@ -139,8 +139,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     public void a(LiveStatusResultData.LiveStatus liveStatus) {
         this.p = liveStatus;
         this.k.setVisibility(0);
-        String q = com.kwad.sdk.core.response.b.c.q(this.f32716e);
-        ImageView imageView = this.f32719h;
+        String q = com.kwad.sdk.core.response.b.c.q(this.f32811e);
+        ImageView imageView = this.f32814h;
         KSImageLoader.loadCircleIconWithoutStroke(imageView, q, imageView.getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon_2));
         s();
         a(0L);
@@ -149,8 +149,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (this.s) {
-            PhotoInfo k = com.kwad.sdk.core.response.b.c.k(this.f32716e);
-            AdTemplate adTemplate = this.f32716e;
+            PhotoInfo k = com.kwad.sdk.core.response.b.c.k(this.f32811e);
+            AdTemplate adTemplate = this.f32811e;
             SceneImpl sceneImpl = adTemplate.mAdScene;
             if (sceneImpl != null) {
                 if (z) {
@@ -180,28 +180,28 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     }
 
     private void c(int i) {
-        e.a(this.f32716e, 5, i, this.x);
+        e.a(this.f32811e, 5, i, this.x);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.r || ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.l.getSourceType() != 0) {
+        if (this.r || ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.l.getSourceType() != 0) {
             return;
         }
         c a2 = c.a();
-        AdTemplate adTemplate = this.f32716e;
-        a2.a(adTemplate, adTemplate.getShowPosition(), ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32441a.i, new c.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.4
+        AdTemplate adTemplate = this.f32811e;
+        a2.a(adTemplate, adTemplate.getShowPosition(), ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32536a.i, new c.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.4
             @Override // com.kwad.sdk.contentalliance.detail.photo.newui.d.c.a
             public void a(AdTemplate adTemplate2, final int i) {
                 com.kwad.sdk.core.d.a.a("PhotoAuthorIconPresenter", "onCall currentPosition = " + i);
                 a aVar = a.this;
-                aVar.v = new b(aVar.f32719h, a.this.u, a.this.n, new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.4.1
+                aVar.v = new b(aVar.f32814h, a.this.u, a.this.n, new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.4.1
                     @Override // com.kwad.sdk.contentalliance.detail.photo.newui.d.b.a
                     public void a() {
                         a.this.a(-65437);
                         c.a().a(i);
                         a.this.x = c.a().c();
-                        e.e(a.this.f32716e, a.this.x);
+                        e.e(a.this.f32811e, a.this.x);
                     }
 
                     @Override // com.kwad.sdk.contentalliance.detail.photo.newui.d.b.a
@@ -217,7 +217,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
         if (this.l != null) {
-            this.f32718g.clearAnimation();
+            this.f32813g.clearAnimation();
             this.l.cancel();
         }
         LottieAnimationView lottieAnimationView = this.j;
@@ -242,14 +242,14 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     }
 
     private boolean q() {
-        return com.kwad.sdk.core.config.c.A() && com.kwad.sdk.core.response.b.c.b(this.f32716e);
+        return com.kwad.sdk.core.config.c.A() && com.kwad.sdk.core.response.b.c.b(this.f32811e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         if (q() && !this.q && this.m) {
             this.q = true;
-            final long o = d.o(com.kwad.sdk.core.response.b.c.k(this.f32716e));
+            final long o = d.o(com.kwad.sdk.core.response.b.c.k(this.f32811e));
             i<com.kwad.sdk.live.a.c, LiveStatusResultData> iVar = new i<com.kwad.sdk.live.a.c, LiveStatusResultData>() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.a
@@ -302,32 +302,32 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     }
 
     private void t() {
-        if (((com.kwad.sdk.contentalliance.detail.b) this).f32422a.j.mAdScene == null || this.p == null || !this.r) {
+        if (((com.kwad.sdk.contentalliance.detail.b) this).f32517a.j.mAdScene == null || this.p == null || !this.r) {
             return;
         }
         c(9);
         com.kwad.sdk.plugin.d dVar = (com.kwad.sdk.plugin.d) g.a(com.kwad.sdk.plugin.d.class);
         if (dVar != null) {
-            dVar.a(o(), this.f32716e, this.p);
+            dVar.a(o(), this.f32811e, this.p);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        com.kwad.sdk.core.report.b.a(this.f32716e, 13, this.f32715d.getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.f32811e, 13, this.f32810d.getTouchCoords());
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32441a;
+        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32536a;
         if (hVar != null) {
-            this.t = hVar.f33078a;
+            this.t = hVar.f33173a;
         }
-        this.f32716e = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.j;
+        this.f32811e = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.j;
         a(-1);
         e();
-        this.f32717f.setOnClickListener(this);
+        this.f32812f.setOnClickListener(this);
         this.u.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -337,33 +337,33 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
                 a.this.a(true);
             }
         });
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32442b.add(this.y);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32537b.add(this.y);
     }
 
     public void a(@ColorInt int i) {
-        if (this.f32719h == null) {
+        if (this.f32814h == null) {
             return;
         }
-        String q = com.kwad.sdk.core.response.b.c.q(this.f32716e);
-        int i2 = com.kwad.sdk.core.response.b.c.c(this.f32716e) ? R.drawable.ksad_default_ad_author_icon : R.drawable.ksad_photo_default_author_icon_2;
-        ImageView imageView = this.f32719h;
+        String q = com.kwad.sdk.core.response.b.c.q(this.f32811e);
+        int i2 = com.kwad.sdk.core.response.b.c.c(this.f32811e) ? R.drawable.ksad_default_ad_author_icon : R.drawable.ksad_photo_default_author_icon_2;
+        ImageView imageView = this.f32814h;
         KSImageLoader.loadCircleIcon(imageView, q, imageView.getResources().getDrawable(i2));
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32442b.remove(this.y);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32537b.remove(this.y);
         p();
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32715d = (AdBaseFrameLayout) b(R.id.ksad_root_container);
-        this.f32717f = b(R.id.ksad_author_button_container);
-        this.f32718g = b(R.id.ksad_author_icon_container);
-        this.f32719h = (ImageView) b(R.id.ksad_author_icon);
+        this.f32810d = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.f32812f = b(R.id.ksad_author_button_container);
+        this.f32813g = b(R.id.ksad_author_icon_container);
+        this.f32814h = (ImageView) b(R.id.ksad_author_icon);
         this.i = (ImageView) b(R.id.ksad_author_guide_icon);
         LottieAnimationView lottieAnimationView = (LottieAnimationView) b(R.id.ksad_live_border_anim);
         this.j = lottieAnimationView;
@@ -378,20 +378,20 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
     }
 
     public void e() {
-        String r = com.kwad.sdk.core.response.b.c.r(this.f32716e);
+        String r = com.kwad.sdk.core.response.b.c.r(this.f32811e);
         if (ag.a(r)) {
             this.i.setVisibility(8);
-        } else if (!com.kwad.sdk.core.response.b.c.b(this.f32716e) ? !com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(this.f32716e)) || com.kwad.sdk.core.config.c.T() : this.s) {
+        } else if (!com.kwad.sdk.core.response.b.c.b(this.f32811e) ? !com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(this.f32811e)) || com.kwad.sdk.core.config.c.T() : this.s) {
             this.i.setVisibility(8);
         } else {
-            KSImageLoader.loadImage(this.i, r, this.f32716e);
+            KSImageLoader.loadImage(this.i, r, this.f32811e);
             this.i.setVisibility(0);
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.d
     public View g() {
-        return LayoutInflater.from(o()).inflate(R.layout.ksad_photo_newui_author_icon_view, (ViewGroup) ((com.kwad.sdk.contentalliance.detail.photo.f.a) this).f32649c, false);
+        return LayoutInflater.from(o()).inflate(R.layout.ksad_photo_newui_author_icon_view, (ViewGroup) ((com.kwad.sdk.contentalliance.detail.photo.f.a) this).f32744c, false);
     }
 
     @Override // android.view.View.OnClickListener
@@ -399,14 +399,14 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
         if (ao.a()) {
             return;
         }
-        if (com.kwad.sdk.core.response.b.c.c(this.f32716e)) {
-            if (!com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(this.f32716e)) || com.kwad.sdk.core.config.c.T()) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f32716e, new a.InterfaceC0393a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.8
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0393a
+        if (com.kwad.sdk.core.response.b.c.c(this.f32811e)) {
+            if (!com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(this.f32811e)) || com.kwad.sdk.core.config.c.T()) {
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f32811e, new a.InterfaceC0396a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.8
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0396a
                     public void a() {
                         a.this.u();
                     }
-                }, ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.o);
+                }, ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.o);
             }
             c(0);
         } else if (this.r) {

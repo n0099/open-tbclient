@@ -7,14 +7,14 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.h0.w.m;
+import d.b.i0.w.m;
 /* loaded from: classes.dex */
 public class RecorderManagerStatic {
 
     /* loaded from: classes.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Activity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.d3.p0.a> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<d.b.j0.d3.p0.a> run(CustomMessage<Activity> customMessage) {
             return new CustomResponsedMessage<>(2001271, d.b.f.a.a.e.n());
         }
     }

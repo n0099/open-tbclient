@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.flutter.plugin.globalStateSync.GlobalStateSyncAuto;
 import d.b.c.e.p.k;
-import d.b.h0.b.d;
-import d.b.h0.b.e;
-import d.b.h0.b.f.s;
-import d.b.h0.c1.b.c;
-import d.b.h0.r.d0.b;
-import d.b.h0.s.b.a;
-import d.b.h0.z0.m0;
-import d.b.i0.m0.a.b.g;
+import d.b.i0.b.d;
+import d.b.i0.b.e;
+import d.b.i0.b.f.s;
+import d.b.i0.c1.b.c;
+import d.b.i0.r.d0.b;
+import d.b.i0.s.b.a;
+import d.b.i0.z0.m0;
+import d.b.j0.m0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,11 +119,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     public static String getExperimentID() {
-        e b2 = d.b(s.f50137c);
-        if (b2 == null || k.isEmpty(b2.f50088a)) {
+        e b2 = d.b(s.f50473c);
+        if (b2 == null || k.isEmpty(b2.f50424a)) {
             return "";
         }
-        String str = b2.f50088a;
+        String str = b2.f50424a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1688589) {

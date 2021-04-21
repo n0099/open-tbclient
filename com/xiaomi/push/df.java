@@ -28,16 +28,16 @@ public class df implements LoggerInterface {
     public Handler f231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40649b;
+    public String f40744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40650c = "";
+    public String f40745c = "";
 
     /* renamed from: a  reason: collision with other field name */
     public static final SimpleDateFormat f228a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40648a = "/MiPushLog";
+    public static String f40743a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
     public static List<Pair<String, Throwable>> f229a = Collections.synchronizedList(new ArrayList());
@@ -47,7 +47,7 @@ public class df implements LoggerInterface {
         if (context.getApplicationContext() != null) {
             this.f230a = context.getApplicationContext();
         }
-        this.f40649b = this.f230a.getPackageName();
+        this.f40744b = this.f230a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f231a = new Handler(handlerThread.getLooper());
@@ -65,12 +65,12 @@ public class df implements LoggerInterface {
         try {
             try {
                 try {
-                    if (TextUtils.isEmpty(this.f40650c) && (externalFilesDir = this.f230a.getExternalFilesDir(null)) != null) {
-                        this.f40650c = externalFilesDir.getAbsolutePath() + "";
+                    if (TextUtils.isEmpty(this.f40745c) && (externalFilesDir = this.f230a.getExternalFilesDir(null)) != null) {
+                        this.f40745c = externalFilesDir.getAbsolutePath() + "";
                     }
-                    file = new File(this.f40650c + f40648a);
+                    file = new File(this.f40745c + f40743a);
                 } catch (IOException e2) {
-                    Log.e(this.f40649b, "", e2);
+                    Log.e(this.f40744b, "", e2);
                 }
             } catch (Exception e3) {
                 e = e3;
@@ -82,7 +82,7 @@ public class df implements LoggerInterface {
                 randomAccessFile = null;
             }
             if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                Log.w(this.f40649b, "Create mipushlog directory fail.");
+                Log.w(this.f40744b, "Create mipushlog directory fail.");
                 return;
             }
             File file2 = new File(file, "log.lock");
@@ -105,19 +105,19 @@ public class df implements LoggerInterface {
                         } catch (Exception e4) {
                             e = e4;
                             bufferedWriter = bufferedWriter2;
-                            Log.e(this.f40649b, "", e);
+                            Log.e(this.f40744b, "", e);
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e5) {
-                                    Log.e(this.f40649b, "", e5);
+                                    Log.e(this.f40744b, "", e5);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e6) {
-                                    Log.e(this.f40649b, "", e6);
+                                    Log.e(this.f40744b, "", e6);
                                 }
                             }
                             if (randomAccessFile != null) {
@@ -131,21 +131,21 @@ public class df implements LoggerInterface {
                                 try {
                                     bufferedWriter.close();
                                 } catch (IOException e7) {
-                                    Log.e(this.f40649b, "", e7);
+                                    Log.e(this.f40744b, "", e7);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
                                 } catch (IOException e8) {
-                                    Log.e(this.f40649b, "", e8);
+                                    Log.e(this.f40744b, "", e8);
                                 }
                             }
                             if (randomAccessFile != null) {
                                 try {
                                     randomAccessFile.close();
                                 } catch (IOException e9) {
-                                    Log.e(this.f40649b, "", e9);
+                                    Log.e(this.f40744b, "", e9);
                                 }
                             }
                             throw th;
@@ -165,14 +165,14 @@ public class df implements LoggerInterface {
                         try {
                             bufferedWriter.close();
                         } catch (IOException e10) {
-                            Log.e(this.f40649b, "", e10);
+                            Log.e(this.f40744b, "", e10);
                         }
                     }
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
                         } catch (IOException e11) {
-                            Log.e(this.f40649b, "", e11);
+                            Log.e(this.f40744b, "", e11);
                         }
                     }
                     randomAccessFile.close();
@@ -203,6 +203,6 @@ public class df implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void setTag(String str) {
-        this.f40649b = str;
+        this.f40744b = str;
     }
 }

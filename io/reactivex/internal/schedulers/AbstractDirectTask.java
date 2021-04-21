@@ -10,8 +10,8 @@ public abstract class AbstractDirectTask extends AtomicReference<Future<?>> impl
     public static final long serialVersionUID = 1811839108042568751L;
     public final Runnable runnable;
     public Thread runner;
-    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.f69032a, null);
-    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.f69032a, null);
+    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.f69179a, null);
+    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.f69179a, null);
 
     public AbstractDirectTask(Runnable runnable) {
         this.runnable = runnable;

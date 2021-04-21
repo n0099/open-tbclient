@@ -12,10 +12,10 @@ import java.util.Locale;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f37574a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f37669a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.kwai.video.ksvodplayerkit.a f37575b;
+    public static volatile com.kwai.video.ksvodplayerkit.a f37670b;
 
     public static int a(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -34,7 +34,7 @@ public class c {
             for (int i5 = 0; i5 < i2; i5++) {
                 int i6 = bArr[i5 + i] & 255;
                 int i7 = i4 + 1;
-                char[] cArr2 = f37574a;
+                char[] cArr2 = f37669a;
                 cArr[i4] = cArr2[i6 >> 4];
                 i4 = i7 + 1;
                 cArr[i7] = cArr2[i6 & 15];
@@ -65,8 +65,8 @@ public class c {
     }
 
     public static String c(String str) {
-        if (f37575b != null) {
-            return f37575b.a(str);
+        if (f37670b != null) {
+            return f37670b.a(str);
         }
         String lowerCase = d(str).toLowerCase(Locale.US);
         try {

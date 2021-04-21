@@ -1,71 +1,39 @@
 package d.b.h0.t;
 
-import org.json.JSONObject;
-import tbclient.Advertisement;
+import android.annotation.SuppressLint;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a implements Comparable<a> {
+public class a {
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f51873e;
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f50142a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f51874f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f51875g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f51876h;
-    public String i;
-    public int j;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(a aVar) {
-        return g() > aVar.g() ? -1 : 1;
+    static {
+        String str = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
-    public String b() {
-        return this.i;
+    public static boolean a() {
+        return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 
-    public int c() {
-        return this.j;
+    public static boolean b() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(f50142a);
+        sb.append(File.separator);
+        sb.append("libzeuswebviewchromium.so");
+        return new File(sb.toString()).exists() && a();
     }
 
-    public String d() {
-        return this.f51876h;
+    @SuppressLint({"ApplySharedPref"})
+    public static void c(boolean z) {
+        PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_full_install", z).commit();
     }
 
-    public String e() {
-        return this.f51874f;
-    }
-
-    public String f() {
-        return this.f51875g;
-    }
-
-    public long g() {
-        return this.f51873e;
-    }
-
-    public void h(Advertisement advertisement) {
-        this.f51873e = advertisement.time.longValue();
-        this.f51874f = advertisement.pic;
-        this.f51875g = advertisement.pic_click;
-        this.f51876h = advertisement.jump_link;
-        this.i = advertisement.advertisement_id;
-    }
-
-    public void i(JSONObject jSONObject) {
-        this.f51874f = jSONObject.optString("pic");
-        this.f51875g = jSONObject.optString("pic_click");
-        this.f51876h = jSONObject.optString("jump_link");
-        this.i = jSONObject.optString("advertisement_id");
-    }
-
-    public void j(int i) {
-        this.j = i;
+    @SuppressLint({"ApplySharedPref"})
+    public static void d() {
+        PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
     }
 }

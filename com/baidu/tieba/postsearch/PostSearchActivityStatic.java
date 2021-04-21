@@ -24,7 +24,7 @@ public class PostSearchActivityStatic {
             if (StringUtils.isNull(data)) {
                 return null;
             }
-            d.b.i0.d3.n0.a.q(data);
+            d.b.j0.d3.n0.a.q(data);
             return new CustomResponsedMessage<>(2009003);
         }
     }
@@ -36,7 +36,7 @@ public class PostSearchActivityStatic {
             if (customMessage == null) {
                 return null;
             }
-            d.b.i0.d3.n0.a.d();
+            d.b.j0.d3.n0.a.d();
             return new CustomResponsedMessage<>(2009004);
         }
     }

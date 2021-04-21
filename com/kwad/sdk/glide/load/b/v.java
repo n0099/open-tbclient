@@ -9,16 +9,16 @@ import com.kwad.sdk.glide.load.b.n;
 public class v<Model> implements n<Model, Model> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final v<?> f35656a = new v<>();
+    public static final v<?> f35751a = new v<>();
 
     /* loaded from: classes6.dex */
     public static class a<Model> implements o<Model, Model> {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a<?> f35657a = new a<>();
+        public static final a<?> f35752a = new a<>();
 
         public static <T> a<T> a() {
-            return (a<T>) f35657a;
+            return (a<T>) f35752a;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -32,22 +32,22 @@ public class v<Model> implements n<Model, Model> {
     public static class b<Model> implements com.kwad.sdk.glide.load.a.d<Model> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Model f35658a;
+        public final Model f35753a;
 
         public b(Model model) {
-            this.f35658a = model;
+            this.f35753a = model;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Model> a() {
-            return (Class<Model>) this.f35658a.getClass();
+            return (Class<Model>) this.f35753a.getClass();
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: Model, ? super Model */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Model> aVar) {
-            aVar.a((d.a<? super Model>) ((Model) this.f35658a));
+            aVar.a((d.a<? super Model>) ((Model) this.f35753a));
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
@@ -66,7 +66,7 @@ public class v<Model> implements n<Model, Model> {
     }
 
     public static <T> v<T> a() {
-        return (v<T>) f35656a;
+        return (v<T>) f35751a;
     }
 
     @Override // com.kwad.sdk.glide.load.b.n

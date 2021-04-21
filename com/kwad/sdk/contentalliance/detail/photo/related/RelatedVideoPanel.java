@@ -28,28 +28,28 @@ import com.kwad.sdk.utils.p;
 public class RelatedVideoPanel extends LinearLayout implements View.OnClickListener, com.kwad.sdk.contentalliance.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f32752a;
+    public Handler f32847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f32753b;
+    public View f32848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f32754c;
+    public View f32849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KSHalfPageLoadingView f32755d;
+    public KSHalfPageLoadingView f32850d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.widget.d f32756e;
+    public com.kwad.sdk.contentalliance.widget.d f32851e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f32757f;
+    public RecyclerView f32852f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f32758g;
+    public b f32853g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.d f32759h;
+    public com.kwad.sdk.lib.widget.recycler.d f32854h;
     public com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> i;
     public a j;
     public AdTemplate k;
@@ -68,7 +68,7 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     public RelatedVideoPanel(Context context) {
         super(context);
-        this.f32752a = new Handler();
+        this.f32847a = new Handler();
         this.n = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
             @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
             public void a() {
@@ -80,46 +80,46 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
         this.o = new g() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, int i, String str) {
-                RelatedVideoPanel.this.f32755d.a();
+                RelatedVideoPanel.this.f32850d.a();
                 if (z) {
-                    if (RelatedVideoPanel.this.f32758g.i()) {
-                        if (com.kwad.sdk.core.network.f.f34164g.k == i) {
-                            RelatedVideoPanel.this.f32755d.e();
-                        } else if (com.kwad.sdk.core.network.f.f34158a.k == i) {
-                            RelatedVideoPanel.this.f32755d.c();
+                    if (RelatedVideoPanel.this.f32853g.i()) {
+                        if (com.kwad.sdk.core.network.f.f34259g.k == i) {
+                            RelatedVideoPanel.this.f32850d.e();
+                        } else if (com.kwad.sdk.core.network.f.f34253a.k == i) {
+                            RelatedVideoPanel.this.f32850d.c();
                         } else {
-                            RelatedVideoPanel.this.f32755d.d();
+                            RelatedVideoPanel.this.f32850d.d();
                         }
                     }
-                } else if (com.kwad.sdk.core.network.f.f34158a.k == i) {
+                } else if (com.kwad.sdk.core.network.f.f34253a.k == i) {
                     p.a(RelatedVideoPanel.this.getContext());
-                } else if (com.kwad.sdk.core.network.f.f34164g.k != i) {
+                } else if (com.kwad.sdk.core.network.f.f34259g.k != i) {
                     p.b(RelatedVideoPanel.this.getContext());
                 }
-                RelatedVideoPanel.this.f32756e.a(RelatedVideoPanel.this.i.j());
+                RelatedVideoPanel.this.f32851e.a(RelatedVideoPanel.this.i.j());
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, boolean z2) {
                 if (!z) {
-                    RelatedVideoPanel.this.f32756e.a();
-                } else if (RelatedVideoPanel.this.f32758g.i()) {
-                    RelatedVideoPanel.this.f32755d.b();
+                    RelatedVideoPanel.this.f32851e.a();
+                } else if (RelatedVideoPanel.this.f32853g.i()) {
+                    RelatedVideoPanel.this.f32850d.b();
                 }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void b(boolean z, boolean z2) {
                 RelatedVideoPanel.this.i();
-                RelatedVideoPanel.this.f32755d.a();
+                RelatedVideoPanel.this.f32850d.a();
                 if (z) {
-                    if (RelatedVideoPanel.this.f32758g.i()) {
-                        RelatedVideoPanel.this.f32755d.d();
-                    } else if (!RelatedVideoPanel.this.f32759h.d(RelatedVideoPanel.this.f32756e)) {
-                        RelatedVideoPanel.this.f32759h.c(RelatedVideoPanel.this.f32756e);
+                    if (RelatedVideoPanel.this.f32853g.i()) {
+                        RelatedVideoPanel.this.f32850d.d();
+                    } else if (!RelatedVideoPanel.this.f32854h.d(RelatedVideoPanel.this.f32851e)) {
+                        RelatedVideoPanel.this.f32854h.c(RelatedVideoPanel.this.f32851e);
                     }
                 }
-                RelatedVideoPanel.this.f32756e.a(RelatedVideoPanel.this.i.j());
+                RelatedVideoPanel.this.f32851e.a(RelatedVideoPanel.this.i.j());
             }
         };
         this.p = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
@@ -143,7 +143,7 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     public RelatedVideoPanel(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f32752a = new Handler();
+        this.f32847a = new Handler();
         this.n = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
             @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
             public void a() {
@@ -155,46 +155,46 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
         this.o = new g() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, int i, String str) {
-                RelatedVideoPanel.this.f32755d.a();
+                RelatedVideoPanel.this.f32850d.a();
                 if (z) {
-                    if (RelatedVideoPanel.this.f32758g.i()) {
-                        if (com.kwad.sdk.core.network.f.f34164g.k == i) {
-                            RelatedVideoPanel.this.f32755d.e();
-                        } else if (com.kwad.sdk.core.network.f.f34158a.k == i) {
-                            RelatedVideoPanel.this.f32755d.c();
+                    if (RelatedVideoPanel.this.f32853g.i()) {
+                        if (com.kwad.sdk.core.network.f.f34259g.k == i) {
+                            RelatedVideoPanel.this.f32850d.e();
+                        } else if (com.kwad.sdk.core.network.f.f34253a.k == i) {
+                            RelatedVideoPanel.this.f32850d.c();
                         } else {
-                            RelatedVideoPanel.this.f32755d.d();
+                            RelatedVideoPanel.this.f32850d.d();
                         }
                     }
-                } else if (com.kwad.sdk.core.network.f.f34158a.k == i) {
+                } else if (com.kwad.sdk.core.network.f.f34253a.k == i) {
                     p.a(RelatedVideoPanel.this.getContext());
-                } else if (com.kwad.sdk.core.network.f.f34164g.k != i) {
+                } else if (com.kwad.sdk.core.network.f.f34259g.k != i) {
                     p.b(RelatedVideoPanel.this.getContext());
                 }
-                RelatedVideoPanel.this.f32756e.a(RelatedVideoPanel.this.i.j());
+                RelatedVideoPanel.this.f32851e.a(RelatedVideoPanel.this.i.j());
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, boolean z2) {
                 if (!z) {
-                    RelatedVideoPanel.this.f32756e.a();
-                } else if (RelatedVideoPanel.this.f32758g.i()) {
-                    RelatedVideoPanel.this.f32755d.b();
+                    RelatedVideoPanel.this.f32851e.a();
+                } else if (RelatedVideoPanel.this.f32853g.i()) {
+                    RelatedVideoPanel.this.f32850d.b();
                 }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void b(boolean z, boolean z2) {
                 RelatedVideoPanel.this.i();
-                RelatedVideoPanel.this.f32755d.a();
+                RelatedVideoPanel.this.f32850d.a();
                 if (z) {
-                    if (RelatedVideoPanel.this.f32758g.i()) {
-                        RelatedVideoPanel.this.f32755d.d();
-                    } else if (!RelatedVideoPanel.this.f32759h.d(RelatedVideoPanel.this.f32756e)) {
-                        RelatedVideoPanel.this.f32759h.c(RelatedVideoPanel.this.f32756e);
+                    if (RelatedVideoPanel.this.f32853g.i()) {
+                        RelatedVideoPanel.this.f32850d.d();
+                    } else if (!RelatedVideoPanel.this.f32854h.d(RelatedVideoPanel.this.f32851e)) {
+                        RelatedVideoPanel.this.f32854h.c(RelatedVideoPanel.this.f32851e);
                     }
                 }
-                RelatedVideoPanel.this.f32756e.a(RelatedVideoPanel.this.i.j());
+                RelatedVideoPanel.this.f32851e.a(RelatedVideoPanel.this.i.j());
             }
         };
         this.p = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
@@ -218,7 +218,7 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     public RelatedVideoPanel(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f32752a = new Handler();
+        this.f32847a = new Handler();
         this.n = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.2
             @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
             public void a() {
@@ -230,46 +230,46 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
         this.o = new g() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.3
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, int i2, String str) {
-                RelatedVideoPanel.this.f32755d.a();
+                RelatedVideoPanel.this.f32850d.a();
                 if (z) {
-                    if (RelatedVideoPanel.this.f32758g.i()) {
-                        if (com.kwad.sdk.core.network.f.f34164g.k == i2) {
-                            RelatedVideoPanel.this.f32755d.e();
-                        } else if (com.kwad.sdk.core.network.f.f34158a.k == i2) {
-                            RelatedVideoPanel.this.f32755d.c();
+                    if (RelatedVideoPanel.this.f32853g.i()) {
+                        if (com.kwad.sdk.core.network.f.f34259g.k == i2) {
+                            RelatedVideoPanel.this.f32850d.e();
+                        } else if (com.kwad.sdk.core.network.f.f34253a.k == i2) {
+                            RelatedVideoPanel.this.f32850d.c();
                         } else {
-                            RelatedVideoPanel.this.f32755d.d();
+                            RelatedVideoPanel.this.f32850d.d();
                         }
                     }
-                } else if (com.kwad.sdk.core.network.f.f34158a.k == i2) {
+                } else if (com.kwad.sdk.core.network.f.f34253a.k == i2) {
                     p.a(RelatedVideoPanel.this.getContext());
-                } else if (com.kwad.sdk.core.network.f.f34164g.k != i2) {
+                } else if (com.kwad.sdk.core.network.f.f34259g.k != i2) {
                     p.b(RelatedVideoPanel.this.getContext());
                 }
-                RelatedVideoPanel.this.f32756e.a(RelatedVideoPanel.this.i.j());
+                RelatedVideoPanel.this.f32851e.a(RelatedVideoPanel.this.i.j());
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void a(boolean z, boolean z2) {
                 if (!z) {
-                    RelatedVideoPanel.this.f32756e.a();
-                } else if (RelatedVideoPanel.this.f32758g.i()) {
-                    RelatedVideoPanel.this.f32755d.b();
+                    RelatedVideoPanel.this.f32851e.a();
+                } else if (RelatedVideoPanel.this.f32853g.i()) {
+                    RelatedVideoPanel.this.f32850d.b();
                 }
             }
 
             @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
             public void b(boolean z, boolean z2) {
                 RelatedVideoPanel.this.i();
-                RelatedVideoPanel.this.f32755d.a();
+                RelatedVideoPanel.this.f32850d.a();
                 if (z) {
-                    if (RelatedVideoPanel.this.f32758g.i()) {
-                        RelatedVideoPanel.this.f32755d.d();
-                    } else if (!RelatedVideoPanel.this.f32759h.d(RelatedVideoPanel.this.f32756e)) {
-                        RelatedVideoPanel.this.f32759h.c(RelatedVideoPanel.this.f32756e);
+                    if (RelatedVideoPanel.this.f32853g.i()) {
+                        RelatedVideoPanel.this.f32850d.d();
+                    } else if (!RelatedVideoPanel.this.f32854h.d(RelatedVideoPanel.this.f32851e)) {
+                        RelatedVideoPanel.this.f32854h.c(RelatedVideoPanel.this.f32851e);
                     }
                 }
-                RelatedVideoPanel.this.f32756e.a(RelatedVideoPanel.this.i.j());
+                RelatedVideoPanel.this.f32851e.a(RelatedVideoPanel.this.i.j());
             }
         };
         this.p = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.4
@@ -298,17 +298,17 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     private void h() {
         View findViewById = findViewById(R.id.ksad_related_space);
-        this.f32753b = findViewById;
+        this.f32848b = findViewById;
         findViewById.setOnClickListener(this);
         View findViewById2 = findViewById(R.id.ksad_related_close_button);
-        this.f32754c = findViewById2;
+        this.f32849c = findViewById2;
         findViewById2.setOnClickListener(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.ksad_related_recycler_view);
-        this.f32757f = recyclerView;
+        this.f32852f = recyclerView;
         recyclerView.setItemAnimator(null);
-        this.f32757f.addItemDecoration(new d(2, ao.a(getContext(), R.dimen.ksad_content_related_video_item_padding)));
-        this.f32755d = (KSHalfPageLoadingView) findViewById(R.id.ksad_page_loading);
-        this.f32756e = new com.kwad.sdk.contentalliance.widget.d(getContext());
+        this.f32852f.addItemDecoration(new d(2, ao.a(getContext(), R.dimen.ksad_content_related_video_item_padding)));
+        this.f32850d = (KSHalfPageLoadingView) findViewById(R.id.ksad_page_loading);
+        this.f32851e = new com.kwad.sdk.contentalliance.widget.d(getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -322,11 +322,11 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        RecyclerView.LayoutManager layoutManager = this.f32757f.getLayoutManager();
+        RecyclerView.LayoutManager layoutManager = this.f32852f.getLayoutManager();
         if (layoutManager.getChildCount() <= 0 || !k()) {
             return;
         }
-        if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() < this.f32758g.getItemCount() - 6 || this.f32758g.j()) {
+        if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() < this.f32853g.getItemCount() - 6 || this.f32853g.j()) {
             return;
         }
         this.i.m();
@@ -346,8 +346,8 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
         if (aVar != null) {
             aVar.b();
         }
-        this.f32755d.a();
-        this.f32755d.setRetryClickListener(null);
+        this.f32850d.a();
+        this.f32850d.setRetryClickListener(null);
         b();
     }
 
@@ -358,10 +358,10 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
             com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.i;
             if (cVar != null) {
                 cVar.k();
-                this.f32752a.postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.5
+                this.f32847a.postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.RelatedVideoPanel.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        RelatedVideoPanel.this.f32757f.scrollToPosition(intExtra);
+                        RelatedVideoPanel.this.f32852f.scrollToPosition(intExtra);
                     }
                 }, 100L);
             }
@@ -372,19 +372,19 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
         this.k = adTemplate;
         this.l = adTemplate.mAdScene;
         this.i = new c(adTemplate);
-        this.f32757f.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
-        b bVar = new b(ksFragment, this.f32757f, this.k);
-        this.f32758g = bVar;
+        this.f32852f.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+        b bVar = new b(ksFragment, this.f32852f, this.k);
+        this.f32853g = bVar;
         bVar.a(this.i.g());
-        this.f32758g.a(this.i);
-        com.kwad.sdk.lib.widget.recycler.d dVar = new com.kwad.sdk.lib.widget.recycler.d(this.f32758g);
-        this.f32759h = dVar;
-        dVar.a(this.f32757f);
-        this.f32757f.setAdapter(this.f32759h);
-        this.f32757f.addOnScrollListener(this.p);
+        this.f32853g.a(this.i);
+        com.kwad.sdk.lib.widget.recycler.d dVar = new com.kwad.sdk.lib.widget.recycler.d(this.f32853g);
+        this.f32854h = dVar;
+        dVar.a(this.f32852f);
+        this.f32852f.setAdapter(this.f32854h);
+        this.f32852f.addOnScrollListener(this.p);
         this.i.a(this.o);
         this.i.k();
-        this.f32755d.setRetryClickListener(this.n);
+        this.f32850d.setRetryClickListener(this.n);
         setVisibility(0);
         setFocusableInTouchMode(true);
         requestFocus();
@@ -407,13 +407,13 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
 
     public void b() {
         this.m = false;
-        this.f32752a.removeCallbacksAndMessages(null);
-        this.f32757f.setLayoutManager(null);
-        this.f32757f.setAdapter(null);
-        b bVar = this.f32758g;
+        this.f32847a.removeCallbacksAndMessages(null);
+        this.f32852f.setLayoutManager(null);
+        this.f32852f.setAdapter(null);
+        b bVar = this.f32853g;
         if (bVar != null) {
             bVar.k();
-            this.f32758g = null;
+            this.f32853g = null;
         }
         com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> cVar = this.i;
         if (cVar != null) {
@@ -463,10 +463,10 @@ public class RelatedVideoPanel extends LinearLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        if (view == this.f32753b) {
+        if (view == this.f32848b) {
             a();
             i = 3;
-        } else if (view != this.f32754c) {
+        } else if (view != this.f32849c) {
             return;
         } else {
             a();

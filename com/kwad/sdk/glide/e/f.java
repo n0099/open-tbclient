@@ -9,44 +9,44 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<a<?>> f35443a = new ArrayList();
+    public final List<a<?>> f35538a = new ArrayList();
 
     /* loaded from: classes6.dex */
     public static final class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final g<T> f35444a;
+        public final g<T> f35539a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Class<T> f35445b;
+        public final Class<T> f35540b;
 
         public a(@NonNull Class<T> cls, @NonNull g<T> gVar) {
-            this.f35445b = cls;
-            this.f35444a = gVar;
+            this.f35540b = cls;
+            this.f35539a = gVar;
         }
 
         public boolean a(@NonNull Class<?> cls) {
-            return this.f35445b.isAssignableFrom(cls);
+            return this.f35540b.isAssignableFrom(cls);
         }
     }
 
     @Nullable
     public synchronized <Z> g<Z> a(@NonNull Class<Z> cls) {
-        int size = this.f35443a.size();
+        int size = this.f35538a.size();
         for (int i = 0; i < size; i++) {
-            a<?> aVar = this.f35443a.get(i);
+            a<?> aVar = this.f35538a.get(i);
             if (aVar.a(cls)) {
-                return (g<Z>) aVar.f35444a;
+                return (g<Z>) aVar.f35539a;
             }
         }
         return null;
     }
 
     public synchronized <Z> void a(@NonNull Class<Z> cls, @NonNull g<Z> gVar) {
-        this.f35443a.add(new a<>(cls, gVar));
+        this.f35538a.add(new a<>(cls, gVar));
     }
 
     public synchronized <Z> void b(@NonNull Class<Z> cls, @NonNull g<Z> gVar) {
-        this.f35443a.add(0, new a<>(cls, gVar));
+        this.f35538a.add(0, new a<>(cls, gVar));
     }
 }

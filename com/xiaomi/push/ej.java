@@ -10,6 +10,6 @@ public class ej extends com.xiaomi.clientreport.processor.b {
 
     @Override // com.xiaomi.clientreport.processor.b
     public void a(List<String> list) {
-        ek.a(((com.xiaomi.clientreport.processor.b) this).f40424a, list);
+        ek.a(((com.xiaomi.clientreport.processor.b) this).f40519a, list);
     }
 }

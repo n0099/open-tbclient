@@ -8,44 +8,44 @@ import java.util.Arrays;
 public class c0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f40194b;
+    public ByteBuffer f40289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b0 f40195c;
+    public b0 f40290c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f40193a = new byte[256];
+    public final byte[] f40288a = new byte[256];
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40196d = 0;
+    public int f40291d = 0;
 
     public c0 a(byte[] bArr) {
         if (bArr != null) {
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            this.f40194b = null;
-            Arrays.fill(this.f40193a, (byte) 0);
-            this.f40195c = new b0();
-            this.f40196d = 0;
+            this.f40289b = null;
+            Arrays.fill(this.f40288a, (byte) 0);
+            this.f40290c = new b0();
+            this.f40291d = 0;
             ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-            this.f40194b = asReadOnlyBuffer;
+            this.f40289b = asReadOnlyBuffer;
             asReadOnlyBuffer.position(0);
-            this.f40194b.order(ByteOrder.LITTLE_ENDIAN);
+            this.f40289b.order(ByteOrder.LITTLE_ENDIAN);
         } else {
-            this.f40194b = null;
-            this.f40195c.f40169b = 2;
+            this.f40289b = null;
+            this.f40290c.f40264b = 2;
         }
         return this;
     }
 
     public final boolean a() {
-        return this.f40195c.f40169b != 0;
+        return this.f40290c.f40264b != 0;
     }
 
     public final int[] a(int i) {
         int[] iArr;
         byte[] bArr = new byte[i * 3];
         try {
-            this.f40194b.get(bArr);
+            this.f40289b.get(bArr);
             iArr = new int[256];
             int i2 = 0;
             int i3 = 0;
@@ -59,7 +59,7 @@ public class c0 {
                     i3 = i6;
                     i2 = i7;
                 } catch (BufferUnderflowException unused) {
-                    this.f40195c.f40169b = 1;
+                    this.f40290c.f40264b = 1;
                     return iArr;
                 }
             }
@@ -71,25 +71,25 @@ public class c0 {
 
     public final int b() {
         try {
-            return this.f40194b.get() & 255;
+            return this.f40289b.get() & 255;
         } catch (Exception unused) {
-            this.f40195c.f40169b = 1;
+            this.f40290c.f40264b = 1;
             return 0;
         }
     }
 
     public final int c() {
         int b2 = b();
-        this.f40196d = b2;
+        this.f40291d = b2;
         int i = 0;
         if (b2 > 0) {
-            while (i < this.f40196d) {
+            while (i < this.f40291d) {
                 try {
-                    int i2 = this.f40196d - i;
-                    this.f40194b.get(this.f40193a, i, i2);
+                    int i2 = this.f40291d - i;
+                    this.f40289b.get(this.f40288a, i, i2);
                     i += i2;
                 } catch (Exception unused) {
-                    this.f40195c.f40169b = 1;
+                    this.f40290c.f40264b = 1;
                 }
             }
         }
@@ -101,7 +101,7 @@ public class c0 {
         do {
             try {
                 b2 = b();
-                this.f40194b.position(this.f40194b.position() + b2);
+                this.f40289b.position(this.f40289b.position() + b2);
             } catch (IllegalArgumentException unused) {
                 return;
             }

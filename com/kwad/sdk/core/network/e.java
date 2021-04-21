@@ -9,15 +9,15 @@ import java.nio.charset.Charset;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f34157a;
+    public static volatile e f34252a;
 
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f34157a == null) {
-                f34157a = new e();
+            if (f34252a == null) {
+                f34252a = new e();
             }
-            eVar = f34157a;
+            eVar = f34252a;
         }
         return eVar;
     }

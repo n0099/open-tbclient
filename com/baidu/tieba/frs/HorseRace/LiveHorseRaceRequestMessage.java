@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.HorseRace;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
@@ -10,7 +10,7 @@ import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
 public class LiveHorseRaceRequestMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f15764common;
+    public CommonReq f15772common;
     public Long forum_id;
 
     public LiveHorseRaceRequestMessage() {
@@ -20,7 +20,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f69445common = this.f15764common;
+        builder.f69592common = this.f15772common;
         builder.forum_id = this.forum_id;
         if (z) {
             w.a(builder, true);
@@ -31,7 +31,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f15764common = commonReq;
+        this.f15772common = commonReq;
     }
 
     public void setForum_id(Long l) {

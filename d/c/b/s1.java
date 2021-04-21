@@ -9,13 +9,13 @@ import java.util.HashSet;
 public class s1 implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f65915f;
+    public static int f66010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h0 f65916g;
+    public static h0 f66011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static h0 f65917h;
+    public static h0 f66012h;
     public static long i;
     public static String j;
     public static Object k;
@@ -23,16 +23,16 @@ public class s1 implements Application.ActivityLifecycleCallbacks {
     public static final HashSet<Integer> m = new HashSet<>(8);
 
     /* renamed from: e  reason: collision with root package name */
-    public final e1 f65918e;
+    public final e1 f66013e;
 
     public s1(e1 e1Var) {
-        this.f65918e = e1Var;
+        this.f66013e = e1Var;
     }
 
     public static h0 a(h0 h0Var, long j2) {
         h0 h0Var2 = (h0) h0Var.clone();
-        h0Var2.f65957e = j2;
-        long j3 = j2 - h0Var.f65957e;
+        h0Var2.f66052e = j2;
+        long j3 = j2 - h0Var.f66052e;
         if (j3 >= 0) {
             h0Var2.m = j3;
         } else {
@@ -49,7 +49,7 @@ public class s1 implements Application.ActivityLifecycleCallbacks {
         } else {
             h0Var.o = str;
         }
-        h0Var.f65957e = j2;
+        h0Var.f66052e = j2;
         h0Var.m = -1L;
         if (str3 == null) {
             str3 = "";
@@ -74,16 +74,16 @@ public class s1 implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        if (f65917h != null) {
+        if (f66012h != null) {
             c(l);
         }
-        h0 h0Var = f65916g;
+        h0 h0Var = f66011g;
         if (h0Var != null) {
             j = h0Var.o;
             long currentTimeMillis = System.currentTimeMillis();
             i = currentTimeMillis;
-            a(f65916g, currentTimeMillis);
-            f65916g = null;
+            a(f66011g, currentTimeMillis);
+            f66011g = null;
             activity.isChild();
         }
     }
@@ -91,7 +91,7 @@ public class s1 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         h0 b2 = b(activity.getClass().getName(), "", System.currentTimeMillis(), j);
-        f65916g = b2;
+        f66011g = b2;
         b2.p = !m.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
         if (activity.isChild()) {
             return;
@@ -111,9 +111,9 @@ public class s1 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
         e1 e1Var;
-        int i2 = f65915f + 1;
-        f65915f = i2;
-        if (i2 != 1 || (e1Var = this.f65918e) == null) {
+        int i2 = f66010f + 1;
+        f66010f = i2;
+        if (i2 != 1 || (e1Var = this.f66013e) == null) {
             return;
         }
         e1Var.a(true);
@@ -122,12 +122,12 @@ public class s1 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
         if (j != null) {
-            int i2 = f65915f - 1;
-            f65915f = i2;
+            int i2 = f66010f - 1;
+            f66010f = i2;
             if (i2 <= 0) {
                 j = null;
                 i = 0L;
-                e1 e1Var = this.f65918e;
+                e1 e1Var = this.f66013e;
                 if (e1Var != null) {
                     e1Var.a(false);
                 }

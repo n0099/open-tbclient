@@ -41,8 +41,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import d.b.c.a.j;
 import d.b.c.e.p.l;
-import d.b.h0.r.q.a2;
 import d.b.i.q;
+import d.b.i0.r.q.a2;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
@@ -149,7 +149,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             if (CardUserInfoLayout.this.B == null || CardUserInfoLayout.this.B.T() == null) {
                 return;
             }
-            d.b.h0.l.a.o(CardUserInfoLayout.this.f4424e.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + CardUserInfoLayout.this.B.T().getUserId(), true, true, true);
+            d.b.i0.l.a.o(CardUserInfoLayout.this.f4424e.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + CardUserInfoLayout.this.B.T().getUserId(), true, true, true);
             if (CardUserInfoLayout.this.y != null) {
                 CardUserInfoLayout.this.x.onClick(view);
             }
@@ -328,7 +328,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     public final boolean j(a2 a2Var) {
-        return (a2Var == null || a2Var.T() == null || !a2Var.U1 || !d.b.h0.b.d.h() || a2Var.T().hadConcerned() || ThreadCardUtils.isSelf(a2Var)) ? false : true;
+        return (a2Var == null || a2Var.T() == null || !a2Var.U1 || !d.b.i0.b.d.h() || a2Var.T().hadConcerned() || ThreadCardUtils.isSelf(a2Var)) ? false : true;
     }
 
     public final boolean k(int i) {
@@ -347,10 +347,10 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         a2 a2Var2 = this.B;
         if (a2Var2.p1 > 0 && a2Var2.q1 == 0) {
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0106);
-            d.b.h0.b.g.b.e(this.i);
+            d.b.i0.b.g.b.e(this.i);
         } else if (ListUtils.isEmpty(this.B.T().getTShowInfoNew()) && !this.B.n2()) {
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0106);
-            d.b.h0.b.g.b.e(this.i);
+            d.b.i0.b.g.b.e(this.i);
         } else {
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0301);
         }
@@ -429,7 +429,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         boolean z2 = UtilHelper.isDecimal(C0) && UtilHelper.isDecimal(I0);
         boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
         if (z2 && isSystemLocationProviderEnabled) {
-            AppPosInfo c2 = d.b.i0.s2.d0.a.e().c();
+            AppPosInfo c2 = d.b.j0.s2.d0.a.e().c();
             String str2 = c2.latitude;
             String str3 = c2.longitude;
             if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -455,7 +455,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         } else {
             this.D &= -4097;
         }
-        if (!(a2Var instanceof AdvertAppInfo) && ((a2Var.T1 && !a2Var.y2() && !a2Var.n2() && a2Var.getType() != a2.f3 && a2Var.getType() != a2.i3) || (a2Var.T1 && d.b.h0.b.d.T() && a2Var.getType() != a2.f3 && a2Var.getType() != a2.i3))) {
+        if (!(a2Var instanceof AdvertAppInfo) && ((a2Var.T1 && !a2Var.y2() && !a2Var.n2() && a2Var.getType() != a2.f3 && a2Var.getType() != a2.i3) || (a2Var.T1 && d.b.i0.b.d.T() && a2Var.getType() != a2.f3 && a2Var.getType() != a2.i3))) {
             this.D &= -129;
         } else {
             this.D |= 128;
@@ -572,7 +572,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         }
         this.j.setOnClickListener(null);
         if (T.getIs_bawu() == 1) {
-            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.j);
+            d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.j);
             d2.q(R.color.CAM_X0101);
             d2.e(R.string.A_X04);
             d2.k(R.string.J_X04);
@@ -711,7 +711,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                 this.i.setText(R.string.user_name_default_txt);
             }
         }
-        d.b.h0.b.g.b.d(this.i);
+        d.b.i0.b.g.b.d(this.i);
         m();
     }
 

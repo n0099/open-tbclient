@@ -21,17 +21,17 @@ public class FlipLoadingLayout extends LoadingLayout {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13950a;
+        public static final /* synthetic */ int[] f13958a;
 
         static {
             int[] iArr = new int[PullToRefreshBase.Mode.values().length];
-            f13950a = iArr;
+            f13958a = iArr;
             try {
                 iArr[PullToRefreshBase.Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13950a[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
+                f13958a[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -53,7 +53,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        int i = a.f13950a[this.k.ordinal()];
+        int i = a.f13958a[this.k.ordinal()];
         return i != 1 ? (i == 2 && this.l == PullToRefreshBase.Orientation.HORIZONTAL) ? 270.0f : 0.0f : this.l == PullToRefreshBase.Orientation.HORIZONTAL ? 90.0f : 180.0f;
     }
 
@@ -62,16 +62,16 @@ public class FlipLoadingLayout extends LoadingLayout {
         if (drawable != null) {
             int intrinsicHeight = drawable.getIntrinsicHeight();
             int intrinsicWidth = drawable.getIntrinsicWidth();
-            ViewGroup.LayoutParams layoutParams = this.f13952f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f13960f.getLayoutParams();
             int max = Math.max(intrinsicHeight, intrinsicWidth);
             layoutParams.height = max;
             layoutParams.width = max;
-            this.f13952f.requestLayout();
-            this.f13952f.setScaleType(ImageView.ScaleType.MATRIX);
+            this.f13960f.requestLayout();
+            this.f13960f.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
             matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
             matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-            this.f13952f.setImageMatrix(matrix);
+            this.f13960f.setImageMatrix(matrix);
         }
     }
 
@@ -81,15 +81,15 @@ public class FlipLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void e() {
-        if (this.q == this.f13952f.getAnimation()) {
-            this.f13952f.startAnimation(this.r);
+        if (this.q == this.f13960f.getAnimation()) {
+            this.f13960f.startAnimation(this.r);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void g() {
-        this.f13952f.setVisibility(0);
-        this.f13953g.setVisibility(8);
+        this.f13960f.setVisibility(0);
+        this.f13961g.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -99,13 +99,13 @@ public class FlipLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void i() {
-        this.f13952f.startAnimation(this.q);
+        this.f13960f.startAnimation(this.q);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void k() {
-        this.f13952f.clearAnimation();
-        this.f13953g.setVisibility(8);
-        this.f13952f.setVisibility(0);
+        this.f13960f.clearAnimation();
+        this.f13961g.setVisibility(8);
+        this.f13960f.setVisibility(0);
     }
 }

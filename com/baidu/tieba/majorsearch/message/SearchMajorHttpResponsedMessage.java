@@ -2,7 +2,7 @@ package com.baidu.tieba.majorsearch.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.p1.c.a;
+import d.b.j0.p1.c.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */

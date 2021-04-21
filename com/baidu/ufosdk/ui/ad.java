@@ -6,23 +6,23 @@ import java.util.List;
 public final class ad implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f22735a;
+    public final /* synthetic */ FeedbackEditActivity f22743a;
 
     public ad(FeedbackEditActivity feedbackEditActivity) {
-        this.f22735a = feedbackEditActivity;
+        this.f22743a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         boolean z;
         List list;
-        z = this.f22735a.v;
+        z = this.f22743a.v;
         if (z) {
             return;
         }
-        list = this.f22735a.q;
+        list = this.f22743a.q;
         if (list.size() >= 3) {
-            FeedbackEditActivity.a(this.f22735a, 3);
+            FeedbackEditActivity.a(this.f22743a, 3);
         }
     }
 }

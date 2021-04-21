@@ -16,10 +16,10 @@ import javax.net.ssl.SSLSocketFactory;
 public class a extends SSLSocketFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37906a = "TlsSessionTicket";
+    public String f38001a = "TlsSessionTicket";
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLSocketFactory f37907b;
+    public SSLSocketFactory f38002b;
 
     public a(Context context) {
         SSLSessionCache sSLSessionCache;
@@ -28,60 +28,60 @@ public class a extends SSLSocketFactory {
             try {
                 sSLSessionCache = new SSLSessionCache(new File(Environment.getExternalStorageDirectory(), "sslCache"));
             } catch (IOException e2) {
-                d.j.a.a.a.b(this.f37906a, e2.getMessage());
+                d.k.a.a.a.b(this.f38001a, e2.getMessage());
                 sSLSessionCache = new SSLSessionCache(context);
             }
             d a2 = com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a("install", SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext);
-            String str = this.f37906a;
-            d.j.a.a.a.d(str, "install tls session cache " + a2.f37924a);
-            this.f37907b = sSLContext.getSocketFactory();
+            String str = this.f38001a;
+            d.k.a.a.a.d(str, "install tls session cache " + a2.f38019a);
+            this.f38002b = sSLContext.getSocketFactory();
         } catch (Exception e3) {
-            d.j.a.a.a.b(this.f37906a, e3.getMessage());
-            this.f37907b = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            d.k.a.a.a.b(this.f38001a, e3.getMessage());
+            this.f38002b = (SSLSocketFactory) SSLSocketFactory.getDefault();
         }
     }
 
     private Socket a(Socket socket) {
         if (socket instanceof SSLSocket) {
             d a2 = com.meizu.cloud.pushsdk.base.a.a.a(socket).a("setUseSessionTickets", Boolean.TYPE).a(socket, Boolean.TRUE);
-            String str = this.f37906a;
-            d.j.a.a.a.d(str, "set ssl session ticket support " + a2.f37924a);
+            String str = this.f38001a;
+            d.k.a.a.a.d(str, "set ssl session ticket support " + a2.f38019a);
         }
         return socket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i) throws IOException {
-        return a(this.f37907b.createSocket(str, i));
+        return a(this.f38002b.createSocket(str, i));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        return a(this.f37907b.createSocket(str, i, inetAddress, i2));
+        return a(this.f38002b.createSocket(str, i, inetAddress, i2));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        return a(this.f37907b.createSocket(inetAddress, i));
+        return a(this.f38002b.createSocket(inetAddress, i));
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        return a(this.f37907b.createSocket(inetAddress, i, inetAddress2, i2));
+        return a(this.f38002b.createSocket(inetAddress, i, inetAddress2, i2));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        return a(this.f37907b.createSocket(socket, str, i, z));
+        return a(this.f38002b.createSocket(socket, str, i, z));
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        return this.f37907b.getDefaultCipherSuites();
+        return this.f38002b.getDefaultCipherSuites();
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        return this.f37907b.getSupportedCipherSuites();
+        return this.f38002b.getSupportedCipherSuites();
     }
 }

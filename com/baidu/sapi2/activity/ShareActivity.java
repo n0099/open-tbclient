@@ -21,7 +21,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.webkit.internal.ETAG;
-import d.b.x.a.f;
+import d.b.y.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

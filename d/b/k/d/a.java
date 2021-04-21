@@ -9,13 +9,13 @@ import java.security.NoSuchAlgorithmException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64566a;
+    public static String f64782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64567b;
+    public static String f64783b;
 
     public static String a() {
-        return TextUtils.isEmpty(f64567b) ? "armeabi-v7a" : f64567b;
+        return TextUtils.isEmpty(f64783b) ? "armeabi-v7a" : f64783b;
     }
 
     public static String b(Context context) {
@@ -54,15 +54,15 @@ public class a {
 
     public static String f() {
         String str = "https://b.bdstatic.com/searchbox/androidvideo/" + h();
-        f64566a = str;
+        f64782a = str;
         return str;
     }
 
     public static String g(Context context) {
-        if (TextUtils.isEmpty(f64566a)) {
+        if (TextUtils.isEmpty(f64782a)) {
             f();
         }
-        return c(context, f64566a) + File.separator + "jniLibs" + File.separator + a();
+        return c(context, f64782a) + File.separator + "jniLibs" + File.separator + a();
     }
 
     public static String h() {
@@ -101,6 +101,6 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        f64567b = str;
+        f64783b = str;
     }
 }

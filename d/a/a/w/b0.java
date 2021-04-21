@@ -8,7 +8,7 @@ import java.io.IOException;
 public class b0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41739a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "tr", "hd");
+    public static JsonReader.a f41834a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "tr", "hd");
 
     public static d.a.a.u.j.g a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         String str = null;
@@ -17,7 +17,7 @@ public class b0 {
         d.a.a.u.i.l lVar = null;
         boolean z = false;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41739a);
+            int D = jsonReader.D(f41834a);
             if (D == 0) {
                 str = jsonReader.z();
             } else if (D == 1) {

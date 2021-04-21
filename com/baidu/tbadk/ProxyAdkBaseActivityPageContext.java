@@ -11,7 +11,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import d.b.c.c.g.a;
-import d.b.h0.r.c;
+import d.b.i0.r.c;
 /* loaded from: classes3.dex */
 public class ProxyAdkBaseActivityPageContext<T> implements TbPageContext<T> {
     public ProxyAdkBaseActivity<T> activity;

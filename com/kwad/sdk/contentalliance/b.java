@@ -13,20 +13,20 @@ import com.kwad.sdk.mvp.Presenter;
 public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public Presenter f32173a;
+    public Presenter f32268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f32174b;
+    public T f32269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f32175c;
+    public ViewGroup f32270c;
 
     public void a() {
-        Presenter presenter = this.f32173a;
+        Presenter presenter = this.f32268a;
         if (presenter != null) {
             presenter.j();
         }
-        this.f32175c = null;
+        this.f32270c = null;
     }
 
     public abstract int b();
@@ -39,28 +39,28 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f32174b = c();
-        if (this.f32173a == null) {
+        this.f32269b = c();
+        if (this.f32268a == null) {
             Presenter d2 = d();
-            this.f32173a = d2;
-            d2.a((View) this.f32175c);
+            this.f32268a = d2;
+            d2.a((View) this.f32270c);
         }
-        this.f32173a.a(this.f32174b);
+        this.f32268a.a(this.f32269b);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f32175c == null) {
-            this.f32175c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+        if (this.f32270c == null) {
+            this.f32270c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
         }
-        return this.f32175c;
+        return this.f32270c;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        T t = this.f32174b;
+        T t = this.f32269b;
         if (t != null) {
             t.a();
         }

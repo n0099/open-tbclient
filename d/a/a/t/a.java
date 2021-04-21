@@ -13,66 +13,66 @@ import java.util.Map;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public final AssetManager f41623d;
+    public final AssetManager f41718d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.a.a f41624e;
+    public d.a.a.a f41719e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h<String> f41620a = new h<>();
+    public final h<String> f41715a = new h<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<h<String>, Typeface> f41621b = new HashMap();
+    public final Map<h<String>, Typeface> f41716b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Typeface> f41622c = new HashMap();
+    public final Map<String, Typeface> f41717c = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41625f = ".ttf";
+    public String f41720f = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable d.a.a.a aVar) {
-        this.f41624e = aVar;
+        this.f41719e = aVar;
         if (!(callback instanceof View)) {
             d.c("LottieDrawable must be inside of a view for images to work.");
-            this.f41623d = null;
+            this.f41718d = null;
             return;
         }
-        this.f41623d = ((View) callback).getContext().getAssets();
+        this.f41718d = ((View) callback).getContext().getAssets();
     }
 
     public final Typeface a(String str) {
         String b2;
-        Typeface typeface = this.f41622c.get(str);
+        Typeface typeface = this.f41717c.get(str);
         if (typeface != null) {
             return typeface;
         }
-        d.a.a.a aVar = this.f41624e;
+        d.a.a.a aVar = this.f41719e;
         Typeface a2 = aVar != null ? aVar.a(str) : null;
-        d.a.a.a aVar2 = this.f41624e;
+        d.a.a.a aVar2 = this.f41719e;
         if (aVar2 != null && a2 == null && (b2 = aVar2.b(str)) != null) {
-            a2 = Typeface.createFromAsset(this.f41623d, b2);
+            a2 = Typeface.createFromAsset(this.f41718d, b2);
         }
         if (a2 == null) {
-            a2 = Typeface.createFromAsset(this.f41623d, "fonts/" + str + this.f41625f);
+            a2 = Typeface.createFromAsset(this.f41718d, "fonts/" + str + this.f41720f);
         }
-        this.f41622c.put(str, a2);
+        this.f41717c.put(str, a2);
         return a2;
     }
 
     public Typeface b(String str, String str2) {
-        this.f41620a.b(str, str2);
-        Typeface typeface = this.f41621b.get(this.f41620a);
+        this.f41715a.b(str, str2);
+        Typeface typeface = this.f41716b.get(this.f41715a);
         if (typeface != null) {
             return typeface;
         }
         Typeface d2 = d(a(str), str2);
-        this.f41621b.put(this.f41620a, d2);
+        this.f41716b.put(this.f41715a, d2);
         return d2;
     }
 
     public void c(@Nullable d.a.a.a aVar) {
-        this.f41624e = aVar;
+        this.f41719e = aVar;
     }
 
     public final Typeface d(Typeface typeface, String str) {

@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import d.b.h0.r.q.q1;
-import d.b.h0.r.q.r1;
-import d.b.i0.q0.a1;
-import d.b.i0.q0.k;
-import d.b.i0.q0.r2.d;
-import d.b.i0.q0.y;
+import d.b.i0.r.q.q1;
+import d.b.i0.r.q.r1;
+import d.b.j0.q0.a1;
+import d.b.j0.q0.k;
+import d.b.j0.q0.r2.d;
+import d.b.j0.q0.y;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class FrsSchoolRecommendAdapter extends k<q1, FrsSchoolRecommendViewHolder> {
@@ -20,11 +20,11 @@ public class FrsSchoolRecommendAdapter extends k<q1, FrsSchoolRecommendViewHolde
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f15746a;
+        public d f15754a;
 
         public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, d dVar) {
             super(dVar.m());
-            this.f15746a = dVar;
+            this.f15754a = dVar;
         }
     }
 
@@ -41,11 +41,11 @@ public class FrsSchoolRecommendAdapter extends k<q1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.q0.k, d.b.c.j.e.a
+    @Override // d.b.j0.q0.k, d.b.c.j.e.a
     /* renamed from: u0 */
     public View X(int i, View view, ViewGroup viewGroup, q1 q1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         super.X(i, view, viewGroup, q1Var, frsSchoolRecommendViewHolder);
-        this.w = frsSchoolRecommendViewHolder.f15746a;
+        this.w = frsSchoolRecommendViewHolder.f15754a;
         ArrayList<r1> z4 = q1Var.z4();
         if (z4.size() <= 0) {
             return null;
@@ -57,16 +57,16 @@ public class FrsSchoolRecommendAdapter extends k<q1, FrsSchoolRecommendViewHolde
             r1 r1Var = z4.get(i2);
             if (r1Var != null) {
                 a1 a1Var = new a1();
-                a1Var.f59023a.setUserId(r1Var.d());
-                a1Var.f59023a.setUserName(r1Var.e());
-                a1Var.f59023a.setPortrait(r1Var.c());
-                a1Var.f59023a.getGodUserData().setIsLike(r1Var.b() == 1);
-                a1Var.f59023a.getGodUserData().setIntro(r1Var.a());
+                a1Var.f59444a.setUserId(r1Var.d());
+                a1Var.f59444a.setUserName(r1Var.e());
+                a1Var.f59444a.setPortrait(r1Var.c());
+                a1Var.f59444a.getGodUserData().setIsLike(r1Var.b() == 1);
+                a1Var.f59444a.getGodUserData().setIntro(r1Var.a());
                 yVar.g(a1Var);
             }
         }
         this.w.o(this.o, this.r);
-        frsSchoolRecommendViewHolder.f15746a.n(yVar);
+        frsSchoolRecommendViewHolder.f15754a.n(yVar);
         return frsSchoolRecommendViewHolder.a();
     }
 }

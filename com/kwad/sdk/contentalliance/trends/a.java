@@ -16,27 +16,27 @@ import java.util.List;
 public class a extends com.kwad.sdk.contentalliance.home.a.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f33273c;
+    public SceneImpl f33368c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33274d;
+    public int f33369d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f33275e = false;
+    public boolean f33370e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f33276f;
+    public String f33371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<TrendInfo> f33277g;
+    public List<TrendInfo> f33372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33278h;
+    public int f33373h;
     public TrendInfo i;
     public int j;
 
     public a(SceneImpl sceneImpl) {
-        this.f33273c = sceneImpl;
+        this.f33368c = sceneImpl;
     }
 
     private void a(final boolean z, h.a aVar, @NonNull final TrendInfo trendInfo) {
@@ -45,7 +45,7 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
             @MainThread
             public void a(int i, String str) {
                 a.this.a(i, str);
-                a.this.f33275e = false;
+                a.this.f33370e = false;
             }
 
             @Override // com.kwad.sdk.core.g.i.a
@@ -54,20 +54,20 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
                 a aVar3;
                 TrendInfo trendInfo2;
                 if (z) {
-                    a.this.f33274d = 0;
-                    a.this.f32851a.clear();
+                    a.this.f33369d = 0;
+                    a.this.f32946a.clear();
                 }
-                if (a.this.f32851a.isEmpty()) {
+                if (a.this.f32946a.isEmpty()) {
                     m.e();
                 }
-                a.this.f32851a.addAll(list);
+                a.this.f32946a.addAll(list);
                 a aVar4 = a.this;
-                aVar4.a(z, aVar4.f33274d);
-                a.this.f33275e = false;
+                aVar4.a(z, aVar4.f33369d);
+                a.this.f33370e = false;
                 a.e(a.this);
-                if (a.this.j + 1 < a.this.f33277g.size()) {
+                if (a.this.j + 1 < a.this.f33372g.size()) {
                     aVar3 = a.this;
-                    trendInfo2 = (TrendInfo) aVar3.f33277g.get(a.this.j + 1);
+                    trendInfo2 = (TrendInfo) aVar3.f33372g.get(a.this.j + 1);
                 } else {
                     aVar3 = a.this;
                     trendInfo2 = null;
@@ -90,8 +90,8 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
                     while (i < list.size()) {
                         AdTemplate adTemplate = list.get(i);
                         adTemplate.mCurrentTrendTitle = trendInfo.toJson().toString();
-                        if (i != 0 || a.this.f33274d <= 0 || a.this.f33274d - 1 >= a.this.f33277g.size()) {
-                            str = (i == list.size() + (-1) && a.this.f33274d + 1 < a.this.f33277g.size()) ? "上一个热点" : "上一个热点";
+                        if (i != 0 || a.this.f33369d <= 0 || a.this.f33369d - 1 >= a.this.f33372g.size()) {
+                            str = (i == list.size() + (-1) && a.this.f33369d + 1 < a.this.f33372g.size()) ? "上一个热点" : "上一个热点";
                             i++;
                         } else {
                             str = "下一个热点";
@@ -104,14 +104,14 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
             });
             return;
         }
-        int i = f.f34160c.k;
-        aVar2.a(i, f.f34160c.l + "(无视频资源)");
+        int i = f.f34255c.k;
+        aVar2.a(i, f.f34255c.l + "(无视频资源)");
     }
 
     private int c(TrendInfo trendInfo) {
-        if (trendInfo != null && this.f33277g != null) {
-            for (int i = 0; i < this.f33277g.size(); i++) {
-                if (trendInfo.trendId == this.f33277g.get(i).trendId) {
+        if (trendInfo != null && this.f33372g != null) {
+            for (int i = 0; i < this.f33372g.size(); i++) {
+                if (trendInfo.trendId == this.f33372g.get(i).trendId) {
                     return i;
                 }
             }
@@ -120,14 +120,14 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
     }
 
     public static /* synthetic */ int e(a aVar) {
-        int i = aVar.f33274d;
-        aVar.f33274d = i + 1;
+        int i = aVar.f33369d;
+        aVar.f33369d = i + 1;
         return i;
     }
 
     public static /* synthetic */ int h(a aVar) {
-        int i = aVar.f33278h;
-        aVar.f33278h = i + 1;
+        int i = aVar.f33373h;
+        aVar.f33373h = i + 1;
         return i;
     }
 
@@ -139,8 +139,8 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f33276f = str;
-        this.f33277g = TrendInfo.asList(str);
+        this.f33371f = str;
+        this.f33372g = TrendInfo.asList(str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0079, code lost:
@@ -153,68 +153,68 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
     public void a(boolean z, boolean z2, int i) {
         f fVar;
         TrendInfo trendInfo;
-        if (this.f33275e) {
+        if (this.f33370e) {
             return;
         }
         int i2 = 1;
-        this.f33275e = true;
+        this.f33370e = true;
         com.kwad.sdk.core.d.a.a("DataFetcher", "loadData isRefresh=" + z);
-        a(z, z2, i, this.f33274d);
+        a(z, z2, i, this.f33369d);
         h.a aVar = new h.a();
-        com.kwad.sdk.core.g.a.f fVar2 = new com.kwad.sdk.core.g.a.f(this.f33273c);
-        fVar2.f33941b = this.f33273c.getPageScene();
-        fVar2.f33942c = 100L;
-        aVar.f34074a.add(fVar2);
+        com.kwad.sdk.core.g.a.f fVar2 = new com.kwad.sdk.core.g.a.f(this.f33368c);
+        fVar2.f34036b = this.f33368c.getPageScene();
+        fVar2.f34037c = 100L;
+        aVar.f34169a.add(fVar2);
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
         if (i == 0) {
             i2 = 3;
         } else if (i != 1 && i != 2 && i != 3) {
             i2 = i != 4 ? 0 : 2;
         }
-        cVar.f33928c = i2;
-        cVar.f33929d = this.f33278h;
-        aVar.f34075b = cVar;
-        if (this.f33276f == null || this.f33277g.size() <= 0) {
+        cVar.f34023c = i2;
+        cVar.f34024d = this.f33373h;
+        aVar.f34170b = cVar;
+        if (this.f33371f == null || this.f33372g.size() <= 0) {
             if (i2 != 3 || (trendInfo = this.i) == null) {
                 if (i2 != 2) {
-                    this.f33275e = false;
-                    a(z, this.f33274d);
-                    fVar = f.f34158a;
+                    this.f33370e = false;
+                    a(z, this.f33369d);
+                    fVar = f.f34253a;
                 }
-                this.f33275e = false;
-                a(z, this.f33274d);
-                fVar = f.f34164g;
+                this.f33370e = false;
+                a(z, this.f33369d);
+                fVar = f.f34259g;
             }
             this.j = c(trendInfo);
             a(z, aVar, this.i);
             return;
         }
-        if (this.f33274d < this.f33277g.size()) {
+        if (this.f33369d < this.f33372g.size()) {
             trendInfo = this.i;
         }
-        this.f33275e = false;
-        a(z, this.f33274d);
-        fVar = f.f34164g;
+        this.f33370e = false;
+        a(z, this.f33369d);
+        fVar = f.f34259g;
         a(fVar.k, fVar.l);
     }
 
     public boolean b(@NonNull TrendInfo trendInfo) {
-        if (this.f33275e) {
+        if (this.f33370e) {
             return false;
         }
-        this.f33275e = true;
-        this.f33274d = 0;
+        this.f33370e = true;
+        this.f33369d = 0;
         this.j = c(trendInfo);
-        a(true, false, 1, this.f33274d);
+        a(true, false, 1, this.f33369d);
         h.a aVar = new h.a();
-        com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.f33273c);
-        fVar.f33941b = this.f33273c.getPageScene();
-        fVar.f33942c = 100L;
-        aVar.f34074a.add(fVar);
+        com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.f33368c);
+        fVar.f34036b = this.f33368c.getPageScene();
+        fVar.f34037c = 100L;
+        aVar.f34169a.add(fVar);
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
-        cVar.f33928c = 1;
-        cVar.f33929d = this.f33278h;
-        aVar.f34075b = cVar;
+        cVar.f34023c = 1;
+        cVar.f34024d = this.f33373h;
+        aVar.f34170b = cVar;
         a(true, aVar, trendInfo);
         return true;
     }

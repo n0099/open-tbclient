@@ -10,22 +10,22 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.i0.j3.h.e;
+import d.b.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BackgroundGroupActivity f21280e;
+    public BackgroundGroupActivity f21288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21281f;
+    public e f21289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.b.i0.j3.e.b> f21282g;
+    public List<d.b.j0.j3.e.b> f21290g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f21283h;
+    public c f21291h;
     public boolean i;
     public d.b.c.c.g.a j;
     public d.b.c.c.g.a k;
@@ -44,23 +44,23 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             boolean z = responsedMessage instanceof BackgroundGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BackgroundGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (BackgroundGroupModel.this.f21283h != null) {
-                        BackgroundGroupModel.this.f21283h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.f21281f, BackgroundGroupModel.this.f21282g);
+                    if (BackgroundGroupModel.this.f21291h != null) {
+                        BackgroundGroupModel.this.f21291h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.f21289f, BackgroundGroupModel.this.f21290g);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BackgroundGroupHttpResponseMessage backgroundGroupHttpResponseMessage = (BackgroundGroupHttpResponseMessage) responsedMessage;
-                    BackgroundGroupModel.this.f21281f = backgroundGroupHttpResponseMessage.getRecommand();
-                    BackgroundGroupModel.this.f21282g = backgroundGroupHttpResponseMessage.getGroupList();
+                    BackgroundGroupModel.this.f21289f = backgroundGroupHttpResponseMessage.getRecommand();
+                    BackgroundGroupModel.this.f21290g = backgroundGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BackgroundGroupSocketResponseMessage) {
                     BackgroundGroupSocketResponseMessage backgroundGroupSocketResponseMessage = (BackgroundGroupSocketResponseMessage) responsedMessage;
-                    BackgroundGroupModel.this.f21281f = backgroundGroupSocketResponseMessage.getRecommand();
-                    BackgroundGroupModel.this.f21282g = backgroundGroupSocketResponseMessage.getGroupList();
+                    BackgroundGroupModel.this.f21289f = backgroundGroupSocketResponseMessage.getRecommand();
+                    BackgroundGroupModel.this.f21290g = backgroundGroupSocketResponseMessage.getGroupList();
                 }
-                if (BackgroundGroupModel.this.f21283h != null) {
-                    BackgroundGroupModel.this.f21283h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.f21281f, BackgroundGroupModel.this.f21282g);
+                if (BackgroundGroupModel.this.f21291h != null) {
+                    BackgroundGroupModel.this.f21291h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.f21289f, BackgroundGroupModel.this.f21290g);
                 }
             }
         }
@@ -83,24 +83,24 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                 BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                 int propId = backgroundSetRequestMessage.getPropId();
                 if (responsedMessage.getError() == 0) {
-                    if (propId == BackgroundGroupModel.this.f21280e.getPropId() && (A = BackgroundGroupModel.this.A(propId)) != null) {
+                    if (propId == BackgroundGroupModel.this.f21288e.getPropId() && (A = BackgroundGroupModel.this.A(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", A.getFreeUserLevel()));
                     }
-                    d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+                    d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
                     j.v("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
                     BackgroundGroupModel.this.G(propId);
-                    BackgroundGroupModel.this.f21283h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.f21281f, BackgroundGroupModel.this.f21282g);
+                    BackgroundGroupModel.this.f21291h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.f21289f, BackgroundGroupModel.this.f21290g);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i = d.b.i0.j3.c.f57667b;
-                    if (responsedMessage.getError() == d.b.i0.j3.c.f57668c) {
-                        i = d.b.i0.j3.c.f57666a;
+                    int i = d.b.j0.j3.c.f58088b;
+                    if (responsedMessage.getError() == d.b.j0.j3.c.f58089c) {
+                        i = d.b.j0.j3.c.f58087a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
                         return;
                     }
-                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == BackgroundGroupModel.this.getUniqueId()) && propId == BackgroundGroupModel.this.f21280e.getPropId() && (A2 = BackgroundGroupModel.this.A(propId)) != null) {
+                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == BackgroundGroupModel.this.getUniqueId()) && propId == BackgroundGroupModel.this.f21288e.getPropId() && (A2 = BackgroundGroupModel.this.A(propId)) != null) {
                         BackgroundGroupModel.this.F(i, responsedMessage.getErrorString(), A2, fromDetail);
                     }
                 }
@@ -110,14 +110,14 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, String str, e eVar, List<d.b.i0.j3.e.b> list);
+        void a(int i, String str, e eVar, List<d.b.j0.j3.e.b> list);
     }
 
     public BackgroundGroupModel(BackgroundGroupActivity backgroundGroupActivity) {
         super(backgroundGroupActivity.getPageContext());
         this.j = new a(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
         this.k = new b(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.f21280e = backgroundGroupActivity;
+        this.f21288e = backgroundGroupActivity;
         this.i = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         C();
         registerListener(this.j);
@@ -126,9 +126,9 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     }
 
     public final DressItemData A(int i) {
-        List<d.b.i0.j3.e.b> list = this.f21282g;
+        List<d.b.j0.j3.e.b> list = this.f21290g;
         if (list != null && list.size() > 0) {
-            for (d.b.i0.j3.e.b bVar : this.f21282g) {
+            for (d.b.j0.j3.e.b bVar : this.f21290g) {
                 if (bVar != null && bVar.a() != null) {
                     for (DressItemData dressItemData : bVar.a()) {
                         if (dressItemData != null && dressItemData.getPropsId() == i) {
@@ -147,17 +147,17 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     }
 
     public final void C() {
-        d.b.i0.d3.d0.a.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-        d.b.i0.d3.d0.a.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+        d.b.j0.d3.d0.a.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+        d.b.j0.d3.d0.a.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
     }
 
     public final void D() {
-        d.b.i0.d3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        d.b.i0.d3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        d.b.j0.d3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        d.b.j0.d3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public void E(c cVar) {
-        this.f21283h = cVar;
+        this.f21291h = cVar;
     }
 
     public void F(int i, String str, DressItemData dressItemData, boolean z) {
@@ -165,19 +165,19 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i == d.b.i0.j3.c.f57666a) {
-            d.b.i0.j3.b.d(this.f21280e.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-        } else if (i == d.b.i0.j3.c.f57667b) {
-            d.b.i0.j3.b.c(this.f21280e.getPageContext(), z ? 4 : 2, str, i2);
+        if (i == d.b.j0.j3.c.f58087a) {
+            d.b.j0.j3.b.d(this.f21288e.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+        } else if (i == d.b.j0.j3.c.f58088b) {
+            d.b.j0.j3.b.c(this.f21288e.getPageContext(), z ? 4 : 2, str, i2);
         }
     }
 
     public final void G(int i) {
-        List<d.b.i0.j3.e.b> list = this.f21282g;
+        List<d.b.j0.j3.e.b> list = this.f21290g;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (d.b.i0.j3.e.b bVar : this.f21282g) {
+        for (d.b.j0.j3.e.b bVar : this.f21290g) {
             if (bVar != null && bVar.a() != null) {
                 for (DressItemData dressItemData : bVar.a()) {
                     if (dressItemData != null) {

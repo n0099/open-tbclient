@@ -87,7 +87,7 @@ public class ArCoreApk {
     }
 
     public static ArCoreApk b() {
-        return d.g.b.a.f.d();
+        return d.h.b.a.f.d();
     }
 
     public abstract Availability a(Context context);
@@ -153,7 +153,7 @@ public class ArCoreApk {
             return false;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, d.g.b.a.e eVar) {
+        public /* synthetic */ Availability(String str, int i, int i2, d.h.b.a.e eVar) {
             this(str, i, i2);
         }
     }

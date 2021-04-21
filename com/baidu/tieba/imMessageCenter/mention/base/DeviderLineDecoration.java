@@ -10,11 +10,11 @@ import com.baidu.tieba.R;
 public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f18035a;
+    public int f18043a;
 
     public DeviderLineDecoration() {
-        if (this.f18035a <= 0) {
-            this.f18035a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        if (this.f18043a <= 0) {
+            this.f18043a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
@@ -28,6 +28,6 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        rect.set(0, 0, 0, this.f18035a);
+        rect.set(0, 0, 0, this.f18043a);
     }
 }

@@ -11,27 +11,27 @@ import java.util.List;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41767a = JsonReader.a.a("x", "y");
+    public static final JsonReader.a f41862a = JsonReader.a.a("x", "y");
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41768a;
+        public static final /* synthetic */ int[] f41863a;
 
         static {
             int[] iArr = new int[JsonReader.Token.values().length];
-            f41768a = iArr;
+            f41863a = iArr;
             try {
                 iArr[JsonReader.Token.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41768a[JsonReader.Token.BEGIN_ARRAY.ordinal()] = 2;
+                f41863a[JsonReader.Token.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f41768a[JsonReader.Token.BEGIN_OBJECT.ordinal()] = 3;
+                f41863a[JsonReader.Token.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -62,7 +62,7 @@ public class p {
         float f3 = 0.0f;
         float f4 = 0.0f;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41767a);
+            int D = jsonReader.D(f41862a);
             if (D == 0) {
                 f3 = g(jsonReader);
             } else if (D != 1) {
@@ -90,7 +90,7 @@ public class p {
     }
 
     public static PointF e(JsonReader jsonReader, float f2) throws IOException {
-        int i = a.f41768a[jsonReader.B().ordinal()];
+        int i = a.f41863a[jsonReader.B().ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i == 3) {
@@ -117,7 +117,7 @@ public class p {
 
     public static float g(JsonReader jsonReader) throws IOException {
         JsonReader.Token B = jsonReader.B();
-        int i = a.f41768a[B.ordinal()];
+        int i = a.f41863a[B.ordinal()];
         if (i != 1) {
             if (i == 2) {
                 jsonReader.n();

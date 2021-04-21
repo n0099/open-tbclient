@@ -13,7 +13,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import d.b.c.e.p.l;
-import d.b.i0.u3.c;
+import d.b.j0.u3.c;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
@@ -52,7 +52,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void f(ImageUrlData imageUrlData) {
-        this.f13382e = imageUrlData;
+        this.f13390e = imageUrlData;
         JSONArray jSONArray = null;
         if (imageUrlData != null) {
             try {
@@ -81,9 +81,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f13381h + AbsFloorImageTextView.i;
+                this.p = s + AbsFloorImageTextView.f13389h + AbsFloorImageTextView.i;
             } else {
-                this.p = r + AbsFloorImageTextView.f13381h + AbsFloorImageTextView.i;
+                this.p = r + AbsFloorImageTextView.f13389h + AbsFloorImageTextView.i;
             }
         } else {
             this.p = -2;
@@ -102,7 +102,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
         this.o = editorScrollView;
         editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.i);
-        this.o.setOnTouchListener(this.f13384g);
+        this.o.setOnTouchListener(this.f13392g);
         ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
         setVisibility(8);
     }

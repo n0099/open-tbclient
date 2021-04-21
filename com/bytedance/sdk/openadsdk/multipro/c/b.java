@@ -14,7 +14,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29578a;
+    public Context f29586a;
 
     public static boolean a(String str) {
         if (p.a() == null) {
@@ -70,7 +70,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     public static String f() {
-        return e.f29583b + "/t_frequent/";
+        return e.f29591b + "/t_frequent/";
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -105,7 +105,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f29578a = context;
+        this.f29586a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a

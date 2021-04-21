@@ -5,7 +5,7 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import d.b.i0.q2.a;
+import d.b.j0.q2.a;
 /* loaded from: classes3.dex */
 public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public final String REQUEST_BY_NATIVE;
@@ -17,7 +17,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, d.b.i0.d3.l0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, d.b.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str) && "requestByNative".equals(str2)) {
             try {

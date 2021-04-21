@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.diffdev.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public enum g {
     UUID_EXPIRED(402),
     UUID_CANCELED(403),

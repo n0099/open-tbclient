@@ -29,10 +29,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30198a = false;
+    public static boolean f30206a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.c.d.b.n.b f30199b;
+    public static d.c.d.b.n.b f30207b;
 
     /* loaded from: classes5.dex */
     public enum a {
@@ -42,16 +42,16 @@ public class b {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f30204d;
+        public final int f30212d;
 
         a(int i) {
-            this.f30204d = i;
+            this.f30212d = i;
         }
     }
 
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public enum EnumC0341b {
+    public enum EnumC0343b {
         NONE(0),
         MOBILE(1),
         MOBILE_2G(2),
@@ -61,10 +61,10 @@ public class b {
         
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f30212g;
+        public final int f30220g;
 
-        EnumC0341b(int i) {
-            this.f30212g = i;
+        EnumC0343b(int i) {
+            this.f30220g = i;
         }
     }
 
@@ -158,8 +158,8 @@ public class b {
         HttpURLConnection httpURLConnection = null;
         GZIPInputStream gZIPInputStream2 = null;
         try {
-            if (f30199b != null) {
-                str = f30199b.a(str, bArr);
+            if (f30207b != null) {
+                str = f30207b.a(str, bArr);
             }
             LinkedList<Pair> linkedList = new LinkedList();
             if (z2) {

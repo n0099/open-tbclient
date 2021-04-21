@@ -7,22 +7,22 @@ import com.ksad.lottie.model.a.l;
 public class g implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31822a;
+    public final String f31917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31823b;
+    public final com.ksad.lottie.model.a.b f31918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31824c;
+    public final com.ksad.lottie.model.a.b f31919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final l f31825d;
+    public final l f31920d;
 
     public g(String str, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2, l lVar) {
-        this.f31822a = str;
-        this.f31823b = bVar;
-        this.f31824c = bVar2;
-        this.f31825d = lVar;
+        this.f31917a = str;
+        this.f31918b = bVar;
+        this.f31919c = bVar2;
+        this.f31920d = lVar;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -32,18 +32,18 @@ public class g implements b {
     }
 
     public String a() {
-        return this.f31822a;
+        return this.f31917a;
     }
 
     public com.ksad.lottie.model.a.b b() {
-        return this.f31823b;
+        return this.f31918b;
     }
 
     public com.ksad.lottie.model.a.b c() {
-        return this.f31824c;
+        return this.f31919c;
     }
 
     public l d() {
-        return this.f31825d;
+        return this.f31920d;
     }
 }

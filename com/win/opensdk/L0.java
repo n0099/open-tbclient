@@ -9,14 +9,14 @@ public enum L0 {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40010a;
+    public String f40105a;
 
     L0(String str) {
-        this.f40010a = str;
+        this.f40105a = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f40010a;
+        return this.f40105a;
     }
 }

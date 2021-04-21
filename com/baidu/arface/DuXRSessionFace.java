@@ -301,7 +301,7 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        PermissionProxy permissionProxy = d.b.d0.a.a.o;
+        PermissionProxy permissionProxy = d.b.e0.a.a.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a());
         } else {

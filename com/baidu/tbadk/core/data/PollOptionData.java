@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.b.h0.r.q.o;
+import d.b.i0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PollOption;
@@ -23,7 +23,7 @@ public class PollOptionData extends o implements Serializable {
         return this.text;
     }
 
-    @Override // d.b.h0.r.q.o
+    @Override // d.b.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

@@ -11,10 +11,10 @@ import java.util.Collections;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41761a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", com.baidu.mapsdkplatform.comapi.map.r.f7699a, "hd");
+    public static final JsonReader.a f41856a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", com.baidu.mapsdkplatform.comapi.map.r.f7699a, "hd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41762b = JsonReader.a.a("p", Config.APP_KEY);
+    public static final JsonReader.a f41857b = JsonReader.a.a("p", Config.APP_KEY);
 
     public static d.a.a.u.j.d a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         d.a.a.u.i.d dVar2 = null;
@@ -26,7 +26,7 @@ public class m {
         d.a.a.u.i.f fVar2 = null;
         boolean z = false;
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41761a)) {
+            switch (jsonReader.D(f41856a)) {
                 case 0:
                     str = jsonReader.z();
                     break;
@@ -34,7 +34,7 @@ public class m {
                     int i = -1;
                     jsonReader.o();
                     while (jsonReader.t()) {
-                        int D = jsonReader.D(f41762b);
+                        int D = jsonReader.D(f41857b);
                         if (D == 0) {
                             i = jsonReader.x();
                         } else if (D != 1) {

@@ -8,78 +8,78 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f66738a = null;
+    public static Context f66833a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f66739b = 0;
+    public static long f66834b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66740c = "default";
+    public static String f66835c = "default";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f66741d = false;
+    public static boolean f66836d = false;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.c.d.b.h.b f66742e;
+    public static d.c.d.b.h.b f66837e;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile ConcurrentHashMap<Integer, String> f66745h;
+    public static volatile ConcurrentHashMap<Integer, String> f66840h;
     public static volatile int j;
     public static volatile String k;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f66743f = new c();
+    public static c f66838f = new c();
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f66744g = new d();
+    public static d f66839g = new d();
     public static d.c.d.b.h.k i = null;
 
     public static d.c.d.b.h.b a() {
-        return f66742e;
+        return f66837e;
     }
 
     public static void b(Context context, g gVar) {
-        f66739b = System.currentTimeMillis();
-        f66738a = context;
-        f66742e = new d.c.d.b.h.b(context, gVar);
+        f66834b = System.currentTimeMillis();
+        f66833a = context;
+        f66837e = new d.c.d.b.h.b(context, gVar);
     }
 
     public static d c() {
-        return f66744g;
+        return f66839g;
     }
 
     public static d.c.d.b.h.k d() {
         if (i == null) {
             synchronized (m.class) {
-                i = new d.c.d.b.h.k(f66738a);
+                i = new d.c.d.b.h.k(f66833a);
             }
         }
         return i;
     }
 
     public static Context e() {
-        return f66738a;
+        return f66833a;
     }
 
     public static c f() {
-        return f66743f;
+        return f66838f;
     }
 
     public static long g() {
-        return f66739b;
+        return f66834b;
     }
 
     public static String h() {
-        return f66740c;
+        return f66835c;
     }
 
     public static boolean i() {
-        return f66741d;
+        return f66836d;
     }
 
     public static ConcurrentHashMap<Integer, String> j() {
-        return f66745h;
+        return f66840h;
     }
 
     public static int k() {

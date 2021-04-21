@@ -13,13 +13,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.z0.i0;
-import d.b.i0.d2.i.c;
+import d.b.i0.z0.i0;
+import d.b.j0.d2.i.c;
 /* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f13381h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+    public static final int f13389h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
     public static final int i = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
     public static final int j = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
     public static final int k = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
@@ -27,31 +27,31 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static final int m = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageUrlData f13382e;
+    public ImageUrlData f13390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a f13383f;
+    public c.a f13391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f13384g;
+    public c f13392g;
 
     /* loaded from: classes3.dex */
     public class a implements c.a {
         public a() {
         }
 
-        @Override // d.b.i0.d2.i.c.a
+        @Override // d.b.j0.d2.i.c.a
         public boolean a(View view, MotionEvent motionEvent) {
             AbsFloorImageTextView.this.c();
             return true;
         }
 
-        @Override // d.b.i0.d2.i.c.a
+        @Override // d.b.j0.d2.i.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             return false;
         }
 
-        @Override // d.b.i0.d2.i.c.a
+        @Override // d.b.j0.d2.i.c.a
         public boolean c(View view, MotionEvent motionEvent) {
             return false;
         }
@@ -63,12 +63,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             super(aVar);
         }
 
-        @Override // d.b.i0.d2.i.c, android.view.GestureDetector.OnGestureListener
+        @Override // d.b.j0.d2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             return false;
         }
 
-        @Override // d.b.i0.d2.i.c, android.view.GestureDetector.OnGestureListener
+        @Override // d.b.j0.d2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             return false;
         }
@@ -77,8 +77,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
         a aVar = new a();
-        this.f13383f = aVar;
-        this.f13384g = new b(aVar);
+        this.f13391f = aVar;
+        this.f13392g = new b(aVar);
     }
 
     public void a(int i2) {
@@ -99,16 +99,16 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     public void c() {
-        ImageUrlData imageUrlData = this.f13382e;
+        ImageUrlData imageUrlData = this.f13390e;
         if (imageUrlData == null) {
             return;
         }
         String valueOf = String.valueOf(imageUrlData.threadId);
-        String valueOf2 = String.valueOf(this.f13382e.postId);
+        String valueOf2 = String.valueOf(this.f13390e.postId);
         PbActivityConfig pbActivityConfig = new PbActivityConfig(getContext());
-        ImageUrlData imageUrlData2 = this.f13382e;
+        ImageUrlData imageUrlData2 = this.f13390e;
         PbActivityConfig createHistoryCfg = pbActivityConfig.createHistoryCfg(valueOf, valueOf2, imageUrlData2.mIsSeeHost, imageUrlData2.mIsReserver, null);
-        if (this.f13382e.isFirstPost) {
+        if (this.f13390e.isFirstPost) {
             createHistoryCfg.setJumpToTopArea(true);
         } else {
             createHistoryCfg.setJumpToCommentArea(true);

@@ -29,16 +29,16 @@ import d.b.c.e.p.j;
 public class MemberCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f18604e;
+    public NoNetworkView f18612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f18605f;
+    public NavigationBar f18613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18606g;
+    public View f18614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18607h;
+    public View f18615h;
     public QuickWebView i;
     public String j;
     public boolean k = false;
@@ -56,7 +56,7 @@ public class MemberCenterFragment extends BaseFragment {
                 }
                 if (StringUtils.isNull(str) || !str.contains(UrlSchemaHelper.JUMP_TO_THIS_PAGE)) {
                     if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        d.b.h0.l.a.p(MemberCenterFragment.this.getPageContext().getContext(), null, str, false, true, false, false, false);
+                        d.b.i0.l.a.p(MemberCenterFragment.this.getPageContext().getContext(), null, str, false, true, false, false, false);
                         return true;
                     }
                     UrlManager.getInstance().dealOneLink((TbPageContext<?>) MemberCenterFragment.this.getPageContext(), new String[]{str}, true);
@@ -129,15 +129,15 @@ public class MemberCenterFragment extends BaseFragment {
     }
 
     public void H0() {
-        NavigationBar navigationBar = (NavigationBar) this.f18606g.findViewById(R.id.view_navigation_bar);
-        this.f18605f = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f18614g.findViewById(R.id.view_navigation_bar);
+        this.f18613f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f18605f.setTitleText(R.string.member_center);
-        SkinManager.setNavbarTitleColor(this.f18605f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        if (this.f18605f.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18605f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f18613f.setTitleText(R.string.member_center);
+        SkinManager.setNavbarTitleColor(this.f18613f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        if (this.f18613f.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18613f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.f18605f.showBottomLine(false);
+        this.f18613f.showBottomLine(false);
     }
 
     public final void I0() {
@@ -156,21 +156,21 @@ public class MemberCenterFragment extends BaseFragment {
 
     public final void K0() {
         QuickWebView quickWebView = this.i;
-        if (quickWebView == null || this.f18605f == null) {
+        if (quickWebView == null || this.f18613f == null) {
             return;
         }
         quickWebView.setVisibility(8);
-        this.f18605f.setVisibility(0);
-        showNetRefreshView(this.f18607h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+        this.f18613f.setVisibility(0);
+        showNetRefreshView(this.f18615h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
     }
 
     public final void L0() {
-        if (this.i == null || this.f18605f == null) {
+        if (this.i == null || this.f18613f == null) {
             return;
         }
-        hideNetRefreshView(this.f18607h);
+        hideNetRefreshView(this.f18615h);
         this.i.setVisibility(0);
-        this.f18605f.setVisibility(8);
+        this.f18613f.setVisibility(8);
     }
 
     public void loadData() {
@@ -194,8 +194,8 @@ public class MemberCenterFragment extends BaseFragment {
                 G0(this.j);
             }
         }
-        this.f18605f.onChangeSkinType(getPageContext(), i);
-        this.f18604e.c(getPageContext(), i);
+        this.f18613f.onChangeSkinType(getPageContext(), i);
+        this.f18612e.c(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -206,16 +206,16 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.index, (ViewGroup) null);
-        this.f18606g = inflate;
-        this.f18604e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.f18605f = (NavigationBar) this.f18606g.findViewById(R.id.view_navigation_bar);
+        this.f18614g = inflate;
+        this.f18612e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.f18613f = (NavigationBar) this.f18614g.findViewById(R.id.view_navigation_bar);
         H0();
-        this.f18607h = this.f18606g.findViewById(R.id.member_content_layout);
-        this.i = (QuickWebView) this.f18606g.findViewById(R.id.webview);
+        this.f18615h = this.f18614g.findViewById(R.id.member_content_layout);
+        this.i = (QuickWebView) this.f18614g.findViewById(R.id.webview);
         I0();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log("c10387");
-        return this.f18606g;
+        return this.f18614g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

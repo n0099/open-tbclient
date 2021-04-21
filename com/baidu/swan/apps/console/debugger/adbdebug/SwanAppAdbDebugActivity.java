@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
-import d.b.g0.a.h;
-import d.b.g0.a.i2.u;
-import d.b.g0.a.k;
-import d.b.g0.a.q1.b.b.g;
-import d.b.g0.a.q1.b.f.d;
+import d.b.h0.a.h;
+import d.b.h0.a.i2.u;
+import d.b.h0.a.k;
+import d.b.h0.a.q1.b.b.g;
+import d.b.h0.a.q1.b.f.d;
 /* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final String TAG = "SwanAppAdbDebugActivity";
 
     /* loaded from: classes2.dex */
@@ -32,16 +32,16 @@ public class SwanAppAdbDebugActivity extends Activity {
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f11792e;
+        public final /* synthetic */ Intent f11800e;
 
         public b(Intent intent) {
-            this.f11792e = intent;
+            this.f11800e = intent;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            this.f11792e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
-            SwanAppAdbDebugActivity.this.startActivity(this.f11792e);
+            this.f11800e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
+            SwanAppAdbDebugActivity.this.startActivity(this.f11800e);
             SwanAppAdbDebugActivity.this.finish();
         }
     }
@@ -66,7 +66,7 @@ public class SwanAppAdbDebugActivity extends Activity {
         g.a aVar = new g.a(this);
         aVar.V(getString(h.aiapps_adb_debug));
         aVar.y(getString(h.aiapps_adb_debug_alert));
-        aVar.n(new d.b.g0.a.j2.g.a());
+        aVar.n(new d.b.h0.a.j2.g.a());
         aVar.m(false);
         aVar.O(h.aiapps_confirm, new b(intent));
         aVar.C(h.aiapps_adb_debug_close, new a());

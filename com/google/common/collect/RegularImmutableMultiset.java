@@ -2,8 +2,8 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMultiset;
 import com.google.common.primitives.Ints;
-import d.g.c.c.i0;
-import d.g.c.c.k0;
+import d.h.c.c.i0;
+import d.h.c.c.k0;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
@@ -11,10 +11,10 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public final transient k0<E> contents;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient int f30997e;
+    public final transient int f31092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient ImmutableSet<E> f30998f;
+    public transient ImmutableSet<E> f31093f;
 
     /* loaded from: classes6.dex */
     public final class ElementSet extends IndexedImmutableSet<E> {
@@ -83,10 +83,10 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         for (int i = 0; i < k0Var.C(); i++) {
             j += k0Var.k(i);
         }
-        this.f30997e = Ints.j(j);
+        this.f31092e = Ints.j(j);
     }
 
-    @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+    @Override // com.google.common.collect.ImmutableMultiset, d.h.c.c.i0
     public int count(Object obj) {
         return this.contents.f(obj);
     }
@@ -101,9 +101,9 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         return false;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
     public int size() {
-        return this.f30997e;
+        return this.f31092e;
     }
 
     @Override // com.google.common.collect.ImmutableMultiset, com.google.common.collect.ImmutableCollection
@@ -112,12 +112,12 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+    @Override // com.google.common.collect.ImmutableMultiset, d.h.c.c.i0
     public ImmutableSet<E> elementSet() {
-        ImmutableSet<E> immutableSet = this.f30998f;
+        ImmutableSet<E> immutableSet = this.f31093f;
         if (immutableSet == null) {
             ElementSet elementSet = new ElementSet();
-            this.f30998f = elementSet;
+            this.f31093f = elementSet;
             return elementSet;
         }
         return immutableSet;

@@ -10,31 +10,31 @@ import java.io.IOException;
 public class e implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f35715b;
+    public final File f35810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f35716c;
+    public final long f35811c;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.glide.a.a f35718e;
+    public com.kwad.sdk.glide.a.a f35813e;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c f35717d = new c();
+    public final c f35812d = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public final j f35714a = new j();
+    public final j f35809a = new j();
 
     @Deprecated
     public e(File file, long j) {
-        this.f35715b = file;
-        this.f35716c = j;
+        this.f35810b = file;
+        this.f35811c = j;
     }
 
     private synchronized com.kwad.sdk.glide.a.a a() {
-        if (this.f35718e == null) {
-            this.f35718e = com.kwad.sdk.glide.a.a.a(this.f35715b, 1, 1, this.f35716c);
+        if (this.f35813e == null) {
+            this.f35813e = com.kwad.sdk.glide.a.a.a(this.f35810b, 1, 1, this.f35811c);
         }
-        return this.f35718e;
+        return this.f35813e;
     }
 
     public static a a(File file, long j) {
@@ -43,7 +43,7 @@ public class e implements a {
 
     @Override // com.kwad.sdk.glide.load.engine.a.a
     public File a(com.kwad.sdk.glide.load.c cVar) {
-        String a2 = this.f35714a.a(cVar);
+        String a2 = this.f35809a.a(cVar);
         if (Log.isLoggable(DiskLruCacheWrapper.TAG, 2)) {
             Log.v(DiskLruCacheWrapper.TAG, "Get: Obtained: " + a2 + " for for Key: " + cVar);
         }
@@ -65,8 +65,8 @@ public class e implements a {
     @Override // com.kwad.sdk.glide.load.engine.a.a
     public void a(com.kwad.sdk.glide.load.c cVar, a.b bVar) {
         com.kwad.sdk.glide.a.a a2;
-        String a3 = this.f35714a.a(cVar);
-        this.f35717d.a(a3);
+        String a3 = this.f35809a.a(cVar);
+        this.f35812d.a(a3);
         try {
             if (Log.isLoggable(DiskLruCacheWrapper.TAG, 2)) {
                 Log.v(DiskLruCacheWrapper.TAG, "Put: Obtained: " + a3 + " for for Key: " + cVar);
@@ -95,7 +95,7 @@ public class e implements a {
                 throw th;
             }
         } finally {
-            this.f35717d.b(a3);
+            this.f35812d.b(a3);
         }
     }
 }

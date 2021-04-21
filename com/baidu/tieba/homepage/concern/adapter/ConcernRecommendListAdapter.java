@@ -24,87 +24,87 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
-import d.b.h0.m.f;
-import d.b.h0.z0.l0;
+import d.b.i0.m.f;
+import d.b.i0.z0.l0;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16678a;
+    public Context f16686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f16679b;
+    public TbPageContext f16687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f16680c;
+    public BdUniqueId f16688c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16681d = 3;
+    public int f16689d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MetaData> f16682e;
+    public List<MetaData> f16690e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f<MetaData> f16683f;
+    public f<MetaData> f16691f;
 
     /* loaded from: classes4.dex */
     public class ForumViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f16684a;
+        public LinearLayout f16692a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f16685b;
+        public TextView f16693b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16686c;
+        public TextView f16694c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HeadPendantClickableView f16687d;
+        public HeadPendantClickableView f16695d;
 
         /* renamed from: e  reason: collision with root package name */
-        public DynamicUserLikeButton f16688e;
+        public DynamicUserLikeButton f16696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.b.h0.r.f0.q.c f16689f;
+        public d.b.i0.r.f0.q.c f16697f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f16690g;
+        public boolean f16698g;
 
         public ForumViewHolder(ConcernRecommendListAdapter concernRecommendListAdapter, View view) {
             super(view);
-            this.f16690g = false;
-            this.f16684a = (LinearLayout) view.findViewById(R.id.concern_container);
+            this.f16698g = false;
+            this.f16692a = (LinearLayout) view.findViewById(R.id.concern_container);
             HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.f16687d = headPendantClickableView;
+            this.f16695d = headPendantClickableView;
             headPendantClickableView.getHeadView().setIsRound(true);
-            this.f16687d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f16687d.getHeadView().setDefaultResource(17170445);
-            this.f16687d.getHeadView().setPlaceHolder(1);
-            this.f16687d.getHeadView().setBorderWidth(l.g(concernRecommendListAdapter.f16678a, R.dimen.tbds1));
-            this.f16687d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f16685b = (TextView) view.findViewById(R.id.concern_user_name);
-            this.f16686c = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.f16688e = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.f16689f = new d.b.h0.r.f0.q.c(concernRecommendListAdapter.f16679b, this.f16688e);
+            this.f16695d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f16695d.getHeadView().setDefaultResource(17170445);
+            this.f16695d.getHeadView().setPlaceHolder(1);
+            this.f16695d.getHeadView().setBorderWidth(l.g(concernRecommendListAdapter.f16686a, R.dimen.tbds1));
+            this.f16695d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f16693b = (TextView) view.findViewById(R.id.concern_user_name);
+            this.f16694c = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.f16696e = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.f16697f = new d.b.i0.r.f0.q.c(concernRecommendListAdapter.f16687b, this.f16696e);
         }
 
         public void a(int i) {
-            if (!this.f16690g) {
-                SkinManager.setViewTextColor(this.f16685b, R.color.CAM_X0105);
+            if (!this.f16698g) {
+                SkinManager.setViewTextColor(this.f16693b, R.color.CAM_X0105);
             } else {
-                SkinManager.setViewTextColor(this.f16685b, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(this.f16693b, R.color.CAM_X0301);
             }
-            SkinManager.setViewTextColor(this.f16686c, R.color.CAM_X0109);
-            this.f16688e.r(i);
-            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.f16684a);
+            SkinManager.setViewTextColor(this.f16694c, R.color.CAM_X0109);
+            this.f16696e.r(i);
+            d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.f16692a);
             d2.k(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
         }
 
         public void b(boolean z) {
-            this.f16690g = z;
+            this.f16698g = z;
         }
     }
 
@@ -112,14 +112,14 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f16691e;
+        public final /* synthetic */ MetaData f16699e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumViewHolder f16692f;
+        public final /* synthetic */ ForumViewHolder f16700f;
 
         public a(MetaData metaData, ForumViewHolder forumViewHolder) {
-            this.f16691e = metaData;
-            this.f16692f = forumViewHolder;
+            this.f16699e = metaData;
+            this.f16700f = forumViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
@@ -127,7 +127,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             StatisticItem statisticItem = new StatisticItem("c13566");
             statisticItem.param("obj_locate", 2);
             TiebaStatic.log(statisticItem);
-            ConcernRecommendListAdapter.this.i(this.f16691e, this.f16692f);
+            ConcernRecommendListAdapter.this.i(this.f16699e, this.f16700f);
         }
     }
 
@@ -135,15 +135,15 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public class b implements DynamicUserLikeButton.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MetaData f16694a;
+        public final /* synthetic */ MetaData f16702a;
 
         public b(ConcernRecommendListAdapter concernRecommendListAdapter, MetaData metaData) {
-            this.f16694a = metaData;
+            this.f16702a = metaData;
         }
 
         @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
         public void a(View view) {
-            MetaData metaData = this.f16694a;
+            MetaData metaData = this.f16702a;
             if (metaData == null) {
                 return;
             }
@@ -154,7 +154,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             StatisticItem statisticItem = new StatisticItem("c13566");
             statisticItem.param("obj_locate", 1);
             statisticItem.param("obj_id", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_param1", this.f16694a.getUserId());
+            statisticItem.param("obj_param1", this.f16702a.getUserId());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -163,32 +163,32 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f16695e;
+        public final /* synthetic */ MetaData f16703e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumViewHolder f16696f;
+        public final /* synthetic */ ForumViewHolder f16704f;
 
         public c(MetaData metaData, ForumViewHolder forumViewHolder) {
-            this.f16695e = metaData;
-            this.f16696f = forumViewHolder;
+            this.f16703e = metaData;
+            this.f16704f = forumViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MetaData metaData = this.f16695e;
+            MetaData metaData = this.f16703e;
             if (metaData == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13566");
             statisticItem.param("obj_locate", 2);
             TiebaStatic.log(statisticItem);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ConcernRecommendListAdapter.this.f16678a, this.f16695e.getUserId(), this.f16695e.getName_show())));
-            ConcernRecommendListAdapter.this.i(this.f16695e, this.f16696f);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ConcernRecommendListAdapter.this.f16686a, this.f16703e.getUserId(), this.f16703e.getName_show())));
+            ConcernRecommendListAdapter.this.i(this.f16703e, this.f16704f);
         }
     }
 
     public ConcernRecommendListAdapter(Context context) {
-        this.f16678a = context;
+        this.f16686a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -197,7 +197,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
         List<MetaData> list;
         MetaData metaData;
-        if (forumViewHolder == null || (list = this.f16682e) == null || (metaData = list.get(i)) == null) {
+        if (forumViewHolder == null || (list = this.f16690e) == null || (metaData = list.get(i)) == null) {
             return;
         }
         forumViewHolder.b(metaData.isNewGod());
@@ -205,20 +205,20 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         q(metaData, forumViewHolder);
         o(metaData, forumViewHolder);
         p(metaData, forumViewHolder);
-        f<MetaData> fVar = this.f16683f;
+        f<MetaData> fVar = this.f16691f;
         if (fVar != null) {
             fVar.c(forumViewHolder.itemView, metaData, i, i);
         }
-        forumViewHolder.a(this.f16681d);
+        forumViewHolder.a(this.f16689d);
     }
 
     public void g(int i) {
-        this.f16681d = i;
+        this.f16689d = i;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<MetaData> list = this.f16682e;
+        List<MetaData> list = this.f16690e;
         if (list == null) {
             return 0;
         }
@@ -229,12 +229,12 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: h */
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ForumViewHolder(this, LayoutInflater.from(this.f16678a).inflate(R.layout.concern_recommend_item, (ViewGroup) null));
+        return new ForumViewHolder(this, LayoutInflater.from(this.f16686a).inflate(R.layout.concern_recommend_item, (ViewGroup) null));
     }
 
     public final void i(MetaData metaData, ForumViewHolder forumViewHolder) {
-        if (this.f16683f != null) {
-            this.f16683f.a(forumViewHolder.itemView, metaData, forumViewHolder.getAdapterPosition(), forumViewHolder.getItemId());
+        if (this.f16691f != null) {
+            this.f16691f.a(forumViewHolder.itemView, metaData, forumViewHolder.getAdapterPosition(), forumViewHolder.getItemId());
         }
     }
 
@@ -242,20 +242,20 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     }
 
     public void k(f<MetaData> fVar) {
-        this.f16683f = fVar;
+        this.f16691f = fVar;
     }
 
     public void l(TbPageContext tbPageContext) {
-        this.f16679b = tbPageContext;
+        this.f16687b = tbPageContext;
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        this.f16680c = bdUniqueId;
+        this.f16688c = bdUniqueId;
     }
 
     public final void n(MetaData metaData, ForumViewHolder forumViewHolder) {
-        forumViewHolder.f16687d.setData(metaData, true);
-        forumViewHolder.f16687d.setAfterClickListener(new a(metaData, forumViewHolder));
+        forumViewHolder.f16695d.setData(metaData, true);
+        forumViewHolder.f16695d.setAfterClickListener(new a(metaData, forumViewHolder));
     }
 
     public final void o(MetaData metaData, ForumViewHolder forumViewHolder) {
@@ -274,14 +274,14 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 str = fieldName + l0.c(metaData.isVideoGod());
             }
         }
-        forumViewHolder.f16686c.setText(str);
+        forumViewHolder.f16694c.setText(str);
     }
 
     public final void p(MetaData metaData, ForumViewHolder forumViewHolder) {
-        forumViewHolder.f16688e.setOnClickEvent(new b(this, metaData));
-        d.b.h0.r.f0.q.c cVar = forumViewHolder.f16689f;
+        forumViewHolder.f16696e.setOnClickEvent(new b(this, metaData));
+        d.b.i0.r.f0.q.c cVar = forumViewHolder.f16697f;
         if (cVar != null) {
-            cVar.l(this.f16680c);
+            cVar.l(this.f16688c);
             cVar.n(metaData);
         }
     }
@@ -296,14 +296,14 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         } else {
             str = (metaData.getBaijiahaoInfo() == null || StringUtils.isNull(metaData.getBaijiahaoInfo().name)) ? "" : metaData.getBaijiahaoInfo().name;
         }
-        forumViewHolder.f16685b.setText(str);
+        forumViewHolder.f16693b.setText(str);
         if (metaData.isNewGod()) {
-            SkinManager.setViewTextColor(forumViewHolder.f16685b, R.color.CAM_X0301);
+            SkinManager.setViewTextColor(forumViewHolder.f16693b, R.color.CAM_X0301);
         }
-        forumViewHolder.f16685b.setOnClickListener(new c(metaData, forumViewHolder));
+        forumViewHolder.f16693b.setOnClickListener(new c(metaData, forumViewHolder));
     }
 
     public void setData(List<MetaData> list) {
-        this.f16682e = list;
+        this.f16690e = list;
     }
 }

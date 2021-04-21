@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.filter;
 import android.graphics.Bitmap;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class IterativeBoxBlurFilter {
     public static final String TAG = "IterativeBoxBlurFilter";
 

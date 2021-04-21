@@ -24,7 +24,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
 import d.b.c.c.f.b;
-import d.b.i0.d3.h0.m;
+import d.b.j0.d3.h0.m;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;

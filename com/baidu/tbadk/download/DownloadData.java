@@ -1,7 +1,7 @@
 package com.baidu.tbadk.download;
 
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
-import d.b.h0.v.c;
+import d.b.i0.v.c;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DownloadData implements Serializable, Cloneable {

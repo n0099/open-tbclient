@@ -3,8 +3,8 @@ package com.baidu.tieba.addresslist.relationship;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-import d.b.h0.r.d0.b;
-import d.b.i0.q.f.a;
+import d.b.i0.r.d0.b;
+import d.b.j0.q.f.a;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
 /* loaded from: classes4.dex */

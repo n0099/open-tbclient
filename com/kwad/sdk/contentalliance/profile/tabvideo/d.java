@@ -14,35 +14,35 @@ import org.json.JSONObject;
 public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f33223c;
+    public SceneImpl f33318c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProfileTabVideoParam f33224d;
+    public ProfileTabVideoParam f33319d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33225e;
+    public int f33320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f33226f;
+    public String f33321f;
 
     public d(SceneImpl sceneImpl, ProfileTabVideoParam profileTabVideoParam) {
-        this.f33223c = sceneImpl;
-        this.f33224d = profileTabVideoParam;
+        this.f33318c = sceneImpl;
+        this.f33319d = profileTabVideoParam;
     }
 
     @Override // com.kwad.sdk.lib.b.b
     public i<g, AdResultData> a() {
         final p.a aVar = new p.a();
-        aVar.f34125e = this.f33226f;
-        f fVar = new f(this.f33223c);
-        fVar.f33941b = this.f33223c.getPageScene();
-        aVar.f34121a = fVar;
-        ProfileTabVideoParam profileTabVideoParam = this.f33224d;
-        aVar.f34123c = profileTabVideoParam.mAuthorId;
-        aVar.f34124d = profileTabVideoParam.mTabId;
+        aVar.f34220e = this.f33321f;
+        f fVar = new f(this.f33318c);
+        fVar.f34036b = this.f33318c.getPageScene();
+        aVar.f34216a = fVar;
+        ProfileTabVideoParam profileTabVideoParam = this.f33319d;
+        aVar.f34218c = profileTabVideoParam.mAuthorId;
+        aVar.f34219d = profileTabVideoParam.mTabId;
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
-        cVar.f33929d = this.f33225e;
-        aVar.f34122b = cVar;
+        cVar.f34024d = this.f33320e;
+        aVar.f34217b = cVar;
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.i
@@ -50,7 +50,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(aVar.f34121a.f33940a);
+                AdResultData adResultData = new AdResultData(aVar.f34216a.f34035a);
                 adResultData.parseJson(jSONObject);
                 if (!adResultData.adTemplateList.isEmpty()) {
                     for (AdTemplate adTemplate : adResultData.adTemplateList) {
@@ -73,7 +73,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.b.b
     public List<AdTemplate> a(AdResultData adResultData) {
-        this.f33225e++;
+        this.f33320e++;
         return adResultData.adTemplateList;
     }
 
@@ -81,7 +81,7 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     @Override // com.kwad.sdk.lib.b.b
     public boolean b(AdResultData adResultData) {
         String str = adResultData.pcursor;
-        this.f33226f = str;
+        this.f33321f = str;
         return !"0".equals(str);
     }
 }

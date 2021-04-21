@@ -24,7 +24,7 @@ import java.util.Iterator;
 public class ba extends bi.a implements cs.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f41278a;
+    public long f41373a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f919a;
@@ -69,7 +69,7 @@ public class ba extends bi.a implements cs.a {
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e2) {
-                gz.a(0, ew.GSLB_ERR.a(), 1, null, com.xiaomi.push.bg.c(cs.f40624a) ? 1 : 0);
+                gz.a(0, ew.GSLB_ERR.a(), 1, null, com.xiaomi.push.bg.c(cs.f40719a) ? 1 : 0);
                 throw e2;
             }
         }
@@ -100,9 +100,9 @@ public class ba extends bi.a implements cs.a {
     @Override // com.xiaomi.push.service.bi.a
     public void a(du.b bVar) {
         co b2;
-        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f41278a > VideoCloudSetting.HOUR_MILLISECOND) {
+        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f41373a > VideoCloudSetting.HOUR_MILLISECOND) {
             com.xiaomi.channel.commonutils.logger.b.m55a("fetch bucket :" + bVar.a());
-            this.f41278a = System.currentTimeMillis();
+            this.f41373a = System.currentTimeMillis();
             cs a2 = cs.a();
             a2.m216a();
             a2.m219b();

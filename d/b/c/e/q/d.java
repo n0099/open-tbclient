@@ -3,5 +3,5 @@ package d.b.c.e.q;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42547a = 300000;
+    public static int f42787a = 300000;
 }

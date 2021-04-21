@@ -8,7 +8,7 @@ import android.view.View;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import d.b.h0.r.s.l;
+import d.b.i0.r.s.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */

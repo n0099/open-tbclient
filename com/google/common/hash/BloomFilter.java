@@ -2,10 +2,10 @@ package com.google.common.hash;
 
 import com.google.common.hash.BloomFilterStrategies;
 import com.google.common.primitives.SignedBytes;
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.a.o;
-import d.g.c.g.b;
+import d.h.c.a.k;
+import d.h.c.a.n;
+import d.h.c.a.o;
+import d.h.c.g.b;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         public final Strategy strategy;
 
         public SerialForm(BloomFilter<T> bloomFilter) {
-            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f31092a);
+            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f31187a);
             this.numHashFunctions = bloomFilter.numHashFunctions;
             this.funnel = bloomFilter.funnel;
             this.strategy = bloomFilter.strategy;
@@ -112,7 +112,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         return new SerialForm(this);
     }
 
-    @Override // d.g.c.a.o
+    @Override // d.h.c.a.o
     @Deprecated
     public boolean apply(T t) {
         return mightContain(t);
@@ -120,7 +120,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
 
     public long approximateElementCount() {
         double b2 = this.bits.b();
-        return d.g.c.f.a.c(((-Math.log1p(-(this.bits.a() / b2))) * b2) / this.numHashFunctions, RoundingMode.HALF_UP);
+        return d.h.c.f.a.c(((-Math.log1p(-(this.bits.a() / b2))) * b2) / this.numHashFunctions, RoundingMode.HALF_UP);
     }
 
     public long bitSize() {
@@ -131,7 +131,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         return new BloomFilter<>(this.bits.c(), this.numHashFunctions, this.funnel, this.strategy);
     }
 
-    @Override // d.g.c.a.o
+    @Override // d.h.c.a.o
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
@@ -178,9 +178,9 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
         dataOutputStream.writeByte(SignedBytes.a(this.strategy.ordinal()));
         dataOutputStream.writeByte(b.a(this.numHashFunctions));
-        dataOutputStream.writeInt(this.bits.f31092a.length());
-        for (int i = 0; i < this.bits.f31092a.length(); i++) {
-            dataOutputStream.writeLong(this.bits.f31092a.get(i));
+        dataOutputStream.writeInt(this.bits.f31187a.length());
+        for (int i = 0; i < this.bits.f31187a.length(); i++) {
+            dataOutputStream.writeLong(this.bits.f31187a.get(i));
         }
     }
 

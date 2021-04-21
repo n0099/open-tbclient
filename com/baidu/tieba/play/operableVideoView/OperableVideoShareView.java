@@ -22,25 +22,25 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import d.b.c.e.p.k;
-import d.b.h0.r.q.a2;
-import d.b.h0.z0.l;
-import d.b.i0.j2.q.d;
+import d.b.i0.r.q.a2;
+import d.b.i0.z0.l;
+import d.b.j0.j2.q.d;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OperableVideoShareView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public d f20221e;
+    public d f20229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20222f;
+    public View f20230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20223g;
+    public ImageView f20231g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20224h;
+    public View f20232h;
     public ImageView i;
     public View j;
     public ImageView k;
@@ -61,9 +61,9 @@ public class OperableVideoShareView extends LinearLayout {
             if (l.a()) {
                 return;
             }
-            if (view == OperableVideoShareView.this.f20222f) {
+            if (view == OperableVideoShareView.this.f20230f) {
                 OperableVideoShareView.this.i(3);
-            } else if (view == OperableVideoShareView.this.f20224h) {
+            } else if (view == OperableVideoShareView.this.f20232h) {
                 OperableVideoShareView.this.i(2);
             } else if (view == OperableVideoShareView.this.j) {
                 OperableVideoShareView.this.i(8);
@@ -81,8 +81,8 @@ public class OperableVideoShareView extends LinearLayout {
     public void e(boolean z, boolean z2) {
         int g2;
         int g3;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20224h.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f20222f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20232h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f20230f.getLayoutParams();
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.l.getLayoutParams();
         LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.m.getLayoutParams();
@@ -144,20 +144,20 @@ public class OperableVideoShareView extends LinearLayout {
 
     public final void h() {
         LinearLayout.inflate(getContext(), getLayoutR(), this);
-        this.f20222f = findViewById(R.id.share_weixin);
-        this.f20223g = (ImageView) findViewById(R.id.share_weixin_img);
-        this.f20224h = findViewById(R.id.share_weixin_timeline);
+        this.f20230f = findViewById(R.id.share_weixin);
+        this.f20231g = (ImageView) findViewById(R.id.share_weixin_img);
+        this.f20232h = findViewById(R.id.share_weixin_timeline);
         this.i = (ImageView) findViewById(R.id.share_weixin_timeline_img);
         this.j = findViewById(R.id.share_qq);
         this.k = (ImageView) findViewById(R.id.share_qq_img);
         this.l = findViewById(R.id.divider_line);
         this.m = findViewById(R.id.video_replay);
         this.n = (ImageView) findViewById(R.id.replay_img);
-        this.f20222f.setOnClickListener(this.q);
-        this.f20224h.setOnClickListener(this.q);
+        this.f20230f.setOnClickListener(this.q);
+        this.f20232h.setOnClickListener(this.q);
         this.j.setOnClickListener(this.q);
         setOnClickListener(this.q);
-        this.f20223g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
+        this.f20231g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
         this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
         this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_qq40_svg, 1, false));
         this.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_replay44_svg, R.color.CAM_X0105, null, false));
@@ -208,7 +208,7 @@ public class OperableVideoShareView extends LinearLayout {
         shareItem.p = i0;
         shareItem.J = w1;
         shareItem.K = this.o.L0();
-        shareItem.f13380h = true;
+        shareItem.f13388h = true;
         shareItem.D = 3;
         shareItem.L = g(this.o);
         if (parse != null) {
@@ -247,14 +247,14 @@ public class OperableVideoShareView extends LinearLayout {
         this.o = a2Var;
         if (a2Var != null && !a2Var.y2()) {
             this.j.setVisibility(0);
-            this.f20222f.setVisibility(0);
-            this.f20224h.setVisibility(0);
+            this.f20230f.setVisibility(0);
+            this.f20232h.setVisibility(0);
             this.l.setVisibility(0);
             return;
         }
         this.j.setVisibility(8);
-        this.f20222f.setVisibility(8);
-        this.f20224h.setVisibility(8);
+        this.f20230f.setVisibility(8);
+        this.f20232h.setVisibility(8);
         this.l.setVisibility(8);
     }
 
@@ -263,7 +263,7 @@ public class OperableVideoShareView extends LinearLayout {
     }
 
     public void setVideoContainer(d dVar) {
-        this.f20221e = dVar;
+        this.f20229e = dVar;
         this.m.setOnClickListener(dVar);
     }
 

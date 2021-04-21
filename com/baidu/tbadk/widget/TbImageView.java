@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import d.b.c.a.i;
 import d.b.c.a.j;
 import d.b.c.f.a.a;
-import d.b.i0.d2.i.c;
+import d.b.j0.d2.i.c;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -62,22 +62,22 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public f U;
     public g V;
     public View.OnClickListener W;
-    public d.b.i0.d2.i.c a0;
+    public d.b.j0.d2.i.c a0;
     public TbRichTextView.v b0;
     public boolean c0;
     public RectF d0;
     public Path e0;
     public RectF f0;
     public final Matrix g0;
-    public d.b.h0.b1.c h0;
+    public d.b.i0.b1.c h0;
     public String i0;
     public int j0;
     public boolean k0;
     public int l0;
     public int m0;
-    public final d.b.i0.d2.i.c n0;
+    public final d.b.j0.d2.i.c n0;
     public final d.b.c.e.l.c<d.b.c.j.d.a> o0;
-    public a.InterfaceC0562a p0;
+    public a.InterfaceC0581a p0;
     public CustomMessageListener q0;
     public BdUniqueId v;
     public boolean w;
@@ -90,7 +90,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         public a() {
         }
 
-        @Override // d.b.i0.d2.i.c.a
+        @Override // d.b.j0.d2.i.c.a
         public boolean a(View view, MotionEvent motionEvent) {
             if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.c0) {
                 if (TbImageView.this.W != null) {
@@ -110,7 +110,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return true;
         }
 
-        @Override // d.b.i0.d2.i.c.a
+        @Override // d.b.j0.d2.i.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             if (TbImageView.this.a0 != null) {
                 TbImageView.this.a0.a(view);
@@ -119,7 +119,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return false;
         }
 
-        @Override // d.b.i0.d2.i.c.a
+        @Override // d.b.j0.d2.i.c.a
         public boolean c(View view, MotionEvent motionEvent) {
             return false;
         }
@@ -158,7 +158,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 if (eVar != null) {
                     d.b.c.e.l.a.d(i == 1, i == 2, i == 3);
                     if (i == 3) {
-                        d.b.c.e.l.a.e(true, System.currentTimeMillis() - eVar.f13777c);
+                        d.b.c.e.l.a.e(true, System.currentTimeMillis() - eVar.f13785c);
                     }
                     TbImageView.this.y.remove(g2);
                 }
@@ -173,11 +173,11 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes3.dex */
-    public class c implements a.InterfaceC0562a {
+    public class c implements a.InterfaceC0581a {
         public c() {
         }
 
-        @Override // d.b.c.f.a.a.InterfaceC0562a
+        @Override // d.b.c.f.a.a.InterfaceC0581a
         public boolean a(Canvas canvas, Drawable drawable) {
             if (TbImageView.this.getBdImage() == null && TbImageView.this.k0) {
                 TbImageView.this.F(canvas, drawable);
@@ -235,13 +235,13 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13775a;
+        public String f13783a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13776b;
+        public int f13784b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f13777c;
+        public long f13785c;
 
         public e() {
         }
@@ -283,7 +283,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         this.k0 = false;
         this.l0 = 0;
         this.m0 = 0;
-        this.n0 = new d.b.i0.d2.i.c(new a());
+        this.n0 = new d.b.j0.d2.i.c(new a());
         this.o0 = new b();
         this.p0 = new c();
         this.q0 = new d(2016308);
@@ -293,7 +293,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     private void G() {
         this.x = new HashMap<>();
         this.y = new HashMap<>();
-        this.h0 = new d.b.h0.b1.c(this);
+        this.h0 = new d.b.i0.b1.c(this);
         d0();
         this.E = 30.0f;
         setConrers(0);
@@ -327,30 +327,30 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         this.e0.reset();
         this.d0.right = getWidth();
         this.d0.bottom = getHeight();
-        this.e0.addRoundRect(this.d0, this.f2217h.f42655a, Path.Direction.CW);
+        this.e0.addRoundRect(this.d0, this.f2217h.f42895a, Path.Direction.CW);
         int i = this.j0 ^ 15;
         RectF rectF = new RectF(0.0f, 0.0f, getWidth(), getHeight());
         if ((i & 1) != 0) {
             Path path = this.e0;
-            float[] fArr = this.f2217h.f42655a;
+            float[] fArr = this.f2217h.f42895a;
             path.addRect(0.0f, 0.0f, fArr[0], fArr[1], Path.Direction.CW);
         }
         if ((i & 2) != 0) {
             Path path2 = this.e0;
             float f2 = rectF.right;
-            float[] fArr2 = this.f2217h.f42655a;
+            float[] fArr2 = this.f2217h.f42895a;
             path2.addRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], Path.Direction.CW);
         }
         if ((i & 4) != 0) {
             Path path3 = this.e0;
             float f3 = rectF.bottom;
-            float[] fArr3 = this.f2217h.f42655a;
+            float[] fArr3 = this.f2217h.f42895a;
             path3.addRect(0.0f, f3 - fArr3[5], fArr3[4], f3, Path.Direction.CW);
         }
         if ((i & 8) != 0) {
             Path path4 = this.e0;
             float f4 = rectF.right;
-            float[] fArr4 = this.f2217h.f42655a;
+            float[] fArr4 = this.f2217h.f42895a;
             float f5 = rectF.bottom;
             path4.addRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, Path.Direction.CW);
         }
@@ -401,25 +401,25 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 int i = this.j0 ^ 15;
                 this.f0.set(0.0f, 0.0f, getWidth(), getHeight());
                 if ((i & 1) != 0) {
-                    float[] fArr = this.f2217h.f42655a;
-                    canvas.drawRect(0.0f, 0.0f, fArr[0], fArr[1], this.i.f42642b);
+                    float[] fArr = this.f2217h.f42895a;
+                    canvas.drawRect(0.0f, 0.0f, fArr[0], fArr[1], this.i.f42882b);
                 }
                 if ((i & 2) != 0) {
                     float f2 = this.f0.right;
-                    float[] fArr2 = this.f2217h.f42655a;
-                    canvas.drawRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], this.i.f42642b);
+                    float[] fArr2 = this.f2217h.f42895a;
+                    canvas.drawRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], this.i.f42882b);
                 }
                 if ((i & 4) != 0) {
                     float f3 = this.f0.bottom;
-                    float[] fArr3 = this.f2217h.f42655a;
-                    canvas.drawRect(0.0f, f3 - fArr3[5], fArr3[4], f3, this.i.f42642b);
+                    float[] fArr3 = this.f2217h.f42895a;
+                    canvas.drawRect(0.0f, f3 - fArr3[5], fArr3[4], f3, this.i.f42882b);
                 }
                 if ((i & 8) != 0) {
                     RectF rectF = this.f0;
                     float f4 = rectF.right;
-                    float[] fArr4 = this.f2217h.f42655a;
+                    float[] fArr4 = this.f2217h.f42895a;
                     float f5 = rectF.bottom;
-                    canvas.drawRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, this.i.f42642b);
+                    canvas.drawRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, this.i.f42882b);
                 }
             }
         }
@@ -431,32 +431,32 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 setDrawerType(1);
                 int i = this.j0 ^ 15;
                 this.f0.set(0.0f, 0.0f, getWidth(), getHeight());
-                this.i.f42643c.setStrokeWidth(this.i.f42643c.getStrokeWidth());
+                this.i.f42883c.setStrokeWidth(this.i.f42883c.getStrokeWidth());
                 if ((i & 1) != 0) {
-                    canvas.drawLine(0.0f, 0.0f, this.f2217h.f42655a[0], 0.0f, this.i.f42643c);
-                    canvas.drawLine(0.0f, 0.0f, 0.0f, this.f2217h.f42655a[1], this.i.f42643c);
+                    canvas.drawLine(0.0f, 0.0f, this.f2217h.f42895a[0], 0.0f, this.i.f42883c);
+                    canvas.drawLine(0.0f, 0.0f, 0.0f, this.f2217h.f42895a[1], this.i.f42883c);
                 }
                 if ((i & 2) != 0) {
                     float f2 = this.f0.right;
-                    canvas.drawLine(f2 - this.f2217h.f42655a[2], 0.0f, f2, 0.0f, this.i.f42643c);
+                    canvas.drawLine(f2 - this.f2217h.f42895a[2], 0.0f, f2, 0.0f, this.i.f42883c);
                     float f3 = this.f0.right;
-                    canvas.drawLine(f3, 0.0f, f3, this.f2217h.f42655a[3], this.i.f42643c);
+                    canvas.drawLine(f3, 0.0f, f3, this.f2217h.f42895a[3], this.i.f42883c);
                 }
                 if ((i & 4) != 0) {
                     float f4 = this.f0.bottom;
-                    canvas.drawLine(0.0f, f4 - this.f2217h.f42655a[5], 0.0f, f4, this.i.f42643c);
+                    canvas.drawLine(0.0f, f4 - this.f2217h.f42895a[5], 0.0f, f4, this.i.f42883c);
                     float f5 = this.f0.bottom;
-                    canvas.drawLine(0.0f, f5, this.f2217h.f42655a[4], f5, this.i.f42643c);
+                    canvas.drawLine(0.0f, f5, this.f2217h.f42895a[4], f5, this.i.f42883c);
                 }
                 if ((i & 8) != 0) {
                     RectF rectF = this.f0;
                     float f6 = rectF.right;
                     float f7 = rectF.bottom;
-                    canvas.drawLine(f6 - this.f2217h.f42655a[6], f7, f6, f7, this.i.f42643c);
+                    canvas.drawLine(f6 - this.f2217h.f42895a[6], f7, f6, f7, this.i.f42883c);
                     RectF rectF2 = this.f0;
                     float f8 = rectF2.right;
                     float f9 = rectF2.bottom;
-                    canvas.drawLine(f8, f9, f8, f9 - this.f2217h.f42655a[7], this.i.f42643c);
+                    canvas.drawLine(f8, f9, f8, f9 - this.f2217h.f42895a[7], this.i.f42883c);
                 }
             }
         }
@@ -544,9 +544,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             }
             String g2 = d.b.c.e.l.d.h().g(str, i);
             e eVar = new e();
-            eVar.f13775a = str;
-            eVar.f13776b = i;
-            eVar.f13777c = System.currentTimeMillis();
+            eVar.f13783a = str;
+            eVar.f13784b = i;
+            eVar.f13785c = System.currentTimeMillis();
             this.y.put(g2, eVar);
             if (TbadkCoreApplication.getInst().isPicReqSwitchOn()) {
                 String g3 = d.b.c.e.l.d.h().g(str, i);
@@ -554,8 +554,8 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     return;
                 }
                 e eVar2 = new e();
-                eVar2.f13775a = str;
-                eVar2.f13776b = i;
+                eVar2.f13783a = str;
+                eVar2.f13784b = i;
                 this.x.put(g3, eVar2);
                 return;
             }
@@ -612,9 +612,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public final void d0() {
         boolean z = false;
         if (this.S) {
-            this.f2217h.f42660f = (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) ? true : true;
+            this.f2217h.f42900f = (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) ? true : true;
         } else {
-            this.f2217h.f42660f = false;
+            this.f2217h.f42900f = false;
         }
         int i = this.D ? this.G : this.H;
         if (i != this.J) {
@@ -654,7 +654,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         }
         if (eVar.i && (this.K || I())) {
             this.h0.a(canvas, getContext().getString(R.string.icon_tag_gif), true);
-        } else if (this.f2217h.f42662h && J()) {
+        } else if (this.f2217h.f42902h && J()) {
             this.h0.a(canvas, getContext().getString(R.string.icon_tag_long), true);
         } else {
             String str = this.i0;
@@ -663,9 +663,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             }
         }
         int i = this.f2217h.j;
-        if (i == d.b.c.f.a.b.f42651c) {
+        if (i == d.b.c.f.a.b.f42891c) {
             this.h0.b(canvas, getContext().getString(R.string.wonderful_comment), R.color.CAM_X0305);
-        } else if (i == d.b.c.f.a.b.f42650b) {
+        } else if (i == d.b.c.f.a.b.f42890b) {
             this.h0.b(canvas, getContext().getString(R.string.god_level_comment), R.color.CAM_X0310);
         }
     }
@@ -677,9 +677,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             Object tag = getTag();
             if (tag instanceof String) {
                 String str = (String) tag;
-                aVar = d.b.h0.a0.c.k().m(str);
+                aVar = d.b.i0.a0.c.k().m(str);
                 if (aVar == null) {
-                    aVar = d.b.h0.a0.c.k().l(str);
+                    aVar = d.b.i0.a0.c.k().l(str);
                 }
             } else {
                 aVar = null;
@@ -741,7 +741,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public int getGifIconHeight() {
-        d.b.h0.b1.c cVar = this.h0;
+        d.b.i0.b1.c cVar = this.h0;
         if (cVar != null) {
             return (int) cVar.d(getContext().getString(R.string.icon_tag_gif));
         }
@@ -749,7 +749,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public int getGifIconWidth() {
-        d.b.h0.b1.c cVar = this.h0;
+        d.b.i0.b1.c cVar = this.h0;
         if (cVar != null) {
             return (int) cVar.e(getContext().getString(R.string.icon_tag_gif));
         }
@@ -772,7 +772,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
 
     public float[] getRadius() {
         d.b.c.f.a.e eVar = this.f2217h;
-        return eVar == null ? BDImageView.j(0.0f) : eVar.f42655a;
+        return eVar == null ? BDImageView.j(0.0f) : eVar.f42895a;
     }
 
     public float getSmartCropCenterPointHeightRatio() {
@@ -848,7 +848,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 next.getKey();
                 e value = next.getValue();
                 it.remove();
-                d.b.c.e.l.d.h().k(value.f13775a, value.f13776b, this.o0, this.B, this.C, this.v, new Object[0]);
+                d.b.c.e.l.d.h().k(value.f13783a, value.f13784b, this.o0, this.B, this.C, this.v, new Object[0]);
             }
             return true;
         }
@@ -1036,14 +1036,14 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public void setTagColor(int i) {
-        d.b.h0.b1.c cVar = this.h0;
+        d.b.i0.b1.c cVar = this.h0;
         if (cVar != null) {
             cVar.h(i);
         }
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        d.b.h0.b1.c cVar = this.h0;
+        d.b.i0.b1.c cVar = this.h0;
         if (cVar != null) {
             cVar.g(i, i2);
         }
@@ -1054,13 +1054,13 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public void setTagTextSize(int i) {
-        d.b.h0.b1.c cVar = this.h0;
+        d.b.i0.b1.c cVar = this.h0;
         if (cVar != null) {
             cVar.i(i);
         }
     }
 
-    public void setTbGestureDetector(d.b.i0.d2.i.c cVar) {
+    public void setTbGestureDetector(d.b.j0.d2.i.c cVar) {
         super.setOnTouchListener(this.n0);
         this.a0 = cVar;
     }
@@ -1091,7 +1091,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         this.k0 = false;
         this.l0 = 0;
         this.m0 = 0;
-        this.n0 = new d.b.i0.d2.i.c(new a());
+        this.n0 = new d.b.j0.d2.i.c(new a());
         this.o0 = new b();
         this.p0 = new c();
         this.q0 = new d(2016308);

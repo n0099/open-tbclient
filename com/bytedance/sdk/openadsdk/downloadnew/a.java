@@ -12,7 +12,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.a.g;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
-import d.o.a.d.f.a.a;
+import d.p.a.d.f.a.a;
 /* loaded from: classes5.dex */
 public class a {
     public static com.bytedance.sdk.openadsdk.downloadnew.core.a a(Context context, l lVar, String str) {
@@ -34,8 +34,8 @@ public class a {
     }
 
     public static boolean a(Activity activity, final ExitInstallListener exitInstallListener) {
-        return d.o.a.d.f.a.a.a().h(activity, false, new a.b() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.1
-            @Override // d.o.a.d.f.a.a.b
+        return d.p.a.d.f.a.a.a().h(activity, false, new a.b() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.1
+            @Override // d.p.a.d.f.a.a.b
             public void a() {
                 ExitInstallListener exitInstallListener2 = ExitInstallListener.this;
                 if (exitInstallListener2 != null) {

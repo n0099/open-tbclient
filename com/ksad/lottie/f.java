@@ -27,18 +27,18 @@ import java.util.Set;
 public class f extends Drawable implements Animatable, Drawable.Callback {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31691c = f.class.getSimpleName();
+    public static final String f31786c = f.class.getSimpleName();
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public com.ksad.lottie.a f31692a;
+    public com.ksad.lottie.a f31787a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public m f31693b;
+    public m f31788b;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f31695e;
+    public d f31790e;
     @Nullable
     public com.ksad.lottie.b.b j;
     @Nullable
@@ -53,16 +53,16 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     public boolean q;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Matrix f31694d = new Matrix();
+    public final Matrix f31789d = new Matrix();
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.d.c f31696f = new com.ksad.lottie.d.c();
+    public final com.ksad.lottie.d.c f31791f = new com.ksad.lottie.d.c();
 
     /* renamed from: g  reason: collision with root package name */
-    public float f31697g = 1.0f;
+    public float f31792g = 1.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<Object> f31698h = new HashSet();
+    public final Set<Object> f31793h = new HashSet();
     public final ArrayList<a> i = new ArrayList<>();
     public int p = 255;
 
@@ -72,30 +72,30 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public f() {
-        this.f31696f.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.ksad.lottie.f.1
+        this.f31791f.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.ksad.lottie.f.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (f.this.o != null) {
-                    f.this.o.a(f.this.f31696f.d());
+                    f.this.o.a(f.this.f31791f.d());
                 }
             }
         });
     }
 
     private float a(@NonNull Canvas canvas) {
-        return Math.min(canvas.getWidth() / this.f31695e.b().width(), canvas.getHeight() / this.f31695e.b().height());
+        return Math.min(canvas.getWidth() / this.f31790e.b().width(), canvas.getHeight() / this.f31790e.b().height());
     }
 
     private void u() {
-        this.o = new com.ksad.lottie.model.layer.b(this, s.a(this.f31695e), this.f31695e.g(), this.f31695e);
+        this.o = new com.ksad.lottie.model.layer.b(this, s.a(this.f31790e), this.f31790e.g(), this.f31790e);
     }
 
     private void v() {
-        if (this.f31695e == null) {
+        if (this.f31790e == null) {
             return;
         }
         float q = q();
-        setBounds(0, 0, (int) (this.f31695e.b().width() * q), (int) (this.f31695e.b().height() * q));
+        setBounds(0, 0, (int) (this.f31790e.b().width() * q), (int) (this.f31790e.b().height() * q));
     }
 
     private com.ksad.lottie.b.b w() {
@@ -108,7 +108,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             this.j = null;
         }
         if (this.j == null) {
-            this.j = new com.ksad.lottie.b.b(getCallback(), this.k, this.l, this.f31695e.j());
+            this.j = new com.ksad.lottie.b.b(getCallback(), this.k, this.l, this.f31790e.j());
         }
         return this.j;
     }
@@ -118,7 +118,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             return null;
         }
         if (this.m == null) {
-            this.m = new com.ksad.lottie.b.a(getCallback(), this.f31692a);
+            this.m = new com.ksad.lottie.b.a(getCallback(), this.f31787a);
         }
         return this.m;
     }
@@ -142,7 +142,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(final float f2) {
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar == null) {
             this.i.add(new a() { // from class: com.ksad.lottie.f.6
                 @Override // com.ksad.lottie.f.a
@@ -151,12 +151,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            a((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31695e.e(), f2));
+            a((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31790e.e(), f2));
         }
     }
 
     public void a(final int i) {
-        if (this.f31695e == null) {
+        if (this.f31790e == null) {
             this.i.add(new a() { // from class: com.ksad.lottie.f.5
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
@@ -164,16 +164,16 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.f31696f.b(i);
+            this.f31791f.b(i);
         }
     }
 
     public void a(Animator.AnimatorListener animatorListener) {
-        this.f31696f.addListener(animatorListener);
+        this.f31791f.addListener(animatorListener);
     }
 
     public void a(com.ksad.lottie.a aVar) {
-        this.f31692a = aVar;
+        this.f31787a = aVar;
         com.ksad.lottie.b.a aVar2 = this.m;
         if (aVar2 != null) {
             aVar2.a(aVar);
@@ -189,7 +189,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(m mVar) {
-        this.f31693b = mVar;
+        this.f31788b = mVar;
     }
 
     public void a(@Nullable String str) {
@@ -201,11 +201,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             return;
         }
         if (Build.VERSION.SDK_INT < 19) {
-            Log.w(f31691c, "Merge paths are not supported pre-Kit Kat.");
+            Log.w(f31786c, "Merge paths are not supported pre-Kit Kat.");
             return;
         }
         this.n = z;
-        if (this.f31695e != null) {
+        if (this.f31790e != null) {
             u();
         }
     }
@@ -215,15 +215,15 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public boolean a(d dVar) {
-        if (this.f31695e == dVar) {
+        if (this.f31790e == dVar) {
             return false;
         }
         e();
-        this.f31695e = dVar;
+        this.f31790e = dVar;
         u();
-        this.f31696f.a(dVar);
-        d(this.f31696f.getAnimatedFraction());
-        e(this.f31697g);
+        this.f31791f.a(dVar);
+        d(this.f31791f.getAnimatedFraction());
+        e(this.f31792g);
         v();
         Iterator it = new ArrayList(this.i).iterator();
         while (it.hasNext()) {
@@ -250,7 +250,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void b(@FloatRange(from = 0.0d, to = 1.0d) final float f2) {
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar == null) {
             this.i.add(new a() { // from class: com.ksad.lottie.f.8
                 @Override // com.ksad.lottie.f.a
@@ -259,12 +259,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            b((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31695e.e(), f2));
+            b((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31790e.e(), f2));
         }
     }
 
     public void b(final int i) {
-        if (this.f31695e == null) {
+        if (this.f31790e == null) {
             this.i.add(new a() { // from class: com.ksad.lottie.f.7
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
@@ -272,17 +272,17 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.f31696f.c(i);
+            this.f31791f.c(i);
         }
     }
 
     public void b(Animator.AnimatorListener animatorListener) {
-        this.f31696f.removeListener(animatorListener);
+        this.f31791f.removeListener(animatorListener);
     }
 
     public void b(boolean z) {
         this.q = z;
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar != null) {
             dVar.a(z);
         }
@@ -296,11 +296,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void c(float f2) {
-        this.f31696f.a(f2);
+        this.f31791f.a(f2);
     }
 
     public void c(final int i) {
-        if (this.f31695e == null) {
+        if (this.f31790e == null) {
             this.i.add(new a() { // from class: com.ksad.lottie.f.2
                 @Override // com.ksad.lottie.f.a
                 public void a(d dVar) {
@@ -308,13 +308,13 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.f31696f.a(i);
+            this.f31791f.a(i);
         }
     }
 
     @Nullable
     public l d() {
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar != null) {
             return dVar.a();
         }
@@ -322,7 +322,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void d(@FloatRange(from = 0.0d, to = 1.0d) final float f2) {
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar == null) {
             this.i.add(new a() { // from class: com.ksad.lottie.f.3
                 @Override // com.ksad.lottie.f.a
@@ -331,12 +331,12 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            c((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31695e.e(), f2));
+            c((int) com.ksad.lottie.d.e.a(dVar.d(), this.f31790e.e(), f2));
         }
     }
 
     public void d(int i) {
-        this.f31696f.setRepeatMode(i);
+        this.f31791f.setRepeatMode(i);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -346,10 +346,10 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
         if (this.o == null) {
             return;
         }
-        float f3 = this.f31697g;
+        float f3 = this.f31792g;
         float a2 = a(canvas);
         if (f3 > a2) {
-            f2 = this.f31697g / a2;
+            f2 = this.f31792g / a2;
         } else {
             a2 = f3;
             f2 = 1.0f;
@@ -357,16 +357,16 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
         int i = (f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1));
         if (i > 0) {
             canvas.save();
-            float width = this.f31695e.b().width() / 2.0f;
-            float height = this.f31695e.b().height() / 2.0f;
+            float width = this.f31790e.b().width() / 2.0f;
+            float height = this.f31790e.b().height() / 2.0f;
             float f4 = width * a2;
             float f5 = height * a2;
             canvas.translate((q() * width) - f4, (q() * height) - f5);
             canvas.scale(f2, f2, f4, f5);
         }
-        this.f31694d.reset();
-        this.f31694d.preScale(a2, a2);
-        this.o.a(canvas, this.f31694d, this.p);
+        this.f31789d.reset();
+        this.f31789d.preScale(a2, a2);
+        this.o.a(canvas, this.f31789d, this.p);
         c.d("Drawable#draw");
         if (i > 0) {
             canvas.restore();
@@ -375,23 +375,23 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     public void e() {
         c();
-        if (this.f31696f.isRunning()) {
-            this.f31696f.cancel();
+        if (this.f31791f.isRunning()) {
+            this.f31791f.cancel();
         }
-        this.f31695e = null;
+        this.f31790e = null;
         this.o = null;
         this.j = null;
-        this.f31696f.f();
+        this.f31791f.f();
         invalidateSelf();
     }
 
     public void e(float f2) {
-        this.f31697g = f2;
+        this.f31792g = f2;
         v();
     }
 
     public void e(int i) {
-        this.f31696f.setRepeatCount(i);
+        this.f31791f.setRepeatCount(i);
     }
 
     @MainThread
@@ -404,14 +404,14 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
                 }
             });
         } else {
-            this.f31696f.i();
+            this.f31791f.i();
         }
     }
 
     @MainThread
     public void g() {
         this.i.clear();
-        this.f31696f.j();
+        this.f31791f.j();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -421,7 +421,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar == null) {
             return -1;
         }
@@ -430,7 +430,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        d dVar = this.f31695e;
+        d dVar = this.f31790e;
         if (dVar == null) {
             return -1;
         }
@@ -443,11 +443,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public float h() {
-        return this.f31696f.k();
+        return this.f31791f.k();
     }
 
     public float i() {
-        return this.f31696f.l();
+        return this.f31791f.l();
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -473,45 +473,45 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public float j() {
-        return this.f31696f.h();
+        return this.f31791f.h();
     }
 
     public int k() {
-        return (int) this.f31696f.e();
+        return (int) this.f31791f.e();
     }
 
     public int l() {
-        return this.f31696f.getRepeatMode();
+        return this.f31791f.getRepeatMode();
     }
 
     public int m() {
-        return this.f31696f.getRepeatCount();
+        return this.f31791f.getRepeatCount();
     }
 
     public boolean n() {
-        return this.f31696f.isRunning();
+        return this.f31791f.isRunning();
     }
 
     @Nullable
     public m o() {
-        return this.f31693b;
+        return this.f31788b;
     }
 
     public boolean p() {
-        return this.f31693b == null && this.f31695e.h().size() > 0;
+        return this.f31788b == null && this.f31790e.h().size() > 0;
     }
 
     public float q() {
-        return this.f31697g;
+        return this.f31792g;
     }
 
     public d r() {
-        return this.f31695e;
+        return this.f31790e;
     }
 
     public void s() {
         this.i.clear();
-        this.f31696f.cancel();
+        this.f31791f.cancel();
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -547,7 +547,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @FloatRange(from = 0.0d, to = 1.0d)
     public float t() {
-        return this.f31696f.d();
+        return this.f31791f.d();
     }
 
     @Override // android.graphics.drawable.Drawable.Callback

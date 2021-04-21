@@ -9,7 +9,7 @@ import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.b.h0.m0.l;
+import d.b.i0.m0.l;
 /* loaded from: classes4.dex */
 public class AlaJumpStatStatic {
 

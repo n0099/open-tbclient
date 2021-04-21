@@ -212,7 +212,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             this.mViewController.C(this.mTransmitHotSearchInfo);
             return;
         }
-        HotSearchInfoData hotSearchInfoData2 = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.b.h0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
+        HotSearchInfoData hotSearchInfoData2 = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.b.i0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
         this.mHotSearchInfo = hotSearchInfoData2;
         if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.s()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
             this.mViewController.C(this.mHotSearchInfo);
@@ -242,13 +242,13 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            d.b.h0.r.a0.b.e(getPageContext().getPageActivity(), 1);
+            d.b.i0.r.a0.b.e(getPageContext().getPageActivity(), 1);
         } else {
-            d.b.h0.r.a0.b.e(getPageContext().getPageActivity(), 2);
+            d.b.i0.r.a0.b.e(getPageContext().getPageActivity(), 2);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a026";
     }
@@ -288,7 +288,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<d.b.i0.o1.b> list, List<d.b.i0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<d.b.j0.o1.b> list, List<d.b.j0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         updateHotSearchCache(hotSearchInfoData);
         this.mViewController.C(this.mHotSearchInfo);
     }

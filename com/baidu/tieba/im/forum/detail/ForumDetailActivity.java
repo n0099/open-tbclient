@@ -30,7 +30,7 @@ import com.baidu.tieba.im.forum.detail.ForumDetailModel;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import d.b.c.e.p.l;
-import d.b.h0.r.s.a;
+import d.b.i0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumDetail.BzApplySwitch;
@@ -51,7 +51,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public ForumDetailModel mModel;
     public PriManagerApplyInfo mPrivateApplyInfo;
     public List<SimpleThreadInfo> mThreadInfoList;
-    public d.b.i0.e1.i.b.a mView;
+    public d.b.j0.e1.i.b.a mView;
     public ManagerElectionTab managerElectionTab;
     public boolean isBawuShow = false;
     public boolean mIsComplaintShow = false;
@@ -61,15 +61,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f17617e;
+        public final /* synthetic */ d.b.i0.r.s.a f17625e;
 
-        public a(d.b.h0.r.s.a aVar) {
-            this.f17617e = aVar;
+        public a(d.b.i0.r.s.a aVar) {
+            this.f17625e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f17617e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f17625e.dismiss();
         }
     }
 
@@ -110,10 +110,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public class e extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f17622a;
+        public final /* synthetic */ boolean f17630a;
 
         public e(boolean z) {
-            this.f17622a = z;
+            this.f17630a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             if (TextUtils.isEmpty(ForumDetailActivity.this.mForumId)) {
                 return null;
             }
-            d.b.i0.e1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17622a);
+            d.b.j0.e1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(ForumDetailActivity.this.mForumId), this.f17630a);
             return null;
         }
     }
@@ -235,10 +235,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.OFF) {
             this.mModel.subscribeBar(false, this.mForumId);
-        } else if (d.b.h0.s.d.d.d().s() && d.b.h0.s.d.d.d().p()) {
+        } else if (d.b.i0.s.d.d.d().s() && d.b.i0.s.d.d.d().p()) {
             this.mModel.subscribeBar(true, this.mForumId);
         } else {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(getActivity());
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
             aVar.setMessageId(R.string.error_open_personal_single_alloff);
             aVar.setNegativeButton(getResources().getString(R.string.signallforum_signnow), new a(aVar));
             aVar.create(getPageContext());
@@ -345,7 +345,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_detail_activity);
-        d.b.i0.e1.i.b.a aVar = new d.b.i0.e1.i.b.a(this);
+        d.b.j0.e1.i.b.a aVar = new d.b.j0.e1.i.b.a(this);
         this.mView = aVar;
         aVar.h().a(new f());
         this.mView.q(new g());

@@ -16,36 +16,36 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f31445a;
+    public d f31540a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Service f31447c;
+    public Service f31542c;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f31446b = new ConcurrentHashMap();
+    public final Map<String, Integer> f31541b = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC0364a f31448d = new HandlerC0364a(this);
+    public final HandlerC0367a f31543d = new HandlerC0367a(this);
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0364a extends Handler {
+    public static class HandlerC0367a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f31449a;
+        public final WeakReference<a> f31544a;
 
-        public HandlerC0364a(a aVar) {
-            this.f31449a = new WeakReference<>(aVar);
+        public HandlerC0367a(a aVar) {
+            this.f31544a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            a aVar = this.f31449a.get();
+            a aVar = this.f31544a.get();
             if (aVar != null && message.what == 1) {
-                if (aVar.f31445a == null || !aVar.f31445a.d()) {
+                if (aVar.f31540a == null || !aVar.f31540a.d()) {
                     sendEmptyMessageDelayed(1, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
                 } else {
-                    aVar.f31447c.stopSelf();
+                    aVar.f31542c.stopSelf();
                 }
             }
         }
@@ -59,15 +59,15 @@ public class a extends b {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f31446b.get(stringExtra);
+            Integer num = this.f31541b.get(stringExtra);
             if (intExtra == 1) {
-                this.f31446b.put(stringExtra, Integer.valueOf(this.f31445a.a(downloadRequest, (c) null)));
+                this.f31541b.put(stringExtra, Integer.valueOf(this.f31540a.a(downloadRequest, (c) null)));
             } else if (intExtra == 2) {
-                this.f31445a.d(num.intValue());
+                this.f31540a.d(num.intValue());
             } else if (intExtra == 3) {
-                this.f31445a.e(num.intValue());
+                this.f31540a.e(num.intValue());
             } else if (intExtra == 4) {
-                this.f31445a.c(num.intValue());
+                this.f31540a.c(num.intValue());
             }
         } catch (Exception unused) {
         }
@@ -78,9 +78,9 @@ public class a extends b {
         if (service == null) {
             return;
         }
-        this.f31447c = service;
-        this.f31445a = d.a();
-        this.f31448d.sendEmptyMessageDelayed(1, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        this.f31542c = service;
+        this.f31540a = d.a();
+        this.f31543d.sendEmptyMessageDelayed(1, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
     }
 
     @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy

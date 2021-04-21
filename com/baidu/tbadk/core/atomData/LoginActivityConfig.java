@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.h0.r.z.a;
+import d.b.i0.r.z.a;
 /* loaded from: classes3.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static final String ACTIVITY_ID = "activity_id";

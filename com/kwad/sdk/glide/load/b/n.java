@@ -11,22 +11,22 @@ public interface n<Model, Data> {
     public static class a<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.c f35623a;
+        public final com.kwad.sdk.glide.load.c f35718a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<com.kwad.sdk.glide.load.c> f35624b;
+        public final List<com.kwad.sdk.glide.load.c> f35719b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.a.d<Data> f35625c;
+        public final com.kwad.sdk.glide.load.a.d<Data> f35720c;
 
         public a(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull com.kwad.sdk.glide.load.a.d<Data> dVar) {
             this(cVar, Collections.emptyList(), dVar);
         }
 
         public a(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull List<com.kwad.sdk.glide.load.c> list, @NonNull com.kwad.sdk.glide.load.a.d<Data> dVar) {
-            this.f35623a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
-            this.f35624b = (List) com.kwad.sdk.glide.g.j.a(list);
-            this.f35625c = (com.kwad.sdk.glide.load.a.d) com.kwad.sdk.glide.g.j.a(dVar);
+            this.f35718a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
+            this.f35719b = (List) com.kwad.sdk.glide.g.j.a(list);
+            this.f35720c = (com.kwad.sdk.glide.load.a.d) com.kwad.sdk.glide.g.j.a(dVar);
         }
     }
 

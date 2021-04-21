@@ -1,42 +1,93 @@
 package d.b.b0.a.b;
+
+import android.content.Context;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public class a<T> implements c<T> {
+public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f41938a;
+    public static final AtomicReference<a> f42106a = new AtomicReference<>();
 
-    /* renamed from: b  reason: collision with root package name */
-    public d.b.b0.a.a<T> f41939b;
+    @NonNull
+    String A();
 
-    /* renamed from: c  reason: collision with root package name */
-    public d.b.b0.a.a<T> f41940c;
+    @IdRes
+    int B();
 
-    public static a b() {
-        return new a();
-    }
+    String C();
 
-    @Override // d.b.b0.a.b.c
-    public void a(d.b.b0.a.a<T> aVar) {
-        this.f41939b = aVar;
-        this.f41938a = null;
-    }
+    boolean D();
 
-    @Override // d.b.b0.a.b.c
-    public T get() {
-        T t = this.f41938a;
-        if (t != null) {
-            return t;
-        }
-        d.b.b0.a.a<T> aVar = this.f41939b;
-        if (aVar != null) {
-            T t2 = aVar.get();
-            this.f41938a = t2;
-            return t2;
-        }
-        d.b.b0.a.a<T> aVar2 = this.f41940c;
-        if (aVar2 != null) {
-            return aVar2.get();
-        }
-        return null;
-    }
+    int E();
+
+    String a();
+
+    boolean b(String str, d.b.b0.c.b bVar);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d();
+
+    String e();
+
+    String f();
+
+    String from();
+
+    int g();
+
+    @IdRes
+    int h();
+
+    String[] i();
+
+    @NonNull
+    String j();
+
+    @NonNull
+    String k();
+
+    @NonNull
+    String l();
+
+    String m();
+
+    boolean n();
+
+    String o();
+
+    @NonNull
+    String p();
+
+    String q();
+
+    @IdRes
+    int r();
+
+    @NonNull
+    String s();
+
+    @NonNull
+    String t();
+
+    @NonNull
+    String u();
+
+    @NonNull
+    String v();
+
+    String w();
+
+    @NonNull
+    String x();
+
+    @NonNull
+    Context y();
+
+    @NonNull
+    String z();
 }

@@ -1,1103 +1,327 @@
 package d.b.h0.a;
-
-import android.util.Pair;
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.h0.a.b0.d;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
-public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final ScheduledExecutorService f49925a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<d.b.h0.a.b>> f49926b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<d.b.h0.a.b> f49927c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public f f49928d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f49929e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f49930f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f49931g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f49932h;
-    public d.b.h0.a.b0.d i;
-    public d.b.h0.a.z.c j;
-    public d.b.h0.a.a0.b k;
-    public int l;
-    public long m;
-    public int n;
-    public long o;
-    public boolean p;
-    public CustomMessageListener q;
-    public CustomMessageListener r;
-    public CustomMessageListener s;
-    public d.b.h0.a.z.a<d.b.h0.a.z.b> t;
-    public d.b.h0.m.b u;
-
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.f49930f = true;
-            if (c.this.f49927c.isEmpty()) {
-                return;
-            }
-            Iterator it = c.this.f49927c.iterator();
-            while (it.hasNext()) {
-                c.this.m((d.b.h0.a.b) it.next());
-            }
-            c.this.f49927c.clear();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage instanceof BackgroundSwitchMessage) {
-                ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
-                c.this.q();
-            }
-        }
-    }
-
-    /* renamed from: d.b.h0.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1053c extends CustomMessageListener {
-        public C1053c(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
-                return;
-            }
-            c.this.f49931g = true;
-            c.this.q();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements d.b.h0.a.z.a<d.b.h0.a.z.b> {
-        public d() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.a.z.a
-        /* renamed from: b */
-        public void a(d.b.h0.a.z.b bVar) {
-            ActiveCenterData activeCenterData;
-            if (bVar == null || (activeCenterData = bVar.f50059g) == null || activeCenterData.mission == null) {
-                return;
-            }
-            d.b.h0.a.b bVar2 = new d.b.h0.a.b();
-            bVar2.O(bVar.f50059g.mission);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(bVar2);
-            c.this.n(arrayList);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.m.a
-        /* renamed from: c */
-        public void onSuccess(d.b.h0.a.z.b bVar) {
-            if (bVar != null) {
-                c.this.n(bVar.b());
-            }
-        }
-
-        @Override // d.b.h0.m.a
-        public void onError(int i, String str) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements d.b.h0.m.b<d.b.h0.a.b> {
-        public e() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.m.b
-        /* renamed from: b */
-        public void a(d.b.h0.a.b bVar) {
-            if (bVar == null) {
-                return;
-            }
-            d.b.h0.a.b w = c.this.w(bVar);
-            if (w != null && w.z) {
-                w.R();
-                c.this.S(w);
-                return;
-            }
-            n.b().h(w);
-            if (w != null && w.x() == 7) {
-                w.H();
-                int F = w.F();
-                int w2 = w.w();
-                if (F <= 1 || F <= w2) {
-                    c.this.G(w);
-                } else {
-                    c.this.S(w);
-                }
-            } else if (w == null || w.x() != 8) {
-                c.this.G(bVar);
-            } else {
-                c.this.G(w);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g extends BdAsyncTask<d.b.h0.a.b, Integer, Void> {
-        public g(c cVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(d.b.h0.a.b... bVarArr) {
-            if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
-                return null;
-            }
-            d.b.h0.a.a.g().a(bVarArr[0]);
-            return null;
-        }
-
-        public /* synthetic */ g(c cVar, a aVar) {
-            this(cVar);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h extends BdAsyncTask<List<d.b.h0.a.b>, Integer, Void> {
-        public h(c cVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(List<d.b.h0.a.b>... listArr) {
-            if (listArr == null || listArr.length <= 0 || listArr[0] == null) {
-                return null;
-            }
-            d.b.h0.a.a.g().b(listArr[0]);
-            return null;
-        }
-
-        public /* synthetic */ h(c cVar, a aVar) {
-            this(cVar);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class i extends BdAsyncTask<d.b.h0.a.b, Integer, Void> {
-        public i(c cVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(d.b.h0.a.b... bVarArr) {
-            if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
-                return null;
-            }
-            d.b.h0.a.a.g().e(bVarArr[0]);
-            return null;
-        }
-
-        public /* synthetic */ i(c cVar, a aVar) {
-            this(cVar);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class j extends BdAsyncTask<Pair<d.b.h0.a.b, d.b.h0.a.b>, Integer, Pair<d.b.h0.a.b, d.b.h0.a.b>> {
-        public j() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Pair<d.b.h0.a.b, d.b.h0.a.b> doInBackground(Pair<d.b.h0.a.b, d.b.h0.a.b>... pairArr) {
-            if (pairArr == null || pairArr.length <= 0 || pairArr[0] == null) {
-                return null;
-            }
-            Pair<d.b.h0.a.b, d.b.h0.a.b> pair = pairArr[0];
-            d.b.h0.a.b bVar = (d.b.h0.a.b) pair.first;
-            d.b.h0.a.b bVar2 = (d.b.h0.a.b) pair.second;
-            if (bVar2 != null) {
-                d.b.h0.a.a.g().e(bVar2);
-            }
-            if (bVar != null) {
-                d.b.h0.a.a.g().a(bVar);
-                return pair;
-            }
-            return pair;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(Pair<d.b.h0.a.b, d.b.h0.a.b> pair) {
-            if (pair != null) {
-                d.b.h0.a.b bVar = (d.b.h0.a.b) pair.first;
-                d.b.h0.a.b bVar2 = (d.b.h0.a.b) pair.second;
-                if (bVar2 != null) {
-                    c.this.v(bVar2);
-                }
-                if (bVar != null) {
-                    c.this.J(bVar);
-                }
-            }
-        }
-
-        public /* synthetic */ j(c cVar, a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class k extends BdAsyncTask<Void, Integer, LinkedList<d.b.h0.a.b>> {
-        public k() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public LinkedList<d.b.h0.a.b> doInBackground(Void... voidArr) {
-            LinkedList<d.b.h0.a.b> linkedList = new LinkedList<>();
-            linkedList.addAll(d.b.h0.a.a.g().f());
-            Iterator<d.b.h0.a.b> it = linkedList.iterator();
-            while (it.hasNext()) {
-                d.b.h0.a.b next = it.next();
-                if (next != null && next.M()) {
-                    d.b.h0.a.a.g().e(next);
-                    it.remove();
-                } else if (next.x() == 7) {
-                    next.n0();
-                    d.b.h0.a.a.g().i(next);
-                }
-            }
-            return linkedList;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(LinkedList<d.b.h0.a.b> linkedList) {
-            super.onPostExecute(linkedList);
-            if (linkedList == null) {
-                return;
-            }
-            if (!linkedList.isEmpty()) {
-                Iterator<d.b.h0.a.b> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    d.b.h0.a.b next = it.next();
-                    if (next.h() != null) {
-                        c.this.J(next);
-                    }
-                }
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921391));
-        }
-
-        public /* synthetic */ k(c cVar, a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class l {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final c f49944a = new c(null);
-    }
-
-    /* loaded from: classes3.dex */
-    public class m extends BdAsyncTask<d.b.h0.a.b, Integer, d.b.h0.a.b> {
-        public m() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public d.b.h0.a.b doInBackground(d.b.h0.a.b... bVarArr) {
-            if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
-                return null;
-            }
-            d.b.h0.a.b bVar = bVarArr[0];
-            d.b.h0.a.a.g().i(bVar);
-            return bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(d.b.h0.a.b bVar) {
-            if (bVar == null || !bVar.z) {
-                return;
-            }
-            bVar.z = false;
-            c cVar = c.this;
-            cVar.P(cVar.l, c.this.m);
-        }
-
-        public /* synthetic */ m(c cVar, a aVar) {
-            this();
-        }
-    }
-
-    public /* synthetic */ c(a aVar) {
-        this();
-    }
-
-    public static final c y() {
-        return l.f49944a;
-    }
-
-    public boolean A() {
-        return !s();
-    }
-
-    public final boolean B() {
-        return TbadkCoreApplication.getInst().isMainProcess(true);
-    }
-
-    public final boolean C(d.b.h0.a.b bVar) {
-        if (bVar == null) {
-            return false;
-        }
-        int[] h2 = bVar.h();
-        if (h2 == null) {
-            return true;
-        }
-        for (int i2 : h2) {
-            List<d.b.h0.a.b> list = this.f49926b.get(i2);
-            if (list == null) {
-                return false;
-            }
-            for (d.b.h0.a.b bVar2 : list) {
-                if (bVar2 != null && bVar2.d() == bVar.d() && bVar2.q() == bVar.q()) {
-                    if (bVar2.M()) {
-                        H(bVar, bVar2);
-                    }
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean D() {
-        return this.p;
-    }
-
-    public void E() {
-        this.f49929e.compareAndSet(true, false);
-        this.f49928d.f(0);
-        this.f49928d.h(0L);
-        this.f49928d.g(0L);
-        d.b.h0.a.b0.d dVar = this.i;
-        if (dVar != null) {
-            dVar.m();
-        }
-    }
-
-    public void F() {
-        List<d.b.h0.a.b> list = this.f49926b.get(d.b.h0.a.b.V);
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        boolean z = false;
-        for (d.b.h0.a.b bVar : list) {
-            Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-            while (it.hasNext()) {
-                d.b.h0.a.h next = it.next();
-                if (next instanceof d.b.h0.a.l) {
-                    d.b.h0.a.l lVar = (d.b.h0.a.l) next;
-                    if (!next.e()) {
-                        lVar.i();
-                        z = true;
-                    }
-                }
-            }
-        }
-        if (!z || this.f49929e.get()) {
-            return;
-        }
-        this.f49928d.f(d.b.h0.a.b.V);
-        this.f49929e.compareAndSet(false, true);
-        synchronized (this.f49929e) {
-            this.f49929e.notify();
-        }
-    }
-
-    public final void G(d.b.h0.a.b bVar) {
-        v(bVar);
-        new i(this, null).execute(bVar);
-    }
-
-    public final void H(d.b.h0.a.b bVar, d.b.h0.a.b bVar2) {
-        v(bVar2);
-        new j(this, null).execute(new Pair(bVar, bVar2));
-    }
-
-    public boolean I() {
-        if (this.j != null && B()) {
-            this.j.f(A(), D(), 1);
-            return true;
-        }
-        return false;
-    }
-
-    public final void J(d.b.h0.a.b bVar) {
-        int[] h2;
-        for (int i2 : bVar.h()) {
-            List<d.b.h0.a.b> list = this.f49926b.get(i2);
-            if (list == null) {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(bVar);
-                this.f49926b.put(i2, linkedList);
-            } else {
-                list.add(bVar);
-            }
-        }
-    }
-
-    public void K(int i2, long j2) {
-        if (B()) {
-            this.n = i2;
-            long j3 = this.m;
-            if (j3 > 0 && this.l > 0 && (j2 == 0 || j2 != j3)) {
-                R(this.l, this.m);
-                this.m = 0L;
-                this.l = 0;
-            }
-            M();
-        }
-    }
-
-    public void L(boolean z) {
-        this.p = z;
-    }
-
-    public void M() {
-        int i2;
-        List<d.b.h0.a.b> list;
-        if (B() && this.f49930f && (list = this.f49926b.get((i2 = d.b.h0.a.b.V))) != null && !list.isEmpty()) {
-            boolean z = false;
-            for (d.b.h0.a.b bVar : list) {
-                if (bVar.x() == 8) {
-                    Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        d.b.h0.a.h next = it.next();
-                        d.b.h0.a.b c2 = next.c();
-                        if (c2 != null && (next instanceof d.b.h0.a.l) && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                            ((d.b.h0.a.l) next).i();
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        d.b.h0.a.l lVar = new d.b.h0.a.l(bVar);
-                        lVar.g(0L);
-                        lVar.f(false);
-                        bVar.a(lVar);
-                    }
-                }
-            }
-            this.f49928d.f(i2);
-            this.f49929e.compareAndSet(false, true);
-            synchronized (this.f49929e) {
-                this.f49929e.notify();
-            }
-        }
-    }
-
-    public void N(int i2) {
-        if (B() && i2 != 0 && this.f49930f) {
-            this.l = i2;
-            List<d.b.h0.a.b> list = this.f49926b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            boolean z = false;
-            for (d.b.h0.a.b bVar : list) {
-                if (bVar.x() == 4) {
-                    Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        d.b.h0.a.h next = it.next();
-                        if ((next instanceof d.b.h0.a.i) && next.c().d() == bVar.d() && next.c().q() == bVar.q()) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        d.b.h0.a.i iVar = new d.b.h0.a.i(bVar);
-                        iVar.g(0L);
-                        iVar.f(false);
-                        bVar.a(iVar);
-                    }
-                }
-            }
-            this.f49928d.f(i2);
-            this.f49929e.compareAndSet(false, true);
-            synchronized (this.f49929e) {
-                this.f49929e.notify();
-            }
-        }
-    }
-
-    public void O(int i2, long j2) {
-        if (B() && i2 != 0 && j2 != 0 && this.f49930f) {
-            this.l = i2;
-            List<d.b.h0.a.b> list = this.f49926b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            boolean z = false;
-            for (d.b.h0.a.b bVar : list) {
-                if (bVar.x() == 2) {
-                    Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        d.b.h0.a.h next = it.next();
-                        if ((next instanceof d.b.h0.a.j) && next.c().d() == bVar.d() && next.c().q() == bVar.q() && ((d.b.h0.a.j) next).i() == j2) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        d.b.h0.a.j jVar = new d.b.h0.a.j(bVar, j2);
-                        jVar.g(0L);
-                        jVar.f(false);
-                        jVar.h(bVar.w());
-                        bVar.a(jVar);
-                    }
-                }
-            }
-            this.f49928d.f(i2);
-            this.f49928d.g(j2);
-            this.f49929e.compareAndSet(false, true);
-            synchronized (this.f49929e) {
-                this.f49929e.notify();
-            }
-        }
-    }
-
-    public void P(int i2, long j2) {
-        if (B() && i2 != 0 && j2 != 0 && this.f49930f) {
-            this.l = i2;
-            List<d.b.h0.a.b> list = this.f49926b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            for (d.b.h0.a.b bVar : list) {
-                if (bVar.x() == 1) {
-                    p(bVar, j2);
-                } else if (bVar.x() != 7) {
-                    continue;
-                } else if (bVar.J(j2)) {
-                    break;
-                } else {
-                    o(bVar, j2);
-                }
-            }
-            this.f49928d.f(i2);
-            this.f49928d.h(j2);
-            this.m = j2;
-            this.f49929e.compareAndSet(false, true);
-            synchronized (this.f49929e) {
-                this.f49929e.notify();
-            }
-        }
-    }
-
-    public final void Q() {
-        this.f49925a.scheduleWithFixedDelay(this.f49928d, 0L, 1L, TimeUnit.SECONDS);
-    }
-
-    public void R(int i2, long j2) {
-        d.b.h0.a.k kVar;
-        d.b.h0.a.b c2;
-        List<d.b.h0.a.b> list = this.f49926b.get(i2);
-        if (list == null || list.isEmpty()) {
-            return;
-        }
-        for (d.b.h0.a.b bVar : list) {
-            if (bVar.x() == 7) {
-                Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        d.b.h0.a.h next = it.next();
-                        if ((next instanceof d.b.h0.a.k) && (c2 = (kVar = (d.b.h0.a.k) next).c()) != null && kVar.i() == j2 && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                            next.f(true);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final void S(d.b.h0.a.b bVar) {
-        T(bVar);
-        new m(this, null).execute(bVar);
-    }
-
-    public final void T(d.b.h0.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        int x = bVar.x();
-        Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-        while (it.hasNext()) {
-            d.b.h0.a.h next = it.next();
-            if (next != null && next.c() != null) {
-                d.b.h0.a.b c2 = next.c();
-                if (c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                    if (x == 7 && (next instanceof d.b.h0.a.k)) {
-                        ((d.b.h0.a.k) next).f(true);
-                    } else if (x == 1 && (next instanceof d.b.h0.a.m)) {
-                        ((d.b.h0.a.m) next).f(true);
-                    }
-                }
-            }
-        }
-        bVar.c0(false);
-    }
-
-    public void m(d.b.h0.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        if (bVar.x() == 9) {
-            p.c().f(bVar);
-        } else if (!this.f49930f) {
-            this.f49927c.add(bVar);
-        } else if (C(bVar)) {
-        } else {
-            J(bVar);
-            new g(this, null).execute(bVar);
-        }
-    }
-
-    public void n(List<d.b.h0.a.b> list) {
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!this.f49930f) {
-            this.f49927c.addAll(list);
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (d.b.h0.a.b bVar : list) {
-            if (bVar != null) {
-                if (bVar.x() == 9) {
-                    p.c().f(bVar);
-                } else if (!C(bVar)) {
-                    J(bVar);
-                    arrayList.add(bVar);
-                }
-            }
-        }
-        new h(this, null).execute(arrayList);
-    }
-
-    public final void o(d.b.h0.a.b bVar, long j2) {
-        boolean z;
-        d.b.h0.a.k kVar;
-        d.b.h0.a.b c2;
-        Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
-            }
-            d.b.h0.a.h next = it.next();
-            if ((next instanceof d.b.h0.a.k) && (c2 = (kVar = (d.b.h0.a.k) next).c()) != null && kVar.i() == j2 && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            return;
-        }
-        d.b.h0.a.k kVar2 = new d.b.h0.a.k(bVar, j2);
-        kVar2.g(0L);
-        kVar2.f(false);
-        kVar2.h(bVar.w());
-        bVar.a(kVar2);
-    }
-
-    public final void p(d.b.h0.a.b bVar, long j2) {
-        boolean z;
-        d.b.h0.a.m mVar;
-        d.b.h0.a.b c2;
-        Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
-            }
-            d.b.h0.a.h next = it.next();
-            if ((next instanceof d.b.h0.a.m) && (c2 = (mVar = (d.b.h0.a.m) next).c()) != null && mVar.i() == j2 && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            return;
-        }
-        d.b.h0.a.m mVar2 = new d.b.h0.a.m(bVar, j2);
-        mVar2.g(0L);
-        mVar2.f(false);
-        mVar2.h(bVar.w());
-        bVar.a(mVar2);
-    }
-
-    public void q() {
-        if (this.j != null && B() && this.f49931g && !t()) {
-            this.j.f(A(), D(), 0);
-        }
-    }
-
-    public void r() {
-        if (this.k != null && B()) {
-            this.k.d();
-        }
-    }
-
-    public boolean s() {
-        return UtilHelper.isSameDay(d.b.h0.r.d0.b.j().l("pref_key_last_active_config", 0L), System.currentTimeMillis());
-    }
-
-    public boolean t() {
-        return UtilHelper.isSameDay(z(), System.currentTimeMillis());
-    }
-
-    public boolean u() {
-        return UtilHelper.isSameDay(d.b.h0.r.d0.b.j().l("pref_key_last_popup_time", 0L), System.currentTimeMillis());
-    }
-
-    public final void v(d.b.h0.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        Iterator<d.b.h0.a.h> it = bVar.n().iterator();
-        while (it.hasNext()) {
-            d.b.h0.a.h next = it.next();
-            if (next != null && next.c() != null) {
-                d.b.h0.a.b c2 = next.c();
-                if (c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                    it.remove();
-                }
-            }
-        }
-        for (int i2 = 0; i2 < this.f49926b.size(); i2++) {
-            List<d.b.h0.a.b> valueAt = this.f49926b.valueAt(i2);
-            if (valueAt != null && !valueAt.isEmpty()) {
-                Iterator<d.b.h0.a.b> it2 = valueAt.iterator();
-                while (it2.hasNext()) {
-                    d.b.h0.a.b next2 = it2.next();
-                    if (next2 != null && next2.d() == bVar.d() && next2.q() == bVar.q()) {
-                        it2.remove();
-                    }
-                }
-            }
-        }
-    }
-
-    public final d.b.h0.a.b w(d.b.h0.a.b bVar) {
-        if (bVar == null) {
-            return null;
-        }
-        for (int i2 = 0; i2 < this.f49926b.size(); i2++) {
-            List<d.b.h0.a.b> valueAt = this.f49926b.valueAt(i2);
-            if (valueAt != null && !valueAt.isEmpty()) {
-                for (d.b.h0.a.b bVar2 : valueAt) {
-                    if (bVar2 != null && bVar2.d() == bVar.d() && bVar2.q() == bVar.q()) {
-                        return bVar2;
-                    }
-                }
-                continue;
-            }
-        }
-        return null;
-    }
-
-    public int x() {
-        return this.n;
-    }
-
-    public final long z() {
-        long l2 = d.b.h0.r.d0.b.j().l("pref_key_active_config_info", 0L);
-        this.o = l2;
-        return l2;
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public volatile int f49938e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public volatile long f49939f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public volatile long f49940g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public volatile boolean f49941h;
-
-        public f() {
-            this.f49941h = false;
-        }
-
-        public final void a(d.b.h0.a.b bVar, d.C1052d c1052d) {
-            ArrayList<d.b.h0.a.h> n;
-            if (bVar == null || c1052d == null || (n = bVar.n()) == null) {
-                return;
-            }
-            Iterator<d.b.h0.a.h> it = n.iterator();
-            int i = 0;
-            while (it.hasNext()) {
-                d.b.h0.a.h next = it.next();
-                if (next instanceof d.b.h0.a.m) {
-                    d.b.h0.a.m mVar = (d.b.h0.a.m) next;
-                    if (this.f49939f != 0 && mVar.i() == this.f49939f && !next.e()) {
-                        this.f49941h = false;
-                        next.a(1);
-                        if (next.b() >= next.c().f()) {
-                            next.f(true);
-                            if (next.c().I() >= next.c().A()) {
-                                c1052d.b(next);
-                            }
-                        }
-                        c1052d.c(bVar);
-                    }
-                } else if (next instanceof d.b.h0.a.k) {
-                    d.b.h0.a.k kVar = (d.b.h0.a.k) next;
-                    if (!bVar.L() && kVar.d() == bVar.w()) {
-                        if (this.f49939f != 0 && kVar.i() == this.f49939f && !next.e()) {
-                            this.f49941h = false;
-                            next.a(1);
-                        }
-                        i = (int) (i + next.b());
-                        if (this.f49939f != 0 && kVar.i() == this.f49939f && !next.e()) {
-                            if (next.b() >= bVar.f()) {
-                                next.f(true);
-                                bVar.I();
-                            }
-                            c1052d.c(bVar);
-                        }
-                        int l = bVar.l();
-                        int A = bVar.A();
-                        if (i >= bVar.f() * bVar.A() && l >= A) {
-                            c1052d.a(bVar);
-                            bVar.c0(true);
-                        }
-                    }
-                } else if (next instanceof d.b.h0.a.j) {
-                    if (this.f49940g != 0 && ((d.b.h0.a.j) next).i() == this.f49940g && !next.e()) {
-                        this.f49941h = false;
-                        next.a(1);
-                        if (next.b() >= next.c().f()) {
-                            next.f(true);
-                            if (next.c().G() >= next.c().p()) {
-                                c1052d.b(next);
-                            }
-                        }
-                    }
-                } else if ((next instanceof d.b.h0.a.i) && !next.e()) {
-                    this.f49941h = false;
-                    next.a(1);
-                    if (next.b() >= next.c().f()) {
-                        next.f(true);
-                        c1052d.b(next);
-                    }
-                }
-            }
-        }
-
-        public final void b(d.b.h0.a.b bVar, d.C1052d c1052d) {
-            ArrayList<d.b.h0.a.h> n;
-            if (bVar == null || c1052d == null || (n = bVar.n()) == null) {
-                return;
-            }
-            Iterator<d.b.h0.a.h> it = n.iterator();
-            while (it.hasNext()) {
-                d.b.h0.a.h next = it.next();
-                if ((next instanceof d.b.h0.a.l) && !((d.b.h0.a.l) next).j() && !next.e()) {
-                    this.f49941h = false;
-                    next.a(1);
-                    if (next.b() >= next.c().f()) {
-                        next.f(true);
-                        c1052d.a(bVar);
-                    }
-                    c1052d.c(bVar);
-                }
-            }
-        }
-
-        public final void c() {
-            this.f49941h = true;
-            List<d.b.h0.a.b> list = (List) c.this.f49926b.get(d.b.h0.a.b.V);
-            List<d.b.h0.a.b> list2 = (List) c.this.f49926b.get(this.f49938e);
-            if (ListUtils.isEmpty(list) && ListUtils.isEmpty(list2)) {
-                c.this.f49929e.compareAndSet(true, false);
-                return;
-            }
-            d.C1052d c1052d = new d.C1052d();
-            c1052d.f49919a = new LinkedList();
-            c1052d.f49920b = new LinkedList();
-            c1052d.f49921c = new LinkedList();
-            d(list, c1052d);
-            e(list2, c1052d);
-            if (this.f49941h) {
-                c.this.f49929e.compareAndSet(true, false);
-            }
-            if (!ListUtils.isEmpty(c1052d.f49921c)) {
-                d.b.h0.a.a.g().k(c1052d.f49921c);
-            }
-            if (ListUtils.isEmpty(c1052d.f49919a) && ListUtils.isEmpty(c1052d.f49920b)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, c1052d));
-        }
-
-        public final void d(List<d.b.h0.a.b> list, d.C1052d c1052d) {
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (d.b.h0.a.b bVar : list) {
-                b(bVar, c1052d);
-            }
-        }
-
-        public final void e(List<d.b.h0.a.b> list, d.C1052d c1052d) {
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (d.b.h0.a.b bVar : list) {
-                a(bVar, c1052d);
-            }
-        }
-
-        public synchronized void f(int i) {
-            this.f49938e = i;
-        }
-
-        public synchronized void g(long j) {
-            this.f49940g = j;
-        }
-
-        public synchronized void h(long j) {
-            this.f49939f = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (this.f49938e == 0 || !c.this.f49929e.get()) {
-                synchronized (c.this.f49929e) {
-                    try {
-                        c.this.f49929e.wait();
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            c();
-        }
-
-        public /* synthetic */ f(c cVar, a aVar) {
-            this();
-        }
-    }
-
-    public c() {
-        this.f49925a = Executors.newSingleThreadScheduledExecutor();
-        this.f49926b = new SparseArray<>();
-        this.f49927c = new LinkedList<>();
-        this.f49928d = new f(this, null);
-        this.f49929e = new AtomicBoolean(false);
-        this.f49930f = false;
-        this.f49931g = false;
-        this.p = false;
-        this.q = new a(2921391);
-        this.r = new b(2001011);
-        this.s = new C1053c(2001371);
-        this.t = new d();
-        this.u = new e();
-        BdUniqueId gen = BdUniqueId.gen();
-        this.f49932h = gen;
-        d.b.h0.a.b0.d dVar = new d.b.h0.a.b0.d(gen);
-        this.i = dVar;
-        dVar.w(this.u);
-        d.b.h0.a.z.c cVar = new d.b.h0.a.z.c(this.f49932h);
-        this.j = cVar;
-        cVar.g(this.t);
-        this.k = new d.b.h0.a.a0.b(this.f49932h);
-        this.s.setTag(this.f49932h);
-        MessageManager.getInstance().registerListener(this.s);
-        this.r.setTag(this.f49932h);
-        MessageManager.getInstance().registerListener(this.r);
-        this.q.setPriority(Integer.MIN_VALUE);
-        this.q.setTag(this.f49932h);
-        MessageManager.getInstance().registerListener(this.q);
-        d.b.h0.r.c0.a.e().f();
-        p.c().d(this.f49932h);
-        Q();
-        if (B()) {
-            new k(this, null).execute(new Void[0]);
-        }
-    }
+/* loaded from: classes2.dex */
+public final class c {
+    public static final int abc_background_cache_hint_selector_material_dark = 2131099931;
+    public static final int abc_background_cache_hint_selector_material_light = 2131099932;
+    public static final int abc_btn_colored_borderless_text_material = 2131099933;
+    public static final int abc_btn_colored_text_material = 2131099934;
+    public static final int abc_color_highlight_material = 2131099935;
+    public static final int abc_hint_foreground_material_dark = 2131099936;
+    public static final int abc_hint_foreground_material_light = 2131099937;
+    public static final int abc_input_method_navigation_guard = 2131099938;
+    public static final int abc_primary_text_disable_only_material_dark = 2131099939;
+    public static final int abc_primary_text_disable_only_material_light = 2131099940;
+    public static final int abc_primary_text_material_dark = 2131099941;
+    public static final int abc_primary_text_material_light = 2131099942;
+    public static final int abc_search_url_text = 2131099943;
+    public static final int abc_search_url_text_normal = 2131099944;
+    public static final int abc_search_url_text_pressed = 2131099945;
+    public static final int abc_search_url_text_selected = 2131099946;
+    public static final int abc_secondary_text_material_dark = 2131099947;
+    public static final int abc_secondary_text_material_light = 2131099948;
+    public static final int abc_tint_btn_checkable = 2131099949;
+    public static final int abc_tint_default = 2131099950;
+    public static final int abc_tint_edittext = 2131099951;
+    public static final int abc_tint_seek_thumb = 2131099952;
+    public static final int abc_tint_spinner = 2131099953;
+    public static final int abc_tint_switch_track = 2131099954;
+    public static final int accent_material_dark = 2131099955;
+    public static final int accent_material_light = 2131099956;
+    public static final int aiapp_menu_cancel_text_color_bg = 2131099958;
+    public static final int aiapp_menu_cancel_text_color_day = 2131099959;
+    public static final int aiapp_menu_content_bg = 2131099960;
+    public static final int aiapp_menu_item_text = 2131099961;
+    public static final int aiapp_menu_mask = 2131099962;
+    public static final int aiapp_menu_split_line_day = 2131099963;
+    public static final int aiapp_menu_text_cancel_color_day = 2131099964;
+    public static final int aiapp_menu_text_cancel_color_day_pressed = 2131099965;
+    public static final int aiapps_about_icon_border = 2131099966;
+    public static final int aiapps_action_bar_menu_bg_solid = 2131099967;
+    public static final int aiapps_action_bar_menu_bg_solid_white = 2131099968;
+    public static final int aiapps_action_bar_menu_bg_stroke = 2131099969;
+    public static final int aiapps_action_bar_menu_bg_stroke_white = 2131099970;
+    public static final int aiapps_action_bar_menu_line_color = 2131099971;
+    public static final int aiapps_action_bar_menu_line_white = 2131099972;
+    public static final int aiapps_action_bar_operation_btn_txt_color = 2131099973;
+    public static final int aiapps_action_bar_operation_btn_txt_color_disable = 2131099974;
+    public static final int aiapps_action_bar_operation_btn_txt_color_pressed = 2131099975;
+    public static final int aiapps_action_sheet_cancel_enable = 2131099976;
+    public static final int aiapps_action_sheet_item_color = 2131099977;
+    public static final int aiapps_action_sheet_scrollbar = 2131099978;
+    public static final int aiapps_action_sheet_split_color = 2131099979;
+    public static final int aiapps_auth_dialog_btn_pos = 2131099981;
+    public static final int aiapps_auth_dialog_divider = 2131099982;
+    public static final int aiapps_auth_dialog_label = 2131099983;
+    public static final int aiapps_auth_dialog_scopes = 2131099984;
+    public static final int aiapps_black = 2131099985;
+    public static final int aiapps_black_text = 2131099986;
+    public static final int aiapps_box_dialog_message_text_color = 2131099987;
+    public static final int aiapps_card_remind_timepicker_wheel_background = 2131099988;
+    public static final int aiapps_data_picker_color = 2131099993;
+    public static final int aiapps_dialog_btn_text_color = 2131099994;
+    public static final int aiapps_dialog_gray = 2131099995;
+    public static final int aiapps_dialog_immersion_status_bar_color = 2131099996;
+    public static final int aiapps_dialog_title_night_text_color = 2131099997;
+    public static final int aiapps_dialog_title_text_color = 2131099998;
+    public static final int aiapps_discovery_home_menu_item_press_color = 2131099999;
+    public static final int aiapps_discovery_home_menu_text_color = 2131100000;
+    public static final int aiapps_empty_btn_solid_default = 2131100001;
+    public static final int aiapps_empty_btn_solid_pressed = 2131100002;
+    public static final int aiapps_empty_btn_stroke_default = 2131100003;
+    public static final int aiapps_empty_btn_stroke_pressed = 2131100004;
+    public static final int aiapps_empty_layout_backgroud = 2131100005;
+    public static final int aiapps_empty_view_btn_text_pressed = 2131100006;
+    public static final int aiapps_emptyview_link_text_color = 2131100007;
+    public static final int aiapps_emptyview_subtitle_text_color = 2131100008;
+    public static final int aiapps_emptyview_subtitle_text_color_night = 2131100009;
+    public static final int aiapps_emptyview_title_text_color = 2131100010;
+    public static final int aiapps_emptyview_title_text_color_night = 2131100011;
+    public static final int aiapps_entry_guide_split_line3 = 2131100012;
+    public static final int aiapps_error_detail_color = 2131100013;
+    public static final int aiapps_error_fragment_background = 2131100014;
+    public static final int aiapps_error_msg_color = 2131100015;
+    public static final int aiapps_favorite_guide_dialog_bg = 2131100016;
+    public static final int aiapps_game_continue_watch = 2131100017;
+    public static final int aiapps_game_keyboard_sendbutton_mask = 2131100018;
+    public static final int aiapps_games_loading_progress = 2131100019;
+    public static final int aiapps_games_loading_tips_message = 2131100020;
+    public static final int aiapps_games_loading_tips_quotation = 2131100021;
+    public static final int aiapps_go_permission_color = 2131100022;
+    public static final int aiapps_history_develop_tag_text_color = 2131100023;
+    public static final int aiapps_home_menu_separator_color = 2131100024;
+    public static final int aiapps_invoice_action_bar_activate_txt_color_selector = 2131100029;
+    public static final int aiapps_invoice_action_bar_txt_color_selector = 2131100030;
+    public static final int aiapps_keyboard_divider_color = 2131100031;
+    public static final int aiapps_keyboard_item_background_pressed = 2131100032;
+    public static final int aiapps_keyboard_non_number_item_background_normal = 2131100033;
+    public static final int aiapps_keyboard_number_item_background_normal = 2131100034;
+    public static final int aiapps_keyboard_text_color_normal = 2131100035;
+    public static final int aiapps_keyboard_text_color_pressed = 2131100036;
+    public static final int aiapps_loading_text_color = 2131100037;
+    public static final int aiapps_location_item_bg_normal = 2131100038;
+    public static final int aiapps_location_item_bg_pressed = 2131100039;
+    public static final int aiapps_modal_button_press_bg = 2131100046;
+    public static final int aiapps_modal_cancel_color = 2131100047;
+    public static final int aiapps_modal_confirm_color = 2131100048;
+    public static final int aiapps_night_mode_cover_layer = 2131100049;
+    public static final int aiapps_open_location_menu_press = 2131100050;
+    public static final int aiapps_picture_loading_text_color = 2131100051;
+    public static final int aiapps_picture_pullrefresh_last_update_time_color = 2131100052;
+    public static final int aiapps_preference_title_text_color_disable = 2131100053;
+    public static final int aiapps_preference_title_text_color_enable = 2131100054;
+    public static final int aiapps_pull_load_footer_image_color = 2131100058;
+    public static final int aiapps_pull_loading_bg = 2131100059;
+    public static final int aiapps_pull_loading_refresh_anim_color = 2131100060;
+    public static final int aiapps_pull_refresh_result_text_color = 2131100061;
+    public static final int aiapps_refresh_result_bg_color = 2131100062;
+    public static final int aiapps_safe_dialog_btn_black = 2131100063;
+    public static final int aiapps_safe_dialog_btn_blue = 2131100064;
+    public static final int aiapps_safe_dialog_message = 2131100065;
+    public static final int aiapps_setting_action_sheet_divider_color = 2131100066;
+    public static final int aiapps_setting_aiapps_item_divider_color = 2131100067;
+    public static final int aiapps_ssl_dialog_go_on_text_color = 2131100068;
+    public static final int aiapps_statusbar_immersion_bg = 2131100069;
+    public static final int aiapps_statusbar_immersion_bg_below_lollipop = 2131100070;
+    public static final int aiapps_title_text_color = 2131100071;
+    public static final int aiapps_toast_bg_color = 2131100072;
+    public static final int aiapps_toast_bg_stroke_color = 2131100073;
+    public static final int aiapps_toast_button_bg_enable_color = 2131100074;
+    public static final int aiapps_toast_button_bg_stroke_color = 2131100075;
+    public static final int aiapps_toast_button_bg_unable_color = 2131100076;
+    public static final int aiapps_transparent = 2131100077;
+    public static final int aiapps_ui_cover_layer_color = 2131100078;
+    public static final int aiapps_white = 2131100079;
+    public static final int aiapps_white_text = 2131100080;
+    public static final int background_floating_material_dark = 2131100112;
+    public static final int background_floating_material_light = 2131100113;
+    public static final int background_material_dark = 2131100114;
+    public static final int background_material_light = 2131100115;
+    public static final int black = 2131100244;
+    public static final int bright_foreground_disabled_material_dark = 2131100266;
+    public static final int bright_foreground_disabled_material_light = 2131100267;
+    public static final int bright_foreground_inverse_material_dark = 2131100268;
+    public static final int bright_foreground_inverse_material_light = 2131100269;
+    public static final int bright_foreground_material_dark = 2131100270;
+    public static final int bright_foreground_material_light = 2131100271;
+    public static final int button_material_dark = 2131100293;
+    public static final int button_material_light = 2131100294;
+    public static final int channel_bg = 2131100302;
+    public static final int core_permission_dialog_info_color = 2131100772;
+    public static final int core_permission_go_setting_text_color = 2131100773;
+    public static final int core_permission_guide_icon_text_color = 2131100774;
+    public static final int core_permission_next_step_text_color = 2131100775;
+    public static final int core_permission_next_step_top_divider_color = 2131100776;
+    public static final int coupon_description = 2131100777;
+    public static final int dim_foreground_disabled_material_dark = 2131100974;
+    public static final int dim_foreground_disabled_material_light = 2131100975;
+    public static final int dim_foreground_material_dark = 2131100976;
+    public static final int dim_foreground_material_light = 2131100977;
+    public static final int duxiaomancolor = 2131100981;
+    public static final int error_color_material_dark = 2131101073;
+    public static final int error_color_material_light = 2131101074;
+    public static final int font_setting_background_color = 2131101077;
+    public static final int font_setting_body_preview_color = 2131101078;
+    public static final int font_setting_preview_background_color = 2131101079;
+    public static final int font_setting_preview_background_color_pop = 2131101080;
+    public static final int font_setting_preview_background_color_pop_night_atlas = 2131101081;
+    public static final int font_setting_separator_line_color = 2131101082;
+    public static final int font_setting_slider_bar_chosen_text_color_pop = 2131101083;
+    public static final int font_setting_slider_bar_chosen_text_color_pop_atlas = 2131101084;
+    public static final int font_setting_slider_bar_line_color = 2131101085;
+    public static final int font_setting_slider_bar_line_color_pop = 2131101086;
+    public static final int font_setting_slider_bar_line_color_pop_atlas = 2131101087;
+    public static final int font_setting_slider_bar_text_color = 2131101088;
+    public static final int font_setting_slider_bar_text_color_pop = 2131101089;
+    public static final int font_setting_slider_bar_text_color_pop_atlas = 2131101090;
+    public static final int font_setting_slider_thumb_color = 2131101091;
+    public static final int font_setting_slider_thumb_color_pop = 2131101092;
+    public static final int font_setting_slider_thumb_color_pop_atlas = 2131101093;
+    public static final int font_setting_slider_thumb_edge_color = 2131101094;
+    public static final int font_setting_slider_thumb_edge_color_pop = 2131101095;
+    public static final int font_setting_slider_thumb_edge_color_pop_atlas = 2131101096;
+    public static final int font_setting_slider_thumb_shadow_color = 2131101097;
+    public static final int font_setting_slider_thumb_shadow_color_pop = 2131101098;
+    public static final int font_setting_slider_thumb_shadow_color_pop_atlas = 2131101099;
+    public static final int font_setting_title_preview_color = 2131101100;
+    public static final int foreground_material_dark = 2131101101;
+    public static final int foreground_material_light = 2131101102;
+    public static final int highlighted_text_material_dark = 2131101135;
+    public static final int highlighted_text_material_light = 2131101136;
+    public static final int ksw_md_back_color = 2131101203;
+    public static final int ksw_md_ripple_checked = 2131101204;
+    public static final int ksw_md_ripple_normal = 2131101205;
+    public static final int ksw_md_solid_checked = 2131101206;
+    public static final int ksw_md_solid_checked_disable = 2131101207;
+    public static final int ksw_md_solid_disable = 2131101208;
+    public static final int ksw_md_solid_normal = 2131101209;
+    public static final int ksw_md_solid_shadow = 2131101210;
+    public static final int material_blue_grey_800 = 2131101246;
+    public static final int material_blue_grey_900 = 2131101247;
+    public static final int material_blue_grey_950 = 2131101248;
+    public static final int material_deep_teal_200 = 2131101249;
+    public static final int material_deep_teal_500 = 2131101250;
+    public static final int material_grey_100 = 2131101251;
+    public static final int material_grey_300 = 2131101252;
+    public static final int material_grey_50 = 2131101253;
+    public static final int material_grey_600 = 2131101254;
+    public static final int material_grey_800 = 2131101255;
+    public static final int material_grey_850 = 2131101256;
+    public static final int material_grey_900 = 2131101257;
+    public static final int notification_action_color_filter = 2131101319;
+    public static final int notification_icon_bg_color = 2131101320;
+    public static final int notification_material_background_media_default_color = 2131101321;
+    public static final int primary_dark_material_dark = 2131101380;
+    public static final int primary_dark_material_light = 2131101381;
+    public static final int primary_material_dark = 2131101382;
+    public static final int primary_material_light = 2131101383;
+    public static final int primary_text_default_material_dark = 2131101384;
+    public static final int primary_text_default_material_light = 2131101385;
+    public static final int primary_text_disabled_material_dark = 2131101386;
+    public static final int primary_text_disabled_material_light = 2131101387;
+    public static final int ripple_material_dark = 2131101550;
+    public static final int ripple_material_light = 2131101551;
+    public static final int sailor_common_black = 2131101571;
+    public static final int sailor_safe_bg = 2131101572;
+    public static final int sailor_safe_bg_night = 2131101573;
+    public static final int sailor_safe_btn_bordor_color = 2131101574;
+    public static final int sailor_safe_btn_bordor_color_night = 2131101575;
+    public static final int sailor_safe_download_btn_color = 2131101576;
+    public static final int sailor_safe_download_btn_color_night = 2131101577;
+    public static final int sailor_safe_download_btn_text_color = 2131101578;
+    public static final int sailor_safe_download_btn_text_color_night = 2131101579;
+    public static final int sailor_safe_line_color = 2131101580;
+    public static final int sailor_safe_line_color_night = 2131101581;
+    public static final int sailor_safe_text_color = 2131101582;
+    public static final int sailor_safe_text_color_night = 2131101583;
+    public static final int sailor_safe_url_color = 2131101584;
+    public static final int sailor_safe_url_color_night = 2131101585;
+    public static final int sailor_ssl_text_label = 2131101586;
+    public static final int sailor_ssl_text_value = 2131101587;
+    public static final int sailor_web_loading_point = 2131101593;
+    public static final int sailor_web_loading_point_select = 2131101594;
+    public static final int sailor_web_loading_point_select_night = 2131101595;
+    public static final int sailor_webview_bg = 2131101596;
+    public static final int sailor_webview_bg_night = 2131101597;
+    public static final int sailor_white = 2131101598;
+    public static final int secondary_text_default_material_dark = 2131101868;
+    public static final int secondary_text_default_material_light = 2131101869;
+    public static final int secondary_text_disabled_material_dark = 2131101870;
+    public static final int secondary_text_disabled_material_light = 2131101871;
+    public static final int swan_app_about_attentation_text_selector = 2131101890;
+    public static final int swan_app_about_attention_text = 2131101891;
+    public static final int swan_app_about_attention_text_pressed = 2131101892;
+    public static final int swan_app_about_share_text = 2131101893;
+    public static final int swan_app_about_share_text_pressed = 2131101894;
+    public static final int swan_app_action_bar_operation_btn_selector = 2131101895;
+    public static final int swan_app_action_sheet_cancel_text = 2131101896;
+    public static final int swan_app_auth_icon_border = 2131101897;
+    public static final int swan_app_auth_refuse_text_selector = 2131101898;
+    public static final int swan_app_emptyview_btn_text_color = 2131101907;
+    public static final int swan_app_emptyview_btn_text_color_night = 2131101908;
+    public static final int swan_app_emptyview_feed_back_btn_text_color = 2131101909;
+    public static final int swan_app_keyboard_text_color_selector = 2131101910;
+    public static final int swan_app_menu_header_pressed = 2131101911;
+    public static final int swan_app_menu_item_tip_text = 2131101912;
+    public static final int swan_app_msg_dialog_title = 2131101913;
+    public static final int swan_app_plugin_divider_bg = 2131101914;
+    public static final int swan_app_preference_text_color_title = 2131101915;
+    public static final int swan_attention_text_pressed = 2131101917;
+    public static final int swan_cancel_attention_btn = 2131101918;
+    public static final int swan_cancel_attention_btn_pressed = 2131101919;
+    public static final int swan_cancel_attention_text_pressed = 2131101920;
+    public static final int swan_empty_view_feed_back_btn_text_pressed = 2131101928;
+    public static final int swan_game_recommend_dialog_text_selector = 2131101929;
+    public static final int swan_games_antiaddiction_positive = 2131101930;
+    public static final int swan_image_menu_item_bg = 2131101931;
+    public static final int swan_text_menu_item_separator_color = 2131101932;
+    public static final int swanapp_ad_footer_background_color = 2131101936;
+    public static final int swanapp_ad_footer_font_color = 2131101937;
+    public static final int swanapp_ad_footer_line_color = 2131101938;
+    public static final int swanapp_ad_tail_background_color = 2131101939;
+    public static final int swanapp_ad_video_author_border_color = 2131101940;
+    public static final int swanapp_agreement_layout_bg = 2131101941;
+    public static final int swanapp_agreement_layout_pressed_bg = 2131101942;
+    public static final int swanapp_album_bottom_preview_color = 2131101943;
+    public static final int swanapp_album_bottom_preview_unable_color = 2131101944;
+    public static final int swanapp_album_camera_bg_color = 2131101945;
+    public static final int swanapp_album_cancel = 2131101946;
+    public static final int swanapp_album_empty_tv_color = 2131101947;
+    public static final int swanapp_album_item_press_color = 2131101948;
+    public static final int swanapp_album_item_select_bg = 2131101949;
+    public static final int swanapp_album_layer_text_color = 2131101950;
+    public static final int swanapp_album_line_color = 2131101951;
+    public static final int swanapp_album_name_container_bg = 2131101952;
+    public static final int swanapp_album_pregress_bg = 2131101953;
+    public static final int swanapp_album_pregress_stroke = 2131101954;
+    public static final int swanapp_album_preview_finish_color = 2131101955;
+    public static final int swanapp_album_preview_header_bg = 2131101956;
+    public static final int swanapp_album_preview_select_done_color = 2131101957;
+    public static final int swanapp_album_select_done_color = 2131101958;
+    public static final int swanapp_album_select_done_unable_color = 2131101959;
+    public static final int swanapp_album_select_number_color = 2131101960;
+    public static final int swanapp_album_selected_bg = 2131101961;
+    public static final int swanapp_album_thumbnail_line_color = 2131101962;
+    public static final int swanapp_album_unenable_shadow_color = 2131101963;
+    public static final int swanapp_album_video_upload_shadow_color = 2131101964;
+    public static final int swanapp_attention_btn_text_color = 2131101965;
+    public static final int swanapp_cancel_attention_btn_text_color = 2131101966;
+    public static final int swangame_game_close_guide_line = 2131101969;
+    public static final int swangame_recommend_dialog_button_normal_gradient_end = 2131101970;
+    public static final int swangame_recommend_dialog_button_normal_gradient_start = 2131101971;
+    public static final int swangame_recommend_dialog_button_press_gradient_end = 2131101972;
+    public static final int swangame_recommend_dialog_button_press_gradient_start = 2131101973;
+    public static final int swangame_recommend_dialog_icon_border = 2131101974;
+    public static final int swangame_recommend_dialog_list_click = 2131101975;
+    public static final int swangame_recommend_dialog_list_divider = 2131101976;
+    public static final int swangame_recommend_dialog_list_item_detail_text = 2131101977;
+    public static final int swangame_recommend_dialog_text_normal = 2131101978;
+    public static final int swangame_recommend_dialog_text_press = 2131101979;
+    public static final int switch_thumb_disabled_material_dark = 2131101983;
+    public static final int switch_thumb_disabled_material_light = 2131101984;
+    public static final int switch_thumb_material_dark = 2131101985;
+    public static final int switch_thumb_material_light = 2131101986;
+    public static final int switch_thumb_normal_material_dark = 2131101987;
+    public static final int switch_thumb_normal_material_light = 2131101988;
+    public static final int tooltip_background_dark = 2131101994;
+    public static final int tooltip_background_light = 2131101995;
 }

@@ -15,23 +15,23 @@ import d.b.c.j.e.n;
 import d.b.c.j.e.w;
 /* loaded from: classes5.dex */
 public class TransmitForumAdapter extends d.b.c.j.e.a<TransmitForumData, TransmitForumViewHolder> {
-    public d.b.i0.v3.r.a m;
+    public d.b.j0.v3.r.a m;
     public w n;
 
     /* loaded from: classes5.dex */
     public static class TransmitForumViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22002a;
+        public TextView f22010a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f22003b;
+        public CheckBox f22011b;
 
         public TransmitForumViewHolder(View view) {
             super(view);
-            this.f22002a = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.f22010a = (TextView) view.findViewById(R.id.transmit_forum_name);
             CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.f22003b = checkBox;
+            this.f22011b = checkBox;
             checkBox.setButtonDrawable(SkinManager.getDrawable(R.drawable.transmit_check_box));
         }
     }
@@ -79,17 +79,17 @@ public class TransmitForumAdapter extends d.b.c.j.e.a<TransmitForumData, Transmi
     @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public TransmitForumViewHolder R(ViewGroup viewGroup) {
-        return new TransmitForumViewHolder(LayoutInflater.from(this.f42855e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null));
+        return new TransmitForumViewHolder(LayoutInflater.from(this.f43095e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null));
     }
 
     public View j0(int i, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
-        transmitForumViewHolder.f22002a.setText(transmitForumData.forumName);
-        transmitForumViewHolder.f22003b.setChecked(transmitForumData.checked);
-        SkinManager.setViewTextColor(transmitForumViewHolder.f22002a, R.color.CAM_X0105);
+        transmitForumViewHolder.f22010a.setText(transmitForumData.forumName);
+        transmitForumViewHolder.f22011b.setChecked(transmitForumData.checked);
+        SkinManager.setViewTextColor(transmitForumViewHolder.f22010a, R.color.CAM_X0105);
         return view;
     }
 
-    public void l0(d.b.i0.v3.r.a aVar) {
+    public void l0(d.b.j0.v3.r.a aVar) {
         this.m = aVar;
     }
 }

@@ -14,30 +14,30 @@ import java.util.Iterator;
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35369a = "e";
+    public static final String f35464a = "e";
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f35370b;
+    public int[] f35465b;
     @ColorInt
 
     /* renamed from: c  reason: collision with root package name */
-    public final int[] f35371c;
+    public final int[] f35466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a.InterfaceC0421a f35372d;
+    public final a.InterfaceC0424a f35467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ByteBuffer f35373e;
+    public ByteBuffer f35468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f35374f;
+    public byte[] f35469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public short[] f35375g;
+    public short[] f35470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f35376h;
+    public byte[] f35471h;
     public byte[] i;
     public byte[] j;
     @ColorInt
@@ -55,15 +55,15 @@ public class e implements a {
     @NonNull
     public Bitmap.Config u;
 
-    public e(@NonNull a.InterfaceC0421a interfaceC0421a) {
-        this.f35371c = new int[256];
+    public e(@NonNull a.InterfaceC0424a interfaceC0424a) {
+        this.f35466c = new int[256];
         this.u = Bitmap.Config.ARGB_8888;
-        this.f35372d = interfaceC0421a;
+        this.f35467d = interfaceC0424a;
         this.m = new c();
     }
 
-    public e(@NonNull a.InterfaceC0421a interfaceC0421a, c cVar, ByteBuffer byteBuffer, int i) {
-        this(interfaceC0421a);
+    public e(@NonNull a.InterfaceC0424a interfaceC0424a, c cVar, ByteBuffer byteBuffer, int i) {
+        this(interfaceC0424a);
         a(cVar, byteBuffer, i);
     }
 
@@ -79,7 +79,7 @@ public class e implements a {
             if (i9 >= bArr.length || i9 >= i2) {
                 break;
             }
-            int i10 = this.f35370b[bArr[i9] & 255];
+            int i10 = this.f35465b[bArr[i9] & 255];
             if (i10 != 0) {
                 i4 += (i10 >> 24) & 255;
                 i5 += (i10 >> 16) & 255;
@@ -94,7 +94,7 @@ public class e implements a {
             if (i12 >= bArr2.length || i12 >= i2) {
                 break;
             }
-            int i13 = this.f35370b[bArr2[i12] & 255];
+            int i13 = this.f35465b[bArr2[i12] & 255];
             if (i13 != 0) {
                 i4 += (i13 >> 24) & 255;
                 i5 += (i13 >> 16) & 255;
@@ -118,31 +118,31 @@ public class e implements a {
         if (bVar2 == null) {
             Bitmap bitmap2 = this.n;
             if (bitmap2 != null) {
-                this.f35372d.a(bitmap2);
+                this.f35467d.a(bitmap2);
             }
             this.n = null;
             Arrays.fill(iArr, 0);
         }
-        if (bVar2 != null && bVar2.f35355g == 3 && this.n == null) {
+        if (bVar2 != null && bVar2.f35450g == 3 && this.n == null) {
             Arrays.fill(iArr, 0);
         }
-        if (bVar2 != null && (i2 = bVar2.f35355g) > 0) {
+        if (bVar2 != null && (i2 = bVar2.f35450g) > 0) {
             if (i2 == 2) {
-                if (!bVar.f35354f) {
+                if (!bVar.f35449f) {
                     c cVar = this.m;
                     int i4 = cVar.l;
-                    if (bVar.k == null || cVar.j != bVar.f35356h) {
+                    if (bVar.k == null || cVar.j != bVar.f35451h) {
                         i3 = i4;
                     }
                 } else if (this.l == 0) {
                     this.t = Boolean.TRUE;
                 }
-                int i5 = bVar2.f35352d;
+                int i5 = bVar2.f35447d;
                 int i6 = this.q;
                 int i7 = i5 / i6;
-                int i8 = bVar2.f35350b / i6;
-                int i9 = bVar2.f35351c / i6;
-                int i10 = bVar2.f35349a / i6;
+                int i8 = bVar2.f35445b / i6;
+                int i9 = bVar2.f35446c / i6;
+                int i10 = bVar2.f35444a / i6;
                 int i11 = this.s;
                 int i12 = (i8 * i11) + i10;
                 int i13 = (i7 * i11) + i12;
@@ -159,12 +159,12 @@ public class e implements a {
             }
         }
         c(bVar);
-        if (bVar.f35353e || this.q != 1) {
+        if (bVar.f35448e || this.q != 1) {
             b(bVar);
         } else {
             a(bVar);
         }
-        if (this.o && ((i = bVar.f35355g) == 0 || i == 1)) {
+        if (this.o && ((i = bVar.f35450g) == 0 || i == 1)) {
             if (this.n == null) {
                 this.n = l();
             }
@@ -181,14 +181,14 @@ public class e implements a {
     private void a(b bVar) {
         b bVar2 = bVar;
         int[] iArr = this.k;
-        int i = bVar2.f35352d;
-        int i2 = bVar2.f35350b;
-        int i3 = bVar2.f35351c;
-        int i4 = bVar2.f35349a;
+        int i = bVar2.f35447d;
+        int i2 = bVar2.f35445b;
+        int i3 = bVar2.f35446c;
+        int i4 = bVar2.f35444a;
         boolean z = this.l == 0;
         int i5 = this.s;
         byte[] bArr = this.j;
-        int[] iArr2 = this.f35370b;
+        int[] iArr2 = this.f35465b;
         int i6 = 0;
         byte b2 = -1;
         while (i6 < i) {
@@ -199,7 +199,7 @@ public class e implements a {
             if (i10 < i9) {
                 i9 = i10;
             }
-            int i11 = bVar2.f35351c * i6;
+            int i11 = bVar2.f35446c * i6;
             int i12 = i8;
             while (i12 < i9) {
                 byte b3 = bArr[i11];
@@ -231,18 +231,18 @@ public class e implements a {
         int i4;
         int i5;
         int[] iArr = this.k;
-        int i6 = bVar.f35352d;
+        int i6 = bVar.f35447d;
         int i7 = this.q;
         int i8 = i6 / i7;
-        int i9 = bVar.f35350b / i7;
-        int i10 = bVar.f35351c / i7;
-        int i11 = bVar.f35349a / i7;
+        int i9 = bVar.f35445b / i7;
+        int i10 = bVar.f35446c / i7;
+        int i11 = bVar.f35444a / i7;
         boolean z = this.l == 0;
         int i12 = this.q;
         int i13 = this.s;
         int i14 = this.r;
         byte[] bArr = this.j;
-        int[] iArr2 = this.f35370b;
+        int[] iArr2 = this.f35465b;
         Boolean bool2 = this.t;
         int i15 = 8;
         int i16 = 0;
@@ -253,7 +253,7 @@ public class e implements a {
             if (i16 >= i8) {
                 break;
             }
-            if (bVar.f35353e) {
+            if (bVar.f35448e) {
                 if (i17 >= i8) {
                     i = i8;
                     int i19 = i18 + 1;
@@ -291,7 +291,7 @@ public class e implements a {
                     i23 = i24;
                 }
                 i3 = i2;
-                int i25 = i16 * i12 * bVar.f35351c;
+                int i25 = i16 * i12 * bVar.f35446c;
                 if (z2) {
                     int i26 = i22;
                     while (true) {
@@ -316,7 +316,7 @@ public class e implements a {
                     while (true) {
                         i5 = i10;
                         if (i29 < i23) {
-                            int a2 = a(i25, i28, bVar.f35351c);
+                            int a2 = a(i25, i28, bVar.f35446c);
                             if (a2 != 0) {
                                 iArr[i29] = a2;
                             } else if (z && bool == null) {
@@ -360,30 +360,30 @@ public class e implements a {
         short s;
         e eVar = this;
         if (bVar != null) {
-            eVar.f35373e.position(bVar.j);
+            eVar.f35468e.position(bVar.j);
         }
         if (bVar == null) {
             c cVar = eVar.m;
-            i = cVar.f35362f;
-            i2 = cVar.f35363g;
+            i = cVar.f35457f;
+            i2 = cVar.f35458g;
         } else {
-            i = bVar.f35351c;
-            i2 = bVar.f35352d;
+            i = bVar.f35446c;
+            i2 = bVar.f35447d;
         }
         int i3 = i * i2;
         byte[] bArr = eVar.j;
         if (bArr == null || bArr.length < i3) {
-            eVar.j = eVar.f35372d.a(i3);
+            eVar.j = eVar.f35467d.a(i3);
         }
         byte[] bArr2 = eVar.j;
-        if (eVar.f35375g == null) {
-            eVar.f35375g = new short[4096];
+        if (eVar.f35470g == null) {
+            eVar.f35470g = new short[4096];
         }
-        short[] sArr = eVar.f35375g;
-        if (eVar.f35376h == null) {
-            eVar.f35376h = new byte[4096];
+        short[] sArr = eVar.f35470g;
+        if (eVar.f35471h == null) {
+            eVar.f35471h = new byte[4096];
         }
-        byte[] bArr3 = eVar.f35376h;
+        byte[] bArr3 = eVar.f35471h;
         if (eVar.i == null) {
             eVar.i = new byte[4097];
         }
@@ -399,7 +399,7 @@ public class e implements a {
             sArr[i10] = 0;
             bArr3[i10] = (byte) i10;
         }
-        byte[] bArr5 = eVar.f35374f;
+        byte[] bArr5 = eVar.f35469f;
         int i11 = i7;
         int i12 = i6;
         int i13 = i8;
@@ -517,7 +517,7 @@ public class e implements a {
     }
 
     private int j() {
-        return this.f35373e.get() & 255;
+        return this.f35468e.get() & 255;
     }
 
     private int k() {
@@ -525,14 +525,14 @@ public class e implements a {
         if (j <= 0) {
             return j;
         }
-        ByteBuffer byteBuffer = this.f35373e;
-        byteBuffer.get(this.f35374f, 0, Math.min(j, byteBuffer.remaining()));
+        ByteBuffer byteBuffer = this.f35468e;
+        byteBuffer.get(this.f35469f, 0, Math.min(j, byteBuffer.remaining()));
         return j;
     }
 
     private Bitmap l() {
         Boolean bool = this.t;
-        Bitmap a2 = this.f35372d.a(this.s, this.r, (bool == null || bool.booleanValue()) ? Bitmap.Config.ARGB_8888 : this.u);
+        Bitmap a2 = this.f35467d.a(this.s, this.r, (bool == null || bool.booleanValue()) ? Bitmap.Config.ARGB_8888 : this.u);
         a2.setHasAlpha(true);
         return a2;
     }
@@ -540,8 +540,8 @@ public class e implements a {
     public int a(int i) {
         if (i >= 0) {
             c cVar = this.m;
-            if (i < cVar.f35359c) {
-                return cVar.f35361e.get(i).i;
+            if (i < cVar.f35454c) {
+                return cVar.f35456e.get(i).i;
             }
         }
         return -1;
@@ -550,7 +550,7 @@ public class e implements a {
     @Override // com.kwad.sdk.glide.b.a
     @NonNull
     public ByteBuffer a() {
-        return this.f35373e;
+        return this.f35468e;
     }
 
     @Override // com.kwad.sdk.glide.b.a
@@ -571,35 +571,35 @@ public class e implements a {
         this.m = cVar;
         this.l = -1;
         ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
-        this.f35373e = asReadOnlyBuffer;
+        this.f35468e = asReadOnlyBuffer;
         asReadOnlyBuffer.position(0);
-        this.f35373e.order(ByteOrder.LITTLE_ENDIAN);
+        this.f35468e.order(ByteOrder.LITTLE_ENDIAN);
         this.o = false;
-        Iterator<b> it = cVar.f35361e.iterator();
+        Iterator<b> it = cVar.f35456e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
-            } else if (it.next().f35355g == 3) {
+            } else if (it.next().f35450g == 3) {
                 this.o = true;
                 break;
             }
         }
         this.q = highestOneBit;
-        this.s = cVar.f35362f / highestOneBit;
-        this.r = cVar.f35363g / highestOneBit;
-        this.j = this.f35372d.a(cVar.f35362f * cVar.f35363g);
-        this.k = this.f35372d.b(this.s * this.r);
+        this.s = cVar.f35457f / highestOneBit;
+        this.r = cVar.f35458g / highestOneBit;
+        this.j = this.f35467d.a(cVar.f35457f * cVar.f35458g);
+        this.k = this.f35467d.b(this.s * this.r);
     }
 
     @Override // com.kwad.sdk.glide.b.a
     public void b() {
-        this.l = (this.l + 1) % this.m.f35359c;
+        this.l = (this.l + 1) % this.m.f35454c;
     }
 
     @Override // com.kwad.sdk.glide.b.a
     public int c() {
         int i;
-        if (this.m.f35359c <= 0 || (i = this.l) < 0) {
+        if (this.m.f35454c <= 0 || (i = this.l) < 0) {
             return 0;
         }
         return a(i);
@@ -607,7 +607,7 @@ public class e implements a {
 
     @Override // com.kwad.sdk.glide.b.a
     public int d() {
-        return this.m.f35359c;
+        return this.m.f35454c;
     }
 
     @Override // com.kwad.sdk.glide.b.a
@@ -622,47 +622,47 @@ public class e implements a {
 
     @Override // com.kwad.sdk.glide.b.a
     public int g() {
-        return this.f35373e.limit() + this.j.length + (this.k.length * 4);
+        return this.f35468e.limit() + this.j.length + (this.k.length * 4);
     }
 
     @Override // com.kwad.sdk.glide.b.a
     @Nullable
     public synchronized Bitmap h() {
-        if (this.m.f35359c <= 0 || this.l < 0) {
-            if (Log.isLoggable(f35369a, 3)) {
-                String str = f35369a;
-                Log.d(str, "Unable to decode frame, frameCount=" + this.m.f35359c + ", framePointer=" + this.l);
+        if (this.m.f35454c <= 0 || this.l < 0) {
+            if (Log.isLoggable(f35464a, 3)) {
+                String str = f35464a;
+                Log.d(str, "Unable to decode frame, frameCount=" + this.m.f35454c + ", framePointer=" + this.l);
             }
             this.p = 1;
         }
         if (this.p != 1 && this.p != 2) {
             this.p = 0;
-            if (this.f35374f == null) {
-                this.f35374f = this.f35372d.a(255);
+            if (this.f35469f == null) {
+                this.f35469f = this.f35467d.a(255);
             }
-            b bVar = this.m.f35361e.get(this.l);
+            b bVar = this.m.f35456e.get(this.l);
             int i = this.l - 1;
-            b bVar2 = i >= 0 ? this.m.f35361e.get(i) : null;
-            int[] iArr = bVar.k != null ? bVar.k : this.m.f35357a;
-            this.f35370b = iArr;
+            b bVar2 = i >= 0 ? this.m.f35456e.get(i) : null;
+            int[] iArr = bVar.k != null ? bVar.k : this.m.f35452a;
+            this.f35465b = iArr;
             if (iArr != null) {
-                if (bVar.f35354f) {
-                    System.arraycopy(iArr, 0, this.f35371c, 0, iArr.length);
-                    int[] iArr2 = this.f35371c;
-                    this.f35370b = iArr2;
-                    iArr2[bVar.f35356h] = 0;
+                if (bVar.f35449f) {
+                    System.arraycopy(iArr, 0, this.f35466c, 0, iArr.length);
+                    int[] iArr2 = this.f35466c;
+                    this.f35465b = iArr2;
+                    iArr2[bVar.f35451h] = 0;
                 }
                 return a(bVar, bVar2);
             }
-            if (Log.isLoggable(f35369a, 3)) {
-                String str2 = f35369a;
+            if (Log.isLoggable(f35464a, 3)) {
+                String str2 = f35464a;
                 Log.d(str2, "No valid color table found for frame #" + this.l);
             }
             this.p = 1;
             return null;
         }
-        if (Log.isLoggable(f35369a, 3)) {
-            String str3 = f35369a;
+        if (Log.isLoggable(f35464a, 3)) {
+            String str3 = f35464a;
             Log.d(str3, "Unable to decode frame, status=" + this.p);
         }
         return null;
@@ -673,22 +673,22 @@ public class e implements a {
         this.m = null;
         byte[] bArr = this.j;
         if (bArr != null) {
-            this.f35372d.a(bArr);
+            this.f35467d.a(bArr);
         }
         int[] iArr = this.k;
         if (iArr != null) {
-            this.f35372d.a(iArr);
+            this.f35467d.a(iArr);
         }
         Bitmap bitmap = this.n;
         if (bitmap != null) {
-            this.f35372d.a(bitmap);
+            this.f35467d.a(bitmap);
         }
         this.n = null;
-        this.f35373e = null;
+        this.f35468e = null;
         this.t = null;
-        byte[] bArr2 = this.f35374f;
+        byte[] bArr2 = this.f35469f;
         if (bArr2 != null) {
-            this.f35372d.a(bArr2);
+            this.f35467d.a(bArr2);
         }
     }
 }

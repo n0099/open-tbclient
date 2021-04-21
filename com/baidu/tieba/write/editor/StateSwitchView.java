@@ -12,7 +12,7 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 public class StateSwitchView extends EditorInfoView {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21985h;
+    public String f21993h;
     public String i;
     public int j;
     public int k;
@@ -97,7 +97,7 @@ public class StateSwitchView extends EditorInfoView {
         if (this.o == 1) {
             setText(this.i);
         } else {
-            setText(this.f21985h);
+            setText(this.f21993h);
         }
     }
 
@@ -128,7 +128,7 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     public void setStateString(String str, String str2) {
-        this.f21985h = str;
+        this.f21993h = str;
         this.i = str2;
         f();
     }

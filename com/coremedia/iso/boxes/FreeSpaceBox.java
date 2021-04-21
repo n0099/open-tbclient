@@ -8,9 +8,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class FreeSpaceBox extends AbstractBox {
     public static final String TYPE = "skip";
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
     public byte[] data;
 
     static {

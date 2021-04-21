@@ -1,44 +1,106 @@
 package d.b.i0.z0;
 
-import com.squareup.wire.Message;
-import d.b.i0.a1.c.c;
-import d.b.i0.j1.p.e;
-/* loaded from: classes4.dex */
-public class b implements d.b.i0.j1.s.b {
+import android.text.TextUtils;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import okhttp3.Response;
+/* loaded from: classes3.dex */
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c.d f64222a;
+    public static b f52410a;
 
-    public b(c.d dVar) {
-        this.f64222a = dVar;
+    public static synchronized b c() {
+        b bVar;
+        synchronized (b.class) {
+            if (f52410a == null) {
+                f52410a = new b();
+            }
+            bVar = f52410a;
+        }
+        return bVar;
     }
 
-    @Override // d.b.i0.j1.s.b
-    public void a(long j, String str, String str2, int i) {
-        c.d dVar = this.f64222a;
-        if (dVar != null) {
-            dVar.c(str, str2, i, true, 1);
+    public long a(File file, String str) {
+        FileOutputStream fileOutputStream;
+        long j = 0;
+        if (TextUtils.isEmpty(str) || file == null) {
+            return 0L;
         }
+        InputStream inputStream = null;
+        try {
+            Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
+            if (executeSync == null || executeSync.code() != 200) {
+                fileOutputStream = null;
+            } else {
+                InputStream byteStream = executeSync.body().byteStream();
+                if (byteStream != null) {
+                    try {
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (Exception e2) {
+                        e = e2;
+                        fileOutputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                    }
+                    try {
+                        j = FileUtils.copyStream(byteStream, fileOutputStream);
+                    } catch (Exception e3) {
+                        e = e3;
+                        inputStream = byteStream;
+                        try {
+                            TiebaStatic.log(e.toString());
+                            Closeables.closeSafely(inputStream);
+                            Closeables.closeSafely(fileOutputStream);
+                            return j;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            Closeables.closeSafely(inputStream);
+                            Closeables.closeSafely(fileOutputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        inputStream = byteStream;
+                        Closeables.closeSafely(inputStream);
+                        Closeables.closeSafely(fileOutputStream);
+                        throw th;
+                    }
+                } else {
+                    fileOutputStream = null;
+                }
+                inputStream = byteStream;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            fileOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileOutputStream = null;
+        }
+        Closeables.closeSafely(inputStream);
+        Closeables.closeSafely(fileOutputStream);
+        return j;
     }
 
-    @Override // d.b.i0.j1.s.b
-    public void b(long j, String str, Message message, boolean z) {
+    public String b() {
+        return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
     }
 
-    @Override // d.b.i0.j1.s.b
-    public void c(boolean z, Message message, boolean z2, long j, String str, int i) {
-        d.b.i0.z0.c.a aVar = new d.b.i0.z0.c.a();
-        e eVar = new e();
-        eVar.f57478a = j;
-        eVar.f57479b = str;
-        d.b.i0.j1.p.a b2 = d.b.i0.j1.r.b.d().b(eVar);
-        if (b2 != null) {
-            b2.d(z, message, z2, i);
+    public void d() {
+        String b2 = b();
+        if (TextUtils.isEmpty(b2)) {
+            return;
         }
-        aVar.c(b2);
-        c.d dVar = this.f64222a;
-        if (dVar != null) {
-            dVar.e(z, aVar, z2, "", str, true);
-        }
+        d.b.c.e.l.d.h().k(b2, 10, null, 0, 0, null, new Object[0]);
     }
 }

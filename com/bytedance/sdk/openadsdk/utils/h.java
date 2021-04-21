@@ -10,10 +10,10 @@ import java.util.Map;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, a> f30109a = Collections.synchronizedMap(new HashMap());
+    public static final Map<String, a> f30117a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static IListenerManager f30110b;
+    public static IListenerManager f30118b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -26,7 +26,7 @@ public class h {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f30109a.remove(str);
+        return f30117a.remove(str);
     }
 
     public static void a(String str, String[] strArr, a aVar) {
@@ -38,10 +38,10 @@ public class h {
     }
 
     public static IListenerManager b() {
-        if (f30110b == null) {
-            f30110b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
+        if (f30118b == null) {
+            f30118b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
         }
-        return f30110b;
+        return f30118b;
     }
 
     public static void a(final String str) {
@@ -110,7 +110,7 @@ public class h {
                 }
             }, 5);
         } else {
-            f30109a.put(str, aVar);
+            f30117a.put(str, aVar);
         }
     }
 }

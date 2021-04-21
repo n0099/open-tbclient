@@ -7,16 +7,16 @@ public final class c<E> extends a<E> {
     public static final Integer k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f68962g;
+    public final AtomicLong f69109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f68963h;
+    public long f69110h;
     public final AtomicLong i;
     public final int j;
 
     public c(int i) {
         super(i);
-        this.f68962g = new AtomicLong();
+        this.f69109g = new AtomicLong();
         this.i = new AtomicLong();
         this.j = Math.min(i / 4, k.intValue());
     }
@@ -26,7 +26,7 @@ public final class c<E> extends a<E> {
     }
 
     public final long g() {
-        return this.f68962g.get();
+        return this.f69109g.get();
     }
 
     public final void h(long j) {
@@ -34,7 +34,7 @@ public final class c<E> extends a<E> {
     }
 
     public final void i(long j) {
-        this.f68962g.lazySet(j);
+        this.f69109g.lazySet(j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
@@ -45,14 +45,14 @@ public final class c<E> extends a<E> {
     @Override // java.util.Queue
     public boolean offer(E e2) {
         if (e2 != null) {
-            AtomicReferenceArray<E> atomicReferenceArray = this.f68958e;
-            int i = this.f68959f;
-            long j = this.f68962g.get();
+            AtomicReferenceArray<E> atomicReferenceArray = this.f69105e;
+            int i = this.f69106f;
+            long j = this.f69109g.get();
             int b2 = b(j, i);
-            if (j >= this.f68963h) {
+            if (j >= this.f69110h) {
                 long j2 = this.j + j;
                 if (d(atomicReferenceArray, b(j2, i)) == null) {
-                    this.f68963h = j2;
+                    this.f69110h = j2;
                 } else if (d(atomicReferenceArray, b2) != null) {
                     return false;
                 }
@@ -73,7 +73,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.i.get();
         int a2 = a(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.f68958e;
+        AtomicReferenceArray<E> atomicReferenceArray = this.f69105e;
         E d2 = d(atomicReferenceArray, a2);
         if (d2 == null) {
             return null;

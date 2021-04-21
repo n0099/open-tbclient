@@ -3,27 +3,27 @@ package com.kwai.video.ksvodplayerkit.b;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37543a;
+    public int f37638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37544b;
+    public String f37639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37545c;
+    public String f37640c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37546d;
+    public int f37641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37547e;
+    public int f37642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37548f;
+    public int f37643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37549g;
+    public String f37644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f37550h;
+    public float f37645h;
     public transient com.kwai.video.ksvodplayerkit.HttpDns.g<com.kwai.video.ksvodplayerkit.HttpDns.a> i;
 }

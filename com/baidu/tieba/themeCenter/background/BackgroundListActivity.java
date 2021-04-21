@@ -6,10 +6,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
-import d.b.h0.r.f0.f;
-import d.b.i0.j3.e.d;
-import d.b.i0.j3.e.f;
-import d.b.i0.j3.h.e;
+import d.b.i0.r.f0.f;
+import d.b.j0.j3.e.d;
+import d.b.j0.j3.e.f;
+import d.b.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BackgroundListActivity extends BaseActivity<BackgroundListActivity> {
@@ -58,7 +58,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         public c() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (BackgroundListActivity.this.mModel != null) {
                 BackgroundListActivity.this.mModel.LoadData();
@@ -66,16 +66,16 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "b008";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.b.h0.k0.d getPageStayDurationItem() {
-        d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.b.i0.k0.d getPageStayDurationItem() {
+        d.b.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50646a = true;
+            pageStayDurationItem.f50982a = true;
         }
         return pageStayDurationItem;
     }
@@ -87,7 +87,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.j3.e.f fVar = this.mView;
+        d.b.j0.j3.e.f fVar = this.mView;
         if (fVar != null) {
             fVar.d();
         }
@@ -104,7 +104,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
         this.mItemController = dVar;
         dVar.c(0);
-        d.b.i0.j3.e.f fVar = new d.b.i0.j3.e.f(this, this.mItemController);
+        d.b.j0.j3.e.f fVar = new d.b.j0.j3.e.f(this, this.mItemController);
         this.mView = fVar;
         fVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
         showLoadingView(this.mView.c());
@@ -122,7 +122,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.b.i0.j3.e.f fVar;
+        d.b.j0.j3.e.f fVar;
         if (this.mModel == null || (fVar = this.mView) == null) {
             return;
         }

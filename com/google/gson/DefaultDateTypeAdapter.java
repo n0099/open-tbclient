@@ -2,10 +2,10 @@ package com.google.gson;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.gson.stream.JsonToken;
-import d.g.d.b.c;
-import d.g.d.b.f;
-import d.g.d.b.j.c.a;
-import d.g.d.d.b;
+import d.h.d.b.c;
+import d.h.d.b.f;
+import d.h.d.b.j.c.a;
+import d.h.d.d.b;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -67,7 +67,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
-    public Date read(d.g.d.d.a aVar) throws IOException {
+    public Date read(d.h.d.d.a aVar) throws IOException {
         if (aVar.M() == JsonToken.NULL) {
             aVar.I();
             return null;

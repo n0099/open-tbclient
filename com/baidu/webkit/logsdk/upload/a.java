@@ -5,28 +5,28 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26702a;
+    public String f26710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26703b;
+    public int f26711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26704c;
+    public boolean f26712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f26705d;
+    public long f26713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f26706e;
+    public com.baidu.webkit.logsdk.b.a f26714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26707f;
+    public String f26715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26708g;
+    public String f26716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26709h;
+    public String f26717h;
     public String i;
 
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -34,16 +34,16 @@ public final class a {
     }
 
     public a(com.baidu.webkit.logsdk.b.a aVar, String str, String str2) {
-        this.f26702a = str;
-        this.f26703b = 0;
-        this.f26704c = false;
-        this.f26706e = aVar;
+        this.f26710a = str;
+        this.f26711b = 0;
+        this.f26712c = false;
+        this.f26714e = aVar;
         int a2 = !TextUtils.isEmpty(str2) ? com.baidu.webkit.logsdk.d.c.a(str2) : -1;
         if (a2 <= 1 && a2 >= 0) {
-            this.f26707f = str2;
+            this.f26715f = str2;
             return;
         }
-        this.f26707f = aVar.f26673c;
-        this.f26708g = aVar.f26674d;
+        this.f26715f = aVar.f26681c;
+        this.f26716g = aVar.f26682d;
     }
 }

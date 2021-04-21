@@ -15,25 +15,25 @@ public enum FieldEncoding {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38897a;
+        public static final /* synthetic */ int[] f38992a;
 
         static {
             int[] iArr = new int[FieldEncoding.values().length];
-            f38897a = iArr;
+            f38992a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38897a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f38992a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38897a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f38992a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f38897a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f38992a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -60,7 +60,7 @@ public enum FieldEncoding {
     }
 
     public ProtoAdapter<?> rawProtoAdapter() {
-        int i = a.f38897a[ordinal()];
+        int i = a.f38992a[ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {

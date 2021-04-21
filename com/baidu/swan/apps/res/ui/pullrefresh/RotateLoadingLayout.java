@@ -15,19 +15,19 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import d.b.g0.a.d;
-import d.b.g0.a.e;
-import d.b.g0.a.f;
-import d.b.g0.a.g;
-import d.b.g0.a.h;
-import d.b.g0.a.i2.c;
+import d.b.h0.a.d;
+import d.b.h0.a.e;
+import d.b.h0.a.f;
+import d.b.h0.a.g;
+import d.b.h0.a.h;
+import d.b.h0.a.i2.c;
 @SuppressLint({"NewApi"})
 /* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator n = new LinearInterpolator();
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f12250h;
+    public RelativeLayout f12258h;
     public ImageView i;
     public TextView j;
     public TextView k;
@@ -58,7 +58,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        RelativeLayout relativeLayout = this.f12250h;
+        RelativeLayout relativeLayout = this.f12258h;
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
@@ -95,7 +95,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.f12250h = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+        this.f12258h = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
         this.i = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
         this.j = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
         this.k = (TextView) findViewById(f.pull_to_refresh_header_time);

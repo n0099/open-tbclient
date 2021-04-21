@@ -56,11 +56,11 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
                             if (Thread.interrupted()) {
                                 break;
                             }
-                            ByteBuffer take = a.this.engine.f68629e.take();
+                            ByteBuffer take = a.this.engine.f68776e.take();
                             a.this.ostream.write(take.array(), 0, take.limit());
                             a.this.ostream.flush();
                         } catch (InterruptedException unused) {
-                            for (ByteBuffer byteBuffer : a.this.engine.f68629e) {
+                            for (ByteBuffer byteBuffer : a.this.engine.f68776e) {
                                 a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                                 a.this.ostream.flush();
                             }
@@ -158,12 +158,12 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
         sb.append((port == 80 || port == 443) ? "" : ":" + port);
         String sb2 = sb.toString();
         d dVar = new d();
-        dVar.g(rawPath);
-        dVar.a("Host", sb2);
+        dVar.f(rawPath);
+        dVar.put("Host", sb2);
         Map<String, String> map = this.headers;
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                dVar.a(entry.getKey(), entry.getValue());
+                dVar.put(entry.getKey(), entry.getValue());
             }
         }
         this.engine.M(dVar);

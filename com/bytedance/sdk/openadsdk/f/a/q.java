@@ -12,46 +12,46 @@ import java.util.List;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static v f29028a;
+    public static v f29036a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f29029b;
+    public final a f29037b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final WebView f29030c;
+    public final WebView f29038c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f29031d;
+    public final j f29039d;
 
     /* renamed from: f  reason: collision with root package name */
-    public o f29033f;
+    public o f29041f;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<n> f29032e = new ArrayList();
+    public final List<n> f29040e = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f29034g = false;
+    public volatile boolean f29042g = false;
 
     public q(j jVar) {
         v vVar;
-        this.f29031d = jVar;
-        u a2 = (!jVar.f29012h || (vVar = f29028a) == null) ? null : vVar.a(jVar.k);
-        if (jVar.f29005a != null) {
+        this.f29039d = jVar;
+        u a2 = (!jVar.f29020h || (vVar = f29036a) == null) ? null : vVar.a(jVar.k);
+        if (jVar.f29013a != null) {
             y yVar = new y();
-            this.f29029b = yVar;
+            this.f29037b = yVar;
             yVar.a(jVar, a2);
         } else {
-            a aVar = jVar.f29006b;
-            this.f29029b = aVar;
+            a aVar = jVar.f29014b;
+            this.f29037b = aVar;
             aVar.a(jVar, a2);
         }
-        this.f29030c = jVar.f29005a;
-        this.f29032e.add(jVar.j);
-        i.a(jVar.f29010f);
-        x.a(jVar.f29011g);
+        this.f29038c = jVar.f29013a;
+        this.f29040e.add(jVar.j);
+        i.a(jVar.f29018f);
+        x.a(jVar.f29019g);
     }
 
     public static j a(@NonNull WebView webView) {
@@ -61,7 +61,7 @@ public class q {
     @AnyThread
     public <T> void a(@NonNull String str, @Nullable T t) {
         a();
-        this.f29029b.a(str, (String) t);
+        this.f29037b.a(str, (String) t);
     }
 
     public q a(String str, @NonNull e<?, ?> eVar) {
@@ -72,8 +72,8 @@ public class q {
     @UiThread
     public q a(@NonNull String str, @Nullable String str2, @NonNull e<?, ?> eVar) {
         a();
-        this.f29029b.f28975g.a(str, eVar);
-        o oVar = this.f29033f;
+        this.f29037b.f28983g.a(str, eVar);
+        o oVar = this.f29041f;
         if (oVar != null) {
             oVar.a(str);
         }
@@ -88,8 +88,8 @@ public class q {
     @UiThread
     public q a(@NonNull String str, @Nullable String str2, @NonNull d.b bVar) {
         a();
-        this.f29029b.f28975g.a(str, bVar);
-        o oVar = this.f29033f;
+        this.f29037b.f28983g.a(str, bVar);
+        o oVar = this.f29041f;
         if (oVar != null) {
             oVar.a(str);
         }
@@ -97,7 +97,7 @@ public class q {
     }
 
     private void a() {
-        if (this.f29034g) {
+        if (this.f29042g) {
             i.a(new IllegalStateException("JsBridge2 is already released!!!"));
         }
     }

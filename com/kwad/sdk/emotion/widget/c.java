@@ -12,23 +12,23 @@ import java.lang.ref.WeakReference;
 public class c extends ImageSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint.FontMetricsInt f34992a;
+    public Paint.FontMetricsInt f35087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Drawable> f34993b;
+    public WeakReference<Drawable> f35088b;
 
     public c(Drawable drawable, String str, View view) {
         super(drawable, str);
-        this.f34992a = new Paint.FontMetricsInt();
+        this.f35087a = new Paint.FontMetricsInt();
         drawable.setCallback(view);
     }
 
     private Drawable a() {
-        WeakReference<Drawable> weakReference = this.f34993b;
+        WeakReference<Drawable> weakReference = this.f35088b;
         if (weakReference == null || weakReference.get() == null) {
-            this.f34993b = new WeakReference<>(getDrawable());
+            this.f35088b = new WeakReference<>(getDrawable());
         }
-        return this.f34993b.get();
+        return this.f35088b.get();
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -37,9 +37,9 @@ public class c extends ImageSpan {
         if (paint instanceof TextPaint) {
             a2.setState(((TextPaint) paint).drawableState);
         }
-        int fontMetricsInt = paint.getFontMetricsInt(this.f34992a);
+        int fontMetricsInt = paint.getFontMetricsInt(this.f35087a);
         canvas.save();
-        canvas.translate(f2, i4 + this.f34992a.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
+        canvas.translate(f2, i4 + this.f35087a.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
         a2.draw(canvas);
         canvas.restore();
     }

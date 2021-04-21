@@ -3,19 +3,19 @@ package com.kwad.sdk.glide.webp.decoder;
 public final class WebpFrameCacheStrategy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f36108a = new a().a().d();
+    public static final WebpFrameCacheStrategy f36203a = new a().a().d();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f36109b = new a().c().d();
+    public static final WebpFrameCacheStrategy f36204b = new a().c().d();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f36110c = new a().b().d();
+    public static final WebpFrameCacheStrategy f36205c = new a().b().d();
 
     /* renamed from: d  reason: collision with root package name */
-    public CacheControl f36111d;
+    public CacheControl f36206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36112e;
+    public int f36207e;
 
     /* loaded from: classes6.dex */
     public enum CacheControl {
@@ -29,23 +29,23 @@ public final class WebpFrameCacheStrategy {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public CacheControl f36113a;
+        public CacheControl f36208a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36114b;
+        public int f36209b;
 
         public a a() {
-            this.f36113a = CacheControl.CACHE_NONE;
+            this.f36208a = CacheControl.CACHE_NONE;
             return this;
         }
 
         public a b() {
-            this.f36113a = CacheControl.CACHE_ALL;
+            this.f36208a = CacheControl.CACHE_ALL;
             return this;
         }
 
         public a c() {
-            this.f36113a = CacheControl.CACHE_AUTO;
+            this.f36208a = CacheControl.CACHE_AUTO;
             return this;
         }
 
@@ -55,19 +55,19 @@ public final class WebpFrameCacheStrategy {
     }
 
     public WebpFrameCacheStrategy(a aVar) {
-        this.f36111d = aVar.f36113a;
-        this.f36112e = aVar.f36114b;
+        this.f36206d = aVar.f36208a;
+        this.f36207e = aVar.f36209b;
     }
 
     public boolean a() {
-        return this.f36111d == CacheControl.CACHE_NONE;
+        return this.f36206d == CacheControl.CACHE_NONE;
     }
 
     public boolean b() {
-        return this.f36111d == CacheControl.CACHE_ALL;
+        return this.f36206d == CacheControl.CACHE_ALL;
     }
 
     public int c() {
-        return this.f36112e;
+        return this.f36207e;
     }
 }

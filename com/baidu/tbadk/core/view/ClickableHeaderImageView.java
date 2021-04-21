@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.c.e.m.b;
-import d.b.h0.m.d;
-import d.b.h0.r.q.a2;
+import d.b.i0.m.d;
+import d.b.i0.r.q.a2;
 /* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public a2 W0;

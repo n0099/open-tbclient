@@ -22,7 +22,7 @@ public class AugmentedFace extends TrackableBase {
         a();
     }
 
-    private native d.g.b.a.a nativeGetCenterPose(long j, long j2);
+    private native d.h.b.a.a nativeGetCenterPose(long j, long j2);
 
     private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j, long j2);
 
@@ -32,13 +32,13 @@ public class AugmentedFace extends TrackableBase {
 
     private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j, long j2);
 
-    private native d.g.b.a.a nativeGetRegionPose(long j, long j2, int i);
+    private native d.h.b.a.a nativeGetRegionPose(long j, long j2, int i);
 
     public void a() {
-        Session.a(nativeGetMeshVerticesByteBuffer(this.f30571b.f30549a, this.f30570a)).asFloatBuffer().asReadOnlyBuffer();
-        Session.a(nativeGetMeshNormalsByteBuffer(this.f30571b.f30549a, this.f30570a)).asFloatBuffer().asReadOnlyBuffer();
-        Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f30571b.f30549a, this.f30570a)).asFloatBuffer().asReadOnlyBuffer();
-        Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f30571b.f30549a, this.f30570a)).asCharBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshVerticesByteBuffer(this.f30666b.f30644a, this.f30665a)).asFloatBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshNormalsByteBuffer(this.f30666b.f30644a, this.f30665a)).asFloatBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f30666b.f30644a, this.f30665a)).asFloatBuffer().asReadOnlyBuffer();
+        Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f30666b.f30644a, this.f30665a)).asCharBuffer().asReadOnlyBuffer();
     }
 
     public AugmentedFace() {

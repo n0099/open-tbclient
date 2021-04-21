@@ -10,16 +10,16 @@ import kotlin.Metadata;
 public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.Factory {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<?> f16377a;
+    public final TbPageContext<?> f16385a;
 
     public VideoMiddlePageViewModelFactory(TbPageContext<?> tbPageContext) {
-        this.f16377a = tbPageContext;
+        this.f16385a = tbPageContext;
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.Factory
     public <T extends ViewModel> T create(Class<T> cls) {
         if (cls.isAssignableFrom(VideoMiddlePageViewModel.class)) {
-            return new VideoMiddlePageViewModel(this.f16377a);
+            return new VideoMiddlePageViewModel(this.f16385a);
         }
         throw new RuntimeException("ViewModel create fail!:" + cls.getName());
     }

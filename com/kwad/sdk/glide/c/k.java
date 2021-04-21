@@ -30,30 +30,30 @@ public class k implements Handler.Callback {
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile com.kwad.sdk.glide.g f35396c;
+    public volatile com.kwad.sdk.glide.g f35491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f35397d;
+    public final Handler f35492d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f35398e;
+    public final a f35493e;
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<FragmentManager, Object> f35394a = new HashMap();
+    public final Map<FragmentManager, Object> f35489a = new HashMap();
     @VisibleForTesting
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<KsFragmentManager, n> f35395b = new HashMap();
+    public final Map<KsFragmentManager, n> f35490b = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayMap<View, KsFragment> f35399f = new ArrayMap<>();
+    public final ArrayMap<View, KsFragment> f35494f = new ArrayMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayMap<View, Fragment> f35400g = new ArrayMap<>();
+    public final ArrayMap<View, Fragment> f35495g = new ArrayMap<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public final Bundle f35401h = new Bundle();
+    public final Bundle f35496h = new Bundle();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -62,22 +62,22 @@ public class k implements Handler.Callback {
     }
 
     public k(@Nullable a aVar) {
-        this.f35398e = aVar == null ? i : aVar;
-        this.f35397d = new Handler(Looper.getMainLooper(), this);
+        this.f35493e = aVar == null ? i : aVar;
+        this.f35492d = new Handler(Looper.getMainLooper(), this);
     }
 
     @NonNull
     private n a(@NonNull KsFragmentManager ksFragmentManager, @Nullable KsFragment ksFragment, boolean z) {
         n nVar = (n) ksFragmentManager.findFragmentByTag("com.kwad.sdk.glide.manager");
-        if (nVar == null && (nVar = this.f35395b.get(ksFragmentManager)) == null) {
+        if (nVar == null && (nVar = this.f35490b.get(ksFragmentManager)) == null) {
             nVar = new n();
             nVar.a(ksFragment);
             if (z) {
                 nVar.a().a();
             }
-            this.f35395b.put(ksFragmentManager, nVar);
+            this.f35490b.put(ksFragmentManager, nVar);
             ksFragmentManager.beginTransaction().add(nVar, "com.kwad.sdk.glide.manager").commitAllowingStateLoss();
-            this.f35397d.obtainMessage(2, ksFragmentManager).sendToTarget();
+            this.f35492d.obtainMessage(2, ksFragmentManager).sendToTarget();
         }
         return nVar;
     }
@@ -87,7 +87,7 @@ public class k implements Handler.Callback {
         n a2 = a(ksFragmentManager, ksFragment, z);
         com.kwad.sdk.glide.g b2 = a2.b();
         if (b2 == null) {
-            com.kwad.sdk.glide.g a3 = this.f35398e.a(com.kwad.sdk.glide.c.a(context), a2.a(), a2.c(), context);
+            com.kwad.sdk.glide.g a3 = this.f35493e.a(com.kwad.sdk.glide.c.a(context), a2.a(), a2.c(), context);
             a2.a(a3);
             return a3;
         }
@@ -100,14 +100,14 @@ public class k implements Handler.Callback {
 
     @NonNull
     private com.kwad.sdk.glide.g b(@NonNull Context context) {
-        if (this.f35396c == null) {
+        if (this.f35491c == null) {
             synchronized (this) {
-                if (this.f35396c == null) {
-                    this.f35396c = this.f35398e.a(com.kwad.sdk.glide.c.a(context.getApplicationContext()), new b(), new g(), context.getApplicationContext());
+                if (this.f35491c == null) {
+                    this.f35491c = this.f35493e.a(com.kwad.sdk.glide.c.a(context.getApplicationContext()), new b(), new g(), context.getApplicationContext());
                 }
             }
         }
-        return this.f35396c;
+        return this.f35491c;
     }
 
     @NonNull
@@ -142,7 +142,7 @@ public class k implements Handler.Callback {
         boolean z = true;
         if (i2 == 1) {
             obj = (FragmentManager) message.obj;
-            map = this.f35394a;
+            map = this.f35489a;
         } else if (i2 != 2) {
             z = false;
             obj2 = null;
@@ -152,7 +152,7 @@ public class k implements Handler.Callback {
             return z;
         } else {
             obj = (KsFragmentManager) message.obj;
-            map = this.f35395b;
+            map = this.f35490b;
         }
         Object obj4 = obj;
         obj3 = map.remove(obj);

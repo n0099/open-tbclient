@@ -19,7 +19,7 @@ public interface d {
 
     /* renamed from: com.kwai.video.ksvodplayerkit.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0466d {
+    public interface InterfaceC0469d {
         void b();
     }
 

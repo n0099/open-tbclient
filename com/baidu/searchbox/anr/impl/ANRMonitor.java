@@ -12,7 +12,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.github.anrwatchdog.ANRError;
-import d.f.a.a;
+import d.g.a.a;
 import java.io.File;
 @Singleton
 @Service
@@ -34,7 +34,7 @@ public class ANRMonitor implements IANRMonitor {
         public ANRListenerImpl() {
         }
 
-        @Override // d.f.a.a.f
+        @Override // d.g.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             Context appContext;
             String str;

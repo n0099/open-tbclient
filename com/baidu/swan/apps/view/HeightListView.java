@@ -8,16 +8,16 @@ import android.widget.ListView;
 public class HeightListView extends ListView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12342e;
+    public int f12350e;
 
     public HeightListView(Context context) {
         super(context);
-        this.f12342e = -1;
+        this.f12350e = -1;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i, int i2) {
-        int i3 = this.f12342e;
+        int i3 = this.f12350e;
         if (i3 > -1) {
             i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
         }
@@ -25,16 +25,16 @@ public class HeightListView extends ListView {
     }
 
     public void setListViewHeight(int i) {
-        this.f12342e = i;
+        this.f12350e = i;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12342e = -1;
+        this.f12350e = -1;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12342e = -1;
+        this.f12350e = -1;
     }
 }

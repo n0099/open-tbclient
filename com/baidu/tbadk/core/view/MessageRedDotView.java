@@ -24,16 +24,16 @@ import d.b.c.e.p.l;
 public class MessageRedDotView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f13044e;
+    public Drawable f13052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13045f;
+    public int f13053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13046g;
+    public boolean f13054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13047h;
+    public String f13055h;
     public int i;
     public Paint j;
     public Rect k;
@@ -60,36 +60,36 @@ public class MessageRedDotView extends View {
     }
 
     public final void a(Canvas canvas) {
-        if (k.isEmpty(this.f13047h) || this.f13044e == null) {
+        if (k.isEmpty(this.f13055h) || this.f13052e == null) {
             return;
         }
         Paint paint = this.j;
-        String str = this.f13047h;
+        String str = this.f13055h;
         paint.getTextBounds(str, 0, str.length(), this.k);
         Paint.FontMetrics fontMetrics = this.j.getFontMetrics();
-        int intrinsicWidth = (this.f13044e.getIntrinsicWidth() / 2) + this.q;
+        int intrinsicWidth = (this.f13052e.getIntrinsicWidth() / 2) + this.q;
         float dimension = (getResources().getDimension(R.dimen.tbds10) + fontMetrics.bottom) - fontMetrics.ascent;
         if (this.w) {
-            Rect bounds = this.f13044e.getBounds();
+            Rect bounds = this.f13052e.getBounds();
             float f2 = fontMetrics.descent;
             float height = (bounds.height() / 2) - (f2 - (((-fontMetrics.ascent) + f2) / 2.0f));
             intrinsicWidth = bounds.width() / 2;
             dimension = height;
         }
-        canvas.drawText(this.f13047h, intrinsicWidth, dimension, this.j);
+        canvas.drawText(this.f13055h, intrinsicWidth, dimension, this.j);
     }
 
     public final void b(Canvas canvas) {
         int i;
         int i2;
-        Drawable drawable = this.f13044e;
+        Drawable drawable = this.f13052e;
         if (drawable == null) {
             return;
         }
         int intrinsicWidth = (drawable.getIntrinsicWidth() / 2) + this.q;
-        int intrinsicHeight = (this.f13044e.getIntrinsicHeight() / 2) + this.q;
+        int intrinsicHeight = (this.f13052e.getIntrinsicHeight() / 2) + this.q;
         if (this.w) {
-            Rect bounds = this.f13044e.getBounds();
+            Rect bounds = this.f13052e.getBounds();
             int width = bounds.width() / 2;
             intrinsicHeight = bounds.height() / 2;
             intrinsicWidth = width;
@@ -157,11 +157,11 @@ public class MessageRedDotView extends View {
 
     public void e() {
         TbadkApplication.getInst().getSkinType();
-        int i = this.f13045f;
+        int i = this.f13053f;
         if (i > 0) {
-            this.f13044e = SkinManager.getDrawable(i);
+            this.f13052e = SkinManager.getDrawable(i);
         } else {
-            Drawable drawable = this.f13044e;
+            Drawable drawable = this.f13052e;
             if (drawable instanceof GradientDrawable) {
                 ((GradientDrawable) drawable).setColor(SkinManager.getColor(R.color.CAM_X0301));
             }
@@ -172,8 +172,8 @@ public class MessageRedDotView extends View {
             paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
         }
         this.l.setShadowLayer(this.o, this.m, this.n, SkinManager.getColor(R.color.cp_cont_h_alpha66));
-        if (this.f13046g) {
-            this.f13046g = false;
+        if (this.f13054g) {
+            this.f13054g = false;
             requestLayout();
         }
         invalidate();
@@ -184,49 +184,49 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = R.drawable.icon_news_red_dot;
-            this.f13047h = null;
+            this.f13055h = null;
         } else if (i < 10) {
-            this.f13047h = String.valueOf(i);
+            this.f13055h = String.valueOf(i);
             i2 = R.drawable.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.f13047h = String.valueOf(i);
+            this.f13055h = String.valueOf(i);
             i2 = R.drawable.icon_news_red_dot_two_number;
         } else {
             int i3 = this.i;
             if (i3 == 1) {
-                this.f13047h = StringHelper.STRING_MORE;
+                this.f13055h = StringHelper.STRING_MORE;
                 i2 = R.drawable.icon_news_red_dot_three_dot_number;
             } else if (i3 == 2) {
-                this.f13047h = "99+";
+                this.f13055h = "99+";
                 i2 = R.drawable.icon_news_red_dot_three_number;
             } else {
                 i2 = 0;
             }
         }
-        if (i2 != this.f13045f) {
-            this.f13046g = true;
+        if (i2 != this.f13053f) {
+            this.f13054g = true;
         } else {
-            this.f13046g = false;
+            this.f13054g = false;
         }
-        this.f13045f = i2;
+        this.f13053f = i2;
         e();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Drawable drawable = this.f13044e;
+        Drawable drawable = this.f13052e;
         if (drawable != null) {
             int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = this.f13044e.getIntrinsicHeight();
+            int intrinsicHeight = this.f13052e.getIntrinsicHeight();
             if (this.w) {
-                this.f13044e.setBounds(0, 0, l.g(getContext(), R.dimen.tbds4) + intrinsicWidth, l.g(getContext(), R.dimen.tbds4) + intrinsicHeight);
+                this.f13052e.setBounds(0, 0, l.g(getContext(), R.dimen.tbds4) + intrinsicWidth, l.g(getContext(), R.dimen.tbds4) + intrinsicHeight);
             } else {
-                Drawable drawable2 = this.f13044e;
+                Drawable drawable2 = this.f13052e;
                 int i = this.q;
                 drawable2.setBounds(i, i, intrinsicWidth + i, intrinsicHeight + i);
             }
-            this.f13044e.draw(canvas);
+            this.f13052e.draw(canvas);
             if (!this.w && this.x) {
                 RectF rectF = this.p;
                 int i2 = this.q;
@@ -239,10 +239,10 @@ public class MessageRedDotView extends View {
                     canvas.drawOval(this.p, this.l);
                 }
             }
-            if (k.isEmpty(this.f13047h)) {
+            if (k.isEmpty(this.f13055h)) {
                 return;
             }
-            if (this.f13047h.equals(StringHelper.STRING_MORE)) {
+            if (this.f13055h.equals(StringHelper.STRING_MORE)) {
                 b(canvas);
             } else {
                 a(canvas);
@@ -252,11 +252,11 @@ public class MessageRedDotView extends View {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.f13044e != null) {
+        if (this.f13052e != null) {
             int i3 = this.m;
             int i4 = this.n;
             this.q = i3 >= i4 ? this.o + i3 : i4 + this.o;
-            setMeasuredDimension(this.f13044e.getIntrinsicWidth() + (this.q * 2), this.f13044e.getIntrinsicHeight() + (this.q * 2));
+            setMeasuredDimension(this.f13052e.getIntrinsicWidth() + (this.q * 2), this.f13052e.getIntrinsicHeight() + (this.q * 2));
             return;
         }
         setMeasuredDimension(0, 0);

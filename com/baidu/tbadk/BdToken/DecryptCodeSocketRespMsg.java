@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
-import d.b.h0.a.g;
+import d.b.i0.a.g;
 import tbclient.DecryptCode.DecryptCodeResIdl;
 /* loaded from: classes3.dex */
 public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {

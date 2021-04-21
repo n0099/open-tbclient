@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public final class NetUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26539a = "NetUtils";
+    public static final String f26547a = "NetUtils";
 
     public static JSONObject getConnectedWifi(Context context) {
         WifiManager wifiManager;

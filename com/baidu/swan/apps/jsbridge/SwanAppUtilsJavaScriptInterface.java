@@ -8,16 +8,16 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.wallet.lightapp.base.LightappJsNativeClient;
-import d.b.g0.a.i2.k0;
-import d.b.g0.a.i2.v;
-import d.b.g0.a.k;
-import d.b.g0.a.w0.c.i;
+import d.b.h0.a.i2.k0;
+import d.b.h0.a.i2.v;
+import d.b.h0.a.k;
+import d.b.h0.a.w0.c.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppUtilsJavaScriptInterface {
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
     public static final String KEY_SHARE_FORCE_LIGHT_THEME = "forceLightTheme";
     public static final String KEY_SHARE_SNAPSHOT = "snapshot";
@@ -27,21 +27,21 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mContext;
     public boolean mIsForceLight = false;
     public String mSource = "";
-    public d.b.g0.a.e0.k.a mWebView;
+    public d.b.h0.a.e0.k.a mWebView;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11892e;
+        public final /* synthetic */ String f11900e;
 
         public a(String str) {
-            this.f11892e = str;
+            this.f11900e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = this.f11892e;
+            String str = this.f11900e;
             if (!str.startsWith("javascript:")) {
                 str = "javascript:" + str;
             }
@@ -56,24 +56,24 @@ public class SwanAppUtilsJavaScriptInterface {
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11894a;
+        public final /* synthetic */ String f11902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11895b;
+        public final /* synthetic */ String f11903b;
 
         public b(String str, String str2) {
-            this.f11894a = str;
-            this.f11895b = str2;
+            this.f11902a = str;
+            this.f11903b = str2;
         }
 
-        @Override // d.b.g0.a.w0.c.i.a
+        @Override // d.b.h0.a.w0.c.i.a
         public void a() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f11895b, String.valueOf(false));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f11903b, String.valueOf(false));
         }
 
-        @Override // d.b.g0.a.w0.c.i.a
+        @Override // d.b.h0.a.w0.c.i.a
         public void b() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f11894a, String.valueOf(true));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f11902a, String.valueOf(true));
         }
     }
 
@@ -81,10 +81,10 @@ public class SwanAppUtilsJavaScriptInterface {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11897e;
+        public final /* synthetic */ String f11905e;
 
         public c(String str) {
-            this.f11897e = str;
+            this.f11905e = str;
         }
 
         @Override // java.lang.Runnable
@@ -92,11 +92,11 @@ public class SwanAppUtilsJavaScriptInterface {
             if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                 Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
             }
-            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f11897e);
+            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f11905e);
         }
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, d.b.g0.a.e0.k.a aVar) {
+    public SwanAppUtilsJavaScriptInterface(Context context, d.b.h0.a.e0.k.a aVar) {
         this.mActivity = context;
         this.mContext = context.getApplicationContext();
         this.mWebView = aVar;
@@ -140,7 +140,7 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        d.b.g0.a.w0.a.M().a(context, b2, new b(str3, str4));
+        d.b.h0.a.w0.a.M().a(context, b2, new b(str3, str4));
     }
 
     public void setActivity(Activity activity) {

@@ -2,8 +2,8 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.d3.w;
-import d.b.i0.o0.c.c;
+import d.b.j0.d3.w;
+import d.b.j0.o0.c.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetMemberInfo.DataRes;

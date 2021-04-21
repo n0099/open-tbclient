@@ -5,10 +5,10 @@ import com.win.opensdk.core.Info;
 public class j0 implements o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p0 f40246a;
+    public final /* synthetic */ p0 f40341a;
 
     public j0(p0 p0Var) {
-        this.f40246a = p0Var;
+        this.f40341a = p0Var;
     }
 
     @Override // com.win.opensdk.o1
@@ -19,12 +19,12 @@ public class j0 implements o1 {
     public void a(Object obj) {
         Info info = (Info) obj;
         try {
-            this.f40246a.f40296c = info;
-            if (this.f40246a.f40299f != null) {
+            this.f40341a.f40391c = info;
+            if (this.f40341a.f40394f != null) {
                 if (info == null || info.getType() != 11) {
-                    this.f40246a.f40299f.onFail(PBError.PID_TYPE_ERROR);
-                } else if (this.f40246a.b()) {
-                    this.f40246a.f40299f.onLoaded();
+                    this.f40341a.f40394f.onFail(PBError.PID_TYPE_ERROR);
+                } else if (this.f40341a.b()) {
+                    this.f40341a.f40394f.onLoaded();
                 }
             }
         } catch (Exception unused) {
@@ -33,7 +33,7 @@ public class j0 implements o1 {
 
     @Override // com.win.opensdk.o1
     public void onFail(PBError pBError) {
-        PBNativeListener pBNativeListener = this.f40246a.f40299f;
+        PBNativeListener pBNativeListener = this.f40341a.f40394f;
         if (pBNativeListener != null) {
             pBNativeListener.onFail(pBError);
         }

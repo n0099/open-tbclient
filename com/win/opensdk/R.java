@@ -4,7 +4,7 @@ public final class R {
 
     /* loaded from: classes7.dex */
     public static final class attr {
-        public static final int win_in_circle_color = 0x7f040527;
+        public static final int win_in_circle_color = 0x7f040528;
     }
 
     /* loaded from: classes7.dex */

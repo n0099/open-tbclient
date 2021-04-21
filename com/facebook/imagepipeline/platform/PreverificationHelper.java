@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import com.facebook.soloader.DoNotOptimize;
 @DoNotOptimize
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PreverificationHelper {
     @DoNotOptimize
     @TargetApi(26)

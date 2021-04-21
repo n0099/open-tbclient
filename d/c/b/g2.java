@@ -6,19 +6,19 @@ import java.util.LinkedList;
 public class g2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final LinkedList<z> f65843a = new LinkedList<>();
+    public static final LinkedList<z> f65938a = new LinkedList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final LinkedList<z> f65844b = new LinkedList<>();
+    public static final LinkedList<z> f65939b = new LinkedList<>();
 
     public static void a() {
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
-        synchronized (f65843a) {
-            linkedList.addAll(f65843a);
-            linkedList2.addAll(f65844b);
-            f65843a.clear();
-            f65844b.clear();
+        synchronized (f65938a) {
+            linkedList.addAll(f65938a);
+            linkedList2.addAll(f65939b);
+            f65938a.clear();
+            f65939b.clear();
         }
         while (!linkedList.isEmpty()) {
             x1.d((z) linkedList.poll());
@@ -39,12 +39,12 @@ public class g2 {
     }
 
     public static void b(z zVar) {
-        synchronized (f65843a) {
-            if (f65843a.size() > 200) {
+        synchronized (f65938a) {
+            if (f65938a.size() > 200) {
                 r0.c("drop event in cache", null);
-                f65844b.add(f65843a.poll());
+                f65939b.add(f65938a.poll());
             }
-            f65843a.add(zVar);
+            f65938a.add(zVar);
         }
     }
 }

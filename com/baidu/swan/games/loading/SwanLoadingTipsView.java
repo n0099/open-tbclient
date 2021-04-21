@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.db.TableDefine;
-import d.b.g0.a.f;
-import d.b.g0.a.g;
-import d.b.g0.a.i2.k0;
+import d.b.h0.a.f;
+import d.b.h0.a.g;
+import d.b.h0.a.i2.k0;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -21,16 +21,16 @@ import kotlin.jvm.functions.Function0;
 public final class SwanLoadingTipsView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Function0<Unit> f12521e;
+    public Function0<Unit> f12529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12522f;
+    public TextView f12530f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ObjectAnimator f12523g;
+    public ObjectAnimator f12531g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ObjectAnimator f12524h;
+    public ObjectAnimator f12532h;
     public Runnable i;
 
     /* loaded from: classes3.dex */
@@ -104,110 +104,110 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     public final void c() {
-        this.f12521e = null;
+        this.f12529e = null;
         Runnable runnable = this.i;
         if (runnable != null) {
             k0.W(runnable);
         }
-        ObjectAnimator objectAnimator = this.f12523g;
+        ObjectAnimator objectAnimator = this.f12531g;
         if (objectAnimator != null) {
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.f12523g;
+            ObjectAnimator objectAnimator2 = this.f12531g;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
-            this.f12523g = null;
+            this.f12531g = null;
         }
-        ObjectAnimator objectAnimator3 = this.f12524h;
+        ObjectAnimator objectAnimator3 = this.f12532h;
         if (objectAnimator3 != null) {
             if (objectAnimator3 != null) {
                 objectAnimator3.removeAllListeners();
             }
-            ObjectAnimator objectAnimator4 = this.f12524h;
+            ObjectAnimator objectAnimator4 = this.f12532h;
             if (objectAnimator4 != null) {
                 objectAnimator4.cancel();
             }
-            this.f12524h = null;
+            this.f12532h = null;
         }
     }
 
     public final void d(Context context) {
         View.inflate(context, g.aiapps_games_loading_tips_view, this);
-        this.f12522f = (TextView) findViewById(f.aiapps_games_loading_tips_message);
+        this.f12530f = (TextView) findViewById(f.aiapps_games_loading_tips_message);
     }
 
     public final void e(String str) {
         if (str == null || str.length() == 0) {
             return;
         }
-        TextView textView = this.f12522f;
+        TextView textView = this.f12530f;
         if (textView != null) {
             textView.setText(str);
         }
         setVisibility(8);
-        ObjectAnimator objectAnimator = this.f12523g;
+        ObjectAnimator objectAnimator = this.f12531g;
         if (objectAnimator != null) {
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.f12523g;
+            ObjectAnimator objectAnimator2 = this.f12531g;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
-        this.f12523g = ofFloat;
+        this.f12531g = ofFloat;
         if (ofFloat != null) {
             ofFloat.setDuration(500L);
         }
-        ObjectAnimator objectAnimator3 = this.f12523g;
+        ObjectAnimator objectAnimator3 = this.f12531g;
         if (objectAnimator3 != null) {
             objectAnimator3.setStartDelay(1000L);
         }
-        ObjectAnimator objectAnimator4 = this.f12523g;
+        ObjectAnimator objectAnimator4 = this.f12531g;
         if (objectAnimator4 != null) {
             objectAnimator4.addListener(new a());
         }
-        ObjectAnimator objectAnimator5 = this.f12523g;
+        ObjectAnimator objectAnimator5 = this.f12531g;
         if (objectAnimator5 != null) {
             objectAnimator5.start();
         }
     }
 
     public final void f() {
-        ObjectAnimator objectAnimator = this.f12524h;
+        ObjectAnimator objectAnimator = this.f12532h;
         if (objectAnimator != null) {
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.f12524h;
+            ObjectAnimator objectAnimator2 = this.f12532h;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
-        this.f12524h = ofFloat;
+        this.f12532h = ofFloat;
         if (ofFloat != null) {
             ofFloat.setDuration(500L);
         }
-        ObjectAnimator objectAnimator3 = this.f12524h;
+        ObjectAnimator objectAnimator3 = this.f12532h;
         if (objectAnimator3 != null) {
             objectAnimator3.addListener(new b());
         }
-        ObjectAnimator objectAnimator4 = this.f12524h;
+        ObjectAnimator objectAnimator4 = this.f12532h;
         if (objectAnimator4 != null) {
             objectAnimator4.start();
         }
     }
 
     public final Function0<Unit> getTipsAnimationFinishCallback() {
-        return this.f12521e;
+        return this.f12529e;
     }
 
     public final void setTipsAnimationFinishCallback(Function0<Unit> function0) {
-        this.f12521e = function0;
+        this.f12529e = function0;
     }
 
     public SwanLoadingTipsView(Context context, AttributeSet attributeSet) {

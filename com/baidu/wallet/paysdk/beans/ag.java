@@ -14,14 +14,14 @@ import java.util.List;
 public class ag extends PayBaseBean<VerifyByBankResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f25178a = {"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
+    public static final String[] f25186a = {"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f25179b;
+    public final List f25187b;
 
     public ag(Context context) {
         super(context);
-        this.f25179b = Arrays.asList(f25178a);
+        this.f25187b = Arrays.asList(f25186a);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -34,7 +34,7 @@ public class ag extends PayBaseBean<VerifyByBankResponse> {
         ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            if (this.f25179b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
+            if (this.f25187b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
                 it.remove();
             }
         }

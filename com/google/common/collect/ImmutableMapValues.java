@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.g.c.c.c1;
+import d.h.c.c.c1;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -25,20 +25,20 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
     public class a extends c1<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final c1<Map.Entry<K, V>> f30801e;
+        public final c1<Map.Entry<K, V>> f30896e;
 
         public a() {
-            this.f30801e = ImmutableMapValues.this.map.entrySet().iterator();
+            this.f30896e = ImmutableMapValues.this.map.entrySet().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30801e.hasNext();
+            return this.f30896e.hasNext();
         }
 
         @Override // java.util.Iterator
         public V next() {
-            return this.f30801e.next().getValue();
+            return this.f30896e.next().getValue();
         }
     }
 

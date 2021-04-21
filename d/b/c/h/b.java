@@ -20,51 +20,51 @@ import org.xmlpull.v1.XmlPullParserException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42687a;
+    public Context f42927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f42688b;
+    public File f42928b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, ActivityInfo> f42690d;
+    public Map<String, ActivityInfo> f42930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, ProviderInfo> f42691e;
+    public Map<String, ProviderInfo> f42931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, IntentFilter> f42692f;
+    public Map<String, IntentFilter> f42932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, IntentFilter> f42693g;
+    public Map<String, IntentFilter> f42933g;
     public Resources i;
 
     /* renamed from: c  reason: collision with root package name */
-    public PackageInfo f42689c = null;
+    public PackageInfo f42929c = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public ActivityInfo f42694h = null;
+    public ActivityInfo f42934h = null;
 
     public b(Context context, File file, Resources resources) {
-        this.f42690d = null;
-        this.f42691e = null;
-        this.f42692f = null;
-        this.f42693g = null;
+        this.f42930d = null;
+        this.f42931e = null;
+        this.f42932f = null;
+        this.f42933g = null;
         this.i = null;
-        this.f42687a = context;
-        this.f42688b = file;
+        this.f42927a = context;
+        this.f42928b = file;
         this.i = resources;
-        this.f42690d = new HashMap();
-        this.f42692f = new HashMap();
-        this.f42693g = new HashMap();
-        this.f42691e = new HashMap();
+        this.f42930d = new HashMap();
+        this.f42932f = new HashMap();
+        this.f42933g = new HashMap();
+        this.f42931e = new HashMap();
     }
 
     public ServiceInfo a(String str) {
         PackageInfo c2;
         ServiceInfo[] serviceInfoArr;
-        if (!TextUtils.isEmpty(str) && (c2 = c()) != null && c2.services != null && !this.f42693g.isEmpty()) {
+        if (!TextUtils.isEmpty(str) && (c2 = c()) != null && c2.services != null && !this.f42933g.isEmpty()) {
             for (ServiceInfo serviceInfo : c2.services) {
-                IntentFilter intentFilter = this.f42693g.get(serviceInfo.name);
+                IntentFilter intentFilter = this.f42933g.get(serviceInfo.name);
                 if (intentFilter != null && intentFilter.hasAction(str)) {
                     return serviceInfo;
                 }
@@ -74,27 +74,27 @@ public class b {
     }
 
     public Map<String, ProviderInfo> b() {
-        return this.f42691e;
+        return this.f42931e;
     }
 
     public PackageInfo c() {
-        Context context = this.f42687a;
-        if (context == null || this.f42688b == null) {
+        Context context = this.f42927a;
+        if (context == null || this.f42928b == null) {
             return null;
         }
-        if (this.f42689c == null) {
+        if (this.f42929c == null) {
             try {
-                this.f42689c = context.getPackageManager().getPackageArchiveInfo(this.f42688b.getAbsolutePath(), 15);
+                this.f42929c = context.getPackageManager().getPackageArchiveInfo(this.f42928b.getAbsolutePath(), 15);
             } catch (Exception e2) {
                 BdLog.e(e2);
                 d.b.c.h.h.a.b().r("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e2.getMessage());
             }
         }
-        return this.f42689c;
+        return this.f42929c;
     }
 
     public Map<String, IntentFilter> d() {
-        return this.f42692f;
+        return this.f42932f;
     }
 
     public boolean e() {
@@ -107,13 +107,13 @@ public class b {
         ActivityInfo[] activityInfoArr = c2.receivers;
         if (activityInfoArr != null) {
             for (ActivityInfo activityInfo : activityInfoArr) {
-                this.f42690d.put(activityInfo.name, activityInfo);
+                this.f42930d.put(activityInfo.name, activityInfo);
             }
         }
         ProviderInfo[] providerInfoArr = c2.providers;
         if (providerInfoArr != null) {
             for (ProviderInfo providerInfo : providerInfoArr) {
-                this.f42691e.put(providerInfo.name, providerInfo);
+                this.f42931e.put(providerInfo.name, providerInfo);
             }
         }
         try {
@@ -143,9 +143,9 @@ public class b {
                 } else if (str != null && "action".equals(openXmlResourceParser.getName())) {
                     String attributeValue2 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
                     if (attributeValue2 != null) {
-                        Map<String, IntentFilter> map = this.f42692f;
+                        Map<String, IntentFilter> map = this.f42932f;
                         if (c3 == 1) {
-                            map = this.f42693g;
+                            map = this.f42933g;
                         }
                         IntentFilter intentFilter = map.get(str);
                         if (intentFilter == null) {
@@ -155,7 +155,7 @@ public class b {
                         }
                         map.put(str, intentFilter);
                     }
-                } else if (this.f42694h == null && "activity".equals(openXmlResourceParser.getName())) {
+                } else if (this.f42934h == null && "activity".equals(openXmlResourceParser.getName())) {
                     f(openXmlResourceParser, next);
                 }
             } else if (next != 3) {
@@ -174,7 +174,7 @@ public class b {
     }
 
     public final void f(XmlResourceParser xmlResourceParser, int i) throws XmlPullParserException, IOException {
-        PackageInfo packageInfo = this.f42689c;
+        PackageInfo packageInfo = this.f42929c;
         if (packageInfo == null || packageInfo.activities == null) {
             return;
         }
@@ -189,15 +189,15 @@ public class b {
                     i = xmlResourceParser.next();
                 } else {
                     if (attributeValue.startsWith(".")) {
-                        attributeValue = this.f42689c.packageName + attributeValue;
+                        attributeValue = this.f42929c.packageName + attributeValue;
                     }
                     int i2 = 0;
                     while (true) {
-                        ActivityInfo[] activityInfoArr = this.f42689c.activities;
+                        ActivityInfo[] activityInfoArr = this.f42929c.activities;
                         if (i2 >= activityInfoArr.length) {
                             break;
                         } else if (activityInfoArr[i2].name.equals(attributeValue)) {
-                            this.f42694h = this.f42689c.activities[i2];
+                            this.f42934h = this.f42929c.activities[i2];
                             return;
                         } else {
                             i2++;

@@ -3,7 +3,7 @@ package com.baidu.swan.games.view.recommend.model;
 import com.alipay.sdk.cons.b;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.NoProGuard;
-import d.g.d.a.c;
+import d.h.d.a.c;
 /* loaded from: classes3.dex */
 public class RecommendItemModel implements NoProGuard {
     @c(b.f1883h)

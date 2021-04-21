@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66702a;
+    public Context f66797a;
 
     /* loaded from: classes5.dex */
     public class a implements FilenameFilter {
@@ -28,7 +28,7 @@ public final class e {
     }
 
     public e(Context context) {
-        this.f66702a = context;
+        this.f66797a = context;
     }
 
     public final com.bytedance.tea.crash.c a(String str, JSONObject jSONObject) {
@@ -54,12 +54,12 @@ public final class e {
 
     public final void b() {
         try {
-            SharedPreferences sharedPreferences = this.f66702a.getSharedPreferences("npth", 0);
+            SharedPreferences sharedPreferences = this.f66797a.getSharedPreferences("npth", 0);
             long j = sharedPreferences.getLong("history_time", -1L);
             if (j < 0) {
                 sharedPreferences.edit().putLong("history_time", System.currentTimeMillis()).apply();
             } else if (System.currentTimeMillis() - j > 86400000) {
-                l.e.f(l.i.c(this.f66702a));
+                l.e.f(l.i.c(this.f66797a));
                 sharedPreferences.edit().putLong("history_time", System.currentTimeMillis()).apply();
             }
         } catch (Exception e2) {
@@ -86,7 +86,7 @@ public final class e {
     }
 
     public final void e() {
-        File[] d2 = d(l.i.a(this.f66702a), ".npth");
+        File[] d2 = d(l.i.a(this.f66797a), ".npth");
         if (d2 == null) {
             return;
         }

@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import d.g.c.a.n;
+import d.h.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -100,13 +100,13 @@ public final class ImmutableDoubleArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public double[] f31124a;
+        public double[] f31219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31125b = 0;
+        public int f31220b = 0;
 
         public b(int i) {
-            this.f31124a = new double[i];
+            this.f31219a = new double[i];
         }
 
         public static int f(int i, int i2) {
@@ -125,10 +125,10 @@ public final class ImmutableDoubleArray implements Serializable {
 
         public b a(double d2) {
             e(1);
-            double[] dArr = this.f31124a;
-            int i = this.f31125b;
+            double[] dArr = this.f31219a;
+            int i = this.f31220b;
             dArr[i] = d2;
-            this.f31125b = i + 1;
+            this.f31220b = i + 1;
             return this;
         }
 
@@ -146,25 +146,25 @@ public final class ImmutableDoubleArray implements Serializable {
         public b c(Collection<Double> collection) {
             e(collection.size());
             for (Double d2 : collection) {
-                double[] dArr = this.f31124a;
-                int i = this.f31125b;
-                this.f31125b = i + 1;
+                double[] dArr = this.f31219a;
+                int i = this.f31220b;
+                this.f31220b = i + 1;
                 dArr[i] = d2.doubleValue();
             }
             return this;
         }
 
         public ImmutableDoubleArray d() {
-            return this.f31125b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f31124a, 0, this.f31125b);
+            return this.f31220b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f31219a, 0, this.f31220b);
         }
 
         public final void e(int i) {
-            int i2 = this.f31125b + i;
-            double[] dArr = this.f31124a;
+            int i2 = this.f31220b + i;
+            double[] dArr = this.f31219a;
             if (i2 > dArr.length) {
                 double[] dArr2 = new double[f(dArr.length, i2)];
-                System.arraycopy(this.f31124a, 0, dArr2, 0, this.f31125b);
-                this.f31124a = dArr2;
+                System.arraycopy(this.f31219a, 0, dArr2, 0, this.f31220b);
+                this.f31219a = dArr2;
             }
         }
     }

@@ -8,32 +8,32 @@ import com.ksad.lottie.model.content.PolystarShape;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class m implements j, l, a.InterfaceC0366a {
+public class m implements j, l, a.InterfaceC0369a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f31536a = new Path();
+    public final Path f31631a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31537b;
+    public final String f31632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.f f31538c;
+    public final com.ksad.lottie.f f31633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final PolystarShape.Type f31539d;
+    public final PolystarShape.Type f31634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Float> f31540e;
+    public final com.ksad.lottie.a.b.a<?, Float> f31635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, PointF> f31541f;
+    public final com.ksad.lottie.a.b.a<?, PointF> f31636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Float> f31542g;
+    public final com.ksad.lottie.a.b.a<?, Float> f31637g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Float> f31543h;
+    public final com.ksad.lottie.a.b.a<?, Float> f31638h;
     public final com.ksad.lottie.a.b.a<?, Float> i;
     @Nullable
     public final com.ksad.lottie.a.b.a<?, Float> j;
@@ -47,17 +47,17 @@ public class m implements j, l, a.InterfaceC0366a {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31544a;
+        public static final /* synthetic */ int[] f31639a;
 
         static {
             int[] iArr = new int[PolystarShape.Type.values().length];
-            f31544a = iArr;
+            f31639a = iArr;
             try {
                 iArr[PolystarShape.Type.Star.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31544a[PolystarShape.Type.Polygon.ordinal()] = 2;
+                f31639a[PolystarShape.Type.Polygon.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -65,45 +65,45 @@ public class m implements j, l, a.InterfaceC0366a {
 
     public m(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         com.ksad.lottie.a.b.a<Float, Float> aVar2;
-        this.f31538c = fVar;
-        this.f31537b = polystarShape.a();
-        this.f31539d = polystarShape.b();
-        this.f31540e = polystarShape.c().a();
-        this.f31541f = polystarShape.d().a();
-        this.f31542g = polystarShape.e().a();
+        this.f31633c = fVar;
+        this.f31632b = polystarShape.a();
+        this.f31634d = polystarShape.b();
+        this.f31635e = polystarShape.c().a();
+        this.f31636f = polystarShape.d().a();
+        this.f31637g = polystarShape.e().a();
         this.i = polystarShape.g().a();
         this.k = polystarShape.i().a();
-        if (this.f31539d == PolystarShape.Type.Star) {
-            this.f31543h = polystarShape.f().a();
+        if (this.f31634d == PolystarShape.Type.Star) {
+            this.f31638h = polystarShape.f().a();
             aVar2 = polystarShape.h().a();
         } else {
             aVar2 = null;
-            this.f31543h = null;
+            this.f31638h = null;
         }
         this.j = aVar2;
-        aVar.a(this.f31540e);
-        aVar.a(this.f31541f);
-        aVar.a(this.f31542g);
+        aVar.a(this.f31635e);
+        aVar.a(this.f31636f);
+        aVar.a(this.f31637g);
         aVar.a(this.i);
         aVar.a(this.k);
-        if (this.f31539d == PolystarShape.Type.Star) {
-            aVar.a(this.f31543h);
+        if (this.f31634d == PolystarShape.Type.Star) {
+            aVar.a(this.f31638h);
             aVar.a(this.j);
         }
-        this.f31540e.a(this);
-        this.f31541f.a(this);
-        this.f31542g.a(this);
+        this.f31635e.a(this);
+        this.f31636f.a(this);
+        this.f31637g.a(this);
         this.i.a(this);
         this.k.a(this);
-        if (this.f31539d == PolystarShape.Type.Star) {
-            this.f31543h.a(this);
+        if (this.f31634d == PolystarShape.Type.Star) {
+            this.f31638h.a(this);
             this.j.a(this);
         }
     }
 
     private void b() {
         this.m = false;
-        this.f31538c.invalidateSelf();
+        this.f31633c.invalidateSelf();
     }
 
     private void c() {
@@ -121,8 +121,8 @@ public class m implements j, l, a.InterfaceC0366a {
         float f8;
         float f9;
         float f10;
-        float floatValue = this.f31540e.e().floatValue();
-        double radians = Math.toRadians((this.f31542g == null ? 0.0d : aVar.e().floatValue()) - 90.0d);
+        float floatValue = this.f31635e.e().floatValue();
+        double radians = Math.toRadians((this.f31637g == null ? 0.0d : aVar.e().floatValue()) - 90.0d);
         double d5 = floatValue;
         float f11 = (float) (6.283185307179586d / d5);
         float f12 = f11 / 2.0f;
@@ -132,7 +132,7 @@ public class m implements j, l, a.InterfaceC0366a {
             radians += (1.0f - f13) * f12;
         }
         float floatValue2 = this.i.e().floatValue();
-        float floatValue3 = this.f31543h.e().floatValue();
+        float floatValue3 = this.f31638h.e().floatValue();
         com.ksad.lottie.a.b.a<?, Float> aVar2 = this.j;
         float floatValue4 = aVar2 != null ? aVar2.e().floatValue() / 100.0f : 0.0f;
         com.ksad.lottie.a.b.a<?, Float> aVar3 = this.k;
@@ -144,7 +144,7 @@ public class m implements j, l, a.InterfaceC0366a {
             d2 = d5;
             f2 = (float) (d6 * Math.cos(radians));
             f3 = (float) (d6 * Math.sin(radians));
-            this.f31536a.moveTo(f2, f3);
+            this.f31631a.moveTo(f2, f3);
             d3 = radians + ((f11 * f13) / 2.0f);
         } else {
             d2 = d5;
@@ -152,7 +152,7 @@ public class m implements j, l, a.InterfaceC0366a {
             double d7 = floatValue2;
             float cos = (float) (Math.cos(radians) * d7);
             float sin = (float) (d7 * Math.sin(radians));
-            this.f31536a.moveTo(cos, sin);
+            this.f31631a.moveTo(cos, sin);
             d3 = radians + f12;
             f2 = cos;
             f3 = sin;
@@ -164,9 +164,9 @@ public class m implements j, l, a.InterfaceC0366a {
         while (true) {
             double d8 = i3;
             if (d8 >= ceil) {
-                PointF e2 = this.f31541f.e();
-                this.f31536a.offset(e2.x, e2.y);
-                this.f31536a.close();
+                PointF e2 = this.f31636f.e();
+                this.f31631a.offset(e2.x, e2.y);
+                this.f31631a.close();
                 return;
             }
             float f14 = z ? floatValue2 : floatValue3;
@@ -192,7 +192,7 @@ public class m implements j, l, a.InterfaceC0366a {
             float cos2 = (float) (d9 * Math.cos(d3));
             float sin2 = (float) (d9 * Math.sin(d3));
             if (floatValue4 == 0.0f && floatValue5 == 0.0f) {
-                this.f31536a.lineTo(cos2, sin2);
+                this.f31631a.lineTo(cos2, sin2);
                 f9 = floatValue4;
                 f10 = f4;
             } else {
@@ -221,7 +221,7 @@ public class m implements j, l, a.InterfaceC0366a {
                         f22 *= f13;
                     }
                 }
-                this.f31536a.cubicTo(f2 - f18, f3 - f19, cos2 + f21, sin2 + f22, cos2, sin2);
+                this.f31631a.cubicTo(f2 - f18, f3 - f19, cos2 + f21, sin2 + f22, cos2, sin2);
             }
             d3 += f6;
             z = !z;
@@ -242,15 +242,15 @@ public class m implements j, l, a.InterfaceC0366a {
         double d3;
         double d4;
         int i;
-        int floor = (int) Math.floor(this.f31540e.e().floatValue());
-        double radians = Math.toRadians((this.f31542g == null ? 0.0d : aVar.e().floatValue()) - 90.0d);
+        int floor = (int) Math.floor(this.f31635e.e().floatValue());
+        double radians = Math.toRadians((this.f31637g == null ? 0.0d : aVar.e().floatValue()) - 90.0d);
         double d5 = floor;
         float floatValue = this.k.e().floatValue() / 100.0f;
         float floatValue2 = this.i.e().floatValue();
         double d6 = floatValue2;
         float cos = (float) (Math.cos(radians) * d6);
         float sin = (float) (Math.sin(radians) * d6);
-        this.f31536a.moveTo(cos, sin);
+        this.f31631a.moveTo(cos, sin);
         double d7 = (float) (6.283185307179586d / d5);
         double d8 = radians + d7;
         double ceil = Math.ceil(d5);
@@ -268,13 +268,13 @@ public class m implements j, l, a.InterfaceC0366a {
                 d4 = d7;
                 double atan22 = (float) (Math.atan2(sin2, cos2) - 1.5707963267948966d);
                 float f2 = floatValue2 * floatValue * 0.25f;
-                this.f31536a.cubicTo(cos - (cos3 * f2), sin - (((float) Math.sin(atan2)) * f2), cos2 + (((float) Math.cos(atan22)) * f2), sin2 + (f2 * ((float) Math.sin(atan22))), cos2, sin2);
+                this.f31631a.cubicTo(cos - (cos3 * f2), sin - (((float) Math.sin(atan2)) * f2), cos2 + (((float) Math.cos(atan22)) * f2), sin2 + (f2 * ((float) Math.sin(atan22))), cos2, sin2);
             } else {
                 d2 = d8;
                 d3 = d6;
                 d4 = d7;
                 i = i2;
-                this.f31536a.lineTo(cos2, sin2);
+                this.f31631a.lineTo(cos2, sin2);
             }
             d8 = d2 + d4;
             i2 = i + 1;
@@ -284,12 +284,12 @@ public class m implements j, l, a.InterfaceC0366a {
             d6 = d3;
             d7 = d4;
         }
-        PointF e2 = this.f31541f.e();
-        this.f31536a.offset(e2.x, e2.y);
-        this.f31536a.close();
+        PointF e2 = this.f31636f.e();
+        this.f31631a.offset(e2.x, e2.y);
+        this.f31631a.close();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC0366a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0369a
     public void a() {
         b();
     }
@@ -311,18 +311,18 @@ public class m implements j, l, a.InterfaceC0366a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         if (this.m) {
-            return this.f31536a;
+            return this.f31631a;
         }
-        this.f31536a.reset();
-        int i = AnonymousClass1.f31544a[this.f31539d.ordinal()];
+        this.f31631a.reset();
+        int i = AnonymousClass1.f31639a[this.f31634d.ordinal()];
         if (i == 1) {
             c();
         } else if (i == 2) {
             e();
         }
-        this.f31536a.close();
-        com.ksad.lottie.d.f.a(this.f31536a, this.l);
+        this.f31631a.close();
+        com.ksad.lottie.d.f.a(this.f31631a, this.l);
         this.m = true;
-        return this.f31536a;
+        return this.f31631a;
     }
 }

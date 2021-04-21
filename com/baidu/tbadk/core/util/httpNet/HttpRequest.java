@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.c.e.p.j;
-import d.b.h0.f0.f;
-import d.b.h0.r.d0.b;
-import d.b.h0.r.l.c;
-import d.b.h0.r.l.e;
-import d.b.h0.s.b.a;
+import d.b.i0.f0.f;
+import d.b.i0.r.d0.b;
+import d.b.i0.r.l.c;
+import d.b.i0.r.l.e;
+import d.b.i0.s.b.a;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";

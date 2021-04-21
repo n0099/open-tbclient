@@ -7,7 +7,7 @@ import android.widget.ScrollView;
 public class GuideScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21805e;
+    public a f21813e;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -19,20 +19,20 @@ public class GuideScrollView extends ScrollView {
     }
 
     public a getScrollChangedListener() {
-        return this.f21805e;
+        return this.f21813e;
     }
 
     @Override // android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        a aVar = this.f21805e;
+        a aVar = this.f21813e;
         if (aVar != null) {
             aVar.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollChangedListener(a aVar) {
-        this.f21805e = aVar;
+        this.f21813e = aVar;
     }
 
     public GuideScrollView(Context context, AttributeSet attributeSet) {

@@ -18,109 +18,109 @@ import java.lang.ref.WeakReference;
 public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f35084b;
+    public ImageView f35179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f35085c;
+    public TextView f35180c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f35086d;
+    public AdTemplate f35181d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView f35087e;
+    public RecyclerView f35182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.lib.b.c<?, AdTemplate> f35088f;
+    public com.kwad.sdk.lib.b.c<?, AdTemplate> f35183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f35089g;
+    public Handler f35184g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.InterfaceC0415a f35090h;
+    public a.InterfaceC0418a f35185h;
 
     /* renamed from: com.kwad.sdk.feed.a.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0416a implements a.InterfaceC0415a, ap.a {
+    public static class C0419a implements a.InterfaceC0418a, ap.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<a> f35091a;
+        public WeakReference<a> f35186a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35092b = 100;
+        public final int f35187b = 100;
 
-        public C0416a(a aVar) {
-            this.f35091a = new WeakReference<>(aVar);
+        public C0419a(a aVar) {
+            this.f35186a = new WeakReference<>(aVar);
         }
 
-        @Override // com.kwad.sdk.feed.a.a.InterfaceC0415a
+        @Override // com.kwad.sdk.feed.a.a.InterfaceC0418a
         public void a(int i) {
             com.kwad.sdk.core.d.a.a("FeedHomeItemClickPresenter", "position=" + i);
-            a aVar = this.f35091a.get();
-            if (aVar == null || aVar.f35088f == null) {
+            a aVar = this.f35186a.get();
+            if (aVar == null || aVar.f35183f == null) {
                 return;
             }
-            aVar.f35088f.k();
-            if (aVar.f35089g == null) {
-                aVar.f35089g = new ap(this);
+            aVar.f35183f.k();
+            if (aVar.f35184g == null) {
+                aVar.f35184g = new ap(this);
             }
-            Message obtain = Message.obtain(aVar.f35089g);
+            Message obtain = Message.obtain(aVar.f35184g);
             obtain.what = 100;
             obtain.arg1 = i;
-            aVar.f35089g.sendMessageDelayed(obtain, 100L);
+            aVar.f35184g.sendMessageDelayed(obtain, 100L);
         }
 
         @Override // com.kwad.sdk.utils.ap.a
         public void a(Message message) {
-            a aVar = this.f35091a.get();
+            a aVar = this.f35186a.get();
             if (aVar != null && message.what == 100) {
-                aVar.f35087e.scrollToPosition(message.arg1);
+                aVar.f35182e.scrollToPosition(message.arg1);
             }
         }
     }
 
     private void e() {
-        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i).mAdScene;
+        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).i).mAdScene;
         if (sceneImpl == null) {
             return;
         }
-        com.kwad.sdk.feed.a.a.a().a(((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).f36294f.g());
+        com.kwad.sdk.feed.a.a.a().a(((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).f36389f.g());
         com.kwad.sdk.feed.a.a.a().f();
         com.kwad.sdk.feed.a.a.a().a(f());
         FeedSlideParam feedSlideParam = new FeedSlideParam();
         feedSlideParam.mEntryScene = sceneImpl.entryScene;
-        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a;
-        feedSlideParam.mSelectedPosition = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36296h;
-        com.kwad.sdk.feed.detail.a.a(((com.kwad.sdk.feed.a.a.a.b) callercontext).f36292d, feedSlideParam);
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a;
+        feedSlideParam.mSelectedPosition = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36391h;
+        com.kwad.sdk.feed.detail.a.a(((com.kwad.sdk.feed.a.a.a.b) callercontext).f36387d, feedSlideParam);
     }
 
-    private a.InterfaceC0415a f() {
-        if (this.f35090h == null) {
-            this.f35090h = new C0416a(this);
+    private a.InterfaceC0418a f() {
+        if (this.f35185h == null) {
+            this.f35185h = new C0419a(this);
         }
-        return this.f35090h;
+        return this.f35185h;
     }
 
     private void g() {
-        com.kwad.sdk.core.report.e.b((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i, 1);
+        com.kwad.sdk.core.report.e.b((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).i, 1);
     }
 
     /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.kwad.sdk.lib.b.c<?, MODEL>, com.kwad.sdk.lib.b.c<?, com.kwad.sdk.core.response.model.AdTemplate> */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a;
-        this.f35086d = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
-        this.f35087e = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36293e;
-        this.f35088f = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36294f;
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a;
+        this.f35181d = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
+        this.f35182e = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36388e;
+        this.f35183f = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36389f;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f35090h != null) {
-            com.kwad.sdk.feed.a.a.a().b(this.f35090h);
+        if (this.f35185h != null) {
+            com.kwad.sdk.feed.a.a.a().b(this.f35185h);
         }
-        Handler handler = this.f35089g;
+        Handler handler = this.f35184g;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
@@ -129,20 +129,20 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f35084b = (ImageView) b(R.id.ksad_feed_item_cover);
-        this.f35085c = (TextView) b(R.id.ksad_feed_item_photo_desc);
-        this.f35084b.setOnClickListener(this);
-        this.f35085c.setOnClickListener(this);
+        this.f35179b = (ImageView) b(R.id.ksad_feed_item_cover);
+        this.f35180c = (TextView) b(R.id.ksad_feed_item_photo_desc);
+        this.f35179b.setOnClickListener(this);
+        this.f35180c.setOnClickListener(this);
         l().setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        if (this.f35090h != null) {
-            com.kwad.sdk.feed.a.a.a().b(this.f35090h);
+        if (this.f35185h != null) {
+            com.kwad.sdk.feed.a.a.a().b(this.f35185h);
         }
-        Handler handler = this.f35089g;
+        Handler handler = this.f35184g;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
@@ -155,25 +155,25 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         if (ao.a()) {
             return;
         }
-        if (view == this.f35084b) {
-            if (com.kwad.sdk.core.response.b.c.c(this.f35086d)) {
-                adTemplate = this.f35086d;
+        if (view == this.f35179b) {
+            if (com.kwad.sdk.core.response.b.c.c(this.f35181d)) {
+                adTemplate = this.f35181d;
                 i = 83;
                 com.kwad.sdk.core.report.b.d(adTemplate, i);
             }
             e();
             g();
-        } else if (view == this.f35085c) {
-            if (com.kwad.sdk.core.response.b.c.c(this.f35086d)) {
-                adTemplate = this.f35086d;
+        } else if (view == this.f35180c) {
+            if (com.kwad.sdk.core.response.b.c.c(this.f35181d)) {
+                adTemplate = this.f35181d;
                 i = 24;
                 com.kwad.sdk.core.report.b.d(adTemplate, i);
             }
             e();
             g();
         } else {
-            if (com.kwad.sdk.core.response.b.c.c(this.f35086d)) {
-                adTemplate = this.f35086d;
+            if (com.kwad.sdk.core.response.b.c.c(this.f35181d)) {
+                adTemplate = this.f35181d;
                 i = 79;
                 com.kwad.sdk.core.report.b.d(adTemplate, i);
             }

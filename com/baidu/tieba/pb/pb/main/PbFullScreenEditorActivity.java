@@ -52,15 +52,15 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.kwai.video.player.PlayerPostEvent;
 import d.b.c.e.p.l;
-import d.b.h0.w.m;
-import d.b.h0.w.n;
-import d.b.i0.d2.k.e.r;
-import d.b.i0.d2.k.e.u0;
-import d.b.i0.d2.k.e.v;
-import d.b.i0.d2.k.e.w;
+import d.b.i0.w.m;
+import d.b.i0.w.n;
+import d.b.j0.d2.k.e.r;
+import d.b.j0.d2.k.e.u0;
+import d.b.j0.d2.k.e.v;
+import d.b.j0.d2.k.e.w;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class PbFullScreenEditorActivity extends BaseActivity implements r.c, VoiceManager.j, d.b.h0.w.b {
+public class PbFullScreenEditorActivity extends BaseActivity implements r.c, VoiceManager.j, d.b.i0.w.b {
     public static final int REPLY_MAX_SIZE = 140;
     public u0 mContentProcessController;
     public Context mContext;
@@ -162,7 +162,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public class e extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int[] f19368e = new int[2];
+        public int[] f19376e = new int[2];
 
         public e() {
         }
@@ -177,9 +177,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         public boolean onSingleTapUp(MotionEvent motionEvent) {
             WholeDisplayGridView wholeDisplayGridView;
             if (motionEvent != null && (wholeDisplayGridView = PbFullScreenEditorActivity.this.mImgsGridView) != null) {
-                wholeDisplayGridView.getLocationInWindow(this.f19368e);
-                int x = ((int) motionEvent.getX()) - this.f19368e[0];
-                int y = ((int) motionEvent.getY()) - this.f19368e[1];
+                wholeDisplayGridView.getLocationInWindow(this.f19376e);
+                int x = ((int) motionEvent.getX()) - this.f19376e[0];
+                int y = ((int) motionEvent.getY()) - this.f19376e[1];
                 if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
                     PbFullScreenEditorActivity.this.mEditorTools.q();
                     PbFullScreenEditorActivity.this.mEditorTools.y();
@@ -231,15 +231,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19373e;
+        public final /* synthetic */ String f19381e;
 
         public i(String str) {
-            this.f19373e = str;
+            this.f19381e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbFullScreenEditorActivity.this.showToast(this.f19373e);
+            PbFullScreenEditorActivity.this.showToast(this.f19381e);
         }
     }
 
@@ -283,14 +283,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public void deleteVoice() {
         n nVar;
         if (this.mFullScreenEditor.h() != null) {
-            d.b.h0.r.g0.a.a(d.b.h0.r.g0.a.b(this.mFullScreenEditor.h().voiceId));
+            d.b.i0.r.g0.a.a(d.b.i0.r.g0.a.b(this.mFullScreenEditor.h().voiceId));
         }
         this.mFullScreenEditor.r(null);
         this.mLayoutVoicePlay.setVisibility(8);
         this.mVoicePlayButton.setVoiceModel(null);
         m n = this.mEditorTools.n(6);
         if (n != null && (nVar = n.k) != null) {
-            nVar.onAction(new d.b.h0.w.a(52, 0, null));
+            nVar.onAction(new d.b.i0.w.a(52, 0, null));
         }
         checkPostBtnEnabled();
     }
@@ -359,7 +359,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             initEditTools(pbEditorData.getEditorType() == 1);
             String disableVoiceMessage = this.mPbEditorData.getDisableVoiceMessage();
             if (!TextUtils.isEmpty(disableVoiceMessage) && (editorTools = this.mEditorTools) != null) {
-                d.b.h0.w.h m = editorTools.m(6);
+                d.b.i0.w.h m = editorTools.m(6);
                 if (m instanceof View) {
                     ((View) m).setOnClickListener(new i(disableVoiceMessage));
                 }
@@ -395,7 +395,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 this.mFullScreenEditor.r(voiceModel);
                 m n = this.mEditorTools.n(6);
                 if (n != null && (nVar = n.k) != null) {
-                    nVar.onAction(new d.b.h0.w.a(52, 0, voiceModel));
+                    nVar.onAction(new d.b.i0.w.a(52, 0, voiceModel));
                 }
                 EditorTools editorTools2 = this.mEditorTools;
                 editorTools2.x((View) editorTools2.m(6));
@@ -518,14 +518,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         return this.mVoiceManager;
     }
 
-    @Override // d.b.h0.w.b
-    public void onAction(d.b.h0.w.a aVar) {
+    @Override // d.b.i0.w.b
+    public void onAction(d.b.i0.w.a aVar) {
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f51942a;
+        int i2 = aVar.f52278a;
         if (i2 == 3) {
-            d.b.i0.k0.b.a(this.mEditContent);
+            d.b.j0.k0.b.a(this.mEditContent);
         } else if (i2 == 14) {
             ensureWriteImagesInfo();
             AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.mContext, this.mWriteImagesInfo.toJsonString(), true, true);
@@ -535,7 +535,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", this.mThreadData.getForumId());
             }
             albumFloatActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
-            if (d.b.h0.w.w.a.a().b() == 1) {
+            if (d.b.i0.w.w.a.a().b() == 1) {
                 albumFloatActivityConfig.setRequestFrom(2);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
@@ -547,14 +547,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 deleteVoice();
                 return;
             }
-            Object obj = aVar.f51944c;
+            Object obj = aVar.f52280c;
             if (obj instanceof VoiceData$VoiceModel) {
                 addVoice((VoiceData$VoiceModel) obj);
             }
         } else {
-            Object obj2 = aVar.f51944c;
-            if (obj2 instanceof d.b.h0.s.c.v) {
-                d.b.h0.s.c.v vVar = (d.b.h0.s.c.v) obj2;
+            Object obj2 = aVar.f52280c;
+            if (obj2 instanceof d.b.i0.s.c.v) {
+                d.b.i0.s.c.v vVar = (d.b.i0.s.c.v) obj2;
                 if (vVar.e() != EmotionGroupType.BIG_EMOTION && vVar.e() != EmotionGroupType.USER_COLLECT) {
                     this.mEditContent.l(vVar);
                     return;
@@ -685,7 +685,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         }
     }
 
-    @Override // d.b.i0.d2.k.e.r.c
+    @Override // d.b.j0.d2.k.e.r.c
     public void onClickImage(int i2) {
         ImageFileInfo imageInfoAt = this.mWriteImagesInfo.getImageInfoAt(i2);
         if (imageInfoAt == null || imageInfoAt.getImageType() == 1) {
@@ -723,7 +723,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         adjustResizeForSoftInput();
     }
 
-    @Override // d.b.i0.d2.k.e.r.c
+    @Override // d.b.j0.d2.k.e.r.c
     public void onDeleteImage(int i2) {
         WriteImagesInfo writeImagesInfo = this.mWriteImagesInfo;
         if (writeImagesInfo == null || writeImagesInfo.getChosedFiles() == null) {

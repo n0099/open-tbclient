@@ -9,11 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
-import d.b.x.a.c;
-import d.b.x.a.d;
-import d.b.x.a.e;
-import d.b.x.a.f;
-import d.b.x.a.h;
+import d.b.y.a.c;
+import d.b.y.a.d;
+import d.b.y.a.e;
+import d.b.y.a.f;
+import d.b.y.a.h;
 /* loaded from: classes2.dex */
 public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, NoProguard {
 
@@ -147,11 +147,11 @@ public class FingerprintDialog extends Dialog implements com.baidu.sapi2.g.b, No
         if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
             this.f11124a.setBackgroundResource(d.sapi_sdk_fingerprint_dialog_dark_mode);
             this.f11129f.setImageResource(d.sapi_sdk_fingerprint_dark_mode);
-            this.f11125b.setTextColor(this.f11130g.getResources().getColor(d.b.x.a.b.sapi_sdk_dark_mode_edit_text_color));
-            this.f11126c.setTextColor(this.f11130g.getResources().getColor(d.b.x.a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
-            this.f11127d.setTextColor(this.f11130g.getResources().getColor(d.b.x.a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f11125b.setTextColor(this.f11130g.getResources().getColor(d.b.y.a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f11126c.setTextColor(this.f11130g.getResources().getColor(d.b.y.a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
+            this.f11127d.setTextColor(this.f11130g.getResources().getColor(d.b.y.a.b.sapi_sdk_dark_mode_edit_text_color));
             this.f11127d.setBackground(this.f11130g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_negative_btn_bg_daynight));
-            this.f11128e.setTextColor(this.f11130g.getResources().getColor(d.b.x.a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f11128e.setTextColor(this.f11130g.getResources().getColor(d.b.y.a.b.sapi_sdk_dark_mode_edit_text_color));
             this.f11128e.setBackground(this.f11130g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_positive_btn_bg_daynight));
         }
     }

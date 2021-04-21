@@ -19,24 +19,24 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.commonLike.forum.ForumLikeBotton;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.w1;
-import d.b.i0.x.m;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.w1;
+import d.b.j0.x.m;
 /* loaded from: classes3.dex */
 public class ThreadForumUserInfoLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f13175e;
+    public TbImageView f13183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13176f;
+    public TextView f13184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f13177g;
+    public TextView f13185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ForumLikeBotton f13178h;
-    public d.b.h0.r.f0.n.c.a i;
+    public ForumLikeBotton f13186h;
+    public d.b.i0.r.f0.n.c.a i;
     public a2 j;
     public View.OnClickListener k;
     public View.OnClickListener l;
@@ -64,26 +64,26 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
 
     public final void c(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_forum_user_info_layout, (ViewGroup) this, true);
-        this.f13175e = (TbImageView) inflate.findViewById(R.id.forum_avatar);
+        this.f13183e = (TbImageView) inflate.findViewById(R.id.forum_avatar);
         TextView textView = (TextView) inflate.findViewById(R.id.forum_name);
-        this.f13176f = textView;
+        this.f13184f = textView;
         textView.setOnClickListener(this.l);
-        this.f13177g = (TextView) inflate.findViewById(R.id.user_name_and_reply_time);
-        this.f13178h = (ForumLikeBotton) inflate.findViewById(R.id.like_button);
+        this.f13185g = (TextView) inflate.findViewById(R.id.user_name_and_reply_time);
+        this.f13186h = (ForumLikeBotton) inflate.findViewById(R.id.like_button);
         if (context instanceof TbPageContextSupport) {
-            this.i = new d.b.h0.r.f0.n.c.a(((TbPageContextSupport) context).getPageContext(), this.f13178h);
+            this.i = new d.b.i0.r.f0.n.c.a(((TbPageContextSupport) context).getPageContext(), this.f13186h);
         }
         setGravity(16);
         d();
     }
 
     public final void d() {
-        TbImageView tbImageView = this.f13175e;
+        TbImageView tbImageView = this.f13183e;
         if (tbImageView == null) {
             return;
         }
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.f13175e.setOnClickListener(this.l);
+        this.f13183e.setOnClickListener(this.l);
     }
 
     public String e(String str) {
@@ -92,55 +92,55 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
 
     public final void f(w1 w1Var) {
         if (w1Var != null && !StringUtils.isNull(w1Var.a())) {
-            this.f13175e.setVisibility(0);
-            this.f13175e.W(w1Var.a(), 10, false);
-            this.f13175e.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+            this.f13183e.setVisibility(0);
+            this.f13183e.W(w1Var.a(), 10, false);
+            this.f13183e.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
             return;
         }
-        this.f13175e.setVisibility(4);
+        this.f13183e.setVisibility(4);
     }
 
     public void g(w1 w1Var) {
         if (w1Var != null && !StringUtils.isNull(w1Var.i())) {
-            this.f13176f.setText(StringHelper.cutChineseAndEnglishWithSuffix(w1Var.i(), 14, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
-            this.f13176f.setVisibility(0);
+            this.f13184f.setText(StringHelper.cutChineseAndEnglishWithSuffix(w1Var.i(), 14, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
+            this.f13184f.setVisibility(0);
             return;
         }
-        this.f13176f.setVisibility(4);
+        this.f13184f.setVisibility(4);
     }
 
     public TextView getForumName() {
-        return this.f13176f;
+        return this.f13184f;
     }
 
     public TbImageView getHeaderImg() {
-        return this.f13175e;
+        return this.f13183e;
     }
 
     public ForumLikeBotton getLikeButton() {
-        return this.f13178h;
+        return this.f13186h;
     }
 
     public TextView getUserName() {
-        return this.f13177g;
+        return this.f13185g;
     }
 
     public void h(w1 w1Var) {
         int i = 8;
         if (w1Var == null) {
-            this.f13178h.setVisibility(8);
+            this.f13186h.setVisibility(8);
             return;
         }
         this.i.f(w1Var);
-        this.f13178h.setVisibility((!w1Var.getIsLike() || w1Var.c()) ? 0 : 0);
+        this.f13186h.setVisibility((!w1Var.getIsLike() || w1Var.c()) ? 0 : 0);
     }
 
     public void i(a2 a2Var) {
         if (a2Var == null || StringUtils.isNull(this.j.T().getName_show())) {
             return;
         }
-        this.f13177g.setText(getContext().getString(R.string.user_name_and_publish, e(this.j.T().getName_show())));
-        this.f13177g.setVisibility(0);
+        this.f13185g.setText(getContext().getString(R.string.user_name_and_publish, e(this.j.T().getName_show())));
+        this.f13185g.setVisibility(0);
     }
 
     public void setData(a2 a2Var) {
@@ -159,18 +159,18 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     }
 
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
-        d.b.h0.r.f0.n.c.a aVar = this.i;
+        d.b.i0.r.f0.n.c.a aVar = this.i;
         if (aVar != null) {
             aVar.e(onClickListener);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        TbImageView tbImageView = this.f13175e;
+        TbImageView tbImageView = this.f13183e;
         if (tbImageView != null) {
             tbImageView.setPageId(bdUniqueId);
         }
-        d.b.h0.r.f0.n.c.a aVar = this.i;
+        d.b.i0.r.f0.n.c.a aVar = this.i;
         if (aVar != null) {
             aVar.g(bdUniqueId);
         }

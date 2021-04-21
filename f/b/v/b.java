@@ -5,9 +5,9 @@ import f.b.e;
 public abstract class b<K, T> extends e<T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final K f68479f;
+    public final K f68626f;
 
     public b(K k) {
-        this.f68479f = k;
+        this.f68626f = k;
     }
 }

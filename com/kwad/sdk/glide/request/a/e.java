@@ -11,7 +11,7 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public Animatable f36065b;
+    public Animatable f36160b;
 
     public e(ImageView imageView) {
         super(imageView);
@@ -24,18 +24,18 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     private void c(@Nullable Z z) {
         if (!(z instanceof Animatable)) {
-            this.f36065b = null;
+            this.f36160b = null;
             return;
         }
         Animatable animatable = (Animatable) z;
-        this.f36065b = animatable;
+        this.f36160b = animatable;
         animatable.start();
     }
 
     @Override // com.kwad.sdk.glide.request.a.k, com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.request.a.j
     public void a(@Nullable Drawable drawable) {
         super.a(drawable);
-        Animatable animatable = this.f36065b;
+        Animatable animatable = this.f36160b;
         if (animatable != null) {
             animatable.stop();
         }
@@ -63,7 +63,7 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.c.i
     public void c() {
-        Animatable animatable = this.f36065b;
+        Animatable animatable = this.f36160b;
         if (animatable != null) {
             animatable.start();
         }
@@ -78,13 +78,13 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.c.i
     public void d() {
-        Animatable animatable = this.f36065b;
+        Animatable animatable = this.f36160b;
         if (animatable != null) {
             animatable.stop();
         }
     }
 
     public void e(Drawable drawable) {
-        ((ImageView) ((k) this).f36072a).setImageDrawable(drawable);
+        ((ImageView) ((k) this).f36167a).setImageDrawable(drawable);
     }
 }

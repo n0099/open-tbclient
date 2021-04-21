@@ -11,7 +11,7 @@ public final class MaybeDoFinally$DoFinallyObserver<T> extends AtomicInteger imp
     public final i<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69049d;
+    public b f69196d;
     public final a onFinally;
 
     public MaybeDoFinally$DoFinallyObserver(i<? super T> iVar, a aVar) {
@@ -21,13 +21,13 @@ public final class MaybeDoFinally$DoFinallyObserver<T> extends AtomicInteger imp
 
     @Override // f.b.t.b
     public void dispose() {
-        this.f69049d.dispose();
+        this.f69196d.dispose();
         runFinally();
     }
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f69049d.isDisposed();
+        return this.f69196d.isDisposed();
     }
 
     @Override // f.b.i
@@ -44,8 +44,8 @@ public final class MaybeDoFinally$DoFinallyObserver<T> extends AtomicInteger imp
 
     @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69049d, bVar)) {
-            this.f69049d = bVar;
+        if (DisposableHelper.validate(this.f69196d, bVar)) {
+            this.f69196d = bVar;
             this.actual.onSubscribe(this);
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.a1.g.j.e;
+import d.b.j0.a1.g.j.e;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
 /* loaded from: classes4.dex */

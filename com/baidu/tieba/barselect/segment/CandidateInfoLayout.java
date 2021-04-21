@@ -20,13 +20,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
 import d.b.c.e.m.b;
 import d.b.c.e.p.l;
-import d.b.i0.v.b.d;
-import d.b.i0.v.b.f;
+import d.b.j0.v.b.d;
+import d.b.j0.v.b.f;
 /* loaded from: classes4.dex */
 public class CandidateInfoLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f14854h;
+    public Context f14862h;
     public BazhuHeadView i;
     public LinearLayout j;
     public TextView k;
@@ -42,13 +42,13 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d dVar = CandidateInfoLayout.this.f14858g;
+            d dVar = CandidateInfoLayout.this.f14866g;
             if (dVar == null || dVar.l() == 0) {
                 return;
             }
             long f2 = b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = CandidateInfoLayout.this.f14858g.l();
-            if (!(CandidateInfoLayout.this.getContext() instanceof Activity) || CandidateInfoLayout.this.f14858g.f() == 2) {
+            long l = CandidateInfoLayout.this.f14866g.l();
+            if (!(CandidateInfoLayout.this.getContext() instanceof Activity) || CandidateInfoLayout.this.f14866g.f() == 2) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(CandidateInfoLayout.this.getContext()).createNormalConfig(l, l == f2, false)));
@@ -73,7 +73,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     public void b() {
-        this.f14854h = getContext();
+        this.f14862h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
@@ -88,7 +88,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1, i);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1, i);
-        d dVar = this.f14858g;
+        d dVar = this.f14866g;
         if (dVar != null) {
             setGrade(dVar.d());
         }
@@ -99,20 +99,20 @@ public class CandidateInfoLayout extends CardBasicLayout {
         int i2;
         String str;
         super.setData(i, fVar);
-        if (this.f14857f != null && this.f14858g != null && (i2 = this.f14856e) >= 0) {
-            if (i2 == d.b.i0.v.e.a.f62966c) {
-                int g2 = l.g(this.f14854h, R.dimen.tbds191);
-                int g3 = l.g(this.f14854h, R.dimen.tbds157);
-                int g4 = l.g(this.f14854h, R.dimen.tbds6);
-                int g5 = l.g(this.f14854h, R.dimen.tbds24);
-                int g6 = l.g(this.f14854h, R.dimen.tbds30);
+        if (this.f14865f != null && this.f14866g != null && (i2 = this.f14864e) >= 0) {
+            if (i2 == d.b.j0.v.e.a.f63387c) {
+                int g2 = l.g(this.f14862h, R.dimen.tbds191);
+                int g3 = l.g(this.f14862h, R.dimen.tbds157);
+                int g4 = l.g(this.f14862h, R.dimen.tbds6);
+                int g5 = l.g(this.f14862h, R.dimen.tbds24);
+                int g6 = l.g(this.f14862h, R.dimen.tbds30);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g3, g2);
                 layoutParams.setMargins(layoutParams.leftMargin - g4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                 this.i.setLayoutParams(layoutParams);
                 this.i.n(true);
                 this.i.setBawuLogoView(R.drawable.pic_election_bazhu);
                 this.i.setPendantView(R.drawable.icon_crown);
-                this.k.setTextSize(0, l.g(this.f14854h, R.dimen.tbfontsize46));
+                this.k.setTextSize(0, l.g(this.f14862h, R.dimen.tbfontsize46));
                 setGravity(16);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.setMargins(g6, g5, layoutParams2.rightMargin, g4);
@@ -121,23 +121,23 @@ public class CandidateInfoLayout extends CardBasicLayout {
             } else {
                 this.i.n(false);
             }
-            this.i.k(this.f14858g.g());
+            this.i.k(this.f14866g.g());
             this.i.setOnClickListener(this.o);
-            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14858g.e(), 14, StringHelper.STRING_MORE));
-            setGrade(this.f14858g.d());
-            if (this.f14858g.f() == 2) {
+            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f14866g.e(), 14, StringHelper.STRING_MORE));
+            setGrade(this.f14866g.d());
+            if (this.f14866g.f() == 2) {
                 this.l.setVisibility(8);
             } else {
                 this.l.setVisibility(0);
-                if (this.f14858g.c() < 1000) {
-                    String str2 = "0000" + this.f14858g.c();
+                if (this.f14866g.c() < 1000) {
+                    String str2 = "0000" + this.f14866g.c();
                     str = str2.substring(str2.length() - 4, str2.length());
                 } else {
-                    str = "" + this.f14858g.c();
+                    str = "" + this.f14866g.c();
                 }
                 this.l.setText("NO." + str);
             }
-            this.n.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.f14858g.a()), StringHelper.numFormatOverWanWithNegative(this.f14858g.j()), StringHelper.numFormatOverWanWithNegative(this.f14858g.h())));
+            this.n.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.f14866g.a()), StringHelper.numFormatOverWanWithNegative(this.f14866g.j()), StringHelper.numFormatOverWanWithNegative(this.f14866g.h())));
             return;
         }
         setVisibility(8);

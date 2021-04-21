@@ -34,17 +34,17 @@ public final class c {
     public static class b extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        public final HttpURLConnection f24804a;
+        public final HttpURLConnection f24812a;
 
         public b(HttpURLConnection httpURLConnection) {
             super(c.b(httpURLConnection));
-            this.f24804a = httpURLConnection;
+            this.f24812a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
-            this.f24804a.disconnect();
+            this.f24812a.disconnect();
         }
     }
 

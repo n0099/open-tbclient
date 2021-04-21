@@ -9,19 +9,19 @@ import java.util.Queue;
 public class d extends InputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Queue<d> f35503a = k.a(0);
+    public static final Queue<d> f35598a = k.a(0);
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f35504b;
+    public InputStream f35599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IOException f35505c;
+    public IOException f35600c;
 
     @NonNull
     public static d a(@NonNull InputStream inputStream) {
         d poll;
-        synchronized (f35503a) {
-            poll = f35503a.poll();
+        synchronized (f35598a) {
+            poll = f35598a.poll();
         }
         if (poll == null) {
             poll = new d();
@@ -32,47 +32,47 @@ public class d extends InputStream {
 
     @Nullable
     public IOException a() {
-        return this.f35505c;
+        return this.f35600c;
     }
 
     @Override // java.io.InputStream
     public int available() {
-        return this.f35504b.available();
+        return this.f35599b.available();
     }
 
     public void b() {
-        this.f35505c = null;
-        this.f35504b = null;
-        synchronized (f35503a) {
-            f35503a.offer(this);
+        this.f35600c = null;
+        this.f35599b = null;
+        synchronized (f35598a) {
+            f35598a.offer(this);
         }
     }
 
     public void b(@NonNull InputStream inputStream) {
-        this.f35504b = inputStream;
+        this.f35599b = inputStream;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f35504b.close();
+        this.f35599b.close();
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        this.f35504b.mark(i);
+        this.f35599b.mark(i);
     }
 
     @Override // java.io.InputStream
     public boolean markSupported() {
-        return this.f35504b.markSupported();
+        return this.f35599b.markSupported();
     }
 
     @Override // java.io.InputStream
     public int read() {
         try {
-            return this.f35504b.read();
+            return this.f35599b.read();
         } catch (IOException e2) {
-            this.f35505c = e2;
+            this.f35600c = e2;
             return -1;
         }
     }
@@ -80,9 +80,9 @@ public class d extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr) {
         try {
-            return this.f35504b.read(bArr);
+            return this.f35599b.read(bArr);
         } catch (IOException e2) {
-            this.f35505c = e2;
+            this.f35600c = e2;
             return -1;
         }
     }
@@ -90,24 +90,24 @@ public class d extends InputStream {
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) {
         try {
-            return this.f35504b.read(bArr, i, i2);
+            return this.f35599b.read(bArr, i, i2);
         } catch (IOException e2) {
-            this.f35505c = e2;
+            this.f35600c = e2;
             return -1;
         }
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() {
-        this.f35504b.reset();
+        this.f35599b.reset();
     }
 
     @Override // java.io.InputStream
     public long skip(long j) {
         try {
-            return this.f35504b.skip(j);
+            return this.f35599b.skip(j);
         } catch (IOException e2) {
-            this.f35505c = e2;
+            this.f35600c = e2;
             return 0L;
         }
     }

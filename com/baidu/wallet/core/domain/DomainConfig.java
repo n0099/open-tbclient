@@ -10,17 +10,17 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f23929a;
+        public static final /* synthetic */ int[] f23937a;
 
         static {
             int[] iArr = new int[DomainStrategyType.values().length];
-            f23929a = iArr;
+            f23937a = iArr;
             try {
                 iArr[DomainStrategyType.QA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f23929a[DomainStrategyType.ONLINE.ordinal()] = 2;
+                f23937a[DomainStrategyType.ONLINE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -36,7 +36,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DomainConfig f23930a = new DomainConfig(null);
+        public static final DomainConfig f23938a = new DomainConfig(null);
     }
 
     public /* synthetic */ DomainConfig(AnonymousClass1 anonymousClass1) {
@@ -44,7 +44,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     }
 
     public static DomainConfig getInstance() {
-        return a.f23930a;
+        return a.f23938a;
     }
 
     @Override // com.baidu.wallet.core.domain.a
@@ -121,7 +121,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType) {
-        int i = AnonymousClass1.f23929a[domainStrategyType.ordinal()];
+        int i = AnonymousClass1.f23937a[domainStrategyType.ordinal()];
         if (i == 1) {
             this.i = this.k;
         } else if (i != 2) {
@@ -137,7 +137,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
-        int i = AnonymousClass1.f23929a[domainStrategyType.ordinal()];
+        int i = AnonymousClass1.f23937a[domainStrategyType.ordinal()];
         if (i == 1) {
             this.i = this.k;
         } else if (i == 2) {

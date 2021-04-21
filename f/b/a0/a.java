@@ -19,28 +19,28 @@ import io.reactivex.internal.util.ExceptionHelper;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile g<? super Throwable> f68451a;
+    public static volatile g<? super Throwable> f68598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile h<? super Runnable, ? extends Runnable> f68452b;
+    public static volatile h<? super Runnable, ? extends Runnable> f68599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c<? super e, ? super g.d.c, ? extends g.d.c> f68453c;
+    public static volatile c<? super e, ? super g.d.c, ? extends g.d.c> f68600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile c<? super f.b.h, ? super i, ? extends i> f68454d;
+    public static volatile c<? super f.b.h, ? super i, ? extends i> f68601d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile c<? super l, ? super o, ? extends o> f68455e;
+    public static volatile c<? super l, ? super o, ? extends o> f68602e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile c<? super q, ? super r, ? extends r> f68456f;
+    public static volatile c<? super q, ? super r, ? extends r> f68603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c<? super f.b.a, ? super b, ? extends b> f68457g;
+    public static volatile c<? super f.b.a, ? super b, ? extends b> f68604g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile f.b.w.e f68458h;
+    public static volatile f.b.w.e f68605h;
     public static volatile boolean i;
 
     public static <T, U, R> R a(c<T, U, R> cVar, T t, U u) {
@@ -68,7 +68,7 @@ public final class a {
     }
 
     public static boolean e() {
-        f.b.w.e eVar = f68458h;
+        f.b.w.e eVar = f68605h;
         if (eVar != null) {
             try {
                 return eVar.getAsBoolean();
@@ -80,7 +80,7 @@ public final class a {
     }
 
     public static void f(Throwable th) {
-        g<? super Throwable> gVar = f68451a;
+        g<? super Throwable> gVar = f68598a;
         if (th == null) {
             th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         } else if (!c(th)) {
@@ -101,32 +101,32 @@ public final class a {
 
     public static Runnable g(Runnable runnable) {
         f.b.x.b.a.b(runnable, "run is null");
-        h<? super Runnable, ? extends Runnable> hVar = f68452b;
+        h<? super Runnable, ? extends Runnable> hVar = f68599b;
         return hVar == null ? runnable : (Runnable) b(hVar, runnable);
     }
 
     public static b h(f.b.a aVar, b bVar) {
-        c<? super f.b.a, ? super b, ? extends b> cVar = f68457g;
+        c<? super f.b.a, ? super b, ? extends b> cVar = f68604g;
         return cVar != null ? (b) a(cVar, aVar, bVar) : bVar;
     }
 
     public static <T> i<? super T> i(f.b.h<T> hVar, i<? super T> iVar) {
-        c<? super f.b.h, ? super i, ? extends i> cVar = f68454d;
+        c<? super f.b.h, ? super i, ? extends i> cVar = f68601d;
         return cVar != null ? (i) a(cVar, hVar, iVar) : iVar;
     }
 
     public static <T> o<? super T> j(l<T> lVar, o<? super T> oVar) {
-        c<? super l, ? super o, ? extends o> cVar = f68455e;
+        c<? super l, ? super o, ? extends o> cVar = f68602e;
         return cVar != null ? (o) a(cVar, lVar, oVar) : oVar;
     }
 
     public static <T> r<? super T> k(q<T> qVar, r<? super T> rVar) {
-        c<? super q, ? super r, ? extends r> cVar = f68456f;
+        c<? super q, ? super r, ? extends r> cVar = f68603f;
         return cVar != null ? (r) a(cVar, qVar, rVar) : rVar;
     }
 
     public static <T> g.d.c<? super T> l(e<T> eVar, g.d.c<? super T> cVar) {
-        c<? super e, ? super g.d.c, ? extends g.d.c> cVar2 = f68453c;
+        c<? super e, ? super g.d.c, ? extends g.d.c> cVar2 = f68600c;
         return cVar2 != null ? (g.d.c) a(cVar2, eVar, cVar) : cVar;
     }
 

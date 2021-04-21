@@ -1,172 +1,65 @@
 package d.b.i0.n;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.R;
-import d.b.h0.r.c;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class a extends BaseAdapter {
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f51106a = 300;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f51107b = 5000;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f51108c = 10000;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f51109d = 1500;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f58425e;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f58428h;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f58427g = null;
+    public int f51110e = 3000;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f58426f = false;
+    public int f51111f = 6000;
 
-    /* loaded from: classes4.dex */
-    public class b {
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f51112g = true;
 
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f58429a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f58430b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f58431c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f58432d;
-
-        public b(a aVar) {
+    public void a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
         }
-    }
-
-    public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.f58425e = baseActivity;
-        this.f58428h = onClickListener;
-    }
-
-    public boolean a() {
-        return this.f58426f;
-    }
-
-    public void b(List<AccountData> list) {
-        this.f58427g = list;
-    }
-
-    public void c(boolean z) {
-        this.f58426f = z;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        List<AccountData> list = this.f58427g;
-        return (list != null ? list.size() : 0) + 1;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        List<AccountData> list = this.f58427g;
-        if (list == null || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return this.f58427g.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (getItem(i) != null) {
-            return i;
-        }
-        return -1L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        return getItemId(i) >= 0 ? 0 : 1;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, INVOKE, INVOKE]}, finally: {[IGET, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, CONST, INVOKE, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x00ca, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() == 1) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00e1, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() != 1) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00e4, code lost:
-        r0 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00e5, code lost:
-        r6.k(r0);
-        r5.f58425e.getLayoutMode().j(r7);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00f1, code lost:
-        return r7;
-     */
-    @Override // android.widget.Adapter
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        c layoutMode;
-        b bVar;
         try {
-            try {
-                if (view == null) {
-                    if (getItemViewType(i) == 0) {
-                        view = LayoutInflater.from(this.f58425e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                        bVar = new b();
-                        bVar.f58429a = (TextView) view.findViewById(R.id.account);
-                        bVar.f58431c = (ImageView) view.findViewById(R.id.active);
-                        TextView textView = (TextView) view.findViewById(R.id.delete);
-                        bVar.f58432d = textView;
-                        textView.setOnClickListener(this.f58428h);
-                        view.setTag(bVar);
-                    } else {
-                        view = LayoutInflater.from(this.f58425e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                        bVar = new b();
-                        bVar.f58430b = (TextView) view.findViewById(R.id.add_text);
-                        view.setTag(bVar);
-                    }
-                } else {
-                    bVar = (b) view.getTag();
-                }
-                if (getItemViewType(i) == 0) {
-                    AccountData accountData = (AccountData) getItem(i);
-                    bVar.f58431c.setVisibility(8);
-                    bVar.f58432d.setVisibility(8);
-                    bVar.f58432d.setTag(accountData);
-                    if (accountData != null) {
-                        bVar.f58429a.setText(accountData.getAccountNameShow());
-                        if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            bVar.f58431c.setVisibility(0);
-                        }
-                        if (this.f58426f) {
-                            bVar.f58432d.setVisibility(0);
-                        }
-                    }
-                }
-                layoutMode = this.f58425e.getLayoutMode();
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                layoutMode = this.f58425e.getLayoutMode();
+            int optInt = jSONObject.optInt("wifiSlow", -1);
+            if (optInt > 0) {
+                this.f51106a = optInt;
             }
-        } catch (Throwable th) {
-            this.f58425e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f58425e.getLayoutMode().j(view);
-            throw th;
+            int optInt2 = jSONObject.optInt("threeGSlow", -1);
+            if (optInt2 > 0) {
+                this.f51107b = optInt2;
+            }
+            int optInt3 = jSONObject.optInt("twoGSlow", -1);
+            if (optInt3 > 0) {
+                this.f51108c = optInt3;
+            }
+            int optInt4 = jSONObject.optInt("wifiLog", -1);
+            if (optInt4 > 0) {
+                this.f51109d = optInt4;
+            }
+            int optInt5 = jSONObject.optInt("threeGLog", -1);
+            if (optInt5 > 0) {
+                this.f51110e = optInt5;
+            }
+            int optInt6 = jSONObject.optInt("twoGLog", -1);
+            if (optInt6 > 0) {
+                this.f51111f = optInt6;
+            }
+            boolean z = true;
+            if (jSONObject.optInt("mobile_cdn_switch", 1) != 1) {
+                z = false;
+            }
+            this.f51112g = z;
+        } catch (Exception unused) {
         }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 2;
     }
 }

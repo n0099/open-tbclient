@@ -6,10 +6,10 @@ import java.util.Comparator;
 public final class g implements Comparator {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f22639a;
+    public final /* synthetic */ f f22647a;
 
     public g(f fVar) {
-        this.f22639a = fVar;
+        this.f22647a = fVar;
     }
 
     @Override // java.util.Comparator

@@ -16,16 +16,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Application f66673a;
+    public Application f66768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66674b;
+    public Context f66769b;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66679g;
+    public String f66774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f66680h;
+    public long f66775h;
     public String i;
     public long j;
     public String k;
@@ -37,16 +37,16 @@ public class b {
     public int q;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f66675c = new ArrayList();
+    public List<String> f66770c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Long> f66676d = new ArrayList();
+    public List<Long> f66771d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f66677e = new ArrayList();
+    public List<String> f66772e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Long> f66678f = new ArrayList();
+    public List<Long> f66773f = new ArrayList();
     public final Application.ActivityLifecycleCallbacks r = new a();
 
     /* loaded from: classes5.dex */
@@ -56,22 +56,22 @@ public class b {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
-            b.this.f66679g = activity.getClass().getName();
-            b.this.f66680h = System.currentTimeMillis();
-            b.this.f66675c.add(b.this.f66679g);
-            b.this.f66676d.add(Long.valueOf(b.this.f66680h));
+            b.this.f66774g = activity.getClass().getName();
+            b.this.f66775h = System.currentTimeMillis();
+            b.this.f66770c.add(b.this.f66774g);
+            b.this.f66771d.add(Long.valueOf(b.this.f66775h));
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             String name = activity.getClass().getName();
-            int indexOf = b.this.f66675c.indexOf(name);
-            if (indexOf > -1 && indexOf < b.this.f66675c.size()) {
-                b.this.f66675c.remove(indexOf);
-                b.this.f66676d.remove(indexOf);
+            int indexOf = b.this.f66770c.indexOf(name);
+            if (indexOf > -1 && indexOf < b.this.f66770c.size()) {
+                b.this.f66770c.remove(indexOf);
+                b.this.f66771d.remove(indexOf);
             }
-            b.this.f66677e.add(name);
-            b.this.f66678f.add(Long.valueOf(System.currentTimeMillis()));
+            b.this.f66772e.add(name);
+            b.this.f66773f.add(Long.valueOf(System.currentTimeMillis()));
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -106,9 +106,9 @@ public class b {
     }
 
     public b(@NonNull Context context) {
-        this.f66674b = context;
+        this.f66769b = context;
         if (context instanceof Application) {
-            this.f66673a = (Application) context;
+            this.f66768a = (Application) context;
         }
         m();
     }
@@ -128,7 +128,7 @@ public class b {
     public JSONObject d() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("last_create_activity", e(this.f66679g, this.f66680h));
+            jSONObject.put("last_create_activity", e(this.f66774g, this.f66775h));
             jSONObject.put("last_start_activity", e(this.i, this.j));
             jSONObject.put("last_resume_activity", e(this.k, this.l));
             jSONObject.put("last_pause_activity", e(this.m, this.n));
@@ -160,7 +160,7 @@ public class b {
         List<ActivityManager.RunningTaskInfo> runningTasks;
         JSONArray jSONArray = new JSONArray();
         try {
-            activityManager = (ActivityManager) this.f66674b.getSystemService("activity");
+            activityManager = (ActivityManager) this.f66769b.getSystemService("activity");
         } catch (Exception unused) {
         }
         if (activityManager == null || (runningTasks = activityManager.getRunningTasks(5)) == null) {
@@ -191,7 +191,7 @@ public class b {
 
     public final void m() {
         Application application;
-        if (Build.VERSION.SDK_INT < 14 || (application = this.f66673a) == null) {
+        if (Build.VERSION.SDK_INT < 14 || (application = this.f66768a) == null) {
             return;
         }
         application.registerActivityLifecycleCallbacks(this.r);
@@ -199,11 +199,11 @@ public class b {
 
     public final JSONArray q() {
         JSONArray jSONArray = new JSONArray();
-        List<String> list = this.f66675c;
+        List<String> list = this.f66770c;
         if (list != null && !list.isEmpty()) {
-            for (int i = 0; i < this.f66675c.size(); i++) {
+            for (int i = 0; i < this.f66770c.size(); i++) {
                 try {
-                    jSONArray.put(e(this.f66675c.get(i), this.f66676d.get(i).longValue()));
+                    jSONArray.put(e(this.f66770c.get(i), this.f66771d.get(i).longValue()));
                 } catch (Throwable unused) {
                 }
             }
@@ -213,11 +213,11 @@ public class b {
 
     public final JSONArray u() {
         JSONArray jSONArray = new JSONArray();
-        List<String> list = this.f66677e;
+        List<String> list = this.f66772e;
         if (list != null && !list.isEmpty()) {
-            for (int i = 0; i < this.f66677e.size(); i++) {
+            for (int i = 0; i < this.f66772e.size(); i++) {
                 try {
-                    jSONArray.put(e(this.f66677e.get(i), this.f66678f.get(i).longValue()));
+                    jSONArray.put(e(this.f66772e.get(i), this.f66773f.get(i).longValue()));
                 } catch (Throwable unused) {
                 }
             }

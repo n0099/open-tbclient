@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.c.j.e.n;
-import d.b.i0.a1.e.a.c;
-import d.b.i0.a1.e.a.f.a;
+import d.b.j0.a1.e.a.c;
+import d.b.j0.a1.e.a.f.a;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
@@ -17,12 +17,12 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a
         super(CmdConfigHttp.CMD_HOT_TOPIC_TAB);
     }
 
-    @Override // d.b.i0.a1.e.a.f.a
+    @Override // d.b.j0.a1.e.a.f.a
     public List<n> getDataList() {
         return this.mHotTopicDataList;
     }
 
-    @Override // d.b.i0.a1.e.a.f.a
+    @Override // d.b.j0.a1.e.a.f.a
     public HotThreadListResIdl getResData() {
         return this.mData;
     }

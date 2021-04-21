@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import d.c.c.b.b.i;
 import d.c.c.b.b.j;
 import d.c.c.b.d.o;
-import d.o.a.a.a.a.g;
-import d.o.a.a.a.a.p;
+import d.p.a.a.a.a.g;
+import d.p.a.a.a.a.p;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,13 +14,13 @@ import java.util.Map;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28869a;
+    public final WeakReference<Context> f28877a;
 
     public c(Context context) {
-        this.f28869a = new WeakReference<>(context);
+        this.f28877a = new WeakReference<>(context);
     }
 
-    @Override // d.o.a.a.a.a.g
+    @Override // d.p.a.a.a.a.g
     public void a(String str, String str2, final Map<String, Object> map, p pVar) {
         char c2;
         int hashCode = str.hashCode();
@@ -55,7 +55,7 @@ public class c implements g {
         a(oVar, pVar);
     }
 
-    @Override // d.o.a.a.a.a.g
+    @Override // d.p.a.a.a.a.g
     public void a(String str, final byte[] bArr, final String str2, int i, p pVar) {
         o<String> oVar;
         i c2 = i.c();
@@ -82,17 +82,17 @@ public class c implements g {
         String valueOf;
         if (oVar != null && oVar.f()) {
             if (pVar != null) {
-                pVar.a(oVar.f66584a);
+                pVar.a(oVar.f66679a);
                 return;
             }
             return;
         }
-        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f66586c != null ? oVar.f66586c.getMessage() : null);
+        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f66681c != null ? oVar.f66681c.getMessage() : null);
         if (pVar != null) {
             if (isEmpty) {
-                valueOf = oVar.f66586c.getMessage();
+                valueOf = oVar.f66681c.getMessage();
             } else {
-                valueOf = oVar != null ? String.valueOf(oVar.f66591h) : "";
+                valueOf = oVar != null ? String.valueOf(oVar.f66686h) : "";
             }
             pVar.a(new Exception(valueOf));
         }

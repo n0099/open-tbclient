@@ -6,47 +6,47 @@ import rx.exceptions.OnErrorThrowable;
 public class m<T, R> implements d.b<R, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Class<R> f68786e;
+    public final Class<R> f68933e;
 
     /* loaded from: classes7.dex */
     public static final class a<T, R> extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super R> f68787e;
+        public final h.j<? super R> f68934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Class<R> f68788f;
+        public final Class<R> f68935f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f68789g;
+        public boolean f68936g;
 
         public a(h.j<? super R> jVar, Class<R> cls) {
-            this.f68787e = jVar;
-            this.f68788f = cls;
+            this.f68934e = jVar;
+            this.f68935f = cls;
         }
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f68789g) {
+            if (this.f68936g) {
                 return;
             }
-            this.f68787e.onCompleted();
+            this.f68934e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (this.f68789g) {
+            if (this.f68936g) {
                 h.r.c.j(th);
                 return;
             }
-            this.f68789g = true;
-            this.f68787e.onError(th);
+            this.f68936g = true;
+            this.f68934e.onError(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
             try {
-                this.f68787e.onNext(this.f68788f.cast(t));
+                this.f68934e.onNext(this.f68935f.cast(t));
             } catch (Throwable th) {
                 h.m.a.e(th);
                 unsubscribe();
@@ -56,19 +56,19 @@ public class m<T, R> implements d.b<R, T> {
 
         @Override // h.j
         public void setProducer(h.f fVar) {
-            this.f68787e.setProducer(fVar);
+            this.f68934e.setProducer(fVar);
         }
     }
 
     public m(Class<R> cls) {
-        this.f68786e = cls;
+        this.f68933e = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super R> jVar) {
-        a aVar = new a(jVar, this.f68786e);
+        a aVar = new a(jVar, this.f68933e);
         jVar.add(aVar);
         return aVar;
     }

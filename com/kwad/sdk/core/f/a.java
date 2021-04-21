@@ -23,34 +23,34 @@ import com.kwad.sdk.utils.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f33880a = "";
+    public static String f33975a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static InterfaceC0395a f33881b = null;
+    public static InterfaceC0398a f33976b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f33882c = false;
+    public static boolean f33977c = false;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0395a {
+    public interface InterfaceC0398a {
         @WorkerThread
         void a(String str);
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f33880a)) {
+        if (TextUtils.isEmpty(f33975a)) {
             a(KsAdSDKImpl.get().getContext());
         }
-        return f33880a;
+        return f33975a;
     }
 
     public static void a(@Nullable Context context) {
-        if (f33882c) {
+        if (f33977c) {
             return;
         }
-        f33882c = true;
-        if (TextUtils.isEmpty(f33880a)) {
+        f33977c = true;
+        if (TextUtils.isEmpty(f33975a)) {
             if (context == null) {
                 context = KsAdSDKImpl.get().getContext();
             }
@@ -58,7 +58,7 @@ public class a {
                 return;
             }
             String h2 = ae.h(context);
-            f33880a = h2;
+            f33975a = h2;
             if (TextUtils.isEmpty(h2)) {
                 final Context applicationContext = context.getApplicationContext();
                 f.a(new Runnable() { // from class: com.kwad.sdk.core.f.a.1
@@ -182,65 +182,65 @@ public class a {
                         switch (c2) {
                             case 0:
                                 a2 = new b(applicationContext).a();
-                                String unused = a.f33880a = a2;
+                                String unused = a.f33975a = a2;
                                 break;
                             case 1:
                             case 2:
                                 a2 = new i(applicationContext).a();
-                                String unused2 = a.f33880a = a2;
+                                String unused2 = a.f33975a = a2;
                                 break;
                             case 3:
                             case 4:
                                 a2 = new com.kwad.sdk.core.f.a.f(applicationContext).a();
-                                String unused22 = a.f33880a = a2;
+                                String unused22 = a.f33975a = a2;
                                 break;
                             case 5:
                                 a2 = new h(applicationContext).a();
-                                String unused222 = a.f33880a = a2;
+                                String unused222 = a.f33975a = a2;
                                 break;
                             case 6:
                             case 7:
                                 a2 = new c(applicationContext).a();
-                                String unused2222 = a.f33880a = a2;
+                                String unused2222 = a.f33975a = a2;
                                 break;
                             case '\b':
                                 a2 = new d(applicationContext).a();
-                                String unused22222 = a.f33880a = a2;
+                                String unused22222 = a.f33975a = a2;
                                 break;
                             case '\t':
                                 a2 = new e(applicationContext).a();
-                                String unused222222 = a.f33880a = a2;
+                                String unused222222 = a.f33975a = a2;
                                 break;
                             case '\n':
                                 a2 = new g(applicationContext).a();
-                                String unused2222222 = a.f33880a = a2;
+                                String unused2222222 = a.f33975a = a2;
                                 break;
                             case 11:
                                 a2 = new com.kwad.sdk.core.f.a.a(applicationContext).a();
-                                String unused22222222 = a.f33880a = a2;
+                                String unused22222222 = a.f33975a = a2;
                                 break;
                             case '\f':
                             case '\r':
                             case 14:
                                 jVar = new j(applicationContext);
                                 a2 = jVar.a();
-                                String unused222222222 = a.f33880a = a2;
+                                String unused222222222 = a.f33975a = a2;
                                 break;
                             default:
                                 if (a.f() || a.g()) {
                                     jVar = new j(applicationContext);
                                     a2 = jVar.a();
-                                    String unused2222222222 = a.f33880a = a2;
+                                    String unused2222222222 = a.f33975a = a2;
                                     break;
                                 }
                                 break;
                         }
-                        com.kwad.sdk.core.d.a.b("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.f33880a);
-                        if (!TextUtils.isEmpty(a.f33880a)) {
-                            ae.g(applicationContext, a.f33880a);
+                        com.kwad.sdk.core.d.a.b("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.f33975a);
+                        if (!TextUtils.isEmpty(a.f33975a)) {
+                            ae.g(applicationContext, a.f33975a);
                         }
                         a.h();
-                        boolean unused3 = a.f33882c = false;
+                        boolean unused3 = a.f33977c = false;
                     }
                 });
             }
@@ -272,9 +272,9 @@ public class a {
     }
 
     public static void h() {
-        InterfaceC0395a interfaceC0395a = f33881b;
-        if (interfaceC0395a != null) {
-            interfaceC0395a.a(f33880a);
+        InterfaceC0398a interfaceC0398a = f33976b;
+        if (interfaceC0398a != null) {
+            interfaceC0398a.a(f33975a);
         }
     }
 }

@@ -18,22 +18,22 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f30255c;
+    public static a f30350c;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.cmic.sso.sdk.b.c.a f30256a = com.cmic.sso.sdk.b.c.a.a();
+    public com.cmic.sso.sdk.b.c.a f30351a = com.cmic.sso.sdk.b.c.a.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f30257b;
+    public Context f30352b;
 
     public a(Context context) {
-        this.f30257b = context.getApplicationContext();
+        this.f30352b = context.getApplicationContext();
     }
 
     private void b(final com.cmic.sso.sdk.a aVar, final b bVar) {
         com.cmic.sso.sdk.d.c.b("AuthnBusiness", "getPrePhonescrip start");
-        String packageName = this.f30257b.getPackageName();
-        String a2 = d.a(l.a(this.f30257b, packageName));
+        String packageName = this.f30352b.getPackageName();
+        String a2 = d.a(l.a(this.f30352b, packageName));
         aVar.a("apppackage", packageName);
         aVar.a("appsign", a2);
         byte[] bArr = new byte[0];
@@ -48,9 +48,9 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        aVar.a(b.a.f30264a, bArr);
+        aVar.a(b.a.f30359a, bArr);
         aVar.a("authtype", "3");
-        this.f30256a.a(aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.auth.a.1
+        this.f30351a.a(aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.auth.a.1
             /* JADX WARN: Removed duplicated region for block: B:51:0x00e4  */
             /* JADX WARN: Removed duplicated region for block: B:55:0x0109  */
             @Override // com.cmic.sso.sdk.b.c.d
@@ -71,7 +71,7 @@ public class a {
                     if (TextUtils.isEmpty(optString)) {
                         b2 = jSONObject.toString();
                     } else {
-                        b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.f30264a), optString);
+                        b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.f30359a), optString);
                     }
                     String str8 = null;
                     try {
@@ -169,7 +169,7 @@ public class a {
                     }
                     com.cmic.sso.sdk.d.c.a("AuthnBusiness", "预取号==>");
                     if (jSONObject2 != null) {
-                        h.a(a.this.f30257b, str7, jSONObject2.optLong("phonescripED"), str4);
+                        h.a(a.this.f30352b, str7, jSONObject2.optLong("phonescripED"), str4);
                     }
                     bVar.a("103000", "true", aVar, c.a(str5));
                     return;
@@ -187,7 +187,7 @@ public class a {
         } else if (aVar.c("logintype") == 0) {
             aVar.a("userCapaid", "50");
         }
-        this.f30256a.b(aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.auth.a.2
+        this.f30351a.b(aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.auth.a.2
             @Override // com.cmic.sso.sdk.b.c.d
             public void a(String str, String str2, JSONObject jSONObject) {
                 com.cmic.sso.sdk.d.c.c("AuthnBusiness", "获取平台token 》》》》" + jSONObject.toString());
@@ -195,9 +195,9 @@ public class a {
                     long optLong = jSONObject.optLong("phonescripED");
                     String optString = jSONObject.optString("phonescrip");
                     if (aVar.b("keyIsSimKeyICCID", false)) {
-                        h.a(a.this.f30257b, optString, optLong, aVar.b("iccid", ""));
+                        h.a(a.this.f30352b, optString, optLong, aVar.b("iccid", ""));
                     } else {
-                        h.a(a.this.f30257b, optString, optLong, aVar.b("imsi", ""));
+                        h.a(a.this.f30352b, optString, optLong, aVar.b("imsi", ""));
                     }
                     aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID));
                 }
@@ -207,14 +207,14 @@ public class a {
     }
 
     public static a a(Context context) {
-        if (f30255c == null) {
+        if (f30350c == null) {
             synchronized (a.class) {
-                if (f30255c == null) {
-                    f30255c = new a(context);
+                if (f30350c == null) {
+                    f30350c = new a(context);
                 }
             }
         }
-        return f30255c;
+        return f30350c;
     }
 
     public void a(com.cmic.sso.sdk.a aVar, b bVar) {

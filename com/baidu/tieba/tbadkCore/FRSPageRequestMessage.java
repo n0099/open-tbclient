@@ -3,11 +3,11 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
-import d.b.h0.z0.w;
-import d.b.i0.s2.d0.a;
+import d.b.i0.z0.w;
+import d.b.j0.s2.d0.a;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FRSPageRequestMessage extends NetMessage {
     public int callFrom;
     public int categoryId;

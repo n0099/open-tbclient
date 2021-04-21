@@ -11,13 +11,13 @@ import java.util.List;
 public class bj extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bi f41293a;
+    public final /* synthetic */ bi f41388a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f930a = false;
 
     public bj(bi biVar) {
-        this.f41293a = biVar;
+        this.f41388a = biVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0039 A[Catch: Exception -> 0x0047, TRY_LEAVE, TryCatch #0 {Exception -> 0x0047, blocks: (B:2:0x0000, B:4:0x0012, B:9:0x0024, B:11:0x0039), top: B:16:0x0000 }] */
@@ -35,9 +35,9 @@ public class bj extends al.b {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
                 a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m621a(), str, (List<com.xiaomi.push.bf>) null), 10));
                 if (a2 == null) {
-                    this.f41293a.f928a = a2;
+                    this.f41388a.f928a = a2;
                     this.f930a = true;
-                    this.f41293a.e();
+                    this.f41388a.e();
                     return;
                 }
                 return;
@@ -58,15 +58,15 @@ public class bj extends al.b {
         List list2;
         bi.a[] aVarArr;
         dt.a aVar;
-        this.f41293a.f927a = null;
+        this.f41388a.f927a = null;
         if (this.f930a) {
-            synchronized (this.f41293a) {
-                list = this.f41293a.f929a;
-                list2 = this.f41293a.f929a;
+            synchronized (this.f41388a) {
+                list = this.f41388a.f929a;
+                list2 = this.f41388a.f929a;
                 aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
             }
             for (bi.a aVar2 : aVarArr) {
-                aVar = this.f41293a.f928a;
+                aVar = this.f41388a.f928a;
                 aVar2.a(aVar);
             }
         }

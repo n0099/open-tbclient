@@ -17,16 +17,16 @@ import com.kwad.sdk.utils.v;
 public class KSProfilePageLoadingView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f33661a;
+    public TextView f33756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33662b;
+    public TextView f33757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LottieAnimationView f33663c;
+    public LottieAnimationView f33758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KSPageLoadingView.a f33664d;
+    public KSPageLoadingView.a f33759d;
 
     public KSProfilePageLoadingView(@NonNull Context context) {
         this(context, null);
@@ -44,28 +44,28 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
     private void a(AttributeSet attributeSet) {
         FrameLayout.inflate(getContext(), R.layout.ksad_profile_page_loading, this);
         TextView textView = (TextView) findViewById(R.id.ksad_error_title);
-        this.f33661a = textView;
+        this.f33756a = textView;
         textView.setOnClickListener(this);
-        this.f33662b = (TextView) findViewById(R.id.ksad_error_sub_title);
+        this.f33757b = (TextView) findViewById(R.id.ksad_error_sub_title);
         int i = R.raw.ksad_detail_loading_amin_new;
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
-        this.f33663c = lottieAnimationView;
+        this.f33758c = lottieAnimationView;
         lottieAnimationView.setRepeatMode(1);
-        this.f33663c.setRepeatCount(-1);
-        this.f33663c.setAnimation(i);
+        this.f33758c.setRepeatCount(-1);
+        this.f33758c.setAnimation(i);
         setOnClickListener(this);
     }
 
     private void e() {
-        if (!this.f33663c.c()) {
-            this.f33663c.d();
+        if (!this.f33758c.c()) {
+            this.f33758c.d();
         }
-        this.f33663c.setVisibility(8);
+        this.f33758c.setVisibility(8);
     }
 
     private void f() {
-        this.f33661a.setVisibility(8);
-        this.f33662b.setVisibility(8);
+        this.f33756a.setVisibility(8);
+        this.f33757b.setVisibility(8);
     }
 
     public void a() {
@@ -74,29 +74,29 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
 
     public void b() {
         f();
-        this.f33663c.setVisibility(0);
-        if (!this.f33663c.c()) {
-            this.f33663c.b();
+        this.f33758c.setVisibility(0);
+        if (!this.f33758c.c()) {
+            this.f33758c.b();
         }
         setVisibility(0);
     }
 
     public void c() {
         e();
-        this.f33661a.setText(q.d(getContext()));
-        this.f33661a.setVisibility(0);
-        this.f33662b.setText(q.e(getContext()));
-        this.f33662b.setVisibility(0);
+        this.f33756a.setText(q.d(getContext()));
+        this.f33756a.setVisibility(0);
+        this.f33757b.setText(q.e(getContext()));
+        this.f33757b.setVisibility(0);
         p.a(getContext());
         setVisibility(0);
     }
 
     public void d() {
         e();
-        this.f33661a.setText(q.g(getContext()));
-        this.f33661a.setVisibility(0);
-        this.f33662b.setText(q.h(getContext()));
-        this.f33662b.setVisibility(0);
+        this.f33756a.setText(q.g(getContext()));
+        this.f33756a.setVisibility(0);
+        this.f33757b.setText(q.h(getContext()));
+        this.f33757b.setVisibility(0);
         p.b(getContext());
         setVisibility(0);
     }
@@ -107,13 +107,13 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
             c();
             return;
         }
-        KSPageLoadingView.a aVar = this.f33664d;
+        KSPageLoadingView.a aVar = this.f33759d;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setRetryClickListener(KSPageLoadingView.a aVar) {
-        this.f33664d = aVar;
+        this.f33759d = aVar;
     }
 }

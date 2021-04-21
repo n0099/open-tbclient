@@ -5,33 +5,33 @@ import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 public final class n<T> implements f.b.g<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final g.d.c<? super T> f68494e;
+    public final g.d.c<? super T> f68641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SubscriptionArbiter f68495f;
+    public final SubscriptionArbiter f68642f;
 
     public n(g.d.c<? super T> cVar, SubscriptionArbiter subscriptionArbiter) {
-        this.f68494e = cVar;
-        this.f68495f = subscriptionArbiter;
+        this.f68641e = cVar;
+        this.f68642f = subscriptionArbiter;
     }
 
     @Override // g.d.c
     public void onComplete() {
-        this.f68494e.onComplete();
+        this.f68641e.onComplete();
     }
 
     @Override // g.d.c
     public void onError(Throwable th) {
-        this.f68494e.onError(th);
+        this.f68641e.onError(th);
     }
 
     @Override // g.d.c
     public void onNext(T t) {
-        this.f68494e.onNext(t);
+        this.f68641e.onNext(t);
     }
 
     @Override // f.b.g, g.d.c
     public void onSubscribe(g.d.d dVar) {
-        this.f68495f.setSubscription(dVar);
+        this.f68642f.setSubscription(dVar);
     }
 }

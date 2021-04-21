@@ -5,13 +5,13 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.view.AdapterLinearLayout;
-import d.b.h0.b1.a;
+import d.b.i0.b1.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
 
     /* renamed from: g  reason: collision with root package name */
-    public a f13762g;
+    public a f13770g;
 
     public SelectRuleRowItem(Context context) {
         this(context, null);
@@ -22,16 +22,16 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
         setGravity(16);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         a aVar = new a(getContext());
-        this.f13762g = aVar;
+        this.f13770g = aVar;
         setAdapter(aVar);
     }
 
     public void setData(List<String> list, List<String> list2) {
-        this.f13762g.c(list, list2);
+        this.f13770g.c(list, list2);
     }
 
     public void setType(int i) {
-        this.f13762g.e(i);
+        this.f13770g.e(i);
     }
 
     public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet) {
@@ -39,7 +39,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.f13762g.d(list, list2, list3);
+        this.f13770g.d(list, list2, list3);
     }
 
     public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet, int i) {

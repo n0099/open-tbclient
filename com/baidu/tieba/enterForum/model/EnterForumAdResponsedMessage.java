@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.model;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.i0.d.b;
+import d.b.j0.i0.d.b;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {

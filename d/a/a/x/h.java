@@ -26,22 +26,22 @@ import javax.net.ssl.SSLException;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadLocal<PathMeasure> f41794a = new a();
+    public static final ThreadLocal<PathMeasure> f41889a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ThreadLocal<Path> f41795b = new b();
+    public static final ThreadLocal<Path> f41890b = new b();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadLocal<Path> f41796c = new c();
+    public static final ThreadLocal<Path> f41891c = new c();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadLocal<float[]> f41797d = new d();
+    public static final ThreadLocal<float[]> f41892d = new d();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float f41798e = (float) (Math.sqrt(2.0d) / 2.0d);
+    public static final float f41893e = (float) (Math.sqrt(2.0d) / 2.0d);
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f41799f = -1.0f;
+    public static float f41894f = -1.0f;
 
     /* loaded from: classes.dex */
     public class a extends ThreadLocal<PathMeasure> {
@@ -85,9 +85,9 @@ public final class h {
 
     public static void a(Path path, float f2, float f3, float f4) {
         d.a.a.c.a("applyTrimPathIfNeeded");
-        PathMeasure pathMeasure = f41794a.get();
-        Path path2 = f41795b.get();
-        Path path3 = f41796c.get();
+        PathMeasure pathMeasure = f41889a.get();
+        Path path2 = f41890b.get();
+        Path path3 = f41891c.get();
         pathMeasure.setPath(path, false);
         float length = pathMeasure.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
@@ -168,10 +168,10 @@ public final class h {
     }
 
     public static float e() {
-        if (f41799f == -1.0f) {
-            f41799f = Resources.getSystem().getDisplayMetrics().density;
+        if (f41894f == -1.0f) {
+            f41894f = Resources.getSystem().getDisplayMetrics().density;
         }
-        return f41799f;
+        return f41894f;
     }
 
     public static float f(Context context) {
@@ -182,10 +182,10 @@ public final class h {
     }
 
     public static float g(Matrix matrix) {
-        float[] fArr = f41797d.get();
+        float[] fArr = f41892d.get();
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
-        float f2 = f41798e;
+        float f2 = f41893e;
         fArr[2] = f2;
         fArr[3] = f2;
         matrix.mapPoints(fArr);
@@ -193,7 +193,7 @@ public final class h {
     }
 
     public static boolean h(Matrix matrix) {
-        float[] fArr = f41797d.get();
+        float[] fArr = f41892d.get();
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
         fArr[2] = 37394.73f;

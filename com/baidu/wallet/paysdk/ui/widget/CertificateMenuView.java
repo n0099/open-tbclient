@@ -21,36 +21,36 @@ import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26064a = CertificateMenuView.class.getSimpleName();
+    public static final String f26072a = CertificateMenuView.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26065b;
+    public boolean f26073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f26066c;
+    public ListView f26074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f26067d;
+    public a f26075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f26068e;
+    public b f26076e;
 
     /* loaded from: classes5.dex */
     public class a extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public GetCardInfoResponse.CertificateTypeInfo[] f26071b;
+        public GetCardInfoResponse.CertificateTypeInfo[] f26079b;
 
         public a() {
         }
 
         public void a(GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
-            this.f26071b = certificateTypeInfoArr;
+            this.f26079b = certificateTypeInfoArr;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr = this.f26071b;
+            GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr = this.f26079b;
             if (certificateTypeInfoArr != null) {
                 return certificateTypeInfoArr.length;
             }
@@ -75,7 +75,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
             } else {
                 certificateMenuItemView = (CertificateMenuItemView) view;
             }
-            certificateMenuItemView.updateItem(this.f26071b[i]);
+            certificateMenuItemView.updateItem(this.f26079b[i]);
             return certificateMenuItemView;
         }
     }
@@ -88,7 +88,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
     @SuppressLint({"NewApi"})
     public CertificateMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f26065b = false;
+        this.f26073b = false;
         a();
     }
 
@@ -109,17 +109,17 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
     }
 
     public void layoutMenu(GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
-        Log.d(f26064a, "layout menu view");
-        a aVar = this.f26067d;
+        Log.d(f26072a, "layout menu view");
+        a aVar = this.f26075d;
         if (aVar != null) {
             aVar.a(certificateTypeInfoArr);
-            this.f26067d.notifyDataSetChanged();
+            this.f26075d.notifyDataSetChanged();
             return;
         }
         a aVar2 = new a();
-        this.f26067d = aVar2;
+        this.f26075d = aVar2;
         aVar2.a(certificateTypeInfoArr);
-        this.f26066c.setAdapter((ListAdapter) this.f26067d);
+        this.f26074c.setAdapter((ListAdapter) this.f26075d);
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
@@ -128,45 +128,45 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuSetChanged() {
-        this.f26065b = false;
+        this.f26073b = false;
     }
 
     public void setCertificertSelectListener(b bVar) {
-        this.f26068e = bVar;
+        this.f26076e = bVar;
     }
 
     private void a() {
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
-        this.f26066c = new ListView(getContext());
+        this.f26074c = new ListView(getContext());
         int dip2px = DisplayUtils.dip2px(getContext(), 115.0f);
-        this.f26066c.setDivider(new ColorDrawable(getSeparatorColor()));
-        this.f26066c.setDividerHeight(1);
-        this.f26066c.setSelector(new ColorDrawable(0));
-        this.f26066c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.CertificateMenuView.1
+        this.f26074c.setDivider(new ColorDrawable(getSeparatorColor()));
+        this.f26074c.setDividerHeight(1);
+        this.f26074c.setSelector(new ColorDrawable(0));
+        this.f26074c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.paysdk.ui.widget.CertificateMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (view != null && (view instanceof CertificateMenuItemView)) {
                     GetCardInfoResponse.CertificateTypeInfo certificateTypeInfo = ((CertificateMenuItemView) view).getCertificateTypeInfo();
-                    if (CertificateMenuView.this.f26068e != null) {
-                        CertificateMenuView.this.f26068e.a(certificateTypeInfo);
+                    if (CertificateMenuView.this.f26076e != null) {
+                        CertificateMenuView.this.f26076e.a(certificateTypeInfo);
                     }
                 }
             }
         });
-        addView(this.f26066c, new LinearLayout.LayoutParams(dip2px, -2));
+        addView(this.f26074c, new LinearLayout.LayoutParams(dip2px, -2));
         setFocusableInTouchMode(true);
     }
 
     public CertificateMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26065b = false;
+        this.f26073b = false;
         a();
     }
 
     public CertificateMenuView(Context context) {
         super(context);
-        this.f26065b = false;
+        this.f26073b = false;
         a();
     }
 }

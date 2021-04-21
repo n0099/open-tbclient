@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt.chunk;
 public class ad extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36419h;
+    public int f36514h;
     public int i;
     public int j;
     public int k;
@@ -16,18 +16,18 @@ public class ad extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        com.kwad.sdk.pngencrypt.k kVar = this.f36413e;
-        if (kVar.f36479f) {
-            this.f36419h = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, 0);
-        } else if (!kVar.f36480g) {
-            this.i = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, 0);
-            this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, 2);
-            this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f36432d, 4);
+        com.kwad.sdk.pngencrypt.k kVar = this.f36508e;
+        if (kVar.f36574f) {
+            this.f36514h = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 0);
+        } else if (!kVar.f36575g) {
+            this.i = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 0);
+            this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 2);
+            this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f36527d, 4);
         } else {
-            int length = dVar.f36432d.length;
+            int length = dVar.f36527d.length;
             this.l = new int[length];
             for (int i = 0; i < length; i++) {
-                this.l[i] = dVar.f36432d[i] & 255;
+                this.l[i] = dVar.f36527d[i] & 255;
             }
         }
     }

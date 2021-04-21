@@ -14,8 +14,8 @@ import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.ViewUtility;
-import d.b.x.a.c;
-import d.b.x.a.f;
+import d.b.y.a.c;
+import d.b.y.a.f;
 /* loaded from: classes2.dex */
 public class HorizontalScreenLoginActivity extends LoginActivity {
     public static int D;

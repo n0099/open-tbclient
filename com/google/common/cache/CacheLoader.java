@@ -1,10 +1,10 @@
 package com.google.common.cache;
 
-import d.g.c.a.g;
-import d.g.c.a.n;
-import d.g.c.a.r;
-import d.g.c.i.a.l;
-import d.g.c.i.a.m;
+import d.h.c.a.g;
+import d.h.c.a.n;
+import d.h.c.a.r;
+import d.h.c.i.a.l;
+import d.h.c.i.a.m;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -62,33 +62,33 @@ public abstract class CacheLoader<K, V> {
     public static class a extends CacheLoader<K, V> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Executor f30603b;
+        public final /* synthetic */ Executor f30698b;
 
         /* renamed from: com.google.common.cache.CacheLoader$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class CallableC0351a implements Callable<V> {
+        public class CallableC0354a implements Callable<V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f30604e;
+            public final /* synthetic */ Object f30699e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Object f30605f;
+            public final /* synthetic */ Object f30700f;
 
-            public CallableC0351a(Object obj, Object obj2) {
-                this.f30604e = obj;
-                this.f30605f = obj2;
+            public CallableC0354a(Object obj, Object obj2) {
+                this.f30699e = obj;
+                this.f30700f = obj2;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.google.common.cache.CacheLoader */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.util.concurrent.Callable
             public V call() throws Exception {
-                return CacheLoader.this.reload(this.f30604e, this.f30605f).get();
+                return CacheLoader.this.reload(this.f30699e, this.f30700f).get();
             }
         }
 
         public a(Executor executor) {
-            this.f30603b = executor;
+            this.f30698b = executor;
         }
 
         @Override // com.google.common.cache.CacheLoader
@@ -103,8 +103,8 @@ public abstract class CacheLoader<K, V> {
 
         @Override // com.google.common.cache.CacheLoader
         public l<V> reload(K k, V v) throws Exception {
-            m b2 = m.b(new CallableC0351a(k, v));
-            this.f30603b.execute(b2);
+            m b2 = m.b(new CallableC0354a(k, v));
+            this.f30698b.execute(b2);
             return b2;
         }
     }
@@ -128,7 +128,7 @@ public abstract class CacheLoader<K, V> {
     public l<V> reload(K k, V v) throws Exception {
         n.p(k);
         n.p(v);
-        return d.g.c.i.a.g.d(load(k));
+        return d.h.c.i.a.g.d(load(k));
     }
 
     public static <V> CacheLoader<Object, V> from(r<V> rVar) {

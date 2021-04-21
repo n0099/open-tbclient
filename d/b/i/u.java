@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
 import d.b.i.u0.a;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class u extends c implements q, p<a2> {
     public final RelativeLayout i;
@@ -60,16 +60,16 @@ public class u extends c implements q, p<a2> {
             if (u.this.n == null || u.this.p == null || u.this.o == null || u.this.p.x2() || !u.this.r) {
                 return;
             }
-            if (u.this.p.j2() || !d.b.i0.q0.b.e().g()) {
-                if (u.this.p.k2() || !d.b.i0.q0.a.h().j()) {
-                    d.b.i0.q0.b.e().j(u.this.p);
+            if (u.this.p.j2() || !d.b.j0.q0.b.e().g()) {
+                if (u.this.p.k2() || !d.b.j0.q0.a.h().j()) {
+                    d.b.j0.q0.b.e().j(u.this.p);
                     u.this.p.T3(false);
-                    d.b.i0.q0.a.h().l(u.this.p);
+                    d.b.j0.q0.a.h().l(u.this.p);
                     u.this.p.U3(false);
-                } else if (d.b.i0.q0.a.h().a(u.this.p)) {
+                } else if (d.b.j0.q0.a.h().a(u.this.p)) {
                     u.this.p.U3(true);
                 }
-            } else if (d.b.i0.q0.b.e().a(u.this.p)) {
+            } else if (d.b.j0.q0.b.e().a(u.this.p)) {
                 u.this.p.T3(true);
             }
             u.this.r();
@@ -115,15 +115,15 @@ public class u extends c implements q, p<a2> {
         } else {
             WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
         }
-        d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.l);
+        d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.l);
         d2.k(R.string.J_X06);
         d2.j(this.q ? 2 : 1);
         d2.f(R.color.CAM_X0201);
-        d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.m);
+        d.b.i0.r.u.c d3 = d.b.i0.r.u.c.d(this.m);
         d3.k(R.string.J_X06);
         d3.j(2);
         d3.f(R.color.CAM_X0201);
-        d.b.h0.r.u.c.d(this.o).v(R.string.F_X01);
+        d.b.i0.r.u.c.d(this.o).v(R.string.F_X01);
         SkinManager.setViewTextColor(this.o, (this.p.j2() || this.p.k2()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
     }
 
@@ -133,13 +133,13 @@ public class u extends c implements q, p<a2> {
     public void a(a2 a2Var) {
         this.p = a2Var;
         this.r = a2Var.getType() != a2.x3 && (a2Var == null || a2Var.T() == null || !a2Var.T().isForumBusinessAccount() || a2Var.s());
-        if (!d.b.i0.q0.b.e().g() && !d.b.i0.q0.a.h().j()) {
-            this.f52195h.o(new a.C1131a(4, Boolean.TRUE));
+        if (!d.b.j0.q0.b.e().g() && !d.b.j0.q0.a.h().j()) {
+            this.f50163h.o(new a.C1072a(4, Boolean.TRUE));
             this.k.setVisibility(8);
             return;
         }
         this.k.setVisibility(0);
-        this.f52195h.o(new a.C1131a(4, Boolean.FALSE));
+        this.f50163h.o(new a.C1072a(4, Boolean.FALSE));
         r();
     }
 
@@ -183,7 +183,7 @@ public class u extends c implements q, p<a2> {
     public void t(int i, l0 l0Var) {
         this.j.setWeightSum(i);
         if (this.j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f52225f, l0Var.f52223d, l0Var.f52226g, l0Var.f52224e);
+            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f50193f, l0Var.f50191d, l0Var.f50194g, l0Var.f50192e);
         }
     }
 }

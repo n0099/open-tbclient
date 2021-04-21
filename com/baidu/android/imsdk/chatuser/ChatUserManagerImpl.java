@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import d.b.q.a;
+import d.b.r.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

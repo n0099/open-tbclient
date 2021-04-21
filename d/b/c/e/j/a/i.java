@@ -16,16 +16,16 @@ import javax.net.ssl.SSLSocketFactory;
 public class i extends SSLSocketFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f42302a = i.class.getSimpleName();
+    public final String f42542a = i.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public HostnameVerifier f42303b = HttpsURLConnection.getDefaultHostnameVerifier();
+    public HostnameVerifier f42543b = HttpsURLConnection.getDefaultHostnameVerifier();
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpsURLConnection f42304c;
+    public HttpsURLConnection f42544c;
 
     public i(HttpsURLConnection httpsURLConnection) {
-        this.f42304c = httpsURLConnection;
+        this.f42544c = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -55,7 +55,7 @@ public class i extends SSLSocketFactory {
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        String requestProperty = this.f42304c.getRequestProperty("Host");
+        String requestProperty = this.f42544c.getRequestProperty("Host");
         if (requestProperty != null) {
             str = requestProperty;
         }
@@ -72,10 +72,10 @@ public class i extends SSLSocketFactory {
             try {
                 sSLSocket.getClass().getMethod("setHostname", String.class).invoke(sSLSocket, str);
             } catch (Exception e2) {
-                Log.w(this.f42302a, " SNI Setting failed", e2);
+                Log.w(this.f42542a, " SNI Setting failed", e2);
             }
         }
-        if (this.f42303b.verify(str, sSLSocket.getSession())) {
+        if (this.f42543b.verify(str, sSLSocket.getSession())) {
             return sSLSocket;
         }
         throw new SSLPeerUnverifiedException("Verify hostname(" + str + ") failed.");

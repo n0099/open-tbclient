@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbean.BuyTBeanModel;
-import d.b.h0.r.s.a;
+import d.b.i0.r.s.a;
 /* loaded from: classes5.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.e {
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -26,7 +26,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public BuyTBeanModel mModel;
     public PayConfigModel mPayConfigModel;
     public String mReferPage;
-    public d.b.i0.f3.a mTBeanView;
+    public d.b.j0.f3.a mTBeanView;
     public boolean mIsPayDialog = true;
     public String SCENE_ID = "4001001000";
     public boolean isFromAlaLiveRoom = false;
@@ -35,22 +35,22 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public CustomMessageListener roomClosedListener = new d(2921407);
 
     /* loaded from: classes5.dex */
-    public class a implements d.b.h0.l0.a {
+    public class a implements d.b.i0.l0.a {
         public a() {
         }
 
-        @Override // d.b.h0.l0.a
+        @Override // d.b.i0.l0.a
         public void a() {
-            d.b.h0.l0.c.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.b.h0.l0.b.f50702a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
+            d.b.i0.l0.c.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.b.i0.l0.b.f51038a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
             BuyTBeanActivity.this.finish();
         }
 
-        @Override // d.b.h0.l0.a
+        @Override // d.b.i0.l0.a
         public void b() {
             BuyTBeanActivity.this.mModel.F();
         }
 
-        @Override // d.b.h0.l0.a
+        @Override // d.b.i0.l0.a
         public void onError(String str) {
             BuyTBeanActivity.this.mModel.F();
         }
@@ -61,8 +61,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public b() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -72,8 +72,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public c() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             BuyTBeanActivity.this.finish();
         }
     }
@@ -98,7 +98,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     private void processClose() {
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this);
+        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this);
         aVar.setAutoNight(true);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
@@ -155,7 +155,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        d.b.i0.f3.a aVar = this.mTBeanView;
+        d.b.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.B(i);
         }
@@ -163,7 +163,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.i0.f3.a aVar;
+        d.b.j0.f3.a aVar;
         if (view.getId() != R.id.buy_tbean_use_rule && view.getId() != R.id.t_dou_introduce_activity_right_button) {
             if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && (aVar = this.mTBeanView) != null) {
                 if (aVar.A()) {
@@ -198,7 +198,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         getGiftTBean(getIntent());
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-        d.b.i0.f3.a aVar = new d.b.i0.f3.a(this);
+        d.b.j0.f3.a aVar = new d.b.j0.f3.a(this);
         this.mTBeanView = aVar;
         setContentView(aVar.v());
         if (this.isFromDecreaseGiftStepStrategy != 0) {
@@ -226,7 +226,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         clearAnimatable();
         clearAnimation();
         super.onDestroy();
-        d.b.i0.f3.a aVar = this.mTBeanView;
+        d.b.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.C();
         }
@@ -236,7 +236,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        d.b.i0.f3.a aVar = this.mTBeanView;
+        d.b.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.J();
             this.mTBeanView.I();
@@ -263,7 +263,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        d.b.i0.f3.a aVar = this.mTBeanView;
+        d.b.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.D(z);
         }
@@ -283,7 +283,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tieba.tbean.BuyTBeanModel.e
     public void onSuccess() {
         closeLoadingDialog();
-        d.b.i0.f3.a aVar = this.mTBeanView;
+        d.b.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.J();
             this.mTBeanView.w();

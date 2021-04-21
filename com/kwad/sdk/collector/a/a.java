@@ -9,30 +9,30 @@ import org.json.JSONObject;
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public C0374a f32165b;
+    public C0377a f32260b;
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0374a {
+    public static class C0377a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f32166a;
+        public List<String> f32261a;
 
-        public C0374a(List<String> list) {
-            this.f32166a = list;
+        public C0377a(List<String> list) {
+            this.f32261a = list;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "packageName", this.f32166a);
+            o.a(jSONObject, "packageName", this.f32261a);
             return jSONObject;
         }
     }
 
     public a(List<String> list) {
-        C0374a c0374a = new C0374a(list);
-        this.f32165b = c0374a;
-        a("targetAppInfo", c0374a.a());
+        C0377a c0377a = new C0377a(list);
+        this.f32260b = c0377a;
+        a("targetAppInfo", c0377a.a());
         b(CommandMessage.SDK_VERSION, "3.3.9");
         a("sdkVersionCode", 3030900);
     }

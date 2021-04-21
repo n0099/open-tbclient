@@ -7,12 +7,12 @@ import android.os.Message;
 public class q0 extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ t0 f40307a;
+    public final /* synthetic */ t0 f40402a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q0(t0 t0Var, Looper looper) {
         super(looper);
-        this.f40307a = t0Var;
+        this.f40402a = t0Var;
     }
 
     @Override // android.os.Handler
@@ -21,16 +21,16 @@ public class q0 extends Handler {
         if (message.what != 1101) {
             return;
         }
-        this.f40307a.f40324e.removeMessages(1101);
-        t0 t0Var = this.f40307a;
-        if (!t0Var.f40321b && t0Var.a(t0Var.f40320a)) {
-            s0 s0Var = this.f40307a.f40322c;
+        this.f40402a.f40419e.removeMessages(1101);
+        t0 t0Var = this.f40402a;
+        if (!t0Var.f40416b && t0Var.a(t0Var.f40415a)) {
+            s0 s0Var = this.f40402a.f40417c;
             if (s0Var != null) {
                 s0Var.a();
             }
-            this.f40307a.f40321b = true;
+            this.f40402a.f40416b = true;
             return;
         }
-        this.f40307a.f40324e.sendEmptyMessageDelayed(1101, 300L);
+        this.f40402a.f40419e.sendEmptyMessageDelayed(1101, 300L);
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.atomData.FrsMoreFeedForumsConfig;
 import com.baidu.tbadk.core.data.FeedForumData;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.i0.d3.w;
-import d.b.i0.q0.r1.d;
+import d.b.j0.d3.w;
+import d.b.j0.q0.r1.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */

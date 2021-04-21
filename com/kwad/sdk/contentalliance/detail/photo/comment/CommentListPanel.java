@@ -30,28 +30,28 @@ import java.util.List;
 public class CommentListPanel extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f32515a;
+    public RecyclerView.OnScrollListener f32610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f32516b;
+    public e f32611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsRecyclerView f32517c;
+    public KsRecyclerView f32612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f32518d;
+    public d f32613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.d f32519e;
+    public com.kwad.sdk.lib.widget.recycler.d f32614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f32520f;
+    public View f32615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f32521g;
+    public View f32616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KSHalfPageLoadingView f32522h;
+    public KSHalfPageLoadingView f32617h;
     public AdTemplate i;
     public List<b> j;
     public List<c> k;
@@ -67,15 +67,15 @@ public class CommentListPanel extends LinearLayout {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f32528a = -1;
+        public long f32623a = -1;
 
         public void a() {
-            this.f32528a = SystemClock.elapsedRealtime();
+            this.f32623a = SystemClock.elapsedRealtime();
         }
 
         public long b() {
-            long elapsedRealtime = this.f32528a > 0 ? SystemClock.elapsedRealtime() - this.f32528a : 0L;
-            this.f32528a = -1L;
+            long elapsedRealtime = this.f32623a > 0 ? SystemClock.elapsedRealtime() - this.f32623a : 0L;
+            this.f32623a = -1L;
             return elapsedRealtime;
         }
     }
@@ -92,7 +92,7 @@ public class CommentListPanel extends LinearLayout {
 
     public CommentListPanel(Context context) {
         super(context);
-        this.f32516b = null;
+        this.f32611b = null;
         this.j = new ArrayList();
         this.k = new ArrayList();
         this.l = new ArrayList();
@@ -114,7 +114,7 @@ public class CommentListPanel extends LinearLayout {
                 CommentListPanel.this.a();
             }
         };
-        this.f32515a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
+        this.f32610a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
@@ -129,7 +129,7 @@ public class CommentListPanel extends LinearLayout {
 
     public CommentListPanel(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f32516b = null;
+        this.f32611b = null;
         this.j = new ArrayList();
         this.k = new ArrayList();
         this.l = new ArrayList();
@@ -151,7 +151,7 @@ public class CommentListPanel extends LinearLayout {
                 CommentListPanel.this.a();
             }
         };
-        this.f32515a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
+        this.f32610a = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.4
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
@@ -169,41 +169,41 @@ public class CommentListPanel extends LinearLayout {
         ((LinearLayout) findViewById(R.id.ksad_photo_comment_list_space)).setOnClickListener(this.p);
         ((ImageButton) findViewById(R.id.ksad_photo_comment_list_panel_close)).setOnClickListener(this.p);
         KsRecyclerView ksRecyclerView = (KsRecyclerView) findViewById(R.id.ksad_photo_comment_list_content);
-        this.f32517c = ksRecyclerView;
+        this.f32612c = ksRecyclerView;
         ksRecyclerView.setVisibility(8);
         KSHalfPageLoadingView kSHalfPageLoadingView = (KSHalfPageLoadingView) findViewById(R.id.ksad_comment_page_loading);
-        this.f32522h = kSHalfPageLoadingView;
+        this.f32617h = kSHalfPageLoadingView;
         kSHalfPageLoadingView.setRetryClickListener(this.r);
-        this.f32522h.a();
+        this.f32617h.a();
         setOnClickListener(this.q);
     }
 
     private void f() {
-        if (this.f32520f == null) {
-            this.f32520f = LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_list_footer_2, (ViewGroup) this.f32517c, false);
+        if (this.f32615f == null) {
+            this.f32615f = LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_list_footer_2, (ViewGroup) this.f32612c, false);
         }
-        TextView textView = (TextView) this.f32520f.findViewById(R.id.ksad_comment_list_footer_tip);
+        TextView textView = (TextView) this.f32615f.findViewById(R.id.ksad_comment_list_footer_tip);
         if (!com.kwad.sdk.core.config.c.X()) {
-            this.f32520f.setVisibility(8);
+            this.f32615f.setVisibility(8);
             return;
         }
-        if (!this.f32519e.d(this.f32520f)) {
-            this.f32519e.c(this.f32520f);
+        if (!this.f32614e.d(this.f32615f)) {
+            this.f32614e.c(this.f32615f);
         }
-        this.f32520f.setVisibility(0);
+        this.f32615f.setVisibility(0);
         textView.setText(q.a(getContext()));
     }
 
     private void g() {
-        if (this.f32521g == null) {
-            this.f32521g = LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_list_header, (ViewGroup) this.f32517c, false);
+        if (this.f32616g == null) {
+            this.f32616g = LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_list_header, (ViewGroup) this.f32612c, false);
         }
-        CommentAdItemView commentAdItemView = (CommentAdItemView) this.f32521g.findViewById(R.id.ksad_comment_list_header_ad_item);
-        if (this.f32519e.e(this.f32521g)) {
+        CommentAdItemView commentAdItemView = (CommentAdItemView) this.f32616g.findViewById(R.id.ksad_comment_list_header_ad_item);
+        if (this.f32614e.e(this.f32616g)) {
             return;
         }
         commentAdItemView.a(this.i, this.l);
-        this.f32519e.b(this.f32521g);
+        this.f32614e.b(this.f32616g);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -214,43 +214,43 @@ public class CommentListPanel extends LinearLayout {
     }
 
     public void a() {
-        this.f32517c.setVisibility(8);
-        this.f32522h.b();
-        e eVar = this.f32516b;
+        this.f32612c.setVisibility(8);
+        this.f32617h.b();
+        e eVar = this.f32611b;
         if (eVar == null) {
-            this.f32522h.f();
+            this.f32617h.f();
             return;
         }
         CommentResponse commentResponse = this.n;
         if (commentResponse != null) {
             a(commentResponse);
-            this.f32522h.a();
+            this.f32617h.a();
         } else if (this.m) {
         } else {
             this.m = true;
             new com.kwad.sdk.core.g.g().a(eVar.b(), new g.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentListPanel.5
                 @Override // com.kwad.sdk.core.g.g.a
                 public void a(int i, String str) {
-                    if (com.kwad.sdk.core.network.f.f34160c.k == i) {
+                    if (com.kwad.sdk.core.network.f.f34255c.k == i) {
                         if (com.kwad.sdk.core.config.c.C()) {
-                            CommentListPanel.this.f32522h.a();
+                            CommentListPanel.this.f32617h.a();
                             CommentListPanel.this.a(new CommentResponse());
                         } else {
-                            CommentListPanel.this.f32522h.f();
+                            CommentListPanel.this.f32617h.f();
                         }
                         CommentListPanel.this.o.a();
-                        com.kwad.sdk.core.report.e.g(CommentListPanel.this.f32516b.a());
-                    } else if (com.kwad.sdk.core.network.f.f34158a.k == i) {
-                        CommentListPanel.this.f32522h.c();
+                        com.kwad.sdk.core.report.e.g(CommentListPanel.this.f32611b.a());
+                    } else if (com.kwad.sdk.core.network.f.f34253a.k == i) {
+                        CommentListPanel.this.f32617h.c();
                     } else {
-                        CommentListPanel.this.f32522h.d();
+                        CommentListPanel.this.f32617h.d();
                     }
                     CommentListPanel.this.m = false;
                 }
 
                 @Override // com.kwad.sdk.core.g.g.a
                 public void a(@NonNull CommentResponse commentResponse2) {
-                    CommentListPanel.this.f32522h.a();
+                    CommentListPanel.this.f32617h.a();
                     CommentListPanel.this.n = commentResponse2;
                     CommentListPanel.this.a(commentResponse2);
                     CommentListPanel.this.m = false;
@@ -273,22 +273,22 @@ public class CommentListPanel extends LinearLayout {
 
     public void a(@NonNull AdTemplate adTemplate, long j) {
         this.i = adTemplate;
-        this.f32516b = new e(adTemplate, j);
+        this.f32611b = new e(adTemplate, j);
     }
 
     public void a(@NonNull CommentResponse commentResponse) {
-        this.f32517c.setItemAnimator(null);
-        this.f32517c.setLayoutManager(b());
-        this.f32519e = b(commentResponse);
+        this.f32612c.setItemAnimator(null);
+        this.f32612c.setLayoutManager(b());
+        this.f32614e = b(commentResponse);
         f();
-        this.f32517c.setAdapter(this.f32519e);
-        this.f32517c.setVisibility(0);
+        this.f32612c.setAdapter(this.f32614e);
+        this.f32612c.setVisibility(0);
         if (com.kwad.sdk.core.config.c.C() && com.kwad.sdk.core.response.b.c.c(this.i)) {
-            this.f32517c.setOnScrollListener(this.f32515a);
+            this.f32612c.setOnScrollListener(this.f32610a);
             g();
         }
         this.o.a();
-        com.kwad.sdk.core.report.e.g(this.f32516b.a());
+        com.kwad.sdk.core.report.e.g(this.f32611b.a());
     }
 
     public RecyclerView.LayoutManager b() {
@@ -298,9 +298,9 @@ public class CommentListPanel extends LinearLayout {
     }
 
     public com.kwad.sdk.lib.widget.recycler.d b(@NonNull CommentResponse commentResponse) {
-        this.f32516b.a(commentResponse.rootComments);
-        d dVar = new d(getContext(), this.f32516b);
-        this.f32518d = dVar;
+        this.f32611b.a(commentResponse.rootComments);
+        d dVar = new d(getContext(), this.f32611b);
+        this.f32613d = dVar;
         return new com.kwad.sdk.lib.widget.recycler.d(dVar);
     }
 
@@ -319,10 +319,10 @@ public class CommentListPanel extends LinearLayout {
     }
 
     public void c() {
-        d dVar = this.f32518d;
+        d dVar = this.f32613d;
         long a2 = dVar != null ? dVar.a() : 0L;
-        if (this.f32516b != null) {
-            com.kwad.sdk.core.report.e.a(this.f32516b.a(), a2, this.o.b());
+        if (this.f32611b != null) {
+            com.kwad.sdk.core.report.e.a(this.f32611b.a(), a2, this.o.b());
         }
     }
 

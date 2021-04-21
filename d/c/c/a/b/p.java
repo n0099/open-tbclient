@@ -20,40 +20,40 @@ public final class p {
     public static final Pattern m = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66377a;
+    public final String f66472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f66378b;
+    public final String f66473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f66379c;
+    public final long f66474c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f66380d;
+    public final String f66475d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f66381e;
+    public final String f66476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f66382f;
+    public final boolean f66477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f66383g;
+    public final boolean f66478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f66384h;
+    public final boolean f66479h;
     public final boolean i;
 
     public p(String str, String str2, long j2, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
-        this.f66377a = str;
-        this.f66378b = str2;
-        this.f66379c = j2;
-        this.f66380d = str3;
-        this.f66381e = str4;
-        this.f66382f = z;
-        this.f66383g = z2;
+        this.f66472a = str;
+        this.f66473b = str2;
+        this.f66474c = j2;
+        this.f66475d = str3;
+        this.f66476e = str4;
+        this.f66477f = z;
+        this.f66478g = z2;
         this.i = z3;
-        this.f66384h = z4;
+        this.f66479h = z4;
     }
 
     public static int a(String str, int i, int i2, boolean z) {
@@ -305,26 +305,26 @@ public final class p {
     public boolean equals(Object obj) {
         if (obj instanceof p) {
             p pVar = (p) obj;
-            return pVar.f66377a.equals(this.f66377a) && pVar.f66378b.equals(this.f66378b) && pVar.f66380d.equals(this.f66380d) && pVar.f66381e.equals(this.f66381e) && pVar.f66379c == this.f66379c && pVar.f66382f == this.f66382f && pVar.f66383g == this.f66383g && pVar.f66384h == this.f66384h && pVar.i == this.i;
+            return pVar.f66472a.equals(this.f66472a) && pVar.f66473b.equals(this.f66473b) && pVar.f66475d.equals(this.f66475d) && pVar.f66476e.equals(this.f66476e) && pVar.f66474c == this.f66474c && pVar.f66477f == this.f66477f && pVar.f66478g == this.f66478g && pVar.f66479h == this.f66479h && pVar.i == this.i;
         }
         return false;
     }
 
     public String f() {
-        return this.f66377a;
+        return this.f66472a;
     }
 
     public String g(boolean z) {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f66377a);
+        sb.append(this.f66472a);
         sb.append(a.f1922h);
-        sb.append(this.f66378b);
-        if (this.f66384h) {
-            if (this.f66379c == Long.MIN_VALUE) {
+        sb.append(this.f66473b);
+        if (this.f66479h) {
+            if (this.f66474c == Long.MIN_VALUE) {
                 sb.append("; max-age=0");
             } else {
                 sb.append("; expires=");
-                sb.append(e.f.a(new Date(this.f66379c)));
+                sb.append(e.f.a(new Date(this.f66474c)));
             }
         }
         if (!this.i) {
@@ -332,26 +332,26 @@ public final class p {
             if (z) {
                 sb.append(".");
             }
-            sb.append(this.f66380d);
+            sb.append(this.f66475d);
         }
         sb.append("; path=");
-        sb.append(this.f66381e);
-        if (this.f66382f) {
+        sb.append(this.f66476e);
+        if (this.f66477f) {
             sb.append("; secure");
         }
-        if (this.f66383g) {
+        if (this.f66478g) {
             sb.append("; httponly");
         }
         return sb.toString();
     }
 
     public int hashCode() {
-        long j2 = this.f66379c;
-        return ((((((((((((((((527 + this.f66377a.hashCode()) * 31) + this.f66378b.hashCode()) * 31) + this.f66380d.hashCode()) * 31) + this.f66381e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f66382f ? 1 : 0)) * 31) + (!this.f66383g ? 1 : 0)) * 31) + (!this.f66384h ? 1 : 0)) * 31) + (!this.i ? 1 : 0);
+        long j2 = this.f66474c;
+        return ((((((((((((((((527 + this.f66472a.hashCode()) * 31) + this.f66473b.hashCode()) * 31) + this.f66475d.hashCode()) * 31) + this.f66476e.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f66477f ? 1 : 0)) * 31) + (!this.f66478g ? 1 : 0)) * 31) + (!this.f66479h ? 1 : 0)) * 31) + (!this.i ? 1 : 0);
     }
 
     public String j() {
-        return this.f66378b;
+        return this.f66473b;
     }
 
     public String toString() {

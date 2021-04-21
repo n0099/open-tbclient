@@ -9,19 +9,19 @@ import java.lang.reflect.Field;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f42533a;
+    public static Field f42773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f42534b;
+    public static Field f42774b;
 
     /* loaded from: classes.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f42535a;
+        public Handler f42775a;
 
         public a(Handler handler) {
-            this.f42535a = handler;
+            this.f42775a = handler;
         }
 
         @Override // android.os.Handler
@@ -35,8 +35,8 @@ public class u {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             try {
-                if (this.f42535a != null) {
-                    this.f42535a.handleMessage(message);
+                if (this.f42775a != null) {
+                    this.f42775a.handleMessage(message);
                 }
             } catch (Exception unused) {
             }
@@ -47,10 +47,10 @@ public class u {
         try {
             if (Build.VERSION.SDK_INT < 28) {
                 Field declaredField = Toast.class.getDeclaredField("mTN");
-                f42533a = declaredField;
+                f42773a = declaredField;
                 declaredField.setAccessible(true);
-                Field declaredField2 = f42533a.getType().getDeclaredField("mHandler");
-                f42534b = declaredField2;
+                Field declaredField2 = f42773a.getType().getDeclaredField("mHandler");
+                f42774b = declaredField2;
                 declaredField2.setAccessible(true);
             }
         } catch (Exception unused) {
@@ -61,10 +61,10 @@ public class u {
         Object obj;
         Handler handler;
         try {
-            if (Build.VERSION.SDK_INT >= 28 || f42533a == null || f42534b == null || (obj = f42533a.get(toast)) == null || (handler = (Handler) f42534b.get(obj)) == null) {
+            if (Build.VERSION.SDK_INT >= 28 || f42773a == null || f42774b == null || (obj = f42773a.get(toast)) == null || (handler = (Handler) f42774b.get(obj)) == null) {
                 return;
             }
-            f42534b.set(obj, new a(handler));
+            f42774b.set(obj, new a(handler));
         } catch (Exception unused) {
         }
     }

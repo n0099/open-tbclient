@@ -93,28 +93,28 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
     public static final jg f658a = new jg("XmPushActionRegistration");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41064a = new iy("", (byte) 11, 1);
+    public static final iy f41159a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41065b = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f41160b = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41066c = new iy("", (byte) 11, 3);
+    public static final iy f41161c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f41067d = new iy("", (byte) 11, 4);
+    public static final iy f41162d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f41068e = new iy("", (byte) 11, 5);
+    public static final iy f41163e = new iy("", (byte) 11, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f41069f = new iy("", (byte) 11, 6);
+    public static final iy f41164f = new iy("", (byte) 11, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f41070g = new iy("", (byte) 11, 7);
+    public static final iy f41165g = new iy("", (byte) 11, 7);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f41071h = new iy("", (byte) 11, 8);
+    public static final iy f41166h = new iy("", (byte) 11, 8);
     public static final iy i = new iy("", (byte) 11, 9);
     public static final iy j = new iy("", (byte) 11, 10);
     public static final iy k = new iy("", (byte) 11, 11);
@@ -441,7 +441,7 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
         jbVar.m509a();
         while (true) {
             iy m505a = jbVar.m505a();
-            byte b2 = m505a.f41156a;
+            byte b2 = m505a.f41251a;
             if (b2 == 0) {
                 jbVar.f();
                 m459a();
@@ -857,42 +857,42 @@ public class Cif implements iq<Cif, Object>, Serializable, Cloneable {
         m459a();
         jbVar.a(f658a);
         if (this.f663a != null && m460a()) {
-            jbVar.a(f41064a);
+            jbVar.a(f41159a);
             jbVar.a(this.f663a);
             jbVar.b();
         }
         if (this.f662a != null && m462b()) {
-            jbVar.a(f41065b);
+            jbVar.a(f41160b);
             this.f662a.b(jbVar);
             jbVar.b();
         }
         if (this.f669b != null) {
-            jbVar.a(f41066c);
+            jbVar.a(f41161c);
             jbVar.a(this.f669b);
             jbVar.b();
         }
         if (this.f672c != null) {
-            jbVar.a(f41067d);
+            jbVar.a(f41162d);
             jbVar.a(this.f672c);
             jbVar.b();
         }
         if (this.f674d != null && e()) {
-            jbVar.a(f41068e);
+            jbVar.a(f41163e);
             jbVar.a(this.f674d);
             jbVar.b();
         }
         if (this.f675e != null && f()) {
-            jbVar.a(f41069f);
+            jbVar.a(f41164f);
             jbVar.a(this.f675e);
             jbVar.b();
         }
         if (this.f676f != null) {
-            jbVar.a(f41070g);
+            jbVar.a(f41165g);
             jbVar.a(this.f676f);
             jbVar.b();
         }
         if (this.f677g != null && h()) {
-            jbVar.a(f41071h);
+            jbVar.a(f41166h);
             jbVar.a(this.f677g);
             jbVar.b();
         }

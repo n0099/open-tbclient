@@ -3,18 +3,18 @@ package com.baidu.webkit.internal.blink;
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f26587a;
+    public final /* synthetic */ d f26595a;
 
     public e(d dVar) {
-        this.f26587a = dVar;
+        this.f26595a = dVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        synchronized (d.f26574g) {
-            if (this.f26587a.f26577c != null) {
-                this.f26587a.f26577c.unzipFinished();
-                this.f26587a.f26577c = null;
+        synchronized (d.f26582g) {
+            if (this.f26595a.f26585c != null) {
+                this.f26595a.f26585c.unzipFinished();
+                this.f26595a.f26585c = null;
             }
         }
     }

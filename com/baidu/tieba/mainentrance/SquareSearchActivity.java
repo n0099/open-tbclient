@@ -63,9 +63,9 @@ import com.baidu.tieba.mainentrance.searchSuggestList.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListNetMessage;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage;
 import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
-import d.b.h0.r.s.a;
-import d.b.h0.z0.f0;
-import d.b.h0.z0.h0;
+import d.b.i0.r.s.a;
+import d.b.i0.z0.f0;
+import d.b.i0.z0.h0;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -85,10 +85,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public ImageView mButtonDel;
     public String mCreatBarName;
     public EditText mEditSearch;
-    public d.b.i0.o1.a mForumSuggestAdapter;
+    public d.b.j0.o1.a mForumSuggestAdapter;
     public HotForumModel mHotForumModel;
     public HotSearchInfoData mHotSearchInfo;
-    public List<d.b.i0.o1.c> mHotTopicList;
+    public List<d.b.j0.o1.c> mHotTopicList;
     public FrameLayout mListLayout;
     public BdListView mListSearchSuggest;
     public FrameLayout mMainLayout;
@@ -100,8 +100,8 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public LinearLayout mSearchHistoryLayout;
     public ImageView mSearchIcon;
     public String mSearchKey;
-    public d.b.i0.o1.h.b mSearchSuggestAdapter;
-    public d.b.i0.o1.g mSearchTopicViewHolder;
+    public d.b.j0.o1.h.b mSearchSuggestAdapter;
+    public d.b.j0.o1.g mSearchTopicViewHolder;
     public c0 mSuggestTask;
     public String mTopicInfoTitle;
     public LinearLayoutDetectsSoftKeyboard parent;
@@ -131,7 +131,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.i
         public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             if (sslError != null) {
-                d.b.h0.r.z.a.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
+                d.b.i0.r.z.a.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
             }
         }
     }
@@ -167,7 +167,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i, String str, String str2) {
-            d.b.h0.r.z.a.a("search", -1L, 0, "ReceivedError", 0, "", "requesturl", str2, "receiveerror", Integer.valueOf(i), "description", str);
+            d.b.i0.r.z.a.a("search", -1L, 0, "ReceivedError", 0, "", "requesturl", str2, "receiveerror", Integer.valueOf(i), "description", str);
         }
     }
 
@@ -190,19 +190,19 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class c0 extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f18484a = null;
+        public NetWork f18492a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18485b;
+        public String f18493b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BasicNameValuePair f18486c;
+        public BasicNameValuePair f18494c;
 
         public c0(String str, BasicNameValuePair basicNameValuePair, boolean z) {
-            this.f18485b = null;
-            this.f18486c = null;
-            this.f18485b = str;
-            this.f18486c = basicNameValuePair;
+            this.f18493b = null;
+            this.f18494c = null;
+            this.f18493b = str;
+            this.f18494c = basicNameValuePair;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -212,13 +212,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             ForumSuggestModel forumSuggestModel = null;
             if (d.b.c.e.p.j.z()) {
                 try {
-                    NetWork netWork = new NetWork(this.f18485b);
-                    this.f18484a = netWork;
-                    netWork.addPostData(this.f18486c);
-                    String postNetData = this.f18484a.postNetData();
+                    NetWork netWork = new NetWork(this.f18493b);
+                    this.f18492a = netWork;
+                    netWork.addPostData(this.f18494c);
+                    String postNetData = this.f18492a.postNetData();
                     if (postNetData != null) {
                         forumSuggestModel = ForumSuggestModel.parserJson(postNetData);
-                        SquareSearchActivity.this.lastSearchBarKey = this.f18486c.getValue();
+                        SquareSearchActivity.this.lastSearchBarKey = this.f18494c.getValue();
                         return forumSuggestModel;
                     }
                     return null;
@@ -251,10 +251,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f18484a;
+            NetWork netWork = this.f18492a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f18484a = null;
+                this.f18492a = null;
             }
             SquareSearchActivity squareSearchActivity = SquareSearchActivity.this;
             squareSearchActivity.hideLoadingView(squareSearchActivity.mMainLayout);
@@ -289,20 +289,20 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class d0 implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18489e;
+        public String f18497e;
 
         public d0(String str) {
-            this.f18489e = str;
+            this.f18497e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18489e)) {
+            if (TextUtils.isEmpty(this.f18497e)) {
                 return;
             }
-            SquareSearchActivity.this.mSearchKey = this.f18489e;
+            SquareSearchActivity.this.mSearchKey = this.f18497e;
             TiebaStatic.log(new StatisticItem("c12034"));
-            SquareSearchActivity.this.doSearch(this.f18489e, true);
+            SquareSearchActivity.this.doSearch(this.f18497e, true);
         }
     }
 
@@ -472,13 +472,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class m implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18500e;
+        public final /* synthetic */ String f18508e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f18501f;
+        public final /* synthetic */ View f18509f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f18502g;
+        public final /* synthetic */ ArrayList f18510g;
 
         /* loaded from: classes3.dex */
         public class a extends f0<Boolean> {
@@ -487,35 +487,35 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Boolean doInBackground() {
-                d.b.i0.d3.n0.a.h(m.this.f18500e);
+                d.b.j0.d3.n0.a.h(m.this.f18508e);
                 return Boolean.TRUE;
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b implements d.b.h0.z0.n<Boolean> {
+        public class b implements d.b.i0.z0.n<Boolean> {
             public b() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.h0.z0.n
+            @Override // d.b.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                SquareSearchActivity.this.mSearchHistoryLayout.removeView(m.this.f18501f);
+                SquareSearchActivity.this.mSearchHistoryLayout.removeView(m.this.f18509f);
                 m mVar = m.this;
-                mVar.f18502g.remove(mVar.f18500e);
-                if (m.this.f18502g.size() <= 0) {
+                mVar.f18510g.remove(mVar.f18508e);
+                if (m.this.f18510g.size() <= 0) {
                     SquareSearchActivity.this.showHistoryResult(null);
                 }
             }
         }
 
         public m(String str, View view, ArrayList arrayList) {
-            this.f18500e = str;
-            this.f18501f = view;
-            this.f18502g = arrayList;
+            this.f18508e = str;
+            this.f18509f = view;
+            this.f18510g = arrayList;
         }
 
         @Override // android.view.View.OnClickListener
@@ -543,7 +543,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.b.c.e.p.l.w(SquareSearchActivity.this.getPageContext().getPageActivity(), SquareSearchActivity.this.mEditSearch);
-            if (d.b.h0.p0.b.b(SquareSearchActivity.this.getPageContext())) {
+            if (d.b.i0.p0.b.b(SquareSearchActivity.this.getPageContext())) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all")));
@@ -555,8 +555,8 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         public p() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -571,15 +571,15 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
             @Override // java.lang.Runnable
             public void run() {
-                d.b.i0.d3.n0.a.b();
+                d.b.j0.d3.n0.a.b();
             }
         }
 
         public q() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
             d.b.c.e.m.h.a().b(new a(this));
             if (SquareSearchActivity.this.mHotTopicList != null && SquareSearchActivity.this.mHotTopicList.size() >= 2) {
@@ -604,10 +604,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.b.c.e.p.l.w(SquareSearchActivity.this.getPageContext().getPageActivity(), SquareSearchActivity.this.mEditSearch);
-            if (view.getTag() instanceof d.b.i0.o1.c) {
-                d.b.i0.o1.c cVar = (d.b.i0.o1.c) view.getTag();
+            if (view.getTag() instanceof d.b.j0.o1.c) {
+                d.b.j0.o1.c cVar = (d.b.j0.o1.c) view.getTag();
                 TiebaStatic.log(new StatisticItem("c10363").param("obj_name", cVar.b()));
-                if (d.b.h0.p0.b.b(SquareSearchActivity.this.getPageContext())) {
+                if (d.b.i0.p0.b.b(SquareSearchActivity.this.getPageContext())) {
                     return;
                 }
                 SquareSearchActivity.this.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(SquareSearchActivity.this.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(cVar.a()), cVar.b(), "4")));
@@ -619,17 +619,17 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public class s extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f18511a;
+        public final /* synthetic */ String f18519a;
 
         public s(String str) {
-            this.f18511a = str;
+            this.f18519a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.b.h0.z0.f0
+        @Override // d.b.i0.z0.f0
         public Boolean doInBackground() {
-            d.b.i0.d3.n0.a.o(this.f18511a);
+            d.b.j0.d3.n0.a.o(this.f18519a);
             return Boolean.TRUE;
         }
     }
@@ -933,15 +933,15 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
     private void initSearchSuggestListView() {
         this.mListSearchSuggest = (BdListView) findViewById(R.id.home_lv_search_suggest);
-        this.mForumSuggestAdapter = new d.b.i0.o1.a(this, null);
-        this.mSearchSuggestAdapter = new d.b.i0.o1.h.b(getPageContext().getPageActivity(), null);
+        this.mForumSuggestAdapter = new d.b.j0.o1.a(this, null);
+        this.mSearchSuggestAdapter = new d.b.j0.o1.h.b(getPageContext().getPageActivity(), null);
         this.mListSearchSuggest.setOnItemClickListener(new i());
         this.mListSearchSuggest.setOnScrollListener(new j());
     }
 
     private void initSearchTopicList() {
         if (this.mSearchTopicViewHolder == null) {
-            d.b.i0.o1.g gVar = new d.b.i0.o1.g(getPageContext());
+            d.b.j0.o1.g gVar = new d.b.j0.o1.g(getPageContext());
             this.mSearchTopicViewHolder = gVar;
             this.search_history_linearlayout.addView(gVar.d());
         }
@@ -957,7 +957,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     private void loadHotSearchCache() {
-        HotSearchInfoData hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.b.h0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
+        HotSearchInfoData hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(d.b.i0.r.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
         if (hotSearchInfoData == null || hotSearchInfoData.getId() == 0) {
             return;
         }
@@ -972,7 +972,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
         if (hotSearchInfoData.t() == 0) {
             doSearch(this.mHotSearchInfo.getName(), false);
-        } else if (this.mHotSearchInfo.t() == 1 && !d.b.h0.p0.b.b(getPageContext())) {
+        } else if (this.mHotSearchInfo.t() == 1 && !d.b.i0.p0.b.b(getPageContext())) {
             sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.mHotSearchInfo.getId()), this.mHotSearchInfo.getName(), "4")));
         }
         TiebaStatic.log(new StatisticItem("c10355").param("obj_name", this.mHotSearchInfo.getName()).param("obj_type", this.mHotSearchInfo.t() == 0 ? 2 : 1));
@@ -1090,7 +1090,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
     private boolean shouldShowNoDataView(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.isEmpty()) {
-            List<d.b.i0.o1.c> list = this.mHotTopicList;
+            List<d.b.j0.o1.c> list = this.mHotTopicList;
             return (list == null || list.size() <= 2) && this.isRequestHotForumData;
         }
         return false;
@@ -1098,7 +1098,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showClearHistoryDialog() {
-        new d.b.h0.r.s.a(getPageContext().getPageActivity()).setMessage(getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(getPageContext().getString(R.string.clear_all_text), new q()).setNegativeButton(getPageContext().getString(R.string.cancel), new p()).create(getPageContext()).show();
+        new d.b.i0.r.s.a(getPageContext().getPageActivity()).setMessage(getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(getPageContext().getString(R.string.clear_all_text), new q()).setNegativeButton(getPageContext().getString(R.string.cancel), new p()).create(getPageContext()).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1132,7 +1132,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
     private void updateHotSearchCache(HotSearchInfoData hotSearchInfoData) {
         if (hotSearchInfoData != null) {
-            d.b.h0.r.d0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData));
+            d.b.i0.r.d0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData));
             return;
         }
         HotSearchInfoData hotSearchInfoData2 = new HotSearchInfoData();
@@ -1140,7 +1140,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         hotSearchInfoData2.setName("");
         hotSearchInfoData2.v("");
         hotSearchInfoData2.w(0L);
-        d.b.h0.r.d0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData2));
+        d.b.i0.r.d0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData2));
     }
 
     private void updateSearchHistory(ArrayList<String> arrayList) {
@@ -1187,12 +1187,12 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     private void updateSearchTopic(boolean z2, boolean z3) {
-        d.b.i0.o1.g gVar = this.mSearchTopicViewHolder;
+        d.b.j0.o1.g gVar = this.mSearchTopicViewHolder;
         if (gVar == null) {
             return;
         }
         gVar.c();
-        List<d.b.i0.o1.c> list = this.mHotTopicList;
+        List<d.b.j0.o1.c> list = this.mHotTopicList;
         if (list == null || list.isEmpty() || !z2) {
             return;
         }
@@ -1207,7 +1207,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 size--;
             }
             for (int i2 = 0; i2 < size; i2++) {
-                d.b.i0.o1.c cVar = (d.b.i0.o1.c) ListUtils.getItem(this.mHotTopicList, i2);
+                d.b.j0.o1.c cVar = (d.b.j0.o1.c) ListUtils.getItem(this.mHotTopicList, i2);
                 if (cVar != null) {
                     this.mSearchTopicViewHolder.a(cVar, i2).setOnClickListener(this.mSearchTopicClickListener);
                 }
@@ -1234,13 +1234,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            d.b.h0.r.a0.b.e(getPageContext().getPageActivity(), 1);
+            d.b.i0.r.a0.b.e(getPageContext().getPageActivity(), 1);
         } else {
-            d.b.h0.r.a0.b.e(getPageContext().getPageActivity(), 2);
+            d.b.i0.r.a0.b.e(getPageContext().getPageActivity(), 2);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a026";
     }
@@ -1268,7 +1268,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.parent);
         SkinManager.setBgColor(this.parent, i2);
-        d.b.i0.o1.a aVar = this.mForumSuggestAdapter;
+        d.b.j0.o1.a aVar = this.mForumSuggestAdapter;
         if (aVar != null) {
             aVar.notifyDataSetChanged();
         }
@@ -1282,7 +1282,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
         SkinManager.setBackgroundResource(this.mMainLayout, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.mButtonCancelSearch, R.color.CAM_X0302, 1);
-        d.b.i0.o1.g gVar = this.mSearchTopicViewHolder;
+        d.b.j0.o1.g gVar = this.mSearchTopicViewHolder;
         if (gVar != null) {
             gVar.f(i2);
         }
@@ -1323,7 +1323,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<d.b.i0.o1.b> list, List<d.b.i0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<d.b.j0.o1.b> list, List<d.b.j0.o1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         this.isRequestHotForumData = true;
         hideLoadingView(this.mMainLayout);
         if (list2 == null) {

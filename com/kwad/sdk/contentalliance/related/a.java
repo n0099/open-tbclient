@@ -23,13 +23,13 @@ import java.io.Serializable;
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelatedVideoDetailParam f33270a;
+    public RelatedVideoDetailParam f33365a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f33271b;
+    public ImageView f33366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f33272c;
+    public g f33367c;
 
     public static void a(KsFragment ksFragment, int i, RelatedVideoDetailParam relatedVideoDetailParam) {
         if (ksFragment == null || relatedVideoDetailParam == null) {
@@ -43,34 +43,34 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_RELATED_VIDEO_DETAIL_PARAM");
         if (serializableExtra instanceof RelatedVideoDetailParam) {
-            this.f33270a = (RelatedVideoDetailParam) serializableExtra;
+            this.f33365a = (RelatedVideoDetailParam) serializableExtra;
         }
-        RelatedVideoDetailParam relatedVideoDetailParam = this.f33270a;
+        RelatedVideoDetailParam relatedVideoDetailParam = this.f33365a;
         return (relatedVideoDetailParam == null || relatedVideoDetailParam.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f33271b = (ImageView) findViewById(R.id.ksad_back_btn);
+        this.f33366b = (ImageView) findViewById(R.id.ksad_back_btn);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33271b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33366b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f33271b.setLayoutParams(marginLayoutParams);
+            this.f33366b.setLayoutParams(marginLayoutParams);
         }
-        this.f33271b.setOnClickListener(this);
+        this.f33366b.setOnClickListener(this);
     }
 
     private void c() {
-        g a2 = g.a(new KsScene.Builder(this.f33270a.mEntryScene).build());
-        this.f33272c = a2;
-        a2.getArguments().putSerializable("KEY_RELATED_VIDEO_DETAIL_PARAM", this.f33270a);
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.f33272c).commitAllowingStateLoss();
+        g a2 = g.a(new KsScene.Builder(this.f33365a.mEntryScene).build());
+        this.f33367c = a2;
+        a2.getArguments().putSerializable("KEY_RELATED_VIDEO_DETAIL_PARAM", this.f33365a);
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.f33367c).commitAllowingStateLoss();
     }
 
     private void d() {
         g gVar;
         SlidePlayViewPager c2;
         Activity activity = getActivity();
-        if (activity == null || (gVar = this.f33272c) == null || (c2 = gVar.c()) == null) {
+        if (activity == null || (gVar = this.f33367c) == null || (c2 = gVar.c()) == null) {
             return;
         }
         com.kwad.sdk.contentalliance.detail.photo.related.a.a().b(c2.getData());
@@ -83,7 +83,7 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     public void onBackPressed() {
         d();
         super.onBackPressed();
-        g gVar = this.f33272c;
+        g gVar = this.f33367c;
         if (gVar != null) {
             e.d(gVar.d());
         }
@@ -91,7 +91,7 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f33271b == view) {
+        if (this.f33366b == view) {
             onBackPressed();
         }
     }

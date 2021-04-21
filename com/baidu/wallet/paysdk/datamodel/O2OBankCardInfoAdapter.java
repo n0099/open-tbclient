@@ -16,41 +16,41 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
     public static final String SHOW_BIND_CARD_BTN_FLAG = "1";
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f25243b;
+    public LayoutInflater f25251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25244c;
+    public Context f25252c;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<O2OBankInfo> f25242a = new ArrayList();
+    public List<O2OBankInfo> f25250a = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25245d = 0;
+    public int f25253d = 0;
 
     /* loaded from: classes5.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f25246a;
+        public TextView f25254a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f25247b;
+        public ImageView f25255b;
 
         public a() {
         }
     }
 
     public O2OBankCardInfoAdapter(Context context, List<O2OBankInfo> list) {
-        this.f25244c = context;
-        this.f25243b = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f25252c = context;
+        this.f25251b = (LayoutInflater) context.getSystemService("layout_inflater");
         if (list != null) {
-            this.f25242a.addAll(list);
+            this.f25250a.addAll(list);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f25242a.size();
+        return this.f25250a.size();
     }
 
     @Override // android.widget.Adapter
@@ -62,10 +62,10 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = this.f25243b.inflate(ResUtils.layout(this.f25244c, "wallet_base_bankinfo_item"), (ViewGroup) null);
+            view = this.f25251b.inflate(ResUtils.layout(this.f25252c, "wallet_base_bankinfo_item"), (ViewGroup) null);
             aVar = new a();
-            aVar.f25246a = (TextView) view.findViewById(ResUtils.id(this.f25244c, "bd_wallet_bank_info"));
-            aVar.f25247b = (ImageView) view.findViewById(ResUtils.id(this.f25244c, "bd_Wallet_bank_sel_imge"));
+            aVar.f25254a = (TextView) view.findViewById(ResUtils.id(this.f25252c, "bd_wallet_bank_info"));
+            aVar.f25255b = (ImageView) view.findViewById(ResUtils.id(this.f25252c, "bd_Wallet_bank_sel_imge"));
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -75,38 +75,38 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
             return view;
         }
         if (i == 0) {
-            view.setBackgroundResource(ResUtils.drawable(this.f25244c, "wallet_base_corners_top"));
+            view.setBackgroundResource(ResUtils.drawable(this.f25252c, "wallet_base_corners_top"));
         } else {
-            view.setBackgroundResource(ResUtils.drawable(this.f25244c, "wallet_base_history_item_selector"));
+            view.setBackgroundResource(ResUtils.drawable(this.f25252c, "wallet_base_history_item_selector"));
         }
         if ("1".equalsIgnoreCase(item.enabled)) {
-            aVar.f25246a.setEnabled(true);
-            aVar.f25246a.setText(item.display_name);
-            aVar.f25246a.setTextColor(ResUtils.getColor(this.f25244c, "bd_wallet_text_gray_color"));
+            aVar.f25254a.setEnabled(true);
+            aVar.f25254a.setText(item.display_name);
+            aVar.f25254a.setTextColor(ResUtils.getColor(this.f25252c, "bd_wallet_text_gray_color"));
         } else {
-            aVar.f25246a.setEnabled(false);
-            aVar.f25246a.setText(item.display_name);
-            aVar.f25246a.setTextColor(ResUtils.getColor(this.f25244c, "bd_wallet_pwdpay_light_gray"));
+            aVar.f25254a.setEnabled(false);
+            aVar.f25254a.setText(item.display_name);
+            aVar.f25254a.setTextColor(ResUtils.getColor(this.f25252c, "bd_wallet_pwdpay_light_gray"));
         }
-        if (i + 1 == this.f25245d) {
-            aVar.f25247b.setImageDrawable(ResUtils.getDrawable(this.f25244c, "wallet_base_payset_checked"));
+        if (i + 1 == this.f25253d) {
+            aVar.f25255b.setImageDrawable(ResUtils.getDrawable(this.f25252c, "wallet_base_payset_checked"));
         } else {
-            aVar.f25247b.setImageDrawable(ResUtils.getDrawable(this.f25244c, "wallet_base_payset_unchecked"));
+            aVar.f25255b.setImageDrawable(ResUtils.getDrawable(this.f25252c, "wallet_base_payset_unchecked"));
         }
         return view;
     }
 
     public void setData(List<O2OBankInfo> list) {
         if (list != null) {
-            this.f25242a.clear();
-            this.f25242a.addAll(list);
+            this.f25250a.clear();
+            this.f25250a.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void setSelIndex(int i) {
         if (i > 0) {
-            this.f25245d = i;
+            this.f25253d = i;
             notifyDataSetChanged();
         }
     }
@@ -114,9 +114,9 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public O2OBankInfo getItem(int i) {
-        if (i < 0 || i >= this.f25242a.size()) {
+        if (i < 0 || i >= this.f25250a.size()) {
             return null;
         }
-        return this.f25242a.get(i);
+        return this.f25250a.get(i);
     }
 }

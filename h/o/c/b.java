@@ -10,42 +10,42 @@ import rx.internal.util.RxThreadFactory;
 public final class b extends h.g implements h {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f68880g;
+    public static final int f69027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f68881h;
-    public static final C1916b i;
+    public static final c f69028h;
+    public static final C1920b i;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ThreadFactory f68882e;
+    public final ThreadFactory f69029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<C1916b> f68883f = new AtomicReference<>(i);
+    public final AtomicReference<C1920b> f69030f = new AtomicReference<>(i);
 
     /* loaded from: classes7.dex */
     public static final class a extends g.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.o.d.i f68884e = new h.o.d.i();
+        public final h.o.d.i f69031e = new h.o.d.i();
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.u.b f68885f;
+        public final h.u.b f69032f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final h.o.d.i f68886g;
+        public final h.o.d.i f69033g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final c f68887h;
+        public final c f69034h;
 
         /* renamed from: h.o.c.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1914a implements h.n.a {
+        public class C1918a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.n.a f68888e;
+            public final /* synthetic */ h.n.a f69035e;
 
-            public C1914a(h.n.a aVar) {
-                this.f68888e = aVar;
+            public C1918a(h.n.a aVar) {
+                this.f69035e = aVar;
             }
 
             @Override // h.n.a
@@ -53,19 +53,19 @@ public final class b extends h.g implements h {
                 if (a.this.isUnsubscribed()) {
                     return;
                 }
-                this.f68888e.call();
+                this.f69035e.call();
             }
         }
 
         /* renamed from: h.o.c.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1915b implements h.n.a {
+        public class C1919b implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.n.a f68890e;
+            public final /* synthetic */ h.n.a f69037e;
 
-            public C1915b(h.n.a aVar) {
-                this.f68890e = aVar;
+            public C1919b(h.n.a aVar) {
+                this.f69037e = aVar;
             }
 
             @Override // h.n.a
@@ -73,15 +73,15 @@ public final class b extends h.g implements h {
                 if (a.this.isUnsubscribed()) {
                     return;
                 }
-                this.f68890e.call();
+                this.f69037e.call();
             }
         }
 
         public a(c cVar) {
             h.u.b bVar = new h.u.b();
-            this.f68885f = bVar;
-            this.f68886g = new h.o.d.i(this.f68884e, bVar);
-            this.f68887h = cVar;
+            this.f69032f = bVar;
+            this.f69033g = new h.o.d.i(this.f69031e, bVar);
+            this.f69034h = cVar;
         }
 
         @Override // h.g.a
@@ -89,7 +89,7 @@ public final class b extends h.g implements h {
             if (isUnsubscribed()) {
                 return h.u.e.c();
             }
-            return this.f68887h.i(new C1914a(aVar), 0L, null, this.f68884e);
+            return this.f69034h.i(new C1918a(aVar), 0L, null, this.f69031e);
         }
 
         @Override // h.g.a
@@ -97,54 +97,54 @@ public final class b extends h.g implements h {
             if (isUnsubscribed()) {
                 return h.u.e.c();
             }
-            return this.f68887h.j(new C1915b(aVar), j, timeUnit, this.f68885f);
+            return this.f69034h.j(new C1919b(aVar), j, timeUnit, this.f69032f);
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f68886g.isUnsubscribed();
+            return this.f69033g.isUnsubscribed();
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.f68886g.unsubscribe();
+            this.f69033g.unsubscribe();
         }
     }
 
     /* renamed from: h.o.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1916b {
+    public static final class C1920b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f68892a;
+        public final int f69039a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c[] f68893b;
+        public final c[] f69040b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f68894c;
+        public long f69041c;
 
-        public C1916b(ThreadFactory threadFactory, int i) {
-            this.f68892a = i;
-            this.f68893b = new c[i];
+        public C1920b(ThreadFactory threadFactory, int i) {
+            this.f69039a = i;
+            this.f69040b = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.f68893b[i2] = new c(threadFactory);
+                this.f69040b[i2] = new c(threadFactory);
             }
         }
 
         public c a() {
-            int i = this.f68892a;
+            int i = this.f69039a;
             if (i == 0) {
-                return b.f68881h;
+                return b.f69028h;
             }
-            c[] cVarArr = this.f68893b;
-            long j = this.f68894c;
-            this.f68894c = 1 + j;
+            c[] cVarArr = this.f69040b;
+            long j = this.f69041c;
+            this.f69041c = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void b() {
-            for (c cVar : this.f68893b) {
+            for (c cVar : this.f69040b) {
                 cVar.unsubscribe();
             }
         }
@@ -163,47 +163,47 @@ public final class b extends h.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        f68880g = intValue;
+        f69027g = intValue;
         c cVar = new c(RxThreadFactory.NONE);
-        f68881h = cVar;
+        f69028h = cVar;
         cVar.unsubscribe();
-        i = new C1916b(null, 0);
+        i = new C1920b(null, 0);
     }
 
     public b(ThreadFactory threadFactory) {
-        this.f68882e = threadFactory;
+        this.f69029e = threadFactory;
         start();
     }
 
     public k a(h.n.a aVar) {
-        return this.f68883f.get().a().h(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.f69030f.get().a().h(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     @Override // h.g
     public g.a createWorker() {
-        return new a(this.f68883f.get().a());
+        return new a(this.f69030f.get().a());
     }
 
     @Override // h.o.c.h
     public void shutdown() {
-        C1916b c1916b;
-        C1916b c1916b2;
+        C1920b c1920b;
+        C1920b c1920b2;
         do {
-            c1916b = this.f68883f.get();
-            c1916b2 = i;
-            if (c1916b == c1916b2) {
+            c1920b = this.f69030f.get();
+            c1920b2 = i;
+            if (c1920b == c1920b2) {
                 return;
             }
-        } while (!this.f68883f.compareAndSet(c1916b, c1916b2));
-        c1916b.b();
+        } while (!this.f69030f.compareAndSet(c1920b, c1920b2));
+        c1920b.b();
     }
 
     @Override // h.o.c.h
     public void start() {
-        C1916b c1916b = new C1916b(this.f68882e, f68880g);
-        if (this.f68883f.compareAndSet(i, c1916b)) {
+        C1920b c1920b = new C1920b(this.f69029e, f69027g);
+        if (this.f69030f.compareAndSet(i, c1920b)) {
             return;
         }
-        c1916b.b();
+        c1920b.b();
     }
 }

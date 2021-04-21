@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.u2.e.a;
+import d.b.j0.u2.e.a;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;

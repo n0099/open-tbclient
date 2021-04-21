@@ -13,137 +13,137 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f65851a;
+    public final Context f65946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final q1 f65852b;
+    public final q1 f65947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SharedPreferences f65853c;
+    public final SharedPreferences f65948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SharedPreferences f65854d;
+    public final SharedPreferences f65949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SharedPreferences f65855e;
+    public final SharedPreferences f65950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile JSONObject f65856f;
+    public volatile JSONObject f65951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile JSONObject f65857g;
+    public volatile JSONObject f65952g;
 
     public i(Context context, q1 q1Var) {
-        this.f65851a = context;
-        this.f65852b = q1Var;
-        this.f65855e = context.getSharedPreferences("embed_applog_stats", 0);
-        this.f65853c = this.f65851a.getSharedPreferences("embed_header_custom", 0);
-        this.f65854d = this.f65851a.getSharedPreferences("embed_last_sp_session", 0);
+        this.f65946a = context;
+        this.f65947b = q1Var;
+        this.f65950e = context.getSharedPreferences("embed_applog_stats", 0);
+        this.f65948c = this.f65946a.getSharedPreferences("embed_header_custom", 0);
+        this.f65949d = this.f65946a.getSharedPreferences("embed_last_sp_session", 0);
     }
 
     public SharedPreferences A() {
-        return this.f65855e;
+        return this.f65950e;
     }
 
     public boolean B() {
-        return this.f65852b.g();
+        return this.f65947b.g();
     }
 
     public JSONObject C() {
-        return this.f65857g;
+        return this.f65952g;
     }
 
     public long D() {
-        return this.f65855e.getLong("app_log_last_config_time", 0L);
+        return this.f65950e.getLong("app_log_last_config_time", 0L);
     }
 
     public int E() {
-        return this.f65855e.getInt("bav_monitor_rate", 0);
+        return this.f65950e.getInt("bav_monitor_rate", 0);
     }
 
     public String F() {
-        return this.f65852b.h();
+        return this.f65947b.h();
     }
 
     public String G() {
-        return this.f65852b.j();
+        return this.f65947b.j();
     }
 
     public String H() {
-        return this.f65852b.k();
+        return this.f65947b.k();
     }
 
     public String I() {
-        return this.f65852b.l();
+        return this.f65947b.l();
     }
 
     public String J() {
-        return this.f65852b.m();
+        return this.f65947b.m();
     }
 
     public String K() {
-        return this.f65853c.getString("header_custom_info", null);
+        return this.f65948c.getString("header_custom_info", null);
     }
 
     public String L() {
-        return this.f65853c.getString("ab_sdk_version", "");
+        return this.f65948c.getString("ab_sdk_version", "");
     }
 
     public String M() {
-        return this.f65853c.getString("user_unique_id", null);
+        return this.f65948c.getString("user_unique_id", null);
     }
 
     public boolean N() {
-        if (this.f65852b.o() == 0) {
-            this.f65852b.b(!s0.b(this.f65851a).contains(":"));
+        if (this.f65947b.o() == 0) {
+            this.f65947b.b(!s0.b(this.f65946a).contains(":"));
         }
-        return this.f65852b.o() == 1;
+        return this.f65947b.o() == 1;
     }
 
     public long O() {
-        return this.f65855e.getLong("abtest_fetch_interval", 0L);
+        return this.f65950e.getLong("abtest_fetch_interval", 0L);
     }
 
     public String P() {
-        if (!TextUtils.isEmpty(this.f65852b.x())) {
-            return this.f65852b.x();
+        if (!TextUtils.isEmpty(this.f65947b.x())) {
+            return this.f65947b.x();
         }
-        return this.f65853c.getString("ab_version", null);
+        return this.f65948c.getString("ab_version", null);
     }
 
     public JSONObject Q() {
-        JSONObject jSONObject = this.f65856f;
+        JSONObject jSONObject = this.f65951f;
         if (jSONObject == null) {
             synchronized (this) {
                 try {
                     if (R()) {
-                        jSONObject = new JSONObject(this.f65853c.getString("ab_configure", ""));
+                        jSONObject = new JSONObject(this.f65948c.getString("ab_configure", ""));
                     }
                 } catch (JSONException unused) {
                 }
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
                 }
-                this.f65856f = jSONObject;
+                this.f65951f = jSONObject;
             }
         }
         return jSONObject;
     }
 
     public boolean R() {
-        return this.f65855e.getBoolean("bav_ab_config", false);
+        return this.f65950e.getBoolean("bav_ab_config", false);
     }
 
     public boolean S() {
-        return this.f65855e.getBoolean("bav_log_collect", false);
+        return this.f65950e.getBoolean("bav_log_collect", false);
     }
 
     public long T() {
-        return this.f65855e.getLong("session_interval", StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        return this.f65950e.getLong("session_interval", StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
     }
 
     public long U() {
-        return this.f65855e.getLong("batch_event_interval", StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        return this.f65950e.getLong("batch_event_interval", StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
     }
 
     public String V() {
@@ -151,12 +151,12 @@ public class i {
     }
 
     public String W() {
-        return this.f65852b.c();
+        return this.f65947b.c();
     }
 
     @Nullable
     public String a() {
-        return this.f65855e.getString(com.alipay.sdk.cons.b.f1877b, null);
+        return this.f65950e.getString(com.alipay.sdk.cons.b.f1877b, null);
     }
 
     public long b() {
@@ -164,82 +164,82 @@ public class i {
     }
 
     public String c() {
-        return this.f65852b.q();
+        return this.f65947b.q();
     }
 
     public int d() {
-        return this.f65852b.t();
+        return this.f65947b.t();
     }
 
     public int e() {
-        return this.f65852b.u();
+        return this.f65947b.u();
     }
 
     public int f() {
-        return this.f65852b.v();
+        return this.f65947b.v();
     }
 
     public String g() {
-        return this.f65852b.r();
+        return this.f65947b.r();
     }
 
     public String h() {
-        return this.f65852b.s();
+        return this.f65947b.s();
     }
 
     public String i() {
-        return this.f65852b.w();
+        return this.f65947b.w();
     }
 
     public String j() {
-        return this.f65852b.y();
+        return this.f65947b.y();
     }
 
     public String k() {
-        return this.f65852b.z();
+        return this.f65947b.z();
     }
 
     public String l() {
-        return this.f65852b.A();
+        return this.f65947b.A();
     }
 
     public String m() {
-        return this.f65852b.D() == null ? "" : this.f65852b.D();
+        return this.f65947b.D() == null ? "" : this.f65947b.D();
     }
 
     public boolean n() {
-        return this.f65852b.C();
+        return this.f65947b.C();
     }
 
     public q1 o() {
-        return this.f65852b;
+        return this.f65947b;
     }
 
     public CharSequence p() {
-        return this.f65852b.B();
+        return this.f65947b.B();
     }
 
     public String q() {
-        return this.f65852b.n();
+        return this.f65947b.n();
     }
 
     public void r(long j) {
     }
 
     public void s(String str, int i) {
-        this.f65854d.edit().putString("session_last_day", str).putInt("session_order", i).apply();
+        this.f65949d.edit().putString("session_last_day", str).putInt("session_order", i).apply();
     }
 
     public void t(HashSet<String> hashSet, HashSet<String> hashSet2) {
     }
 
     public void u(JSONObject jSONObject) {
-        if (r0.f65909b) {
+        if (r0.f66004b) {
             r0.a("setConfig, " + jSONObject.toString(), null);
         }
-        this.f65857g = jSONObject;
+        this.f65952g = jSONObject;
         long currentTimeMillis = System.currentTimeMillis();
-        SharedPreferences.Editor edit = this.f65855e.edit();
+        SharedPreferences.Editor edit = this.f65950e.edit();
         long optInt = jSONObject.optInt("session_interval", 0);
         if (optInt > 0 && optInt <= 604800) {
             edit.putLong("session_interval", optInt * 1000);
@@ -270,7 +270,7 @@ public class i {
         } else {
             edit.remove("bav_log_collect");
         }
-        r0.f65908a = optBoolean;
+        r0.f66003a = optBoolean;
         if (jSONObject.optBoolean("bav_ab_config", false)) {
             edit.putBoolean("bav_ab_config", true);
         } else {
@@ -293,20 +293,20 @@ public class i {
     }
 
     public String w() {
-        return this.f65854d.getString("session_last_day", "");
+        return this.f65949d.getString("session_last_day", "");
     }
 
     public void x(JSONObject jSONObject) {
-        this.f65853c.edit().putString("header_custom_info", jSONObject != null ? jSONObject.toString() : "").apply();
+        this.f65948c.edit().putString("header_custom_info", jSONObject != null ? jSONObject.toString() : "").apply();
     }
 
     public int y() {
-        return this.f65854d.getInt("session_order", 0);
+        return this.f65949d.getInt("session_order", 0);
     }
 
     public void z(JSONObject jSONObject) {
         r0.a("setAbConfig, " + jSONObject.toString(), null);
-        this.f65853c.edit().putString("ab_configure", jSONObject.toString()).apply();
-        this.f65856f = null;
+        this.f65948c.edit().putString("ab_configure", jSONObject.toString()).apply();
+        this.f65951f = null;
     }
 }

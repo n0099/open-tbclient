@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.s.c.h0;
+import d.b.i0.s.c.h0;
 /* loaded from: classes4.dex */
 public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public NavigationBar mNavigationBar;
@@ -78,25 +78,25 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public class c extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f16637a;
+        public String f16645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16638b;
+        public String f16646b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f16639c = null;
+        public NetWork f16647c = null;
 
         public c(String str, String str2) {
-            this.f16637a = null;
-            this.f16638b = null;
-            this.f16637a = str;
-            this.f16638b = str2;
+            this.f16645a = null;
+            this.f16646b = null;
+            this.f16645a = str;
+            this.f16646b = str2;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f16639c;
+            NetWork netWork = this.f16647c;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -113,13 +113,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                this.f16639c = netWork;
+                this.f16647c = netWork;
                 netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f16639c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16637a);
-                this.f16639c.addPostData("vcode", this.f16638b);
-                this.f16639c.addPostData("vcode_md5", CreateForumActivity.this.mVcode_md5);
-                this.f16639c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                this.f16639c.postNetData();
+                this.f16647c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16645a);
+                this.f16647c.addPostData("vcode", this.f16646b);
+                this.f16647c.addPostData("vcode_md5", CreateForumActivity.this.mVcode_md5);
+                this.f16647c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                this.f16647c.postNetData();
                 return null;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -132,13 +132,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
             CreateForumActivity.this.mCreateTask = null;
-            if (this.f16639c.getNetContext().getResponse().isRequestSuccess()) {
-                CreateForumSuccessActivity.startActivity(CreateForumActivity.this.getPageContext().getPageActivity(), this.f16637a);
+            if (this.f16647c.getNetContext().getResponse().isRequestSuccess()) {
+                CreateForumSuccessActivity.startActivity(CreateForumActivity.this.getPageContext().getPageActivity(), this.f16645a);
                 CreateForumActivity.this.finish();
                 return;
             }
-            CreateForumActivity.this.showToast(this.f16639c.getErrorString());
-            if (this.f16639c.isNetSuccess()) {
+            CreateForumActivity.this.showToast(this.f16647c.getErrorString());
+            if (this.f16647c.isNetSuccess()) {
                 CreateForumActivity.this.startImageTask();
             }
         }
@@ -148,14 +148,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public class d extends BdAsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f16641a;
+        public NetWork f16649a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f16642b;
+        public volatile boolean f16650b;
 
         public d() {
-            this.f16641a = null;
-            this.f16642b = false;
+            this.f16649a = null;
+            this.f16650b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,22 +164,22 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public Bitmap doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                this.f16641a = netWork;
+                this.f16649a = netWork;
                 netWork.addPostData("fid", "0");
-                this.f16641a.addPostData("pub_type", "0");
-                this.f16641a.addPostData("fname", "");
-                this.f16641a.addPostData("tid", "0");
-                String postNetData = this.f16641a.postNetData();
-                if (this.f16641a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f16649a.addPostData("pub_type", "0");
+                this.f16649a.addPostData("fname", "");
+                this.f16649a.addPostData("tid", "0");
+                String postNetData = this.f16649a.postNetData();
+                if (this.f16649a.getNetContext().getResponse().isRequestSuccess()) {
                     h0 h0Var = new h0();
                     h0Var.e(postNetData);
                     if (h0Var.c() != null && h0Var.c().length() > 0) {
                         CreateForumActivity.this.mVcode_md5 = h0Var.b();
-                        if (this.f16642b) {
+                        if (this.f16650b) {
                             return null;
                         }
                         NetWork netWork2 = new NetWork(h0Var.c());
-                        this.f16641a = netWork2;
+                        this.f16649a = netWork2;
                         return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                     }
                 }
@@ -192,8 +192,8 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.f16642b = true;
-            NetWork netWork = this.f16641a;
+            this.f16650b = true;
+            NetWork netWork = this.f16649a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -288,7 +288,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public void changeSkinType(int i) {
         super.changeSkinType(i);
         getLayoutMode().j(this.mRootView);
-        d.b.h0.s0.a.a(getPageContext(), this.mRootView);
+        d.b.i0.s0.a.a(getPageContext(), this.mRootView);
         NavigationBar navigationBar = this.mNavigationBar;
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(getPageContext(), i);

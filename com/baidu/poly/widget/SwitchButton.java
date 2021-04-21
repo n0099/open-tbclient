@@ -25,7 +25,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
-import d.b.z.j;
+import d.b.a0.j;
 /* loaded from: classes2.dex */
 public class SwitchButton extends CompoundButton {
     public static int[] j0 = {16842912, 16842910, 16842919};
@@ -333,7 +333,7 @@ public class SwitchButton extends CompoundButton {
             this.o = 3309506;
         }
         if (!this.G && this.f10001h == null) {
-            ColorStateList b2 = d.b.z.p.b.b(this.o);
+            ColorStateList b2 = d.b.a0.p.b.b(this.o);
             this.f10001h = b2;
             this.t = b2.getDefaultColor();
         }
@@ -344,7 +344,7 @@ public class SwitchButton extends CompoundButton {
         boolean z5 = drawable != null;
         this.H = z5;
         if (!z5 && this.f10000g == null) {
-            ColorStateList a2 = d.b.z.p.b.a(this.o);
+            ColorStateList a2 = d.b.a0.p.b.a(this.o);
             this.f10000g = a2;
             int defaultColor = a2.getDefaultColor();
             this.u = defaultColor;
@@ -1074,8 +1074,8 @@ public class SwitchButton extends CompoundButton {
 
     public void setTintColor(int i) {
         this.o = i;
-        this.f10001h = d.b.z.p.b.b(i);
-        this.f10000g = d.b.z.p.b.a(this.o);
+        this.f10001h = d.b.a0.p.b.b(i);
+        this.f10000g = d.b.a0.p.b.a(this.o);
         this.H = false;
         this.G = false;
         refreshDrawableState();

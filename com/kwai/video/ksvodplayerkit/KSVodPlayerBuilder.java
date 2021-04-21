@@ -9,22 +9,22 @@ import java.util.Map;
 public class KSVodPlayerBuilder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37508a;
+    public Context f37603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37509b;
+    public String f37604b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f37510c;
+    public List<String> f37605c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f37511d;
+    public Map<String, String> f37606d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f37512e;
+    public l f37607e;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwai.video.ksvodplayerkit.b.h f37515h;
+    public com.kwai.video.ksvodplayerkit.b.h f37610h;
     public int j;
     public Map<String, String> k;
     public com.kwai.video.ksvodplayerkit.c.b m;
@@ -33,10 +33,10 @@ public class KSVodPlayerBuilder {
     public KwaiPlayerVodBuilder p;
 
     /* renamed from: f  reason: collision with root package name */
-    public VodPlayEnterType f37513f = VodPlayEnterType.CLICK;
+    public VodPlayEnterType f37608f = VodPlayEnterType.CLICK;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37514g = true;
+    public boolean f37609g = true;
     public int i = 0;
     public String l = "N/A";
 
@@ -51,11 +51,11 @@ public class KSVodPlayerBuilder {
             throw new IllegalArgumentException("Wrong Input Arguments! Context con't be null!");
         }
         this.p = new KwaiPlayerVodBuilder(context);
-        this.f37508a = context;
+        this.f37603a = context;
     }
 
     public KSVodPlayerBuilder a(String str) {
-        this.f37509b = str;
+        this.f37604b = str;
         return this;
     }
 
@@ -77,9 +77,9 @@ public class KSVodPlayerBuilder {
         List<String> list;
         com.kwai.video.ksvodplayerkit.b.h hVar;
         List<com.kwai.video.ksvodplayerkit.b.i> list2;
-        if (this.f37508a != null) {
-            String str = this.f37509b;
-            if ((str == null || TextUtils.isEmpty(str)) && (((list = this.f37510c) == null || list.isEmpty()) && ((hVar = this.f37515h) == null || (list2 = hVar.f37536b) == null || list2.isEmpty()))) {
+        if (this.f37603a != null) {
+            String str = this.f37604b;
+            if ((str == null || TextUtils.isEmpty(str)) && (((list = this.f37605c) == null || list.isEmpty()) && ((hVar = this.f37610h) == null || (list2 = hVar.f37631b) == null || list2.isEmpty()))) {
                 throw new IllegalArgumentException("Wrong Input Arguments! Please SetDatasource!");
             }
             return new g(this);

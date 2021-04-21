@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
 import d.b.c.e.p.t;
-import d.b.h0.b1.m.f;
+import d.b.i0.b1.m.f;
 /* loaded from: classes4.dex */
 public class AnnounceLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public float f14853h;
+    public float f14861h;
     public Context i;
     public TextView j;
 
@@ -53,7 +53,7 @@ public class AnnounceLayout extends CardBasicLayout {
     public final void c(SpannableStringBuilder spannableStringBuilder) {
         if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
             int i = 2;
-            if (!t.b(this.f14853h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
+            if (!t.b(this.f14861h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
                 this.j.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 return;
             }
@@ -61,11 +61,11 @@ public class AnnounceLayout extends CardBasicLayout {
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.detail));
             spannableStringBuilder3.setSpan(new a(2, null), 0, spannableStringBuilder3.length(), 17);
             spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
-            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f14853h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            float f2 = this.f14853h;
+            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f14861h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            float f2 = this.f14861h;
             if (staticLayout.getLineCount() >= 2) {
                 spannableStringBuilder.delete(staticLayout.getLineEnd(1), spannableStringBuilder.length());
-                f2 = this.f14853h - staticLayout.getLineWidth(1);
+                f2 = this.f14861h - staticLayout.getLineWidth(1);
             }
             CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
             float measureText = this.j.getPaint().measureText(spannableStringBuilder3.toString());
@@ -86,18 +86,18 @@ public class AnnounceLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, d.b.i0.v.b.f fVar) {
+    public void setData(int i, d.b.j0.v.b.f fVar) {
         int i2;
         super.setData(i, fVar);
-        if (this.f14857f != null && this.f14858g != null && (i2 = this.f14856e) >= 0) {
-            if (i2 == d.b.i0.v.e.a.f62965b) {
-                this.f14853h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
+        if (this.f14865f != null && this.f14866g != null && (i2 = this.f14864e) >= 0) {
+            if (i2 == d.b.j0.v.e.a.f63386b) {
+                this.f14861h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
             }
-            int i3 = this.f14856e;
-            if (i3 == d.b.i0.v.e.a.f62966c || i3 == d.b.i0.v.e.a.f62967d) {
-                this.f14853h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+            int i3 = this.f14864e;
+            if (i3 == d.b.j0.v.e.a.f63387c || i3 == d.b.j0.v.e.a.f63388d) {
+                this.f14861h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
             }
-            c(new SpannableStringBuilder(this.f14858g.b()));
+            c(new SpannableStringBuilder(this.f14866g.b()));
             return;
         }
         setVisibility(8);
@@ -105,7 +105,7 @@ public class AnnounceLayout extends CardBasicLayout {
 
     public AnnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14853h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
+        this.f14861h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
         b();
     }
 }

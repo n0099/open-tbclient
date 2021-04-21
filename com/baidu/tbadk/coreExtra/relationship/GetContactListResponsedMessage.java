@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.h0.s.f.a;
+import d.b.i0.s.f.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GetContactListResponsedMessage extends CustomResponsedMessage<String> {

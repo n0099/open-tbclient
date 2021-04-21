@@ -18,58 +18,58 @@ import com.baidu.tieba.R$styleable;
 public class ImageProblemItemView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18129e;
+    public Context f18137e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f18130f;
+    public LinearLayout f18138f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18131g;
+    public TextView f18139g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18132h;
+    public TextView f18140h;
     public ImageView i;
     public LinearLayout j;
     public TextView k;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18129e = context;
+        this.f18137e = context;
         a();
         b(attributeSet);
     }
 
     public void a() {
-        LayoutInflater.from(this.f18129e).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
-        this.f18130f = (LinearLayout) findViewById(R.id.container);
-        this.f18131g = (TextView) findViewById(R.id.text);
-        this.f18132h = (TextView) findViewById(R.id.tip);
+        LayoutInflater.from(this.f18137e).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
+        this.f18138f = (LinearLayout) findViewById(R.id.container);
+        this.f18139g = (TextView) findViewById(R.id.text);
+        this.f18140h = (TextView) findViewById(R.id.tip);
         this.i = (ImageView) findViewById(R.id.arrow2);
         this.j = (LinearLayout) findViewById(R.id.ll_container);
         this.k = (TextView) findViewById(R.id.tv_help);
     }
 
     public void b(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f18129e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+        TypedArray obtainStyledAttributes = this.f18137e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
         String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
         int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
         String string2 = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingTip);
         int color2 = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTipColor, -1);
         if (string != null) {
-            this.f18131g.setText(string);
+            this.f18139g.setText(string);
         }
         if (color > -1) {
-            this.f18131g.setTextColor(color);
+            this.f18139g.setTextColor(color);
         }
         if (string2 != null) {
-            this.f18132h.setText(string2);
+            this.f18140h.setText(string2);
         }
         if (color2 > -1) {
-            this.f18132h.setTextColor(color2);
+            this.f18140h.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.f18130f.setClickable(false);
-        this.f18130f.setFocusable(false);
+        this.f18138f.setClickable(false);
+        this.f18138f.setFocusable(false);
         this.i.setVisibility(4);
     }
 
@@ -78,14 +78,14 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void displayTip() {
-        TextView textView = this.f18132h;
+        TextView textView = this.f18140h;
         if (textView != null) {
             textView.setVisibility(0);
         }
     }
 
     public CharSequence getTip() {
-        return this.f18132h.getText();
+        return this.f18140h.getText();
     }
 
     public void hideArrow() {
@@ -93,7 +93,7 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void hideTip() {
-        TextView textView = this.f18132h;
+        TextView textView = this.f18140h;
         if (textView != null) {
             textView.setVisibility(8);
         }
@@ -123,40 +123,40 @@ public class ImageProblemItemView extends FrameLayout {
     @SuppressLint({"ResourceAsColor"})
     public void setStatus(int i) {
         if (i == 1) {
-            this.f18131g.setTextColor(getResources().getColor(R.color.CAM_X0105));
+            this.f18139g.setTextColor(getResources().getColor(R.color.CAM_X0105));
         } else if (i == 2) {
-            this.f18131g.setTextColor(getResources().getColor(R.color.CAM_X0305));
+            this.f18139g.setTextColor(getResources().getColor(R.color.CAM_X0305));
         } else if (i == 3) {
-            this.f18131g.setTextColor(getResources().getColor(R.color.CAM_X0110));
+            this.f18139g.setTextColor(getResources().getColor(R.color.CAM_X0110));
         }
     }
 
     public void setText(String str) {
-        this.f18131g.setText(str);
+        this.f18139g.setText(str);
     }
 
     public void setTip(String str) {
-        this.f18132h.setText(str);
+        this.f18140h.setText(str);
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.f18132h.setBackgroundDrawable(drawable);
+        this.f18140h.setBackgroundDrawable(drawable);
     }
 
     public void setTipColor(int i) {
-        TextView textView = this.f18132h;
+        TextView textView = this.f18140h;
         if (textView != null) {
             textView.setTextColor(i);
         }
     }
 
     public void setText(int i) {
-        this.f18131g.setText(i);
+        this.f18139g.setText(i);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
-        this.f18129e = context;
+        this.f18137e = context;
         a();
     }
 }

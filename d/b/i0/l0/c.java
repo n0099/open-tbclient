@@ -1,128 +1,88 @@
 package d.b.i0.l0;
 
-import android.graphics.Bitmap;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.faceshop.EmotionData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class c extends d.b.h0.w.p.c {
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.tieba.R;
+import d.b.c.e.p.l;
+/* loaded from: classes3.dex */
+public class c {
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f57905e;
+    /* renamed from: a  reason: collision with root package name */
+    public static c f51039a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f57906f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f57907g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f57908h;
-    public ArrayList<String> i = new ArrayList<>();
-
-    public c(EmotionGroupData emotionGroupData) {
-        this.f57905e = emotionGroupData.getGroupId();
-        this.f57906f = emotionGroupData.getGroupName();
-        this.f57907g = emotionGroupData.getWidth();
-        this.f57908h = emotionGroupData.getHeight();
-        t();
-    }
-
-    @Override // d.b.h0.w.p.c
-    public String b(int i) {
-        if (i >= this.i.size()) {
-            return null;
-        }
-        return this.i.get(i);
-    }
-
-    @Override // d.b.h0.w.p.c
-    public int c() {
-        return this.i.size();
-    }
-
-    @Override // d.b.h0.w.p.c
-    public String f() {
-        return this.f57905e;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public String g() {
-        return this.f57906f;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public EmotionGroupType h() {
-        return EmotionGroupType.BIG_EMOTION;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public int i() {
-        return this.f57908h;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public boolean j() {
-        return false;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public int l() {
-        return this.f57907g;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public boolean m(String str) {
-        return this.i.contains(str);
-    }
-
-    @Override // d.b.h0.w.p.c
-    public d.b.c.j.d.a n(String str) {
-        return null;
-    }
-
-    @Override // d.b.h0.w.p.c
-    public d.b.c.j.d.a o(String str) {
-        String b2;
-        if (u(str)) {
-            b2 = b.c(str, true, false);
-        } else {
-            b2 = b.b(str, false);
-        }
-        Bitmap f2 = b.f(this.f57905e, b2);
-        if (f2 == null) {
-            return null;
-        }
-        return new d.b.c.j.d.a(f2, false, str);
-    }
-
-    public final void t() {
-        s(2);
-        p(4);
-        Bitmap f2 = b.f(this.f57905e, "panel.png");
-        Bitmap f3 = b.f(this.f57905e, "panel_momo.png");
-        if (f2 != null) {
-            q(new d.b.c.j.d.a(f2, false));
-        }
-        if (f3 != null) {
-            r(new d.b.c.j.d.a(f3, false));
-        }
-        this.i.clear();
-        for (EmotionData emotionData : g.k().m(this.f57905e)) {
-            this.i.add(emotionData.getSharpText());
-        }
-    }
-
-    public boolean u(String str) {
-        if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-            String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-            String substring = replace.substring(0, replace.indexOf(","));
-            if (substring.contains("_") && !substring.contains("collect_")) {
-                return true;
+    public static synchronized c c() {
+        c cVar;
+        synchronized (c.class) {
+            if (f51039a == null) {
+                f51039a = new c();
             }
+            cVar = f51039a;
         }
-        return false;
+        return cVar;
+    }
+
+    public void a(PayConfig payConfig, Context context) {
+        if (payConfig != null && context != null) {
+            if (!g()) {
+                h(R.string.plugin_pay_wallet_not_found);
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
+            return;
+        }
+        h(R.string.plugin_pay_error);
+    }
+
+    public void b(String str, TbPageContext<?> tbPageContext) {
+        if (tbPageContext == null) {
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+    }
+
+    public boolean d() {
+        try {
+            Class.forName("com.baidu.wallet.api.BaiduWallet");
+            return true;
+        } catch (ClassNotFoundException e2) {
+            BdLog.e(e2);
+            return false;
+        }
+    }
+
+    public boolean e() {
+        try {
+            Class.forName("com.baidu.wallet.lightapp.business.LightappBrowseActivity");
+            return true;
+        } catch (ClassNotFoundException e2) {
+            BdLog.e(e2);
+            return false;
+        }
+    }
+
+    public boolean f() {
+        try {
+            Class.forName("com.baidu.wallet.home.WalletNewHomeActivity");
+            return true;
+        } catch (ClassNotFoundException e2) {
+            BdLog.e(e2);
+            return false;
+        }
+    }
+
+    public boolean g() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && d();
+    }
+
+    public final void h(int i) {
+        l.K(TbadkCoreApplication.getInst().getContext(), i);
     }
 }

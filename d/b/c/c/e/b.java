@@ -16,14 +16,14 @@ public class b extends d.b.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
     public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public CustomMessage f41983a;
+        public CustomMessage f42223a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CustomMessageTask f41984b;
+        public CustomMessageTask f42224b;
 
         public a(CustomMessage customMessage, CustomMessageTask customMessageTask) {
-            this.f41983a = null;
-            this.f41984b = null;
+            this.f42223a = null;
+            this.f42224b = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
             setTag(customMessage.getTag());
@@ -32,24 +32,24 @@ public class b extends d.b.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
             if (customMessageTask.isImme()) {
                 setPriority(4);
             }
-            this.f41983a = customMessage;
-            this.f41984b = customMessageTask;
+            this.f42223a = customMessage;
+            this.f42224b = customMessageTask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public CustomResponsedMessage doInBackground(String... strArr) {
-            CustomMessageTask customMessageTask = this.f41984b;
+            CustomMessageTask customMessageTask = this.f42224b;
             if (customMessageTask == null) {
                 return null;
             }
             if (customMessageTask.getRunnable() == null) {
-                BdLog.e("CustomTask :" + this.f41984b.getClass().getName() + "did not contain a runnable!!");
+                BdLog.e("CustomTask :" + this.f42224b.getClass().getName() + "did not contain a runnable!!");
                 return null;
             }
             try {
-                return this.f41984b.getRunnable().run(this.f41983a);
+                return this.f42224b.getRunnable().run(this.f42223a);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
                 return null;
@@ -57,7 +57,7 @@ public class b extends d.b.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
         }
 
         public CustomMessage c() {
-            return this.f41983a;
+            return this.f42223a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,11 +65,11 @@ public class b extends d.b.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
         /* renamed from: d */
         public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                customResponsedMessage.setOrginalMessage(this.f41983a);
-                b.this.f41982a.dispatchResponsedMessage(customResponsedMessage);
+                customResponsedMessage.setOrginalMessage(this.f42223a);
+                b.this.f42222a.dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
-            BdLog.e("CustomTask :" + this.f41984b.getClass().getName() + "returns a NULL!!");
+            BdLog.e("CustomTask :" + this.f42224b.getClass().getName() + "returns a NULL!!");
         }
     }
 
@@ -116,7 +116,7 @@ public class b extends d.b.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
                 BdLog.detailException(e2);
             }
             if (customResponsedMessage != null) {
-                this.f41982a.dispatchResponsedMessage(customResponsedMessage);
+                this.f42222a.dispatchResponsedMessage(customResponsedMessage);
             }
         } else {
             new a(customMessage, customMessageTask).execute(new String[0]);
@@ -142,7 +142,7 @@ public class b extends d.b.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
                 BdLog.detailException(e2);
             }
             if (customResponsedMessage != null) {
-                this.f41982a.dispatchResponsedMessage(customResponsedMessage);
+                this.f42222a.dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
             return;

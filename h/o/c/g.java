@@ -19,20 +19,20 @@ import rx.internal.util.RxThreadFactory;
 public class g extends g.a implements k {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f68914g;
+    public static final boolean f69061g;
     public static volatile Object k;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ScheduledExecutorService f68916e;
+    public final ScheduledExecutorService f69063e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68917f;
+    public volatile boolean f69064f;
     public static final Object l = new Object();
     public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> i = new ConcurrentHashMap<>();
     public static final AtomicReference<ScheduledExecutorService> j = new AtomicReference<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f68915h = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+    public static final int f69062h = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
 
     /* loaded from: classes7.dex */
     public static class a implements Runnable {
@@ -45,7 +45,7 @@ public class g extends g.a implements k {
     static {
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
         int a2 = h.o.d.f.a();
-        f68914g = !z && (a2 == 0 || a2 >= 21);
+        f69061g = !z && (a2 == 0 || a2 >= 21);
     }
 
     public g(ThreadFactory threadFactory) {
@@ -53,7 +53,7 @@ public class g extends g.a implements k {
         if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
             g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
         }
-        this.f68916e = newScheduledThreadPool;
+        this.f69063e = newScheduledThreadPool;
     }
 
     public static void d(ScheduledExecutorService scheduledExecutorService) {
@@ -98,7 +98,7 @@ public class g extends g.a implements k {
             ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
             if (j.compareAndSet(null, newScheduledThreadPool)) {
                 a aVar = new a();
-                int i2 = f68915h;
+                int i2 = f69062h;
                 newScheduledThreadPool.scheduleAtFixedRate(aVar, i2, i2, TimeUnit.MILLISECONDS);
                 break;
             }
@@ -109,7 +109,7 @@ public class g extends g.a implements k {
 
     public static boolean k(ScheduledExecutorService scheduledExecutorService) {
         Method e2;
-        if (f68914g) {
+        if (f69061g) {
             if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
                 Object obj = k;
                 if (obj == l) {
@@ -147,7 +147,7 @@ public class g extends g.a implements k {
 
     @Override // h.g.a
     public k c(h.n.a aVar, long j2, TimeUnit timeUnit) {
-        if (this.f68917f) {
+        if (this.f69064f) {
             return h.u.e.c();
         }
         return h(aVar, j2, timeUnit);
@@ -157,9 +157,9 @@ public class g extends g.a implements k {
         Future<?> schedule;
         ScheduledAction scheduledAction = new ScheduledAction(h.r.c.q(aVar));
         if (j2 <= 0) {
-            schedule = this.f68916e.submit(scheduledAction);
+            schedule = this.f69063e.submit(scheduledAction);
         } else {
-            schedule = this.f68916e.schedule(scheduledAction, j2, timeUnit);
+            schedule = this.f69063e.schedule(scheduledAction, j2, timeUnit);
         }
         scheduledAction.add(schedule);
         return scheduledAction;
@@ -170,9 +170,9 @@ public class g extends g.a implements k {
         ScheduledAction scheduledAction = new ScheduledAction(h.r.c.q(aVar), iVar);
         iVar.a(scheduledAction);
         if (j2 <= 0) {
-            schedule = this.f68916e.submit(scheduledAction);
+            schedule = this.f69063e.submit(scheduledAction);
         } else {
-            schedule = this.f68916e.schedule(scheduledAction, j2, timeUnit);
+            schedule = this.f69063e.schedule(scheduledAction, j2, timeUnit);
         }
         scheduledAction.add(schedule);
         return scheduledAction;
@@ -180,7 +180,7 @@ public class g extends g.a implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68917f;
+        return this.f69064f;
     }
 
     public ScheduledAction j(h.n.a aVar, long j2, TimeUnit timeUnit, h.u.b bVar) {
@@ -188,9 +188,9 @@ public class g extends g.a implements k {
         ScheduledAction scheduledAction = new ScheduledAction(h.r.c.q(aVar), bVar);
         bVar.a(scheduledAction);
         if (j2 <= 0) {
-            schedule = this.f68916e.submit(scheduledAction);
+            schedule = this.f69063e.submit(scheduledAction);
         } else {
-            schedule = this.f68916e.schedule(scheduledAction, j2, timeUnit);
+            schedule = this.f69063e.schedule(scheduledAction, j2, timeUnit);
         }
         scheduledAction.add(schedule);
         return scheduledAction;
@@ -198,8 +198,8 @@ public class g extends g.a implements k {
 
     @Override // h.k
     public void unsubscribe() {
-        this.f68917f = true;
-        this.f68916e.shutdownNow();
-        d(this.f68916e);
+        this.f69064f = true;
+        this.f69063e.shutdownNow();
+        d(this.f69063e);
     }
 }

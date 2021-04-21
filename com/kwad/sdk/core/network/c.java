@@ -3,8 +3,8 @@ package com.kwad.sdk.core.network;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34155a;
+    public int f34250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34156b;
+    public String f34251b;
 }

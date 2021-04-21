@@ -18,7 +18,7 @@ import java.util.WeakHashMap;
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f41241a;
+    public static Context f41336a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Object f890a;
@@ -33,7 +33,7 @@ public class ao {
     public String f893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41242b;
+    public String f41337b;
 
     public ao(String str) {
         this.f893a = str;
@@ -42,7 +42,7 @@ public class ao {
     public static int a(String str) {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
-                return f41241a.getPackageManager().getPackageUid(str, 0);
+                return f41336a.getPackageManager().getPackageUid(str, 0);
             } catch (Exception unused) {
                 return -1;
             }
@@ -51,7 +51,7 @@ public class ao {
     }
 
     public static NotificationManager a() {
-        return (NotificationManager) f41241a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        return (NotificationManager) f41336a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     public static ao a(Context context, String str) {
@@ -94,8 +94,8 @@ public class ao {
     }
 
     public static void a(Context context) {
-        if (f41241a == null) {
-            f41241a = context.getApplicationContext();
+        if (f41336a == null) {
+            f41336a = context.getApplicationContext();
             NotificationManager a2 = a();
             Boolean bool = (Boolean) com.xiaomi.push.bh.a((Object) a2, "isSystemConditionProviderEnabled", "xmsf_fake_condition_provider_path");
             m573a("fwk is support.init:" + bool);
@@ -115,7 +115,7 @@ public class ao {
     @TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
     public static boolean m574a() {
-        if (com.xiaomi.push.l.m520a() && aq.a(f41241a).a(hk.NotificationBelongToAppSwitch.a(), true)) {
+        if (com.xiaomi.push.l.m520a() && aq.a(f41336a).a(hk.NotificationBelongToAppSwitch.a(), true)) {
             return f892a;
         }
         return false;
@@ -157,7 +157,7 @@ public class ao {
 
     /* renamed from: a  reason: collision with other method in class */
     public Context m577a() {
-        return f41241a;
+        return f41336a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -338,10 +338,10 @@ public class ao {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f41242b)) {
-            this.f41242b = b("default");
+        if (TextUtils.isEmpty(this.f41337b)) {
+            this.f41337b = b("default");
         }
-        return this.f41242b;
+        return this.f41337b;
     }
 
     public String b(String str, String str2) {

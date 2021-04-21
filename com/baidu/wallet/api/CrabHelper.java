@@ -16,10 +16,10 @@ public class CrabHelper {
     public static final String CRAB_TAG = "crab";
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f23157a = false;
+    public static volatile boolean f23165a = false;
 
     public static void b(Context context) {
-        f23157a = true;
+        f23165a = true;
         long currentTimeMillis = System.currentTimeMillis();
         try {
             Class.forName("com.baidu.crabsdk.lite.CrabLite");
@@ -71,7 +71,7 @@ public class CrabHelper {
     }
 
     public static void initCrab(final Context context) {
-        if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23157a) {
+        if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23165a) {
             new Thread(new Runnable() { // from class: com.baidu.wallet.api.CrabHelper.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -81,8 +81,8 @@ public class CrabHelper {
             }).start();
             return;
         }
-        if (f23157a) {
-            LogUtil.d(CRAB_TAG, "crab already init :" + f23157a);
+        if (f23165a) {
+            LogUtil.d(CRAB_TAG, "crab already init :" + f23165a);
         }
         if (StatSettings.getInstance(context).isEnableCrashHandler()) {
             return;

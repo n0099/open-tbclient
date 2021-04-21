@@ -1,7 +1,7 @@
 package com.baidu.tieba.funAd.strategy;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.b.h0.r.q.o;
+import d.b.i0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +18,7 @@ public class FunAdHistoryData extends o implements Serializable {
         return this.mShowTime;
     }
 
-    @Override // d.b.h0.r.q.o
+    @Override // d.b.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

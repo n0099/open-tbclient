@@ -8,23 +8,23 @@ import androidx.annotation.NonNull;
 public class a<DataType> implements com.kwad.sdk.glide.load.f<DataType, BitmapDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.f<DataType, Bitmap> f35939a;
+    public final com.kwad.sdk.glide.load.f<DataType, Bitmap> f36034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Resources f35940b;
+    public final Resources f36035b;
 
     public a(@NonNull Resources resources, @NonNull com.kwad.sdk.glide.load.f<DataType, Bitmap> fVar) {
-        this.f35940b = (Resources) com.kwad.sdk.glide.g.j.a(resources);
-        this.f35939a = (com.kwad.sdk.glide.load.f) com.kwad.sdk.glide.g.j.a(fVar);
+        this.f36035b = (Resources) com.kwad.sdk.glide.g.j.a(resources);
+        this.f36034a = (com.kwad.sdk.glide.load.f) com.kwad.sdk.glide.g.j.a(fVar);
     }
 
     @Override // com.kwad.sdk.glide.load.f
     public com.kwad.sdk.glide.load.engine.s<BitmapDrawable> a(@NonNull DataType datatype, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return q.a(this.f35940b, this.f35939a.a(datatype, i, i2, eVar));
+        return q.a(this.f36035b, this.f36034a.a(datatype, i, i2, eVar));
     }
 
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull DataType datatype, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.f35939a.a(datatype, eVar);
+        return this.f36034a.a(datatype, eVar);
     }
 }

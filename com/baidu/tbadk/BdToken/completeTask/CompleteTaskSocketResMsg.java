@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken.completeTask;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.h0.a.b0.a;
+import d.b.i0.a.b0.a;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
 import tbclient.Error;
@@ -31,14 +31,14 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
             if (completeTaskResIdl.data != null) {
                 a aVar = new a();
                 this.mData = aVar;
-                aVar.f49905c = completeTaskResIdl.data.show_type.intValue();
-                this.mData.f49906d = completeTaskResIdl.data.ahead_type.intValue();
+                aVar.f50241c = completeTaskResIdl.data.show_type.intValue();
+                this.mData.f50242d = completeTaskResIdl.data.ahead_type.intValue();
                 a aVar2 = this.mData;
                 DataRes dataRes = completeTaskResIdl.data;
-                aVar2.f49907e = dataRes.message;
-                aVar2.f49908f = dataRes.btn_text;
-                aVar2.f49909g = dataRes.btn_confirm;
-                aVar2.f49910h = dataRes.btn_cancel;
+                aVar2.f50243e = dataRes.message;
+                aVar2.f50244f = dataRes.btn_text;
+                aVar2.f50245g = dataRes.btn_confirm;
+                aVar2.f50246h = dataRes.btn_cancel;
                 aVar2.i = dataRes.toast_duration.intValue();
                 a aVar3 = this.mData;
                 DataRes dataRes2 = completeTaskResIdl.data;
@@ -46,8 +46,8 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
                 aVar3.k = dataRes2.url;
                 aVar3.l = dataRes2.schema;
                 aVar3.m = dataRes2.token;
-                aVar3.f49903a = dataRes2.activity_id.intValue();
-                this.mData.f49904b = completeTaskResIdl.data.mission_id.intValue();
+                aVar3.f50239a = dataRes2.activity_id.intValue();
+                this.mData.f50240b = completeTaskResIdl.data.mission_id.intValue();
                 a aVar4 = this.mData;
                 DataRes dataRes3 = completeTaskResIdl.data;
                 aVar4.o = dataRes3.btn_color;

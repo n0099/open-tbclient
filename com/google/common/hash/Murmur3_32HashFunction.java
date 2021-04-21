@@ -3,12 +3,12 @@ package com.google.common.hash;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.common.primitives.Ints;
-import d.g.c.a.n;
-import d.g.c.d.b;
-import d.g.c.d.c;
-import d.g.c.d.e;
-import d.g.c.d.f;
-import d.g.c.d.j;
+import d.h.c.a.n;
+import d.h.c.d.b;
+import d.h.c.d.c;
+import d.h.c.d.e;
+import d.h.c.d.f;
+import d.h.c.d.j;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -18,52 +18,52 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
     public static final long serialVersionUID = 0;
     public final int seed;
     public static final e MURMUR3_32 = new Murmur3_32HashFunction(0);
-    public static final e GOOD_FAST_HASH_32 = new Murmur3_32HashFunction(Hashing.f31097a);
+    public static final e GOOD_FAST_HASH_32 = new Murmur3_32HashFunction(Hashing.f31192a);
 
     /* loaded from: classes6.dex */
     public static final class a extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31105a;
+        public int f31200a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f31106b;
+        public long f31201b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31107c;
+        public int f31202c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31108d = 0;
+        public int f31203d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f31109e = false;
+        public boolean f31204e = false;
 
         public a(int i) {
-            this.f31105a = i;
+            this.f31200a = i;
         }
 
-        @Override // d.g.c.d.f, d.g.c.d.j
+        @Override // d.h.c.d.f, d.h.c.d.j
         public /* bridge */ /* synthetic */ j b(int i) {
             b(i);
             return this;
         }
 
-        @Override // d.g.c.d.f, d.g.c.d.j
+        @Override // d.h.c.d.f, d.h.c.d.j
         public /* bridge */ /* synthetic */ j d(long j) {
             d(j);
             return this;
         }
 
-        @Override // d.g.c.d.f
+        @Override // d.h.c.d.f
         public HashCode g() {
-            n.w(!this.f31109e);
-            this.f31109e = true;
-            int g2 = this.f31105a ^ Murmur3_32HashFunction.g((int) this.f31106b);
-            this.f31105a = g2;
-            return Murmur3_32HashFunction.d(g2, this.f31108d);
+            n.w(!this.f31204e);
+            this.f31204e = true;
+            int g2 = this.f31200a ^ Murmur3_32HashFunction.g((int) this.f31201b);
+            this.f31200a = g2;
+            return Murmur3_32HashFunction.d(g2, this.f31203d);
         }
 
-        @Override // d.g.c.d.c, d.g.c.d.f
+        @Override // d.h.c.d.c, d.h.c.d.f
         public f h(byte[] bArr, int i, int i2) {
             n.v(i, i + i2, bArr.length);
             int i3 = 0;
@@ -82,7 +82,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return this;
         }
 
-        @Override // d.g.c.d.f
+        @Override // d.h.c.d.f
         public f i(ByteBuffer byteBuffer) {
             ByteOrder order = byteBuffer.order();
             byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
@@ -96,7 +96,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return this;
         }
 
-        @Override // d.g.c.d.c
+        @Override // d.h.c.d.c
         public f k(char c2) {
             m(2, c2);
             return this;
@@ -108,30 +108,30 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         }
 
         public final void m(int i, long j) {
-            long j2 = this.f31106b;
-            int i2 = this.f31107c;
+            long j2 = this.f31201b;
+            int i2 = this.f31202c;
             long j3 = ((j & 4294967295L) << i2) | j2;
-            this.f31106b = j3;
+            this.f31201b = j3;
             int i3 = i2 + (i * 8);
-            this.f31107c = i3;
-            this.f31108d += i;
+            this.f31202c = i3;
+            this.f31203d += i;
             if (i3 >= 32) {
-                this.f31105a = Murmur3_32HashFunction.f(this.f31105a, Murmur3_32HashFunction.g((int) j3));
-                this.f31106b >>>= 32;
-                this.f31107c -= 32;
+                this.f31200a = Murmur3_32HashFunction.f(this.f31200a, Murmur3_32HashFunction.g((int) j3));
+                this.f31201b >>>= 32;
+                this.f31202c -= 32;
             }
         }
 
-        @Override // d.g.c.d.f, d.g.c.d.j
+        @Override // d.h.c.d.f, d.h.c.d.j
         public f b(int i) {
             m(4, i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.d.c, d.g.c.d.f, d.g.c.d.j
+        @Override // d.h.c.d.c, d.h.c.d.f, d.h.c.d.j
         public f c(CharSequence charSequence, Charset charset) {
-            if (d.g.c.a.c.f66938a.equals(charset)) {
+            if (d.h.c.a.c.f67085a.equals(charset)) {
                 int length = charSequence.length();
                 int i = 0;
                 while (true) {
@@ -174,7 +174,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return super.c(charSequence, charset);
         }
 
-        @Override // d.g.c.d.f, d.g.c.d.j
+        @Override // d.h.c.d.f, d.h.c.d.j
         public f d(long j) {
             m(4, (int) j);
             m(4, j >>> 32);
@@ -225,7 +225,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return (obj instanceof Murmur3_32HashFunction) && this.seed == ((Murmur3_32HashFunction) obj).seed;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.h.c.d.b
     public HashCode hashBytes(byte[] bArr, int i, int i2) {
         n.v(i, i + i2, bArr.length);
         int i3 = this.seed;
@@ -242,7 +242,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         int i7 = i5;
         int i8 = 0;
         while (i7 < i2) {
-            i4 ^= d.g.c.g.b.c(bArr[i + i7]) << i8;
+            i4 ^= d.h.c.g.b.c(bArr[i + i7]) << i8;
             i7++;
             i8 += 8;
         }
@@ -253,20 +253,20 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return Murmur3_32HashFunction.class.hashCode() ^ this.seed;
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.h.c.d.b
     public HashCode hashInt(int i) {
         return d(f(this.seed, g(i)), 4);
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.h.c.d.b
     public HashCode hashLong(long j) {
         int i = (int) (j >>> 32);
         return d(f(f(this.seed, g((int) j)), g(i)), 8);
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.h.c.d.b
     public HashCode hashString(CharSequence charSequence, Charset charset) {
-        if (d.g.c.a.c.f66938a.equals(charset)) {
+        if (d.h.c.a.c.f67085a.equals(charset)) {
             int length = charSequence.length();
             int i = this.seed;
             int i2 = 0;
@@ -324,7 +324,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return hashBytes(charSequence.toString().getBytes(charset));
     }
 
-    @Override // d.g.c.d.b
+    @Override // d.h.c.d.b
     public HashCode hashUnencodedChars(CharSequence charSequence) {
         int i = this.seed;
         for (int i2 = 1; i2 < charSequence.length(); i2 += 2) {
@@ -336,7 +336,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return d(i, charSequence.length() * 2);
     }
 
-    @Override // d.g.c.d.e
+    @Override // d.h.c.d.e
     public f newHasher() {
         return new a(this.seed);
     }

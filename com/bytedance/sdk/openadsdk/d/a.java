@@ -27,24 +27,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f28758a = {"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
+    public static String[] f28766a = {"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
 
     /* renamed from: b  reason: collision with root package name */
-    public File f28759b;
+    public File f28767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map.Entry<String, JSONObject> f28760c;
+    public Map.Entry<String, JSONObject> f28768c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0319a {
+    public static class C0321a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f28763a = new a();
+        public static a f28771a = new a();
     }
 
     public static a a() {
-        return C0319a.f28763a;
+        return C0321a.f28771a;
     }
 
     private String c() {
@@ -54,11 +54,11 @@ public class a {
         sb.append(G == null ? 0 : G.length);
         u.b("GeckoHub", sb.toString());
         if (G == null) {
-            G = f28758a;
+            G = f28766a;
         }
         String str = G[new Random().nextInt(G.length)];
         if (TextUtils.isEmpty(str)) {
-            str = f28758a[new Random().nextInt(f28758a.length)];
+            str = f28766a[new Random().nextInt(f28766a.length)];
         }
         u.b("GeckoHub", "GeckoLog:random host " + str);
         return str;
@@ -66,7 +66,7 @@ public class a {
 
     public com.bytedance.sdk.openadsdk.preload.falconx.a.a b() {
         try {
-            return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(p.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f28759b);
+            return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(p.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f28767b);
         } catch (Throwable th) {
             u.c("GeckoHub", "getGeckoResLoader error", th);
             return null;
@@ -74,7 +74,7 @@ public class a {
     }
 
     public a() {
-        this.f28759b = new File(p.a().getCacheDir() + File.separator + "gecko");
+        this.f28767b = new File(p.a().getCacheDir() + File.separator + "gecko");
         if (i.d().w()) {
             b.a();
         }
@@ -86,7 +86,7 @@ public class a {
             u.b("GeckoHub", "no did so don't preload");
             return;
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(p.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C0336a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f29890c).a()).a(this.f28759b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a() { // from class: com.bytedance.sdk.openadsdk.d.a.1
+        com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(p.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C0338a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f29898c).a()).a(this.f28767b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a() { // from class: com.bytedance.sdk.openadsdk.d.a.1
             @Override // com.bytedance.sdk.openadsdk.preload.geckox.statistic.a
             public void a(String str, JSONObject jSONObject) {
                 if ("geckosdk_update_stats".equals(str)) {
@@ -125,17 +125,17 @@ public class a {
     private JSONObject a(String str, String str2) {
         if (str != null && str2 != null) {
             try {
-                if (this.f28760c == null || !str.equals(this.f28760c.getKey())) {
+                if (this.f28768c == null || !str.equals(this.f28768c.getKey())) {
                     u.b("GeckoHub", "refresh cache manifest");
-                    com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(p.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f28759b);
+                    com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(p.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f28767b);
                     String a2 = com.bytedance.sdk.openadsdk.k.g.a.a(aVar.a(str + "/manifest.json"));
                     if (TextUtils.isEmpty(a2)) {
                         u.f("GeckoHub", "getFileInfoInManifest error null");
                         return null;
                     }
-                    this.f28760c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
+                    this.f28768c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
                 }
-                JSONObject value = this.f28760c.getValue();
+                JSONObject value = this.f28768c.getValue();
                 String a3 = j.a(str2);
                 if (value.has(a3)) {
                     return value.getJSONObject(a3);

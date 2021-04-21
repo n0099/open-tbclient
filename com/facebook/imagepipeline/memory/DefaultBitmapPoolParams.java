@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultBitmapPoolParams {
     public static final SparseIntArray DEFAULT_BUCKETS = new SparseIntArray(0);
     public static final int MAX_SIZE_SOFT_CAP = 0;

@@ -25,8 +25,8 @@ import com.baidu.tieba.R;
 import d.b.c.a.j;
 import d.b.c.d.a;
 import d.b.c.f.a.i;
-import d.b.h0.m.d;
-import d.b.h0.z0.o;
+import d.b.i0.m.d;
+import d.b.i0.z0.o;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class GifView extends TbImageView implements Runnable, View.OnClickListener, i {
@@ -261,7 +261,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public float[] getRadius() {
-        return d.b.h0.r.u.d.a.b(this.a1);
+        return d.b.i0.r.u.d.a.b(this.a1);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
@@ -634,7 +634,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         if (bArr == null || bArr.length < i2) {
             return;
         }
-        d.b.c.j.d.a a2 = a.C0551a.b().a(bArr, 0, i2);
+        d.b.c.j.d.a a2 = a.C0570a.b().a(bArr, 0, i2);
         this.W0 = true;
         setGif(a2);
     }

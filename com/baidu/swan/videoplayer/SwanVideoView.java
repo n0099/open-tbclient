@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.videoplayer.widget.MediaController;
-import d.b.g0.s.a;
+import d.b.h0.s.a;
 import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -25,19 +25,19 @@ public class SwanVideoView extends FrameLayout {
     public MediaPlayer.OnErrorListener C;
     public MediaPlayer.OnBufferingUpdateListener D;
     public MediaPlayer.OnSeekCompleteListener E;
-    public a.InterfaceC1043a F;
+    public a.InterfaceC1063a F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12710e;
+    public int f12718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12711f;
+    public boolean f12719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Uri f12712g;
+    public Uri f12720g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f12713h;
+    public Map<String, String> f12721h;
     public MediaController i;
     public MediaPlayer j;
     public int k;
@@ -50,11 +50,11 @@ public class SwanVideoView extends FrameLayout {
     public ProgressBar r;
     public TextView s;
     public int t;
-    public d.b.g0.s.a u;
+    public d.b.h0.s.a u;
     public int v;
     public int w;
     public FrameLayout x;
-    public d.b.g0.s.h.a y;
+    public d.b.h0.s.h.a y;
     public MediaPlayer.OnPreparedListener z;
 
     /* loaded from: classes3.dex */
@@ -74,7 +74,7 @@ public class SwanVideoView extends FrameLayout {
             if (SwanVideoView.this.v != 0 && SwanVideoView.this.w != 0 && SwanVideoView.this.u != null) {
                 SwanVideoView.this.u.setVideoSize(SwanVideoView.this.v, SwanVideoView.this.w);
             }
-            if (SwanVideoView.this.f12711f) {
+            if (SwanVideoView.this.f12719f) {
                 SwanVideoView.this.C();
             }
         }
@@ -90,7 +90,7 @@ public class SwanVideoView extends FrameLayout {
             Log.d("SwanVideoView", "onCompletion");
             SwanVideoView.this.setCacheViewVisibility(false);
             SwanVideoView.this.setCurrentState(5);
-            SwanVideoView.this.f12711f = false;
+            SwanVideoView.this.f12719f = false;
             if (SwanVideoView.this.y != null) {
                 SwanVideoView.this.y.onEnd();
             }
@@ -128,7 +128,7 @@ public class SwanVideoView extends FrameLayout {
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
             Log.d("SwanVideoView", "onError: " + i + "," + i2);
             SwanVideoView.this.setCurrentState(-1);
-            SwanVideoView.this.f12711f = false;
+            SwanVideoView.this.f12719f = false;
             SwanVideoView.this.setCacheViewVisibility(false);
             if (SwanVideoView.this.y != null) {
                 SwanVideoView.this.y.onError(i, i2, null);
@@ -171,19 +171,19 @@ public class SwanVideoView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class g implements a.InterfaceC1043a {
+    public class g implements a.InterfaceC1063a {
         public g() {
         }
 
-        @Override // d.b.g0.s.a.InterfaceC1043a
+        @Override // d.b.h0.s.a.InterfaceC1063a
         public void a(a.b bVar, int i, int i2, int i3) {
         }
 
-        @Override // d.b.g0.s.a.InterfaceC1043a
+        @Override // d.b.h0.s.a.InterfaceC1063a
         public void b(a.b bVar) {
         }
 
-        @Override // d.b.g0.s.a.InterfaceC1043a
+        @Override // d.b.h0.s.a.InterfaceC1063a
         public void c(a.b bVar, int i, int i2) {
             if (bVar.b() == SwanVideoView.this.u && SwanVideoView.this.j != null) {
                 SwanVideoView swanVideoView = SwanVideoView.this;
@@ -194,7 +194,7 @@ public class SwanVideoView extends FrameLayout {
 
     public SwanVideoView(Context context) {
         super(context);
-        this.f12710e = 0;
+        this.f12718e = 0;
         this.m = -1;
         this.p = true;
         this.t = 0;
@@ -219,8 +219,8 @@ public class SwanVideoView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCurrentState(int i) {
-        if (this.f12710e != i) {
-            this.f12710e = i;
+        if (this.f12718e != i) {
+            this.f12718e = i;
             MediaController mediaController = this.i;
             if (mediaController != null) {
                 mediaController.s();
@@ -231,7 +231,7 @@ public class SwanVideoView extends FrameLayout {
     public final void A() {
         try {
             this.j.reset();
-            this.j.setDataSource(this.l, this.f12712g, this.f12713h);
+            this.j.setDataSource(this.l, this.f12720g, this.f12721h);
             this.j.prepareAsync();
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -252,12 +252,12 @@ public class SwanVideoView extends FrameLayout {
         if (this.j == null) {
             return;
         }
-        int i = this.f12710e;
+        int i = this.f12718e;
         if (i != -1 && i != 5) {
             if (t()) {
-                d.b.g0.s.h.a aVar = this.y;
+                d.b.h0.s.h.a aVar = this.y;
                 if (aVar != null) {
-                    if (this.f12710e == 4) {
+                    if (this.f12718e == 4) {
                         aVar.onResume();
                     } else {
                         aVar.onStart();
@@ -267,14 +267,14 @@ public class SwanVideoView extends FrameLayout {
                 setCurrentState(3);
             }
         } else {
-            if (this.f12710e == 5) {
+            if (this.f12718e == 5) {
                 this.j.stop();
             }
             A();
             setCacheViewVisibility(true);
             setCurrentState(1);
         }
-        this.f12711f = true;
+        this.f12719f = true;
     }
 
     public void D() {
@@ -282,7 +282,7 @@ public class SwanVideoView extends FrameLayout {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
             z();
-            this.f12711f = false;
+            this.f12719f = false;
         }
     }
 
@@ -297,7 +297,7 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public Bitmap getBitmap() {
-        d.b.g0.s.a aVar = this.u;
+        d.b.h0.s.a aVar = this.u;
         if (aVar != null) {
             return aVar.getBitmap();
         }
@@ -312,11 +312,11 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public int getCurrentPlayerState() {
-        return this.f12710e;
+        return this.f12718e;
     }
 
     public String getCurrentPlayingUrl() {
-        Uri uri = this.f12712g;
+        Uri uri = this.f12720g;
         if (uri != null) {
             return uri.toString();
         }
@@ -341,7 +341,7 @@ public class SwanVideoView extends FrameLayout {
         return this.j.getVideoHeight();
     }
 
-    public d.b.g0.s.h.a getVideoPlayerCallback() {
+    public d.b.h0.s.h.a getVideoPlayerCallback() {
         return this.y;
     }
 
@@ -369,7 +369,7 @@ public class SwanVideoView extends FrameLayout {
         TextView textView = new TextView(getContext());
         this.s = textView;
         textView.setTextColor(-1);
-        this.s.setText(d.b.g0.s.f.laoding);
+        this.s.setText(d.b.h0.s.f.laoding);
         this.s.setGravity(1);
         this.q.addView(this.s, layoutParams3);
     }
@@ -425,7 +425,7 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public void setHeaders(Map<String, String> map) {
-        this.f12713h = map;
+        this.f12721h = map;
     }
 
     public void setInitPlayPosition(int i) {
@@ -468,7 +468,7 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public void setRenderView(d.b.g0.s.a aVar) {
+    public void setRenderView(d.b.h0.s.a aVar) {
         int i;
         if (this.u != null) {
             MediaPlayer mediaPlayer = this.j;
@@ -502,20 +502,20 @@ public class SwanVideoView extends FrameLayout {
 
     public void setVideoPath(String str) {
         Uri parse = Uri.parse(str);
-        this.f12712g = parse;
+        this.f12720g = parse;
         if (parse == null) {
             return;
         }
         MediaPlayer mediaPlayer = this.j;
         if (mediaPlayer != null) {
             try {
-                mediaPlayer.setDataSource(this.l, parse, this.f12713h);
+                mediaPlayer.setDataSource(this.l, parse, this.f12721h);
                 this.j.prepareAsync();
                 setCacheViewVisibility(true);
                 setCurrentState(1);
             } catch (IOException unused) {
                 setCurrentState(-1);
-                this.f12711f = false;
+                this.f12719f = false;
                 this.C.onError(this.j, 1, 0);
             }
         }
@@ -523,7 +523,7 @@ public class SwanVideoView extends FrameLayout {
         invalidate();
     }
 
-    public void setVideoPlayerCallback(d.b.g0.s.h.a aVar) {
+    public void setVideoPlayerCallback(d.b.h0.s.h.a aVar) {
         this.y = aVar;
         MediaController mediaController = this.i;
         if (mediaController != null) {
@@ -543,7 +543,7 @@ public class SwanVideoView extends FrameLayout {
         } else {
             this.t = 3;
         }
-        d.b.g0.s.a aVar = this.u;
+        d.b.h0.s.a aVar = this.u;
         if (aVar != null) {
             aVar.setAspectRatio(this.t);
         }
@@ -558,7 +558,7 @@ public class SwanVideoView extends FrameLayout {
 
     public final boolean t() {
         int i;
-        return (this.j == null || (i = this.f12710e) == -1 || i == 0 || i == 1) ? false : true;
+        return (this.j == null || (i = this.f12718e) == -1 || i == 0 || i == 1) ? false : true;
     }
 
     public boolean u() {
@@ -584,7 +584,7 @@ public class SwanVideoView extends FrameLayout {
             this.j.setScreenOnWhilePlaying(true);
         } catch (IllegalArgumentException unused) {
             setCurrentState(-1);
-            this.f12711f = false;
+            this.f12719f = false;
             this.C.onError(this.j, 1, 0);
         }
     }
@@ -594,8 +594,8 @@ public class SwanVideoView extends FrameLayout {
             this.j.pause();
             setCurrentState(4);
         }
-        this.f12711f = false;
-        d.b.g0.s.h.a aVar = this.y;
+        this.f12719f = false;
+        d.b.h0.s.h.a aVar = this.y;
         if (aVar != null) {
             aVar.onPause();
         }
@@ -603,8 +603,8 @@ public class SwanVideoView extends FrameLayout {
 
     public void y() {
         z();
-        this.f12711f = false;
-        d.b.g0.s.a aVar = this.u;
+        this.f12719f = false;
+        d.b.h0.s.a aVar = this.u;
         if (aVar != null) {
             aVar.release();
         }
@@ -635,7 +635,7 @@ public class SwanVideoView extends FrameLayout {
 
     public SwanVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12710e = 0;
+        this.f12718e = 0;
         this.m = -1;
         this.p = true;
         this.t = 0;
@@ -651,7 +651,7 @@ public class SwanVideoView extends FrameLayout {
 
     public SwanVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12710e = 0;
+        this.f12718e = 0;
         this.m = -1;
         this.p = true;
         this.t = 0;

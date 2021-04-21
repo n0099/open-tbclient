@@ -23,16 +23,16 @@ import com.baidu.tieba.R;
 public class PersonCenterGuideView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21837e;
+    public boolean f21845e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f21838f;
+    public TbImageView f21846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21839g;
+    public TextView f21847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21840h;
+    public ImageView f21848h;
     public View i;
     public RotateAnimation j;
     public AlphaAnimation k;
@@ -71,20 +71,20 @@ public class PersonCenterGuideView extends RelativeLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (PersonCenterGuideView.this.f21837e) {
+            if (PersonCenterGuideView.this.f21845e) {
                 return;
             }
-            PersonCenterGuideView.this.f21837e = true;
+            PersonCenterGuideView.this.f21845e = true;
             PersonCenterGuideView.this.setVisibility(0);
             PersonCenterGuideView.this.i.setVisibility(4);
-            PersonCenterGuideView.this.f21838f.startAnimation(PersonCenterGuideView.this.l);
-            d.b.h0.r.d0.b.j().t("has_shown_person_center_guide", PersonCenterGuideView.this.f21837e);
+            PersonCenterGuideView.this.f21846f.startAnimation(PersonCenterGuideView.this.l);
+            d.b.i0.r.d0.b.j().t("has_shown_person_center_guide", PersonCenterGuideView.this.f21845e);
         }
     }
 
     public PersonCenterGuideView(Context context) {
         super(context);
-        this.f21837e = false;
+        this.f21845e = false;
         this.p = new a();
         this.q = new b(2921423);
         i(context);
@@ -117,11 +117,11 @@ public class PersonCenterGuideView extends RelativeLayout {
     public final void i(Context context) {
         LayoutInflater.from(context).inflate(R.layout.person_center_header_guide_layout, this);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
-        this.f21838f = tbImageView;
+        this.f21846f = tbImageView;
         tbImageView.setIsRound(true);
         this.i = findViewById(R.id.person_center_header_guide_tip_container);
-        this.f21839g = (TextView) findViewById(R.id.person_center_header_guide_tip);
-        this.f21840h = (ImageView) findViewById(R.id.person_center_header_guide_close);
+        this.f21847g = (TextView) findViewById(R.id.person_center_header_guide_tip);
+        this.f21848h = (ImageView) findViewById(R.id.person_center_header_guide_close);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
         this.j = rotateAnimation;
         rotateAnimation.setDuration(660L);
@@ -133,20 +133,20 @@ public class PersonCenterGuideView extends RelativeLayout {
         this.l = animationSet;
         animationSet.addAnimation(this.j);
         this.l.addAnimation(this.k);
-        this.f21837e = d.b.h0.r.d0.b.j().g("has_shown_person_center_guide", false);
+        this.f21845e = d.b.i0.r.d0.b.j().g("has_shown_person_center_guide", false);
     }
 
     public void j() {
-        SkinManager.setImageResource(this.f21838f, R.drawable.person_center_head_guide_circle);
-        SkinManager.setImageResource(this.f21840h, R.drawable.icon_topbar_close_white_n);
-        SkinManager.setViewTextColor(this.f21839g, R.color.CAM_X0101, 1);
+        SkinManager.setImageResource(this.f21846f, R.drawable.person_center_head_guide_circle);
+        SkinManager.setImageResource(this.f21848h, R.drawable.icon_topbar_close_white_n);
+        SkinManager.setViewTextColor(this.f21847g, R.color.CAM_X0101, 1);
         SkinManager.setBackgroundResource(this.i, R.drawable.person_center_header_guide_tip_bg);
     }
 
     public final void k() {
         this.i.setVisibility(0);
         if (this.m == null) {
-            this.m = ObjectAnimator.ofFloat(this.i, "translationX", -this.f21839g.getWidth(), 0.0f);
+            this.m = ObjectAnimator.ofFloat(this.i, "translationX", -this.f21847g.getWidth(), 0.0f);
         }
         if (this.o == null) {
             this.n = ObjectAnimator.ofFloat(this.i, "alpha", 0.0f, 1.0f);
@@ -175,7 +175,7 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     public PersonCenterGuideView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21837e = false;
+        this.f21845e = false;
         this.p = new a();
         this.q = new b(2921423);
         i(context);
@@ -183,7 +183,7 @@ public class PersonCenterGuideView extends RelativeLayout {
 
     public PersonCenterGuideView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21837e = false;
+        this.f21845e = false;
         this.p = new a();
         this.q = new b(2921423);
         i(context);

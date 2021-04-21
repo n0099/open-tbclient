@@ -26,22 +26,22 @@ import java.util.ArrayList;
 public class KSNativeAdVideoAppDownloadView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30490a;
+    public TextView f30585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f30491b;
+    public FrameLayout f30586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30492c;
+    public ImageView f30587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30493d;
+    public ImageView f30588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f30494e;
+    public TextView f30589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f30495f;
+    public Button f30590f;
 
     public KSNativeAdVideoAppDownloadView(Context context) {
         this(context, null);
@@ -59,7 +59,7 @@ public class KSNativeAdVideoAppDownloadView extends c {
     public void a(Activity activity, KsNativeAd ksNativeAd, KsNativeAd.AdInteractionListener adInteractionListener) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
-        arrayList.add(this.f30495f);
+        arrayList.add(this.f30590f);
         ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
         View videoView = ksNativeAd.getVideoView(activity, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
         d.b("KSNativeAd video videoView: " + videoView, new Object[0]);
@@ -67,18 +67,18 @@ public class KSNativeAdVideoAppDownloadView extends c {
             ((ViewGroup) videoView.getParent()).removeView(videoView);
         }
         if (videoView != null) {
-            this.f30491b.removeAllViews();
-            this.f30491b.addView(videoView);
+            this.f30586b.removeAllViews();
+            this.f30586b.addView(videoView);
         }
-        this.f30492c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30490a.setText(ksNativeAd.getAdDescription());
+        this.f30587c.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f30585a.setText(ksNativeAd.getAdDescription());
         if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-            this.f30493d.setVisibility(8);
+            this.f30588d.setVisibility(8);
         } else {
-            this.f30493d.setVisibility(0);
+            this.f30588d.setVisibility(0);
             Context context = getContext();
             String appIconUrl = ksNativeAd.getAppIconUrl();
-            ImageView imageView = this.f30493d;
+            ImageView imageView = this.f30588d;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + appIconUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -92,29 +92,29 @@ public class KSNativeAdVideoAppDownloadView extends c {
                 Glide.with(context).load(appIconUrl).into(imageView);
             }
         }
-        this.f30494e.setText(ksNativeAd.getAppName());
-        this.f30495f.setText(ksNativeAd.getActionDescription());
-        ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.f30495f));
+        this.f30589e.setText(ksNativeAd.getAppName());
+        this.f30590f.setText(ksNativeAd.getActionDescription());
+        ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.f30590f));
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30490a = (TextView) findViewById(R.id.ad_description);
-        this.f30491b = (FrameLayout) findViewById(R.id.ad_video);
-        this.f30492c = (ImageView) findViewById(R.id.ad_logo);
-        this.f30493d = (ImageView) findViewById(R.id.ad_app_icon);
-        this.f30494e = (TextView) findViewById(R.id.ad_app_title);
-        this.f30495f = (Button) findViewById(R.id.ad_app_download);
+        this.f30585a = (TextView) findViewById(R.id.ad_description);
+        this.f30586b = (FrameLayout) findViewById(R.id.ad_video);
+        this.f30587c = (ImageView) findViewById(R.id.ad_logo);
+        this.f30588d = (ImageView) findViewById(R.id.ad_app_icon);
+        this.f30589e = (TextView) findViewById(R.id.ad_app_title);
+        this.f30590f = (Button) findViewById(R.id.ad_app_download);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30491b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30586b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / 1.78f);
-        this.f30491b.setLayoutParams(layoutParams);
+        this.f30586b.setLayoutParams(layoutParams);
     }
 }

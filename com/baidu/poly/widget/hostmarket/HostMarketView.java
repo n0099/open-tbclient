@@ -13,10 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
-import d.b.z.f;
-import d.b.z.g;
-import d.b.z.h;
-import d.b.z.k.j.a;
+import d.b.a0.f;
+import d.b.a0.g;
+import d.b.a0.h;
+import d.b.a0.k.j.a;
 import java.text.DecimalFormat;
 /* loaded from: classes2.dex */
 public class HostMarketView extends FrameLayout {
@@ -39,9 +39,9 @@ public class HostMarketView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(a.C1807a c1807a);
+        void a(a.C0559a c0559a);
 
-        void b(boolean z, o oVar, d.b.z.k.j.a aVar);
+        void b(boolean z, o oVar, d.b.a0.k.j.a aVar);
     }
 
     /* loaded from: classes2.dex */
@@ -56,17 +56,17 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements d.b.z.k.j.a {
+    public class c implements d.b.a0.k.j.a {
         public c() {
         }
 
-        @Override // d.b.z.k.j.a
-        public void a(a.C1807a c1807a) {
-            HostMarketView.this.k.a(c1807a);
-            if (c1807a == null) {
+        @Override // d.b.a0.k.j.a
+        public void a(a.C0559a c0559a) {
+            HostMarketView.this.k.a(c0559a);
+            if (c0559a == null) {
                 return;
             }
-            if (c1807a.f65734a == 0) {
+            if (c0559a.f42036a == 0) {
                 if (HostMarketView.this.i.isChecked()) {
                     HostMarketView.this.f10032h.setVisibility(0);
                 } else {
@@ -121,7 +121,7 @@ public class HostMarketView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        d.b.z.k.d.b.c().b(this.f10029e, this.j.getIcon());
+        d.b.a0.k.d.b.c().b(this.f10029e, this.j.getIcon());
         this.f10030f.setText(this.j.getDisplayName());
         this.f10031g.setText(this.j.S());
         if (!TextUtils.isEmpty(this.j.M())) {

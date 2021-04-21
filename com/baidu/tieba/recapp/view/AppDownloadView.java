@@ -18,22 +18,22 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
-import d.b.i0.s2.a0.e;
+import d.b.j0.s2.a0.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AppDownloadView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20544e;
+    public TextView f20552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f20545f;
+    public ProgressBar f20553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20546g;
+    public ImageView f20554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20547h;
+    public TextView f20555h;
     public DownloadData i;
     public CustomMessageListener j;
     public CustomMessageListener k;
@@ -42,10 +42,10 @@ public class AppDownloadView extends LinearLayout {
     public static abstract class AppDownloadListener implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AppDownloadView f20550e;
+        public AppDownloadView f20558e;
 
         public void setAppDownloadView(AppDownloadView appDownloadView) {
-            this.f20550e = appDownloadView;
+            this.f20558e = appDownloadView;
         }
     }
 
@@ -64,10 +64,10 @@ public class AppDownloadView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         View inflate = LayoutInflater.from(context).inflate(R.layout.app_download_layout, (ViewGroup) this, true);
-        this.f20544e = (TextView) inflate.findViewById(R.id.app_push_title);
-        this.f20545f = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
-        this.f20546g = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
-        this.f20547h = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
+        this.f20552e = (TextView) inflate.findViewById(R.id.app_push_title);
+        this.f20553f = (ProgressBar) inflate.findViewById(R.id.frs_app_push_progress);
+        this.f20554g = (ImageView) inflate.findViewById(R.id.frs_app_push_control);
+        this.f20555h = (TextView) inflate.findViewById(R.id.frs_app_push_percent);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -78,7 +78,7 @@ public class AppDownloadView extends LinearLayout {
         int status = downloadData.getStatus();
         if (status == 1) {
             setVisibility(0);
-            SkinManager.setImageResource(this.f20546g, R.drawable.icon_download_pause);
+            SkinManager.setImageResource(this.f20554g, R.drawable.icon_download_pause);
         } else if (status == 3) {
             setVisibility(8);
         } else if (status == 5) {
@@ -87,7 +87,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(8);
         } else if (status == 7) {
             setVisibility(0);
-            SkinManager.setImageResource(this.f20546g, R.drawable.icon_download_play);
+            SkinManager.setImageResource(this.f20554g, R.drawable.icon_download_play);
         }
         int j = e.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
@@ -140,9 +140,9 @@ public class AppDownloadView extends LinearLayout {
                     }
                     int p = e.p(downloadData);
                     if (p == 7) {
-                        SkinManager.setImageResource(AppDownloadView.this.f20546g, R.drawable.icon_download_pause);
+                        SkinManager.setImageResource(AppDownloadView.this.f20554g, R.drawable.icon_download_pause);
                     } else if (p == 1) {
-                        SkinManager.setImageResource(AppDownloadView.this.f20546g, R.drawable.icon_download_play);
+                        SkinManager.setImageResource(AppDownloadView.this.f20554g, R.drawable.icon_download_play);
                     }
                 }
             };
@@ -169,8 +169,8 @@ public class AppDownloadView extends LinearLayout {
 
     public final void h(int i) {
         int max = Math.max(0, i);
-        this.f20545f.setProgress(max);
-        TextView textView = this.f20547h;
+        this.f20553f.setProgress(max);
+        TextView textView = this.f20555h;
         textView.setText(max + "%");
     }
 
@@ -181,10 +181,10 @@ public class AppDownloadView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        SkinManager.setViewTextColor(this.f20544e, R.color.CAM_X0108, 1, i);
-        this.f20545f.setProgressDrawable(SkinManager.getDrawable(i, R.drawable.progress_download_app_layerlist));
-        SkinManager.setImageResource(this.f20546g, R.drawable.icon_download_play, i);
-        SkinManager.setViewTextColor(this.f20547h, R.color.CAM_X0109, 1, i);
+        SkinManager.setViewTextColor(this.f20552e, R.color.CAM_X0108, 1, i);
+        this.f20553f.setProgressDrawable(SkinManager.getDrawable(i, R.drawable.progress_download_app_layerlist));
+        SkinManager.setImageResource(this.f20554g, R.drawable.icon_download_play, i);
+        SkinManager.setViewTextColor(this.f20555h, R.color.CAM_X0109, 1, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -195,9 +195,9 @@ public class AppDownloadView extends LinearLayout {
 
     public void refreshControlIcon(int i) {
         if (i == 1) {
-            SkinManager.setImageResource(this.f20546g, R.drawable.icon_download_pause);
+            SkinManager.setImageResource(this.f20554g, R.drawable.icon_download_pause);
         } else {
-            SkinManager.setImageResource(this.f20546g, R.drawable.icon_download_play);
+            SkinManager.setImageResource(this.f20554g, R.drawable.icon_download_play);
         }
     }
 
@@ -225,7 +225,7 @@ public class AppDownloadView extends LinearLayout {
     }
 
     public void showTitleView(int i) {
-        this.f20544e.setVisibility(i);
+        this.f20552e.setVisibility(i);
     }
 
     public AppDownloadView(Context context, AttributeSet attributeSet) {

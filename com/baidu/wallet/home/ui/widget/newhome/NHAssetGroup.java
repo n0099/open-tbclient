@@ -23,7 +23,7 @@ import java.util.List;
 public class NHAssetGroup extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f24395a;
+    public List<BaseItemView> f24403a;
     public ImageView mEye;
     public NetImageView mGroupCorner;
     public MaskTextView mGroupDesc;
@@ -36,12 +36,12 @@ public class NHAssetGroup extends BaseItemLayout {
 
     public NHAssetGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24395a = new ArrayList();
+        this.f24403a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24395a;
+        return this.f24403a;
     }
 
     public void initItems() {
@@ -62,7 +62,7 @@ public class NHAssetGroup extends BaseItemLayout {
                     LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, -1);
                     layoutParams4.setMargins(dip2px, 0, dip2px2, 0);
                     this.mItemPanel.addView(nHAssetItem, layoutParams4);
-                    this.f24395a.add(nHAssetItem);
+                    this.f24403a.add(nHAssetItem);
                     return;
                 }
                 this.mItemPanel.setVisibility(0);
@@ -110,8 +110,8 @@ public class NHAssetGroup extends BaseItemLayout {
                 layoutParams.setMargins(dip2px3, 0, dip2px2, 0);
                 this.mItemPanel.addView(nHAssetItem2, layoutParams5);
                 this.mItemPanel.addView(nHAssetItem3, layoutParams);
-                this.f24395a.add(nHAssetItem2);
-                this.f24395a.add(nHAssetItem3);
+                this.f24403a.add(nHAssetItem2);
+                this.f24403a.add(nHAssetItem3);
                 return;
             }
         }
@@ -222,6 +222,6 @@ public class NHAssetGroup extends BaseItemLayout {
 
     public NHAssetGroup(Context context) {
         super(context);
-        this.f24395a = new ArrayList();
+        this.f24403a = new ArrayList();
     }
 }

@@ -7,33 +7,33 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class a<R> implements i<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<f.b.t.b> f68525e;
+    public final AtomicReference<f.b.t.b> f68672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i<? super R> f68526f;
+    public final i<? super R> f68673f;
 
     public a(AtomicReference<f.b.t.b> atomicReference, i<? super R> iVar) {
-        this.f68525e = atomicReference;
-        this.f68526f = iVar;
+        this.f68672e = atomicReference;
+        this.f68673f = iVar;
     }
 
     @Override // f.b.i
     public void onComplete() {
-        this.f68526f.onComplete();
+        this.f68673f.onComplete();
     }
 
     @Override // f.b.i
     public void onError(Throwable th) {
-        this.f68526f.onError(th);
+        this.f68673f.onError(th);
     }
 
     @Override // f.b.i
     public void onSubscribe(f.b.t.b bVar) {
-        DisposableHelper.replace(this.f68525e, bVar);
+        DisposableHelper.replace(this.f68672e, bVar);
     }
 
     @Override // f.b.i
     public void onSuccess(R r) {
-        this.f68526f.onSuccess(r);
+        this.f68673f.onSuccess(r);
     }
 }

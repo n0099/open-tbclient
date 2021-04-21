@@ -25,13 +25,13 @@ public class a extends Drawable implements Animatable {
     public static final int[] r = {-16777216};
 
     /* renamed from: f  reason: collision with root package name */
-    public final d f42952f;
+    public final d f43192f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f42953g;
+    public float f43193g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Resources f42954h;
+    public Resources f43194h;
     public View i;
     public Animation j;
     public float k;
@@ -40,41 +40,41 @@ public class a extends Drawable implements Animatable {
     public boolean n;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<Animation> f42951e = new ArrayList<>();
+    public final ArrayList<Animation> f43191e = new ArrayList<>();
     public final Drawable.Callback o = new c();
 
     /* renamed from: d.b.c.j.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0570a extends Animation {
+    public class C0589a extends Animation {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f42955e;
+        public final /* synthetic */ d f43195e;
 
-        public C0570a(d dVar) {
-            this.f42955e = dVar;
+        public C0589a(d dVar) {
+            this.f43195e = dVar;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             a aVar = a.this;
             if (aVar.n) {
-                aVar.a(f2, this.f42955e);
+                aVar.a(f2, this.f43195e);
                 return;
             }
-            float c2 = aVar.c(this.f42955e);
-            float j = this.f42955e.j();
-            float l = this.f42955e.l();
-            float k = this.f42955e.k();
-            a.this.m(f2, this.f42955e);
+            float c2 = aVar.c(this.f43195e);
+            float j = this.f43195e.j();
+            float l = this.f43195e.l();
+            float k = this.f43195e.k();
+            a.this.m(f2, this.f43195e);
             if (f2 <= 0.5f) {
                 Interpolator interpolator = a.q;
-                this.f42955e.D(l + ((0.8f - c2) * interpolator.getInterpolation(f2 / 0.5f)));
+                this.f43195e.D(l + ((0.8f - c2) * interpolator.getInterpolation(f2 / 0.5f)));
             }
             if (f2 > 0.5f) {
                 Interpolator interpolator2 = a.q;
-                this.f42955e.z(j + ((0.8f - c2) * interpolator2.getInterpolation((f2 - 0.5f) / 0.5f)));
+                this.f43195e.z(j + ((0.8f - c2) * interpolator2.getInterpolation((f2 - 0.5f) / 0.5f)));
             }
-            this.f42955e.B(k + (0.25f * f2));
+            this.f43195e.B(k + (0.25f * f2));
             a aVar2 = a.this;
             aVar2.h((f2 * 216.0f) + ((aVar2.k / 5.0f) * 1080.0f));
         }
@@ -84,10 +84,10 @@ public class a extends Drawable implements Animatable {
     public class b implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f42957a;
+        public final /* synthetic */ d f43197a;
 
         public b(d dVar) {
-            this.f42957a = dVar;
+            this.f43197a = dVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -96,15 +96,15 @@ public class a extends Drawable implements Animatable {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
-            this.f42957a.F();
-            this.f42957a.n();
-            d dVar = this.f42957a;
+            this.f43197a.F();
+            this.f43197a.n();
+            d dVar = this.f43197a;
             dVar.D(dVar.e());
             a aVar = a.this;
             if (aVar.n) {
                 aVar.n = false;
                 animation.setDuration(1332L);
-                this.f42957a.C(false);
+                this.f43197a.C(false);
                 return;
             }
             aVar.k = (aVar.k + 1.0f) % 5.0f;
@@ -141,7 +141,7 @@ public class a extends Drawable implements Animatable {
     public static class d {
 
         /* renamed from: d  reason: collision with root package name */
-        public final Drawable.Callback f42963d;
+        public final Drawable.Callback f43203d;
         public int[] j;
         public int k;
         public float l;
@@ -158,45 +158,45 @@ public class a extends Drawable implements Animatable {
         public int x;
 
         /* renamed from: a  reason: collision with root package name */
-        public final RectF f42960a = new RectF();
+        public final RectF f43200a = new RectF();
 
         /* renamed from: b  reason: collision with root package name */
-        public final Paint f42961b = new Paint();
+        public final Paint f43201b = new Paint();
 
         /* renamed from: c  reason: collision with root package name */
-        public final Paint f42962c = new Paint();
+        public final Paint f43202c = new Paint();
 
         /* renamed from: e  reason: collision with root package name */
-        public float f42964e = 0.0f;
+        public float f43204e = 0.0f;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f42965f = 0.0f;
+        public float f43205f = 0.0f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f42966g = 0.0f;
+        public float f43206g = 0.0f;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f42967h = 5.0f;
+        public float f43207h = 5.0f;
         public float i = 2.5f;
         public final Paint v = new Paint(1);
 
         public d(Drawable.Callback callback) {
-            this.f42963d = callback;
-            this.f42961b.setStrokeCap(Paint.Cap.SQUARE);
-            this.f42961b.setAntiAlias(true);
-            this.f42961b.setStyle(Paint.Style.STROKE);
-            this.f42962c.setStyle(Paint.Style.FILL);
-            this.f42962c.setAntiAlias(true);
+            this.f43203d = callback;
+            this.f43201b.setStrokeCap(Paint.Cap.SQUARE);
+            this.f43201b.setAntiAlias(true);
+            this.f43201b.setStyle(Paint.Style.STROKE);
+            this.f43202c.setStyle(Paint.Style.FILL);
+            this.f43202c.setAntiAlias(true);
         }
 
         public void A(int i, int i2) {
             float min = Math.min(i, i2);
             double d2 = this.r;
-            this.i = (float) ((d2 <= 0.0d || min < 0.0f) ? Math.ceil(this.f42967h / 2.0f) : (min / 2.0f) - d2);
+            this.i = (float) ((d2 <= 0.0d || min < 0.0f) ? Math.ceil(this.f43207h / 2.0f) : (min / 2.0f) - d2);
         }
 
         public void B(float f2) {
-            this.f42966g = f2;
+            this.f43206g = f2;
             o();
         }
 
@@ -208,33 +208,33 @@ public class a extends Drawable implements Animatable {
         }
 
         public void D(float f2) {
-            this.f42964e = f2;
+            this.f43204e = f2;
             o();
         }
 
         public void E(float f2) {
-            this.f42967h = f2;
-            this.f42961b.setStrokeWidth(f2);
+            this.f43207h = f2;
+            this.f43201b.setStrokeWidth(f2);
             o();
         }
 
         public void F() {
-            this.l = this.f42964e;
-            this.m = this.f42965f;
-            this.n = this.f42966g;
+            this.l = this.f43204e;
+            this.m = this.f43205f;
+            this.n = this.f43206g;
         }
 
         public void a(Canvas canvas, Rect rect) {
-            RectF rectF = this.f42960a;
+            RectF rectF = this.f43200a;
             rectF.set(rect);
             float f2 = this.i;
             rectF.inset(f2, f2);
-            float f3 = this.f42964e;
-            float f4 = this.f42966g;
+            float f3 = this.f43204e;
+            float f4 = this.f43206g;
             float f5 = (f3 + f4) * 360.0f;
-            float f6 = ((this.f42965f + f4) * 360.0f) - f5;
-            this.f42961b.setColor(this.x);
-            canvas.drawArc(rectF, f5, f6, false, this.f42961b);
+            float f6 = ((this.f43205f + f4) * 360.0f) - f5;
+            this.f43201b.setColor(this.x);
+            canvas.drawArc(rectF, f5, f6, false, this.f43201b);
             b(canvas, f5, f6, rect);
             if (this.u < 255) {
                 this.v.setColor(this.w);
@@ -262,9 +262,9 @@ public class a extends Drawable implements Animatable {
                 path3.lineTo((this.s * f5) / 2.0f, this.t * f5);
                 this.p.offset(((float) ((this.r * Math.cos(0.0d)) + rect.exactCenterX())) - f4, sin);
                 this.p.close();
-                this.f42962c.setColor(this.x);
+                this.f43202c.setColor(this.x);
                 canvas.rotate((f2 + f3) - 5.0f, rect.exactCenterX(), rect.exactCenterY());
-                canvas.drawPath(this.p, this.f42962c);
+                canvas.drawPath(this.p, this.f43202c);
             }
         }
 
@@ -277,7 +277,7 @@ public class a extends Drawable implements Animatable {
         }
 
         public float e() {
-            return this.f42965f;
+            return this.f43205f;
         }
 
         public int f() {
@@ -289,7 +289,7 @@ public class a extends Drawable implements Animatable {
         }
 
         public float h() {
-            return this.f42964e;
+            return this.f43204e;
         }
 
         public int i() {
@@ -309,7 +309,7 @@ public class a extends Drawable implements Animatable {
         }
 
         public float m() {
-            return this.f42967h;
+            return this.f43207h;
         }
 
         public void n() {
@@ -317,7 +317,7 @@ public class a extends Drawable implements Animatable {
         }
 
         public final void o() {
-            this.f42963d.invalidateDrawable(null);
+            this.f43203d.invalidateDrawable(null);
         }
 
         public void p() {
@@ -358,7 +358,7 @@ public class a extends Drawable implements Animatable {
         }
 
         public void w(ColorFilter colorFilter) {
-            this.f42961b.setColorFilter(colorFilter);
+            this.f43201b.setColorFilter(colorFilter);
             o();
         }
 
@@ -373,16 +373,16 @@ public class a extends Drawable implements Animatable {
         }
 
         public void z(float f2) {
-            this.f42965f = f2;
+            this.f43205f = f2;
             o();
         }
     }
 
     public a(Context context, View view) {
         this.i = view;
-        this.f42954h = context.getResources();
+        this.f43194h = context.getResources();
         d dVar = new d(this.o);
-        this.f42952f = dVar;
+        this.f43192f = dVar;
         dVar.y(r);
         n(1);
         k();
@@ -410,15 +410,15 @@ public class a extends Drawable implements Animatable {
     }
 
     public void d(float f2) {
-        this.f42952f.s(f2);
+        this.f43192f.s(f2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         Rect bounds = getBounds();
         int save = canvas.save();
-        canvas.rotate(this.f42953g, bounds.exactCenterX(), bounds.exactCenterY());
-        this.f42952f.a(canvas, bounds);
+        canvas.rotate(this.f43193g, bounds.exactCenterX(), bounds.exactCenterY());
+        this.f43192f.a(canvas, bounds);
         if (save < 1 || save > canvas.getSaveCount()) {
             return;
         }
@@ -426,21 +426,21 @@ public class a extends Drawable implements Animatable {
     }
 
     public void e(int i) {
-        this.f42952f.t(i);
+        this.f43192f.t(i);
     }
 
     public void f(int... iArr) {
-        this.f42952f.y(iArr);
-        this.f42952f.x(0);
+        this.f43192f.y(iArr);
+        this.f43192f.x(0);
     }
 
     public void g(float f2) {
-        this.f42952f.B(f2);
+        this.f43192f.B(f2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.f42952f.c();
+        return this.f43192f.c();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -459,13 +459,13 @@ public class a extends Drawable implements Animatable {
     }
 
     public void h(float f2) {
-        this.f42953g = f2;
+        this.f43193g = f2;
         invalidateSelf();
     }
 
     public final void i(double d2, double d3, double d4, double d5, float f2, float f3) {
-        d dVar = this.f42952f;
-        float f4 = this.f42954h.getDisplayMetrics().density;
+        d dVar = this.f43192f;
+        float f4 = this.f43194h.getDisplayMetrics().density;
         double d6 = f4;
         this.l = d2 * d6;
         this.m = d3 * d6;
@@ -478,7 +478,7 @@ public class a extends Drawable implements Animatable {
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        ArrayList<Animation> arrayList = this.f42951e;
+        ArrayList<Animation> arrayList = this.f43191e;
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             Animation animation = arrayList.get(i);
@@ -490,22 +490,22 @@ public class a extends Drawable implements Animatable {
     }
 
     public void j(float f2, float f3) {
-        this.f42952f.D(f2);
-        this.f42952f.z(f3);
+        this.f43192f.D(f2);
+        this.f43192f.z(f3);
     }
 
     public final void k() {
-        d dVar = this.f42952f;
-        C0570a c0570a = new C0570a(dVar);
-        c0570a.setRepeatCount(-1);
-        c0570a.setRepeatMode(1);
-        c0570a.setInterpolator(p);
-        c0570a.setAnimationListener(new b(dVar));
-        this.j = c0570a;
+        d dVar = this.f43192f;
+        C0589a c0589a = new C0589a(dVar);
+        c0589a.setRepeatCount(-1);
+        c0589a.setRepeatMode(1);
+        c0589a.setInterpolator(p);
+        c0589a.setAnimationListener(new b(dVar));
+        this.j = c0589a;
     }
 
     public void l(boolean z) {
-        this.f42952f.C(z);
+        this.f43192f.C(z);
     }
 
     public void m(float f2, d dVar) {
@@ -524,26 +524,26 @@ public class a extends Drawable implements Animatable {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.f42952f.q(i);
+        this.f43192f.q(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.f42952f.w(colorFilter);
+        this.f43192f.w(colorFilter);
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
         this.j.reset();
-        this.f42952f.F();
-        if (this.f42952f.e() != this.f42952f.h()) {
+        this.f43192f.F();
+        if (this.f43192f.e() != this.f43192f.h()) {
             this.n = true;
             this.j.setDuration(666L);
             this.i.startAnimation(this.j);
             return;
         }
-        this.f42952f.x(0);
-        this.f42952f.p();
+        this.f43192f.x(0);
+        this.f43192f.p();
         this.j.setDuration(1332L);
         this.i.startAnimation(this.j);
     }
@@ -552,8 +552,8 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         this.i.clearAnimation();
         h(0.0f);
-        this.f42952f.C(false);
-        this.f42952f.x(0);
-        this.f42952f.p();
+        this.f43192f.C(false);
+        this.f43192f.x(0);
+        this.f43192f.p();
     }
 }

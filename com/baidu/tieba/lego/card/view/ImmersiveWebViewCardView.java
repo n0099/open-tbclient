@@ -20,14 +20,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
 import d.b.c.e.p.l;
-import d.b.i0.s2.v;
+import d.b.j0.s2.v;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     public LinearLayout r;
     public BaseWebView s;
-    public d.b.i0.d3.l0.a t;
+    public d.b.j0.d3.l0.a t;
     public XiubaTbJsBridge u;
 
     /* loaded from: classes4.dex */
@@ -56,7 +56,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public ImmersiveWebViewCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.m = tbPageContext;
-        d.b.i0.d3.l0.a aVar = new d.b.i0.d3.l0.a();
+        d.b.j0.d3.l0.a aVar = new d.b.j0.d3.l0.a();
         this.t = aVar;
         aVar.a(new XiubaTbJsBridge(this.m));
         this.t.a(new CommonTbJsBridge(this.m.getPageActivity()));
@@ -140,7 +140,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.s, immersiveWebViewCard.getPageUrl());
         }
-        v.p().k().c(immersiveWebViewCard.getShowExtra(), this.f18314e);
+        v.p().k().c(immersiveWebViewCard.getShowExtra(), this.f18322e);
         immersiveWebViewCard.mHasShown = true;
     }
 

@@ -9,7 +9,7 @@ import d.b.c.e.l.b;
 import d.b.c.e.l.e;
 import d.b.c.e.p.l;
 import d.b.c.j.d.a;
-import d.b.h0.a0.c;
+import d.b.i0.a0.c;
 /* loaded from: classes3.dex */
 public class LocalFileImageLoaderProc2 implements e<a> {
     public int height;

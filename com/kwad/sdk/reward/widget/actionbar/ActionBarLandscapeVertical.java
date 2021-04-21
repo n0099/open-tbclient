@@ -26,28 +26,28 @@ import com.kwad.sdk.widget.KsLogoView;
 public class ActionBarLandscapeVertical extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f36780a;
+    public ViewGroup f36875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f36781b;
+    public ViewGroup f36876b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f36782c;
+    public ImageView f36877c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AppScoreView f36783d;
+    public AppScoreView f36878d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36784e;
+    public TextView f36879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f36785f;
+    public View f36880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f36786g;
+    public ViewGroup f36881g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f36787h;
+    public TextView f36882h;
     public TextView i;
     public TextView j;
     public TextProgressBar k;
@@ -81,14 +81,14 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_video_actionbar_landscape_vertical, this);
-        this.f36780a = (ViewGroup) findViewById(R.id.ksad_top_container);
-        this.f36781b = (ViewGroup) findViewById(R.id.ksad_top_outer);
-        this.f36782c = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f36783d = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f36784e = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f36785f = findViewById(R.id.ksad_video_place_holder);
-        this.f36786g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
-        this.f36787h = (TextView) findViewById(R.id.ksad_app_name);
+        this.f36875a = (ViewGroup) findViewById(R.id.ksad_top_container);
+        this.f36876b = (ViewGroup) findViewById(R.id.ksad_top_outer);
+        this.f36877c = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f36878d = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f36879e = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f36880f = findViewById(R.id.ksad_video_place_holder);
+        this.f36881g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
+        this.f36882h = (TextView) findViewById(R.id.ksad_app_name);
         this.i = (TextView) findViewById(R.id.ksad_product_name);
         this.j = (TextView) findViewById(R.id.ksad_app_desc);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
@@ -151,38 +151,38 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
         this.m.a(adTemplate);
         if (com.kwad.sdk.core.response.b.a.y(this.o)) {
             this.i.setVisibility(8);
-            this.f36780a.setVisibility(0);
-            this.f36780a.setOnClickListener(this);
-            textView = this.f36787h;
+            this.f36875a.setVisibility(0);
+            this.f36875a.setOnClickListener(this);
+            textView = this.f36882h;
             str = com.kwad.sdk.core.response.b.a.q(this.o);
         } else {
             this.i.setVisibility(0);
-            this.f36780a.setVisibility(8);
-            this.f36781b.setOnClickListener(this);
+            this.f36875a.setVisibility(8);
+            this.f36876b.setOnClickListener(this);
             textView = this.i;
             str = this.o.adBaseInfo.productName;
         }
         textView.setText(str);
         this.p = aVar;
         this.q = bVar;
-        KSImageLoader.loadAppIcon(this.f36782c, com.kwad.sdk.core.response.b.a.o(this.o), adTemplate, 16);
+        KSImageLoader.loadAppIcon(this.f36877c, com.kwad.sdk.core.response.b.a.o(this.o), adTemplate, 16);
         float u = com.kwad.sdk.core.response.b.a.u(this.o);
         if (u >= 3.0f) {
-            this.f36783d.setScore(u);
-            this.f36783d.setVisibility(0);
+            this.f36878d.setScore(u);
+            this.f36878d.setVisibility(0);
         } else {
-            this.f36783d.setVisibility(8);
+            this.f36878d.setVisibility(8);
         }
         String t = com.kwad.sdk.core.response.b.a.t(this.o);
         if (!TextUtils.isEmpty(t)) {
-            this.f36784e.setText(t);
-            this.f36784e.setVisibility(0);
+            this.f36879e.setText(t);
+            this.f36879e.setVisibility(0);
         } else {
-            this.f36784e.setVisibility(8);
+            this.f36879e.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.f36785f.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f36880f.getLayoutParams();
         layoutParams.width = i;
-        this.f36785f.setLayoutParams(layoutParams);
+        this.f36880f.setLayoutParams(layoutParams);
         this.j.setText(com.kwad.sdk.core.response.b.a.n(this.o));
         this.k.a(com.kwad.sdk.core.response.b.a.w(this.o), this.k.getMax());
         this.l.setVisibility(8);
@@ -190,14 +190,14 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
         if (bVar2 != null) {
             bVar2.a(getAppDownloadListener());
         }
-        this.f36786g.setOnClickListener(this);
+        this.f36881g.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.q, view == this.k);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.n, new a.InterfaceC0393a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0393a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.n, new a.InterfaceC0396a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0396a
             public void a() {
                 if (ActionBarLandscapeVertical.this.p != null) {
                     ActionBarLandscapeVertical.this.p.a();

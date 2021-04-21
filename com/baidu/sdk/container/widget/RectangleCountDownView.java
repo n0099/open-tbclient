@@ -8,7 +8,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import d.b.c0.a.k.h;
+import d.b.d0.a.k.h;
 @SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
 /* loaded from: classes2.dex */
 public class RectangleCountDownView extends AbsCountDownView {

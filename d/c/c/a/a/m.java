@@ -11,17 +11,17 @@ import kotlin.text.Typography;
 public final class m implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f65996e = new c();
+    public final c f66091e = new c();
 
     /* renamed from: f  reason: collision with root package name */
-    public final q f65997f;
+    public final q f66092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f65998g;
+    public boolean f66093g;
 
     public m(q qVar) {
         if (qVar != null) {
-            this.f65997f = qVar;
+            this.f66092f = qVar;
             return;
         }
         throw new NullPointerException("source == null");
@@ -31,12 +31,12 @@ public final class m implements e {
     public long a(c cVar, long j) throws IOException {
         if (cVar != null) {
             if (j >= 0) {
-                if (!this.f65998g) {
-                    c cVar2 = this.f65996e;
-                    if (cVar2.f65975f == 0 && this.f65997f.a(cVar2, 8192L) == -1) {
+                if (!this.f66093g) {
+                    c cVar2 = this.f66091e;
+                    if (cVar2.f66070f == 0 && this.f66092f.a(cVar2, 8192L) == -1) {
                         return -1L;
                     }
-                    return this.f65996e.a(cVar, Math.min(j, this.f65996e.f65975f));
+                    return this.f66091e.a(cVar, Math.min(j, this.f66091e.f66070f));
                 }
                 throw new IllegalStateException("closed");
             }
@@ -47,27 +47,27 @@ public final class m implements e {
 
     @Override // d.c.c.a.a.e
     public c c() {
-        return this.f65996e;
+        return this.f66091e;
     }
 
     @Override // d.c.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f65998g) {
+        if (this.f66093g) {
             return;
         }
-        this.f65998g = true;
-        this.f65997f.close();
-        this.f65996e.L();
+        this.f66093g = true;
+        this.f66092f.close();
+        this.f66091e.L();
     }
 
     public boolean d(long j, com.bytedance.sdk.a.a.f fVar, int i, int i2) throws IOException {
-        if (!this.f65998g) {
+        if (!this.f66093g) {
             if (j < 0 || i < 0 || i2 < 0 || fVar.g() - i < i2) {
                 return false;
             }
             for (int i3 = 0; i3 < i2; i3++) {
                 long j2 = i3 + j;
-                if (!l(1 + j2) || this.f65996e.u(j2) != fVar.a(i + i3)) {
+                if (!l(1 + j2) || this.f66091e.u(j2) != fVar.a(i + i3)) {
                     return false;
                 }
             }
@@ -78,30 +78,30 @@ public final class m implements e {
 
     @Override // d.c.c.a.a.e
     public boolean e() throws IOException {
-        if (this.f65998g) {
+        if (this.f66093g) {
             throw new IllegalStateException("closed");
         }
-        return this.f65996e.e() && this.f65997f.a(this.f65996e, 8192L) == -1;
+        return this.f66091e.e() && this.f66092f.a(this.f66091e, 8192L) == -1;
     }
 
     @Override // d.c.c.a.a.e
     public byte[] f(long j) throws IOException {
         a(j);
-        return this.f65996e.f(j);
+        return this.f66091e.f(j);
     }
 
     @Override // d.c.c.a.a.e
     public void g(long j) throws IOException {
-        if (this.f65998g) {
+        if (this.f66093g) {
             throw new IllegalStateException("closed");
         }
         while (j > 0) {
-            c cVar = this.f65996e;
-            if (cVar.f65975f == 0 && this.f65997f.a(cVar, 8192L) == -1) {
+            c cVar = this.f66091e;
+            if (cVar.f66070f == 0 && this.f66092f.a(cVar, 8192L) == -1) {
                 throw new EOFException();
             }
-            long min = Math.min(j, this.f65996e.v());
-            this.f65996e.g(min);
+            long min = Math.min(j, this.f66091e.v());
+            this.f66091e.g(min);
             j -= min;
         }
     }
@@ -109,45 +109,45 @@ public final class m implements e {
     @Override // d.c.c.a.a.e
     public byte h() throws IOException {
         a(1L);
-        return this.f65996e.h();
+        return this.f66091e.h();
     }
 
     @Override // d.c.c.a.a.e
     public String i(Charset charset) throws IOException {
         if (charset != null) {
-            this.f65996e.l(this.f65997f);
-            return this.f65996e.i(charset);
+            this.f66091e.l(this.f66092f);
+            return this.f66091e.i(charset);
         }
         throw new IllegalArgumentException("charset == null");
     }
 
     @Override // java.nio.channels.Channel
     public boolean isOpen() {
-        return !this.f65998g;
+        return !this.f66093g;
     }
 
     @Override // d.c.c.a.a.e
     public int j() throws IOException {
         a(4L);
-        return this.f65996e.j();
+        return this.f66091e.j();
     }
 
     @Override // d.c.c.a.a.e
     public short k() throws IOException {
         a(2L);
-        return this.f65996e.k();
+        return this.f66091e.k();
     }
 
     public boolean l(long j) throws IOException {
         c cVar;
         if (j >= 0) {
-            if (!this.f65998g) {
+            if (!this.f66093g) {
                 do {
-                    cVar = this.f65996e;
-                    if (cVar.f65975f >= j) {
+                    cVar = this.f66091e;
+                    if (cVar.f66070f >= j) {
                         return true;
                     }
-                } while (this.f65997f.a(cVar, 8192L) != -1);
+                } while (this.f66092f.a(cVar, 8192L) != -1);
                 return false;
             }
             throw new IllegalStateException("closed");
@@ -173,13 +173,13 @@ public final class m implements e {
             if (!l(i2)) {
                 break;
             }
-            byte u = this.f65996e.u(i);
+            byte u = this.f66091e.u(i);
             if ((u < 48 || u > 57) && ((u < 97 || u > 102) && (u < 65 || u > 70))) {
                 break;
             }
             i = i2;
         }
-        return this.f65996e.m();
+        return this.f66091e.m();
     }
 
     @Override // d.c.c.a.a.e
@@ -189,21 +189,21 @@ public final class m implements e {
 
     @Override // java.nio.channels.ReadableByteChannel
     public int read(ByteBuffer byteBuffer) throws IOException {
-        c cVar = this.f65996e;
-        if (cVar.f65975f == 0 && this.f65997f.a(cVar, 8192L) == -1) {
+        c cVar = this.f66091e;
+        if (cVar.f66070f == 0 && this.f66092f.a(cVar, 8192L) == -1) {
             return -1;
         }
-        return this.f65996e.read(byteBuffer);
+        return this.f66091e.read(byteBuffer);
     }
 
     public String toString() {
-        return "buffer(" + this.f65997f + SmallTailInfo.EMOTION_SUFFIX;
+        return "buffer(" + this.f66092f + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     @Override // d.c.c.a.a.e
     public com.bytedance.sdk.a.a.f c(long j) throws IOException {
         a(j);
-        return this.f65996e.c(j);
+        return this.f66091e.c(j);
     }
 
     @Override // d.c.c.a.a.e
@@ -222,18 +222,18 @@ public final class m implements e {
     }
 
     public long c(byte b2, long j, long j2) throws IOException {
-        if (this.f65998g) {
+        if (this.f66093g) {
             throw new IllegalStateException("closed");
         }
         if (j < 0 || j2 < j) {
             throw new IllegalArgumentException(String.format("fromIndex=%s toIndex=%s", Long.valueOf(j), Long.valueOf(j2)));
         }
         while (j < j2) {
-            long e2 = this.f65996e.e(b2, j, j2);
+            long e2 = this.f66091e.e(b2, j, j2);
             if (e2 == -1) {
-                c cVar = this.f65996e;
-                long j3 = cVar.f65975f;
-                if (j3 >= j2 || this.f65997f.a(cVar, 8192L) == -1) {
+                c cVar = this.f66091e;
+                long j3 = cVar.f66070f;
+                if (j3 >= j2 || this.f66092f.a(cVar, 8192L) == -1) {
                     break;
                 }
                 j = Math.max(j, j3);
@@ -250,15 +250,15 @@ public final class m implements e {
             long j2 = j == Long.MAX_VALUE ? Long.MAX_VALUE : j + 1;
             long c2 = c((byte) 10, 0L, j2);
             if (c2 != -1) {
-                return this.f65996e.F(c2);
+                return this.f66091e.F(c2);
             }
-            if (j2 < Long.MAX_VALUE && l(j2) && this.f65996e.u(j2 - 1) == 13 && l(1 + j2) && this.f65996e.u(j2) == 10) {
-                return this.f65996e.F(j2);
+            if (j2 < Long.MAX_VALUE && l(j2) && this.f66091e.u(j2 - 1) == 13 && l(1 + j2) && this.f66091e.u(j2) == 10) {
+                return this.f66091e.F(j2);
             }
             c cVar = new c();
-            c cVar2 = this.f65996e;
+            c cVar2 = this.f66091e;
             cVar2.n(cVar, 0L, Math.min(32L, cVar2.v()));
-            throw new EOFException("\\n not found: limit=" + Math.min(this.f65996e.v(), j) + " content=" + cVar.I().e() + Typography.ellipsis);
+            throw new EOFException("\\n not found: limit=" + Math.min(this.f66091e.v(), j) + " content=" + cVar.I().e() + Typography.ellipsis);
         }
         throw new IllegalArgumentException("limit < 0: " + j);
     }
@@ -266,7 +266,7 @@ public final class m implements e {
     @Override // d.c.c.a.a.e
     public short i() throws IOException {
         a(2L);
-        return this.f65996e.i();
+        return this.f66091e.i();
     }
 
     /* loaded from: classes5.dex */
@@ -277,8 +277,8 @@ public final class m implements e {
         @Override // java.io.InputStream
         public int available() throws IOException {
             m mVar = m.this;
-            if (!mVar.f65998g) {
-                return (int) Math.min(mVar.f65996e.f65975f, 2147483647L);
+            if (!mVar.f66093g) {
+                return (int) Math.min(mVar.f66091e.f66070f, 2147483647L);
             }
             throw new IOException("closed");
         }
@@ -291,12 +291,12 @@ public final class m implements e {
         @Override // java.io.InputStream
         public int read() throws IOException {
             m mVar = m.this;
-            if (!mVar.f65998g) {
-                c cVar = mVar.f65996e;
-                if (cVar.f65975f == 0 && mVar.f65997f.a(cVar, 8192L) == -1) {
+            if (!mVar.f66093g) {
+                c cVar = mVar.f66091e;
+                if (cVar.f66070f == 0 && mVar.f66092f.a(cVar, 8192L) == -1) {
                     return -1;
                 }
-                return m.this.f65996e.h() & 255;
+                return m.this.f66091e.h() & 255;
             }
             throw new IOException("closed");
         }
@@ -307,14 +307,14 @@ public final class m implements e {
 
         @Override // java.io.InputStream
         public int read(byte[] bArr, int i, int i2) throws IOException {
-            if (!m.this.f65998g) {
+            if (!m.this.f66093g) {
                 s.c(bArr.length, i, i2);
                 m mVar = m.this;
-                c cVar = mVar.f65996e;
-                if (cVar.f65975f == 0 && mVar.f65997f.a(cVar, 8192L) == -1) {
+                c cVar = mVar.f66091e;
+                if (cVar.f66070f == 0 && mVar.f66092f.a(cVar, 8192L) == -1) {
                     return -1;
                 }
-                return m.this.f65996e.d(bArr, i, i2);
+                return m.this.f66091e.d(bArr, i, i2);
             }
             throw new IOException("closed");
         }
@@ -323,7 +323,7 @@ public final class m implements e {
     @Override // d.c.c.a.a.e
     public int l() throws IOException {
         a(4L);
-        return this.f65996e.l();
+        return this.f66091e.l();
     }
 
     @Override // d.c.c.a.a.e
@@ -337,12 +337,12 @@ public final class m implements e {
     public void a(byte[] bArr) throws IOException {
         try {
             a(bArr.length);
-            this.f65996e.a(bArr);
+            this.f66091e.a(bArr);
         } catch (EOFException e2) {
             int i = 0;
             while (true) {
-                c cVar = this.f65996e;
-                long j = cVar.f65975f;
+                c cVar = this.f66091e;
+                long j = cVar.f66070f;
                 if (j > 0) {
                     int d2 = cVar.d(bArr, i, (int) j);
                     if (d2 == -1) {
@@ -358,6 +358,6 @@ public final class m implements e {
 
     @Override // d.c.c.a.a.q
     public r a() {
-        return this.f65997f.a();
+        return this.f66092f.a();
     }
 }

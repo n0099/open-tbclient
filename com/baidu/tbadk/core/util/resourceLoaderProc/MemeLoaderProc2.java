@@ -18,7 +18,7 @@ import d.b.c.e.l.e;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
 import d.b.c.j.d.a;
-import d.b.h0.r.k;
+import d.b.i0.r.k;
 /* loaded from: classes3.dex */
 public class MemeLoaderProc2 implements e<a> {
     public boolean isFromCDN = true;
@@ -81,7 +81,7 @@ public class MemeLoaderProc2 implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(cVar);
-                    bVar.f42345a = diskCancelWorker;
+                    bVar.f42585a = diskCancelWorker;
                 }
             }
         }
@@ -100,7 +100,7 @@ public class MemeLoaderProc2 implements e<a> {
         if (aVar.u()) {
             aVar.A(i);
             aVar.z(i2);
-            d.b.h0.a0.c.k().d(str, aVar);
+            d.b.i0.a0.c.k().d(str, aVar);
         }
     }
 
@@ -119,7 +119,7 @@ public class MemeLoaderProc2 implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f42345a = diskCancelWorker;
+            bVar.f42585a = diskCancelWorker;
         }
         if (d.g().a(cVar)) {
             int i3 = j.H() ? 300 : 2000;
@@ -141,7 +141,7 @@ public class MemeLoaderProc2 implements e<a> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // d.b.c.e.l.e
     public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, d.b.h0.a0.c.k().m(str), i, i2);
+        a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, d.b.i0.a0.c.k().m(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
             return null;
         }
@@ -174,12 +174,12 @@ public class MemeLoaderProc2 implements e<a> {
         String str4 = str3;
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f42345a = webClient;
+            bVar.f42585a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
         boolean needCache = webClient.needCache();
-        if (downloadImageBytes != null || webClient.getResponse().f42294a) {
-            d.b.h0.a0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
+        if (downloadImageBytes != null || webClient.getResponse().f42534a) {
+            d.b.i0.a0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
             return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.A(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
         }
         return null;

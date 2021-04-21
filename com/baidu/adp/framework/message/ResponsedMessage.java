@@ -66,7 +66,7 @@ public abstract class ResponsedMessage<T> {
     public abstract boolean hasError();
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
-        if (i2 == h.f42014c) {
+        if (i2 == h.f42254c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

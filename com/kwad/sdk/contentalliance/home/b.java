@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicBoolean f32927a = new AtomicBoolean(false);
+    public static AtomicBoolean f33022a = new AtomicBoolean(false);
 
     @Nullable
     public static com.kwai.video.ksvodplayerkit.d.b a(AdTemplate adTemplate, int i) {
@@ -36,16 +36,16 @@ public class b {
     }
 
     public static void a(List<KsScene> list) {
-        if (list == null || list.isEmpty() || f32927a.get()) {
+        if (list == null || list.isEmpty() || f33022a.get()) {
             return;
         }
-        f32927a.set(true);
+        f33022a.set(true);
         h.a aVar = new h.a();
         for (KsScene ksScene : list) {
-            aVar.f34074a.add(new com.kwad.sdk.core.g.a.f(ksScene));
+            aVar.f34169a.add(new com.kwad.sdk.core.g.a.f(ksScene));
         }
-        aVar.f34075b = new com.kwad.sdk.core.g.a.c();
-        aVar.f34077d = new j(1);
+        aVar.f34170b = new com.kwad.sdk.core.g.a.c();
+        aVar.f34172d = new j(1);
         i.a(aVar, new e.a() { // from class: com.kwad.sdk.contentalliance.home.b.1
             @Override // com.kwad.sdk.core.g.e.a
             public void a(int i, String str) {
@@ -56,7 +56,7 @@ public class b {
             public void a(@NonNull AdResultData adResultData) {
                 com.kwad.sdk.core.d.a.a("ContentPreloadManager", "PhotoRequestManager onSuccess");
                 if (adResultData.result != 1) {
-                    com.kwad.sdk.core.network.f fVar = com.kwad.sdk.core.network.f.f34160c;
+                    com.kwad.sdk.core.network.f fVar = com.kwad.sdk.core.network.f.f34255c;
                     a(fVar.k, fVar.l);
                     return;
                 }
@@ -72,7 +72,7 @@ public class b {
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34160c;
+                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f34255c;
                     a(fVar2.k, fVar2.l);
                     return;
                 }

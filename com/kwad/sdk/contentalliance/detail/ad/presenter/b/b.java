@@ -11,16 +11,16 @@ import org.json.JSONObject;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f32383b;
+    public AdTemplate f32478b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f32384c;
+    public AdInfo f32479c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Integer> f32385d;
+    public List<Integer> f32480d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f32386e = new f() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.b.1
+    public e f32481e = new f() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.b.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
             b.this.f();
@@ -34,21 +34,21 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             b.this.e();
-            com.kwad.sdk.core.report.b.a(b.this.f32383b, (JSONObject) null);
+            com.kwad.sdk.core.report.b.a(b.this.f32478b, (JSONObject) null);
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
         int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-        List<Integer> list = this.f32385d;
+        List<Integer> list = this.f32480d;
         if (list == null || list.isEmpty()) {
             return;
         }
-        for (Integer num : this.f32385d) {
+        for (Integer num : this.f32480d) {
             if (ceil >= num.intValue()) {
-                com.kwad.sdk.core.report.b.b(this.f32383b, ceil, null);
-                this.f32385d.remove(num);
+                com.kwad.sdk.core.report.b.b(this.f32478b, ceil, null);
+                this.f32480d.remove(num);
                 return;
             }
         }
@@ -56,34 +56,34 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.b.h(this.f32383b);
+        com.kwad.sdk.core.report.b.h(this.f32478b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.report.b.i(this.f32383b);
+        com.kwad.sdk.core.report.b.i(this.f32478b);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.j;
-        this.f32383b = adTemplate;
+        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.j;
+        this.f32478b = adTemplate;
         AdInfo j = c.j(adTemplate);
-        this.f32384c = j;
-        this.f32385d = com.kwad.sdk.core.response.b.a.M(j);
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.m;
+        this.f32479c = j;
+        this.f32480d = com.kwad.sdk.core.response.b.a.M(j);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.m;
         if (bVar != null) {
-            bVar.a(this.f32386e);
+            bVar.a(this.f32481e);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.m;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.m;
         if (bVar != null) {
-            bVar.b(this.f32386e);
+            bVar.b(this.f32481e);
         }
     }
 }

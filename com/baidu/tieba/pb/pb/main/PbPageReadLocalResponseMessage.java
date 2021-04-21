@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.d2.h.e;
+import d.b.j0.d2.h.e;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes3.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {

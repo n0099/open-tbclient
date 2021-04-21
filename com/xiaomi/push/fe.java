@@ -9,7 +9,7 @@ import java.util.zip.GZIPInputStream;
 public class fe {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f40787a = {80, 85, 83, 72};
+    public static final byte[] f40882a = {80, 85, 83, 72};
 
     /* renamed from: a  reason: collision with other field name */
     public byte f374a;
@@ -21,13 +21,13 @@ public class fe {
     public short f376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f40788b;
+    public byte[] f40883b;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f40789a = new c();
+        public static final c f40884a = new c();
 
         /* renamed from: a  reason: collision with other field name */
         public static final d f377a = new d();
@@ -39,7 +39,7 @@ public class fe {
         public static byte[] a(byte[] bArr, b bVar) {
             if (fe.m298a(bArr)) {
                 fe a2 = fe.a(bArr);
-                return (a2.f374a == 0 || a2.f374a != bVar.a()) ? a2.f40788b : bVar.a(a2.f40788b, a2.f375a);
+                return (a2.f374a == 0 || a2.f374a != bVar.a()) ? a2.f40883b : bVar.a(a2.f40883b, a2.f375a);
             }
             return bArr;
         }
@@ -112,7 +112,7 @@ public class fe {
         this.f376a = s;
         this.f374a = b2;
         this.f375a = i;
-        this.f40788b = bArr;
+        this.f40883b = bArr;
     }
 
     public static fe a(byte b2, int i, byte[] bArr) {
@@ -139,7 +139,7 @@ public class fe {
 
     /* renamed from: a  reason: collision with other method in class */
     public static boolean m298a(byte[] bArr) {
-        byte[] bArr2 = f40787a;
+        byte[] bArr2 = f40882a;
         return a(bArr2, bArr, bArr2.length);
     }
 

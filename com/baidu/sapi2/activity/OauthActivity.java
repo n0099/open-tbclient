@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
 import com.sina.weibo.sdk.constant.WBConstants;
-import d.b.x.a.f;
+import d.b.y.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

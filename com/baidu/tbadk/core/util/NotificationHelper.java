@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import d.b.c.e.p.k;
 import d.b.c.e.q.h;
-import d.b.h0.s.d.b;
-import d.b.h0.s.d.d;
+import d.b.i0.s.d.b;
+import d.b.i0.s.d.d;
 /* loaded from: classes3.dex */
 public class NotificationHelper {
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;

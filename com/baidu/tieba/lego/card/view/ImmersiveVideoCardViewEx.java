@@ -6,10 +6,10 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import d.b.i0.j1.o.l.a;
-import d.b.i0.j1.o.l.o;
-import d.b.i0.j2.d;
-import d.b.i0.j2.e;
+import d.b.j0.j1.o.l.a;
+import d.b.j0.j1.o.l.o;
+import d.b.j0.j2.d;
+import d.b.j0.j2.e;
 /* loaded from: classes4.dex */
 public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements e, d {
     public ViewGroup r;
@@ -20,7 +20,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         super(tbPageContext);
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public boolean D() {
         return false;
     }
@@ -55,7 +55,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         K();
     }
 
-    @Override // d.b.i0.j2.d
+    @Override // d.b.j0.j2.d
     public void b() {
         a aVar = this.t;
         if (aVar != null) {
@@ -63,7 +63,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // d.b.i0.j2.d
+    @Override // d.b.j0.j2.d
     public void d() {
         a aVar = this.t;
         if (aVar != null) {
@@ -71,7 +71,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public int getCurrentPosition() {
         o oVar = this.s;
         if (oVar != null) {
@@ -80,7 +80,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return 0;
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public String getPlayUrl() {
         o oVar = this.s;
         if (oVar != null) {
@@ -89,7 +89,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return null;
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public View getVideoContainer() {
         o oVar = this.s;
         if (oVar != null) {
@@ -98,7 +98,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return null;
     }
 
-    @Override // d.b.i0.j2.d
+    @Override // d.b.j0.j2.d
     public void i() {
         a aVar = this.t;
         if (aVar != null) {
@@ -106,19 +106,19 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public boolean isPlayStarted() {
         o oVar = this.s;
         return oVar != null && oVar.p();
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public boolean isPlaying() {
         o oVar = this.s;
         return oVar != null && oVar.q();
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public void startPlay() {
         o oVar = this.s;
         if (oVar != null) {
@@ -126,7 +126,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // d.b.i0.j2.e
+    @Override // d.b.j0.j2.e
     public void stopPlay() {
         o oVar = this.s;
         if (oVar != null) {

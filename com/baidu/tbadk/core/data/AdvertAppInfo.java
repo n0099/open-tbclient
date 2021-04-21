@@ -16,11 +16,11 @@ import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import d.b.c.e.m.b;
 import d.b.c.e.p.k;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.c;
-import d.b.h0.r.q.d;
-import d.b.h0.r.q.m0;
-import d.b.i0.s2.w;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.c;
+import d.b.i0.r.q.d;
+import d.b.i0.r.q.m0;
+import d.b.j0.s2.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -107,28 +107,28 @@ public class AdvertAppInfo extends a2 implements m0 {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12864a;
+        public int f12872a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12865b;
+        public String f12873b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12866c;
+        public String f12874c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12867d;
+        public String f12875d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12868e;
+        public String f12876e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f12869f;
+        public String f12877f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12870g;
+        public String f12878g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12871h;
+        public int f12879h;
         public String i;
         public String j;
         public List<String> k = new ArrayList(3);
@@ -172,13 +172,13 @@ public class AdvertAppInfo extends a2 implements m0 {
             if (goodsInfo == null) {
                 return;
             }
-            this.f12864a = goodsInfo.id.intValue();
-            this.f12865b = goodsInfo.user_name;
-            this.f12866c = goodsInfo.user_portrait;
-            this.f12867d = StringHelper.cutStringWithSuffix(goodsInfo.thread_title, 29, StringHelper.STRING_MORE);
-            this.f12869f = goodsInfo.thread_pic;
-            this.f12870g = goodsInfo.pop_window_text;
-            this.f12871h = goodsInfo.goods_style.intValue();
+            this.f12872a = goodsInfo.id.intValue();
+            this.f12873b = goodsInfo.user_name;
+            this.f12874c = goodsInfo.user_portrait;
+            this.f12875d = StringHelper.cutStringWithSuffix(goodsInfo.thread_title, 29, StringHelper.STRING_MORE);
+            this.f12877f = goodsInfo.thread_pic;
+            this.f12878g = goodsInfo.pop_window_text;
+            this.f12879h = goodsInfo.goods_style.intValue();
             String str = goodsInfo.card_desc;
             String str2 = goodsInfo.card_tag;
             this.i = goodsInfo.button_text;
@@ -253,7 +253,7 @@ public class AdvertAppInfo extends a2 implements m0 {
     @NonNull
     public static AdvertAppInfo G4(@NonNull JSONObject jSONObject) {
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-        advertAppInfo.U3.f12871h = jSONObject.optInt("goods_style");
+        advertAppInfo.U3.f12879h = jSONObject.optInt("goods_style");
         JSONObject optJSONObject = jSONObject.optJSONObject(AdDebugActivity.KEY_LEGO);
         advertAppInfo.U3.l = optJSONObject.toString();
         JSONObject optJSONObject2 = optJSONObject.optJSONObject("ad_common");
@@ -278,7 +278,7 @@ public class AdvertAppInfo extends a2 implements m0 {
         builder.da_cpid = String.valueOf(this.N3);
         builder.da_ext_info = this.T3;
         builder.da_fid = Integer.valueOf(b.d(str, 0));
-        builder.da_good_id = String.valueOf(this.U3.f12864a);
+        builder.da_good_id = String.valueOf(this.U3.f12872a);
         builder.da_locate = String.valueOf(this.K3);
         builder.da_obj_id = this.E3;
         builder.da_page = str2;
@@ -297,7 +297,7 @@ public class AdvertAppInfo extends a2 implements m0 {
     public boolean B4() {
         a aVar;
         a aVar2 = this.U3;
-        if (aVar2 == null || aVar2.f12871h != 1001) {
+        if (aVar2 == null || aVar2.f12879h != 1001) {
             ILegoAdvert iLegoAdvert = this.W3;
             if (iLegoAdvert == null || iLegoAdvert.getGoodsStyle() != 11) {
                 return (this.G3 != 3 || TextUtils.isEmpty(this.J3) || TextUtils.isEmpty(this.I3) || (aVar = this.U3) == null || TextUtils.isEmpty(aVar.l)) ? false : true;
@@ -319,9 +319,9 @@ public class AdvertAppInfo extends a2 implements m0 {
 
     public boolean D4() {
         a aVar = this.U3;
-        if (aVar == null || aVar.f12871h != 1001) {
+        if (aVar == null || aVar.f12879h != 1001) {
             a aVar2 = this.U3;
-            if (aVar2 == null || aVar2.f12871h != -1001) {
+            if (aVar2 == null || aVar2.f12879h != -1001) {
                 ILegoAdvert iLegoAdvert = this.W3;
                 if (iLegoAdvert == null || iLegoAdvert.getGoodsStyle() != 11) {
                     return this.G3 == 1 && !((TextUtils.isEmpty(this.H3) || TextUtils.isEmpty(this.H3.trim())) && TextUtils.isEmpty(this.U3.l));
@@ -347,7 +347,7 @@ public class AdvertAppInfo extends a2 implements m0 {
                 return 28;
             }
             a aVar = this.U3;
-            if (aVar == null || aVar.f12871h != 1001) {
+            if (aVar == null || aVar.f12879h != 1001) {
                 a aVar2 = this.U3;
                 if (aVar2 == null || TextUtils.isEmpty(aVar2.l)) {
                     return 11;
@@ -356,7 +356,7 @@ public class AdvertAppInfo extends a2 implements m0 {
                     return 24;
                 }
                 if (this.W3 != null && this.U3.a()) {
-                    if (!(this.W3 instanceof ILegoAdvert) || d.b.h0.r.k.c().g() || this.W3.isNoPicAd()) {
+                    if (!(this.W3 instanceof ILegoAdvert) || d.b.i0.r.k.c().g() || this.W3.isNoPicAd()) {
                         if (this.W3.getCardType() == 12) {
                             return 12;
                         }
@@ -462,7 +462,7 @@ public class AdvertAppInfo extends a2 implements m0 {
             return;
         }
         try {
-            ICardInfo k = d.b.i0.j1.o.b.k(this.U3.l);
+            ICardInfo k = d.b.j0.j1.o.b.k(this.U3.l);
             if (k != null) {
                 ICardInfo viewItem = k.getViewItem(0, 1);
                 if (viewItem instanceof ILegoAdvert) {
@@ -494,7 +494,7 @@ public class AdvertAppInfo extends a2 implements m0 {
     public void I4(JSONObject jSONObject) {
         try {
             jSONObject.put("card_type", 88);
-            ICardInfo j = d.b.i0.j1.o.b.j(jSONObject);
+            ICardInfo j = d.b.j0.j1.o.b.j(jSONObject);
             if (j instanceof ILegoAdvert) {
                 ILegoAdvert iLegoAdvert = (ILegoAdvert) j;
                 this.W3 = iLegoAdvert;
@@ -504,12 +504,12 @@ public class AdvertAppInfo extends a2 implements m0 {
         }
     }
 
-    @Override // d.b.h0.r.q.m0
+    @Override // d.b.i0.r.q.m0
     public boolean c() {
         return this.f4;
     }
 
-    @Override // d.b.h0.r.q.m0
+    @Override // d.b.i0.r.q.m0
     public AdvertAppInfo d() {
         return this;
     }
@@ -522,12 +522,12 @@ public class AdvertAppInfo extends a2 implements m0 {
         return false;
     }
 
-    @Override // d.b.h0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
+    @Override // d.b.i0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
     public BdUniqueId getType() {
         ILegoAdvert iLegoAdvert;
-        int i = this.U3.f12871h;
+        int i = this.U3.f12879h;
         if (i != 1001 && i != -1001) {
-            if (!d.b.h0.r.k.c().g() && (iLegoAdvert = this.W3) != null && !iLegoAdvert.isNoPicAd()) {
+            if (!d.b.i0.r.k.c().g() && (iLegoAdvert = this.W3) != null && !iLegoAdvert.isNoPicAd()) {
                 return h4;
             }
             ILegoAdvert iLegoAdvert2 = this.W3;
@@ -568,12 +568,12 @@ public class AdvertAppInfo extends a2 implements m0 {
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
-    @Override // d.b.h0.r.q.m0
+    @Override // d.b.i0.r.q.m0
     public int i() {
         return this.position;
     }
 
-    @Override // d.b.h0.r.q.m0
+    @Override // d.b.i0.r.q.m0
     public void setPosition(int i) {
         this.position = i;
         this.f4 = true;

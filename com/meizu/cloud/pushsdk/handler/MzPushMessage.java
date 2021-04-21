@@ -37,7 +37,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        d.j.a.a.a.b(TAG, "self json " + str);
+        d.k.a.a.a.b(TAG, "self json " + str);
         return str;
     }
 

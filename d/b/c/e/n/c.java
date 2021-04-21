@@ -7,28 +7,28 @@ public class c {
     public String D;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42383a;
+    public String f42623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42384b;
+    public String f42624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42385c;
+    public String f42625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42386d;
+    public String f42626d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42387e;
+    public String f42627e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42388f;
+    public String f42628f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42389g;
+    public String f42629g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42390h;
+    public String f42630h;
     public String i;
     public String j;
     public String k;

@@ -86,9 +86,9 @@ import com.google.gson.Gson;
 import com.heytap.mcssdk.mode.CommandMessage;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
-import d.b.h0.f0.h;
-import d.b.h0.l.a;
-import d.b.i0.j1.o.k.b;
+import d.b.i0.f0.h;
+import d.b.i0.l.a;
+import d.b.j0.j1.o.k.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -460,7 +460,7 @@ public class OpenNative {
     }
 
     public static void openNativeHotTopicList(Context context, Map<String, Object> map) {
-        if (TbadkApplication.getInst().getCurrentActivity() == null || d.b.h0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
+        if (TbadkApplication.getInst().getCurrentActivity() == null || d.b.i0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(context).createNormalConfig("hottopic", "all")));

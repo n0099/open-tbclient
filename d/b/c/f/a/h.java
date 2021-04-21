@@ -24,38 +24,38 @@ public class h extends k {
 
     @Override // d.b.c.f.a.c, d.b.c.f.a.a
     public void h(Canvas canvas, d dVar, ImageView imageView) {
-        Matrix matrix = this.f42645e;
+        Matrix matrix = this.f42885e;
         if (matrix != null) {
             canvas.concat(matrix);
         }
         if (dVar.e()) {
-            Bitmap bitmap = dVar.f42652a.getBitmap();
+            Bitmap bitmap = dVar.f42892a.getBitmap();
             if (this.u) {
                 v(canvas, bitmap);
                 return;
             }
             this.y.set(0, 0, dVar.b(), dVar.a());
-            dVar.f42653b.g(canvas, this.y, this.f42646f, this.f42642b);
+            dVar.f42893b.g(canvas, this.y, this.f42886f, this.f42882b);
         } else if (dVar.d()) {
             if (this.u) {
-                v(canvas, dVar.f42653b.p());
+                v(canvas, dVar.f42893b.p());
                 return;
             }
             this.y.set(0, 0, dVar.b(), dVar.a());
-            dVar.f42653b.g(canvas, this.y, this.f42646f, this.f42642b);
+            dVar.f42893b.g(canvas, this.y, this.f42886f, this.f42882b);
         } else {
             this.y.set(0, 0, dVar.b(), dVar.a());
-            dVar.f42653b.g(canvas, this.y, this.f42646f, this.f42642b);
+            dVar.f42893b.g(canvas, this.y, this.f42886f, this.f42882b);
         }
     }
 
     public void v(Canvas canvas, Bitmap bitmap) {
         this.y.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        this.x.set(0, 0, (int) this.f42646f.width(), (int) this.f42646f.height());
+        this.x.set(0, 0, (int) this.f42886f.width(), (int) this.f42886f.height());
         canvas.save();
         canvas.drawARGB(0, 0, 0, 0);
         canvas.drawPath(this.r, this.v);
-        canvas.drawBitmap(bitmap, this.y, this.f42646f, this.w);
+        canvas.drawBitmap(bitmap, this.y, this.f42886f, this.w);
         canvas.restore();
     }
 }

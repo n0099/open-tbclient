@@ -16,10 +16,10 @@ import java.util.List;
 public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     /* renamed from: g  reason: collision with root package name */
-    public KsFragment f33111g;
+    public KsFragment f33206g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Presenter f33112h;
+    public Presenter f33207h;
     public d i;
     public a j;
     public i k;
@@ -40,18 +40,18 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     private void t() {
         d dVar = new d();
         this.i = dVar;
-        dVar.f33139a = this.k;
-        dVar.f33140b = this.f33111g;
-        dVar.f33141c = this;
-        dVar.f33142d = this.f33107d;
+        dVar.f33234a = this.k;
+        dVar.f33235b = this.f33206g;
+        dVar.f33236c = this;
+        dVar.f33237d = this.f33202d;
     }
 
     private void u() {
         Presenter presenter = new Presenter();
-        this.f33112h = presenter;
+        this.f33207h = presenter;
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.b());
-        this.f33112h.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.a());
-        this.f33112h.a((View) this);
+        this.f33207h.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.a());
+        this.f33207h.a((View) this);
     }
 
     @Override // com.kwad.sdk.contentalliance.b.b
@@ -64,23 +64,23 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     public void a(@NonNull f fVar, @NonNull e eVar) {
         this.n = fVar;
-        this.f33111g = fVar.f33059a;
-        this.f33107d = eVar;
-        this.k = fVar.f33060b;
-        this.l = fVar.f33062d;
-        this.m = fVar.f33064f;
+        this.f33206g = fVar.f33154a;
+        this.f33202d = eVar;
+        this.k = fVar.f33155b;
+        this.l = fVar.f33157d;
+        this.m = fVar.f33159f;
         this.o = 0;
         b();
-        this.f33104a = fVar.k;
-        ((SlidePlayTouchViewPager) this).f33105b = true;
-        b bVar = new b(this.f33111g.getChildFragmentManager());
+        this.f33199a = fVar.k;
+        ((SlidePlayTouchViewPager) this).f33200b = true;
+        b bVar = new b(this.f33206g.getChildFragmentManager());
         this.j = bVar;
         bVar.a(this.l);
         this.j.a(this.m);
         this.j.a(this);
         u();
         t();
-        this.f33112h.a(this.i);
+        this.f33207h.a(this.i);
         setAdapter(this.j);
         setCurrentItem(this.n.j);
     }
@@ -94,7 +94,7 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
 
     public void a(@NonNull AdTemplate adTemplate, int i) {
         this.o = i;
-        this.f33104a = i == 1 ? false : this.n.k;
+        this.f33199a = i == 1 ? false : this.n.k;
         this.j.a(this.k.d(), adTemplate, i, this.k.a(adTemplate), false);
     }
 
@@ -115,12 +115,12 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
         if (aVar != null) {
             aVar.a(false);
         }
-        if (this.f33111g.getHost() == null) {
+        if (this.f33206g.getHost() == null) {
             com.kwad.sdk.core.d.a.c("SlidePlayViewPager", "mFragment mHost is null");
             return;
         }
         b();
-        b bVar = new b(this.f33111g.getChildFragmentManager());
+        b bVar = new b(this.f33206g.getChildFragmentManager());
         this.j = bVar;
         bVar.a(this.l);
         this.j.a(this.m);
@@ -131,7 +131,7 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void g() {
-        this.f33112h.j();
+        this.f33207h.j();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -173,11 +173,11 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void h() {
-        this.f33104a = false;
+        this.f33199a = false;
     }
 
     public void i() {
-        this.f33104a = this.n.k;
+        this.f33199a = this.n.k;
     }
 
     public boolean j() {
@@ -186,7 +186,7 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public boolean k() {
-        int realPosition = this.i.f33141c.getRealPosition();
+        int realPosition = this.i.f33236c.getRealPosition();
         return realPosition > -1 && realPosition < this.j.a() - 1;
     }
 

@@ -16,8 +16,8 @@ import com.baidu.swan.apps.IAudioService;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
-public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.f.a {
-    public static final boolean DEBUG = d.b.g0.a.k.f45443a;
+public final class SwanAppAudioService extends Service implements d.b.h0.a.b1.c.f.a {
+    public static final boolean DEBUG = d.b.h0.a.k.f45772a;
     public static final int INVALID_DURATION = -1;
     public static final int INVALID_ERROR_CODE = -1;
     public static final String TAG = "SwanAppAudioService";
@@ -111,15 +111,15 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public class a implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11924a;
+        public final /* synthetic */ String f11932a;
 
         public a(String str) {
-            this.f11924a = str;
+            this.f11932a = str;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onChangeSrc(this.f11924a);
+            iAudioListener.onChangeSrc(this.f11932a);
         }
     }
 
@@ -138,15 +138,15 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public class c implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f11927a;
+        public final /* synthetic */ int f11935a;
 
         public c(int i) {
-            this.f11927a = i;
+            this.f11935a = i;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onError(this.f11927a);
+            iAudioListener.onError(this.f11935a);
         }
     }
 
@@ -154,19 +154,19 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public class d implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f11929a;
+        public final /* synthetic */ int f11937a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f11930b;
+        public final /* synthetic */ int f11938b;
 
         public d(int i, int i2) {
-            this.f11929a = i;
-            this.f11930b = i2;
+            this.f11937a = i;
+            this.f11938b = i2;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onTimeUpdate(this.f11929a, this.f11930b);
+            iAudioListener.onTimeUpdate(this.f11937a, this.f11938b);
         }
     }
 
@@ -174,15 +174,15 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public class e implements t {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f11932a;
+        public final /* synthetic */ int f11940a;
 
         public e(int i) {
-            this.f11932a = i;
+            this.f11940a = i;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onDownloadProgress(this.f11932a);
+            iAudioListener.onDownloadProgress(this.f11940a);
         }
     }
 
@@ -234,41 +234,41 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public static /* synthetic */ class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11938a;
+        public static final /* synthetic */ int[] f11946a;
 
         static {
             int[] iArr = new int[BgMusicPlayState.values().length];
-            f11938a = iArr;
+            f11946a = iArr;
             try {
                 iArr[BgMusicPlayState.READY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11938a[BgMusicPlayState.PLAY.ordinal()] = 2;
+                f11946a[BgMusicPlayState.PLAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f11938a[BgMusicPlayState.REPLAY.ordinal()] = 3;
+                f11946a[BgMusicPlayState.REPLAY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f11938a[BgMusicPlayState.PAUSE.ordinal()] = 4;
+                f11946a[BgMusicPlayState.PAUSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f11938a[BgMusicPlayState.STOP.ordinal()] = 5;
+                f11946a[BgMusicPlayState.STOP.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f11938a[BgMusicPlayState.END.ordinal()] = 6;
+                f11946a[BgMusicPlayState.END.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f11938a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
+                f11946a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f11938a[BgMusicPlayState.LOADING.ordinal()] = 8;
+                f11946a[BgMusicPlayState.LOADING.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -278,15 +278,15 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11939e;
+        public final /* synthetic */ String f11947e;
 
         public k(String str) {
-            this.f11939e = str;
+            this.f11947e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.w0.a.e().a(this.f11939e, SwanAppAudioService.this);
+            d.b.h0.a.w0.a.e().a(this.f11947e, SwanAppAudioService.this);
         }
     }
 
@@ -297,7 +297,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.w0.a.e().play();
+            d.b.h0.a.w0.a.e().play();
         }
     }
 
@@ -308,7 +308,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.w0.a.e().pause();
+            d.b.h0.a.w0.a.e().pause();
         }
     }
 
@@ -319,7 +319,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.w0.a.e().stop();
+            d.b.h0.a.w0.a.e().stop();
         }
     }
 
@@ -332,7 +332,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         public void run() {
             SwanAppAudioService.this.notifyEventOnStop();
             SwanAppAudioService.this.stopSelf();
-            d.b.g0.a.w0.a.e().onRelease();
+            d.b.h0.a.w0.a.e().onRelease();
         }
     }
 
@@ -423,7 +423,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     }
 
     private void handleStateChanged(BgMusicPlayState bgMusicPlayState) {
-        int i2 = j.f11938a[bgMusicPlayState.ordinal()];
+        int i2 = j.f11946a[bgMusicPlayState.ordinal()];
         if (i2 == 1) {
             notifyEventOnCanPlay();
         } else if (i2 == 2) {
@@ -468,7 +468,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     }
 
     public int getDuration() {
-        return d.b.g0.a.w0.a.e().getDuration();
+        return d.b.h0.a.w0.a.e().getDuration();
     }
 
     public boolean isDestroyed() {
@@ -476,7 +476,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     }
 
     public boolean isPlaying() {
-        return d.b.g0.a.w0.a.e().isPlaying();
+        return d.b.h0.a.w0.a.e().isPlaying();
     }
 
     @Override // android.app.Service
@@ -511,26 +511,26 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         notifyEventOnError(i2);
     }
 
-    @Override // d.b.g0.a.b1.c.f.a
+    @Override // d.b.h0.a.b1.c.f.a
     public void onGetCurrentSong(String str) {
         notifyOnChangeSrc(str);
     }
 
-    @Override // d.b.g0.a.b1.c.f.a
+    @Override // d.b.h0.a.b1.c.f.a
     public void onGetDownloadProgress(int i2) {
         handleAudioEvent(new e(i2));
     }
 
-    @Override // d.b.g0.a.b1.c.f.a
+    @Override // d.b.h0.a.b1.c.f.a
     public void onGetDuration(int i2) {
     }
 
-    @Override // d.b.g0.a.b1.c.f.a
+    @Override // d.b.h0.a.b1.c.f.a
     public void onGetPosition(int i2, int i3) {
         handleAudioEvent(new d(i2, i3));
     }
 
-    @Override // d.b.g0.a.b1.c.f.a
+    @Override // d.b.h0.a.b1.c.f.a
     public void onInvokeFailed() {
         notifyEventOnError(-1);
     }
@@ -554,7 +554,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
         handleAudioEvent(new h());
     }
 
-    @Override // d.b.g0.a.b1.c.f.a
+    @Override // d.b.h0.a.b1.c.f.a
     public void onStateChanged(BgMusicPlayState bgMusicPlayState) {
         if (DEBUG) {
             Log.d(TAG, "onStateChanged() " + bgMusicPlayState);
@@ -584,7 +584,7 @@ public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.
     }
 
     public void seek(int i2) {
-        d.b.g0.a.w0.a.e().seek(i2);
+        d.b.h0.a.w0.a.e().seek(i2);
     }
 
     public void setParams(String str) {

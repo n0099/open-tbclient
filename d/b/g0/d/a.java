@@ -1,353 +1,706 @@
 package d.b.g0.d;
-/* loaded from: classes3.dex */
+
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Process;
+import android.provider.Settings;
+import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import com.android.internal.http.multipart.Part;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.tbadk.core.util.FieldBuilder;
+import com.baidu.webkit.internal.Base64;
+import com.baidu.webkit.internal.utils.UtilsBlink;
+import io.flutter.plugin.common.StandardMessageCodec;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.CharArrayWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.security.MessageDigest;
+import java.security.PublicKey;
+import java.security.cert.CertificateFactory;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public final class a {
-    public static final int abc_background_cache_hint_selector_material_dark = 2131099931;
-    public static final int abc_background_cache_hint_selector_material_light = 2131099932;
-    public static final int abc_btn_colored_borderless_text_material = 2131099933;
-    public static final int abc_btn_colored_text_material = 2131099934;
-    public static final int abc_color_highlight_material = 2131099935;
-    public static final int abc_hint_foreground_material_dark = 2131099936;
-    public static final int abc_hint_foreground_material_light = 2131099937;
-    public static final int abc_input_method_navigation_guard = 2131099938;
-    public static final int abc_primary_text_disable_only_material_dark = 2131099939;
-    public static final int abc_primary_text_disable_only_material_light = 2131099940;
-    public static final int abc_primary_text_material_dark = 2131099941;
-    public static final int abc_primary_text_material_light = 2131099942;
-    public static final int abc_search_url_text = 2131099943;
-    public static final int abc_search_url_text_normal = 2131099944;
-    public static final int abc_search_url_text_pressed = 2131099945;
-    public static final int abc_search_url_text_selected = 2131099946;
-    public static final int abc_secondary_text_material_dark = 2131099947;
-    public static final int abc_secondary_text_material_light = 2131099948;
-    public static final int abc_tint_btn_checkable = 2131099949;
-    public static final int abc_tint_default = 2131099950;
-    public static final int abc_tint_edittext = 2131099951;
-    public static final int abc_tint_seek_thumb = 2131099952;
-    public static final int abc_tint_spinner = 2131099953;
-    public static final int abc_tint_switch_track = 2131099954;
-    public static final int accent_material_dark = 2131099955;
-    public static final int accent_material_light = 2131099956;
-    public static final int aiapp_menu_cancel_text_color_bg = 2131099958;
-    public static final int aiapp_menu_cancel_text_color_day = 2131099959;
-    public static final int aiapp_menu_content_bg = 2131099960;
-    public static final int aiapp_menu_item_text = 2131099961;
-    public static final int aiapp_menu_mask = 2131099962;
-    public static final int aiapp_menu_split_line_day = 2131099963;
-    public static final int aiapp_menu_text_cancel_color_day = 2131099964;
-    public static final int aiapp_menu_text_cancel_color_day_pressed = 2131099965;
-    public static final int aiapps_about_icon_border = 2131099966;
-    public static final int aiapps_action_bar_menu_bg_solid = 2131099967;
-    public static final int aiapps_action_bar_menu_bg_solid_white = 2131099968;
-    public static final int aiapps_action_bar_menu_bg_stroke = 2131099969;
-    public static final int aiapps_action_bar_menu_bg_stroke_white = 2131099970;
-    public static final int aiapps_action_bar_menu_line_color = 2131099971;
-    public static final int aiapps_action_bar_menu_line_white = 2131099972;
-    public static final int aiapps_action_bar_operation_btn_txt_color = 2131099973;
-    public static final int aiapps_action_bar_operation_btn_txt_color_disable = 2131099974;
-    public static final int aiapps_action_bar_operation_btn_txt_color_pressed = 2131099975;
-    public static final int aiapps_action_sheet_cancel_enable = 2131099976;
-    public static final int aiapps_action_sheet_item_color = 2131099977;
-    public static final int aiapps_action_sheet_scrollbar = 2131099978;
-    public static final int aiapps_action_sheet_split_color = 2131099979;
-    public static final int aiapps_auth_dialog_btn_pos = 2131099981;
-    public static final int aiapps_auth_dialog_divider = 2131099982;
-    public static final int aiapps_auth_dialog_label = 2131099983;
-    public static final int aiapps_auth_dialog_scopes = 2131099984;
-    public static final int aiapps_black = 2131099985;
-    public static final int aiapps_black_text = 2131099986;
-    public static final int aiapps_box_dialog_message_text_color = 2131099987;
-    public static final int aiapps_card_remind_timepicker_wheel_background = 2131099988;
-    public static final int aiapps_data_picker_color = 2131099993;
-    public static final int aiapps_dialog_btn_text_color = 2131099994;
-    public static final int aiapps_dialog_gray = 2131099995;
-    public static final int aiapps_dialog_immersion_status_bar_color = 2131099996;
-    public static final int aiapps_dialog_title_night_text_color = 2131099997;
-    public static final int aiapps_dialog_title_text_color = 2131099998;
-    public static final int aiapps_discovery_home_menu_item_press_color = 2131099999;
-    public static final int aiapps_discovery_home_menu_text_color = 2131100000;
-    public static final int aiapps_empty_btn_solid_default = 2131100001;
-    public static final int aiapps_empty_btn_solid_pressed = 2131100002;
-    public static final int aiapps_empty_btn_stroke_default = 2131100003;
-    public static final int aiapps_empty_btn_stroke_pressed = 2131100004;
-    public static final int aiapps_empty_layout_backgroud = 2131100005;
-    public static final int aiapps_empty_view_btn_text_pressed = 2131100006;
-    public static final int aiapps_emptyview_link_text_color = 2131100007;
-    public static final int aiapps_emptyview_subtitle_text_color = 2131100008;
-    public static final int aiapps_emptyview_subtitle_text_color_night = 2131100009;
-    public static final int aiapps_emptyview_title_text_color = 2131100010;
-    public static final int aiapps_emptyview_title_text_color_night = 2131100011;
-    public static final int aiapps_entry_guide_split_line3 = 2131100012;
-    public static final int aiapps_error_detail_color = 2131100013;
-    public static final int aiapps_error_fragment_background = 2131100014;
-    public static final int aiapps_error_msg_color = 2131100015;
-    public static final int aiapps_favorite_guide_dialog_bg = 2131100016;
-    public static final int aiapps_game_continue_watch = 2131100017;
-    public static final int aiapps_game_keyboard_sendbutton_mask = 2131100018;
-    public static final int aiapps_games_loading_progress = 2131100019;
-    public static final int aiapps_games_loading_tips_message = 2131100020;
-    public static final int aiapps_games_loading_tips_quotation = 2131100021;
-    public static final int aiapps_go_permission_color = 2131100022;
-    public static final int aiapps_history_develop_tag_text_color = 2131100023;
-    public static final int aiapps_home_menu_separator_color = 2131100024;
-    public static final int aiapps_invoice_action_bar_activate_txt_color_selector = 2131100029;
-    public static final int aiapps_invoice_action_bar_txt_color_selector = 2131100030;
-    public static final int aiapps_keyboard_divider_color = 2131100031;
-    public static final int aiapps_keyboard_item_background_pressed = 2131100032;
-    public static final int aiapps_keyboard_non_number_item_background_normal = 2131100033;
-    public static final int aiapps_keyboard_number_item_background_normal = 2131100034;
-    public static final int aiapps_keyboard_text_color_normal = 2131100035;
-    public static final int aiapps_keyboard_text_color_pressed = 2131100036;
-    public static final int aiapps_loading_text_color = 2131100037;
-    public static final int aiapps_location_item_bg_normal = 2131100038;
-    public static final int aiapps_location_item_bg_pressed = 2131100039;
-    public static final int aiapps_modal_button_press_bg = 2131100046;
-    public static final int aiapps_modal_cancel_color = 2131100047;
-    public static final int aiapps_modal_confirm_color = 2131100048;
-    public static final int aiapps_night_mode_cover_layer = 2131100049;
-    public static final int aiapps_open_location_menu_press = 2131100050;
-    public static final int aiapps_picture_loading_text_color = 2131100051;
-    public static final int aiapps_picture_pullrefresh_last_update_time_color = 2131100052;
-    public static final int aiapps_preference_title_text_color_disable = 2131100053;
-    public static final int aiapps_preference_title_text_color_enable = 2131100054;
-    public static final int aiapps_progress_background_color = 2131100055;
-    public static final int aiapps_progress_end_color = 2131100056;
-    public static final int aiapps_progress_start_color = 2131100057;
-    public static final int aiapps_pull_load_footer_image_color = 2131100058;
-    public static final int aiapps_pull_loading_bg = 2131100059;
-    public static final int aiapps_pull_loading_refresh_anim_color = 2131100060;
-    public static final int aiapps_pull_refresh_result_text_color = 2131100061;
-    public static final int aiapps_refresh_result_bg_color = 2131100062;
-    public static final int aiapps_safe_dialog_btn_black = 2131100063;
-    public static final int aiapps_safe_dialog_btn_blue = 2131100064;
-    public static final int aiapps_safe_dialog_message = 2131100065;
-    public static final int aiapps_setting_action_sheet_divider_color = 2131100066;
-    public static final int aiapps_setting_aiapps_item_divider_color = 2131100067;
-    public static final int aiapps_ssl_dialog_go_on_text_color = 2131100068;
-    public static final int aiapps_statusbar_immersion_bg = 2131100069;
-    public static final int aiapps_statusbar_immersion_bg_below_lollipop = 2131100070;
-    public static final int aiapps_title_text_color = 2131100071;
-    public static final int aiapps_toast_bg_color = 2131100072;
-    public static final int aiapps_toast_bg_stroke_color = 2131100073;
-    public static final int aiapps_toast_button_bg_enable_color = 2131100074;
-    public static final int aiapps_toast_button_bg_stroke_color = 2131100075;
-    public static final int aiapps_toast_button_bg_unable_color = 2131100076;
-    public static final int aiapps_transparent = 2131100077;
-    public static final int aiapps_ui_cover_layer_color = 2131100078;
-    public static final int aiapps_white = 2131100079;
-    public static final int aiapps_white_text = 2131100080;
-    public static final int background_floating_material_dark = 2131100112;
-    public static final int background_floating_material_light = 2131100113;
-    public static final int background_material_dark = 2131100114;
-    public static final int background_material_light = 2131100115;
-    public static final int banner_back_solid = 2131100116;
-    public static final int banner_desc = 2131100117;
-    public static final int banner_download_stroke = 2131100118;
-    public static final int banner_download_txt_normal = 2131100119;
-    public static final int banner_download_txt_press = 2131100120;
-    public static final int black = 2131100244;
-    public static final int bright_foreground_disabled_material_dark = 2131100266;
-    public static final int bright_foreground_disabled_material_light = 2131100267;
-    public static final int bright_foreground_inverse_material_dark = 2131100268;
-    public static final int bright_foreground_inverse_material_light = 2131100269;
-    public static final int bright_foreground_material_dark = 2131100270;
-    public static final int bright_foreground_material_light = 2131100271;
-    public static final int button_material_dark = 2131100293;
-    public static final int button_material_light = 2131100294;
-    public static final int channel_bg = 2131100302;
-    public static final int close_ad_text_color = 2131100303;
-    public static final int close_back_solid = 2131100304;
-    public static final int close_back_stroke = 2131100305;
-    public static final int close_mid_vol_view = 2131100306;
-    public static final int core_permission_dialog_info_color = 2131100772;
-    public static final int core_permission_go_setting_text_color = 2131100773;
-    public static final int core_permission_guide_icon_text_color = 2131100774;
-    public static final int core_permission_next_step_text_color = 2131100775;
-    public static final int core_permission_next_step_top_divider_color = 2131100776;
-    public static final int coupon_description = 2131100777;
-    public static final int dim_foreground_disabled_material_dark = 2131100974;
-    public static final int dim_foreground_disabled_material_light = 2131100975;
-    public static final int dim_foreground_material_dark = 2131100976;
-    public static final int dim_foreground_material_light = 2131100977;
-    public static final int duxiaomancolor = 2131100981;
-    public static final int error_color_material_dark = 2131101073;
-    public static final int error_color_material_light = 2131101074;
-    public static final int font_setting_background_color = 2131101077;
-    public static final int font_setting_body_preview_color = 2131101078;
-    public static final int font_setting_preview_background_color = 2131101079;
-    public static final int font_setting_preview_background_color_pop = 2131101080;
-    public static final int font_setting_preview_background_color_pop_night_atlas = 2131101081;
-    public static final int font_setting_separator_line_color = 2131101082;
-    public static final int font_setting_slider_bar_chosen_text_color_pop = 2131101083;
-    public static final int font_setting_slider_bar_chosen_text_color_pop_atlas = 2131101084;
-    public static final int font_setting_slider_bar_line_color = 2131101085;
-    public static final int font_setting_slider_bar_line_color_pop = 2131101086;
-    public static final int font_setting_slider_bar_line_color_pop_atlas = 2131101087;
-    public static final int font_setting_slider_bar_text_color = 2131101088;
-    public static final int font_setting_slider_bar_text_color_pop = 2131101089;
-    public static final int font_setting_slider_bar_text_color_pop_atlas = 2131101090;
-    public static final int font_setting_slider_thumb_color = 2131101091;
-    public static final int font_setting_slider_thumb_color_pop = 2131101092;
-    public static final int font_setting_slider_thumb_color_pop_atlas = 2131101093;
-    public static final int font_setting_slider_thumb_edge_color = 2131101094;
-    public static final int font_setting_slider_thumb_edge_color_pop = 2131101095;
-    public static final int font_setting_slider_thumb_edge_color_pop_atlas = 2131101096;
-    public static final int font_setting_slider_thumb_shadow_color = 2131101097;
-    public static final int font_setting_slider_thumb_shadow_color_pop = 2131101098;
-    public static final int font_setting_slider_thumb_shadow_color_pop_atlas = 2131101099;
-    public static final int font_setting_title_preview_color = 2131101100;
-    public static final int foreground_material_dark = 2131101101;
-    public static final int foreground_material_light = 2131101102;
-    public static final int highlighted_text_material_dark = 2131101135;
-    public static final int highlighted_text_material_light = 2131101136;
-    public static final int ksw_md_back_color = 2131101203;
-    public static final int ksw_md_ripple_checked = 2131101204;
-    public static final int ksw_md_ripple_normal = 2131101205;
-    public static final int ksw_md_solid_checked = 2131101206;
-    public static final int ksw_md_solid_checked_disable = 2131101207;
-    public static final int ksw_md_solid_disable = 2131101208;
-    public static final int ksw_md_solid_normal = 2131101209;
-    public static final int ksw_md_solid_shadow = 2131101210;
-    public static final int material_blue_grey_800 = 2131101246;
-    public static final int material_blue_grey_900 = 2131101247;
-    public static final int material_blue_grey_950 = 2131101248;
-    public static final int material_deep_teal_200 = 2131101249;
-    public static final int material_deep_teal_500 = 2131101250;
-    public static final int material_grey_100 = 2131101251;
-    public static final int material_grey_300 = 2131101252;
-    public static final int material_grey_50 = 2131101253;
-    public static final int material_grey_600 = 2131101254;
-    public static final int material_grey_800 = 2131101255;
-    public static final int material_grey_850 = 2131101256;
-    public static final int material_grey_900 = 2131101257;
-    public static final int ng_game_ad_gray = 2131101309;
-    public static final int ng_game_banner_act = 2131101310;
-    public static final int ng_game_banner_act_solid = 2131101311;
-    public static final int ng_game_banner_ad_background = 2131101312;
-    public static final int ng_game_banner_appname = 2131101313;
-    public static final int ng_game_banner_title = 2131101314;
-    public static final int ng_game_black = 2131101315;
-    public static final int ng_game_reward_banner_act_btn_col = 2131101316;
-    public static final int notification_action_color_filter = 2131101319;
-    public static final int notification_icon_bg_color = 2131101320;
-    public static final int notification_material_background_media_default_color = 2131101321;
-    public static final int primary_dark_material_dark = 2131101380;
-    public static final int primary_dark_material_light = 2131101381;
-    public static final int primary_material_dark = 2131101382;
-    public static final int primary_material_light = 2131101383;
-    public static final int primary_text_default_material_dark = 2131101384;
-    public static final int primary_text_default_material_light = 2131101385;
-    public static final int primary_text_disabled_material_dark = 2131101386;
-    public static final int primary_text_disabled_material_light = 2131101387;
-    public static final int progress_circle_color = 2131101388;
-    public static final int ripple_material_dark = 2131101550;
-    public static final int ripple_material_light = 2131101551;
-    public static final int sailor_common_black = 2131101571;
-    public static final int sailor_safe_bg = 2131101572;
-    public static final int sailor_safe_bg_night = 2131101573;
-    public static final int sailor_safe_btn_bordor_color = 2131101574;
-    public static final int sailor_safe_btn_bordor_color_night = 2131101575;
-    public static final int sailor_safe_download_btn_color = 2131101576;
-    public static final int sailor_safe_download_btn_color_night = 2131101577;
-    public static final int sailor_safe_download_btn_text_color = 2131101578;
-    public static final int sailor_safe_download_btn_text_color_night = 2131101579;
-    public static final int sailor_safe_line_color = 2131101580;
-    public static final int sailor_safe_line_color_night = 2131101581;
-    public static final int sailor_safe_text_color = 2131101582;
-    public static final int sailor_safe_text_color_night = 2131101583;
-    public static final int sailor_safe_url_color = 2131101584;
-    public static final int sailor_safe_url_color_night = 2131101585;
-    public static final int sailor_ssl_text_label = 2131101586;
-    public static final int sailor_ssl_text_value = 2131101587;
-    public static final int sailor_web_loading_point = 2131101593;
-    public static final int sailor_web_loading_point_select = 2131101594;
-    public static final int sailor_web_loading_point_select_night = 2131101595;
-    public static final int sailor_webview_bg = 2131101596;
-    public static final int sailor_webview_bg_night = 2131101597;
-    public static final int sailor_white = 2131101598;
-    public static final int secondary_text_default_material_dark = 2131101868;
-    public static final int secondary_text_default_material_light = 2131101869;
-    public static final int secondary_text_disabled_material_dark = 2131101870;
-    public static final int secondary_text_disabled_material_light = 2131101871;
-    public static final int swan_app_about_attentation_text_selector = 2131101890;
-    public static final int swan_app_about_attention_text = 2131101891;
-    public static final int swan_app_about_attention_text_pressed = 2131101892;
-    public static final int swan_app_about_share_text = 2131101893;
-    public static final int swan_app_about_share_text_pressed = 2131101894;
-    public static final int swan_app_action_bar_operation_btn_selector = 2131101895;
-    public static final int swan_app_action_sheet_cancel_text = 2131101896;
-    public static final int swan_app_auth_icon_border = 2131101897;
-    public static final int swan_app_auth_refuse_text_selector = 2131101898;
-    public static final int swan_app_emptyview_btn_text_color = 2131101907;
-    public static final int swan_app_emptyview_btn_text_color_night = 2131101908;
-    public static final int swan_app_emptyview_feed_back_btn_text_color = 2131101909;
-    public static final int swan_app_keyboard_text_color_selector = 2131101910;
-    public static final int swan_app_menu_header_pressed = 2131101911;
-    public static final int swan_app_menu_item_tip_text = 2131101912;
-    public static final int swan_app_msg_dialog_title = 2131101913;
-    public static final int swan_app_plugin_divider_bg = 2131101914;
-    public static final int swan_app_preference_text_color_title = 2131101915;
-    public static final int swan_attention_text_pressed = 2131101917;
-    public static final int swan_cancel_attention_btn = 2131101918;
-    public static final int swan_cancel_attention_btn_pressed = 2131101919;
-    public static final int swan_cancel_attention_text_pressed = 2131101920;
-    public static final int swan_empty_view_feed_back_btn_text_pressed = 2131101928;
-    public static final int swan_game_recommend_dialog_text_selector = 2131101929;
-    public static final int swan_games_antiaddiction_positive = 2131101930;
-    public static final int swan_image_menu_item_bg = 2131101931;
-    public static final int swan_text_menu_item_separator_color = 2131101932;
-    public static final int swanapp_ad_download_button_color = 2131101933;
-    public static final int swanapp_ad_download_button_default_bg_color = 2131101934;
-    public static final int swanapp_ad_download_button_default_fg_color = 2131101935;
-    public static final int swanapp_ad_footer_background_color = 2131101936;
-    public static final int swanapp_ad_footer_font_color = 2131101937;
-    public static final int swanapp_ad_footer_line_color = 2131101938;
-    public static final int swanapp_ad_tail_background_color = 2131101939;
-    public static final int swanapp_ad_video_author_border_color = 2131101940;
-    public static final int swanapp_agreement_layout_bg = 2131101941;
-    public static final int swanapp_agreement_layout_pressed_bg = 2131101942;
-    public static final int swanapp_album_bottom_preview_color = 2131101943;
-    public static final int swanapp_album_bottom_preview_unable_color = 2131101944;
-    public static final int swanapp_album_camera_bg_color = 2131101945;
-    public static final int swanapp_album_cancel = 2131101946;
-    public static final int swanapp_album_empty_tv_color = 2131101947;
-    public static final int swanapp_album_item_press_color = 2131101948;
-    public static final int swanapp_album_item_select_bg = 2131101949;
-    public static final int swanapp_album_layer_text_color = 2131101950;
-    public static final int swanapp_album_line_color = 2131101951;
-    public static final int swanapp_album_name_container_bg = 2131101952;
-    public static final int swanapp_album_pregress_bg = 2131101953;
-    public static final int swanapp_album_pregress_stroke = 2131101954;
-    public static final int swanapp_album_preview_finish_color = 2131101955;
-    public static final int swanapp_album_preview_header_bg = 2131101956;
-    public static final int swanapp_album_preview_select_done_color = 2131101957;
-    public static final int swanapp_album_select_done_color = 2131101958;
-    public static final int swanapp_album_select_done_unable_color = 2131101959;
-    public static final int swanapp_album_select_number_color = 2131101960;
-    public static final int swanapp_album_selected_bg = 2131101961;
-    public static final int swanapp_album_thumbnail_line_color = 2131101962;
-    public static final int swanapp_album_unenable_shadow_color = 2131101963;
-    public static final int swanapp_album_video_upload_shadow_color = 2131101964;
-    public static final int swanapp_attention_btn_text_color = 2131101965;
-    public static final int swanapp_cancel_attention_btn_text_color = 2131101966;
-    public static final int swangame_game_ad_progress_backgroud = 2131101967;
-    public static final int swangame_game_ad_progress_color = 2131101968;
-    public static final int swangame_game_close_guide_line = 2131101969;
-    public static final int swangame_recommend_dialog_button_normal_gradient_end = 2131101970;
-    public static final int swangame_recommend_dialog_button_normal_gradient_start = 2131101971;
-    public static final int swangame_recommend_dialog_button_press_gradient_end = 2131101972;
-    public static final int swangame_recommend_dialog_button_press_gradient_start = 2131101973;
-    public static final int swangame_recommend_dialog_icon_border = 2131101974;
-    public static final int swangame_recommend_dialog_list_click = 2131101975;
-    public static final int swangame_recommend_dialog_list_divider = 2131101976;
-    public static final int swangame_recommend_dialog_list_item_detail_text = 2131101977;
-    public static final int swangame_recommend_dialog_text_normal = 2131101978;
-    public static final int swangame_recommend_dialog_text_press = 2131101979;
-    public static final int switch_thumb_disabled_material_dark = 2131101983;
-    public static final int switch_thumb_disabled_material_light = 2131101984;
-    public static final int switch_thumb_material_dark = 2131101985;
-    public static final int switch_thumb_material_light = 2131101986;
-    public static final int switch_thumb_normal_material_dark = 2131101987;
-    public static final int switch_thumb_normal_material_light = 2131101988;
-    public static final int tooltip_background_dark = 2131101994;
-    public static final int tooltip_background_light = 2131101995;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f43530c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static e f43531d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f43532e;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final Context f43533a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PublicKey f43534b;
+
+    /* renamed from: d.b.g0.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C0611a implements Comparator<d> {
+        public C0611a(a aVar) {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(d dVar, d dVar2) {
+            int i = dVar2.f43537c - dVar.f43537c;
+            if (i != 0) {
+                return i;
+            }
+            if (dVar.f43536b && dVar2.f43536b) {
+                return 0;
+            }
+            if (dVar.f43536b) {
+                return -1;
+            }
+            if (dVar2.f43536b) {
+                return 1;
+            }
+            return i;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class b {
+        public static byte[] a(String str, String str2, byte[] bArr) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class c {
+        public static byte[] a(byte[] bArr) {
+            return b(bArr, bArr.length);
+        }
+
+        public static byte[] b(byte[] bArr, int i) {
+            byte b2;
+            int i2;
+            int i3 = (i / 4) * 3;
+            if (i3 == 0) {
+                return new byte[0];
+            }
+            byte[] bArr2 = new byte[i3];
+            int i4 = i;
+            int i5 = 0;
+            while (true) {
+                byte b3 = bArr[i4 - 1];
+                b2 = 10;
+                if (b3 != 10 && b3 != 13 && b3 != 32 && b3 != 9) {
+                    if (b3 != 61) {
+                        break;
+                    }
+                    i5++;
+                }
+                i4--;
+            }
+            int i6 = 0;
+            int i7 = 0;
+            int i8 = 0;
+            int i9 = 0;
+            while (i6 < i4) {
+                byte b4 = bArr[i6];
+                if (b4 != b2 && b4 != 13 && b4 != 32 && b4 != 9) {
+                    if (b4 >= 65 && b4 <= 90) {
+                        i2 = b4 - 65;
+                    } else if (b4 >= 97 && b4 <= 122) {
+                        i2 = b4 - 71;
+                    } else if (b4 >= 48 && b4 <= 57) {
+                        i2 = b4 + 4;
+                    } else if (b4 == 43) {
+                        i2 = 62;
+                    } else if (b4 != 47) {
+                        return null;
+                    } else {
+                        i2 = 63;
+                    }
+                    i8 = ((byte) i2) | (i8 << 6);
+                    if (i9 % 4 == 3) {
+                        int i10 = i7 + 1;
+                        bArr2[i7] = (byte) ((16711680 & i8) >> 16);
+                        int i11 = i10 + 1;
+                        bArr2[i10] = (byte) ((65280 & i8) >> 8);
+                        bArr2[i11] = (byte) (i8 & 255);
+                        i7 = i11 + 1;
+                    }
+                    i9++;
+                }
+                i6++;
+                b2 = 10;
+            }
+            if (i5 > 0) {
+                int i12 = i8 << (i5 * 6);
+                int i13 = i7 + 1;
+                bArr2[i7] = (byte) ((i12 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16);
+                if (i5 == 1) {
+                    i7 = i13 + 1;
+                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
+                } else {
+                    i7 = i13;
+                }
+            }
+            byte[] bArr3 = new byte[i7];
+            System.arraycopy(bArr2, 0, bArr3, 0, i7);
+            return bArr3;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public ApplicationInfo f43535a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f43536b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f43537c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f43538d;
+
+        public /* synthetic */ d(C0611a c0611a) {
+            this();
+        }
+
+        public d() {
+            this.f43537c = 0;
+            this.f43538d = false;
+            this.f43536b = false;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class e {
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f43539a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f43540b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f43541c = 0;
+
+        public static e a(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                String str2 = "0";
+                String str3 = "0";
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!a.s("ZGV2aWNlaWQ=").equals(next) && !a.s("dmVy").equals(next)) {
+                        str3 = jSONObject.optString(next, "0");
+                    }
+                }
+                String string = jSONObject.getString(a.s("ZGV2aWNlaWQ="));
+                jSONObject.getInt(a.s("dmVy"));
+                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
+                if (!TextUtils.isEmpty(string)) {
+                    e eVar = new e();
+                    eVar.f43539a = string;
+                    eVar.f43541c = length;
+                    if (length >= 14) {
+                        return eVar;
+                    }
+                    if (!TextUtils.isEmpty(str3)) {
+                        str2 = str3;
+                    }
+                    eVar.f43540b = str2;
+                    return eVar;
+                }
+            } catch (Exception e2) {
+                d.b.g0.l.c.d(e2);
+            }
+            return null;
+        }
+
+        public static boolean d(int i) {
+            return i >= 14;
+        }
+
+        public static e e(String str, String str2) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            e eVar = new e();
+            eVar.f43539a = str;
+            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
+            eVar.f43541c = length;
+            if (length >= 14) {
+                return eVar;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "0";
+            }
+            eVar.f43540b = str2;
+            return eVar;
+        }
+
+        public static boolean g(String str) {
+            return TextUtils.isEmpty(str);
+        }
+
+        public String c() {
+            String str = this.f43540b;
+            if (TextUtils.isEmpty(str)) {
+                str = "0";
+            }
+            return this.f43539a + FieldBuilder.SE + str;
+        }
+
+        public boolean f() {
+            return d(this.f43541c);
+        }
+
+        public boolean h() {
+            return g(this.f43540b);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class f {
+        public static byte[] a() {
+            return new byte[]{48, -126, 3, 99, 48, -126, 2, 75, -96, 3, 2, 1, 2, 2, 4, 106, -93, 120, 122, 48, 13, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, 32, 23, 13, 49, 53, 49, 48, 50, 49, 48, 52, 51, 54, 51, 55, 90, 24, 15, 50, 48, 55, 48, 48, 55, 50, 52, 48, 52, 51, 54, 51, 55, 90, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, -126, 1, 34, 48, 13, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, 13, 1, 1, 1, 5, 0, 3, -126, 1, 15, 0, 48, -126, 1, 10, 2, -126, 1, 1, 0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, 37, -25, -33, 93, 51, -73, 32, -81, 61, 108, 37, 126, 14, -125, 125, ExifInterface.MARKER_SOF9, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, PublicSuffixDatabase.EXCEPTION_MARKER, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, UtilsBlink.VER_TYPE_SEPARATOR, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, ExifInterface.MARKER_SOF13, 29, 70, -19, ExifInterface.MARKER_SOF13, 20, ExifInterface.MARKER_EOI, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, ByteCompanionObject.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, 61, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, ExifInterface.MARKER_SOF5, -117, 74, -71, 121, 59, 19, -8, -109, PublicSuffixDatabase.EXCEPTION_MARKER, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, ExifInterface.START_CODE, -76, 20, 2, 116, 111, -76, 2, -78, -90, ExifInterface.MARKER_SOF10, 81, 115, 82, 50, 124, -83, 96, 20, ExifInterface.MARKER_SOI, -118, 105, 90, -70, 120, -33, -110, StandardMessageCodec.LIST, -15, 38, 34, -125, -116, 69, ExifInterface.MARKER_SOF10, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, ExifInterface.MARKER_SOF13, 107, -60, StandardMessageCodec.LIST, 114, -71, 119, 49, ExifInterface.MARKER_APP1, -65, 113, -99, 3, -90, 79, -88, ExifInterface.MARKER_SOS, -87, -25, ExifInterface.MARKER_SOS, 41, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, ExifInterface.MARKER_SOF1, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, 47, -69, 2, 3, 1, 0, 1, -93, PublicSuffixDatabase.EXCEPTION_MARKER, 48, 31, 48, 29, 6, 3, 85, 29, 14, 4, 22, 4, 20, -41, -108, PublicSuffixDatabase.EXCEPTION_MARKER, -126, -103, Base64.INTERNAL_PADDING, 115, -83, 99, 110, ExifInterface.MARKER_EOI, 110, -125, -118, -69, 87, -103, 30, StandardMessageCodec.LIST, ExifInterface.MARKER_SOF11, 48, 13, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 3, -126, 1, 1, 0, 0, -117, 0, -28, 51, 26, -4, -15, 86, ByteCompanionObject.MAX_VALUE, 14, -101, -48, 121, 115, ExifInterface.MARKER_SOF11, -72, -22, 4, -83, 49, 106, -15, -44, -116, -105, 19, 65, -32, 65, 92, 21, 51, 61, -21, -74, 71, 91, 64, 75, -72, -48, 102, 17, -120, -23, -68, 51, 23, -104, 107, 65, -30, 109, -6, 46, -44, -46, -73, ExifInterface.MARKER_SOF10, ExifInterface.MARKER_SOF9, 63, 77, ExifInterface.MARKER_SOF10, -11, ExifInterface.MARKER_SOF13, 27, -1, 114, 86, -80, 28, -89, 29, -20, 49, -8, 57, -7, -30, 61, -108, -6, -60, 113, UtilsBlink.VER_TYPE_SEPARATOR, -32, -93, 19, ExifInterface.MARKER_SOF2, -89, 106, 91, 96, -48, 90, ExifInterface.MARKER_SOF5, 46, 104, 111, -88, 51, ExifInterface.MARKER_EOI, 40, -36, -113, 86, -92, 25, 30, 94, -13, -15, ExifInterface.MARKER_SOF7, 59, -21, -111, 104, ExifInterface.MARKER_SOF14, -3, -121, -90, -43, 61, 105, -3, 57, 69, 51, -3, ExifInterface.MARKER_APP1, 105, -12, 19, 77, -82, -120, 121, 108, ExifInterface.MARKER_SOF1, -126, 46, -43, 14, -56, 21, 47, 63, -104, -7, 113, 57, 100, -9, -12, -101, 107, -77, ExifInterface.MARKER_SOF0, 91, -104, ExifInterface.MARKER_SOF3, 0, -7, -72, -19, 75, StandardMessageCodec.LIST, 111, ByteCompanionObject.MAX_VALUE, -115, -46, -99, -111, -93, -67, -42, -66, 32, 81, 70, 109, ExifInterface.MARKER_SOF7, 10, 19, ExifInterface.MARKER_SOF15, -44, 59, 21, 31, ExifInterface.MARKER_SOF3, ExifInterface.MARKER_SOF5, 83, -14, 43, 73, -88, 120, ExifInterface.MARKER_SOF6, -46, 46, 66, 41, -2, -70, -6, -42, 103, 8, 4, 89, 110, -122, 68, -86, 62, -68, 13, -117, Base64.INTERNAL_PADDING, -52, -6, 106, -91, 91, ExifInterface.MARKER_SOF2, -56, -26, -41, -109, 68, -102, -43, -29, 113, 43, -126, -127, 122, -47, -30, -96, -2, 78, 44, -92, ExifInterface.MARKER_SOS, -124, -102, 73, -105, -66, 5, -85, -7, 56};
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class g {
+        public static byte[] a(byte[] bArr) {
+            try {
+                return MessageDigest.getInstance("SHA-1").digest(bArr);
+            } catch (Exception e2) {
+                a.n(e2);
+                return new byte[0];
+            }
+        }
+    }
+
+    static {
+        String str = new String(c.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+        f43530c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+    }
+
+    public a(Context context) {
+        this.f43533a = context.getApplicationContext();
+        u();
+    }
+
+    public static String b(Context context) {
+        e m = m(context);
+        return m != null ? m.c() : "";
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:41:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(File file) {
+        FileReader fileReader;
+        FileReader fileReader2 = null;
+        try {
+            fileReader = new FileReader(file);
+            try {
+                try {
+                    char[] cArr = new char[8192];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        charArrayWriter.write(cArr, 0, read);
+                    }
+                    String charArrayWriter2 = charArrayWriter.toString();
+                    try {
+                        fileReader.close();
+                    } catch (Exception e2) {
+                        n(e2);
+                    }
+                    return charArrayWriter2;
+                } catch (Exception e3) {
+                    e = e3;
+                    n(e);
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e4) {
+                            n(e4);
+                        }
+                    }
+                    return null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                fileReader2 = fileReader;
+                if (fileReader2 != null) {
+                    try {
+                        fileReader2.close();
+                    } catch (Exception e5) {
+                        n(e5);
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception e6) {
+            e = e6;
+            fileReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (fileReader2 != null) {
+            }
+            throw th;
+        }
+    }
+
+    public static String e(byte[] bArr) {
+        if (bArr != null) {
+            String str = "";
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                str = hexString.length() == 1 ? str + "0" + hexString : str + hexString;
+            }
+            return str.toLowerCase();
+        }
+        throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
+    }
+
+    public static byte[] j(byte[] bArr, PublicKey publicKey) {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(2, publicKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static e m(Context context) {
+        if (f43531d == null) {
+            synchronized (e.class) {
+                if (f43531d == null) {
+                    f43531d = new a(context).a();
+                }
+            }
+        }
+        return f43531d;
+    }
+
+    public static void n(Throwable th) {
+    }
+
+    public static String q(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            return new String(b.a(f43530c, f43530c, c.a(str.getBytes())));
+        } catch (Exception e2) {
+            n(e2);
+            return "";
+        }
+    }
+
+    public static String s(String str) {
+        return new String(c.a(str.getBytes()));
+    }
+
+    public final e a() {
+        List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f43533a.getPackageName()), true);
+        boolean z = false;
+        if (f2 != null && f2.size() != 0) {
+            z = f2.get(0).f43538d;
+        }
+        File file = new File(this.f43533a.getFilesDir(), "libcuid.so");
+        e a2 = file.exists() ? e.a(q(c(file))) : null;
+        if (a2 == null) {
+            f43532e |= 16;
+            List<d> f3 = f(new Intent("com.baidu.intent.action.GALAXY"), z);
+            if (f3 != null) {
+                String str = com.baidu.fsg.face.base.b.c.f5592g;
+                File filesDir = this.f43533a.getFilesDir();
+                if (!com.baidu.fsg.face.base.b.c.f5592g.equals(filesDir.getName())) {
+                    str = filesDir.getName();
+                }
+                for (d dVar : f3) {
+                    if (!dVar.f43536b) {
+                        File file2 = new File(new File(dVar.f43535a.dataDir, str), "libcuid.so");
+                        if (file2.exists() && (a2 = e.a(q(c(file2)))) != null) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (a2 == null) {
+            a2 = e.a(q(v("com.baidu.deviceid.v2")));
+        }
+        boolean o = o("android.permission.READ_EXTERNAL_STORAGE");
+        if (a2 == null && o) {
+            f43532e |= 2;
+            a2 = p();
+        }
+        if (a2 == null) {
+            f43532e |= 8;
+            a2 = l();
+        }
+        if (a2 == null && o) {
+            f43532e |= 1;
+            a2 = t(r());
+        }
+        h(a2);
+        return a2;
+    }
+
+    public final List<d> f(Intent intent, boolean z) {
+        ArrayList arrayList = new ArrayList();
+        PackageManager packageManager = this.f43533a.getPackageManager();
+        List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
+        if (queryBroadcastReceivers != null) {
+            for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                ActivityInfo activityInfo = resolveInfo.activityInfo;
+                if (activityInfo != null && activityInfo.applicationInfo != null) {
+                    try {
+                        Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
+                        if (bundle != null) {
+                            String string = bundle.getString("galaxy_data");
+                            if (!TextUtils.isEmpty(string)) {
+                                byte[] a2 = c.a(string.getBytes("utf-8"));
+                                JSONObject jSONObject = new JSONObject(new String(a2));
+                                d dVar = new d(null);
+                                dVar.f43537c = jSONObject.getInt("priority");
+                                dVar.f43535a = resolveInfo.activityInfo.applicationInfo;
+                                if (this.f43533a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                    dVar.f43536b = true;
+                                }
+                                if (z) {
+                                    String string2 = bundle.getString("galaxy_sf");
+                                    if (!TextUtils.isEmpty(string2)) {
+                                        PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
+                                        JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+                                        int length = jSONArray.length();
+                                        String[] strArr = new String[length];
+                                        for (int i = 0; i < length; i++) {
+                                            strArr[i] = jSONArray.getString(i);
+                                        }
+                                        if (i(strArr, k(packageInfo.signatures))) {
+                                            byte[] j = j(c.a(string2.getBytes()), this.f43534b);
+                                            if (j != null && Arrays.equals(j, g.a(a2))) {
+                                                dVar.f43538d = true;
+                                            }
+                                        }
+                                    }
+                                }
+                                arrayList.add(dVar);
+                            }
+                        }
+                    } catch (Exception e2) {
+                        n(e2);
+                    }
+                }
+            }
+        }
+        Collections.sort(arrayList, new C0611a(this));
+        return arrayList;
+    }
+
+    public final boolean h(e eVar) {
+        if (eVar == null) {
+            return false;
+        }
+        if (eVar.f()) {
+            eVar.f43540b = "O";
+            return true;
+        } else if (eVar.h()) {
+            eVar.f43540b = "0";
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public final boolean i(String[] strArr, String[] strArr2) {
+        if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+            return false;
+        }
+        HashSet hashSet = new HashSet();
+        for (String str : strArr) {
+            hashSet.add(str);
+        }
+        HashSet hashSet2 = new HashSet();
+        for (String str2 : strArr2) {
+            hashSet2.add(str2);
+        }
+        return hashSet.equals(hashSet2);
+    }
+
+    public final String[] k(Signature[] signatureArr) {
+        int length = signatureArr.length;
+        String[] strArr = new String[length];
+        for (int i = 0; i < length; i++) {
+            strArr[i] = e(g.a(signatureArr[i].toByteArray()));
+        }
+        return strArr;
+    }
+
+    public final e l() {
+        return e.e(v("com.baidu.deviceid"), v("bd_setting_i"));
+    }
+
+    public final boolean o(String str) {
+        return this.f43533a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+    }
+
+    public final e p() {
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "backups/.SystemConfig/.cuid2");
+        if (file.exists()) {
+            String c2 = c(file);
+            if (TextUtils.isEmpty(c2)) {
+                return null;
+            }
+            try {
+                return e.a(new String(b.a(f43530c, f43530c, c.a(c2.getBytes()))));
+            } catch (Exception e2) {
+                n(e2);
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public final String r() {
+        return "0";
+    }
+
+    public final e t(String str) {
+        String str2;
+        String str3 = "";
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/.cuid");
+        if (!file.exists()) {
+            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "backups/.SystemConfig/.cuid");
+        }
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    break;
+                }
+                sb.append(readLine);
+                sb.append(Part.CRLF);
+            }
+            bufferedReader.close();
+            String[] split = new String(b.a(f43530c, f43530c, c.a(sb.toString().getBytes()))).split("=");
+            if (split == null || split.length != 2) {
+                str2 = "";
+            } else {
+                str2 = split[0];
+                try {
+                    str3 = split[1];
+                } catch (Exception e2) {
+                    e = e2;
+                    n(e);
+                    return e.e(str3, str2);
+                }
+            }
+        } catch (Exception e3) {
+            e = e3;
+            str2 = "";
+        }
+        return e.e(str3, str2);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:32:0x003a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void u() {
+        ByteArrayInputStream byteArrayInputStream;
+        Exception e2;
+        ByteArrayInputStream byteArrayInputStream2 = null;
+        try {
+            try {
+                byteArrayInputStream = new ByteArrayInputStream(f.a());
+                try {
+                    try {
+                        this.f43534b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+                        byteArrayInputStream.close();
+                    } catch (Exception e3) {
+                        e2 = e3;
+                        n(e2);
+                        if (byteArrayInputStream != null) {
+                            byteArrayInputStream.close();
+                        }
+                    }
+                } catch (Throwable th) {
+                    ByteArrayInputStream byteArrayInputStream3 = byteArrayInputStream;
+                    th = th;
+                    byteArrayInputStream2 = byteArrayInputStream3;
+                    if (byteArrayInputStream2 != null) {
+                        try {
+                            byteArrayInputStream2.close();
+                        } catch (Exception e4) {
+                            n(e4);
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e5) {
+                n(e5);
+            }
+        } catch (Exception e6) {
+            byteArrayInputStream = null;
+            e2 = e6;
+        } catch (Throwable th2) {
+            th = th2;
+            if (byteArrayInputStream2 != null) {
+            }
+            throw th;
+        }
+    }
+
+    public final String v(String str) {
+        try {
+            return Settings.System.getString(this.f43533a.getContentResolver(), str);
+        } catch (Exception e2) {
+            n(e2);
+            return null;
+        }
+    }
 }

@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.b.g.b;
-import d.b.h0.r.q.a;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.u.c;
 import d.b.i.p;
 import d.b.i.q;
-import d.b.i0.x.b0;
-import d.b.i0.x.m;
+import d.b.i0.b.g.b;
+import d.b.i0.r.q.a;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.u.c;
+import d.b.j0.x.b0;
+import d.b.j0.x.m;
 /* loaded from: classes.dex */
 public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnClickListener, q {
 

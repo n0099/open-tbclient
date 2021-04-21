@@ -13,17 +13,17 @@ import com.kwad.sdk.contentalliance.refreshview.e;
 public class a extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public SlidePlayViewPager f33119b;
+    public SlidePlayViewPager f33214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f33120c;
+    public i f33215c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public e f33121d;
+    public e f33216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RefreshLayout.b f33122e = new RefreshLayout.b() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.1
+    public RefreshLayout.b f33217e = new RefreshLayout.b() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.1
         @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout.b
         public void a() {
             a.this.g();
@@ -31,7 +31,7 @@ public class a extends c {
     };
 
     /* renamed from: f  reason: collision with root package name */
-    public SlidePlayTouchViewPager.a f33123f = new SlidePlayTouchViewPager.a() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.2
+    public SlidePlayTouchViewPager.a f33218f = new SlidePlayTouchViewPager.a() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.2
         @Override // com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager.a
         public void a() {
         }
@@ -43,7 +43,7 @@ public class a extends c {
     };
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f33124g = new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.3
+    public ViewPager.OnPageChangeListener f33219g = new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.3
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
         }
@@ -54,8 +54,8 @@ public class a extends c {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            int a2 = a.this.f33119b.getAdapter().a(i);
-            int a3 = a.this.f33119b.getAdapter().a();
+            int a2 = a.this.f33214b.getAdapter().a(i);
+            int a3 = a.this.f33214b.getAdapter().a();
             if (a3 <= 0 || a2 < a3 - 3) {
                 return;
             }
@@ -65,83 +65,83 @@ public class a extends c {
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public d f33125h = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.4
+    public d f33220h = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.4
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
-            if (a.this.f33121d != null) {
-                a.this.f33121d.setRefreshing(false);
+            if (a.this.f33216d != null) {
+                a.this.f33216d.setRefreshing(false);
             }
-            a.this.f33119b.i();
+            a.this.f33214b.i();
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
             if (!z) {
-                a.this.f33119b.a(a.this.f33120c.d());
-                a.this.f33119b.i();
+                a.this.f33214b.a(a.this.f33215c.d());
+                a.this.f33214b.i();
                 return;
             }
-            if (a.this.f33121d != null) {
-                a.this.f33121d.setRefreshing(false);
+            if (a.this.f33216d != null) {
+                a.this.f33216d.setRefreshing(false);
             }
-            a.this.f33119b.postDelayed(a.this.i, 300L);
+            a.this.f33214b.postDelayed(a.this.i, 300L);
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
             super.a(z, z2, i, i2);
-            a.this.f33119b.h();
+            a.this.f33214b.h();
         }
     };
     public Runnable i = new Runnable() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.5
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f33119b.b(a.this.f33120c.d());
-            a.this.f33119b.i();
+            a.this.f33214b.b(a.this.f33215c.d());
+            a.this.f33214b.i();
         }
     };
 
     private void e() {
         com.kwad.sdk.core.d.a.a("ViewPagerDataFetcherPresenter", "loadData");
-        this.f33120c.a(0);
+        this.f33215c.a(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         com.kwad.sdk.core.d.a.a("ViewPagerDataFetcherPresenter", "loadMore");
-        this.f33120c.a();
+        this.f33215c.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         com.kwad.sdk.core.d.a.a("ViewPagerDataFetcherPresenter", "loadData");
-        this.f33120c.a(1);
+        this.f33215c.a(1);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.viewpager.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.viewpager.d dVar = ((c) this).f33138a;
-        this.f33120c = dVar.f33139a;
-        SlidePlayViewPager slidePlayViewPager = dVar.f33141c;
-        this.f33119b = slidePlayViewPager;
-        slidePlayViewPager.a(this.f33124g);
-        this.f33120c.a(this.f33125h);
-        e eVar = ((c) this).f33138a.f33142d;
-        this.f33121d = eVar;
+        com.kwad.sdk.contentalliance.home.viewpager.d dVar = ((c) this).f33233a;
+        this.f33215c = dVar.f33234a;
+        SlidePlayViewPager slidePlayViewPager = dVar.f33236c;
+        this.f33214b = slidePlayViewPager;
+        slidePlayViewPager.a(this.f33219g);
+        this.f33215c.a(this.f33220h);
+        e eVar = ((c) this).f33233a.f33237d;
+        this.f33216d = eVar;
         if (eVar != null) {
-            eVar.setOnRefreshListener(this.f33122e);
+            eVar.setOnRefreshListener(this.f33217e);
         }
-        this.f33119b.a(this.f33123f);
+        this.f33214b.a(this.f33218f);
         e();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f33119b.b(this.f33124g);
-        this.f33120c.b(this.f33125h);
-        this.f33119b.removeCallbacks(this.i);
-        this.f33120c.b();
+        this.f33214b.b(this.f33219g);
+        this.f33215c.b(this.f33220h);
+        this.f33214b.removeCallbacks(this.i);
+        this.f33215c.b();
     }
 }

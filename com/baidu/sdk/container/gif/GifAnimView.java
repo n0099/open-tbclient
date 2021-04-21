@@ -10,14 +10,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.view.View;
-import d.b.c0.a.f.d;
-import d.b.c0.a.f.e;
+import d.b.d0.a.f.d;
+import d.b.d0.a.f.e;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
-public class GifAnimView extends View implements d.b.c0.a.f.a {
+public class GifAnimView extends View implements d.b.d0.a.f.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.c0.a.f.b f11195e;
+    public d.b.d0.a.f.b f11195e;
 
     /* renamed from: f  reason: collision with root package name */
     public Bitmap f11196f;
@@ -101,9 +101,9 @@ public class GifAnimView extends View implements d.b.c0.a.f.a {
             }
             while (GifAnimView.this.f11197g) {
                 if (!GifAnimView.this.f11198h) {
-                    d.b.c0.a.f.c i = GifAnimView.this.f11195e.i();
-                    GifAnimView.this.f11196f = i.f43037a;
-                    long j = i.f43038b;
+                    d.b.d0.a.f.c i = GifAnimView.this.f11195e.i();
+                    GifAnimView.this.f11196f = i.f43359a;
+                    long j = i.f43360b;
                     if (GifAnimView.this.q == null) {
                         return;
                     }
@@ -136,17 +136,17 @@ public class GifAnimView extends View implements d.b.c0.a.f.a {
     }
 
     private void setGifDecoderImage(byte[] bArr) {
-        d.b.c0.a.f.b bVar = this.f11195e;
+        d.b.d0.a.f.b bVar = this.f11195e;
         if (bVar != null) {
             bVar.c();
             this.f11195e = null;
         }
-        d.b.c0.a.f.b bVar2 = new d.b.c0.a.f.b(bArr, this);
+        d.b.d0.a.f.b bVar2 = new d.b.d0.a.f.b(bArr, this);
         this.f11195e = bVar2;
         bVar2.start();
     }
 
-    @Override // d.b.c0.a.f.a
+    @Override // d.b.d0.a.f.a
     public void a(boolean z, int i) {
         if (!z || this.f11195e == null) {
             return;
@@ -205,7 +205,7 @@ public class GifAnimView extends View implements d.b.c0.a.f.a {
     public void j() {
         this.f11198h = true;
         this.f11197g = false;
-        d.b.c0.a.f.b bVar = this.f11195e;
+        d.b.d0.a.f.b bVar = this.f11195e;
         if (bVar != null) {
             bVar.c();
             this.f11195e = null;
@@ -225,7 +225,7 @@ public class GifAnimView extends View implements d.b.c0.a.f.a {
     @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        d.b.c0.a.f.b bVar = this.f11195e;
+        d.b.d0.a.f.b bVar = this.f11195e;
         if (bVar == null) {
             return;
         }
@@ -261,13 +261,13 @@ public class GifAnimView extends View implements d.b.c0.a.f.a {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        d.b.c0.a.f.b bVar = this.f11195e;
+        d.b.d0.a.f.b bVar = this.f11195e;
         int i4 = 1;
         if (bVar == null) {
             i3 = 1;
         } else {
-            i4 = bVar.f43035g;
-            i3 = bVar.f43036h;
+            i4 = bVar.f43357g;
+            i3 = bVar.f43358h;
         }
         setMeasuredDimension(View.resolveSize(Math.max(i4 + paddingLeft + paddingRight, getSuggestedMinimumWidth()), i), View.resolveSize(Math.max(i3 + paddingTop + paddingBottom, getSuggestedMinimumHeight()), i2));
     }
@@ -315,12 +315,12 @@ public class GifAnimView extends View implements d.b.c0.a.f.a {
     }
 
     private void setGifDecoderImage(InputStream inputStream) {
-        d.b.c0.a.f.b bVar = this.f11195e;
+        d.b.d0.a.f.b bVar = this.f11195e;
         if (bVar != null) {
             bVar.c();
             this.f11195e = null;
         }
-        d.b.c0.a.f.b bVar2 = new d.b.c0.a.f.b(inputStream, this);
+        d.b.d0.a.f.b bVar2 = new d.b.d0.a.f.b(inputStream, this);
         this.f11195e = bVar2;
         bVar2.start();
     }

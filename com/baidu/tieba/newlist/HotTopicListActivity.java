@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.b.c.j.e.n;
-import d.b.i0.a2.b;
+import d.b.j0.a2.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
@@ -27,12 +27,12 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a078";
     }
 
-    @Override // d.b.i0.a2.b
+    @Override // d.b.j0.a2.b
     public void loadData() {
         boolean LoadData = this.mModel.LoadData();
         if (!ListUtils.isEmpty(this.curDataList)) {
@@ -50,7 +50,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // d.b.i0.a2.b
+    @Override // d.b.j0.a2.b
     public void netCallback(int i, List<n> list) {
         this.mView.r();
         this.mView.B();

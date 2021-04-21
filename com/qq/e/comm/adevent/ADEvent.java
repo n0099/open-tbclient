@@ -3,26 +3,26 @@ package com.qq.e.comm.adevent;
 public class ADEvent {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38549a;
+    public final int f38644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object[] f38550b;
+    public final Object[] f38645b;
 
     public ADEvent(int i) {
         this(i, null);
     }
 
     public ADEvent(int i, Object[] objArr) {
-        this.f38549a = i;
-        this.f38550b = objArr;
+        this.f38644a = i;
+        this.f38645b = objArr;
     }
 
     public Object[] getParas() {
-        Object[] objArr = this.f38550b;
+        Object[] objArr = this.f38645b;
         return objArr == null ? new Object[0] : objArr;
     }
 
     public int getType() {
-        return this.f38549a;
+        return this.f38644a;
     }
 }

@@ -10,59 +10,59 @@ import java.util.List;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d f41642c = new d("COMPOSITION");
+    public static final d f41737c = new d("COMPOSITION");
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f41643a;
+    public final List<String> f41738a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public e f41644b;
+    public e f41739b;
 
     public d(String... strArr) {
-        this.f41643a = Arrays.asList(strArr);
+        this.f41738a = Arrays.asList(strArr);
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public d a(String str) {
         d dVar = new d(this);
-        dVar.f41643a.add(str);
+        dVar.f41738a.add(str);
         return dVar;
     }
 
     public final boolean b() {
-        List<String> list = this.f41643a;
+        List<String> list = this.f41738a;
         return list.get(list.size() - 1).equals("**");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean c(String str, int i) {
-        if (i >= this.f41643a.size()) {
+        if (i >= this.f41738a.size()) {
             return false;
         }
-        boolean z = i == this.f41643a.size() - 1;
-        String str2 = this.f41643a.get(i);
+        boolean z = i == this.f41738a.size() - 1;
+        String str2 = this.f41738a.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.f41643a.size() + (-2) && b())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.f41738a.size() + (-2) && b())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.f41643a.get(i + 1).equals(str)) {
-            return i == this.f41643a.size() + (-2) || (i == this.f41643a.size() + (-3) && b());
+        if (!z && this.f41738a.get(i + 1).equals(str)) {
+            return i == this.f41738a.size() + (-2) || (i == this.f41738a.size() + (-3) && b());
         } else if (z) {
             return true;
         } else {
             int i2 = i + 1;
-            if (i2 < this.f41643a.size() - 1) {
+            if (i2 < this.f41738a.size() - 1) {
                 return false;
             }
-            return this.f41643a.get(i2).equals(str);
+            return this.f41738a.get(i2).equals(str);
         }
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e d() {
-        return this.f41644b;
+        return this.f41739b;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -70,8 +70,8 @@ public class d {
         if (f(str)) {
             return 0;
         }
-        if (this.f41643a.get(i).equals("**")) {
-            return (i != this.f41643a.size() - 1 && this.f41643a.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.f41738a.get(i).equals("**")) {
+            return (i != this.f41738a.size() - 1 && this.f41738a.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
@@ -85,36 +85,36 @@ public class d {
         if (f(str)) {
             return true;
         }
-        if (i >= this.f41643a.size()) {
+        if (i >= this.f41738a.size()) {
             return false;
         }
-        return this.f41643a.get(i).equals(str) || this.f41643a.get(i).equals("**") || this.f41643a.get(i).equals("*");
+        return this.f41738a.get(i).equals(str) || this.f41738a.get(i).equals("**") || this.f41738a.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean h(String str, int i) {
-        return "__container".equals(str) || i < this.f41643a.size() - 1 || this.f41643a.get(i).equals("**");
+        return "__container".equals(str) || i < this.f41738a.size() - 1 || this.f41738a.get(i).equals("**");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public d i(e eVar) {
         d dVar = new d(this);
-        dVar.f41644b = eVar;
+        dVar.f41739b = eVar;
         return dVar;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("KeyPath{keys=");
-        sb.append(this.f41643a);
+        sb.append(this.f41738a);
         sb.append(",resolved=");
-        sb.append(this.f41644b != null);
+        sb.append(this.f41739b != null);
         sb.append('}');
         return sb.toString();
     }
 
     public d(d dVar) {
-        this.f41643a = new ArrayList(dVar.f41643a);
-        this.f41644b = dVar.f41644b;
+        this.f41738a = new ArrayList(dVar.f41738a);
+        this.f41739b = dVar.f41739b;
     }
 }

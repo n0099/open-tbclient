@@ -6,7 +6,7 @@ public class a {
 
     /* renamed from: com.kuaishou.aegon.netcheck.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public enum EnumC0368a {
+    public enum EnumC0371a {
         RESULT_WEAK_SIGNAL(1),
         RESULT_BAD_WIFI_GATEWAY(2),
         RESULT_NOT_CONNECTED(3),
@@ -15,14 +15,14 @@ public class a {
         
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31921g;
+        public int f32016g;
 
-        EnumC0368a(int i) {
-            this.f31921g = i;
+        EnumC0371a(int i) {
+            this.f32016g = i;
         }
 
         public int a() {
-            return this.f31921g;
+            return this.f32016g;
         }
     }
 
@@ -30,6 +30,6 @@ public class a {
     public interface b {
         void a(int i);
 
-        void a(EnumSet<EnumC0368a> enumSet, String str);
+        void a(EnumSet<EnumC0371a> enumSet, String str);
     }
 }

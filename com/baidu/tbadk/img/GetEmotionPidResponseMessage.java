@@ -1,7 +1,7 @@
 package com.baidu.tbadk.img;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.h0.b0.c;
+import d.b.i0.b0.c;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {

@@ -7,21 +7,21 @@ import java.util.Date;
 public class F1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static F1 f39958a;
+    public static F1 f40053a;
 
     public static F1 a() {
-        if (f39958a == null) {
+        if (f40053a == null) {
             synchronized (F1.class) {
-                if (f39958a == null) {
-                    f39958a = new F1();
+                if (f40053a == null) {
+                    f40053a = new F1();
                 }
             }
         }
-        return f39958a;
+        return f40053a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0053, code lost:
-        if (((r6 / 60) / 60) >= r10.f40224a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
+        if (((r6 / 60) / 60) >= r10.f40319a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -36,7 +36,7 @@ public class F1 {
         }
         X1.a(new E1(this, context));
         g1 a2 = g1.a(context);
-        long h2 = V1.h(a2.f40224a);
+        long h2 = V1.h(a2.f40319a);
         boolean z = true;
         if (h2 > 0) {
             try {
@@ -50,7 +50,7 @@ public class F1 {
             }
         }
         if (z) {
-            a2.f40225b = System.currentTimeMillis();
+            a2.f40320b = System.currentTimeMillis();
             X1.a(new f1(a2));
         }
         G.f(context);

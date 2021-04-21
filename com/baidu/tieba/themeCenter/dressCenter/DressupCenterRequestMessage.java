@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.dressCenter;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.GetThemeList.DataReq;
 import tbclient.GetThemeList.GetThemeListReqIdl;
 /* loaded from: classes5.dex */

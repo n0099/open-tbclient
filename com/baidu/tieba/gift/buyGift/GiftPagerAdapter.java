@@ -9,11 +9,11 @@ import java.util.List;
 public class GiftPagerAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<View> f16539a;
+    public List<View> f16547a;
 
     public GiftPagerAdapter(List<View> list) {
-        this.f16539a = new ArrayList();
-        this.f16539a = list;
+        this.f16547a = new ArrayList();
+        this.f16547a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -21,12 +21,12 @@ public class GiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return;
         }
-        viewGroup.removeView(this.f16539a.get(i));
+        viewGroup.removeView(this.f16547a.get(i));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        List<View> list = this.f16539a;
+        List<View> list = this.f16547a;
         if (list == null) {
             return 0;
         }
@@ -38,7 +38,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.f16539a.get(i);
+        View view = this.f16547a.get(i);
         viewGroup.addView(view);
         return view;
     }

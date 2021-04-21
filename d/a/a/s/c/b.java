@@ -13,12 +13,12 @@ public class b extends f<Integer> {
 
     public int p(d.a.a.y.a<Integer> aVar, float f2) {
         Integer num;
-        Integer num2 = aVar.f41801b;
-        if (num2 != null && aVar.f41802c != null) {
+        Integer num2 = aVar.f41896b;
+        if (num2 != null && aVar.f41897c != null) {
             int intValue = num2.intValue();
-            int intValue2 = aVar.f41802c.intValue();
-            d.a.a.y.c<A> cVar = this.f41599e;
-            if (cVar != 0 && (num = (Integer) cVar.b(aVar.f41804e, aVar.f41805f.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f2, e(), f())) != null) {
+            int intValue2 = aVar.f41897c.intValue();
+            d.a.a.y.c<A> cVar = this.f41694e;
+            if (cVar != 0 && (num = (Integer) cVar.b(aVar.f41899e, aVar.f41900f.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f2, e(), f())) != null) {
                 return num.intValue();
             }
             return d.a.a.x.b.c(d.a.a.x.g.c(f2, 0.0f, 1.0f), intValue, intValue2);

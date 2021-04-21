@@ -4,19 +4,19 @@ public class a {
 
     /* renamed from: com.kuaishou.aegon.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0367a<T> {
+    public interface InterfaceC0370a<T> {
         T get();
     }
 
-    public static <T> T a(InterfaceC0367a<T> interfaceC0367a) {
+    public static <T> T a(InterfaceC0370a<T> interfaceC0370a) {
         try {
             try {
-                return interfaceC0367a.get();
+                return interfaceC0370a.get();
             } catch (UnsatisfiedLinkError unused) {
-                return interfaceC0367a.get();
+                return interfaceC0370a.get();
             }
         } catch (UnsatisfiedLinkError unused2) {
-            return interfaceC0367a.get();
+            return interfaceC0370a.get();
         }
     }
 

@@ -29,7 +29,7 @@ import java.util.List;
 public class f extends Drawable implements Drawable.Callback, Animatable {
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.a.d f41442f;
+    public d.a.a.d f41537f;
     public final ArrayList<q> k;
     public final ValueAnimator.AnimatorUpdateListener l;
     @Nullable
@@ -56,13 +56,13 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public boolean z;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Matrix f41441e = new Matrix();
+    public final Matrix f41536e = new Matrix();
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.a.x.e f41443g = new d.a.a.x.e();
+    public final d.a.a.x.e f41538g = new d.a.a.x.e();
 
     /* renamed from: h  reason: collision with root package name */
-    public float f41444h = 1.0f;
+    public float f41539h = 1.0f;
     public boolean i = true;
     public boolean j = false;
 
@@ -70,15 +70,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class a implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41445a;
+        public final /* synthetic */ String f41540a;
 
         public a(String str) {
-            this.f41445a = str;
+            this.f41540a = str;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.f0(this.f41445a);
+            f.this.f0(this.f41540a);
         }
     }
 
@@ -86,23 +86,23 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class b implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41447a;
+        public final /* synthetic */ String f41542a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f41448b;
+        public final /* synthetic */ String f41543b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f41449c;
+        public final /* synthetic */ boolean f41544c;
 
         public b(String str, String str2, boolean z) {
-            this.f41447a = str;
-            this.f41448b = str2;
-            this.f41449c = z;
+            this.f41542a = str;
+            this.f41543b = str2;
+            this.f41544c = z;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.g0(this.f41447a, this.f41448b, this.f41449c);
+            f.this.g0(this.f41542a, this.f41543b, this.f41544c);
         }
     }
 
@@ -110,19 +110,19 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class c implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f41451a;
+        public final /* synthetic */ int f41546a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f41452b;
+        public final /* synthetic */ int f41547b;
 
         public c(int i, int i2) {
-            this.f41451a = i;
-            this.f41452b = i2;
+            this.f41546a = i;
+            this.f41547b = i2;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.e0(this.f41451a, this.f41452b);
+            f.this.e0(this.f41546a, this.f41547b);
         }
     }
 
@@ -130,19 +130,19 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class d implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f41454a;
+        public final /* synthetic */ float f41549a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ float f41455b;
+        public final /* synthetic */ float f41550b;
 
         public d(float f2, float f3) {
-            this.f41454a = f2;
-            this.f41455b = f3;
+            this.f41549a = f2;
+            this.f41550b = f3;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.h0(this.f41454a, this.f41455b);
+            f.this.h0(this.f41549a, this.f41550b);
         }
     }
 
@@ -150,32 +150,32 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class e implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f41457a;
+        public final /* synthetic */ int f41552a;
 
         public e(int i) {
-            this.f41457a = i;
+            this.f41552a = i;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.Y(this.f41457a);
+            f.this.Y(this.f41552a);
         }
     }
 
     /* renamed from: d.a.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0541f implements q {
+    public class C0544f implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f41459a;
+        public final /* synthetic */ float f41554a;
 
-        public C0541f(float f2) {
-            this.f41459a = f2;
+        public C0544f(float f2) {
+            this.f41554a = f2;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.m0(this.f41459a);
+            f.this.m0(this.f41554a);
         }
     }
 
@@ -183,23 +183,23 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class g implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.a.u.d f41461a;
+        public final /* synthetic */ d.a.a.u.d f41556a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f41462b;
+        public final /* synthetic */ Object f41557b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.a.y.c f41463c;
+        public final /* synthetic */ d.a.a.y.c f41558c;
 
         public g(d.a.a.u.d dVar, Object obj, d.a.a.y.c cVar) {
-            this.f41461a = dVar;
-            this.f41462b = obj;
-            this.f41463c = cVar;
+            this.f41556a = dVar;
+            this.f41557b = obj;
+            this.f41558c = cVar;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.e(this.f41461a, this.f41462b, this.f41463c);
+            f.this.e(this.f41556a, this.f41557b, this.f41558c);
         }
     }
 
@@ -211,7 +211,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             if (f.this.u != null) {
-                f.this.u.G(f.this.f41443g.i());
+                f.this.u.G(f.this.f41538g.i());
             }
         }
     }
@@ -242,15 +242,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class k implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f41468a;
+        public final /* synthetic */ int f41563a;
 
         public k(int i) {
-            this.f41468a = i;
+            this.f41563a = i;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.i0(this.f41468a);
+            f.this.i0(this.f41563a);
         }
     }
 
@@ -258,15 +258,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class l implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f41470a;
+        public final /* synthetic */ float f41565a;
 
         public l(float f2) {
-            this.f41470a = f2;
+            this.f41565a = f2;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.k0(this.f41470a);
+            f.this.k0(this.f41565a);
         }
     }
 
@@ -274,15 +274,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class m implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f41472a;
+        public final /* synthetic */ int f41567a;
 
         public m(int i) {
-            this.f41472a = i;
+            this.f41567a = i;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.b0(this.f41472a);
+            f.this.b0(this.f41567a);
         }
     }
 
@@ -290,15 +290,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class n implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f41474a;
+        public final /* synthetic */ float f41569a;
 
         public n(float f2) {
-            this.f41474a = f2;
+            this.f41569a = f2;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.d0(this.f41474a);
+            f.this.d0(this.f41569a);
         }
     }
 
@@ -306,15 +306,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class o implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41476a;
+        public final /* synthetic */ String f41571a;
 
         public o(String str) {
-            this.f41476a = str;
+            this.f41571a = str;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.j0(this.f41476a);
+            f.this.j0(this.f41571a);
         }
     }
 
@@ -322,15 +322,15 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     public class p implements q {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41478a;
+        public final /* synthetic */ String f41573a;
 
         public p(String str) {
-            this.f41478a = str;
+            this.f41573a = str;
         }
 
         @Override // d.a.a.f.q
         public void a(d.a.a.d dVar) {
-            f.this.c0(this.f41478a);
+            f.this.c0(this.f41573a);
         }
     }
 
@@ -347,28 +347,28 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
         this.v = 255;
         this.y = true;
         this.z = false;
-        this.f41443g.addUpdateListener(hVar);
+        this.f41538g.addUpdateListener(hVar);
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
     public float A() {
-        return this.f41443g.i();
+        return this.f41538g.i();
     }
 
     public int B() {
-        return this.f41443g.getRepeatCount();
+        return this.f41538g.getRepeatCount();
     }
 
     public int C() {
-        return this.f41443g.getRepeatMode();
+        return this.f41538g.getRepeatMode();
     }
 
     public float D() {
-        return this.f41444h;
+        return this.f41539h;
     }
 
     public float E() {
-        return this.f41443g.n();
+        return this.f41538g.n();
     }
 
     @Nullable
@@ -396,7 +396,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public boolean J() {
-        d.a.a.x.e eVar = this.f41443g;
+        d.a.a.x.e eVar = this.f41538g;
         if (eVar == null) {
             return false;
         }
@@ -413,7 +413,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
 
     public void M() {
         this.k.clear();
-        this.f41443g.p();
+        this.f41538g.p();
     }
 
     @MainThread
@@ -423,30 +423,30 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
             return;
         }
         if (this.i || B() == 0) {
-            this.f41443g.q();
+            this.f41538g.q();
         }
         if (this.i) {
             return;
         }
         Y((int) (E() < 0.0f ? y() : w()));
-        this.f41443g.h();
+        this.f41538g.h();
     }
 
     public void O() {
-        this.f41443g.removeAllListeners();
+        this.f41538g.removeAllListeners();
     }
 
     public void P() {
-        this.f41443g.removeAllUpdateListeners();
-        this.f41443g.addUpdateListener(this.l);
+        this.f41538g.removeAllUpdateListeners();
+        this.f41538g.addUpdateListener(this.l);
     }
 
     public void Q(Animator.AnimatorListener animatorListener) {
-        this.f41443g.removeListener(animatorListener);
+        this.f41538g.removeListener(animatorListener);
     }
 
     public void R(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.f41443g.removeUpdateListener(animatorUpdateListener);
+        this.f41538g.removeUpdateListener(animatorUpdateListener);
     }
 
     public List<d.a.a.u.d> S(d.a.a.u.d dVar) {
@@ -466,17 +466,17 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
             return;
         }
         if (this.i || B() == 0) {
-            this.f41443g.u();
+            this.f41538g.u();
         }
         if (this.i) {
             return;
         }
         Y((int) (E() < 0.0f ? y() : w()));
-        this.f41443g.h();
+        this.f41538g.h();
     }
 
     public void U() {
-        this.f41443g.v();
+        this.f41538g.v();
     }
 
     public void V(boolean z) {
@@ -484,16 +484,16 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public boolean W(d.a.a.d dVar) {
-        if (this.f41442f == dVar) {
+        if (this.f41537f == dVar) {
             return false;
         }
         this.z = false;
         h();
-        this.f41442f = dVar;
+        this.f41537f = dVar;
         f();
-        this.f41443g.w(dVar);
-        m0(this.f41443g.getAnimatedFraction());
-        q0(this.f41444h);
+        this.f41538g.w(dVar);
+        m0(this.f41538g.getAnimatedFraction());
+        q0(this.f41539h);
         w0();
         Iterator it = new ArrayList(this.k).iterator();
         while (it.hasNext()) {
@@ -521,10 +521,10 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void Y(int i2) {
-        if (this.f41442f == null) {
+        if (this.f41537f == null) {
             this.k.add(new e(i2));
         } else {
-            this.f41443g.x(i2);
+            this.f41538g.x(i2);
         }
     }
 
@@ -541,41 +541,41 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void b0(int i2) {
-        if (this.f41442f == null) {
+        if (this.f41537f == null) {
             this.k.add(new m(i2));
         } else {
-            this.f41443g.y(i2 + 0.99f);
+            this.f41538g.y(i2 + 0.99f);
         }
     }
 
     public void c(Animator.AnimatorListener animatorListener) {
-        this.f41443g.addListener(animatorListener);
+        this.f41538g.addListener(animatorListener);
     }
 
     public void c0(String str) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new p(str));
             return;
         }
         d.a.a.u.g k2 = dVar.k(str);
         if (k2 != null) {
-            b0((int) (k2.f41649b + k2.f41650c));
+            b0((int) (k2.f41744b + k2.f41745c));
             return;
         }
         throw new IllegalArgumentException("Cannot find marker with name " + str + ".");
     }
 
     public void d(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.f41443g.addUpdateListener(animatorUpdateListener);
+        this.f41538g.addUpdateListener(animatorUpdateListener);
     }
 
     public void d0(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new n(f2));
         } else {
-            b0((int) d.a.a.x.g.k(dVar.o(), this.f41442f.f(), f2));
+            b0((int) d.a.a.x.g.k(dVar.o(), this.f41537f.f(), f2));
         }
     }
 
@@ -602,7 +602,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
             return;
         }
         boolean z = true;
-        if (dVar == d.a.a.u.d.f41642c) {
+        if (dVar == d.a.a.u.d.f41737c) {
             bVar.c(t, cVar);
         } else if (dVar.d() != null) {
             dVar.d().c(t, cVar);
@@ -622,27 +622,27 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void e0(int i2, int i3) {
-        if (this.f41442f == null) {
+        if (this.f41537f == null) {
             this.k.add(new c(i2, i3));
         } else {
-            this.f41443g.z(i2, i3 + 0.99f);
+            this.f41538g.z(i2, i3 + 0.99f);
         }
     }
 
     public final void f() {
-        this.u = new d.a.a.u.k.b(this, s.a(this.f41442f), this.f41442f.j(), this.f41442f);
+        this.u = new d.a.a.u.k.b(this, s.a(this.f41537f), this.f41537f.j(), this.f41537f);
     }
 
     public void f0(String str) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new a(str));
             return;
         }
         d.a.a.u.g k2 = dVar.k(str);
         if (k2 != null) {
-            int i2 = (int) k2.f41649b;
-            e0(i2, ((int) k2.f41650c) + i2);
+            int i2 = (int) k2.f41744b;
+            e0(i2, ((int) k2.f41745c) + i2);
             return;
         }
         throw new IllegalArgumentException("Cannot find marker with name " + str + ".");
@@ -650,21 +650,21 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
 
     public void g() {
         this.k.clear();
-        this.f41443g.cancel();
+        this.f41538g.cancel();
     }
 
     public void g0(String str, String str2, boolean z) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new b(str, str2, z));
             return;
         }
         d.a.a.u.g k2 = dVar.k(str);
         if (k2 != null) {
-            int i2 = (int) k2.f41649b;
-            d.a.a.u.g k3 = this.f41442f.k(str2);
+            int i2 = (int) k2.f41744b;
+            d.a.a.u.g k3 = this.f41537f.k(str2);
             if (str2 != null) {
-                e0(i2, (int) (k3.f41649b + (z ? 1.0f : 0.0f)));
+                e0(i2, (int) (k3.f41744b + (z ? 1.0f : 0.0f)));
                 return;
             }
             throw new IllegalArgumentException("Cannot find marker with name " + str2 + ".");
@@ -679,7 +679,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             return -1;
         }
@@ -688,7 +688,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             return -1;
         }
@@ -701,22 +701,22 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void h() {
-        if (this.f41443g.isRunning()) {
-            this.f41443g.cancel();
+        if (this.f41538g.isRunning()) {
+            this.f41538g.cancel();
         }
-        this.f41442f = null;
+        this.f41537f = null;
         this.u = null;
         this.n = null;
-        this.f41443g.g();
+        this.f41538g.g();
         invalidateSelf();
     }
 
     public void h0(@FloatRange(from = 0.0d, to = 1.0d) float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new d(f2, f3));
         } else {
-            e0((int) d.a.a.x.g.k(dVar.o(), this.f41442f.f(), f2), (int) d.a.a.x.g.k(this.f41442f.o(), this.f41442f.f(), f3));
+            e0((int) d.a.a.x.g.k(dVar.o(), this.f41537f.f(), f2), (int) d.a.a.x.g.k(this.f41537f.o(), this.f41537f.f(), f3));
         }
     }
 
@@ -725,10 +725,10 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void i0(int i2) {
-        if (this.f41442f == null) {
+        if (this.f41537f == null) {
             this.k.add(new k(i2));
         } else {
-            this.f41443g.A(i2);
+            this.f41538g.A(i2);
         }
     }
 
@@ -767,14 +767,14 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void j0(String str) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new o(str));
             return;
         }
         d.a.a.u.g k2 = dVar.k(str);
         if (k2 != null) {
-            i0((int) k2.f41649b);
+            i0((int) k2.f41744b);
             return;
         }
         throw new IllegalArgumentException("Cannot find marker with name " + str + ".");
@@ -787,8 +787,8 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
         }
         int i2 = -1;
         Rect bounds = getBounds();
-        float width = bounds.width() / this.f41442f.b().width();
-        float height = bounds.height() / this.f41442f.b().height();
+        float width = bounds.width() / this.f41537f.b().width();
+        float height = bounds.height() / this.f41537f.b().height();
         if (this.y) {
             float min = Math.min(width, height);
             if (min < 1.0f) {
@@ -808,20 +808,20 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
                 canvas.scale(f2, f2, f3, f4);
             }
         }
-        this.f41441e.reset();
-        this.f41441e.preScale(width, height);
-        this.u.g(canvas, this.f41441e, this.v);
+        this.f41536e.reset();
+        this.f41536e.preScale(width, height);
+        this.u.g(canvas, this.f41536e, this.v);
         if (i2 > 0) {
             canvas.restoreToCount(i2);
         }
     }
 
     public void k0(float f2) {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar == null) {
             this.k.add(new l(f2));
         } else {
-            i0((int) d.a.a.x.g.k(dVar.o(), this.f41442f.f(), f2));
+            i0((int) d.a.a.x.g.k(dVar.o(), this.f41537f.f(), f2));
         }
     }
 
@@ -830,10 +830,10 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
         if (this.u == null) {
             return;
         }
-        float f3 = this.f41444h;
+        float f3 = this.f41539h;
         float x = x(canvas);
         if (f3 > x) {
-            f2 = this.f41444h / x;
+            f2 = this.f41539h / x;
         } else {
             x = f3;
             f2 = 1.0f;
@@ -841,16 +841,16 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
         int i2 = -1;
         if (f2 > 1.0f) {
             i2 = canvas.save();
-            float width = this.f41442f.b().width() / 2.0f;
-            float height = this.f41442f.b().height() / 2.0f;
+            float width = this.f41537f.b().width() / 2.0f;
+            float height = this.f41537f.b().height() / 2.0f;
             float f4 = width * x;
             float f5 = height * x;
             canvas.translate((D() * width) - f4, (D() * height) - f5);
             canvas.scale(f2, f2, f4, f5);
         }
-        this.f41441e.reset();
-        this.f41441e.preScale(x, x);
-        this.u.g(canvas, this.f41441e, this.v);
+        this.f41536e.reset();
+        this.f41536e.preScale(x, x);
+        this.u.g(canvas, this.f41536e, this.v);
         if (i2 > 0) {
             canvas.restoreToCount(i2);
         }
@@ -858,7 +858,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
 
     public void l0(boolean z) {
         this.w = z;
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar != null) {
             dVar.u(z);
         }
@@ -873,18 +873,18 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
             return;
         }
         this.t = z;
-        if (this.f41442f != null) {
+        if (this.f41537f != null) {
             f();
         }
     }
 
     public void m0(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        if (this.f41442f == null) {
-            this.k.add(new C0541f(f2));
+        if (this.f41537f == null) {
+            this.k.add(new C0544f(f2));
             return;
         }
         d.a.a.c.a("Drawable#setProgress");
-        this.f41443g.x(d.a.a.x.g.k(this.f41442f.o(), this.f41442f.f(), f2));
+        this.f41538g.x(d.a.a.x.g.k(this.f41537f.o(), this.f41537f.f(), f2));
         d.a.a.c.b("Drawable#setProgress");
     }
 
@@ -893,21 +893,21 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void n0(int i2) {
-        this.f41443g.setRepeatCount(i2);
+        this.f41538g.setRepeatCount(i2);
     }
 
     @MainThread
     public void o() {
         this.k.clear();
-        this.f41443g.h();
+        this.f41538g.h();
     }
 
     public void o0(int i2) {
-        this.f41443g.setRepeatMode(i2);
+        this.f41538g.setRepeatMode(i2);
     }
 
     public d.a.a.d p() {
-        return this.f41442f;
+        return this.f41537f;
     }
 
     public void p0(boolean z) {
@@ -924,7 +924,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public void q0(float f2) {
-        this.f41444h = f2;
+        this.f41539h = f2;
         w0();
     }
 
@@ -943,11 +943,11 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public int s() {
-        return (int) this.f41443g.j();
+        return (int) this.f41538g.j();
     }
 
     public void s0(float f2) {
-        this.f41443g.B(f2);
+        this.f41538g.B(f2);
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -1008,7 +1008,7 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
             this.n = null;
         }
         if (this.n == null) {
-            this.n = new d.a.a.t.b(getCallback(), this.o, this.p, this.f41442f.i());
+            this.n = new d.a.a.t.b(getCallback(), this.o, this.p, this.f41537f.i());
         }
         return this.n;
     }
@@ -1044,32 +1044,32 @@ public class f extends Drawable implements Drawable.Callback, Animatable {
     }
 
     public float w() {
-        return this.f41443g.l();
+        return this.f41538g.l();
     }
 
     public final void w0() {
-        if (this.f41442f == null) {
+        if (this.f41537f == null) {
             return;
         }
         float D = D();
-        setBounds(0, 0, (int) (this.f41442f.b().width() * D), (int) (this.f41442f.b().height() * D));
+        setBounds(0, 0, (int) (this.f41537f.b().width() * D), (int) (this.f41537f.b().height() * D));
     }
 
     public final float x(@NonNull Canvas canvas) {
-        return Math.min(canvas.getWidth() / this.f41442f.b().width(), canvas.getHeight() / this.f41442f.b().height());
+        return Math.min(canvas.getWidth() / this.f41537f.b().width(), canvas.getHeight() / this.f41537f.b().height());
     }
 
     public boolean x0() {
-        return this.s == null && this.f41442f.c().size() > 0;
+        return this.s == null && this.f41537f.c().size() > 0;
     }
 
     public float y() {
-        return this.f41443g.m();
+        return this.f41538g.m();
     }
 
     @Nullable
     public d.a.a.n z() {
-        d.a.a.d dVar = this.f41442f;
+        d.a.a.d dVar = this.f41537f;
         if (dVar != null) {
             return dVar.m();
         }

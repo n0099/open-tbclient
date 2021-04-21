@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.i0.v.b.d;
-import d.b.i0.v.b.f;
+import d.b.j0.v.b.d;
+import d.b.j0.v.b.f;
 /* loaded from: classes4.dex */
 public class VotedAreaLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f14864h;
+    public Context f14872h;
     public TextView i;
 
     public VotedAreaLayout(Context context) {
@@ -28,7 +28,7 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     public void b() {
-        this.f14864h = getContext();
+        this.f14872h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
@@ -49,9 +49,9 @@ public class VotedAreaLayout extends CardBasicLayout {
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.f14857f != null && this.f14858g != null && this.f14856e >= 0) {
+        if (this.f14865f != null && this.f14866g != null && this.f14864e >= 0) {
             TextView textView = this.i;
-            textView.setText(StringHelper.numFormatOverWan(this.f14858g.m()) + "票");
+            textView.setText(StringHelper.numFormatOverWan(this.f14866g.m()) + "票");
             c(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
@@ -60,9 +60,9 @@ public class VotedAreaLayout extends CardBasicLayout {
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.f14858g = dVar;
+            this.f14866g = dVar;
             TextView textView = this.i;
-            textView.setText(StringHelper.numFormatOverWan(this.f14858g.m()) + "票");
+            textView.setText(StringHelper.numFormatOverWan(this.f14866g.m()) + "票");
         }
     }
 

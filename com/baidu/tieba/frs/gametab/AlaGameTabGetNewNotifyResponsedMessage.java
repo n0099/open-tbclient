@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.gametab;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.q0.x1.a;
+import d.b.j0.q0.x1.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

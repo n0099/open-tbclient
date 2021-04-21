@@ -13,7 +13,7 @@ import java.util.List;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static bi f41292a = new bi();
+    public static bi f41387a = new bi();
 
     /* renamed from: a  reason: collision with other field name */
     public static String f926a;
@@ -37,7 +37,7 @@ public class bi {
     }
 
     public static bi a() {
-        return f41292a;
+        return f41387a;
     }
 
     /* renamed from: a  reason: collision with other method in class */

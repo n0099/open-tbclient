@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.h0.s.f.a;
+import d.b.i0.s.f.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;

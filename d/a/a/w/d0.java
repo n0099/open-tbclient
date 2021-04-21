@@ -11,10 +11,10 @@ import java.util.List;
 public class d0 implements j0<d.a.a.u.j.h> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d0 f41743a = new d0();
+    public static final d0 f41838a = new d0();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41744b = JsonReader.a.a("c", "v", "i", Config.OS);
+    public static final JsonReader.a f41839b = JsonReader.a.a("c", "v", "i", Config.OS);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.a.w.j0
@@ -29,7 +29,7 @@ public class d0 implements j0<d.a.a.u.j.h> {
         List<PointF> list3 = null;
         boolean z = false;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41744b);
+            int D = jsonReader.D(f41839b);
             if (D == 0) {
                 z = jsonReader.v();
             } else if (D == 1) {

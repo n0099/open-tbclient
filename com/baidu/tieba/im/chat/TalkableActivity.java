@@ -63,21 +63,21 @@ import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.kwai.video.player.PlayerPostEvent;
-import d.b.h0.b0.a;
-import d.b.h0.b1.m.f;
-import d.b.h0.r.s.a;
-import d.b.h0.r.s.l;
-import d.b.h0.s.c.v;
-import d.b.h0.z0.f0;
-import d.b.h0.z0.h0;
-import d.b.h0.z0.n;
-import d.b.h0.z0.p0;
+import d.b.i0.b0.a;
+import d.b.i0.b1.m.f;
+import d.b.i0.r.s.a;
+import d.b.i0.r.s.l;
+import d.b.i0.s.c.v;
+import d.b.i0.z0.f0;
+import d.b.i0.z0.h0;
+import d.b.i0.z0.n;
+import d.b.i0.z0.p0;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class TalkableActivity<T> extends BaseActivity<T> implements VoiceManager.j, d.b.h0.b1.m.h, View.OnTouchListener, BdListView.s, BdListView.p, d.b.c.e.h.b, d.b.c.e.h.a, l.e, ActivityCompat.OnRequestPermissionsResultCallback {
+public abstract class TalkableActivity<T> extends BaseActivity<T> implements VoiceManager.j, d.b.i0.b1.m.h, View.OnTouchListener, BdListView.s, BdListView.p, d.b.c.e.h.b, d.b.c.e.h.a, l.e, ActivityCompat.OnRequestPermissionsResultCallback {
     public static final int RECORD_MOVE_OUTSIDE_RANGE = 5;
     public boolean isForeground;
     public j mImageSendAuthInIM;
@@ -91,7 +91,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public MsglistModel mListModel = null;
     public LocalPicModel mLocalPicModel = null;
     public d.b.c.a.e mLocalPicModelCallback = null;
-    public d.b.i0.e1.f.g mSaveImageTask = null;
+    public d.b.j0.e1.f.g mSaveImageTask = null;
     public a.b<ChatMessage> mUploadProgressCallback = null;
     public long preTime = -1;
     public WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
@@ -125,7 +125,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.b0.a.b
+        @Override // d.b.i0.b0.a.b
         /* renamed from: b */
         public void a(int i, ChatMessage chatMessage) {
             TalkableActivity.this.mListView.updateAdapter(i, chatMessage);
@@ -137,7 +137,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public c() {
         }
 
-        @Override // d.b.h0.z0.f0
+        @Override // d.b.i0.z0.f0
         public Object doInBackground() {
             Bitmap resizeBitmap;
             try {
@@ -155,19 +155,19 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class d implements n<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17450a;
+        public final /* synthetic */ String f17458a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17451b;
+        public final /* synthetic */ String f17459b;
 
         public d(String str, String str2) {
-            this.f17450a = str;
-            this.f17451b = str2;
+            this.f17458a = str;
+            this.f17459b = str2;
         }
 
-        @Override // d.b.h0.z0.n
+        @Override // d.b.i0.z0.n
         public void onReturnDataInUI(Object obj) {
-            TalkableActivity.this.mLocalPicModel = new LocalPicModel(this.f17450a, this.f17451b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+            TalkableActivity.this.mLocalPicModel = new LocalPicModel(this.f17458a, this.f17459b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
             TalkableActivity talkableActivity = TalkableActivity.this;
             talkableActivity.mLocalPicModel.setLoadDataCallBack(talkableActivity.mLocalPicModelCallback);
             TalkableActivity.this.mLocalPicModel.getData();
@@ -189,7 +189,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            d.b.h0.b1.m.f.b(TalkableActivity.this.getPageContext(), aVar.f50372a, aVar.f50373b, aVar.f50374c);
+            d.b.i0.b1.m.f.b(TalkableActivity.this.getPageContext(), aVar.f50708a, aVar.f50709b, aVar.f50710c);
         }
     }
 
@@ -197,15 +197,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17454e;
+        public final /* synthetic */ String f17462e;
 
         public f(String str) {
-            this.f17454e = str;
+            this.f17462e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            TalkableActivity.this.mListModel.sendTextMessage(this.f17454e);
+            TalkableActivity.this.mListModel.sendTextMessage(this.f17462e);
         }
     }
 
@@ -306,16 +306,16 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class h implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f17457e;
+        public final /* synthetic */ int f17465e;
 
         public h(int i) {
-            this.f17457e = i;
+            this.f17465e = i;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
-            TalkableActivity.this.reSendMsg(this.f17457e);
+            TalkableActivity.this.reSendMsg(this.f17465e);
         }
     }
 
@@ -323,16 +323,16 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public class i implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f17459e;
+        public final /* synthetic */ int f17467e;
 
         public i(int i) {
-            this.f17459e = i;
+            this.f17467e = i;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
-            TalkableActivity.this.deleteMsg(this.f17459e);
+            TalkableActivity.this.deleteMsg(this.f17467e);
         }
     }
 
@@ -481,17 +481,17 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (String[]) arrayList.toArray(new String[0]);
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public d.b.c.e.k.b<GifView> getGifViewPool() {
         return null;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public d.b.c.e.k.b<ImageView> getImageViewPool() {
         return null;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public ListView getListView() {
         AbsMsglistView absMsglistView = this.mListView;
         if (absMsglistView == null) {
@@ -510,7 +510,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (VoiceManager.i) findViewWithTag;
     }
 
-    public d.b.i0.d3.p0.a getRecorderManager() {
+    public d.b.j0.d3.p0.a getRecorderManager() {
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager == null || voiceManager.getRecorderManager() == null) {
             return null;
@@ -518,22 +518,22 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return this.mVoiceManager.getRecorderManager();
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public d.b.c.e.k.b<RelativeLayout> getRelativeLayoutPool() {
         return null;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public int getRichTextViewId() {
         return 0;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public d.b.c.e.k.b<TextView> getTextViewPool() {
         return null;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public d.b.c.e.k.b<LinearLayout> getTextVoiceViewPool() {
         return null;
     }
@@ -543,7 +543,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return this.mVoiceManager;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public d.b.c.e.k.b<View> getVoiceViewPool() {
         return null;
     }
@@ -632,7 +632,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public void onAtClicked(Context context, String str) {
     }
 
@@ -693,7 +693,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    @Override // d.b.h0.r.s.l.e
+    @Override // d.b.i0.r.s.l.e
     public void onItemClick(l lVar, int i2, View view) {
         if (this.mListView.getMsgItemOperationDialog() != null && lVar.f() == this.mListView.getMsgItemOperationDialog().f()) {
             int intValue = ((Integer) lVar.f().getTag()).intValue();
@@ -714,14 +714,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         ChatMessage msg2;
         String content2;
         if (i2 == 1) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(getPageContext().getPageActivity());
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
             aVar.setMessage(TbadkCoreApplication.getInst().getString(R.string.sure_to_resend_this_message));
             aVar.setPositiveButton(TbadkCoreApplication.getInst().getString(R.string.msg_resend), new h(i3));
             aVar.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.delete), new i(i3));
             aVar.create(getPageContext()).show();
         } else if (i2 == 8) {
             ChatMessage msg3 = this.mListModel.getMsg(i3);
-            if (msg3 == null || !d.b.i0.e1.w.c.r(msg3) || (msg = this.mListModel.getMsg(i3)) == null || (content = msg.getContent()) == null) {
+            if (msg3 == null || !d.b.j0.e1.w.c.r(msg3) || (msg = this.mListModel.getMsg(i3)) == null || (content = msg.getContent()) == null) {
                 return;
             }
             try {
@@ -737,14 +737,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             if (msg4 == null || msg4.getContent() == null) {
                 return;
             }
-            d.b.i0.e1.y.a aVar2 = new d.b.i0.e1.y.a();
+            d.b.j0.e1.y.a aVar2 = new d.b.j0.e1.y.a();
             aVar2.c(msg4.getContent(), getClass().getName());
             if (aVar2.b() != 4 || aVar2.a() == null || StringUtils.isNull(((ShareFromFrsMsgData) aVar2.a()).getName())) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) aVar2.a()).getName(), null)));
         } else if (i2 == 5) {
-            if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && d.b.i0.e1.w.c.t(msg2)) {
+            if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && d.b.j0.e1.w.c.t(msg2)) {
             }
         } else if (i2 != 6) {
             switch (i2) {
@@ -762,7 +762,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     } catch (Exception e3) {
                         BdLog.e(e3.toString());
                     }
-                    d.b.i0.e1.y.a aVar3 = new d.b.i0.e1.y.a();
+                    d.b.j0.e1.y.a aVar3 = new d.b.j0.e1.y.a();
                     aVar3.c(msg5.getContent(), getClass().getName());
                     if (aVar3.b() == 1 && aVar3.a() != null) {
                         String theNewThemeId = ((ShareFromPBMsgData) aVar3.a()).getTheNewThemeId();
@@ -790,7 +790,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     if (msg6 == null || msg6.getContent() == null) {
                         return;
                     }
-                    d.b.i0.e1.y.a aVar4 = new d.b.i0.e1.y.a();
+                    d.b.j0.e1.y.a aVar4 = new d.b.j0.e1.y.a();
                     aVar4.c(msg6.getContent(), getClass().getName());
                     if (aVar4.b() == 1 && aVar4.a() != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, aVar4));
@@ -806,7 +806,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     if (msg7 == null || msg7.getContent() == null) {
                         return;
                     }
-                    d.b.i0.e1.y.a aVar5 = new d.b.i0.e1.y.a();
+                    d.b.j0.e1.y.a aVar5 = new d.b.j0.e1.y.a();
                     aVar5.c(msg7.getContent(), getClass().getName());
                     if (aVar5.b() == 1 && aVar5.a() != null) {
                         UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{((ShareFromGameCenterMsgData) aVar5.a()).getShareSourceUrl()}, true);
@@ -872,7 +872,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public void onLinkButtonClicked(Context context, String str) {
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public void onLinkClicked(Context context, String str, boolean z) {
         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
     }
@@ -900,7 +900,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         MessageManager.getInstance().unRegisterListener(this.richTextIntentClickListener);
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public void onPhoneClicked(Context context, String str, String str2) {
     }
 
@@ -955,7 +955,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         prepage();
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public void onSongClicked(Context context, String str) {
     }
 
@@ -990,7 +990,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 return false;
             }
-            d.b.i0.d3.p0.a recorderManager = getRecorderManager();
+            d.b.j0.d3.p0.a recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
                 if (this.mVoiceManager == null || !recorderManager.d()) {
                     return true;
@@ -1036,11 +1036,11 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return false;
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public void onVideoClicked(Context context, String str) {
     }
 
-    @Override // d.b.h0.b1.m.h
+    @Override // d.b.i0.b1.m.h
     public void onVideoP2PClicked(Context context, String str) {
     }
 
@@ -1076,7 +1076,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             this.mListModel.markDeleteMsg(i2);
             showToast(R.string.delete_success);
         } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.save))) {
-            String f2 = d.b.i0.e1.w.c.f(msg.getContent(), true);
+            String f2 = d.b.j0.e1.w.c.f(msg.getContent(), true);
             if (f2 == null) {
                 return;
             }
@@ -1089,7 +1089,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 return;
             }
-            d.b.i0.e1.f.g gVar = new d.b.i0.e1.f.g(f2, this);
+            d.b.j0.e1.f.g gVar = new d.b.j0.e1.f.g(f2, this);
             this.mSaveImageTask = gVar;
             gVar.c();
         } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.group_open_receiver)) || str.equals(TbadkCoreApplication.getInst().getString(R.string.group_close_receiver))) {

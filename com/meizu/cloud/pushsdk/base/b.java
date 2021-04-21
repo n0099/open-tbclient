@@ -15,85 +15,85 @@ import java.util.List;
 public class b implements g {
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37929d = 60;
+    public long f38024d = 60;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37930e = 10;
+    public int f38025e = 10;
     public boolean i = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public SimpleDateFormat f37926a = new SimpleDateFormat("MM-dd HH:mm:ss");
+    public SimpleDateFormat f38021a = new SimpleDateFormat("MM-dd HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f37927b = Collections.synchronizedList(new ArrayList());
+    public List<a> f38022b = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f37928c = new Handler(Looper.getMainLooper());
+    public Handler f38023c = new Handler(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37932g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
+    public String f38027g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
 
     /* renamed from: f  reason: collision with root package name */
-    public e f37931f = new e();
+    public e f38026f = new e();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37933h = String.valueOf(Process.myPid());
+    public String f38028h = String.valueOf(Process.myPid());
 
     /* loaded from: classes6.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37936a;
+        public String f38031a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37937b;
+        public String f38032b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37938c;
+        public String f38033c;
 
         public a(String str, String str2, String str3) {
-            StringBuffer stringBuffer = new StringBuffer(b.this.f37926a.format(new Date()));
+            StringBuffer stringBuffer = new StringBuffer(b.this.f38021a.format(new Date()));
             stringBuffer.append(" ");
-            stringBuffer.append(b.this.f37933h);
+            stringBuffer.append(b.this.f38028h);
             stringBuffer.append("-");
             stringBuffer.append(String.valueOf(Thread.currentThread().getId()));
             stringBuffer.append(" ");
             stringBuffer.append(str);
             stringBuffer.append("/");
-            this.f37936a = stringBuffer.toString();
-            this.f37937b = str2;
-            this.f37938c = str3;
+            this.f38031a = stringBuffer.toString();
+            this.f38032b = str2;
+            this.f38033c = str3;
         }
     }
 
     private void a(a aVar) {
         try {
-            this.f37927b.add(aVar);
+            this.f38022b.add(aVar);
         } catch (Exception e2) {
             Log.e("Logger", "add logInfo error " + e2.getMessage());
         }
     }
 
     private void b() {
-        if (this.f37927b.size() == 0) {
-            this.f37928c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
+        if (this.f38022b.size() == 0) {
+            this.f38023c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.a(true);
                 }
-            }, this.f37929d * 1000);
+            }, this.f38024d * 1000);
         }
     }
 
     private void c() {
-        if (this.f37927b.size() == this.f37930e) {
+        if (this.f38022b.size() == this.f38025e) {
             a(true);
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str) {
-        this.f37932g = str;
+        this.f38027g = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
@@ -101,7 +101,7 @@ public class b implements g {
         if (this.i) {
             Log.d(str, str2);
         }
-        synchronized (this.f37927b) {
+        synchronized (this.f38022b) {
             b();
             a(new a("D", str, str2));
             c();
@@ -113,7 +113,7 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2, th);
         }
-        synchronized (this.f37927b) {
+        synchronized (this.f38022b) {
             b();
             a(new a(ExifInterface.LONGITUDE_EAST, str, str2 + "\n" + Log.getStackTraceString(th)));
             c();
@@ -127,16 +127,16 @@ public class b implements g {
             public void run() {
                 b bVar;
                 ArrayList<a> arrayList = new ArrayList();
-                synchronized (b.this.f37927b) {
-                    b.this.f37928c.removeCallbacksAndMessages(null);
-                    arrayList.addAll(b.this.f37927b);
-                    b.this.f37927b.clear();
+                synchronized (b.this.f38022b) {
+                    b.this.f38023c.removeCallbacksAndMessages(null);
+                    arrayList.addAll(b.this.f38022b);
+                    b.this.f38022b.clear();
                 }
                 try {
                     try {
-                        b.this.f37931f.a(b.this.f37932g);
+                        b.this.f38026f.a(b.this.f38027g);
                         for (a aVar : arrayList) {
-                            b.this.f37931f.a(aVar.f37936a, aVar.f37937b, aVar.f37938c);
+                            b.this.f38026f.a(aVar.f38031a, aVar.f38032b, aVar.f38033c);
                         }
                         bVar = b.this;
                     } catch (Exception unused) {
@@ -146,12 +146,12 @@ public class b implements g {
                     bVar = b.this;
                 } catch (Throwable th) {
                     try {
-                        b.this.f37931f.a();
+                        b.this.f38026f.a();
                     } catch (Exception unused3) {
                     }
                     throw th;
                 }
-                bVar.f37931f.a();
+                bVar.f38026f.a();
             }
         };
         if (z) {
@@ -171,7 +171,7 @@ public class b implements g {
         if (this.i) {
             Log.i(str, str2);
         }
-        synchronized (this.f37927b) {
+        synchronized (this.f38022b) {
             b();
             a(new a("I", str, str2));
             c();
@@ -188,7 +188,7 @@ public class b implements g {
         if (this.i) {
             Log.w(str, str2);
         }
-        synchronized (this.f37927b) {
+        synchronized (this.f38022b) {
             b();
             a(new a(ExifInterface.LONGITUDE_WEST, str, str2));
             c();
@@ -200,7 +200,7 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2);
         }
-        synchronized (this.f37927b) {
+        synchronized (this.f38022b) {
             b();
             a(new a(ExifInterface.LONGITUDE_EAST, str, str2));
             c();

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.a1.g.j.i;
+import d.b.j0.a1.g.j.i;
 import java.util.List;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
@@ -38,10 +38,10 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f52814a = false;
+        i.f53235a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f52814a = true;
+            i.f53235a = true;
             i.a();
             return;
         }

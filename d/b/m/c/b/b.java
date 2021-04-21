@@ -11,10 +11,10 @@ import java.util.HashMap;
 public final class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f64744e;
+    public final /* synthetic */ String f65008e;
 
     public b(String str) {
-        this.f64744e = str;
+        this.f65008e = str;
     }
 
     @Override // java.lang.Runnable
@@ -24,7 +24,7 @@ public final class b implements Runnable {
         DataOutputStream dataOutputStream;
         String str;
         try {
-            String str2 = this.f64744e;
+            String str2 = this.f65008e;
             DataOutputStream dataOutputStream2 = null;
             try {
                 String f2 = com.baidu.crabsdk.lite.sender.b.f(str2);

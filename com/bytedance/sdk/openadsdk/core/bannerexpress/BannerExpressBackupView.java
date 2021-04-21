@@ -32,41 +32,41 @@ public class BannerExpressBackupView extends BackupView {
     public BannerExpressBackupView(@NonNull Context context) {
         super(context);
         this.o = 1;
-        this.f28163a = context;
+        this.f28171a = context;
     }
 
     private void b() {
         i a2 = a(this.m.getExpectExpressWidth(), this.m.getExpectExpressHeight());
         if (this.m.getExpectExpressWidth() > 0 && this.m.getExpectExpressHeight() > 0) {
             if (this.m.getExpectExpressWidth() > this.m.getExpectExpressHeight()) {
-                this.f28168f = al.c(this.f28163a, this.m.getExpectExpressHeight() * a2.f28223c);
-                this.f28169g = al.c(this.f28163a, this.m.getExpectExpressHeight());
+                this.f28176f = al.c(this.f28171a, this.m.getExpectExpressHeight() * a2.f28231c);
+                this.f28177g = al.c(this.f28171a, this.m.getExpectExpressHeight());
             } else {
-                this.f28168f = al.c(this.f28163a, this.m.getExpectExpressWidth());
-                this.f28169g = al.c(this.f28163a, this.m.getExpectExpressWidth() / a2.f28223c);
+                this.f28176f = al.c(this.f28171a, this.m.getExpectExpressWidth());
+                this.f28177g = al.c(this.f28171a, this.m.getExpectExpressWidth() / a2.f28231c);
             }
         } else {
-            int c2 = al.c(this.f28163a);
-            this.f28168f = c2;
-            this.f28169g = Float.valueOf(c2 / a2.f28223c).intValue();
+            int c2 = al.c(this.f28171a);
+            this.f28176f = c2;
+            this.f28177g = Float.valueOf(c2 / a2.f28231c).intValue();
         }
-        int i = this.f28168f;
-        if (i > 0 && i > al.c(this.f28163a)) {
-            float c3 = al.c(this.f28163a) / this.f28168f;
-            this.f28168f = al.c(this.f28163a);
-            this.f28169g = Float.valueOf(this.f28169g * c3).intValue();
+        int i = this.f28176f;
+        if (i > 0 && i > al.c(this.f28171a)) {
+            float c3 = al.c(this.f28171a) / this.f28176f;
+            this.f28176f = al.c(this.f28171a);
+            this.f28177g = Float.valueOf(this.f28177g * c3).intValue();
         }
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f28168f, this.f28169g);
+            layoutParams = new ViewGroup.LayoutParams(this.f28176f, this.f28177g);
         }
-        layoutParams.width = this.f28168f;
-        layoutParams.height = this.f28169g;
+        layoutParams.width = this.f28176f;
+        layoutParams.height = this.f28177g;
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
         }
         setLayoutParams(layoutParams);
-        int i2 = a2.f28221a;
+        int i2 = a2.f28229a;
         if (i2 == 1) {
             d();
         } else if (i2 == 2) {
@@ -79,31 +79,31 @@ public class BannerExpressBackupView extends BackupView {
     }
 
     private void c() {
-        View inflate = LayoutInflater.from(this.f28163a).inflate(ad.f(this.f28163a, "tt_backup_banner_layout2"), (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(this.f28171a).inflate(ad.f(this.f28171a, "tt_backup_banner_layout2"), (ViewGroup) this, true);
         this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28163a, "tt_ad_content_layout"));
-        View findViewById = this.l.findViewById(ad.e(this.f28163a, "tt_bu_close"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_img"));
-        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_icon"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_download"));
+        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28171a, "tt_ad_content_layout"));
+        View findViewById = this.l.findViewById(ad.e(this.f28171a, "tt_bu_close"));
+        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_img"));
+        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_icon"));
+        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_download"));
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BannerExpressBackupView.this.a();
             }
         });
-        int a2 = (int) al.a(this.f28163a, 15.0f);
+        int a2 = (int) al.a(this.f28171a, 15.0f);
         al.a(findViewById, a2, a2, a2, a2);
-        ((TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_title"))).setText(getTitle());
-        ((TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_desc"))).setText(getDescription());
-        if (!TextUtils.isEmpty(this.f28164b.al())) {
-            textView.setText(this.f28164b.al());
+        ((TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_title"))).setText(getTitle());
+        ((TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_desc"))).setText(getDescription());
+        if (!TextUtils.isEmpty(this.f28172b.al())) {
+            textView.setText(this.f28172b.al());
         }
-        if (this.f28164b.X() != null) {
+        if (this.f28172b.X() != null) {
             View videoView = getVideoView();
             if (videoView != null) {
                 frameLayout.removeAllViews();
-                int c2 = this.f28168f - al.c(this.f28163a, 14.0f);
+                int c2 = this.f28176f - al.c(this.f28171a, 14.0f);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, (c2 * 9) / 16);
                 layoutParams.gravity = 17;
                 frameLayout.addView(videoView, 0, layoutParams);
@@ -115,37 +115,37 @@ public class BannerExpressBackupView extends BackupView {
             al.a((View) imageView, 0);
             al.a((View) frameLayout, 8);
         }
-        e.c().a(this.f28164b.aa().a(), imageView2);
+        e.c().a(this.f28172b.aa().a(), imageView2);
         a((View) this, true);
         a((View) textView, true);
         a(frameLayout);
     }
 
     private void d() {
-        View inflate = LayoutInflater.from(this.f28163a).inflate(ad.f(this.f28163a, "tt_backup_banner_layout1"), (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(this.f28171a).inflate(ad.f(this.f28171a, "tt_backup_banner_layout1"), (ViewGroup) this, true);
         this.l = inflate;
-        View findViewById = inflate.findViewById(ad.e(this.f28163a, "tt_bu_close"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_score"));
-        TTRatingBar tTRatingBar = (TTRatingBar) this.l.findViewById(ad.e(this.f28163a, "tt_bu_score_bar"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_download"));
+        View findViewById = inflate.findViewById(ad.e(this.f28171a, "tt_bu_close"));
+        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_score"));
+        TTRatingBar tTRatingBar = (TTRatingBar) this.l.findViewById(ad.e(this.f28171a, "tt_bu_score_bar"));
+        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_download"));
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BannerExpressBackupView.this.a();
             }
         });
-        e.c().a(this.f28164b.aa().a(), (ImageView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_icon")));
-        ((TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_title"))).setText(getTitle());
-        if (!TextUtils.isEmpty(this.f28164b.al())) {
-            textView2.setText(this.f28164b.al());
+        e.c().a(this.f28172b.aa().a(), (ImageView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_icon")));
+        ((TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_title"))).setText(getTitle());
+        if (!TextUtils.isEmpty(this.f28172b.al())) {
+            textView2.setText(this.f28172b.al());
         }
-        int e2 = this.f28164b.an() != null ? this.f28164b.an().e() : 4;
+        int e2 = this.f28172b.an() != null ? this.f28172b.an().e() : 4;
         textView.setText(String.format(Locale.getDefault(), "%.1f", Float.valueOf(e2)));
         tTRatingBar.setStarEmptyNum(1);
         tTRatingBar.setStarFillNum(e2);
-        tTRatingBar.setStarImageWidth(al.c(this.f28163a, 15.0f));
-        tTRatingBar.setStarImageHeight(al.c(this.f28163a, 14.0f));
-        tTRatingBar.setStarImagePadding(al.c(this.f28163a, 4.0f));
+        tTRatingBar.setStarImageWidth(al.c(this.f28171a, 15.0f));
+        tTRatingBar.setStarImageHeight(al.c(this.f28171a, 14.0f));
+        tTRatingBar.setStarImagePadding(al.c(this.f28171a, 4.0f));
         tTRatingBar.a();
         a((View) this, true);
         a((View) textView2, true);
@@ -161,57 +161,57 @@ public class BannerExpressBackupView extends BackupView {
 
     public void a(l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         setBackgroundColor(-1);
-        this.f28164b = lVar;
+        this.f28172b = lVar;
         this.m = nativeExpressView;
         this.n = aVar;
-        this.f28167e = "banner_ad";
+        this.f28175e = "banner_ad";
         nativeExpressView.addView(this, new ViewGroup.LayoutParams(-2, -2));
-        int d2 = ak.d(this.f28164b.ap());
-        this.f28170h = d2;
+        int d2 = ak.d(this.f28172b.ap());
+        this.f28178h = d2;
         a(d2);
         b();
     }
 
     private void a(ImageView imageView) {
-        e.c().a(this.f28164b.af().get(0).a(), imageView);
+        e.c().a(this.f28172b.af().get(0).a(), imageView);
     }
 
     private void a(i iVar) {
-        View inflate = LayoutInflater.from(this.f28163a).inflate(ad.f(this.f28163a, "tt_backup_banner_layout3"), (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(this.f28171a).inflate(ad.f(this.f28171a, "tt_backup_banner_layout3"), (ViewGroup) this, true);
         this.l = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28163a, "tt_ad_content_layout"));
-        View findViewById = this.l.findViewById(ad.e(this.f28163a, "tt_bu_close"));
-        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_img"));
-        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_icon"));
-        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_title"));
-        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_desc"));
-        TextView textView3 = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_name"));
-        TextView textView4 = (TextView) this.l.findViewById(ad.e(this.f28163a, "tt_bu_download"));
+        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28171a, "tt_ad_content_layout"));
+        View findViewById = this.l.findViewById(ad.e(this.f28171a, "tt_bu_close"));
+        ImageView imageView = (ImageView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_img"));
+        ImageView imageView2 = (ImageView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_icon"));
+        TextView textView = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_title"));
+        TextView textView2 = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_desc"));
+        TextView textView3 = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_name"));
+        TextView textView4 = (TextView) this.l.findViewById(ad.e(this.f28171a, "tt_bu_download"));
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BannerExpressBackupView.this.a();
             }
         });
-        int a2 = (int) al.a(this.f28163a, 15.0f);
+        int a2 = (int) al.a(this.f28171a, 15.0f);
         al.a(findViewById, a2, a2, a2, a2);
-        if (this.f28164b.X() != null) {
+        if (this.f28172b.X() != null) {
             View videoView = getVideoView();
             if (videoView != null) {
-                int i = (this.f28169g * 266) / 400;
-                int i2 = (this.f28168f * 406) / 600;
+                int i = (this.f28177g * 266) / 400;
+                int i2 = (this.f28176f * 406) / 600;
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i2, (i2 * 9) / 16);
-                int i3 = iVar.f28222b;
+                int i3 = iVar.f28230b;
                 if (i3 == 1) {
-                    int i4 = (this.f28168f * 406) / 600;
+                    int i4 = (this.f28176f * 406) / 600;
                     layoutParams = new FrameLayout.LayoutParams(i4, (i4 * 9) / 16);
                 } else if (i3 == 2) {
                     layoutParams = new FrameLayout.LayoutParams(-1, -1);
                 } else if (i3 == 3) {
-                    int i5 = (this.f28169g * Opcodes.NEWARRAY) / 260;
+                    int i5 = (this.f28177g * Opcodes.NEWARRAY) / 260;
                     layoutParams = new FrameLayout.LayoutParams((i5 * 16) / 9, i5);
                 } else if (i3 == 4) {
-                    int i6 = (this.f28168f * 480) / 690;
+                    int i6 = (this.f28176f * 480) / 690;
                     layoutParams = new FrameLayout.LayoutParams(i6, (i6 * 9) / 16);
                 }
                 layoutParams.gravity = 17;
@@ -222,12 +222,12 @@ public class BannerExpressBackupView extends BackupView {
             a(imageView);
             al.a((View) imageView, 0);
         }
-        e.c().a(this.f28164b.aa().a(), imageView2);
+        e.c().a(this.f28172b.aa().a(), imageView2);
         textView3.setText(getNameOrSource());
         textView.setText(String.format(Locale.getDefault(), "%s提供的广告", getNameOrSource()));
         textView2.setText(getDescription());
-        if (!TextUtils.isEmpty(this.f28164b.al())) {
-            textView4.setText(this.f28164b.al());
+        if (!TextUtils.isEmpty(this.f28172b.al())) {
+            textView4.setText(this.f28172b.al());
         }
         a((View) this, true);
         a((View) textView4, true);
@@ -241,7 +241,7 @@ public class BannerExpressBackupView extends BackupView {
             i iVar = k[0];
             float f2 = Float.MAX_VALUE;
             for (i iVar2 : k) {
-                float abs = Math.abs(iVar2.f28223c - floatValue);
+                float abs = Math.abs(iVar2.f28231c - floatValue);
                 if (abs <= f2) {
                     iVar = iVar2;
                     f2 = abs;

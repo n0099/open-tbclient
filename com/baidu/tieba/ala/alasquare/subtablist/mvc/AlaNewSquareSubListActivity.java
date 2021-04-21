@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.tbadk.BaseActivity;
-import d.b.i0.t.d.g.c.a;
+import d.b.j0.t.d.g.c.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {

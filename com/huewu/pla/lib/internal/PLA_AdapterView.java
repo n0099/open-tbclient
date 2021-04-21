@@ -53,10 +53,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public static class b implements ContextMenu.ContextMenuInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f31432a;
+        public View f31527a;
 
         public b(View view, int i, long j) {
-            this.f31432a = view;
+            this.f31527a = view;
         }
     }
 
@@ -64,7 +64,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public class c extends DataSetObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f31433a = null;
+        public Parcelable f31528a = null;
 
         public c() {
         }
@@ -72,16 +72,16 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Parcelable parcelable;
-            d.i.a.a.a.a("data changed by onChanged()");
+            d.j.a.a.a.a("data changed by onChanged()");
             PLA_AdapterView pLA_AdapterView = PLA_AdapterView.this;
             pLA_AdapterView.mDataChanged = true;
             pLA_AdapterView.mOldItemCount = pLA_AdapterView.mItemCount;
             pLA_AdapterView.mItemCount = pLA_AdapterView.getAdapter().getCount();
-            if (PLA_AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f31433a) != null) {
+            if (PLA_AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f31528a) != null) {
                 PLA_AdapterView pLA_AdapterView2 = PLA_AdapterView.this;
                 if (pLA_AdapterView2.mOldItemCount == 0 && pLA_AdapterView2.mItemCount > 0) {
                     pLA_AdapterView2.onRestoreInstanceState(parcelable);
-                    this.f31433a = null;
+                    this.f31528a = null;
                     PLA_AdapterView.this.requestLayout();
                 }
             }
@@ -91,11 +91,11 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            d.i.a.a.a.a("data changed by onInvalidated()");
+            d.j.a.a.a.a("data changed by onInvalidated()");
             PLA_AdapterView pLA_AdapterView = PLA_AdapterView.this;
             pLA_AdapterView.mDataChanged = true;
             if (pLA_AdapterView.getAdapter().hasStableIds()) {
-                this.f31433a = PLA_AdapterView.this.onSaveInstanceState();
+                this.f31528a = PLA_AdapterView.this.onSaveInstanceState();
             }
             PLA_AdapterView pLA_AdapterView2 = PLA_AdapterView.this;
             pLA_AdapterView2.mOldItemCount = pLA_AdapterView2.mItemCount;

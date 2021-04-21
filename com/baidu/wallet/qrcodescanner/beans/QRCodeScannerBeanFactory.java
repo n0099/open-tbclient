@@ -10,17 +10,17 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
     public static final int QRCODE_WHITE_LIST = 2560;
 
     /* renamed from: a  reason: collision with root package name */
-    public static QRCodeScannerBeanFactory f26442a;
+    public static QRCodeScannerBeanFactory f26450a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static QRCodeScannerBeanFactory f26443a = new QRCodeScannerBeanFactory();
+        public static QRCodeScannerBeanFactory f26451a = new QRCodeScannerBeanFactory();
     }
 
     public static QRCodeScannerBeanFactory getInstance() {
-        return a.f26443a;
+        return a.f26451a;
     }
 
     public QRCodeScannerBeanFactory() {

@@ -21,16 +21,16 @@ import d.b.c.e.p.l;
 public class HeadPendantView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13027e;
+    public Context f13035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f13028f;
+    public BdUniqueId f13036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f13029g;
+    public TbImageView f13037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f13030h;
+    public ImageView f13038h;
     public HeadImageView i;
     public boolean j;
     public boolean k;
@@ -48,25 +48,25 @@ public class HeadPendantView extends RelativeLayout {
         this.m = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
         this.n = 0;
         this.p = true;
-        this.f13027e = context;
+        this.f13035e = context;
         d();
     }
 
     public final void a() {
-        ImageView imageView = new ImageView(this.f13027e);
-        this.f13030h = imageView;
+        ImageView imageView = new ImageView(this.f13035e);
+        this.f13038h = imageView;
         imageView.setImageDrawable(null);
         int i = this.m;
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
         layoutParams.addRule(12, -1);
         layoutParams.addRule(11, -1);
-        this.f13030h.setLayoutParams(layoutParams);
-        this.f13030h.setVisibility(8);
-        addView(this.f13030h);
+        this.f13038h.setLayoutParams(layoutParams);
+        this.f13038h.setVisibility(8);
+        addView(this.f13038h);
     }
 
     public final void b() {
-        HeadImageView headImageView = new HeadImageView(this.f13027e);
+        HeadImageView headImageView = new HeadImageView(this.f13035e);
         this.i = headImageView;
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.i.setPlaceHolder(1);
@@ -79,15 +79,15 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public final void c() {
-        TbImageView tbImageView = new TbImageView(this.f13027e);
-        this.f13029g = tbImageView;
-        tbImageView.setPageId(this.f13028f);
-        this.f13029g.setDefaultBgResource(0);
-        this.f13029g.setDefaultResource(0);
-        this.f13029g.setImageDrawable(null);
-        this.f13029g.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.f13029g.setVisibility(8);
-        addView(this.f13029g);
+        TbImageView tbImageView = new TbImageView(this.f13035e);
+        this.f13037g = tbImageView;
+        tbImageView.setPageId(this.f13036f);
+        this.f13037g.setDefaultBgResource(0);
+        this.f13037g.setDefaultResource(0);
+        this.f13037g.setImageDrawable(null);
+        this.f13037g.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.f13037g.setVisibility(8);
+        addView(this.f13037g);
     }
 
     public void d() {
@@ -104,14 +104,14 @@ public class HeadPendantView extends RelativeLayout {
 
     public final void e() {
         ImageView imageView;
-        if (this.m <= 0 || (imageView = this.f13030h) == null) {
+        if (this.m <= 0 || (imageView = this.f13038h) == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
         int i = this.m;
         layoutParams.width = i;
         layoutParams.height = i;
-        this.f13030h.setLayoutParams(layoutParams);
+        this.f13038h.setLayoutParams(layoutParams);
     }
 
     public final void f(MetaData metaData) {
@@ -119,26 +119,26 @@ public class HeadPendantView extends RelativeLayout {
             return;
         }
         if (this.o) {
-            this.f13030h.setVisibility(8);
+            this.f13038h.setVisibility(8);
             return;
         }
         this.i.setShowV(false);
-        if (UtilHelper.showOfficialIcon(this.f13030h, metaData)) {
+        if (UtilHelper.showOfficialIcon(this.f13038h, metaData)) {
             return;
         }
         if (metaData.isNewGod()) {
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f13030h, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f13038h, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
             g(true);
             return;
         }
         g(false);
-        if (this.l || !UtilHelper.showHeadBazhuIcon(this.f13030h, metaData, this.p)) {
-            UtilHelper.showHeadBjhBigVIcon(this.f13030h, metaData, this.n);
+        if (this.l || !UtilHelper.showHeadBazhuIcon(this.f13038h, metaData, this.p)) {
+            UtilHelper.showHeadBjhBigVIcon(this.f13038h, metaData, this.n);
         }
     }
 
     public void g(boolean z) {
-        ImageView imageView = this.f13030h;
+        ImageView imageView = this.f13038h;
         if (imageView == null) {
             return;
         }
@@ -146,7 +146,7 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public ImageView getBigVIconView() {
-        return this.f13030h;
+        return this.f13038h;
     }
 
     public HeadImageView getHeadView() {
@@ -154,7 +154,7 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public TbImageView getPendantView() {
-        return this.f13029g;
+        return this.f13037g;
     }
 
     public void h(MetaData metaData) {
@@ -196,16 +196,16 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public void l(String str) {
-        if (this.f13029g == null) {
+        if (this.f13037g == null) {
             return;
         }
         if (this.j && !StringUtils.isNull(str)) {
-            this.f13029g.setVisibility(0);
-            this.f13029g.setImageDrawable(null);
-            this.f13029g.W(str, 10, false);
+            this.f13037g.setVisibility(0);
+            this.f13037g.setImageDrawable(null);
+            this.f13037g.W(str, 10, false);
             return;
         }
-        this.f13029g.setVisibility(8);
+        this.f13037g.setVisibility(8);
     }
 
     public void m(MetaData metaData) {
@@ -229,14 +229,14 @@ public class HeadPendantView extends RelativeLayout {
             int i3 = (int) (size * 0.13f);
             int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
             ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).setMargins(i3, size2, i3, size2);
-            ImageView imageView = this.f13030h;
+            ImageView imageView = this.f13038h;
             if (imageView != null) {
                 ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(i3, size2, i3, size2);
             }
         }
         if (this.k) {
             ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).setMargins(0, 0, 0, 0);
-            ImageView imageView2 = this.f13030h;
+            ImageView imageView2 = this.f13038h;
             if (imageView2 != null) {
                 ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
@@ -249,7 +249,7 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.f13029g.setAutoChangeStyle(z);
+        this.f13037g.setAutoChangeStyle(z);
         this.i.setAutoChangeStyle(z);
     }
 
@@ -284,12 +284,12 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.f13028f = bdUniqueId;
+        this.f13036f = bdUniqueId;
         HeadImageView headImageView = this.i;
         if (headImageView != null) {
             headImageView.setPageId(bdUniqueId);
         }
-        TbImageView tbImageView = this.f13029g;
+        TbImageView tbImageView = this.f13037g;
         if (tbImageView != null) {
             tbImageView.setPageId(bdUniqueId);
         }
@@ -308,11 +308,11 @@ public class HeadPendantView extends RelativeLayout {
         HeadImageView headImageView2;
         if (this.j && !z && (headImageView2 = this.i) != null) {
             ((RelativeLayout.LayoutParams) headImageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
-            ImageView imageView = this.f13030h;
+            ImageView imageView = this.f13038h;
             if (imageView != null) {
                 ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
-            TbImageView tbImageView = this.f13029g;
+            TbImageView tbImageView = this.f13037g;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);
             }
@@ -321,7 +321,7 @@ public class HeadPendantView extends RelativeLayout {
             int width = (int) (this.i.getWidth() * 0.13f);
             int height = (int) (this.i.getHeight() * 0.13f);
             ((RelativeLayout.LayoutParams) headImageView.getLayoutParams()).setMargins(width, height, width, height);
-            ImageView imageView2 = this.f13030h;
+            ImageView imageView2 = this.f13038h;
             if (imageView2 != null) {
                 ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(width, height, width, height);
             }
@@ -338,7 +338,7 @@ public class HeadPendantView extends RelativeLayout {
         this.m = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
         this.n = 0;
         this.p = true;
-        this.f13027e = context;
+        this.f13035e = context;
         d();
     }
 
@@ -350,7 +350,7 @@ public class HeadPendantView extends RelativeLayout {
         this.m = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
         this.n = 0;
         this.p = true;
-        this.f13027e = context;
+        this.f13035e = context;
         d();
     }
 }

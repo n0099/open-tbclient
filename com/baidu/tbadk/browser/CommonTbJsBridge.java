@@ -67,13 +67,13 @@ import com.vivo.push.PushClientConstants;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import d.b.c.e.p.j;
 import d.b.c.e.p.k;
-import d.b.h0.a.w;
-import d.b.h0.f0.h;
-import d.b.h0.r.o.a;
-import d.b.h0.r.s.i;
-import d.b.h0.s.d.f;
-import d.b.h0.t.l;
-import d.b.h0.z0.q;
+import d.b.i0.a.w;
+import d.b.i0.f0.h;
+import d.b.i0.r.o.a;
+import d.b.i0.r.s.i;
+import d.b.i0.s.d.f;
+import d.b.i0.t.l;
+import d.b.i0.z0.q;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -83,7 +83,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @d.b.e.a.a
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
+public class CommonTbJsBridge implements d.b.j0.d3.l0.b {
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
     public static final String CHECK_APP_INSTALL = "checkAppInstall";
     public static final String CLICK_GO_BACK_TO_H5 = "clickGoBackToH5";
@@ -147,7 +147,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
     public static final String UPDATE_OFFLINE_BUNDLE = "updateOfflineBundle";
     public static String tempUrl = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
     public final String SHOW_MORE_FORUM_ICON;
-    public d.b.i0.d3.l0.a jsPromptBridge;
+    public d.b.j0.d3.l0.a jsPromptBridge;
     public final Context mContext;
     public long mLastLoadUrlTime;
     public PermissionJudgePolicy mPermissionJudgement;
@@ -162,7 +162,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         public a() {
         }
 
-        @Override // d.b.h0.a.w.b
+        @Override // d.b.i0.a.w.b
         public void a() {
             if (TextUtils.isEmpty(CommonTbJsBridge.this.shakeCallbackjsMethod)) {
                 return;
@@ -182,7 +182,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         public b() {
         }
 
-        @Override // d.b.h0.z0.q.a
+        @Override // d.b.i0.z0.q.a
         public void onError(int i, String str) {
             if (CommonTbJsBridge.this.jsPromptBridge != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -191,7 +191,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             }
         }
 
-        @Override // d.b.h0.z0.q.a
+        @Override // d.b.i0.z0.q.a
         public void onSuccess(String str) {
             if (CommonTbJsBridge.this.jsPromptBridge != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -205,25 +205,25 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
     public class c extends q.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f12757a;
+        public final /* synthetic */ int f12765a;
 
         public c(int i) {
-            this.f12757a = i;
+            this.f12765a = i;
         }
 
-        @Override // d.b.h0.z0.q.a
+        @Override // d.b.i0.z0.q.a
         public void onError(int i, String str) {
         }
 
-        @Override // d.b.h0.z0.q.a
+        @Override // d.b.i0.z0.q.a
         public void onSuccess(String str) {
             if (new File(str).exists()) {
                 if (CommonTbJsBridge.this.shareItem != null) {
                     CommonTbJsBridge.this.shareItem.V = 1;
                     CommonTbJsBridge.this.shareItem.x = str;
                 }
-                if (this.f12757a != 0) {
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, this.f12757a, CommonTbJsBridge.this.shareItem, true));
+                if (this.f12765a != 0) {
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, this.f12765a, CommonTbJsBridge.this.shareItem, true));
                 }
             }
         }
@@ -234,7 +234,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         public d() {
         }
 
-        @Override // d.b.h0.r.o.a.c
+        @Override // d.b.i0.r.o.a.c
         public void a() {
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -247,7 +247,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             }
         }
 
-        @Override // d.b.h0.r.o.a.c
+        @Override // d.b.i0.r.o.a.c
         public void onCancel() {
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -310,7 +310,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
     }
 
     private String generalSharePreferences() {
-        d.b.h0.r.d0.b.j().v("key_bawu_task_toast", -1);
+        d.b.i0.r.d0.b.j().v("key_bawu_task_toast", -1);
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
@@ -412,8 +412,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
     }
 
     private String handleGamePushStatus() {
-        String p = d.b.h0.r.d0.b.j().p("key_match_id_list_football", "");
-        String p2 = d.b.h0.r.d0.b.j().p("key_match_id_list_basketball", "");
+        String p = d.b.i0.r.d0.b.j().p("key_match_id_list_football", "");
+        String p2 = d.b.i0.r.d0.b.j().p("key_match_id_list_basketball", "");
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("football", "[" + p + "]");
@@ -537,8 +537,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c changeSkinTypeInH5(HashMap hashMap) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c changeSkinTypeInH5(HashMap hashMap) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if (hashMap == null) {
             return cVar;
         }
@@ -555,8 +555,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public d.b.i0.d3.l0.d.c checkAppInstall(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c checkAppInstall(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         int isInstalledPackage = !StringUtils.isNull(str) ? UtilHelper.isInstalledPackage(this.mContext, str) : 0;
         try {
             JSONObject jSONObject = new JSONObject();
@@ -569,7 +569,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c dealClickGoBackToH5(HashMap hashMap) {
+    public d.b.j0.d3.l0.d.c dealClickGoBackToH5(HashMap hashMap) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
@@ -577,12 +577,12 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             e2.printStackTrace();
         }
         callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         cVar.l(jSONObject.toString());
         return cVar;
     }
 
-    @Override // d.b.i0.d3.l0.b
+    @Override // d.b.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         boolean z;
         boolean z2;
@@ -853,8 +853,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         callJsMethod(str, jSONObject);
     }
 
-    public d.b.i0.d3.l0.d.c disableBack(int i) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c disableBack(int i) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         Context context = this.mContext;
         if (context instanceof TbWebViewActivity) {
             if (i == 0) {
@@ -866,8 +866,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c finishPage() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c finishPage() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         Context context = this.mContext;
         if (context instanceof Activity) {
             ((Activity) context).finish();
@@ -875,8 +875,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c getClipperInformation() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c getClipperInformation() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         String clipBoardContent = UtilHelper.getClipBoardContent();
         int i = !k.isEmpty(clipBoardContent) ? 1 : 0;
         try {
@@ -891,8 +891,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c getDeviceInfo() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c getDeviceInfo() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         StringBuffer stringBuffer = new StringBuffer(1024);
         String imei = TbadkCoreApplication.getInst().getImei();
         stringBuffer.append("imei=");
@@ -969,8 +969,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c getStartLoadTimeInterval() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c getStartLoadTimeInterval() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
@@ -982,8 +982,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c getSupplementInfo() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c getSupplementInfo() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         StringBuffer stringBuffer = new StringBuffer(1024);
         String imei = TbadkCoreApplication.getInst().getImei();
         stringBuffer.append("imei=");
@@ -1026,8 +1026,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c getZid() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c getZid() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         String zid = TbadkCoreApplication.getInst().getZid();
         try {
             JSONObject jSONObject = new JSONObject();
@@ -1041,8 +1041,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if ("1".equals(str)) {
             WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
         } else if ("2".equals(str)) {
@@ -1058,9 +1058,9 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c goToNotificationSetting() {
+    public d.b.j0.d3.l0.d.c goToNotificationSetting() {
         Activity currentActivity;
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         try {
             currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         } catch (Throwable th) {
@@ -1073,16 +1073,16 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c handleGoToBarDetail(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c handleGoToBarDetail(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if (!TextUtils.isEmpty(str)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE)));
         }
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c handleGoToMyLive(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c handleGoToMyLive(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
         try {
             JSONObject jSONObject = new JSONObject();
@@ -1095,8 +1095,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c handleGoToMyPost(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c handleGoToMyPost(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
         try {
             JSONObject jSONObject = new JSONObject();
@@ -1109,8 +1109,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c handleSaveImage(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c handleSaveImage(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -1137,8 +1137,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c hasNotificationPermission() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c hasNotificationPermission() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         int areNotificationsEnabled = Build.VERSION.SDK_INT >= 19 ? NotificationManagerCompat.from(this.mContext).areNotificationsEnabled() : 1;
         try {
             JSONObject jSONObject = new JSONObject();
@@ -1151,8 +1151,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c jumpLoginActivity(int i, String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c jumpLoginActivity(int i, String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         JSONObject jSONObject = new JSONObject();
         if (this.mContext == null) {
             try {
@@ -1179,17 +1179,17 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c jumpToHotTrendPage() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
-        d.b.h0.r.a0.b.g(this.mContext, 16, false);
+    public d.b.j0.d3.l0.d.c jumpToHotTrendPage() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
+        d.b.i0.r.a0.b.g(this.mContext, 16, false);
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c jumpToHtmlPage(String str, int i) {
+    public d.b.j0.d3.l0.d.c jumpToHtmlPage(String str, int i) {
         Context context;
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
-            d.b.h0.l.a.l(context, str);
+            d.b.i0.l.a.l(context, str);
             if (i == 1) {
                 Context context2 = this.mContext;
                 if (context2 instanceof Activity) {
@@ -1208,7 +1208,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         this.mShakeController.c();
     }
 
-    public d.b.i0.d3.l0.d.c onUserLoginChanged(HashMap hashMap) {
+    public d.b.j0.d3.l0.d.c onUserLoginChanged(HashMap hashMap) {
         if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
             return null;
         }
@@ -1219,14 +1219,14 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             e2.printStackTrace();
         }
         callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         cVar.l(jSONObject.toString());
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c playSound(String str) {
+    public d.b.j0.d3.l0.d.c playSound(String str) {
         int i;
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if (j.z()) {
             getShakeController().i(str);
             i = 1;
@@ -1248,8 +1248,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c playVibrate() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c playVibrate() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         boolean g2 = getShakeController().g();
         try {
             JSONObject jSONObject = new JSONObject();
@@ -1262,7 +1262,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c reShow(HashMap hashMap) {
+    public d.b.j0.d3.l0.d.c reShow(HashMap hashMap) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
@@ -1270,21 +1270,21 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             e2.printStackTrace();
         }
         callJsMethod(RE_SHOW, jSONObject);
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         cVar.l(jSONObject.toString());
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c saveImageSuccess(HashMap<String, Integer> hashMap) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c saveImageSuccess(HashMap<String, Integer> hashMap) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         if (hashMap != null && hashMap.get("result").intValue() == -1) {
             cVar.n("图片保存错误");
         }
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c sendCompleteTaskReqMsg(String str, String str2) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c sendCompleteTaskReqMsg(String str, String str2) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         int i = 0;
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -1310,8 +1310,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c setClipperInformation(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c setClipperInformation(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         d.b.c.e.p.a.a(str);
         try {
             JSONObject jSONObject = new JSONObject();
@@ -1324,8 +1324,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c setDisableGoBack() {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c setDisableGoBack() {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         Context context = this.mContext;
         int i = 1;
         if (context instanceof TbWebViewActivity) {
@@ -1344,7 +1344,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public void setJsPromptBridge(d.b.i0.d3.l0.a aVar) {
+    public void setJsPromptBridge(d.b.j0.d3.l0.a aVar) {
         this.jsPromptBridge = aVar;
     }
 
@@ -1352,9 +1352,9 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         this.mLastLoadUrlTime = j;
     }
 
-    public d.b.i0.d3.l0.d.c setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public d.b.j0.d3.l0.d.c setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         int i2;
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("title", str);
@@ -1388,9 +1388,9 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9) {
+    public d.b.j0.d3.l0.d.c share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9) {
         CustomResponsedMessage runTask;
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("channel", i);
@@ -1424,7 +1424,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
                 shareItem.m = true;
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                d.b.i0.b0.f.b().k(shareDialogConfig);
+                d.b.j0.b0.f.b().k(shareDialogConfig);
                 cVar.l("");
                 return cVar;
             } else if (i == 0) {
@@ -1451,7 +1451,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c shareSuccessNotification(HashMap hashMap) {
+    public d.b.j0.d3.l0.d.c shareSuccessNotification(HashMap hashMap) {
         int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
         ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
         JSONObject jSONObject = new JSONObject();
@@ -1470,19 +1470,19 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             e2.printStackTrace();
         }
         callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         cVar.l(jSONObject.toString());
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c showAlertView(String str, String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
-        d.b.h0.a.b0.a aVar = new d.b.h0.a.b0.a();
+    public d.b.j0.d3.l0.d.c showAlertView(String str, String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
+        d.b.i0.a.b0.a aVar = new d.b.i0.a.b0.a();
         aVar.y = str;
         aVar.z = str2;
         aVar.A = str3;
         aVar.B = str6;
-        d.b.h0.r.o.a aVar2 = new d.b.h0.r.o.a(TbadkCoreApplication.getInst().getCurrentActivity());
+        d.b.i0.r.o.a aVar2 = new d.b.i0.r.o.a(TbadkCoreApplication.getInst().getCurrentActivity());
         aVar2.g(new d());
         aVar2.f(aVar);
         aVar2.d();
@@ -1490,40 +1490,40 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
-        d.b.h0.a.b0.a aVar = new d.b.h0.a.b0.a();
-        aVar.f49905c = i;
-        aVar.f49906d = i2;
-        aVar.f49907e = str;
-        aVar.f49908f = str2;
+    public d.b.j0.d3.l0.d.c showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
+        d.b.i0.a.b0.a aVar = new d.b.i0.a.b0.a();
+        aVar.f50241c = i;
+        aVar.f50242d = i2;
+        aVar.f50243e = str;
+        aVar.f50244f = str2;
         aVar.i = i3;
         aVar.l = str3;
         aVar.n = d2;
         aVar.j = str5;
         aVar.k = str6;
-        aVar.f49904b = i4;
+        aVar.f50240b = i4;
         aVar.o = str7;
         aVar.p = str8;
         aVar.q = str9;
-        if (i == d.b.h0.a.b0.a.C) {
+        if (i == d.b.i0.a.b0.a.C) {
             i.i(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).k();
-        } else if (i == d.b.h0.a.b0.a.D) {
+        } else if (i == d.b.i0.a.b0.a.D) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            d.b.h0.r.o.c cVar2 = new d.b.h0.r.o.c(currentActivity);
+            d.b.i0.r.o.c cVar2 = new d.b.i0.r.o.c(currentActivity);
             if (currentActivity != null) {
                 cVar2.d(currentActivity, aVar);
                 cVar2.i();
             }
-        } else if (i == d.b.h0.a.b0.a.E) {
-            if (i2 == d.b.h0.a.b0.a.H) {
+        } else if (i == d.b.i0.a.b0.a.E) {
+            if (i2 == d.b.i0.a.b0.a.H) {
                 if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), aVar.l) && !k.isEmpty(aVar.k)) {
                     dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
-            } else if (i2 == d.b.h0.a.b0.a.I && !k.isEmpty(str6)) {
+            } else if (i2 == d.b.i0.a.b0.a.I && !k.isEmpty(str6)) {
                 dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             }
-        } else if (i == d.b.h0.a.b0.a.G) {
+        } else if (i == d.b.i0.a.b0.a.G) {
             if (i6 == 1) {
                 Context context = this.mContext;
                 if (context instanceof Activity) {
@@ -1560,8 +1560,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    public d.b.i0.d3.l0.d.c showTipToast(String str, String str2, String str3, int i, int i2) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c showTipToast(String str, String str2, String str3, int i, int i2) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         int i3 = 0;
         i3 = 0;
         if (!TextUtils.isEmpty(str)) {
@@ -1570,9 +1570,9 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
                 Activity activity = (Activity) context;
                 if (!TextUtils.isEmpty(str3)) {
                     String str4 = "showToast_" + str3;
-                    int k = d.b.h0.r.d0.b.j().k(str4, 0);
+                    int k = d.b.i0.r.d0.b.j().k(str4, 0);
                     if (k < i) {
-                        d.b.h0.r.d0.b.j().v(str4, k);
+                        d.b.i0.r.d0.b.j().v(str4, k);
                         h.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
                     }
                 } else {
@@ -1614,8 +1614,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         }
     }
 
-    public d.b.i0.d3.l0.d.c startDownloadCss(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c startDownloadCss(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         JSONObject jSONObject = new JSONObject();
         if (!k.isEmpty(str)) {
             try {
@@ -1633,7 +1633,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
                 }
                 DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
                 downloadData.setPath(customLoginCssStoragePath);
-                d.b.h0.v.d.j().k(downloadData);
+                d.b.i0.v.d.j().k(downloadData);
                 jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
             } catch (JSONException e2) {
                 BdLog.e(e2);
@@ -1643,8 +1643,8 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c startLoginModule(String str) {
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+    public d.b.j0.d3.l0.d.c startLoginModule(String str) {
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         WebView webView = this.mWebView;
         if (webView == null) {
             ViewHelper.checkUpIsLogin(this.mContext);
@@ -1659,7 +1659,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
         return cVar;
     }
 
-    public d.b.i0.d3.l0.d.c thirdPartyLoginResultToH5(HashMap hashMap) {
+    public d.b.j0.d3.l0.d.c thirdPartyLoginResultToH5(HashMap hashMap) {
         if (hashMap == null) {
             return null;
         }
@@ -1672,7 +1672,7 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
             e2.printStackTrace();
         }
         callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
         cVar.l(jSONObject.toString());
         return cVar;
     }
@@ -1688,11 +1688,11 @@ public class CommonTbJsBridge implements d.b.i0.d3.l0.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public d.b.i0.d3.l0.d.c startApp(String str, String str2) {
+    public d.b.j0.d3.l0.d.c startApp(String str, String str2) {
         boolean z;
         Intent launchIntentForPackage;
-        d.b.i0.d3.l0.d.c cVar = new d.b.i0.d3.l0.d.c();
-        List<String> a2 = d.b.h0.s.c.i.a();
+        d.b.j0.d3.l0.d.c cVar = new d.b.j0.d3.l0.d.c();
+        List<String> a2 = d.b.i0.s.c.i.a();
         try {
             if (isLegalSchema(a2, str2)) {
                 Intent intent = new Intent();

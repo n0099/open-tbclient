@@ -4,11 +4,11 @@ import android.text.format.Time;
 import android.util.Log;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f39507a = new h();
+    public static final h f39602a = new h();
 
     public final String a(int i) {
         return i != 1 ? i != 2 ? i != 4 ? i != 8 ? i != 16 ? i != 32 ? "-" : ExifInterface.GPS_MEASUREMENT_IN_PROGRESS : ExifInterface.LONGITUDE_EAST : ExifInterface.LONGITUDE_WEST : "I" : "D" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED;

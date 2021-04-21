@@ -101,7 +101,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void a(String str, TbFragmentTabIndicator.a aVar) {
-        View view = aVar.f13617a;
+        View view = aVar.f13625a;
         if (view != null) {
             addView(view);
             this.z.put(str, aVar);
@@ -199,21 +199,21 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.z.entrySet().iterator();
         while (it.hasNext() && this.v.getText() != null) {
             TbFragmentTabIndicator.a value = it.next().getValue();
-            int measuredWidth2 = value.f13617a.getMeasuredWidth();
-            int measuredHeight2 = value.f13617a.getMeasuredHeight();
+            int measuredWidth2 = value.f13625a.getMeasuredWidth();
+            int measuredHeight2 = value.f13625a.getMeasuredHeight();
             int measureText = (int) this.v.getPaint().measureText(this.v.getText().toString());
-            if (value.f13618b) {
-                measuredWidth = (getMeasuredWidth() / 2) + value.f13619c + (measureText / 2);
+            if (value.f13626b) {
+                measuredWidth = (getMeasuredWidth() / 2) + value.f13627c + (measureText / 2);
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.f13619c) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.f13627c) - (measureText / 2);
             }
             if (this.k == 1) {
                 measuredWidth -= this.x;
                 measuredHeight = this.w;
             } else {
-                measuredHeight = (getMeasuredHeight() / 2) - (value.f13617a.getMeasuredHeight() / 2);
+                measuredHeight = (getMeasuredHeight() / 2) - (value.f13625a.getMeasuredHeight() / 2);
             }
-            value.f13617a.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
+            value.f13625a.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
         }
     }
 
@@ -224,10 +224,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         int size2 = View.MeasureSpec.getSize(i2);
         for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.z.entrySet()) {
             TbFragmentTabIndicator.a value = entry.getValue();
-            ViewGroup.LayoutParams layoutParams = value.f13617a.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = value.f13625a.getLayoutParams();
             int i3 = layoutParams.width;
             if (i3 == -2) {
-                value.f13617a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                value.f13625a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
             } else {
                 if (i3 > size) {
                     i3 = size;
@@ -236,7 +236,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (i4 > size2) {
                     i4 = size2;
                 }
-                value.f13617a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+                value.f13625a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
             }
         }
     }
@@ -336,7 +336,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIsContentSelectBold(boolean z) {
-        this.f13613e = z;
+        this.f13621e = z;
     }
 
     public void setIsSupportNight(boolean z) {
@@ -349,11 +349,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.f13613e) {
+        if (this.f13621e) {
             this.v.getPaint().setFakeBoldText(z);
         }
         if (z) {
-            float f2 = this.f13614f;
+            float f2 = this.f13622f;
             if (f2 != 0.0f) {
                 this.v.setTextSize(0, f2);
             }
@@ -361,24 +361,24 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (skinType == 4) {
-                    this.v.setTextColor(d.b.i0.d3.c.c(this.j.dark.font_color));
+                    this.v.setTextColor(d.b.j0.d3.c.c(this.j.dark.font_color));
                     return;
                 } else if (skinType == 1) {
-                    this.v.setTextColor(d.b.i0.d3.c.c(this.j.night.font_color));
+                    this.v.setTextColor(d.b.j0.d3.c.c(this.j.night.font_color));
                     return;
                 } else {
-                    this.v.setTextColor(d.b.i0.d3.c.c(this.j.day.font_color));
+                    this.v.setTextColor(d.b.j0.d3.c.c(this.j.day.font_color));
                     return;
                 }
             }
-            int i = this.f13616h;
+            int i = this.f13624h;
             if (i != 0) {
                 SkinManager.setViewTextColor(this.v, i);
                 return;
             }
             return;
         }
-        float f3 = this.f13615g;
+        float f3 = this.f13623g;
         if (f3 != 0.0f) {
             this.v.setTextSize(0, f3);
         }

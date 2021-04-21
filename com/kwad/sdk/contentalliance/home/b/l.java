@@ -14,14 +14,14 @@ public class l extends com.kwad.sdk.contentalliance.home.e {
         if (b2 == null) {
             return;
         }
-        SceneImpl sceneImpl = ((com.kwad.sdk.contentalliance.home.e) this).f33058a.f33063e;
+        SceneImpl sceneImpl = ((com.kwad.sdk.contentalliance.home.e) this).f33153a.f33158e;
         ArrayList arrayList = new ArrayList(b2.size());
         for (AdTemplate adTemplate : b2) {
             arrayList.add(new CacheTemplate(adTemplate, sceneImpl));
         }
         com.kwad.sdk.contentalliance.home.c.a(arrayList);
         com.kwad.sdk.contentalliance.profile.tabvideo.detail.a.a().c();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33058a;
-        fVar.f33061c.setInitStartPosition(fVar.j);
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33153a;
+        fVar.f33156c.setInitStartPosition(fVar.j);
     }
 }

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41784a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", com.baidu.mapsdkplatform.comapi.map.r.f7699a, "or", IAdRequestParam.OS, "ir", "is", "hd");
+    public static final JsonReader.a f41879a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", com.baidu.mapsdkplatform.comapi.map.r.f7699a, "or", IAdRequestParam.OS, "ir", "is", "hd");
 
     public static PolystarShape a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         String str = null;
@@ -25,7 +25,7 @@ public class z {
         d.a.a.u.i.b bVar6 = null;
         boolean z = false;
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41784a)) {
+            switch (jsonReader.D(f41879a)) {
                 case 0:
                     str = jsonReader.z();
                     break;

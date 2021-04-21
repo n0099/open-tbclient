@@ -10,32 +10,32 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38076a = "a";
+    public static final String f38171a = "a";
 
     public static Map a(String str, Context context) {
         try {
-            c.b(f38076a, "Attempting to retrieve map from: %s", str);
+            c.b(f38171a, "Attempting to retrieve map from: %s", str);
             ObjectInputStream objectInputStream = new ObjectInputStream(context.openFileInput(str));
             HashMap hashMap = (HashMap) objectInputStream.readObject();
             objectInputStream.close();
-            c.b(f38076a, " + Retrieved map from file: %s", hashMap);
+            c.b(f38171a, " + Retrieved map from file: %s", hashMap);
             return hashMap;
         } catch (IOException | ClassNotFoundException e2) {
-            c.a(f38076a, " + Exception getting vars map: %s", e2.getMessage());
+            c.a(f38171a, " + Exception getting vars map: %s", e2.getMessage());
             return null;
         }
     }
 
     public static boolean a(String str, Map map, Context context) {
         try {
-            c.b(f38076a, "Attempting to save: %s", map);
+            c.b(f38171a, "Attempting to save: %s", map);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(context.openFileOutput(str, 0));
             objectOutputStream.writeObject(map);
             objectOutputStream.close();
-            c.b(f38076a, " + Successfully saved KV Pairs to: %s", str);
+            c.b(f38171a, " + Successfully saved KV Pairs to: %s", str);
             return true;
         } catch (IOException e2) {
-            c.a(f38076a, " + Exception saving vars map: %s", e2.getMessage());
+            c.a(f38171a, " + Exception saving vars map: %s", e2.getMessage());
             return false;
         }
     }

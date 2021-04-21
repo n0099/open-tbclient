@@ -1,381 +1,274 @@
 package d.b.i0.b0;
 
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-/* loaded from: classes4.dex */
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import d.b.c.e.p.q;
+import java.util.LinkedList;
+/* loaded from: classes3.dex */
 public class e {
 
-    /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f53255c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f53256d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f53257e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f53258f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f53259g;
-
     /* renamed from: h  reason: collision with root package name */
-    public boolean f53260h;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public View.OnClickListener x;
-    public boolean y;
+    public static final String f50510h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f53253a = null;
+    public d.b.i0.b0.b f50511a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageFileInfo f50513c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f50515e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d f50516f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f50517g;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.c.e.g.c f53254b = null;
-    public int i = R.drawable.pic_sign_tip;
-    public int j = 0;
-    public boolean k = false;
-    public int l = 1;
-    public int m = 1000;
-    public int n = 3000;
-    public boolean o = true;
-    public int p = 5;
-    public int q = 0;
-    public int v = 48;
-    public int w = 4;
-    public boolean z = false;
-    public int A = 1;
-    public int B = 0;
-    public int C = 0;
-    public boolean D = false;
-    public int E = 0;
-    public int F = 0;
-    public int G = 0;
-    public boolean H = false;
-    public Runnable I = new a();
-    public Runnable J = new b();
+    public boolean f50512b = false;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    /* renamed from: d  reason: collision with root package name */
+    public d f50514d = new a();
 
-        /* renamed from: d.b.i0.b0.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1178a implements d.b.c.e.g.b {
-            public C1178a() {
-            }
-
-            @Override // d.b.c.e.g.b
-            public int a() {
-                return e.this.w;
-            }
-
-            @Override // d.b.c.e.g.b
-            public View b(LayoutInflater layoutInflater) {
-                Drawable drawable;
-                int i;
-                TextView textView = new TextView(e.this.f53255c.getPageActivity());
-                textView.setText(e.this.f53258f);
-                if (e.this.F != 0) {
-                    textView.setGravity(e.this.F);
-                } else {
-                    textView.setGravity(17);
-                }
-                if (e.this.E != 0) {
-                    SkinManager.setViewTextColor(textView, e.this.E);
-                } else {
-                    SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
-                }
-                textView.setTextSize(0, e.this.f53255c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                if (e.this.B != 0) {
-                    textView.setHeight(e.this.B);
-                } else {
-                    textView.setHeight(e.this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds76));
-                }
-                if (e.this.C != 0) {
-                    textView.setWidth(e.this.C);
-                }
-                textView.setPadding(e.this.r, e.this.s, e.this.t, e.this.u);
-                textView.setLines(e.this.A);
-                if (e.this.D) {
-                    textView.setEllipsize(TextUtils.TruncateAt.END);
-                }
-                if (e.this.G != 0) {
-                    if (e.this.H) {
-                        if (e.this.E != 0) {
-                            i = e.this.E;
-                        } else {
-                            i = R.color.CAM_X0101;
-                        }
-                        drawable = WebPManager.getPureDrawable(e.this.G, SkinManager.getColor(i), WebPManager.ResourceStateType.NORMAL);
-                    } else {
-                        drawable = SkinManager.getDrawable(e.this.G);
-                    }
-                    int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-                    drawable.setBounds(0, 0, g2, g2);
-                    textView.setCompoundDrawablePadding(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds16));
-                    textView.setCompoundDrawables(drawable, null, null, null);
-                }
-                SkinManager.setBackgroundResource(textView, e.this.i);
-                if (e.this.x != null) {
-                    textView.setOnClickListener(e.this.x);
-                }
-                return textView;
-            }
-
-            @Override // d.b.c.e.g.b
-            public int c() {
-                return e.this.v;
-            }
-
-            @Override // d.b.c.e.g.b
-            public int getXOffset() {
-                return e.this.p;
-            }
-
-            @Override // d.b.c.e.g.b
-            public int getYOffset() {
-                return e.this.q;
-            }
-        }
-
+    /* loaded from: classes3.dex */
+    public class a implements d {
         public a() {
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            if (e.this.f53254b == null && !StringUtils.isNull(e.this.f53258f)) {
-                if (!e.this.y || e.this.G()) {
-                    d.b.c.e.g.d dVar = new d.b.c.e.g.d();
-                    dVar.j(e.this.f53256d);
-                    dVar.c(0);
-                    dVar.i(true);
-                    dVar.h(true);
-                    dVar.a(new C1178a());
-                    e.this.f53254b = dVar.b();
-                    e.this.f53254b.l(false);
-                    e.this.f53254b.m(e.this.z);
-                    e.this.f53254b.o(e.this.f53255c.getPageActivity(), e.this.o);
-                    e.this.f53257e = true;
-                    e.this.J();
-                    e.this.f53260h = true;
-                    e.this.f53253a.postDelayed(e.this.J, e.this.n);
-                }
+        @Override // d.b.i0.b0.d
+        public String a(ImageFileInfo imageFileInfo) {
+            String n;
+            if (imageFileInfo == null) {
+                return null;
             }
+            if (e.this.f50511a == null) {
+                e.this.f50511a = new d.b.i0.b0.b();
+            }
+            String filePath = imageFileInfo.getFilePath();
+            LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
+            imageFileInfo.setPageActionsList(null);
+            d.b.c.j.d.a c2 = e.this.f50511a.c(imageFileInfo, true);
+            if (c2 == null) {
+                Bitmap l = e.this.l(imageFileInfo);
+                if (l == null) {
+                    return null;
+                }
+                int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
+                if (readPictureDegree != 0) {
+                    l = BitmapHelper.rotateBitmapBydegree(l, readPictureDegree);
+                }
+                n = e.this.n(l, 5242880L, 100);
+            } else {
+                n = e.this.n(c2.p(), 5242880L, 100);
+            }
+            imageFileInfo.setPageActionsList(pageActionsList);
+            return n;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
+    /* loaded from: classes3.dex */
+    public class b implements d {
         public b() {
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            e.this.H();
+        @Override // d.b.i0.b0.d
+        public String a(ImageFileInfo imageFileInfo) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            return e.this.g(imageFileInfo.getFilePath());
         }
     }
 
-    public e(TbPageContext tbPageContext, View view) {
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = 0;
-        this.f53255c = tbPageContext;
-        this.f53256d = view;
-        this.r = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.s = this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.t = this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.u = this.f53255c.getResources().getDimensionPixelSize(R.dimen.ds10);
-    }
-
-    public boolean G() {
-        View view = this.f53256d;
-        return view != null && view.getVisibility() == 0 && ((double) this.f53256d.getAlpha()) >= 0.4d;
-    }
-
-    public void H() {
-        d.b.c.e.g.c cVar = this.f53254b;
-        if (cVar != null) {
-            cVar.d();
-            this.f53254b = null;
+    /* loaded from: classes3.dex */
+    public class c implements d {
+        public c() {
         }
-        Handler handler = this.f53253a;
-        if (handler != null) {
-            handler.removeCallbacks(this.I);
-            this.f53253a.removeCallbacks(this.J);
-        }
-        this.f53260h = false;
-    }
 
-    public boolean I() {
-        return this.f53260h;
-    }
-
-    public final void J() {
-        if (this.k) {
-            return;
-        }
-        d.b.h0.r.d0.b.j().v(this.f53259g, this.j + 1);
-    }
-
-    public void K(int i) {
-        this.w = i;
-    }
-
-    public void L(View.OnClickListener onClickListener) {
-        this.x = onClickListener;
-    }
-
-    public void M(int i) {
-        if (i > 0) {
-            this.n = i;
+        @Override // d.b.i0.b0.d
+        public String a(ImageFileInfo imageFileInfo) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            return e.this.n(e.this.i(imageFileInfo.getFilePath()), 5242880L, 100);
         }
     }
 
-    public void N(int i) {
-        this.v = i;
+    public e() {
+        b bVar = new b();
+        this.f50515e = bVar;
+        this.f50516f = bVar;
+        this.f50517g = new c();
     }
 
-    public void O(@DimenRes int i) {
-        this.B = this.f53255c.getResources().getDimensionPixelSize(i);
-    }
-
-    public void P(boolean z) {
-        this.D = z;
-    }
-
-    public void Q(boolean z) {
-        this.H = z;
-    }
-
-    public void R(int i) {
-        this.A = i;
-    }
-
-    public void S(int i) {
-        if (i > 0) {
-            this.l = i;
-        }
-    }
-
-    public void T(boolean z) {
-        this.y = z;
-    }
-
-    public void U(boolean z) {
-        this.o = z;
-    }
-
-    public void V(int i) {
-        if (i > 0) {
-            this.m = i;
-        }
-    }
-
-    public void W(@ColorRes int i) {
-        this.E = i;
-    }
-
-    public void X(int i) {
-        this.G = i;
-    }
-
-    public void Y(int i, int i2, int i3, int i4) {
-        this.r = i;
-        this.s = i2;
-        this.t = i3;
-        this.u = i4;
-    }
-
-    public void Z(int i) {
-        this.u = i;
-    }
-
-    public void a0(int i) {
-        this.s = i;
-    }
-
-    public void b0(int i) {
-        this.F = i;
-    }
-
-    public void c0(int i) {
-        if (i > 0) {
-            this.i = i;
-        }
-    }
-
-    public void d0(boolean z) {
-        this.z = z;
-    }
-
-    public void e0(@DimenRes int i) {
-        this.C = this.f53255c.getResources().getDimensionPixelSize(i);
-    }
-
-    public void f0(int i) {
-        this.p = i;
-    }
-
-    public void g0(int i) {
-        this.q = i;
-    }
-
-    public void h0(String str) {
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        this.f53258f = str;
-        if (this.f53253a == null) {
-            this.f53253a = new Handler();
-        }
-        this.f53253a.postDelayed(this.I, this.m);
-    }
-
-    public void i0(String str, String str2) {
-        j0(str, str2, false);
-    }
-
-    public boolean j0(String str, String str2, boolean z) {
-        return k0(str, str2, z, false);
-    }
-
-    public boolean k0(String str, String str2, boolean z, boolean z2) {
-        View view;
-        if (this.f53257e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f53256d) == null || view.getVisibility() != 0) {
+    public static boolean k() {
+        if (BdBaseApplication.getInst() == null) {
             return false;
         }
-        this.f53258f = str;
-        this.f53259g = str2;
-        this.k = z2;
-        int k = d.b.h0.r.d0.b.j().k(str2, 0);
-        this.j = k;
-        if (k < this.l || this.k) {
-            if (z) {
-                J();
-                this.f53257e = true;
+        return BdBaseApplication.getInst().isDebugMode();
+    }
+
+    public final String g(String str) {
+        long fileSize = FileHelper.getFileSize(str);
+        int i = fileSize >= 31457280 ? 80 : fileSize >= DownloadManager.MIN_LEFT_SIZE ? 85 : fileSize >= 15728640 ? 90 : fileSize >= Config.FULL_TRACE_LOG_LIMIT ? 95 : 100;
+        try {
+            int readPictureDegree = BitmapHelper.readPictureDegree(str);
+            if (readPictureDegree == 0 && i == 100) {
+                return str;
             }
-            if (this.f53253a == null) {
-                this.f53253a = new Handler();
+            Bitmap i2 = i(str);
+            if (readPictureDegree != 0 && i2 != null) {
+                return n(BitmapHelper.rotateBitmapBydegree(i2, readPictureDegree), Config.FULL_TRACE_LOG_LIMIT, i);
             }
-            this.f53253a.postDelayed(this.I, this.m);
-            return true;
+            return n(i2, Config.FULL_TRACE_LOG_LIMIT, i);
+        } catch (Throwable unused) {
+            return str;
         }
-        return false;
+    }
+
+    public final String h(String str) {
+        String substring;
+        if (TextUtils.isEmpty(str)) {
+            return ".jpg";
+        }
+        try {
+            substring = str.substring(str.lastIndexOf("."));
+        } catch (Exception unused) {
+        }
+        return !TextUtils.isEmpty(substring) ? substring : ".jpg";
+    }
+
+    public final Bitmap i(String str) {
+        BitmapFactory.Options m = m(str);
+        int i = m.outWidth;
+        int i2 = m.outHeight;
+        if (i != 0 && i2 != 0) {
+            Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
+            if (loadBitmap != null && !loadBitmap.isRecycled()) {
+                return loadBitmap;
+            }
+            int i3 = 2;
+            for (int i4 = 0; i4 < 3; i4++) {
+                m.inSampleSize = i3;
+                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, m);
+                if (loadBitmap2 != null && !loadBitmap2.isRecycled()) {
+                    return loadBitmap2;
+                }
+                i3 *= 2;
+            }
+        }
+        return null;
+    }
+
+    public String j(ImageFileInfo imageFileInfo, boolean z) {
+        d dVar;
+        String str;
+        String str2;
+        if (imageFileInfo == null) {
+            return null;
+        }
+        this.f50513c = imageFileInfo;
+        String filePath = imageFileInfo.getFilePath();
+        boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
+        boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
+        if (imageFileInfo.isGif() || !(!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
+            if (checkIsLongImage) {
+                dVar = this.f50516f;
+                str = "原始·长图";
+            } else {
+                dVar = this.f50515e;
+                str = "原始·图";
+            }
+        } else if (checkIsLongImage) {
+            dVar = this.f50517g;
+            str = "正常·长图";
+        } else {
+            dVar = this.f50514d;
+            str = "正常·图";
+        }
+        if (k()) {
+            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+            StringBuilder sb = new StringBuilder();
+            sb.append("");
+            sb.append(filePath);
+            sb.append("\n   w =");
+            sb.append(imageFileWH[0]);
+            sb.append(" h =");
+            sb.append(imageFileWH[1]);
+            sb.append("  size =");
+            str2 = "\n   w =";
+            sb.append(((float) FileHelper.getFileSize(filePath)) / 1048576.0f);
+            sb.append("MB");
+            sb.append("\n   isLongImage =");
+            sb.append(checkIsLongImage);
+            sb.append("  isHeifImage =");
+            sb.append(checkIsHeifImage);
+            sb.append(" resize =");
+            sb.append(imageFileInfo.hasActionsWithoutResize());
+            sb.append(" uploadStrategy =");
+            sb.append(str);
+            Log.d("UPLOAD_IMG", sb.toString());
+        } else {
+            str2 = "\n   w =";
+        }
+        String a2 = dVar.a(imageFileInfo);
+        if (k()) {
+            int[] imageFileWH2 = FileHelper.getImageFileWH(a2);
+            Log.d("UPLOAD_IMG", "temp =" + a2 + str2 + imageFileWH2[0] + " h =" + imageFileWH2[1] + "  size =" + (((float) FileHelper.getFileSize(a2)) / 1048576.0f) + "MB");
+        }
+        return a2;
+    }
+
+    public final Bitmap l(ImageFileInfo imageFileInfo) {
+        d.b.c.e.l.e i;
+        if (imageFileInfo == null) {
+            return null;
+        }
+        if (this.f50511a == null) {
+            this.f50511a = new d.b.i0.b0.b();
+        }
+        if (imageFileInfo.getImageType() == 0) {
+            return this.f50511a.f(imageFileInfo, true);
+        }
+        if (imageFileInfo.getImageType() == 1 && (i = d.b.c.e.l.d.h().i(20)) != null) {
+            try {
+                Object fromLocal = i.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
+                if (fromLocal instanceof d.b.c.j.d.a) {
+                    return ((d.b.c.j.d.a) fromLocal).p();
+                }
+            } catch (OutOfMemoryError unused) {
+                BdBaseApplication.getInst().onAppMemoryLow();
+            }
+        }
+        return null;
+    }
+
+    public final BitmapFactory.Options m(String str) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(str, options);
+        return options;
+    }
+
+    public final String n(Bitmap bitmap, long j, int i) {
+        if (this.f50512b) {
+            ImageFileInfo imageFileInfo = this.f50513c;
+            if (imageFileInfo == null || TextUtils.isEmpty(imageFileInfo.getFilePath())) {
+                return "";
+            }
+            return FileHelper.compressBitmapToFile(f50510h, q.c(this.f50513c.toCachedKey(false)) + h(this.f50513c.getFilePath()), bitmap, (float) j, i);
+        }
+        return FileHelper.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }
 }

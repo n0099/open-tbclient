@@ -8,15 +8,15 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Ordering;
 import com.google.common.reflect.Types;
-import d.g.c.a.i;
-import d.g.c.a.n;
-import d.g.c.a.o;
-import d.g.c.c.a0;
-import d.g.c.c.c1;
-import d.g.c.c.q;
-import d.g.c.h.b;
-import d.g.c.h.f;
-import d.g.c.h.g;
+import d.h.c.a.i;
+import d.h.c.a.n;
+import d.h.c.a.o;
+import d.h.c.c.a0;
+import d.h.c.c.c1;
+import d.h.c.c.q;
+import d.h.c.h.b;
+import d.h.c.h.f;
+import d.h.c.h.g;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.GenericArrayType;
@@ -35,10 +35,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable {
+public abstract class TypeToken<T> extends d.h.c.h.d<T> implements Serializable {
     public static final long serialVersionUID = 3637540370352322684L;
-    public transient d.g.c.h.f covariantTypeResolver;
-    public transient d.g.c.h.f invariantTypeResolver;
+    public transient d.h.c.h.f covariantTypeResolver;
+    public transient d.h.c.h.f invariantTypeResolver;
     public final Type runtimeType;
 
     /* loaded from: classes6.dex */
@@ -46,7 +46,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         public static final long serialVersionUID = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient ImmutableSet<TypeToken<? super T>> f31133e;
+        public transient ImmutableSet<TypeToken<? super T>> f31228e;
 
         public ClassSet() {
             super();
@@ -68,7 +68,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public Set<Class<? super T>> rawTypes() {
-            return ImmutableSet.copyOf((Collection) f.f31143b.a().c(TypeToken.this.getRawTypes()));
+            return ImmutableSet.copyOf((Collection) f.f31238b.a().c(TypeToken.this.getRawTypes()));
         }
 
         public /* synthetic */ ClassSet(TypeToken typeToken, a aVar) {
@@ -76,12 +76,12 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.reflect.TypeToken.TypeSet, d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // com.google.common.reflect.TypeToken.TypeSet, d.h.c.c.a0, d.h.c.c.r, d.h.c.c.y
         public Set<TypeToken<? super T>> delegate() {
-            ImmutableSet<TypeToken<? super T>> immutableSet = this.f31133e;
+            ImmutableSet<TypeToken<? super T>> immutableSet = this.f31228e;
             if (immutableSet == null) {
-                ImmutableSet<TypeToken<? super T>> f2 = q.d(f.f31142a.a().d(TypeToken.this)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
-                this.f31133e = f2;
+                ImmutableSet<TypeToken<? super T>> f2 = q.d(f.f31237a.a().d(TypeToken.this)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
+                this.f31228e = f2;
                 return f2;
             }
             return immutableSet;
@@ -101,20 +101,20 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     public enum TypeFilter implements o<TypeToken<?>> {
         IGNORE_TYPE_VARIABLE_OR_WILDCARD { // from class: com.google.common.reflect.TypeToken.TypeFilter.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.reflect.TypeToken.TypeFilter, d.g.c.a.o
+            @Override // com.google.common.reflect.TypeToken.TypeFilter, d.h.c.a.o
             public boolean apply(TypeToken<?> typeToken) {
                 return ((typeToken.runtimeType instanceof TypeVariable) || (typeToken.runtimeType instanceof WildcardType)) ? false : true;
             }
         },
         INTERFACE_ONLY { // from class: com.google.common.reflect.TypeToken.TypeFilter.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.reflect.TypeToken.TypeFilter, d.g.c.a.o
+            @Override // com.google.common.reflect.TypeToken.TypeFilter, d.h.c.a.o
             public boolean apply(TypeToken<?> typeToken) {
                 return typeToken.getRawType().isInterface();
             }
         };
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public abstract /* synthetic */ boolean apply(T t);
 
         /* synthetic */ TypeFilter(a aVar) {
@@ -123,17 +123,17 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     }
 
     /* loaded from: classes6.dex */
-    public class a extends b.C1840b<T> {
+    public class a extends b.C1844b<T> {
         public a(Method method) {
             super(method);
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.h.c.h.a
         public TypeToken<T> a() {
             return TypeToken.this;
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.h.c.h.a
         public String toString() {
             return a() + "." + super.toString();
         }
@@ -145,20 +145,20 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
             super(constructor);
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.h.c.h.a
         public TypeToken<T> a() {
             return TypeToken.this;
         }
 
-        @Override // d.g.c.h.b.a
+        @Override // d.h.c.h.b.a
         public Type[] b() {
-            d.g.c.h.f invariantTypeResolver = TypeToken.this.getInvariantTypeResolver();
+            d.h.c.h.f invariantTypeResolver = TypeToken.this.getInvariantTypeResolver();
             Type[] b2 = super.b();
             invariantTypeResolver.l(b2);
             return b2;
         }
 
-        @Override // d.g.c.h.a
+        @Override // d.h.c.h.a
         public String toString() {
             return a() + "(" + i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).e(b()) + SmallTailInfo.EMOTION_SUFFIX;
         }
@@ -169,23 +169,23 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         public c() {
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void c(GenericArrayType genericArrayType) {
             a(genericArrayType.getGenericComponentType());
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void d(ParameterizedType parameterizedType) {
             a(parameterizedType.getActualTypeArguments());
             a(parameterizedType.getOwnerType());
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void e(TypeVariable<?> typeVariable) {
             throw new IllegalArgumentException(TypeToken.this.runtimeType + "contains a type variable and is not safe for the operation");
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void f(WildcardType wildcardType) {
             a(wildcardType.getLowerBounds());
             a(wildcardType.getUpperBounds());
@@ -196,33 +196,33 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     public class d extends g {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImmutableSet.a f31139b;
+        public final /* synthetic */ ImmutableSet.a f31234b;
 
         public d(TypeToken typeToken, ImmutableSet.a aVar) {
-            this.f31139b = aVar;
+            this.f31234b = aVar;
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void b(Class<?> cls) {
-            this.f31139b.a(cls);
+            this.f31234b.a(cls);
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void c(GenericArrayType genericArrayType) {
-            this.f31139b.a(Types.i(TypeToken.of(genericArrayType.getGenericComponentType()).getRawType()));
+            this.f31234b.a(Types.i(TypeToken.of(genericArrayType.getGenericComponentType()).getRawType()));
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void d(ParameterizedType parameterizedType) {
-            this.f31139b.a((Class) parameterizedType.getRawType());
+            this.f31234b.a((Class) parameterizedType.getRawType());
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void e(TypeVariable<?> typeVariable) {
             a(typeVariable.getBounds());
         }
 
-        @Override // d.g.c.h.g
+        @Override // d.h.c.h.g
         public void f(WildcardType wildcardType) {
             a(wildcardType.getUpperBounds());
         }
@@ -232,37 +232,37 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type[] f31140a;
+        public final Type[] f31235a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f31141b;
+        public final boolean f31236b;
 
         public e(Type[] typeArr, boolean z) {
-            this.f31140a = typeArr;
-            this.f31141b = z;
+            this.f31235a = typeArr;
+            this.f31236b = z;
         }
 
         public boolean a(Type type) {
-            for (Type type2 : this.f31140a) {
+            for (Type type2 : this.f31235a) {
                 boolean isSubtypeOf = TypeToken.of(type2).isSubtypeOf(type);
-                boolean z = this.f31141b;
+                boolean z = this.f31236b;
                 if (isSubtypeOf == z) {
                     return z;
                 }
             }
-            return !this.f31141b;
+            return !this.f31236b;
         }
 
         public boolean b(Type type) {
             TypeToken<?> of = TypeToken.of(type);
-            for (Type type2 : this.f31140a) {
+            for (Type type2 : this.f31235a) {
                 boolean isSubtypeOf = of.isSubtypeOf(type2);
-                boolean z = this.f31141b;
+                boolean z = this.f31236b;
                 if (isSubtypeOf == z) {
                     return z;
                 }
             }
-            return !this.f31141b;
+            return !this.f31236b;
         }
     }
 
@@ -270,10 +270,10 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     public static abstract class f<K> {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f<TypeToken<?>> f31142a = new a();
+        public static final f<TypeToken<?>> f31237a = new a();
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f<Class<?>> f31143b = new b();
+        public static final f<Class<?>> f31238b = new b();
 
         /* loaded from: classes6.dex */
         public static class a extends f<TypeToken<?>> {
@@ -363,21 +363,21 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         public static class d extends Ordering<K> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Comparator f31144e;
+            public final /* synthetic */ Comparator f31239e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Map f31145f;
+            public final /* synthetic */ Map f31240f;
 
             public d(Comparator comparator, Map map) {
-                this.f31144e = comparator;
-                this.f31145f = map;
+                this.f31239e = comparator;
+                this.f31240f = map;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.Comparator */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.google.common.collect.Ordering, java.util.Comparator
             public int compare(K k, K k2) {
-                return this.f31144e.compare(this.f31145f.get(k), this.f31145f.get(k2));
+                return this.f31239e.compare(this.f31240f.get(k), this.f31240f.get(k2));
             }
         }
 
@@ -385,21 +385,21 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         public static class e<K> extends f<K> {
 
             /* renamed from: c  reason: collision with root package name */
-            public final f<K> f31146c;
+            public final f<K> f31241c;
 
             public e(f<K> fVar) {
                 super(null);
-                this.f31146c = fVar;
+                this.f31241c = fVar;
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public Class<?> f(K k) {
-                return this.f31146c.f(k);
+                return this.f31241c.f(k);
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public K g(K k) {
-                return this.f31146c.g(k);
+                return this.f31241c.g(k);
             }
         }
 
@@ -539,10 +539,10 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public d.g.c.h.f getCovariantTypeResolver() {
-        d.g.c.h.f fVar = this.covariantTypeResolver;
+    public d.h.c.h.f getCovariantTypeResolver() {
+        d.h.c.h.f fVar = this.covariantTypeResolver;
         if (fVar == null) {
-            d.g.c.h.f d2 = d.g.c.h.f.d(this.runtimeType);
+            d.h.c.h.f d2 = d.h.c.h.f.d(this.runtimeType);
             this.covariantTypeResolver = d2;
             return d2;
         }
@@ -550,10 +550,10 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public d.g.c.h.f getInvariantTypeResolver() {
-        d.g.c.h.f fVar = this.invariantTypeResolver;
+    public d.h.c.h.f getInvariantTypeResolver() {
+        d.h.c.h.f fVar = this.invariantTypeResolver;
         if (fVar == null) {
-            d.g.c.h.f f2 = d.g.c.h.f.f(this.runtimeType);
+            d.h.c.h.f f2 = d.h.c.h.f.f(this.runtimeType);
             this.invariantTypeResolver = f2;
             return f2;
         }
@@ -663,7 +663,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     }
 
     private boolean isWrapper() {
-        return d.g.c.g.a.b().contains(this.runtimeType);
+        return d.h.c.g.a.b().contains(this.runtimeType);
     }
 
     public static Type newArrayClassOrGenericArrayType(Type type) {
@@ -684,7 +684,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     private Type resolveTypeArgsForSubclass(Class<?> cls) {
         if (!(this.runtimeType instanceof Class) || (cls.getTypeParameters().length != 0 && getRawType().getTypeParameters().length == 0)) {
             TypeToken genericType = toGenericType(cls);
-            return new d.g.c.h.f().n(genericType.getSupertype(getRawType()).runtimeType, this.runtimeType).j(genericType.runtimeType);
+            return new d.h.c.h.f().n(genericType.getSupertype(getRawType()).runtimeType, this.runtimeType).j(genericType.runtimeType);
         }
         return cls;
     }
@@ -711,7 +711,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         return (TypeToken<? extends T>) of(Types.n(type, cls, typeParameters));
     }
 
-    public final d.g.c.h.b<T, T> constructor(Constructor<?> constructor) {
+    public final d.h.c.h.b<T, T> constructor(Constructor<?> constructor) {
         n.l(constructor.getDeclaringClass() == getRawType(), "%s not declared by %s", constructor, getRawType());
         return new b(constructor);
     }
@@ -824,7 +824,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         return typeToken.isSubtypeOf(getType());
     }
 
-    public final d.g.c.h.b<T, Object> method(Method method) {
+    public final d.h.c.h.b<T, Object> method(Method method) {
         n.l(someRawTypeIsSubclassOf(method.getDeclaringClass()), "%s not declared by %s", method, this);
         return new a(method);
     }
@@ -844,19 +844,19 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
     }
 
     public final TypeToken<T> unwrap() {
-        return isWrapper() ? of(d.g.c.g.a.c((Class) this.runtimeType)) : this;
+        return isWrapper() ? of(d.h.c.g.a.c((Class) this.runtimeType)) : this;
     }
 
-    public final <X> TypeToken<T> where(d.g.c.h.e<X> eVar, TypeToken<X> typeToken) {
-        return new SimpleTypeToken(new d.g.c.h.f().o(ImmutableMap.of(new f.d(eVar.f67043a), typeToken.runtimeType)).j(this.runtimeType));
+    public final <X> TypeToken<T> where(d.h.c.h.e<X> eVar, TypeToken<X> typeToken) {
+        return new SimpleTypeToken(new d.h.c.h.f().o(ImmutableMap.of(new f.d(eVar.f67190a), typeToken.runtimeType)).j(this.runtimeType));
     }
 
     public final TypeToken<T> wrap() {
-        return isPrimitive() ? of(d.g.c.g.a.d((Class) this.runtimeType)) : this;
+        return isPrimitive() ? of(d.h.c.g.a.d((Class) this.runtimeType)) : this;
     }
 
     public Object writeReplace() {
-        return of(new d.g.c.h.f().j(this.runtimeType));
+        return of(new d.h.c.h.f().j(this.runtimeType));
     }
 
     /* loaded from: classes6.dex */
@@ -864,10 +864,10 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         public static final long serialVersionUID = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient TypeToken<T>.TypeSet f31134e;
+        public final transient TypeToken<T>.TypeSet f31229e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient ImmutableSet<TypeToken<? super T>> f31135f;
+        public transient ImmutableSet<TypeToken<? super T>> f31230f;
 
         /* loaded from: classes6.dex */
         public class a implements o<Class<?>> {
@@ -875,7 +875,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.g.c.a.o
+            @Override // d.h.c.a.o
             /* renamed from: a */
             public boolean apply(Class<?> cls) {
                 return cls.isInterface();
@@ -884,7 +884,7 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
 
         public InterfaceSet(TypeToken<T>.TypeSet typeSet) {
             super();
-            this.f31134e = typeSet;
+            this.f31229e = typeSet;
         }
 
         private Object readResolve() {
@@ -903,16 +903,16 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
 
         @Override // com.google.common.reflect.TypeToken.TypeSet
         public Set<Class<? super T>> rawTypes() {
-            return q.d(f.f31143b.c(TypeToken.this.getRawTypes())).c(new a(this)).f();
+            return q.d(f.f31238b.c(TypeToken.this.getRawTypes())).c(new a(this)).f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.reflect.TypeToken.TypeSet, d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // com.google.common.reflect.TypeToken.TypeSet, d.h.c.c.a0, d.h.c.c.r, d.h.c.c.y
         public Set<TypeToken<? super T>> delegate() {
-            ImmutableSet<TypeToken<? super T>> immutableSet = this.f31135f;
+            ImmutableSet<TypeToken<? super T>> immutableSet = this.f31230f;
             if (immutableSet == null) {
-                ImmutableSet<TypeToken<? super T>> f2 = q.d(this.f31134e).c(TypeFilter.INTERFACE_ONLY).f();
-                this.f31135f = f2;
+                ImmutableSet<TypeToken<? super T>> f2 = q.d(this.f31229e).c(TypeFilter.INTERFACE_ONLY).f();
+                this.f31230f = f2;
                 return f2;
             }
             return immutableSet;
@@ -936,15 +936,15 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         }
 
         public Set<Class<? super T>> rawTypes() {
-            return ImmutableSet.copyOf((Collection) f.f31143b.c(TypeToken.this.getRawTypes()));
+            return ImmutableSet.copyOf((Collection) f.f31238b.c(TypeToken.this.getRawTypes()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
+        @Override // d.h.c.c.a0, d.h.c.c.r, d.h.c.c.y
         public Set<TypeToken<? super T>> delegate() {
             ImmutableSet<TypeToken<? super T>> immutableSet = this.types;
             if (immutableSet == null) {
-                ImmutableSet<TypeToken<? super T>> f2 = q.d(f.f31142a.d(TypeToken.this)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
+                ImmutableSet<TypeToken<? super T>> f2 = q.d(f.f31237a.d(TypeToken.this)).c(TypeFilter.IGNORE_TYPE_VARIABLE_OR_WILDCARD).f();
                 this.types = f2;
                 return f2;
             }
@@ -998,11 +998,11 @@ public abstract class TypeToken<T> extends d.g.c.h.d<T> implements Serializable 
         if (capture instanceof Class) {
             this.runtimeType = capture;
         } else {
-            this.runtimeType = d.g.c.h.f.d(cls).j(capture);
+            this.runtimeType = d.h.c.h.f.d(cls).j(capture);
         }
     }
 
-    public final <X> TypeToken<T> where(d.g.c.h.e<X> eVar, Class<X> cls) {
+    public final <X> TypeToken<T> where(d.h.c.h.e<X> eVar, Class<X> cls) {
         return where(eVar, of((Class) cls));
     }
 

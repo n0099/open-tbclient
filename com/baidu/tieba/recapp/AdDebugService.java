@@ -26,16 +26,16 @@ public class AdDebugService extends Service {
     public class a implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f20376e;
+        public int f20384e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f20377f;
+        public int f20385f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f20378g;
+        public float f20386g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f20379h;
+        public float f20387h;
 
         public a() {
         }
@@ -44,14 +44,14 @@ public class AdDebugService extends Service {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f20376e = AdDebugService.this.mParams.x;
-                this.f20377f = AdDebugService.this.mParams.y;
-                this.f20378g = motionEvent.getRawX();
-                this.f20379h = motionEvent.getRawY();
+                this.f20384e = AdDebugService.this.mParams.x;
+                this.f20385f = AdDebugService.this.mParams.y;
+                this.f20386g = motionEvent.getRawX();
+                this.f20387h = motionEvent.getRawY();
                 return true;
             } else if (action == 1) {
-                float abs = Math.abs(motionEvent.getRawX() - this.f20378g);
-                float abs2 = Math.abs(motionEvent.getRawY() - this.f20379h);
+                float abs = Math.abs(motionEvent.getRawX() - this.f20386g);
+                float abs2 = Math.abs(motionEvent.getRawY() - this.f20387h);
                 if (abs < 10.0f && abs2 < 10.0f) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
                 }
@@ -59,8 +59,8 @@ public class AdDebugService extends Service {
             } else if (action != 2) {
                 return false;
             } else {
-                AdDebugService.this.mParams.x = this.f20376e + ((int) (motionEvent.getRawX() - this.f20378g));
-                AdDebugService.this.mParams.y = this.f20377f + ((int) (motionEvent.getRawY() - this.f20379h));
+                AdDebugService.this.mParams.x = this.f20384e + ((int) (motionEvent.getRawX() - this.f20386g));
+                AdDebugService.this.mParams.y = this.f20385f + ((int) (motionEvent.getRawY() - this.f20387h));
                 AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
                 return true;
             }
@@ -71,15 +71,15 @@ public class AdDebugService extends Service {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20380e;
+        public final /* synthetic */ String f20388e;
 
         public b(String str) {
-            this.f20380e = str;
+            this.f20388e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            AdDebugService.mFloatView.setText(this.f20380e);
+            AdDebugService.mFloatView.setText(this.f20388e);
         }
     }
 

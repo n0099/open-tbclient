@@ -10,26 +10,26 @@ import java.util.Iterator;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f42753d;
+    public static a f42993d;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42754a;
+    public c f42994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f42755b = new ArrayList<>();
+    public ArrayList<b> f42995b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public C0565a f42756c;
+    public C0584a f42996c;
 
     /* renamed from: d.b.c.h.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0565a extends BdAsyncTask<String, Integer, Boolean> {
+    public class C0584a extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f42757a;
+        public b f42997a;
 
-        public C0565a(b bVar) {
-            this.f42757a = bVar;
+        public C0584a(b bVar) {
+            this.f42997a = bVar;
         }
 
         public final boolean b(String str) {
@@ -63,9 +63,9 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            b bVar = this.f42757a;
+            b bVar = this.f42997a;
             if (bVar != null) {
-                return Boolean.valueOf(b(bVar.f42759a));
+                return Boolean.valueOf(b(bVar.f42999a));
             }
             return Boolean.FALSE;
         }
@@ -73,25 +73,25 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            super.onPostExecute((C0565a) bool);
-            a.this.f42756c = null;
-            if (a.this.f42755b.size() > 0) {
-                Iterator it = a.this.f42755b.iterator();
+            super.onPostExecute((C0584a) bool);
+            a.this.f42996c = null;
+            if (a.this.f42995b.size() > 0) {
+                Iterator it = a.this.f42995b.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.g(this.f42757a, bVar)) {
-                        a.this.f42755b.remove(bVar);
+                    if (a.this.g(this.f42997a, bVar)) {
+                        a.this.f42995b.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.f42754a != null) {
-                c cVar = a.this.f42754a;
-                b bVar2 = this.f42757a;
-                cVar.a(bVar2.f42760b, bVar2.f42759a);
+            if (bool != null && bool.booleanValue() && a.this.f42994a != null) {
+                c cVar = a.this.f42994a;
+                b bVar2 = this.f42997a;
+                cVar.a(bVar2.f43000b, bVar2.f42999a);
             }
             a.this.i();
         }
@@ -101,14 +101,14 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42759a;
+        public String f42999a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42760b;
+        public String f43000b;
 
         public b(String str, String str2) {
-            this.f42760b = str;
-            this.f42759a = str2;
+            this.f43000b = str;
+            this.f42999a = str2;
         }
     }
 
@@ -118,27 +118,27 @@ public class a {
     }
 
     public static a h() {
-        if (f42753d == null) {
+        if (f42993d == null) {
             synchronized (a.class) {
-                if (f42753d == null) {
-                    f42753d = new a();
+                if (f42993d == null) {
+                    f42993d = new a();
                 }
             }
         }
-        return f42753d;
+        return f42993d;
     }
 
     public void f(ArrayList<b> arrayList, c cVar) {
         if (arrayList == null || arrayList.size() == 0) {
             return;
         }
-        this.f42754a = cVar;
+        this.f42994a = cVar;
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && !TextUtils.isEmpty(next.f42759a) && !TextUtils.isEmpty(next.f42760b)) {
+            if (next != null && !TextUtils.isEmpty(next.f42999a) && !TextUtils.isEmpty(next.f43000b)) {
                 boolean z = false;
-                Iterator<b> it2 = this.f42755b.iterator();
+                Iterator<b> it2 = this.f42995b.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -148,7 +148,7 @@ public class a {
                     }
                 }
                 if (!z) {
-                    this.f42755b.add(next);
+                    this.f42995b.add(next);
                 }
             }
         }
@@ -156,14 +156,14 @@ public class a {
     }
 
     public final boolean g(b bVar, b bVar2) {
-        return (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.f42759a) || TextUtils.isEmpty(bVar2.f42760b) || TextUtils.isEmpty(bVar.f42759a) || TextUtils.isEmpty(bVar.f42760b) || !bVar2.f42760b.equals(bVar.f42760b) || !bVar2.f42759a.equals(bVar.f42759a)) ? false : true;
+        return (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.f42999a) || TextUtils.isEmpty(bVar2.f43000b) || TextUtils.isEmpty(bVar.f42999a) || TextUtils.isEmpty(bVar.f43000b) || !bVar2.f43000b.equals(bVar.f43000b) || !bVar2.f42999a.equals(bVar.f42999a)) ? false : true;
     }
 
     public final void i() {
-        if (this.f42755b.size() != 0 && this.f42756c == null) {
-            C0565a c0565a = new C0565a(this.f42755b.get(0));
-            this.f42756c = c0565a;
-            c0565a.execute(new String[0]);
+        if (this.f42995b.size() != 0 && this.f42996c == null) {
+            C0584a c0584a = new C0584a(this.f42995b.get(0));
+            this.f42996c = c0584a;
+            c0584a.execute(new String[0]);
         }
     }
 }

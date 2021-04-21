@@ -16,22 +16,22 @@ import com.kwad.sdk.utils.x;
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f33834a;
+    public static b f33929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f33835b;
+    public a f33930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f33836c;
+    public AdTemplate f33931c;
 
     public b(Activity activity, @NonNull AdTemplate adTemplate) {
         super(Wrapper.wrapContextIfNeed(activity));
         setOwnerActivity(activity);
-        this.f33836c = adTemplate;
+        this.f33931c = adTemplate;
     }
 
     public static boolean a() {
-        b bVar = f33834a;
+        b bVar = f33929a;
         if (bVar != null) {
             return bVar.isShowing();
         }
@@ -41,15 +41,15 @@ public class b extends AlertDialog {
     public static boolean a(@NonNull Context context, @NonNull AdTemplate adTemplate) {
         if (context instanceof Activity) {
             try {
-                if (f33834a == null) {
+                if (f33929a == null) {
                     b bVar = new b((Activity) context, adTemplate);
-                    f33834a = bVar;
+                    f33929a = bVar;
                     bVar.getWindow().addFlags(1024);
                 }
-                if (f33834a.isShowing()) {
+                if (f33929a.isShowing()) {
                     return true;
                 }
-                f33834a.show();
+                f33929a.show();
                 com.kwad.sdk.core.report.b.c(adTemplate, 86, null);
                 return true;
             } catch (Throwable th) {
@@ -72,7 +72,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        f33834a = null;
+        f33929a = null;
     }
 
     @Override // android.app.Dialog
@@ -83,24 +83,24 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog
     public void onBackPressed() {
         super.onBackPressed();
-        com.kwad.sdk.core.report.b.o(this.f33836c);
+        com.kwad.sdk.core.report.b.o(this.f33931c);
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f33835b == null) {
-            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f33836c, !x.e(getOwnerActivity()) ? 1 : 0);
-            this.f33835b = aVar;
+        if (this.f33930b == null) {
+            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f33931c, !x.e(getOwnerActivity()) ? 1 : 0);
+            this.f33930b = aVar;
             aVar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.kwad.sdk.core.report.b.o(b.this.f33836c);
+                    com.kwad.sdk.core.report.b.o(b.this.f33931c);
                     b.this.dismiss();
                 }
             });
         }
-        setContentView(this.f33835b);
+        setContentView(this.f33930b);
         setCanceledOnTouchOutside(true);
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -110,7 +110,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        a aVar = this.f33835b;
+        a aVar = this.f33930b;
         if (aVar != null) {
             aVar.c();
         }
@@ -119,7 +119,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog
     public void onStart() {
         super.onStart();
-        b bVar = f33834a;
+        b bVar = f33929a;
         if (bVar != null) {
             bVar.setTitle((CharSequence) null);
         }

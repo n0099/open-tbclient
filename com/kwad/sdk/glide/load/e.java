@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 public final class e implements c {
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayMap<d<?>, Object> f35672b = new com.kwad.sdk.glide.g.b();
+    public final ArrayMap<d<?>, Object> f35767b = new com.kwad.sdk.glide.g.b();
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
@@ -19,40 +19,40 @@ public final class e implements c {
 
     @NonNull
     public <T> e a(@NonNull d<T> dVar, @NonNull T t) {
-        this.f35672b.put(dVar, t);
+        this.f35767b.put(dVar, t);
         return this;
     }
 
     @Nullable
     public <T> T a(@NonNull d<T> dVar) {
-        return this.f35672b.containsKey(dVar) ? (T) this.f35672b.get(dVar) : dVar.a();
+        return this.f35767b.containsKey(dVar) ? (T) this.f35767b.get(dVar) : dVar.a();
     }
 
     public void a(@NonNull e eVar) {
-        this.f35672b.putAll((SimpleArrayMap<? extends d<?>, ? extends Object>) eVar.f35672b);
+        this.f35767b.putAll((SimpleArrayMap<? extends d<?>, ? extends Object>) eVar.f35767b);
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        for (int i = 0; i < this.f35672b.size(); i++) {
-            a(this.f35672b.keyAt(i), this.f35672b.valueAt(i), messageDigest);
+        for (int i = 0; i < this.f35767b.size(); i++) {
+            a(this.f35767b.keyAt(i), this.f35767b.valueAt(i), messageDigest);
         }
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
         if (obj instanceof e) {
-            return this.f35672b.equals(((e) obj).f35672b);
+            return this.f35767b.equals(((e) obj).f35767b);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        return this.f35672b.hashCode();
+        return this.f35767b.hashCode();
     }
 
     public String toString() {
-        return "Options{values=" + this.f35672b + '}';
+        return "Options{values=" + this.f35767b + '}';
     }
 }

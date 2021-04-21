@@ -1,8 +1,8 @@
 package com.google.gson;
 
 import com.google.gson.stream.JsonToken;
-import d.g.d.d.a;
-import d.g.d.d.b;
+import d.h.d.d.a;
+import d.h.d.d.b;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -16,7 +16,7 @@ public abstract class TypeAdapter<T> {
 
     public final T fromJsonTree(JsonElement jsonElement) {
         try {
-            return read(new d.g.d.b.j.a(jsonElement));
+            return read(new d.h.d.b.j.a(jsonElement));
         } catch (IOException e2) {
             throw new JsonIOException(e2);
         }
@@ -52,7 +52,7 @@ public abstract class TypeAdapter<T> {
 
     public final JsonElement toJsonTree(T t) {
         try {
-            d.g.d.b.j.b bVar = new d.g.d.b.j.b();
+            d.h.d.b.j.b bVar = new d.h.d.b.j.b();
             write(bVar, t);
             return bVar.R();
         } catch (IOException e2) {

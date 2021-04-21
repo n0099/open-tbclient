@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.b.i0.e1.f.d;
+import d.b.j0.e1.f.d;
 /* loaded from: classes4.dex */
 public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
 

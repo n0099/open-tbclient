@@ -996,7 +996,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
                 }
                 this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080000_avd_hide_password__0)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080005_avd_show_password__2)).a(new d(this));
                 if (z) {
-                    CountDownTimerC0124a countDownTimerC0124a = new CountDownTimerC0124a(PassLoginUtil.f25013c, 1000L, this.i, this.l);
+                    CountDownTimerC0124a countDownTimerC0124a = new CountDownTimerC0124a(PassLoginUtil.f25021c, 1000L, this.i, this.l);
                     this.q = countDownTimerC0124a;
                     countDownTimerC0124a.start();
                 }

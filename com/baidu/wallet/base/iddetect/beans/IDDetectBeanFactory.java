@@ -12,11 +12,11 @@ public final class IDDetectBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static IDDetectBeanFactory f23331a = new IDDetectBeanFactory();
+        public static IDDetectBeanFactory f23339a = new IDDetectBeanFactory();
     }
 
     public static IDDetectBeanFactory getInstance() {
-        return a.f23331a;
+        return a.f23339a;
     }
 
     public IDDetectBeanFactory() {

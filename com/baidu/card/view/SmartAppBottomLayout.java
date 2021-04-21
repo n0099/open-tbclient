@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.r.q.a;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
+import d.b.i0.r.q.a;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class SmartAppBottomLayout extends LinearLayout implements p<a> {
     public static final int i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);

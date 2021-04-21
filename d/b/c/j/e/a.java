@@ -15,38 +15,38 @@ import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 public abstract class a<T, V extends TypeAdapter.ViewHolder> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42855e;
+    public Context f43095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public w f42856f;
+    public w f43096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public x f42857g;
+    public x f43097g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f42858h;
+    public BdUniqueId f43098h;
     public BdUniqueId i;
     public r<n> j;
     public V k;
     public d.b.c.j.c.a l = new d.b.c.j.c.a();
 
     public a(Context context, BdUniqueId bdUniqueId) {
-        this.f42855e = context;
-        this.f42858h = bdUniqueId;
+        this.f43095e = context;
+        this.f43098h = bdUniqueId;
     }
 
     public w A() {
-        return this.f42856f;
+        return this.f43096f;
     }
 
     public x B() {
-        return this.f42857g;
+        return this.f43097g;
     }
 
     public int E(int i) {
         BdUniqueId bdUniqueId;
         r<n> rVar = this.j;
-        if (rVar == null || (bdUniqueId = this.f42858h) == null) {
+        if (rVar == null || (bdUniqueId = this.f43098h) == null) {
             return -1;
         }
         return rVar.a(i, bdUniqueId.getId());
@@ -57,7 +57,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     }
 
     public BdUniqueId G() {
-        return this.f42858h;
+        return this.f43098h;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: d.b.c.j.e.a<T, V extends com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder> */
@@ -140,11 +140,11 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     }
 
     public void c0(w wVar) {
-        this.f42856f = wVar;
+        this.f43096f = wVar;
     }
 
     public void d0(x xVar) {
-        this.f42857g = xVar;
+        this.f43097g = xVar;
     }
 
     public void f0(BdUniqueId bdUniqueId) {
@@ -190,8 +190,8 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     }
 
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        this.f42855e = context;
-        this.f42858h = bdUniqueId;
+        this.f43095e = context;
+        this.f43098h = bdUniqueId;
         this.i = bdUniqueId2;
     }
 }

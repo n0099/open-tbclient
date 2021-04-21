@@ -1,0 +1,293 @@
+package d.b.d0.a.h;
+
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.mobads.container.components.net.OAdURLConnection;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes2.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public HttpURLConnection f43362a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d.b.d0.a.k.b f43363b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public b f43364c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c f43365d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f43366e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f43367f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f43368g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f43369h;
+    public int i;
+    public int j;
+    public boolean k;
+    public Uri.Builder l;
+    public int m;
+
+    /* renamed from: d.b.d0.a.h.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C0602a extends d.b.d0.a.l.b {
+        public C0602a() {
+        }
+
+        @Override // d.b.d0.a.l.b
+        public Object b() {
+            a.this.i();
+            a.this.e();
+            return null;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public interface b {
+        void onFail(String str, int i);
+
+        void onSuccess(String str, String str2);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void onFail(String str, int i);
+
+        void onSuccess(InputStream inputStream, String str);
+    }
+
+    public a(int i, String str) {
+        this(i, str, "GET");
+    }
+
+    public void c(c cVar) {
+        this.f43365d = cVar;
+    }
+
+    public void d() {
+        try {
+            if (this.m == 1) {
+                d.b.d0.a.l.c.a().c(new C0602a());
+            } else {
+                d.b.d0.a.l.c.a().c(new C0602a());
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    public final void e() {
+        HttpURLConnection httpURLConnection;
+        try {
+            try {
+                this.f43362a.connect();
+                d.b.d0.a.k.b bVar = this.f43363b;
+                bVar.b(OAdURLConnection.TAG, this.f43362a.getRequestMethod() + " connect code :" + this.f43362a.getResponseCode());
+                int responseCode = this.f43362a.getResponseCode();
+                if (responseCode == 302 || responseCode == 301) {
+                    this.f43362a.setInstanceFollowRedirects(false);
+                    HttpURLConnection g2 = g(this.f43362a);
+                    this.f43362a = g2;
+                    responseCode = g2.getResponseCode();
+                }
+                if (responseCode / 100 != 2) {
+                    if (this.f43364c != null) {
+                        this.f43364c.onFail(this.f43362a.getResponseMessage(), responseCode);
+                    }
+                    if (this.f43365d != null) {
+                        this.f43365d.onFail(this.f43362a.getResponseMessage(), responseCode);
+                    }
+                } else {
+                    String a2 = d.b.d0.a.l.a.a(this.f43366e);
+                    if (this.f43364c != null) {
+                        this.f43364c.onSuccess(f(), a2);
+                    }
+                    if (this.f43365d != null) {
+                        this.f43365d.onSuccess(this.f43362a.getInputStream(), a2);
+                    }
+                }
+                httpURLConnection = this.f43362a;
+                if (httpURLConnection == null) {
+                    return;
+                }
+            } catch (Exception e2) {
+                if (this.f43364c != null) {
+                    b bVar2 = this.f43364c;
+                    bVar2.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
+                }
+                if (this.f43365d != null) {
+                    c cVar = this.f43365d;
+                    cVar.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
+                }
+                httpURLConnection = this.f43362a;
+                if (httpURLConnection == null) {
+                    return;
+                }
+            }
+            httpURLConnection.disconnect();
+        } catch (Throwable th) {
+            HttpURLConnection httpURLConnection2 = this.f43362a;
+            if (httpURLConnection2 != null) {
+                httpURLConnection2.disconnect();
+            }
+            throw th;
+        }
+    }
+
+    public String f() throws Exception {
+        InputStream inputStream = null;
+        try {
+            inputStream = this.f43362a.getInputStream();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[128];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, read);
+            }
+            byteArrayOutputStream.flush();
+            return byteArrayOutputStream.toString();
+        } finally {
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        }
+    }
+
+    public final HttpURLConnection g(HttpURLConnection httpURLConnection) {
+        while (true) {
+            try {
+                int responseCode = httpURLConnection.getResponseCode();
+                if (responseCode != 302 && responseCode != 301) {
+                    return httpURLConnection;
+                }
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(httpURLConnection.getHeaderField("Location")).openConnection();
+                try {
+                    httpURLConnection2.setConnectTimeout(httpURLConnection2.getConnectTimeout());
+                    httpURLConnection2.setInstanceFollowRedirects(false);
+                    httpURLConnection2.setRequestProperty("Range", "bytes=0-");
+                    httpURLConnection = httpURLConnection2;
+                } catch (Exception unused) {
+                    return httpURLConnection2;
+                }
+            } catch (Exception unused2) {
+                return httpURLConnection;
+            }
+        }
+    }
+
+    public final void h(String str, HttpURLConnection httpURLConnection) throws IOException {
+        OutputStream outputStream;
+        BufferedWriter bufferedWriter = null;
+        try {
+            outputStream = httpURLConnection.getOutputStream();
+            try {
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                try {
+                    bufferedWriter2.write(str);
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                    if (outputStream != null) {
+                        outputStream.close();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    if (bufferedWriter != null) {
+                        bufferedWriter.close();
+                    }
+                    if (outputStream != null) {
+                        outputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            outputStream = null;
+        }
+    }
+
+    public final void i() {
+        if (TextUtils.isEmpty(this.f43366e)) {
+            return;
+        }
+        try {
+            HttpURLConnection b2 = d.b.d0.a.l.a.b(new URL(this.f43366e));
+            this.f43362a = b2;
+            b2.setConnectTimeout(this.i);
+            this.f43362a.setReadTimeout(this.j);
+            if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+                System.setProperty("http.keepAlive", "false");
+            }
+            this.f43362a.setRequestMethod(this.f43367f);
+            this.f43362a.setUseCaches(this.k);
+            if (!TextUtils.isEmpty(this.f43368g)) {
+                this.f43362a.setRequestProperty("User-Agent", this.f43368g);
+            }
+            this.f43362a.setRequestProperty("Content-type", this.f43369h);
+            this.f43362a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            this.f43362a.setRequestProperty("Cache-Control", "no-cache");
+            if (this.f43367f.equals("POST")) {
+                this.f43362a.setDoInput(true);
+                this.f43362a.setDoOutput(true);
+                if (this.l != null) {
+                    h(this.l.build().getEncodedQuery(), this.f43362a);
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException e2) {
+            b bVar = this.f43364c;
+            if (bVar != null) {
+                bVar.onFail("Net Create RuntimeError: " + e2.toString(), 0);
+            }
+            c cVar = this.f43365d;
+            if (cVar != null) {
+                cVar.onFail("Net Create RuntimeError: " + e2.toString(), 0);
+            }
+        } catch (Throwable th) {
+            b bVar2 = this.f43364c;
+            if (bVar2 != null) {
+                bVar2.onFail("Net Create RuntimeError: " + th.toString(), 0);
+            }
+            c cVar2 = this.f43365d;
+            if (cVar2 != null) {
+                cVar2.onFail("Net Create RuntimeError: " + th.toString(), 0);
+            }
+        }
+    }
+
+    public a(int i, String str, String str2) {
+        this.f43363b = d.b.d0.a.k.b.i();
+        this.f43364c = null;
+        this.f43365d = null;
+        this.f43369h = "text/plain";
+        this.i = 10000;
+        this.j = 10000;
+        this.k = false;
+        this.l = null;
+        this.m = i;
+        this.f43366e = str;
+        this.f43367f = str2;
+    }
+}

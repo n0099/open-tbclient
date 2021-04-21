@@ -18,7 +18,7 @@ public abstract class BaseRewardAd {
     public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadAdParams f38689a = null;
+    public LoadAdParams f38784a = null;
 
     public BaseRewardAd(Context context, String str, String str2, String str3) {
     }
@@ -34,7 +34,7 @@ public abstract class BaseRewardAd {
     public abstract long getExpireTimestamp();
 
     public LoadAdParams getLoadAdParams() {
-        return this.f38689a;
+        return this.f38784a;
     }
 
     public int getRewardAdType() {
@@ -50,7 +50,7 @@ public abstract class BaseRewardAd {
     public abstract void setAdListener(ADListener aDListener);
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
-        this.f38689a = loadAdParams;
+        this.f38784a = loadAdParams;
     }
 
     public abstract void setVolumeOn(boolean z);

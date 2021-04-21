@@ -6,28 +6,28 @@ public class d {
     public boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42275a = -1;
+    public long f42515a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f42276b = -1;
+    public long f42516b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42277c = -1;
+    public long f42517c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f42278d = -1;
+    public long f42518d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42279e = 0;
+    public int f42519e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42280f = -1;
+    public long f42520f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f42281g = -1;
+    public long f42521g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42282h = "";
+    public String f42522h = "";
     public int i = -1;
     public int j = 0;
     public String k = null;

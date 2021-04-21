@@ -3,15 +3,15 @@ package d.b.c.e.b.b.a.b;
 public class b implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42109a;
+    public boolean f42349a;
 
     public b(boolean z) {
-        this.f42109a = z;
+        this.f42349a = z;
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object a(d.b.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f42109a);
+        return Boolean.valueOf(this.f42349a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
@@ -21,21 +21,21 @@ public class b implements h {
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object c(d.b.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f42109a);
+        return Boolean.valueOf(this.f42349a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object d(d.b.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f42109a);
+        return Boolean.valueOf(this.f42349a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object e(d.b.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f42109a);
+        return Boolean.valueOf(this.f42349a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object f(d.b.c.e.b.b.a.e.c cVar) {
-        return Boolean.valueOf(this.f42109a);
+        return Boolean.valueOf(this.f42349a);
     }
 }

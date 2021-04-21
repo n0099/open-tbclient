@@ -6,26 +6,26 @@ import com.cmic.sso.sdk.d.r;
 public class b extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public e f30338b;
+    public e f30433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30339c;
+    public boolean f30434c;
 
     public b(String str, e eVar, String str2, String str3) {
         super(str, eVar, str2, str3);
-        this.f30339c = false;
-        this.f30338b = eVar;
+        this.f30434c = false;
+        this.f30433b = eVar;
     }
 
     public void a(com.cmic.sso.sdk.a aVar) {
-        if (this.f30339c) {
+        if (this.f30434c) {
             return;
         }
         String a2 = r.a(true);
         String a3 = r.a(true, "1".equals(aVar.b("operatortype", "")));
         aVar.a("ipv4List", a2);
         aVar.a("ipv6List", a3);
-        e.a c2 = this.f30338b.c();
+        e.a c2 = this.f30433b.c();
         if (!aVar.b("isCloseIpv4", false)) {
             c2.a(a2);
         }
@@ -33,9 +33,9 @@ public class b extends c {
             c2.b(a3);
         }
         c2.t(c2.u(aVar.b("appkey")));
-        this.f30338b.a(c2);
-        this.f30338b.a(true);
-        this.f30340a = this.f30338b.b().toString();
-        this.f30339c = true;
+        this.f30433b.a(c2);
+        this.f30433b.a(true);
+        this.f30435a = this.f30433b.b().toString();
+        this.f30434c = true;
     }
 }

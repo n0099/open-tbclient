@@ -16,10 +16,10 @@ import com.google.ar.core.exceptions.FatalException;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.protobuf.CodedInputStream;
-import d.g.b.a.h;
-import d.g.b.a.i;
-import d.g.b.a.k;
-import d.g.b.a.m;
+import d.h.b.a.h;
+import d.h.b.a.i;
+import d.h.b.a.k;
+import d.h.b.a.m;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
 /* loaded from: classes6.dex */
@@ -38,26 +38,26 @@ public class InstallActivity extends Activity {
     public p lastEvent = p.CANCELLED;
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [d.g.b.a.m.a(com.google.ar.core.p):void, d.g.b.a.m.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [d.h.b.a.m.a(com.google.ar.core.p):void, d.h.b.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ void access$000(InstallActivity installActivity, Exception exc) {
         installActivity.finishWithFailure(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [d.g.b.a.m.a(com.google.ar.core.p):void, d.g.b.a.m.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [d.h.b.a.m.a(com.google.ar.core.p):void, d.h.b.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ p access$402(InstallActivity installActivity, p pVar) {
         installActivity.lastEvent = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [d.g.b.a.m.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [d.h.b.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean access$500(InstallActivity installActivity) {
         return installActivity.waitingForCompletion;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [d.g.b.a.m.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [d.h.b.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void access$600(InstallActivity installActivity) {
         installActivity.closeInstaller();
     }
@@ -73,7 +73,7 @@ public class InstallActivity extends Activity {
         getWindow().getDecorView().setMinimumWidth(i);
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(300L);
-        ofFloat.addUpdateListener(new d.g.b.a.j(this, width, i, height));
+        ofFloat.addUpdateListener(new d.h.b.a.j(this, width, i, height));
         ofFloat.addListener(new k(this));
         ofFloat.start();
     }
@@ -85,8 +85,8 @@ public class InstallActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finishWithFailure(Exception exc) {
-        d.g.b.a.f.d().f66896a = exc;
-        d.g.b.a.f.d().g();
+        d.h.b.a.f.d().f67043a = exc;
+        d.h.b.a.f.d().g();
         this.finished = true;
         super.finish();
     }
@@ -139,7 +139,7 @@ public class InstallActivity extends Activity {
     public void startInstaller() {
         this.installStarted = true;
         this.lastEvent = p.CANCELLED;
-        d.g.b.a.f.d().e(this).c(this, new m(this));
+        d.h.b.a.f.d().e(this).c(this, new m(this));
     }
 
     @Override // android.app.Activity
@@ -176,7 +176,7 @@ public class InstallActivity extends Activity {
                     return;
                 }
                 AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                d.g.b.a.f.d().e(this).e(this, new d.g.b.a.d(atomicReference));
+                d.h.b.a.f.d().e(this).e(this, new d.h.b.a.d(atomicReference));
                 int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                 if (ordinal == 0) {
                     Log.w(TAG, "Preliminary compatibility check failed.");
@@ -197,7 +197,7 @@ public class InstallActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         if (!this.finished) {
-            d.g.b.a.f.d().g();
+            d.h.b.a.f.d().g();
         }
         super.onDestroy();
     }
@@ -221,7 +221,7 @@ public class InstallActivity extends Activity {
                 } else if (this.lastEvent == p.ACCEPTED) {
                     this.waitingForCompletion = true;
                 } else {
-                    finishWithFailure(d.g.b.a.f.d().f66896a);
+                    finishWithFailure(d.h.b.a.f.d().f67043a);
                 }
             }
         }

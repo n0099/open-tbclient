@@ -1,0 +1,201 @@
+package d.b.j0.t.d.c.h;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
+import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerAdapter;
+import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerView;
+import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
+import d.b.c.e.p.l;
+/* loaded from: classes4.dex */
+public class b extends d.b.j0.x.b<d.b.j0.t.d.c.e.c> {
+    public AlaBannerRecyclerView m;
+    public AlaBannerRecyclerAdapter n;
+    public View o;
+    public View p;
+    public TextView q;
+    public int r;
+    public int s;
+    public int[] t;
+    public boolean u;
+    public d.b.j0.t.d.h.a.a v;
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.j0.t.d.h.a.a {
+
+        /* renamed from: d.b.j0.t.d.c.h.b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C1624a extends AlaBannerViewHolder<SdkLiveInfoData> {
+
+            /* renamed from: a  reason: collision with root package name */
+            public View f62432a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public View f62433b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public TabLiveStageLiveView f62434c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public int f62435d;
+
+            /* renamed from: e  reason: collision with root package name */
+            public int f62436e;
+
+            public C1624a(View view) {
+                super(view);
+            }
+
+            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
+            public void b(View view) {
+                this.f62434c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
+                this.f62432a = view.findViewById(R.id.recom_live_item_left_space);
+                this.f62433b = view.findViewById(R.id.recom_live_item_right_space);
+            }
+
+            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
+            public void c(int i) {
+                this.f62434c.c();
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
+            /* renamed from: d */
+            public void a(int i, SdkLiveInfoData sdkLiveInfoData) {
+                this.f62434c.setData(sdkLiveInfoData, 102);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62432a.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f62433b.getLayoutParams();
+                if (i == 0) {
+                    if (b.this.u) {
+                        layoutParams.width = b.this.f64177f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        layoutParams2.width = b.this.f64177f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        this.f62433b.setVisibility(0);
+                    } else {
+                        layoutParams.width = b.this.f64177f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                        this.f62433b.setVisibility(8);
+                    }
+                } else {
+                    layoutParams.width = b.this.f64177f.getResources().getDimensionPixelSize(R.dimen.tbds12);
+                    if (b.this.n.getItemCount() - 1 == i) {
+                        this.f62433b.setVisibility(0);
+                    } else {
+                        this.f62433b.setVisibility(8);
+                    }
+                }
+                this.f62432a.setLayoutParams(layoutParams);
+                this.f62433b.setLayoutParams(layoutParams2);
+                e();
+                StatisticItem statisticItem = new StatisticItem("c13558");
+                statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+                TiebaStatic.log(statisticItem);
+            }
+
+            public final void e() {
+                this.f62435d = b.this.z();
+                this.f62436e = b.this.y();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62434c.getLayoutParams();
+                if (layoutParams == null) {
+                    layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f62435d, this.f62436e);
+                } else {
+                    layoutParams.width = this.f62435d;
+                    layoutParams.height = this.f62436e;
+                }
+                layoutParams.gravity = 1;
+                this.f62434c.setLayoutParams(layoutParams);
+            }
+        }
+
+        public a() {
+        }
+
+        @Override // d.b.j0.t.d.h.a.a
+        public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
+            return new C1624a(LayoutInflater.from(b.this.b()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false));
+        }
+    }
+
+    public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
+        this.u = false;
+        this.v = new a();
+        this.u = false;
+        int k = (int) (l.k(b()) * 0.76d);
+        this.r = k;
+        this.s = (int) ((k * 9.0d) / 16.0d);
+        this.t = d.b.j0.t.d.c.c.a(this.f64178g);
+        A();
+    }
+
+    public final void A() {
+        this.o = m().findViewById(R.id.recom_live_divider);
+        this.q = (TextView) m().findViewById(R.id.recom_live_title);
+        this.p = m().findViewById(R.id.recom_live_bottom_divider);
+        this.m = (AlaBannerRecyclerView) m().findViewById(R.id.recycle_view);
+        this.m.setLayoutManager(new LinearLayoutManager(b(), 0, false));
+        E();
+        AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(b(), this.v, false);
+        this.n = alaBannerRecyclerAdapter;
+        this.m.setAdapter(alaBannerRecyclerAdapter);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.j0.x.b
+    /* renamed from: B */
+    public void n(d.b.j0.t.d.c.e.c cVar) {
+        d.b.j0.t.d.c.e.d dVar;
+        if (cVar == null || (dVar = cVar.f62311e) == null) {
+            return;
+        }
+        this.u = ListUtils.getCount(dVar.f62312a) == 1;
+        E();
+        this.n.setData(cVar.f62311e.f62312a);
+        this.n.notifyDataSetChanged();
+    }
+
+    public final void E() {
+        int y = y();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(-1, y);
+        } else {
+            layoutParams.width = -1;
+            layoutParams.height = y;
+        }
+        this.m.setLayoutParams(layoutParams);
+    }
+
+    @Override // d.b.j0.x.b
+    public int h() {
+        return R.layout.tab_live_official_recom_live_item_view;
+    }
+
+    @Override // d.b.j0.x.b
+    public void o(TbPageContext tbPageContext, int i) {
+        SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.p, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+    }
+
+    public final int y() {
+        return this.u ? this.t[1] : this.s;
+    }
+
+    public final int z() {
+        return this.u ? this.t[0] : this.r;
+    }
+}

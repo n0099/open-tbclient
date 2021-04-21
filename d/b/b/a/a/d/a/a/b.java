@@ -10,13 +10,13 @@ import java.security.GeneralSecurityException;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f41932b = k(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    public static final int[] f42098b = k(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f41933a;
+    public final int f42099a;
 
     public b(int i) {
-        this.f41933a = i;
+        this.f42099a = i;
     }
 
     public static int b(int i, int i2) {
@@ -48,9 +48,9 @@ public class b {
     }
 
     public static void g(int[] iArr, int[] iArr2) {
-        int[] iArr3 = f41932b;
+        int[] iArr3 = f42098b;
         System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-        System.arraycopy(iArr2, 0, iArr, f41932b.length, 8);
+        System.arraycopy(iArr2, 0, iArr, f42098b.length, 8);
     }
 
     public static int[] k(byte[] bArr) {
@@ -80,7 +80,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer c2 = c(bArr, bArr2, this.f41933a + i2);
+            ByteBuffer c2 = c(bArr, bArr2, this.f42099a + i2);
             if (i2 == i - 1) {
                 a.a(byteBuffer, byteBuffer2, c2, remaining % 64);
             } else {

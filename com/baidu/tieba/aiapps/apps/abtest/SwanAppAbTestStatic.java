@@ -36,22 +36,22 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import d.b.c.e.p.l;
-import d.b.g0.a.i2.k0;
-import d.b.h0.f0.i;
+import d.b.h0.a.i2.k0;
+import d.b.i0.f0.i;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14342a = false;
+    public static boolean f14350a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f14343b = new a();
+    public static i f14351b = new a();
 
     /* loaded from: classes4.dex */
     public static class a extends i<PrivacyPolicyEvent> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.f0.b
+        @Override // d.b.i0.f0.b
         /* renamed from: a */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent == null) {
@@ -104,7 +104,7 @@ public class SwanAppAbTestStatic {
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
             PopupWindow a2;
             Activity b2;
-            if ((customResponsedMessage.getData() instanceof d.b.h0.a.g) && (a2 = d.b.i0.s.b.a.a((d.b.h0.a.g) customResponsedMessage.getData())) != null && (b2 = d.b.c.a.b.f().b()) != null && b2.getWindow() != null) {
+            if ((customResponsedMessage.getData() instanceof d.b.i0.a.g) && (a2 = d.b.j0.s.b.a.a((d.b.i0.a.g) customResponsedMessage.getData())) != null && (b2 = d.b.c.a.b.f().b()) != null && b2.getWindow() != null) {
                 try {
                     a2.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -182,12 +182,12 @@ public class SwanAppAbTestStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                d.b.g0.a.a2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                d.b.g0.a.a2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                d.b.i0.s.b.b.a.l().y(getUserInfoResult);
+                d.b.h0.a.a2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
+                d.b.h0.a.a2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
+                d.b.h0.a.a2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                d.b.h0.a.a2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                d.b.h0.a.a2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                d.b.j0.s.b.b.a.l().y(getUserInfoResult);
             }
         }
 
@@ -204,7 +204,7 @@ public class SwanAppAbTestStatic {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
             }
             if (!SapiAccountManager.getInstance().isLogin()) {
-                d.b.i0.s.b.b.a.l().y(null);
+                d.b.j0.s.b.b.a.l().y(null);
             }
             SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
         }
@@ -214,9 +214,9 @@ public class SwanAppAbTestStatic {
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-            String a2 = d.b.g0.a.l.a();
-            String f2 = d.b.g0.a.b2.b.f(0);
-            String f3 = d.b.g0.a.b2.b.f(1);
+            String a2 = d.b.h0.a.l.a();
+            String f2 = d.b.h0.a.b2.b.f(0);
+            String f3 = d.b.h0.a.b2.b.f(1);
             TbadkCoreApplication.getInst().setSdk_ver(a2);
             TbadkCoreApplication.getInst().setFramework_ver(f2);
             TbadkCoreApplication.getInst().setSwan_game_ver(f3);
@@ -225,13 +225,13 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class g implements d.b.p.c<String> {
-        @Override // d.b.p.c
+    public static class g implements d.b.q.c<String> {
+        @Override // d.b.q.c
         public void b(int i, Throwable th, Bundle bundle) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.p.c
+        @Override // d.b.q.c
         /* renamed from: c */
         public void a(String str, Bundle bundle) {
         }
@@ -241,7 +241,7 @@ public class SwanAppAbTestStatic {
     public static class h implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.d.j.c.b.a();
+            d.b.h0.d.j.c.b.a();
         }
     }
 
@@ -249,7 +249,7 @@ public class SwanAppAbTestStatic {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            d.b.h0.f0.h.f().m(PrivacyPolicyEvent.class, f14343b, BdUniqueId.gen());
+            d.b.i0.f0.h.f().m(PrivacyPolicyEvent.class, f14351b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -265,21 +265,21 @@ public class SwanAppAbTestStatic {
     }
 
     public static void c() {
-        if (f14342a) {
+        if (f14350a) {
             return;
         }
-        f14342a = true;
+        f14350a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;
         }
-        d.b.i0.s.b.n.a.b();
+        d.b.j0.s.b.n.a.b();
         if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(AppRuntime.getAppContext());
         }
-        d.b.i0.s.b.b.a.l().q(TbadkCoreApplication.getInst());
-        d.b.i0.s.b.m.c.a().b(TbadkCoreApplication.getInst());
-        d.b.p.b.d(TbadkCoreApplication.getInst()).j(new g());
+        d.b.j0.s.b.b.a.l().q(TbadkCoreApplication.getInst());
+        d.b.j0.s.b.m.c.a().b(TbadkCoreApplication.getInst());
+        d.b.q.b.d(TbadkCoreApplication.getInst()).j(new g());
         k0.U(new h(), 3000L);
     }
 

@@ -15,16 +15,16 @@ public class ArrowView extends View {
     public static int j = 13;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20363e;
+    public int f20371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20364f;
+    public int f20372f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f20365g;
+    public Paint f20373g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f20366h;
+    public Path f20374h;
 
     public ArrowView(Context context) {
         super(context);
@@ -35,21 +35,21 @@ public class ArrowView extends View {
         i = l.g(context, R.dimen.tbds20);
         j = l.g(context, R.dimen.tbds13);
         Paint paint = new Paint();
-        this.f20365g = paint;
+        this.f20373g = paint;
         paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-        this.f20365g.setAntiAlias(true);
-        this.f20366h = new Path();
+        this.f20373g.setAntiAlias(true);
+        this.f20374h = new Path();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f20366h.reset();
-        this.f20366h.moveTo(this.f20363e / 2, 0.0f);
-        this.f20366h.lineTo(0.0f, this.f20364f);
-        this.f20366h.lineTo(this.f20363e, this.f20364f);
-        this.f20366h.close();
-        canvas.drawPath(this.f20366h, this.f20365g);
+        this.f20374h.reset();
+        this.f20374h.moveTo(this.f20371e / 2, 0.0f);
+        this.f20374h.lineTo(0.0f, this.f20372f);
+        this.f20374h.lineTo(this.f20371e, this.f20372f);
+        this.f20374h.close();
+        canvas.drawPath(this.f20374h, this.f20373g);
     }
 
     @Override // android.view.View
@@ -71,8 +71,8 @@ public class ArrowView extends View {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f20363e = i2;
-        this.f20364f = i3;
+        this.f20371e = i2;
+        this.f20372f = i3;
     }
 
     public ArrowView(Context context, @Nullable AttributeSet attributeSet) {

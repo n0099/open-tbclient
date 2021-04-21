@@ -7,20 +7,20 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.helios.channels.csc.d;
 import com.baidu.sapi2.result.OneKeyLoginResult;
-import d.b.p.e.a;
-import d.b.p.e.c.a;
-import d.b.p.g.d.a;
+import d.b.q.e.a;
+import d.b.q.e.c.a;
+import d.b.q.g.d.a;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Random;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class QuantumChannel extends d.b.p.e.a {
-    public static final int j = d.b.p.e.c.a.a(160);
-    public static final int k = d.b.p.e.c.a.a(8);
+public class QuantumChannel extends d.b.q.e.a {
+    public static final int j = d.b.q.e.c.a.a(160);
+    public static final int k = d.b.q.e.c.a.a(8);
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1765a f6247f;
+    public a.C1784a f6247f;
 
     /* renamed from: g  reason: collision with root package name */
     public d f6248g;
@@ -57,11 +57,11 @@ public class QuantumChannel extends d.b.p.e.a {
         public String f6252c;
 
         public c() {
-            d.b.p.g.b.b bVar = new d.b.p.g.b.b();
+            d.b.q.g.b.b bVar = new d.b.q.g.b.b();
             try {
-                this.f6250a = new String(bVar.a(d.b.p.e.c.b.e()));
-                this.f6251b = new String(bVar.a(d.b.p.e.c.b.f()));
-                this.f6252c = new String(bVar.a(d.b.p.e.c.b.g()));
+                this.f6250a = new String(bVar.a(d.b.q.e.c.b.e()));
+                this.f6251b = new String(bVar.a(d.b.q.e.c.b.f()));
+                this.f6252c = new String(bVar.a(d.b.q.e.c.b.g()));
             } catch (Exception unused) {
                 throw new IllegalStateException("");
             }
@@ -84,7 +84,7 @@ public class QuantumChannel extends d.b.p.e.a {
         public String f6257e;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.p.g.c.a.e f6255c = new d.b.p.g.c.a.e();
+        public d.b.q.g.c.a.e f6255c = new d.b.q.g.c.a.e();
 
         /* renamed from: f  reason: collision with root package name */
         public boolean f6258f = true;
@@ -195,7 +195,7 @@ public class QuantumChannel extends d.b.p.e.a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1759a f6260a;
+        public a.C1778a f6260a;
 
         /* renamed from: b  reason: collision with root package name */
         public byte[] f6261b;
@@ -240,7 +240,7 @@ public class QuantumChannel extends d.b.p.e.a {
 
         public e(byte[] bArr) {
             this.f6261b = bArr;
-            this.f6260a = d.b.p.e.c.a.b(bArr);
+            this.f6260a = d.b.q.e.c.a.b(bArr);
         }
 
         public static int b(byte b2) {
@@ -257,7 +257,7 @@ public class QuantumChannel extends d.b.p.e.a {
         }
 
         public static e d(byte[] bArr, int i) {
-            return new e(d.b.p.e.c.a.c(bArr, i));
+            return new e(d.b.q.e.c.a.c(bArr, i));
         }
 
         public static byte e(int i) {
@@ -340,17 +340,17 @@ public class QuantumChannel extends d.b.p.e.a {
         }
 
         public final void d(Context context) {
-            Method d2 = com.baidu.helios.channels.csc.d.d(Context.class, com.baidu.helios.channels.csc.d.c(d.b.p.e.c.b.c()), null);
+            Method d2 = com.baidu.helios.channels.csc.d.d(Context.class, com.baidu.helios.channels.csc.d.c(d.b.q.e.c.b.c()), null);
             this.f6267c = d2;
             Object invoke = d2.invoke(context, new Object[0]);
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "");
-            this.f6268d = com.baidu.helios.channels.csc.d.d(intent.getClass(), com.baidu.helios.channels.csc.d.c(d.b.p.e.c.b.d()), null).invoke(intent, new Object[0]).getClass();
-            String c2 = com.baidu.helios.channels.csc.d.c(d.b.p.e.c.b.a());
+            this.f6268d = com.baidu.helios.channels.csc.d.d(intent.getClass(), com.baidu.helios.channels.csc.d.c(d.b.q.e.c.b.d()), null).invoke(intent, new Object[0]).getClass();
+            String c2 = com.baidu.helios.channels.csc.d.c(d.b.q.e.c.b.a());
             Class<?> cls = invoke.getClass();
             Class cls2 = Integer.TYPE;
             this.f6265a = com.baidu.helios.channels.csc.d.d(cls, c2, new Class[]{this.f6268d, cls2, cls2});
-            this.f6266b = com.baidu.helios.channels.csc.d.d(invoke.getClass(), com.baidu.helios.channels.csc.d.c(d.b.p.e.c.b.b()), new Class[]{this.f6268d});
+            this.f6266b = com.baidu.helios.channels.csc.d.d(invoke.getClass(), com.baidu.helios.channels.csc.d.c(d.b.q.e.c.b.b()), new Class[]{this.f6268d});
         }
     }
 
@@ -384,7 +384,7 @@ public class QuantumChannel extends d.b.p.e.a {
             super(quantumChannel.f6247f, str);
         }
 
-        @Override // d.b.p.e.a.c
+        @Override // d.b.q.e.a.c
         public void c(JSONObject jSONObject) {
             this.f6269d = jSONObject.getString("pkg");
             this.f6270e = jSONObject.getInt("aid_ver");
@@ -393,7 +393,7 @@ public class QuantumChannel extends d.b.p.e.a {
             jSONObject.getInt("d_form_ver");
         }
 
-        @Override // d.b.p.e.a.c
+        @Override // d.b.q.e.a.c
         public void e(JSONObject jSONObject) {
             jSONObject.put("pkg", this.f6269d);
             jSONObject.put("aid_ver", this.f6270e);
@@ -451,15 +451,15 @@ public class QuantumChannel extends d.b.p.e.a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF, IF] complete} */
-    @Override // d.b.p.e.a
+    @Override // d.b.q.e.a
     public a.h b(String str, a.g gVar) {
         h hVar;
         try {
-            Object b2 = this.f6249h.b(this.f64997a.f65001a);
+            Object b2 = this.f6249h.b(this.f65261a.f65265a);
             if (b2 == null) {
                 return a.h.b(-101, null);
             }
-            if (gVar.f65007a) {
+            if (gVar.f65271a) {
                 hVar = new h(this, str);
                 hVar.d();
                 if (str.equals(hVar.f())) {
@@ -485,45 +485,45 @@ public class QuantumChannel extends d.b.p.e.a {
                 try {
                     if (!p(b2, str)) {
                         a.h b3 = a.h.b(-2, null);
-                        if (gVar.f65007a && hVar != null) {
+                        if (gVar.f65271a && hVar != null) {
                             hVar.b();
                         }
                         return b3;
                     }
-                    String i = d.b.p.h.c.a.i(o(b2, str));
+                    String i = d.b.q.h.c.a.i(o(b2, str));
                     int i2 = i(b2, str);
-                    if (gVar.f65007a && hVar != null) {
+                    if (gVar.f65271a && hVar != null) {
                         hVar.k(i);
                         hVar.i(str);
                         hVar.h(System.currentTimeMillis());
                         hVar.g(i2);
                     }
                     a.h e3 = a.h.e(i);
-                    if (gVar.f65007a && hVar != null) {
+                    if (gVar.f65271a && hVar != null) {
                         hVar.b();
                     }
                     return e3;
                 } catch (Throwable th) {
-                    if (gVar.f65007a && hVar != null) {
+                    if (gVar.f65271a && hVar != null) {
                         hVar.b();
                     }
                     throw th;
                 }
             } catch (b e4) {
                 a.h c2 = a.h.c(e4);
-                if (gVar.f65007a && hVar != null) {
+                if (gVar.f65271a && hVar != null) {
                     hVar.b();
                 }
                 return c2;
             } catch (g unused3) {
                 a.h a2 = a.h.a(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
-                if (gVar.f65007a && hVar != null) {
+                if (gVar.f65271a && hVar != null) {
                     hVar.b();
                 }
                 return a2;
             } catch (d.a unused4) {
                 a.h b4 = a.h.b(-2, null);
-                if (gVar.f65007a && hVar != null) {
+                if (gVar.f65271a && hVar != null) {
                     hVar.b();
                 }
                 return b4;
@@ -533,14 +533,14 @@ public class QuantumChannel extends d.b.p.e.a {
         }
     }
 
-    @Override // d.b.p.e.a
+    @Override // d.b.q.e.a
     public void e(a.d dVar) {
-        this.f6247f = this.f64998b.f("csc");
-        this.f6249h = new f(this.f64997a.f65001a);
+        this.f6247f = this.f65262b.f("csc");
+        this.f6249h = new f(this.f65261a.f65265a);
         this.i = new c();
     }
 
-    @Override // d.b.p.e.a
+    @Override // d.b.q.e.a
     public a.f f(a.e eVar) {
         this.f6248g.j();
         try {
@@ -578,7 +578,7 @@ public class QuantumChannel extends d.b.p.e.a {
         long j2;
         int i;
         String i2;
-        Context context = this.f64997a.f65001a;
+        Context context = this.f65261a.f65265a;
         PackageManager packageManager = context.getPackageManager();
         String packageName = context.getPackageName();
         try {
@@ -588,7 +588,7 @@ public class QuantumChannel extends d.b.p.e.a {
             if (!z && this.f6248g.f(6L) == 4) {
                 return a.f.b(-101);
             }
-            d.b.p.h.a a2 = this.f64997a.f65003c.a("aid");
+            d.b.q.h.a a2 = this.f65261a.f65267c.a("aid");
             try {
                 Object b2 = this.f6249h.b(context);
                 if (b2 == null) {

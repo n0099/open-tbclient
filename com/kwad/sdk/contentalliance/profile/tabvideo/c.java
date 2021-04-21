@@ -17,10 +17,10 @@ import java.io.Serializable;
 public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     /* renamed from: d  reason: collision with root package name */
-    public SceneImpl f33221d;
+    public SceneImpl f33316d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ProfileTabVideoParam f33222e;
+    public ProfileTabVideoParam f33317e;
 
     private boolean k() {
         Bundle arguments = getArguments();
@@ -30,11 +30,11 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
         Serializable serializable = arguments.getSerializable("KEY_PROFILE_TAB_VIDEO_PARAM");
         if (serializable instanceof ProfileTabVideoParam) {
             ProfileTabVideoParam profileTabVideoParam = (ProfileTabVideoParam) serializable;
-            this.f33222e = profileTabVideoParam;
+            this.f33317e = profileTabVideoParam;
             if (profileTabVideoParam.isValid()) {
-                SceneImpl sceneImpl = new SceneImpl(this.f33222e.mEntryScene);
-                this.f33221d = sceneImpl;
-                sceneImpl.setUrlPackage(this.f33222e.mURLPackage);
+                SceneImpl sceneImpl = new SceneImpl(this.f33317e.mEntryScene);
+                this.f33316d = sceneImpl;
+                sceneImpl.setUrlPackage(this.f33317e.mURLPackage);
                 return true;
             }
         }
@@ -72,12 +72,12 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     @Override // com.kwad.sdk.lib.a.c
     public com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> c() {
-        return new d(this.f33221d, this.f33222e);
+        return new d(this.f33316d, this.f33317e);
     }
 
     @Override // com.kwad.sdk.lib.a.c
     public com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
-        return new b(this, this.f36219b, this.f33222e);
+        return new b(this, this.f36314b, this.f33317e);
     }
 
     @Override // com.kwad.sdk.lib.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

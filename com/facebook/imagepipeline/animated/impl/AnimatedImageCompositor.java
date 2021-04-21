@@ -8,14 +8,14 @@ import android.graphics.PorterDuffXfermode;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AnimatedImageCompositor {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
     public final Callback mCallback;
     public final Paint mTransparentFillPaint;
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
 
@@ -41,14 +41,14 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Callback {
         CloseableReference<Bitmap> getCachedBitmap(int i);
 
         void onIntermediateResult(int i, Bitmap bitmap);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum FrameNeededResult {
         REQUIRED,
         NOT_REQUIRED,

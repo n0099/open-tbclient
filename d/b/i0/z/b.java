@@ -1,163 +1,127 @@
 package d.b.i0.z;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.vivo.push.PushClientConstants;
-import d.b.c.a.j;
-import d.b.i0.z.a;
-/* loaded from: classes4.dex */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.CloseAdData;
+import com.baidu.tbadk.data.PayMemberInfoData;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
+import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
+import d.b.c.e.m.h;
+import d.b.c.e.p.l;
+import d.b.i0.r.l.c;
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
-    public static class a implements c {
+    /* renamed from: b  reason: collision with root package name */
+    public static b f52404b;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C1730a f64216a;
+    /* renamed from: a  reason: collision with root package name */
+    public UserData f52405a;
 
-        public a(a.C1730a c1730a) {
-            this.f64216a = c1730a;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AccountData f52406e;
+
+        public a(b bVar, AccountData accountData) {
+            this.f52406e = accountData;
         }
 
-        @Override // d.b.i0.z.c
-        public void onFailed(int i) {
-            this.f64216a.a(2, i);
-        }
-    }
-
-    /* renamed from: d.b.i0.z.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1731b implements c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C1730a f64217a;
-
-        public C1731b(a.C1730a c1730a) {
-            this.f64217a = c1730a;
-        }
-
-        @Override // d.b.i0.z.c
-        public void onFailed(int i) {
-            this.f64217a.a(2, i);
+        @Override // java.lang.Runnable
+        public void run() {
+            c.g(this.f52406e);
         }
     }
 
-    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
-        return b(context, uri, null, bundle, z);
-    }
-
-    public static boolean b(Context context, Uri uri, d.b.i0.z.a aVar, Bundle bundle, boolean z) {
-        a.C1730a c1730a = new a.C1730a();
-        if (uri == null) {
-            if (aVar != null) {
-                aVar.b(1, "Uri is empty.", c1730a);
+    public static b a() {
+        if (f52404b == null) {
+            synchronized (b.class) {
+                if (f52404b == null) {
+                    f52404b = new b();
+                }
             }
-            return false;
-        } else if (!"deeplink".equals(uri.getHost())) {
-            if (aVar != null) {
-                aVar.b(2, "Uri host is not deeplink.", c1730a);
-            }
-            return false;
+        }
+        return f52404b;
+    }
+
+    public UserData b() {
+        return this.f52405a;
+    }
+
+    public void c() {
+        d.b.j0.d3.d0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+        d.b.j0.d3.d0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+    }
+
+    public void d() {
+        GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            getUserInfoRequstData.setUid(d.b.c.e.m.b.f(currentAccountObj.getID(), 0L));
+        }
+        getUserInfoRequstData.setScreenWidth(l.k(TbadkCoreApplication.getInst().getApp()));
+        MessageManager.getInstance().sendMessage(getUserInfoRequstData);
+    }
+
+    public void e(UserData userData) {
+        this.f52405a = userData;
+        if (userData == null) {
+            return;
+        }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj == null) {
+            currentAccountObj = new AccountData();
+        }
+        if (!StringUtils.isNull(userData.getUserName())) {
+            currentAccountObj.setAccount(userData.getUserName());
+        }
+        if (!StringUtils.isNull(userData.getPortrait())) {
+            currentAccountObj.setPortrait(userData.getPortrait());
+        }
+        if (userData.getBaijiahaoInfo() != null && !StringUtils.isNull(userData.getBaijiahaoInfo().avatar)) {
+            currentAccountObj.setBjhAvatar(userData.getBaijiahaoInfo().avatar);
+        }
+        currentAccountObj.setSex(userData.getSex());
+        currentAccountObj.setMemberType(userData.getIsMem());
+        currentAccountObj.setVipInfo(userData.getUserVipInfo());
+        currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
+        if (userData.getGodUserData() != null) {
+            currentAccountObj.setGodType(userData.getGodUserData().getType());
+        }
+        if (userData.getNewGodData() != null) {
+            currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
+        }
+        if (!TextUtils.isEmpty(userData.getUk())) {
+            currentAccountObj.setUk(userData.getUk());
+        }
+        currentAccountObj.setIsBigV(userData.isBigV());
+        currentAccountObj.setNameShow(userData.getName_show());
+        if (!StringUtils.isNull(userData.getBimg_url())) {
+            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+        }
+        PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
+        if (currentAccountObj.getVipInfo() != null) {
+            currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
         } else {
-            String queryParameter = uri.getQueryParameter("appUrl");
-            String queryParameter2 = uri.getQueryParameter("marketUrl");
-            String queryParameter3 = uri.getQueryParameter(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL);
-            String queryParameter4 = uri.getQueryParameter(PushClientConstants.TAG_PKG_NAME);
-            String queryParameter5 = uri.getQueryParameter("marketPkgName");
-            boolean booleanQueryParameter = uri.getBooleanQueryParameter("isDesignatePkg", true);
-            if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c1730a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c1730a)) {
-                return true;
-            }
-            return g(context, queryParameter3, bundle, aVar, c1730a, z);
+            currentAccountObj.setMemberIconUrl(null);
         }
-    }
-
-    public static boolean c(Context context, String str, String str2, boolean z, c cVar) {
-        try {
-            Intent b2 = d.b(context, str, str2, z, cVar);
-            if (b2 == null) {
-                return false;
-            }
-            context.startActivity(b2);
-            return true;
-        } catch (Exception unused) {
-            if (cVar != null) {
-                cVar.onFailed(-101);
-            }
-            return false;
+        CloseAdData closeAdData = userData.getCloseAdData();
+        if (closeAdData != null) {
+            currentAccountObj.setMemberCloseAdIsOpen(closeAdData.s());
+            currentAccountObj.setMemberCloseAdVipClose(closeAdData.t());
         }
-    }
-
-    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
-        TbPageContext<?> tbPageContext;
-        String[] strArr = {str};
-        UrlManager urlManager = UrlManager.getInstance();
-        if (urlManager == null || (tbPageContext = (TbPageContext) j.a(context)) == null) {
-            return false;
-        }
-        if (urlManager.UrlValidated(str)) {
-            urlManager.dealOneLink(tbPageContext, strArr, true);
-            return true;
-        }
-        return urlManager.dealOneLink(tbPageContext, strArr);
-    }
-
-    public static boolean e(Context context, String str, String str2, d.b.i0.z.a aVar, boolean z, a.C1730a c1730a) {
-        if (TextUtils.isEmpty(str)) {
-            c1730a.a(1, -4);
-            return false;
-        } else if (c(context, str, str2, z, new a(c1730a))) {
-            c1730a.b(1);
-            if (aVar != null) {
-                aVar.a(1, c1730a);
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean f(Context context, String str, String str2, d.b.i0.z.a aVar, boolean z, a.C1730a c1730a) {
-        if (TextUtils.isEmpty(str)) {
-            c1730a.a(2, -5);
-            return false;
-        } else if (c(context, str, str2, z, new C1731b(c1730a))) {
-            c1730a.b(2);
-            if (aVar != null) {
-                aVar.a(2, c1730a);
-                return true;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean g(Context context, String str, Bundle bundle, d.b.i0.z.a aVar, a.C1730a c1730a, boolean z) {
-        if (TextUtils.isEmpty(str)) {
-            c1730a.a(3, -6);
-            if (aVar != null) {
-                aVar.b(-6, "Uri web url is empty", c1730a);
-            }
-            return false;
-        } else if (d(context, str, bundle, z)) {
-            c1730a.b(3);
-            if (aVar != null) {
-                aVar.a(3, c1730a);
-                return true;
-            }
-            return true;
-        } else {
-            c1730a.a(3, -7);
-            if (aVar != null) {
-                aVar.b(-7, "Uri web url open failed", c1730a);
-            }
-            return false;
-        }
+        currentAccountObj.setUserIcons(userData.getIconInfo());
+        currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
+        h.a().c(new a(this, currentAccountObj));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
     }
 }

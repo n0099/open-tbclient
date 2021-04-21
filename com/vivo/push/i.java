@@ -8,27 +8,27 @@ import java.util.Iterator;
 public final class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ArrayList f39761a;
+    public final /* synthetic */ ArrayList f39856a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f39762b;
+    public final /* synthetic */ LocalAliasTagsManager f39857b;
 
     public i(LocalAliasTagsManager localAliasTagsManager, ArrayList arrayList) {
-        this.f39762b = localAliasTagsManager;
-        this.f39761a = arrayList;
+        this.f39857b = localAliasTagsManager;
+        this.f39856a = arrayList;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppTagManager iSubscribeAppTagManager;
         HashSet hashSet = new HashSet();
-        Iterator it = this.f39761a.iterator();
+        Iterator it = this.f39856a.iterator();
         while (it.hasNext()) {
             hashSet.add((String) it.next());
         }
-        iSubscribeAppTagManager = this.f39762b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f39857b.mSubscribeAppTagManager;
         if (iSubscribeAppTagManager.delTags(hashSet)) {
-            p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f39761a);
+            p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f39856a);
         }
     }
 }

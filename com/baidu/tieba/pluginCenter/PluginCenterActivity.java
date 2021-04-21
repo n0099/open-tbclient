@@ -28,13 +28,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
-import d.b.h0.r.s.a;
+import d.b.i0.r.s.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
-public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, d.b.h0.g0.c.a {
+public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, d.b.i0.g0.c.a {
     public static final int ITEM_TYPE_DESC = 1;
     public static final int ITEM_TYPE_FUNCTION = 0;
     public d.b.c.h.j.d mDownLoadAndInstallCallback = new d();
@@ -43,17 +43,17 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public BdListView mListView;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public d.b.h0.g0.f.b<Object, d.b.h0.g0.d.b, d.b.h0.g0.f.a<Object, d.b.h0.g0.d.b>> mPluginCenterAdapter;
+    public d.b.i0.g0.f.b<Object, d.b.i0.g0.d.b, d.b.i0.g0.f.a<Object, d.b.i0.g0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 
     /* loaded from: classes3.dex */
-    public class a extends d.b.h0.g0.f.b<Object, d.b.h0.g0.d.b, d.b.h0.g0.f.a<Object, d.b.h0.g0.d.b>> {
+    public class a extends d.b.i0.g0.f.b<Object, d.b.i0.g0.d.b, d.b.i0.g0.f.a<Object, d.b.i0.g0.d.b>> {
         public a(TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
             super(tbPageContext, clsArr, iArr, viewEventCenter);
         }
 
-        @Override // d.b.h0.g0.f.b
+        @Override // d.b.i0.g0.f.b
         public int o(int i) {
             return getItem(i) instanceof String ? 1 : 0;
         }
@@ -63,19 +63,19 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f20232e;
+        public final /* synthetic */ PluginConfigWrapper f20240e;
 
         public b(PluginConfigWrapper pluginConfigWrapper) {
-            this.f20232e = pluginConfigWrapper;
+            this.f20240e = pluginConfigWrapper;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             if (l.C()) {
-                PluginPackageManager.O().x0(this.f20232e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
-                this.f20232e.setDownLoadPercent(0);
-                this.f20232e.setDownLoadStatus(3);
-                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20232e);
+                PluginPackageManager.O().x0(this.f20240e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
+                this.f20240e.setDownLoadPercent(0);
+                this.f20240e.setDownLoadStatus(3);
+                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20240e);
             } else {
                 PluginCenterActivity.this.showToast(R.string.neterror);
             }
@@ -88,8 +88,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public c() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -107,7 +107,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             }
             if (i == 0) {
                 PluginCenterActivity.this.showToast(R.string.plugin_installation_finished);
-                PluginCenterActivity.this.mEventCenter.dispatchMvcEvent(new d.b.h0.g0.c.b(1, findData, null, null));
+                PluginCenterActivity.this.mEventCenter.dispatchMvcEvent(new d.b.i0.g0.c.b(1, findData, null, null));
                 return;
             }
             PluginCenterActivity pluginCenterActivity = PluginCenterActivity.this;
@@ -217,7 +217,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(R.id.list_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(getActivity(), R.dimen.ds220)), NoDataViewFactory.e.a(R.string.plugin_no_plugins), null);
         this.mNoDataView = a2;
         this.mListView.setEmptyView(a2);
-        a aVar = new a(getPageContext(), new Class[]{d.b.i0.k2.a.a.class, d.b.i0.k2.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
+        a aVar = new a(getPageContext(), new Class[]{d.b.j0.k2.a.a.class, d.b.j0.k2.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
         this.mPluginCenterAdapter = aVar;
         this.mListView.setAdapter((ListAdapter) aVar);
         this.mListView.setOnItemClickListener(this);
@@ -261,7 +261,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         } else {
             string = TbadkCoreApplication.getInst().getString(R.string.download);
         }
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(getActivity());
+        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
         aVar.setMessage(format);
         aVar.setPositiveButton(string, new b(pluginConfigWrapper));
         aVar.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.cancel), new c());
@@ -269,7 +269,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         aVar.show();
     }
 
-    @Override // d.b.h0.g0.c.a
+    @Override // d.b.i0.g0.c.a
     public boolean isEventMustSelf() {
         return false;
     }
@@ -303,10 +303,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         PluginPackageManager.O().u0(null);
     }
 
-    @Override // d.b.h0.g0.c.a
-    public boolean onEventDispatch(d.b.h0.g0.c.b bVar) {
+    @Override // d.b.i0.g0.c.a
+    public boolean onEventDispatch(d.b.i0.g0.c.b bVar) {
         int b2 = bVar.b();
-        d.b.h0.g0.b.a a2 = bVar.a();
+        d.b.i0.g0.b.a a2 = bVar.a();
         if (b2 == 1) {
             if (a2 instanceof PluginConfigWrapper) {
                 PluginPackageManager.O().z0(((PluginConfigWrapper) a2).package_name);

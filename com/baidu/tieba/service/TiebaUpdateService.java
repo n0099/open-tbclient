@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.i0.k;
+import d.b.j0.k;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class TiebaUpdateService extends BdBaseService {
@@ -64,21 +64,21 @@ public class TiebaUpdateService extends BdBaseService {
     public class b extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20622a;
+        public NetWork f20630a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f20623b;
+        public volatile boolean f20631b;
 
         public b() {
-            this.f20623b = false;
+            this.f20631b = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
             TiebaUpdateService.this.mDowndMainApkTask = null;
-            this.f20623b = true;
-            NetWork netWork = this.f20622a;
+            this.f20631b = true;
+            NetWork netWork = this.f20630a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -90,18 +90,18 @@ public class TiebaUpdateService extends BdBaseService {
             Boolean bool = Boolean.FALSE;
             while (true) {
                 try {
-                    if (!this.f20623b) {
-                        this.f20622a = new NetWork(TiebaUpdateService.this.mMainApkUrl);
-                        bool = Boolean.valueOf(this.f20622a.downloadFile(FileHelper.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
-                        if (!bool.booleanValue() && this.f20622a.getServerErrorCode() != -2) {
-                            if (!this.f20622a.getNetContext().getResponse().isFileSegSuccess()) {
+                    if (!this.f20631b) {
+                        this.f20630a = new NetWork(TiebaUpdateService.this.mMainApkUrl);
+                        bool = Boolean.valueOf(this.f20630a.downloadFile(FileHelper.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
+                        if (!bool.booleanValue() && this.f20630a.getServerErrorCode() != -2) {
+                            if (!this.f20630a.getNetContext().getResponse().isFileSegSuccess()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception unused) {
                                 }
                             }
                             if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - TiebaUpdateService.this.mMainTaskWaitingTimestamp > 20000) {
-                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).param("obj_param1", this.f20622a.getErrorString()));
+                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).param("obj_param1", this.f20630a.getErrorString()));
                                 TiebaUpdateService.this.downloadError();
                                 break;
                             }
@@ -148,22 +148,22 @@ public class TiebaUpdateService extends BdBaseService {
     public class c extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20625a;
+        public NetWork f20633a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f20626b;
+        public volatile boolean f20634b;
 
         public c() {
-            this.f20625a = null;
-            this.f20626b = false;
+            this.f20633a = null;
+            this.f20634b = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
             TiebaUpdateService.this.mDowndOtherApkTask = null;
-            this.f20626b = true;
-            NetWork netWork = this.f20625a;
+            this.f20634b = true;
+            NetWork netWork = this.f20633a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -180,14 +180,14 @@ public class TiebaUpdateService extends BdBaseService {
             Boolean bool = Boolean.FALSE;
             while (true) {
                 try {
-                    if (!this.f20626b) {
+                    if (!this.f20634b) {
                         NetWork netWork = new NetWork(TiebaUpdateService.this.mOtherApkUrl);
-                        this.f20625a = netWork;
+                        this.f20633a = netWork;
                         bool = Boolean.valueOf(netWork.downloadFile(TiebaUpdateService.this.mOtherApkFileName + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
-                        if (bool.booleanValue() || this.f20625a.getServerErrorCode() == -2) {
+                        if (bool.booleanValue() || this.f20633a.getServerErrorCode() == -2) {
                             break;
                         }
-                        if (!this.f20625a.getNetContext().getResponse().isFileSegSuccess()) {
+                        if (!this.f20633a.getNetContext().getResponse().isFileSegSuccess()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception unused) {

@@ -9,16 +9,16 @@ import java.util.List;
 public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, List<Pair<String, Long>>> {
 
     /* renamed from: d  reason: collision with root package name */
-    public File f29953d;
+    public File f29961d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29954e;
+    public String f29962e;
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.f29953d = (File) objArr[0];
-        this.f29954e = (String) objArr[1];
+        this.f29961d = (File) objArr[0];
+        this.f29962e = (String) objArr[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, Lis
     /* renamed from: a */
     public Object a_(com.bytedance.sdk.openadsdk.preload.b.b<List<Pair<String, Long>>> bVar, List<String> list) throws Exception {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", list);
-        File file = new File(this.f29953d, this.f29954e);
+        File file = new File(this.f29961d, this.f29962e);
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
             Long a2 = k.a(new File(file, str));

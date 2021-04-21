@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class a extends com.kwad.sdk.contentalliance.detail.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32423h;
+    public int f32518h;
     public AdTemplate i;
     public b j;
     public KsContentPage.SubShowItem k;
@@ -47,9 +47,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         super.onCreateView(layoutInflater, viewGroup, bundle);
         Bundle arguments = getArguments();
         if (arguments == null) {
-            return this.f32175c;
+            return this.f32270c;
         }
-        this.f32423h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
+        this.f32518h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
         Serializable serializable = getArguments().getSerializable("key_template");
         if (serializable instanceof AdTemplate) {
             this.i = (AdTemplate) serializable;
@@ -57,7 +57,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
                 this.j = new b();
             }
             this.k = this.j.a(this.i);
-            this.f32175c.removeAllViews();
+            this.f32270c.removeAllViews();
             KsContentPage.SubShowItem subShowItem = this.k;
             if (subShowItem != null) {
                 View instantiateItem = subShowItem.instantiateItem();
@@ -65,14 +65,14 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
                     if (instantiateItem.getParent() != null) {
                         ((ViewGroup) instantiateItem.getParent()).removeView(instantiateItem);
                     }
-                    this.f32175c.addView(instantiateItem);
+                    this.f32270c.addView(instantiateItem);
                 } else {
                     e.i(this.i);
                 }
             }
-            return this.f32175c;
+            return this.f32270c;
         }
-        return this.f32175c;
+        return this.f32270c;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,11 +81,11 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f32441a = this.f32213e;
+        cVar.f32536a = this.f32308e;
         cVar.j = this.i;
-        cVar.i = this.f32423h;
+        cVar.i = this.f32518h;
         cVar.q = this.j;
-        cVar.l = this.f32212d;
+        cVar.l = this.f32307d;
         return cVar;
     }
 }

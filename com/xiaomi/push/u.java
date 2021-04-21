@@ -12,7 +12,7 @@ import java.util.Set;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f41361a = Collections.synchronizedSet(new HashSet());
+    public static final Set<String> f41456a = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with other field name */
     public Context f983a;
@@ -38,7 +38,7 @@ public final class u {
             file2.getParentFile().mkdirs();
             file2.createNewFile();
         }
-        if (f41361a.add(str)) {
+        if (f41456a.add(str)) {
             u uVar = new u(context);
             uVar.f985a = str;
             try {
@@ -53,7 +53,7 @@ public final class u {
                     if (randomAccessFile2 != null) {
                         y.a(randomAccessFile2);
                     }
-                    f41361a.remove(uVar.f985a);
+                    f41456a.remove(uVar.f985a);
                 }
             }
         }
@@ -74,6 +74,6 @@ public final class u {
         if (randomAccessFile != null) {
             y.a(randomAccessFile);
         }
-        f41361a.remove(this.f985a);
+        f41456a.remove(this.f985a);
     }
 }

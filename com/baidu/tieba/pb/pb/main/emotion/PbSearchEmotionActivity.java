@@ -30,7 +30,7 @@ import com.baidu.tieba.face.view.AutoLineWrapLayout;
 import com.baidu.tieba.face.view.SearchEditView;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
-import d.b.h0.r.s.a;
+import d.b.i0.r.s.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public String mAuthorShowName;
     public int mCurrentPage;
     public SearchEditView mEditSearchView;
-    public d.b.i0.d2.k.e.a1.d mEmotionAdapter;
+    public d.b.j0.d2.k.e.a1.d mEmotionAdapter;
     public List<EmotionImageData> mEmotionList;
     public BdListView mEmotionListView;
     public boolean mHasMore;
@@ -60,23 +60,23 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public View mViewLine;
     public final SearchEmotionModel.b mSearchCallback = new c();
     public final BdListView.p mOnScrollToBottomListener = new d();
-    public final d.b.i0.d2.k.e.a1.a mOnEmotionChooseListener = new e();
+    public final d.b.j0.d2.k.e.a1.a mOnEmotionChooseListener = new e();
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19472e;
+        public final /* synthetic */ String f19480e;
 
         public a(String str) {
-            this.f19472e = str;
+            this.f19480e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbSearchEmotionActivity.this.mEditSearchView.setText(this.f19472e);
-            PbSearchEmotionActivity.this.mEditSearchView.setSelection(this.f19472e.length());
-            PbSearchEmotionActivity.this.searchEmotion(this.f19472e);
+            PbSearchEmotionActivity.this.mEditSearchView.setText(this.f19480e);
+            PbSearchEmotionActivity.this.mEditSearchView.setSelection(this.f19480e.length());
+            PbSearchEmotionActivity.this.searchEmotion(this.f19480e);
             TiebaStatic.log("c12178");
         }
     }
@@ -98,7 +98,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, d.b.i0.k0.c.a aVar) {
+        public void a(String str, d.b.j0.k0.c.a aVar) {
             PbSearchEmotionActivity.this.hideProgressBar();
             if (aVar == null || aVar.a() == null || aVar.a().isEmpty()) {
                 if (PbSearchEmotionActivity.this.mCurrentPage == 0) {
@@ -114,7 +114,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             PbSearchEmotionActivity.this.mHasMore = aVar.b() != 0;
             PbSearchEmotionActivity.this.mEmotionList.addAll(aVar.a());
             if (PbSearchEmotionActivity.this.mEmotionAdapter == null) {
-                PbSearchEmotionActivity.this.mEmotionAdapter = new d.b.i0.d2.k.e.a1.d(PbSearchEmotionActivity.this.mEmotionList);
+                PbSearchEmotionActivity.this.mEmotionAdapter = new d.b.j0.d2.k.e.a1.d(PbSearchEmotionActivity.this.mEmotionList);
                 PbSearchEmotionActivity.this.mEmotionAdapter.h(PbSearchEmotionActivity.this.mKeepImgCacheList);
                 PbSearchEmotionActivity.this.mEmotionAdapter.j(PbSearchEmotionActivity.this.mOnEmotionChooseListener);
                 PbSearchEmotionActivity.this.mEmotionListView.setAdapter((ListAdapter) PbSearchEmotionActivity.this.mEmotionAdapter);
@@ -146,23 +146,23 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     /* loaded from: classes3.dex */
-    public class e implements d.b.i0.d2.k.e.a1.a {
+    public class e implements d.b.j0.d2.k.e.a1.a {
 
         /* loaded from: classes3.dex */
         public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ EmotionImageData f19478a;
+            public final /* synthetic */ EmotionImageData f19486a;
 
             public a(EmotionImageData emotionImageData) {
-                this.f19478a = emotionImageData;
+                this.f19486a = emotionImageData;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.b.c.e.l.c
             public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
                 if (aVar != null) {
-                    PbSearchEmotionActivity.this.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(PbSearchEmotionActivity.this.getPageContext().getPageActivity(), 25023, this.f19478a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
+                    PbSearchEmotionActivity.this.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(PbSearchEmotionActivity.this.getPageContext().getPageActivity(), 25023, this.f19486a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
                 }
             }
         }
@@ -170,7 +170,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public e() {
         }
 
-        @Override // d.b.i0.d2.k.e.a1.a
+        @Override // d.b.j0.d2.k.e.a1.a
         public void a(EmotionImageData emotionImageData, boolean z) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.checkUpIsLogin(PbSearchEmotionActivity.this.getPageContext().getPageActivity());
@@ -187,16 +187,16 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f19480e;
+        public final /* synthetic */ EmotionImageData f19488e;
 
         public f(EmotionImageData emotionImageData) {
-            this.f19480e = emotionImageData;
+            this.f19488e = emotionImageData;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
-            PbSearchEmotionActivity.this.sendEmotion(this.f19480e);
+            PbSearchEmotionActivity.this.sendEmotion(this.f19488e);
         }
     }
 
@@ -205,8 +205,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public g() {
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -300,7 +300,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     private void sendEmotionWithDialog(EmotionImageData emotionImageData) {
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.mActivity);
+        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this.mActivity);
         aVar.setMessage(getResources().getString(R.string.confirm_send_emotion));
         aVar.setPositiveButton(R.string.confirm, new f(emotionImageData));
         aVar.setNegativeButton(R.string.cancel, new g());
@@ -417,7 +417,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             bdListView.removeAllViewsInLayout();
             this.mEmotionListView = null;
         }
-        d.b.i0.d2.k.e.a1.d dVar = this.mEmotionAdapter;
+        d.b.j0.d2.k.e.a1.d dVar = this.mEmotionAdapter;
         if (dVar != null) {
             dVar.g();
             this.mEmotionAdapter.f();
@@ -431,7 +431,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             return;
         }
         this.mEmotionList.clear();
-        d.b.i0.d2.k.e.a1.d dVar = this.mEmotionAdapter;
+        d.b.j0.d2.k.e.a1.d dVar = this.mEmotionAdapter;
         if (dVar != null) {
             dVar.notifyDataSetChanged();
         }

@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.alasquare.recent_history.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.t.d.e.b.a;
-import d.b.i0.t.d.e.b.b;
+import d.b.j0.t.d.e.b.a;
+import d.b.j0.t.d.e.b.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,7 +23,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
         a aVar = new a();
         this.mHistoryData = aVar;
-        aVar.f62071a = jSONObject.optInt("has_more") == 1;
+        aVar.f62492a = jSONObject.optInt("has_more") == 1;
         ArrayList arrayList = null;
         JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -36,7 +36,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             }
             arrayList = arrayList2;
         }
-        this.mHistoryData.f62072b = arrayList;
+        this.mHistoryData.f62493b = arrayList;
     }
 
     public a getRecentHistoryData() {

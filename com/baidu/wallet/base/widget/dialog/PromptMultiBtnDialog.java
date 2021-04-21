@@ -9,15 +9,15 @@ import com.baidu.wallet.base.widget.dialog.view.MultiBtnDialogAdapter;
 public class PromptMultiBtnDialog extends WalletDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public MultiBtnDialogModel f23711a;
+    public MultiBtnDialogModel f23719a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f23712b;
+    public View.OnClickListener f23720b;
 
     public PromptMultiBtnDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f23711a = new MultiBtnDialogModel();
-        this.f23712b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
+        this.f23719a = new MultiBtnDialogModel();
+        this.f23720b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptMultiBtnDialog.this.dismiss();
@@ -27,79 +27,79 @@ public class PromptMultiBtnDialog extends WalletDialog {
     }
 
     private void a() {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
-        multiBtnDialogModel.defaultClickListener = this.f23712b;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
+        multiBtnDialogModel.defaultClickListener = this.f23720b;
         setAdapter(new MultiBtnDialogAdapter(multiBtnDialogModel));
     }
 
     public void setFirstBtn(int i, View.OnClickListener onClickListener) {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
         multiBtnDialogModel.firstBtnTextId = i;
         multiBtnDialogModel.firstBtnClickListener = onClickListener;
     }
 
     public void setFirstBtnTextBold() {
-        this.f23711a.firstBtnTextBold = true;
+        this.f23719a.firstBtnTextBold = true;
     }
 
     public void setMessage(int i) {
-        this.f23711a.messageId = i;
+        this.f23719a.messageId = i;
     }
 
     public void setSecondBtn(int i, View.OnClickListener onClickListener) {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
         multiBtnDialogModel.secondBtnTextId = i;
         multiBtnDialogModel.secondBtnClickListener = onClickListener;
     }
 
     public void setSecondBtnTextBold() {
-        this.f23711a.secondBtnTextBold = true;
+        this.f23719a.secondBtnTextBold = true;
     }
 
     public void setThirdBtn(int i, View.OnClickListener onClickListener) {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
         multiBtnDialogModel.thirdBtnTextId = i;
         multiBtnDialogModel.thirdBtnClickListener = onClickListener;
     }
 
     public void setThirdBtnTextBold() {
-        this.f23711a.thirdBtnTextBold = true;
+        this.f23719a.thirdBtnTextBold = true;
     }
 
     public void setTitleMessage(int i) {
-        this.f23711a.titleId = i;
+        this.f23719a.titleId = i;
     }
 
     public void setMessage(CharSequence charSequence) {
-        this.f23711a.message = charSequence;
+        this.f23719a.message = charSequence;
     }
 
     public void setTitleMessage(String str) {
-        this.f23711a.titleText = str;
+        this.f23719a.titleText = str;
     }
 
     public void setFirstBtn(String str, View.OnClickListener onClickListener) {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
         multiBtnDialogModel.firstBtnText = str;
         multiBtnDialogModel.firstBtnClickListener = onClickListener;
     }
 
     public void setSecondBtn(String str, View.OnClickListener onClickListener) {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
         multiBtnDialogModel.secondBtnText = str;
         multiBtnDialogModel.secondBtnClickListener = onClickListener;
     }
 
     public void setThirdBtn(String str, View.OnClickListener onClickListener) {
-        MultiBtnDialogModel multiBtnDialogModel = this.f23711a;
+        MultiBtnDialogModel multiBtnDialogModel = this.f23719a;
         multiBtnDialogModel.thirdBtnText = str;
         multiBtnDialogModel.thirdBtnClickListener = onClickListener;
     }
 
     public PromptMultiBtnDialog(Context context, int i) {
         super(context, i);
-        this.f23711a = new MultiBtnDialogModel();
-        this.f23712b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
+        this.f23719a = new MultiBtnDialogModel();
+        this.f23720b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptMultiBtnDialog.this.dismiss();

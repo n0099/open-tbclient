@@ -5,7 +5,7 @@ import android.view.animation.Interpolator;
 public abstract class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f42950a = new a();
+    public static final Interpolator f43190a = new a();
 
     /* loaded from: classes.dex */
     public static class a implements Interpolator {
@@ -19,9 +19,9 @@ public abstract class h {
     public static int a(float f2, float f3, boolean z) {
         float interpolation;
         if (z) {
-            interpolation = f2 - (f42950a.getInterpolation(f3 / (f3 - f2)) * f2);
+            interpolation = f2 - (f43190a.getInterpolation(f3 / (f3 - f2)) * f2);
         } else {
-            interpolation = f2 * f42950a.getInterpolation(f3 / f2);
+            interpolation = f2 * f43190a.getInterpolation(f3 / f2);
         }
         return (int) interpolation;
     }

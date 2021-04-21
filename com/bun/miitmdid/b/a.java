@@ -7,14 +7,14 @@ import com.bun.miitmdid.utils.sysParamters;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f26747a;
+    public static String f26755a;
 
     public static String a() {
-        if (TextUtils.isEmpty(f26747a)) {
+        if (TextUtils.isEmpty(f26755a)) {
             String str = "miitmdid(sdkv_" + sysParamters.a().c() + SmallTailInfo.EMOTION_SUFFIX;
-            f26747a = str;
+            f26755a = str;
             return str;
         }
-        return f26747a;
+        return f26755a;
     }
 }

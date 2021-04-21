@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
-import d.g.c.c.c1;
+import d.h.c.a.n;
+import d.h.c.c.c1;
 /* loaded from: classes6.dex */
 public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public transient int f31009e;
+    public transient int f31104e;
     public final transient E element;
 
     public SingletonImmutableSet(E e2) {
@@ -32,10 +32,10 @@ public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableSet, java.util.Collection, java.util.Set
     public final int hashCode() {
-        int i = this.f31009e;
+        int i = this.f31104e;
         if (i == 0) {
             int hashCode = this.element.hashCode();
-            this.f31009e = hashCode;
+            this.f31104e = hashCode;
             return hashCode;
         }
         return i;
@@ -43,7 +43,7 @@ public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableSet
     public boolean isHashCodeFast() {
-        return this.f31009e != 0;
+        return this.f31104e != 0;
     }
 
     @Override // com.google.common.collect.ImmutableCollection
@@ -69,6 +69,6 @@ public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     public SingletonImmutableSet(E e2, int i) {
         this.element = e2;
-        this.f31009e = i;
+        this.f31104e = i;
     }
 }

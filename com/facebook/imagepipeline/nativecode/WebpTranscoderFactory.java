@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.nativecode;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WebpTranscoderFactory {
     public static WebpTranscoder sWebpTranscoder = null;
     public static boolean sWebpTranscoderPresent = false;

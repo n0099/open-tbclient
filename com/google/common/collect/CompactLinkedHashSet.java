@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.g.c.c.j0;
+import d.h.c.c.j0;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,7 +8,7 @@ import java.util.Collections;
 public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
 
     /* renamed from: h  reason: collision with root package name */
-    public transient int[] f30740h;
+    public transient int[] f30835h;
     public transient int[] i;
     public transient int j;
     public transient int k;
@@ -34,7 +34,7 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
         super.allocArrays();
         int length = this.elements.length;
         int[] iArr = new int[length];
-        this.f30740h = iArr;
+        this.f30835h = iArr;
         this.i = new int[length];
         Arrays.fill(iArr, -1);
         Arrays.fill(this.i, -1);
@@ -47,7 +47,7 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
         }
         this.j = -2;
         this.k = -2;
-        Arrays.fill(this.f30740h, 0, size(), -1);
+        Arrays.fill(this.f30835h, 0, size(), -1);
         Arrays.fill(this.i, 0, size(), -1);
         super.clear();
     }
@@ -77,11 +77,11 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     }
 
     public final int j(int i) {
-        return this.f30740h[i];
+        return this.f30835h[i];
     }
 
     public final void k(int i, int i2) {
-        this.f30740h[i] = i2;
+        this.f30835h[i] = i2;
     }
 
     public final void l(int i, int i2) {
@@ -110,19 +110,19 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
             l(j(size), i);
             l(i, getSuccessor(size));
         }
-        this.f30740h[size] = -1;
+        this.f30835h[size] = -1;
         this.i[size] = -1;
     }
 
     @Override // com.google.common.collect.CompactHashSet
     public void resizeEntries(int i) {
         super.resizeEntries(i);
-        int[] iArr = this.f30740h;
+        int[] iArr = this.f30835h;
         int length = iArr.length;
-        this.f30740h = Arrays.copyOf(iArr, i);
+        this.f30835h = Arrays.copyOf(iArr, i);
         this.i = Arrays.copyOf(this.i, i);
         if (length < i) {
-            Arrays.fill(this.f30740h, length, i, -1);
+            Arrays.fill(this.f30835h, length, i, -1);
             Arrays.fill(this.i, length, i, -1);
         }
     }

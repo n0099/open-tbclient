@@ -3,18 +3,18 @@ package d.c.c.a.a;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static n f66007a;
+    public static n f66102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f66008b;
+    public static long f66103b;
 
     public static n a() {
         synchronized (o.class) {
-            if (f66007a != null) {
-                n nVar = f66007a;
-                f66007a = nVar.f66005f;
-                nVar.f66005f = null;
-                f66008b -= 8192;
+            if (f66102a != null) {
+                n nVar = f66102a;
+                f66102a = nVar.f66100f;
+                nVar.f66100f = null;
+                f66103b -= 8192;
                 return nVar;
             }
             return new n();
@@ -22,19 +22,19 @@ public final class o {
     }
 
     public static void b(n nVar) {
-        if (nVar.f66005f == null && nVar.f66006g == null) {
-            if (nVar.f66003d) {
+        if (nVar.f66100f == null && nVar.f66101g == null) {
+            if (nVar.f66098d) {
                 return;
             }
             synchronized (o.class) {
-                if (f66008b + 8192 > 65536) {
+                if (f66103b + 8192 > 65536) {
                     return;
                 }
-                f66008b += 8192;
-                nVar.f66005f = f66007a;
-                nVar.f66002c = 0;
-                nVar.f66001b = 0;
-                f66007a = nVar;
+                f66103b += 8192;
+                nVar.f66100f = f66102a;
+                nVar.f66097c = 0;
+                nVar.f66096b = 0;
+                f66102a = nVar;
                 return;
             }
         }

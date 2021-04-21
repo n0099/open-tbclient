@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42437a = 0;
+    public long f42677a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42438b = null;
+    public String f42678b = null;
 
     public boolean a() {
         d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
@@ -25,8 +25,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(a2);
-            this.f42437a = jSONObject.getLong("time");
-            this.f42438b = jSONObject.getString("data");
+            this.f42677a = jSONObject.getLong("time");
+            this.f42678b = jSONObject.getString("data");
             return true;
         } catch (JSONException e2) {
             e2.printStackTrace();

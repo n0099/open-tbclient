@@ -6,28 +6,28 @@ import java.lang.reflect.Constructor;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37916a = "ReflectConstructor";
+    public String f38011a = "ReflectConstructor";
 
     /* renamed from: b  reason: collision with root package name */
-    public a f37917b;
+    public a f38012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?>[] f37918c;
+    public Class<?>[] f38013c;
 
     public b(a aVar, Class<?>... clsArr) {
-        this.f37917b = aVar;
-        this.f37918c = clsArr;
+        this.f38012b = aVar;
+        this.f38013c = clsArr;
     }
 
     public <T> d<T> a(Object... objArr) {
         d<T> dVar = new d<>();
         try {
-            Constructor<?> declaredConstructor = this.f37917b.a().getDeclaredConstructor(this.f37918c);
+            Constructor<?> declaredConstructor = this.f38012b.a().getDeclaredConstructor(this.f38013c);
             declaredConstructor.setAccessible(true);
-            dVar.f37925b = (T) declaredConstructor.newInstance(objArr);
-            dVar.f37924a = true;
+            dVar.f38020b = (T) declaredConstructor.newInstance(objArr);
+            dVar.f38019a = true;
         } catch (Exception e2) {
-            h.b().a(this.f37916a, "newInstance", e2);
+            h.b().a(this.f38011a, "newInstance", e2);
         }
         return dVar;
     }

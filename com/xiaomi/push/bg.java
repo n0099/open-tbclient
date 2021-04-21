@@ -34,19 +34,19 @@ import org.apache.http.protocol.HTTP;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f40567a = Pattern.compile("([^\\s;]+)(.*)");
+    public static final Pattern f40662a = Pattern.compile("([^\\s;]+)(.*)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f40568b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+    public static final Pattern f40663b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f40569c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+    public static final Pattern f40664c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
 
     /* loaded from: classes7.dex */
     public static final class a extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f40570a;
+        public boolean f40665a;
 
         public a(InputStream inputStream) {
             super(inputStream);
@@ -55,8 +55,8 @@ public class bg {
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read(byte[] bArr, int i, int i2) {
             int read;
-            if (this.f40570a || (read = super.read(bArr, i, i2)) == -1) {
-                this.f40570a = true;
+            if (this.f40665a || (read = super.read(bArr, i, i2)) == -1) {
+                this.f40665a = true;
                 return -1;
             }
             return read;
@@ -67,13 +67,13 @@ public class bg {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40571a;
+        public int f40666a;
 
         /* renamed from: a  reason: collision with other field name */
         public Map<String, String> f148a;
 
         public String toString() {
-            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f40571a), this.f148a.toString());
+            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f40666a), this.f148a.toString());
         }
     }
 
@@ -144,8 +144,8 @@ public class bg {
                             throw new IOException(th.getMessage());
                         }
                     }
-                    beVar.f40566a = m158a.getResponseCode();
-                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.f40566a);
+                    beVar.f40661a = m158a.getResponseCode();
+                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.f40661a);
                     while (true) {
                         String headerFieldKey = m158a.getHeaderFieldKey(i);
                         String headerField = m158a.getHeaderField(i);
@@ -222,7 +222,7 @@ public class bg {
                         }
                     }
                     if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                        bVar.f40571a = m158a.getResponseCode();
+                        bVar.f40666a = m158a.getResponseCode();
                         if (bVar.f148a == null) {
                             bVar.f148a = new HashMap();
                         }

@@ -7,11 +7,11 @@ import com.baidu.android.util.devices.RomUtils;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f22642a;
+    public static int f22650a;
 
     public static int a() {
         int i;
-        if (f22642a == 0) {
+        if (f22650a == 0) {
             String str = Build.MODEL;
             String str2 = Build.MANUFACTURER;
             String str3 = Build.BRAND;
@@ -38,10 +38,10 @@ public final class l {
                 } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
                     i = 7;
                 }
-                f22642a = i;
+                f22650a = i;
             }
-            f22642a = 1;
+            f22650a = 1;
         }
-        return f22642a;
+        return f22650a;
     }
 }

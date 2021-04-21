@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes3.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.g0.g.d.g.b {
+public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h0.g.d.g.b {
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = new a();
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -37,16 +37,16 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.g
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements d.b.g0.g.d.g.b {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements d.b.h0.g.d.g.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12485e;
+        public int f12493e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f12486f;
+        public int f12494f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f12487g = ByteString.EMPTY;
+        public ByteString f12495g = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -63,7 +63,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.g
         }
 
         public boolean hasType() {
-            return (this.f12485e & 1) == 1;
+            return (this.f12493e & 1) == 1;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -96,24 +96,24 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.g
         /* renamed from: n */
         public Bdtls$Extension buildPartial() {
             Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this);
-            int i = this.f12485e;
+            int i = this.f12493e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            bdtls$Extension.type_ = this.f12486f;
+            bdtls$Extension.type_ = this.f12494f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            bdtls$Extension.data_ = this.f12487g;
+            bdtls$Extension.data_ = this.f12495g;
             bdtls$Extension.bitField0_ = i2;
             return bdtls$Extension;
         }
 
         public b o() {
             super.clear();
-            this.f12486f = 0;
-            int i = this.f12485e & (-2);
-            this.f12485e = i;
-            this.f12487g = ByteString.EMPTY;
-            this.f12485e = i & (-3);
+            this.f12494f = 0;
+            int i = this.f12493e & (-2);
+            this.f12493e = i;
+            this.f12495g = ByteString.EMPTY;
+            this.f12493e = i & (-3);
             return this;
         }
 
@@ -134,7 +134,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.g
         }
 
         public boolean s() {
-            return (this.f12485e & 2) == 2;
+            return (this.f12493e & 2) == 2;
         }
 
         public b t(Bdtls$Extension bdtls$Extension) {
@@ -186,16 +186,16 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.g
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f12485e |= 2;
-                this.f12487g = byteString;
+                this.f12493e |= 2;
+                this.f12495g = byteString;
                 return this;
             }
             throw null;
         }
 
         public b w(int i) {
-            this.f12485e |= 1;
-            this.f12486f = i;
+            this.f12493e |= 1;
+            this.f12494f = i;
             return this;
         }
 

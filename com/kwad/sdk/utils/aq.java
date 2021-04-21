@@ -5,15 +5,15 @@ import java.lang.ref.WeakReference;
 public class aq implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Runnable> f37047a;
+    public WeakReference<Runnable> f37142a;
 
     public aq(Runnable runnable) {
-        this.f37047a = new WeakReference<>(runnable);
+        this.f37142a = new WeakReference<>(runnable);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Runnable runnable = this.f37047a.get();
+        Runnable runnable = this.f37142a.get();
         if (runnable != null) {
             runnable.run();
         }

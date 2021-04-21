@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.profession.permission;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.q0.f2.a.b;
+import d.b.j0.q0.f2.a.b;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */

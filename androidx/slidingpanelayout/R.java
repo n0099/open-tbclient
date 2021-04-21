@@ -15,7 +15,7 @@ public final class R {
         public static final int fontStyle = 0x7f0401ad;
         public static final int fontVariationSettings = 0x7f0401ae;
         public static final int fontWeight = 0x7f0401af;
-        public static final int ttcIndex = 0x7f04050d;
+        public static final int ttcIndex = 0x7f04050e;
     }
 
     /* loaded from: classes.dex */

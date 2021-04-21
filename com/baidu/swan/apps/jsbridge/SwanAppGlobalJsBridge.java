@@ -10,10 +10,10 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
-import d.b.g0.a.i2.k0;
+import d.b.h0.a.i2.k0;
 @Keep
 /* loaded from: classes2.dex */
-public class SwanAppGlobalJsBridge extends d.b.g0.a.x0.a {
+public class SwanAppGlobalJsBridge extends d.b.h0.a.x0.a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     public static final String TAG = "SwanAppGlobalJsBridge";
 
@@ -21,16 +21,16 @@ public class SwanAppGlobalJsBridge extends d.b.g0.a.x0.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11890e;
+        public final /* synthetic */ String f11898e;
 
         public a(String str) {
-            this.f11890e = str;
+            this.f11898e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = SwanAppGlobalJsBridge.this;
-            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f11890e);
+            swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f11898e);
         }
     }
 
@@ -46,7 +46,7 @@ public class SwanAppGlobalJsBridge extends d.b.g0.a.x0.a {
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str2));
         unitedSchemeEntity.setReferUrl(this.mCallbackHandler.getCurrentPageUrl());
         unitedSchemeEntity.setPageUrl(str);
-        if (d.b.g0.a.x0.a.DEBUG) {
+        if (d.b.h0.a.x0.a.DEBUG) {
             Log.d(TAG, "doSchemeDispatch scheme: " + str2 + " mCallbackHandler: " + this.mCallbackHandler);
         }
         SchemeTimeCostMoniter.getInstance().schemeStart(str2);

@@ -1,86 +1,57 @@
 package d.b.h0.o;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import d.b.h0.r.d0.b;
-import java.io.File;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes3.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f50779a = 604800000;
-
-    /* renamed from: d.b.h0.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1083a extends CustomMessageListener {
-
-        /* renamed from: d.b.h0.o.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C1084a extends Thread {
-            public C1084a(C1083a c1083a) {
-            }
-
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                super.run();
-                try {
-                    ChunkUploadDatabaseService.delOverdueChunkUploadData();
-                    a.c(TbadkCoreApplication.getInst().getCacheDir());
-                } catch (Exception unused) {
-                }
-            }
+    public static NetworkInfo a(Context context) {
+        ConnectivityManager connectivityManager;
+        Context appContext = AppRuntime.getAppContext();
+        if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+            return null;
         }
-
-        public C1083a(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            long l = b.j().l("key_clear_resource", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            if (l == 0) {
-                b.j().w("key_clear_resource", currentTimeMillis);
-                l = currentTimeMillis;
-            }
-            if (currentTimeMillis - l > a.f50779a) {
-                new C1084a(this).start();
-                b.j().w("key_clear_resource", currentTimeMillis);
-            }
-        }
+        return connectivityManager.getActiveNetworkInfo();
     }
 
-    public static void c(File file) {
-        if (file == null) {
-            return;
-        }
-        try {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (int i = 0; i < listFiles.length; i++) {
-                        if (listFiles[i].isDirectory()) {
-                            c(listFiles[i]);
-                        } else {
-                            listFiles[i].delete();
-                        }
-                    }
-                    return;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(int i, String str) {
+        switch (i) {
+            case 1:
+            case 2:
+            case 4:
+            case 7:
+            case 11:
+            case 16:
+                return "2g";
+            case 3:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+            case 10:
+            case 12:
+            case 14:
+            case 15:
+            case 17:
+                return "3g";
+            case 13:
+            case 18:
+            case 19:
+                break;
+            default:
+                if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
+                    return "unknown";
                 }
-                return;
-            }
-            file.delete();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+                break;
         }
+        return "4g";
     }
 
-    public static void d() {
-        MessageManager.getInstance().registerListener(new C1083a(2005016));
+    public static String c() {
+        NetworkInfo a2 = a(AppRuntime.getAppContext());
+        return (a2 == null || !a2.isConnected()) ? "no" : a2.getType() == 1 ? "wifi" : a2.getType() == 0 ? b(a2.getSubtype(), a2.getSubtypeName()) : "unknown";
     }
 }

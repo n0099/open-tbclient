@@ -7,49 +7,49 @@ import java.util.concurrent.TimeUnit;
 public final class x<T> implements h.d<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<T> f68841e;
+    public final h.d<T> f68988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f68842f;
+    public final long f68989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TimeUnit f68843g;
+    public final TimeUnit f68990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.g f68844h;
+    public final h.g f68991h;
 
     /* loaded from: classes7.dex */
     public static final class a<T> extends h.i<T> implements h.n.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.i<? super T> f68845f;
+        public final h.i<? super T> f68992f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f68846g;
+        public final g.a f68993g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f68847h;
+        public final long f68994h;
         public final TimeUnit i;
         public T j;
         public Throwable k;
 
         public a(h.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
-            this.f68845f = iVar;
-            this.f68846g = aVar;
-            this.f68847h = j;
+            this.f68992f = iVar;
+            this.f68993g = aVar;
+            this.f68994h = j;
             this.i = timeUnit;
         }
 
         @Override // h.i
         public void b(Throwable th) {
             this.k = th;
-            this.f68846g.c(this, this.f68847h, this.i);
+            this.f68993g.c(this, this.f68994h, this.i);
         }
 
         @Override // h.i
         public void c(T t) {
             this.j = t;
-            this.f68846g.c(this, this.f68847h, this.i);
+            this.f68993g.c(this, this.f68994h, this.i);
         }
 
         @Override // h.n.a
@@ -58,33 +58,33 @@ public final class x<T> implements h.d<T> {
                 Throwable th = this.k;
                 if (th != null) {
                     this.k = null;
-                    this.f68845f.b(th);
+                    this.f68992f.b(th);
                 } else {
                     T t = this.j;
                     this.j = null;
-                    this.f68845f.c(t);
+                    this.f68992f.c(t);
                 }
             } finally {
-                this.f68846g.unsubscribe();
+                this.f68993g.unsubscribe();
             }
         }
     }
 
     public x(h.d<T> dVar, long j, TimeUnit timeUnit, h.g gVar) {
-        this.f68841e = dVar;
-        this.f68844h = gVar;
-        this.f68842f = j;
-        this.f68843g = timeUnit;
+        this.f68988e = dVar;
+        this.f68991h = gVar;
+        this.f68989f = j;
+        this.f68990g = timeUnit;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.b
     /* renamed from: a */
     public void call(h.i<? super T> iVar) {
-        g.a createWorker = this.f68844h.createWorker();
-        a aVar = new a(iVar, createWorker, this.f68842f, this.f68843g);
+        g.a createWorker = this.f68991h.createWorker();
+        a aVar = new a(iVar, createWorker, this.f68989f, this.f68990g);
         iVar.a(createWorker);
         iVar.a(aVar);
-        this.f68841e.call(aVar);
+        this.f68988e.call(aVar);
     }
 }

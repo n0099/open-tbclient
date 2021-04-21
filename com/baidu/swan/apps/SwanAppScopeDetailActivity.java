@@ -7,16 +7,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import d.b.g0.a.f;
-import d.b.g0.a.g;
-import d.b.g0.a.i2.h0;
-import d.b.g0.a.i2.u;
-import d.b.g0.a.k;
-import d.b.g0.a.p.d.c;
-import d.b.g0.a.p.d.e;
+import d.b.h0.a.f;
+import d.b.h0.a.g;
+import d.b.h0.a.i2.h0;
+import d.b.h0.a.i2.u;
+import d.b.h0.a.k;
+import d.b.h0.a.p.d.c;
+import d.b.h0.a.p.d.e;
 /* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final int INVALID_ANIM = 0;
     public static final String TAG = "ScopeDetailActivity";
     public c mNgWebView;
@@ -37,11 +37,11 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends d.b.g0.a.e0.n.a {
+    public class b extends d.b.h0.a.e0.n.a {
         public b() {
         }
 
-        @Override // d.b.g0.a.e0.n.a, d.b.g0.a.e0.n.d
+        @Override // d.b.h0.a.e0.n.a, d.b.h0.a.e0.n.d
         public void a(String str) {
             super.a(str);
             if (SwanAppScopeDetailActivity.this.mIsReceivedTitle) {
@@ -54,12 +54,12 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         findViewById(f.back).setOnClickListener(new a());
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [d.b.g0.a.p.d.c] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [d.b.h0.a.p.d.c] */
     private void initWebView() {
         if (TextUtils.isEmpty(this.mUrl)) {
             return;
         }
-        e i = new d.b.g0.a.p.d.j.b().i(this);
+        e i = new d.b.h0.a.p.d.j.b().i(this);
         i.P(new b());
         this.mNgWebView = i.F();
         i.loadUrl(this.mUrl);
@@ -81,9 +81,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         startExitActivityAnim();
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.b.g0.m.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.b.h0.m.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        setPendingTransition(d.b.g0.a.a.aiapps_hold, d.b.g0.a.a.aiapps_slide_out_to_right);
+        setPendingTransition(d.b.h0.a.a.aiapps_hold, d.b.h0.a.a.aiapps_slide_out_to_right);
         super.onCreate(bundle);
         setContentView(g.swanapp_scope_detail_activity);
         h0.a(this);

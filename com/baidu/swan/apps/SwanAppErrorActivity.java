@@ -9,17 +9,17 @@ import android.view.Window;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import d.b.g0.a.a;
-import d.b.g0.a.e0.l.d;
-import d.b.g0.a.f;
-import d.b.g0.a.g;
-import d.b.g0.a.i2.k0;
-import d.b.g0.a.k;
-import d.b.g0.a.y0.e.b;
-import d.b.g0.m.a.a.m;
+import d.b.h0.a.a;
+import d.b.h0.a.e0.l.d;
+import d.b.h0.a.f;
+import d.b.h0.a.g;
+import d.b.h0.a.i2.k0;
+import d.b.h0.a.k;
+import d.b.h0.a.y0.e.b;
+import d.b.h0.m.a.a.m;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final int INVALID_ANIM = 0;
     public static final String KEY_ERROR_FORBIDDEN_INFO = "swan_error_forbidden_info";
     public static final String KEY_SWAN_ERROR_TYPE = "swan_error_type";
@@ -32,7 +32,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public String mErrorType;
     public ForbiddenInfo mForbiddenInfo;
     public b mLaunchInfo;
-    public d.b.g0.a.x1.b mSkinDecorator = null;
+    public d.b.h0.a.x1.b mSkinDecorator = null;
     public int mEnterAnimWhenFinishing = 0;
     public int mExitAnimWhenFinishing = 0;
 
@@ -55,7 +55,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     }
 
     private void onErrorForSearchUBC() {
-        d.b.g0.a.z1.l.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
+        d.b.h0.a.z1.l.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 
     private void parseIntent(Intent intent) {
@@ -95,7 +95,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return this.mLaunchInfo;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.b.g0.m.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.b.h0.m.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
         setPendingTransition(a.aiapps_hold, a.aiapps_slide_out_to_bottom);
         int V = k0.V(this);
@@ -124,7 +124,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
             return;
         }
         if (this.mSkinDecorator == null) {
-            this.mSkinDecorator = new d.b.g0.a.x1.b();
+            this.mSkinDecorator = new d.b.h0.a.x1.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
@@ -137,6 +137,6 @@ public class SwanAppErrorActivity extends FragmentActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        onNightModeCoverChanged(d.b.g0.a.w0.a.z().a());
+        onNightModeCoverChanged(d.b.h0.a.w0.a.z().a());
     }
 }

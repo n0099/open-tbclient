@@ -6,17 +6,17 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f34229a;
+    public com.kwad.sdk.core.download.b.b f34324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f34230b;
+    public RecyclerView f34325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f34231c;
+    public AdTemplate f34326c;
 
     public e(AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar, RecyclerView recyclerView) {
-        this.f34231c = adTemplate;
-        this.f34229a = bVar;
-        this.f34230b = recyclerView;
+        this.f34326c = adTemplate;
+        this.f34324a = bVar;
+        this.f34325b = recyclerView;
     }
 }

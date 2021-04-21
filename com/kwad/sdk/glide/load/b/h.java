@@ -8,7 +8,7 @@ public interface h {
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f35602a = new h() { // from class: com.kwad.sdk.glide.load.b.h.1
+    public static final h f35697a = new h() { // from class: com.kwad.sdk.glide.load.b.h.1
         @Override // com.kwad.sdk.glide.load.b.h
         public Map<String, String> a() {
             return Collections.emptyMap();
@@ -16,7 +16,7 @@ public interface h {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f35603b = new j.a().a();
+    public static final h f35698b = new j.a().a();
 
     Map<String, String> a();
 }

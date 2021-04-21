@@ -1,301 +1,238 @@
 package d.b.i0.a0;
 
-import android.content.ClipboardManager;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.h0.b1.d;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class c extends BaseAdapter {
-
-    /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.b.i0.a0.a> f52276e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f52277f;
+/* loaded from: classes3.dex */
+public class c {
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52278g;
+    public static c f50402g = new c();
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnLongClickListener {
+    /* renamed from: a  reason: collision with root package name */
+    public d.b.c.e.k.a<String, d.b.c.j.d.a> f50403a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.a0.a f52279e;
+    /* renamed from: b  reason: collision with root package name */
+    public d.b.c.e.k.a<String, d.b.c.j.d.a> f50404b;
 
-        public a(d.b.i0.a0.a aVar) {
-            this.f52279e = aVar;
+    /* renamed from: c  reason: collision with root package name */
+    public d.b.c.e.k.a<String, Bitmap> f50405c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public d.b.c.e.k.a<String, d.b.c.j.d.a> f50406d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.c.e.k.b<d.b.i0.b1.i.a.a> f50407e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.i0.b1.i.c.b f50408f;
+
+    /* loaded from: classes3.dex */
+    public class a extends d.b.c.e.k.a<String, d.b.c.j.d.a> {
+        public a(c cVar, int i) {
+            super(i);
         }
 
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            String g2 = this.f52279e.g();
-            if (StringUtils.isNull(g2)) {
-                return false;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.c.e.k.a
+        /* renamed from: o */
+        public void b(boolean z, String str, d.b.c.j.d.a aVar, d.b.c.j.d.a aVar2) {
+            if (aVar != null) {
+                aVar.x();
             }
-            ClipboardManager clipboardManager = (ClipboardManager) c.this.f52277f.getPageActivity().getSystemService("clipboard");
-            clipboardManager.setText(g2);
-            if (clipboardManager.getText() != null) {
-                l.K(c.this.f52277f.getPageActivity(), R.string.copy_to_clip);
-                return false;
-            }
-            return false;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.a0.a f52281e;
-
-        public b(d.b.i0.a0.a aVar) {
-            this.f52281e = aVar;
+    /* loaded from: classes3.dex */
+    public class b extends d.b.c.e.k.a<String, d.b.c.j.d.a> {
+        public b(c cVar, int i) {
+            super(i);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(c.this.f52277f, new String[]{this.f52281e.c()});
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.c.e.k.a
+        /* renamed from: o */
+        public void b(boolean z, String str, d.b.c.j.d.a aVar, d.b.c.j.d.a aVar2) {
+            if (aVar != null) {
+                BdLog.isDebugMode();
+                aVar.x();
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.c.e.k.a
+        /* renamed from: p */
+        public int m(String str, d.b.c.j.d.a aVar) {
+            if (aVar != null) {
+                return aVar.B();
+            }
+            return 0;
         }
     }
 
     /* renamed from: d.b.i0.a0.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1132c {
+    /* loaded from: classes3.dex */
+    public class C1078c extends d.b.c.e.k.a<String, Bitmap> {
+        public C1078c(c cVar, int i) {
+            super(i);
+        }
 
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f52283a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TbImageView f52284b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public TextView f52285c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f52286d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f52287e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public TextView f52288f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TextView f52289g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public View f52290h;
-        public TextView i;
-        public TextView j;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.c.e.k.a
+        /* renamed from: o */
+        public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            if (bitmap != null) {
+                bitmap.recycle();
+            }
+        }
     }
 
-    public c(TbPageContext<?> tbPageContext, int i) {
-        this.f52277f = tbPageContext;
-        this.f52278g = i;
+    public c() {
+        this.f50403a = null;
+        this.f50404b = null;
+        this.f50405c = null;
+        this.f50406d = null;
+        this.f50403a = new a(this, 0);
+        this.f50404b = new b(this, 0);
+        this.f50405c = new C1078c(this, 0);
+        this.f50406d = new d.b.c.e.k.a<>(Integer.MAX_VALUE);
     }
 
-    public final SpannableString b(int i, long j, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2, AbsoluteSizeSpan absoluteSizeSpan) {
-        String string = this.f52277f.getString(i);
-        String formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
-        String str = string + "    [icon]" + formatOverBaiwanNum;
-        SpannableString spannableString = new SpannableString(str);
-        UtilHelper.setSpan(spannableString, str, str, foregroundColorSpan);
-        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_huobi_tdou);
-        int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds24);
-        drawable.setBounds(0, 0, g2, g2);
-        d dVar = new d(drawable);
-        dVar.b(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
-        dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
-        UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
-        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, foregroundColorSpan2);
-        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, absoluteSizeSpan);
-        return spannableString;
+    public static c k() {
+        return f50402g;
     }
 
-    public final SpannableString c(int i, long j, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2) {
-        String string = this.f52277f.getString(i);
-        String long2String = StringHelper.long2String(j, StringUtils.TIMEFORMAT);
-        String str = string + "    " + long2String;
-        SpannableString spannableString = new SpannableString(str);
-        UtilHelper.setSpan(spannableString, str, str, foregroundColorSpan);
-        UtilHelper.setSpan(spannableString, str, long2String, foregroundColorSpan2);
-        return spannableString;
-    }
-
-    public final SpannableString d(int i, String str, ForegroundColorSpan foregroundColorSpan, ForegroundColorSpan foregroundColorSpan2) {
-        String str2 = this.f52277f.getString(i) + "    " + str;
-        SpannableString spannableString = new SpannableString(str2);
-        UtilHelper.setSpan(spannableString, str2, str2, foregroundColorSpan);
-        UtilHelper.setSpan(spannableString, str2, str, foregroundColorSpan2);
-        return spannableString;
-    }
-
-    public final void e(C1132c c1132c, d.b.i0.a0.a aVar) {
-        SpannableString spannableString;
-        SpannableString spannableString2;
-        SpannableString spannableString3;
-        SpannableString spannableString4;
-        SpannableString spannableString5;
-        int i;
-        int i2;
-        if (c1132c == null || aVar == null) {
+    public void a(String str, Bitmap bitmap) {
+        if (StringUtils.isNull(str) || bitmap == null) {
             return;
         }
-        c1132c.f52289g.setText(this.f52277f.getString(R.string.order_id) + "    ");
-        c1132c.f52283a.setText(aVar.g());
-        c1132c.f52283a.setOnLongClickListener(new a(aVar));
-        if (aVar.i() == 1) {
-            c1132c.f52284b.W(String.valueOf(R.drawable.icon_payment_success), 24, false);
-            SkinManager.setViewTextColor(c1132c.f52284b, R.color.CAM_X0305, 1);
-        } else {
-            c1132c.f52284b.W(String.valueOf(R.drawable.icon_payment_fail), 24, false);
-            SkinManager.setViewTextColor(c1132c.f52284b, R.color.CAM_X0109, 1);
-        }
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109));
-        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105));
-        new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(24, true);
-        int i3 = this.f52278g;
-        if (i3 == 1) {
-            spannableString4 = d(R.string.buy_product, aVar.j(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString3 = b(R.string.consumption_t_bean, aVar.k(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
-            spannableString = c(R.string.buy_time, aVar.d(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString2 = null;
-        } else {
-            if (i3 == 2) {
-                spannableString5 = d(R.string.get_with_product, aVar.j(), foregroundColorSpan, foregroundColorSpan2);
-                spannableString3 = b(R.string.get_t_bean, aVar.k(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
-                spannableString = c(R.string.buy_time, aVar.d(), foregroundColorSpan, foregroundColorSpan2);
-                String str = "" + aVar.h();
-                String str2 = this.f52277f.getString(R.string.alternative_account) + "    " + str;
-                spannableString2 = new SpannableString(str2);
-                UtilHelper.setSpan(spannableString2, str2, str2, foregroundColorSpan);
-                UtilHelper.setSpan(spannableString2, str2, str, foregroundColorSpan2);
-            } else if (i3 == 3) {
-                String string = this.f52277f.getString(R.string.recharge_product);
-                String j = aVar.j();
-                String str3 = string + "    " + j;
-                SpannableString spannableString6 = new SpannableString(str3);
-                UtilHelper.setSpan(spannableString6, str3, str3, foregroundColorSpan);
-                UtilHelper.setSpan(spannableString6, str3, j, foregroundColorSpan2);
-                String str4 = ("" + aVar.f()) + this.f52277f.getString(R.string.recharge_use_money);
-                String str5 = this.f52277f.getString(R.string.recharge_money) + "    " + str4;
-                SpannableString spannableString7 = new SpannableString(str5);
-                UtilHelper.setSpan(spannableString7, str5, str5, foregroundColorSpan);
-                UtilHelper.setSpan(spannableString7, str5, str4, foregroundColorSpan2);
-                UtilHelper.setSpan(spannableString7, str5, str4, absoluteSizeSpan);
-                spannableString3 = spannableString7;
-                spannableString5 = spannableString6;
-                spannableString = c(R.string.recharge_time, aVar.e(), foregroundColorSpan, foregroundColorSpan2);
-                String str6 = "" + aVar.h();
-                String str7 = this.f52277f.getString(R.string.recharge_account) + "    " + str6;
-                spannableString2 = new SpannableString(str7);
-                UtilHelper.setSpan(spannableString2, str7, str7, foregroundColorSpan);
-                UtilHelper.setSpan(spannableString2, str7, str6, foregroundColorSpan2);
-            } else {
-                spannableString = null;
-                spannableString2 = null;
-                spannableString3 = null;
-                spannableString4 = null;
-            }
-            spannableString4 = spannableString5;
-        }
-        c1132c.f52285c.setText(spannableString4);
-        c1132c.f52286d.setText(spannableString3);
-        c1132c.f52287e.setText(spannableString);
-        if (!StringUtils.isNull(aVar.h()) && ((i2 = this.f52278g) == 3 || i2 == 2)) {
-            c1132c.f52288f.setVisibility(0);
-            c1132c.f52288f.setText(spannableString2);
-        } else {
-            c1132c.f52288f.setVisibility(8);
-        }
-        if (!StringUtils.isNull(aVar.b())) {
-            c1132c.i.setText(aVar.b());
-            if (!StringUtils.isNull(aVar.a())) {
-                c1132c.j.setText(aVar.a());
-                i = 0;
-                c1132c.j.setVisibility(0);
-            } else {
-                i = 0;
-                c1132c.j.setVisibility(8);
-            }
-            c1132c.j.setOnClickListener(new b(aVar));
-            c1132c.f52290h.setVisibility(i);
-            return;
-        }
-        c1132c.f52290h.setVisibility(8);
+        this.f50405c.h(str, bitmap);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: f */
-    public d.b.i0.a0.a getItem(int i) {
-        ArrayList<d.b.i0.a0.a> arrayList = this.f52276e;
-        if (arrayList == null || arrayList.size() <= 0 || i < 0 || i >= getCount()) {
+    public void b(String str, d.b.c.j.d.a aVar) {
+        c(str, aVar, false);
+    }
+
+    public void c(String str, d.b.c.j.d.a aVar, boolean z) {
+        d.b.c.e.k.a<String, d.b.c.j.d.a> aVar2;
+        if (aVar == null || (aVar2 = this.f50403a) == null) {
+            return;
+        }
+        aVar2.h(str, aVar);
+    }
+
+    public void d(String str, d.b.c.j.d.a aVar) {
+        e(str, aVar, false);
+    }
+
+    public void e(String str, d.b.c.j.d.a aVar, boolean z) {
+        if (aVar == null || this.f50404b == null) {
+            return;
+        }
+        BdLog.isDebugMode();
+        this.f50404b.h(str, aVar);
+    }
+
+    public void f(String str, d.b.c.j.d.a aVar) {
+        d.b.c.e.k.a<String, d.b.c.j.d.a> aVar2;
+        if (aVar == null || (aVar2 = this.f50406d) == null) {
+            return;
+        }
+        aVar2.h(str, aVar);
+    }
+
+    public void g(String str) {
+        this.f50403a.i(str);
+    }
+
+    public void h(String str) {
+        this.f50404b.i(str);
+    }
+
+    public boolean i(int i) {
+        return this.f50404b.e(i);
+    }
+
+    public Bitmap j(String str) {
+        if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.f52276e.get(i);
+        return this.f50405c.f(str);
     }
 
-    public void g(ArrayList<d.b.i0.a0.a> arrayList) {
-        this.f52276e = arrayList;
+    public d.b.c.j.d.a l(String str) {
+        return this.f50403a.f(str);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        ArrayList<d.b.i0.a0.a> arrayList = this.f52276e;
-        if (arrayList == null) {
-            return 0;
+    public d.b.c.j.d.a m(String str) {
+        return this.f50404b.f(str);
+    }
+
+    public int n() {
+        return this.f50404b.g();
+    }
+
+    public d.b.c.j.d.a o(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
         }
-        return arrayList.size();
+        return this.f50406d.f(str);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        C1132c c1132c;
-        d.b.i0.a0.a item = getItem(i);
-        if (view != null) {
-            c1132c = (C1132c) view.getTag();
-        } else {
-            view = LayoutInflater.from(this.f52277f.getPageActivity()).inflate(R.layout.records_item_layout, viewGroup, false);
-            c1132c = new C1132c();
-            c1132c.f52283a = (TextView) view.findViewById(R.id.order_id_textview);
-            c1132c.f52284b = (TbImageView) view.findViewById(R.id.order_status_textview);
-            c1132c.f52285c = (TextView) view.findViewById(R.id.order_title_textview);
-            c1132c.f52286d = (TextView) view.findViewById(R.id.order_price_textview);
-            c1132c.f52289g = (TextView) view.findViewById(R.id.order_id_tip);
-            c1132c.f52288f = (TextView) view.findViewById(R.id.order_account_textview);
-            c1132c.f52287e = (TextView) view.findViewById(R.id.order_time_textview);
-            c1132c.f52290h = view.findViewById(R.id.order_activity_content);
-            c1132c.i = (TextView) view.findViewById(R.id.activity_desc_textview);
-            c1132c.j = (TextView) view.findViewById(R.id.activity_button_textview);
-            view.setTag(c1132c);
+    public d.b.c.e.k.b<d.b.i0.b1.i.a.a> p(int i) {
+        d.b.i0.b1.i.c.b bVar;
+        if (this.f50407e != null && (bVar = this.f50408f) != null) {
+            if (bVar.g() == i) {
+                return this.f50407e;
+            }
+            this.f50408f.j(i);
+            this.f50407e.c();
         }
-        e(c1132c, item);
-        this.f52277f.getLayoutMode().j(view);
-        return view;
+        if (this.f50408f == null) {
+            this.f50408f = new d.b.i0.b1.i.c.b(i);
+        }
+        if (this.f50407e == null) {
+            this.f50407e = new d.b.c.e.k.b<>(this.f50408f, 6, 0);
+        }
+        return this.f50407e;
+    }
+
+    public void q(int i, int i2) {
+        t(i);
+        u(i2);
+        s(60);
+    }
+
+    public void r() {
+        d.b.c.e.k.b<d.b.i0.b1.i.a.a> bVar = this.f50407e;
+        if (bVar != null) {
+            bVar.g(0);
+            this.f50407e.f(0);
+            this.f50407e.c();
+            this.f50407e = null;
+        }
+    }
+
+    public void s(int i) {
+        this.f50405c.k(i);
+    }
+
+    public void t(int i) {
+        this.f50403a.k(i);
+    }
+
+    public String toString() {
+        return "pic:" + this.f50404b.toString() + "  photo:" + this.f50403a.toString();
+    }
+
+    public void u(int i) {
+        this.f50404b.k(i);
+    }
+
+    public String v() {
+        return this.f50404b.l() + "/" + this.f50404b.g() + "/" + this.f50404b.d() + "_" + this.f50403a.l() + "/" + this.f50403a.g() + "/" + this.f50403a.d();
     }
 }

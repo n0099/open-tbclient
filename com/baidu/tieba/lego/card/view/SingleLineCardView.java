@@ -17,11 +17,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.SingleLineCard;
 import com.baidu.tieba.lego.view.MoreButton;
 import d.b.c.e.p.l;
-import d.b.i0.d3.v;
-import d.b.i0.j1.i;
-import d.b.i0.j1.o.f;
-import d.b.i0.j1.o.j.c;
-import d.b.i0.j1.o.k.b;
+import d.b.j0.d3.v;
+import d.b.j0.j1.i;
+import d.b.j0.j1.o.f;
+import d.b.j0.j1.o.j.c;
+import d.b.j0.j1.o.k.b;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class SingleLineCardView extends BaseCardView<SingleLineCard> {
@@ -37,16 +37,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f18368e;
+        public final /* synthetic */ SingleLineCard f18376e;
 
         public a(SingleLineCard singleLineCard) {
-            this.f18368e = singleLineCard;
+            this.f18376e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.e(this.f18368e).a(TiebaStatic.Params.OBJ_URL, this.f18368e.getScheme()).c("obj_locate", SingleLineCardView.this.getStatPosition()).b(this.f18368e);
-            v.c(SingleLineCardView.this.m, this.f18368e.getScheme());
+            i.e(this.f18376e).a(TiebaStatic.Params.OBJ_URL, this.f18376e.getScheme()).c("obj_locate", SingleLineCardView.this.getStatPosition()).b(this.f18376e);
+            v.c(SingleLineCardView.this.m, this.f18376e.getScheme());
         }
     }
 
@@ -128,7 +128,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: L */
     public void y(SingleLineCard singleLineCard, int i) {
-        d.b.h0.s0.a.a(this.m, getRootView());
+        d.b.i0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundColor(this.s, R.color.CAM_X0308);
         if (singleLineCard != null) {
             setBgColor(singleLineCard);

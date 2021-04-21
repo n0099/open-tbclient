@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f40469a;
+    public static volatile b f40564a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f76a;
@@ -35,25 +35,25 @@ public class b {
         public String f81a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40471b;
+        public String f40566b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40472c;
+        public String f40567c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40473d;
+        public String f40568d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f40474e;
+        public String f40569e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f40475f;
+        public String f40570f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f40476g;
+        public String f40571g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f40477h;
+        public String f40572h;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f82a = true;
@@ -62,7 +62,7 @@ public class b {
         public boolean f83b = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40470a = 1;
+        public int f40565a = 1;
 
         public a(Context context) {
             this.f80a = context;
@@ -73,15 +73,15 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 a aVar = new a(context);
                 aVar.f81a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                aVar.f40471b = jSONObject.getString("appToken");
-                aVar.f40472c = jSONObject.getString("regId");
-                aVar.f40473d = jSONObject.getString("regSec");
-                aVar.f40475f = jSONObject.getString("devId");
-                aVar.f40474e = jSONObject.getString("vName");
+                aVar.f40566b = jSONObject.getString("appToken");
+                aVar.f40567c = jSONObject.getString("regId");
+                aVar.f40568d = jSONObject.getString("regSec");
+                aVar.f40570f = jSONObject.getString("devId");
+                aVar.f40569e = jSONObject.getString("vName");
                 aVar.f82a = jSONObject.getBoolean("valid");
                 aVar.f83b = jSONObject.getBoolean("paused");
-                aVar.f40470a = jSONObject.getInt("envType");
-                aVar.f40476g = jSONObject.getString("regResource");
+                aVar.f40565a = jSONObject.getInt("envType");
+                aVar.f40571g = jSONObject.getString("regResource");
                 return aVar;
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.a(th);
@@ -98,15 +98,15 @@ public class b {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f81a);
-                jSONObject.put("appToken", aVar.f40471b);
-                jSONObject.put("regId", aVar.f40472c);
-                jSONObject.put("regSec", aVar.f40473d);
-                jSONObject.put("devId", aVar.f40475f);
-                jSONObject.put("vName", aVar.f40474e);
+                jSONObject.put("appToken", aVar.f40566b);
+                jSONObject.put("regId", aVar.f40567c);
+                jSONObject.put("regSec", aVar.f40568d);
+                jSONObject.put("devId", aVar.f40570f);
+                jSONObject.put("vName", aVar.f40569e);
                 jSONObject.put("valid", aVar.f82a);
                 jSONObject.put("paused", aVar.f83b);
-                jSONObject.put("envType", aVar.f40470a);
-                jSONObject.put("regResource", aVar.f40476g);
+                jSONObject.put("envType", aVar.f40565a);
+                jSONObject.put("regResource", aVar.f40571g);
                 return jSONObject.toString();
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.a(th);
@@ -118,33 +118,33 @@ public class b {
         public void m109a() {
             b.a(this.f80a).edit().clear().commit();
             this.f81a = null;
-            this.f40471b = null;
-            this.f40472c = null;
-            this.f40473d = null;
-            this.f40475f = null;
-            this.f40474e = null;
+            this.f40566b = null;
+            this.f40567c = null;
+            this.f40568d = null;
+            this.f40570f = null;
+            this.f40569e = null;
             this.f82a = false;
             this.f83b = false;
-            this.f40477h = null;
-            this.f40470a = 1;
+            this.f40572h = null;
+            this.f40565a = 1;
         }
 
         public void a(int i) {
-            this.f40470a = i;
+            this.f40565a = i;
         }
 
         public void a(String str, String str2) {
-            this.f40472c = str;
-            this.f40473d = str2;
-            this.f40475f = com.xiaomi.push.i.l(this.f80a);
-            this.f40474e = a();
+            this.f40567c = str;
+            this.f40568d = str2;
+            this.f40570f = com.xiaomi.push.i.l(this.f80a);
+            this.f40569e = a();
             this.f82a = true;
         }
 
         public void a(String str, String str2, String str3) {
             this.f81a = str;
-            this.f40471b = str2;
-            this.f40476g = str3;
+            this.f40566b = str2;
+            this.f40571g = str3;
             SharedPreferences.Editor edit = b.a(this.f80a).edit();
             edit.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f81a);
             edit.putString("appToken", str2);
@@ -158,16 +158,16 @@ public class b {
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m110a() {
-            return m111a(this.f81a, this.f40471b);
+            return m111a(this.f81a, this.f40566b);
         }
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m111a(String str, String str2) {
             boolean equals = TextUtils.equals(this.f81a, str);
-            boolean equals2 = TextUtils.equals(this.f40471b, str2);
-            boolean z = !TextUtils.isEmpty(this.f40472c);
-            boolean z2 = !TextUtils.isEmpty(this.f40473d);
-            boolean z3 = TextUtils.equals(this.f40475f, com.xiaomi.push.i.l(this.f80a)) || TextUtils.equals(this.f40475f, com.xiaomi.push.i.k(this.f80a));
+            boolean equals2 = TextUtils.equals(this.f40566b, str2);
+            boolean z = !TextUtils.isEmpty(this.f40567c);
+            boolean z2 = !TextUtils.isEmpty(this.f40568d);
+            boolean z3 = TextUtils.equals(this.f40570f, com.xiaomi.push.i.l(this.f80a)) || TextUtils.equals(this.f40570f, com.xiaomi.push.i.k(this.f80a));
             boolean z4 = equals && equals2 && z && z2 && z3;
             if (!z4) {
                 com.xiaomi.channel.commonutils.logger.b.e(String.format("register invalid, aid=%s;atn=%s;rid=%s;rse=%s;did=%s", Boolean.valueOf(equals), Boolean.valueOf(equals2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)));
@@ -181,16 +181,16 @@ public class b {
         }
 
         public void b(String str, String str2, String str3) {
-            this.f40472c = str;
-            this.f40473d = str2;
-            this.f40475f = com.xiaomi.push.i.l(this.f80a);
-            this.f40474e = a();
+            this.f40567c = str;
+            this.f40568d = str2;
+            this.f40570f = com.xiaomi.push.i.l(this.f80a);
+            this.f40569e = a();
             this.f82a = true;
-            this.f40477h = str3;
+            this.f40572h = str3;
             SharedPreferences.Editor edit = b.a(this.f80a).edit();
             edit.putString("regId", str);
             edit.putString("regSec", str2);
-            edit.putString("devId", this.f40475f);
+            edit.putString("devId", this.f40570f);
             edit.putString("vName", a());
             edit.putBoolean("valid", true);
             edit.putString("appRegion", str3);
@@ -199,8 +199,8 @@ public class b {
 
         public void c(String str, String str2, String str3) {
             this.f81a = str;
-            this.f40471b = str2;
-            this.f40476g = str3;
+            this.f40566b = str2;
+            this.f40571g = str3;
         }
     }
 
@@ -215,14 +215,14 @@ public class b {
 
     /* renamed from: a  reason: collision with other method in class */
     public static b m96a(Context context) {
-        if (f40469a == null) {
+        if (f40564a == null) {
             synchronized (b.class) {
-                if (f40469a == null) {
-                    f40469a = new b(context);
+                if (f40564a == null) {
+                    f40564a = new b(context);
                 }
             }
         }
-        return f40469a;
+        return f40564a;
     }
 
     private void c() {
@@ -230,24 +230,24 @@ public class b {
         this.f79a = new HashMap();
         SharedPreferences a2 = a(this.f76a);
         this.f77a.f81a = a2.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, null);
-        this.f77a.f40471b = a2.getString("appToken", null);
-        this.f77a.f40472c = a2.getString("regId", null);
-        this.f77a.f40473d = a2.getString("regSec", null);
-        this.f77a.f40475f = a2.getString("devId", null);
-        if (!TextUtils.isEmpty(this.f77a.f40475f) && com.xiaomi.push.i.m423a(this.f77a.f40475f)) {
-            this.f77a.f40475f = com.xiaomi.push.i.l(this.f76a);
-            a2.edit().putString("devId", this.f77a.f40475f).commit();
+        this.f77a.f40566b = a2.getString("appToken", null);
+        this.f77a.f40567c = a2.getString("regId", null);
+        this.f77a.f40568d = a2.getString("regSec", null);
+        this.f77a.f40570f = a2.getString("devId", null);
+        if (!TextUtils.isEmpty(this.f77a.f40570f) && com.xiaomi.push.i.m423a(this.f77a.f40570f)) {
+            this.f77a.f40570f = com.xiaomi.push.i.l(this.f76a);
+            a2.edit().putString("devId", this.f77a.f40570f).commit();
         }
-        this.f77a.f40474e = a2.getString("vName", null);
+        this.f77a.f40569e = a2.getString("vName", null);
         this.f77a.f82a = a2.getBoolean("valid", true);
         this.f77a.f83b = a2.getBoolean("paused", false);
-        this.f77a.f40470a = a2.getInt("envType", 1);
-        this.f77a.f40476g = a2.getString("regResource", null);
-        this.f77a.f40477h = a2.getString("appRegion", null);
+        this.f77a.f40565a = a2.getInt("envType", 1);
+        this.f77a.f40571g = a2.getString("regResource", null);
+        this.f77a.f40572h = a2.getString("appRegion", null);
     }
 
     public int a() {
-        return this.f77a.f40470a;
+        return this.f77a.f40565a;
     }
 
     public a a(String str) {
@@ -284,7 +284,7 @@ public class b {
         SharedPreferences.Editor edit = a(this.f76a).edit();
         edit.putString("vName", str);
         edit.commit();
-        this.f77a.f40474e = str;
+        this.f77a.f40569e = str;
     }
 
     public void a(String str, a aVar) {
@@ -305,7 +305,7 @@ public class b {
     /* renamed from: a  reason: collision with other method in class */
     public boolean m100a() {
         Context context = this.f76a;
-        return !TextUtils.equals(com.xiaomi.push.g.m323a(context, context.getPackageName()), this.f77a.f40474e);
+        return !TextUtils.equals(com.xiaomi.push.g.m323a(context, context.getPackageName()), this.f77a.f40569e);
     }
 
     public boolean a(String str, String str2) {
@@ -315,11 +315,11 @@ public class b {
     /* renamed from: a  reason: collision with other method in class */
     public boolean m101a(String str, String str2, String str3) {
         a a2 = a(str3);
-        return a2 != null && TextUtils.equals(str, a2.f81a) && TextUtils.equals(str2, a2.f40471b);
+        return a2 != null && TextUtils.equals(str, a2.f81a) && TextUtils.equals(str2, a2.f40566b);
     }
 
     public String b() {
-        return this.f77a.f40471b;
+        return this.f77a.f40566b;
     }
 
     /* renamed from: b  reason: collision with other method in class */
@@ -347,7 +347,7 @@ public class b {
 
     /* renamed from: c  reason: collision with other method in class */
     public String m104c() {
-        return this.f77a.f40472c;
+        return this.f77a.f40567c;
     }
 
     /* renamed from: c  reason: collision with other method in class */
@@ -356,16 +356,16 @@ public class b {
     }
 
     public String d() {
-        return this.f77a.f40473d;
+        return this.f77a.f40568d;
     }
 
     /* renamed from: d  reason: collision with other method in class */
     public boolean m106d() {
-        return (TextUtils.isEmpty(this.f77a.f81a) || TextUtils.isEmpty(this.f77a.f40471b) || TextUtils.isEmpty(this.f77a.f40472c) || TextUtils.isEmpty(this.f77a.f40473d)) ? false : true;
+        return (TextUtils.isEmpty(this.f77a.f81a) || TextUtils.isEmpty(this.f77a.f40566b) || TextUtils.isEmpty(this.f77a.f40567c) || TextUtils.isEmpty(this.f77a.f40568d)) ? false : true;
     }
 
     public String e() {
-        return this.f77a.f40476g;
+        return this.f77a.f40571g;
     }
 
     /* renamed from: e  reason: collision with other method in class */
@@ -374,7 +374,7 @@ public class b {
     }
 
     public String f() {
-        return this.f77a.f40477h;
+        return this.f77a.f40572h;
     }
 
     /* renamed from: f  reason: collision with other method in class */

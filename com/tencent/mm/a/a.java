@@ -1,7 +1,7 @@
 package com.tencent.mm.a;
 
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static final String a(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

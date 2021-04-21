@@ -11,21 +11,21 @@ import java.nio.ByteBuffer;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f36115a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.AnimatedWebpBitmapDecoder.DisableBitmap", Boolean.FALSE);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f36210a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.AnimatedWebpBitmapDecoder.DisableBitmap", Boolean.FALSE);
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36116b;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f36211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f36117c;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f36212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.resource.d.b f36118d;
+    public final com.kwad.sdk.glide.load.resource.d.b f36213d;
 
     public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f36116b = bVar;
-        this.f36117c = eVar;
-        this.f36118d = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
+        this.f36211b = bVar;
+        this.f36212c = eVar;
+        this.f36213d = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar) {
@@ -41,24 +41,24 @@ public class a {
         byte[] bArr = new byte[remaining];
         byteBuffer.get(bArr, 0, remaining);
         WebpImage create = WebpImage.create(bArr);
-        i iVar = new i(this.f36118d, create, byteBuffer, h.a(create.getWidth(), create.getHeight(), i, i2));
+        i iVar = new i(this.f36213d, create, byteBuffer, h.a(create.getWidth(), create.getHeight(), i, i2));
         try {
             iVar.b();
-            return com.kwad.sdk.glide.load.resource.bitmap.d.a(iVar.h(), this.f36117c);
+            return com.kwad.sdk.glide.load.resource.bitmap.d.a(iVar.h(), this.f36212c);
         } finally {
             iVar.i();
         }
     }
 
     public boolean a(InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f36115a)).booleanValue()) {
+        if (((Boolean) eVar.a(f36210a)).booleanValue()) {
             return false;
         }
-        return WebpHeaderParser.c(WebpHeaderParser.a(inputStream, this.f36116b));
+        return WebpHeaderParser.c(WebpHeaderParser.a(inputStream, this.f36211b));
     }
 
     public boolean a(ByteBuffer byteBuffer, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f36115a)).booleanValue()) {
+        if (((Boolean) eVar.a(f36210a)).booleanValue()) {
             return false;
         }
         return WebpHeaderParser.c(WebpHeaderParser.a(byteBuffer));

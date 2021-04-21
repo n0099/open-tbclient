@@ -9,14 +9,14 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class MMessageActV2 {
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
     public static final String MM_ENTRY_PACKAGE_NAME = "com.tencent.mm";
     public static final String MM_MSG_ENTRY_CLASS_NAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static class Args {
         public static final int INVALID_FLAGS = -1;
         public Bundle bundle;

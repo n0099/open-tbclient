@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
 import d.b.c.e.d.l;
-import d.b.h0.r.r.a;
-import d.b.i0.f2.c;
-import d.b.i0.f2.g;
-import d.b.i0.w0.b;
+import d.b.i0.r.r.a;
+import d.b.j0.f2.c;
+import d.b.j0.f2.g;
+import d.b.j0.w0.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
@@ -72,12 +72,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         super(303012);
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public Anti GetAntiStat() {
         return this.anti_stat;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public List<PostInfoList> GetPostList() {
         return this.post_list;
     }
@@ -86,7 +86,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.tainfo;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public User GetUser() {
         return this.user;
     }
@@ -95,22 +95,22 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.banner;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public TbBookrack getBookrackData() {
         return this.bookrack;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public List<ForumDynamic> getConcernedForumList() {
         return this.concernedForumList;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public List<DynamicInfo> getDynamicInfoList() {
         return this.dynamicInfoList;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public int getErrorCode() {
         return getError();
     }
@@ -123,7 +123,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.feedBack;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public b getGoodsWindowInfo() {
         return this.mLiveGoodsWindowData;
     }
@@ -132,22 +132,22 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.highlist;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public HotUserRankEntry getHotRankEntry() {
         return this.hotUserRankEntry;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public AlaLiveInfoCoreData getLiveInfo() {
         return this.liveInfoData;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         return this.liveReplayData;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public int getMaskType() {
         return this.maskType;
     }
@@ -156,12 +156,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.moduleInfo;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public List<ThreadInfo> getNewestThreadList() {
         return this.newest_dynamic_list;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public NicknameInfo getNicknameInfo() {
         return this.nicknameInfo;
     }
@@ -174,7 +174,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.recomSwanList;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public TAInfo getTaInfo() {
         return this.tainfo;
     }
@@ -183,7 +183,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.ucCardData;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public UserAgreeInfo getUserAgreeInfo() {
         return this.userAgreeInfo;
     }
@@ -192,7 +192,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.userManChannelInfo;
     }
 
-    @Override // d.b.i0.f2.c
+    @Override // d.b.j0.f2.c
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
     }
@@ -235,14 +235,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         if (this.ucCardData == null || (h2 = a.f().h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) == null || !this.isSelf) {
             return;
         }
-        List<g.a> list = this.ucCardData.f55978a;
+        List<g.a> list = this.ucCardData.f56399a;
         if (ListUtils.getCount(list) > 4) {
-            list.get(4).f55980b = 8L;
+            list.get(4).f56401b = 8L;
             for (g.a aVar : list) {
-                if (aVar.f55980b > d.b.c.e.m.b.f(h2.get(aVar.f55979a), 0L)) {
-                    aVar.f55981c = true;
+                if (aVar.f56401b > d.b.c.e.m.b.f(h2.get(aVar.f56400a), 0L)) {
+                    aVar.f56402c = true;
                 } else {
-                    aVar.f55981c = false;
+                    aVar.f56402c = false;
                 }
             }
         }
@@ -267,7 +267,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         if (getError() != 0) {
             return;
         }
-        d.b.i0.f2.b personCenterData = profileRequestMessage.getPersonCenterData();
+        d.b.j0.f2.b personCenterData = profileRequestMessage.getPersonCenterData();
         if (personCenterData != null) {
             personCenterData.b(profileResIdl);
         }

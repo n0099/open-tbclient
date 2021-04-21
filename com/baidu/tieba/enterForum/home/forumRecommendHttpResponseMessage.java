@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
-import d.b.h0.r.r.a;
+import d.b.i0.r.r.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ForumCreateInfo;

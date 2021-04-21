@@ -12,10 +12,10 @@ import java.util.Timer;
 public final class av extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f22755a;
+    public final /* synthetic */ FeedbackFacePageActivity f22763a;
 
     public av(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f22755a = feedbackFacePageActivity;
+        this.f22763a = feedbackFacePageActivity;
     }
 
     public /* synthetic */ av(FeedbackFacePageActivity feedbackFacePageActivity, byte b2) {
@@ -26,7 +26,7 @@ public final class av extends WebViewClient {
     public final void onLoadResource(WebView webView, String str) {
         WebView webView2;
         StringBuilder sb = new StringBuilder("UfoWebViewClient --> onLoadResource : ");
-        webView2 = this.f22755a.o;
+        webView2 = this.f22763a.o;
         sb.append(webView2.getProgress());
         com.baidu.ufosdk.f.c.c(sb.toString());
         super.onLoadResource(webView, str);
@@ -39,13 +39,13 @@ public final class av extends WebViewClient {
         Timer timer2;
         Timer timer3;
         super.onPageFinished(webView, str);
-        view = this.f22755a.n;
+        view = this.f22763a.n;
         view.setVisibility(8);
-        timer = this.f22755a.p;
+        timer = this.f22763a.p;
         if (timer != null) {
-            timer2 = this.f22755a.p;
+            timer2 = this.f22763a.p;
             timer2.cancel();
-            timer3 = this.f22755a.p;
+            timer3 = this.f22763a.p;
             timer3.purge();
         }
     }
@@ -56,11 +56,11 @@ public final class av extends WebViewClient {
         Timer timer;
         com.baidu.ufosdk.f.c.c("UfoWebViewClient --> onPageStarted");
         super.onPageStarted(webView, str, bitmap);
-        view = this.f22755a.n;
+        view = this.f22763a.n;
         view.setVisibility(0);
-        this.f22755a.p = new Timer();
+        this.f22763a.p = new Timer();
         aw awVar = new aw(this);
-        timer = this.f22755a.p;
+        timer = this.f22763a.p;
         timer.schedule(awVar, 20000L);
     }
 
@@ -72,14 +72,14 @@ public final class av extends WebViewClient {
         View view;
         com.baidu.ufosdk.f.c.c("onReceivedError --> errorCode:" + i + ",description:" + str + ",failingUrl:" + str2);
         super.onReceivedError(webView, i, str, str2);
-        Context applicationContext = this.f22755a.getApplicationContext();
-        textView = this.f22755a.q;
+        Context applicationContext = this.f22763a.getApplicationContext();
+        textView = this.f22763a.q;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout = this.f22755a.f22688g;
+        linearLayout = this.f22763a.f22696g;
         linearLayout.setVisibility(0);
-        webView2 = this.f22755a.o;
+        webView2 = this.f22763a.o;
         webView2.setVisibility(8);
-        view = this.f22755a.n;
+        view = this.f22763a.n;
         view.setVisibility(8);
     }
 

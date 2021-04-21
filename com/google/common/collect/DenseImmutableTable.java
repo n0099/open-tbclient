@@ -2,8 +2,8 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableTable;
-import d.g.c.c.c1;
-import d.g.c.c.y0;
+import d.h.c.c.c1;
+import d.h.c.c.y0;
 import java.lang.reflect.Array;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -74,29 +74,29 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         public class a extends AbstractIterator<Map.Entry<K, V>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public int f30752g = -1;
+            public int f30847g = -1;
 
             /* renamed from: h  reason: collision with root package name */
-            public final int f30753h;
+            public final int f30848h;
 
             public a() {
-                this.f30753h = ImmutableArrayMap.this.keyToIndex().size();
+                this.f30848h = ImmutableArrayMap.this.keyToIndex().size();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<K, V> a() {
-                int i = this.f30752g;
+                int i = this.f30847g;
                 while (true) {
-                    this.f30752g = i + 1;
-                    int i2 = this.f30752g;
-                    if (i2 < this.f30753h) {
+                    this.f30847g = i + 1;
+                    int i2 = this.f30847g;
+                    if (i2 < this.f30848h) {
                         Object value = ImmutableArrayMap.this.getValue(i2);
                         if (value != null) {
-                            return Maps.j(ImmutableArrayMap.this.getKey(this.f30752g), value);
+                            return Maps.j(ImmutableArrayMap.this.getKey(this.f30847g), value);
                         }
-                        i = this.f30752g;
+                        i = this.f30847g;
                     } else {
                         return b();
                     }
@@ -227,7 +227,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         return ImmutableTable.SerializedForm.create(this, this.cellRowIndices, this.cellColumnIndices);
     }
 
-    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.i, d.g.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.i, d.h.c.c.y0
     public V get(Object obj, Object obj2) {
         Integer num = this.rowKeyToIndex.get(obj);
         Integer num2 = this.columnKeyToIndex.get(obj2);
@@ -249,19 +249,19 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         return this.values[this.cellRowIndices[i]][this.cellColumnIndices[i]];
     }
 
-    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.g.c.c.y0
+    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.h.c.c.y0
     public int size() {
         return this.cellRowIndices.length;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
     public ImmutableMap<C, Map<R, V>> columnMap() {
         return ImmutableMap.copyOf((Map) this.columnMap);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
     public ImmutableMap<R, Map<C, V>> rowMap() {
         return ImmutableMap.copyOf((Map) this.rowMap);
     }

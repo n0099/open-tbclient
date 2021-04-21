@@ -47,12 +47,12 @@ import com.baidu.tieba.pushdialog.PushDialogActivity;
 import d.b.c.e.p.k;
 import d.b.c.j.e.n;
 import d.b.c.j.g;
-import d.b.h0.b1.m.e;
-import d.b.h0.r.q.b1;
-import d.b.h0.r.q.w1;
-import d.b.h0.t.g;
-import d.b.i0.d3.h0.i;
-import d.b.i0.d3.h0.l;
+import d.b.i0.b1.m.e;
+import d.b.i0.r.q.b1;
+import d.b.i0.r.q.w1;
+import d.b.i0.t.g;
+import d.b.j0.d3.h0.i;
+import d.b.j0.d3.h0.l;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,7 +82,7 @@ public class PostData implements PreLoadImageProvider, n {
     public i B;
     public w1 C;
     public boolean D;
-    public d.b.h0.b1.m.i F;
+    public d.b.i0.b1.m.i F;
     public TbRichTextVoiceInfo G;
     public String I;
     public SkinInfo J;
@@ -98,23 +98,23 @@ public class PostData implements PreLoadImageProvider, n {
     public List<HeadItem> f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21021g;
+    public long f21029g;
     public Item g0;
     public List<PbContent> i0;
     @Deprecated
     public String k;
     public Item k0;
     public int l0;
-    public d.b.h0.t.a m0;
+    public d.b.i0.t.a m0;
     public ArrayList<PostData> o;
     public SmallTailInfo t;
     public String w;
     public HashMap<String, MetaData> x;
-    public d.b.h0.t.c y;
+    public d.b.i0.t.c y;
     public g z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21019e = 0;
+    public int f21027e = 0;
     public boolean p = false;
     public ArrayList<PostData> q = null;
     public TbRichText r = null;
@@ -136,10 +136,10 @@ public class PostData implements PreLoadImageProvider, n {
     public d n0 = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21020f = null;
+    public String f21028f = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21022h = 0;
+    public int f21030h = 0;
     public long i = 0;
     public MetaData j = new MetaData();
     public ArrayList<l> l = new ArrayList<>();
@@ -147,8 +147,8 @@ public class PostData implements PreLoadImageProvider, n {
     public int n = 0;
     public PraiseData s = new PraiseData();
     public b1 u = new b1();
-    public d.b.i0.d3.h0.c v = new d.b.i0.d3.h0.c();
-    public ArrayList<d.b.h0.t.c> H = new ArrayList<>();
+    public d.b.j0.d3.h0.c v = new d.b.j0.d3.h0.c();
+    public ArrayList<d.b.i0.t.c> H = new ArrayList<>();
     public AgreeData L = new AgreeData();
 
     /* loaded from: classes5.dex */
@@ -182,19 +182,19 @@ public class PostData implements PreLoadImageProvider, n {
     public class b implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IconData f21024a;
+        public final /* synthetic */ IconData f21032a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdUniqueId f21025b;
+        public final /* synthetic */ BdUniqueId f21033b;
 
         /* loaded from: classes5.dex */
         public class a extends d.b.c.e.l.c<d.b.c.j.d.a> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.b.c.j.g f21027a;
+            public final /* synthetic */ d.b.c.j.g f21035a;
 
             public a(d.b.c.j.g gVar) {
-                this.f21027a = gVar;
+                this.f21035a = gVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -204,22 +204,22 @@ public class PostData implements PreLoadImageProvider, n {
                 if (aVar == null || !aVar.w()) {
                     return;
                 }
-                this.f21027a.a(PostData.this.k(aVar));
+                this.f21035a.a(PostData.this.k(aVar));
                 PostData.this.r.isChanged = true;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004005));
             }
         }
 
         public b(IconData iconData, BdUniqueId bdUniqueId) {
-            this.f21024a = iconData;
-            this.f21025b = bdUniqueId;
+            this.f21032a = iconData;
+            this.f21033b = bdUniqueId;
         }
 
         @Override // d.b.c.j.g.a
         public Drawable a(d.b.c.j.g gVar) {
-            d.b.c.j.d.a aVar = (d.b.c.j.d.a) d.b.c.e.l.d.h().n(this.f21024a.getIcon(), 21, new Object[0]);
+            d.b.c.j.d.a aVar = (d.b.c.j.d.a) d.b.c.e.l.d.h().n(this.f21032a.getIcon(), 21, new Object[0]);
             if (aVar == null) {
-                d.b.c.e.l.d.h().m(this.f21024a.getIcon(), 21, new a(gVar), this.f21025b);
+                d.b.c.e.l.d.h().m(this.f21032a.getIcon(), 21, new a(gVar), this.f21033b);
             }
             return PostData.this.k(aVar);
         }
@@ -229,48 +229,48 @@ public class PostData implements PreLoadImageProvider, n {
     public static class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f21029e;
+        public String f21037e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f21030f;
+        public String f21038f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SoftReference<Context> f21031g;
+        public SoftReference<Context> f21039g;
 
         /* renamed from: h  reason: collision with root package name */
-        public d f21032h;
+        public d f21040h;
 
         public c(Context context, String str, String str2, d dVar) {
-            this.f21029e = null;
-            this.f21030f = null;
-            this.f21029e = str;
-            this.f21030f = str2;
-            this.f21031g = new SoftReference<>(context);
-            this.f21032h = dVar;
+            this.f21037e = null;
+            this.f21038f = null;
+            this.f21037e = str;
+            this.f21038f = str2;
+            this.f21039g = new SoftReference<>(context);
+            this.f21040h = dVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             SoftReference<Context> softReference;
-            if (this.f21029e == null || this.f21030f == null || (softReference = this.f21031g) == null || softReference.get() == null) {
+            if (this.f21037e == null || this.f21038f == null || (softReference = this.f21039g) == null || softReference.get() == null) {
                 return;
             }
-            d dVar = this.f21032h;
+            d dVar = this.f21040h;
             if (dVar != null) {
                 dVar.onClick();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21031g.get(), this.f21030f, this.f21029e, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21039g.get(), this.f21038f, this.f21037e, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            if (d.b.h0.b.d.y()) {
+            if (d.b.i0.b.d.y()) {
                 textPaint.setColor(SkinManager.getColor(R.color.CAM_X0318));
             } else {
                 textPaint.setColor(SkinManager.getColor(R.color.CAM_X0108));
             }
             textPaint.setUnderlineText(false);
-            textPaint.setFakeBoldText(!d.b.h0.b.d.y());
+            textPaint.setFakeBoldText(!d.b.i0.b.d.y());
         }
     }
 
@@ -294,7 +294,7 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public int A() {
-        return this.f21022h;
+        return this.f21030h;
     }
 
     public void A0(Context context) {
@@ -350,7 +350,7 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public String E() {
-        return this.f21020f;
+        return this.f21028f;
     }
 
     public Item F() {
@@ -365,7 +365,7 @@ public class PostData implements PreLoadImageProvider, n {
         return this.K;
     }
 
-    public d.b.h0.t.g I() {
+    public d.b.i0.t.g I() {
         return this.z;
     }
 
@@ -421,7 +421,7 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public long Q() {
-        return this.f21021g;
+        return this.f21029g;
     }
 
     public long R() {
@@ -436,8 +436,8 @@ public class PostData implements PreLoadImageProvider, n {
         return this.I;
     }
 
-    public d.b.h0.b1.m.i U() {
-        d.b.h0.b1.m.i iVar = this.F;
+    public d.b.i0.b1.m.i U() {
+        d.b.i0.b1.m.i iVar = this.F;
         if (iVar != null) {
             return iVar;
         }
@@ -449,7 +449,7 @@ public class PostData implements PreLoadImageProvider, n {
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null && next.getType() == 32) {
-                d.b.h0.b1.m.i D = next.D();
+                d.b.i0.b1.m.i D = next.D();
                 this.F = D;
                 return D;
             }
@@ -505,10 +505,10 @@ public class PostData implements PreLoadImageProvider, n {
             return;
         }
         try {
-            this.f21020f = String.valueOf(post.id);
-            this.f21021g = post.tid.longValue();
+            this.f21028f = String.valueOf(post.id);
+            this.f21029g = post.tid.longValue();
             String str = post.title;
-            this.f21022h = post.floor.intValue();
+            this.f21030h = post.floor.intValue();
             long intValue = post.time.intValue() * 1000;
             this.i = intValue;
             StringHelper.getFormatTime(intValue);
@@ -541,19 +541,19 @@ public class PostData implements PreLoadImageProvider, n {
             if (post.item != null && post.item.item_id.longValue() != 0) {
                 this.g0 = post.item;
             }
-            if (this.g0 == null && post.outer_item != null && post.outer_item.item_id.longValue() > 0 && d.b.h0.b.d.A()) {
+            if (this.g0 == null && post.outer_item != null && post.outer_item.item_id.longValue() > 0 && d.b.i0.b.d.A()) {
                 this.k0 = post.outer_item;
             }
             TbRichText T = TbRichTextView.T(context, list, String.valueOf(post.tid), true);
             this.r = T;
             if (T != null) {
-                T.A(d.b.c.e.m.b.f(this.f21020f, -1L));
-                this.r.z(this.f21022h);
+                T.A(d.b.c.e.m.b.f(this.f21028f, -1L));
+                this.r.z(this.f21030h);
                 if (this.j != null) {
                     this.r.setAuthorId(this.j.getUserId());
                 }
                 int count = ListUtils.getCount(this.f0);
-                if (this.f21022h == 1 && count != 0 && this.f0 != null) {
+                if (this.f21030h == 1 && count != 0 && this.f0 != null) {
                     ArrayList<TbRichTextData> u = this.r.u();
                     if (count == 1) {
                         TbRichTextData tbRichTextData = (TbRichTextData) ListUtils.getItem(u, 0);
@@ -579,7 +579,7 @@ public class PostData implements PreLoadImageProvider, n {
                         }
                     }
                 }
-                if (this.f21022h == 1 && this.g0 != null) {
+                if (this.f21030h == 1 && this.g0 != null) {
                     TbRichTextData tbRichTextData2 = new TbRichTextData(1281);
                     tbRichTextData2.H(new TbRichTextEvaluateItemInfo(this.g0));
                     ListUtils.add(this.r.u(), tbRichTextData2);
@@ -607,12 +607,12 @@ public class PostData implements PreLoadImageProvider, n {
             }
             this.w = post.bimg_url;
             if (post.tail_info != null) {
-                d.b.h0.t.c cVar = new d.b.h0.t.c();
+                d.b.i0.t.c cVar = new d.b.i0.t.c();
                 this.y = cVar;
                 cVar.b(post.tail_info);
             }
             if (post.lbs_info != null) {
-                d.b.h0.t.g gVar = new d.b.h0.t.g();
+                d.b.i0.t.g gVar = new d.b.i0.t.g();
                 this.z = gVar;
                 gVar.c(post.lbs_info);
             }
@@ -638,7 +638,7 @@ public class PostData implements PreLoadImageProvider, n {
             }
             if (post.ext_tails != null) {
                 for (int i3 = 0; i3 != post.ext_tails.size(); i3++) {
-                    d.b.h0.t.c cVar2 = new d.b.h0.t.c();
+                    d.b.i0.t.c cVar2 = new d.b.i0.t.c();
                     cVar2.b(post.ext_tails.get(i3));
                     this.H.add(cVar2);
                 }
@@ -647,7 +647,7 @@ public class PostData implements PreLoadImageProvider, n {
             this.K = post.lego_card;
             TPointPost tPointPost = post.tpoint_post;
             if (post.agree != null) {
-                this.L.postId = this.f21020f;
+                this.L.postId = this.f21028f;
                 this.L.parseProtobuf(post.agree);
             }
             this.S = post.is_post_visible.intValue() == 1;
@@ -661,7 +661,7 @@ public class PostData implements PreLoadImageProvider, n {
             this.W = post.is_fold.intValue();
             this.X = post.fold_tip;
             if (post.advertisement != null) {
-                d.b.h0.t.a aVar = new d.b.h0.t.a();
+                d.b.i0.t.a aVar = new d.b.i0.t.a();
                 this.m0 = aVar;
                 aVar.h(post.advertisement);
             }
@@ -680,15 +680,15 @@ public class PostData implements PreLoadImageProvider, n {
             return;
         }
         try {
-            this.f21020f = String.valueOf(subPostList.id);
+            this.f21028f = String.valueOf(subPostList.id);
             String str = subPostList.title;
-            this.f21022h = subPostList.floor.intValue();
+            this.f21030h = subPostList.floor.intValue();
             long intValue = subPostList.time.intValue() * 1000;
             this.i = intValue;
             StringHelper.getFormatTime(intValue);
             this.k = String.valueOf(subPostList.author_id);
             subPostList.is_giftpost.intValue();
-            this.L.postId = this.f21020f;
+            this.L.postId = this.f21028f;
             this.L.parseProtobuf(subPostList.agree);
             MetaData metaData2 = new MetaData();
             metaData2.parserProtobuf(subPostList.author);
@@ -701,7 +701,7 @@ public class PostData implements PreLoadImageProvider, n {
             TbRichText U = TbRichTextView.U(context, subPostList.content, z);
             this.r = U;
             if (U != null) {
-                U.A(d.b.c.e.m.b.f(this.f21020f, -1L));
+                U.A(d.b.c.e.m.b.f(this.f21028f, -1L));
             }
             this.l0 = subPostList.is_author_view.intValue();
         } catch (Exception e2) {
@@ -741,7 +741,7 @@ public class PostData implements PreLoadImageProvider, n {
         g();
     }
 
-    public void f0(d.b.h0.t.a aVar) {
+    public void f0(d.b.i0.t.a aVar) {
         this.m0 = aVar;
     }
 
@@ -805,7 +805,7 @@ public class PostData implements PreLoadImageProvider, n {
 
     @Override // d.b.c.j.e.n
     public BdUniqueId getType() {
-        int i = this.f21019e;
+        int i = this.f21027e;
         if (i == 52) {
             return u0;
         }
@@ -880,10 +880,10 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public void i0(int i) {
-        this.f21022h = i;
+        this.f21030h = i;
     }
 
-    public final d.b.h0.r.f0.b j(boolean z, boolean z2, String str) {
+    public final d.b.i0.r.f0.b j(boolean z, boolean z2, String str) {
         if (z || z2) {
             Context context = TbadkCoreApplication.getInst().getContext();
             int g2 = d.b.c.e.p.l.g(context, R.dimen.L_X01);
@@ -893,13 +893,13 @@ public class PostData implements PreLoadImageProvider, n {
             int g6 = d.b.c.e.p.l.g(context, R.dimen.tbds40);
             if (" 楼主".equals(str)) {
                 int i = R.color.CAM_X0302;
-                d.b.h0.r.f0.b bVar = new d.b.h0.r.f0.b(g2, -1, i, g4, i, g5, g6);
+                d.b.i0.r.f0.b bVar = new d.b.i0.r.f0.b(g2, -1, i, g4, i, g5, g6);
                 bVar.b(g3);
                 bVar.f(false);
                 bVar.e(str);
                 return bVar;
             } else if (" 吧主".equals(str) || " 小吧主".equals(str) || " 品牌官".equals(str)) {
-                d.b.h0.r.f0.b bVar2 = new d.b.h0.r.f0.b(g2, -1, R.color.CAM_X0302, g4, R.color.CAM_X0101, g5, g6);
+                d.b.i0.r.f0.b bVar2 = new d.b.i0.r.f0.b(g2, -1, R.color.CAM_X0302, g4, R.color.CAM_X0101, g5, g6);
                 bVar2.b(g3);
                 bVar2.a(0.7f);
                 bVar2.f(true);
@@ -951,7 +951,7 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public void l0(String str) {
-        this.f21020f = str;
+        this.f21028f = str;
     }
 
     public void m0(boolean z) {
@@ -1017,7 +1017,7 @@ public class PostData implements PreLoadImageProvider, n {
         this.p = z;
     }
 
-    public d.b.h0.t.a q() {
+    public d.b.i0.t.a q() {
         return this.m0;
     }
 
@@ -1030,7 +1030,7 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public void r0(int i) {
-        this.f21019e = i;
+        this.f21027e = i;
     }
 
     public int s() {
@@ -1114,7 +1114,7 @@ public class PostData implements PreLoadImageProvider, n {
     }
 
     public String z() {
-        d.b.i0.d3.h0.k a2;
+        d.b.j0.d3.h0.k a2;
         PreLoadImageInfo y = y();
         if (y != null && !StringUtils.isNull(y.imgUrl)) {
             return y.imgUrl;
@@ -1201,7 +1201,7 @@ public class PostData implements PreLoadImageProvider, n {
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            d.b.h0.r.f0.i iVar = new d.b.h0.r.f0.i(bitmapDrawable);
+            d.b.i0.r.f0.i iVar = new d.b.i0.r.f0.i(bitmapDrawable);
             iVar.b(d.b.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds2));
             int size = arrayList.size() + this.j.getSealPrefix().length() + 1;
             spannableString.setSpan(iVar, size, size + 1, 17);
@@ -1209,7 +1209,7 @@ public class PostData implements PreLoadImageProvider, n {
         spannableString.setSpan(new c(tbPageContext.getPageActivity(), str2, str3, this.n0), 0, spannableString.length(), 18);
         if (!StringUtils.isNull(str) && (z || ((metaData = this.j) != null && metaData.getIs_bawu() == 1))) {
             MetaData metaData3 = this.j;
-            d.b.h0.r.f0.b j = j(z, metaData3 != null && metaData3.getIs_bawu() == 1, str);
+            d.b.i0.r.f0.b j = j(z, metaData3 != null && metaData3.getIs_bawu() == 1, str);
             if (j != null) {
                 MetaData metaData4 = this.j;
                 if (metaData4 != null) {

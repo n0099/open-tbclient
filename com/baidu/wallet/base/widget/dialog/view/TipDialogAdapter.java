@@ -10,7 +10,7 @@ import com.baidu.wallet.base.widget.dialog.model.TipDialogModel;
 public class TipDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TipDialogModel f23756a;
+    public TipDialogModel f23764a;
 
     /* loaded from: classes5.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -23,13 +23,13 @@ public class TipDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     }
 
     public TipDialogAdapter(TipDialogModel tipDialogModel) {
-        this.f23756a = tipDialogModel;
+        this.f23764a = tipDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.wallet.base.widget.dialog.WalletDialog.Adapter
     public void onBindViewHolder(BaseHolder baseHolder) {
-        baseHolder.binding.setViewModel(this.f23756a);
+        baseHolder.binding.setViewModel(this.f23764a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -21,25 +21,25 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.z0.i0;
+import d.b.i0.z0.i0;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class WriteVoteViewAdapter extends RecyclerView.Adapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f22295a;
+    public TbPageContext f22303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WriteVoteItemData> f22296b;
+    public List<WriteVoteItemData> f22304b;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f22298d;
+    public f f22306d;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22297c = false;
+    public boolean f22305c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView.OnEditorActionListener f22299e = new a(this);
+    public TextView.OnEditorActionListener f22307e = new a(this);
 
     /* loaded from: classes5.dex */
     public class a implements TextView.OnEditorActionListener {
@@ -61,16 +61,16 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f22300e;
+        public final /* synthetic */ int f22308e;
 
         public b(int i) {
-            this.f22300e = i;
+            this.f22308e = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (WriteVoteViewAdapter.this.f22298d != null) {
-                WriteVoteViewAdapter.this.f22298d.a(this.f22300e);
+            if (WriteVoteViewAdapter.this.f22306d != null) {
+                WriteVoteViewAdapter.this.f22306d.a(this.f22308e);
             }
         }
     }
@@ -82,9 +82,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (WriteVoteViewAdapter.this.f22298d != null) {
-                WriteVoteViewAdapter.this.f22298d.b();
-                WriteVoteViewAdapter.this.f22297c = true;
+            if (WriteVoteViewAdapter.this.f22306d != null) {
+                WriteVoteViewAdapter.this.f22306d.b();
+                WriteVoteViewAdapter.this.f22305c = true;
             }
         }
     }
@@ -93,19 +93,19 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public class d extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22303a;
+        public TextView f22311a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f22304b;
+        public ImageView f22312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public RelativeLayout f22305c;
+        public RelativeLayout f22313c;
 
         public d(WriteVoteViewAdapter writeVoteViewAdapter, View view) {
             super(view);
-            this.f22303a = (TextView) view.findViewById(R.id.vote_add_item);
-            this.f22304b = (ImageView) view.findViewById(R.id.vote_add_item_icon);
-            this.f22305c = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
+            this.f22311a = (TextView) view.findViewById(R.id.vote_add_item);
+            this.f22312b = (ImageView) view.findViewById(R.id.vote_add_item_icon);
+            this.f22313c = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
         }
     }
 
@@ -113,13 +113,13 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public class e extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EditText f22306a;
+        public EditText f22314a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f22307b;
+        public ImageView f22315b;
 
         /* renamed from: c  reason: collision with root package name */
-        public g f22308c;
+        public g f22316c;
 
         /* loaded from: classes5.dex */
         public class a implements View.OnFocusChangeListener {
@@ -130,25 +130,25 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             public void onFocusChange(View view, boolean z) {
                 if (z) {
                     e eVar = e.this;
-                    eVar.f22306a.addTextChangedListener(eVar.f22308c);
+                    eVar.f22314a.addTextChangedListener(eVar.f22316c);
                     return;
                 }
                 e eVar2 = e.this;
-                eVar2.f22306a.removeTextChangedListener(eVar2.f22308c);
+                eVar2.f22314a.removeTextChangedListener(eVar2.f22316c);
             }
         }
 
         public e(WriteVoteViewAdapter writeVoteViewAdapter, View view) {
             super(view);
-            this.f22306a = (EditText) view.findViewById(R.id.vote_item);
-            this.f22307b = (ImageView) view.findViewById(R.id.img_delete);
-            this.f22308c = new g(this);
-            this.f22306a.setOnEditorActionListener(writeVoteViewAdapter.f22299e);
+            this.f22314a = (EditText) view.findViewById(R.id.vote_item);
+            this.f22315b = (ImageView) view.findViewById(R.id.img_delete);
+            this.f22316c = new g(this);
+            this.f22314a.setOnEditorActionListener(writeVoteViewAdapter.f22307e);
         }
 
         public void b(int i) {
-            this.f22308c.a(i);
-            this.f22306a.setOnFocusChangeListener(new a());
+            this.f22316c.a(i);
+            this.f22314a.setOnFocusChangeListener(new a());
         }
     }
 
@@ -165,17 +165,17 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public class g implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final e f22310e;
+        public final e f22318e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f22311f;
+        public int f22319f;
 
         public g(e eVar) {
-            this.f22310e = eVar;
+            this.f22318e = eVar;
         }
 
         public void a(int i) {
-            this.f22311f = i;
+            this.f22319f = i;
         }
 
         @Override // android.text.TextWatcher
@@ -189,17 +189,17 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             }
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
-            writeVoteItemData.setId(this.f22311f + 1);
+            writeVoteItemData.setId(this.f22319f + 1);
             if (i0.d(replace) > 28) {
-                WriteVoteViewAdapter.this.f22295a.showToast(String.format(WriteVoteViewAdapter.this.f22295a.getString(R.string.write_vote_toast), 14));
+                WriteVoteViewAdapter.this.f22303a.showToast(String.format(WriteVoteViewAdapter.this.f22303a.getString(R.string.write_vote_toast), 14));
             }
             String m = i0.m(replace, 28);
             if (!m.equals(editable.toString())) {
-                this.f22310e.f22306a.setText(m);
-                this.f22310e.f22306a.setSelection(m.length());
+                this.f22318e.f22314a.setText(m);
+                this.f22318e.f22314a.setSelection(m.length());
             }
             writeVoteItemData.setText(m);
-            WriteVoteViewAdapter.this.f22298d.c(writeVoteItemData, this.f22311f);
+            WriteVoteViewAdapter.this.f22306d.c(writeVoteItemData, this.f22319f);
         }
 
         @Override // android.text.TextWatcher
@@ -212,7 +212,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     }
 
     public WriteVoteViewAdapter(TbPageContext tbPageContext) {
-        this.f22295a = tbPageContext;
+        this.f22303a = tbPageContext;
     }
 
     public void f(RecyclerView.ViewHolder viewHolder) {
@@ -220,35 +220,35 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             return;
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(this.f22295a.getResources().getDimension(R.dimen.tbds10));
+        gradientDrawable.setCornerRadius(this.f22303a.getResources().getDimension(R.dimen.tbds10));
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
-        gradientDrawable.setStroke(l.g(this.f22295a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
+        gradientDrawable.setStroke(l.g(this.f22303a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
         if (viewHolder instanceof e) {
             e eVar = (e) viewHolder;
-            eVar.f22306a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            eVar.f22306a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            eVar.f22306a.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.f22307b, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
+            eVar.f22314a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            eVar.f22314a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            eVar.f22314a.setBackgroundDrawable(gradientDrawable);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.f22315b, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else if (viewHolder instanceof d) {
             d dVar = (d) viewHolder;
-            SkinManager.setViewTextColor(dVar.f22303a, R.color.CAM_X0302);
-            dVar.f22305c.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.f22304b, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(dVar.f22311a, R.color.CAM_X0302);
+            dVar.f22313c.setBackgroundDrawable(gradientDrawable);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.f22312b, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     public void g(f fVar) {
-        this.f22298d = fVar;
+        this.f22306d = fVar;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<WriteVoteItemData> list = this.f22296b;
+        List<WriteVoteItemData> list = this.f22304b;
         if (list == null) {
             return 0;
         }
         if (list.size() < 20) {
-            return this.f22296b.size() + 1;
+            return this.f22304b.size() + 1;
         }
         return 20;
     }
@@ -264,24 +264,24 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     }
 
     public final boolean h(int i) {
-        List<WriteVoteItemData> list = this.f22296b;
-        return list != null && list.size() < 20 && i == this.f22296b.size();
+        List<WriteVoteItemData> list = this.f22304b;
+        return list != null && list.size() < 20 && i == this.f22304b.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         if (viewHolder instanceof e) {
             e eVar = (e) viewHolder;
-            String text = this.f22296b.get(i).getText();
-            eVar.f22306a.setHint(String.format(this.f22295a.getString(R.string.write_vote_item), Integer.valueOf(i + 1)));
-            eVar.f22306a.setGravity(19);
-            if (i < this.f22296b.size() - 1) {
-                eVar.f22306a.setImeOptions(5);
+            String text = this.f22304b.get(i).getText();
+            eVar.f22314a.setHint(String.format(this.f22303a.getString(R.string.write_vote_item), Integer.valueOf(i + 1)));
+            eVar.f22314a.setGravity(19);
+            if (i < this.f22304b.size() - 1) {
+                eVar.f22314a.setImeOptions(5);
             } else {
-                eVar.f22306a.setImeOptions(1);
+                eVar.f22314a.setImeOptions(1);
             }
-            ImageView imageView = eVar.f22307b;
-            if (this.f22296b.size() > 2) {
+            ImageView imageView = eVar.f22315b;
+            if (this.f22304b.size() > 2) {
                 imageView.setVisibility(0);
             } else {
                 imageView.setVisibility(8);
@@ -289,18 +289,18 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             imageView.setOnClickListener(new b(i));
             eVar.b(i);
             if (!StringUtils.isNull(text)) {
-                eVar.f22306a.setText(text);
+                eVar.f22314a.setText(text);
             } else {
-                eVar.f22306a.setText("");
+                eVar.f22314a.setText("");
             }
-            if (this.f22297c && i == this.f22296b.size() - 1) {
-                eVar.f22306a.requestFocus();
-                this.f22297c = false;
+            if (this.f22305c && i == this.f22304b.size() - 1) {
+                eVar.f22314a.requestFocus();
+                this.f22305c = false;
             }
         } else if (viewHolder instanceof d) {
             d dVar = (d) viewHolder;
-            dVar.f22303a.setText(String.format(this.f22295a.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.f22296b.size())));
-            dVar.f22305c.setOnClickListener(new c());
+            dVar.f22311a.setText(String.format(this.f22303a.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.f22304b.size())));
+            dVar.f22313c.setOnClickListener(new c());
         }
         f(viewHolder);
     }
@@ -309,13 +309,13 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         if (i == 1) {
-            return new e(this, LayoutInflater.from(this.f22295a.getPageActivity()).inflate(R.layout.view_vote_item, viewGroup, false));
+            return new e(this, LayoutInflater.from(this.f22303a.getPageActivity()).inflate(R.layout.view_vote_item, viewGroup, false));
         }
-        return new d(this, LayoutInflater.from(this.f22295a.getPageActivity()).inflate(R.layout.view_vote_add_item, viewGroup, false));
+        return new d(this, LayoutInflater.from(this.f22303a.getPageActivity()).inflate(R.layout.view_vote_add_item, viewGroup, false));
     }
 
     public void setData(List<WriteVoteItemData> list) {
-        this.f22296b = list;
+        this.f22304b = list;
         notifyDataSetChanged();
     }
 }

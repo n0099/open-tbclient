@@ -10,28 +10,28 @@ public class d {
     public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f27957a;
+    public float f27965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27958b;
+    public float f27966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27959c;
+    public float f27967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27960d;
+    public float f27968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27961e;
+    public float f27969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f27962f;
+    public float f27970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f27963g;
+    public float f27971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f27964h;
+    public float f27972h;
     public float i;
     public float j;
     public int k;
@@ -52,35 +52,35 @@ public class d {
     public String z;
 
     public float a() {
-        return this.f27957a;
+        return this.f27965a;
     }
 
     public float b() {
-        return this.f27958b;
+        return this.f27966b;
     }
 
     public void c(float f2) {
-        this.f27959c = f2;
+        this.f27967c = f2;
     }
 
     public void d(float f2) {
-        this.f27960d = f2;
+        this.f27968d = f2;
     }
 
     public void e(float f2) {
-        this.f27961e = f2;
+        this.f27969e = f2;
     }
 
     public void f(float f2) {
-        this.f27962f = f2;
+        this.f27970f = f2;
     }
 
     public void g(float f2) {
-        this.f27963g = f2;
+        this.f27971g = f2;
     }
 
     public void h(float f2) {
-        this.f27964h = f2;
+        this.f27972h = f2;
     }
 
     public void i(float f2) {
@@ -112,23 +112,23 @@ public class d {
     }
 
     public void a(float f2) {
-        this.f27957a = f2;
+        this.f27965a = f2;
     }
 
     public void b(float f2) {
-        this.f27958b = f2;
+        this.f27966b = f2;
     }
 
     public float c() {
-        return this.f27962f;
+        return this.f27970f;
     }
 
     public float d() {
-        return this.f27963g;
+        return this.f27971g;
     }
 
     public float e() {
-        return this.f27964h;
+        return this.f27972h;
     }
 
     public float f() {

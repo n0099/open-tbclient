@@ -2,13 +2,13 @@ package com.google.common.collect;
 
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.c.a1;
-import d.g.c.c.i0;
-import d.g.c.c.m;
-import d.g.c.c.v0;
-import d.g.c.c.x;
+import d.h.c.a.k;
+import d.h.c.a.n;
+import d.h.c.c.a1;
+import d.h.c.c.i0;
+import d.h.c.c.m;
+import d.h.c.c.v0;
+import d.h.c.c.x;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,12 +30,12 @@ public final class Multisets {
             m.b(i, "count");
         }
 
-        @Override // d.g.c.c.i0.a
+        @Override // d.h.c.c.i0.a
         public final int getCount() {
             return this.count;
         }
 
-        @Override // d.g.c.c.i0.a
+        @Override // d.h.c.c.i0.a
         public final E getElement() {
             return this.element;
         }
@@ -56,17 +56,17 @@ public final class Multisets {
             this.delegate = i0Var;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Queue
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Queue
         public boolean add(E e2) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.r, java.util.Collection
+        @Override // d.h.c.c.r, java.util.Collection
         public boolean addAll(Collection<? extends E> collection) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
         public void clear() {
             throw new UnsupportedOperationException();
         }
@@ -75,7 +75,7 @@ public final class Multisets {
             return Collections.unmodifiableSet(this.delegate.elementSet());
         }
 
-        @Override // d.g.c.c.x, d.g.c.c.i0
+        @Override // d.h.c.c.x, d.h.c.c.i0
         public Set<E> elementSet() {
             Set<E> set = this.elementSet;
             if (set == null) {
@@ -86,7 +86,7 @@ public final class Multisets {
             return set;
         }
 
-        @Override // d.g.c.c.x, d.g.c.c.i0
+        @Override // d.h.c.c.x, d.h.c.c.i0
         public Set<i0.a<E>> entrySet() {
             Set<i0.a<E>> set = this.entrySet;
             if (set == null) {
@@ -97,49 +97,49 @@ public final class Multisets {
             return set;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<E> iterator() {
             return Iterators.x(this.delegate.iterator());
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
         public boolean removeAll(Collection<?> collection) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
         public boolean retainAll(Collection<?> collection) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.x, d.g.c.c.i0
+        @Override // d.h.c.c.x, d.h.c.c.i0
         public int setCount(E e2, int i) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.x, d.g.c.c.i0
+        @Override // d.h.c.c.x, d.h.c.c.i0
         public int add(E e2, int i) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.x, d.g.c.c.i0
+        @Override // d.h.c.c.x, d.h.c.c.i0
         public int remove(Object obj, int i) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.x, d.g.c.c.i0
+        @Override // d.h.c.c.x, d.h.c.c.i0
         public boolean setCount(E e2, int i, int i2) {
             throw new UnsupportedOperationException();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: d.g.c.c.i0<? extends E>, d.g.c.c.i0<E> */
-        @Override // d.g.c.c.x, d.g.c.c.r, d.g.c.c.y
+        /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: d.h.c.c.i0<? extends E>, d.h.c.c.i0<E> */
+        @Override // d.h.c.c.x, d.h.c.c.r, d.h.c.c.y
         public i0<E> delegate() {
             return (i0<? extends E>) this.delegate;
         }
@@ -153,7 +153,7 @@ public final class Multisets {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r1v1, types: [E, java.lang.Object] */
-        @Override // d.g.c.c.a1
+        @Override // d.h.c.c.a1
         /* renamed from: b */
         public E a(i0.a<E> aVar) {
             return aVar.getElement();
@@ -175,7 +175,7 @@ public final class Multisets {
             return (element == null ? 0 : element.hashCode()) ^ getCount();
         }
 
-        @Override // d.g.c.c.i0.a
+        @Override // d.h.c.c.i0.a
         public String toString() {
             String valueOf = String.valueOf(getElement());
             int count = getCount();
@@ -257,42 +257,42 @@ public final class Multisets {
     public static final class e<E> implements Iterator<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final i0<E> f30963e;
+        public final i0<E> f31058e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Iterator<i0.a<E>> f30964f;
+        public final Iterator<i0.a<E>> f31059f;
 
         /* renamed from: g  reason: collision with root package name */
-        public i0.a<E> f30965g;
+        public i0.a<E> f31060g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f30966h;
+        public int f31061h;
         public int i;
         public boolean j;
 
         public e(i0<E> i0Var, Iterator<i0.a<E>> it) {
-            this.f30963e = i0Var;
-            this.f30964f = it;
+            this.f31058e = i0Var;
+            this.f31059f = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30966h > 0 || this.f30964f.hasNext();
+            return this.f31061h > 0 || this.f31059f.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
             if (hasNext()) {
-                if (this.f30966h == 0) {
-                    i0.a<E> next = this.f30964f.next();
-                    this.f30965g = next;
+                if (this.f31061h == 0) {
+                    i0.a<E> next = this.f31059f.next();
+                    this.f31060g = next;
                     int count = next.getCount();
-                    this.f30966h = count;
+                    this.f31061h = count;
                     this.i = count;
                 }
-                this.f30966h--;
+                this.f31061h--;
                 this.j = true;
-                return this.f30965g.getElement();
+                return this.f31060g.getElement();
             }
             throw new NoSuchElementException();
         }
@@ -301,9 +301,9 @@ public final class Multisets {
         public void remove() {
             m.e(this.j);
             if (this.i == 1) {
-                this.f30964f.remove();
+                this.f31059f.remove();
             } else {
-                this.f30963e.remove(this.f30965g.getElement());
+                this.f31058e.remove(this.f31060g.getElement());
             }
             this.i--;
             this.j = false;
@@ -429,7 +429,7 @@ public final class Multisets {
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: d.g.c.c.i0<? extends E> */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: d.h.c.c.i0<? extends E> */
     /* JADX WARN: Multi-variable type inference failed */
     public static <E> i0<E> o(i0<? extends E> i0Var) {
         if ((i0Var instanceof UnmodifiableMultiset) || (i0Var instanceof ImmutableMultiset)) {

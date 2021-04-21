@@ -16,28 +16,28 @@ import java.util.Set;
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Bitmap.Config f35783a = Bitmap.Config.ARGB_8888;
+    public static final Bitmap.Config f35878a = Bitmap.Config.ARGB_8888;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f35784b;
+    public final l f35879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<Bitmap.Config> f35785c;
+    public final Set<Bitmap.Config> f35880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f35786d;
+    public final long f35881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f35787e;
+    public final a f35882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f35788f;
+    public long f35883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f35789g;
+    public long f35884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35790h;
+    public int f35885h;
     public int i;
     public int j;
     public int k;
@@ -65,29 +65,29 @@ public class k implements e {
     }
 
     public k(long j, l lVar, Set<Bitmap.Config> set) {
-        this.f35786d = j;
-        this.f35788f = j;
-        this.f35784b = lVar;
-        this.f35785c = set;
-        this.f35787e = new b();
+        this.f35881d = j;
+        this.f35883f = j;
+        this.f35879b = lVar;
+        this.f35880c = set;
+        this.f35882e = new b();
     }
 
     private synchronized void a(long j) {
-        while (this.f35789g > j) {
-            Bitmap a2 = this.f35784b.a();
+        while (this.f35884g > j) {
+            Bitmap a2 = this.f35879b.a();
             if (a2 == null) {
                 if (Log.isLoggable(LruBitmapPool.TAG, 5)) {
                     Log.w(LruBitmapPool.TAG, "Size mismatch, resetting");
                     e();
                 }
-                this.f35789g = 0L;
+                this.f35884g = 0L;
                 return;
             }
-            this.f35787e.b(a2);
-            this.f35789g -= this.f35784b.c(a2);
+            this.f35882e.b(a2);
+            this.f35884g -= this.f35879b.c(a2);
             this.k++;
             if (Log.isLoggable(LruBitmapPool.TAG, 3)) {
-                Log.d(LruBitmapPool.TAG, "Evicting bitmap=" + this.f35784b.b(a2));
+                Log.d(LruBitmapPool.TAG, "Evicting bitmap=" + this.f35879b.b(a2));
             }
             d();
             a2.recycle();
@@ -109,13 +109,13 @@ public class k implements e {
     @NonNull
     public static Bitmap c(int i, int i2, @Nullable Bitmap.Config config) {
         if (config == null) {
-            config = f35783a;
+            config = f35878a;
         }
         return Bitmap.createBitmap(i, i2, config);
     }
 
     private void c() {
-        a(this.f35788f);
+        a(this.f35883f);
     }
 
     @TargetApi(19)
@@ -129,20 +129,20 @@ public class k implements e {
     private synchronized Bitmap d(int i, int i2, @Nullable Bitmap.Config config) {
         Bitmap a2;
         a(config);
-        a2 = this.f35784b.a(i, i2, config != null ? config : f35783a);
+        a2 = this.f35879b.a(i, i2, config != null ? config : f35878a);
         if (a2 == null) {
             if (Log.isLoggable(LruBitmapPool.TAG, 3)) {
-                Log.d(LruBitmapPool.TAG, "Missing bitmap=" + this.f35784b.b(i, i2, config));
+                Log.d(LruBitmapPool.TAG, "Missing bitmap=" + this.f35879b.b(i, i2, config));
             }
             this.i++;
         } else {
-            this.f35790h++;
-            this.f35789g -= this.f35784b.c(a2);
-            this.f35787e.b(a2);
+            this.f35885h++;
+            this.f35884g -= this.f35879b.c(a2);
+            this.f35882e.b(a2);
             b(a2);
         }
         if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
-            Log.v(LruBitmapPool.TAG, "Get bitmap=" + this.f35784b.b(i, i2, config));
+            Log.v(LruBitmapPool.TAG, "Get bitmap=" + this.f35879b.b(i, i2, config));
         }
         d();
         return a2;
@@ -155,7 +155,7 @@ public class k implements e {
     }
 
     private void e() {
-        Log.v(LruBitmapPool.TAG, "Hits=" + this.f35790h + ", misses=" + this.i + ", puts=" + this.j + ", evictions=" + this.k + ", currentSize=" + this.f35789g + ", maxSize=" + this.f35788f + "\nStrategy=" + this.f35784b);
+        Log.v(LruBitmapPool.TAG, "Hits=" + this.f35885h + ", misses=" + this.i + ", puts=" + this.j + ", evictions=" + this.k + ", currentSize=" + this.f35884g + ", maxSize=" + this.f35883f + "\nStrategy=" + this.f35879b);
     }
 
     public static l f() {
@@ -215,21 +215,21 @@ public class k implements e {
             if (bitmap.isRecycled()) {
                 throw new IllegalStateException("Cannot pool recycled bitmap");
             }
-            if (bitmap.isMutable() && this.f35784b.c(bitmap) <= this.f35788f && this.f35785c.contains(bitmap.getConfig())) {
-                int c2 = this.f35784b.c(bitmap);
-                this.f35784b.a(bitmap);
-                this.f35787e.a(bitmap);
+            if (bitmap.isMutable() && this.f35879b.c(bitmap) <= this.f35883f && this.f35880c.contains(bitmap.getConfig())) {
+                int c2 = this.f35879b.c(bitmap);
+                this.f35879b.a(bitmap);
+                this.f35882e.a(bitmap);
                 this.j++;
-                this.f35789g += c2;
+                this.f35884g += c2;
                 if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
-                    Log.v(LruBitmapPool.TAG, "Put bitmap in pool=" + this.f35784b.b(bitmap));
+                    Log.v(LruBitmapPool.TAG, "Put bitmap in pool=" + this.f35879b.b(bitmap));
                 }
                 d();
                 c();
                 return;
             }
             if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
-                Log.v(LruBitmapPool.TAG, "Reject bitmap from pool, bitmap: " + this.f35784b.b(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.f35785c.contains(bitmap.getConfig()));
+                Log.v(LruBitmapPool.TAG, "Reject bitmap from pool, bitmap: " + this.f35879b.b(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.f35880c.contains(bitmap.getConfig()));
             }
             bitmap.recycle();
         } catch (Throwable th) {
@@ -238,7 +238,7 @@ public class k implements e {
     }
 
     public long b() {
-        return this.f35788f;
+        return this.f35883f;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.e

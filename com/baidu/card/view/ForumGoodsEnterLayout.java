@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
 

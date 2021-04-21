@@ -12,39 +12,39 @@ import java.io.Closeable;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final PathMeasure f31656a = new PathMeasure();
+    public static final PathMeasure f31751a = new PathMeasure();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Path f31657b = new Path();
+    public static final Path f31752b = new Path();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Path f31658c = new Path();
+    public static final Path f31753c = new Path();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float[] f31659d = new float[4];
+    public static final float[] f31754d = new float[4];
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float f31660e = (float) Math.sqrt(2.0d);
+    public static final float f31755e = (float) Math.sqrt(2.0d);
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f31661f = -1.0f;
+    public static float f31756f = -1.0f;
 
     public static float a() {
-        if (f31661f == -1.0f) {
-            f31661f = Resources.getSystem().getDisplayMetrics().density;
+        if (f31756f == -1.0f) {
+            f31756f = Resources.getSystem().getDisplayMetrics().density;
         }
-        return f31661f;
+        return f31756f;
     }
 
     public static float a(Matrix matrix) {
-        float[] fArr = f31659d;
+        float[] fArr = f31754d;
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
-        float f2 = f31660e;
+        float f2 = f31755e;
         fArr[2] = f2;
         fArr[3] = f2;
         matrix.mapPoints(fArr);
-        float[] fArr2 = f31659d;
+        float[] fArr2 = f31754d;
         return ((float) Math.hypot(fArr2[2] - fArr2[0], fArr2[3] - fArr2[1])) / 2.0f;
     }
 
@@ -75,8 +75,8 @@ public final class f {
 
     public static void a(Path path, float f2, float f3, float f4) {
         com.ksad.lottie.c.c("applyTrimPathIfNeeded");
-        f31656a.setPath(path, false);
-        float length = f31656a.getLength();
+        f31751a.setPath(path, false);
+        float length = f31751a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f3 - f2) - 1.0f) < 0.01d) {
@@ -104,20 +104,20 @@ public final class f {
                 if (i >= 0) {
                     min -= length;
                 }
-                f31657b.reset();
-                f31656a.getSegment(min, max, f31657b, true);
+                f31752b.reset();
+                f31751a.getSegment(min, max, f31752b, true);
                 if (max > length) {
-                    f31658c.reset();
-                    f31656a.getSegment(0.0f, max % length, f31658c, true);
+                    f31753c.reset();
+                    f31751a.getSegment(0.0f, max % length, f31753c, true);
                 } else {
                     if (min < 0.0f) {
-                        f31658c.reset();
-                        f31656a.getSegment(min + length, length, f31658c, true);
+                        f31753c.reset();
+                        f31751a.getSegment(min + length, length, f31753c, true);
                     }
-                    path.set(f31657b);
+                    path.set(f31752b);
                 }
-                f31657b.addPath(f31658c);
-                path.set(f31657b);
+                f31752b.addPath(f31753c);
+                path.set(f31752b);
             }
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         }

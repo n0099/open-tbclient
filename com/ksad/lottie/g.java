@@ -7,47 +7,47 @@ import androidx.annotation.RestrictTo;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f31713a;
+    public final int f31808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f31714b;
+    public final int f31809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31715c;
+    public final String f31810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f31716d;
+    public final String f31811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f31717e;
+    public final String f31812e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f31718f;
+    public Bitmap f31813f;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public g(int i, int i2, String str, String str2, String str3) {
-        this.f31713a = i;
-        this.f31714b = i2;
-        this.f31715c = str;
-        this.f31716d = str2;
-        this.f31717e = str3;
+        this.f31808a = i;
+        this.f31809b = i2;
+        this.f31810c = str;
+        this.f31811d = str2;
+        this.f31812e = str3;
     }
 
     public String a() {
-        return this.f31715c;
+        return this.f31810c;
     }
 
     public void a(@Nullable Bitmap bitmap) {
-        this.f31718f = bitmap;
+        this.f31813f = bitmap;
     }
 
     public String b() {
-        return this.f31716d;
+        return this.f31811d;
     }
 
     @Nullable
     public Bitmap c() {
-        return this.f31718f;
+        return this.f31813f;
     }
 }

@@ -15,10 +15,10 @@ public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static byte[] OMA2_SYSTEM_ID = null;
     public static byte[] PLAYREADY_SYSTEM_ID = null;
     public static final String TYPE = "pssh";
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
     public byte[] content;
     public byte[] systemId;
 

@@ -20,7 +20,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import d.b.c.e.p.j;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
-import d.b.i0.s2.w;
+import d.b.j0.s2.w;
 import tbclient.AdCloseInfo;
 /* loaded from: classes4.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
@@ -48,14 +48,14 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20460e;
+        public AdCard f20468e;
 
         public b(AdCard adCard) {
-            this.f20460e = adCard;
+            this.f20468e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
-            String scheme = this.f20460e.getScheme();
+            String scheme = this.f20468e.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
                 scheme = advertAppInfo.H3;
             }
@@ -71,7 +71,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 AdSimpleCardBaseView.this.m.showToast(R.string.neterror);
                 return;
             }
-            AdCard adCard = this.f20460e;
+            AdCard adCard = this.f20468e;
             if (adCard == null) {
                 return;
             }

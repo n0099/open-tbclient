@@ -11,7 +11,7 @@ import javax.net.ssl.SSLSocket;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f66029a;
+    public static b f66124a;
 
     public abstract int a(c.a aVar);
 

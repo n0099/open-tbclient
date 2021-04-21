@@ -16,23 +16,23 @@ import java.io.InputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f31889a;
+    public final Context f31984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31890b;
+    public final String f31985b;
 
     public a(Context context, String str) {
-        this.f31889a = context.getApplicationContext();
-        this.f31890b = str;
+        this.f31984a = context.getApplicationContext();
+        this.f31985b = str;
     }
 
     @Nullable
     private File a(String str) {
-        File file = new File(this.f31889a.getCacheDir(), a(str, FileExtension.Json, false));
+        File file = new File(this.f31984a.getCacheDir(), a(str, FileExtension.Json, false));
         if (file.exists()) {
             return file;
         }
-        File file2 = new File(this.f31889a.getCacheDir(), a(str, FileExtension.Zip, false));
+        File file2 = new File(this.f31984a.getCacheDir(), a(str, FileExtension.Zip, false));
         if (file2.exists()) {
             return file2;
         }
@@ -51,13 +51,13 @@ public class a {
     @WorkerThread
     public Pair<FileExtension, InputStream> a() {
         try {
-            File a2 = a(this.f31890b);
+            File a2 = a(this.f31985b);
             if (a2 == null) {
                 return null;
             }
             FileInputStream fileInputStream = new FileInputStream(a2);
             FileExtension fileExtension = a2.getAbsolutePath().endsWith(".zip") ? FileExtension.Zip : FileExtension.Json;
-            c.a("Cache hit for " + this.f31890b + " at " + a2.getAbsolutePath());
+            c.a("Cache hit for " + this.f31985b + " at " + a2.getAbsolutePath());
             return new Pair<>(fileExtension, fileInputStream);
         } catch (FileNotFoundException unused) {
             return null;
@@ -65,7 +65,7 @@ public class a {
     }
 
     public File a(InputStream inputStream, FileExtension fileExtension) {
-        File file = new File(this.f31889a.getCacheDir(), a(this.f31890b, fileExtension, true));
+        File file = new File(this.f31984a.getCacheDir(), a(this.f31985b, fileExtension, true));
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             byte[] bArr = new byte[1024];
@@ -84,7 +84,7 @@ public class a {
     }
 
     public void a(FileExtension fileExtension) {
-        File file = new File(this.f31889a.getCacheDir(), a(this.f31890b, fileExtension, true));
+        File file = new File(this.f31984a.getCacheDir(), a(this.f31985b, fileExtension, true));
         File file2 = new File(file.getAbsolutePath().replace(XAdSimpleImageLoader.TEMP_SUFFIX, ""));
         boolean renameTo = file.renameTo(file2);
         c.a("Copying temp file to real file (" + file2 + SmallTailInfo.EMOTION_SUFFIX);

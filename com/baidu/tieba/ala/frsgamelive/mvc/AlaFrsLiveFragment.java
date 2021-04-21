@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel;
 import d.b.c.j.e.n;
-import d.b.h0.r.f0.f;
-import d.b.h0.r.q.a2;
-import d.b.i0.q0.r0;
+import d.b.i0.r.f0.f;
+import d.b.i0.r.q.a2;
+import d.b.j0.q0.r0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -40,18 +40,18 @@ import java.util.List;
 public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, r0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14630e;
+    public String f14638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14631f;
+    public String f14639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14632g;
+    public String f14640g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14633h;
+    public boolean f14641h;
     public AlaFrsLiveModel i;
-    public d.b.i0.t.e.c.c j;
+    public d.b.j0.t.e.c.c j;
     public AlaSquareRefreshManager n;
     public int p;
     public int k = 1;
@@ -59,10 +59,10 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public boolean m = false;
     public CustomMessageListener o = new a(0);
     public AlaFrsLiveModel.b q = new b();
-    public d.b.i0.t.c r = new c();
+    public d.b.j0.t.c r = new c();
     public f.g s = new d();
     public BdMultiColumnListView.OnScrollToBottomListener t = new e();
-    public d.b.i0.t.e.c.d u = new f();
+    public d.b.j0.t.e.c.d u = new f();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -137,11 +137,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes4.dex */
-    public class c implements d.b.i0.t.c {
+    public class c implements d.b.j0.t.c {
         public c() {
         }
 
-        @Override // d.b.i0.t.c
+        @Override // d.b.j0.t.c
         public void a(a2 a2Var) {
             AlaFrsLiveFragment alaFrsLiveFragment = AlaFrsLiveFragment.this;
             alaFrsLiveFragment.M0(alaFrsLiveFragment.getPageContext(), a2Var);
@@ -153,7 +153,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         public d() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (AlaFrsLiveFragment.this.i != null) {
                 AlaFrsLiveFragment.this.i.J();
@@ -180,17 +180,17 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.i0.t.e.c.d {
+    public class f implements d.b.j0.t.e.c.d {
         public f() {
         }
 
-        @Override // d.b.i0.t.e.c.d
+        @Override // d.b.j0.t.e.c.d
         public void a(int i) {
             if (AlaFrsLiveFragment.this.i == null || AlaFrsLiveFragment.this.i.E() == i) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c12572");
-            statisticItem.param("fid", AlaFrsLiveFragment.this.f14630e);
+            statisticItem.param("fid", AlaFrsLiveFragment.this.f14638e);
             statisticItem.param("obj_type", i);
             TiebaStatic.log(statisticItem);
             AlaFrsLiveFragment.this.i.setSortType(i);
@@ -202,7 +202,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public final void E() {
-        d.b.i0.t.e.c.c cVar = this.j;
+        d.b.j0.t.e.c.c cVar = this.j;
         if (cVar != null) {
             cVar.h();
         }
@@ -216,7 +216,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12571");
-        statisticItem.param("fid", this.f14630e);
+        statisticItem.param("fid", this.f14638e);
         statisticItem.param("obj_type", a2Var.q1().live_type);
         TiebaStatic.log(statisticItem);
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -233,7 +233,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
         for (n nVar : this.i.getData()) {
-            if (nVar != null && (nVar instanceof d.b.i0.t.e.b.c) && (a2Var2 = ((d.b.i0.t.e.b.c) nVar).f62250e) != null) {
+            if (nVar != null && (nVar instanceof d.b.j0.t.e.b.c) && (a2Var2 = ((d.b.j0.t.e.b.c) nVar).f62671e) != null) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(N0(a2Var2));
             }
         }
@@ -248,20 +248,20 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public void O0(String str) {
-        this.f14632g = str;
+        this.f14640g = str;
     }
 
     public void P0(String str) {
-        this.f14630e = str;
+        this.f14638e = str;
     }
 
-    @Override // d.b.i0.q0.r0
+    @Override // d.b.j0.q0.r0
     public NavigationBar Q() {
         return this.j.j();
     }
 
     public void Q0(String str) {
-        this.f14631f = str;
+        this.f14639f = str;
     }
 
     public void R0(int i) {
@@ -269,7 +269,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public void S0(boolean z) {
-        this.f14633h = z;
+        this.f14641h = z;
     }
 
     public void T0(boolean z) {
@@ -277,12 +277,12 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public final void U0() {
-        d.b.i0.t.e.c.c cVar = this.j;
+        d.b.j0.t.e.c.c cVar = this.j;
         if (cVar == null || cVar.j() == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.f14631f, 5, true, true) + getResources().getString(R.string.forum));
+        sb.append(UtilHelper.getFixedBarText(this.f14639f, 5, true, true) + getResources().getString(R.string.forum));
         this.j.j().setCenterTextTitle(sb.toString());
     }
 
@@ -328,7 +328,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.p = i;
-        d.b.i0.t.e.c.c cVar = this.j;
+        d.b.j0.t.e.c.c cVar = this.j;
         if (cVar != null) {
             cVar.q(i);
         }
@@ -342,7 +342,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        d.b.i0.t.e.c.c cVar = new d.b.i0.t.e.c.c(getPageContext(), this.f14633h, getPageContext().getOrignalPage().getUniqueId(), this.f14630e, this.m);
+        d.b.j0.t.e.c.c cVar = new d.b.j0.t.e.c.c(getPageContext(), this.f14641h, getPageContext().getOrignalPage().getUniqueId(), this.f14638e, this.m);
         this.j = cVar;
         cVar.o();
         this.j.u(1);
@@ -394,11 +394,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 AlaFrsLiveModel alaFrsLiveModel = new AlaFrsLiveModel(getPageContext());
                 this.i = alaFrsLiveModel;
                 alaFrsLiveModel.L(this.q);
-                this.i.setForumId(this.f14630e);
-                this.i.setForumGameLabel(this.f14632g);
+                this.i.setForumId(this.f14638e);
+                this.i.setForumGameLabel(this.f14640g);
                 this.i.K(this.k);
                 this.i.J();
-                d.b.i0.t.e.c.c cVar = this.j;
+                d.b.j0.t.e.c.c cVar = this.j;
                 if (cVar != null) {
                     showLoadingView(cVar.k(), false, getResources().getDimensionPixelSize(R.dimen.ds270));
                 }

@@ -76,49 +76,49 @@ public class BaiduPay {
     public static final int TYPE_SURPLUS = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayCallBack f25066a;
+    public PayCallBack f25074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IBindCardCallback f25067b;
+    public IBindCardCallback f25075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RNAuthCallBack f25068c;
+    public RNAuthCallBack f25076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f25069d;
+    public a f25077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ScanCodeCallBack f25070e;
+    public ScanCodeCallBack f25078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f25071f;
+    public Context f25079f;
 
     /* renamed from: com.baidu.wallet.paysdk.api.BaiduPay$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     public class AnonymousClass2 implements IBeanResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Handler f25074a;
+        public final Handler f25082a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f25075b;
+        public final /* synthetic */ Context f25083b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CheckCallBack f25076c;
+        public final /* synthetic */ CheckCallBack f25084c;
 
         public AnonymousClass2(Context context, CheckCallBack checkCallBack) {
-            this.f25075b = context;
-            this.f25076c = checkCallBack;
-            this.f25074a = new Handler(this.f25075b.getMainLooper());
+            this.f25083b = context;
+            this.f25084c = checkCallBack;
+            this.f25082a = new Handler(this.f25083b.getMainLooper());
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i, int i2, final String str) {
             WalletGlobalUtils.DismissLoadingDialog();
-            this.f25074a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.2.2
+            this.f25082a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.2.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    AnonymousClass2.this.f25076c.onCheckResult(3, str);
+                    AnonymousClass2.this.f25084c.onCheckResult(3, str);
                 }
             });
         }
@@ -126,27 +126,27 @@ public class BaiduPay {
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecSuccess(int i, final Object obj, String str) {
             WalletGlobalUtils.DismissLoadingDialog();
-            this.f25074a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.2.1
+            this.f25082a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     UserData.UserModel userModel;
                     DirectPayContentResponse directPayContentResponse = (DirectPayContentResponse) obj;
                     if (directPayContentResponse != null && (userModel = directPayContentResponse.user) != null && userModel.hasMobilePwd()) {
-                        PasswordController.getPassWordInstance().checkPwd(AnonymousClass2.this.f25075b, BeanConstants.FROM_COMMON_CHECK_PWD, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.2.1.1
+                        PasswordController.getPassWordInstance().checkPwd(AnonymousClass2.this.f25083b, BeanConstants.FROM_COMMON_CHECK_PWD, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.2.1.1
                             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                             public void onFail(int i2, String str2) {
                                 PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                AnonymousClass2.this.f25076c.onCheckResult(2, QueryResponse.Options.CANCEL);
+                                AnonymousClass2.this.f25084c.onCheckResult(2, QueryResponse.Options.CANCEL);
                             }
 
                             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                             public void onSucceed(String str2) {
                                 PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                AnonymousClass2.this.f25076c.onCheckResult(0, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS);
+                                AnonymousClass2.this.f25084c.onCheckResult(0, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS);
                             }
                         });
                     } else {
-                        AnonymousClass2.this.f25076c.onCheckResult(1, "当前未设置手机支付密码");
+                        AnonymousClass2.this.f25084c.onCheckResult(1, "当前未设置手机支付密码");
                     }
                 }
             });
@@ -158,32 +158,32 @@ public class BaiduPay {
     public class AnonymousClass3 implements IBeanResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Handler f25083a;
+        public final Handler f25091a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f25084b;
+        public final /* synthetic */ Context f25092b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f25085c;
+        public final /* synthetic */ String f25093c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CheckCallBack f25086d;
+        public final /* synthetic */ CheckCallBack f25094d;
 
         public AnonymousClass3(Context context, String str, CheckCallBack checkCallBack) {
-            this.f25084b = context;
-            this.f25085c = str;
-            this.f25086d = checkCallBack;
-            this.f25083a = new Handler(this.f25084b.getMainLooper());
+            this.f25092b = context;
+            this.f25093c = str;
+            this.f25094d = checkCallBack;
+            this.f25091a = new Handler(this.f25092b.getMainLooper());
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i, int i2, final String str) {
             StatisticManager.onEventEnd(StatServiceEvent.CHECK_BASE_INFO, i2);
             WalletGlobalUtils.DismissLoadingDialog();
-            this.f25083a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.2
+            this.f25091a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    AnonymousClass3.this.f25086d.onCheckResult(3, str);
+                    AnonymousClass3.this.f25094d.onCheckResult(3, str);
                 }
             });
         }
@@ -191,7 +191,7 @@ public class BaiduPay {
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecSuccess(int i, final Object obj, String str) {
             WalletGlobalUtils.DismissLoadingDialog();
-            this.f25083a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.1
+            this.f25091a.post(new Runnable() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.1
                 @Override // java.lang.Runnable
                 public void run() {
                     VerifyPayPasswordResponse verifyPayPasswordResponse = (VerifyPayPasswordResponse) obj;
@@ -199,23 +199,23 @@ public class BaiduPay {
                         StatisticManager.onEventEnd(StatServiceEvent.CHECK_BASE_INFO, 0);
                         PasswordController passWordInstance = PasswordController.getPassWordInstance();
                         AnonymousClass3 anonymousClass3 = AnonymousClass3.this;
-                        passWordInstance.checkPwdFromH5(anonymousClass3.f25084b, anonymousClass3.f25085c, BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.1.1
+                        passWordInstance.checkPwdFromH5(anonymousClass3.f25092b, anonymousClass3.f25093c, BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.1.1
                             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                             public void onFail(int i2, String str2) {
                                 PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                AnonymousClass3.this.f25086d.onCheckResult(2, QueryResponse.Options.CANCEL);
+                                AnonymousClass3.this.f25094d.onCheckResult(2, QueryResponse.Options.CANCEL);
                             }
 
                             @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
                             public void onSucceed(String str2) {
                                 PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                AnonymousClass3.this.f25086d.onCheckResult(0, str2);
+                                AnonymousClass3.this.f25094d.onCheckResult(0, str2);
                             }
                         });
                         return;
                     }
                     StatisticManager.onEventEnd(StatServiceEvent.CHECK_BASE_INFO, 1);
-                    AnonymousClass3.this.f25086d.onCheckResult(1, "当前未设置手机支付密码");
+                    AnonymousClass3.this.f25094d.onCheckResult(1, "当前未设置手机支付密码");
                 }
             });
         }
@@ -232,10 +232,10 @@ public class BaiduPay {
     public static class a implements BindBack {
 
         /* renamed from: a  reason: collision with root package name */
-        public final BindBack f25095a;
+        public final BindBack f25103a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f25096b;
+        public boolean f25104b;
 
         @Override // com.baidu.android.pay.BindBack
         public boolean isHideLoadingDialog() {
@@ -244,16 +244,16 @@ public class BaiduPay {
 
         @Override // com.baidu.android.pay.BindBack
         public void onBindResult(int i, String str) {
-            BindBack bindBack = this.f25095a;
+            BindBack bindBack = this.f25103a;
             if (bindBack != null) {
                 bindBack.onBindResult(i, str);
             }
-            this.f25096b = false;
+            this.f25104b = false;
         }
 
         public a(BindBack bindBack) {
-            this.f25096b = true;
-            this.f25095a = bindBack;
+            this.f25104b = true;
+            this.f25103a = bindBack;
         }
     }
 
@@ -261,7 +261,7 @@ public class BaiduPay {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduPay f25097a = new BaiduPay();
+        public static BaiduPay f25105a = new BaiduPay();
     }
 
     private void a(Context context, String str, PayCallBack payCallBack, Map<String, String> map, PrecashierCreateOrderResponse precashierCreateOrderResponse) {
@@ -281,7 +281,7 @@ public class BaiduPay {
         if (PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY) != null || PayDataCache.getInstance().isRemotePay()) {
             b(context);
         }
-        this.f25066a = payCallBack;
+        this.f25074a = payCallBack;
         if (map == null) {
             PayCallBackManager.callBackClientCancel(context, "BaiduPay.innerPay().2");
             return;
@@ -309,7 +309,7 @@ public class BaiduPay {
     }
 
     public static BaiduPay getInstance() {
-        return b.f25097a;
+        return b.f25105a;
     }
 
     public void bindCard(Context context, IBindCardCallback iBindCardCallback, PayRequestCache.BindCategory bindCategory, int i, String str, String str2, Bundle bundle, String str3, boolean z, String str4) {
@@ -417,19 +417,19 @@ public class BaiduPay {
     }
 
     public void clearBindCallback() {
-        this.f25067b = null;
+        this.f25075b = null;
     }
 
     public void clearBindCallbackExt() {
-        this.f25069d = null;
+        this.f25077d = null;
     }
 
     public void clearPayBack() {
-        this.f25066a = null;
+        this.f25074a = null;
     }
 
     public void clearRNAuthBack() {
-        this.f25068c = null;
+        this.f25076c = null;
     }
 
     public void completeCardAuth(Context context, CardData.BondCard bondCard) {
@@ -574,7 +574,7 @@ public class BaiduPay {
 
     public void doRNAuth(Context context, Map<String, String> map, RNAuthCallBack rNAuthCallBack) {
         if (WalletLoginHelper.getInstance().isLogin() && map != null) {
-            this.f25068c = rNAuthCallBack;
+            this.f25076c = rNAuthCallBack;
             StringBuilder sb = new StringBuilder();
             if (!map.isEmpty()) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -598,7 +598,7 @@ public class BaiduPay {
     }
 
     public void doRemotePay(Context context, String str, PayCallBack payCallBack, Map<String, String> map) {
-        this.f25071f = context;
+        this.f25079f = context;
         PayDataCache.getInstance().setIsRemotePay(true);
         PayDataCache.getInstance().resetFromPrecashier();
         a(context, str, payCallBack, map, null);
@@ -609,32 +609,32 @@ public class BaiduPay {
     }
 
     public IBindCardCallback getBindCallback() {
-        return this.f25067b;
+        return this.f25075b;
     }
 
     public BindBack getBindCallbackExt() {
-        return this.f25069d;
+        return this.f25077d;
     }
 
     public PayCallBack getPayBack() {
-        return this.f25066a;
+        return this.f25074a;
     }
 
     public RNAuthCallBack getRNAuthBack() {
-        return this.f25068c;
+        return this.f25076c;
     }
 
     public Context getRemotePayContext() {
-        return this.f25071f;
+        return this.f25079f;
     }
 
     public ScanCodeCallBack getScanCallback() {
-        return this.f25070e;
+        return this.f25078e;
     }
 
     public boolean isBindCardProcessing() {
-        a aVar = this.f25069d;
-        return aVar != null && aVar.f25096b;
+        a aVar = this.f25077d;
+        return aVar != null && aVar.f25104b;
     }
 
     public void jumpWapCashier(Context context, String str, String str2) {
@@ -655,7 +655,7 @@ public class BaiduPay {
             }
             return;
         }
-        this.f25067b = iBindCardCallback;
+        this.f25075b = iBindCardCallback;
         Intent intent = new Intent(context, BindCardImplActivity.class);
         if (bundle != null) {
             intent.putExtras(bundle);
@@ -679,7 +679,7 @@ public class BaiduPay {
         if (PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY) != null || PayDataCache.getInstance().isRemotePay()) {
             b(context);
         }
-        this.f25066a = payCallBack;
+        this.f25074a = payCallBack;
         if (map == null) {
             PayCallBackManager.callBackClientCancel(context, "BaiduPay.innerPay().2");
             return;
@@ -706,19 +706,19 @@ public class BaiduPay {
     }
 
     public void resetRemotePayContext() {
-        this.f25071f = null;
+        this.f25079f = null;
     }
 
     public void setBindCardbackExt(BindBack bindBack) {
-        this.f25069d = bindBack != null ? new a(bindBack) : null;
+        this.f25077d = bindBack != null ? new a(bindBack) : null;
     }
 
     public void setRemotePayContext(Context context) {
-        this.f25071f = context;
+        this.f25079f = context;
     }
 
     public void setScanCallback(ScanCodeCallBack scanCodeCallBack) {
-        this.f25070e = scanCodeCallBack;
+        this.f25078e = scanCodeCallBack;
     }
 
     public BaiduPay() {

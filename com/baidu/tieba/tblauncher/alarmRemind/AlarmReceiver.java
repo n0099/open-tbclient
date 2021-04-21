@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
 import d.b.c.e.p.j;
-import d.b.h0.r.d0.b;
-import d.b.i0.g3.f.a;
+import d.b.i0.r.d0.b;
+import d.b.j0.g3.f.a;
 /* loaded from: classes5.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver

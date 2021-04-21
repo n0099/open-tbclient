@@ -18,16 +18,16 @@ import java.util.List;
 public class CardFrsGameSpecialTopicLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameSpecialTopicItemView> f14916e;
+    public b<CardFrsGameSpecialTopicItemView> f14924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14917f;
+    public int f14925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14918g;
+    public int f14926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14919h;
+    public int f14927h;
     public final ViewGroup.OnHierarchyChangeListener i;
 
     /* loaded from: classes4.dex */
@@ -41,16 +41,16 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
-            if (!(view2 instanceof CardFrsGameSpecialTopicItemView) || CardFrsGameSpecialTopicLayout.this.f14916e == null) {
+            if (!(view2 instanceof CardFrsGameSpecialTopicItemView) || CardFrsGameSpecialTopicLayout.this.f14924e == null) {
                 return;
             }
-            CardFrsGameSpecialTopicLayout.this.f14916e.e((CardFrsGameSpecialTopicItemView) view2);
+            CardFrsGameSpecialTopicLayout.this.f14924e.e((CardFrsGameSpecialTopicItemView) view2);
         }
     }
 
     public CardFrsGameSpecialTopicLayout(Context context) {
         super(context);
-        this.f14916e = null;
+        this.f14924e = null;
         this.i = new a();
         b();
     }
@@ -70,7 +70,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.f14917f;
+            layoutParams.leftMargin = this.f14925f;
         }
         cardFrsGameSpecialTopicItemView.setLayoutParams(layoutParams);
     }
@@ -88,7 +88,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     }
 
     public int getChildItemWidth() {
-        return this.f14919h;
+        return this.f14927h;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -107,13 +107,13 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f14919h = this.f14918g + this.f14917f;
+        this.f14927h = this.f14926g + this.f14925f;
         int i = 0;
         int childCount = getChildCount();
         while (i < childCount && i < list.size()) {
             if (getChildAt(i) instanceof CardFrsGameSpecialTopicItemView) {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = (CardFrsGameSpecialTopicItemView) getChildAt(i);
-                c(cardFrsGameSpecialTopicItemView, i, this.f14918g);
+                c(cardFrsGameSpecialTopicItemView, i, this.f14926g);
                 d(cardFrsGameSpecialTopicItemView, list.get(i));
             }
             i++;
@@ -123,11 +123,11 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             i++;
         }
         while (i < list.size()) {
-            CardFrsGameSpecialTopicItemView b2 = this.f14916e.b();
+            CardFrsGameSpecialTopicItemView b2 = this.f14924e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i, this.f14918g);
+            c(b2, i, this.f14926g);
             d(b2, list.get(i));
             addView(b2);
             i++;
@@ -135,30 +135,30 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     }
 
     public void setItemSpace(int i) {
-        this.f14917f = i;
+        this.f14925f = i;
     }
 
     public void setItemWidth(int i) {
-        this.f14918g = i;
+        this.f14926g = i;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
     }
 
     public void setViewPool(b<CardFrsGameSpecialTopicItemView> bVar) {
-        this.f14916e = bVar;
+        this.f14924e = bVar;
     }
 
     public CardFrsGameSpecialTopicLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14916e = null;
+        this.f14924e = null;
         this.i = new a();
         b();
     }
 
     public CardFrsGameSpecialTopicLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f14916e = null;
+        this.f14924e = null;
         this.i = new a();
         b();
     }

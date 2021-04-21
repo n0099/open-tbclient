@@ -34,7 +34,7 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f040458;
+        public static final int svgImage = 0x7f040459;
         public static final int viewAspectRatio = 0x7f040489;
     }
 

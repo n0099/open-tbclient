@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.tencent.connect.common.Constants;
 import d.b.c.e.m.e;
-import d.b.h0.i0.c;
+import d.b.i0.i0.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,10 +30,10 @@ import java.util.Stack;
 public class TbPageExtraHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13644a;
+    public static String f13652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f13645b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+    public static HashMap<String, String> f13653b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
         {
             put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "a028");
             put("52", "a075");
@@ -51,15 +51,15 @@ public class TbPageExtraHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f13646e;
+        public final /* synthetic */ String f13654e;
 
         public a(String str) {
-            this.f13646e = str;
+            this.f13654e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String unused = TbPageExtraHelper.f13644a = (String) TbPageExtraHelper.f13645b.get(this.f13646e);
+            String unused = TbPageExtraHelper.f13652a = (String) TbPageExtraHelper.f13653b.get(this.f13654e);
         }
     }
 
@@ -75,26 +75,26 @@ public class TbPageExtraHelper {
     }
 
     public static BaseFragment d(View view) {
-        d.b.h0.i0.a e2 = e(view);
+        d.b.i0.i0.a e2 = e(view);
         if (e2 == null || e2.getTbFragmentExtra() == null) {
             return null;
         }
         return e2.getTbFragmentExtra().a();
     }
 
-    public static d.b.h0.i0.a e(View view) {
+    public static d.b.i0.i0.a e(View view) {
         ViewParent parent = view.getParent();
-        d.b.h0.i0.a aVar = null;
+        d.b.i0.i0.a aVar = null;
         if (parent instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) parent;
-            if (viewGroup instanceof d.b.h0.i0.a) {
-                aVar = (d.b.h0.i0.a) parent;
+            if (viewGroup instanceof d.b.i0.i0.a) {
+                aVar = (d.b.i0.i0.a) parent;
                 q(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
             }
             if (aVar == null) {
                 Object tag = viewGroup.getTag(R.id.tag_tb_fragment_extra);
-                if (tag instanceof d.b.h0.i0.a) {
-                    aVar = (d.b.h0.i0.a) tag;
+                if (tag instanceof d.b.i0.i0.a) {
+                    aVar = (d.b.i0.i0.a) tag;
                     q(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                 }
             }
@@ -212,7 +212,7 @@ public class TbPageExtraHelper {
     }
 
     public static String m() {
-        return f13644a;
+        return f13652a;
     }
 
     public static boolean n() {
@@ -289,11 +289,11 @@ public class TbPageExtraHelper {
     }
 
     public static void u(String str) {
-        f13644a = str;
+        f13652a = str;
     }
 
     public static void v(String str) {
-        if (!StringUtil.isEmpty(str) && f13645b.containsKey(str)) {
+        if (!StringUtil.isEmpty(str) && f13653b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

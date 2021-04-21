@@ -12,6 +12,6 @@ public class n extends f<DocumentData> {
     @Override // d.a.a.s.c.a
     /* renamed from: o */
     public DocumentData i(d.a.a.y.a<DocumentData> aVar, float f2) {
-        return aVar.f41801b;
+        return aVar.f41896b;
     }
 }

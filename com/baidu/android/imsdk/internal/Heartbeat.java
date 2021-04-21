@@ -9,7 +9,7 @@ import androidx.core.app.NotificationCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-import d.b.q.a;
+import d.b.r.a;
 /* loaded from: classes.dex */
 public class Heartbeat {
     public static int ALARM_TIMEOUT = 60000;

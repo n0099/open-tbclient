@@ -1,8 +1,8 @@
 package com.google.common.math;
 
 import com.google.common.primitives.UnsignedLongs;
-import d.g.c.a.n;
-import d.g.c.f.e;
+import d.h.c.a.n;
+import d.h.c.f.e;
 import java.math.RoundingMode;
 /* loaded from: classes6.dex */
 public final class LongMath {
@@ -116,41 +116,41 @@ public final class LongMath {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31123a;
+        public static final /* synthetic */ int[] f31218a;
 
         static {
             int[] iArr = new int[RoundingMode.values().length];
-            f31123a = iArr;
+            f31218a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31123a[RoundingMode.DOWN.ordinal()] = 2;
+                f31218a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31123a[RoundingMode.FLOOR.ordinal()] = 3;
+                f31218a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31123a[RoundingMode.UP.ordinal()] = 4;
+                f31218a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31123a[RoundingMode.CEILING.ordinal()] = 5;
+                f31218a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31123a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f31218a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f31123a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f31218a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f31123a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f31218a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -179,7 +179,7 @@ public final class LongMath {
         }
         int i2 = (int) ((j ^ j2) >> 63);
         int i3 = i2 | 1;
-        switch (a.f31123a[roundingMode.ordinal()]) {
+        switch (a.f31218a[roundingMode.ordinal()]) {
             case 1:
                 e.d(i == 0);
                 r9 = false;

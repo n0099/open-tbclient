@@ -8,29 +8,29 @@ import android.text.TextUtils;
 public final class c implements com.baidu.sofire.h.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f11486a = null;
+    public b f11494a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11487b;
+    public String f11495b;
 
     @Override // com.baidu.sofire.h.b
     public final void a(Context context, com.baidu.sofire.h.c cVar) {
         b bVar = new b(context, cVar);
-        this.f11486a = bVar;
+        this.f11494a = bVar;
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-        bVar.f11481b.bindService(intent, bVar.f11483d, 1);
+        bVar.f11489b.bindService(intent, bVar.f11491d, 1);
     }
 
     @Override // com.baidu.sofire.h.b
     public final String b() {
-        if (TextUtils.isEmpty(this.f11487b)) {
-            b bVar = this.f11486a;
-            String a2 = bVar.f11480a == null ? "" : bVar.a("OUID");
-            this.f11487b = a2;
+        if (TextUtils.isEmpty(this.f11495b)) {
+            b bVar = this.f11494a;
+            String a2 = bVar.f11488a == null ? "" : bVar.a("OUID");
+            this.f11495b = a2;
             return a2;
         }
-        return this.f11487b;
+        return this.f11495b;
     }
 }

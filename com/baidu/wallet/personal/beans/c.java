@@ -11,41 +11,41 @@ import java.util.List;
 public class c extends BaseBean<CouponDetailResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26240a;
+    public int f26248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26241b;
+    public String f26249b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26242c;
+    public String f26250c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26243d;
+    public String f26251d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26244e;
+    public String f26252e;
 
     public c(Context context) {
         super(context);
-        this.f26243d = "";
-        this.f26244e = "";
+        this.f26251d = "";
+        this.f26252e = "";
     }
 
     public void a(int i) {
-        this.f26240a = i;
+        this.f26248a = i;
     }
 
     public void a(String str) {
-        this.f26241b = str;
+        this.f26249b = str;
     }
 
     public void a(String str, String str2) {
-        this.f26243d = str;
-        this.f26244e = str2;
+        this.f26251d = str;
+        this.f26252e = str2;
     }
 
     public void b(String str) {
-        this.f26242c = str;
+        this.f26250c = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -56,10 +56,10 @@ public class c extends BaseBean<CouponDetailResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("card_type", "" + this.f26240a));
-        arrayList.add(new RestNameValuePair("coupon_num", this.f26241b));
-        arrayList.add(new RestNameValuePair("template_num", this.f26242c));
-        arrayList.add(new RestNameValuePair("user_mapping", this.f26243d + "," + this.f26244e));
+        arrayList.add(new RestNameValuePair("card_type", "" + this.f26248a));
+        arrayList.add(new RestNameValuePair("coupon_num", this.f26249b));
+        arrayList.add(new RestNameValuePair("template_num", this.f26250c));
+        arrayList.add(new RestNameValuePair("user_mapping", this.f26251d + "," + this.f26252e));
         return arrayList;
     }
 

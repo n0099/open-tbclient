@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f34595a;
+    public final com.kwad.sdk.core.webview.a f34690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPosition f34596b = new VideoPosition();
+    public VideoPosition f34691b = new VideoPosition();
 
     /* renamed from: c  reason: collision with root package name */
-    public a f34597c;
+    public a f34692c;
 
     /* loaded from: classes6.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
@@ -31,8 +31,8 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     }
 
     public WebCardVideoPositionHandler(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f34595a = aVar;
-        this.f34597c = aVar2;
+        this.f34690a = aVar;
+        this.f34692c = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -44,9 +44,9 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
-            this.f34596b.parseJson(new JSONObject(str));
-            if (this.f34597c != null) {
-                this.f34597c.a(this.f34596b);
+            this.f34691b.parseJson(new JSONObject(str));
+            if (this.f34692c != null) {
+                this.f34692c.a(this.f34691b);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

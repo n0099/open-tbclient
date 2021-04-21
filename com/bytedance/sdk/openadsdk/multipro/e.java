@@ -5,10 +5,10 @@ import com.bytedance.sdk.openadsdk.core.p;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29582a = "com.bytedance.openadsdk";
+    public static String f29590a = "com.bytedance.openadsdk";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29583b = "content://" + f29582a + ".TTMultiProvider";
+    public static String f29591b = "content://" + f29590a + ".TTMultiProvider";
 
     static {
         a();
@@ -16,8 +16,8 @@ public class e {
 
     public static void a() {
         if (p.a() != null) {
-            f29582a = p.a().getPackageName();
-            f29583b = "content://" + f29582a + ".TTMultiProvider";
+            f29590a = p.a().getPackageName();
+            f29591b = "content://" + f29590a + ".TTMultiProvider";
         }
     }
 }

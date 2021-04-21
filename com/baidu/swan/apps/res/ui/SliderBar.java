@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import d.b.g0.a.j;
-/* loaded from: classes2.dex */
+import d.b.h0.a.j;
+/* loaded from: classes3.dex */
 public class SliderBar extends View {
     public static final String[] D = {"小", "中", "大", "特大"};
     public int A;
@@ -18,16 +18,16 @@ public class SliderBar extends View {
     public boolean C;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12157e;
+    public int f12165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f12158f;
+    public String[] f12166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f12159g;
+    public float f12167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f12160h;
+    public float f12168h;
     public int i;
     public float j;
     public int k;
@@ -47,7 +47,7 @@ public class SliderBar extends View {
     public b y;
     public c z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -59,53 +59,53 @@ public class SliderBar extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f12162a;
+        public final float f12170a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final float f12163b;
+        public final float f12171b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final float f12164c;
+        public final float f12172c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f12165d;
+        public int f12173d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f12166e;
+        public float f12174e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f12167f;
+        public float f12175f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Paint f12168g;
+        public Paint f12176g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Paint f12169h;
+        public Paint f12177h;
         public Paint i;
 
         public b(float f2, float f3, float f4) {
-            this.f12167f = 7.5f;
-            this.f12162a = f2;
-            this.f12163b = f2 + f4;
-            this.f12164c = f3;
-            int i = SliderBar.this.f12157e - 1;
-            this.f12165d = i;
-            this.f12166e = f4 / i;
-            this.f12167f = SliderBar.this.f12159g / 2.0f;
+            this.f12175f = 7.5f;
+            this.f12170a = f2;
+            this.f12171b = f2 + f4;
+            this.f12172c = f3;
+            int i = SliderBar.this.f12165e - 1;
+            this.f12173d = i;
+            this.f12174e = f4 / i;
+            this.f12175f = SliderBar.this.f12167g / 2.0f;
             Paint paint = new Paint();
-            this.f12168g = paint;
+            this.f12176g = paint;
             paint.setColor(SliderBar.this.i);
-            this.f12168g.setStrokeWidth(SliderBar.this.f12160h);
-            this.f12168g.setAntiAlias(true);
+            this.f12176g.setStrokeWidth(SliderBar.this.f12168h);
+            this.f12176g.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f12169h = paint2;
+            this.f12177h = paint2;
             paint2.setColor(SliderBar.this.p);
-            this.f12169h.setTextSize(SliderBar.this.o);
-            this.f12169h.setAntiAlias(true);
+            this.f12177h.setTextSize(SliderBar.this.o);
+            this.f12177h.setAntiAlias(true);
             Paint paint3 = new Paint();
             this.i = paint3;
             paint3.setColor(SliderBar.this.q);
@@ -121,24 +121,24 @@ public class SliderBar extends View {
         }
 
         public final void b(Canvas canvas) {
-            float f2 = this.f12162a;
-            float f3 = this.f12164c;
-            canvas.drawLine(f2, f3, this.f12163b, f3, this.f12168g);
+            float f2 = this.f12170a;
+            float f3 = this.f12172c;
+            canvas.drawLine(f2, f3, this.f12171b, f3, this.f12176g);
         }
 
         public final void c(Canvas canvas) {
-            for (int i = 0; i <= this.f12165d; i++) {
-                float f2 = this.f12162a + (this.f12166e * i);
-                canvas.drawCircle(f2, this.f12164c, this.f12167f, this.f12168g);
-                if (SliderBar.this.f12158f != null && SliderBar.this.f12158f.length > 0) {
-                    String str = SliderBar.this.f12158f[i];
+            for (int i = 0; i <= this.f12173d; i++) {
+                float f2 = this.f12170a + (this.f12174e * i);
+                canvas.drawCircle(f2, this.f12172c, this.f12175f, this.f12176g);
+                if (SliderBar.this.f12166f != null && SliderBar.this.f12166f.length > 0) {
+                    String str = SliderBar.this.f12166f[i];
                     if (!TextUtils.isEmpty(str)) {
                         if (i == SliderBar.this.B) {
                             Paint.FontMetrics fontMetrics = this.i.getFontMetrics();
-                            canvas.drawText(str, f2 - (i(str) / 2.0f), ((this.f12164c - SliderBar.this.j) - SliderBar.this.r) - (fontMetrics.bottom - fontMetrics.descent), this.i);
+                            canvas.drawText(str, f2 - (i(str) / 2.0f), ((this.f12172c - SliderBar.this.j) - SliderBar.this.r) - (fontMetrics.bottom - fontMetrics.descent), this.i);
                         } else {
-                            Paint.FontMetrics fontMetrics2 = this.f12169h.getFontMetrics();
-                            canvas.drawText(str, f2 - (i(str) / 2.0f), ((this.f12164c - SliderBar.this.j) - SliderBar.this.r) - (fontMetrics2.bottom - fontMetrics2.descent), this.f12169h);
+                            Paint.FontMetrics fontMetrics2 = this.f12177h.getFontMetrics();
+                            canvas.drawText(str, f2 - (i(str) / 2.0f), ((this.f12172c - SliderBar.this.j) - SliderBar.this.r) - (fontMetrics2.bottom - fontMetrics2.descent), this.f12177h);
                         }
                     }
                 }
@@ -146,16 +146,16 @@ public class SliderBar extends View {
         }
 
         public float d() {
-            return this.f12163b;
+            return this.f12171b;
         }
 
         public float e(d dVar) {
-            return this.f12162a + (this.f12166e * g(dVar));
+            return this.f12170a + (this.f12174e * g(dVar));
         }
 
         public int f(float f2) {
-            float f3 = f2 - this.f12162a;
-            float f4 = this.f12166e;
+            float f3 = f2 - this.f12170a;
+            float f4 = this.f12174e;
             return (int) ((f3 + (f4 / 2.0f)) / f4);
         }
 
@@ -164,117 +164,117 @@ public class SliderBar extends View {
         }
 
         public float h() {
-            return this.f12162a;
+            return this.f12170a;
         }
 
         public float i(String str) {
-            return this.f12169h.measureText(str);
+            return this.f12177h.measureText(str);
         }
 
         public float j() {
-            return this.f12166e;
+            return this.f12174e;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(SliderBar sliderBar, int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f12170a;
+        public final float f12178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f12171b;
+        public boolean f12179b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f12172c;
+        public float f12180c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f12173d;
+        public final float f12181d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Paint f12174e;
+        public Paint f12182e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f12175f;
+        public Paint f12183f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Paint f12176g;
+        public Paint f12184g;
 
         public d(float f2, float f3) {
-            this.f12172c = f2;
-            this.f12173d = f3;
-            this.f12170a = (int) Math.max(50.0f, SliderBar.this.j * 2.0f);
+            this.f12180c = f2;
+            this.f12181d = f3;
+            this.f12178a = (int) Math.max(50.0f, SliderBar.this.j * 2.0f);
             Paint paint = new Paint();
-            this.f12174e = paint;
+            this.f12182e = paint;
             paint.setColor(SliderBar.this.k);
-            this.f12174e.setAntiAlias(true);
+            this.f12182e.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f12175f = paint2;
+            this.f12183f = paint2;
             paint2.setColor(SliderBar.this.l);
-            this.f12175f.setAntiAlias(true);
+            this.f12183f.setAntiAlias(true);
             Paint paint3 = new Paint();
-            this.f12176g = paint3;
+            this.f12184g = paint3;
             paint3.setStyle(Paint.Style.STROKE);
-            this.f12176g.setColor(SliderBar.this.m);
-            this.f12176g.setAntiAlias(true);
-            this.f12176g.setStrokeWidth(SliderBar.this.n);
+            this.f12184g.setColor(SliderBar.this.m);
+            this.f12184g.setAntiAlias(true);
+            this.f12184g.setStrokeWidth(SliderBar.this.n);
             if (SliderBar.this.t) {
-                SliderBar.this.setLayerType(1, this.f12174e);
-                SliderBar.this.setLayerType(1, this.f12175f);
-                this.f12174e.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.u);
-                this.f12175f.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.u);
+                SliderBar.this.setLayerType(1, this.f12182e);
+                SliderBar.this.setLayerType(1, this.f12183f);
+                this.f12182e.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.u);
+                this.f12183f.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.u);
             }
         }
 
         public void a(Canvas canvas) {
-            if (this.f12171b) {
-                canvas.drawCircle(this.f12172c, this.f12173d, SliderBar.this.j, this.f12175f);
+            if (this.f12179b) {
+                canvas.drawCircle(this.f12180c, this.f12181d, SliderBar.this.j, this.f12183f);
             } else {
-                canvas.drawCircle(this.f12172c, this.f12173d, SliderBar.this.j, this.f12174e);
+                canvas.drawCircle(this.f12180c, this.f12181d, SliderBar.this.j, this.f12182e);
             }
-            canvas.drawCircle(this.f12172c, this.f12173d, SliderBar.this.j, this.f12176g);
+            canvas.drawCircle(this.f12180c, this.f12181d, SliderBar.this.j, this.f12184g);
         }
 
         public float b() {
-            return this.f12170a;
+            return this.f12178a;
         }
 
         public float c() {
-            return this.f12172c;
+            return this.f12180c;
         }
 
         public boolean d(float f2, float f3) {
-            return Math.abs(f2 - this.f12172c) <= this.f12170a && Math.abs(f3 - this.f12173d) <= this.f12170a;
+            return Math.abs(f2 - this.f12180c) <= this.f12178a && Math.abs(f3 - this.f12181d) <= this.f12178a;
         }
 
         public boolean e() {
-            return this.f12171b;
+            return this.f12179b;
         }
 
         public void f() {
-            this.f12171b = true;
+            this.f12179b = true;
         }
 
         public void g() {
-            this.f12171b = false;
+            this.f12179b = false;
         }
 
         public void h(float f2) {
-            this.f12172c = f2;
+            this.f12180c = f2;
         }
     }
 
     public SliderBar(Context context) {
         super(context);
-        this.f12157e = 4;
-        this.f12158f = D;
-        this.f12159g = 15.0f;
-        this.f12160h = 3.0f;
+        this.f12165e = 4;
+        this.f12166f = D;
+        this.f12167g = 15.0f;
+        this.f12168h = 3.0f;
         this.i = -7829368;
         this.j = 30.0f;
         this.k = -1;
@@ -299,13 +299,13 @@ public class SliderBar extends View {
     }
 
     private float getFontHeight() {
-        String[] strArr = this.f12158f;
+        String[] strArr = this.f12166f;
         if (strArr == null || strArr.length == 0) {
             return 0.0f;
         }
         Paint paint = new Paint();
         paint.setTextSize(this.o);
-        paint.measureText(this.f12158f[0]);
+        paint.measureText(this.f12166f[0]);
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         return fontMetrics.descent - fontMetrics.ascent;
     }
@@ -380,7 +380,7 @@ public class SliderBar extends View {
     }
 
     public SliderBar F(int i) {
-        if (i >= 0 && i < this.f12157e) {
+        if (i >= 0 && i < this.f12165e) {
             if (this.B != i) {
                 this.B = i;
                 d dVar = this.x;
@@ -479,7 +479,7 @@ public class SliderBar extends View {
     }
 
     public final int t(float f2, float f3) {
-        for (int i = 0; i < this.f12157e; i++) {
+        for (int i = 0; i < this.f12165e; i++) {
             if (x(f2, f3, i)) {
                 return i;
             }
@@ -495,8 +495,8 @@ public class SliderBar extends View {
     public void v(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, j.SliderBar);
         try {
-            this.f12159g = (int) obtainStyledAttributes.getDimension(j.SliderBar_tickDiameter, 15.0f);
-            this.f12160h = (int) obtainStyledAttributes.getDimension(j.SliderBar_barLineWide, 3.0f);
+            this.f12167g = (int) obtainStyledAttributes.getDimension(j.SliderBar_tickDiameter, 15.0f);
+            this.f12168h = (int) obtainStyledAttributes.getDimension(j.SliderBar_barLineWide, 3.0f);
             this.i = obtainStyledAttributes.getColor(j.SliderBar_barLineColor, -7829368);
             this.j = (int) obtainStyledAttributes.getDimension(j.SliderBar_thumbRadius, 30.0f);
             this.k = obtainStyledAttributes.getColor(j.SliderBar_thumbColorNormal, -1);
@@ -545,10 +545,10 @@ public class SliderBar extends View {
 
     public SliderBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12157e = 4;
-        this.f12158f = D;
-        this.f12159g = 15.0f;
-        this.f12160h = 3.0f;
+        this.f12165e = 4;
+        this.f12166f = D;
+        this.f12167g = 15.0f;
+        this.f12168h = 3.0f;
         this.i = -7829368;
         this.j = 30.0f;
         this.k = -1;
@@ -571,10 +571,10 @@ public class SliderBar extends View {
 
     public SliderBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f12157e = 4;
-        this.f12158f = D;
-        this.f12159g = 15.0f;
-        this.f12160h = 3.0f;
+        this.f12165e = 4;
+        this.f12166f = D;
+        this.f12167g = 15.0f;
+        this.f12168h = 3.0f;
         this.i = -7829368;
         this.j = 30.0f;
         this.k = -1;

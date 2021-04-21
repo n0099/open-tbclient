@@ -54,7 +54,7 @@ public class c {
             });
             while (i < asList.size()) {
                 String name = ((File) asList.get(i)).getName();
-                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f30154a.contains(name.replace(name, ".download"))) {
+                if (!com.bytedance.sdk.openadsdk.video.a.b.a.f30162a.contains(name.replace(name, ".download"))) {
                     ((File) asList.get(i)).delete();
                 }
                 i++;

@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public final AnimatedDrawableUtil mAnimatedDrawableUtil;
     public final AnimatedImage mAnimatedImage;

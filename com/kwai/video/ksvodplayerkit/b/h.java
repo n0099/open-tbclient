@@ -5,8 +5,8 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37535a;
+    public int f37630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<i> f37536b;
+    public List<i> f37631b;
 }

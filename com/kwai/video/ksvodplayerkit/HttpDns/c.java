@@ -37,7 +37,7 @@ public class c implements b {
             for (ResolvedIP resolvedIP : resolve) {
                 if (resolvedIP != null) {
                     f fVar = new f(resolvedIP.mHost, resolvedIP.mIP, ResolverType.HTTP, resolvedIP.mTtl);
-                    fVar.f37504d = resolvedIP.mResolver;
+                    fVar.f37599d = resolvedIP.mResolver;
                     arrayList.add(fVar);
                 }
             }

@@ -16,8 +16,8 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.mutiprocess.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0161a extends Binder implements a {
-        public AbstractBinderC0161a() {
+    public static abstract class AbstractBinderC0163a extends Binder implements a {
+        public AbstractBinderC0163a() {
             attachInterface(this, "com.baidu.sofire.mutiprocess.IMutiProcessHandler");
         }
 
@@ -29,7 +29,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0162a(iBinder);
+            return new C0164a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -82,21 +82,21 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0162a.f11512a;
+            return C0164a.f11520a;
         }
 
         /* renamed from: com.baidu.sofire.mutiprocess.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0162a implements a {
+        public static class C0164a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f11512a;
+            public static a f11520a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f11513b;
+            public IBinder f11521b;
 
-            public C0162a(IBinder iBinder) {
-                this.f11513b = iBinder;
+            public C0164a(IBinder iBinder) {
+                this.f11521b = iBinder;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -111,8 +111,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f11513b.transact(1, obtain, obtain2, 0) && AbstractBinderC0161a.a() != null) {
-                        return AbstractBinderC0161a.a().a(bundle);
+                    if (!this.f11521b.transact(1, obtain, obtain2, 0) && AbstractBinderC0163a.a() != null) {
+                        return AbstractBinderC0163a.a().a(bundle);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -124,7 +124,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f11513b;
+                return this.f11521b;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -139,8 +139,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f11513b.transact(2, obtain, obtain2, 0) && AbstractBinderC0161a.a() != null) {
-                        return AbstractBinderC0161a.a().b(bundle);
+                    if (!this.f11521b.transact(2, obtain, obtain2, 0) && AbstractBinderC0163a.a() != null) {
+                        return AbstractBinderC0163a.a().b(bundle);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -157,8 +157,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                     obtain.writeString(str);
-                    if (!this.f11513b.transact(3, obtain, obtain2, 0) && AbstractBinderC0161a.a() != null) {
-                        return AbstractBinderC0161a.a().a(str);
+                    if (!this.f11521b.transact(3, obtain, obtain2, 0) && AbstractBinderC0163a.a() != null) {
+                        return AbstractBinderC0163a.a().a(str);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;

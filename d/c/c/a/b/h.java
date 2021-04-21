@@ -9,28 +9,28 @@ import org.apache.http.cookie.ClientCookie;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f66325a;
+    public final boolean f66420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f66326b;
+    public final boolean f66421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f66327c;
+    public final int f66422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f66328d;
+    public final int f66423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f66329e;
+    public final boolean f66424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f66330f;
+    public final boolean f66425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f66331g;
+    public final boolean f66426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f66332h;
+    public final int f66427h;
     public final int i;
     public final boolean j;
     public final boolean k;
@@ -41,45 +41,45 @@ public final class h {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f66333a;
+        public boolean f66428a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f66334b;
+        public boolean f66429b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66335c = -1;
+        public int f66430c = -1;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f66336d = -1;
+        public int f66431d = -1;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f66337e = -1;
+        public int f66432e = -1;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f66338f;
+        public boolean f66433f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f66339g;
+        public boolean f66434g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f66340h;
+        public boolean f66435h;
 
         public a a() {
-            this.f66333a = true;
+            this.f66428a = true;
             return this;
         }
 
         public a b(int i, TimeUnit timeUnit) {
             if (i >= 0) {
                 long seconds = timeUnit.toSeconds(i);
-                this.f66336d = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
+                this.f66431d = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
                 return this;
             }
             throw new IllegalArgumentException("maxStale < 0: " + i);
         }
 
         public a c() {
-            this.f66338f = true;
+            this.f66433f = true;
             return this;
         }
 
@@ -99,14 +99,14 @@ public final class h {
     }
 
     public h(boolean z, boolean z2, int i, int i2, boolean z3, boolean z4, boolean z5, int i3, int i4, boolean z6, boolean z7, boolean z8, String str) {
-        this.f66325a = z;
-        this.f66326b = z2;
-        this.f66327c = i;
-        this.f66328d = i2;
-        this.f66329e = z3;
-        this.f66330f = z4;
-        this.f66331g = z5;
-        this.f66332h = i3;
+        this.f66420a = z;
+        this.f66421b = z2;
+        this.f66422c = i;
+        this.f66423d = i2;
+        this.f66424e = z3;
+        this.f66425f = z4;
+        this.f66426g = z5;
+        this.f66427h = i3;
         this.i = i4;
         this.j = z6;
         this.k = z7;
@@ -206,31 +206,31 @@ public final class h {
     }
 
     public boolean b() {
-        return this.f66325a;
+        return this.f66420a;
     }
 
     public boolean c() {
-        return this.f66326b;
+        return this.f66421b;
     }
 
     public int d() {
-        return this.f66327c;
+        return this.f66422c;
     }
 
     public boolean e() {
-        return this.f66329e;
+        return this.f66424e;
     }
 
     public boolean f() {
-        return this.f66330f;
+        return this.f66425f;
     }
 
     public boolean g() {
-        return this.f66331g;
+        return this.f66426g;
     }
 
     public int h() {
-        return this.f66332h;
+        return this.f66427h;
     }
 
     public int i() {
@@ -247,34 +247,34 @@ public final class h {
 
     public final String l() {
         StringBuilder sb = new StringBuilder();
-        if (this.f66325a) {
+        if (this.f66420a) {
             sb.append("no-cache, ");
         }
-        if (this.f66326b) {
+        if (this.f66421b) {
             sb.append("no-store, ");
         }
-        if (this.f66327c != -1) {
+        if (this.f66422c != -1) {
             sb.append("max-age=");
-            sb.append(this.f66327c);
+            sb.append(this.f66422c);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         }
-        if (this.f66328d != -1) {
+        if (this.f66423d != -1) {
             sb.append("s-maxage=");
-            sb.append(this.f66328d);
+            sb.append(this.f66423d);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         }
-        if (this.f66329e) {
+        if (this.f66424e) {
             sb.append("private, ");
         }
-        if (this.f66330f) {
+        if (this.f66425f) {
             sb.append("public, ");
         }
-        if (this.f66331g) {
+        if (this.f66426g) {
             sb.append("must-revalidate, ");
         }
-        if (this.f66332h != -1) {
+        if (this.f66427h != -1) {
             sb.append("max-stale=");
-            sb.append(this.f66332h);
+            sb.append(this.f66427h);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         }
         if (this.i != -1) {
@@ -309,17 +309,17 @@ public final class h {
     }
 
     public h(a aVar) {
-        this.f66325a = aVar.f66333a;
-        this.f66326b = aVar.f66334b;
-        this.f66327c = aVar.f66335c;
-        this.f66328d = -1;
-        this.f66329e = false;
-        this.f66330f = false;
-        this.f66331g = false;
-        this.f66332h = aVar.f66336d;
-        this.i = aVar.f66337e;
-        this.j = aVar.f66338f;
-        this.k = aVar.f66339g;
-        this.l = aVar.f66340h;
+        this.f66420a = aVar.f66428a;
+        this.f66421b = aVar.f66429b;
+        this.f66422c = aVar.f66430c;
+        this.f66423d = -1;
+        this.f66424e = false;
+        this.f66425f = false;
+        this.f66426g = false;
+        this.f66427h = aVar.f66431d;
+        this.i = aVar.f66432e;
+        this.j = aVar.f66433f;
+        this.k = aVar.f66434g;
+        this.l = aVar.f66435h;
     }
 }

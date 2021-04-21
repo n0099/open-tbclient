@@ -10,10 +10,10 @@ import java.util.concurrent.Callable;
 public final class Functions {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Runnable f69032a = new a();
+    public static final Runnable f69179a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g<Throwable> f69033b = new b();
+    public static final g<Throwable> f69180b = new b();
 
     /* loaded from: classes7.dex */
     public enum HashSetCallable implements Callable<Set<Object>> {

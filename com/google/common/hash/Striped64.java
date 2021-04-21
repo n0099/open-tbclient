@@ -11,13 +11,13 @@ import sun.misc.Unsafe;
 public abstract class Striped64 extends Number {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Unsafe f31117e;
+    public static final Unsafe f31212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f31118f;
+    public static final long f31213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f31119g;
+    public static final long f31214g;
     public volatile transient long base;
     public volatile transient int busy;
     public volatile transient b[] cells;
@@ -47,39 +47,39 @@ public abstract class Striped64 extends Number {
     public static final class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f31120b;
+        public static final Unsafe f31215b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f31121c;
+        public static final long f31216c;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile long f31122a;
+        public volatile long f31217a;
 
         static {
             try {
                 Unsafe a2 = Striped64.a();
-                f31120b = a2;
-                f31121c = a2.objectFieldOffset(b.class.getDeclaredField("a"));
+                f31215b = a2;
+                f31216c = a2.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
         }
 
         public b(long j) {
-            this.f31122a = j;
+            this.f31217a = j;
         }
 
         public final boolean a(long j, long j2) {
-            return f31120b.compareAndSwapLong(this, f31121c, j, j2);
+            return f31215b.compareAndSwapLong(this, f31216c, j, j2);
         }
     }
 
     static {
         try {
             Unsafe a2 = a();
-            f31117e = a2;
-            f31118f = a2.objectFieldOffset(Striped64.class.getDeclaredField(SchemeCollecter.CLASSIFY_BASE));
-            f31119g = f31117e.objectFieldOffset(Striped64.class.getDeclaredField("busy"));
+            f31212e = a2;
+            f31213f = a2.objectFieldOffset(Striped64.class.getDeclaredField(SchemeCollecter.CLASSIFY_BASE));
+            f31214g = f31212e.objectFieldOffset(Striped64.class.getDeclaredField("busy"));
         } catch (Exception e2) {
             throw new Error(e2);
         }
@@ -98,11 +98,11 @@ public abstract class Striped64 extends Number {
     }
 
     public final boolean casBase(long j, long j2) {
-        return f31117e.compareAndSwapLong(this, f31118f, j, j2);
+        return f31212e.compareAndSwapLong(this, f31213f, j, j2);
     }
 
     public final boolean casBusy() {
-        return f31117e.compareAndSwapInt(this, f31119g, 0, 1);
+        return f31212e.compareAndSwapInt(this, f31214g, 0, 1);
     }
 
     public abstract long fn(long j, long j2);
@@ -113,7 +113,7 @@ public abstract class Striped64 extends Number {
         if (bVarArr != null) {
             for (b bVar : bVarArr) {
                 if (bVar != null) {
-                    bVar.f31122a = j;
+                    bVar.f31217a = j;
                 }
             }
         }
@@ -175,7 +175,7 @@ public abstract class Striped64 extends Number {
                     }
                     z4 = false;
                 } else if (z5) {
-                    long j2 = bVar.f31122a;
+                    long j2 = bVar.f31217a;
                     if (bVar.a(j2, fn(j2, j))) {
                         return;
                     }

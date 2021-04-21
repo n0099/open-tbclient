@@ -12,10 +12,10 @@ public class e extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.ksad.lottie.e.a<Integer> aVar, float f2) {
         Integer num;
-        if (aVar.f31672a == null || aVar.f31673b == null) {
+        if (aVar.f31767a == null || aVar.f31768b == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        com.ksad.lottie.e.c<A> cVar = this.f31578b;
-        return (cVar == 0 || (num = (Integer) cVar.a(aVar.f31675d, aVar.f31676e.floatValue(), aVar.f31672a, aVar.f31673b, f2, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.e.a(aVar.f31672a.intValue(), aVar.f31673b.intValue(), f2)) : num;
+        com.ksad.lottie.e.c<A> cVar = this.f31673b;
+        return (cVar == 0 || (num = (Integer) cVar.a(aVar.f31770d, aVar.f31771e.floatValue(), aVar.f31767a, aVar.f31768b, f2, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.e.a(aVar.f31767a.intValue(), aVar.f31768b.intValue(), f2)) : num;
     }
 }

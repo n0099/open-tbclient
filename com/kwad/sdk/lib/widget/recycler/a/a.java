@@ -8,29 +8,29 @@ public final class a implements ListUpdateCallback {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclerView.Adapter f36262a;
+    public final RecyclerView.Adapter f36357a;
 
     public a(@NonNull RecyclerView.Adapter adapter) {
-        this.f36262a = adapter;
+        this.f36357a = adapter;
     }
 
     @Override // androidx.recyclerview.widget.ListUpdateCallback
     public void onChanged(int i, int i2, Object obj) {
-        this.f36262a.notifyItemRangeChanged(i, i2, obj);
+        this.f36357a.notifyItemRangeChanged(i, i2, obj);
     }
 
     @Override // androidx.recyclerview.widget.ListUpdateCallback
     public void onInserted(int i, int i2) {
-        this.f36262a.notifyItemRangeInserted(i, i2);
+        this.f36357a.notifyItemRangeInserted(i, i2);
     }
 
     @Override // androidx.recyclerview.widget.ListUpdateCallback
     public void onMoved(int i, int i2) {
-        this.f36262a.notifyItemMoved(i, i2);
+        this.f36357a.notifyItemMoved(i, i2);
     }
 
     @Override // androidx.recyclerview.widget.ListUpdateCallback
     public void onRemoved(int i, int i2) {
-        this.f36262a.notifyItemRangeRemoved(i, i2);
+        this.f36357a.notifyItemRangeRemoved(i, i2);
     }
 }

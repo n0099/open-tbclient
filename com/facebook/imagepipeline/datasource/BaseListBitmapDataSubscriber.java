@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.image.CloseableBitmap;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseListBitmapDataSubscriber extends BaseDataSubscriber<List<CloseableReference<CloseableImage>>> {
     @Override // com.facebook.datasource.BaseDataSubscriber
     public void onNewResultImpl(DataSource<List<CloseableReference<CloseableImage>>> dataSource) {

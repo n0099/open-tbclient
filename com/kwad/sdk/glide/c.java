@@ -56,28 +56,28 @@ import java.util.Map;
 public class c implements ComponentCallbacks2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f35377a;
+    public static volatile c f35472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f35378b;
+    public static volatile boolean f35473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final i f35379c;
+    public final i f35474c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35380d;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35475d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.a.h f35381e;
+    public final com.kwad.sdk.glide.load.engine.a.h f35476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.c.a f35382f;
+    public final com.kwad.sdk.glide.load.engine.c.a f35477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f35383g;
+    public final e f35478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Registry f35384h;
+    public final Registry f35479h;
     public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b i;
     public final k j;
     public final com.kwad.sdk.glide.c.d k;
@@ -85,21 +85,21 @@ public class c implements ComponentCallbacks2 {
     public MemoryCategory m = MemoryCategory.NORMAL;
 
     public c(@NonNull Context context, @NonNull i iVar, @NonNull com.kwad.sdk.glide.load.engine.a.h hVar, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, @NonNull k kVar, @NonNull com.kwad.sdk.glide.c.d dVar, int i, @NonNull com.kwad.sdk.glide.request.f fVar, @NonNull Map<Class<?>, h<?, ?>> map, @NonNull List<com.kwad.sdk.glide.request.e<Object>> list, boolean z) {
-        this.f35379c = iVar;
-        this.f35380d = eVar;
+        this.f35474c = iVar;
+        this.f35475d = eVar;
         this.i = bVar;
-        this.f35381e = hVar;
+        this.f35476e = hVar;
         this.j = kVar;
         this.k = dVar;
-        this.f35382f = new com.kwad.sdk.glide.load.engine.c.a(hVar, eVar, (DecodeFormat) fVar.m().a(com.kwad.sdk.glide.load.resource.bitmap.k.f35957a));
+        this.f35477f = new com.kwad.sdk.glide.load.engine.c.a(hVar, eVar, (DecodeFormat) fVar.m().a(com.kwad.sdk.glide.load.resource.bitmap.k.f36052a));
         Resources resources = context.getResources();
         Registry registry = new Registry();
-        this.f35384h = registry;
+        this.f35479h = registry;
         registry.a((ImageHeaderParser) new j());
         if (Build.VERSION.SDK_INT >= 27) {
-            this.f35384h.a((ImageHeaderParser) new n());
+            this.f35479h.a((ImageHeaderParser) new n());
         }
-        List<ImageHeaderParser> a2 = this.f35384h.a();
+        List<ImageHeaderParser> a2 = this.f35479h.a();
         com.kwad.sdk.glide.load.resource.bitmap.k kVar2 = new com.kwad.sdk.glide.load.resource.bitmap.k(a2, resources.getDisplayMetrics(), eVar, bVar);
         com.kwad.sdk.glide.load.resource.d.a aVar = new com.kwad.sdk.glide.load.resource.d.a(context, a2, eVar, bVar);
         com.kwad.sdk.glide.load.f<ParcelFileDescriptor, Bitmap> b2 = v.b(eVar);
@@ -114,20 +114,20 @@ public class c implements ComponentCallbacks2 {
         com.kwad.sdk.glide.load.resource.e.a aVar3 = new com.kwad.sdk.glide.load.resource.e.a();
         com.kwad.sdk.glide.load.resource.e.d dVar4 = new com.kwad.sdk.glide.load.resource.e.d();
         ContentResolver contentResolver = context.getContentResolver();
-        this.f35384h.a(ByteBuffer.class, new com.kwad.sdk.glide.load.b.c()).a(InputStream.class, new t(bVar)).a(com.bumptech.glide.Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, fVar2).a(com.bumptech.glide.Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, sVar).a(com.bumptech.glide.Registry.BUCKET_BITMAP, ParcelFileDescriptor.class, Bitmap.class, b2).a(com.bumptech.glide.Registry.BUCKET_BITMAP, AssetFileDescriptor.class, Bitmap.class, v.a(eVar)).a(Bitmap.class, Bitmap.class, v.a.a()).a(com.bumptech.glide.Registry.BUCKET_BITMAP, Bitmap.class, Bitmap.class, new u()).a(Bitmap.class, (com.kwad.sdk.glide.load.g) cVar2).a(com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE, ByteBuffer.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.bitmap.a(resources, fVar2)).a(com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE, InputStream.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.bitmap.a(resources, sVar)).a(com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE, ParcelFileDescriptor.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.bitmap.a(resources, b2)).a(BitmapDrawable.class, (com.kwad.sdk.glide.load.g) new com.kwad.sdk.glide.load.resource.bitmap.b(eVar, cVar2)).a(com.bumptech.glide.Registry.BUCKET_GIF, InputStream.class, com.kwad.sdk.glide.load.resource.d.c.class, new com.kwad.sdk.glide.load.resource.d.j(a2, aVar, bVar)).a(com.bumptech.glide.Registry.BUCKET_GIF, ByteBuffer.class, com.kwad.sdk.glide.load.resource.d.c.class, aVar).a(com.kwad.sdk.glide.load.resource.d.c.class, (com.kwad.sdk.glide.load.g) new com.kwad.sdk.glide.load.resource.d.d()).a(com.kwad.sdk.glide.b.a.class, com.kwad.sdk.glide.b.a.class, v.a.a()).a(com.bumptech.glide.Registry.BUCKET_BITMAP, com.kwad.sdk.glide.b.a.class, Bitmap.class, new com.kwad.sdk.glide.load.resource.d.h(eVar)).a(Uri.class, Drawable.class, dVar2).a(Uri.class, Bitmap.class, new r(dVar2, eVar)).a((e.a<?>) new a.C0433a()).a(File.class, ByteBuffer.class, new d.b()).a(File.class, InputStream.class, new f.e()).a(File.class, File.class, new com.kwad.sdk.glide.load.resource.c.a()).a(File.class, ParcelFileDescriptor.class, new f.b()).a(File.class, File.class, v.a.a()).a((e.a<?>) new k.a(bVar)).a(Integer.TYPE, InputStream.class, cVar).a(Integer.TYPE, ParcelFileDescriptor.class, bVar2).a(Integer.class, InputStream.class, cVar).a(Integer.class, ParcelFileDescriptor.class, bVar2).a(Integer.class, Uri.class, dVar3).a(Integer.TYPE, AssetFileDescriptor.class, aVar2).a(Integer.class, AssetFileDescriptor.class, aVar2).a(Integer.TYPE, Uri.class, dVar3).a(String.class, InputStream.class, new e.c()).a(Uri.class, InputStream.class, new e.c()).a(String.class, InputStream.class, new u.c()).a(String.class, ParcelFileDescriptor.class, new u.b()).a(String.class, AssetFileDescriptor.class, new u.a()).a(Uri.class, InputStream.class, new b.a()).a(Uri.class, InputStream.class, new a.c(context.getAssets())).a(Uri.class, ParcelFileDescriptor.class, new a.b(context.getAssets())).a(Uri.class, InputStream.class, new c.a(context)).a(Uri.class, InputStream.class, new d.a(context)).a(Uri.class, InputStream.class, new w.d(contentResolver)).a(Uri.class, ParcelFileDescriptor.class, new w.b(contentResolver)).a(Uri.class, AssetFileDescriptor.class, new w.a(contentResolver)).a(Uri.class, InputStream.class, new x.a()).a(URL.class, InputStream.class, new e.a()).a(Uri.class, File.class, new k.a(context)).a(com.kwad.sdk.glide.load.b.g.class, InputStream.class, new a.C0426a()).a(byte[].class, ByteBuffer.class, new b.a()).a(byte[].class, InputStream.class, new b.d()).a(Uri.class, Uri.class, v.a.a()).a(Drawable.class, Drawable.class, v.a.a()).a(Drawable.class, Drawable.class, new com.kwad.sdk.glide.load.resource.b.e()).a(Bitmap.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.e.b(resources)).a(Bitmap.class, byte[].class, aVar3).a(Drawable.class, byte[].class, new com.kwad.sdk.glide.load.resource.e.c(eVar, aVar3, dVar4)).a(com.kwad.sdk.glide.load.resource.d.c.class, byte[].class, dVar4);
-        this.f35383g = new e(context, bVar, this.f35384h, new com.kwad.sdk.glide.request.a.f(), fVar, map, list, iVar, z, i);
+        this.f35479h.a(ByteBuffer.class, new com.kwad.sdk.glide.load.b.c()).a(InputStream.class, new t(bVar)).a(com.bumptech.glide.Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, fVar2).a(com.bumptech.glide.Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, sVar).a(com.bumptech.glide.Registry.BUCKET_BITMAP, ParcelFileDescriptor.class, Bitmap.class, b2).a(com.bumptech.glide.Registry.BUCKET_BITMAP, AssetFileDescriptor.class, Bitmap.class, v.a(eVar)).a(Bitmap.class, Bitmap.class, v.a.a()).a(com.bumptech.glide.Registry.BUCKET_BITMAP, Bitmap.class, Bitmap.class, new u()).a(Bitmap.class, (com.kwad.sdk.glide.load.g) cVar2).a(com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE, ByteBuffer.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.bitmap.a(resources, fVar2)).a(com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE, InputStream.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.bitmap.a(resources, sVar)).a(com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE, ParcelFileDescriptor.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.bitmap.a(resources, b2)).a(BitmapDrawable.class, (com.kwad.sdk.glide.load.g) new com.kwad.sdk.glide.load.resource.bitmap.b(eVar, cVar2)).a(com.bumptech.glide.Registry.BUCKET_GIF, InputStream.class, com.kwad.sdk.glide.load.resource.d.c.class, new com.kwad.sdk.glide.load.resource.d.j(a2, aVar, bVar)).a(com.bumptech.glide.Registry.BUCKET_GIF, ByteBuffer.class, com.kwad.sdk.glide.load.resource.d.c.class, aVar).a(com.kwad.sdk.glide.load.resource.d.c.class, (com.kwad.sdk.glide.load.g) new com.kwad.sdk.glide.load.resource.d.d()).a(com.kwad.sdk.glide.b.a.class, com.kwad.sdk.glide.b.a.class, v.a.a()).a(com.bumptech.glide.Registry.BUCKET_BITMAP, com.kwad.sdk.glide.b.a.class, Bitmap.class, new com.kwad.sdk.glide.load.resource.d.h(eVar)).a(Uri.class, Drawable.class, dVar2).a(Uri.class, Bitmap.class, new r(dVar2, eVar)).a((e.a<?>) new a.C0436a()).a(File.class, ByteBuffer.class, new d.b()).a(File.class, InputStream.class, new f.e()).a(File.class, File.class, new com.kwad.sdk.glide.load.resource.c.a()).a(File.class, ParcelFileDescriptor.class, new f.b()).a(File.class, File.class, v.a.a()).a((e.a<?>) new k.a(bVar)).a(Integer.TYPE, InputStream.class, cVar).a(Integer.TYPE, ParcelFileDescriptor.class, bVar2).a(Integer.class, InputStream.class, cVar).a(Integer.class, ParcelFileDescriptor.class, bVar2).a(Integer.class, Uri.class, dVar3).a(Integer.TYPE, AssetFileDescriptor.class, aVar2).a(Integer.class, AssetFileDescriptor.class, aVar2).a(Integer.TYPE, Uri.class, dVar3).a(String.class, InputStream.class, new e.c()).a(Uri.class, InputStream.class, new e.c()).a(String.class, InputStream.class, new u.c()).a(String.class, ParcelFileDescriptor.class, new u.b()).a(String.class, AssetFileDescriptor.class, new u.a()).a(Uri.class, InputStream.class, new b.a()).a(Uri.class, InputStream.class, new a.c(context.getAssets())).a(Uri.class, ParcelFileDescriptor.class, new a.b(context.getAssets())).a(Uri.class, InputStream.class, new c.a(context)).a(Uri.class, InputStream.class, new d.a(context)).a(Uri.class, InputStream.class, new w.d(contentResolver)).a(Uri.class, ParcelFileDescriptor.class, new w.b(contentResolver)).a(Uri.class, AssetFileDescriptor.class, new w.a(contentResolver)).a(Uri.class, InputStream.class, new x.a()).a(URL.class, InputStream.class, new e.a()).a(Uri.class, File.class, new k.a(context)).a(com.kwad.sdk.glide.load.b.g.class, InputStream.class, new a.C0429a()).a(byte[].class, ByteBuffer.class, new b.a()).a(byte[].class, InputStream.class, new b.d()).a(Uri.class, Uri.class, v.a.a()).a(Drawable.class, Drawable.class, v.a.a()).a(Drawable.class, Drawable.class, new com.kwad.sdk.glide.load.resource.b.e()).a(Bitmap.class, BitmapDrawable.class, new com.kwad.sdk.glide.load.resource.e.b(resources)).a(Bitmap.class, byte[].class, aVar3).a(Drawable.class, byte[].class, new com.kwad.sdk.glide.load.resource.e.c(eVar, aVar3, dVar4)).a(com.kwad.sdk.glide.load.resource.d.c.class, byte[].class, dVar4);
+        this.f35478g = new e(context, bVar, this.f35479h, new com.kwad.sdk.glide.request.a.f(), fVar, map, list, iVar, z, i);
     }
 
     @NonNull
     public static c a(@NonNull Context context) {
-        if (f35377a == null) {
+        if (f35472a == null) {
             synchronized (c.class) {
-                if (f35377a == null) {
+                if (f35472a == null) {
                     c(context);
                 }
             }
         }
-        return f35377a;
+        return f35472a;
     }
 
     @NonNull
@@ -144,10 +144,10 @@ public class c implements ComponentCallbacks2 {
         }
         c a2 = dVar.a(applicationContext);
         if (i != null) {
-            i.a(applicationContext, a2, a2.f35384h);
+            i.a(applicationContext, a2, a2.f35479h);
         }
         applicationContext.registerComponentCallbacks(a2);
-        f35377a = a2;
+        f35472a = a2;
     }
 
     @NonNull
@@ -157,12 +157,12 @@ public class c implements ComponentCallbacks2 {
     }
 
     public static void c(@NonNull Context context) {
-        if (f35378b) {
+        if (f35473b) {
             throw new IllegalStateException("You cannot call Glide.get() in registerComponents(), use the provided Glide instance instead");
         }
-        f35378b = true;
+        f35473b = true;
         d(context);
-        f35378b = false;
+        f35473b = false;
     }
 
     public static void d(@NonNull Context context) {
@@ -182,13 +182,13 @@ public class c implements ComponentCallbacks2 {
 
     @NonNull
     public com.kwad.sdk.glide.load.engine.bitmap_recycle.e a() {
-        return this.f35380d;
+        return this.f35475d;
     }
 
     public void a(int i) {
         com.kwad.sdk.glide.g.k.a();
-        this.f35381e.a(i);
-        this.f35380d.a(i);
+        this.f35476e.a(i);
+        this.f35475d.a(i);
         this.i.a(i);
     }
 
@@ -228,7 +228,7 @@ public class c implements ComponentCallbacks2 {
 
     @NonNull
     public Context c() {
-        return this.f35383g.getBaseContext();
+        return this.f35478g.getBaseContext();
     }
 
     public com.kwad.sdk.glide.c.d d() {
@@ -237,13 +237,13 @@ public class c implements ComponentCallbacks2 {
 
     @NonNull
     public e e() {
-        return this.f35383g;
+        return this.f35478g;
     }
 
     public void f() {
         com.kwad.sdk.glide.g.k.a();
-        this.f35381e.a();
-        this.f35380d.a();
+        this.f35476e.a();
+        this.f35475d.a();
         this.i.a();
     }
 
@@ -254,7 +254,7 @@ public class c implements ComponentCallbacks2 {
 
     @NonNull
     public Registry h() {
-        return this.f35384h;
+        return this.f35479h;
     }
 
     @Override // android.content.ComponentCallbacks

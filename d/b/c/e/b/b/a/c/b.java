@@ -9,24 +9,24 @@ import java.util.TreeSet;
 public class b implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Cursor f42126a;
+    public Cursor f42366a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentValues f42127b;
+    public final ContentValues f42367b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f42128c;
+    public final Set<String> f42368c;
 
     public b(Cursor cursor) {
-        this.f42126a = cursor;
-        this.f42127b = null;
-        this.f42128c = new TreeSet();
+        this.f42366a = cursor;
+        this.f42367b = null;
+        this.f42368c = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.f42128c.add(columnName);
+                    this.f42368c.add(columnName);
                 }
             }
         }
@@ -34,18 +34,18 @@ public class b implements c {
 
     @Override // d.b.c.e.b.b.a.c.c
     public Set<String> a() {
-        return this.f42128c;
+        return this.f42368c;
     }
 
     @Override // d.b.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
         if (str != null) {
             if (obj == null) {
-                this.f42127b.putNull(str);
+                this.f42367b.putNull(str);
             } else if (obj.getClass() != Boolean.TYPE && obj.getClass() != Boolean.class) {
                 if (obj.getClass() != Byte.TYPE && obj.getClass() != Byte.class) {
                     if (obj.getClass() == byte[].class) {
-                        this.f42127b.put(str, (byte[]) obj);
+                        this.f42367b.put(str, (byte[]) obj);
                         return;
                     } else if (obj.getClass() != Double.TYPE && obj.getClass() != Double.class) {
                         if (obj.getClass() != Float.TYPE && obj.getClass() != Float.class) {
@@ -53,30 +53,30 @@ public class b implements c {
                                 if (obj.getClass() != Long.TYPE && obj.getClass() != Long.class) {
                                     if (obj.getClass() != Short.TYPE && obj.getClass() != Short.class) {
                                         if (obj.getClass() == String.class) {
-                                            this.f42127b.put(str, (String) obj);
+                                            this.f42367b.put(str, (String) obj);
                                             return;
                                         }
                                         return;
                                     }
-                                    this.f42127b.put(str, (Short) obj);
+                                    this.f42367b.put(str, (Short) obj);
                                     return;
                                 }
-                                this.f42127b.put(str, (Long) obj);
+                                this.f42367b.put(str, (Long) obj);
                                 return;
                             }
-                            this.f42127b.put(str, (Integer) obj);
+                            this.f42367b.put(str, (Integer) obj);
                             return;
                         }
-                        this.f42127b.put(str, (Float) obj);
+                        this.f42367b.put(str, (Float) obj);
                         return;
                     } else {
-                        this.f42127b.put(str, (Double) obj);
+                        this.f42367b.put(str, (Double) obj);
                         return;
                     }
                 }
-                this.f42127b.put(str, (Byte) obj);
+                this.f42367b.put(str, (Byte) obj);
             } else {
-                this.f42127b.put(str, (Boolean) obj);
+                this.f42367b.put(str, (Boolean) obj);
             }
         }
     }
@@ -93,54 +93,54 @@ public class b implements c {
     }
 
     public Object d(String str) {
-        int columnIndex = this.f42126a.getColumnIndex(str);
+        int columnIndex = this.f42366a.getColumnIndex(str);
         Object obj = null;
-        if (columnIndex <= 0 || columnIndex >= this.f42126a.getColumnCount()) {
+        if (columnIndex <= 0 || columnIndex >= this.f42366a.getColumnCount()) {
             return null;
         }
         try {
-            obj = Short.valueOf(this.f42126a.getShort(columnIndex));
+            obj = Short.valueOf(this.f42366a.getShort(columnIndex));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         if (obj == null) {
             try {
-                obj = Integer.valueOf(this.f42126a.getInt(columnIndex));
+                obj = Integer.valueOf(this.f42366a.getInt(columnIndex));
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
         }
         if (obj == null) {
             try {
-                obj = Long.valueOf(this.f42126a.getLong(columnIndex));
+                obj = Long.valueOf(this.f42366a.getLong(columnIndex));
             } catch (Exception e4) {
                 e4.printStackTrace();
             }
         }
         if (obj == null) {
             try {
-                obj = Float.valueOf(this.f42126a.getFloat(columnIndex));
+                obj = Float.valueOf(this.f42366a.getFloat(columnIndex));
             } catch (Exception e5) {
                 e5.printStackTrace();
             }
         }
         if (obj == null) {
             try {
-                obj = Double.valueOf(this.f42126a.getDouble(columnIndex));
+                obj = Double.valueOf(this.f42366a.getDouble(columnIndex));
             } catch (Exception e6) {
                 e6.printStackTrace();
             }
         }
         if (obj == null) {
             try {
-                obj = this.f42126a.getString(columnIndex);
+                obj = this.f42366a.getString(columnIndex);
             } catch (Exception e7) {
                 e7.printStackTrace();
             }
         }
         if (obj == null) {
             try {
-                return this.f42126a.getBlob(columnIndex);
+                return this.f42366a.getBlob(columnIndex);
             } catch (Exception e8) {
                 e8.printStackTrace();
                 return obj;
@@ -150,7 +150,7 @@ public class b implements c {
     }
 
     public b(ContentValues contentValues) {
-        this.f42127b = contentValues;
-        this.f42128c = new TreeSet();
+        this.f42367b = contentValues;
+        this.f42368c = new TreeSet();
     }
 }

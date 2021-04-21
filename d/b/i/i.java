@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.FakeVideoContainer;
 import d.b.i.u0.a;
 /* loaded from: classes.dex */
-public class i extends d.b.i.a<d.b.h0.r.q.a> {
+public class i extends d.b.i.a<d.b.i0.r.q.a> {
     public static final int r = (d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
     public static int s;
     public static int t;
@@ -24,7 +24,7 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
     public static int v;
     public View j;
     public TextView k;
-    public d.b.h0.r.q.a l;
+    public d.b.i0.r.q.a l;
     public RoundCornerFrameLayout m;
     public FakeVideoContainer n;
     public int o;
@@ -35,17 +35,17 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f52200e;
+        public final /* synthetic */ ViewGroup.LayoutParams f50168e;
 
         public a(ViewGroup.LayoutParams layoutParams) {
-            this.f52200e = layoutParams;
+            this.f50168e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f52200e.width = i.this.j.getWidth();
-            this.f52200e.height = (i.this.j.getWidth() / 16) * 9;
-            i.this.m.setLayoutParams(this.f52200e);
+            this.f50168e.width = i.this.j.getWidth();
+            this.f50168e.height = (i.this.j.getWidth() / 16) * 9;
+            i.this.m.setLayoutParams(this.f50168e);
         }
     }
 
@@ -55,12 +55,12 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1131a c1131a) {
+        public boolean a(a.C1072a c1072a) {
             RoundCornerFrameLayout roundCornerFrameLayout;
-            if (c1131a.b() != 7 || (roundCornerFrameLayout = i.this.m) == null) {
+            if (c1072a.b() != 7 || (roundCornerFrameLayout = i.this.m) == null) {
                 return false;
             }
-            roundCornerFrameLayout.d(((Boolean) c1131a.c()).booleanValue());
+            roundCornerFrameLayout.d(((Boolean) c1072a.c()).booleanValue());
             return false;
         }
     }
@@ -84,11 +84,11 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
     @Override // d.b.i.a
     public View g() {
         if (this.j == null) {
-            View inflate = LayoutInflater.from(this.f52187f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f50155f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
-            FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f52187f);
+            FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f50155f);
             this.n = fakeVideoContainer;
             fakeVideoContainer.setBackgroundResource(R.color.transparent);
             this.m.addView(this.n);
@@ -112,14 +112,14 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
         r8 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x00b9, code lost:
-        r0 = d.b.h0.b.g.b.m(r11, r8, null, r0, r1);
+        r0 = d.b.i0.b.g.b.m(r11, r8, null, r0, r1);
      */
     @Override // d.b.i.p
     /* renamed from: o */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         boolean z;
         int k = d.b.c.e.p.l.k(TbadkCoreApplication.getInst());
         if (k != this.o) {
@@ -186,11 +186,11 @@ public class i extends d.b.i.a<d.b.h0.r.q.a> {
 
     @Override // d.b.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        d.b.h0.r.q.a aVar = this.l;
+        d.b.i0.r.q.a aVar = this.l;
         if (aVar == null || aVar.n() == null) {
             return;
         }
-        d.b.i0.x.m.l(this.k, this.l.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        d.b.j0.x.m.l(this.k, this.l.n().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.c(i);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

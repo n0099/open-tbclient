@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import d.b.c.e.f.a;
-import d.b.h0.m0.k;
+import d.b.i0.m0.k;
 /* loaded from: classes3.dex */
 public class PerformanceSwitch extends a {
     @Override // d.b.c.e.f.a

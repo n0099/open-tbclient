@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.v0;
+import d.b.i0.r.q.v0;
 /* loaded from: classes.dex */
 public class b0 extends c implements p<v0>, q {
     public static final int l = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
@@ -78,7 +78,7 @@ public class b0 extends c implements p<v0>, q {
         this.j = align;
     }
 
-    public void m(d.b.h0.r.q.a aVar) {
+    public void m(d.b.i0.r.q.a aVar) {
         if (aVar == null || aVar.g() == null) {
             return;
         }
@@ -86,9 +86,9 @@ public class b0 extends c implements p<v0>, q {
             if (!aVar.t() && !aVar.o()) {
                 l(Align.ALIGN_RIGHT_BOTTOM);
             } else if (aVar.isSupportTop()) {
-                v((!p(aVar) || d.b.h0.b.d.T()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
+                v((!p(aVar) || d.b.i0.b.d.T()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
             } else if (aVar.isSupportBottom()) {
-                k0 k0Var = this.f52195h;
+                k0 k0Var = this.f50163h;
                 if (k0Var != null) {
                     k0Var.n(this);
                 }
@@ -118,8 +118,8 @@ public class b0 extends c implements p<v0>, q {
         this.i.q();
     }
 
-    public final boolean p(d.b.h0.r.q.a aVar) {
-        return (aVar instanceof d.b.i0.x.e0.k) && ((d.b.i0.x.e0.k) aVar).s;
+    public final boolean p(d.b.i0.r.q.a aVar) {
+        return (aVar instanceof d.b.j0.x.e0.k) && ((d.b.j0.x.e0.k) aVar).s;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -135,7 +135,7 @@ public class b0 extends c implements p<v0>, q {
         this.i.setVisibility(0);
     }
 
-    public final void r(d.b.h0.r.q.a aVar) {
+    public final void r(d.b.i0.r.q.a aVar) {
         if (aVar.t()) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);

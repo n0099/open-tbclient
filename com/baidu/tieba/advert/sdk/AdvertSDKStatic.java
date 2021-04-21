@@ -8,7 +8,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import d.b.i0.r.a.e;
+import d.b.j0.r.a.e;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AdvertSDKStatic {
@@ -29,14 +29,14 @@ public class AdvertSDKStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<d.b.h0.k.c> {
+    public static class b implements CustomMessageTask.CustomRunnable<d.b.i0.k.c> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d.b.h0.k.c> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<d.b.i0.k.c> customMessage) {
             if (customMessage == null) {
                 return null;
             }
-            d.b.i0.r.a.h.a.c().f(customMessage.getData());
-            if (d.b.i0.r.a.h.a.c().e()) {
+            d.b.j0.r.a.h.a.c().f(customMessage.getData());
+            if (d.b.j0.r.a.h.a.c().e()) {
                 return new CustomResponsedMessage<>(2016555, 1400L);
             }
             return new CustomResponsedMessage<>(2016555, 1000L);
@@ -50,24 +50,24 @@ public class AdvertSDKStatic {
             if (customMessage == null) {
                 return null;
             }
-            d.b.i0.r.a.h.a.c().j(customMessage.getData());
+            d.b.j0.r.a.h.a.c().j(customMessage.getData());
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<d.b.h0.k.c> {
+    public static class d implements CustomMessageTask.CustomRunnable<d.b.i0.k.c> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d.b.h0.k.c> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<d.b.i0.k.c> customMessage) {
             if (customMessage != null && customMessage.getData() != null) {
-                d.b.i0.r.a.h.a.c().h(customMessage.getData().a(), false);
+                d.b.j0.r.a.h.a.c().h(customMessage.getData().a(), false);
             }
             return null;
         }
     }
 
     static {
-        new d.b.i0.r.a.a().g();
+        new d.b.j0.r.a.a().g();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.e1.i.a.b.a;
+import d.b.j0.e1.i.a.b.a;
 import tbclient.Error;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
 /* loaded from: classes4.dex */

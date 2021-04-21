@@ -10,21 +10,21 @@ public class h extends d.a.a.y.a<PointF> {
     public final d.a.a.y.a<PointF> p;
 
     public h(d.a.a.d dVar, d.a.a.y.a<PointF> aVar) {
-        super(dVar, aVar.f41801b, aVar.f41802c, aVar.f41803d, aVar.f41804e, aVar.f41805f);
+        super(dVar, aVar.f41896b, aVar.f41897c, aVar.f41898d, aVar.f41899e, aVar.f41900f);
         this.p = aVar;
         i();
     }
 
     public void i() {
         T t;
-        T t2 = this.f41802c;
-        boolean z = (t2 == 0 || (t = this.f41801b) == 0 || !((PointF) t).equals(((PointF) t2).x, ((PointF) t2).y)) ? false : true;
-        T t3 = this.f41802c;
+        T t2 = this.f41897c;
+        boolean z = (t2 == 0 || (t = this.f41896b) == 0 || !((PointF) t).equals(((PointF) t2).x, ((PointF) t2).y)) ? false : true;
+        T t3 = this.f41897c;
         if (t3 == 0 || z) {
             return;
         }
         d.a.a.y.a<PointF> aVar = this.p;
-        this.o = d.a.a.x.h.d((PointF) this.f41801b, (PointF) t3, aVar.m, aVar.n);
+        this.o = d.a.a.x.h.d((PointF) this.f41896b, (PointF) t3, aVar.m, aVar.n);
     }
 
     @Nullable

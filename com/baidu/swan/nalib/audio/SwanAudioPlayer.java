@@ -9,8 +9,8 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
-import d.b.g0.j.a.b;
-import d.b.g0.j.a.c;
+import d.b.h0.j.a.b;
+import d.b.h0.j.a.c;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAudioPlayer {
@@ -81,7 +81,7 @@ public class SwanAudioPlayer {
                 SwanAudioPlayer.this.postRunnable(Long.parseLong(message.obj.toString()));
             } else if (i != 101) {
             } else {
-                d.b.g0.j.a.a aVar = (d.b.g0.j.a.a) message.obj;
+                d.b.h0.j.a.a aVar = (d.b.h0.j.a.a) message.obj;
                 if (SwanAudioPlayer.this.mAudioRecordListener != null) {
                     SwanAudioPlayer.this.mAudioRecordListener.a(aVar);
                 }
@@ -154,10 +154,10 @@ public class SwanAudioPlayer {
 
     public void postAudioData(byte[] bArr, long j) {
         if (bArr != null) {
-            d.b.g0.j.a.a aVar = new d.b.g0.j.a.a();
-            aVar.f49268a = bArr;
-            aVar.f49269b = j;
-            aVar.f49270c = System.nanoTime();
+            d.b.h0.j.a.a aVar = new d.b.h0.j.a.a();
+            aVar.f49597a = bArr;
+            aVar.f49598b = j;
+            aVar.f49599c = System.nanoTime();
             this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
         }
     }

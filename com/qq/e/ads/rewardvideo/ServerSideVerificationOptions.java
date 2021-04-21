@@ -4,38 +4,38 @@ public class ServerSideVerificationOptions {
     public static final String TRANS_ID = "transId";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38508a;
+    public String f38603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38509b;
+    public String f38604b;
 
     /* loaded from: classes6.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f38510a;
+        public String f38605a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38511b;
+        public String f38606b;
 
         public ServerSideVerificationOptions build() {
             return new ServerSideVerificationOptions(this, (byte) 0);
         }
 
         public Builder setCustomData(String str) {
-            this.f38510a = str;
+            this.f38605a = str;
             return this;
         }
 
         public Builder setUserId(String str) {
-            this.f38511b = str;
+            this.f38606b = str;
             return this;
         }
     }
 
     public ServerSideVerificationOptions(Builder builder) {
-        this.f38508a = builder.f38510a;
-        this.f38509b = builder.f38511b;
+        this.f38603a = builder.f38605a;
+        this.f38604b = builder.f38606b;
     }
 
     public /* synthetic */ ServerSideVerificationOptions(Builder builder, byte b2) {
@@ -43,10 +43,10 @@ public class ServerSideVerificationOptions {
     }
 
     public String getCustomData() {
-        return this.f38508a;
+        return this.f38603a;
     }
 
     public String getUserId() {
-        return this.f38509b;
+        return this.f38604b;
     }
 }

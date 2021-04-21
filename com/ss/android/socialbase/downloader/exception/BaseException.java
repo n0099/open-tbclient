@@ -69,7 +69,7 @@ public class BaseException extends Exception implements Parcelable {
     }
 
     public BaseException(int i, Throwable th) {
-        this(i, d.o.a.e.b.l.e.R0(th));
+        this(i, d.p.a.e.b.l.e.R0(th));
     }
 
     public BaseException(Parcel parcel) {

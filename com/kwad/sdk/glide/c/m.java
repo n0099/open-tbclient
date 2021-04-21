@@ -13,21 +13,21 @@ import java.util.WeakHashMap;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<com.kwad.sdk.glide.request.c> f35402a = Collections.newSetFromMap(new WeakHashMap());
+    public final Set<com.kwad.sdk.glide.request.c> f35497a = Collections.newSetFromMap(new WeakHashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<com.kwad.sdk.glide.request.c> f35403b = new ArrayList();
+    public final List<com.kwad.sdk.glide.request.c> f35498b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35404c;
+    public boolean f35499c;
 
     private boolean a(@Nullable com.kwad.sdk.glide.request.c cVar, boolean z) {
         boolean z2 = true;
         if (cVar == null) {
             return true;
         }
-        boolean remove = this.f35402a.remove(cVar);
-        if (!this.f35403b.remove(cVar) && !remove) {
+        boolean remove = this.f35497a.remove(cVar);
+        if (!this.f35498b.remove(cVar) && !remove) {
             z2 = false;
         }
         if (z2) {
@@ -40,18 +40,18 @@ public class m {
     }
 
     public void a() {
-        this.f35404c = true;
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35402a)) {
+        this.f35499c = true;
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35497a)) {
             if (cVar.c()) {
                 cVar.b();
-                this.f35403b.add(cVar);
+                this.f35498b.add(cVar);
             }
         }
     }
 
     public void a(@NonNull com.kwad.sdk.glide.request.c cVar) {
-        this.f35402a.add(cVar);
-        if (!this.f35404c) {
+        this.f35497a.add(cVar);
+        if (!this.f35499c) {
             cVar.a();
             return;
         }
@@ -59,17 +59,17 @@ public class m {
         if (Log.isLoggable(RequestTracker.TAG, 2)) {
             Log.v(RequestTracker.TAG, "Paused, delaying request");
         }
-        this.f35403b.add(cVar);
+        this.f35498b.add(cVar);
     }
 
     public void b() {
-        this.f35404c = false;
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35402a)) {
+        this.f35499c = false;
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35497a)) {
             if (!cVar.e_() && !cVar.c()) {
                 cVar.a();
             }
         }
-        this.f35403b.clear();
+        this.f35498b.clear();
     }
 
     public boolean b(@Nullable com.kwad.sdk.glide.request.c cVar) {
@@ -77,18 +77,18 @@ public class m {
     }
 
     public void c() {
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35402a)) {
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35497a)) {
             a(cVar, false);
         }
-        this.f35403b.clear();
+        this.f35498b.clear();
     }
 
     public void d() {
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35402a)) {
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f35497a)) {
             if (!cVar.e_() && !cVar.f()) {
                 cVar.b();
-                if (this.f35404c) {
-                    this.f35403b.add(cVar);
+                if (this.f35499c) {
+                    this.f35498b.add(cVar);
                 } else {
                     cVar.a();
                 }
@@ -97,6 +97,6 @@ public class m {
     }
 
     public String toString() {
-        return super.toString() + "{numRequests=" + this.f35402a.size() + ", isPaused=" + this.f35404c + "}";
+        return super.toString() + "{numRequests=" + this.f35497a.size() + ", isPaused=" + this.f35499c + "}";
     }
 }

@@ -14,24 +14,24 @@ public final class d {
             return null;
         }
         c cVar = new c();
-        cVar.f37522a = jSONObject.optString("version", cVar.f37522a);
-        cVar.f37523b = jSONObject.optString("type", cVar.f37523b);
-        cVar.f37524c = e.a(jSONObject.optJSONObject("adaptationSet"));
+        cVar.f37617a = jSONObject.optString("version", cVar.f37617a);
+        cVar.f37618b = jSONObject.optString("type", cVar.f37618b);
+        cVar.f37619c = e.a(jSONObject.optJSONObject("adaptationSet"));
         return cVar;
     }
 
     public static String a(c cVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", cVar.f37522a);
+            jSONObject.put("version", cVar.f37617a);
         } catch (Exception unused) {
         }
         try {
-            jSONObject.put("type", cVar.f37523b);
+            jSONObject.put("type", cVar.f37618b);
         } catch (Exception unused2) {
         }
         try {
-            jSONObject.put("adaptationSet", e.a(cVar.f37524c));
+            jSONObject.put("adaptationSet", e.a(cVar.f37619c));
         } catch (Exception unused3) {
         }
         return jSONObject.toString();

@@ -11,13 +11,13 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39634a;
+    public static int f39729a;
 
     private void a(Uri uri) {
         f.c("openSDK_LOG.AuthActivity", "-->handleActionUri--start");
@@ -69,10 +69,10 @@ public class AuthActivity extends Activity {
                     }
                 } else {
                     if (string.equals("shareToQzone") && h.a(this, "com.tencent.mobileqq") != null && h.c(this, "5.2.0") < 0) {
-                        int i = f39634a + 1;
-                        f39634a = i;
+                        int i = f39729a + 1;
+                        f39729a = i;
                         if (i == 2) {
-                            f39634a = 0;
+                            f39729a = 0;
                             finish();
                             return;
                         }

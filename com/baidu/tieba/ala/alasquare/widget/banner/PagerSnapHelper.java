@@ -8,17 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-import d.b.i0.t.d.h.a.d;
+import d.b.j0.t.d.h.a.d;
 /* loaded from: classes4.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public d f14622c;
+    public d f14630c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f14623d;
+    public d f14631d;
 
     /* loaded from: classes4.dex */
     public class a extends LinearSmoothScroller {
@@ -39,7 +39,7 @@ public class PagerSnapHelper extends SnapHelper {
         @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
         public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
             PagerSnapHelper pagerSnapHelper = PagerSnapHelper.this;
-            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14625a.getLayoutManager(), view);
+            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14633a.getLayoutManager(), view);
             int i = calculateDistanceToFinalSnap[0];
             int i2 = calculateDistanceToFinalSnap[1];
             int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
@@ -124,27 +124,27 @@ public class PagerSnapHelper extends SnapHelper {
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     public LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-            return new a(this.f14625a.getContext());
+            return new a(this.f14633a.getContext());
         }
         return null;
     }
 
     @NonNull
     public final d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        d dVar = this.f14623d;
-        if (dVar == null || dVar.f62233a != layoutManager) {
-            this.f14623d = d.a(layoutManager);
+        d dVar = this.f14631d;
+        if (dVar == null || dVar.f62654a != layoutManager) {
+            this.f14631d = d.a(layoutManager);
         }
-        return this.f14623d;
+        return this.f14631d;
     }
 
     @NonNull
     public final d e(@NonNull RecyclerView.LayoutManager layoutManager) {
-        d dVar = this.f14622c;
-        if (dVar == null || dVar.f62233a != layoutManager) {
-            this.f14622c = d.b(layoutManager);
+        d dVar = this.f14630c;
+        if (dVar == null || dVar.f62654a != layoutManager) {
+            this.f14630c = d.b(layoutManager);
         }
-        return this.f14622c;
+        return this.f14630c;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper

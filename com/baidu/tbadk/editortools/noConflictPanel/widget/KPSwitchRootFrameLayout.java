@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import d.b.h0.w.v.c.c;
+import d.b.i0.w.v.c.c;
 /* loaded from: classes3.dex */
 public class KPSwitchRootFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13540e;
+    public c f13548e;
 
     public KPSwitchRootFrameLayout(Context context) {
         super(context);
@@ -17,12 +17,12 @@ public class KPSwitchRootFrameLayout extends FrameLayout {
     }
 
     public final void a() {
-        this.f13540e = new c(this);
+        this.f13548e = new c(this);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        this.f13540e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.f13548e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 

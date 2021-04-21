@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import d.b.c.e.f.a;
-import d.b.h0.r.d0.b;
+import d.b.i0.r.d0.b;
 /* loaded from: classes3.dex */
 public class ImmersiveStickySwitch extends a {
     public static final String KEY = "android_immersive_switch";

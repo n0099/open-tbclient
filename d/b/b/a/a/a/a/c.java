@@ -8,25 +8,25 @@ import com.baidu.sapi2.result.OneKeyLoginResult;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f41914d = a.a(24);
+    public static final int f42080d = a.a(24);
 
     /* renamed from: a  reason: collision with root package name */
-    public h f41915a;
+    public h f42081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f41916b = new e();
+    public e f42082b = new e();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f41917c;
+    public Context f42083c;
 
     public c(Context context) {
-        this.f41917c = context;
-        this.f41915a = new h(context);
+        this.f42083c = context;
+        this.f42081a = new h(context);
     }
 
     public final int b(Object obj, Object obj2) {
         try {
-            return this.f41915a.a(obj, obj2);
+            return this.f42081a.a(obj, obj2);
         } catch (q e2) {
             throw e2;
         } catch (Throwable th) {
@@ -37,7 +37,7 @@ public class c {
     public i c(String str) {
         int i = -103;
         try {
-            Object b2 = this.f41915a.b(this.f41917c);
+            Object b2 = this.f42081a.b(this.f42083c);
             if (b2 == null) {
                 e = new NullPointerException("gpm null error");
             } else {
@@ -74,8 +74,8 @@ public class c {
 
     public final Object e(String str, int i) {
         try {
-            Class cls = this.f41915a.f41926c;
-            return k.b(cls, new Object[]{str, this.f41916b.f41918a + i});
+            Class cls = this.f42081a.f42092c;
+            return k.b(cls, new Object[]{str, this.f42082b.f42084a + i});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new com.baidu.ad.magic.flute.a.a.g("");
@@ -84,7 +84,7 @@ public class c {
 
     public final byte[] f(Object obj, String str) {
         g gVar = new g();
-        for (int i = 0; i < f41914d; i++) {
+        for (int i = 0; i < f42080d; i++) {
             gVar.b(f.a(b(obj, e(str, i))));
         }
         return gVar.a().b();
@@ -97,7 +97,7 @@ public class c {
 
     public final Object h(String str) {
         try {
-            return k.b(this.f41915a.f41926c, new Object[]{str, this.f41916b.f41919b});
+            return k.b(this.f42081a.f42092c, new Object[]{str, this.f42082b.f42085b});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new com.baidu.ad.magic.flute.a.a.g("");

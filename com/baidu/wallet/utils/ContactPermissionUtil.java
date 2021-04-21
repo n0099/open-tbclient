@@ -29,10 +29,10 @@ public class ContactPermissionUtil {
     public static final int DIALOG_NO_PERMISSION_CONTACTS = 137;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f26512a;
+    public static List<String> f26520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OnContactPermissionPhoneSelectListener f26513b;
+    public static OnContactPermissionPhoneSelectListener f26521b;
 
     /* loaded from: classes5.dex */
     public interface OnContactPermissionPhoneSelectListener {
@@ -40,12 +40,12 @@ public class ContactPermissionUtil {
     }
 
     public static void b(BaseActivity baseActivity, int i) {
-        String str = f26512a.get(i);
+        String str = f26520a.get(i);
         if (StringUtils.isPhoneNumber(str.replace(" ", ""))) {
-            OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener = f26513b;
+            OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener = f26521b;
             if (onContactPermissionPhoneSelectListener != null) {
                 onContactPermissionPhoneSelectListener.onContactPermissionPhoneSelect(str);
-                f26513b = null;
+                f26521b = null;
                 return;
             }
             return;
@@ -54,7 +54,7 @@ public class ContactPermissionUtil {
     }
 
     public static void checkIsHasContactPermission(final BaseActivity baseActivity, final int i, int i2, OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener) {
-        f26513b = onContactPermissionPhoneSelectListener;
+        f26521b = onContactPermissionPhoneSelectListener;
         if (!PermissionManager.checkCallingPermission(baseActivity, "android.permission.READ_CONTACTS")) {
             BaiduWalletUtils.requestPermissionsDialog(null, baseActivity.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, new BaiduWalletUtils.IRequestPermissionCallBack() { // from class: com.baidu.wallet.utils.ContactPermissionUtil.1
                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -92,13 +92,13 @@ public class ContactPermissionUtil {
             return;
         }
         List<String> phoneContactsForChargeFragment = getPhoneContactsForChargeFragment(intent.getData(), baseActivity);
-        f26512a = phoneContactsForChargeFragment;
+        f26520a = phoneContactsForChargeFragment;
         if (phoneContactsForChargeFragment == null) {
             a(baseActivity, "wallet_fp_no_permision_or_null");
         } else if (phoneContactsForChargeFragment.size() <= 1) {
             a(baseActivity, "wallet_fp_phone_not_correct");
-        } else if (f26512a.size() > 1) {
-            if (f26512a.size() == 2) {
+        } else if (f26520a.size() > 1) {
+            if (f26520a.size() == 2) {
                 b(baseActivity, 1);
             } else {
                 WalletGlobalUtils.safeShowDialog(baseActivity, i, "");
@@ -177,11 +177,11 @@ public class ContactPermissionUtil {
 
     public static void prepareSelectNumberDialog(final BaseActivity baseActivity, int i, Dialog dialog) {
         SelectNumberDialog selectNumberDialog = (SelectNumberDialog) dialog;
-        selectNumberDialog.setData(f26512a);
+        selectNumberDialog.setData(f26520a);
         selectNumberDialog.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.wallet.utils.ContactPermissionUtil.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                if (i2 <= 0 || i2 >= ContactPermissionUtil.f26512a.size()) {
+                if (i2 <= 0 || i2 >= ContactPermissionUtil.f26520a.size()) {
                     return;
                 }
                 ContactPermissionUtil.b(BaseActivity.this, i2);
@@ -190,8 +190,8 @@ public class ContactPermissionUtil {
     }
 
     public static void restListener() {
-        if (f26513b != null) {
-            f26513b = null;
+        if (f26521b != null) {
+            f26521b = null;
         }
     }
 

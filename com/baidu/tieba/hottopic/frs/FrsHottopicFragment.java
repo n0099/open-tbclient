@@ -18,11 +18,11 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistModel;
 import d.b.c.j.e.n;
-import d.b.h0.r.q.a2;
-import d.b.i0.c1.c.j;
-import d.b.i0.c1.d.d;
-import d.b.i0.q0.q0;
-import d.b.i0.q0.s0;
+import d.b.i0.r.q.a2;
+import d.b.j0.c1.c.j;
+import d.b.j0.c1.d.d;
+import d.b.j0.q0.q0;
+import d.b.j0.q0.s0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Media;
@@ -31,19 +31,19 @@ import tbclient.TopicList.TopicList;
 public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public HotRanklistModel f17239e;
+    public HotRanklistModel f17247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f17240f;
+    public j f17248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f17241g;
+    public d f17249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f17242h;
+    public long f17250h;
     public String i;
     public String j;
-    public d.b.h0.d0.c k;
+    public d.b.i0.d0.c k;
     public CustomMessageListener l = new a(2921397);
     public HotRanklistModel.b m = new b();
     public CustomMessageListener n = new c(2001624);
@@ -74,16 +74,16 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         public void loadNetDataCallback(boolean z, j jVar, int i, String str) {
             FrsHottopicFragment.this.n();
             FrsHottopicFragment.this.P0();
-            FrsHottopicFragment.this.f17241g.h(false);
+            FrsHottopicFragment.this.f17249g.h(false);
             if (z) {
-                FrsHottopicFragment.this.f17240f = jVar;
-                d dVar = FrsHottopicFragment.this.f17241g;
+                FrsHottopicFragment.this.f17248f = jVar;
+                d dVar = FrsHottopicFragment.this.f17249g;
                 FrsHottopicFragment frsHottopicFragment = FrsHottopicFragment.this;
-                dVar.e(frsHottopicFragment.N0(frsHottopicFragment.f17240f));
+                dVar.e(frsHottopicFragment.N0(frsHottopicFragment.f17248f));
                 if (FrsHottopicFragment.this.O0()) {
                     return;
                 }
-                FrsHottopicFragment.this.f17241g.i();
+                FrsHottopicFragment.this.f17249g.i();
             } else if (FrsHottopicFragment.this.O0()) {
             } else {
                 FrsHottopicFragment.this.S0();
@@ -111,12 +111,12 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         }
     }
 
-    @Override // d.b.i0.q0.q0
+    @Override // d.b.j0.q0.q0
     public void B0() {
-        this.f17241g.d();
+        this.f17249g.d();
     }
 
-    @Override // d.b.i0.q0.q0
+    @Override // d.b.j0.q0.q0
     public void E() {
         refresh();
     }
@@ -131,7 +131,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
                 a2 a2Var = new a2();
                 a2Var.m4(topicList.topic_tid + "");
                 a2Var.D3(topicList.video_info);
-                a2Var.u3(this.f17242h);
+                a2Var.u3(this.f17250h);
                 a2Var.v3(this.i);
                 a2Var.d4(this.j);
                 a2Var.o4(topicList.topic_h5_url);
@@ -159,21 +159,21 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     }
 
     public final boolean O0() {
-        return this.f17241g.b();
+        return this.f17249g.b();
     }
 
     public final void P0() {
-        this.f17241g.g(true);
-        d.b.h0.d0.c cVar = this.k;
+        this.f17249g.g(true);
+        d.b.i0.d0.c cVar = this.k;
         if (cVar != null && cVar.isViewAttached()) {
-            this.k.dettachView(this.f17241g.a());
+            this.k.dettachView(this.f17249g.a());
         }
         MessageManager.getInstance().unRegisterListener(this.l);
     }
 
     public final void Q0() {
         if (isPrimary()) {
-            d.b.h0.d0.c cVar = this.k;
+            d.b.i0.d0.c cVar = this.k;
             if (cVar == null || !cVar.isViewAttached()) {
                 return;
             }
@@ -184,15 +184,15 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     }
 
     public final void R0() {
-        this.f17241g.g(false);
-        showLoadingView(this.f17241g.a(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
+        this.f17249g.g(false);
+        showLoadingView(this.f17249g.a(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
     }
 
     public final void S0() {
-        this.f17241g.g(false);
+        this.f17249g.g(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
         if (this.k == null) {
-            d.b.h0.d0.c cVar = new d.b.h0.d0.c(getPageContext().getContext(), getNetRefreshListener());
+            d.b.i0.d0.c cVar = new d.b.i0.d0.c(getPageContext().getContext(), getNetRefreshListener());
             this.k = cVar;
             cVar.e(null);
             this.k.d(null);
@@ -201,7 +201,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
             this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         this.k.onChangeSkinType();
-        this.k.attachView(this.f17241g.a(), true);
+        this.k.attachView(this.f17249g.a(), true);
         MessageManager.getInstance().registerListener(this.l);
     }
 
@@ -213,28 +213,28 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
         return tbPageTag;
     }
 
-    @Override // d.b.i0.q0.s0
+    @Override // d.b.j0.q0.s0
     public void m() {
         refresh();
     }
 
     public final void n() {
-        this.f17241g.g(true);
-        hideLoadingView(this.f17241g.a());
+        this.f17249g.g(true);
+        hideLoadingView(this.f17249g.a());
     }
 
-    @Override // d.b.i0.q0.s0
+    @Override // d.b.j0.q0.s0
     public void o() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d dVar = this.f17241g;
+        d dVar = this.f17249g;
         if (dVar != null) {
             dVar.c();
         }
-        d.b.h0.d0.c cVar = this.k;
+        d.b.i0.d0.c cVar = this.k;
         if (cVar == null || !cVar.isViewAttached()) {
             return;
         }
@@ -245,12 +245,12 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         HotRanklistModel hotRanklistModel = new HotRanklistModel(getPageContext());
-        this.f17239e = hotRanklistModel;
+        this.f17247e = hotRanklistModel;
         hotRanklistModel.x(this.m);
         registerListener(this.n);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f17242h = d.b.c.e.m.b.f(arguments.getString("fid"), 0L);
+            this.f17250h = d.b.c.e.m.b.f(arguments.getString("fid"), 0L);
             arguments.getString("from");
             this.i = arguments.getString("first_class_name");
             this.j = arguments.getString("second_class_name");
@@ -261,7 +261,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.frs_hottopic_fragment, (ViewGroup) null);
         d dVar = new d(this, inflate, getPageContext());
-        this.f17241g = dVar;
+        this.f17249g = dVar;
         dVar.f(getTbPageTag());
         return inflate;
     }
@@ -282,7 +282,7 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
-        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f17242h).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f17250h).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -304,13 +304,13 @@ public class FrsHottopicFragment extends BaseFragment implements q0, d.a, s0 {
             return;
         }
         P0();
-        this.f17241g.d();
+        this.f17249g.d();
         if (!O0()) {
             R0();
         } else {
-            this.f17241g.h(true);
+            this.f17249g.h(true);
         }
-        this.f17239e.cancelLoadData();
-        this.f17239e.u("frs", "frstab", "0", this.f17242h);
+        this.f17247e.cancelLoadData();
+        this.f17247e.u("frs", "frstab", "0", this.f17250h);
     }
 }

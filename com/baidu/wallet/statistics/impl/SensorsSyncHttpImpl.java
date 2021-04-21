@@ -3,7 +3,7 @@ package com.baidu.wallet.statistics.impl;
 import android.content.Context;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.qq.e.comm.constants.Constants;
-import d.d.a.a.b.c;
+import d.e.a.a.b.c;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,7 +31,7 @@ public class SensorsSyncHttpImpl implements c {
         }
     }
 
-    @Override // d.d.a.a.b.c
+    @Override // d.e.a.a.b.c
     public boolean send(Context context, int i, String str, Map<String, String> map) {
         OutputStream outputStream;
         OutputStream outputStream2;

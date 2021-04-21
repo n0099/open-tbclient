@@ -9,10 +9,10 @@ import android.widget.Scroller;
 public class BlankView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f16084e;
+    public Scroller f16092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f16085f;
+    public a f16093f;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,12 +24,12 @@ public class BlankView extends View {
     }
 
     public void a() {
-        if (this.f16084e == null) {
-            this.f16084e = new Scroller(getContext());
+        if (this.f16092e == null) {
+            this.f16092e = new Scroller(getContext());
         }
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
-            Scroller scroller = this.f16084e;
+            Scroller scroller = this.f16092e;
             int i = layoutParams.height;
             scroller.startScroll(0, i, 0, 0 - i);
             invalidate();
@@ -39,12 +39,12 @@ public class BlankView extends View {
     @Override // android.view.View
     public void computeScroll() {
         super.computeScroll();
-        Scroller scroller = this.f16084e;
+        Scroller scroller = this.f16092e;
         if (scroller == null) {
             return;
         }
         if (scroller.computeScrollOffset()) {
-            int currY = this.f16084e.getCurrY();
+            int currY = this.f16092e.getCurrY();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = currY;
@@ -53,14 +53,14 @@ public class BlankView extends View {
             }
             return;
         }
-        a aVar = this.f16085f;
+        a aVar = this.f16093f;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f16085f = aVar;
+        this.f16093f = aVar;
     }
 
     public BlankView(Context context, AttributeSet attributeSet) {

@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
 import com.google.common.hash.Striped64;
-import d.g.c.d.i;
+import d.h.c.d.i;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,7 +22,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         objectOutputStream.writeLong(sum());
     }
 
-    @Override // d.g.c.d.i
+    @Override // d.h.c.d.i
     public void add(long j) {
         int length;
         Striped64.b bVar;
@@ -36,7 +36,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         int[] iArr = Striped64.threadHashCode.get();
         boolean z = true;
         if (iArr != null && bVarArr != null && (length = bVarArr.length) >= 1 && (bVar = bVarArr[(length - 1) & iArr[0]]) != null) {
-            long j3 = bVar.f31122a;
+            long j3 = bVar.f31217a;
             z = bVar.a(j3, j3 + j);
             if (z) {
                 return;
@@ -64,7 +64,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         return j + j2;
     }
 
-    @Override // d.g.c.d.i
+    @Override // d.h.c.d.i
     public void increment() {
         add(1L);
     }
@@ -83,14 +83,14 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         internalReset(0L);
     }
 
-    @Override // d.g.c.d.i
+    @Override // d.h.c.d.i
     public long sum() {
         long j = this.base;
         Striped64.b[] bVarArr = this.cells;
         if (bVarArr != null) {
             for (Striped64.b bVar : bVarArr) {
                 if (bVar != null) {
-                    j += bVar.f31122a;
+                    j += bVar.f31217a;
                 }
             }
         }
@@ -104,8 +104,8 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         if (bVarArr != null) {
             for (Striped64.b bVar : bVarArr) {
                 if (bVar != null) {
-                    j += bVar.f31122a;
-                    bVar.f31122a = 0L;
+                    j += bVar.f31217a;
+                    bVar.f31217a = 0L;
                 }
             }
         }

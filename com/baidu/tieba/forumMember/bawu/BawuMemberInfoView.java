@@ -23,16 +23,16 @@ import tbclient.BawuRoleInfoPub;
 public class BawuMemberInfoView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15559e;
+    public Context f15567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15560f;
+    public View f15568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f15561g;
+    public HeadImageView f15569g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15562h;
+    public TextView f15570h;
     public ImageView i;
     public TextView j;
     public BawuRoleInfoPub k;
@@ -48,14 +48,14 @@ public class BawuMemberInfoView extends RelativeLayout {
                 return;
             }
             MessageManager messageManager = MessageManager.getInstance();
-            Context context = BawuMemberInfoView.this.f15559e;
+            Context context = BawuMemberInfoView.this.f15567e;
             messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, "" + BawuMemberInfoView.this.k.user_id, BawuMemberInfoView.this.k.user_name)));
         }
     }
 
     public BawuMemberInfoView(Context context) {
         super(context);
-        this.f15559e = context;
+        this.f15567e = context;
         d();
     }
 
@@ -71,8 +71,8 @@ public class BawuMemberInfoView extends RelativeLayout {
         } else {
             str = bawuRoleInfoPub.portrait;
         }
-        this.f15561g.W(str, 12, false);
-        this.f15562h.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+        this.f15569g.W(str, 12, false);
+        this.f15570h.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
         if (StringUtils.isNull(bawuRoleInfoPub.level_name)) {
             this.j.setVisibility(8);
         } else {
@@ -85,23 +85,23 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         ImageView imageView = this.i;
-        imageView.setContentDescription(this.f15559e.getString(R.string.degree) + bawuRoleInfoPub.user_level);
+        imageView.setContentDescription(this.f15567e.getString(R.string.degree) + bawuRoleInfoPub.user_level);
         SkinManager.setImageResource(this.i, smallGradeResourceIdNew);
         this.i.setVisibility(0);
     }
 
     public void d() {
-        View inflate = LayoutInflater.from(this.f15559e).inflate(R.layout.bawu_member_info_item_layout, this);
-        this.f15560f = inflate;
+        View inflate = LayoutInflater.from(this.f15567e).inflate(R.layout.bawu_member_info_item_layout, this);
+        this.f15568f = inflate;
         HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.imageview_bawu_member);
-        this.f15561g = headImageView;
+        this.f15569g = headImageView;
         headImageView.setIsRound(true);
-        this.f15561g.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.f15561g.setBorderWidth(l.g(this.f15559e, R.dimen.ds1));
-        this.f15560f.setOnClickListener(new a());
-        this.i = (ImageView) this.f15560f.findViewById(R.id.imageview_level_icon);
-        this.f15562h = (TextView) this.f15560f.findViewById(R.id.textview_user_name);
-        this.j = (TextView) this.f15560f.findViewById(R.id.textview_user_level);
+        this.f15569g.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+        this.f15569g.setBorderWidth(l.g(this.f15567e, R.dimen.ds1));
+        this.f15568f.setOnClickListener(new a());
+        this.i = (ImageView) this.f15568f.findViewById(R.id.imageview_level_icon);
+        this.f15570h = (TextView) this.f15568f.findViewById(R.id.textview_user_name);
+        this.j = (TextView) this.f15568f.findViewById(R.id.textview_user_level);
     }
 
     public ImageView getLevelIcon() {
@@ -117,22 +117,22 @@ public class BawuMemberInfoView extends RelativeLayout {
     }
 
     public HeadImageView getPhotoView() {
-        return this.f15561g;
+        return this.f15569g;
     }
 
     public TextView getUserNameView() {
-        return this.f15562h;
+        return this.f15570h;
     }
 
     public BawuMemberInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15559e = context;
+        this.f15567e = context;
         d();
     }
 
     public BawuMemberInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15559e = context;
+        this.f15567e = context;
         d();
     }
 }

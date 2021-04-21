@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38795a = false;
+    public static boolean f38890a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38796b = "";
+    public static String f38891b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38797c = "";
+    public static String f38892c = "";
 
     public static AInfo a(Context context) {
         AInfo aInfo = new AInfo();
@@ -36,7 +36,7 @@ public final class a {
     public static SInfo b() {
         SInfo sInfo = new SInfo();
         sInfo.setN(BaseConfig.n);
-        sInfo.setC(BaseConfig.f38865c);
+        sInfo.setC(BaseConfig.f38960c);
         sInfo.setV(BaseConfig.v);
         sInfo.setCm(BaseConfig.cm);
         return sInfo;

@@ -4,8 +4,8 @@ import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.h0.m0.l;
-import d.b.h0.q0.a;
+import d.b.i0.m0.l;
+import d.b.i0.q0.a;
 /* loaded from: classes4.dex */
 public class TiebaMainApplication extends TbadkApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper

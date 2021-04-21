@@ -1,0 +1,220 @@
+package d.b.j0.d3.o0.d;
+
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import d.b.c.e.p.q;
+import d.b.j0.t1.g;
+import java.io.File;
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class d implements b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f55411a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f55412b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f55413c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f55414d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f55415e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public e f55416f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f55417g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.j0.d3.o0.d.f.a f55418h;
+    public g i;
+
+    public d(String str, int i, g gVar) {
+        this.f55413c = str;
+        this.f55414d = i;
+        this.i = gVar;
+        File file = new File(str);
+        if (file.exists()) {
+            this.f55411a = file.length();
+            this.f55412b = q.b(FileHelper.GetStreamFromFile(file));
+            long j = this.f55411a;
+            int i2 = this.f55414d;
+            if (j % i2 == 0) {
+                this.f55415e = (int) (j / i2);
+            } else {
+                this.f55415e = ((int) (j / i2)) + 1;
+            }
+        }
+    }
+
+    @Override // d.b.j0.d3.o0.d.b
+    public VideoFinishResult a(String str, int i) {
+        a c2;
+        if (StringUtils.isNull(str) || this.f55411a <= 0 || StringUtils.isNull(this.f55412b) || i <= 0 || this.f55417g) {
+            return null;
+        }
+        d(10);
+        long j = i;
+        a c3 = c(this.f55415e, j, false, null);
+        if (c3 != null && !this.f55417g) {
+            if (c3.f55403e != 0) {
+                VideoFinishResult videoFinishResult = new VideoFinishResult();
+                videoFinishResult.setErrorNo(c3.f55403e);
+                videoFinishResult.setUserMessage(c3.f55402d);
+                e(302, c3.f55403e, c3.f55402d);
+                return videoFinishResult;
+            }
+            d(30);
+            if (!StringUtils.isNull(c3.f55401c)) {
+                VideoFinishResult videoFinishResult2 = new VideoFinishResult();
+                videoFinishResult2.setVideoMd5(this.f55412b);
+                videoFinishResult2.setVideoUrl(c3.f55401c);
+                f();
+                return videoFinishResult2;
+            } else if (this.f55417g) {
+                return null;
+            } else {
+                ArrayList<Integer> arrayList = c3.f55399a;
+                if (ListUtils.isEmpty(arrayList)) {
+                    arrayList = new ArrayList<>();
+                    int i2 = 0;
+                    while (i2 < this.f55415e) {
+                        i2++;
+                        arrayList.add(Integer.valueOf(i2));
+                    }
+                }
+                String str2 = c3.f55400b;
+                d.b.j0.d3.o0.d.f.d g2 = g(arrayList, str2, i);
+                if (g2 != null && !this.f55417g) {
+                    if (g2.f55434b != 0) {
+                        VideoFinishResult videoFinishResult3 = new VideoFinishResult();
+                        videoFinishResult3.setErrorNo(g2.f55434b);
+                        videoFinishResult3.setUserMessage(g2.f55435c);
+                        e(303, g2.f55434b, g2.f55435c);
+                        return videoFinishResult3;
+                    }
+                    d(85);
+                    if (!StringUtils.isNull(g2.f55433a)) {
+                        VideoFinishResult videoFinishResult4 = new VideoFinishResult();
+                        videoFinishResult4.setVideoUrl(g2.f55433a);
+                        videoFinishResult4.setVideoMd5(this.f55412b);
+                        f();
+                        return videoFinishResult4;
+                    } else if (this.f55417g || (c2 = c(this.f55415e, j, true, str2)) == null) {
+                        return null;
+                    } else {
+                        VideoFinishResult videoFinishResult5 = new VideoFinishResult();
+                        int i3 = c2.f55403e;
+                        if (i3 == 0) {
+                            videoFinishResult5.setVideoUrl(c2.f55401c);
+                            videoFinishResult5.setVideoMd5(this.f55412b);
+                            f();
+                        } else {
+                            videoFinishResult5.setErrorNo(i3);
+                            videoFinishResult5.setUserMessage(c2.f55402d);
+                            e(304, c2.f55403e, c2.f55402d);
+                            TiebaStatic.log(new StatisticItem("c12024").param("params", c2.f55402d));
+                        }
+                        d(100);
+                        return videoFinishResult5;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override // d.b.j0.d3.o0.d.b
+    public void b(e eVar) {
+        this.f55416f = eVar;
+    }
+
+    public final a c(int i, long j, boolean z, String str) {
+        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
+        netWork.addPostData("chunk_sum", String.valueOf(i));
+        netWork.addPostData("video_size", String.valueOf(this.f55411a));
+        netWork.addPostData("chunk_size", String.valueOf(this.f55414d));
+        netWork.addPostData("is_merge", String.valueOf(z ? 1 : 0));
+        netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f55412b);
+        netWork.addPostData("video_len", String.valueOf(j));
+        netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+        if (!StringUtils.isNull(str)) {
+            netWork.addPostData("upload_id", str);
+        }
+        String postNetData = netWork.postNetData();
+        if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+            if (StringUtils.isNull(postNetData)) {
+                return null;
+            }
+            a aVar = new a();
+            aVar.a(postNetData);
+            return aVar;
+        }
+        a aVar2 = new a();
+        if (netWork.getNetContext().getResponse().isNetSuccess()) {
+            aVar2.f55403e = netWork.getNetContext().getResponse().mServerErrorCode;
+        } else {
+            aVar2.f55403e = netWork.getNetContext().getResponse().mNetErrorCode;
+        }
+        aVar2.f55402d = netWork.getNetContext().getResponse().mErrorString;
+        return aVar2;
+    }
+
+    @Override // d.b.j0.d3.o0.d.b
+    public void cancel() {
+        this.f55417g = true;
+        d.b.j0.d3.o0.d.f.a aVar = this.f55418h;
+        if (aVar != null) {
+            aVar.a();
+        }
+    }
+
+    public final void d(int i) {
+        e eVar = this.f55416f;
+        if (eVar != null) {
+            eVar.onProgressUpdate(i / 100.0f);
+        }
+    }
+
+    public final void e(int i, int i2, String str) {
+        g gVar = this.i;
+        if (gVar != null) {
+            gVar.d(i, i2, str);
+        }
+    }
+
+    public final void f() {
+        g gVar = this.i;
+        if (gVar != null) {
+            gVar.j();
+        }
+    }
+
+    public final d.b.j0.d3.o0.d.f.d g(ArrayList<Integer> arrayList, String str, int i) {
+        if (ListUtils.isEmpty(arrayList) || StringUtils.isNull(str)) {
+            return null;
+        }
+        if (arrayList.size() > 3) {
+            this.f55418h = new d.b.j0.d3.o0.d.f.b(this.f55413c, this.f55414d, this.f55415e, this.f55411a, this.f55412b);
+        } else {
+            this.f55418h = new d.b.j0.d3.o0.d.f.c(this.f55413c, this.f55414d, this.f55415e, this.f55411a, this.f55412b);
+        }
+        this.f55418h.f(this.f55416f);
+        d.b.j0.d3.o0.d.f.d g2 = this.f55418h.g(arrayList, str, i);
+        this.f55418h = null;
+        return g2;
+    }
+}

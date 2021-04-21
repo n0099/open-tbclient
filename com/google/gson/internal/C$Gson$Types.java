@@ -1,7 +1,7 @@
 package com.google.gson.internal;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import d.g.d.b.a;
+import d.h.d.b.a;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
@@ -21,7 +21,7 @@ import java.util.Properties;
 public final class C$Gson$Types {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Type[] f31195a = new Type[0];
+    public static final Type[] f31290a = new Type[0];
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
     /* loaded from: classes6.dex */
@@ -154,7 +154,7 @@ public final class C$Gson$Types {
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
             Type type = this.lowerBound;
-            return type != null ? new Type[]{type} : C$Gson$Types.f31195a;
+            return type != null ? new Type[]{type} : C$Gson$Types.f31290a;
         }
 
         @Override // java.lang.reflect.WildcardType
@@ -455,7 +455,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType s(Type type) {
-        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f31195a);
+        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f31290a);
     }
 
     public static WildcardType t(Type type) {

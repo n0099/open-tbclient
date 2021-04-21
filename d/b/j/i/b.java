@@ -3,20 +3,20 @@ package d.b.j.i;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64463a;
+    public long f52658a;
 
     public b() {
         this(0L);
     }
 
     public b(long j) {
-        this.f64463a = j;
+        this.f52658a = j;
     }
 
     public boolean a(long j, long j2) {
-        long j3 = this.f64463a;
+        long j3 = this.f52658a;
         long j4 = (j & j2) | ((~j2) & j3);
-        this.f64463a = j4;
+        this.f52658a = j4;
         return (j4 ^ j3) != 0;
     }
 }

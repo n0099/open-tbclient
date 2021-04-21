@@ -2,9 +2,9 @@ package com.ss.android.downloadlib.a.a;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import d.o.a.d.e$g.c;
-import d.o.a.d.f.n;
-import d.o.a.e.a.h.b;
+import d.p.a.d.e$g.c;
+import d.p.a.d.f.n;
+import d.p.a.e.a.h.b;
 import java.lang.reflect.Field;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;

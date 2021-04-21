@@ -23,28 +23,28 @@ import com.kwad.sdk.utils.ao;
 public class TrendsPanelLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView f33364a;
+    public RecyclerView f33459a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.trends.view.a f33365b;
+    public com.kwad.sdk.contentalliance.trends.view.a f33460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f33366c;
+    public a f33461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f33367d;
+    public b f33462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f33368e;
+    public ImageView f33463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f33369f;
+    public LinearLayout f33464f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f33370g;
+    public RelativeLayout f33465g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f33371h;
+    public TextView f33466h;
     public TranslateAnimation i;
 
     /* loaded from: classes6.dex */
@@ -59,46 +59,46 @@ public class TrendsPanelLayout extends LinearLayout {
 
     public TrendsPanelLayout(Context context) {
         super(context);
-        this.f33366c = null;
-        this.f33367d = null;
+        this.f33461c = null;
+        this.f33462d = null;
     }
 
     public TrendsPanelLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f33366c = null;
-        this.f33367d = null;
+        this.f33461c = null;
+        this.f33462d = null;
     }
 
     public TrendsPanelLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f33366c = null;
-        this.f33367d = null;
+        this.f33461c = null;
+        this.f33462d = null;
     }
 
     private void d() {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ksad_trend_list_panel_space);
-        this.f33369f = linearLayout;
+        this.f33464f = linearLayout;
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TrendsPanelLayout.this.a(3);
             }
         });
-        this.f33370g = (RelativeLayout) findViewById(R.id.ksad_trend_list_panel_layout);
-        this.f33364a = (RecyclerView) findViewById(R.id.ksad_trend_list_recycler_view);
-        this.f33368e = (ImageView) findViewById(R.id.ksad_trend_list_panel_close_button);
+        this.f33465g = (RelativeLayout) findViewById(R.id.ksad_trend_list_panel_layout);
+        this.f33459a = (RecyclerView) findViewById(R.id.ksad_trend_list_recycler_view);
+        this.f33463e = (ImageView) findViewById(R.id.ksad_trend_list_panel_close_button);
         TextView textView = (TextView) findViewById(R.id.ksad_trend_panel_title);
-        this.f33371h = textView;
+        this.f33466h = textView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();
         layoutParams.addRule(9);
         layoutParams.leftMargin = ao.a(getContext(), 16.0f);
-        this.f33368e.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.2
+        this.f33463e.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TrendsPanelLayout.this.a(1);
             }
         });
-        this.f33364a.setVisibility(8);
+        this.f33459a.setVisibility(8);
         setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -111,7 +111,7 @@ public class TrendsPanelLayout extends LinearLayout {
         this.i = translateAnimation;
         translateAnimation.setDuration(300L);
         this.i.setInterpolator(AnimationUtils.loadInterpolator(getContext(), 17432580));
-        this.f33370g.startAnimation(this.i);
+        this.f33465g.startAnimation(this.i);
     }
 
     private void f() {
@@ -122,8 +122,8 @@ public class TrendsPanelLayout extends LinearLayout {
         this.i.setAnimationListener(new Animation.AnimationListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                TrendsPanelLayout.this.f33370g.setVisibility(8);
-                TrendsPanelLayout.this.f33369f.setVisibility(8);
+                TrendsPanelLayout.this.f33465g.setVisibility(8);
+                TrendsPanelLayout.this.f33464f.setVisibility(8);
                 TrendsPanelLayout.this.setVisibility(8);
             }
 
@@ -135,31 +135,31 @@ public class TrendsPanelLayout extends LinearLayout {
             public void onAnimationStart(Animation animation) {
             }
         });
-        this.f33370g.startAnimation(this.i);
+        this.f33465g.startAnimation(this.i);
     }
 
     public void a() {
-        this.f33364a.setVisibility(0);
-        this.f33370g.setVisibility(0);
-        this.f33369f.setVisibility(0);
+        this.f33459a.setVisibility(0);
+        this.f33465g.setVisibility(0);
+        this.f33464f.setVisibility(0);
         setVisibility(0);
         e();
     }
 
     public void a(int i) {
         f();
-        a aVar = this.f33366c;
+        a aVar = this.f33461c;
         if (aVar != null) {
             aVar.a(i);
         }
     }
 
     public void a(@NonNull com.kwad.sdk.contentalliance.trends.view.b bVar) {
-        this.f33364a.setItemAnimator(null);
-        this.f33364a.setLayoutManager(b());
+        this.f33459a.setItemAnimator(null);
+        this.f33459a.setLayoutManager(b());
         com.kwad.sdk.contentalliance.trends.view.a b2 = b(bVar);
-        this.f33365b = b2;
-        this.f33364a.setAdapter(b2);
+        this.f33460b = b2;
+        this.f33459a.setAdapter(b2);
     }
 
     @NonNull
@@ -173,8 +173,8 @@ public class TrendsPanelLayout extends LinearLayout {
         return new com.kwad.sdk.contentalliance.trends.view.a(getContext(), bVar, new b() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.5
             @Override // com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.b
             public void a(View view, TrendInfo trendInfo, int i) {
-                if (TrendsPanelLayout.this.f33367d != null) {
-                    TrendsPanelLayout.this.f33367d.a(view, trendInfo, i);
+                if (TrendsPanelLayout.this.f33462d != null) {
+                    TrendsPanelLayout.this.f33462d.a(view, trendInfo, i);
                 }
                 TrendsPanelLayout.this.a(4);
             }
@@ -215,10 +215,10 @@ public class TrendsPanelLayout extends LinearLayout {
     }
 
     public void setCloseListener(@NonNull a aVar) {
-        this.f33366c = aVar;
+        this.f33461c = aVar;
     }
 
     public void setItemClickListener(@NonNull b bVar) {
-        this.f33367d = bVar;
+        this.f33462d = bVar;
     }
 }

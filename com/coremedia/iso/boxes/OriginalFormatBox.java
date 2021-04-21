@@ -11,9 +11,9 @@ import java.nio.ByteBuffer;
 public class OriginalFormatBox extends AbstractBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "frma";
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
     public String dataFormat;
 
     static {

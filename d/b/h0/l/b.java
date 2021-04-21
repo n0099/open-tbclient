@@ -1,83 +1,50 @@
 package d.b.h0.l;
 
-import android.os.Build;
-import com.baidu.apollon.statistics.g;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import d.b.c.e.p.j;
-import d.b.h0.r.y.l;
-import d.b.h0.r.y.n;
-import d.b.h0.r.y.o;
-import org.json.JSONException;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b extends n {
-    public b(l lVar) {
-        super(lVar);
-    }
+public interface b {
+    String A();
 
-    @o(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        String str = Build.VERSION.RELEASE;
-        String str2 = Build.MODEL;
-        int k = d.b.c.e.p.l.k(b());
-        int i = d.b.c.e.p.l.i(b());
-        String str3 = String.valueOf(k) + "," + String.valueOf(i);
-        String versionName = TbadkCoreApplication.getInst().getVersionName();
-        try {
-            jSONObject.put("systemName", "android");
-            jSONObject.put("systemVersion", str);
-            jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("resolution", str3);
-            jSONObject.put("appVersion", versionName);
-        } catch (JSONException unused) {
-        }
-        return jSONObject;
-    }
+    d.b.h0.l.l.f B();
 
-    @o(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        int i;
-        String str;
-        JSONObject jSONObject = new JSONObject();
-        if (j.H()) {
-            i = 1;
-            str = CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
-        } else if (j.t()) {
-            i = 3;
-            str = "2G";
-        } else if (j.u()) {
-            i = 4;
-            str = g.f3909b;
-        } else if (j.v()) {
-            i = 5;
-            str = "4G";
-        } else {
-            i = 0;
-            str = "NotReachable";
-        }
-        try {
-            jSONObject.put("netStatus", i);
-            jSONObject.put("netDesc", str);
-        } catch (JSONException unused) {
-        }
-        return jSONObject;
-    }
+    String C();
 
-    @o(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        BdToast.c(b(), jSONObject.optString("message")).q();
-    }
+    CookieManager a();
 
-    @Override // d.b.h0.r.y.n
-    public String g() {
-        return "TBHY_COMMON_Utils";
-    }
+    String b();
+
+    boolean isDebug();
+
+    String l();
+
+    String m();
+
+    void n(JSONArray jSONArray, String str, String str2);
+
+    String o();
+
+    void p(d.b.h0.l.m.h.a aVar);
+
+    String q();
+
+    String r();
+
+    String s();
+
+    String t();
+
+    String u();
+
+    void v(d.b.h0.l.m.i.f fVar);
+
+    String w();
+
+    void x(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    String y();
+
+    void z(String str, String str2, String str3, int i, JSONObject jSONObject);
 }

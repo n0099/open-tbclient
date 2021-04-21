@@ -52,7 +52,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
         Bitmap bitmap = SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
         bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        d.b.h0.b1.d dVar = new d.b.h0.b1.d(bitmapDrawable);
+        d.b.i0.b1.d dVar = new d.b.i0.b1.d(bitmapDrawable);
         dVar.b(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
         dVar.c(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
         SpannableString spannableString = new SpannableString(str);

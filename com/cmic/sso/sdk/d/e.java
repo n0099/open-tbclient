@@ -6,25 +6,25 @@ import java.util.concurrent.ConcurrentHashMap;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<String, TokenListener> f30369a = new ConcurrentHashMap<>(16);
+    public static ConcurrentHashMap<String, TokenListener> f30464a = new ConcurrentHashMap<>(16);
 
     public static boolean a(String str) {
-        return !f30369a.containsKey(str);
+        return !f30464a.containsKey(str);
     }
 
     public static void b(String str) {
-        f30369a.remove(str);
+        f30464a.remove(str);
     }
 
     public static TokenListener c(String str) {
-        return f30369a.get(str);
+        return f30464a.get(str);
     }
 
     public static void a(String str, TokenListener tokenListener) {
-        f30369a.put(str, tokenListener);
+        f30464a.put(str, tokenListener);
     }
 
     public static boolean a() {
-        return f30369a.isEmpty();
+        return f30464a.isEmpty();
     }
 }

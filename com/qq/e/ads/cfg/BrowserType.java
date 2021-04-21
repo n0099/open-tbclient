@@ -7,13 +7,13 @@ public enum BrowserType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38337a;
+    public final int f38432a;
 
     BrowserType(int i) {
-        this.f38337a = i;
+        this.f38432a = i;
     }
 
     public final int value() {
-        return this.f38337a;
+        return this.f38432a;
     }
 }

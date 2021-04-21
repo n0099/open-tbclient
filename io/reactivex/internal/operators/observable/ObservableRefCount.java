@@ -11,16 +11,16 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class ObservableRefCount<T> extends a<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final f.b.y.a<? extends T> f69073e;
+    public final f.b.y.a<? extends T> f69220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile f.b.t.a f69074f;
+    public volatile f.b.t.a f69221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicInteger f69075g;
+    public final AtomicInteger f69222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ReentrantLock f69076h;
+    public final ReentrantLock f69223h;
 
     /* loaded from: classes7.dex */
     public final class ConnectionObserver extends AtomicReference<b> implements o<T>, b {
@@ -36,16 +36,16 @@ public final class ObservableRefCount<T> extends a<T, T> {
         }
 
         public void cleanup() {
-            ObservableRefCount.this.f69076h.lock();
+            ObservableRefCount.this.f69223h.lock();
             try {
-                if (ObservableRefCount.this.f69074f == this.currentBase) {
-                    f.b.y.a<? extends T> aVar = ObservableRefCount.this.f69073e;
-                    ObservableRefCount.this.f69074f.dispose();
-                    ObservableRefCount.this.f69074f = new f.b.t.a();
-                    ObservableRefCount.this.f69075g.set(0);
+                if (ObservableRefCount.this.f69221f == this.currentBase) {
+                    f.b.y.a<? extends T> aVar = ObservableRefCount.this.f69220e;
+                    ObservableRefCount.this.f69221f.dispose();
+                    ObservableRefCount.this.f69221f = new f.b.t.a();
+                    ObservableRefCount.this.f69222g.set(0);
                 }
             } finally {
-                ObservableRefCount.this.f69076h.unlock();
+                ObservableRefCount.this.f69223h.unlock();
             }
         }
 

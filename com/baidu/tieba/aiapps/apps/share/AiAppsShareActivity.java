@@ -50,7 +50,7 @@ public class AiAppsShareActivity extends Activity {
             finish();
             return;
         }
-        d.b.i0.s.b.m.a aVar = new d.b.i0.s.b.m.a();
+        d.b.j0.s.b.m.a aVar = new d.b.j0.s.b.m.a();
         try {
             aVar.n(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));

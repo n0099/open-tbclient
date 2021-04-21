@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import d.b.c.e.d.l;
-import d.b.h0.r.q.f1;
-import d.b.h0.r.r.a;
+import d.b.i0.r.q.f1;
+import d.b.i0.r.r.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {

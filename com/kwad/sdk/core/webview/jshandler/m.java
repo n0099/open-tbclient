@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 public class m implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f34680a;
+    public com.kwad.sdk.core.webview.a.c f34775a;
 
     @Override // com.kwad.sdk.core.webview.a.a
     @NonNull
@@ -15,23 +15,23 @@ public class m implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f34680a = cVar;
+        this.f34775a = cVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f34680a = null;
+        this.f34775a = null;
     }
 
     public void c() {
-        com.kwad.sdk.core.webview.a.c cVar = this.f34680a;
+        com.kwad.sdk.core.webview.a.c cVar = this.f34775a;
         if (cVar != null) {
             cVar.a(null);
         }
     }
 
     public void d() {
-        com.kwad.sdk.core.webview.a.c cVar = this.f34680a;
+        com.kwad.sdk.core.webview.a.c cVar = this.f34775a;
         if (cVar != null) {
             cVar.a(-1, "deep link error");
         }

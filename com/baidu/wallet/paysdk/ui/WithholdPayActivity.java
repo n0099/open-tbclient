@@ -35,25 +35,25 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     public static final String TAG = "WithholdPayActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f25980a;
+    public TextView f25988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25981b;
+    public LinearLayout f25989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f25982c;
+    public TextView f25990c;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25983e;
+    public TextView f25991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f25984f;
+    public TextView f25992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f25985g;
+    public NetImageView f25993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25986h;
+    public TextView f25994h;
     public TextView i;
     public SwitchButton j;
     public LinearLayout k;
@@ -161,7 +161,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         String discountAmount = payRequest.getDiscountAmount();
         String discountMsg = payRequest.getDiscountMsg();
         boolean z = true;
-        this.f25980a.setText(!TextUtils.isEmpty(orderPrice) ? String.format(this.v, StringUtils.fen2Yuan(orderPrice)) : "");
+        this.f25988a.setText(!TextUtils.isEmpty(orderPrice) ? String.format(this.v, StringUtils.fen2Yuan(orderPrice)) : "");
         try {
             bigDecimal = new BigDecimal(orderPrice);
         } catch (NumberFormatException unused) {
@@ -176,36 +176,36 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         boolean z2 = bigDecimal.compareTo(subtract) > 0;
         String bigDecimal3 = subtract.toString();
         if (z2) {
-            this.f25980a.getPaint().setFlags(16);
+            this.f25988a.getPaint().setFlags(16);
         } else {
-            this.f25980a.getPaint().setFlags(1);
+            this.f25988a.getPaint().setFlags(1);
         }
         if (payRequest.showCouponListEntry() && z2) {
-            this.f25981b.setVisibility(0);
-            TextView textView = this.f25982c;
+            this.f25989b.setVisibility(0);
+            TextView textView = this.f25990c;
             if (TextUtils.isEmpty(discountMsg)) {
                 discountMsg = "";
             }
             textView.setText(discountMsg);
-            this.f25983e.setText(!TextUtils.isEmpty(discountAmount) ? String.format(this.w, StringUtils.fen2Yuan(discountAmount)) : "");
+            this.f25991e.setText(!TextUtils.isEmpty(discountAmount) ? String.format(this.w, StringUtils.fen2Yuan(discountAmount)) : "");
         } else {
-            this.f25981b.setVisibility(8);
+            this.f25989b.setVisibility(8);
         }
         String format = !TextUtils.isEmpty(bigDecimal3) ? String.format(this.v, StringUtils.fen2Yuan(bigDecimal3)) : "";
         if (format.length() > 0) {
             SpannableString spannableString = new SpannableString(format);
             spannableString.setSpan(this.x, 0, 1, 33);
-            this.f25984f.setText(spannableString);
+            this.f25992f.setText(spannableString);
         } else {
-            this.f25984f.setText(format);
+            this.f25992f.setText(format);
         }
         if (!TextUtils.isEmpty(payRequest.withholding.sp_log_url)) {
-            this.f25985g.setVisibility(0);
-            this.f25985g.setImageUrl(payRequest.withholding.sp_log_url);
+            this.f25993g.setVisibility(0);
+            this.f25993g.setImageUrl(payRequest.withholding.sp_log_url);
         } else {
-            this.f25985g.setVisibility(8);
+            this.f25993g.setVisibility(8);
         }
-        this.f25986h.setText(!TextUtils.isEmpty(payRequest.withholding.sp_company) ? payRequest.withholding.sp_company : "");
+        this.f25994h.setText(!TextUtils.isEmpty(payRequest.withholding.sp_company) ? payRequest.withholding.sp_company : "");
         this.i.setText(!TextUtils.isEmpty(payRequest.withholding.authorize_action_desc) ? payRequest.withholding.authorize_action_desc : "");
         Withholding.AgreementInfo[] agreementInfoArr = payRequest.withholding.agreement_info;
         if (agreementInfoArr != null && agreementInfoArr.length >= 1) {
@@ -269,13 +269,13 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     private void a() {
         setContentView(ResUtils.layout(this, "wallet_base_withhold_pay_layout"));
         initActionBar("lbspay_title_new");
-        this.f25980a = (TextView) findViewById(ResUtils.id(this, "tv_order_amount"));
-        this.f25981b = (LinearLayout) findViewById(ResUtils.id(this, "ll_discount_panel"));
-        this.f25983e = (TextView) findViewById(ResUtils.id(this, "tv_discount"));
-        this.f25982c = (TextView) findViewById(ResUtils.id(this, "tv_discount_tips"));
-        this.f25984f = (TextView) findViewById(ResUtils.id(this, "tv_pay_amount"));
-        this.f25985g = (NetImageView) findViewById(ResUtils.id(this, "ni_sp_logo"));
-        this.f25986h = (TextView) findViewById(ResUtils.id(this, "tv_sp_name"));
+        this.f25988a = (TextView) findViewById(ResUtils.id(this, "tv_order_amount"));
+        this.f25989b = (LinearLayout) findViewById(ResUtils.id(this, "ll_discount_panel"));
+        this.f25991e = (TextView) findViewById(ResUtils.id(this, "tv_discount"));
+        this.f25990c = (TextView) findViewById(ResUtils.id(this, "tv_discount_tips"));
+        this.f25992f = (TextView) findViewById(ResUtils.id(this, "tv_pay_amount"));
+        this.f25993g = (NetImageView) findViewById(ResUtils.id(this, "ni_sp_logo"));
+        this.f25994h = (TextView) findViewById(ResUtils.id(this, "tv_sp_name"));
         this.i = (TextView) findViewById(ResUtils.id(this, "tv_sp_action"));
         this.j = (SwitchButton) findViewById(ResUtils.id(this, "sb_auth_switch"));
         this.k = (LinearLayout) findViewById(ResUtils.id(this, "ll_auth_desc_panel"));

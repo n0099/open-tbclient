@@ -6,43 +6,43 @@ import androidx.collection.SimpleArrayMap;
 public final class b<K, V> extends ArrayMap<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35500a;
+    public int f35595a;
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
     public void clear() {
-        this.f35500a = 0;
+        this.f35595a = 0;
         super.clear();
     }
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
     public int hashCode() {
-        if (this.f35500a == 0) {
-            this.f35500a = super.hashCode();
+        if (this.f35595a == 0) {
+            this.f35595a = super.hashCode();
         }
-        return this.f35500a;
+        return this.f35595a;
     }
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
     public V put(K k, V v) {
-        this.f35500a = 0;
+        this.f35595a = 0;
         return (V) super.put(k, v);
     }
 
     @Override // androidx.collection.SimpleArrayMap
     public void putAll(SimpleArrayMap<? extends K, ? extends V> simpleArrayMap) {
-        this.f35500a = 0;
+        this.f35595a = 0;
         super.putAll(simpleArrayMap);
     }
 
     @Override // androidx.collection.SimpleArrayMap
     public V removeAt(int i) {
-        this.f35500a = 0;
+        this.f35595a = 0;
         return (V) super.removeAt(i);
     }
 
     @Override // androidx.collection.SimpleArrayMap
     public V setValueAt(int i, V v) {
-        this.f35500a = 0;
+        this.f35595a = 0;
         return (V) super.setValueAt(i, v);
     }
 }

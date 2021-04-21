@@ -23,19 +23,19 @@ import java.util.zip.ZipInputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f31891a;
+    public final Context f31986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31892b;
+    public final String f31987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f31893c;
+    public final a f31988c;
 
     public b(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
-        this.f31891a = applicationContext;
-        this.f31892b = str;
-        this.f31893c = new a(applicationContext, str);
+        this.f31986a = applicationContext;
+        this.f31987b = str;
+        this.f31988c = new a(applicationContext, str);
     }
 
     public static k<d> a(Context context, String str) {
@@ -56,13 +56,13 @@ public class b {
     @Nullable
     @WorkerThread
     private d c() {
-        Pair<FileExtension, InputStream> a2 = this.f31893c.a();
+        Pair<FileExtension, InputStream> a2 = this.f31988c.a();
         if (a2 == null) {
             return null;
         }
         FileExtension fileExtension = a2.first;
         InputStream inputStream = a2.second;
-        j<d> a3 = fileExtension == FileExtension.Zip ? e.a(new ZipInputStream(inputStream), this.f31892b) : e.a(inputStream, this.f31892b);
+        j<d> a3 = fileExtension == FileExtension.Zip ? e.a(new ZipInputStream(inputStream), this.f31987b) : e.a(inputStream, this.f31987b);
         if (a3.a() != null) {
             return a3.a();
         }
@@ -82,8 +82,8 @@ public class b {
     private j e() {
         FileExtension fileExtension;
         j<d> a2;
-        c.a("Fetching " + this.f31892b);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f31892b).openConnection();
+        c.a("Fetching " + this.f31987b);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f31987b).openConnection();
         httpURLConnection.setRequestMethod("GET");
         httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
         httpURLConnection.connect();
@@ -101,14 +101,14 @@ public class b {
             if (c2 != 0) {
                 c.a("Received json response.");
                 fileExtension = FileExtension.Json;
-                a2 = e.a(new FileInputStream(new File(this.f31893c.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f31892b);
+                a2 = e.a(new FileInputStream(new File(this.f31988c.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f31987b);
             } else {
                 c.a("Handling zip response.");
                 fileExtension = FileExtension.Zip;
-                a2 = e.a(new ZipInputStream(new FileInputStream(this.f31893c.a(httpURLConnection.getInputStream(), fileExtension))), this.f31892b);
+                a2 = e.a(new ZipInputStream(new FileInputStream(this.f31988c.a(httpURLConnection.getInputStream(), fileExtension))), this.f31987b);
             }
             if (a2.a() != null) {
-                this.f31893c.a(fileExtension);
+                this.f31988c.a(fileExtension);
             }
             StringBuilder sb = new StringBuilder();
             sb.append("Completed fetch from network. Success: ");
@@ -121,7 +121,7 @@ public class b {
         while (true) {
             String readLine = bufferedReader.readLine();
             if (readLine == null) {
-                return new j((Throwable) new IllegalArgumentException("Unable to fetch " + this.f31892b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb2)));
+                return new j((Throwable) new IllegalArgumentException("Unable to fetch " + this.f31987b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb2)));
             }
             sb2.append(readLine);
             sb2.append('\n');
@@ -134,7 +134,7 @@ public class b {
         if (c2 != null) {
             return new j<>(c2);
         }
-        c.a("Animation for " + this.f31892b + " not found in cache. Fetching from network.");
+        c.a("Animation for " + this.f31987b + " not found in cache. Fetching from network.");
         return d();
     }
 }

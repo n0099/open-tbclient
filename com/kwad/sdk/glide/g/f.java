@@ -7,14 +7,14 @@ import android.os.SystemClock;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final double f35509a;
+    public static final double f35604a;
 
     static {
-        f35509a = Build.VERSION.SDK_INT >= 17 ? 1.0d / Math.pow(10.0d, 6.0d) : 1.0d;
+        f35604a = Build.VERSION.SDK_INT >= 17 ? 1.0d / Math.pow(10.0d, 6.0d) : 1.0d;
     }
 
     public static double a(long j) {
-        return (a() - j) * f35509a;
+        return (a() - j) * f35604a;
     }
 
     @TargetApi(17)

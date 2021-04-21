@@ -12,22 +12,22 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12862a;
+        public String f12870a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12863b;
+        public String f12871b;
 
         public SimpleVideoPlayActivityConfig c(Context context) {
             return new SimpleVideoPlayActivityConfig(context, this);
         }
 
         public b d(String str) {
-            this.f12863b = str;
+            this.f12871b = str;
             return this;
         }
 
         public b e(String str) {
-            this.f12862a = str;
+            this.f12870a = str;
             return this;
         }
     }
@@ -38,7 +38,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         if (bVar == null || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra("video_url", bVar.f12862a);
-        intent.putExtra("thumb_url", bVar.f12863b);
+        intent.putExtra("video_url", bVar.f12870a);
+        intent.putExtra("thumb_url", bVar.f12871b);
     }
 }

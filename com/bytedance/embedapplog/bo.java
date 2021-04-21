@@ -12,13 +12,13 @@ public interface bo extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.bo$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0292a implements bo {
+        public static class C0294a implements bo {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f26840a;
+            public IBinder f26848a;
 
-            public C0292a(IBinder iBinder) {
-                this.f26840a = iBinder;
+            public C0294a(IBinder iBinder) {
+                this.f26848a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.bo
@@ -30,7 +30,7 @@ public interface bo extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.f26840a.transact(1, obtain, obtain2, 0);
+                    this.f26848a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -41,7 +41,7 @@ public interface bo extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26840a;
+                return this.f26848a;
             }
         }
 
@@ -53,7 +53,7 @@ public interface bo extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof bo)) {
                 return (bo) queryLocalInterface;
             }
-            return new C0292a(iBinder);
+            return new C0294a(iBinder);
         }
 
         @Override // android.os.Binder

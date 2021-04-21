@@ -2,8 +2,8 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.e1.g.b;
-import d.b.i0.e1.g.c;
+import d.b.j0.e1.g.b;
+import d.b.j0.e1.g.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;

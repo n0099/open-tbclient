@@ -14,13 +14,13 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f32849a = new a();
+    public static a f32944a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Long, List<AdTemplate>> f32850b = new HashMap();
+    public Map<Long, List<AdTemplate>> f32945b = new HashMap();
 
     public static a a() {
-        return f32849a;
+        return f32944a;
     }
 
     public static boolean a(@NonNull AdTemplate adTemplate) {
@@ -28,7 +28,7 @@ public class a {
     }
 
     public synchronized List<AdTemplate> a(long j) {
-        List<AdTemplate> list = this.f32850b != null ? this.f32850b.get(Long.valueOf(j)) : null;
+        List<AdTemplate> list = this.f32945b != null ? this.f32945b.get(Long.valueOf(j)) : null;
         if (list != null) {
             ArrayList arrayList = new ArrayList(list);
             Iterator it = arrayList.iterator();
@@ -57,30 +57,30 @@ public class a {
             list2.add(adTemplate);
             com.kwad.sdk.core.d.a.a("ContentDataMemCache", "preload save posId=" + adTemplate.posId);
         }
-        this.f32850b = hashMap;
+        this.f32945b = hashMap;
     }
 
     public synchronized void b() {
         com.kwad.sdk.core.d.a.a("ContentDataMemCache", "clearAll()");
-        if (this.f32850b != null) {
-            this.f32850b.clear();
+        if (this.f32945b != null) {
+            this.f32945b.clear();
         }
     }
 
     public synchronized void b(long j) {
         com.kwad.sdk.core.d.a.a("ContentDataMemCache", "clear() posId=" + j);
-        if (this.f32850b != null && this.f32850b.containsKey(Long.valueOf(j))) {
-            List<AdTemplate> list = this.f32850b.get(Long.valueOf(j));
+        if (this.f32945b != null && this.f32945b.containsKey(Long.valueOf(j))) {
+            List<AdTemplate> list = this.f32945b.get(Long.valueOf(j));
             if (list != null) {
                 list.clear();
             }
-            this.f32850b.remove(Long.valueOf(j));
+            this.f32945b.remove(Long.valueOf(j));
         }
     }
 
     public synchronized boolean c(long j) {
         List<AdTemplate> list;
-        list = this.f32850b != null ? this.f32850b.get(Long.valueOf(j)) : null;
+        list = this.f32945b != null ? this.f32945b.get(Long.valueOf(j)) : null;
         return list == null ? true : list.isEmpty();
     }
 }

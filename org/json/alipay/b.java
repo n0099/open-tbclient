@@ -10,10 +10,10 @@ import kotlin.text.Typography;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f69135a = new a((byte) 0);
+    public static final Object f69282a = new a((byte) 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f69136b;
+    public Map f69283b;
 
     /* loaded from: classes7.dex */
     public static final class a {
@@ -38,7 +38,7 @@ public class b {
     }
 
     public b() {
-        this.f69136b = new HashMap();
+        this.f69283b = new HashMap();
     }
 
     public b(String str) {
@@ -46,7 +46,7 @@ public class b {
     }
 
     public b(Map map) {
-        this.f69136b = map == null ? new HashMap() : map;
+        this.f69283b = map == null ? new HashMap() : map;
     }
 
     public b(c cVar) {
@@ -78,9 +78,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f69136b.put(obj, d2);
+                this.f69283b.put(obj, d2);
             } else {
-                this.f69136b.remove(obj);
+                this.f69283b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -198,7 +198,7 @@ public class b {
     }
 
     public final Object a(String str) {
-        Object obj = str == null ? null : this.f69136b.get(str);
+        Object obj = str == null ? null : this.f69283b.get(str);
         if (obj != null) {
             return obj;
         }
@@ -206,11 +206,11 @@ public class b {
     }
 
     public final Iterator a() {
-        return this.f69136b.keySet().iterator();
+        return this.f69283b.keySet().iterator();
     }
 
     public final boolean b(String str) {
-        return this.f69136b.containsKey(str);
+        return this.f69283b.containsKey(str);
     }
 
     public String toString() {
@@ -224,7 +224,7 @@ public class b {
                 Object next = a2.next();
                 stringBuffer.append(c(next.toString()));
                 stringBuffer.append(':');
-                stringBuffer.append(a(this.f69136b.get(next)));
+                stringBuffer.append(a(this.f69283b.get(next)));
             }
             stringBuffer.append('}');
             return stringBuffer.toString();

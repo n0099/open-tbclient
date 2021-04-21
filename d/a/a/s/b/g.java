@@ -14,51 +14,51 @@ import java.util.List;
 public class g implements e, a.b, k {
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.u.k.a f41535c;
+    public final d.a.a.u.k.a f41630c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f41536d;
+    public final String f41631d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f41537e;
+    public final boolean f41632e;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.a.s.c.a<Integer, Integer> f41539g;
+    public final d.a.a.s.c.a<Integer, Integer> f41634g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.a.s.c.a<Integer, Integer> f41540h;
+    public final d.a.a.s.c.a<Integer, Integer> f41635h;
     @Nullable
     public d.a.a.s.c.a<ColorFilter, ColorFilter> i;
     public final d.a.a.f j;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f41533a = new Path();
+    public final Path f41628a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f41534b = new d.a.a.s.a(1);
+    public final Paint f41629b = new d.a.a.s.a(1);
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<m> f41538f = new ArrayList();
+    public final List<m> f41633f = new ArrayList();
 
     public g(d.a.a.f fVar, d.a.a.u.k.a aVar, d.a.a.u.j.i iVar) {
-        this.f41535c = aVar;
-        this.f41536d = iVar.d();
-        this.f41537e = iVar.f();
+        this.f41630c = aVar;
+        this.f41631d = iVar.d();
+        this.f41632e = iVar.f();
         this.j = fVar;
         if (iVar.b() != null && iVar.e() != null) {
-            this.f41533a.setFillType(iVar.c());
+            this.f41628a.setFillType(iVar.c());
             d.a.a.s.c.a<Integer, Integer> a2 = iVar.b().a();
-            this.f41539g = a2;
+            this.f41634g = a2;
             a2.a(this);
-            aVar.i(this.f41539g);
+            aVar.i(this.f41634g);
             d.a.a.s.c.a<Integer, Integer> a3 = iVar.e().a();
-            this.f41540h = a3;
+            this.f41635h = a3;
             a3.a(this);
-            aVar.i(this.f41540h);
+            aVar.i(this.f41635h);
             return;
         }
-        this.f41539g = null;
-        this.f41540h = null;
+        this.f41634g = null;
+        this.f41635h = null;
     }
 
     @Override // d.a.a.s.c.a.b
@@ -71,21 +71,21 @@ public class g implements e, a.b, k {
         for (int i = 0; i < list2.size(); i++) {
             c cVar = list2.get(i);
             if (cVar instanceof m) {
-                this.f41538f.add((m) cVar);
+                this.f41633f.add((m) cVar);
             }
         }
     }
 
     @Override // d.a.a.u.e
     public <T> void c(T t, @Nullable d.a.a.y.c<T> cVar) {
-        if (t == d.a.a.k.f41486a) {
-            this.f41539g.m(cVar);
-        } else if (t == d.a.a.k.f41489d) {
-            this.f41540h.m(cVar);
+        if (t == d.a.a.k.f41581a) {
+            this.f41634g.m(cVar);
+        } else if (t == d.a.a.k.f41584d) {
+            this.f41635h.m(cVar);
         } else if (t == d.a.a.k.C) {
             d.a.a.s.c.a<ColorFilter, ColorFilter> aVar = this.i;
             if (aVar != null) {
-                this.f41535c.C(aVar);
+                this.f41630c.C(aVar);
             }
             if (cVar == null) {
                 this.i = null;
@@ -94,7 +94,7 @@ public class g implements e, a.b, k {
             d.a.a.s.c.p pVar = new d.a.a.s.c.p(cVar);
             this.i = pVar;
             pVar.a(this);
-            this.f41535c.i(this.i);
+            this.f41630c.i(this.i);
         }
     }
 
@@ -105,36 +105,36 @@ public class g implements e, a.b, k {
 
     @Override // d.a.a.s.b.e
     public void e(RectF rectF, Matrix matrix, boolean z) {
-        this.f41533a.reset();
-        for (int i = 0; i < this.f41538f.size(); i++) {
-            this.f41533a.addPath(this.f41538f.get(i).getPath(), matrix);
+        this.f41628a.reset();
+        for (int i = 0; i < this.f41633f.size(); i++) {
+            this.f41628a.addPath(this.f41633f.get(i).getPath(), matrix);
         }
-        this.f41533a.computeBounds(rectF, false);
+        this.f41628a.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 
     @Override // d.a.a.s.b.e
     public void g(Canvas canvas, Matrix matrix, int i) {
-        if (this.f41537e) {
+        if (this.f41632e) {
             return;
         }
         d.a.a.c.a("FillContent#draw");
-        this.f41534b.setColor(((d.a.a.s.c.b) this.f41539g).o());
-        this.f41534b.setAlpha(d.a.a.x.g.d((int) ((((i / 255.0f) * this.f41540h.h().intValue()) / 100.0f) * 255.0f), 0, 255));
+        this.f41629b.setColor(((d.a.a.s.c.b) this.f41634g).o());
+        this.f41629b.setAlpha(d.a.a.x.g.d((int) ((((i / 255.0f) * this.f41635h.h().intValue()) / 100.0f) * 255.0f), 0, 255));
         d.a.a.s.c.a<ColorFilter, ColorFilter> aVar = this.i;
         if (aVar != null) {
-            this.f41534b.setColorFilter(aVar.h());
+            this.f41629b.setColorFilter(aVar.h());
         }
-        this.f41533a.reset();
-        for (int i2 = 0; i2 < this.f41538f.size(); i2++) {
-            this.f41533a.addPath(this.f41538f.get(i2).getPath(), matrix);
+        this.f41628a.reset();
+        for (int i2 = 0; i2 < this.f41633f.size(); i2++) {
+            this.f41628a.addPath(this.f41633f.get(i2).getPath(), matrix);
         }
-        canvas.drawPath(this.f41533a, this.f41534b);
+        canvas.drawPath(this.f41628a, this.f41629b);
         d.a.a.c.b("FillContent#draw");
     }
 
     @Override // d.a.a.s.b.c
     public String getName() {
-        return this.f41536d;
+        return this.f41631d;
     }
 }

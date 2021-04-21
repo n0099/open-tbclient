@@ -17,28 +17,28 @@ import java.util.List;
 public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27230a = "AdEventThread";
+    public static String f27238a = "AdEventThread";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f27231b = "ttad_bk";
+    public static String f27239b = "ttad_bk";
 
     /* renamed from: c  reason: collision with root package name */
-    public final e<T> f27232c;
+    public final e<T> f27240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public q<T> f27233d;
+    public q<T> f27241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<T> f27234e;
+    public final List<T> f27242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f27235f;
+    public long f27243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27236g;
+    public boolean f27244g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27237h;
+    public int f27245h;
     public Handler i;
     public final a j;
     public final b k;
@@ -53,30 +53,30 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f27238a;
+        public final int f27246a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f27239b;
+        public final long f27247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f27240c;
+        public final long f27248c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f27241d;
+        public final int f27249d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f27242e;
+        public final long f27250e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f27243f;
+        public final long f27251f;
 
         public b(int i, long j, long j2, int i2, long j3, long j4) {
-            this.f27238a = i;
-            this.f27239b = j;
-            this.f27240c = j2;
-            this.f27241d = i2;
-            this.f27242e = j3;
-            this.f27243f = j4;
+            this.f27246a = i;
+            this.f27247b = j;
+            this.f27248c = j2;
+            this.f27249d = i2;
+            this.f27250e = j3;
+            this.f27251f = j4;
         }
 
         public static b a() {
@@ -89,29 +89,29 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     public g(e<T> eVar, q<T> qVar, b bVar, a aVar) {
-        super("tt_pangle_thread__" + f27231b);
+        super("tt_pangle_thread__" + f27239b);
         this.k = bVar;
         this.j = aVar;
-        this.f27232c = eVar;
-        this.f27233d = qVar;
-        this.f27234e = Collections.synchronizedList(new LinkedList());
+        this.f27240c = eVar;
+        this.f27241d = qVar;
+        this.f27242e = Collections.synchronizedList(new LinkedList());
         this.l = false;
     }
 
     private void a() {
-        e<T> eVar = this.f27232c;
+        e<T> eVar = this.f27240c;
         b bVar = this.k;
-        eVar.a(bVar.f27241d, bVar.f27242e);
-        this.f27236g = this.f27232c.a();
-        this.f27237h = this.f27232c.b();
-        if (this.f27236g) {
-            a("onHandleInitEvent serverBusy, retryCount = " + this.f27237h);
+        eVar.a(bVar.f27249d, bVar.f27250e);
+        this.f27244g = this.f27240c.a();
+        this.f27245h = this.f27240c.b();
+        if (this.f27244g) {
+            a("onHandleInitEvent serverBusy, retryCount = " + this.f27245h);
             h();
             return;
         }
-        b(this.f27232c.a(100, "_id"));
+        b(this.f27240c.a(100, "_id"));
         a("onHandleInitEvent,mCloseSaveAndRetry is false, read db event data");
-        a("onHandleInitEvent cacheData count = " + this.f27234e.size());
+        a("onHandleInitEvent cacheData count = " + this.f27242e.size());
         e();
     }
 
@@ -120,12 +120,12 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
             try {
                 if (list.size() != 0) {
                     HashSet hashSet = new HashSet();
-                    for (T t : this.f27234e) {
+                    for (T t : this.f27242e) {
                         hashSet.add(t.b());
                     }
                     for (T t2 : list) {
                         if (!hashSet.contains(t2.b())) {
-                            this.f27234e.add(t2);
+                            this.f27242e.add(t2);
                         }
                     }
                     return;
@@ -138,7 +138,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void c() {
-        if (this.f27236g) {
+        if (this.f27244g) {
             return;
         }
         a("onHandleRoutineRetryEvent");
@@ -146,7 +146,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void d() {
-        if (this.f27236g) {
+        if (this.f27244g) {
             return;
         }
         a("onHandleRoutineUploadEvent");
@@ -156,16 +156,16 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private void e() {
         this.i.removeMessages(3);
         this.i.removeMessages(2);
-        if (s.a(this.f27234e)) {
-            this.f27235f = System.currentTimeMillis();
+        if (s.a(this.f27242e)) {
+            this.f27243f = System.currentTimeMillis();
             j();
         } else if (!this.j.a()) {
             a("doRoutineUpload no net, wait retry");
             i();
         } else {
-            h a2 = a(this.f27234e);
+            h a2 = a(this.f27242e);
             if (a2 != null) {
-                if (a2.f27244a) {
+                if (a2.f27252a) {
                     a("doRoutineUpload success");
                     g();
                     f();
@@ -175,7 +175,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 } else if (b(a2)) {
                     g();
                     f();
-                } else if (this.f27236g) {
+                } else if (this.f27244g) {
                 } else {
                     if (!this.l) {
                         i();
@@ -189,15 +189,15 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void f() {
-        this.f27235f = System.currentTimeMillis();
+        this.f27243f = System.currentTimeMillis();
         o();
         j();
     }
 
     private void g() {
         a("clearCacheList, delete event from cache and db");
-        this.f27232c.a(this.f27234e);
-        this.f27234e.clear();
+        this.f27240c.a(this.f27242e);
+        this.f27242e.clear();
     }
 
     private void h() {
@@ -205,44 +205,44 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void i() {
-        a(3, this.k.f27240c);
+        a(3, this.k.f27248c);
     }
 
     private void j() {
-        a(2, this.k.f27239b);
+        a(2, this.k.f27247b);
     }
 
     private void k() {
-        this.f27236g = true;
-        this.f27232c.a(true);
-        this.f27234e.clear();
+        this.f27244g = true;
+        this.f27240c.a(true);
+        this.f27242e.clear();
         this.i.removeMessages(3);
         this.i.removeMessages(2);
         h();
     }
 
     private void l() {
-        this.f27236g = true;
-        this.f27232c.a(true);
-        this.f27234e.clear();
+        this.f27244g = true;
+        this.f27240c.a(true);
+        this.f27242e.clear();
         this.i.removeMessages(3);
         this.i.removeMessages(2);
         h();
     }
 
     private long m() {
-        return ((this.f27237h % 3) + 1) * this.k.f27243f;
+        return ((this.f27245h % 3) + 1) * this.k.f27251f;
     }
 
     private boolean n() {
-        return !this.f27236g && (this.f27234e.size() >= this.k.f27238a || System.currentTimeMillis() - this.f27235f >= this.k.f27239b);
+        return !this.f27244g && (this.f27242e.size() >= this.k.f27246a || System.currentTimeMillis() - this.f27243f >= this.k.f27247b);
     }
 
     private void o() {
-        this.f27236g = false;
-        this.f27232c.a(false);
-        this.f27237h = 0;
-        this.f27232c.a(0);
+        this.f27244g = false;
+        this.f27240c.a(false);
+        this.f27245h = 0;
+        this.f27240c.a(0);
         this.i.removeMessages(4);
     }
 
@@ -267,7 +267,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     @Override // android.os.HandlerThread
     public void onLooperPrepared() {
-        this.f27235f = System.currentTimeMillis();
+        this.f27243f = System.currentTimeMillis();
         this.i = new Handler(getLooper(), this);
     }
 
@@ -286,28 +286,28 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
             arrayList.add(list.get(i));
         }
         list.removeAll(arrayList);
-        this.f27232c.a(arrayList);
+        this.f27240c.a(arrayList);
         a("end checkAndDeleteEvent local size:" + list.size());
     }
 
     public g(String str, String str2, e<T> eVar, q<T> qVar, b bVar, a aVar) {
         super("tt_pangle_thread__" + str);
-        f27230a = str2;
+        f27238a = str2;
         this.k = bVar;
         this.j = aVar;
-        this.f27232c = eVar;
-        this.f27233d = qVar;
-        this.f27234e = Collections.synchronizedList(new LinkedList());
+        this.f27240c = eVar;
+        this.f27241d = qVar;
+        this.f27242e = Collections.synchronizedList(new LinkedList());
         this.l = false;
     }
 
     private void b() {
         if (!this.j.a()) {
-            a(4, this.k.f27240c);
+            a(4, this.k.f27248c);
             a("onHandleServerBusyRetryEvent, no net");
             return;
         }
-        List<T> a2 = this.f27232c.a(100, "_id");
+        List<T> a2 = this.f27240c.a(100, "_id");
         c(a2);
         if (s.a(a2)) {
             a("onHandleServerBusyRetryEvent, empty list start routine");
@@ -317,19 +317,19 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         }
         h a3 = a(a2);
         if (a3 != null) {
-            if (a3.f27244a) {
+            if (a3.f27252a) {
                 a("onHandleServerBusyRetryEvent, success");
                 g();
                 f();
             } else if (a(a3)) {
-                int i = this.f27237h + 1;
-                this.f27237h = i;
-                this.f27232c.a(i);
-                e<T> eVar = this.f27232c;
+                int i = this.f27245h + 1;
+                this.f27245h = i;
+                this.f27240c.a(i);
+                e<T> eVar = this.f27240c;
                 b bVar = this.k;
-                eVar.a(a2, bVar.f27241d, bVar.f27242e);
+                eVar.a(a2, bVar.f27249d, bVar.f27250e);
                 h();
-                a("onHandleServerBusyRetryEvent, serverbusy, count = " + this.f27237h);
+                a("onHandleServerBusyRetryEvent, serverbusy, count = " + this.f27245h);
             } else if (b(a3)) {
                 g();
                 f();
@@ -337,22 +337,22 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 i();
                 a("onHandleServerBusyRetryEvent, net fail");
             } else {
-                int i2 = this.f27237h + 1;
-                this.f27237h = i2;
-                this.f27232c.a(i2);
-                e<T> eVar2 = this.f27232c;
+                int i2 = this.f27245h + 1;
+                this.f27245h = i2;
+                this.f27240c.a(i2);
+                e<T> eVar2 = this.f27240c;
                 b bVar2 = this.k;
-                eVar2.a(a2, bVar2.f27241d, bVar2.f27242e);
+                eVar2.a(a2, bVar2.f27249d, bVar2.f27250e);
                 l();
             }
         }
     }
 
     public h a(List<T> list) {
-        if (this.f27233d == null) {
+        if (this.f27241d == null) {
             com.bytedance.sdk.openadsdk.core.p.f();
         }
-        q<T> qVar = this.f27233d;
+        q<T> qVar = this.f27241d;
         if (qVar == null) {
             return null;
         }
@@ -360,14 +360,14 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void a(T t) {
-        c(this.f27234e);
-        this.f27232c.a((e<T>) t);
+        c(this.f27242e);
+        this.f27240c.a((e<T>) t);
         a("onHandleReceivedAdEvent mCloseSaveAndRetry is false, save event into db");
-        if (this.f27236g) {
+        if (this.f27244g) {
             return;
         }
         a("onHandleReceivedAdEvent");
-        this.f27234e.add(t);
+        this.f27242e.add(t);
         if (n()) {
             a("onHandleReceivedAdEvent upload");
             e();
@@ -381,14 +381,14 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     public static boolean a(h hVar) {
-        return hVar.f27245b == 509;
+        return hVar.f27253b == 509;
     }
 
     private void a(String str) {
-        u.b(f27230a, str);
+        u.b(f27238a, str);
     }
 
     public static boolean b(h hVar) {
-        return hVar.f27247d;
+        return hVar.f27255d;
     }
 }

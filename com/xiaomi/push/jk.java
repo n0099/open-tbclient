@@ -3,17 +3,17 @@ package com.xiaomi.push;
 public final class jk extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41175a;
+    public int f41270a;
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41176b;
+    public int f41271b;
 
     @Override // com.xiaomi.push.jl
     public int a() {
-        return this.f41175a;
+        return this.f41270a;
     }
 
     @Override // com.xiaomi.push.jl
@@ -23,7 +23,7 @@ public final class jk extends jl {
             i2 = b2;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f815a, this.f41175a, bArr, i, i2);
+            System.arraycopy(this.f815a, this.f41270a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -31,7 +31,7 @@ public final class jk extends jl {
 
     @Override // com.xiaomi.push.jl
     public void a(int i) {
-        this.f41175a += i;
+        this.f41270a += i;
     }
 
     public void a(byte[] bArr) {
@@ -50,13 +50,13 @@ public final class jk extends jl {
 
     @Override // com.xiaomi.push.jl
     public int b() {
-        return this.f41176b - this.f41175a;
+        return this.f41271b - this.f41270a;
     }
 
     @Override // com.xiaomi.push.jl
     public void b(byte[] bArr, int i, int i2) {
         this.f815a = bArr;
-        this.f41175a = i;
-        this.f41176b = i + i2;
+        this.f41270a = i;
+        this.f41271b = i + i2;
     }
 }

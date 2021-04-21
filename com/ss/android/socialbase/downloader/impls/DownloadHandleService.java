@@ -4,28 +4,28 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import d.o.a.e.b.g.d;
-import d.o.a.e.b.g.e;
+import d.p.a.e.b.g.d;
+import d.p.a.e.b.g.e;
 /* loaded from: classes6.dex */
 public class DownloadHandleService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39206a = DownloadHandleService.class.getSimpleName();
+    public static final String f39301a = DownloadHandleService.class.getSimpleName();
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f39207e;
+        public final /* synthetic */ int f39302e;
 
         public a(int i) {
-            this.f39207e = i;
+            this.f39302e = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                e.c().J(this.f39207e);
+                e.c().J(this.f39302e);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

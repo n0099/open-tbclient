@@ -1,269 +1,615 @@
 package d.b.h0.a;
-
-import android.app.Activity;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import java.util.HashMap;
-/* loaded from: classes3.dex */
-public class f {
-    public static String A = "maintablocate";
-    public static String B = "maintab_subtab";
-    public static String C = "newgod_from";
-    public static String D = "field_id";
-    public static String E = "chushou_third_live_type";
-    public static String F = "chuchou_third_room_id";
-    public static String G = "hotTrend";
-    public static String H = "tab_id";
-    public static String I = "param_uri";
-    public static String J = "forumId";
-    public static String K = "item_id";
-    public static String L = "from_tb_token";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f49967a = "com.baidu.tieba";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f49968b = "unidispatch";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f49969c = "/homepage";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f49970d = "/enterforum";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f49971e = "/recommendforum";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f49972f = "/frs";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f49973g = "/pb";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f49974h = "/tbwebview";
-    public static String i = "/usercenter";
-    public static String j = "/topicdetail";
-    public static String k = "/tiebachushou";
-    public static String l = "/activitypage";
-    public static String m = "extdata";
-    public static String n = "kw";
-    public static String o = "tid";
-    public static String p = "ori_ugc_nid";
-    public static String q = "ori_ugc_tid";
-    public static String r = "ori_ugc_type";
-    public static String s = "ori_ugc_vid";
-    public static String t = "portrait";
-    public static String u = "topic_id";
-    public static String v = "url";
-    public static String w = "schemefrom";
-    public static String x = "from";
-    public static String y = "token";
-    public static String z = "tab_name";
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void onCallBack(HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final f f49975a = new f();
-    }
-
-    public static final f b() {
-        return c.f49975a;
-    }
-
-    public static boolean c(Uri uri) {
-        return uri != null && f49967a.equals(uri.getScheme()) && f49968b.equals(uri.getHost());
-    }
-
-    public final void a(String str, Uri uri, String str2) {
-        if (uri != null && uri.getQueryParameter("obj_source") != null && uri.getQueryParameter("obj_type") != null && !StringHelper.equals(str2, L)) {
-            TiebaStatic.log(new StatisticItem("c13391").param("obj_type", uri.getQueryParameter("obj_type")).param("obj_source", uri.getQueryParameter("obj_source")));
-        }
-        if (str == null || str.contains("tbwebview") || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("is_new_schema");
-        if (TextUtils.isEmpty(queryParameter) || !queryParameter.equals("1")) {
-            return;
-        }
-        UtilHelper.clearClipBoard();
-    }
-
-    public void d(Uri uri, b bVar) {
-        if (uri != null && c(uri) && f49972f.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = n;
-            hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = H;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            String str3 = o;
-            hashMap.put(str3, uri.getQueryParameter(str3));
-            l(uri.getQueryParameter(x));
-            String queryParameter = uri.getQueryParameter(m);
-            String queryParameter2 = uri.getQueryParameter(w);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(y), uri);
-            a("", uri, queryParameter2);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void e(Uri uri, b bVar) {
-        if (uri == null || !c(uri)) {
-            return;
-        }
-        HashMap<String, Object> hashMap = new HashMap<>();
-        String queryParameter = uri.getQueryParameter(m);
-        String queryParameter2 = uri.getQueryParameter(w);
-        String queryParameter3 = uri.getQueryParameter(y);
-        String queryParameter4 = uri.getQueryParameter(z);
-        k(queryParameter, queryParameter2, queryParameter3, uri);
-        l(uri.getQueryParameter(x));
-        a("", uri, queryParameter2);
-        v.a(uri);
-        if (f49969c.equals(uri.getPath())) {
-            hashMap.put(A, 2);
-            String str = C;
-            hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = D;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            hashMap.put(z, queryParameter4);
-        } else if (f49970d.equals(uri.getPath())) {
-            hashMap.put(A, 1);
-            hashMap.put(B, queryParameter4);
-        } else if (f49971e.equals(uri.getPath())) {
-            hashMap.put(A, 1);
-            hashMap.put(B, "1_recommend");
-        } else if (l.equals(uri.getPath())) {
-            hashMap.put(A, 2);
-            hashMap.put(z, queryParameter4);
-        }
-        bVar.onCallBack(hashMap);
-    }
-
-    public void f(Uri uri, b bVar) {
-        if (uri != null && c(uri) && f49973g.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = o;
-            hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = p;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            String str3 = q;
-            hashMap.put(str3, uri.getQueryParameter(str3));
-            String str4 = r;
-            hashMap.put(str4, uri.getQueryParameter(str4));
-            String str5 = s;
-            hashMap.put(str5, uri.getQueryParameter(str5));
-            l(uri.getQueryParameter(x));
-            String queryParameter = uri.getQueryParameter(m);
-            String queryParameter2 = uri.getQueryParameter(w);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(y), uri);
-            a("", uri, queryParameter2);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void g(Uri uri, b bVar) {
-        if (uri != null && c(uri) && j.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = u;
-            hashMap.put(str, uri.getQueryParameter(str));
-            l(uri.getQueryParameter(x));
-            k(uri.getQueryParameter(m), uri.getQueryParameter(w), uri.getQueryParameter(y), uri);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void h(Uri uri, b bVar) {
-        if (uri != null && c(uri) && i.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str = t;
-            hashMap.put(str, uri.getQueryParameter(str));
-            k(uri.getQueryParameter(m), uri.getQueryParameter(w), uri.getQueryParameter(y), uri);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public void i(Uri uri) {
-        if (uri != null) {
-            String queryParameter = uri.getQueryParameter("is_new_schema");
-            if (TextUtils.isEmpty(queryParameter) || !queryParameter.equals("1")) {
-                return;
-            }
-            UtilHelper.clearClipBoard();
-        }
-    }
-
-    public void j(String str, Uri uri, b bVar) {
-        if (uri != null && c(uri) && f49974h.equals(uri.getPath())) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            String str2 = v;
-            hashMap.put(str2, uri.getQueryParameter(str2));
-            hashMap.put(I, uri);
-            l(uri.getQueryParameter(x));
-            String queryParameter = uri.getQueryParameter(m);
-            String queryParameter2 = uri.getQueryParameter(w);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(y), uri);
-            a(str, uri, queryParameter2);
-            bVar.onCallBack(hashMap);
-        }
-    }
-
-    public final void k(String str, String str2, String str3, Uri uri) {
-        String str4;
-        Activity currentActivity;
-        if (d.b.c.e.p.k.isEmpty(str)) {
-            return;
-        }
-        d.b.h0.a.b bVar = new d.b.h0.a.b(str);
-        bVar.l0(str3);
-        if (bVar.d() == 0 || bVar.q() == 0) {
-            return;
-        }
-        TbSingleton.getInstance().setInvokeSource(bVar.e());
-        d.b.c.e.n.f.f(String.valueOf(bVar.d()));
-        d.b.c.e.n.f.i(String.valueOf(bVar.q()));
-        int i2 = StringHelper.equals(str2, L) ? 2 : 1;
-        String str5 = "";
-        if (uri != null) {
-            str5 = uri.getQueryParameter(n);
-            str4 = uri.getQueryParameter(o);
-        } else {
-            str4 = "";
-        }
-        if (bVar.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-            if (currentActivity instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) currentActivity).showFloatingWindow();
-            } else if (currentActivity instanceof BaseActivity) {
-                ((BaseActivity) currentActivity).showFloatingWindow();
-            }
-        }
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", bVar.e()).param("obj_type", bVar.d()).param("obj_param1", bVar.q()).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, bVar.s()).param("extra", bVar.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str5).param("tid", str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1));
-        d.b.h0.a.c.y().m(bVar);
-    }
-
-    public final void l(String str) {
-        if (TextUtils.isEmpty(str) || !"shoubai".equals(str)) {
-            return;
-        }
-        d.b.h0.z0.e.m().v(true);
-        d.b.h0.z0.e.m().k();
-    }
-
-    public f() {
-    }
+/* loaded from: classes2.dex */
+public final class f {
+    public static final int action0 = 2131296300;
+    public static final int action_bar = 2131296301;
+    public static final int action_bar_activity_content = 2131296302;
+    public static final int action_bar_container = 2131296303;
+    public static final int action_bar_root = 2131296306;
+    public static final int action_bar_spinner = 2131296307;
+    public static final int action_bar_subtitle = 2131296308;
+    public static final int action_bar_title = 2131296309;
+    public static final int action_container = 2131296311;
+    public static final int action_context_bar = 2131296312;
+    public static final int action_divider = 2131296313;
+    public static final int action_image = 2131296315;
+    public static final int action_menu_divider = 2131296317;
+    public static final int action_menu_presenter = 2131296318;
+    public static final int action_mode_bar = 2131296319;
+    public static final int action_mode_bar_stub = 2131296320;
+    public static final int action_mode_close_button = 2131296321;
+    public static final int action_text = 2131296322;
+    public static final int actions = 2131296324;
+    public static final int activity_chooser_view_content = 2131296327;
+    public static final int ad_footer = 2131296369;
+    public static final int ad_footer_textview_content = 2131296370;
+    public static final int ad_footer_textview_title = 2131296371;
+    public static final int ad_tail_brand_name = 2131296404;
+    public static final int ad_tail_btn = 2131296405;
+    public static final int ad_tail_btn_container = 2131296406;
+    public static final int ad_tail_download_btn_txt = 2131296407;
+    public static final int ad_tail_head_image = 2131296408;
+    public static final int ad_tail_root = 2131296409;
+    public static final int ad_tail_video_img = 2131296410;
+    public static final int add = 2131296418;
+    public static final int add_favor = 2131296428;
+    public static final int agreement_first = 2131296522;
+    public static final int agreement_forth = 2131296523;
+    public static final int agreement_layout = 2131296524;
+    public static final int agreement_layout_first = 2131296525;
+    public static final int agreement_layout_forth = 2131296526;
+    public static final int agreement_layout_second = 2131296527;
+    public static final int agreement_layout_third = 2131296528;
+    public static final int agreement_second = 2131296530;
+    public static final int agreement_third = 2131296532;
+    public static final int ai_app_console = 2131296534;
+    public static final int ai_app_property = 2131296535;
+    public static final int ai_app_report_performance = 2131296536;
+    public static final int ai_app_show_ext_info = 2131296537;
+    public static final int ai_app_start_inspector = 2131296538;
+    public static final int ai_app_swan_core_history_info = 2131296539;
+    public static final int ai_apps_activity_root = 2131296540;
+    public static final int ai_apps_bottom_tab = 2131296541;
+    public static final int ai_apps_container = 2131296542;
+    public static final int ai_apps_emptyview_btn = 2131296543;
+    public static final int ai_apps_error_feedback = 2131296544;
+    public static final int ai_apps_error_image = 2131296545;
+    public static final int ai_apps_error_layout = 2131296546;
+    public static final int ai_apps_error_msg = 2131296547;
+    public static final int ai_apps_error_text_one = 2131296548;
+    public static final int ai_apps_fragment_base_view = 2131296549;
+    public static final int ai_apps_fragment_content = 2131296550;
+    public static final int ai_apps_property_root = 2131296551;
+    public static final int ai_apps_setting_list = 2131296552;
+    public static final int ai_apps_title_bar = 2131296553;
+    public static final int ai_apps_title_bar_root = 2131296555;
+    public static final int ai_games_fps_text = 2131296556;
+    public static final int ai_games_fps_text_view_stub = 2131296557;
+    public static final int ai_games_input_send_btn = 2131296558;
+    public static final int ai_games_layout = 2131296559;
+    public static final int ai_games_na_layout = 2131296560;
+    public static final int ai_games_real_input_container = 2131296561;
+    public static final int ai_games_real_input_et = 2131296562;
+    public static final int ai_games_virtual_input_et = 2131296563;
+    public static final int aiapp_menu_body = 2131296566;
+    public static final int aiapp_menu_item_content = 2131296567;
+    public static final int aiapp_menu_item_icon = 2131296568;
+    public static final int aiapp_menu_item_new_dot = 2131296569;
+    public static final int aiapp_menu_item_new_tips = 2131296570;
+    public static final int aiapp_menu_item_title = 2131296571;
+    public static final int aiapps_description = 2131296572;
+    public static final int aiapps_games_loading_tips_left_quotation = 2131296573;
+    public static final int aiapps_games_loading_tips_message = 2131296574;
+    public static final int aiapps_icon = 2131296575;
+    public static final int aiapps_icon_rl = 2131296576;
+    public static final int aiapps_immersion_fragment_root_view = 2131296577;
+    public static final int aiapps_label_bg = 2131296578;
+    public static final int aiapps_label_tv = 2131296579;
+    public static final int aiapps_loading_progress = 2131296580;
+    public static final int aiapps_na_root_view_tag = 2131296581;
+    public static final int aiapps_nav_loading_progressbar = 2131296582;
+    public static final int aiapps_nbsearch_web_loading_progress_bar = 2131296583;
+    public static final int aiapps_title = 2131296584;
+    public static final int aiapps_webView_container = 2131296585;
+    public static final int aiapps_wx_pay_loading_view = 2131296586;
+    public static final int aigames_loading_game_info_rl = 2131296587;
+    public static final int aigames_loading_game_tips = 2131296588;
+    public static final int album_bottom_preview_container = 2131296735;
+    public static final int album_bottom_preview_tv = 2131296736;
+    public static final int album_camera_enter = 2131296738;
+    public static final int album_camera_icon = 2131296739;
+    public static final int album_camera_root = 2131296740;
+    public static final int album_content_loading = 2131296741;
+    public static final int album_gridview = 2131296742;
+    public static final int album_header = 2131296743;
+    public static final int album_item_img = 2131296745;
+    public static final int album_item_right_bottom_tip = 2131296746;
+    public static final int album_item_select_checkbox = 2131296747;
+    public static final int album_item_select_circle_view = 2131296748;
+    public static final int album_item_select_number = 2131296749;
+    public static final int album_item_selected_check = 2131296750;
+    public static final int album_item_tip_bg = 2131296751;
+    public static final int album_item_unable_shadow = 2131296752;
+    public static final int album_left_cancel = 2131296753;
+    public static final int album_line = 2131296754;
+    public static final int album_loadding_img = 2131296755;
+    public static final int album_loadding_tv = 2131296756;
+    public static final int album_name = 2131296757;
+    public static final int album_name_item_img = 2131296758;
+    public static final int album_name_item_line = 2131296759;
+    public static final int album_name_item_number = 2131296760;
+    public static final int album_name_item_title = 2131296761;
+    public static final int album_name_list = 2131296762;
+    public static final int album_name_list_container = 2131296763;
+    public static final int album_name_list_layout = 2131296764;
+    public static final int album_preview_back = 2131296766;
+    public static final int album_preview_back_layout = 2131296767;
+    public static final int album_preview_bottom = 2131296768;
+    public static final int album_preview_content = 2131296769;
+    public static final int album_preview_done = 2131296770;
+    public static final int album_preview_header = 2131296771;
+    public static final int album_preview_image = 2131296772;
+    public static final int album_preview_item_root = 2131296773;
+    public static final int album_preview_line = 2131296774;
+    public static final int album_preview_select = 2131296775;
+    public static final int album_preview_select_checkbox = 2131296776;
+    public static final int album_preview_select_view = 2131296777;
+    public static final int album_preview_viewpager = 2131296778;
+    public static final int album_select_done = 2131296779;
+    public static final int album_thumbnail_selected = 2131296780;
+    public static final int album_thumbnail_video = 2131296781;
+    public static final int alertTitle = 2131296783;
+    public static final int appIcon = 2131296811;
+    public static final int apply_guarantee = 2131296837;
+    public static final int apply_guarantee_tv = 2131296838;
+    public static final int async = 2131296869;
+    public static final int auth_custom_layout = 2131296893;
+    public static final int auth_divider1 = 2131296894;
+    public static final int auth_divider2 = 2131296895;
+    public static final int auth_negative_button = 2131296897;
+    public static final int auth_positive_button = 2131296898;
+    public static final int auth_scope_detail = 2131296899;
+    public static final int auth_scope_detail_layout = 2131296900;
+    public static final int authority_item = 2131296906;
+    public static final int authority_item_image = 2131296907;
+    public static final int authority_item_text = 2131296908;
+    public static final int back = 2131296927;
+    public static final int background = 2131296936;
+    public static final int bear_account_follow_background = 2131297199;
+    public static final int bear_account_follow_btn = 2131297200;
+    public static final int bear_account_frame = 2131297201;
+    public static final int bear_account_layout = 2131297202;
+    public static final int bear_account_loading_progress = 2131297203;
+    public static final int bear_account_logo = 2131297204;
+    public static final int bear_account_name = 2131297205;
+    public static final int bear_account_vip_logo = 2131297206;
+    public static final int bear_layout = 2131297207;
+    public static final int bg_text_btn = 2131297227;
+    public static final int bg_view = 2131297228;
+    public static final int blocking = 2131297292;
+    public static final int body = 2131297296;
+    public static final int bottom = 2131297309;
+    public static final int bottom_bar_shadow = 2131297315;
+    public static final int bottom_tab_badge = 2131297347;
+    public static final int bottom_tab_icon = 2131297348;
+    public static final int bottom_tab_red_dot = 2131297349;
+    public static final int bottom_tab_text = 2131297350;
+    public static final int bottom_text = 2131297351;
+    public static final int brands_introduction_click_more = 2131297360;
+    public static final int brands_introduction_details = 2131297361;
+    public static final int brands_introduction_header_container = 2131297362;
+    public static final int brands_introduction_ll = 2131297363;
+    public static final int brands_introduction_title = 2131297364;
+    public static final int bt_pay_already_finish = 2131297368;
+    public static final int bt_pay_meet_problems = 2131297369;
+    public static final int bt_radio = 2131297371;
+    public static final int btn_item_attenion = 2131297416;
+    public static final int btn_panel = 2131297435;
+    public static final int btn_wv_copy = 2131297461;
+    public static final int btn_wv_search = 2131297462;
+    public static final int buttonPanel = 2131297480;
+    public static final int by_common = 2131297533;
+    public static final int by_common_header = 2131297534;
+    public static final int by_org = 2131297535;
+    public static final int by_org_header = 2131297536;
+    public static final int by_org_unit = 2131297537;
+    public static final int by_org_unit_header = 2131297538;
+    public static final int cancel = 2131297557;
+    public static final int cancel_action = 2131297558;
+    public static final int center = 2131297847;
+    public static final int centerCrop = 2131297851;
+    public static final int centerInside = 2131297852;
+    public static final int channel_desc_view = 2131297953;
+    public static final int channel_icon_view = 2131297955;
+    public static final int channel_list_container = 2131297956;
+    public static final int channel_list_scroll_view = 2131297957;
+    public static final int channel_list_view = 2131297958;
+    public static final int channel_name_view = 2131297959;
+    public static final int channel_select_view = 2131297961;
+    public static final int checkbox = 2131297984;
+    public static final int checkbox_id = 2131297986;
+    public static final int chronometer = 2131298053;
+    public static final int clickable_toast_check_text = 2131298065;
+    public static final int clickable_toast_click_area = 2131298066;
+    public static final int clickable_toast_icon_view = 2131298067;
+    public static final int clickable_toast_info_view = 2131298068;
+    public static final int clickable_toast_line = 2131298069;
+    public static final int clickable_toast_view = 2131298070;
+    public static final int close_btn = 2131298079;
+    public static final int close_button = 2131298082;
+    public static final int confirm_button = 2131298158;
+    public static final int container = 2131298170;
+    public static final int content = 2131298186;
+    public static final int contentPanel = 2131298190;
+    public static final int core_permission_go_setting_button = 2131298214;
+    public static final int core_permission_go_setting_cancel_button = 2131298215;
+    public static final int core_permission_go_setting_message = 2131298216;
+    public static final int coupon = 2131298238;
+    public static final int coupon_description = 2131298241;
+    public static final int coupon_icon = 2131298259;
+    public static final int coupon_layout = 2131298260;
+    public static final int coupon_list_layout = 2131298261;
+    public static final int coupon_subtitle = 2131298265;
+    public static final int coupon_text = 2131298266;
+    public static final int coupon_title = 2131298267;
+    public static final int custom = 2131298343;
+    public static final int customPanel = 2131298344;
+    public static final int cut = 2131298360;
+    public static final int cut_text = 2131298361;
+    public static final int cw_0 = 2131298364;
+    public static final int cw_180 = 2131298365;
+    public static final int cw_270 = 2131298366;
+    public static final int cw_90 = 2131298367;
+    public static final int dark_print = 2131298379;
+    public static final int decor_content_parent = 2131298393;
+    public static final int default_activity_button = 2131298396;
+    public static final int delete_key_img_view = 2131298410;
+    public static final int dialog_customPanel = 2131298454;
+    public static final int dialog_custom_content = 2131298455;
+    public static final int dialog_icon = 2131298459;
+    public static final int dialog_message = 2131298467;
+    public static final int dialog_message_content = 2131298468;
+    public static final int dialog_root = 2131298472;
+    public static final int dialog_title = 2131298478;
+    public static final int divider = 2131298525;
+    public static final int divider2 = 2131298527;
+    public static final int divider3 = 2131298528;
+    public static final int divider4 = 2131298529;
+    public static final int drag_photo_view = 2131298600;
+    public static final int drag_view = 2131298602;
+    public static final int dv_icon = 2131298610;
+    public static final int edit_query = 2131298712;
+    public static final int empty = 2131298804;
+    public static final int emptyview_bottom_layout = 2131298821;
+    public static final int emptyview_btn = 2131298822;
+    public static final int emptyview_image = 2131298823;
+    public static final int emptyview_link = 2131298824;
+    public static final int emptyview_problem_feedback = 2131298825;
+    public static final int emptyview_subtitle = 2131298826;
+    public static final int emptyview_title = 2131298827;
+    public static final int end = 2131298829;
+    public static final int end_padder = 2131298831;
+    public static final int error_layout = 2131298892;
+    public static final int expand_activities_button = 2131298917;
+    public static final int expanded_menu = 2131298928;
+    public static final int expires_on = 2131298934;
+    public static final int expires_on_header = 2131298935;
+    public static final int favorite_guide_add_btn = 2131299002;
+    public static final int favorite_guide_arrow = 2131299003;
+    public static final int favorite_guide_close = 2131299004;
+    public static final int favorite_guide_container = 2131299005;
+    public static final int favorite_guide_content = 2131299006;
+    public static final int favorite_guide_icon = 2131299007;
+    public static final int fcp = 2131299008;
+    public static final int finish_payment = 2131299053;
+    public static final int fip = 2131299054;
+    public static final int first_line_menu_item_view = 2131299063;
+    public static final int fitCenter = 2131299074;
+    public static final int fitEnd = 2131299075;
+    public static final int fitStart = 2131299076;
+    public static final int fitXY = 2131299077;
+    public static final int float_imgview = 2131299092;
+    public static final int fmp = 2131299111;
+    public static final int focusCrop = 2131299116;
+    public static final int font_size_setting = 2131299146;
+    public static final int forever = 2131299157;
+    public static final int frame = 2131299312;
+    public static final int ftp = 2131299612;
+    public static final int fullScreenFloatView = 2131299613;
+    public static final int gif_toast_check_text = 2131299769;
+    public static final int gif_toast_click_area = 2131299770;
+    public static final int gif_toast_click_area_left = 2131299771;
+    public static final int gif_toast_icon_view = 2131299772;
+    public static final int gif_toast_info_view = 2131299773;
+    public static final int gif_toast_left_icon = 2131299774;
+    public static final int gif_toast_line = 2131299775;
+    public static final int gif_toast_view = 2131299776;
+    public static final int gone = 2131299841;
+    public static final int group_divider = 2131299871;
+    public static final int guarantee_fl = 2131299877;
+    public static final int guarantee_plan_loading_text = 2131299878;
+    public static final int guarantee_plan_rl = 2131299879;
+    public static final int header_content = 2131299953;
+    public static final int highLoading_progress_toast_icon = 2131299978;
+    public static final int highLoading_progress_toast_ll = 2131299979;
+    public static final int highLoading_progress_toast_title = 2131299980;
+    public static final int highlight_toast_imageView = 2131299981;
+    public static final int highlight_toast_text = 2131299982;
+    public static final int highlight_toast_view = 2131299983;
+    public static final int home = 2131299997;
+    public static final int hostmarket = 2131300089;
+    public static final int hv_btn_content = 2131300173;
+    public static final int hv_btn_subtext = 2131300174;
+    public static final int hv_btn_text = 2131300175;
+    public static final int hv_content = 2131300176;
+    public static final int hv_divider = 2131300177;
+    public static final int icon = 2131300184;
+    public static final int icon_group = 2131300204;
+    public static final int icon_more = 2131300212;
+    public static final int id_empty_container = 2131300221;
+    public static final int id_swan_app_plugin_app_name = 2131300246;
+    public static final int id_swan_app_plugin_money = 2131300247;
+    public static final int id_swan_app_plugin_pay = 2131300248;
+    public static final int id_swan_app_plugin_service_name = 2131300249;
+    public static final int image = 2131300287;
+    public static final int immersion_custom_statusbar_view = 2131300410;
+    public static final int immersion_fragment_root_view = 2131300411;
+    public static final int info = 2131300419;
+    public static final int invisible = 2131300485;
+    public static final int issued_on = 2131300491;
+    public static final int issued_on_header = 2131300492;
+    public static final int issued_to_header = 2131300493;
+    public static final int italic = 2131300494;
+    public static final int item = 2131300495;
+    public static final int item_title = 2131300577;
+    public static final int item_touch_helper_previous_elevation = 2131300582;
+    public static final int iv_pay_back = 2131300636;
+    public static final int key_text_view = 2131300668;
+    public static final int keyboard_grid_view = 2131300670;
+    public static final int layer_night = 2131301190;
+    public static final int left = 2131301284;
+    public static final int left_first_view = 2131301300;
+    public static final int left_icon = 2131301302;
+    public static final int left_img = 2131301303;
+    public static final int left_second_view = 2131301308;
+    public static final int lfet = 2131301334;
+    public static final int light_print = 2131301338;
+    public static final int line = 2131301348;
+    public static final int line1 = 2131301350;
+    public static final int line3 = 2131301352;
+    public static final int line_text_icon_btn = 2131301367;
+    public static final int linear = 2131301373;
+    public static final int list = 2131301386;
+    public static final int listMode = 2131301387;
+    public static final int list_item = 2131301392;
+    public static final int ll_bottom_bar = 2131301465;
+    public static final int loading_bar = 2131301496;
+    public static final int lottie_layer_name = 2131301554;
+    public static final int mask = 2131301654;
+    public static final int media_actions = 2131301663;
+    public static final int menu_linear = 2131301715;
+    public static final int menu_scrollview = 2131301718;
+    public static final int message = 2131301728;
+    public static final int message_item = 2131301736;
+    public static final int message_item_image = 2131301737;
+    public static final int message_item_text = 2131301738;
+    public static final int message_scrollview = 2131301742;
+    public static final int message_text = 2131301743;
+    public static final int money = 2131301777;
+    public static final int more_relate_swan_app = 2131301795;
+    public static final int multi_auth_agreement_layout = 2131301825;
+    public static final int multi_auth_custom_layout = 2131301826;
+    public static final int multiply = 2131301837;
+    public static final int negative_button = 2131301930;
+    public static final int neutral_button = 2131301945;
+    public static final int neutral_refresh_anim_view = 2131301946;
+    public static final int nightmode_mask = 2131302008;
+    public static final int none = 2131302058;
+    public static final int normal = 2131302067;
+    public static final int normal_toast_text = 2131302072;
+    public static final int notification_background = 2131302079;
+    public static final int notification_main_column = 2131302081;
+    public static final int notification_main_column_container = 2131302082;
+    public static final int open_app_button = 2131302136;
+    public static final int parentPanel = 2131302210;
+    public static final int password_edit = 2131302236;
+    public static final int pay_button = 2131302241;
+    public static final int pay_money_layout = 2131302261;
+    public static final int pay_text = 2131302271;
+    public static final int permission_detail = 2131302580;
+    public static final int permission_detail_layout = 2131302581;
+    public static final int permission_function = 2131302582;
+    public static final int permission_name = 2131302585;
+    public static final int placeholder = 2131302818;
+    public static final int pop_button = 2131302855;
+    public static final int pop_tips = 2131302860;
+    public static final int pop_title = 2131302861;
+    public static final int popup_view = 2131302862;
+    public static final int positive_button = 2131302867;
+    public static final int preview_video_layout = 2131302926;
+    public static final int preview_video_view = 2131302927;
+    public static final int progress_bar = 2131303007;
+    public static final int progress_circular = 2131303008;
+    public static final int progress_horizontal = 2131303010;
+    public static final int progress_text = 2131303017;
+    public static final int pull_to_load_footer_content = 2131303066;
+    public static final int pull_to_load_footer_hint_textview = 2131303067;
+    public static final int pull_to_load_footer_progressbar = 2131303068;
+    public static final int pull_to_refresh_header_arrow = 2131303069;
+    public static final int pull_to_refresh_header_background = 2131303070;
+    public static final int pull_to_refresh_header_content = 2131303071;
+    public static final int pull_to_refresh_header_hint_textview = 2131303072;
+    public static final int pull_to_refresh_header_progressbar = 2131303073;
+    public static final int pull_to_refresh_header_text = 2131303074;
+    public static final int pull_to_refresh_header_time = 2131303075;
+    public static final int pull_to_refresh_last_update_time_text = 2131303077;
+    public static final int radial = 2131303168;
+    public static final int radio = 2131303169;
+    public static final int refresh_over_tip = 2131303282;
+    public static final int refreshing_anim_view = 2131303284;
+    public static final int related_swan_app = 2131303288;
+    public static final int related_swan_app_list = 2131303289;
+    public static final int repayment = 2131303305;
+    public static final int res_searchbox_background = 2131303345;
+    public static final int restart = 2131303346;
+    public static final int reverse = 2131303352;
+    public static final int right = 2131303367;
+    public static final int right_button_toast_btn_view = 2131303379;
+    public static final int right_button_toast_info_view = 2131303380;
+    public static final int right_button_toast_view = 2131303381;
+    public static final int right_icon = 2131303386;
+    public static final int right_side = 2131303391;
+    public static final int right_txt = 2131303394;
+    public static final int rl_guide_game_bg = 2131303435;
+    public static final int root_container = 2131303469;
+    public static final int root_layout = 2131303475;
+    public static final int rv_guide_game = 2131303504;
+    public static final int safe_dialog_content = 2131303510;
+    public static final int safe_dialog_sub_content = 2131303511;
+    public static final int sailor_address = 2131303513;
+    public static final int sailor_address_header = 2131303514;
+    public static final int sailor_by_common = 2131303515;
+    public static final int sailor_by_common_header = 2131303516;
+    public static final int sailor_by_org = 2131303517;
+    public static final int sailor_by_org_header = 2131303518;
+    public static final int sailor_by_org_unit = 2131303519;
+    public static final int sailor_by_org_unit_header = 2131303520;
+    public static final int sailor_error_page_tip = 2131303521;
+    public static final int sailor_expires_on = 2131303522;
+    public static final int sailor_expires_on_header = 2131303523;
+    public static final int sailor_issued_by_header = 2131303524;
+    public static final int sailor_issued_on = 2131303525;
+    public static final int sailor_issued_on_header = 2131303526;
+    public static final int sailor_issued_to_header = 2131303527;
+    public static final int sailor_noapp_support_warnings_header = 2131303528;
+    public static final int sailor_noapp_support_warnings_text = 2131303529;
+    public static final int sailor_placeholder = 2131303530;
+    public static final int sailor_title = 2131303531;
+    public static final int sailor_title_separator = 2131303532;
+    public static final int sailor_to_common = 2131303533;
+    public static final int sailor_to_common_header = 2131303534;
+    public static final int sailor_to_org = 2131303535;
+    public static final int sailor_to_org_header = 2131303536;
+    public static final int sailor_to_org_unit = 2131303537;
+    public static final int sailor_to_org_unit_header = 2131303538;
+    public static final int sailor_validity_header = 2131303539;
+    public static final int sailor_warning = 2131303540;
+    public static final int sailor_warnings_header = 2131303541;
+    public static final int scope_content_layout = 2131303745;
+    public static final int screen = 2131303748;
+    public static final int scrollIndicatorDown = 2131303759;
+    public static final int scrollIndicatorUp = 2131303760;
+    public static final int scrollView = 2131303761;
+    public static final int search_badge = 2131303781;
+    public static final int search_bar = 2131303782;
+    public static final int search_button = 2131303792;
+    public static final int search_close_btn = 2131303793;
+    public static final int search_edit_frame = 2131303796;
+    public static final int search_go_btn = 2131303802;
+    public static final int search_mag_icon = 2131303812;
+    public static final int search_plate = 2131303813;
+    public static final int search_src_text = 2131303818;
+    public static final int search_voice_btn = 2131303827;
+    public static final int searchbox_alert_dialog = 2131303829;
+    public static final int second_line_menu_item_view = 2131303837;
+    public static final int select_dialog_listview = 2131303887;
+    public static final int select_icon = 2131303893;
+    public static final int select_separator_one = 2131303902;
+    public static final int service_agreement_key = 2131303911;
+    public static final int service_agreement_value = 2131303912;
+    public static final int service_category_key = 2131303915;
+    public static final int service_category_value = 2131303916;
+    public static final int share_friends = 2131303949;
+    public static final int shortcut = 2131303995;
+    public static final int sliderbar_in_pop_window = 2131304086;
+    public static final int spacer = 2131304115;
+    public static final int split_action_bar = 2131304130;
+    public static final int src_atop = 2131304180;
+    public static final int src_in = 2131304181;
+    public static final int src_over = 2131304182;
+    public static final int ssl_certificate_container = 2131304183;
+    public static final int ssl_divider = 2131304184;
+    public static final int ssl_header_icon = 2131304185;
+    public static final int ssl_header_text = 2131304186;
+    public static final int start = 2131304192;
+    public static final int start_up_root_container = 2131304197;
+    public static final int status_bar_latest_event_content = 2131304206;
+    public static final int sub_text = 2131304247;
+    public static final int subject_info_key = 2131304251;
+    public static final int subject_info_value = 2131304252;
+    public static final int submenuarrow = 2131304254;
+    public static final int submit_area = 2131304255;
+    public static final int subtitle = 2131304265;
+    public static final int sum = 2131304271;
+    public static final int swan_app_action_text = 2131304282;
+    public static final int swan_app_icon = 2131304283;
+    public static final int swan_app_info_layout = 2131304284;
+    public static final int swan_app_name = 2131304285;
+    public static final int swan_app_plugin_tip = 2131304286;
+    public static final int swan_app_title = 2131304287;
+    public static final int swan_app_title_layout = 2131304288;
+    public static final int swan_app_webview_fragment = 2131304289;
+    public static final int swan_id_path_forbidden_tips = 2131304290;
+    public static final int swangame_recommend_button_icon = 2131304292;
+    public static final int swangame_recommend_button_name = 2131304293;
+    public static final int swangame_recommend_dialog_cancel = 2131304294;
+    public static final int swangame_recommend_dialog_content = 2131304295;
+    public static final int swangame_recommend_dialog_game_center = 2131304296;
+    public static final int swangame_recommend_dialog_list = 2131304297;
+    public static final int swangame_recommend_dialog_night_mask = 2131304298;
+    public static final int swangame_recommend_item_detail = 2131304299;
+    public static final int swangame_recommend_item_icon = 2131304300;
+    public static final int swangame_recommend_item_name = 2131304301;
+    public static final int swangame_recommend_item_play = 2131304302;
+    public static final int switch_button = 2131304305;
+    public static final int tabMode = 2131304319;
+    public static final int tag_transition_group = 2131304434;
+    public static final int tag_unhandled_key_event_manager = 2131304435;
+    public static final int tag_unhandled_key_listeners = 2131304436;
+    public static final int template_title_layout = 2131304548;
+    public static final int text = 2131304556;
+    public static final int text2 = 2131304557;
+    public static final int textSpacerNoButtons = 2131304561;
+    public static final int textSpacerNoTitle = 2131304562;
+    public static final int text_area = 2131304565;
+    public static final int text_view = 2131304614;
+    public static final int thumbnail_drag_view = 2131304752;
+    public static final int time = 2131304761;
+    public static final int timepicker_root = 2131304767;
+    public static final int tip_loading_view = 2131304797;
+    public static final int tip_text_view = 2131304801;
+    public static final int tip_view = 2131304805;
+    public static final int tips = 2131304806;
+    public static final int title = 2131304812;
+    public static final int titleDividerNoCustom = 2131304818;
+    public static final int title_panel = 2131304869;
+    public static final int title_shadow = 2131304883;
+    public static final int title_template = 2131304885;
+    public static final int title_text = 2131304886;
+    public static final int title_text_center = 2131304887;
+    public static final int title_zones = 2131304898;
+    public static final int titlebar_center_zone = 2131304899;
+    public static final int titlebar_left_zone = 2131304902;
+    public static final int titlebar_right_menu = 2131304909;
+    public static final int titlebar_right_menu_exit = 2131304910;
+    public static final int titlebar_right_menu_img = 2131304911;
+    public static final int titlebar_right_menu_line = 2131304912;
+    public static final int titlebar_right_menu_red_dot = 2131304913;
+    public static final int titlebar_right_menu_setting_container = 2131304914;
+    public static final int to_common = 2131304924;
+    public static final int to_common_header = 2131304925;
+    public static final int to_org = 2131304927;
+    public static final int to_org_header = 2131304928;
+    public static final int to_org_unit = 2131304929;
+    public static final int to_org_unit_header = 2131304930;
+    public static final int toast_loading_view = 2131304937;
+    public static final int toast_text_view = 2131304940;
+    public static final int top = 2131304955;
+    public static final int topPanel = 2131304958;
+    public static final int top_divider = 2131304975;
+    public static final int tv_exit_game = 2131305416;
+    public static final int tv_more_game = 2131305440;
+    public static final int tv_name = 2131305446;
+    public static final int ugc_album_loadding_root = 2131305574;
+    public static final int uniform = 2131305613;
+    public static final int up = 2131305638;
+    public static final int userInfo_explain = 2131305661;
+    public static final int user_icon = 2131305679;
+    public static final int user_name = 2131305700;
+    public static final int user_phone_explain = 2131305709;
+    public static final int user_phone_number = 2131305710;
+    public static final int username_edit = 2131305743;
+    public static final int validity_header = 2131305753;
+    public static final int value = 2131305754;
+    public static final int video_preview = 2131305867;
+    public static final int visible = 2131305981;
+    public static final int webView = 2131306238;
+    public static final int webview_container = 2131306246;
+    public static final int wheel_container = 2131306270;
+    public static final int wheel_day = 2131306271;
+    public static final int wheel_hour = 2131306272;
+    public static final int wheel_minute = 2131306273;
+    public static final int wheel_month = 2131306274;
+    public static final int wheel_year = 2131306275;
+    public static final int wrap_content = 2131306284;
 }

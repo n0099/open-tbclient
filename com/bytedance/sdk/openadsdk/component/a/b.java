@@ -21,13 +21,13 @@ import java.lang.ref.WeakReference;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f27322a;
+    public static volatile b f27330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Context> f27323b;
+    public WeakReference<Context> f27331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final q f27324c = p.f();
+    public final q f27332c = p.f();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -37,28 +37,28 @@ public class b {
     }
 
     public b(Context context) {
-        this.f27323b = new WeakReference<>(context);
+        this.f27331b = new WeakReference<>(context);
     }
 
     private void b(Context context) {
-        this.f27323b = new WeakReference<>(context);
+        this.f27331b = new WeakReference<>(context);
     }
 
     public static b a(@NonNull Context context) {
-        if (f27322a == null) {
+        if (f27330a == null) {
             synchronized (b.class) {
-                if (f27322a == null) {
-                    f27322a = new b(context);
+                if (f27330a == null) {
+                    f27330a = new b(context);
                 }
             }
         } else {
-            f27322a.b(context);
+            f27330a.b(context);
         }
-        return f27322a;
+        return f27330a;
     }
 
     public void a(@NonNull AdSlot adSlot, final a aVar) {
-        this.f27324c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
+        this.f27332c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 u.b("BannerAdManager", str + GlideException.IndentedAppendable.INDENT + i);
@@ -89,7 +89,7 @@ public class b {
 
     public void a(@NonNull final AdSlot adSlot, @NonNull final TTAdNative.BannerAdListener bannerAdListener) {
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f27324c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.2
+        this.f27332c.a(adSlot, new m(), 1, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.b.2
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 bannerAdListener.onError(i, str);
@@ -104,9 +104,9 @@ public class b {
                         b.this.a(lVar, new a() { // from class: com.bytedance.sdk.openadsdk.component.a.b.2.1
                             @Override // com.bytedance.sdk.openadsdk.component.a.b.a
                             public void a(@NonNull com.bytedance.sdk.openadsdk.component.a.a aVar2) {
-                                if (b.this.f27323b.get() != null) {
-                                    e eVar = new e((Context) b.this.f27323b.get(), aVar2, adSlot);
-                                    com.bytedance.sdk.openadsdk.c.d.a((Context) b.this.f27323b.get(), lVar, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
+                                if (b.this.f27331b.get() != null) {
+                                    e eVar = new e((Context) b.this.f27331b.get(), aVar2, adSlot);
+                                    com.bytedance.sdk.openadsdk.c.d.a((Context) b.this.f27331b.get(), lVar, ak.b(adSlot.getDurationSlotType()), currentTimeMillis);
                                     bannerAdListener.onBannerAdLoad(eVar);
                                 }
                             }

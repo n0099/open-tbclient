@@ -9,25 +9,25 @@ import java.io.IOException;
 public final class l<T> extends v<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f29638a;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f29646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s<T> f29639b;
+    public final s<T> f29647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.k<T> f29640c;
+    public final com.bytedance.sdk.openadsdk.preload.a.k<T> f29648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.c.a<T> f29641d;
+    public final com.bytedance.sdk.openadsdk.preload.a.c.a<T> f29649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final w f29642e;
+    public final w f29650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final l<T>.a f29643f = new a();
+    public final l<T>.a f29651f = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public v<T> f29644g;
+    public v<T> f29652g;
 
     /* loaded from: classes5.dex */
     public final class a implements com.bytedance.sdk.openadsdk.preload.a.j, r {
@@ -39,76 +39,76 @@ public final class l<T> extends v<T> {
     public static final class b implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.c.a<?> f29646a;
+        public final com.bytedance.sdk.openadsdk.preload.a.c.a<?> f29654a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f29647b;
+        public final boolean f29655b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<?> f29648c;
+        public final Class<?> f29656c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final s<?> f29649d;
+        public final s<?> f29657d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.k<?> f29650e;
+        public final com.bytedance.sdk.openadsdk.preload.a.k<?> f29658e;
 
         public b(Object obj, com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar, boolean z, Class<?> cls) {
-            this.f29649d = obj instanceof s ? (s) obj : null;
+            this.f29657d = obj instanceof s ? (s) obj : null;
             com.bytedance.sdk.openadsdk.preload.a.k<?> kVar = obj instanceof com.bytedance.sdk.openadsdk.preload.a.k ? (com.bytedance.sdk.openadsdk.preload.a.k) obj : null;
-            this.f29650e = kVar;
-            com.bytedance.sdk.openadsdk.preload.a.b.a.a((this.f29649d == null && kVar == null) ? false : true);
-            this.f29646a = aVar;
-            this.f29647b = z;
-            this.f29648c = cls;
+            this.f29658e = kVar;
+            com.bytedance.sdk.openadsdk.preload.a.b.a.a((this.f29657d == null && kVar == null) ? false : true);
+            this.f29654a = aVar;
+            this.f29655b = z;
+            this.f29656c = cls;
         }
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             boolean isAssignableFrom;
-            com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar2 = this.f29646a;
+            com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar2 = this.f29654a;
             if (aVar2 != null) {
-                isAssignableFrom = aVar2.equals(aVar) || (this.f29647b && this.f29646a.b() == aVar.a());
+                isAssignableFrom = aVar2.equals(aVar) || (this.f29655b && this.f29654a.b() == aVar.a());
             } else {
-                isAssignableFrom = this.f29648c.isAssignableFrom(aVar.a());
+                isAssignableFrom = this.f29656c.isAssignableFrom(aVar.a());
             }
             if (isAssignableFrom) {
-                return new l(this.f29649d, this.f29650e, fVar, aVar, this);
+                return new l(this.f29657d, this.f29658e, fVar, aVar, this);
             }
             return null;
         }
     }
 
     public l(s<T> sVar, com.bytedance.sdk.openadsdk.preload.a.k<T> kVar, com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar, w wVar) {
-        this.f29639b = sVar;
-        this.f29640c = kVar;
-        this.f29638a = fVar;
-        this.f29641d = aVar;
-        this.f29642e = wVar;
+        this.f29647b = sVar;
+        this.f29648c = kVar;
+        this.f29646a = fVar;
+        this.f29649d = aVar;
+        this.f29650e = wVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
-        s<T> sVar = this.f29639b;
+        s<T> sVar = this.f29647b;
         if (sVar == null) {
             b().a(cVar, t);
         } else if (t == null) {
             cVar.f();
         } else {
-            com.bytedance.sdk.openadsdk.preload.a.b.l.a(sVar.a(t, this.f29641d.b(), this.f29643f), cVar);
+            com.bytedance.sdk.openadsdk.preload.a.b.l.a(sVar.a(t, this.f29649d.b(), this.f29651f), cVar);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-        if (this.f29640c == null) {
+        if (this.f29648c == null) {
             return b().b(aVar);
         }
         com.bytedance.sdk.openadsdk.preload.a.l a2 = com.bytedance.sdk.openadsdk.preload.a.b.l.a(aVar);
         if (a2.j()) {
             return null;
         }
-        return this.f29640c.a(a2, this.f29641d.b(), this.f29643f);
+        return this.f29648c.a(a2, this.f29649d.b(), this.f29651f);
     }
 
     public static w a(com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar, Object obj) {
@@ -116,12 +116,12 @@ public final class l<T> extends v<T> {
     }
 
     private v<T> b() {
-        v<T> vVar = this.f29644g;
+        v<T> vVar = this.f29652g;
         if (vVar != null) {
             return vVar;
         }
-        v<T> a2 = this.f29638a.a(this.f29642e, this.f29641d);
-        this.f29644g = a2;
+        v<T> a2 = this.f29646a.a(this.f29650e, this.f29649d);
+        this.f29652g = a2;
         return a2;
     }
 }

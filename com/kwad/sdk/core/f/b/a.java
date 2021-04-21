@@ -8,12 +8,12 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwad.sdk.core.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0396a implements a {
+    public static final class C0399a implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f33912a;
+        public IBinder f34007a;
 
-        public C0396a(IBinder iBinder) {
+        public C0399a(IBinder iBinder) {
         }
 
         public String a() {
@@ -22,7 +22,7 @@ public interface a extends IInterface {
             try {
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f33912a.transact(3, obtain, obtain2, 0);
+                    this.f34007a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } catch (Exception e2) {
@@ -39,7 +39,7 @@ public interface a extends IInterface {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f33912a;
+            return this.f34007a;
         }
     }
 }

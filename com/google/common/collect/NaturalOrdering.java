@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
+import d.h.c.a.n;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public final class NaturalOrdering extends Ordering<Comparable> implements Serializable {
@@ -8,10 +8,10 @@ public final class NaturalOrdering extends Ordering<Comparable> implements Seria
     public static final long serialVersionUID = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient Ordering<Comparable> f30969e;
+    public transient Ordering<Comparable> f31064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient Ordering<Comparable> f30970f;
+    public transient Ordering<Comparable> f31065f;
 
     private Object readResolve() {
         return INSTANCE;
@@ -19,10 +19,10 @@ public final class NaturalOrdering extends Ordering<Comparable> implements Seria
 
     @Override // com.google.common.collect.Ordering
     public <S extends Comparable> Ordering<S> nullsFirst() {
-        Ordering<S> ordering = (Ordering<S>) this.f30969e;
+        Ordering<S> ordering = (Ordering<S>) this.f31064e;
         if (ordering == null) {
             Ordering<S> nullsFirst = super.nullsFirst();
-            this.f30969e = nullsFirst;
+            this.f31064e = nullsFirst;
             return nullsFirst;
         }
         return ordering;
@@ -30,10 +30,10 @@ public final class NaturalOrdering extends Ordering<Comparable> implements Seria
 
     @Override // com.google.common.collect.Ordering
     public <S extends Comparable> Ordering<S> nullsLast() {
-        Ordering<S> ordering = (Ordering<S>) this.f30970f;
+        Ordering<S> ordering = (Ordering<S>) this.f31065f;
         if (ordering == null) {
             Ordering<S> nullsLast = super.nullsLast();
-            this.f30970f = nullsLast;
+            this.f31065f = nullsLast;
             return nullsLast;
         }
         return ordering;

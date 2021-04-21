@@ -11,21 +11,21 @@ import rx.exceptions.UnsubscribeFailedException;
 public class c<T> extends j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final j<? super T> f68987e;
+    public final j<? super T> f69134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68988f;
+    public boolean f69135f;
 
     public c(j<? super T> jVar) {
         super(jVar);
-        this.f68987e = jVar;
+        this.f69134e = jVar;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void b(Throwable th) {
         h.r.f.c().b().a(th);
         try {
-            this.f68987e.onError(th);
+            this.f69134e.onError(th);
             try {
                 unsubscribe();
             } catch (Throwable th2) {
@@ -57,12 +57,12 @@ public class c<T> extends j<T> {
     @Override // h.e
     public void onCompleted() {
         UnsubscribeFailedException unsubscribeFailedException;
-        if (this.f68988f) {
+        if (this.f69135f) {
             return;
         }
-        this.f68988f = true;
+        this.f69135f = true;
         try {
-            this.f68987e.onCompleted();
+            this.f69134e.onCompleted();
             try {
                 unsubscribe();
             } finally {
@@ -85,20 +85,20 @@ public class c<T> extends j<T> {
     @Override // h.e
     public void onError(Throwable th) {
         h.m.a.e(th);
-        if (this.f68988f) {
+        if (this.f69135f) {
             return;
         }
-        this.f68988f = true;
+        this.f69135f = true;
         b(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
         try {
-            if (this.f68988f) {
+            if (this.f69135f) {
                 return;
             }
-            this.f68987e.onNext(t);
+            this.f69134e.onNext(t);
         } catch (Throwable th) {
             h.m.a.f(th, this);
         }

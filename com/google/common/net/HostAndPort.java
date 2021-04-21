@@ -1,8 +1,8 @@
 package com.google.common.net;
 
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.a.q;
+import d.h.c.a.k;
+import d.h.c.a.n;
+import d.h.c.a.q;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public final class HostAndPort implements Serializable {

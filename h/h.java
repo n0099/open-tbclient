@@ -12,26 +12,26 @@ import rx.schedulers.Schedulers;
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d<T> f68687a;
+    public final d<T> f68834a;
 
     /* loaded from: classes7.dex */
     public class a extends i<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f68688f;
+        public final /* synthetic */ h.n.b f68835f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f68689g;
+        public final /* synthetic */ h.n.b f68836g;
 
         public a(h hVar, h.n.b bVar, h.n.b bVar2) {
-            this.f68688f = bVar;
-            this.f68689g = bVar2;
+            this.f68835f = bVar;
+            this.f68836g = bVar2;
         }
 
         @Override // h.i
         public final void b(Throwable th) {
             try {
-                this.f68688f.call(th);
+                this.f68835f.call(th);
             } finally {
                 unsubscribe();
             }
@@ -40,7 +40,7 @@ public class h<T> {
         @Override // h.i
         public final void c(T t) {
             try {
-                this.f68689g.call(t);
+                this.f68836g.call(t);
             } finally {
                 unsubscribe();
             }
@@ -51,64 +51,64 @@ public class h<T> {
     public class b implements d<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f68690e;
+        public final /* synthetic */ g f68837e;
 
         /* loaded from: classes7.dex */
         public class a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i f68692e;
+            public final /* synthetic */ i f68839e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g.a f68693f;
+            public final /* synthetic */ g.a f68840f;
 
             /* renamed from: h.h$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C1902a extends i<T> {
-                public C1902a() {
+            public class C1906a extends i<T> {
+                public C1906a() {
                 }
 
                 @Override // h.i
                 public void b(Throwable th) {
                     try {
-                        a.this.f68692e.b(th);
+                        a.this.f68839e.b(th);
                     } finally {
-                        a.this.f68693f.unsubscribe();
+                        a.this.f68840f.unsubscribe();
                     }
                 }
 
                 @Override // h.i
                 public void c(T t) {
                     try {
-                        a.this.f68692e.c(t);
+                        a.this.f68839e.c(t);
                     } finally {
-                        a.this.f68693f.unsubscribe();
+                        a.this.f68840f.unsubscribe();
                     }
                 }
             }
 
             public a(i iVar, g.a aVar) {
-                this.f68692e = iVar;
-                this.f68693f = aVar;
+                this.f68839e = iVar;
+                this.f68840f = aVar;
             }
 
             @Override // h.n.a
             public void call() {
-                C1902a c1902a = new C1902a();
-                this.f68692e.a(c1902a);
-                h.this.j(c1902a);
+                C1906a c1906a = new C1906a();
+                this.f68839e.a(c1906a);
+                h.this.j(c1906a);
             }
         }
 
         public b(g gVar) {
-            this.f68690e = gVar;
+            this.f68837e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(i<? super T> iVar) {
-            g.a createWorker = this.f68690e.createWorker();
+            g.a createWorker = this.f68837e.createWorker();
             iVar.a(createWorker);
             createWorker.b(new a(iVar, createWorker));
         }
@@ -118,17 +118,17 @@ public class h<T> {
     public class c implements h.n.b<Throwable> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f68696e;
+        public final /* synthetic */ h.n.b f68843e;
 
         public c(h hVar, h.n.b bVar) {
-            this.f68696e = bVar;
+            this.f68843e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(Throwable th) {
-            this.f68696e.call(th);
+            this.f68843e.call(th);
         }
     }
 
@@ -137,11 +137,11 @@ public class h<T> {
     }
 
     public h(d<T> dVar) {
-        this.f68687a = h.r.c.i(dVar);
+        this.f68834a = h.r.c.i(dVar);
     }
 
     public static <T> h.d<T> a(h<T> hVar) {
-        return h.d.c(new c0(hVar.f68687a));
+        return h.d.c(new c0(hVar.f68834a));
     }
 
     public static <T> h<T> b(d<T> dVar) {
@@ -157,7 +157,7 @@ public class h<T> {
     }
 
     public final h<T> d(long j, TimeUnit timeUnit, g gVar) {
-        return b(new x(this.f68687a, j, timeUnit, gVar));
+        return b(new x(this.f68834a, j, timeUnit, gVar));
     }
 
     public final h<T> e(h.n.b<Throwable> bVar) {
@@ -179,7 +179,7 @@ public class h<T> {
             return ((h.o.d.h) this).o(gVar);
         }
         if (gVar != null) {
-            return b(new b0(this.f68687a, gVar));
+            return b(new b0(this.f68834a, gVar));
         }
         throw new NullPointerException("scheduler is null");
     }
@@ -191,7 +191,7 @@ public class h<T> {
     public final k j(i<? super T> iVar) {
         if (iVar != null) {
             try {
-                h.r.c.t(this, this.f68687a).call(iVar);
+                h.r.c.t(this, this.f68834a).call(iVar);
                 return h.r.c.s(iVar);
             } catch (Throwable th) {
                 h.m.a.e(th);

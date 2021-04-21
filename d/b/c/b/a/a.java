@@ -21,7 +21,7 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41976a;
+    public static int f42216a;
 
     public static String a(String str, Object obj, List list) {
         int i;
@@ -159,9 +159,9 @@ public class a {
             stringBuffer.append(str + " = {\n");
             while (cls != null && g(cls)) {
                 if (cls.getSimpleName().equals("Object")) {
-                    f41976a++;
+                    f42216a++;
                     i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    f41976a--;
+                    f42216a--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -187,7 +187,7 @@ public class a {
 
     public static String d() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < f41976a; i++) {
+        for (int i = 0; i < f42216a; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -215,7 +215,7 @@ public class a {
 
     public static void h(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (c.f41978a) {
+        if (c.f42218a) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(j("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

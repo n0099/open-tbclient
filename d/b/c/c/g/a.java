@@ -13,8 +13,8 @@ public abstract class a {
 
     /* renamed from: d.b.c.c.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0550a extends HttpMessageListener {
-        public C0550a(int i) {
+    public class C0569a extends HttpMessageListener {
+        public C0569a(int i) {
             super(i);
         }
 
@@ -43,7 +43,7 @@ public abstract class a {
     }
 
     private void init(int i, int i2, int i3) {
-        this.mHttpMessageListener = new C0550a(i);
+        this.mHttpMessageListener = new C0569a(i);
         this.mSocketMessageListener = new b(i2);
     }
 

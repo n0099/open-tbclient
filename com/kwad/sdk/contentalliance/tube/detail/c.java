@@ -19,16 +19,16 @@ import java.io.Serializable;
 public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.contentalliance.tube.detail.a.b> {
 
     /* renamed from: e  reason: collision with root package name */
-    public SceneImpl f33511e;
+    public SceneImpl f33606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TubeDetailParam f33512f;
+    public TubeDetailParam f33607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.tube.detail.a.b f33513g;
+    public com.kwad.sdk.contentalliance.tube.detail.a.b f33608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f33514h;
+    public com.kwad.sdk.core.i.a f33609h;
 
     public static c a(TubeDetailParam tubeDetailParam) {
         Bundle bundle = new Bundle();
@@ -39,7 +39,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
     }
 
     private void a(LayoutInflater layoutInflater) {
-        ((ViewGroup) this.f32175c.findViewById(R.id.ksad_tube_fragment_loading)).addView(layoutInflater.inflate(R.layout.ksad_tube_fragment_loading_layout, (ViewGroup) null, false));
+        ((ViewGroup) this.f32270c.findViewById(R.id.ksad_tube_fragment_loading)).addView(layoutInflater.inflate(R.layout.ksad_tube_fragment_loading_layout, (ViewGroup) null, false));
     }
 
     private boolean g() {
@@ -50,11 +50,11 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
         Serializable serializable = arguments.getSerializable("KEY_TUBE_DETAIL_PARAM");
         if (serializable instanceof TubeDetailParam) {
             TubeDetailParam tubeDetailParam = (TubeDetailParam) serializable;
-            this.f33512f = tubeDetailParam;
-            this.f33511e = new SceneImpl(tubeDetailParam.mEntryScene);
+            this.f33607f = tubeDetailParam;
+            this.f33606e = new SceneImpl(tubeDetailParam.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 6);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33512f.getTubeId());
-            this.f33511e.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33607f.getTubeId());
+            this.f33606e.setUrlPackage(uRLPackage);
             return true;
         }
         return false;
@@ -88,13 +88,13 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
     /* renamed from: f */
     public com.kwad.sdk.contentalliance.tube.detail.a.b c() {
         com.kwad.sdk.contentalliance.tube.detail.a.b bVar = new com.kwad.sdk.contentalliance.tube.detail.a.b();
-        bVar.f33448a = this;
-        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f32175c, 70);
-        this.f33514h = aVar;
+        bVar.f33543a = this;
+        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f32270c, 70);
+        this.f33609h = aVar;
         aVar.a();
-        bVar.f33450c = this.f33514h;
-        bVar.f33449b = this.f33512f;
-        bVar.f33453f = this.f33511e;
+        bVar.f33545c = this.f33609h;
+        bVar.f33544b = this.f33607f;
+        bVar.f33548f = this.f33606e;
         return bVar;
     }
 
@@ -102,13 +102,13 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         super.onCreateView(layoutInflater, viewGroup, bundle);
         a(layoutInflater);
-        return this.f32175c;
+        return this.f32270c;
     }
 
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        com.kwad.sdk.contentalliance.tube.detail.a.b bVar = this.f33513g;
+        com.kwad.sdk.contentalliance.tube.detail.a.b bVar = this.f33608g;
         if (bVar != null) {
             bVar.a();
         }
@@ -117,7 +117,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onPause() {
         super.onPause();
-        com.kwad.sdk.core.i.a aVar = this.f33514h;
+        com.kwad.sdk.core.i.a aVar = this.f33609h;
         if (aVar != null) {
             aVar.d();
         }
@@ -130,6 +130,6 @@ public class c extends com.kwad.sdk.contentalliance.tube.a.c<com.kwad.sdk.conten
             return;
         }
         super.onViewCreated(view, bundle);
-        this.f33513g = c();
+        this.f33608g = c();
     }
 }

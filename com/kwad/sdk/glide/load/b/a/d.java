@@ -13,31 +13,31 @@ import java.io.InputStream;
 public class d implements n<Uri, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f35575a;
+    public final Context f35670a;
 
     /* loaded from: classes6.dex */
     public static class a implements o<Uri, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f35576a;
+        public final Context f35671a;
 
         public a(Context context) {
-            this.f35576a = context;
+            this.f35671a = context;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, InputStream> a(r rVar) {
-            return new d(this.f35576a);
+            return new d(this.f35671a);
         }
     }
 
     public d(Context context) {
-        this.f35575a = context.getApplicationContext();
+        this.f35670a = context.getApplicationContext();
     }
 
     private boolean a(com.kwad.sdk.glide.load.e eVar) {
-        Long l = (Long) eVar.a(v.f35987a);
+        Long l = (Long) eVar.a(v.f36082a);
         return l != null && l.longValue() == -1;
     }
 
@@ -46,7 +46,7 @@ public class d implements n<Uri, InputStream> {
     @Nullable
     public n.a<InputStream> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         if (com.kwad.sdk.glide.load.a.a.b.a(i, i2) && a(eVar)) {
-            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.b(this.f35575a, uri));
+            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.b(this.f35670a, uri));
         }
         return null;
     }

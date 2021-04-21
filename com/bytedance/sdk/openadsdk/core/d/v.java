@@ -6,28 +6,28 @@ import org.json.JSONObject;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27931a;
+    public int f27939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27932b;
+    public int f27940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f27933c;
+    public long f27941c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f27934d;
+    public double f27942d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27935e;
+    public String f27943e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27936f;
+    public String f27944f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27937g;
+    public String f27945g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27938h;
+    public String f27946h;
     public String i;
     public String j;
     public int k;
@@ -39,29 +39,29 @@ public class v {
     }
 
     public int b() {
-        return this.f27931a;
+        return this.f27939a;
     }
 
     public int c() {
-        return this.f27932b;
+        return this.f27940b;
     }
 
     public long d() {
-        return this.f27933c;
+        return this.f27941c;
     }
 
     public double e() {
-        return this.f27934d;
+        return this.f27942d;
     }
 
     public String f() {
-        return this.f27935e;
+        return this.f27943e;
     }
 
     public int[] g() {
         try {
-            int indexOf = this.f27935e.indexOf("x");
-            return new int[]{Integer.parseInt(this.f27935e.substring(0, indexOf).trim()), Integer.parseInt(this.f27935e.substring(indexOf + 1).trim())};
+            int indexOf = this.f27943e.indexOf("x");
+            return new int[]{Integer.parseInt(this.f27943e.substring(0, indexOf).trim()), Integer.parseInt(this.f27943e.substring(indexOf + 1).trim())};
         } catch (Throwable th) {
             com.bytedance.sdk.openadsdk.utils.u.c("VideoInfo", "getWidthAndHeight error", th);
             return null;
@@ -69,15 +69,15 @@ public class v {
     }
 
     public String h() {
-        return this.f27936f;
+        return this.f27944f;
     }
 
     public String i() {
-        return this.f27937g;
+        return this.f27945g;
     }
 
     public String j() {
-        return this.f27938h;
+        return this.f27946h;
     }
 
     public String k() {
@@ -122,15 +122,15 @@ public class v {
     }
 
     public void b(int i) {
-        this.f27931a = i;
+        this.f27939a = i;
     }
 
     public void c(int i) {
-        this.f27932b = i;
+        this.f27940b = i;
     }
 
     public void d(String str) {
-        this.f27938h = str;
+        this.f27946h = str;
     }
 
     public void e(String str) {
@@ -142,15 +142,15 @@ public class v {
     }
 
     public void a(long j) {
-        this.f27933c = j;
+        this.f27941c = j;
     }
 
     public void b(String str) {
-        this.f27936f = str;
+        this.f27944f = str;
     }
 
     public void c(String str) {
-        this.f27937g = str;
+        this.f27945g = str;
     }
 
     public void d(int i) {
@@ -162,11 +162,11 @@ public class v {
     }
 
     public void a(double d2) {
-        this.f27934d = d2;
+        this.f27942d = d2;
     }
 
     public void a(String str) {
-        this.f27935e = str;
+        this.f27943e = str;
     }
 
     public static int[] a(l lVar) {

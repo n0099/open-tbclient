@@ -9,8 +9,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
-import d.b.i0.q.f.h;
-import d.b.i0.q.f.i;
+import d.b.j0.q.f.h;
+import d.b.j0.q.f.i;
 /* loaded from: classes4.dex */
 public class RelationshipStatic {
 
@@ -26,7 +26,7 @@ public class RelationshipStatic {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 1001 || socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseOnlineMessage) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
             if (j.g("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
             }
@@ -45,8 +45,8 @@ public class RelationshipStatic {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 304001 || socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                 return;
             }
-            d.b.i0.q.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            d.b.j0.q.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+            d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
             j.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
             new i(addressListData).execute(new Void[0]);
         }
@@ -64,7 +64,7 @@ public class RelationshipStatic {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                    d.b.h0.s.f.a aVar = new d.b.h0.s.f.a();
+                    d.b.i0.s.f.a aVar = new d.b.i0.s.f.a();
                     aVar.k(responseNewFriendUpdateUiMsg.getKey());
                     aVar.m(responseNewFriendUpdateUiMsg.getQuanping());
                     aVar.n(responseNewFriendUpdateUiMsg.getFriendId());
@@ -72,7 +72,7 @@ public class RelationshipStatic {
                     aVar.q(responseNewFriendUpdateUiMsg.getPortrait());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001179, aVar));
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
-                    d.b.h0.s.f.a aVar2 = new d.b.h0.s.f.a();
+                    d.b.i0.s.f.a aVar2 = new d.b.i0.s.f.a();
                     aVar2.n(responseNewFriendUpdateUiMsg.getFriendId());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001180, aVar2));
                 }
@@ -98,10 +98,10 @@ public class RelationshipStatic {
 
     static {
         b(304001, ResponseGetAddressListMessage.class, false);
-        a(2001178, d.b.i0.q.f.b.class);
-        a(2001184, d.b.i0.q.f.c.class);
-        a(2001179, d.b.i0.q.f.d.class);
-        a(2001180, d.b.i0.q.f.d.class);
+        a(2001178, d.b.j0.q.f.b.class);
+        a(2001184, d.b.j0.q.f.c.class);
+        a(2001179, d.b.j0.q.f.d.class);
+        a(2001180, d.b.j0.q.f.d.class);
         MessageManager.getInstance().registerListener(new a(1001));
         MessageManager.getInstance().registerListener(new b(304001));
         MessageManager.getInstance().registerListener(new c(2001174));
@@ -109,10 +109,10 @@ public class RelationshipStatic {
     }
 
     public static void a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        d.b.i0.e1.c.a(i, cls);
+        d.b.j0.e1.c.a(i, cls);
     }
 
     public static void b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        d.b.i0.e1.c.b(i, cls, z);
+        d.b.j0.e1.c.b(i, cls, z);
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-import d.b.h0.r.q.d;
-import d.b.i0.j1.o.c;
-import d.b.i0.s2.m;
-import d.b.i0.s2.q;
+import d.b.i0.r.q.d;
+import d.b.j0.j1.o.c;
+import d.b.j0.s2.m;
+import d.b.j0.s2.q;
 /* loaded from: classes4.dex */
 public class AdCardVideoView extends AdCardBaseView implements q {
     public DistributeVideoView m0;
@@ -66,8 +66,8 @@ public class AdCardVideoView extends AdCardBaseView implements q {
             String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.c4) ? getPageTypeByBusiness() : advertAppInfo.c4;
             d dVar = advertAppInfo.Y3;
             if (dVar != null) {
-                i = dVar.f51157b;
-                pageTypeByBusiness = dVar.f51156a;
+                i = dVar.f51493b;
+                pageTypeByBusiness = dVar.f51492a;
             }
             this.m0.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
         }
@@ -97,11 +97,11 @@ public class AdCardVideoView extends AdCardBaseView implements q {
         if (adCard.goodsStyle == 14) {
             int i = this.G / 2;
             this.o0 = i;
-            this.p0 = d.b.i0.s2.c0.c.a.b(i);
+            this.p0 = d.b.j0.s2.c0.c.a.b(i);
         } else {
             int i2 = this.G;
             this.o0 = i2;
-            this.p0 = d.b.i0.s2.c0.c.a.a(i2);
+            this.p0 = d.b.j0.s2.c0.c.a.a(i2);
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m0.getLayoutParams();
         layoutParams.height = this.p0;
@@ -109,11 +109,11 @@ public class AdCardVideoView extends AdCardBaseView implements q {
         if (adCard.goodsStyle == 14 && !f1(adCard)) {
             int i3 = this.G / 2;
             this.q0 = i3;
-            this.r0 = d.b.i0.s2.c0.c.a.b(i3);
+            this.r0 = d.b.j0.s2.c0.c.a.b(i3);
         } else {
             int i4 = this.G;
             this.q0 = i4;
-            this.r0 = d.b.i0.s2.c0.c.a.a(i4);
+            this.r0 = d.b.j0.s2.c0.c.a.a(i4);
         }
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.t.getLayoutParams();
         layoutParams2.width = this.q0;
@@ -131,12 +131,12 @@ public class AdCardVideoView extends AdCardBaseView implements q {
         return R.layout.card_ad;
     }
 
-    @Override // d.b.i0.s2.q
+    @Override // d.b.j0.s2.q
     public m getVideoOrVrView() {
         return this.m0;
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.b.i0.j1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.b.j0.j1.o.l.e
     public void setDownloadAppCallback(c cVar) {
         super.setDownloadAppCallback(cVar);
         this.m0.setDownloadCallback(cVar);

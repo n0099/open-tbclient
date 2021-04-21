@@ -1,0 +1,11 @@
+package d.b.j0.q0;
+
+import tbclient.ItemInfo;
+/* loaded from: classes4.dex */
+public interface m0 {
+    ItemInfo getItemInfo();
+
+    boolean isInScoreTab();
+
+    void setItemInfo(ItemInfo itemInfo);
+}

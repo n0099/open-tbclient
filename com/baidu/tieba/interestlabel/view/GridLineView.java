@@ -13,10 +13,10 @@ import d.b.c.e.p.l;
 public class GridLineView extends BdGridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f18168e;
+    public Paint f18176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18169f;
+    public int f18177f;
 
     public GridLineView(Context context) {
         super(context);
@@ -25,15 +25,15 @@ public class GridLineView extends BdGridView {
 
     public final void c(Context context) {
         Paint paint = new Paint();
-        this.f18168e = paint;
+        this.f18176e = paint;
         paint.setStyle(Paint.Style.STROKE);
-        this.f18168e.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        this.f18168e.setStrokeWidth(1.0f);
-        this.f18169f = l.g(context, R.dimen.ds26);
+        this.f18176e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18176e.setStrokeWidth(1.0f);
+        this.f18177f = l.g(context, R.dimen.ds26);
     }
 
     public void d() {
-        this.f18168e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18176e.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 
     @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
@@ -55,11 +55,11 @@ public class GridLineView extends BdGridView {
             int top = childAt.getTop();
             for (int i4 = 1; i4 <= i3; i4++) {
                 float f2 = top + (height * i4);
-                canvas.drawLine(0.0f, f2, width, f2, this.f18168e);
+                canvas.drawLine(0.0f, f2, width, f2, this.f18176e);
                 for (int i5 = 1; i5 < numColumns; i5++) {
                     float f3 = width2 * i5;
-                    int i6 = this.f18169f;
-                    canvas.drawLine(f3, ((i4 - 1) * height) + top + i6, f3, i - i6, this.f18168e);
+                    int i6 = this.f18177f;
+                    canvas.drawLine(f3, ((i4 - 1) * height) + top + i6, f3, i - i6, this.f18176e);
                 }
             }
         }

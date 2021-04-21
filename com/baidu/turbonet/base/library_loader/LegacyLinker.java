@@ -11,15 +11,15 @@ public class LegacyLinker extends Linker {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f22349e;
+        public final /* synthetic */ long f22357e;
 
         public a(long j) {
-            this.f22349e = j;
+            this.f22357e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            LegacyLinker.nativeRunCallbackOnUiThread(this.f22349e);
+            LegacyLinker.nativeRunCallbackOnUiThread(this.f22357e);
         }
     }
 

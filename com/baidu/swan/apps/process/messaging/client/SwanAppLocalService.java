@@ -11,13 +11,13 @@ import android.util.Log;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import d.b.g0.a.e0.w.d;
-import d.b.g0.a.i2.k0;
-import d.b.g0.a.i2.p;
-import d.b.g0.a.j1.i;
-import d.b.g0.a.j2.d;
-import d.b.g0.a.k;
-import d.b.g0.a.z0.f;
+import d.b.h0.a.e0.w.d;
+import d.b.h0.a.i2.k0;
+import d.b.h0.a.i2.p;
+import d.b.h0.a.j1.i;
+import d.b.h0.a.j2.d;
+import d.b.h0.a.k;
+import d.b.h0.a.z0.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -27,7 +27,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     public static final String ACTION_PREFIX = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_";
     public static final String TAG = "SwanAppLocalService";
     public Messenger mMessenger;
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static boolean sFlagPreloaded = false;
 
     /* loaded from: classes2.dex */
@@ -38,9 +38,9 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         @Override // java.lang.Runnable
         public void run() {
             f.V().c0();
-            d.b.g0.a.w0.a.w().h();
-            d.u(d.b.g0.a.w0.a.c());
-            d.b.g0.a.w0.a.Y().a();
+            d.b.h0.a.w0.a.w().h();
+            d.u(d.b.h0.a.w0.a.c());
+            d.b.h0.a.w0.a.Y().a();
             SwanAppLocalService.this.preloadActivityClass();
         }
     }
@@ -52,7 +52,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.a.j1.m.b.f();
+            d.b.h0.a.j1.m.b.f();
         }
     }
 
@@ -90,14 +90,14 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         if (!TextUtils.isEmpty(stringExtra)) {
             o.y("preload_scene", stringExtra);
         }
-        if (d.b.g0.a.w0.a.N() != null && d.b.g0.a.w0.a.N().j()) {
+        if (d.b.h0.a.w0.a.N() != null && d.b.h0.a.w0.a.N().j()) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", currentTimeMillis);
                 jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                 jSONObject.put("cost", currentTimeMillis - longExtra2);
-                jSONObject.put("is_preload_started", d.b.g0.a.e0.w.d.x);
-                jSONObject.put("is_preload_ready", d.b.g0.a.e0.w.d.L().a0());
+                jSONObject.put("is_preload_started", d.b.h0.a.e0.w.d.x);
+                jSONObject.put("is_preload_ready", d.b.h0.a.e0.w.d.L().a0());
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -111,14 +111,14 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             i.onEvent(dVar);
         }
         d.p.g(intent);
-        d.b.g0.g.i0.f.d.k(intent);
+        d.b.h0.g.i0.f.d.k(intent);
         f.V().J(intent);
-        d.b.g0.g.m.a.m().z(intent);
+        d.b.h0.g.m.a.m().z(intent);
         if (!sFlagPreloaded) {
             sFlagPreloaded = true;
             k0.T(new a());
         }
-        if (!d.b.g0.a.j1.m.b.f45314b || d.b.g0.a.j1.m.b.i()) {
+        if (!d.b.h0.a.j1.m.b.f45643b || d.b.h0.a.j1.m.b.i()) {
             return;
         }
         p.k(new b(), "SwanAbSwitchCache");
@@ -126,7 +126,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void preloadActivityClass() {
-        d.b.g0.a.w0.a.N().getSwitch(AB_SWAN_PRECLASS, 0);
+        d.b.h0.a.w0.a.N().getSwitch(AB_SWAN_PRECLASS, 0);
     }
 
     public SwanAppProcessInfo getProcessInfo() {
@@ -150,13 +150,13 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     @Override // android.app.Service
     public void onCreate() {
         SwanAppProcessInfo.init(getProcessInfo());
-        d.b.g0.a.w0.a.u().b();
+        d.b.h0.a.w0.a.u().b();
         super.onCreate();
-        this.mMessenger = new Messenger(d.b.g0.a.n1.c.e.a.C().D());
+        this.mMessenger = new Messenger(d.b.h0.a.n1.c.e.a.C().D());
         if (DEBUG) {
             Log.i(TAG, "onCreate " + getProcessInfo());
         }
-        d.b.g0.a.n1.c.e.a.C().O();
+        d.b.h0.a.n1.c.e.a.C().O();
     }
 
     @Override // android.app.Service

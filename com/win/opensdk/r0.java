@@ -5,28 +5,28 @@ import android.view.ViewTreeObserver;
 public class r0 implements ViewTreeObserver.OnScrollChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ s0 f40310a;
+    public final /* synthetic */ s0 f40405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t0 f40311b;
+    public final /* synthetic */ t0 f40406b;
 
     public r0(t0 t0Var, s0 s0Var) {
-        this.f40311b = t0Var;
-        this.f40310a = s0Var;
+        this.f40406b = t0Var;
+        this.f40405a = s0Var;
     }
 
     @Override // android.view.ViewTreeObserver.OnScrollChangedListener
     public void onScrollChanged() {
         try {
-            if (this.f40311b.f40321b || !this.f40311b.a(this.f40311b.f40320a)) {
+            if (this.f40406b.f40416b || !this.f40406b.a(this.f40406b.f40415a)) {
                 return;
             }
-            this.f40311b.f40324e.removeMessages(1101);
-            this.f40311b.f40320a.getViewTreeObserver().removeOnScrollChangedListener(this);
-            if (this.f40310a != null) {
-                this.f40310a.a();
+            this.f40406b.f40419e.removeMessages(1101);
+            this.f40406b.f40415a.getViewTreeObserver().removeOnScrollChangedListener(this);
+            if (this.f40405a != null) {
+                this.f40405a.a();
             }
-            this.f40311b.f40321b = true;
+            this.f40406b.f40416b = true;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

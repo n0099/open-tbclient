@@ -15,13 +15,13 @@ public class CHFinanceUserGroup extends BaseItemLayout {
     public static final int ITEM_LIMIT = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f24353a;
+    public List<BaseItemView> f24361a;
     public LinearLayout mList;
     public CHTitleView mTitle;
 
     public CHFinanceUserGroup(Context context) {
         super(context);
-        this.f24353a = new ArrayList();
+        this.f24361a = new ArrayList();
     }
 
     private void a() {
@@ -34,13 +34,13 @@ public class CHFinanceUserGroup extends BaseItemLayout {
             CHFinanceUserItem cHFinanceUserItem = new CHFinanceUserItem(getContext());
             cHFinanceUserItem.setData(dataItemArr[i], getWalletInterface());
             this.mList.addView(cHFinanceUserItem);
-            this.f24353a.add(cHFinanceUserItem);
+            this.f24361a.add(cHFinanceUserItem);
         }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24353a;
+        return this.f24361a;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -65,6 +65,6 @@ public class CHFinanceUserGroup extends BaseItemLayout {
 
     public CHFinanceUserGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24353a = new ArrayList();
+        this.f24361a = new ArrayList();
     }
 }

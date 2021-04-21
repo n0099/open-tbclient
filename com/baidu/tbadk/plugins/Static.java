@@ -18,7 +18,7 @@ import java.util.List;
 public class Static {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f13662a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] f13670a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -53,7 +53,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f13662a;
+            String[] strArr = Static.f13670a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -81,7 +81,7 @@ public class Static {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 try {
                                     plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                    d.b.h0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.b.h0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
+                                    d.b.i0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.b.i0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
                                     break;
                                 } catch (ClassNotFoundException unused) {
                                 }

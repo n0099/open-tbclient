@@ -38,10 +38,10 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedM
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
 import d.b.c.j.e.q;
-import d.b.i0.m2.d;
-import d.b.i0.m2.h;
+import d.b.j0.m2.d;
+import d.b.j0.m2.h;
 /* loaded from: classes3.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, d, d.b.i0.m2.b {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, d, d.b.j0.m2.b {
     public static final String CURRTABINDEX = "CurrTabIndex";
     public static final String KEY_EMPTYVIEW_TXT = "key_empty_view_text";
     public static final int PAGE_TYPE_AMOUNT = 2;
@@ -117,18 +117,18 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12974c = fragment;
-        bVar.f12972a = i;
+        bVar.f12982c = fragment;
+        bVar.f12980a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12973b = fragmentTabIndicator;
+        bVar.f12981b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
     private void initPersonPostTasks() {
-        d.b.i0.d3.d0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, d.b.i0.d3.d0.a.a("c/u/feed/userpost", 303002));
+        d.b.j0.d3.d0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, d.b.j0.d3.d0.a.a("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -169,7 +169,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         relativeLayout.setOnClickListener(new b());
         this.mRecycleBinTitle = (TextView) this.mRecycleBinLayout.findViewById(R.id.tv_recycle_bin);
         this.mRecycleBinRedTip = (ImageView) this.mRecycleBinLayout.findViewById(R.id.iv_recycle_bin_red_tip);
-        if (d.b.h0.r.d0.b.j().g(d.b.h0.r.d0.b.n("key_person_post_recycle_bin_red_tip_show"), false)) {
+        if (d.b.i0.r.d0.b.j().g(d.b.i0.r.d0.b.n("key_person_post_recycle_bin_red_tip_show"), false)) {
             this.mRecycleBinRedTip.setVisibility(0);
         } else {
             this.mRecycleBinRedTip.setVisibility(8);
@@ -193,7 +193,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.mTabHost.setCurrentTab(this.mCurrTabIndex);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a080";
     }
@@ -341,12 +341,12 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return null;
     }
 
-    @Override // d.b.i0.m2.d
+    @Override // d.b.j0.m2.d
     public void onNoNetRefresh() {
         if (this.mPersonPostAdapter != null) {
             for (int i = 0; i < this.mPersonPostAdapter.getCount(); i++) {
-                if (this.mPersonPostAdapter.getItem(i) instanceof d.b.i0.m2.c) {
-                    ((d.b.i0.m2.c) this.mPersonPostAdapter.getItem(i)).u();
+                if (this.mPersonPostAdapter.getItem(i) instanceof d.b.j0.m2.c) {
+                    ((d.b.j0.m2.c) this.mPersonPostAdapter.getItem(i)).u();
                 }
             }
         }
@@ -432,7 +432,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // d.b.i0.m2.b
+    @Override // d.b.j0.m2.b
     public void showRecycleBinRedTip(boolean z) {
         ImageView imageView = this.mRecycleBinRedTip;
         if (imageView == null) {
@@ -440,11 +440,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         if (z && imageView.getVisibility() == 8) {
             this.mRecycleBinRedTip.setVisibility(0);
-            d.b.h0.r.d0.b.j().t(d.b.h0.r.d0.b.n("key_person_post_recycle_bin_red_tip_show"), true);
+            d.b.i0.r.d0.b.j().t(d.b.i0.r.d0.b.n("key_person_post_recycle_bin_red_tip_show"), true);
         } else if (z || this.mRecycleBinRedTip.getVisibility() != 0) {
         } else {
             this.mRecycleBinRedTip.setVisibility(8);
-            d.b.h0.r.d0.b.j().t(d.b.h0.r.d0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
+            d.b.i0.r.d0.b.j().t(d.b.i0.r.d0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
         }
     }
 }

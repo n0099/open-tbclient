@@ -1,9 +1,9 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.g;
-import d.g.c.a.n;
-import d.g.c.a.o;
+import d.h.c.a.g;
+import d.h.c.a.n;
+import d.h.c.a.o;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class Functions$PredicateFunction<T> implements g<T, Boolean>, Serializable {
@@ -13,12 +13,12 @@ public class Functions$PredicateFunction<T> implements g<T, Boolean>, Serializab
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.a.g
+    @Override // d.h.c.a.g
     public /* bridge */ /* synthetic */ Boolean apply(Object obj) {
         return apply((Functions$PredicateFunction<T>) obj);
     }
 
-    @Override // d.g.c.a.g
+    @Override // d.h.c.a.g
     public boolean equals(Object obj) {
         if (obj instanceof Functions$PredicateFunction) {
             return this.predicate.equals(((Functions$PredicateFunction) obj).predicate);
@@ -40,7 +40,7 @@ public class Functions$PredicateFunction<T> implements g<T, Boolean>, Serializab
     }
 
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.g.c.a.g
+    @Override // d.h.c.a.g
     public Boolean apply(T t) {
         return Boolean.valueOf(this.predicate.apply(t));
     }

@@ -14,8 +14,8 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.alibaba.fastjson.asm.Label;
-import d.b.g0.i.l;
-import d.b.g0.i.m;
+import d.b.h0.i.l;
+import d.b.h0.i.m;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class PopupWindow {
@@ -41,16 +41,16 @@ public class PopupWindow {
     public int S;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12653e;
+    public Context f12661e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WindowManager f12654f;
+    public WindowManager f12662f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12655g;
+    public boolean f12663g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12656h;
+    public boolean f12664h;
     public View i;
     public View j;
     public boolean k;
@@ -179,13 +179,13 @@ public class PopupWindow {
             return;
         }
         this.i = view;
-        if (this.f12653e == null && view != null) {
-            this.f12653e = view.getContext();
+        if (this.f12661e == null && view != null) {
+            this.f12661e = view.getContext();
         }
-        if (this.f12654f != null || (context = this.f12653e) == null) {
+        if (this.f12662f != null || (context = this.f12661e) == null) {
             return;
         }
-        this.f12654f = (WindowManager) context.getSystemService("window");
+        this.f12662f = (WindowManager) context.getSystemService("window");
     }
 
     public void E(boolean z) {
@@ -248,7 +248,7 @@ public class PopupWindow {
             z2 = z;
         }
         if (z2) {
-            this.f12654f.updateViewLayout(this.j, layoutParams);
+            this.f12662f.updateViewLayout(this.j, layoutParams);
         }
     }
 
@@ -304,7 +304,7 @@ public class PopupWindow {
             z2 = z;
         }
         if (z2) {
-            this.f12654f.updateViewLayout(this.j, layoutParams);
+            this.f12662f.updateViewLayout(this.j, layoutParams);
         }
     }
 
@@ -327,7 +327,7 @@ public class PopupWindow {
     public final int k() {
         int i = this.O;
         if (i == -1) {
-            if (this.f12656h) {
+            if (this.f12664h) {
                 return this.K ? l.PopupWindow_DropDownUp : l.PopupWindow_DropDownDown;
             }
             return 0;
@@ -404,10 +404,10 @@ public class PopupWindow {
         if (!u() || this.j == null) {
             return;
         }
-        this.f12655g = false;
+        this.f12663g = false;
         O();
         try {
-            this.f12654f.removeView(this.j);
+            this.f12662f.removeView(this.j);
             View view = this.j;
             View view2 = this.i;
             if (view != view2 && (view instanceof ViewGroup)) {
@@ -450,8 +450,8 @@ public class PopupWindow {
             return;
         }
         x(view, i, i2);
-        this.f12655g = true;
-        this.f12656h = true;
+        this.f12663g = true;
+        this.f12664h = true;
         WindowManager.LayoutParams m = m(view.getWindowToken());
         w(m);
         R(q(view, m, i, i2));
@@ -474,8 +474,8 @@ public class PopupWindow {
             return;
         }
         O();
-        this.f12655g = true;
-        this.f12656h = false;
+        this.f12663g = true;
+        this.f12664h = false;
         WindowManager.LayoutParams m = m(iBinder);
         m.windowAnimations = k();
         w(m);
@@ -559,30 +559,30 @@ public class PopupWindow {
     }
 
     public final void s(WindowManager.LayoutParams layoutParams) {
-        Context context = this.f12653e;
+        Context context = this.f12661e;
         if (context != null) {
             layoutParams.packageName = context.getPackageName();
         }
-        this.f12654f.addView(this.j, layoutParams);
+        this.f12662f.addView(this.j, layoutParams);
     }
 
     public boolean u() {
-        return this.f12655g;
+        return this.f12663g;
     }
 
     public boolean v() {
         Context context;
-        return (this.q >= 0 || (context = this.f12653e) == null) ? this.q == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
+        return (this.q >= 0 || (context = this.f12661e) == null) ? this.q == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
     }
 
     public final void w(WindowManager.LayoutParams layoutParams) {
         View view = this.i;
-        if (view != null && this.f12653e != null && this.f12654f != null) {
+        if (view != null && this.f12661e != null && this.f12662f != null) {
             if (this.H != null) {
                 ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
                 int i = -2;
                 i = (layoutParams2 == null || layoutParams2.height != -2) ? -1 : -1;
-                c cVar = new c(this.f12653e);
+                c cVar = new c(this.f12661e);
                 FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i);
                 cVar.setBackgroundDrawable(this.H);
                 cVar.addView(this.i, layoutParams3);
@@ -640,8 +640,8 @@ public class PopupWindow {
         this.N = false;
         this.O = -1;
         this.Q = new a();
-        this.f12653e = context;
-        this.f12654f = (WindowManager) context.getSystemService("window");
+        this.f12661e = context;
+        this.f12662f = (WindowManager) context.getSystemService("window");
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m.PopupWindow, i, i2);
         this.H = obtainStyledAttributes.getDrawable(m.PopupWindow_popupBackground);
         int resourceId = obtainStyledAttributes.getResourceId(m.PopupWindow_popupAnimationStyle, -1);
@@ -675,8 +675,8 @@ public class PopupWindow {
         this.Q = new a();
         if (view != null) {
             Context context = view.getContext();
-            this.f12653e = context;
-            this.f12654f = (WindowManager) context.getSystemService("window");
+            this.f12661e = context;
+            this.f12662f = (WindowManager) context.getSystemService("window");
         }
         B(view);
         K(i);

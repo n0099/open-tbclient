@@ -7,38 +7,38 @@ import java.io.File;
 public final class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f26712a;
+    public final /* synthetic */ a f26720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f26713b;
+    public final /* synthetic */ b f26721b;
 
     public c(b bVar, a aVar) {
-        this.f26713b = bVar;
-        this.f26712a = aVar;
+        this.f26721b = bVar;
+        this.f26720a = aVar;
     }
 
     @Override // com.baidu.webkit.logsdk.d
     public final void a(byte[] bArr) {
         if (bArr == null) {
-            this.f26713b.a(this.f26712a);
+            this.f26721b.a(this.f26720a);
             return;
         }
-        b bVar = this.f26713b;
-        a aVar = this.f26712a;
+        b bVar = this.f26721b;
+        a aVar = this.f26720a;
         com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "onUploadSuccess", null);
-        com.baidu.webkit.logsdk.b.a aVar2 = aVar.f26706e;
-        String str = aVar2.f26671a;
-        if (aVar2.f26672b == 3) {
+        com.baidu.webkit.logsdk.b.a aVar2 = aVar.f26714e;
+        String str = aVar2.f26679a;
+        if (aVar2.f26680b == 3) {
             com.baidu.webkit.logsdk.a.b.a().e();
             com.baidu.webkit.logsdk.b.b.a(str, System.currentTimeMillis());
             com.baidu.webkit.logsdk.a.b.a().h().c().a(str, false);
         }
-        String str2 = aVar.f26709h;
+        String str2 = aVar.f26717h;
         if (!TextUtils.isEmpty(str2)) {
             com.baidu.webkit.logsdk.a.b.a().h().b(str2);
             new File(com.baidu.webkit.logsdk.d.c.b(str2)).delete();
         }
-        bVar.a(aVar.f26705d);
+        bVar.a(aVar.f26713d);
         com.baidu.webkit.logsdk.a.b.a().a(0L);
     }
 }

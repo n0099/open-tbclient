@@ -14,16 +14,16 @@ public interface ai extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ai$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0499a implements ai {
+        public static class C0502a implements ai {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ai f39100a;
+            public static ai f39195a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39101b;
+            public IBinder f39196b;
 
-            public C0499a(IBinder iBinder) {
-                this.f39101b = iBinder;
+            public C0502a(IBinder iBinder) {
+                this.f39196b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ai
@@ -34,7 +34,7 @@ public interface ai extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.f39101b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f39196b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(i, i2);
                     }
                     obtain2.readException();
@@ -47,7 +47,7 @@ public interface ai extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f39101b;
+                return this.f39196b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface ai extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ai)) {
                 return (ai) queryLocalInterface;
             }
-            return new C0499a(iBinder);
+            return new C0502a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -88,7 +88,7 @@ public interface ai extends IInterface {
         }
 
         public static ai a() {
-            return C0499a.f39100a;
+            return C0502a.f39195a;
         }
     }
 }

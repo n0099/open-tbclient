@@ -7,23 +7,23 @@ import com.bytedance.sdk.openadsdk.TTSecAbs;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile s f28310a;
+    public static volatile s f28318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static t f28311b;
+    public static t f28319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f28312c = false;
+    public volatile boolean f28320c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28313d = null;
+    public String f28321d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28314e = null;
+    public String f28322e = null;
 
     public s() {
         if (d() == null) {
-            f28311b = t.b();
+            f28319b = t.b();
         }
     }
 
@@ -44,56 +44,56 @@ public class s {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        t tVar = f28311b;
+        t tVar = f28319b;
         if (tVar != null) {
             tVar.a(str);
         }
-        this.f28313d = str;
+        this.f28321d = str;
         if (d() != null) {
             d().NM_setParams(str);
         }
     }
 
     public void b(@NonNull String str) {
-        t tVar = f28311b;
+        t tVar = f28319b;
         if (tVar != null) {
             tVar.b(str);
         }
-        if (this.f28312c || d() == null) {
+        if (this.f28320c || d() == null) {
             return;
         }
         d().NM_reportNow(str);
-        this.f28312c = true;
+        this.f28320c = true;
     }
 
     public String c() {
         try {
-            if (!TextUtils.isEmpty(this.f28314e)) {
-                return this.f28314e;
+            if (!TextUtils.isEmpty(this.f28322e)) {
+                return this.f28322e;
             }
             String a2 = i.a("sdk_app_sha1", 2592000000L);
-            this.f28314e = a2;
+            this.f28322e = a2;
             if (!TextUtils.isEmpty(a2)) {
-                return this.f28314e;
+                return this.f28322e;
             }
             if (d() != null) {
-                this.f28314e = d().NM_pullSg();
-            } else if (f28311b != null) {
-                this.f28314e = f28311b.c();
+                this.f28322e = d().NM_pullSg();
+            } else if (f28319b != null) {
+                this.f28322e = f28319b.c();
             }
-            if (d(this.f28314e)) {
-                String upperCase = this.f28314e.toUpperCase();
-                this.f28314e = upperCase;
+            if (d(this.f28322e)) {
+                String upperCase = this.f28322e.toUpperCase();
+                this.f28322e = upperCase;
                 i.a("sdk_app_sha1", upperCase);
-                return this.f28314e;
+                return this.f28322e;
             }
             String a3 = com.bytedance.sdk.openadsdk.utils.e.a(p.a());
-            this.f28314e = a3;
+            this.f28322e = a3;
             if (d(a3)) {
-                String upperCase2 = this.f28314e.toUpperCase();
-                this.f28314e = upperCase2;
+                String upperCase2 = this.f28322e.toUpperCase();
+                this.f28322e = upperCase2;
                 i.a("sdk_app_sha1", upperCase2);
-                return this.f28314e;
+                return this.f28322e;
             }
             return "";
         } catch (Exception unused) {
@@ -106,18 +106,18 @@ public class s {
     }
 
     public static s a() {
-        if (f28310a == null) {
+        if (f28318a == null) {
             synchronized (s.class) {
-                if (f28310a == null) {
-                    f28310a = new s();
+                if (f28318a == null) {
+                    f28318a = new s();
                 }
             }
         }
-        return f28310a;
+        return f28318a;
     }
 
     public String b() {
-        t tVar = f28311b;
+        t tVar = f28319b;
         if (tVar != null) {
             String a2 = tVar.a();
             return a2.length() > 100 ? a2 : "";
@@ -136,7 +136,7 @@ public class s {
         if (d() != null) {
             return d().NM_pullVer(a2);
         }
-        t tVar = f28311b;
+        t tVar = f28319b;
         return tVar != null ? tVar.c(str) : "";
     }
 }

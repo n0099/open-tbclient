@@ -5,9 +5,9 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.b.h0.z0.o;
-import d.b.i0.e1.f.c;
-import d.b.i0.e1.f.h;
+import d.b.i0.z0.o;
+import d.b.j0.e1.f.c;
+import d.b.j0.e1.f.h;
 /* loaded from: classes4.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements c {
     public abstract boolean first(c cVar);
@@ -46,7 +46,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            h.f55206a = o.e();
+            h.f55627a = o.e();
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         unregReceiver();
     }
 
-    @Override // d.b.i0.e1.f.c
+    @Override // d.b.j0.e1.f.c
     public void onFirstHistoryPageLoaded() {
         onPageInited();
     }

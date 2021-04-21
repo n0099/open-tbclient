@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityAppInfoAuto;
-import d.b.h0.s.c.n;
-import d.b.h0.z0.n0;
+import d.b.i0.s.c.n;
+import d.b.i0.z0.n0;
 /* loaded from: classes4.dex */
 public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInfo {
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityAppInfoAuto.HostUtilityAppInfo

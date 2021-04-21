@@ -9,10 +9,10 @@ import java.io.IOException;
 public class h implements j0<DocumentData> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f41751a = new h();
+    public static final h f41846a = new h();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41752b = JsonReader.a.a("t", "f", "s", "j", "tr", IAdRequestParam.QUERY_HEIGHT, "ls", "fc", Config.STAT_SDK_CHANNEL, "sw", "of");
+    public static final JsonReader.a f41847b = JsonReader.a.a("t", "f", "s", "j", "tr", IAdRequestParam.QUERY_HEIGHT, "ls", "fc", Config.STAT_SDK_CHANNEL, "sw", "of");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.a.w.j0
@@ -32,7 +32,7 @@ public class h implements j0<DocumentData> {
         float f6 = 0.0f;
         boolean z = true;
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41752b)) {
+            switch (jsonReader.D(f41847b)) {
                 case 0:
                     str = jsonReader.z();
                     break;

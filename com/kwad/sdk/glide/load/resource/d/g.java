@@ -16,28 +16,28 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.glide.g f36015a;
+    public final com.kwad.sdk.glide.g f36110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.b.a f36016b;
+    public final com.kwad.sdk.glide.b.a f36111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f36017c;
+    public final Handler f36112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<b> f36018d;
+    public final List<b> f36113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f36019e;
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f36114e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36020f;
+    public boolean f36115f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36021g;
+    public boolean f36116g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36022h;
+    public boolean f36117h;
     public com.kwad.sdk.glide.f<Bitmap> i;
     public a j;
     public boolean k;
@@ -53,30 +53,30 @@ public class g {
     public static class a extends com.kwad.sdk.glide.request.a.h<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f36023a;
+        public final int f36118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Handler f36024b;
+        public final Handler f36119b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f36025c;
+        public final long f36120c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Bitmap f36026d;
+        public Bitmap f36121d;
 
         public a(Handler handler, int i, long j) {
-            this.f36024b = handler;
-            this.f36023a = i;
-            this.f36025c = j;
+            this.f36119b = handler;
+            this.f36118a = i;
+            this.f36120c = j;
         }
 
         public Bitmap a() {
-            return this.f36026d;
+            return this.f36121d;
         }
 
         public void a(@NonNull Bitmap bitmap, @Nullable com.kwad.sdk.glide.request.b.b<? super Bitmap> bVar) {
-            this.f36026d = bitmap;
-            this.f36024b.sendMessageAtTime(this.f36024b.obtainMessage(1, this), this.f36025c);
+            this.f36121d = bitmap;
+            this.f36119b.sendMessageAtTime(this.f36119b.obtainMessage(1, this), this.f36120c);
         }
 
         @Override // com.kwad.sdk.glide.request.a.j
@@ -102,7 +102,7 @@ public class g {
                 g.this.a((a) message.obj);
                 return true;
             } else if (i == 2) {
-                g.this.f36015a.a((a) message.obj);
+                g.this.f36110a.a((a) message.obj);
                 return false;
             } else {
                 return false;
@@ -121,18 +121,18 @@ public class g {
     }
 
     public g(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.g gVar, com.kwad.sdk.glide.b.a aVar, Handler handler, com.kwad.sdk.glide.f<Bitmap> fVar, com.kwad.sdk.glide.load.h<Bitmap> hVar, Bitmap bitmap) {
-        this.f36018d = new ArrayList();
-        this.f36015a = gVar;
+        this.f36113d = new ArrayList();
+        this.f36110a = gVar;
         handler = handler == null ? new Handler(Looper.getMainLooper(), new c()) : handler;
-        this.f36019e = eVar;
-        this.f36017c = handler;
+        this.f36114e = eVar;
+        this.f36112c = handler;
         this.i = fVar;
-        this.f36016b = aVar;
+        this.f36111b = aVar;
         a(hVar, bitmap);
     }
 
     public static com.kwad.sdk.glide.f<Bitmap> a(com.kwad.sdk.glide.g gVar, int i, int i2) {
-        return gVar.f().a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f35826b).a(true).b(true).b(i, i2));
+        return gVar.f().a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.f35921b).a(true).b(true).b(i, i2));
     }
 
     private int j() {
@@ -140,26 +140,26 @@ public class g {
     }
 
     private void k() {
-        if (this.f36020f) {
+        if (this.f36115f) {
             return;
         }
-        this.f36020f = true;
+        this.f36115f = true;
         this.k = false;
         m();
     }
 
     private void l() {
-        this.f36020f = false;
+        this.f36115f = false;
     }
 
     private void m() {
-        if (!this.f36020f || this.f36021g) {
+        if (!this.f36115f || this.f36116g) {
             return;
         }
-        if (this.f36022h) {
+        if (this.f36117h) {
             com.kwad.sdk.glide.g.j.a(this.o == null, "Pending target must be null when starting from the first frame");
-            this.f36016b.f();
-            this.f36022h = false;
+            this.f36111b.f();
+            this.f36117h = false;
         }
         a aVar = this.o;
         if (aVar != null) {
@@ -167,17 +167,17 @@ public class g {
             a(aVar);
             return;
         }
-        this.f36021g = true;
-        long uptimeMillis = SystemClock.uptimeMillis() + this.f36016b.c();
-        this.f36016b.b();
-        this.l = new a(this.f36017c, this.f36016b.e(), uptimeMillis);
-        this.i.a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(o())).a(this.f36016b).a((com.kwad.sdk.glide.f<Bitmap>) this.l);
+        this.f36116g = true;
+        long uptimeMillis = SystemClock.uptimeMillis() + this.f36111b.c();
+        this.f36111b.b();
+        this.l = new a(this.f36112c, this.f36111b.e(), uptimeMillis);
+        this.i.a((com.kwad.sdk.glide.request.a<?>) com.kwad.sdk.glide.request.f.b(o())).a(this.f36111b).a((com.kwad.sdk.glide.f<Bitmap>) this.l);
     }
 
     private void n() {
         Bitmap bitmap = this.m;
         if (bitmap != null) {
-            this.f36019e.a(bitmap);
+            this.f36114e.a(bitmap);
             this.m = null;
         }
     }
@@ -202,21 +202,21 @@ public class g {
         if (dVar != null) {
             dVar.a();
         }
-        this.f36021g = false;
+        this.f36116g = false;
         if (this.k) {
-            this.f36017c.obtainMessage(2, aVar).sendToTarget();
-        } else if (!this.f36020f) {
+            this.f36112c.obtainMessage(2, aVar).sendToTarget();
+        } else if (!this.f36115f) {
             this.o = aVar;
         } else {
             if (aVar.a() != null) {
                 n();
                 a aVar2 = this.j;
                 this.j = aVar;
-                for (int size = this.f36018d.size() - 1; size >= 0; size--) {
-                    this.f36018d.get(size).f();
+                for (int size = this.f36113d.size() - 1; size >= 0; size--) {
+                    this.f36113d.get(size).f();
                 }
                 if (aVar2 != null) {
-                    this.f36017c.obtainMessage(2, aVar2).sendToTarget();
+                    this.f36112c.obtainMessage(2, aVar2).sendToTarget();
                 }
             }
             m();
@@ -227,11 +227,11 @@ public class g {
         if (this.k) {
             throw new IllegalStateException("Cannot subscribe to a cleared frame loader");
         }
-        if (this.f36018d.contains(bVar)) {
+        if (this.f36113d.contains(bVar)) {
             throw new IllegalStateException("Cannot subscribe twice in a row");
         }
-        boolean isEmpty = this.f36018d.isEmpty();
-        this.f36018d.add(bVar);
+        boolean isEmpty = this.f36113d.isEmpty();
+        this.f36113d.add(bVar);
         if (isEmpty) {
             k();
         }
@@ -242,8 +242,8 @@ public class g {
     }
 
     public void b(b bVar) {
-        this.f36018d.remove(bVar);
-        if (this.f36018d.isEmpty()) {
+        this.f36113d.remove(bVar);
+        if (this.f36113d.isEmpty()) {
             l();
         }
     }
@@ -253,45 +253,45 @@ public class g {
     }
 
     public int d() {
-        return this.f36016b.g() + j();
+        return this.f36111b.g() + j();
     }
 
     public int e() {
         a aVar = this.j;
         if (aVar != null) {
-            return aVar.f36023a;
+            return aVar.f36118a;
         }
         return -1;
     }
 
     public ByteBuffer f() {
-        return this.f36016b.a().asReadOnlyBuffer();
+        return this.f36111b.a().asReadOnlyBuffer();
     }
 
     public int g() {
-        return this.f36016b.d();
+        return this.f36111b.d();
     }
 
     public void h() {
-        this.f36018d.clear();
+        this.f36113d.clear();
         n();
         l();
         a aVar = this.j;
         if (aVar != null) {
-            this.f36015a.a(aVar);
+            this.f36110a.a(aVar);
             this.j = null;
         }
         a aVar2 = this.l;
         if (aVar2 != null) {
-            this.f36015a.a(aVar2);
+            this.f36110a.a(aVar2);
             this.l = null;
         }
         a aVar3 = this.o;
         if (aVar3 != null) {
-            this.f36015a.a(aVar3);
+            this.f36110a.a(aVar3);
             this.o = null;
         }
-        this.f36016b.i();
+        this.f36111b.i();
         this.k = true;
     }
 

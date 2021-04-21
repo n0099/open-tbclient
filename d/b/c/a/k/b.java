@@ -19,23 +19,23 @@ import java.sql.SQLException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SQLiteDatabase f41973a = null;
+    public SQLiteDatabase f42213a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0549a f41974b = null;
+    public a.InterfaceC0568a f42214b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f41975c;
+    public a f42215c;
 
     public b(a aVar) {
-        this.f41975c = aVar;
+        this.f42215c = aVar;
     }
 
     public void a() {
         try {
-            if (this.f41973a != null) {
-                this.f41973a.close();
-                this.f41973a = null;
+            if (this.f42213a != null) {
+                this.f42213a.close();
+                this.f42213a = null;
             }
         } catch (Exception e2) {
             BdLog.e("closeDatabase：" + e2.getMessage());
@@ -47,10 +47,10 @@ public class b {
         synchronized (b.class) {
             a();
             try {
-                dropDatabase = this.f41975c.dropDatabase(BdBaseApplication.getInst().getContext());
+                dropDatabase = this.f42215c.dropDatabase(BdBaseApplication.getInst().getContext());
             } catch (Exception e2) {
                 BdLog.e("deleteDatabase：" + e2.getMessage());
-                this.f41973a = null;
+                this.f42213a = null;
                 return false;
             }
         }
@@ -59,10 +59,10 @@ public class b {
 
     public final void c(boolean z) {
         synchronized (b.class) {
-            if (this.f41973a == null || !this.f41973a.isOpen()) {
+            if (this.f42213a == null || !this.f42213a.isOpen()) {
                 try {
-                    this.f41975c.setOnCreateCallback(this.f41974b);
-                    this.f41973a = this.f41975c.getWritableDatabase();
+                    this.f42215c.setOnCreateCallback(this.f42214b);
+                    this.f42213a = this.f42215c.getWritableDatabase();
                 } catch (RuntimeException e2) {
                     if (z) {
                         i(e2, "ensureDatabaseReady");
@@ -108,7 +108,7 @@ public class b {
 
     public SQLiteDatabase g(boolean z) {
         c(z);
-        return this.f41973a;
+        return this.f42213a;
     }
 
     public void h(String str, int i, String str2, Object... objArr) {
@@ -130,22 +130,22 @@ public class b {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i = -14;
-                this.f41973a = null;
+                this.f42213a = null;
             } else if (th instanceof SQLiteAbortException) {
                 i = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i = -15;
-                this.f41973a = null;
+                this.f42213a = null;
             } else if (th instanceof SQLiteFullException) {
                 i = -16;
-                this.f41973a = null;
+                this.f42213a = null;
             } else if (th instanceof SQLiteDoneException) {
                 i = -19;
-                this.f41973a = null;
+                this.f42213a = null;
             } else if (!(th instanceof SQLiteMisuseException)) {
-                this.f41973a = null;
+                this.f42213a = null;
             }
             h(str, i, th.getMessage(), new Object[0]);
         }
@@ -159,7 +159,7 @@ public class b {
         throw new SQLException("unable to open database.");
     }
 
-    public void k(a.InterfaceC0549a interfaceC0549a) {
-        this.f41974b = interfaceC0549a;
+    public void k(a.InterfaceC0568a interfaceC0568a) {
+        this.f42214b = interfaceC0568a;
     }
 }

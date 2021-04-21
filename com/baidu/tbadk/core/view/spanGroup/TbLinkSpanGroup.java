@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import d.b.c.e.p.k;
-import d.b.h0.r.f0.p.a;
-import d.b.h0.r.q.v;
+import d.b.i0.r.f0.p.a;
+import d.b.i0.r.q.v;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
@@ -91,7 +91,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         l(new TbLinkForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // d.b.h0.r.f0.p.a
+    @Override // d.b.i0.r.f0.p.a
     public void a(Editable editable, int i, int i2, int i3) {
         super.a(editable, i, i2, i3);
         if (this.j == LINK_TYPE.PARSED_EXTERNAL_LINK) {
@@ -103,10 +103,10 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.m = editable.subSequence(i4, i2);
     }
 
-    @Override // d.b.h0.r.f0.p.a
+    @Override // d.b.i0.r.f0.p.a
     public void p(Editable editable) {
         v vVar = this.i;
-        if (vVar != null && vVar.f51305f == 2) {
+        if (vVar != null && vVar.f51641f == 2) {
             if (vVar.l != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("#(commodity,commo_");
@@ -123,7 +123,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         i(sb2);
     }
 
-    @Override // d.b.h0.r.f0.p.a
+    @Override // d.b.i0.r.f0.p.a
     public void q(Editable editable, int i) {
         if (this.i == null) {
             String str = k.isEmpty(this.n) ? "0" : this.n;
@@ -148,7 +148,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("goods_id", this.i.q);
                     jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i);
-                    jSONObject2.put("title", this.i.f51307h);
+                    jSONObject2.put("title", this.i.f51643h);
                     jSONObject2.put("url", this.i.o);
                     StringBuilder sb2 = new StringBuilder();
                     jSONObject.put(AdDebugActivity.KEY_GOODS, jSONObject2);

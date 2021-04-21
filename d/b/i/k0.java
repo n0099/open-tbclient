@@ -16,25 +16,25 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.h0.r.q.a;
 import d.b.i.u0.a;
+import d.b.i0.r.q.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
+public class k0<T extends d.b.i0.r.q.a> implements q, d.b.j0.m.e {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52207e;
+    public int f50175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public p<T> f52208f;
+    public p<T> f50176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f52209g;
+    public Context f50177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ThreadCardView f52210h;
+    public ThreadCardView f50178h;
     public RelativeLayout i;
     public LinearLayout j;
     public d.b.i.a<T> k;
@@ -48,7 +48,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
     public T s;
     public d.b.i.u0.a t;
     public int u;
-    public a.C1131a v;
+    public a.C1072a v;
 
     /* loaded from: classes.dex */
     public class a implements View.OnTouchListener {
@@ -103,11 +103,11 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
 
     public final void c() {
         c cVar = new c();
-        cVar.g(new TbImageView(this.f52209g));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.b.c.e.p.l.g(this.f52209g, R.dimen.ds180), d.b.c.e.p.l.g(this.f52209g, R.dimen.ds50));
+        cVar.g(new TbImageView(this.f50177g));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.b.c.e.p.l.g(this.f50177g, R.dimen.ds180), d.b.c.e.p.l.g(this.f50177g, R.dimen.ds50));
         layoutParams.addRule(11);
         layoutParams.addRule(10);
-        layoutParams.rightMargin = -this.q.f52226g;
+        layoutParams.rightMargin = -this.q.f50194g;
         cVar.i(layoutParams);
         cVar.h(-1);
         this.o.add(cVar);
@@ -134,7 +134,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
     }
 
     public Context g() {
-        return this.f52209g;
+        return this.f50177g;
     }
 
     public List<h> h() {
@@ -146,7 +146,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
     }
 
     public View j() {
-        return this.f52210h;
+        return this.f50178h;
     }
 
     public final void k() {
@@ -155,10 +155,10 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         }
         if (this.j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             l0 l0Var = this.q;
-            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f52225f, l0Var.f52223d, l0Var.f52226g, l0Var.f52224e);
+            ((ViewGroup.MarginLayoutParams) this.j.getLayoutParams()).setMargins(l0Var.f50193f, l0Var.f50191d, l0Var.f50194g, l0Var.f50192e);
             this.j.postInvalidate();
         }
-        if (this.q.f52220a) {
+        if (this.q.f50188a) {
             c();
         }
         d.b.i.a<T> aVar = this.k;
@@ -171,11 +171,11 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         if (aVar2 != null) {
             aVar2.j(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.q.f52221b;
+            layoutParams.topMargin = this.q.f50189b;
             if (this.l.f().booleanValue()) {
                 l0 l0Var2 = this.q;
-                layoutParams.leftMargin = -l0Var2.f52225f;
-                layoutParams.rightMargin = -l0Var2.f52226g;
+                layoutParams.leftMargin = -l0Var2.f50193f;
+                layoutParams.rightMargin = -l0Var2.f50194g;
             }
             this.j.addView(this.l.g(), layoutParams);
             this.l.h();
@@ -190,8 +190,8 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
                     layoutParams2.bottomMargin = hVar.o();
                     if (hVar.f().booleanValue()) {
                         l0 l0Var3 = this.q;
-                        layoutParams2.leftMargin = -l0Var3.f52225f;
-                        layoutParams2.rightMargin = -l0Var3.f52226g;
+                        layoutParams2.leftMargin = -l0Var3.f50193f;
+                        layoutParams2.rightMargin = -l0Var3.f50194g;
                     }
                     this.j.addView(hVar.g(), layoutParams2);
                     hVar.h();
@@ -200,7 +200,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         }
         if (this.n != null) {
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.topMargin = this.q.f52222c;
+            layoutParams3.topMargin = this.q.f50190c;
             this.n.j(this);
             this.j.addView(this.n.g(), layoutParams3);
             this.n.h();
@@ -248,7 +248,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         if (aVar3 != null) {
             aVar3.a(t);
         }
-        p<T> pVar = this.f52208f;
+        p<T> pVar = this.f50176f;
         if (pVar != null) {
             pVar.a(t);
         }
@@ -272,28 +272,28 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         }
     }
 
-    public boolean o(a.C1131a c1131a) {
-        return this.t.b(c1131a);
+    public boolean o(a.C1072a c1072a) {
+        return this.t.b(c1072a);
     }
 
     @Override // d.b.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (i == this.f52207e) {
+        if (i == this.f50175e) {
             return;
         }
-        this.f52207e = i;
+        this.f50175e = i;
         T t = this.s;
         if (t != null && !t.isSupportNone()) {
-            SkinManager.setBackgroundResource(this.f52210h, this.q.f52227h);
+            SkinManager.setBackgroundResource(this.f50178h, this.q.f50195h);
         }
         d.b.i.a<T> aVar = this.k;
         if (aVar != null) {
             aVar.onChangeSkinType(tbPageContext, i);
             if (this.n == null) {
-                d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.f52210h);
+                d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.f50178h);
                 d2.j(1);
                 d2.k(R.string.J_X06);
-                d2.f(this.q.f52227h);
+                d2.f(this.q.f50195h);
             }
         }
         d.b.i.a<T> aVar2 = this.l;
@@ -309,16 +309,16 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         if (aVar3 != null) {
             aVar3.onChangeSkinType(tbPageContext, i);
             if (this.k == null) {
-                d.b.h0.r.u.c d3 = d.b.h0.r.u.c.d(this.f52210h);
+                d.b.i0.r.u.c d3 = d.b.i0.r.u.c.d(this.f50178h);
                 d3.j(2);
                 d3.k(R.string.J_X06);
-                d3.f(this.q.f52227h);
+                d3.f(this.q.f50195h);
             }
         }
         if (this.k != null && this.n != null) {
-            d.b.h0.r.u.c d4 = d.b.h0.r.u.c.d(this.f52210h);
+            d.b.i0.r.u.c d4 = d.b.i0.r.u.c.d(this.f50178h);
             d4.k(R.string.J_X06);
-            d4.g(this.q.f52227h, R.color.CAM_X0206);
+            d4.g(this.q.f50195h, R.color.CAM_X0206);
         }
         if (!ListUtils.isEmpty(this.o)) {
             Iterator<c> it = this.o.iterator();
@@ -335,7 +335,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         }
     }
 
-    public void p(d.b.i0.x.b0<T> b0Var) {
+    public void p(d.b.j0.x.b0<T> b0Var) {
         d.b.i.a<T> aVar = this.k;
         if (aVar != null) {
             aVar.l(b0Var);
@@ -356,7 +356,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
     }
 
     public void q(int i) {
-        ThreadCardView threadCardView = this.f52210h;
+        ThreadCardView threadCardView = this.f50178h;
         if (threadCardView != null) {
             threadCardView.setPosition(i);
         }
@@ -366,7 +366,7 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         this.u = i;
     }
 
-    @Override // d.b.i0.m.e
+    @Override // d.b.j0.m.e
     public void setPage(String str) {
     }
 
@@ -391,41 +391,41 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
     }
 
     public k0(b bVar, BaseCardInfo.SupportType supportType, ViewGroup viewGroup, d.b.c.j.e.s sVar) {
-        this.f52207e = 3;
-        this.f52208f = null;
+        this.f50175e = 3;
+        this.f50176f = null;
         this.p = null;
         this.t = new d.b.i.u0.a();
         this.u = 0;
-        this.v = new a.C1131a(7);
-        Context context = bVar.f52217f;
-        this.f52209g = context;
+        this.v = new a.C1072a(7);
+        Context context = bVar.f50185f;
+        this.f50177g = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_card_layout, viewGroup, false);
         ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
-        this.f52210h = threadCardView;
+        this.f50178h = threadCardView;
         this.i = (RelativeLayout) threadCardView.findViewById(R.id.card_decor_layer);
-        LinearLayout linearLayout = (LinearLayout) this.f52210h.findViewById(R.id.body_root);
+        LinearLayout linearLayout = (LinearLayout) this.f50178h.findViewById(R.id.body_root);
         this.j = linearLayout;
         linearLayout.setClipToPadding(false);
-        this.r = this.f52210h.findViewById(R.id.card_top_line);
-        this.k = bVar.f52212a;
-        this.l = bVar.f52213b;
-        this.m = bVar.f52214c;
-        this.n = bVar.f52215d;
-        this.o = bVar.f52216e;
-        this.q = bVar.f52218g;
-        this.f52210h.setParent(viewGroup);
-        this.f52210h.setITypeListView(sVar);
+        this.r = this.f50178h.findViewById(R.id.card_top_line);
+        this.k = bVar.f50180a;
+        this.l = bVar.f50181b;
+        this.m = bVar.f50182c;
+        this.n = bVar.f50183d;
+        this.o = bVar.f50184e;
+        this.q = bVar.f50186g;
+        this.f50178h.setParent(viewGroup);
+        this.f50178h.setITypeListView(sVar);
         k();
         if (supportType == BaseCardInfo.SupportType.TOP) {
-            if (this.f52210h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f52210h.getLayoutParams();
+            if (this.f50178h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f50178h.getLayoutParams();
                 marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-                this.f52210h.postInvalidate();
+                this.f50178h.postInvalidate();
             }
-        } else if (supportType == BaseCardInfo.SupportType.FULL && (this.f52210h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f52210h.getLayoutParams();
+        } else if (supportType == BaseCardInfo.SupportType.FULL && (this.f50178h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f50178h.getLayoutParams();
             marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin + UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
-            this.f52210h.postInvalidate();
+            this.f50178h.postInvalidate();
         }
         inflate.setOnTouchListener(new a());
     }
@@ -434,42 +434,42 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i.a f52212a;
+        public d.b.i.a f50180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.i.a f52213b;
+        public d.b.i.a f50181b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<h> f52214c;
+        public List<h> f50182c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.b.i.a f52215d;
+        public d.b.i.a f50183d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<c> f52216e;
+        public ArrayList<c> f50184e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f52217f;
+        public Context f50185f;
 
         /* renamed from: g  reason: collision with root package name */
-        public l0 f52218g;
+        public l0 f50186g;
 
         public b(Context context, boolean z) {
-            this.f52212a = null;
-            this.f52213b = null;
-            this.f52215d = null;
-            this.f52217f = context;
-            this.f52216e = new ArrayList<>();
+            this.f50180a = null;
+            this.f50181b = null;
+            this.f50183d = null;
+            this.f50185f = context;
+            this.f50184e = new ArrayList<>();
             l0 l0Var = new l0();
-            this.f52218g = l0Var;
+            this.f50186g = l0Var;
             if (!z) {
                 l0Var.e(0);
             }
-            this.f52214c = new ArrayList();
+            this.f50182c = new ArrayList();
         }
 
         public b h(h hVar) {
-            this.f52214c.add(hVar);
+            this.f50182c.add(hVar);
             return this;
         }
 
@@ -486,21 +486,21 @@ public class k0<T extends d.b.h0.r.q.a> implements q, d.b.i0.m.e {
         }
 
         public l0 l() {
-            return this.f52218g;
+            return this.f50186g;
         }
 
         public b m(d.b.i.a aVar) {
-            this.f52215d = aVar;
+            this.f50183d = aVar;
             return this;
         }
 
         public b n(d.b.i.a aVar) {
-            this.f52213b = aVar;
+            this.f50181b = aVar;
             return this;
         }
 
         public b o(d.b.i.a aVar) {
-            this.f52212a = aVar;
+            this.f50180a = aVar;
             return this;
         }
 

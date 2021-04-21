@@ -14,7 +14,7 @@ public final class f {
     public static String a(String str) {
         String n;
         Context context = KsAdSDKImpl.get().getContext();
-        return (context == null || (n = d.q.a.a.b.n(context, str)) == null) ? "" : n;
+        return (context == null || (n = d.r.a.a.b.n(context, str)) == null) ? "" : n;
     }
 
     public static List<String> a(Map<String, String> map) {

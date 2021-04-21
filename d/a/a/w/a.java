@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41735a = JsonReader.a.a(Config.APP_KEY, "x", "y");
+    public static JsonReader.a f41830a = JsonReader.a.a(Config.APP_KEY, "x", "y");
 
     public static d.a.a.u.i.e a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -33,7 +33,7 @@ public class a {
         d.a.a.u.i.b bVar2 = null;
         boolean z = false;
         while (jsonReader.B() != JsonReader.Token.END_OBJECT) {
-            int D = jsonReader.D(f41735a);
+            int D = jsonReader.D(f41830a);
             if (D == 0) {
                 eVar = a(jsonReader, dVar);
             } else if (D != 1) {

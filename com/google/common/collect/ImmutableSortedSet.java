@@ -2,12 +2,12 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableSet;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.f0;
-import d.g.c.c.j0;
-import d.g.c.c.t0;
-import d.g.c.c.u0;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.f0;
+import d.h.c.c.j0;
+import d.h.c.c.t0;
+import d.h.c.c.u0;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -47,11 +47,11 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
     public static final class a<E> extends ImmutableSet.a<E> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final Comparator<? super E> f30842f;
+        public final Comparator<? super E> f30937f;
 
         public a(Comparator<? super E> comparator) {
             n.p(comparator);
-            this.f30842f = comparator;
+            this.f30937f = comparator;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -95,9 +95,9 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         @Override // com.google.common.collect.ImmutableSet.a
         /* renamed from: p */
         public ImmutableSortedSet<E> l() {
-            ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f30842f, this.f30785b, this.f30784a);
-            this.f30785b = construct.size();
-            this.f30786c = true;
+            ImmutableSortedSet<E> construct = ImmutableSortedSet.construct(this.f30937f, this.f30880b, this.f30879a);
+            this.f30880b = construct.size();
+            this.f30881c = true;
             return construct;
         }
     }
@@ -175,7 +175,7 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         return (E) f0.e(tailSet((ImmutableSortedSet<E>) e2, true), null);
     }
 
-    @Override // java.util.SortedSet, d.g.c.c.t0
+    @Override // java.util.SortedSet, d.h.c.c.t0
     public Comparator<? super E> comparator() {
         return this.comparator;
     }

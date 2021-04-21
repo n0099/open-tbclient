@@ -3,16 +3,16 @@ package d.b.c.c.j;
 public class a extends d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f42065c;
+    public static a f42305c;
 
     public static a c() {
-        if (f42065c == null) {
+        if (f42305c == null) {
             synchronized (a.class) {
-                if (f42065c == null) {
-                    f42065c = new a();
+                if (f42305c == null) {
+                    f42305c = new a();
                 }
             }
         }
-        return f42065c;
+        return f42305c;
     }
 }

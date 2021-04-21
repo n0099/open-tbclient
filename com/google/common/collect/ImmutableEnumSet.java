@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import d.g.c.c.c1;
-import d.g.c.c.f0;
+import d.h.c.c.c1;
+import d.h.c.c.f0;
 import java.io.Serializable;
 import java.lang.Enum;
 import java.util.Collection;
@@ -10,10 +10,10 @@ import java.util.EnumSet;
 public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient EnumSet<E> f30788e;
+    public final transient EnumSet<E> f30883e;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient int f30789f;
+    public transient int f30884f;
 
     /* loaded from: classes6.dex */
     public static class EnumSerializedForm<E extends Enum<E>> implements Serializable {
@@ -42,15 +42,15 @@ public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
     public boolean contains(Object obj) {
-        return this.f30788e.contains(obj);
+        return this.f30883e.contains(obj);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public boolean containsAll(Collection<?> collection) {
         if (collection instanceof ImmutableEnumSet) {
-            collection = ((ImmutableEnumSet) collection).f30788e;
+            collection = ((ImmutableEnumSet) collection).f30883e;
         }
-        return this.f30788e.containsAll(collection);
+        return this.f30883e.containsAll(collection);
     }
 
     @Override // com.google.common.collect.ImmutableSet, java.util.Collection, java.util.Set
@@ -59,17 +59,17 @@ public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
             return true;
         }
         if (obj instanceof ImmutableEnumSet) {
-            obj = ((ImmutableEnumSet) obj).f30788e;
+            obj = ((ImmutableEnumSet) obj).f30883e;
         }
-        return this.f30788e.equals(obj);
+        return this.f30883e.equals(obj);
     }
 
     @Override // com.google.common.collect.ImmutableSet, java.util.Collection, java.util.Set
     public int hashCode() {
-        int i = this.f30789f;
+        int i = this.f30884f;
         if (i == 0) {
-            int hashCode = this.f30788e.hashCode();
-            this.f30789f = hashCode;
+            int hashCode = this.f30883e.hashCode();
+            this.f30884f = hashCode;
             return hashCode;
         }
         return i;
@@ -77,7 +77,7 @@ public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public boolean isEmpty() {
-        return this.f30788e.isEmpty();
+        return this.f30883e.isEmpty();
     }
 
     @Override // com.google.common.collect.ImmutableSet
@@ -92,26 +92,26 @@ public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public int size() {
-        return this.f30788e.size();
+        return this.f30883e.size();
     }
 
     @Override // java.util.AbstractCollection
     public String toString() {
-        return this.f30788e.toString();
+        return this.f30883e.toString();
     }
 
     @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection
     public Object writeReplace() {
-        return new EnumSerializedForm(this.f30788e);
+        return new EnumSerializedForm(this.f30883e);
     }
 
     public ImmutableEnumSet(EnumSet<E> enumSet) {
-        this.f30788e = enumSet;
+        this.f30883e = enumSet;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
     public c1<E> iterator() {
-        return Iterators.x(this.f30788e.iterator());
+        return Iterators.x(this.f30883e.iterator());
     }
 }

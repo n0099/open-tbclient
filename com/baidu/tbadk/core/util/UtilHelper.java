@@ -120,11 +120,11 @@ import d.b.c.a.j;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
 import d.b.c.e.p.m;
-import d.b.h0.l.a;
-import d.b.h0.l0.c;
-import d.b.h0.r.a0.b;
-import d.b.h0.r.q.x0;
-import d.b.h0.r.s.a;
+import d.b.i0.l.a;
+import d.b.i0.l0.c;
+import d.b.i0.r.a0.b;
+import d.b.i0.r.q.x0;
+import d.b.i0.r.s.a;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -396,34 +396,34 @@ public class UtilHelper {
                 int intExtra7 = intent.getIntExtra("group_msg_updates", 0);
                 int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                 int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                int u = d.b.h0.s.d.b.g0().u();
-                int A = d.b.h0.s.d.b.g0().A();
-                int v = d.b.h0.s.d.b.g0().v();
-                int t = d.b.h0.s.d.b.g0().t();
-                int y = d.b.h0.s.d.b.g0().y();
-                int z2 = d.b.h0.s.d.b.g0().z();
-                d.b.h0.s.d.b.g0().W(u, A, v, t, y, z2);
+                int u = d.b.i0.s.d.b.g0().u();
+                int A = d.b.i0.s.d.b.g0().A();
+                int v = d.b.i0.s.d.b.g0().v();
+                int t = d.b.i0.s.d.b.g0().t();
+                int y = d.b.i0.s.d.b.g0().y();
+                int z2 = d.b.i0.s.d.b.g0().z();
+                d.b.i0.s.d.b.g0().W(u, A, v, t, y, z2);
                 boolean z3 = intExtra4 > 0 || intExtra7 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra8 > 0;
                 boolean z4 = intExtra9 == 29 && intExtra > 0;
                 boolean z5 = intExtra9 == 24 && intExtra3 > 0;
                 boolean z6 = intExtra9 == 25 && intExtra2 > 0;
                 if (z4) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(context)));
-                    d.b.h0.s.d.b.g0().Y(0);
+                    d.b.i0.s.d.b.g0().Y(0);
                 } else if (z5) {
-                    d.b.h0.s.d.b.g0().e0(0);
+                    d.b.i0.s.d.b.g0().e0(0);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ReplyMeActivityConfig(context)));
-                    d.b.h0.s.d.b.g0().e0(0);
+                    d.b.i0.s.d.b.g0().e0(0);
                 } else if (z6) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMessageActivityConfig(context)));
-                    d.b.h0.s.d.b.g0().Z(0);
+                    d.b.i0.s.d.b.g0().Z(0);
                 } else if (i2 == 35) {
                     if (!z3 && intExtra <= 0 && intExtra3 <= 0 && intExtra2 <= 0 && z2 <= 0 && t <= 0) {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         int sex = TbadkCoreApplication.getCurrentAccountInfo() != null ? TbadkCoreApplication.getCurrentAccountInfo().getSex() : 0;
                         if (currentAccount != null && currentAccount.length() > 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(context, false, currentAccount, sex)));
-                            d.b.h0.s.d.b.g0().c0(0);
+                            d.b.i0.s.d.b.g0().c0(0);
                         }
                     } else {
                         goToMessageCenterFromNotifyCenter(intExtra9);
@@ -462,7 +462,7 @@ public class UtilHelper {
                 if (b.a() == 8) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(8)));
                 } else if (!TextUtils.isEmpty(currentAccount2) && !TextUtils.isEmpty(currentAccountName)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, d.b.h0.s.d.b.g0().y())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, d.b.i0.s.d.b.g0().y())));
                 }
                 z = true;
                 break;
@@ -772,7 +772,7 @@ public class UtilHelper {
     }
 
     public static Bitmap getCacheBitmapFromView(View view) {
-        d.b.h0.a0.c.k().i(l.k(TbadkCoreApplication.getInst()) * l.i(TbadkCoreApplication.getInst()) * 2);
+        d.b.i0.a0.c.k().i(l.k(TbadkCoreApplication.getInst()) * l.i(TbadkCoreApplication.getInst()) * 2);
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache(true);
         Bitmap drawingCache = view.getDrawingCache();
@@ -892,10 +892,10 @@ public class UtilHelper {
     }
 
     public static String getFromPageKey(TbPageContext tbPageContext) {
-        if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof d.b.h0.k0.a)) {
+        if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof d.b.i0.k0.a)) {
             return null;
         }
-        d.b.h0.k0.a aVar = (d.b.h0.k0.a) tbPageContext.getPageActivity();
+        d.b.i0.k0.a aVar = (d.b.i0.k0.a) tbPageContext.getPageActivity();
         if (aVar.getCurrentPageSourceKeyList() == null) {
             return null;
         }
@@ -1152,7 +1152,7 @@ public class UtilHelper {
         if (bitmap != null) {
             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
         }
-        d.b.h0.r.f0.i iVar = new d.b.h0.r.f0.i(bitmapDrawable);
+        d.b.i0.r.f0.i iVar = new d.b.i0.r.f0.i(bitmapDrawable);
         iVar.b(l.g(context, R.dimen.ds4));
         int length = spannableStringBuilder.length();
         spannableStringBuilder.append((CharSequence) " ");
@@ -1178,7 +1178,7 @@ public class UtilHelper {
         if (bitmap != null) {
             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
         }
-        d.b.h0.r.f0.l lVar = new d.b.h0.r.f0.l(bitmapDrawable);
+        d.b.i0.r.f0.l lVar = new d.b.i0.r.f0.l(bitmapDrawable);
         int length = spannableStringBuilder.length();
         spannableStringBuilder.append((CharSequence) " ");
         if (z) {
@@ -1269,16 +1269,16 @@ public class UtilHelper {
     public static String getTiebaApkMd5() {
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String p = d.b.h0.r.d0.b.j().p("version_name", "");
+            String p = d.b.i0.r.d0.b.j().p("version_name", "");
             if (TextUtils.isEmpty(versionName)) {
                 return null;
             }
             if (versionName.equals(p)) {
-                return d.b.h0.r.d0.b.j().p("apk_md5", "");
+                return d.b.i0.r.d0.b.j().p("apk_md5", "");
             }
-            d.b.h0.r.d0.b.j().x("version_name", versionName);
+            d.b.i0.r.d0.b.j().x("version_name", versionName);
             String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-            d.b.h0.r.d0.b.j().x("apk_md5", aPKMd5);
+            d.b.i0.r.d0.b.j().x("apk_md5", aPKMd5);
             return aPKMd5;
         } catch (PackageManager.NameNotFoundException e2) {
             BdLog.detailException(e2);
@@ -2028,16 +2028,16 @@ public class UtilHelper {
     }
 
     public static void quitDialog(final Activity activity) {
-        new d.b.h0.r.s.a(activity).setTitle(R.string.inform).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new a.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.2
-            @Override // d.b.h0.r.s.a.e
-            public void onClick(d.b.h0.r.s.a aVar) {
+        new d.b.i0.r.s.a(activity).setTitle(R.string.inform).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new a.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+            @Override // d.b.i0.r.s.a.e
+            public void onClick(d.b.i0.r.s.a aVar) {
                 aVar.dismiss();
                 TbadkCoreApplication.getInst().notifyAppEnterBackground();
                 activity.finish();
             }
         }).setNegativeButton(R.string.cancel, new a.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
-            @Override // d.b.h0.r.s.a.e
-            public void onClick(d.b.h0.r.s.a aVar) {
+            @Override // d.b.i0.r.s.a.e
+            public void onClick(d.b.i0.r.s.a aVar) {
                 aVar.dismiss();
             }
         }).create(j.a(activity)).show();
@@ -2231,7 +2231,7 @@ public class UtilHelper {
     }
 
     public static void showSkinChangeAnimation(Activity activity) {
-        if (d.b.h0.z0.l.a() || activity == null) {
+        if (d.b.i0.z0.l.a() || activity == null) {
             return;
         }
         final View decorView = activity.getWindow().getDecorView();
@@ -2365,10 +2365,10 @@ public class UtilHelper {
 
     public static void startBaiduWebView(Context context, String str) {
         if (str != null && str.length() > 0) {
-            d.b.h0.l.a.k(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
+            d.b.i0.l.a.k(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
             return;
         }
-        d.b.h0.l.a.k(context, "http://m.baidu.com/?from=1001157a");
+        d.b.i0.l.a.k(context, "http://m.baidu.com/?from=1001157a");
     }
 
     public static void startHardAccelerated(Window window) {
@@ -2444,12 +2444,12 @@ public class UtilHelper {
     }
 
     public static boolean useNavigationBarStyleImmersiveSticky(Activity activity, boolean z) {
-        if (Build.VERSION.SDK_INT < 19 || activity == null || !d.b.h0.r.d0.b.j().g("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+        if (Build.VERSION.SDK_INT < 19 || activity == null || !d.b.i0.r.d0.b.j().g("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
             return false;
         }
         for (AccessibilityServiceInfo accessibilityServiceInfo : ((AccessibilityManager) activity.getSystemService("accessibility")).getEnabledAccessibilityServiceList(1)) {
             if (!StringUtils.isNull(accessibilityServiceInfo.getSettingsActivityName()) && accessibilityServiceInfo.getSettingsActivityName().contains("talkback")) {
-                d.b.h0.r.d0.b.j().t("switch_immersive_sticky_status", false);
+                d.b.i0.r.d0.b.j().t("switch_immersive_sticky_status", false);
                 TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                 return false;
             }
@@ -2460,7 +2460,7 @@ public class UtilHelper {
             StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process();
             return true;
         } else if (!StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process()) {
-            d.b.h0.r.d0.b.j().t("switch_immersive_sticky_status", false);
+            d.b.i0.r.d0.b.j().t("switch_immersive_sticky_status", false);
             TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
             return false;
         } else if (Build.VERSION.SDK_INT < 21) {

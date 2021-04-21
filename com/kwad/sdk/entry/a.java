@@ -20,25 +20,25 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends AbstractKsEntryElement {
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.kwad.sdk.entry.model.a f34998a;
+    public static com.kwad.sdk.entry.model.a f35093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.response.model.a f34999b;
+    public com.kwad.sdk.core.response.model.a f35094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f35000c;
+    public c f35095c;
 
     /* renamed from: e  reason: collision with root package name */
-    public h.a f35002e;
+    public h.a f35097e;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35001d = false;
+    public boolean f35096d = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f35003f = new AtomicBoolean(false);
+    public AtomicBoolean f35098f = new AtomicBoolean(false);
 
     public static com.kwad.sdk.entry.model.a a() {
-        return f34998a;
+        return f35093a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:28:0x0051  */
@@ -51,10 +51,10 @@ public class a extends AbstractKsEntryElement {
         c cVar;
         c cVar2;
         int i;
-        if (this.f35000c != null || (aVar = this.f34999b) == null) {
+        if (this.f35095c != null || (aVar = this.f35094b) == null) {
             return;
         }
-        int i2 = aVar.f34354a;
+        int i2 = aVar.f34449a;
         if (i2 != 1) {
             if (i2 == 2) {
                 i = R.layout.ksad_view_entry_viewpager;
@@ -64,14 +64,14 @@ public class a extends AbstractKsEntryElement {
                 i = R.layout.ksad_view_entryphoto4;
             } else if (i2 == 5) {
                 c cVar3 = (c) View.inflate(context, R.layout.ksad_view_entry_tab, null);
-                this.f35000c = cVar3;
-                ((EntryTypeTabView) cVar3).setEnableSlideAutoOpen(this.f35001d);
-                cVar2 = this.f35000c;
+                this.f35095c = cVar3;
+                ((EntryTypeTabView) cVar3).setEnableSlideAutoOpen(this.f35096d);
+                cVar2 = this.f35095c;
                 if (cVar2 == null) {
-                    if (!cVar2.a(this.f34999b)) {
-                        this.f35000c = new b(context);
+                    if (!cVar2.a(this.f35094b)) {
+                        this.f35095c = new b(context);
                     }
-                    this.f35000c.setOnfeedClickListener(onFeedClickListener);
+                    this.f35095c.setOnfeedClickListener(onFeedClickListener);
                     return;
                 }
                 return;
@@ -82,67 +82,67 @@ public class a extends AbstractKsEntryElement {
         } else {
             cVar = (EntryLinearView) View.inflate(context, R.layout.ksad_view_entry_twophoto, null);
         }
-        this.f35000c = cVar;
-        cVar2 = this.f35000c;
+        this.f35095c = cVar;
+        cVar2 = this.f35095c;
         if (cVar2 == null) {
         }
     }
 
     public static void a(com.kwad.sdk.entry.model.a aVar) {
-        f34998a = aVar;
+        f35093a = aVar;
     }
 
     public static void b() {
-        f34998a = null;
+        f35093a = null;
     }
 
     public void a(h.a aVar) {
-        this.f35002e = aVar;
+        this.f35097e = aVar;
     }
 
     public void a(com.kwad.sdk.core.response.model.a aVar) {
-        this.f34999b = aVar;
+        this.f35094b = aVar;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsEntryElement
     @Nullable
     public View getEntryView2(Context context, KsEntryElement.OnFeedClickListener onFeedClickListener) {
         a(context, onFeedClickListener);
-        return (View) this.f35000c;
+        return (View) this.f35095c;
     }
 
     @Override // com.kwad.sdk.api.KsEntryElement
     public int getEntryViewType() {
-        com.kwad.sdk.core.response.model.a aVar = this.f34999b;
+        com.kwad.sdk.core.response.model.a aVar = this.f35094b;
         if (aVar != null) {
-            return aVar.f34354a;
+            return aVar.f34449a;
         }
         return 0;
     }
 
     @Override // com.kwad.sdk.api.KsEntryElement
     public void refresh() {
-        if (this.f35002e == null || this.f35003f.get()) {
+        if (this.f35097e == null || this.f35098f.get()) {
             return;
         }
-        this.f35003f.set(true);
-        i.a(this.f35002e, new e.a() { // from class: com.kwad.sdk.entry.a.1
+        this.f35098f.set(true);
+        i.a(this.f35097e, new e.a() { // from class: com.kwad.sdk.entry.a.1
             @Override // com.kwad.sdk.core.g.e.a
             public void a(int i, String str) {
-                a.this.f35003f.set(false);
+                a.this.f35098f.set(false);
             }
 
             @Override // com.kwad.sdk.core.g.e.a
             public void a(@NonNull AdResultData adResultData) {
-                a.this.f35003f.set(false);
+                a.this.f35098f.set(false);
                 com.kwad.sdk.core.response.model.a aVar = adResultData.entryInfo;
                 if (aVar != null) {
                     a.this.a(aVar);
-                    if (a.this.f35000c instanceof View) {
-                        ((View) a.this.f35000c).post(new Runnable() { // from class: com.kwad.sdk.entry.a.1.1
+                    if (a.this.f35095c instanceof View) {
+                        ((View) a.this.f35095c).post(new Runnable() { // from class: com.kwad.sdk.entry.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.f35000c.a(a.this.f34999b);
+                                a.this.f35095c.a(a.this.f35094b);
                             }
                         });
                     }
@@ -153,8 +153,8 @@ public class a extends AbstractKsEntryElement {
 
     @Override // com.kwad.sdk.api.KsEntryElement
     public void setEnableSlideAutoOpen(boolean z) {
-        this.f35001d = z;
-        c cVar = this.f35000c;
+        this.f35096d = z;
+        c cVar = this.f35095c;
         if (cVar instanceof EntryTypeTabView) {
             ((EntryTypeTabView) cVar).setEnableSlideAutoOpen(z);
         }

@@ -10,9 +10,9 @@ import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.utils.ContextHolder;
-import d.b.w.g.a;
-import d.b.w.h.c;
-import d.b.w.h.d;
+import d.b.x.g.a;
+import d.b.x.h.c;
+import d.b.x.h.d;
 /* loaded from: classes2.dex */
 public class Bundle {
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";

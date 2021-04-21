@@ -5,7 +5,7 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect;
-import d.b.j0.a.b;
+import d.b.k0.a.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 @JNINamespace
@@ -13,28 +13,28 @@ import java.util.Iterator;
 public class NetworkChangeNotifier {
 
     /* renamed from: h  reason: collision with root package name */
-    public static NetworkChangeNotifier f22438h;
+    public static NetworkChangeNotifier f22446h;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f22439a;
+    public final Context f22447a;
 
     /* renamed from: d  reason: collision with root package name */
-    public NetworkChangeNotifierAutoDetect f22442d;
+    public NetworkChangeNotifierAutoDetect f22450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22443e = 0;
+    public int f22451e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f22444f = Double.POSITIVE_INFINITY;
+    public double f22452f = Double.POSITIVE_INFINITY;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22445g = 0;
+    public int f22453g = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<Long> f22440b = new ArrayList<>();
+    public final ArrayList<Long> f22448b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final b<ConnectionTypeObserver> f22441c = new b<>();
+    public final b<ConnectionTypeObserver> f22449c = new b<>();
 
     /* loaded from: classes5.dex */
     public interface ConnectionTypeObserver {
@@ -78,11 +78,11 @@ public class NetworkChangeNotifier {
     }
 
     public NetworkChangeNotifier(Context context) {
-        this.f22439a = context.getApplicationContext();
+        this.f22447a = context.getApplicationContext();
     }
 
     public static NetworkChangeNotifier e() {
-        return f22438h;
+        return f22446h;
     }
 
     public static double f(int i) {
@@ -126,10 +126,10 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public static NetworkChangeNotifier init(Context context) {
-        if (f22438h == null) {
-            f22438h = new NetworkChangeNotifier(context);
+        if (f22446h == null) {
+            f22446h = new NetworkChangeNotifier(context);
         }
-        return f22438h;
+        return f22446h;
     }
 
     public static void n() {
@@ -158,19 +158,19 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public void addNativeObserver(long j) {
-        this.f22440b.add(Long.valueOf(j));
+        this.f22448b.add(Long.valueOf(j));
     }
 
     public final void c() {
-        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22442d;
+        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22450d;
         if (networkChangeNotifierAutoDetect != null) {
             networkChangeNotifierAutoDetect.destroy();
-            this.f22442d = null;
+            this.f22450d = null;
         }
     }
 
     public final void d(boolean z) {
-        if ((this.f22443e != 6) != z) {
+        if ((this.f22451e != 6) != z) {
             p(z ? 0 : 6);
             q(z ? Double.POSITIVE_INFINITY : 0.0d);
         }
@@ -182,7 +182,7 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public int getCurrentConnectionSubtype() {
-        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22442d;
+        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22450d;
         if (networkChangeNotifierAutoDetect == null) {
             return 0;
         }
@@ -191,12 +191,12 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public int getCurrentConnectionType() {
-        return this.f22443e;
+        return this.f22451e;
     }
 
     @CalledByNative
     public int getCurrentDefaultNetId() {
-        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22442d;
+        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22450d;
         if (networkChangeNotifierAutoDetect == null) {
             return -1;
         }
@@ -205,56 +205,56 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public double getCurrentMaxBandwidthInMbps() {
-        return this.f22444f;
+        return this.f22452f;
     }
 
     @CalledByNative
     public int[] getCurrentNetworksAndTypes() {
-        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22442d;
+        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f22450d;
         return networkChangeNotifierAutoDetect == null ? new int[0] : networkChangeNotifierAutoDetect.getNetworksAndTypes();
     }
 
     public final void h(int i, int i2) {
-        Iterator<Long> it = this.f22440b.iterator();
+        Iterator<Long> it = this.f22448b.iterator();
         while (it.hasNext()) {
             nativeNotifyConnectionTypeChanged(it.next().longValue(), i, i2);
         }
-        Iterator<ConnectionTypeObserver> it2 = this.f22441c.iterator();
+        Iterator<ConnectionTypeObserver> it2 = this.f22449c.iterator();
         while (it2.hasNext()) {
             it2.next().onConnectionTypeChanged(i);
         }
     }
 
     public void i(double d2) {
-        Iterator<Long> it = this.f22440b.iterator();
+        Iterator<Long> it = this.f22448b.iterator();
         while (it.hasNext()) {
             nativeNotifyMaxBandwidthChanged(it.next().longValue(), d2);
         }
     }
 
     public void j(int i, int i2) {
-        Iterator<Long> it = this.f22440b.iterator();
+        Iterator<Long> it = this.f22448b.iterator();
         while (it.hasNext()) {
             nativeNotifyOfNetworkConnect(it.next().longValue(), i, i2);
         }
     }
 
     public void k(int i) {
-        Iterator<Long> it = this.f22440b.iterator();
+        Iterator<Long> it = this.f22448b.iterator();
         while (it.hasNext()) {
             nativeNotifyOfNetworkDisconnect(it.next().longValue(), i);
         }
     }
 
     public void l(int i) {
-        Iterator<Long> it = this.f22440b.iterator();
+        Iterator<Long> it = this.f22448b.iterator();
         while (it.hasNext()) {
             nativeNotifyOfNetworkSoonToDisconnect(it.next().longValue(), i);
         }
     }
 
     public void m(int[] iArr) {
-        Iterator<Long> it = this.f22440b.iterator();
+        Iterator<Long> it = this.f22448b.iterator();
         while (it.hasNext()) {
             nativeNotifyPurgeActiveNetworkList(it.next().longValue(), iArr);
         }
@@ -262,12 +262,12 @@ public class NetworkChangeNotifier {
 
     public final void o(boolean z, NetworkChangeNotifierAutoDetect.RegistrationPolicy registrationPolicy) {
         if (z) {
-            if (this.f22442d == null) {
-                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = new NetworkChangeNotifierAutoDetect(new a(), this.f22439a, registrationPolicy);
-                this.f22442d = networkChangeNotifierAutoDetect;
+            if (this.f22450d == null) {
+                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = new NetworkChangeNotifierAutoDetect(new a(), this.f22447a, registrationPolicy);
+                this.f22450d = networkChangeNotifierAutoDetect;
                 NetworkChangeNotifierAutoDetect.d currentNetworkState = networkChangeNotifierAutoDetect.getCurrentNetworkState();
-                p(this.f22442d.getCurrentConnectionType(currentNetworkState));
-                q(this.f22442d.getCurrentMaxBandwidthInMbps(currentNetworkState));
+                p(this.f22450d.getCurrentConnectionType(currentNetworkState));
+                q(this.f22450d.getCurrentMaxBandwidthInMbps(currentNetworkState));
                 return;
             }
             return;
@@ -276,21 +276,21 @@ public class NetworkChangeNotifier {
     }
 
     public final void p(int i) {
-        this.f22443e = i;
+        this.f22451e = i;
         g(i);
     }
 
     public final void q(double d2) {
-        if (d2 == this.f22444f && this.f22443e == this.f22445g) {
+        if (d2 == this.f22452f && this.f22451e == this.f22453g) {
             return;
         }
-        this.f22444f = d2;
-        this.f22445g = this.f22443e;
+        this.f22452f = d2;
+        this.f22453g = this.f22451e;
         i(d2);
     }
 
     @CalledByNative
     public void removeNativeObserver(long j) {
-        this.f22440b.remove(Long.valueOf(j));
+        this.f22448b.remove(Long.valueOf(j));
     }
 }

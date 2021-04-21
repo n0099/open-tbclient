@@ -23,31 +23,31 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel;
 import d.b.c.e.p.l;
-import d.b.h0.r.f0.f;
-import d.b.h0.r.f0.g;
+import d.b.i0.r.f0.f;
+import d.b.i0.r.f0.g;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class SigleRecordsFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public ConsumptionRecordsActivity f14958e;
+    public ConsumptionRecordsActivity f14966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ConsumptionRecordsModel f14959f;
+    public ConsumptionRecordsModel f14967f;
     public int i;
     public LinearLayout j;
     public BdListView k;
-    public d.b.i0.a0.c m;
+    public d.b.j0.a0.c m;
     public NoDataView n;
     public TextView o;
     public TbImageView p;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14960g = false;
+    public boolean f14968g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14961h = false;
+    public boolean f14969h = false;
     public g l = null;
 
     /* loaded from: classes4.dex */
@@ -56,13 +56,13 @@ public class SigleRecordsFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
-        public void a(int i, String str, ArrayList<d.b.i0.a0.a> arrayList, d.b.i0.a0.b bVar, boolean z) {
-            SigleRecordsFragment.this.f14961h = z;
+        public void a(int i, String str, ArrayList<d.b.j0.a0.a> arrayList, d.b.j0.a0.b bVar, boolean z) {
+            SigleRecordsFragment.this.f14969h = z;
             SigleRecordsFragment sigleRecordsFragment = SigleRecordsFragment.this;
             sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.j);
             SigleRecordsFragment.this.k.z();
             if (i == 0) {
-                SigleRecordsFragment.this.f14960g = true;
+                SigleRecordsFragment.this.f14968g = true;
                 if (arrayList == null || arrayList.size() <= 0) {
                     if (bVar != null) {
                         SigleRecordsFragment.this.Y0(bVar);
@@ -83,22 +83,22 @@ public class SigleRecordsFragment extends BaseFragment {
                 return;
             }
             SigleRecordsFragment.this.showToast(str);
-            if (!SigleRecordsFragment.this.f14960g) {
+            if (!SigleRecordsFragment.this.f14968g) {
                 SigleRecordsFragment.this.X0();
             } else if (z) {
                 SigleRecordsFragment.this.o.setText(R.string.load_more);
             } else {
                 SigleRecordsFragment.this.o.setText(R.string.no_more_data);
             }
-            SigleRecordsFragment.this.f14960g = true;
+            SigleRecordsFragment.this.f14968g = true;
         }
 
         @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
         public void b() {
-            SigleRecordsFragment.this.f14960g = true;
+            SigleRecordsFragment.this.f14968g = true;
             SigleRecordsFragment sigleRecordsFragment = SigleRecordsFragment.this;
             sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.j);
-            if (SigleRecordsFragment.this.f14961h) {
+            if (SigleRecordsFragment.this.f14969h) {
                 SigleRecordsFragment.this.o.setText(R.string.load_more);
             } else {
                 SigleRecordsFragment.this.o.setText(R.string.no_more_data);
@@ -111,9 +111,9 @@ public class SigleRecordsFragment extends BaseFragment {
         public b() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            SigleRecordsFragment.this.f14959f.y();
+            SigleRecordsFragment.this.f14967f.y();
         }
     }
 
@@ -124,7 +124,7 @@ public class SigleRecordsFragment extends BaseFragment {
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            SigleRecordsFragment.this.f14959f.z();
+            SigleRecordsFragment.this.f14967f.z();
         }
     }
 
@@ -132,15 +132,15 @@ public class SigleRecordsFragment extends BaseFragment {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.a0.b f14965e;
+        public final /* synthetic */ d.b.j0.a0.b f14973e;
 
-        public d(d.b.i0.a0.b bVar) {
-            this.f14965e = bVar;
+        public d(d.b.j0.a0.b bVar) {
+            this.f14973e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UrlManager.getInstance().dealOneLink(SigleRecordsFragment.this.getPageContext(), new String[]{this.f14965e.b()});
+            UrlManager.getInstance().dealOneLink(SigleRecordsFragment.this.getPageContext(), new String[]{this.f14973e.b()});
         }
     }
 
@@ -191,16 +191,16 @@ public class SigleRecordsFragment extends BaseFragment {
             i = R.string.no_recharge_records_tip;
         }
         if (this.n == null) {
-            this.n = NoDataViewFactory.a(this.f14958e.getPageContext().getPageActivity(), this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f14958e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(i), null);
+            this.n = NoDataViewFactory.a(this.f14966e.getPageContext().getPageActivity(), this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f14966e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(i), null);
         }
         this.n.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(i)));
-        this.n.f(this.f14958e.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.n.f(this.f14966e.getPageContext(), TbadkApplication.getInst().getSkinType());
         U0();
         S0();
         this.n.setVisibility(0);
     }
 
-    public final void Y0(d.b.i0.a0.b bVar) {
+    public final void Y0(d.b.j0.a0.b bVar) {
         if (bVar == null || this.j == null) {
             return;
         }
@@ -241,22 +241,22 @@ public class SigleRecordsFragment extends BaseFragment {
         if (noDataView == null || noDataView.getVisibility() != 0) {
             return;
         }
-        this.n.f(this.f14958e.getPageContext(), i);
+        this.n.f(this.f14966e.getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f14958e = (ConsumptionRecordsActivity) getBaseFragmentActivity();
+        this.f14966e = (ConsumptionRecordsActivity) getBaseFragmentActivity();
         ConsumptionRecordsModel consumptionRecordsModel = new ConsumptionRecordsModel(getUniqueId());
-        this.f14959f = consumptionRecordsModel;
+        this.f14967f = consumptionRecordsModel;
         consumptionRecordsModel.setType(this.i);
         if (this.i == 3) {
-            this.f14959f.setShowMember(1);
+            this.f14967f.setShowMember(1);
         } else {
-            this.f14959f.setShowMember(0);
+            this.f14967f.setShowMember(0);
         }
-        this.f14959f.B(new a());
+        this.f14967f.B(new a());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -264,13 +264,13 @@ public class SigleRecordsFragment extends BaseFragment {
         LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.single_fragment_layout, (ViewGroup) null);
         this.j = linearLayout;
         this.k = (BdListView) linearLayout.findViewById(R.id.records_list_view);
-        this.l = new g(this.f14958e.getPageContext());
-        d.b.i0.a0.c cVar = new d.b.i0.a0.c(this.f14958e.getPageContext(), this.i);
+        this.l = new g(this.f14966e.getPageContext());
+        d.b.j0.a0.c cVar = new d.b.j0.a0.c(this.f14966e.getPageContext(), this.i);
         this.m = cVar;
         this.k.setAdapter((ListAdapter) cVar);
         this.k.setPullRefresh(this.l);
-        TextView textView = new TextView(this.f14958e.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f14958e.getActivity(), R.dimen.ds176)));
+        TextView textView = new TextView(this.f14966e.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f14966e.getActivity(), R.dimen.ds176)));
         this.k.x(textView, 0);
         this.l.b(new b());
         this.k.setOnSrollToBottomListener(new c());
@@ -284,7 +284,7 @@ public class SigleRecordsFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        ConsumptionRecordsModel consumptionRecordsModel = this.f14959f;
+        ConsumptionRecordsModel consumptionRecordsModel = this.f14967f;
         if (consumptionRecordsModel != null) {
             consumptionRecordsModel.destroy();
         }
@@ -297,10 +297,10 @@ public class SigleRecordsFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.f14960g) {
+        if (this.f14968g) {
             return;
         }
-        this.f14959f.y();
+        this.f14967f.y();
         showLoadingView(this.j, true, 400);
     }
 }

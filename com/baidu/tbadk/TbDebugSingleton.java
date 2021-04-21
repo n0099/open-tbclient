@@ -1,6 +1,6 @@
 package com.baidu.tbadk;
 
-import d.b.h0.l.d;
+import d.b.i0.l.d;
 /* loaded from: classes3.dex */
 public class TbDebugSingleton {
     public static volatile TbDebugSingleton mInstance;

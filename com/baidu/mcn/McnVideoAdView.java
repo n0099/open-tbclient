@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.i0.s2.w;
+import d.b.j0.s2.w;
 /* loaded from: classes2.dex */
 public class McnVideoAdView extends FrameLayout {
     public static final int r = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
@@ -40,7 +40,7 @@ public class McnVideoAdView extends FrameLayout {
     public float k;
     public float l;
     public boolean m;
-    public d.b.u.a n;
+    public d.b.v.a n;
     public c o;
     public final Handler p;
     public ViewParent q;
@@ -80,11 +80,11 @@ public class McnVideoAdView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface c {
-        void a(d.b.u.a aVar);
+        void a(d.b.v.a aVar);
 
-        void b(d.b.u.a aVar);
+        void b(d.b.v.a aVar);
 
-        void c(d.b.u.a aVar);
+        void c(d.b.v.a aVar);
     }
 
     public McnVideoAdView(Context context) {
@@ -95,19 +95,19 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
-    private void setData(d.b.u.a aVar) {
+    private void setData(d.b.v.a aVar) {
         if (aVar == null) {
             return;
         }
         this.n = aVar;
-        this.f7956f.W(aVar.f65484a, 10, false);
-        if (!StringUtils.isNull(aVar.f65485b)) {
-            this.f7957g.setText(aVar.f65485b);
+        this.f7956f.W(aVar.f65748a, 10, false);
+        if (!StringUtils.isNull(aVar.f65749b)) {
+            this.f7957g.setText(aVar.f65749b);
         }
-        if (StringUtils.isNull(aVar.f65486c)) {
+        if (StringUtils.isNull(aVar.f65750c)) {
             return;
         }
-        this.f7958h.setText(aVar.f65486c);
+        this.f7958h.setText(aVar.f65750c);
     }
 
     public final void d() {
@@ -115,10 +115,10 @@ public class McnVideoAdView extends FrameLayout {
     }
 
     public final void e() {
-        d.b.u.a aVar;
+        d.b.v.a aVar;
         String str;
         Context context = this.f7955e;
-        if (context == null || (aVar = this.n) == null || (str = aVar.f65487d) == null) {
+        if (context == null || (aVar = this.n) == null || (str = aVar.f65751d) == null) {
             return;
         }
         w.d(context, str, null, null);
@@ -172,7 +172,7 @@ public class McnVideoAdView extends FrameLayout {
         this.n = null;
     }
 
-    public void l(d.b.u.a aVar, ViewGroup viewGroup) {
+    public void l(d.b.v.a aVar, ViewGroup viewGroup) {
         m(aVar, viewGroup);
         if (this.i != null) {
             clearAnimation();
@@ -180,7 +180,7 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void m(d.b.u.a aVar, ViewGroup viewGroup) {
+    public void m(d.b.v.a aVar, ViewGroup viewGroup) {
         this.m = true;
         setData(aVar);
         viewGroup.removeView(this);

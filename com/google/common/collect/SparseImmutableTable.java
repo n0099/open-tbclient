@@ -2,8 +2,8 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableTable;
-import d.g.c.c.c1;
-import d.g.c.c.y0;
+import d.h.c.c.c1;
+import d.h.c.c.y0;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -81,19 +81,19 @@ public final class SparseImmutableTable<R, C, V> extends RegularImmutableTable<R
         return this.rowMap.values().asList().get(i2).values().asList().get(this.cellColumnInRowIndices[i]);
     }
 
-    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.g.c.c.y0
+    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.h.c.c.y0
     public int size() {
         return this.cellRowIndices.length;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
     public ImmutableMap<C, Map<R, V>> columnMap() {
         return ImmutableMap.copyOf((Map) this.columnMap);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
     public ImmutableMap<R, Map<C, V>> rowMap() {
         return ImmutableMap.copyOf((Map) this.rowMap);
     }

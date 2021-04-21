@@ -17,8 +17,8 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormItemBaseView;
 import d.b.c.a.e;
 import d.b.c.e.p.l;
-import d.b.h0.c.f;
-import d.b.i0.s2.v;
+import d.b.i0.c.f;
+import d.b.j0.s2.v;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -74,7 +74,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                             return;
                         }
                         int i2 = (FormCardView.this.D * height) / width;
-                        int i3 = FormCardView.this.A.backgroundInfo.f20414c;
+                        int i3 = FormCardView.this.A.backgroundInfo.f20422c;
                         if (i3 == 1) {
                             FormCardView.this.v.getLayoutParams().width = FormCardView.this.D;
                             FormCardView.this.v.getLayoutParams().height = i2;
@@ -82,8 +82,8 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                             FormCardView.this.v.getLayoutParams().width = FormCardView.this.D;
                             FormCardView.this.v.getLayoutParams().height = FormCardView.this.E;
                         }
-                        int b2 = d.b.i0.j1.o.k.b.b(FormCardView.this.A.backgroundInfo.f20413b);
-                        if (!d.b.i0.j1.o.k.b.a(b2)) {
+                        int b2 = d.b.j0.j1.o.k.b.b(FormCardView.this.A.backgroundInfo.f20421b);
+                        if (!d.b.j0.j1.o.k.b.a(b2)) {
                             FormCardView.this.y.setBackgroundColor(b2);
                         }
                         aVar.h(FormCardView.this.v);
@@ -112,14 +112,14 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         public void c(Object obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (fVar.f50453a) {
+                if (fVar.f50789a) {
                     FormCardView.this.A.setCommitState(true);
                     FormCardView.this.m0();
-                } else if (!TextUtils.isEmpty(fVar.f50455c)) {
-                    new d.b.h0.r.f0.c().b(fVar.f50455c);
+                } else if (!TextUtils.isEmpty(fVar.f50791c)) {
+                    new d.b.i0.r.f0.c().b(fVar.f50791c);
                     FormCardView.this.A.setCommitState(false);
                 } else {
-                    new d.b.h0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
+                    new d.b.i0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
                     FormCardView.this.A.setCommitState(false);
                 }
             }
@@ -163,7 +163,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (TextUtils.isEmpty(str)) {
             this.s.setClickable(true);
         } else {
-            d.b.i0.s2.y.b.a().d(null, str, hashMap, new c());
+            d.b.j0.s2.y.b.a().d(null, str, hashMap, new c());
         }
     }
 
@@ -171,8 +171,8 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.y.setBackgroundResource(R.drawable.form_defalut_bg_image);
         if (this.A.backgroundInfo != null) {
             this.v.setVisibility(0);
-            if (!TextUtils.isEmpty(this.A.backgroundInfo.f20412a)) {
-                d.b.c.e.l.d.h().m(this.A.backgroundInfo.f20412a, 10, new b(), this.F.getUniqueId());
+            if (!TextUtils.isEmpty(this.A.backgroundInfo.f20420a)) {
+                d.b.c.e.l.d.h().m(this.A.backgroundInfo.f20420a, 10, new b(), this.F.getUniqueId());
                 return;
             }
         }
@@ -185,10 +185,10 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         float dimension2 = this.m.getResources().getDimension(R.dimen.fontsize28);
         int color = this.m.getResources().getColor(R.color.form_font_color);
         if (fVar != null) {
-            this.w.setText(fVar.f20423a);
+            this.w.setText(fVar.f20431a);
             this.w.setTextColor(-1);
             this.w.setTextSize(0, dimension);
-            this.x.setText(fVar.f20424b);
+            this.x.setText(fVar.f20432b);
             this.x.setTextColor(color);
             this.x.setTextSize(0, dimension2);
         }
@@ -203,7 +203,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         for (int i = 0; i < size; i++) {
             FormCard.b bVar = this.A.itemList.get(i);
             if (bVar != null) {
-                switch (bVar.f20415a) {
+                switch (bVar.f20423a) {
                     case 1:
                         b0(bVar, new TitleView(this.z), i, size);
                         continue;
@@ -272,7 +272,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             this.s.setClickable(false);
             return;
         }
-        new d.b.h0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
+        new d.b.i0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
         this.s.setClickable(true);
     }
 
@@ -312,7 +312,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
         this.r.g(formCard.titleInfo);
         this.s.g(formCard.commitInfo);
-        d.b.i0.s2.y.b.a().b(new d.b.i0.s2.y.a(this.s.getPostUrl()));
+        d.b.j0.s2.y.b.a().b(new d.b.j0.s2.y.a(this.s.getPostUrl()));
         W();
         Y();
         X();
@@ -324,7 +324,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (formCard.mHasShown) {
             return;
         }
-        v.p().k().c(formCard.getShowExtra(), this.f18314e);
+        v.p().k().c(formCard.getShowExtra(), this.f18322e);
         formCard.mHasShown = true;
     }
 
@@ -332,14 +332,14 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (this.B == null) {
             this.B = new ArrayList();
         }
-        d.b.i0.j1.o.k.a.a(this.B, dVar);
+        d.b.j0.j1.o.k.a.a(this.B, dVar);
     }
 
     public final void i0() {
         this.u.removeAllViews();
         List<d> list = this.B;
         if (list != null) {
-            d.b.i0.j1.o.k.a.c(list);
+            d.b.j0.j1.o.k.a.c(list);
         } else {
             this.B = new ArrayList();
         }

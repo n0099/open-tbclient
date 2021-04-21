@@ -6,11 +6,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import d.b.g0.a.k;
-import d.b.g0.m.a.d.f;
+import d.b.h0.a.k;
+import d.b.h0.m.a.d.f;
 /* loaded from: classes2.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static final boolean B = k.f45443a;
+    public static final boolean B = k.f45772a;
     public boolean A;
     public a z;
 
@@ -19,7 +19,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
         void a(int i, int i2, int i3, int i4);
     }
 
-    public PullToRefreshBaseWebView(Context context, d.b.g0.a.q1.a.e.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
+    public PullToRefreshBaseWebView(Context context, d.b.h0.a.q1.a.e.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
         this.A = false;
     }

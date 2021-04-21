@@ -11,14 +11,14 @@ public class n extends o {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.o, com.bytedance.sdk.openadsdk.core.nativeexpress.k
     public void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
-        this.f28229d = "feed_video_middle_page";
+        this.f28237d = "feed_video_middle_page";
         if (lVar != null && lVar.X() != null) {
-            this.f28226a = new NativeExpressVideoView(context, lVar, adSlot, this.f28229d);
+            this.f28234a = new NativeExpressVideoView(context, lVar, adSlot, this.f28237d);
         } else {
-            this.f28226a = new NativeExpressView(context, lVar, adSlot, this.f28229d);
+            this.f28234a = new NativeExpressView(context, lVar, adSlot, this.f28237d);
         }
-        a(this.f28226a, this.f28228c);
-        this.f28226a.setBackupListener(new c() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.n.1
+        a(this.f28234a, this.f28236c);
+        this.f28234a.setBackupListener(new c() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.n.1
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.c
             public boolean a(NativeExpressView nativeExpressView, int i) {
                 return false;
@@ -28,12 +28,12 @@ public class n extends o {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.k, com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public View getExpressAdView() {
-        return this.f28226a;
+        return this.f28234a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setCanInterruptVideoPlay(boolean z) {
-        NativeExpressView nativeExpressView = this.f28226a;
+        NativeExpressView nativeExpressView = this.f28234a;
         if (nativeExpressView == null || !(nativeExpressView instanceof NativeExpressVideoView)) {
             return;
         }

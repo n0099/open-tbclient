@@ -15,16 +15,16 @@ import java.util.Map;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41777a = JsonReader.a.a("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
+    public static final JsonReader.a f41872a = JsonReader.a.a("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
 
     /* renamed from: b  reason: collision with root package name */
-    public static JsonReader.a f41778b = JsonReader.a.a("id", "layers", "w", "h", "p", "u");
+    public static JsonReader.a f41873b = JsonReader.a.a("id", "layers", "w", "h", "p", "u");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final JsonReader.a f41779c = JsonReader.a.a("list");
+    public static final JsonReader.a f41874c = JsonReader.a.a("list");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final JsonReader.a f41780d = JsonReader.a.a("cm", "tm", "dr");
+    public static final JsonReader.a f41875d = JsonReader.a.a("cm", "tm", "dr");
 
     public static d.a.a.d a(JsonReader jsonReader) throws IOException {
         HashMap hashMap;
@@ -46,7 +46,7 @@ public class t {
         float f4 = 0.0f;
         int i2 = 0;
         while (jsonReader.t()) {
-            switch (jsonReader2.D(f41777a)) {
+            switch (jsonReader2.D(f41872a)) {
                 case 0:
                     i = jsonReader.x();
                     continue;
@@ -129,7 +129,7 @@ public class t {
             int i = 0;
             int i2 = 0;
             while (jsonReader.t()) {
-                int D = jsonReader.D(f41778b);
+                int D = jsonReader.D(f41873b);
                 if (D == 0) {
                     str = jsonReader.z();
                 } else if (D == 1) {
@@ -176,7 +176,7 @@ public class t {
     public static void d(JsonReader jsonReader, Map<String, d.a.a.u.b> map) throws IOException {
         jsonReader.o();
         while (jsonReader.t()) {
-            if (jsonReader.D(f41779c) != 0) {
+            if (jsonReader.D(f41874c) != 0) {
                 jsonReader.E();
                 jsonReader.F();
             } else {
@@ -216,7 +216,7 @@ public class t {
             float f2 = 0.0f;
             float f3 = 0.0f;
             while (jsonReader.t()) {
-                int D = jsonReader.D(f41780d);
+                int D = jsonReader.D(f41875d);
                 if (D == 0) {
                     str = jsonReader.z();
                 } else if (D == 1) {

@@ -8,17 +8,17 @@ import com.kwad.sdk.utils.ag;
 public class c extends com.kwad.sdk.contentalliance.profile.tabvideo.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33209b;
+    public TextView f33304b;
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f33209b.setText(ag.a(com.kwad.sdk.core.response.b.c.s((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i)));
+        this.f33304b.setText(ag.a(com.kwad.sdk.core.response.b.c.s((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).i)));
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33209b = (TextView) b(R.id.ksad_profile_like_count);
+        this.f33304b = (TextView) b(R.id.ksad_profile_like_count);
     }
 }

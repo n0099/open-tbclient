@@ -14,23 +14,23 @@ import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage
 import com.baidu.webkit.internal.ETAG;
 import d.b.c.e.p.l;
 import d.b.c.j.e.n;
-import d.b.i0.t.d.c.e.j;
-import d.b.i0.t.d.c.g.d;
+import d.b.j0.t.d.c.e.j;
+import d.b.j0.t.d.c.g.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaLiveTabYanzhiModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f14445e;
+    public TbPageContext f14453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14446f;
+    public int f14454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14447g;
+    public boolean f14455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14448h;
+    public boolean f14456h;
     public d j;
     public long k;
     public String l;
@@ -52,11 +52,11 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (AlaLiveTabYanzhiModel.this.n != null) {
-                        AlaLiveTabYanzhiModel.this.n.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabYanzhiModel.this.f14448h);
+                        AlaLiveTabYanzhiModel.this.n.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabYanzhiModel.this.f14456h);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (AlaLiveTabYanzhiModel.this.f14448h) {
+                    if (AlaLiveTabYanzhiModel.this.f14456h) {
                         AlaLiveTabYanzhiModel.this.j.a(jVar);
                         AlaLiveTabYanzhiModel.y(AlaLiveTabYanzhiModel.this);
                     } else {
@@ -68,12 +68,12 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                         alaLiveTabYanzhiModel.j = new d(jVar, alaLiveTabYanzhiModel.l, AlaLiveTabYanzhiModel.this.m);
                     }
                     AlaLiveTabYanzhiModel alaLiveTabYanzhiModel2 = AlaLiveTabYanzhiModel.this;
-                    alaLiveTabYanzhiModel2.f14447g = alaLiveTabYanzhiModel2.j.f();
+                    alaLiveTabYanzhiModel2.f14455g = alaLiveTabYanzhiModel2.j.f();
                     if (AlaLiveTabYanzhiModel.this.n != null) {
-                        AlaLiveTabYanzhiModel.this.n.a(AlaLiveTabYanzhiModel.this.f14447g, AlaLiveTabYanzhiModel.this.j.d());
+                        AlaLiveTabYanzhiModel.this.n.a(AlaLiveTabYanzhiModel.this.f14455g, AlaLiveTabYanzhiModel.this.j.d());
                     }
                 }
-                AlaLiveTabYanzhiModel.this.f14448h = false;
+                AlaLiveTabYanzhiModel.this.f14456h = false;
             }
         }
     }
@@ -86,32 +86,32 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
     }
 
     public AlaLiveTabYanzhiModel(TbPageContext tbPageContext, b bVar) {
-        this.f14445e = tbPageContext;
+        this.f14453e = tbPageContext;
         this.n = bVar;
     }
 
     public static /* synthetic */ int y(AlaLiveTabYanzhiModel alaLiveTabYanzhiModel) {
-        int i = alaLiveTabYanzhiModel.f14446f;
-        alaLiveTabYanzhiModel.f14446f = i + 1;
+        int i = alaLiveTabYanzhiModel.f14454f;
+        alaLiveTabYanzhiModel.f14454f = i + 1;
         return i;
     }
 
     public void D() {
-        if (!this.f14447g || this.f14448h) {
+        if (!this.f14455g || this.f14456h) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.k >= 1800000) {
             this.k = currentTimeMillis;
         }
-        this.f14448h = true;
-        F(this.f14446f + 1, 1, AlaLiveTabFragment.n - 1);
+        this.f14456h = true;
+        F(this.f14454f + 1, 1, AlaLiveTabFragment.n - 1);
     }
 
     public void E() {
         this.k = System.currentTimeMillis();
-        this.f14448h = false;
-        this.f14446f = 1;
+        this.f14456h = false;
+        this.f14454f = 1;
         F(1, 0, AlaLiveTabFragment.n);
     }
 
@@ -131,7 +131,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
             }
         }
         httpMessage.addParam("network", str);
-        httpMessage.addParam("ua_str", l.k(this.f14445e.getPageActivity()) + "_" + l.i(this.f14445e.getPageActivity()) + "_android_" + TbConfig.getVersion());
+        httpMessage.addParam("ua_str", l.k(this.f14453e.getPageActivity()) + "_" + l.i(this.f14453e.getPageActivity()) + "_android_" + TbConfig.getVersion());
         httpMessage.addParam(ETAG.KEY_STATISTICS_SEESIONID, this.k);
         httpMessage.addParam("refresh_type", i2);
         httpMessage.addParam("big_refresh_count", i3);

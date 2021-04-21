@@ -31,21 +31,21 @@ public class d extends c {
     public void a(Notification notification, MessageV3 messageV3) {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
-        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f38129a))) {
-            d.j.a.a.a.b("AbstractPushNotification", "only wifi can download act");
+        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f38224a))) {
+            d.k.a.a.a.b("AbstractPushNotification", "only wifi can download act");
             return;
         }
         final String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdkAct/" + messageV3.getUploadDataPackageName();
         String valueOf = String.valueOf(System.currentTimeMillis());
         String actUrl = parse.getActVideoSetting().getActUrl();
         if (!TextUtils.isEmpty(actUrl) && com.meizu.cloud.pushsdk.b.a.a(actUrl, str, valueOf).a().c().b()) {
-            d.j.a.a.a.d("AbstractPushNotification", "down load " + actUrl + " success");
+            d.k.a.a.a.d("AbstractPushNotification", "down load " + actUrl + " success");
             String str2 = str + File.separator + "ACT-" + valueOf;
             boolean a2 = new e(str + File.separator + valueOf, str2).a();
             StringBuilder sb = new StringBuilder();
             sb.append("zip file ");
             sb.append(a2);
-            d.j.a.a.a.d("AbstractPushNotification", sb.toString());
+            d.k.a.a.a.d("AbstractPushNotification", sb.toString());
             if (a2) {
                 Bundle bundle = new Bundle();
                 bundle.putString("path", str2);
@@ -62,7 +62,7 @@ public class d extends c {
                 File[] b2;
                 for (File file : com.meizu.cloud.pushsdk.notification.c.a.b(str, String.valueOf(System.currentTimeMillis() - 86400000))) {
                     com.meizu.cloud.pushsdk.notification.c.a.b(file.getPath());
-                    d.j.a.a.a.d("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");
+                    d.k.a.a.a.d("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");
                 }
             }
         });

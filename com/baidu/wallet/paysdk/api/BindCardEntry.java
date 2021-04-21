@@ -45,28 +45,28 @@ import java.util.Date;
 public class BindCardEntry implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f25098a;
+    public Handler f25106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequestCache.BindCategory f25099b;
+    public PayRequestCache.BindCategory f25107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25100c;
+    public String f25108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<? extends Context> f25101d;
+    public WeakReference<? extends Context> f25109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f25102e;
+    public d f25110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OnReturn f25103f;
+    public OnReturn f25111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WelcomeActivity f25104g;
+    public WelcomeActivity f25112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25105h;
+    public boolean f25113h;
     public boolean i;
 
     /* loaded from: classes5.dex */
@@ -84,9 +84,9 @@ public class BindCardEntry implements IBeanResponseCallback {
     public static BindFastRequest createBindRequest(PayRequestCache.BindCategory bindCategory) {
         BindFastRequest bindFastRequest = new BindFastRequest();
         if (bindCategory != null && PayRequestCache.BindCategory.Other != bindCategory) {
-            SingletonHolder.sInstance.f25099b = bindCategory;
+            SingletonHolder.sInstance.f25107b = bindCategory;
             PayRequestCache.getInstance().addBeanRequestToCache(bindCategory.name(), bindFastRequest);
-            SingletonHolder.sInstance.f25102e.a(bindFastRequest);
+            SingletonHolder.sInstance.f25110e.a(bindFastRequest);
             return bindFastRequest;
         }
         throw new IllegalStateException("not support bind card for Paying");
@@ -143,55 +143,55 @@ public class BindCardEntry implements IBeanResponseCallback {
     }
 
     public static PayRequestCache.BindCategory getBindScenario() {
-        return SingletonHolder.sInstance.f25099b;
+        return SingletonHolder.sInstance.f25107b;
     }
 
     public static Activity getLoadingUi() {
-        if (SingletonHolder.sInstance.f25104g == null) {
+        if (SingletonHolder.sInstance.f25112g == null) {
             return null;
         }
-        return SingletonHolder.sInstance.f25104g.getActivity();
+        return SingletonHolder.sInstance.f25112g.getActivity();
     }
 
     public static void init(Context context) {
         if (context instanceof Activity) {
-            SingletonHolder.sInstance.f25101d = new WeakReference<>(context);
+            SingletonHolder.sInstance.f25109d = new WeakReference<>(context);
         } else if (!(context instanceof BaseActivity)) {
-            SingletonHolder.sInstance.f25101d = null;
+            SingletonHolder.sInstance.f25109d = null;
         } else {
             Activity activity = ((BaseActivity) context).getActivity();
-            SingletonHolder.sInstance.f25101d = new WeakReference<>(activity);
+            SingletonHolder.sInstance.f25109d = new WeakReference<>(activity);
         }
         EventBus.getInstance().register(SingletonHolder.sInstance, "ev_bean_execut_err_content", 0, EventBus.ThreadMode.MainThread);
-        SingletonHolder.sInstance.f25102e.setResponseCallback(SingletonHolder.sInstance);
+        SingletonHolder.sInstance.f25110e.setResponseCallback(SingletonHolder.sInstance);
     }
 
     public static void innerRun() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(SingletonHolder.sInstance.f25100c)) {
-            sb.append(SingletonHolder.sInstance.f25100c);
+        if (!TextUtils.isEmpty(SingletonHolder.sInstance.f25108c)) {
+            sb.append(SingletonHolder.sInstance.f25108c);
             sb.setCharAt(sb.length() - 1, ',');
         } else {
             sb.append(StringUtil.ARRAY_START);
         }
         sb.append("request_type:");
-        if (SingletonHolder.sInstance.f25099b != null) {
-            sb.append(SingletonHolder.sInstance.f25099b.getScenario());
+        if (SingletonHolder.sInstance.f25107b != null) {
+            sb.append(SingletonHolder.sInstance.f25107b.getScenario());
         } else {
             sb.append(PayRequestCache.BindCategory.Initiative.getScenario());
         }
         sb.append("}");
-        SingletonHolder.sInstance.f25102e.a(sb.toString());
-        SingletonHolder.sInstance.f25102e.execBean();
+        SingletonHolder.sInstance.f25110e.a(sb.toString());
+        SingletonHolder.sInstance.f25110e.execBean();
     }
 
     public static void run() {
         Activity activity;
-        Context context = SingletonHolder.sInstance.f25101d != null ? SingletonHolder.sInstance.f25101d.get() : null;
+        Context context = SingletonHolder.sInstance.f25109d != null ? SingletonHolder.sInstance.f25109d.get() : null;
         if (context == null) {
             return;
         }
-        if (SingletonHolder.sInstance.f25102e.a() != null) {
+        if (SingletonHolder.sInstance.f25110e.a() != null) {
             Intent intent = new Intent(context, WelcomeActivity.class);
             intent.putExtra("fromType", 4);
             if (BaiduWalletUtils.isActivity(context)) {
@@ -214,39 +214,39 @@ public class BindCardEntry implements IBeanResponseCallback {
     }
 
     public static void setCallback(OnReturn onReturn) {
-        SingletonHolder.sInstance.f25103f = onReturn;
+        SingletonHolder.sInstance.f25111f = onReturn;
     }
 
     public static void setExtrParam(String str) {
-        SingletonHolder.sInstance.f25100c = str;
+        SingletonHolder.sInstance.f25108c = str;
     }
 
     public static void setLoadingUi(WelcomeActivity welcomeActivity) {
-        SingletonHolder.sInstance.f25104g = welcomeActivity;
+        SingletonHolder.sInstance.f25112g = welcomeActivity;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i, int i2, String str) {
         CardAddResponse.updateContent(null);
-        if (SingletonHolder.sInstance.f25099b == PayRequestCache.BindCategory.Initiative) {
+        if (SingletonHolder.sInstance.f25107b == PayRequestCache.BindCategory.Initiative) {
             String b2 = b();
             StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_ENTER, StatHelper.collectData(b2, "cardAdd is failed"));
             StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(b2, i2 + "", str));
         }
-        if (this.f25103f != null) {
-            this.f25098a.obtainMessage(2, i2, 0, str).sendToTarget();
+        if (this.f25111f != null) {
+            this.f25106a.obtainMessage(2, i2, 0, str).sendToTarget();
         }
     }
 
     public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
         CardAddErrorContent cardAddErrorContent;
         CardAddResponse.updateContent(null);
-        if (i2 != 16254 || obj == null || !(obj instanceof CardAddErrorContent) || SingletonHolder.sInstance.f25104g == null) {
-            SingletonHolder.sInstance.f25098a.obtainMessage(2, i2, 0, str).sendToTarget();
+        if (i2 != 16254 || obj == null || !(obj instanceof CardAddErrorContent) || SingletonHolder.sInstance.f25112g == null) {
+            SingletonHolder.sInstance.f25106a.obtainMessage(2, i2, 0, str).sendToTarget();
             return;
         }
         if (TextUtils.isEmpty(((CardAddErrorContent) obj).goto_url)) {
-            SingletonHolder.sInstance.f25098a.obtainMessage(2, i2, 0, str).sendToTarget();
+            SingletonHolder.sInstance.f25106a.obtainMessage(2, i2, 0, str).sendToTarget();
             return;
         }
         StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_ENTER);
@@ -254,12 +254,12 @@ public class BindCardEntry implements IBeanResponseCallback {
             @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 pop();
-                if (!SingletonHolder.sInstance.f25105h) {
+                if (!SingletonHolder.sInstance.f25113h) {
                     StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
                     BindCardEntry.this.i = false;
-                    SingletonHolder.sInstance.f25098a.obtainMessage(2, -1, 0, "").sendToTarget();
+                    SingletonHolder.sInstance.f25106a.obtainMessage(2, -1, 0, "").sendToTarget();
                 }
-                SingletonHolder.sInstance.f25105h = false;
+                SingletonHolder.sInstance.f25113h = false;
             }
         };
         h5LifeCycleCallback.push();
@@ -269,21 +269,21 @@ public class BindCardEntry implements IBeanResponseCallback {
         bundle.putBoolean("show_share", false);
         bundle.putString("url", cardAddErrorContent.goto_url + "?is_from_sdk=1");
         bundle.putParcelable("lifecycleLsnr", h5LifeCycleCallback);
-        BaiduWalletDelegate.getInstance().openH5Module(SingletonHolder.sInstance.f25104g, bundle);
-        SingletonHolder.sInstance.f25104g.finishWithoutAnim();
-        SingletonHolder.sInstance.f25104g = null;
+        BaiduWalletDelegate.getInstance().openH5Module(SingletonHolder.sInstance.f25112g, bundle);
+        SingletonHolder.sInstance.f25112g.finishWithoutAnim();
+        SingletonHolder.sInstance.f25112g = null;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
     public void onBeanExecSuccess(int i, Object obj, String str) {
         CardAddResponse.updateContent(obj);
-        if (SingletonHolder.sInstance.f25099b == PayRequestCache.BindCategory.Initiative) {
+        if (SingletonHolder.sInstance.f25107b == PayRequestCache.BindCategory.Initiative) {
             String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(NetworkBean.BizType.BindCard);
             StatHelper.cacheSessionId(sessionId);
             StatisticManager.onEventWithValue(PayStatServiceEvent.INITIVATIVE_BIND_CARD_ENTER, sessionId);
         }
-        if (this.f25103f != null) {
-            this.f25098a.sendEmptyMessage(0);
+        if (this.f25111f != null) {
+            this.f25106a.sendEmptyMessage(0);
         }
     }
 
@@ -300,7 +300,7 @@ public class BindCardEntry implements IBeanResponseCallback {
                 return;
             }
         }
-        if (!BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT.equals(event.mEventKey) || SingletonHolder.sInstance.f25101d == null || SingletonHolder.sInstance.f25101d.get() == null) {
+        if (!BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT.equals(event.mEventKey) || SingletonHolder.sInstance.f25109d == null || SingletonHolder.sInstance.f25109d.get() == null) {
             return;
         }
         if (event.mEventObj != null) {
@@ -308,13 +308,13 @@ public class BindCardEntry implements IBeanResponseCallback {
                 JSONObject jSONObject = new JSONObject((String) event.mEventObj);
                 if (jSONObject.has("confirm_result") && 1 == jSONObject.getInt("confirm_result")) {
                     StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_AGREE);
-                    SingletonHolder.sInstance.f25105h = true;
-                    init(SingletonHolder.sInstance.f25101d.get());
+                    SingletonHolder.sInstance.f25113h = true;
+                    init(SingletonHolder.sInstance.f25109d.get());
                     run();
                 } else {
                     StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
                     this.i = false;
-                    SingletonHolder.sInstance.f25098a.obtainMessage(2, -1, 0, "").sendToTarget();
+                    SingletonHolder.sInstance.f25106a.obtainMessage(2, -1, 0, "").sendToTarget();
                 }
                 return;
             } catch (Exception e2) {
@@ -324,27 +324,27 @@ public class BindCardEntry implements IBeanResponseCallback {
         }
         StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
         this.i = false;
-        SingletonHolder.sInstance.f25098a.obtainMessage(2, -1, 0, "").sendToTarget();
+        SingletonHolder.sInstance.f25106a.obtainMessage(2, -1, 0, "").sendToTarget();
     }
 
     public BindCardEntry() {
-        this.f25099b = null;
-        this.f25105h = false;
+        this.f25107b = null;
+        this.f25113h = false;
         this.i = true;
         d dVar = new d(BaiduWalletDelegate.getInstance().getAppContext());
-        this.f25102e = dVar;
+        this.f25110e = dVar;
         dVar.setResponseCallback(this);
-        this.f25098a = new Handler(Looper.getMainLooper()) { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.1
+        this.f25106a = new Handler(Looper.getMainLooper()) { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 int i = message.what;
                 if (1 == i) {
-                    if (BindCardEntry.this.f25103f != null) {
-                        BindCardEntry.this.f25103f.onResponse(CardAddResponse.getInstance());
+                    if (BindCardEntry.this.f25111f != null) {
+                        BindCardEntry.this.f25111f.onResponse(CardAddResponse.getInstance());
                     }
-                    if (BindCardEntry.this.f25104g != null) {
-                        BindCardEntry.this.f25104g.finishWithoutAnim();
-                        BindCardEntry.this.f25104g = null;
+                    if (BindCardEntry.this.f25112g != null) {
+                        BindCardEntry.this.f25112g.finishWithoutAnim();
+                        BindCardEntry.this.f25112g = null;
                     }
                     BindCardEntry.this.a();
                 } else if (i != 0) {
@@ -352,20 +352,20 @@ public class BindCardEntry implements IBeanResponseCallback {
                         if (BindCardEntry.this.i) {
                             BindCardEntry.this.a(message.arg1, (String) message.obj);
                         }
-                        if (BindCardEntry.this.f25103f != null) {
-                            BindCardEntry.this.f25103f.onFailed(message.arg1, (String) message.obj);
+                        if (BindCardEntry.this.f25111f != null) {
+                            BindCardEntry.this.f25111f.onFailed(message.arg1, (String) message.obj);
                         }
-                        if (BindCardEntry.this.f25104g != null) {
-                            BindCardEntry.this.f25104g.finishWithoutAnim();
-                            BindCardEntry.this.f25104g = null;
+                        if (BindCardEntry.this.f25112g != null) {
+                            BindCardEntry.this.f25112g.finishWithoutAnim();
+                            BindCardEntry.this.f25112g = null;
                         }
                         BindCardEntry.this.a();
                     }
                 } else {
                     boolean z = false;
                     CardAddResponse.ConfirmWindow confirmWindow = CardAddResponse.getInstance().confirm_window;
-                    if (confirmWindow != null && BindCardEntry.this.f25104g != null && !TextUtils.isEmpty(confirmWindow.content)) {
-                        PromptTipDialog promptTipDialog = new PromptTipDialog(BindCardEntry.this.f25104g);
+                    if (confirmWindow != null && BindCardEntry.this.f25112g != null && !TextUtils.isEmpty(confirmWindow.content)) {
+                        PromptTipDialog promptTipDialog = new PromptTipDialog(BindCardEntry.this.f25112g);
                         promptTipDialog.setTitleMessage(confirmWindow.title);
                         promptTipDialog.setMessage(confirmWindow.content);
                         promptTipDialog.setButtonMessage(TextUtils.isEmpty(confirmWindow.btn_name) ? "确认" : confirmWindow.btn_name);
@@ -393,12 +393,12 @@ public class BindCardEntry implements IBeanResponseCallback {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.f25103f = null;
-        this.f25101d = null;
-        this.f25100c = null;
-        this.f25099b = null;
-        this.f25102e.a((BindFastRequest) null);
-        this.f25105h = false;
+        this.f25111f = null;
+        this.f25109d = null;
+        this.f25108c = null;
+        this.f25107b = null;
+        this.f25110e.a((BindFastRequest) null);
+        this.f25113h = false;
         this.i = true;
         EventBus.getInstance().unregister(this, "ev_bean_execut_err_content");
         EventBus.getInstance().unregister(this, BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT);

@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import d.b.d.d;
-import d.b.i0.j1.o.l.f;
-import d.b.i0.j1.o.l.k;
-import d.b.i0.q0.p2.c;
-import d.b.i0.s2.f0.e;
-import d.b.i0.s2.f0.h;
+import d.b.j0.j1.o.l.f;
+import d.b.j0.j1.o.l.k;
+import d.b.j0.q0.p2.c;
+import d.b.j0.s2.f0.e;
+import d.b.j0.s2.f0.h;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class a extends d.b.c.j.e.a<d, AdCardViewHolder> implements f {
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public d.b.i0.q0.i1.a p;
+    public d.b.j0.q0.i1.a p;
     public c q;
     public k r;
     public List<k> s;
@@ -29,24 +29,24 @@ public class a extends d.b.c.j.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: d.b.d.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0585a implements d.b.i0.j1.o.a {
-        public C0585a() {
+    public class C0590a implements d.b.j0.j1.o.a {
+        public C0590a() {
         }
 
-        @Override // d.b.i0.j1.o.a
+        @Override // d.b.j0.j1.o.a
         public void a(int i, HashMap<String, Object> hashMap) {
             a aVar = a.this;
             aVar.m0(aVar.n, a.this.n.n());
         }
 
-        @Override // d.b.i0.j1.o.a
+        @Override // d.b.j0.j1.o.a
         public void b(String str, String str2, HashMap<String, Object> hashMap) {
             a aVar = a.this;
             aVar.m0(aVar.n, a.this.n.n());
         }
     }
 
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.b.i0.q0.i1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.b.j0.q0.i1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.s = new ArrayList();
         this.o = tbPageContext;
@@ -83,21 +83,21 @@ public class a extends d.b.c.j.e.a<d, AdCardViewHolder> implements f {
             i2 = 102;
         }
         e.b().d(h.b(v, i2, i));
-        d.b.i0.j1.o.h.c.h(dVar);
+        d.b.j0.j1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.c.j.e.a
     /* renamed from: n0 */
     public AdCardViewHolder R(ViewGroup viewGroup) {
-        d.b.i0.j1.o.l.e a2;
-        if (this.m == null || (a2 = d.b.i0.j1.o.b.h().a(this.o, this.m, 2)) == null) {
+        d.b.j0.j1.o.l.e a2;
+        if (this.m == null || (a2 = d.b.j0.j1.o.b.h().a(this.o, this.m, 2)) == null) {
             return null;
         }
         if (a2 instanceof k) {
             this.s.add((k) a2);
         }
-        a2.setAfterClickSchemeListener(new C0585a());
+        a2.setAfterClickSchemeListener(new C0590a());
         return new AdCardViewHolder(a2);
     }
 
@@ -121,7 +121,7 @@ public class a extends d.b.c.j.e.a<d, AdCardViewHolder> implements f {
         }
     }
 
-    @Override // d.b.i0.j1.o.l.f
+    @Override // d.b.j0.j1.o.l.f
     public void q(k kVar) {
         this.r = kVar;
         f fVar = this.t;
@@ -137,8 +137,8 @@ public class a extends d.b.c.j.e.a<d, AdCardViewHolder> implements f {
         if (dVar == null || adCardViewHolder == null) {
             return null;
         }
-        if (adCardViewHolder.b() instanceof d.b.i0.j1.o.l.h) {
-            d.b.i0.j1.o.l.h hVar = (d.b.i0.j1.o.l.h) adCardViewHolder.b();
+        if (adCardViewHolder.b() instanceof d.b.j0.j1.o.l.h) {
+            d.b.j0.j1.o.l.h hVar = (d.b.j0.j1.o.l.h) adCardViewHolder.b();
             hVar.setAutoPlayCallBack(this.p);
             hVar.setOnVideoContainerForegroundClickListener(this.q);
             hVar.setCurrentPlayCallBack(this);

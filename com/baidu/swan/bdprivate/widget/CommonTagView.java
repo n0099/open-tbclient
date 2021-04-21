@@ -8,22 +8,22 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import d.b.g0.a.i2.h0;
-import d.b.g0.b.h;
+import d.b.h0.a.i2.h0;
+import d.b.h0.b.h;
 /* loaded from: classes3.dex */
 public class CommonTagView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12395e;
+    public Context f12403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12396f;
+    public int f12404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12397g;
+    public int f12405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12398h;
+    public int f12406h;
     public boolean i;
     public boolean j;
     public Paint k;
@@ -35,16 +35,16 @@ public class CommonTagView extends TextView {
 
     public final void a(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.CommonTagView);
-        this.f12396f = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_borderWidth, 1);
-        this.f12397g = obtainStyledAttributes.getColor(h.CommonTagView_borderColor, -16777216);
-        this.f12398h = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_cornerRadius, 3);
+        this.f12404f = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_borderWidth, 1);
+        this.f12405g = obtainStyledAttributes.getColor(h.CommonTagView_borderColor, -16777216);
+        this.f12406h = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_cornerRadius, 3);
         obtainStyledAttributes.recycle();
         setPadding(getPaddingLeft() == 0 ? h0.e(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? h0.e(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? h0.e(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? h0.e(context, 1.0f) : getPaddingBottom());
         b(context);
     }
 
     public final void b(Context context) {
-        this.f12395e = context;
+        this.f12403e = context;
         this.k = new Paint();
         this.l = new RectF();
     }
@@ -55,19 +55,19 @@ public class CommonTagView extends TextView {
         if (this.i) {
             this.k.setStyle(Paint.Style.STROKE);
             this.k.setAntiAlias(true);
-            this.k.setStrokeWidth(this.f12396f);
-            if (this.j && this.f12397g != getCurrentTextColor()) {
-                this.f12397g = getCurrentTextColor();
+            this.k.setStrokeWidth(this.f12404f);
+            if (this.j && this.f12405g != getCurrentTextColor()) {
+                this.f12405g = getCurrentTextColor();
             }
-            this.k.setColor(this.f12397g);
+            this.k.setColor(this.f12405g);
             RectF rectF = this.l;
-            int i = this.f12396f;
+            int i = this.f12404f;
             rectF.left = i * 0.5f;
             rectF.top = i * 0.5f;
-            rectF.right = getMeasuredWidth() - (this.f12396f * 0.5f);
-            this.l.bottom = getMeasuredHeight() - (this.f12396f * 0.5f);
+            rectF.right = getMeasuredWidth() - (this.f12404f * 0.5f);
+            this.l.bottom = getMeasuredHeight() - (this.f12404f * 0.5f);
             RectF rectF2 = this.l;
-            int i2 = this.f12398h;
+            int i2 = this.f12406h;
             canvas.drawRoundRect(rectF2, i2, i2, this.k);
         }
     }

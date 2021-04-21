@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import d.b.g0.a.k;
+import d.b.h0.a.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public String mCallback;
     public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 

@@ -18,16 +18,16 @@ import javax.net.ssl.SSLSession;
 public final class OtpTokenUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23364a = "OtpTokenUtils";
+    public static final String f23372a = "OtpTokenUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23365b = "key_later_server_time";
+    public static final String f23373b = "key_later_server_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f23366c = 0;
+    public static long f23374c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f23367d = 10;
+    public static int f23375d = 10;
 
     public static InputStream a(HttpURLConnection httpURLConnection) {
         try {
@@ -97,11 +97,11 @@ public final class OtpTokenUtils {
     }
 
     public static long getmSyncWithServerTime(Context context) {
-        return ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f23365b, 0L)).longValue();
+        return ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f23373b, 0L)).longValue();
     }
 
     public static void setmSyncWithServerTime(Context context, long j) {
-        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f23365b, Long.valueOf(j));
+        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f23373b, Long.valueOf(j));
     }
 
     public static long syncTime(long j) {
@@ -109,7 +109,7 @@ public final class OtpTokenUtils {
         HttpsURLConnection httpsURLConnection2 = null;
         try {
             try {
-                f23366c = 0L;
+                f23374c = 0L;
                 httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
             } catch (Exception e2) {
                 e = e2;
@@ -121,7 +121,7 @@ public final class OtpTokenUtils {
             httpsURLConnection.setDoOutput(true);
             httpsURLConnection.setUseCaches(false);
             httpsURLConnection.setRequestMethod("GET");
-            httpsURLConnection.setConnectTimeout(f23367d * 1000);
+            httpsURLConnection.setConnectTimeout(f23375d * 1000);
             httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.wallet.base.nopassauth.OtpTokenUtils.1
                 @Override // javax.net.ssl.HostnameVerifier
                 public boolean verify(String str, SSLSession sSLSession) {
@@ -129,7 +129,7 @@ public final class OtpTokenUtils {
                 }
             });
             httpsURLConnection.connect();
-            f23366c = httpsURLConnection.getDate() / 1000;
+            f23374c = httpsURLConnection.getDate() / 1000;
             if (httpsURLConnection != null) {
                 try {
                     InputStream a2 = a(httpsURLConnection);
@@ -141,7 +141,7 @@ public final class OtpTokenUtils {
                 }
                 httpsURLConnection.disconnect();
             }
-            return (System.currentTimeMillis() / 1000) - f23366c;
+            return (System.currentTimeMillis() / 1000) - f23374c;
         } catch (Exception e4) {
             e = e4;
             httpsURLConnection2 = httpsURLConnection;

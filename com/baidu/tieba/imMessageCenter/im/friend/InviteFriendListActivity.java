@@ -22,8 +22,8 @@ import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.PersonalChatDisplayResponse;
-import d.b.i0.f1.a.c.c;
-import d.b.i0.f1.a.c.e;
+import d.b.j0.f1.a.c.c;
+import d.b.j0.f1.a.c.e;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -33,10 +33,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     public boolean isFromInviteChat;
     public boolean isFromSearch;
     public e mModel;
-    public d.b.i0.f1.a.c.d mView;
+    public d.b.j0.f1.a.c.d mView;
     public boolean isLoaded = false;
-    public List<d.b.h0.s.f.a> friendList = null;
-    public LinkedList<d.b.h0.s.f.a> searchedList = new LinkedList<>();
+    public List<d.b.i0.s.f.a> friendList = null;
+    public LinkedList<d.b.i0.s.f.a> searchedList = new LinkedList<>();
     public final AtomicBoolean isLoading = new AtomicBoolean(false);
     public CustomMessageListener friendListResponsedMessageListener = new b(2001184);
     public final d.b.c.c.g.c mListener = new d(205002);
@@ -70,7 +70,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 InviteFriendListActivity.this.isLoading.set(false);
                 InviteFriendListActivity inviteFriendListActivity = InviteFriendListActivity.this;
                 inviteFriendListActivity.hideLoadingView(inviteFriendListActivity.mView.y());
-                List<d.b.h0.s.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
+                List<d.b.i0.s.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
                 if (contacts == null) {
                     contacts = new LinkedList<>();
                 }
@@ -140,7 +140,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     }
 
     private void initView() {
-        d.b.i0.f1.a.c.d dVar = new d.b.i0.f1.a.c.d(this, this.isFromInviteChat);
+        d.b.j0.f1.a.c.d dVar = new d.b.j0.f1.a.c.d(this, this.isFromInviteChat);
         this.mView = dVar;
         dVar.O(100);
     }
@@ -160,7 +160,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.i0.f1.a.c.d dVar = this.mView;
+        d.b.j0.f1.a.c.d dVar = this.mView;
         if (dVar == null) {
             return;
         }
@@ -198,7 +198,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     public void onDestroy() {
         super.onDestroy();
         this.mModel.cancelLoadData();
-        d.b.i0.f1.a.c.d dVar = this.mView;
+        d.b.j0.f1.a.c.d dVar = this.mView;
         if (dVar != null) {
             dVar.J();
         }
@@ -209,14 +209,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         Object tag;
         super.onItemClick(adapterView, view, i, j);
         if (this.isFromInviteChat) {
-            d.b.h0.s.f.a aVar = null;
+            d.b.i0.s.f.a aVar = null;
             if (this.isFromSearch) {
-                LinkedList<d.b.h0.s.f.a> linkedList = this.searchedList;
+                LinkedList<d.b.i0.s.f.a> linkedList = this.searchedList;
                 if (linkedList != null && i < linkedList.size()) {
                     aVar = this.searchedList.get(i);
                 }
             } else {
-                List<d.b.h0.s.f.a> list = this.friendList;
+                List<d.b.i0.s.f.a> list = this.friendList;
                 if (list != null && i < list.size()) {
                     aVar = this.friendList.get(i);
                 }
@@ -227,7 +227,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
         } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
         } else {
-            TbCheckBox tbCheckBox = ((c.a) tag).f55768d;
+            TbCheckBox tbCheckBox = ((c.a) tag).f56189d;
             tbCheckBox.setChecked(!tbCheckBox.d());
         }
     }
@@ -291,7 +291,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             return;
         }
         this.searchedList.clear();
-        for (d.b.h0.s.f.a aVar : this.friendList) {
+        for (d.b.i0.s.f.a aVar : this.friendList) {
             String c2 = aVar.c();
             if (c2 != null && c2.contains(trim)) {
                 this.searchedList.add(aVar);

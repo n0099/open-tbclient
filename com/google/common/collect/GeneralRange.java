@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import d.g.c.a.k;
-import d.g.c.a.n;
+import d.h.c.a.k;
+import d.h.c.a.n;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
@@ -9,7 +9,7 @@ public final class GeneralRange<T> implements Serializable {
     public final Comparator<? super T> comparator;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient GeneralRange<T> f30767e;
+    public transient GeneralRange<T> f30862e;
     public final boolean hasLowerBound;
     public final boolean hasUpperBound;
     public final BoundType lowerBoundType;
@@ -163,11 +163,11 @@ public final class GeneralRange<T> implements Serializable {
     }
 
     public GeneralRange<T> reverse() {
-        GeneralRange<T> generalRange = this.f30767e;
+        GeneralRange<T> generalRange = this.f30862e;
         if (generalRange == null) {
             GeneralRange<T> generalRange2 = new GeneralRange<>(Ordering.from(this.comparator).reverse(), this.hasUpperBound, getUpperEndpoint(), getUpperBoundType(), this.hasLowerBound, getLowerEndpoint(), getLowerBoundType());
-            generalRange2.f30767e = this;
-            this.f30767e = generalRange2;
+            generalRange2.f30862e = this;
+            this.f30862e = generalRange2;
             return generalRange2;
         }
         return generalRange;

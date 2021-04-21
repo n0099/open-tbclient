@@ -22,16 +22,16 @@ import java.lang.ref.WeakReference;
 public class HomePageYoungsterTopView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16974e;
+    public TextView f16982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16975f;
+    public ImageView f16983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f16976g;
+    public c f16984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f16977h;
+    public b f16985h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -40,8 +40,8 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageYoungsterTopView.this.f16977h != null) {
-                HomePageYoungsterTopView.this.f16977h.a();
+            if (HomePageYoungsterTopView.this.f16985h != null) {
+                HomePageYoungsterTopView.this.f16985h.a();
             }
         }
     }
@@ -55,16 +55,16 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     public static class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f16979e;
+        public WeakReference<Context> f16987e;
 
         public c(Context context) {
-            this.f16979e = new WeakReference<>(context);
+            this.f16987e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.f16979e.get();
-            if (context == null || !d.b.h0.c1.b.c.d()) {
+            Context context = this.f16987e.get();
+            if (context == null || !d.b.i0.c1.b.c.d()) {
                 return;
             }
             YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
@@ -86,26 +86,26 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     public final void b() {
         RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.f16974e = (TextView) findViewById(R.id.youngster_top_text);
-        this.f16975f = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.f16982e = (TextView) findViewById(R.id.youngster_top_text);
+        this.f16983f = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
         c cVar = new c(getContext());
-        this.f16976g = cVar;
+        this.f16984g = cVar;
         spannableString.setSpan(cVar, 9, 13, 33);
-        this.f16974e.setText(spannableString);
-        this.f16974e.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f16975f.setOnClickListener(new a());
+        this.f16982e.setText(spannableString);
+        this.f16982e.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f16983f.setOnClickListener(new a());
         c();
     }
 
     public void c() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-        SkinManager.setViewTextColor(this.f16974e, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.f16975f, R.drawable.icon_home_card_delete);
+        SkinManager.setViewTextColor(this.f16982e, R.color.CAM_X0107);
+        SkinManager.setImageResource(this.f16983f, R.drawable.icon_home_card_delete);
     }
 
     public void setOnDeleteClick(b bVar) {
-        this.f16977h = bVar;
+        this.f16985h = bVar;
     }
 
     public HomePageYoungsterTopView(Context context) {

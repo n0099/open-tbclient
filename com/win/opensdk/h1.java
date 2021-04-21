@@ -8,27 +8,27 @@ import java.util.List;
 public class h1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public List f40230a = Collections.synchronizedList(new ArrayList());
+    public List f40325a = Collections.synchronizedList(new ArrayList());
 
     public void a() {
         try {
-            this.f40230a.clear();
+            this.f40325a.clear();
         } catch (Exception unused) {
         }
     }
 
     public void a(List list) {
-        synchronized (this.f40230a) {
-            this.f40230a.clear();
-            this.f40230a.addAll(list);
+        synchronized (this.f40325a) {
+            this.f40325a.clear();
+            this.f40325a.addAll(list);
         }
     }
 
     public Info b() {
         Info info;
-        synchronized (this.f40230a) {
+        synchronized (this.f40325a) {
             info = null;
-            while (this.f40230a.size() > 0 && ((info = (Info) this.f40230a.remove(0)) == null || !info.isEffective())) {
+            while (this.f40325a.size() > 0 && ((info = (Info) this.f40325a.remove(0)) == null || !info.isEffective())) {
             }
         }
         return info;
@@ -36,8 +36,8 @@ public class h1 {
 
     public boolean c() {
         boolean isEmpty;
-        synchronized (this.f40230a) {
-            isEmpty = this.f40230a.isEmpty();
+        synchronized (this.f40325a) {
+            isEmpty = this.f40325a.isEmpty();
         }
         return isEmpty;
     }

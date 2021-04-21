@@ -7,10 +7,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import d.b.e.a.a;
-import d.b.h0.s.c.l;
-import d.b.i0.d3.l0.b;
-import d.b.i0.d3.l0.d.c;
-import d.b.i0.l3.d;
+import d.b.i0.s.c.l;
+import d.b.j0.d3.l0.b;
+import d.b.j0.d3.l0.d.c;
+import d.b.j0.l3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
@@ -51,7 +51,7 @@ public class UegTbJsBridge implements b {
         return cVar;
     }
 
-    @Override // d.b.i0.d3.l0.b
+    @Override // d.b.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if (METHOD_CALL_NATIVE_SMS.equals(str2)) {

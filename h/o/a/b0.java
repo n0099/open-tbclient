@@ -6,39 +6,39 @@ import h.h;
 public final class b0<T> implements h.d<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<T> f68711e;
+    public final h.d<T> f68858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.g f68712f;
+    public final h.g f68859f;
 
     /* loaded from: classes7.dex */
     public static final class a<T> extends h.i<T> implements h.n.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.i<? super T> f68713f;
+        public final h.i<? super T> f68860f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f68714g;
+        public final g.a f68861g;
 
         /* renamed from: h  reason: collision with root package name */
-        public T f68715h;
+        public T f68862h;
         public Throwable i;
 
         public a(h.i<? super T> iVar, g.a aVar) {
-            this.f68713f = iVar;
-            this.f68714g = aVar;
+            this.f68860f = iVar;
+            this.f68861g = aVar;
         }
 
         @Override // h.i
         public void b(Throwable th) {
             this.i = th;
-            this.f68714g.b(this);
+            this.f68861g.b(this);
         }
 
         @Override // h.i
         public void c(T t) {
-            this.f68715h = t;
-            this.f68714g.b(this);
+            this.f68862h = t;
+            this.f68861g.b(this);
         }
 
         @Override // h.n.a
@@ -47,31 +47,31 @@ public final class b0<T> implements h.d<T> {
                 Throwable th = this.i;
                 if (th != null) {
                     this.i = null;
-                    this.f68713f.b(th);
+                    this.f68860f.b(th);
                 } else {
-                    T t = this.f68715h;
-                    this.f68715h = null;
-                    this.f68713f.c(t);
+                    T t = this.f68862h;
+                    this.f68862h = null;
+                    this.f68860f.c(t);
                 }
             } finally {
-                this.f68714g.unsubscribe();
+                this.f68861g.unsubscribe();
             }
         }
     }
 
     public b0(h.d<T> dVar, h.g gVar) {
-        this.f68711e = dVar;
-        this.f68712f = gVar;
+        this.f68858e = dVar;
+        this.f68859f = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.b
     /* renamed from: a */
     public void call(h.i<? super T> iVar) {
-        g.a createWorker = this.f68712f.createWorker();
+        g.a createWorker = this.f68859f.createWorker();
         a aVar = new a(iVar, createWorker);
         iVar.a(createWorker);
         iVar.a(aVar);
-        this.f68711e.call(aVar);
+        this.f68858e.call(aVar);
     }
 }

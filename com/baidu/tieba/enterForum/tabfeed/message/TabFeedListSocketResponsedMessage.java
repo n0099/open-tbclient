@@ -3,13 +3,13 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.c.j.e.n;
-import d.b.h0.g0.b.a;
+import d.b.i0.g0.b.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes4.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
-    public d.b.i0.i0.l.d.a enterForumTabFeedData;
+    public d.b.j0.i0.l.d.a enterForumTabFeedData;
 
     public TabFeedListSocketResponsedMessage() {
         super(309651);
@@ -38,7 +38,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             setErrorString(tabfeedlistResIdl.error.usermsg);
         }
         if (getError() == 0 && tabfeedlistResIdl.data != null) {
-            d.b.i0.i0.l.d.a aVar = new d.b.i0.i0.l.d.a();
+            d.b.j0.i0.l.d.a aVar = new d.b.j0.i0.l.d.a();
             this.enterForumTabFeedData = aVar;
             aVar.g(tabfeedlistResIdl.data);
         }

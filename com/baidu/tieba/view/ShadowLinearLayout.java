@@ -15,16 +15,16 @@ import d.b.c.e.p.l;
 public class ShadowLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21878e;
+    public int f21886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21879f;
+    public int f21887f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21880g;
+    public float f21888g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21881h;
+    public float f21889h;
     public float i;
     public float j;
     public float k;
@@ -50,8 +50,8 @@ public class ShadowLinearLayout extends LinearLayout {
         this.k = l.g(context, R.dimen.ds20);
         float g2 = l.g(context, R.dimen.ds25);
         this.l = g2;
-        this.f21880g = g2;
-        this.f21881h = g2;
+        this.f21888g = g2;
+        this.f21889h = g2;
         this.n = new Path();
         setLayerType(1, this.m);
         b();
@@ -64,22 +64,22 @@ public class ShadowLinearLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.f21878e <= 0 || this.f21879f <= 0) {
+        if (this.f21886e <= 0 || this.f21887f <= 0) {
             return;
         }
-        this.n.moveTo(this.f21880g, this.f21881h + this.k);
+        this.n.moveTo(this.f21888g, this.f21889h + this.k);
         if (this.o == null) {
-            float f2 = this.f21880g;
-            float f3 = this.f21881h;
+            float f2 = this.f21888g;
+            float f3 = this.f21889h;
             float f4 = this.k;
             this.o = new RectF(f2, f3, (f4 * 2.0f) + f2, (f4 * 2.0f) + f3);
         }
         this.n.arcTo(this.o, 180.0f, 90.0f, false);
-        this.n.lineTo(this.i - this.k, this.f21881h);
+        this.n.lineTo(this.i - this.k, this.f21889h);
         if (this.p == null) {
             float f5 = this.i;
             float f6 = this.k;
-            float f7 = this.f21881h;
+            float f7 = this.f21889h;
             this.p = new RectF(f5 - (f6 * 2.0f), f7, f5, (f6 * 2.0f) + f7);
         }
         this.n.arcTo(this.p, 270.0f, 90.0f, false);
@@ -91,15 +91,15 @@ public class ShadowLinearLayout extends LinearLayout {
             this.q = new RectF(f8 - (f9 * 2.0f), f10 - (f9 * 2.0f), f8, f10);
         }
         this.n.arcTo(this.q, 0.0f, 90.0f, false);
-        this.n.lineTo(this.f21880g + this.k, this.j);
+        this.n.lineTo(this.f21888g + this.k, this.j);
         if (this.r == null) {
-            float f11 = this.f21880g;
+            float f11 = this.f21888g;
             float f12 = this.j;
             float f13 = this.k;
             this.r = new RectF(f11, f12 - (f13 * 2.0f), (f13 * 2.0f) + f11, f12);
         }
         this.n.arcTo(this.r, 90.0f, 90.0f, false);
-        this.n.lineTo(this.f21880g, this.f21881h + this.k);
+        this.n.lineTo(this.f21888g, this.f21889h + this.k);
         canvas.drawPath(this.n, this.m);
         super.dispatchDraw(canvas);
     }
@@ -107,10 +107,10 @@ public class ShadowLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f21878e = getMeasuredWidth();
+        this.f21886e = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        this.f21879f = measuredHeight;
-        int i3 = this.f21878e;
+        this.f21887f = measuredHeight;
+        int i3 = this.f21886e;
         if (i3 <= 0 || measuredHeight <= 0) {
             return;
         }

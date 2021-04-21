@@ -2,7 +2,7 @@ package com.facebook.animated.gif;
 
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.soloader.SoLoaderShim;
+import com.facebook.common.soloader.SoLoaderProxy;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
 import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
@@ -35,7 +35,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         synchronized (GifImage.class) {
             if (!sInitialized) {
                 sInitialized = true;
-                SoLoaderShim.loadLibrary("gifimage");
+                SoLoaderProxy.loadLibrary("gifimage");
             }
         }
     }
@@ -56,28 +56,40 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
     }
 
+    @DoNotStrip
     public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
+    @DoNotStrip
     public static native GifImage nativeCreateFromNativeMemory(long j, int i);
 
+    @DoNotStrip
     private native void nativeDispose();
 
+    @DoNotStrip
     private native void nativeFinalize();
 
+    @DoNotStrip
     private native int nativeGetDuration();
 
+    @DoNotStrip
     private native GifFrame nativeGetFrame(int i);
 
+    @DoNotStrip
     private native int nativeGetFrameCount();
 
+    @DoNotStrip
     private native int[] nativeGetFrameDurations();
 
+    @DoNotStrip
     private native int nativeGetHeight();
 
+    @DoNotStrip
     private native int nativeGetLoopCount();
 
+    @DoNotStrip
     private native int nativeGetSizeInBytes();
 
+    @DoNotStrip
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
@@ -156,10 +168,21 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         this.mNativeContext = j;
     }
 
+    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
+    public AnimatedImage decode(ByteBuffer byteBuffer) {
+        return create(byteBuffer);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public GifFrame getFrame(int i) {
         return nativeGetFrame(i);
+    }
+
+    public static GifImage create(ByteBuffer byteBuffer) {
+        ensure();
+        byteBuffer.rewind();
+        return nativeCreateFromDirectByteBuffer(byteBuffer);
     }
 
     public static GifImage create(long j, int i) {

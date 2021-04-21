@@ -1,76 +1,13 @@
 package d.b.h0.i;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class b {
+public interface b {
+    void a(int i, List<o> list);
 
-    /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<TbPageContext<?>> f50633a = null;
+    boolean b(o oVar);
 
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f50634b = false;
+    void c(int i, List<o> list);
 
-    /* loaded from: classes3.dex */
-    public interface a {
-    }
-
-    public b() {
-        new ArrayList(5);
-    }
-
-    public static b a(BaseFragmentActivity baseFragmentActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, b.class, baseFragmentActivity);
-        if (runTask == null || runTask.getData() == null) {
-            return null;
-        }
-        return (b) runTask.getData();
-    }
-
-    public boolean b() {
-        return f50634b;
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g(int i);
-
-    public void h() {
-        WeakReference<TbPageContext<?>> weakReference = f50633a;
-        if (weakReference != null) {
-            weakReference.get();
-            f50633a.clear();
-            f50633a = null;
-        }
-    }
-
-    public abstract void i();
-
-    public void j(TbPageContext<?> tbPageContext) {
-        WeakReference<TbPageContext<?>> weakReference = f50633a;
-        if (weakReference == null) {
-            f50633a = new WeakReference<>(tbPageContext);
-            return;
-        }
-        weakReference.clear();
-        f50633a = null;
-        f50633a = new WeakReference<>(tbPageContext);
-    }
-
-    public abstract void k(a aVar);
-
-    public void l(boolean z) {
-    }
-
-    public abstract void m();
+    void d(int i, List<o> list);
 }

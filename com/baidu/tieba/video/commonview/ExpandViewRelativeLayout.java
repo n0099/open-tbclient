@@ -8,16 +8,16 @@ import android.widget.RelativeLayout;
 public class ExpandViewRelativeLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21419e;
+    public a f21427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21420f;
+    public boolean f21428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21421g;
+    public float f21429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21422h;
+    public float f21430h;
     public boolean i;
 
     /* loaded from: classes5.dex */
@@ -43,9 +43,9 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f21421g = motionEvent.getY();
-            this.f21422h = motionEvent.getY();
-            a aVar = this.f21419e;
+            this.f21429g = motionEvent.getY();
+            this.f21430h = motionEvent.getY();
+            a aVar = this.f21427e;
             if (aVar != null) {
                 aVar.b(motionEvent.getY());
             }
@@ -57,17 +57,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action != 0) {
-            if (action == 2 && this.f21419e != null) {
-                this.f21421g = motionEvent.getY();
-                boolean c2 = this.f21419e.c(motionEvent.getY() - this.f21421g, motionEvent.getY(), motionEvent.getY() - this.f21422h > 0.0f ? 1 : 2);
-                this.f21420f = c2;
+            if (action == 2 && this.f21427e != null) {
+                this.f21429g = motionEvent.getY();
+                boolean c2 = this.f21427e.c(motionEvent.getY() - this.f21429g, motionEvent.getY(), motionEvent.getY() - this.f21430h > 0.0f ? 1 : 2);
+                this.f21428f = c2;
                 return c2;
             }
         } else {
-            a aVar = this.f21419e;
+            a aVar = this.f21427e;
             if (aVar != null) {
                 boolean c3 = aVar.c(0.0f, motionEvent.getY(), 0);
-                this.f21420f = c3;
+                this.f21428f = c3;
                 return c3;
             }
         }
@@ -87,16 +87,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
         int action = motionEvent.getAction();
         if (action != 1) {
             if (action == 2) {
-                float y = motionEvent.getY() - this.f21421g;
-                int i = motionEvent.getY() - this.f21422h > 0.0f ? 1 : 2;
-                if (this.f21420f && (aVar = this.f21419e) != null) {
+                float y = motionEvent.getY() - this.f21429g;
+                int i = motionEvent.getY() - this.f21430h > 0.0f ? 1 : 2;
+                if (this.f21428f && (aVar = this.f21427e) != null) {
                     aVar.d(motionEvent.getY(), y, i);
                     return true;
                 }
             }
         } else {
-            this.f21420f = false;
-            a aVar2 = this.f21419e;
+            this.f21428f = false;
+            a aVar2 = this.f21427e;
             if (aVar2 != null) {
                 aVar2.a();
             }
@@ -114,7 +114,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f21419e = aVar;
+        this.f21427e = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context, AttributeSet attributeSet) {

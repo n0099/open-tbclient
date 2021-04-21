@@ -11,23 +11,23 @@ import org.json.JSONObject;
 public final class e implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ OnUploadFilesCallback f64751e;
+    public final /* synthetic */ OnUploadFilesCallback f65015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f64752f;
+    public final /* synthetic */ String f65016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ String f64753g;
+    public final /* synthetic */ String f65017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ String f64754h;
+    public final /* synthetic */ String f65018h;
     public final /* synthetic */ String i;
 
     public e(OnUploadFilesCallback onUploadFilesCallback, String str, String str2, String str3, String str4) {
-        this.f64751e = onUploadFilesCallback;
-        this.f64752f = str;
-        this.f64753g = str2;
-        this.f64754h = str3;
+        this.f65015e = onUploadFilesCallback;
+        this.f65016f = str;
+        this.f65017g = str2;
+        this.f65018h = str3;
         this.i = str4;
     }
 
@@ -35,14 +35,14 @@ public final class e implements Runnable {
     public final void run() {
         String b2 = o.b();
         if (!((b2.equals("NONE") || b2.equals(RomUtils.UNKNOWN)) ? false : true)) {
-            this.f64751e.onFailed("Network is not connected!");
+            this.f65015e.onFailed("Network is not connected!");
             return;
         }
-        JSONObject a2 = j.a(this.f64752f, this.f64751e, this.f64753g, this.f64754h, this.i);
+        JSONObject a2 = j.a(this.f65016f, this.f65015e, this.f65017g, this.f65018h, this.i);
         if (a2 == null) {
             return;
         }
-        String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4673d, this.f64752f);
+        String h2 = com.baidu.crabsdk.c.d.h(com.baidu.crabsdk.a.f4673d, this.f65016f);
         try {
             byte[] g2 = com.baidu.crabsdk.c.d.g(com.baidu.crabsdk.c.c.j(a2.toString()), h2);
             String a3 = com.baidu.crabsdk.c.e.a(h2);
@@ -51,31 +51,31 @@ public final class e implements Runnable {
             String a4 = r.a(e2, g2, a3);
             if (TextUtils.isEmpty(a4)) {
                 com.baidu.crabsdk.c.a.e("result is empty!");
-                this.f64751e.onFailed("Result is empty!");
+                this.f65015e.onFailed("Result is empty!");
             } else if (a4 != null && a4.equals("N/A")) {
-                this.f64751e.onFailed("Not connected to server!");
+                this.f65015e.onFailed("Not connected to server!");
             } else {
                 com.baidu.crabsdk.c.a.c("Result is: " + a4);
                 try {
                     JSONObject jSONObject = new JSONObject(a4);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
-                            this.f64751e.onSuccess();
+                            this.f65015e.onSuccess();
                         } else {
-                            this.f64751e.onFailed(jSONObject.optString("msg", "No errorMessage!"));
+                            this.f65015e.onFailed(jSONObject.optString("msg", "No errorMessage!"));
                         }
                     }
                 } catch (Exception e3) {
                     com.baidu.crabsdk.c.a.a("Parse result error!", e3);
-                    this.f64751e.onFailed("Parse result error!");
+                    this.f65015e.onFailed("Parse result error!");
                 }
             }
         } catch (Exception e4) {
             com.baidu.crabsdk.c.a.a("crash content AES failed!", e4);
-            this.f64751e.onFailed(e4.getMessage());
+            this.f65015e.onFailed(e4.getMessage());
         } catch (OutOfMemoryError e5) {
             com.baidu.crabsdk.c.a.a("OutOfMemoryError", e5);
-            this.f64751e.onFailed(e5.getMessage());
+            this.f65015e.onFailed(e5.getMessage());
         }
     }
 }

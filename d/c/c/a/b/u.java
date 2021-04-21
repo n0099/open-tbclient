@@ -10,22 +10,22 @@ import javax.net.ssl.SSLSession;
 public final class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ad f66396a;
+    public final ad f66491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f66397b;
+    public final l f66492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Certificate> f66398c;
+    public final List<Certificate> f66493c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Certificate> f66399d;
+    public final List<Certificate> f66494d;
 
     public u(ad adVar, l lVar, List<Certificate> list, List<Certificate> list2) {
-        this.f66396a = adVar;
-        this.f66397b = lVar;
-        this.f66398c = list;
-        this.f66399d = list2;
+        this.f66491a = adVar;
+        this.f66492b = lVar;
+        this.f66493c = list;
+        this.f66494d = list2;
     }
 
     public static u b(SSLSession sSLSession) {
@@ -62,22 +62,22 @@ public final class u {
     }
 
     public l a() {
-        return this.f66397b;
+        return this.f66492b;
     }
 
     public List<Certificate> c() {
-        return this.f66398c;
+        return this.f66493c;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f66396a.equals(uVar.f66396a) && this.f66397b.equals(uVar.f66397b) && this.f66398c.equals(uVar.f66398c) && this.f66399d.equals(uVar.f66399d);
+            return this.f66491a.equals(uVar.f66491a) && this.f66492b.equals(uVar.f66492b) && this.f66493c.equals(uVar.f66493c) && this.f66494d.equals(uVar.f66494d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((527 + this.f66396a.hashCode()) * 31) + this.f66397b.hashCode()) * 31) + this.f66398c.hashCode()) * 31) + this.f66399d.hashCode();
+        return ((((((527 + this.f66491a.hashCode()) * 31) + this.f66492b.hashCode()) * 31) + this.f66493c.hashCode()) * 31) + this.f66494d.hashCode();
     }
 }

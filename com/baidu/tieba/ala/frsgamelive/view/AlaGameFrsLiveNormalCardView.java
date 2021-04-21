@@ -5,23 +5,23 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
-import d.b.i0.t.e.b.c;
-import d.b.i0.x.b;
+import d.b.i0.r.q.a2;
+import d.b.j0.t.e.b.c;
+import d.b.j0.x.b;
 /* loaded from: classes4.dex */
 public class AlaGameFrsLiveNormalCardView extends b<c> {
     public TbPageContext m;
-    public d.b.i0.t.e.d.b n;
+    public d.b.j0.t.e.d.b n;
 
     /* loaded from: classes4.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsLiveNormalCardView f14660a;
+        public AlaGameFrsLiveNormalCardView f14668a;
 
         public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
             super(alaGameFrsLiveNormalCardView.m());
-            this.f14660a = alaGameFrsLiveNormalCardView;
+            this.f14668a = alaGameFrsLiveNormalCardView;
         }
     }
 
@@ -31,14 +31,14 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
         u();
     }
 
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     public int h() {
         return R.layout.ala_sub_list_game_live;
     }
 
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
-        d.b.i0.t.e.d.b bVar = this.n;
+        d.b.j0.t.e.d.b bVar = this.n;
         if (bVar != null) {
             bVar.e(tbPageContext, i);
         }
@@ -49,24 +49,24 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     }
 
     public final void u() {
-        this.n = new d.b.i0.t.e.d.b(this.m);
+        this.n = new d.b.j0.t.e.d.b(this.m);
         ((ViewGroup) m()).addView(this.n.c());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     /* renamed from: v */
     public void n(c cVar) {
         a2 a2Var;
-        d.b.i0.t.e.d.b bVar;
-        if (cVar == null || (a2Var = cVar.f62250e) == null || (bVar = this.n) == null) {
+        d.b.j0.t.e.d.b bVar;
+        if (cVar == null || (a2Var = cVar.f62671e) == null || (bVar = this.n) == null) {
             return;
         }
         bVar.d(a2Var);
     }
 
-    public void w(d.b.i0.t.c cVar) {
-        d.b.i0.t.e.d.b bVar = this.n;
+    public void w(d.b.j0.t.c cVar) {
+        d.b.j0.t.e.d.b bVar = this.n;
         if (bVar != null) {
             bVar.g(cVar);
         }

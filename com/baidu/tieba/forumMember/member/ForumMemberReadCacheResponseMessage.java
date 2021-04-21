@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.d3.w;
+import d.b.j0.d3.w;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetMemberInfo.DataRes;

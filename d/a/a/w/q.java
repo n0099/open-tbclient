@@ -14,13 +14,13 @@ import java.lang.ref.WeakReference;
 public class q {
 
     /* renamed from: b  reason: collision with root package name */
-    public static SparseArrayCompat<WeakReference<Interpolator>> f41770b;
+    public static SparseArrayCompat<WeakReference<Interpolator>> f41865b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f41769a = new LinearInterpolator();
+    public static final Interpolator f41864a = new LinearInterpolator();
 
     /* renamed from: c  reason: collision with root package name */
-    public static JsonReader.a f41771c = JsonReader.a.a("t", "s", "e", Config.OS, "i", "h", "to", Config.FEED_LIST_PART);
+    public static JsonReader.a f41866c = JsonReader.a.a("t", "s", "e", Config.OS, "i", "h", "to", Config.FEED_LIST_PART);
 
     @Nullable
     public static WeakReference<Interpolator> a(int i) {
@@ -52,7 +52,7 @@ public class q {
         boolean z = false;
         float f3 = 0.0f;
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41771c)) {
+            switch (jsonReader.D(f41866c)) {
                 case 0:
                     f3 = (float) jsonReader.w();
                     break;
@@ -89,7 +89,7 @@ public class q {
         }
         jsonReader.r();
         if (z) {
-            interpolator = f41769a;
+            interpolator = f41864a;
             t = t3;
         } else {
             if (pointF != null && pointF2 != null) {
@@ -126,7 +126,7 @@ public class q {
                 }
                 interpolator = interpolator2;
             } else {
-                interpolator = f41769a;
+                interpolator = f41864a;
             }
             t = t2;
         }
@@ -141,15 +141,15 @@ public class q {
     }
 
     public static SparseArrayCompat<WeakReference<Interpolator>> e() {
-        if (f41770b == null) {
-            f41770b = new SparseArrayCompat<>();
+        if (f41865b == null) {
+            f41865b = new SparseArrayCompat<>();
         }
-        return f41770b;
+        return f41865b;
     }
 
     public static void f(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            f41770b.put(i, weakReference);
+            f41865b.put(i, weakReference);
         }
     }
 }

@@ -18,7 +18,7 @@ public class r0 extends h {
     public int m;
     public int n;
     public Context o;
-    public d.b.h0.r.q.a p;
+    public d.b.i0.r.q.a p;
     public VideoImageNoPlayerLayout q;
     public int r;
     public String s;
@@ -33,9 +33,9 @@ public class r0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             r0 r0Var = r0.this;
-            a.InterfaceC1129a interfaceC1129a = r0Var.i;
-            if (interfaceC1129a != null) {
-                interfaceC1129a.a(r0Var.p);
+            a.InterfaceC1070a interfaceC1070a = r0Var.i;
+            if (interfaceC1070a != null) {
+                interfaceC1070a.a(r0Var.p);
             }
         }
     }
@@ -46,7 +46,7 @@ public class r0 extends h {
         }
 
         @Override // d.b.i.v0.a
-        public void a(d.b.h0.r.q.a aVar) {
+        public void a(d.b.i0.r.q.a aVar) {
             if (r0.this.u != null) {
                 r0.this.u.a(r0.this.p);
             }
@@ -72,7 +72,7 @@ public class r0 extends h {
     }
 
     @Override // d.b.i.a
-    public void l(d.b.i0.x.b0<d.b.h0.r.q.a> b0Var) {
+    public void l(d.b.j0.x.b0<d.b.i0.r.q.a> b0Var) {
         super.l(b0Var);
         this.q.setOnCardSubClickListener(b0Var);
     }
@@ -96,14 +96,14 @@ public class r0 extends h {
         r5 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x00e5, code lost:
-        r1 = d.b.h0.b.g.b.l(r11, r0, r2, r3, r5);
+        r1 = d.b.i0.b.g.b.l(r11, r0, r2, r3, r5);
      */
     @Override // d.b.i.p
     /* renamed from: u */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         int k = d.b.c.e.p.l.k(TbadkCoreApplication.getInst());
         if (k != this.r) {
             w = d.b.c.e.p.l.k(TbadkCoreApplication.getInst());
@@ -177,8 +177,8 @@ public class r0 extends h {
         this.s = str;
     }
 
-    public void w(a.InterfaceC1129a interfaceC1129a) {
-        this.i = interfaceC1129a;
+    public void w(a.InterfaceC1070a interfaceC1070a) {
+        this.i = interfaceC1070a;
     }
 
     public void x(d.b.i.v0.a aVar) {

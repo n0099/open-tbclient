@@ -13,8 +13,8 @@ public class FastPayResultAdapter extends PayResultAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getExpectedTime() {
-        PayResultContent payResultContent = this.f25355c;
-        return (payResultContent == null || TextUtils.isEmpty(payResultContent.expected_time)) ? "" : this.f25355c.expected_time;
+        PayResultContent payResultContent = this.f25363c;
+        return (payResultContent == null || TextUtils.isEmpty(payResultContent.expected_time)) ? "" : this.f25363c.expected_time;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
@@ -27,6 +27,6 @@ public class FastPayResultAdapter extends PayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.PayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
         super.onCreateCheckInvalide(bundle);
-        return this.f25355c != null;
+        return this.f25363c != null;
     }
 }

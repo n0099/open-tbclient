@@ -2,11 +2,11 @@ package com.baidu.tieba.ala.alasquare.live_tab.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.t.d.c.e.a;
-import d.b.i0.t.d.c.e.d;
-import d.b.i0.t.d.c.e.g;
-import d.b.i0.t.d.c.e.h;
-import d.b.i0.t.d.c.e.j;
+import d.b.j0.t.d.c.e.a;
+import d.b.j0.t.d.c.e.d;
+import d.b.j0.t.d.c.e.g;
+import d.b.j0.t.d.c.e.h;
+import d.b.j0.t.d.c.e.j;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {

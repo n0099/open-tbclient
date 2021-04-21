@@ -10,13 +10,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class BufferUntilSubscriber<T> extends d<T, T> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final e f69153h = new a();
+    public static final e f69300h = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public final State<T> f69154f;
+    public final State<T> f69301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f69155g;
+    public boolean f69302g;
 
     /* loaded from: classes7.dex */
     public static final class State<T> extends AtomicReference<e<? super T>> {
@@ -49,7 +49,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
     public static final class b<T> implements d.a<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final State<T> f69156e;
+        public final State<T> f69303e;
 
         /* loaded from: classes7.dex */
         public class a implements h.n.a {
@@ -58,12 +58,12 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
 
             @Override // h.n.a
             public void call() {
-                b.this.f69156e.set(BufferUntilSubscriber.f69153h);
+                b.this.f69303e.set(BufferUntilSubscriber.f69300h);
             }
         }
 
         public b(State<T> state) {
-            this.f69156e = state;
+            this.f69303e = state;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,27 +71,27 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         /* renamed from: a */
         public void call(j<? super T> jVar) {
             boolean z;
-            if (this.f69156e.casObserverRef(null, jVar)) {
+            if (this.f69303e.casObserverRef(null, jVar)) {
                 jVar.add(h.u.e.a(new a()));
-                synchronized (this.f69156e.guard) {
+                synchronized (this.f69303e.guard) {
                     z = true;
-                    if (this.f69156e.emitting) {
+                    if (this.f69303e.emitting) {
                         z = false;
                     } else {
-                        this.f69156e.emitting = true;
+                        this.f69303e.emitting = true;
                     }
                 }
                 if (!z) {
                     return;
                 }
                 while (true) {
-                    Object poll = this.f69156e.buffer.poll();
+                    Object poll = this.f69303e.buffer.poll();
                     if (poll != null) {
-                        NotificationLite.a(this.f69156e.get(), poll);
+                        NotificationLite.a(this.f69303e.get(), poll);
                     } else {
-                        synchronized (this.f69156e.guard) {
-                            if (this.f69156e.buffer.isEmpty()) {
-                                this.f69156e.emitting = false;
+                        synchronized (this.f69303e.guard) {
+                            if (this.f69303e.buffer.isEmpty()) {
+                                this.f69303e.emitting = false;
                                 return;
                             }
                         }
@@ -105,7 +105,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
 
     public BufferUntilSubscriber(State<T> state) {
         super(new b(state));
-        this.f69154f = state;
+        this.f69301f = state;
     }
 
     public static <T> BufferUntilSubscriber<T> N() {
@@ -113,29 +113,29 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
     }
 
     public final void O(Object obj) {
-        synchronized (this.f69154f.guard) {
-            this.f69154f.buffer.add(obj);
-            if (this.f69154f.get() != null && !this.f69154f.emitting) {
-                this.f69155g = true;
-                this.f69154f.emitting = true;
+        synchronized (this.f69301f.guard) {
+            this.f69301f.buffer.add(obj);
+            if (this.f69301f.get() != null && !this.f69301f.emitting) {
+                this.f69302g = true;
+                this.f69301f.emitting = true;
             }
         }
-        if (!this.f69155g) {
+        if (!this.f69302g) {
             return;
         }
         while (true) {
-            Object poll = this.f69154f.buffer.poll();
+            Object poll = this.f69301f.buffer.poll();
             if (poll == null) {
                 return;
             }
-            NotificationLite.a(this.f69154f.get(), poll);
+            NotificationLite.a(this.f69301f.get(), poll);
         }
     }
 
     @Override // h.e
     public void onCompleted() {
-        if (this.f69155g) {
-            this.f69154f.get().onCompleted();
+        if (this.f69302g) {
+            this.f69301f.get().onCompleted();
         } else {
             O(NotificationLite.b());
         }
@@ -143,8 +143,8 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
 
     @Override // h.e
     public void onError(Throwable th) {
-        if (this.f69155g) {
-            this.f69154f.get().onError(th);
+        if (this.f69302g) {
+            this.f69301f.get().onError(th);
         } else {
             O(NotificationLite.c(th));
         }
@@ -152,8 +152,8 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
 
     @Override // h.e
     public void onNext(T t) {
-        if (this.f69155g) {
-            this.f69154f.get().onNext(t);
+        if (this.f69302g) {
+            this.f69301f.get().onNext(t);
         } else {
             O(NotificationLite.h(t));
         }

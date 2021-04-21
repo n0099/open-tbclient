@@ -39,25 +39,25 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     public Runnable E;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f32471b;
+    public FrameLayout f32566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f32472c;
+    public AdBaseFrameLayout f32567c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f32473d;
+    public ViewGroup f32568d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f32474e;
+    public WebView f32569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewStub f32475f;
+    public ViewStub f32570f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f32476g;
+    public ViewGroup f32571g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f32477h;
+    public ImageView f32572h;
     public TextView i;
     public View j;
     public TextView k;
@@ -99,15 +99,15 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         Runnable runnable = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.3
             @Override // java.lang.Runnable
             public void run() {
-                int i = -d.this.f32476g.getWidth();
-                d.this.f32476g.setTranslationX(i);
-                d.this.f32476g.setVisibility(0);
+                int i = -d.this.f32571g.getWidth();
+                d.this.f32571g.setTranslationX(i);
+                d.this.f32571g.setVisibility(0);
                 d.this.h();
                 d dVar = d.this;
-                dVar.w = am.c(dVar.f32476g, i, 0);
+                dVar.w = am.c(dVar.f32571g, i, 0);
                 d.this.w.start();
                 d.this.w();
-                d.this.f32476g.setOnClickListener(d.this);
+                d.this.f32571g.setOnClickListener(d.this);
             }
         };
         this.B = runnable;
@@ -226,14 +226,14 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         this.q = false;
         this.y = false;
         this.z = false;
-        ViewGroup viewGroup = this.f32476g;
+        ViewGroup viewGroup = this.f32571g;
         if (viewGroup != null) {
             viewGroup.removeCallbacks(this.C);
-            this.f32476g.setVisibility(8);
+            this.f32571g.setVisibility(8);
         }
-        this.f32473d.setTranslationX(0.0f);
-        this.f32471b.setVisibility(8);
-        this.f32471b.removeCallbacks(this.E);
+        this.f32568d.setTranslationX(0.0f);
+        this.f32566b.setVisibility(8);
+        this.f32566b.removeCallbacks(this.E);
         b bVar = this.v;
         if (bVar != null) {
             bVar.b();
@@ -252,14 +252,14 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         SceneImpl sceneImpl = this.n.mAdScene;
         f fVar = new f(sceneImpl);
         if (sceneImpl instanceof SceneImpl) {
-            fVar.f33941b = this.n.mAdScene.getPageScene();
+            fVar.f34036b = this.n.mAdScene.getPageScene();
         }
-        fVar.f33942c = 101L;
+        fVar.f34037c = 101L;
         PhotoInfo k = com.kwad.sdk.core.response.b.c.k(this.n);
         final long k2 = com.kwad.sdk.core.response.b.d.k(k);
         l lVar = new l();
-        lVar.f33962a = k2;
-        lVar.f33963b = com.kwad.sdk.core.response.b.d.o(k);
+        lVar.f34057a = k2;
+        lVar.f34058b = com.kwad.sdk.core.response.b.d.o(k);
         com.kwad.sdk.core.g.f.a(k2, fVar, lVar, new f.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.2
             @Override // com.kwad.sdk.core.g.f.a
             public void a(int i, String str) {
@@ -278,12 +278,12 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     }
 
     private void g() {
-        this.f32476g.removeCallbacks(this.C);
+        this.f32571g.removeCallbacks(this.C);
         long j = this.s.weakStyleAppearTime;
         if (j <= 0) {
             j = 0;
         }
-        this.f32476g.postDelayed(this.C, j);
+        this.f32571g.postDelayed(this.C, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -299,22 +299,22 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     }
 
     private void p() {
-        if (ao.a((View) this.f32476g, 50, false)) {
-            ValueAnimator c2 = am.c(this.f32476g, 0, -this.f32476g.getWidth());
+        if (ao.a((View) this.f32571g, 50, false)) {
+            ValueAnimator c2 = am.c(this.f32571g, 0, -this.f32571g.getWidth());
             this.x = c2;
             c2.start();
             this.m.setOnClickListener(null);
-            this.f32476g.setOnClickListener(null);
+            this.f32571g.setOnClickListener(null);
             s();
         }
     }
 
     private void q() {
-        if (this.f32475f.getParent() != null) {
-            ViewGroup viewGroup = (ViewGroup) this.f32475f.inflate();
-            this.f32476g = viewGroup;
+        if (this.f32570f.getParent() != null) {
+            ViewGroup viewGroup = (ViewGroup) this.f32570f.inflate();
+            this.f32571g = viewGroup;
             viewGroup.setVisibility(8);
-            this.f32477h = (ImageView) b(R.id.ksad_patch_icon);
+            this.f32572h = (ImageView) b(R.id.ksad_patch_icon);
             this.i = (TextView) b(R.id.ksad_patch_ad_title);
             this.j = b(R.id.ksad_patch_ad_mid_line);
             this.k = (TextView) b(R.id.ksad_patch_ad_app_status);
@@ -327,10 +327,10 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         AdInfo j = com.kwad.sdk.core.response.b.c.j(this.r);
         String str = this.s.weakStyleIcon;
         if (ag.a(str)) {
-            this.f32477h.setVisibility(8);
+            this.f32572h.setVisibility(8);
         } else {
-            KSImageLoader.loadImage(this.f32477h, str, this.r);
-            this.f32477h.setVisibility(0);
+            KSImageLoader.loadImage(this.f32572h, str, this.r);
+            this.f32572h.setVisibility(0);
         }
         if (com.kwad.sdk.core.response.b.a.y(j)) {
             s();
@@ -353,7 +353,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         } else {
             this.m.setVisibility(8);
         }
-        this.f32476g.setVisibility(4);
+        this.f32571g.setVisibility(4);
     }
 
     private void s() {
@@ -371,7 +371,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         }
         b bVar = new b();
         this.v = bVar;
-        bVar.a(this.f32473d, this.f32476g, this.f32471b, this.f32474e, this.f32472c, this.r, this.t);
+        bVar.a(this.f32568d, this.f32571g, this.f32566b, this.f32569e, this.f32567c, this.r, this.t);
         this.v.a();
     }
 
@@ -392,12 +392,12 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (u()) {
             return;
         }
-        this.f32471b.removeCallbacks(this.E);
+        this.f32566b.removeCallbacks(this.E);
         long j = this.s.strongStyleAppearTime;
         if (j <= 0) {
             j = 5000;
         }
-        this.f32471b.postDelayed(this.E, j);
+        this.f32566b.postDelayed(this.E, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -408,7 +408,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     /* JADX INFO: Access modifiers changed from: private */
     public void x() {
         AdTemplate adTemplate = this.r;
-        AdBaseFrameLayout adBaseFrameLayout = this.f32472c;
+        AdBaseFrameLayout adBaseFrameLayout = this.f32567c;
         com.kwad.sdk.core.report.b.a(adTemplate, 51, adBaseFrameLayout == null ? null : adBaseFrameLayout.getTouchCoords());
     }
 
@@ -419,32 +419,32 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.j;
+        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.j;
         this.n = adTemplate;
         if (!com.kwad.sdk.core.response.b.d.H(com.kwad.sdk.core.response.b.c.k(adTemplate))) {
             this.o = false;
             return;
         }
         this.o = true;
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32442b.add(this.A);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32537b.add(this.A);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
         if (this.o) {
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32442b.remove(this.A);
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32537b.remove(this.A);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32472c = (AdBaseFrameLayout) b(R.id.ksad_root_container);
-        this.f32473d = (ViewGroup) b(R.id.ksad_bottom_content_container);
-        this.f32471b = (FrameLayout) b(R.id.ksad_web_card_container);
-        this.f32474e = (WebView) b(R.id.ksad_actionbar_web_card);
-        this.f32475f = (ViewStub) b(R.id.ksad_patch_ad_view_stub);
+        this.f32567c = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.f32568d = (ViewGroup) b(R.id.ksad_bottom_content_container);
+        this.f32566b = (FrameLayout) b(R.id.ksad_web_card_container);
+        this.f32569e = (WebView) b(R.id.ksad_actionbar_web_card);
+        this.f32570f = (ViewStub) b(R.id.ksad_patch_ad_view_stub);
     }
 
     @Override // android.view.View.OnClickListener
@@ -452,15 +452,15 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (view == this.m) {
             p();
             this.y = true;
-            this.f32471b.removeCallbacks(this.E);
+            this.f32566b.removeCallbacks(this.E);
             y();
-        } else if (view == this.f32476g) {
+        } else if (view == this.f32571g) {
             if (!com.ksad.download.d.b.a(view.getContext())) {
                 p.a(view.getContext(), "网络错误");
             }
             com.kwad.sdk.core.download.b.b.a(this.t, true);
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.r, new a.InterfaceC0393a() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.6
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0393a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.r, new a.InterfaceC0396a() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.d.6
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0396a
                 public void a() {
                     d.this.z = true;
                     d.this.x();

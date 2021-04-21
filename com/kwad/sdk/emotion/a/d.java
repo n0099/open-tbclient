@@ -14,35 +14,35 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f34949a;
+    public static volatile d f35044a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static com.kwad.sdk.emotion.model.a f34950e;
+    public static com.kwad.sdk.emotion.model.a f35045e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.kwad.sdk.emotion.model.b f34951f;
+    public static com.kwad.sdk.emotion.model.b f35046f;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34954d;
+    public int f35049d;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34952b = false;
+    public boolean f35047b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, f> f34953c = new ConcurrentHashMap();
+    public final Map<Integer, f> f35048c = new ConcurrentHashMap();
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34955g = "0";
+    public String f35050g = "0";
 
     public static d a() {
-        if (f34949a == null) {
+        if (f35044a == null) {
             synchronized (d.class) {
-                if (f34949a == null) {
-                    f34949a = new d();
+                if (f35044a == null) {
+                    f35044a = new d();
                 }
             }
         }
-        return f34949a;
+        return f35044a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -57,20 +57,20 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public Map<Integer, f> a(List<EmotionPackage> list) {
         com.kwad.sdk.core.d.a.a("EmotionManager", "load form network: size=" + list.size());
-        this.f34953c.clear();
-        this.f34954d = 0;
+        this.f35048c.clear();
+        this.f35049d = 0;
         for (EmotionPackage emotionPackage : list) {
-            this.f34954d++;
-            f fVar = this.f34953c.get(Integer.valueOf(emotionPackage.type));
+            this.f35049d++;
+            f fVar = this.f35048c.get(Integer.valueOf(emotionPackage.type));
             if (fVar != null) {
                 fVar.a(emotionPackage.id, emotionPackage);
             } else {
                 f fVar2 = new f();
                 fVar2.a(emotionPackage.id, emotionPackage);
-                this.f34953c.put(Integer.valueOf(emotionPackage.type), fVar2);
+                this.f35048c.put(Integer.valueOf(emotionPackage.type), fVar2);
             }
         }
-        return this.f34953c;
+        return this.f35048c;
     }
 
     @SuppressLint({"CheckResult"})
@@ -78,7 +78,7 @@ public class d {
         e.a(new e.a() { // from class: com.kwad.sdk.emotion.a.d.2
             @Override // com.kwad.sdk.emotion.a.e.a
             public void a(int i, String str) {
-                d.this.f34952b = false;
+                d.this.f35047b = false;
                 com.kwad.sdk.emotion.b bVar2 = bVar;
                 if (bVar2 != null) {
                     bVar2.a(null);
@@ -87,7 +87,7 @@ public class d {
 
             @Override // com.kwad.sdk.emotion.a.e.a
             public void a(EmotionResponse emotionResponse) {
-                d.this.f34952b = true;
+                d.this.f35047b = true;
                 d dVar = d.this;
                 dVar.a(dVar.a(emotionResponse));
                 com.kwad.sdk.emotion.b bVar2 = bVar;
@@ -101,10 +101,10 @@ public class d {
     public void a(@NonNull com.kwad.sdk.emotion.model.a aVar, @NonNull com.kwad.sdk.emotion.model.b bVar) {
         z.a(bVar.a());
         z.a(aVar.b());
-        f34950e = aVar;
-        f34951f = bVar;
+        f35045e = aVar;
+        f35046f = bVar;
         com.kwad.sdk.emotion.b.e.a(aVar.b());
-        com.kwad.sdk.core.d.a.a("EmotionManager", "sConfig.getSaveDir()" + f34950e.b());
+        com.kwad.sdk.core.d.a.a("EmotionManager", "sConfig.getSaveDir()" + f35045e.b());
         a(new com.kwad.sdk.emotion.b() { // from class: com.kwad.sdk.emotion.a.d.1
             @Override // com.kwad.sdk.emotion.b
             public void a() {
@@ -120,11 +120,11 @@ public class d {
     }
 
     public void b() {
-        com.kwad.sdk.emotion.b.b.a().a(f34950e.b());
-        if (this.f34952b) {
-            c.a().a(this.f34953c.get(1), f34951f.b());
+        com.kwad.sdk.emotion.b.b.a().a(f35045e.b());
+        if (this.f35047b) {
+            c.a().a(this.f35048c.get(1), f35046f.b());
         } else {
-            f34951f.b().a(null, new IllegalStateException("not available: invoke `#fetchEmotionInfo()` or check `#isAvailable()`"));
+            f35046f.b().a(null, new IllegalStateException("not available: invoke `#fetchEmotionInfo()` or check `#isAvailable()`"));
         }
     }
 }

@@ -7,16 +7,16 @@ import java.io.IOException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41737a = JsonReader.a.a("a");
+    public static JsonReader.a f41832a = JsonReader.a.a("a");
 
     /* renamed from: b  reason: collision with root package name */
-    public static JsonReader.a f41738b = JsonReader.a.a("fc", Config.STAT_SDK_CHANNEL, "sw", "t");
+    public static JsonReader.a f41833b = JsonReader.a.a("fc", Config.STAT_SDK_CHANNEL, "sw", "t");
 
     public static d.a.a.u.i.k a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         jsonReader.o();
         d.a.a.u.i.k kVar = null;
         while (jsonReader.t()) {
-            if (jsonReader.D(f41737a) != 0) {
+            if (jsonReader.D(f41832a) != 0) {
                 jsonReader.E();
                 jsonReader.F();
             } else {
@@ -34,7 +34,7 @@ public class b {
         d.a.a.u.i.b bVar = null;
         d.a.a.u.i.b bVar2 = null;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41738b);
+            int D = jsonReader.D(f41833b);
             if (D == 0) {
                 aVar = d.c(jsonReader, dVar);
             } else if (D == 1) {

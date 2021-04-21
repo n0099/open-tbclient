@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
-import d.b.h0.r.f0.m.a;
-import d.b.h0.r.f0.m.c;
-import d.b.i0.q3.f;
+import d.b.i0.r.f0.m.a;
+import d.b.i0.r.f0.m.c;
+import d.b.j0.q3.f;
 /* loaded from: classes3.dex */
 public class OperableVideoNetworkStateTipView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f20217e;
+    public TBSpecificationBtn f20225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f20218f;
+    public TBSpecificationBtn f20226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f20219g;
+    public View.OnClickListener f20227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20220h;
+    public String f20228h;
 
     public OperableVideoNetworkStateTipView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     }
 
     public void a(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20218f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20226f.getLayoutParams();
         if (z && !z2) {
             setOrientation(1);
             layoutParams.leftMargin = 0;
@@ -50,7 +50,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
             layoutParams.topMargin = 0;
         }
-        this.f20218f.setLayoutParams(layoutParams);
+        this.f20226f.setLayoutParams(layoutParams);
     }
 
     public boolean b() {
@@ -59,21 +59,21 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
 
     public final void c() {
         LinearLayout.inflate(getContext(), getLayoutR(), this);
-        this.f20217e = (TBSpecificationBtn) findViewById(R.id.play);
-        this.f20218f = (TBSpecificationBtn) findViewById(R.id.free_flow);
+        this.f20225e = (TBSpecificationBtn) findViewById(R.id.play);
+        this.f20226f = (TBSpecificationBtn) findViewById(R.id.free_flow);
         c cVar = new c();
         cVar.r();
         cVar.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
         cVar.g(l.g(getContext(), R.dimen.tbds32));
-        this.f20217e.setText(getResources().getString(R.string.video_flow_play));
-        this.f20217e.setTextSize(R.dimen.tbds36);
-        this.f20217e.setConfig(cVar);
+        this.f20225e.setText(getResources().getString(R.string.video_flow_play));
+        this.f20225e.setTextSize(R.dimen.tbds36);
+        this.f20225e.setConfig(cVar);
         a aVar = new a();
-        this.f20218f.setText(getResources().getString(R.string.video_open_free_data));
-        this.f20218f.setTextSize(R.dimen.tbds36);
-        this.f20218f.setConfig(aVar);
-        this.f20217e.setOnClickListener(this);
-        this.f20218f.setOnClickListener(this);
+        this.f20226f.setText(getResources().getString(R.string.video_open_free_data));
+        this.f20226f.setTextSize(R.dimen.tbds36);
+        this.f20226f.setConfig(aVar);
+        this.f20225e.setOnClickListener(this);
+        this.f20226f.setOnClickListener(this);
         setOnClickListener(this);
     }
 
@@ -90,14 +90,14 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             return;
         }
         if (view.getId() == R.id.free_flow) {
-            d.b.h0.l.a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            d.b.i0.l.a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == R.id.play) {
             setHasAgreeToPlay(true);
-            View.OnClickListener onClickListener = this.f20219g;
+            View.OnClickListener onClickListener = this.f20227g;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f20220h));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f20228h));
         }
     }
 
@@ -106,11 +106,11 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.f20219g = onClickListener;
+        this.f20227g = onClickListener;
     }
 
     public void setTid(String str) {
-        this.f20220h = str;
+        this.f20228h = str;
     }
 
     public void setVideoDuration(int i) {
@@ -120,7 +120,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (j <= 0) {
             return;
         }
-        this.f20217e.setText(String.format(getResources().getString(R.string.video_data), StringHelper.getFormatSize(j)));
+        this.f20225e.setText(String.format(getResources().getString(R.string.video_data), StringHelper.getFormatSize(j)));
     }
 
     public OperableVideoNetworkStateTipView(Context context, AttributeSet attributeSet) {

@@ -28,7 +28,7 @@ public class r extends a {
     @Override // d.a.a.s.b.a, d.a.a.u.e
     public <T> void c(T t, @Nullable d.a.a.y.c<T> cVar) {
         super.c(t, cVar);
-        if (t == d.a.a.k.f41487b) {
+        if (t == d.a.a.k.f41582b) {
             this.r.m(cVar);
         } else if (t == d.a.a.k.C) {
             d.a.a.s.c.a<ColorFilter, ColorFilter> aVar = this.s;

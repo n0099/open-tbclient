@@ -28,43 +28,43 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f33575b;
+    public RecyclerView f33670b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f33576c;
+    public TextView f33671c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TubeInfo f33577d;
+    public TubeInfo f33672d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.recycler.d f33578e;
+    public com.kwad.sdk.lib.widget.recycler.d f33673e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f33579f;
+    public View f33674f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.tube.profile.e f33580g = new com.kwad.sdk.contentalliance.tube.profile.e() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.g.1
+    public com.kwad.sdk.contentalliance.tube.profile.e f33675g = new com.kwad.sdk.contentalliance.tube.profile.e() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.g.1
         @Override // com.kwad.sdk.contentalliance.tube.profile.e
         public void a(@NonNull TubeProfileResultData tubeProfileResultData) {
             RecyclerView recyclerView;
             int i;
-            g.this.f33577d = tubeProfileResultData.tubeProfile.tubeInfo;
+            g.this.f33672d = tubeProfileResultData.tubeProfile.tubeInfo;
             List<TubeProfile> list = tubeProfileResultData.trendList;
             if (list == null || list.isEmpty()) {
-                recyclerView = g.this.f33575b;
+                recyclerView = g.this.f33670b;
                 i = 8;
             } else {
                 g gVar = g.this;
                 a aVar = new a(gVar.o(), tubeProfileResultData.trendList);
-                g.this.f33578e = new com.kwad.sdk.lib.widget.recycler.d(aVar);
+                g.this.f33673e = new com.kwad.sdk.lib.widget.recycler.d(aVar);
                 g.this.e();
-                g.this.f33575b.setAdapter(g.this.f33578e);
-                g.this.f33578e.a(g.this.f33575b);
-                recyclerView = g.this.f33575b;
+                g.this.f33670b.setAdapter(g.this.f33673e);
+                g.this.f33673e.a(g.this.f33670b);
+                recyclerView = g.this.f33670b;
                 i = 0;
             }
             recyclerView.setVisibility(i);
-            g.this.f33576c.setVisibility(i);
+            g.this.f33671c.setVisibility(i);
         }
     };
 
@@ -72,17 +72,17 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public class a extends RecyclerView.Adapter<b> {
 
         /* renamed from: b  reason: collision with root package name */
-        public LayoutInflater f33583b;
+        public LayoutInflater f33678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<TubeProfile> f33584c = new CopyOnWriteArrayList();
+        public List<TubeProfile> f33679c = new CopyOnWriteArrayList();
 
         public a(Context context, List<TubeProfile> list) {
             com.kwad.sdk.lib.widget.b<AdTemplate> bVar;
-            this.f33583b = LayoutInflater.from(context);
+            this.f33678b = LayoutInflater.from(context);
             for (TubeProfile tubeProfile : list) {
                 if (tubeProfile != null && (bVar = tubeProfile.adTemplateList) != null && !bVar.isEmpty()) {
-                    this.f33584c.add(tubeProfile);
+                    this.f33679c.add(tubeProfile);
                 }
             }
         }
@@ -92,8 +92,8 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
             TubeDetailParam tubeDetailParam = new TubeDetailParam();
             tubeDetailParam.mTubeInfo = tubeInfo;
             tubeDetailParam.mAdTemplate = adTemplate;
-            if (((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33520a.f33526f != null) {
-                tubeDetailParam.mEntryScene = ((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33520a.f33526f.entryScene;
+            if (((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33615a.f33621f != null) {
+                tubeDetailParam.mEntryScene = ((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33615a.f33621f.entryScene;
             }
             com.kwad.sdk.contentalliance.tube.detail.b.a(g.this.o(), tubeDetailParam);
         }
@@ -102,8 +102,8 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         public void a(List<AdTemplate> list, int i, int i2, TubeProfile tubeProfile) {
             com.kwad.sdk.contentalliance.tube.episode.b.a().a(list);
             TubeEpisodeDetailParam tubeEpisodeDetailParam = new TubeEpisodeDetailParam();
-            if (((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33520a.f33523c != null) {
-                tubeEpisodeDetailParam.mEntryScene = ((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33520a.f33523c.mEntryScene;
+            if (((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33615a.f33618c != null) {
+                tubeEpisodeDetailParam.mEntryScene = ((com.kwad.sdk.contentalliance.tube.profile.a.a) g.this).f33615a.f33618c.mEntryScene;
             }
             TubeInfo tubeInfo = tubeProfile.tubeInfo;
             tubeEpisodeDetailParam.mTubeId = tubeInfo.tubeId;
@@ -116,7 +116,7 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
         public b onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return new b(this.f33583b.inflate(R.layout.ksad_tube_trend_item_container, viewGroup, false));
+            return new b(this.f33678b.inflate(R.layout.ksad_tube_trend_item_container, viewGroup, false));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,38 +125,38 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         public void onBindViewHolder(b bVar, final int i) {
             TextView textView;
             String format;
-            final TubeProfile tubeProfile = this.f33584c.get(i);
+            final TubeProfile tubeProfile = this.f33679c.get(i);
             final TubeInfo tubeInfo = tubeProfile.tubeInfo;
             final com.kwad.sdk.lib.widget.b<AdTemplate> bVar2 = tubeProfile.adTemplateList;
             List<String> list = tubeInfo.tagList;
             if (list == null || list.isEmpty()) {
-                bVar.f33597d.setVisibility(8);
+                bVar.f33692d.setVisibility(8);
             } else {
-                bVar.f33597d.setText(tubeInfo.tagList.get(0));
-                bVar.f33597d.setVisibility(0);
+                bVar.f33692d.setText(tubeInfo.tagList.get(0));
+                bVar.f33692d.setVisibility(0);
             }
             String string = g.this.o().getString(R.string.ksad_text_placeholder);
             if (TextUtils.isEmpty(tubeInfo.name)) {
-                bVar.f33596c.setText(string);
-                bVar.f33600g.setVisibility(8);
+                bVar.f33691c.setText(string);
+                bVar.f33695g.setVisibility(8);
             } else {
-                bVar.f33596c.setText(tubeInfo.name);
-                bVar.f33600g.setVisibility(0);
+                bVar.f33691c.setText(tubeInfo.name);
+                bVar.f33695g.setVisibility(0);
             }
             int i2 = tubeInfo.totalEpisodeCount;
             String valueOf = i2 < 0 ? "" : String.valueOf(i2);
-            bVar.f33598e.setText(ag.a(tubeInfo.authorName, string));
+            bVar.f33693e.setText(ag.a(tubeInfo.authorName, string));
             if (tubeInfo.isFinished) {
                 String string2 = g.this.o().getString(R.string.ksad_tube_update_finished_format_text);
-                textView = bVar.f33599f;
+                textView = bVar.f33694f;
                 format = String.format(string2, ag.a(valueOf, string));
             } else {
                 String string3 = g.this.o().getString(R.string.ksad_tube_update_unfinished_format_text);
-                textView = bVar.f33599f;
+                textView = bVar.f33694f;
                 format = String.format(string3, ag.a(valueOf, string));
             }
             textView.setText(format);
-            bVar.f33595b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.g.a.1
+            bVar.f33690b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.g.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.kwad.sdk.lib.widget.b<AdTemplate> bVar3;
@@ -168,8 +168,8 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
                     a.this.a(tubeInfo, adTemplate);
                 }
             });
-            bVar.f33594a.a(tubeProfile);
-            bVar.f33594a.setEpisodeItemClickListener(new TrendTubeScrollView.a() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.g.a.2
+            bVar.f33689a.a(tubeProfile);
+            bVar.f33689a.setEpisodeItemClickListener(new TrendTubeScrollView.a() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.g.a.2
                 @Override // com.kwad.sdk.contentalliance.tube.view.TrendTubeScrollView.a
                 public void a(AdTemplate adTemplate, int i3, View view) {
                     if (i3 != bVar2.size() - 1) {
@@ -185,7 +185,7 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return this.f33584c.size();
+            return this.f33679c.size();
         }
     }
 
@@ -193,52 +193,52 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public static class b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TrendTubeScrollView f33594a;
+        public TrendTubeScrollView f33689a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinearLayout f33595b;
+        public LinearLayout f33690b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f33596c;
+        public TextView f33691c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f33597d;
+        public TextView f33692d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f33598e;
+        public TextView f33693e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f33599f;
+        public TextView f33694f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f33600g;
+        public ImageView f33695g;
 
         public b(View view) {
             super(view);
-            this.f33596c = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_name);
-            this.f33600g = (ImageView) view.findViewById(R.id.ksad_tube_hot_tube_item_name_arrow);
-            this.f33595b = (LinearLayout) view.findViewById(R.id.ksad_tube_hot_tube_item_title_area);
-            this.f33597d = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_tag);
-            this.f33598e = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_author_name);
-            this.f33599f = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_update_info);
-            this.f33594a = (TrendTubeScrollView) view.findViewById(R.id.ksad_tube_hot_tube_item_scroll_view);
+            this.f33691c = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_name);
+            this.f33695g = (ImageView) view.findViewById(R.id.ksad_tube_hot_tube_item_name_arrow);
+            this.f33690b = (LinearLayout) view.findViewById(R.id.ksad_tube_hot_tube_item_title_area);
+            this.f33692d = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_tag);
+            this.f33693e = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_author_name);
+            this.f33694f = (TextView) view.findViewById(R.id.ksad_tube_hot_tube_item_update_info);
+            this.f33689a = (TrendTubeScrollView) view.findViewById(R.id.ksad_tube_hot_tube_item_scroll_view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f33579f == null) {
-            this.f33579f = ao.a((ViewGroup) this.f33575b, R.layout.ksad_tube_profile_no_more_layout, false);
+        if (this.f33674f == null) {
+            this.f33674f = ao.a((ViewGroup) this.f33670b, R.layout.ksad_tube_profile_no_more_layout, false);
         }
-        TextView textView = (TextView) this.f33579f.findViewById(R.id.ksad_tube_profile_no_more_tip_tv);
+        TextView textView = (TextView) this.f33674f.findViewById(R.id.ksad_tube_profile_no_more_tip_tv);
         if (!com.kwad.sdk.core.config.c.X()) {
-            this.f33579f.setVisibility(8);
+            this.f33674f.setVisibility(8);
             return;
         }
-        if (!this.f33578e.d(this.f33579f)) {
-            this.f33578e.c(this.f33579f);
+        if (!this.f33673e.d(this.f33674f)) {
+            this.f33673e.c(this.f33674f);
         }
-        this.f33579f.setVisibility(0);
+        this.f33674f.setVisibility(0);
         textView.setText(q.a(o()));
     }
 
@@ -246,23 +246,23 @@ public class g extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("TubeTrendListPresenter", "TubeTrendListPresenter onBind");
-        ((com.kwad.sdk.contentalliance.tube.profile.a.a) this).f33520a.f33525e.add(this.f33580g);
+        ((com.kwad.sdk.contentalliance.tube.profile.a.a) this).f33615a.f33620e.add(this.f33675g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.tube.profile.a.a) this).f33520a.f33525e.remove(this.f33580g);
+        ((com.kwad.sdk.contentalliance.tube.profile.a.a) this).f33615a.f33620e.remove(this.f33675g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeTrendListPresenter", "TubeTrendListPresenter onCreate");
-        this.f33576c = (TextView) b(R.id.ksad_tube_hot_list_label);
-        this.f33575b = (RecyclerView) b(R.id.ksad_tube_recycler_view);
+        this.f33671c = (TextView) b(R.id.ksad_tube_hot_list_label);
+        this.f33670b = (RecyclerView) b(R.id.ksad_tube_recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(o());
         linearLayoutManager.setOrientation(1);
-        this.f33575b.setLayoutManager(linearLayoutManager);
+        this.f33670b.setLayoutManager(linearLayoutManager);
     }
 }

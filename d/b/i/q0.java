@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class q0 extends c implements p<a2>, q {
     public static final int k = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
@@ -67,11 +67,11 @@ public class q0 extends c implements p<a2>, q {
         this.j = align;
     }
 
-    public void l(d.b.h0.r.q.a aVar) {
+    public void l(d.b.i0.r.q.a aVar) {
         if (aVar.isSupportTop()) {
             k(Align.ALIGN_RIGHT_TOP);
         } else if (aVar.isSupportBottom()) {
-            k0 k0Var = this.f52195h;
+            k0 k0Var = this.f50163h;
             if (k0Var != null) {
                 k0Var.n(this);
             }

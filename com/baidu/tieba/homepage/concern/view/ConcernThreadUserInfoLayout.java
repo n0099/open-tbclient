@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 /* loaded from: classes4.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     public ConcernThreadUserInfoLayout(Context context) {

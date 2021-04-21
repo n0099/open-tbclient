@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class bn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f41298a = new Object();
+    public static final Object f41393a = new Object();
 
     public static void a(Context context, hj hjVar) {
         if (bm.a(hjVar.e())) {

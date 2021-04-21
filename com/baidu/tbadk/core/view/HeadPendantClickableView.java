@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import d.b.h0.b.d;
-import d.b.h0.r.q.a2;
+import d.b.i0.b.d;
+import d.b.i0.r.q.a2;
 /* loaded from: classes3.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public a2 q;

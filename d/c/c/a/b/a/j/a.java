@@ -17,31 +17,31 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public final class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f66264e = {ExifInterface.START_CODE};
+    public static final byte[] f66359e = {ExifInterface.START_CODE};
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f66265f = new String[0];
+    public static final String[] f66360f = new String[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f66266g = {"*"};
+    public static final String[] f66361g = {"*"};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f66267h = new a();
+    public static final a f66362h = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f66268a = new AtomicBoolean(false);
+    public final AtomicBoolean f66363a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public final CountDownLatch f66269b = new CountDownLatch(1);
+    public final CountDownLatch f66364b = new CountDownLatch(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f66270c;
+    public byte[] f66365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f66271d;
+    public byte[] f66366d;
 
     public static a a() {
-        return f66267h;
+        return f66362h;
     }
 
     public static String c(byte[] bArr, byte[][] bArr2, int i) {
@@ -154,16 +154,16 @@ public final class a {
         String str2;
         String str3;
         int i = 0;
-        if (!this.f66268a.get() && this.f66268a.compareAndSet(false, true)) {
+        if (!this.f66363a.get() && this.f66363a.compareAndSet(false, true)) {
             e();
         } else {
             try {
-                this.f66269b.await();
+                this.f66364b.await();
             } catch (InterruptedException unused) {
             }
         }
         synchronized (this) {
-            if (this.f66270c == null) {
+            if (this.f66365c == null) {
                 throw new IllegalStateException("Unable to load publicsuffixes.gz resource from the classpath.");
             }
         }
@@ -179,7 +179,7 @@ public final class a {
                 str2 = null;
                 break;
             }
-            str2 = c(this.f66270c, bArr, i3);
+            str2 = c(this.f66365c, bArr, i3);
             if (str2 != null) {
                 break;
             }
@@ -188,8 +188,8 @@ public final class a {
         if (length > 1) {
             byte[][] bArr2 = (byte[][]) bArr.clone();
             for (int i4 = 0; i4 < bArr2.length - 1; i4++) {
-                bArr2[i4] = f66264e;
-                str3 = c(this.f66270c, bArr2, i4);
+                bArr2[i4] = f66359e;
+                str3 = c(this.f66365c, bArr2, i4);
                 if (str3 != null) {
                     break;
                 }
@@ -201,7 +201,7 @@ public final class a {
                 if (i >= length - 1) {
                     break;
                 }
-                String c2 = c(this.f66271d, bArr, i);
+                String c2 = c(this.f66366d, bArr, i);
                 if (c2 != null) {
                     str = c2;
                     break;
@@ -212,10 +212,10 @@ public final class a {
         if (str != null) {
             return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
         } else if (str2 == null && str3 == null) {
-            return f66266g;
+            return f66361g;
         } else {
-            String[] split = str2 != null ? str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f66265f;
-            String[] split2 = str3 != null ? str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f66265f;
+            String[] split = str2 != null ? str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f66360f;
+            String[] split2 = str3 != null ? str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) : f66360f;
             return split.length > split2.length ? split : split2;
         }
     }
@@ -261,10 +261,10 @@ public final class a {
             byte[] bArr2 = new byte[b2.j()];
             b2.a(bArr2);
             synchronized (this) {
-                this.f66270c = bArr;
-                this.f66271d = bArr2;
+                this.f66365c = bArr;
+                this.f66366d = bArr2;
             }
-            this.f66269b.countDown();
+            this.f66364b.countDown();
         } finally {
             e.q(b2);
         }

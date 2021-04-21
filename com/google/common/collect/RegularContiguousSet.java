@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
-import d.g.c.c.c1;
-import d.g.c.c.g;
-import d.g.c.c.n;
+import d.h.c.c.c1;
+import d.h.c.c.g;
+import d.h.c.c.n;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Collection;
@@ -34,18 +34,18 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
     public class a extends g<C> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f30977f;
+        public final C f31072f;
 
         public a(Comparable comparable) {
             super(comparable);
-            this.f30977f = (C) RegularContiguousSet.this.last();
+            this.f31072f = (C) RegularContiguousSet.this.last();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.g
+        @Override // d.h.c.c.g
         /* renamed from: b */
         public C a(C c2) {
-            if (RegularContiguousSet.a(c2, this.f30977f)) {
+            if (RegularContiguousSet.a(c2, this.f31072f)) {
                 return null;
             }
             return RegularContiguousSet.this.domain.next(c2);
@@ -56,18 +56,18 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
     public class b extends g<C> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f30979f;
+        public final C f31074f;
 
         public b(Comparable comparable) {
             super(comparable);
-            this.f30979f = (C) RegularContiguousSet.this.first();
+            this.f31074f = (C) RegularContiguousSet.this.first();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.g
+        @Override // d.h.c.c.g
         /* renamed from: b */
         public C a(C c2) {
-            if (RegularContiguousSet.a(c2, this.f30979f)) {
+            if (RegularContiguousSet.a(c2, this.f31074f)) {
                 return null;
             }
             return RegularContiguousSet.this.domain.previous(c2);
@@ -121,7 +121,7 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // java.util.List
                 public C get(int i) {
-                    d.g.c.a.n.n(i, size());
+                    d.h.c.a.n.n(i, size());
                     RegularContiguousSet regularContiguousSet = RegularContiguousSet.this;
                     return (C) regularContiguousSet.domain.offset(regularContiguousSet.first(), i);
                 }
@@ -168,8 +168,8 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
 
     @Override // com.google.common.collect.ContiguousSet
     public ContiguousSet<C> intersection(ContiguousSet<C> contiguousSet) {
-        d.g.c.a.n.p(contiguousSet);
-        d.g.c.a.n.d(this.domain.equals(contiguousSet.domain));
+        d.h.c.a.n.p(contiguousSet);
+        d.h.c.a.n.d(this.domain.equals(contiguousSet.domain));
         if (contiguousSet.isEmpty()) {
             return contiguousSet;
         }

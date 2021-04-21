@@ -28,20 +28,20 @@ import java.util.regex.Pattern;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f24064a;
+    public Context f24072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, b> f24065b;
+    public final Map<Integer, b> f24073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24066c;
+    public String f24074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f24067d;
+    public final String f24075d;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void onFastPayFail(int i, int i2, C0248a c0248a);
+        void onFastPayFail(int i, int i2, C0250a c0250a);
 
         void onFastPaySuccess(int i, int i2, Object obj);
     }
@@ -50,67 +50,67 @@ public final class a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24089a = new a();
+        public static a f24097a = new a();
     }
 
     public void b(int i) {
-        Map<Integer, b> map = this.f24065b;
+        Map<Integer, b> map = this.f24073b;
         if (map == null || map.size() <= 0) {
             return;
         }
-        this.f24065b.remove(Integer.valueOf(i));
+        this.f24073b.remove(Integer.valueOf(i));
     }
 
     public a() {
-        this.f24067d = "0";
-        this.f24065b = new HashMap();
+        this.f24075d = "0";
+        this.f24073b = new HashMap();
     }
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0248a {
+    public static class C0250a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24086a;
+        public int f24094a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24087b;
+        public String f24095b;
 
         /* renamed from: c  reason: collision with root package name */
-        public SimpleOrderInfo f24088c;
+        public SimpleOrderInfo f24096c;
 
-        public C0248a() {
-            this.f24087b = "";
-            this.f24088c = null;
+        public C0250a() {
+            this.f24095b = "";
+            this.f24096c = null;
         }
 
-        public C0248a(int i, String str) {
+        public C0250a(int i, String str) {
             this();
-            this.f24086a = i;
-            this.f24087b = str;
+            this.f24094a = i;
+            this.f24095b = str;
         }
 
-        public C0248a(int i, String str, SimpleOrderInfo simpleOrderInfo) {
+        public C0250a(int i, String str, SimpleOrderInfo simpleOrderInfo) {
             this(i, str);
-            this.f24088c = simpleOrderInfo;
+            this.f24096c = simpleOrderInfo;
         }
     }
 
     public b a(int i) {
-        Map<Integer, b> map = this.f24065b;
+        Map<Integer, b> map = this.f24073b;
         if (map == null || map.size() <= 0) {
             return null;
         }
-        return this.f24065b.get(Integer.valueOf(i));
+        return this.f24073b.get(Integer.valueOf(i));
     }
 
     public static a a() {
-        return c.f24089a;
+        return c.f24097a;
     }
 
     public void a(Context context, int i) {
-        this.f24064a = context.getApplicationContext();
-        this.f24066c = "BaiduWallet_APP_common_charge";
+        this.f24072a = context.getApplicationContext();
+        this.f24074c = "BaiduWallet_APP_common_charge";
     }
 
     public void a(Context context, boolean z, int i) {
@@ -123,18 +123,18 @@ public final class a {
 
     public void a(d dVar, final int i, String str, b bVar) {
         LogUtil.d("BaiduFastPay", "getChargeCards. mobile = " + str);
-        this.f24065b.put(Integer.valueOf(i), bVar);
+        this.f24073b.put(Integer.valueOf(i), bVar);
         if (!a(str)) {
             LogUtil.d("BaiduFastPay", "getChargeCards. wrong mobile number.");
-            FastPayCallBackManager.a(i, 0, StatusCode.ERROR_CODE_LOCAL, ResUtils.getString(this.f24064a, "wallet_fp_wrong_number"), null);
+            FastPayCallBackManager.a(i, 0, StatusCode.ERROR_CODE_LOCAL, ResUtils.getString(this.f24072a, "wallet_fp_wrong_number"), null);
             return;
         }
-        dVar.a(str, this.f24066c);
+        dVar.a(str, this.f24074c);
         dVar.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.fastpay.sdk.a.1
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
             public void onBeanExecFailure(int i2, int i3, String str2) {
                 if (45313 == i2 && i3 == -4) {
-                    str2 = ResUtils.getString(a.this.f24064a, "wallet_fp_no_faces");
+                    str2 = ResUtils.getString(a.this.f24072a, "wallet_fp_no_faces");
                 }
                 FastPayCallBackManager.a(i, 0, i3, str2, null);
             }
@@ -148,17 +148,17 @@ public final class a {
     }
 
     public void a(final int i, final Map<String, String> map, final b bVar) {
-        this.f24065b.put(Integer.valueOf(i), bVar);
+        this.f24073b.put(Integer.valueOf(i), bVar);
         final String str = map.get("key_mobile");
         if (!a(str)) {
             LogUtil.d("BaiduFastPay", "toCharge. wrong mobile number.");
-            FastPayCallBackManager.a(i, 0, StatusCode.ERROR_CODE_LOCAL, ResUtils.getString(this.f24064a, "wallet_fp_wrong_number"), null);
+            FastPayCallBackManager.a(i, 0, StatusCode.ERROR_CODE_LOCAL, ResUtils.getString(this.f24072a, "wallet_fp_wrong_number"), null);
             return;
         }
-        WalletLoginHelper.getInstance().verifyPassLogin(true, new LoginBackListenerProxy(this.f24064a, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.sdk.a.2
+        WalletLoginHelper.getInstance().verifyPassLogin(true, new LoginBackListenerProxy(this.f24072a, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.sdk.a.2
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str2) {
-                FastPayCallBackManager.a(i, 0, -5, ResUtils.getString(a.this.f24064a, "fp_not_login"), null);
+                FastPayCallBackManager.a(i, 0, -5, ResUtils.getString(a.this.f24072a, "fp_not_login"), null);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
@@ -170,8 +170,8 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i, final String str, final String str2, final String str3, final String str4, b bVar) {
-        com.baidu.wallet.fastpay.beans.b bVar2 = (com.baidu.wallet.fastpay.beans.b) FastPayBeanFactory.getInstance().getBean(this.f24064a, FastPayBeanFactory.BEAN_ID_GET_ORDER, "BaiduFastPay");
-        bVar2.a(str2, str, "0", this.f24066c);
+        com.baidu.wallet.fastpay.beans.b bVar2 = (com.baidu.wallet.fastpay.beans.b) FastPayBeanFactory.getInstance().getBean(this.f24072a, FastPayBeanFactory.BEAN_ID_GET_ORDER, "BaiduFastPay");
+        bVar2.a(str2, str, "0", this.f24074c);
         bVar2.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.fastpay.sdk.a.3
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
             public void onBeanExecFailure(int i2, int i3, String str5) {
@@ -203,7 +203,7 @@ public final class a {
             HashMap hashMap = new HashMap();
             hashMap.put(BaiduPay.PAY_FROM, BaiduPay.PAY_FROM_HUA_FEI);
             LogUtil.d("handleGetOrderInfoSuccess. token type = " + str + ", token = " + str2);
-            BaiduPay.getInstance().doPay(this.f24064a, simpleOrderInfo.mOrderInfo, new PayCallBack() { // from class: com.baidu.wallet.fastpay.sdk.a.4
+            BaiduPay.getInstance().doPay(this.f24072a, simpleOrderInfo.mOrderInfo, new PayCallBack() { // from class: com.baidu.wallet.fastpay.sdk.a.4
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     return false;
@@ -217,7 +217,7 @@ public final class a {
                     }
                     SimpleOrderInfo simpleOrderInfo2 = simpleOrderInfo;
                     if (simpleOrderInfo2 != null && !TextUtils.isEmpty(simpleOrderInfo2.mOrderNo) && simpleOrderInfo.isGotoResultActivity()) {
-                        Context context = a.this.f24064a;
+                        Context context = a.this.f24072a;
                         SimpleOrderInfo simpleOrderInfo3 = simpleOrderInfo;
                         WalletMobileResultActivity.gotoBusniessResultPage(context, true, simpleOrderInfo3.mOrderNo, simpleOrderInfo3.mPayDesc, i2 == 1, new ResultPageStateListener() { // from class: com.baidu.wallet.fastpay.sdk.a.4.1
                             @Override // com.baidu.wallet.api.ResultPageStateListener
@@ -239,6 +239,6 @@ public final class a {
             }, hashMap);
             return;
         }
-        FastPayCallBackManager.a(i, 1, -10, ResUtils.getString(this.f24064a, "fp_pay_cancel"), simpleOrderInfo);
+        FastPayCallBackManager.a(i, 1, -10, ResUtils.getString(this.f24072a, "fp_pay_cancel"), simpleOrderInfo);
     }
 }

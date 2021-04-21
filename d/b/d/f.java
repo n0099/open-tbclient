@@ -62,9 +62,9 @@ public class f {
                                                 JSONObject optJSONObject4 = jSONArray.optJSONObject(0);
                                                 if (optJSONObject4 != null) {
                                                     e eVar = new e();
-                                                    eVar.f43082a = z;
-                                                    eVar.f43084c = d.b.i0.j1.o.b.i(optJSONObject4.optJSONObject(AdDebugActivity.KEY_LEGO).toString());
-                                                    eVar.f43083b = str2;
+                                                    eVar.f43242a = z;
+                                                    eVar.f43244c = d.b.j0.j1.o.b.i(optJSONObject4.optJSONObject(AdDebugActivity.KEY_LEGO).toString());
+                                                    eVar.f43243b = str2;
                                                     return eVar;
                                                 }
                                                 throw new ParseError(1, "info array has no first element");

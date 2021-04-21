@@ -11,28 +11,28 @@ import javax.crypto.Cipher;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PublicKey f38686a;
+    public PublicKey f38781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f38687b;
+    public final boolean f38782b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0486a {
+    public static final class C0489a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f38688a = new a((byte) 0);
+        public static final a f38783a = new a((byte) 0);
     }
 
     public a() {
         boolean z;
         try {
-            this.f38686a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
+            this.f38781a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
             z = true;
         } catch (Throwable unused) {
             z = false;
         }
-        this.f38687b = z;
+        this.f38782b = z;
     }
 
     public /* synthetic */ a(byte b2) {
@@ -40,15 +40,15 @@ public class a {
     }
 
     public static a a() {
-        return C0486a.f38688a;
+        return C0489a.f38783a;
     }
 
     private String a(String str) {
-        if (this.f38686a != null) {
+        if (this.f38781a != null) {
             byte[] decode = Base64.decode(str, 0);
             try {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(2, this.f38686a);
+                cipher.init(2, this.f38781a);
                 return new String(cipher.doFinal(decode), "UTF-8").trim();
             } catch (Throwable th) {
                 GDTLogger.e("ErrorWhileVerifySigNature", th);
@@ -78,7 +78,7 @@ public class a {
         if (StringUtil.isEmpty(str2)) {
             return false;
         }
-        if (this.f38687b) {
+        if (this.f38782b) {
             String a2 = a(str);
             boolean equals = str2.equals(a2);
             GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + a2);

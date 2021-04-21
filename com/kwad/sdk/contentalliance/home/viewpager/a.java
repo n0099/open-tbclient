@@ -18,22 +18,22 @@ import java.util.List;
 public abstract class a extends com.kwad.sdk.contentalliance.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.b<AdTemplate> f33113a;
+    public com.kwad.sdk.lib.widget.b<AdTemplate> f33208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33114b;
+    public int f33209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33115c;
+    public int f33210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33116d;
+    public int f33211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlidePlayViewPager f33117e;
+    public SlidePlayViewPager f33212e;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<KsFragment> f33118h;
+    public final SparseArray<KsFragment> f33213h;
     public boolean i;
     public List<AdTemplate> j;
     public com.kwad.sdk.contentalliance.detail.b.b k;
@@ -41,18 +41,18 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
 
     public a(@NonNull KsFragmentManager ksFragmentManager) {
         super(ksFragmentManager);
-        this.f33118h = new SparseArray<>();
-        this.f33113a = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f33114b = -1;
-        this.f33115c = -1;
-        this.f33116d = 0;
+        this.f33213h = new SparseArray<>();
+        this.f33208a = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f33209b = -1;
+        this.f33210c = -1;
+        this.f33211d = 0;
     }
 
     private void b(int i, boolean z) {
         com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "notifyDetachedItems position=" + i);
-        for (int i2 = 0; i2 < this.f33118h.size(); i2++) {
-            int keyAt = this.f33118h.keyAt(i2);
-            KsFragment valueAt = this.f33118h.valueAt(i2);
+        for (int i2 = 0; i2 < this.f33213h.size(); i2++) {
+            int keyAt = this.f33213h.keyAt(i2);
+            KsFragment valueAt = this.f33213h.valueAt(i2);
             if (keyAt != i && (valueAt instanceof com.kwad.sdk.contentalliance.detail.a)) {
                 com.kwad.sdk.contentalliance.detail.a aVar = (com.kwad.sdk.contentalliance.detail.a) valueAt;
                 if (aVar.n()) {
@@ -67,8 +67,8 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
     }
 
     private void b(boolean z) {
-        for (int i = 0; i < this.f33118h.size(); i++) {
-            KsFragment valueAt = this.f33118h.valueAt(i);
+        for (int i = 0; i < this.f33213h.size(); i++) {
+            KsFragment valueAt = this.f33213h.valueAt(i);
             if (valueAt instanceof com.kwad.sdk.contentalliance.detail.a) {
                 com.kwad.sdk.contentalliance.detail.a aVar = (com.kwad.sdk.contentalliance.detail.a) valueAt;
                 aVar.f();
@@ -82,7 +82,7 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
 
     private void c(int i, boolean z) {
         com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "notifyAttachedItem position=" + i);
-        KsFragment ksFragment = this.f33118h.get(i);
+        KsFragment ksFragment = this.f33213h.get(i);
         if (ksFragment instanceof com.kwad.sdk.contentalliance.detail.a) {
             com.kwad.sdk.contentalliance.detail.a aVar = (com.kwad.sdk.contentalliance.detail.a) ksFragment;
             if (aVar.n()) {
@@ -106,30 +106,30 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
             return false;
         }
         boolean z2 = true;
-        if (a2 < this.f33113a.size() - 1) {
-            AdTemplate adTemplate = this.f33113a.get(a2 + 1);
+        if (a2 < this.f33208a.size() - 1) {
+            AdTemplate adTemplate = this.f33208a.get(a2 + 1);
             if (d(i + 1) == -2) {
-                this.f33113a.remove(adTemplate);
+                this.f33208a.remove(adTemplate);
                 List<AdTemplate> list = this.j;
                 if (list != null) {
                     list.remove(adTemplate);
                 }
-                if (com.kwad.sdk.core.d.a.f33747a) {
+                if (com.kwad.sdk.core.d.a.f33842a) {
                     com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "无效作品移除 template:" + adTemplate.toJson());
                 }
                 z = true;
             }
         }
-        if (a2 > 0 && a2 < this.f33113a.size()) {
-            AdTemplate adTemplate2 = this.f33113a.get(a2 - 1);
+        if (a2 > 0 && a2 < this.f33208a.size()) {
+            AdTemplate adTemplate2 = this.f33208a.get(a2 - 1);
             if (d(i - 1) == -2) {
-                this.f33113a.remove(adTemplate2);
+                this.f33208a.remove(adTemplate2);
                 List<AdTemplate> list2 = this.j;
                 if (list2 != null) {
                     list2.remove(adTemplate2);
                 }
                 b(1);
-                if (com.kwad.sdk.core.d.a.f33747a) {
+                if (com.kwad.sdk.core.d.a.f33842a) {
                     com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "无效作品移除 template:" + adTemplate2.toJson());
                 }
                 if (z2) {
@@ -145,7 +145,7 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
     }
 
     public int a() {
-        return this.f33113a.size();
+        return this.f33208a.size();
     }
 
     public abstract int a(int i);
@@ -212,7 +212,7 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
     }
 
     public void a(SlidePlayViewPager slidePlayViewPager) {
-        this.f33117e = slidePlayViewPager;
+        this.f33212e = slidePlayViewPager;
     }
 
     public void a(List<AdTemplate> list) {
@@ -220,9 +220,9 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
             return;
         }
         this.j = list;
-        this.f33113a.clear();
-        this.f33113a.addAll(list);
-        if (g(this.f33117e.getCurrentItem())) {
+        this.f33208a.clear();
+        this.f33208a.addAll(list);
+        if (g(this.f33212e.getCurrentItem())) {
             return;
         }
         notifyDataSetChanged();
@@ -235,7 +235,7 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
         this.l.b();
         b(z);
         this.i = true;
-        this.f33118h.clear();
+        this.f33213h.clear();
     }
 
     public abstract int b();
@@ -278,46 +278,46 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
                 i2 = 100;
             }
         }
-        com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemViewType position=" + i + "--realPosition=" + a2 + "--itemType=" + i2 + "--size=" + this.f33113a.size());
+        com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemViewType position=" + i + "--realPosition=" + a2 + "--itemType=" + i2 + "--size=" + this.f33208a.size());
         return i2;
     }
 
     public List<AdTemplate> d() {
-        return this.f33113a;
+        return this.f33208a;
     }
 
     @Override // com.kwad.sdk.contentalliance.b.a, androidx.viewpager.widget.PagerAdapter
     public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.destroyItem(viewGroup, i, obj);
-        this.f33118h.remove(i);
+        this.f33213h.remove(i);
     }
 
     public AdTemplate e(int i) {
-        if (i < 0 || this.f33113a.size() <= i) {
+        if (i < 0 || this.f33208a.size() <= i) {
             return null;
         }
-        return this.f33113a.get(i);
+        return this.f33208a.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(@NonNull Object obj) {
         StringBuilder sb;
-        if (obj instanceof b.C0375b) {
-            b.C0375b c0375b = (b.C0375b) obj;
-            int i = this.f33114b;
-            if (i > -1 && i == c0375b.f32191b) {
-                this.f33114b = -1;
-                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition11 position:" + c0375b.f32191b + "--POSITION_UNCHANGED");
+        if (obj instanceof b.C0378b) {
+            b.C0378b c0378b = (b.C0378b) obj;
+            int i = this.f33209b;
+            if (i > -1 && i == c0378b.f32286b) {
+                this.f33209b = -1;
+                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition11 position:" + c0378b.f32286b + "--POSITION_UNCHANGED");
                 return -1;
-            } else if (!(c0375b.f32190a instanceof com.kwad.sdk.contentalliance.detail.a) && d(c0375b.f32191b) != -1) {
-                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition22 position:" + c0375b.f32191b + "--POSITION_NONE");
+            } else if (!(c0378b.f32285a instanceof com.kwad.sdk.contentalliance.detail.a) && d(c0378b.f32286b) != -1) {
+                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition22 position:" + c0378b.f32286b + "--POSITION_NONE");
                 return -2;
             } else {
                 sb = new StringBuilder();
                 sb.append("getItemPosition33 position:");
-                sb.append(c0375b.f32191b);
+                sb.append(c0378b.f32286b);
                 sb.append("--mItemPosition=");
-                sb.append(this.f33115c == -1 ? "POSITION_UNCHANGED" : "POSITION_NONE");
+                sb.append(this.f33210c == -1 ? "POSITION_UNCHANGED" : "POSITION_NONE");
             }
         } else {
             sb = new StringBuilder();
@@ -325,17 +325,17 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
             sb.append(obj);
         }
         com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", sb.toString());
-        return this.f33115c;
+        return this.f33210c;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     public CharSequence getPageTitle(int i) {
         int a2 = a(i);
-        if (a2 < 0 || a2 >= this.f33113a.size()) {
+        if (a2 < 0 || a2 >= this.f33208a.size()) {
             return "";
         }
-        AdTemplate adTemplate = this.f33113a.get(a2);
+        AdTemplate adTemplate = this.f33208a.get(a2);
         return !TextUtils.isEmpty(adTemplate.mCurrentTrendTitle) ? adTemplate.mCurrentTrendTitle : "";
     }
 
@@ -344,7 +344,7 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
     public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "instantiateItem position=" + i);
         KsFragment ksFragment = (KsFragment) super.instantiateItem(viewGroup, i);
-        this.f33118h.put(i, ksFragment);
+        this.f33213h.put(i, ksFragment);
         return ksFragment;
     }
 }

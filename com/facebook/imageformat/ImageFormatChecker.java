@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ImageFormatChecker {
     public static ImageFormatChecker sInstance;
     @Nullable

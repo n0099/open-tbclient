@@ -3,18 +3,18 @@ package f.b.x.e.a;
 public final class p implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final o f68496e;
+    public final o f68643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f68497f;
+    public final long f68644f;
 
     public p(long j, o oVar) {
-        this.f68497f = j;
-        this.f68496e = oVar;
+        this.f68644f = j;
+        this.f68643e = oVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f68496e.onTimeout(this.f68497f);
+        this.f68643e.onTimeout(this.f68644f);
     }
 }

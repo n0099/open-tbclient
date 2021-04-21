@@ -10,7 +10,7 @@ import java.util.List;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d<Object> f35492a = new d<Object>() { // from class: com.kwad.sdk.glide.g.a.a.1
+    public static final d<Object> f35587a = new d<Object>() { // from class: com.kwad.sdk.glide.g.a.a.1
         @Override // com.kwad.sdk.glide.g.a.a.d
         public void a(@NonNull Object obj) {
         }
@@ -18,7 +18,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.glide.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0424a<T> {
+    public interface InterfaceC0427a<T> {
         T b();
     }
 
@@ -26,25 +26,25 @@ public final class a {
     public static final class b<T> implements Pools.Pool<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final InterfaceC0424a<T> f35493a;
+        public final InterfaceC0427a<T> f35588a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d<T> f35494b;
+        public final d<T> f35589b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Pools.Pool<T> f35495c;
+        public final Pools.Pool<T> f35590c;
 
-        public b(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC0424a<T> interfaceC0424a, @NonNull d<T> dVar) {
-            this.f35495c = pool;
-            this.f35493a = interfaceC0424a;
-            this.f35494b = dVar;
+        public b(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC0427a<T> interfaceC0427a, @NonNull d<T> dVar) {
+            this.f35590c = pool;
+            this.f35588a = interfaceC0427a;
+            this.f35589b = dVar;
         }
 
         @Override // androidx.core.util.Pools.Pool
         public T acquire() {
-            T acquire = this.f35495c.acquire();
+            T acquire = this.f35590c.acquire();
             if (acquire == null) {
-                acquire = this.f35493a.b();
+                acquire = this.f35588a.b();
                 if (Log.isLoggable(FactoryPools.TAG, 2)) {
                     Log.v(FactoryPools.TAG, "Created new " + acquire.getClass());
                 }
@@ -60,8 +60,8 @@ public final class a {
             if (t instanceof c) {
                 ((c) t).d().a(true);
             }
-            this.f35494b.a(t);
-            return this.f35495c.release(t);
+            this.f35589b.a(t);
+            return this.f35590c.release(t);
         }
     }
 
@@ -83,9 +83,9 @@ public final class a {
 
     @NonNull
     public static <T> Pools.Pool<List<T>> a(int i) {
-        return a(new Pools.SynchronizedPool(i), new InterfaceC0424a<List<T>>() { // from class: com.kwad.sdk.glide.g.a.a.2
+        return a(new Pools.SynchronizedPool(i), new InterfaceC0427a<List<T>>() { // from class: com.kwad.sdk.glide.g.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0424a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC0427a
             @NonNull
             /* renamed from: a */
             public List<T> b() {
@@ -101,22 +101,22 @@ public final class a {
     }
 
     @NonNull
-    public static <T extends c> Pools.Pool<T> a(int i, @NonNull InterfaceC0424a<T> interfaceC0424a) {
-        return a(new Pools.SynchronizedPool(i), interfaceC0424a);
+    public static <T extends c> Pools.Pool<T> a(int i, @NonNull InterfaceC0427a<T> interfaceC0427a) {
+        return a(new Pools.SynchronizedPool(i), interfaceC0427a);
     }
 
     @NonNull
-    public static <T extends c> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC0424a<T> interfaceC0424a) {
-        return a(pool, interfaceC0424a, b());
+    public static <T extends c> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC0427a<T> interfaceC0427a) {
+        return a(pool, interfaceC0427a, b());
     }
 
     @NonNull
-    public static <T> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC0424a<T> interfaceC0424a, @NonNull d<T> dVar) {
-        return new b(pool, interfaceC0424a, dVar);
+    public static <T> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC0427a<T> interfaceC0427a, @NonNull d<T> dVar) {
+        return new b(pool, interfaceC0427a, dVar);
     }
 
     @NonNull
     public static <T> d<T> b() {
-        return (d<T>) f35492a;
+        return (d<T>) f35587a;
     }
 }

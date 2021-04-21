@@ -3,19 +3,19 @@ package f.b.x.i;
 public final class g<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f68540a;
+    public final float f68687a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68541b;
+    public int f68688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68542c;
+    public int f68689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68543d;
+    public int f68690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public T[] f68544e;
+    public T[] f68691e;
 
     public g() {
         this(16, 0.75f);
@@ -28,8 +28,8 @@ public final class g<T> {
 
     public boolean a(T t) {
         T t2;
-        T[] tArr = this.f68544e;
-        int i = this.f68541b;
+        T[] tArr = this.f68691e;
+        int i = this.f68688b;
         int c2 = c(t.hashCode()) & i;
         T t3 = tArr[c2];
         if (t3 != null) {
@@ -45,25 +45,25 @@ public final class g<T> {
             return false;
         }
         tArr[c2] = t;
-        int i2 = this.f68542c + 1;
-        this.f68542c = i2;
-        if (i2 >= this.f68543d) {
+        int i2 = this.f68689c + 1;
+        this.f68689c = i2;
+        if (i2 >= this.f68690d) {
             d();
         }
         return true;
     }
 
     public Object[] b() {
-        return this.f68544e;
+        return this.f68691e;
     }
 
     public void d() {
-        T[] tArr = this.f68544e;
+        T[] tArr = this.f68691e;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
         T[] tArr2 = (T[]) new Object[i];
-        int i3 = this.f68542c;
+        int i3 = this.f68689c;
         while (true) {
             int i4 = i3 - 1;
             if (i3 != 0) {
@@ -79,9 +79,9 @@ public final class g<T> {
                 tArr2[c2] = tArr[length];
                 i3 = i4;
             } else {
-                this.f68541b = i2;
-                this.f68543d = (int) (i * this.f68540a);
-                this.f68544e = tArr2;
+                this.f68688b = i2;
+                this.f68690d = (int) (i * this.f68687a);
+                this.f68691e = tArr2;
                 return;
             }
         }
@@ -89,8 +89,8 @@ public final class g<T> {
 
     public boolean e(T t) {
         T t2;
-        T[] tArr = this.f68544e;
-        int i = this.f68541b;
+        T[] tArr = this.f68691e;
+        int i = this.f68688b;
         int c2 = c(t.hashCode()) & i;
         T t3 = tArr[c2];
         if (t3 == null) {
@@ -112,7 +112,7 @@ public final class g<T> {
     public boolean f(int i, T[] tArr, int i2) {
         int i3;
         T t;
-        this.f68542c--;
+        this.f68689c--;
         while (true) {
             int i4 = i + 1;
             while (true) {
@@ -138,14 +138,14 @@ public final class g<T> {
     }
 
     public int g() {
-        return this.f68542c;
+        return this.f68689c;
     }
 
     public g(int i, float f2) {
-        this.f68540a = f2;
+        this.f68687a = f2;
         int a2 = h.a(i);
-        this.f68541b = a2 - 1;
-        this.f68543d = (int) (f2 * a2);
-        this.f68544e = (T[]) new Object[a2];
+        this.f68688b = a2 - 1;
+        this.f68690d = (int) (f2 * a2);
+        this.f68691e = (T[]) new Object[a2];
     }
 }

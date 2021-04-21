@@ -19,12 +19,12 @@ import java.util.Iterator;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public q f41316a = new q();
+    public q f41411a = new q();
 
     public static String a(av.b bVar) {
         StringBuilder sb;
         String str;
-        if (HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9.equals(bVar.f41256g)) {
+        if (HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9.equals(bVar.f41351g)) {
             sb = new StringBuilder();
             sb.append(bVar.f908a);
             str = ".permission.MIMC_RECEIVE";
@@ -101,17 +101,17 @@ public class e {
     }
 
     public void a(Context context, av.b bVar, int i) {
-        if ("5".equalsIgnoreCase(bVar.f41256g)) {
+        if ("5".equalsIgnoreCase(bVar.f41351g)) {
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
         intent.setPackage(bVar.f908a);
-        intent.putExtra(az.s, bVar.f41256g);
+        intent.putExtra(az.s, bVar.f41351g);
         intent.putExtra("ext_reason", i);
         intent.putExtra(az.p, bVar.f911b);
         intent.putExtra(az.D, bVar.i);
-        if (bVar.f902a == null || !HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9.equals(bVar.f41256g)) {
+        if (bVar.f902a == null || !HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9.equals(bVar.f41351g)) {
             a(context, intent, bVar);
             return;
         }
@@ -128,7 +128,7 @@ public class e {
     }
 
     public void a(Context context, av.b bVar, String str, String str2) {
-        if ("5".equalsIgnoreCase(bVar.f41256g)) {
+        if ("5".equalsIgnoreCase(bVar.f41351g)) {
             com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
             return;
         }
@@ -137,15 +137,15 @@ public class e {
         intent.setPackage(bVar.f908a);
         intent.putExtra("ext_kick_type", str);
         intent.putExtra("ext_kick_reason", str2);
-        intent.putExtra("ext_chid", bVar.f41256g);
+        intent.putExtra("ext_chid", bVar.f41351g);
         intent.putExtra(az.p, bVar.f911b);
         intent.putExtra(az.D, bVar.i);
         a(context, intent, bVar);
     }
 
     public void a(Context context, av.b bVar, boolean z, int i, String str) {
-        if ("5".equalsIgnoreCase(bVar.f41256g)) {
-            this.f41316a.a(context, bVar, z, i, str);
+        if ("5".equalsIgnoreCase(bVar.f41351g)) {
+            this.f41411a.a(context, bVar, z, i, str);
             return;
         }
         Intent intent = new Intent();
@@ -158,7 +158,7 @@ public class e {
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra("ext_reason_msg", str);
         }
-        intent.putExtra("ext_chid", bVar.f41256g);
+        intent.putExtra("ext_chid", bVar.f41351g);
         intent.putExtra(az.p, bVar.f911b);
         intent.putExtra(az.D, bVar.i);
         a(context, intent, bVar);
@@ -169,16 +169,16 @@ public class e {
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
         } else if ("5".equalsIgnoreCase(str)) {
-            this.f41316a.a(xMPushService, faVar, a2);
+            this.f41411a.a(xMPushService, faVar, a2);
         } else {
             String str2 = a2.f908a;
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.new_msg");
             intent.setPackage(str2);
             intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_raw_packet", faVar.m292a(a2.f41257h));
+            intent.putExtra("ext_raw_packet", faVar.m292a(a2.f41352h));
             intent.putExtra(az.D, a2.i);
-            intent.putExtra(az.w, a2.f41257h);
+            intent.putExtra(az.w, a2.f41352h);
             if (a2.f902a != null) {
                 try {
                     a2.f902a.send(Message.obtain(null, 17, intent));
@@ -207,7 +207,7 @@ public class e {
         av.b a2 = a(gcVar);
         if (a2 != null) {
             if ("5".equalsIgnoreCase(str)) {
-                this.f41316a.a(xMPushService, gcVar, a2);
+                this.f41411a.a(xMPushService, gcVar, a2);
                 return;
             }
             String str4 = a2.f908a;
@@ -226,7 +226,7 @@ public class e {
             intent.putExtra("ext_chid", str);
             intent.putExtra("ext_packet", gcVar.a());
             intent.putExtra(az.D, a2.i);
-            intent.putExtra(az.w, a2.f41257h);
+            intent.putExtra(az.w, a2.f41352h);
             a(xMPushService, intent, a2);
             return;
         }

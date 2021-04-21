@@ -21,7 +21,7 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.q.a;
+import d.b.r.a;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +57,7 @@ public final class IMConnection {
     public Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.f65246e) {
+            if (a.f65510e) {
                 return;
             }
             IMConnection.this.internalConnect(false);
@@ -450,7 +450,7 @@ public final class IMConnection {
     }
 
     private void connectImpl(final boolean z) {
-        if (a.f65246e) {
+        if (a.f65510e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -545,7 +545,7 @@ public final class IMConnection {
     }
 
     private void destroy() {
-        if (a.f65246e) {
+        if (a.f65510e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -621,7 +621,7 @@ public final class IMConnection {
     }
 
     public void disconnectedByPeer() {
-        if (a.f65246e) {
+        if (a.f65510e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

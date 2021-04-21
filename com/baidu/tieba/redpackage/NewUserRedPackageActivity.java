@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.b.c.e.l.d;
 import d.b.c.e.p.l;
-import d.b.h0.a.s;
+import d.b.i0.a.s;
 /* loaded from: classes4.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;

@@ -13,23 +13,23 @@ import java.util.concurrent.BlockingQueue;
 public class j extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f66564e;
+    public final BlockingQueue<Request<?>> f66659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.c.c.b.f.c f66565f;
+    public final d.c.c.b.f.c f66660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.c.c.b.f.b f66566g;
+    public final d.c.c.b.f.b f66661g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.c.c.b.f.d f66567h;
+    public final d.c.c.b.f.d f66662h;
     public volatile boolean i = false;
 
     public j(BlockingQueue<Request<?>> blockingQueue, d.c.c.b.f.c cVar, d.c.c.b.f.b bVar, d.c.c.b.f.d dVar) {
-        this.f66564e = blockingQueue;
-        this.f66565f = cVar;
-        this.f66566g = bVar;
-        this.f66567h = dVar;
+        this.f66659e = blockingQueue;
+        this.f66660f = cVar;
+        this.f66661g = bVar;
+        this.f66662h = dVar;
     }
 
     public void a() {
@@ -56,13 +56,13 @@ public class j extends Thread {
             q.b(e3, "Unhandled exception %s", e3.toString());
             VAdError vAdError = new VAdError(e3, (int) VAdError.NETWORK_DISPATCH_FAIL_CODE);
             vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-            this.f66567h.a(request, vAdError);
+            this.f66662h.a(request, vAdError);
             request.e();
         } catch (Throwable th) {
             q.b(th, "NetworkDispatcher Unhandled throwable %s", th.toString());
             VAdError vAdError2 = new VAdError(th, (int) VAdError.NETWORK_DISPATCH_FAIL_CODE);
             vAdError2.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-            this.f66567h.a(request, vAdError2);
+            this.f66662h.a(request, vAdError2);
             request.e();
         }
         if (request.isCanceled()) {
@@ -71,32 +71,32 @@ public class j extends Thread {
             return;
         }
         e(request);
-        k a2 = this.f66565f.a(request);
-        request.setNetDuration(a2.f66573f);
+        k a2 = this.f66660f.a(request);
+        request.setNetDuration(a2.f66668f);
         request.addMarker("network-http-complete");
-        if (a2.f66572e && request.hasHadResponseDelivered()) {
+        if (a2.f66667e && request.hasHadResponseDelivered()) {
             request.a("not-modified");
             request.e();
             return;
         }
         o<?> a3 = request.a(a2);
-        request.setNetDuration(a2.f66573f);
+        request.setNetDuration(a2.f66668f);
         request.addMarker("network-parse-complete");
-        if (request.shouldCache() && a3.f66585b != null) {
-            this.f66566g.a(request.getCacheKey(), a3.f66585b);
+        if (request.shouldCache() && a3.f66680b != null) {
+            this.f66661g.a(request.getCacheKey(), a3.f66680b);
             request.addMarker("network-cache-written");
         }
         request.markDelivered();
-        this.f66567h.b(request, a3);
+        this.f66662h.b(request, a3);
         request.b(a3);
     }
 
     public final void c(Request<?> request, VAdError vAdError) {
-        this.f66567h.a(request, request.a(vAdError));
+        this.f66662h.a(request, request.a(vAdError));
     }
 
     public final void d() throws InterruptedException {
-        b(this.f66564e.take());
+        b(this.f66659e.take());
     }
 
     @TargetApi(14)

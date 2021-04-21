@@ -1,12 +1,12 @@
 package com.faceunity.gles;
 
-import d.e.c.d;
+import d.f.c.d;
 import java.nio.FloatBuffer;
 /* loaded from: classes6.dex */
 public class Drawable2d {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final float[] f30411h;
+    public static final float[] f30506h;
     public static final FloatBuffer j;
     public static final float[] l;
     public static final FloatBuffer n;
@@ -14,25 +14,25 @@ public class Drawable2d {
     public static final FloatBuffer r;
 
     /* renamed from: a  reason: collision with root package name */
-    public FloatBuffer f30412a;
+    public FloatBuffer f30507a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FloatBuffer f30413b;
+    public FloatBuffer f30508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30414c;
+    public int f30509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30415d;
+    public int f30510d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30416e;
+    public int f30511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30417f;
+    public int f30512f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Prefab f30418g;
+    public Prefab f30513g;
     public static final float[] i = {0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     public static final FloatBuffer k = d.c(i);
     public static final float[] m = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
@@ -51,21 +51,21 @@ public class Drawable2d {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30419a;
+        public static final /* synthetic */ int[] f30514a;
 
         static {
             int[] iArr = new int[Prefab.values().length];
-            f30419a = iArr;
+            f30514a = iArr;
             try {
                 iArr[Prefab.TRIANGLE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30419a[Prefab.RECTANGLE.ordinal()] = 2;
+                f30514a[Prefab.RECTANGLE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30419a[Prefab.FULL_RECTANGLE.ordinal()] = 3;
+                f30514a[Prefab.FULL_RECTANGLE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -73,7 +73,7 @@ public class Drawable2d {
 
     static {
         float[] fArr = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
-        f30411h = fArr;
+        f30506h = fArr;
         j = d.c(fArr);
         float[] fArr2 = {-0.5f, -0.5f, 0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f};
         l = fArr2;
@@ -84,59 +84,59 @@ public class Drawable2d {
     }
 
     public Drawable2d(Prefab prefab) {
-        int i2 = a.f30419a[prefab.ordinal()];
+        int i2 = a.f30514a[prefab.ordinal()];
         if (i2 == 1) {
-            this.f30412a = j;
-            this.f30413b = k;
-            this.f30415d = 2;
-            this.f30416e = 2 * 4;
-            this.f30414c = f30411h.length / 2;
+            this.f30507a = j;
+            this.f30508b = k;
+            this.f30510d = 2;
+            this.f30511e = 2 * 4;
+            this.f30509c = f30506h.length / 2;
         } else if (i2 == 2) {
-            this.f30412a = n;
-            this.f30413b = o;
-            this.f30415d = 2;
-            this.f30416e = 2 * 4;
-            this.f30414c = l.length / 2;
+            this.f30507a = n;
+            this.f30508b = o;
+            this.f30510d = 2;
+            this.f30511e = 2 * 4;
+            this.f30509c = l.length / 2;
         } else if (i2 == 3) {
-            this.f30412a = r;
-            this.f30413b = s;
-            this.f30415d = 2;
-            this.f30416e = 2 * 4;
-            this.f30414c = p.length / 2;
+            this.f30507a = r;
+            this.f30508b = s;
+            this.f30510d = 2;
+            this.f30511e = 2 * 4;
+            this.f30509c = p.length / 2;
         } else {
             throw new RuntimeException("Unknown shape " + prefab);
         }
-        this.f30417f = 8;
-        this.f30418g = prefab;
+        this.f30512f = 8;
+        this.f30513g = prefab;
     }
 
     public int a() {
-        return this.f30415d;
+        return this.f30510d;
     }
 
     public FloatBuffer b() {
-        return this.f30413b;
+        return this.f30508b;
     }
 
     public int c() {
-        return this.f30417f;
+        return this.f30512f;
     }
 
     public FloatBuffer d() {
-        return this.f30412a;
+        return this.f30507a;
     }
 
     public int e() {
-        return this.f30414c;
+        return this.f30509c;
     }
 
     public int f() {
-        return this.f30416e;
+        return this.f30511e;
     }
 
     public String toString() {
-        if (this.f30418g != null) {
-            return "[Drawable2d: " + this.f30418g + "]";
+        if (this.f30513g != null) {
+            return "[Drawable2d: " + this.f30513g + "]";
         }
         return "[Drawable2d: ...]";
     }

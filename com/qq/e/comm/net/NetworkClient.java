@@ -15,14 +15,14 @@ public interface NetworkClient {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f38637a;
+        public int f38732a;
 
         Priority(int i) {
-            this.f38637a = i;
+            this.f38732a = i;
         }
 
         public final int value() {
-            return this.f38637a;
+            return this.f38732a;
         }
     }
 

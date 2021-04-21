@@ -8,7 +8,7 @@ public class c0 extends s0 {
     }
 
     @Override // d.b.i.s0
-    public d.b.i0.j2.q.a q() {
-        return new d.b.i0.j2.q.d(this.f52187f, this.m);
+    public d.b.j0.j2.q.a q() {
+        return new d.b.j0.j2.q.d(this.f50155f, this.m);
     }
 }

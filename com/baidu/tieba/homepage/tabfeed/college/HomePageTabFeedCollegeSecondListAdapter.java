@@ -19,43 +19,43 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import d.b.c.e.p.l;
-import d.b.h0.m.f;
+import d.b.i0.m.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16994a;
+    public Context f17002a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SpecialColumnItemData> f16995b;
+    public List<SpecialColumnItemData> f17003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f<SpecialColumnItemData> f16996c = null;
+    public f<SpecialColumnItemData> f17004c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16997d;
+    public int f17005d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SpecialColumnItemData f16998e;
+        public final /* synthetic */ SpecialColumnItemData f17006e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f16999f;
+        public final /* synthetic */ int f17007f;
 
         public a(SpecialColumnItemData specialColumnItemData, int i) {
-            this.f16998e = specialColumnItemData;
-            this.f16999f = i;
+            this.f17006e = specialColumnItemData;
+            this.f17007f = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (HomePageTabFeedCollegeSecondListAdapter.this.f16996c != null) {
-                f fVar = HomePageTabFeedCollegeSecondListAdapter.this.f16996c;
-                SpecialColumnItemData specialColumnItemData = this.f16998e;
-                int i = this.f16999f;
+            if (HomePageTabFeedCollegeSecondListAdapter.this.f17004c != null) {
+                f fVar = HomePageTabFeedCollegeSecondListAdapter.this.f17004c;
+                SpecialColumnItemData specialColumnItemData = this.f17006e;
+                int i = this.f17007f;
                 fVar.a(view, specialColumnItemData, i, i);
             }
         }
@@ -65,48 +65,48 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     public class b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f17001a;
+        public TextView f17009a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f17002b;
+        public TextView f17010b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f17003c;
+        public TbImageView f17011c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ImageView f17004d;
+        public ImageView f17012d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f17005e;
+        public View f17013e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LinearLayout f17006f;
+        public LinearLayout f17014f;
 
         public b(View view) {
             super(view);
-            this.f17003c = (TbImageView) view.findViewById(R.id.iv_imageView);
-            this.f17004d = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.f17001a = (TextView) view.findViewById(R.id.text_tv);
-            this.f17002b = (TextView) view.findViewById(R.id.tv_content);
-            this.f17005e = view.findViewById(R.id.gradient_cover);
-            this.f17006f = (LinearLayout) view.findViewById(R.id.ll_live_main);
+            this.f17011c = (TbImageView) view.findViewById(R.id.iv_imageView);
+            this.f17012d = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.f17009a = (TextView) view.findViewById(R.id.text_tv);
+            this.f17010b = (TextView) view.findViewById(R.id.tv_content);
+            this.f17013e = view.findViewById(R.id.gradient_cover);
+            this.f17014f = (LinearLayout) view.findViewById(R.id.ll_live_main);
         }
 
         public void a(SpecialColumnItemData specialColumnItemData) {
             if (specialColumnItemData == null) {
                 return;
             }
-            this.f17002b.setText(specialColumnItemData.title);
-            this.f17003c.setConrers(15);
-            this.f17003c.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.f17003c.setDrawCorner(true);
-            this.f17003c.setPlaceHolder(2);
-            this.f17003c.W(specialColumnItemData.image, 10, false);
-            this.f17001a.setText(specialColumnItemData.text);
-            this.f17004d.setVisibility(0);
-            HomePageTabFeedCollegeSecondListAdapter.this.f16997d = R.drawable.ic_icon_pure_common_live12_svg;
-            this.f17005e.setAlpha(0.5f);
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(HomePageTabFeedCollegeSecondListAdapter.this.f16994a, R.dimen.tbds10)).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).into(this.f17005e);
+            this.f17010b.setText(specialColumnItemData.title);
+            this.f17011c.setConrers(15);
+            this.f17011c.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.f17011c.setDrawCorner(true);
+            this.f17011c.setPlaceHolder(2);
+            this.f17011c.W(specialColumnItemData.image, 10, false);
+            this.f17009a.setText(specialColumnItemData.text);
+            this.f17012d.setVisibility(0);
+            HomePageTabFeedCollegeSecondListAdapter.this.f17005d = R.drawable.ic_icon_pure_common_live12_svg;
+            this.f17013e.setAlpha(0.5f);
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(HomePageTabFeedCollegeSecondListAdapter.this.f17002a, R.dimen.tbds10)).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).into(this.f17013e);
         }
     }
 
@@ -114,107 +114,107 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     public class c extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f17008a;
+        public TextView f17016a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f17009b;
+        public TextView f17017b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f17010c;
+        public TextView f17018c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f17011d;
+        public TextView f17019d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TbImageView f17012e;
+        public TbImageView f17020e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f17013f;
+        public ImageView f17021f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f17014g;
+        public View f17022g;
 
         /* renamed from: h  reason: collision with root package name */
-        public RelativeLayout f17015h;
+        public RelativeLayout f17023h;
 
         public c(View view) {
             super(view);
-            this.f17008a = (TextView) view.findViewById(R.id.tv_title);
-            this.f17012e = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
-            this.f17009b = (TextView) view.findViewById(R.id.tv_left_watch);
-            this.f17010c = (TextView) view.findViewById(R.id.tv_left_agree);
-            this.f17013f = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.f17011d = (TextView) view.findViewById(R.id.text_tv);
-            this.f17014g = view.findViewById(R.id.gradient_cover);
-            this.f17015h = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
+            this.f17016a = (TextView) view.findViewById(R.id.tv_title);
+            this.f17020e = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
+            this.f17017b = (TextView) view.findViewById(R.id.tv_left_watch);
+            this.f17018c = (TextView) view.findViewById(R.id.tv_left_agree);
+            this.f17021f = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.f17019d = (TextView) view.findViewById(R.id.text_tv);
+            this.f17022g = view.findViewById(R.id.gradient_cover);
+            this.f17023h = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
         }
 
         public void a(SpecialColumnItemData specialColumnItemData) {
             if (specialColumnItemData == null) {
                 return;
             }
-            this.f17008a.setText(specialColumnItemData.title);
-            this.f17012e.setConrers(15);
-            this.f17012e.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.f17012e.setDrawCorner(true);
-            this.f17012e.setPlaceHolder(2);
-            this.f17012e.W(specialColumnItemData.image, 10, false);
-            this.f17012e.setGifIconSupport(false);
-            this.f17010c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.agree_num)));
-            this.f17011d.setText(specialColumnItemData.text);
+            this.f17016a.setText(specialColumnItemData.title);
+            this.f17020e.setConrers(15);
+            this.f17020e.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.f17020e.setDrawCorner(true);
+            this.f17020e.setPlaceHolder(2);
+            this.f17020e.W(specialColumnItemData.image, 10, false);
+            this.f17020e.setGifIconSupport(false);
+            this.f17018c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.agree_num)));
+            this.f17019d.setText(specialColumnItemData.text);
             if (specialColumnItemData.specialType == 2) {
-                this.f17013f.setVisibility(0);
-                this.f17014g.setVisibility(0);
-                this.f17014g.setAlpha(0.5f);
-                this.f17011d.setVisibility(0);
-                HomePageTabFeedCollegeSecondListAdapter.this.f16997d = R.drawable.ic_icon_pure_video_play12_svg;
-                this.f17009b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).cornerRadius(l.g(HomePageTabFeedCollegeSecondListAdapter.this.f16994a, R.dimen.tbds10)).into(this.f17014g);
+                this.f17021f.setVisibility(0);
+                this.f17022g.setVisibility(0);
+                this.f17022g.setAlpha(0.5f);
+                this.f17019d.setVisibility(0);
+                HomePageTabFeedCollegeSecondListAdapter.this.f17005d = R.drawable.ic_icon_pure_video_play12_svg;
+                this.f17017b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).cornerRadius(l.g(HomePageTabFeedCollegeSecondListAdapter.this.f17002a, R.dimen.tbds10)).into(this.f17022g);
                 return;
             }
-            this.f17014g.setVisibility(8);
-            this.f17013f.setVisibility(8);
-            this.f17011d.setVisibility(8);
-            HomePageTabFeedCollegeSecondListAdapter.this.f16997d = 0;
-            this.f17009b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+            this.f17022g.setVisibility(8);
+            this.f17021f.setVisibility(8);
+            this.f17019d.setVisibility(8);
+            HomePageTabFeedCollegeSecondListAdapter.this.f17005d = 0;
+            this.f17017b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
         }
     }
 
     public HomePageTabFeedCollegeSecondListAdapter(Context context, List<SpecialColumnItemData> list) {
-        this.f16994a = context;
-        this.f16995b = list;
+        this.f17002a = context;
+        this.f17003b = list;
     }
 
     public final void f(RecyclerView.ViewHolder viewHolder) {
         if (viewHolder instanceof c) {
             c cVar = (c) viewHolder;
-            SkinManager.setViewTextColor(cVar.f17008a, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(cVar.f17009b, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(cVar.f17010c, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(cVar.f17011d, R.color.CAM_X0101);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(cVar.f17013f, this.f16997d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.setViewBackgroundColorWithPressedState(cVar.f17015h, R.color.CAM_X0205, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(cVar.f17016a, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(cVar.f17017b, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(cVar.f17018c, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(cVar.f17019d, R.color.CAM_X0101);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(cVar.f17021f, this.f17005d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            TBSelector.setViewBackgroundColorWithPressedState(cVar.f17023h, R.color.CAM_X0205, R.color.CAM_X0204);
         } else if (viewHolder instanceof b) {
             b bVar = (b) viewHolder;
-            SkinManager.setViewTextColor(bVar.f17002b, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(bVar.f17001a, R.color.CAM_X0101);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(bVar.f17004d, this.f16997d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            TBSelector.setViewBackgroundColorWithPressedState(bVar.f17006f, R.color.CAM_X0205, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.f17010b, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(bVar.f17009a, R.color.CAM_X0101);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(bVar.f17012d, this.f17005d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            TBSelector.setViewBackgroundColorWithPressedState(bVar.f17014f, R.color.CAM_X0205, R.color.CAM_X0204);
         }
     }
 
     public final SpecialColumnItemData g(int i) {
-        return (SpecialColumnItemData) ListUtils.getItem(this.f16995b, i);
+        return (SpecialColumnItemData) ListUtils.getItem(this.f17003b, i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f16995b);
+        return ListUtils.getCount(this.f17003b);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        int i2 = this.f16995b.get(i).specialType;
+        int i2 = this.f17003b.get(i).specialType;
         if (i2 == 1) {
             return 1;
         }
@@ -231,7 +231,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     }
 
     public void h(f<SpecialColumnItemData> fVar) {
-        this.f16996c = fVar;
+        this.f17004c = fVar;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -249,10 +249,10 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i == 1 || i == 2) {
-            return new c(LayoutInflater.from(this.f16994a).inflate(R.layout.layout_item_colleage_second_photo, (ViewGroup) null));
+            return new c(LayoutInflater.from(this.f17002a).inflate(R.layout.layout_item_colleage_second_photo, (ViewGroup) null));
         }
         if (i == 3 || i == 4) {
-            return new b(LayoutInflater.from(this.f16994a).inflate(R.layout.layout_item_colleage_second_live, (ViewGroup) null));
+            return new b(LayoutInflater.from(this.f17002a).inflate(R.layout.layout_item_colleage_second_live, (ViewGroup) null));
         }
         return null;
     }

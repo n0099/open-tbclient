@@ -1,45 +1,45 @@
 package com.google.common.hash;
 
-import d.g.c.a.n;
-import d.g.c.d.f;
-import d.g.c.d.g;
+import d.h.c.a.n;
+import d.h.c.d.f;
+import d.h.c.d.g;
 import java.io.Serializable;
 import java.util.zip.Checksum;
 /* loaded from: classes6.dex */
-public final class ChecksumHashFunction extends d.g.c.d.b implements Serializable {
+public final class ChecksumHashFunction extends d.h.c.d.b implements Serializable {
     public static final long serialVersionUID = 0;
     public final int bits;
     public final g<? extends Checksum> checksumSupplier;
     public final String toString;
 
     /* loaded from: classes6.dex */
-    public final class b extends d.g.c.d.a {
+    public final class b extends d.h.c.d.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Checksum f31094b;
+        public final Checksum f31189b;
 
-        @Override // d.g.c.d.f
+        @Override // d.h.c.d.f
         public HashCode g() {
-            long value = this.f31094b.getValue();
+            long value = this.f31189b.getValue();
             if (ChecksumHashFunction.this.bits == 32) {
                 return HashCode.fromInt((int) value);
             }
             return HashCode.fromLong(value);
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.h.c.d.a
         public void m(byte b2) {
-            this.f31094b.update(b2);
+            this.f31189b.update(b2);
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.h.c.d.a
         public void p(byte[] bArr, int i, int i2) {
-            this.f31094b.update(bArr, i, i2);
+            this.f31189b.update(bArr, i, i2);
         }
 
         public b(Checksum checksum) {
             n.p(checksum);
-            this.f31094b = checksum;
+            this.f31189b = checksum;
         }
     }
 
@@ -56,7 +56,7 @@ public final class ChecksumHashFunction extends d.g.c.d.b implements Serializabl
         return this.bits;
     }
 
-    @Override // d.g.c.d.e
+    @Override // d.h.c.d.e
     public f newHasher() {
         return new b(this.checksumSupplier.get());
     }

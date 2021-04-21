@@ -1,0 +1,17 @@
+package d.b.h0.a.b1.e;
+
+import android.database.Cursor;
+/* loaded from: classes2.dex */
+public final class a {
+    public static void a(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                if (cursor.isClosed()) {
+                    return;
+                }
+                cursor.close();
+            } catch (Exception unused) {
+            }
+        }
+    }
+}

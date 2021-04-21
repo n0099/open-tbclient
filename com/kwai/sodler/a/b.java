@@ -19,11 +19,11 @@ import java.io.OutputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37412a = false;
+    public static boolean f37507a = false;
 
     public static synchronized void a(Context context) {
         synchronized (b.class) {
-            if (f37412a) {
+            if (f37507a) {
                 return;
             }
             j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
@@ -56,7 +56,7 @@ public class b {
                     }
                 }
             });
-            f37412a = true;
+            f37507a = true;
         }
     }
 

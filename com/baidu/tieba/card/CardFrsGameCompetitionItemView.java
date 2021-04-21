@@ -24,16 +24,16 @@ import d.b.c.a.j;
 public class CardFrsGameCompetitionItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f14891e;
+    public RelativeLayout f14899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f14892f;
+    public TbImageView f14900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f14893g;
+    public LinearLayout f14901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClickableHeaderImageView f14894h;
+    public ClickableHeaderImageView f14902h;
     public TextView i;
     public RelativeLayout j;
     public TextView k;
@@ -66,8 +66,8 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     }
 
     public void b(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
-        this.f14894h.W(featureCardCompetitionSubNode.competition_logo, 10, false);
-        this.f14892f.W(featureCardCompetitionSubNode.competition_image, 10, false);
+        this.f14902h.W(featureCardCompetitionSubNode.competition_logo, 10, false);
+        this.f14900f.W(featureCardCompetitionSubNode.competition_image, 10, false);
         this.i.setText(featureCardCompetitionSubNode.title);
         this.l.W(featureCardCompetitionSubNode.team1_image, 10, false);
         this.m.setText(featureCardCompetitionSubNode.team1_name);
@@ -77,10 +77,10 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
 
     public final void c(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_competition_view_item, (ViewGroup) this, true);
-        this.f14891e = (RelativeLayout) findViewById(R.id.card_competition_layout);
-        this.f14892f = (TbImageView) findViewById(R.id.card_competition_bg);
-        this.f14893g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
-        this.f14894h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
+        this.f14899e = (RelativeLayout) findViewById(R.id.card_competition_layout);
+        this.f14900f = (TbImageView) findViewById(R.id.card_competition_bg);
+        this.f14901g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
+        this.f14902h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
         this.i = (TextView) findViewById(R.id.card_competition_title);
         this.j = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
         this.k = (TextView) findViewById(R.id.card_competition_vs);
@@ -91,21 +91,21 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         this.p = (TextView) findViewById(R.id.card_competition_btn_discuss);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
         int i = (dimensionPixelSize * 21) / 9;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f14892f.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f14900f.getLayoutParams();
         layoutParams.height = dimensionPixelSize;
         layoutParams.width = i;
-        this.f14892f.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f14891e.getLayoutParams();
+        this.f14900f.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f14899e.getLayoutParams();
         layoutParams2.height = dimensionPixelSize;
         layoutParams2.width = i;
-        this.f14891e.setLayoutParams(layoutParams2);
-        this.f14892f.setDefaultBgResource(R.drawable.icon_morenpic);
-        this.f14894h.setDrawBorder(true);
-        this.f14894h.setDrawerType(1);
-        this.f14894h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-        this.f14894h.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f14894h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.f14894h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.f14899e.setLayoutParams(layoutParams2);
+        this.f14900f.setDefaultBgResource(R.drawable.icon_morenpic);
+        this.f14902h.setDrawBorder(true);
+        this.f14902h.setDrawerType(1);
+        this.f14902h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+        this.f14902h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f14902h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+        this.f14902h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
         this.l.setDefaultResource(17170445);
         this.l.setDefaultBgResource(R.color.CAM_X0205);
         this.l.setIsRound(true);

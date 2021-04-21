@@ -14,25 +14,25 @@ import com.baidu.apollon.utils.ResUtils;
 public class FastPayTrafficInfoView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f24146a;
+    public TextView f24154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24147b;
+    public TextView f24155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24148c;
+    public TextView f24156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24149d;
+    public TextView f24157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f24150e;
+    public TextView f24158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24151f;
+    public TextView f24159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f24152g;
+    public TextView f24160g;
 
     public FastPayTrafficInfoView(Context context) {
         super(context);
@@ -41,63 +41,63 @@ public class FastPayTrafficInfoView extends RelativeLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_fp_traffic_info_item"), this);
-        this.f24152g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
-        this.f24146a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
-        this.f24147b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
-        this.f24148c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
-        this.f24149d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
-        this.f24150e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
-        this.f24151f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
+        this.f24160g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
+        this.f24154a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
+        this.f24155b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
+        this.f24156c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
+        this.f24157d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
+        this.f24158e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
+        this.f24159f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
     }
 
     public void setActualPrice(String str) {
-        if (this.f24146a == null || TextUtils.isEmpty(str)) {
+        if (this.f24154a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24146a.setText(str);
+        this.f24154a.setText(str);
     }
 
     public void setDiscountInfo(String str) {
-        if (this.f24150e == null || TextUtils.isEmpty(str)) {
+        if (this.f24158e == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24150e.setVisibility(0);
-        this.f24150e.setText(str);
+        this.f24158e.setVisibility(0);
+        this.f24158e.setText(str);
     }
 
     public void setHuiDes(String str) {
-        if (this.f24151f == null || TextUtils.isEmpty(str)) {
+        if (this.f24159f == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24151f.setText(str);
-        this.f24151f.setVisibility(0);
+        this.f24159f.setText(str);
+        this.f24159f.setVisibility(0);
     }
 
     public void setOnBuyClickListener(View.OnClickListener onClickListener) {
-        this.f24152g.setOnClickListener(onClickListener);
+        this.f24160g.setOnClickListener(onClickListener);
     }
 
     public void setOriginalmalPrice(String str) {
-        if (this.f24147b == null || TextUtils.isEmpty(str)) {
+        if (this.f24155b == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24147b.setText(str);
-        this.f24147b.getPaint().setFlags(17);
+        this.f24155b.setText(str);
+        this.f24155b.getPaint().setFlags(17);
     }
 
     public void setUsePeriod(String str) {
-        if (this.f24149d == null || TextUtils.isEmpty(str)) {
+        if (this.f24157d == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24149d.setText(str);
+        this.f24157d.setText(str);
     }
 
     public void setUseProvince(String str) {
-        if (this.f24148c == null || TextUtils.isEmpty(str)) {
+        if (this.f24156c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24148c.setVisibility(0);
-        TextView textView = this.f24148c;
+        this.f24156c.setVisibility(0);
+        TextView textView = this.f24156c;
         textView.setText(str + "，");
     }
 

@@ -5,8 +5,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-import d.b.h0.r.q.n1;
-import d.b.h0.r.q.o1;
+import d.b.i0.r.q.n1;
+import d.b.i0.r.q.o1;
 /* loaded from: classes.dex */
 public class e0 extends a<o1> {
     public RecommendForumLayout j;
@@ -49,7 +49,7 @@ public class e0 extends a<o1> {
         this.j.setOnClickRightArrowListener(onClickListener);
     }
 
-    public void r(d.b.h0.m.f<n1> fVar) {
+    public void r(d.b.i0.m.f<n1> fVar) {
         this.j.setOnItemCoverListener(fVar);
     }
 

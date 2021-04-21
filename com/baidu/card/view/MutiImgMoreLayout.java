@@ -22,15 +22,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.b.c.e.p.l;
-import d.b.h0.b1.j.d;
-import d.b.h0.r.k;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.b1.j.d;
+import d.b.i0.r.k;
+import d.b.i0.r.q.a2;
+import d.b.j0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
+public class MutiImgMoreLayout extends LinearLayout implements p<d.b.i0.r.q.a> {
     public static final int s;
 
     /* renamed from: e  reason: collision with root package name */
@@ -49,8 +49,8 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public TbImageView k;
     public String l;
     public boolean m;
-    public b0<d.b.h0.r.q.a> n;
-    public d.b.h0.r.q.a o;
+    public b0<d.b.i0.r.q.a> n;
+    public d.b.i0.r.q.a o;
     public int p;
     public d q;
     public LinkedList<MediaData> r;
@@ -62,7 +62,7 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.h0.r.q.a> subClickListener = MutiImgMoreLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MutiImgMoreLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MutiImgMoreLayout.this.o);
@@ -75,9 +75,9 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
         public b() {
         }
 
-        @Override // d.b.h0.b1.j.d
+        @Override // d.b.i0.b1.j.d
         public void a(View view, int i, boolean z) {
-            b0<d.b.h0.r.q.a> subClickListener = MutiImgMoreLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MutiImgMoreLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 MutiImgMoreLayout.this.o.objType = 2;
@@ -185,7 +185,7 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
         return size;
     }
 
-    public b0<d.b.h0.r.q.a> getSubClickListener() {
+    public b0<d.b.i0.r.q.a> getSubClickListener() {
         return this.n;
     }
 
@@ -214,7 +214,7 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
         playVoiceBntNew.setAfterClickListener(new a());
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_more_container);
         this.f4491h = relativeLayout;
-        d.b.h0.b.g.b.b(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
+        d.b.i0.b.g.b.b(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
         this.i = (TbImageView) findViewById(R.id.thread_card_img_more_one);
         this.j = (TbImageView) findViewById(R.id.thread_card_img_more_two);
         this.k = (TbImageView) findViewById(R.id.thread_card_img_more_three);
@@ -224,7 +224,7 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: j */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.o = aVar;
         a2 n = aVar.n();
         ThreadCardUtils.setTitle(this.f4488e, n);
@@ -314,7 +314,7 @@ public class MutiImgMoreLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public void setPreloadSizeReadyCallback(d.b.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
         this.n = b0Var;
     }
 

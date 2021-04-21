@@ -9,9 +9,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.o.a.e.b.g.a;
-import d.o.a.e.b.g.d;
-import d.o.a.e.b.g.q;
+import d.p.a.e.b.g.a;
+import d.p.a.e.b.g.d;
+import d.p.a.e.b.g.q;
 @TargetApi(21)
 /* loaded from: classes6.dex */
 public class RetryJobSchedulerService extends JobService {
@@ -57,7 +57,7 @@ public class RetryJobSchedulerService extends JobService {
                     m.a(downloadInfo, 3, 3);
                 }
                 if (schedule > 0) {
-                    d.o.a.e.b.c.a.i("RetrySchedulerService", "schedule err errCode = " + schedule);
+                    d.p.a.e.b.c.a.i("RetrySchedulerService", "schedule err errCode = " + schedule);
                     return;
                 }
                 return;
@@ -100,8 +100,8 @@ public class RetryJobSchedulerService extends JobService {
     public boolean onStartJob(JobParameters jobParameters) {
         if (jobParameters != null) {
             int jobId = jobParameters.getJobId();
-            d.o.a.e.b.c.a.h("RetrySchedulerService", "onStartJob, id = " + jobId);
-            d.o.a.e.b.m.q.d().e(jobId);
+            d.p.a.e.b.c.a.h("RetrySchedulerService", "onStartJob, id = " + jobId);
+            d.p.a.e.b.m.q.d().e(jobId);
             return false;
         }
         return false;

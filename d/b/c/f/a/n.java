@@ -11,7 +11,7 @@ public class n extends k {
 
     @Override // d.b.c.f.a.c, d.b.c.f.a.a
     public void h(Canvas canvas, d dVar, ImageView imageView) {
-        Matrix matrix = this.f42645e;
+        Matrix matrix = this.f42885e;
         if (matrix != null) {
             canvas.concat(matrix);
         }
@@ -23,12 +23,12 @@ public class n extends k {
             }
         }
         if (dVar.e()) {
-            Bitmap bitmap = dVar.f42652a.getBitmap();
+            Bitmap bitmap = dVar.f42892a.getBitmap();
             this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.v, this.f42646f, this.f42642b);
+            canvas.drawBitmap(bitmap, this.v, this.f42886f, this.f42882b);
         } else {
             this.v.set(0, 0, dVar.b(), dVar.a());
-            dVar.f42653b.g(canvas, this.v, this.f42646f, this.f42642b);
+            dVar.f42893b.g(canvas, this.v, this.f42886f, this.f42882b);
         }
         canvas.restore();
     }

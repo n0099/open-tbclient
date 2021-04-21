@@ -16,77 +16,77 @@ import com.baidu.apollon.utils.ResUtils;
 public class ProgressView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f26452a;
+    public View f26460a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f26453b;
+    public View f26461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f26454c;
+    public a f26462c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f26455d;
+    public b f26463d;
 
     /* loaded from: classes5.dex */
     public class a extends View {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f26457a;
+        public int f26465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26458b;
+        public int f26466b;
 
         /* renamed from: d  reason: collision with root package name */
-        public Paint f26460d;
+        public Paint f26468d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Rect f26461e;
+        public Rect f26469e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Path f26462f;
+        public Path f26470f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f26463g;
+        public int f26471g;
 
         public a(Context context) {
             super(context);
-            this.f26460d = new Paint();
-            this.f26461e = new Rect();
-            this.f26462f = new Path();
-            this.f26463g = 0;
-            this.f26457a = 1;
-            this.f26458b = 0;
-            this.f26463g = DisplayUtils.dip2px(getContext(), 1.0f);
+            this.f26468d = new Paint();
+            this.f26469e = new Rect();
+            this.f26470f = new Path();
+            this.f26471g = 0;
+            this.f26465a = 1;
+            this.f26466b = 0;
+            this.f26471g = DisplayUtils.dip2px(getContext(), 1.0f);
         }
 
         public void a(int i) {
-            this.f26457a = i;
+            this.f26465a = i;
         }
 
         public void b(int i) {
-            this.f26458b = i;
+            this.f26466b = i;
         }
 
         @Override // android.view.View
         public void draw(Canvas canvas) {
-            float height = (getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) - (((getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) * this.f26458b) / this.f26457a);
+            float height = (getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) - (((getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) * this.f26466b) / this.f26465a);
             int i = (int) height;
-            this.f26461e.set((getWidth() - this.f26463g) / 2, DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f26463g) / 2, i);
-            Path path = this.f26462f;
-            Rect rect = this.f26461e;
+            this.f26469e.set((getWidth() - this.f26471g) / 2, DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f26471g) / 2, i);
+            Path path = this.f26470f;
+            Rect rect = this.f26469e;
             path.addRect(new RectF(rect.left, rect.top, rect.right, rect.bottom), Path.Direction.CW);
-            this.f26460d.setColor(-1);
-            this.f26460d.setAlpha(33);
-            canvas.drawRect(this.f26461e, this.f26460d);
-            this.f26461e.set((getWidth() - this.f26463g) / 2, i + DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f26463g) / 2, getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2));
-            Path path2 = this.f26462f;
-            Rect rect2 = this.f26461e;
+            this.f26468d.setColor(-1);
+            this.f26468d.setAlpha(33);
+            canvas.drawRect(this.f26469e, this.f26468d);
+            this.f26469e.set((getWidth() - this.f26471g) / 2, i + DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f26471g) / 2, getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2));
+            Path path2 = this.f26470f;
+            Rect rect2 = this.f26469e;
             path2.addRect(new RectF(rect2.left, rect2.top, rect2.right, rect2.bottom), Path.Direction.CW);
-            this.f26460d.setColor(-1);
-            this.f26460d.setAlpha(127);
-            canvas.drawRect(this.f26461e, this.f26460d);
-            this.f26460d.setAlpha(255);
-            canvas.drawCircle(getWidth() / 2, height + DisplayUtils.dip2px(getContext(), 6.0f), DisplayUtils.dip2px(getContext(), 6.0f), this.f26460d);
+            this.f26468d.setColor(-1);
+            this.f26468d.setAlpha(127);
+            canvas.drawRect(this.f26469e, this.f26468d);
+            this.f26468d.setAlpha(255);
+            canvas.drawCircle(getWidth() / 2, height + DisplayUtils.dip2px(getContext(), 6.0f), DisplayUtils.dip2px(getContext(), 6.0f), this.f26468d);
             super.draw(canvas);
         }
     }
@@ -105,110 +105,110 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        b bVar = this.f26455d;
+        b bVar = this.f26463d;
         if (bVar != null) {
             bVar.a();
         }
-        if (view == this.f26452a) {
-            a aVar = this.f26454c;
-            int i = aVar.f26458b + 2;
-            int i2 = aVar.f26457a;
+        if (view == this.f26460a) {
+            a aVar = this.f26462c;
+            int i = aVar.f26466b + 2;
+            int i2 = aVar.f26465a;
             if (i > i2) {
                 i = i2;
             }
-            this.f26454c.b(i);
-            this.f26454c.invalidate();
-            b bVar2 = this.f26455d;
+            this.f26462c.b(i);
+            this.f26462c.invalidate();
+            b bVar2 = this.f26463d;
             if (bVar2 != null) {
-                bVar2.a(this.f26454c.f26458b);
+                bVar2.a(this.f26462c.f26466b);
             }
         }
-        if (view == this.f26453b) {
-            int i3 = this.f26454c.f26458b - 2;
+        if (view == this.f26461b) {
+            int i3 = this.f26462c.f26466b - 2;
             if (i3 < 0) {
                 i3 = 0;
             }
-            this.f26454c.b(i3);
-            this.f26454c.invalidate();
-            b bVar3 = this.f26455d;
+            this.f26462c.b(i3);
+            this.f26462c.invalidate();
+            b bVar3 = this.f26463d;
             if (bVar3 != null) {
-                bVar3.a(this.f26454c.f26458b);
+                bVar3.a(this.f26462c.f26466b);
             }
         }
     }
 
     public void setMaxPregress(int i) {
-        this.f26454c.a(i);
+        this.f26462c.a(i);
     }
 
     public void setProgress(int i) {
-        this.f26454c.b(i);
-        this.f26454c.invalidate();
+        this.f26462c.b(i);
+        this.f26462c.invalidate();
     }
 
     public void setProgressStatusChangeListener(b bVar) {
-        this.f26455d = bVar;
+        this.f26463d = bVar;
     }
 
     private void a() {
         View view = new View(getContext());
-        this.f26452a = view;
+        this.f26460a = view;
         view.setBackgroundResource(ResUtils.drawable(getContext(), "wallet_qrscanner_progress_add"));
-        this.f26452a.setOnClickListener(this);
+        this.f26460a.setOnClickListener(this);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
         layoutParams.addRule(10);
         layoutParams.addRule(14, -1);
         layoutParams.topMargin = DisplayUtils.dip2px(getContext(), 6.0f);
-        addView(this.f26452a, layoutParams);
+        addView(this.f26460a, layoutParams);
         View view2 = new View(getContext());
-        this.f26453b = view2;
+        this.f26461b = view2;
         view2.setBackgroundResource(ResUtils.drawable(getContext(), "wallet_qrscanner_progress_cut"));
-        this.f26453b.setOnClickListener(this);
+        this.f26461b.setOnClickListener(this);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
         layoutParams2.addRule(12);
         layoutParams2.addRule(14, -1);
         layoutParams2.bottomMargin = DisplayUtils.dip2px(getContext(), 6.0f);
-        addView(this.f26453b, layoutParams2);
-        this.f26454c = new a(getContext());
+        addView(this.f26461b, layoutParams2);
+        this.f26462c = new a(getContext());
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 192.0f));
         layoutParams3.addRule(13, -1);
-        addView(this.f26454c, layoutParams3);
-        this.f26454c.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.wallet.qrcodescanner.widget.ProgressView.1
+        addView(this.f26462c, layoutParams3);
+        this.f26462c.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.wallet.qrcodescanner.widget.ProgressView.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view3, MotionEvent motionEvent) {
-                if (ProgressView.this.f26455d != null) {
-                    ProgressView.this.f26455d.a();
+                if (ProgressView.this.f26463d != null) {
+                    ProgressView.this.f26463d.a();
                 }
                 if (motionEvent.getAction() == 0) {
-                    int height = ProgressView.this.f26454c.getHeight();
+                    int height = ProgressView.this.f26462c.getHeight();
                     int[] iArr = new int[2];
-                    ProgressView.this.f26454c.getLocationOnScreen(iArr);
+                    ProgressView.this.f26462c.getLocationOnScreen(iArr);
                     int i = iArr[1];
                     if (motionEvent.getRawY() >= i) {
                         float f2 = i + height;
                         if (motionEvent.getRawY() <= f2) {
-                            int rawY = (int) (((f2 - motionEvent.getRawY()) / height) * ProgressView.this.f26454c.f26457a);
-                            ProgressView.this.f26454c.b(rawY);
-                            ProgressView.this.f26454c.invalidate();
-                            if (ProgressView.this.f26455d != null) {
-                                ProgressView.this.f26455d.a(rawY);
+                            int rawY = (int) (((f2 - motionEvent.getRawY()) / height) * ProgressView.this.f26462c.f26465a);
+                            ProgressView.this.f26462c.b(rawY);
+                            ProgressView.this.f26462c.invalidate();
+                            if (ProgressView.this.f26463d != null) {
+                                ProgressView.this.f26463d.a(rawY);
                             }
                         }
                     }
                     return true;
                 } else if (motionEvent.getAction() == 2) {
-                    int height2 = ProgressView.this.f26454c.getHeight();
+                    int height2 = ProgressView.this.f26462c.getHeight();
                     int[] iArr2 = new int[2];
-                    ProgressView.this.f26454c.getLocationOnScreen(iArr2);
+                    ProgressView.this.f26462c.getLocationOnScreen(iArr2);
                     int i2 = iArr2[1];
                     if (motionEvent.getRawY() >= i2) {
                         float f3 = i2 + height2;
                         if (motionEvent.getRawY() <= f3) {
-                            int rawY2 = (int) (((f3 - motionEvent.getRawY()) / height2) * ProgressView.this.f26454c.f26457a);
-                            ProgressView.this.f26454c.b(rawY2);
-                            ProgressView.this.f26454c.invalidate();
-                            if (ProgressView.this.f26455d != null) {
-                                ProgressView.this.f26455d.a(rawY2);
+                            int rawY2 = (int) (((f3 - motionEvent.getRawY()) / height2) * ProgressView.this.f26462c.f26465a);
+                            ProgressView.this.f26462c.b(rawY2);
+                            ProgressView.this.f26462c.invalidate();
+                            if (ProgressView.this.f26463d != null) {
+                                ProgressView.this.f26463d.a(rawY2);
                                 return false;
                             }
                             return false;

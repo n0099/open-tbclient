@@ -2,7 +2,7 @@ package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.common.base.Converter;
-import d.g.c.a.n;
+import d.h.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;

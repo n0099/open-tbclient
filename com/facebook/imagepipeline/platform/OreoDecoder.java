@@ -10,7 +10,7 @@ import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(26)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OreoDecoder extends DefaultDecoder {
     public OreoDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
         super(bitmapPool, i, synchronizedPool);

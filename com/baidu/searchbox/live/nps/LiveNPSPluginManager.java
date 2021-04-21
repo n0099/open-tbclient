@@ -20,7 +20,7 @@ import com.baidu.searchbox.live.interfaces.callback.LiveStatusDataCallback;
 import com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
-import d.b.s.a.a;
+import d.b.t.a.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class LiveNPSPluginManager {

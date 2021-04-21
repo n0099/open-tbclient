@@ -11,7 +11,7 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
-import d.b.x.a.j.a;
+import d.b.y.a.j.a;
 /* loaded from: classes2.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public boolean isCancle;

@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.e0;
-import d.g.c.c.m;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.e0;
+import d.h.c.c.m;
 import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Map;
@@ -15,31 +15,31 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public final transient Object[] alternatingKeysAndValues;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient Object f30986e;
+    public final transient Object f31081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient int f30987f;
+    public final transient int f31082f;
 
     /* loaded from: classes6.dex */
     public static class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMap<K, V> f30988e;
+        public final transient ImmutableMap<K, V> f31083e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient Object[] f30989f;
+        public final transient Object[] f31084f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final transient int f30990g;
+        public final transient int f31085g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final transient int f30991h;
+        public final transient int f31086h;
 
         public EntrySet(ImmutableMap<K, V> immutableMap, Object[] objArr, int i, int i2) {
-            this.f30988e = immutableMap;
-            this.f30989f = objArr;
-            this.f30990g = i;
-            this.f30991h = i2;
+            this.f31083e = immutableMap;
+            this.f31084f = objArr;
+            this.f31085g = i;
+            this.f31086h = i2;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -48,7 +48,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
                 Map.Entry entry = (Map.Entry) obj;
                 Object key = entry.getKey();
                 Object value = entry.getValue();
-                return value != null && value.equals(this.f30988e.get(key));
+                return value != null && value.equals(this.f31083e.get(key));
             }
             return false;
         }
@@ -68,15 +68,15 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
                 @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
                 public int size() {
-                    return EntrySet.this.f30991h;
+                    return EntrySet.this.f31086h;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.List
                 public Map.Entry<K, V> get(int i) {
-                    n.n(i, EntrySet.this.f30991h);
+                    n.n(i, EntrySet.this.f31086h);
                     int i2 = i * 2;
-                    return new AbstractMap.SimpleImmutableEntry(EntrySet.this.f30989f[EntrySet.this.f30990g + i2], EntrySet.this.f30989f[i2 + (EntrySet.this.f30990g ^ 1)]);
+                    return new AbstractMap.SimpleImmutableEntry(EntrySet.this.f31084f[EntrySet.this.f31085g + i2], EntrySet.this.f31084f[i2 + (EntrySet.this.f31085g ^ 1)]);
                 }
             };
         }
@@ -88,7 +88,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f30991h;
+            return this.f31086h;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,24 +102,24 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static final class KeySet<K> extends ImmutableSet<K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMap<K, ?> f30992e;
+        public final transient ImmutableMap<K, ?> f31087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient ImmutableList<K> f30993f;
+        public final transient ImmutableList<K> f31088f;
 
         public KeySet(ImmutableMap<K, ?> immutableMap, ImmutableList<K> immutableList) {
-            this.f30992e = immutableMap;
-            this.f30993f = immutableList;
+            this.f31087e = immutableMap;
+            this.f31088f = immutableList;
         }
 
         @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection
         public ImmutableList<K> asList() {
-            return this.f30993f;
+            return this.f31088f;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f30992e.get(obj) != null;
+            return this.f31087e.get(obj) != null;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
@@ -134,7 +134,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f30992e.size();
+            return this.f31087e.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,24 +148,24 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static final class KeysOrValuesAsList extends ImmutableList<Object> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient Object[] f30994e;
+        public final transient Object[] f31089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient int f30995f;
+        public final transient int f31090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final transient int f30996g;
+        public final transient int f31091g;
 
         public KeysOrValuesAsList(Object[] objArr, int i, int i2) {
-            this.f30994e = objArr;
-            this.f30995f = i;
-            this.f30996g = i2;
+            this.f31089e = objArr;
+            this.f31090f = i;
+            this.f31091g = i2;
         }
 
         @Override // java.util.List
         public Object get(int i) {
-            n.n(i, this.f30996g);
-            return this.f30994e[(i * 2) + this.f30995f];
+            n.n(i, this.f31091g);
+            return this.f31089e[(i * 2) + this.f31090f];
         }
 
         @Override // com.google.common.collect.ImmutableCollection
@@ -175,14 +175,14 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
         public int size() {
-            return this.f30996g;
+            return this.f31091g;
         }
     }
 
     public RegularImmutableMap(Object obj, Object[] objArr, int i) {
-        this.f30986e = obj;
+        this.f31081e = obj;
         this.alternatingKeysAndValues = objArr;
-        this.f30987f = i;
+        this.f31082f = i;
     }
 
     public static IllegalArgumentException a(Object obj, Object obj2, Object[] objArr, int i) {
@@ -294,22 +294,22 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableSet<Map.Entry<K, V>> createEntrySet() {
-        return new EntrySet(this, this.alternatingKeysAndValues, 0, this.f30987f);
+        return new EntrySet(this, this.alternatingKeysAndValues, 0, this.f31082f);
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableSet<K> createKeySet() {
-        return new KeySet(this, new KeysOrValuesAsList(this.alternatingKeysAndValues, 0, this.f30987f));
+        return new KeySet(this, new KeysOrValuesAsList(this.alternatingKeysAndValues, 0, this.f31082f));
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableCollection<V> createValues() {
-        return new KeysOrValuesAsList(this.alternatingKeysAndValues, 1, this.f30987f);
+        return new KeysOrValuesAsList(this.alternatingKeysAndValues, 1, this.f31082f);
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public V get(Object obj) {
-        return (V) get(this.f30986e, this.alternatingKeysAndValues, this.f30987f, 0, obj);
+        return (V) get(this.f31081e, this.alternatingKeysAndValues, this.f31082f, 0, obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap
@@ -319,7 +319,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
     @Override // java.util.Map
     public int size() {
-        return this.f30987f;
+        return this.f31082f;
     }
 
     public static Object get(Object obj, Object[] objArr, int i, int i2, Object obj2) {

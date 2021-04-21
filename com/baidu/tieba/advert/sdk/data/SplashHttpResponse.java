@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import d.b.c.e.p.j;
-import d.b.i0.r.a.f.b;
-import d.b.i0.r.a.j.a;
+import d.b.j0.r.a.f.b;
+import d.b.j0.r.a.j.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
@@ -25,13 +25,13 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f60917d;
+                adInfo.videoLocalPath = b2.f61338d;
                 a.f(adInfo);
             } else if (j.z() && j.H()) {
-                d.b.i0.r.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                d.b.j0.r.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                     a.f(this.adInfo);
-                    d.b.i0.r.a.i.a aVar = new d.b.i0.r.a.i.a();
+                    d.b.j0.r.a.i.a aVar = new d.b.j0.r.a.i.a();
                     aVar.c(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
@@ -42,13 +42,13 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    private d.b.i0.r.a.i.a searchTask(String str) {
+    private d.b.j0.r.a.i.a searchTask(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
-        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.b.i0.r.a.i.a)) {
+        if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof d.b.j0.r.a.i.a)) {
             return null;
         }
         try {
-            return (d.b.i0.r.a.i.a) searchTask;
+            return (d.b.j0.r.a.i.a) searchTask;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
             return null;

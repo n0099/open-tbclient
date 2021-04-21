@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
-import d.g.c.c.f0;
-import d.g.c.c.z;
+import d.h.c.a.n;
+import d.h.c.c.f0;
+import d.h.c.c.z;
 import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Collection;
@@ -23,7 +23,7 @@ public final class EvictingQueue<E> extends z<E> implements Serializable {
         return new EvictingQueue<>(i);
     }
 
-    @Override // d.g.c.c.r, java.util.Collection, java.util.Queue
+    @Override // d.h.c.c.r, java.util.Collection, java.util.Queue
     public boolean add(E e2) {
         n.p(e2);
         if (this.maxSize == 0) {
@@ -36,7 +36,7 @@ public final class EvictingQueue<E> extends z<E> implements Serializable {
         return true;
     }
 
-    @Override // d.g.c.c.r, java.util.Collection
+    @Override // d.h.c.c.r, java.util.Collection
     public boolean addAll(Collection<? extends E> collection) {
         int size = collection.size();
         if (size >= this.maxSize) {
@@ -46,14 +46,14 @@ public final class EvictingQueue<E> extends z<E> implements Serializable {
         return standardAddAll(collection);
     }
 
-    @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+    @Override // d.h.c.c.r, java.util.Collection, java.util.Set
     public boolean contains(Object obj) {
         Queue<E> delegate = delegate();
         n.p(obj);
         return delegate.contains(obj);
     }
 
-    @Override // d.g.c.c.z, java.util.Queue
+    @Override // d.h.c.c.z, java.util.Queue
     public boolean offer(E e2) {
         return add(e2);
     }
@@ -62,7 +62,7 @@ public final class EvictingQueue<E> extends z<E> implements Serializable {
         return this.maxSize - size();
     }
 
-    @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+    @Override // d.h.c.c.r, java.util.Collection, java.util.Set
     public boolean remove(Object obj) {
         Queue<E> delegate = delegate();
         n.p(obj);
@@ -70,7 +70,7 @@ public final class EvictingQueue<E> extends z<E> implements Serializable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.z, d.g.c.c.r, d.g.c.c.y
+    @Override // d.h.c.c.z, d.h.c.c.r, d.h.c.c.y
     public Queue<E> delegate() {
         return this.delegate;
     }

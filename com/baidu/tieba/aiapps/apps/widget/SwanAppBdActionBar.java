@@ -19,9 +19,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
-import d.b.g0.a.i2.h0;
-import d.b.g0.a.q1.b.e.a;
-import d.b.g0.a.q1.b.e.b;
+import d.b.h0.a.i2.h0;
+import d.b.h0.a.q1.b.e.a;
+import d.b.h0.a.q1.b.e.b;
 /* loaded from: classes4.dex */
 public class SwanAppBdActionBar extends RelativeLayout {
     public static final int[] f0 = {8, 0, 4};
@@ -39,7 +39,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     public int L;
     public Drawable M;
     public Drawable N;
-    public d.b.g0.a.q1.a.a O;
+    public d.b.h0.a.q1.a.a O;
     public TextView P;
     public b.a Q;
     public boolean R;
@@ -54,17 +54,17 @@ public class SwanAppBdActionBar extends RelativeLayout {
     public ProgressBar d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f14361e;
+    public View f14369e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f14362f;
+    public ImageView f14370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14363g;
+    public View f14371g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14364h;
+    public ImageView f14372h;
     public int i;
     public String j;
     public String k;
@@ -98,15 +98,15 @@ public class SwanAppBdActionBar extends RelativeLayout {
     public class b implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GestureDetector f14365e;
+        public final /* synthetic */ GestureDetector f14373e;
 
         public b(GestureDetector gestureDetector) {
-            this.f14365e = gestureDetector;
+            this.f14373e = gestureDetector;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            return this.f14365e.onTouchEvent(motionEvent);
+            return this.f14373e.onTouchEvent(motionEvent);
         }
     }
 
@@ -227,10 +227,10 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.S = findViewById(R.id.titlebar_left_zones);
         this.E = findViewById(R.id.titlebar_right_imgzone2_notify);
         this.T = findViewById(R.id.titlebar_center_zones);
-        this.f14361e = findViewById(R.id.titlebar_right_menu);
-        this.f14362f = (ImageView) findViewById(R.id.titlebar_right_menu_img);
-        this.f14363g = findViewById(R.id.titlebar_right_menu_line);
-        this.f14364h = (ImageView) findViewById(R.id.titlebar_right_menu_exit);
+        this.f14369e = findViewById(R.id.titlebar_right_menu);
+        this.f14370f = (ImageView) findViewById(R.id.titlebar_right_menu_img);
+        this.f14371g = findViewById(R.id.titlebar_right_menu_line);
+        this.f14372h = (ImageView) findViewById(R.id.titlebar_right_menu_exit);
         setTitleAlignment(1);
         setTitle(this.j);
         setTitleColor(R.color.aiapps_black_text);
@@ -288,7 +288,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public View getRightMenu() {
-        return this.f14361e;
+        return this.f14369e;
     }
 
     public int getRightMenuImageViewSrcId() {
@@ -442,32 +442,32 @@ public class SwanAppBdActionBar extends RelativeLayout {
 
     public void setOnMenuItemClickListener(b.a aVar) {
         this.Q = aVar;
-        d.b.g0.a.q1.a.a aVar2 = this.O;
+        d.b.h0.a.q1.a.a aVar2 = this.O;
         if (aVar2 != null) {
             aVar2.a(aVar);
         }
     }
 
-    public void setOnMenuItemsUpdateListener(a.InterfaceC0778a interfaceC0778a) {
+    public void setOnMenuItemsUpdateListener(a.InterfaceC0798a interfaceC0798a) {
     }
 
     public void setRightExitImageSrc(int i) {
-        this.f14364h.setImageDrawable(getResources().getDrawable(i));
+        this.f14372h.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setRightExitOnClickListener(View.OnClickListener onClickListener) {
-        this.f14364h.setOnClickListener(onClickListener);
+        this.f14372h.setOnClickListener(onClickListener);
     }
 
     public void setRightExitViewVisibility(boolean z) {
         if (z) {
-            this.f14364h.setVisibility(0);
-            this.f14363g.setVisibility(0);
+            this.f14372h.setVisibility(0);
+            this.f14371g.setVisibility(0);
             return;
         }
-        this.f14364h.setVisibility(8);
-        this.f14363g.setVisibility(8);
-        ((RelativeLayout.LayoutParams) this.f14361e.getLayoutParams()).setMargins(0, 0, h0.e(getContext(), 4.6f), 0);
+        this.f14372h.setVisibility(8);
+        this.f14371g.setVisibility(8);
+        ((RelativeLayout.LayoutParams) this.f14369e.getLayoutParams()).setMargins(0, 0, h0.e(getContext(), 4.6f), 0);
     }
 
     public void setRightImageZone1Params(int i, int i2) {
@@ -558,28 +558,28 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setRightMenuBgSrc(int i) {
-        this.f14361e.setBackgroundResource(i);
+        this.f14369e.setBackgroundResource(i);
     }
 
     public void setRightMenuClickListner(View.OnClickListener onClickListener) {
-        this.f14361e.setOnClickListener(onClickListener);
+        this.f14369e.setOnClickListener(onClickListener);
     }
 
     public void setRightMenuImageSrc(int i) {
         this.i = i;
-        this.f14362f.setImageDrawable(getResources().getDrawable(i));
+        this.f14370f.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setRightMenuLineSrc(int i) {
-        this.f14363g.setBackgroundResource(i);
+        this.f14371g.setBackgroundResource(i);
     }
 
     public void setRightMenuOnClickListener(View.OnClickListener onClickListener) {
-        this.f14362f.setOnClickListener(onClickListener);
+        this.f14370f.setOnClickListener(onClickListener);
     }
 
     public void setRightMenuVisibility(boolean z) {
-        this.f14361e.setVisibility(z ? 0 : 8);
+        this.f14369e.setVisibility(z ? 0 : 8);
     }
 
     public void setRightTipsStatus(boolean z) {

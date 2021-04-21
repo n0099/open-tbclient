@@ -5,17 +5,17 @@ import android.view.animation.OvershootInterpolator;
 public class k extends OvershootInterpolator {
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f42915a;
+    public final float f43155a;
 
     public k(float f2) {
         super(f2);
-        this.f42915a = f2;
+        this.f43155a = f2;
     }
 
     @Override // android.view.animation.OvershootInterpolator, android.animation.TimeInterpolator
     public float getInterpolation(float f2) {
         float f3 = f2 - 1.0f;
-        float f4 = this.f42915a;
+        float f4 = this.f43155a;
         return ((-0.5f) * f3 * (((f4 + 1.0f) * f3) + f4)) + 1.0f;
     }
 }

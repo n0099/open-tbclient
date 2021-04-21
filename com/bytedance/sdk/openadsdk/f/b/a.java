@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class a extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29071a;
+    public WeakReference<x> f29079a;
 
     public a(x xVar) {
-        this.f29071a = new WeakReference<>(xVar);
+        this.f29079a = new WeakReference<>(xVar);
     }
 
     public static void a(q qVar, final x xVar) {
@@ -28,11 +28,11 @@ public class a extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.f.a.d
     public void a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.openadsdk.f.a.f fVar) throws Exception {
-        WeakReference<x> weakReference = this.f29071a;
+        WeakReference<x> weakReference = this.f29079a;
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        x xVar = this.f29071a.get();
+        x xVar = this.f29079a.get();
         if (xVar == null) {
             c();
         } else {

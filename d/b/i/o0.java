@@ -22,22 +22,22 @@ public class o0 extends h {
     @Override // d.b.i.a
     public View g() {
         if (this.l == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f52187f);
+            FrameLayout frameLayout = new FrameLayout(this.f50155f);
             this.l = frameLayout;
             SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
             this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.l.removeAllViews();
         if (this.m == null) {
-            ItemCardView itemCardView = new ItemCardView(this.f52187f);
+            ItemCardView itemCardView = new ItemCardView(this.f50155f);
             this.m = itemCardView;
             itemCardView.setBackGroundColor(R.color.CAM_X0205);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f52187f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-        layoutParams.rightMargin = this.f52187f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-        layoutParams.bottomMargin = this.f52187f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.f50155f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+        layoutParams.rightMargin = this.f50155f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+        layoutParams.bottomMargin = this.f50155f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         this.l.addView(this.m, layoutParams);
         return this.l;
     }
@@ -54,7 +54,7 @@ public class o0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: s */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         if (aVar != null && aVar.n() != null && aVar.n().r1 != null && aVar.n().r1.z != null) {
             if (aVar.n().r1.m) {
                 this.l.setVisibility(8);

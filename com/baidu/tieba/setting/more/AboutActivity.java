@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.AboutModel;
 import d.b.c.a.e;
-import d.b.i0.v2.c.d;
-import d.b.i0.v2.c.i;
+import d.b.j0.v2.c.d;
+import d.b.j0.v2.c.i;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    public d.b.i0.v2.c.j.a collectorManager;
+    public d.b.j0.v2.c.j.a collectorManager;
     public AboutModel mModel;
-    public d.b.i0.v2.c.a mView;
+    public d.b.j0.v2.c.a mView;
     public i mVisitPreviewServerDialog;
     public c receiver = null;
     public String functionIntroUrl = TbConfig.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
@@ -34,7 +34,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         public a() {
         }
 
-        @Override // d.b.i0.v2.c.d
+        @Override // d.b.j0.v2.c.d
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -45,8 +45,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             } else if (i == 2) {
                 AboutActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
             } else if (i == 3) {
-                d.b.h0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
-                d.b.h0.l.a.o(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.functionIntroUrl, true, false, false);
+                d.b.i0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
+                d.b.i0.l.a.o(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.functionIntroUrl, true, false, false);
             } else if (i != 4) {
                 if (i == 5) {
                     if (AboutActivity.this.mVisitPreviewServerDialog == null) {
@@ -110,7 +110,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        d.b.i0.i1.c.b().a(true);
+        d.b.j0.i1.c.b().a(true);
         AboutModel aboutModel = this.mModel;
         if (aboutModel == null) {
             this.mModel = new AboutModel(this, new b());
@@ -118,7 +118,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             aboutModel.cancelLoadData();
         }
         this.mModel.w();
-        d.b.i0.v2.c.a aVar = this.mView;
+        d.b.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.o();
         }
@@ -126,11 +126,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlCallBack(Object obj) {
-        d.b.i0.v2.c.a aVar = this.mView;
+        d.b.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.q();
         }
-        d.b.h0.s.e.e eVar = obj != null ? (d.b.h0.s.e.e) obj : null;
+        d.b.i0.s.e.e eVar = obj != null ? (d.b.i0.s.e.e) obj : null;
         if (eVar != null) {
             TbadkCoreApplication.getInst().setVersionData(eVar.s());
             TbadkCoreApplication.getInst().refreshNewVersion(false);
@@ -144,7 +144,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     sendMessage(customMessage);
                 }
             }
-            d.b.i0.v2.c.a aVar2 = this.mView;
+            d.b.j0.v2.c.a aVar2 = this.mView;
             if (aVar2 != null) {
                 aVar2.v();
                 return;
@@ -179,7 +179,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.v2.c.a aVar = this.mView;
+        d.b.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.x(i);
         }
@@ -188,8 +188,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.collectorManager = new d.b.i0.v2.c.j.a(this);
-        d.b.i0.v2.c.a aVar = new d.b.i0.v2.c.a(this, new a());
+        this.collectorManager = new d.b.j0.v2.c.j.a(this);
+        d.b.j0.v2.c.a aVar = new d.b.j0.v2.c.a(this, new a());
         this.mView = aVar;
         aVar.v();
         regReceiver();
@@ -203,7 +203,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         if (aboutModel != null) {
             aboutModel.cancelLoadData();
         }
-        d.b.i0.v2.c.a aVar = this.mView;
+        d.b.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.q();
         }
@@ -211,7 +211,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         if (iVar != null) {
             iVar.dismiss();
         }
-        d.b.i0.v2.c.j.a aVar2 = this.collectorManager;
+        d.b.j0.v2.c.j.a aVar2 = this.collectorManager;
         if (aVar2 != null) {
             aVar2.i();
             this.collectorManager = null;
@@ -232,7 +232,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.v2.c.a aVar = this.mView;
+        d.b.j0.v2.c.a aVar = this.mView;
         if (aVar != null) {
             aVar.v();
         }

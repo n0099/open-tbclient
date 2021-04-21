@@ -22,28 +22,28 @@ public class h implements e, a.b, k {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41541a;
+    public final String f41636a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f41542b;
+    public final boolean f41637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.u.k.a f41543c;
+    public final d.a.a.u.k.a f41638c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LongSparseArray<LinearGradient> f41544d = new LongSparseArray<>();
+    public final LongSparseArray<LinearGradient> f41639d = new LongSparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final LongSparseArray<RadialGradient> f41545e = new LongSparseArray<>();
+    public final LongSparseArray<RadialGradient> f41640e = new LongSparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Path f41546f = new Path();
+    public final Path f41641f = new Path();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f41547g = new d.a.a.s.a(1);
+    public final Paint f41642g = new d.a.a.s.a(1);
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f41548h = new RectF();
+    public final RectF f41643h = new RectF();
     public final List<m> i = new ArrayList();
     public final GradientType j;
     public final d.a.a.s.c.a<d.a.a.u.j.c, d.a.a.u.j.c> k;
@@ -58,12 +58,12 @@ public class h implements e, a.b, k {
     public final int r;
 
     public h(d.a.a.f fVar, d.a.a.u.k.a aVar, d.a.a.u.j.d dVar) {
-        this.f41543c = aVar;
-        this.f41541a = dVar.f();
-        this.f41542b = dVar.i();
+        this.f41638c = aVar;
+        this.f41636a = dVar.f();
+        this.f41637b = dVar.i();
         this.q = fVar;
         this.j = dVar.e();
-        this.f41546f.setFillType(dVar.c());
+        this.f41641f.setFillType(dVar.c());
         this.r = (int) (fVar.p().d() / 32.0f);
         d.a.a.s.c.a<d.a.a.u.j.c, d.a.a.u.j.c> a2 = dVar.d().a();
         this.k = a2;
@@ -102,12 +102,12 @@ public class h implements e, a.b, k {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // d.a.a.u.e
     public <T> void c(T t, @Nullable d.a.a.y.c<T> cVar) {
-        if (t == d.a.a.k.f41489d) {
+        if (t == d.a.a.k.f41584d) {
             this.l.m(cVar);
         } else if (t == d.a.a.k.C) {
             d.a.a.s.c.a<ColorFilter, ColorFilter> aVar = this.o;
             if (aVar != null) {
-                this.f41543c.C(aVar);
+                this.f41638c.C(aVar);
             }
             if (cVar == null) {
                 this.o = null;
@@ -116,22 +116,22 @@ public class h implements e, a.b, k {
             d.a.a.s.c.p pVar = new d.a.a.s.c.p(cVar);
             this.o = pVar;
             pVar.a(this);
-            this.f41543c.i(this.o);
+            this.f41638c.i(this.o);
         } else if (t == d.a.a.k.D) {
             d.a.a.s.c.p pVar2 = this.p;
             if (pVar2 != null) {
-                this.f41543c.C(pVar2);
+                this.f41638c.C(pVar2);
             }
             if (cVar == null) {
                 this.p = null;
                 return;
             }
-            this.f41544d.clear();
-            this.f41545e.clear();
+            this.f41639d.clear();
+            this.f41640e.clear();
             d.a.a.s.c.p pVar3 = new d.a.a.s.c.p(cVar);
             this.p = pVar3;
             pVar3.a(this);
-            this.f41543c.i(this.p);
+            this.f41638c.i(this.p);
         }
     }
 
@@ -142,11 +142,11 @@ public class h implements e, a.b, k {
 
     @Override // d.a.a.s.b.e
     public void e(RectF rectF, Matrix matrix, boolean z) {
-        this.f41546f.reset();
+        this.f41641f.reset();
         for (int i = 0; i < this.i.size(); i++) {
-            this.f41546f.addPath(this.i.get(i).getPath(), matrix);
+            this.f41641f.addPath(this.i.get(i).getPath(), matrix);
         }
-        this.f41546f.computeBounds(rectF, false);
+        this.f41641f.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 
@@ -174,34 +174,34 @@ public class h implements e, a.b, k {
     @Override // d.a.a.s.b.e
     public void g(Canvas canvas, Matrix matrix, int i) {
         Shader j;
-        if (this.f41542b) {
+        if (this.f41637b) {
             return;
         }
         d.a.a.c.a("GradientFillContent#draw");
-        this.f41546f.reset();
+        this.f41641f.reset();
         for (int i2 = 0; i2 < this.i.size(); i2++) {
-            this.f41546f.addPath(this.i.get(i2).getPath(), matrix);
+            this.f41641f.addPath(this.i.get(i2).getPath(), matrix);
         }
-        this.f41546f.computeBounds(this.f41548h, false);
+        this.f41641f.computeBounds(this.f41643h, false);
         if (this.j == GradientType.LINEAR) {
             j = i();
         } else {
             j = j();
         }
         j.setLocalMatrix(matrix);
-        this.f41547g.setShader(j);
+        this.f41642g.setShader(j);
         d.a.a.s.c.a<ColorFilter, ColorFilter> aVar = this.o;
         if (aVar != null) {
-            this.f41547g.setColorFilter(aVar.h());
+            this.f41642g.setColorFilter(aVar.h());
         }
-        this.f41547g.setAlpha(d.a.a.x.g.d((int) ((((i / 255.0f) * this.l.h().intValue()) / 100.0f) * 255.0f), 0, 255));
-        canvas.drawPath(this.f41546f, this.f41547g);
+        this.f41642g.setAlpha(d.a.a.x.g.d((int) ((((i / 255.0f) * this.l.h().intValue()) / 100.0f) * 255.0f), 0, 255));
+        canvas.drawPath(this.f41641f, this.f41642g);
         d.a.a.c.b("GradientFillContent#draw");
     }
 
     @Override // d.a.a.s.b.c
     public String getName() {
-        return this.f41541a;
+        return this.f41636a;
     }
 
     public final int h() {
@@ -217,7 +217,7 @@ public class h implements e, a.b, k {
 
     public final LinearGradient i() {
         long h2 = h();
-        LinearGradient linearGradient = this.f41544d.get(h2);
+        LinearGradient linearGradient = this.f41639d.get(h2);
         if (linearGradient != null) {
             return linearGradient;
         }
@@ -225,13 +225,13 @@ public class h implements e, a.b, k {
         PointF h4 = this.n.h();
         d.a.a.u.j.c h5 = this.k.h();
         LinearGradient linearGradient2 = new LinearGradient(h3.x, h3.y, h4.x, h4.y, f(h5.a()), h5.b(), Shader.TileMode.CLAMP);
-        this.f41544d.put(h2, linearGradient2);
+        this.f41639d.put(h2, linearGradient2);
         return linearGradient2;
     }
 
     public final RadialGradient j() {
         long h2 = h();
-        RadialGradient radialGradient = this.f41545e.get(h2);
+        RadialGradient radialGradient = this.f41640e.get(h2);
         if (radialGradient != null) {
             return radialGradient;
         }
@@ -244,7 +244,7 @@ public class h implements e, a.b, k {
         float f4 = h3.y;
         float hypot = (float) Math.hypot(h4.x - f3, h4.y - f4);
         RadialGradient radialGradient2 = new RadialGradient(f3, f4, hypot <= 0.0f ? 0.001f : hypot, f2, b2, Shader.TileMode.CLAMP);
-        this.f41545e.put(h2, radialGradient2);
+        this.f41640e.put(h2, radialGradient2);
         return radialGradient2;
     }
 }

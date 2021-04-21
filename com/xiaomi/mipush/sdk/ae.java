@@ -9,7 +9,7 @@ import java.util.List;
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ae f40442a;
+    public static volatile ae f40537a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f56a;
@@ -26,14 +26,14 @@ public class ae {
     }
 
     public static ae a(Context context) {
-        if (f40442a == null) {
+        if (f40537a == null) {
             synchronized (ae.class) {
-                if (f40442a == null) {
-                    f40442a = new ae(context);
+                if (f40537a == null) {
+                    f40537a = new ae(context);
                 }
             }
         }
-        return f40442a;
+        return f40537a;
     }
 
     public int a(String str) {
@@ -43,7 +43,7 @@ public class ae {
             if (this.f57a.contains(wVar)) {
                 for (w wVar2 : this.f57a) {
                     if (wVar2.equals(wVar)) {
-                        return wVar2.f40499a;
+                        return wVar2.f40594a;
                     }
                 }
             }
@@ -64,7 +64,7 @@ public class ae {
     public void m75a(String str) {
         synchronized (this.f57a) {
             w wVar = new w();
-            wVar.f40499a = 0;
+            wVar.f40594a = 0;
             wVar.f95a = str;
             if (this.f57a.contains(wVar)) {
                 this.f57a.remove(wVar);
@@ -99,7 +99,7 @@ public class ae {
                     }
                 }
             }
-            wVar.f40499a++;
+            wVar.f40594a++;
             this.f57a.remove(wVar);
             this.f57a.add(wVar);
         }

@@ -26,21 +26,21 @@ import com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
 import d.b.c.j.e.n;
-import d.b.h0.d0.h;
-import d.b.h0.r.f0.f;
-import d.b.h0.r.f0.g;
+import d.b.i0.d0.h;
+import d.b.i0.r.f0.f;
+import d.b.i0.r.f0.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class GameTabFragment extends SpecialForumTabBaseFragment {
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14549h;
+    public View f14557h;
     public BdTypeListView i;
     public PbListView j;
     public g k;
     public h l;
-    public d.b.i0.t.d.f.b.d m;
+    public d.b.j0.t.d.f.b.d m;
     public AlaLiveTabGameModel n;
     public String r;
     public boolean o = true;
@@ -51,12 +51,12 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     public final f.g u = new d();
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.i0.t.d.g.d.f {
+    public class a implements d.b.j0.t.d.g.d.f {
         public a() {
         }
 
-        @Override // d.b.i0.t.d.g.d.f
-        public void a(d.b.i0.t.d.a.a aVar) {
+        @Override // d.b.j0.t.d.g.d.f
+        public void a(d.b.j0.t.d.a.a aVar) {
             GameTabFragment.this.Y0(aVar);
             TiebaStatic.log(new StatisticItem("c12904").param(TiebaStatic.Params.ENTRY_NAME, GameTabFragment.this.r));
         }
@@ -73,7 +73,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
             GameTabFragment.this.q = true;
             GameTabFragment.this.b1(false);
             GameTabFragment gameTabFragment = GameTabFragment.this;
-            gameTabFragment.hideLoadingView(gameTabFragment.f14549h);
+            gameTabFragment.hideLoadingView(gameTabFragment.f14557h);
             if (ListUtils.isEmpty(list)) {
                 GameTabFragment.this.d1();
                 return;
@@ -90,7 +90,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.b
         public void b(int i, String str, boolean z) {
             GameTabFragment gameTabFragment = GameTabFragment.this;
-            gameTabFragment.hideLoadingView(gameTabFragment.f14549h);
+            gameTabFragment.hideLoadingView(gameTabFragment.f14557h);
             GameTabFragment.this.W0();
             GameTabFragment.this.d1();
         }
@@ -116,7 +116,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         public d() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (j.z()) {
                 GameTabFragment.this.n.E();
@@ -170,20 +170,20 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         bdTypeListView.removeHeaderView(hVar.b());
     }
 
-    public final void Y0(d.b.i0.t.d.a.a aVar) {
+    public final void Y0(d.b.j0.t.d.a.a aVar) {
         SdkLiveInfoData sdkLiveInfoData;
-        if (aVar == null || (sdkLiveInfoData = aVar.f61799e) == null) {
+        if (aVar == null || (sdkLiveInfoData = aVar.f62220e) == null) {
             return;
         }
         if (sdkLiveInfoData.shouldJumpChushouLiveRoom()) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-            SdkLiveInfoData sdkLiveInfoData2 = aVar.f61799e;
-            d.b.i0.t.d.c.c.c(pageContext, sdkLiveInfoData2.roomId, String.valueOf(sdkLiveInfoData2.liveInfo.liveType));
+            SdkLiveInfoData sdkLiveInfoData2 = aVar.f62220e;
+            d.b.j0.t.d.c.c.c(pageContext, sdkLiveInfoData2.roomId, String.valueOf(sdkLiveInfoData2.liveInfo.liveType));
             return;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.liveID = d.b.c.e.m.b.f(aVar.f61799e.roomId, 0L);
-        SdkLiveInfoData sdkLiveInfoData3 = aVar.f61799e;
+        alaLiveInfoCoreData.liveID = d.b.c.e.m.b.f(aVar.f62220e.roomId, 0L);
+        SdkLiveInfoData sdkLiveInfoData3 = aVar.f62220e;
         SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData3.liveInfo;
         if (alaLiveInfo != null) {
             alaLiveInfoCoreData.hslUrl = alaLiveInfo.hlsUrl;
@@ -198,7 +198,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     public final void a1() {
         this.q = false;
         this.n.E();
-        showLoadingView(this.f14549h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
+        showLoadingView(this.f14557h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
     public void b1(boolean z) {
@@ -272,7 +272,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         }
         this.n.init();
         if (this.m == null) {
-            d.b.i0.t.d.f.b.d dVar = new d.b.i0.t.d.f.b.d(getPageContext());
+            d.b.j0.t.d.f.b.d dVar = new d.b.j0.t.d.f.b.d(getPageContext());
             this.m = dVar;
             dVar.j0(this.r);
             this.m.l0(new a());
@@ -281,9 +281,9 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f14549h == null) {
+        if (this.f14557h == null) {
             View inflate = layoutInflater.inflate(R.layout.special_bar_recommend_tab, viewGroup, false);
-            this.f14549h = inflate;
+            this.f14557h = inflate;
             BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.content_thread);
             this.i = bdTypeListView;
             bdTypeListView.setOnSrollToBottomListener(this.t);
@@ -305,11 +305,11 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
             arrayList.add(this.m);
             this.i.a(arrayList);
         }
-        if (this.f14549h.getParent() != null) {
-            ((ViewGroup) this.f14549h.getParent()).removeView(this.f14549h);
+        if (this.f14557h.getParent() != null) {
+            ((ViewGroup) this.f14557h.getParent()).removeView(this.f14557h);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return this.f14549h;
+        return this.f14557h;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -318,7 +318,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         this.i.setOnSrollToBottomListener(null);
         this.i.setScrollable(null);
         this.n.onDestroy();
-        hideLoadingView(this.f14549h);
+        hideLoadingView(this.f14557h);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment

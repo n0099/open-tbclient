@@ -14,11 +14,11 @@ public final class R {
 
     /* loaded from: classes5.dex */
     public static final class attr {
-        public static final int svprogress_max = 0x7f040459;
-        public static final int svprogress_roundColor = 0x7f04045a;
-        public static final int svprogress_roundProgressColor = 0x7f04045b;
-        public static final int svprogress_roundWidth = 0x7f04045c;
-        public static final int svprogress_style = 0x7f04045d;
+        public static final int svprogress_max = 0x7f04045a;
+        public static final int svprogress_roundColor = 0x7f04045b;
+        public static final int svprogress_roundProgressColor = 0x7f04045c;
+        public static final int svprogress_roundWidth = 0x7f04045d;
+        public static final int svprogress_style = 0x7f04045e;
     }
 
     /* loaded from: classes5.dex */

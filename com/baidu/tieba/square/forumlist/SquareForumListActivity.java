@@ -29,7 +29,7 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
-import d.b.h0.r.f0.f;
+import d.b.i0.r.f0.f;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumsFromForumClass.DataRes;
@@ -45,12 +45,12 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public BdListView mForumListView;
     public boolean mHasMore;
     public boolean mIsLoading;
-    public d.b.i0.a3.i.a mListAdapter;
+    public d.b.j0.a3.i.a mListAdapter;
     public View mListFooter;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public int mPageType;
-    public d.b.h0.r.f0.g mPullView;
+    public d.b.i0.r.f0.g mPullView;
     public View mRootView;
     public int mPageNum = 1;
     public final List<ForumSpaceForumInfo> mListData = new ArrayList();
@@ -168,7 +168,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                 TiebaStatic.log("c10585");
                 str = SquareForumListActivity.RULE_URL_NEW;
             }
-            d.b.h0.l.a.l(SquareForumListActivity.this.getBaseContext(), str);
+            d.b.i0.l.a.l(SquareForumListActivity.this.getBaseContext(), str);
         }
     }
 
@@ -177,7 +177,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         public f() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (SquareForumListActivity.this.mIsLoading || !j.z()) {
                 SquareForumListActivity.this.mForumListView.A(0L);
@@ -210,7 +210,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(i));
         this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.hot_topic_rule), eVar);
-        this.mPullView = new d.b.h0.r.f0.g(getPageContext());
+        this.mPullView = new d.b.i0.r.f0.g(getPageContext());
         BdListView bdListView = (BdListView) findViewById(R.id.forum_list_view);
         this.mForumListView = bdListView;
         bdListView.setPullRefresh(this.mPullView);
@@ -224,7 +224,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         this.mListFooter.setOnClickListener(new g());
         this.mForumListView.addFooterView(this.mListFooter);
         this.mListFooter.setVisibility(8);
-        d.b.i0.a3.i.a aVar = new d.b.i0.a3.i.a(getPageContext(), this.mPageType);
+        d.b.j0.a3.i.a aVar = new d.b.j0.a3.i.a(getPageContext(), this.mPageType);
         this.mListAdapter = aVar;
         this.mForumListView.setAdapter((ListAdapter) aVar);
     }

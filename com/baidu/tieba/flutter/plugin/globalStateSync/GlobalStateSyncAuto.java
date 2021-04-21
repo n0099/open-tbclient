@@ -91,7 +91,7 @@ public class GlobalStateSyncAuto {
         }
 
         public void writeToFlutter(SingleTypeStateData singleTypeStateData, final Reply<WriteResult> reply) {
-            new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterGlobalStateSync.writeToFlutter", new StandardMessageCodec()).send(singleTypeStateData.toMap(), new BasicMessageChannel.Reply() { // from class: d.b.i0.m0.a.b.a
+            new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterGlobalStateSync.writeToFlutter", new StandardMessageCodec()).send(singleTypeStateData.toMap(), new BasicMessageChannel.Reply() { // from class: d.b.j0.m0.a.b.a
                 @Override // io.flutter.plugin.common.BasicMessageChannel.Reply
                 public final void reply(Object obj) {
                     GlobalStateSyncAuto.FlutterGlobalStateSync.Reply.this.reply(GlobalStateSyncAuto.WriteResult.fromMap((HashMap) obj));

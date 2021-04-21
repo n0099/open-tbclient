@@ -13,16 +13,16 @@ import androidx.core.view.NestedScrollingParentHelper;
 public class MultiNestedLayout extends RelativeLayout implements NestedScrollingParent, NestedScrollingChild {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f19644e;
+    public View f19652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NestedScrollingParentHelper f19645f;
+    public NestedScrollingParentHelper f19653f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NestedScrollingChildHelper f19646g;
+    public NestedScrollingChildHelper f19654g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19647h;
+    public int f19655h;
     public final int[] i;
     public int j;
     public int k;
@@ -54,12 +54,12 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     public final void a() {
-        if (this.f19644e == null) {
+        if (this.f19652e == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
                 if (childAt instanceof NestedScrollingChild) {
-                    this.f19644e = childAt;
-                    this.f19647h = childAt.getTop();
+                    this.f19652e = childAt;
+                    this.f19655h = childAt.getTop();
                     return;
                 }
             }
@@ -67,61 +67,61 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     public final void b() {
-        this.f19646g = new NestedScrollingChildHelper(this);
-        this.f19645f = new NestedScrollingParentHelper(this);
+        this.f19654g = new NestedScrollingChildHelper(this);
+        this.f19653f = new NestedScrollingParentHelper(this);
         setNestedScrollingEnabled(true);
     }
 
     public final boolean c() {
-        return this.f19644e != null && this.f19647h > -10000;
+        return this.f19652e != null && this.f19655h > -10000;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
-        return this.f19646g.dispatchNestedFling(f2, f3, z);
+        return this.f19654g.dispatchNestedFling(f2, f3, z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
-        return this.f19646g.dispatchNestedPreFling(f2, f3);
+        return this.f19654g.dispatchNestedPreFling(f2, f3);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
-        return this.f19646g.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+        return this.f19654g.dispatchNestedPreScroll(i, i2, iArr, iArr2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
-        return this.f19646g.dispatchNestedScroll(i, i2, i3, i4, iArr);
+        return this.f19654g.dispatchNestedScroll(i, i2, i3, i4, iArr);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
-        return this.f19646g.hasNestedScrollingParent();
+        return this.f19654g.hasNestedScrollingParent();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
-        return this.f19646g.isNestedScrollingEnabled();
+        return this.f19654g.isNestedScrollingEnabled();
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        View view = this.f19644e;
+        View view = this.f19652e;
         if (view != null) {
-            this.f19647h = view.getTop();
+            this.f19655h = view.getTop();
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.f19644e == null) {
+        if (this.f19652e == null) {
             a();
         }
-        View view = this.f19644e;
+        View view = this.f19652e;
         if (view == null) {
             return;
         }
@@ -149,7 +149,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 i2 -= iArr2[1];
             }
             if (i2 >= 0) {
-                int i4 = this.f19647h;
+                int i4 = this.f19655h;
                 int i5 = this.j;
                 if (i4 - i5 > i2) {
                     iArr[1] = iArr[1] + i2;
@@ -206,7 +206,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onNestedScrollAccepted(View view, View view2, int i) {
-        this.f19645f.onNestedScrollAccepted(view, view2, i);
+        this.f19653f.onNestedScrollAccepted(view, view2, i);
         startNestedScroll(i & 2);
     }
 
@@ -221,7 +221,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     public void setMaxOffset() {
-        setOffset(this.f19647h);
+        setOffset(this.f19655h);
     }
 
     public void setMinOffset() {
@@ -230,7 +230,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
-        this.f19646g.setNestedScrollingEnabled(z);
+        this.f19654g.setNestedScrollingEnabled(z);
     }
 
     public void setOffset(int i) {
@@ -238,7 +238,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
             this.j = i;
             setTargetOffsetTopAndBottom(-i);
             int i2 = this.j;
-            if (i2 == this.f19647h) {
+            if (i2 == this.f19655h) {
                 this.k = 1;
                 c cVar = this.l;
                 if (cVar != null) {
@@ -274,12 +274,12 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean startNestedScroll(int i) {
-        return this.f19646g.startNestedScroll(i);
+        return this.f19654g.startNestedScroll(i);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
-        this.f19646g.stopNestedScroll();
+        this.f19654g.stopNestedScroll();
     }
 
     public MultiNestedLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -288,7 +288,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     public MultiNestedLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f19647h = Integer.MIN_VALUE;
+        this.f19655h = Integer.MIN_VALUE;
         this.i = new int[2];
         this.j = 0;
         this.k = 0;

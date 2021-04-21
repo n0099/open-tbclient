@@ -12,12 +12,12 @@ import com.kwad.sdk.utils.ag;
 public class a extends com.kwad.sdk.contentalliance.home.c.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f33027b;
+    public ImageView f33122b;
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i;
+        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.contentalliance.home.c.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).i;
         PhotoInfo k = com.kwad.sdk.core.response.b.c.k(adTemplate);
         String d2 = d.d(k);
         if (ag.a(d2)) {
@@ -26,12 +26,12 @@ public class a extends com.kwad.sdk.contentalliance.home.c.a.a {
         if (ag.a(d2)) {
             return;
         }
-        com.kwad.sdk.glide.c.a(((com.kwad.sdk.contentalliance.home.c.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).f36292d).a(d2).a((e<Drawable>) new com.kwad.sdk.c(d2, adTemplate)).a(this.f33027b);
+        com.kwad.sdk.glide.c.a(((com.kwad.sdk.contentalliance.home.c.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).f36387d).a(d2).a((e<Drawable>) new com.kwad.sdk.c(d2, adTemplate)).a(this.f33122b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33027b = (ImageView) b(R.id.ksad_slide_profile_cover);
+        this.f33122b = (ImageView) b(R.id.ksad_slide_profile_cover);
     }
 }

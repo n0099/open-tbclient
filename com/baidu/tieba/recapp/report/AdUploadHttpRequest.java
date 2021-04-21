@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import d.b.c.e.p.j;
-import d.b.i0.s2.f0.c;
+import d.b.j0.s2.f0.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

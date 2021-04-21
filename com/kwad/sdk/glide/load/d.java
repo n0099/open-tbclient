@@ -8,23 +8,23 @@ import java.security.MessageDigest;
 public final class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a<Object> f35667a = new a<Object>() { // from class: com.kwad.sdk.glide.load.d.1
+    public static final a<Object> f35762a = new a<Object>() { // from class: com.kwad.sdk.glide.load.d.1
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f35668b;
+    public final T f35763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a<T> f35669c;
+    public final a<T> f35764c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f35670d;
+    public final String f35765d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile byte[] f35671e;
+    public volatile byte[] f35766e;
 
     /* loaded from: classes6.dex */
     public interface a<T> {
@@ -32,9 +32,9 @@ public final class d<T> {
     }
 
     public d(@NonNull String str, @Nullable T t, @NonNull a<T> aVar) {
-        this.f35670d = j.a(str);
-        this.f35668b = t;
-        this.f35669c = (a) j.a(aVar);
+        this.f35765d = j.a(str);
+        this.f35763b = t;
+        this.f35764c = (a) j.a(aVar);
     }
 
     @NonNull
@@ -54,38 +54,38 @@ public final class d<T> {
 
     @NonNull
     private byte[] b() {
-        if (this.f35671e == null) {
-            this.f35671e = this.f35670d.getBytes(c.f35666a);
+        if (this.f35766e == null) {
+            this.f35766e = this.f35765d.getBytes(c.f35761a);
         }
-        return this.f35671e;
+        return this.f35766e;
     }
 
     @NonNull
     public static <T> a<T> c() {
-        return (a<T>) f35667a;
+        return (a<T>) f35762a;
     }
 
     @Nullable
     public T a() {
-        return this.f35668b;
+        return this.f35763b;
     }
 
     public void a(@NonNull T t, @NonNull MessageDigest messageDigest) {
-        this.f35669c.a(b(), t, messageDigest);
+        this.f35764c.a(b(), t, messageDigest);
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof d) {
-            return this.f35670d.equals(((d) obj).f35670d);
+            return this.f35765d.equals(((d) obj).f35765d);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.f35670d.hashCode();
+        return this.f35765d.hashCode();
     }
 
     public String toString() {
-        return "Option{key='" + this.f35670d + "'}";
+        return "Option{key='" + this.f35765d + "'}";
     }
 }

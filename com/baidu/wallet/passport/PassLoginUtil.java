@@ -28,28 +28,28 @@ public class PassLoginUtil {
     public static final int LOGIN_STATUS_ERROR_CODE = 603;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25011a = "PassLoginUtil";
+    public static final String f25019a = "PassLoginUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f25012b = 300;
+    public static final long f25020b = 300;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f25013c = 7000;
+    public static final long f25021c = 7000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f25014d = 601;
+    public static final int f25022d = 601;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f25015e = 602;
+    public static final int f25023e = 602;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f25016f = 604;
+    public static final int f25024f = 604;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f25017g = 605;
+    public static final int f25025g = 605;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f25018h = -201;
+    public static final int f25026h = -201;
     public static final int i = -202;
     public static final int j = -203;
     public static final int k = -901;
@@ -70,11 +70,11 @@ public class PassLoginUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PassLoginUtil f25028a = new PassLoginUtil();
+        public static final PassLoginUtil f25036a = new PassLoginUtil();
     }
 
     public static PassLoginUtil getInstance() {
-        return a.f25028a;
+        return a.f25036a;
     }
 
     public void clearOpenBduss() {
@@ -347,12 +347,12 @@ public class PassLoginUtil {
 
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFinish() {
-                LogUtil.d(PassLoginUtil.f25011a, "Get Open BDUSS : onFinish");
+                LogUtil.d(PassLoginUtil.f25019a, "Get Open BDUSS : onFinish");
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onStart() {
-                LogUtil.d(PassLoginUtil.f25011a, "Get Open BDUSS : onStart");
+                LogUtil.d(PassLoginUtil.f25019a, "Get Open BDUSS : onStart");
             }
         });
     }
@@ -370,7 +370,7 @@ public class PassLoginUtil {
         if (z) {
             b();
             boolean z2 = iLoginBackListener instanceof LoginBackListenerProxy;
-            long j2 = f25013c;
+            long j2 = f25021c;
             if (z2 && (context = ((LoginBackListenerProxy) iLoginBackListener).getContext()) != null && !TextUtils.isEmpty(SdkInitResponse.getInstance().getLoadingDurationInterval(context))) {
                 try {
                     long parseLong = Long.parseLong(SdkInitResponse.getInstance().getLoadingDurationInterval(context));

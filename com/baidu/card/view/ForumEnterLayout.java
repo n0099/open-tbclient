@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.b.d;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.u.c;
+import d.b.i0.b.d;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.u.c;
 /* loaded from: classes.dex */
 public class ForumEnterLayout extends RelativeLayout {
 
@@ -38,7 +38,7 @@ public class ForumEnterLayout extends RelativeLayout {
     /* renamed from: h  reason: collision with root package name */
     public TextView f4442h;
     public EMTextView i;
-    public d.b.h0.r.q.a j;
+    public d.b.i0.r.q.a j;
     public Drawable k;
     public final int l;
     public final int m;
@@ -116,7 +116,7 @@ public class ForumEnterLayout extends RelativeLayout {
         if (str == null || i <= 0) {
             return;
         }
-        TiebaStatic.log(d.b.i0.c3.a.n(str, a2Var, i));
+        TiebaStatic.log(d.b.j0.c3.a.n(str, a2Var, i));
     }
 
     public final void i(Context context) {
@@ -137,11 +137,11 @@ public class ForumEnterLayout extends RelativeLayout {
         return (a2Var == null || a2Var.T() == null || !a2Var.U1 || !d.h() || a2Var.T().hadConcerned() || ThreadCardUtils.isSelf(a2Var)) ? false : true;
     }
 
-    public final boolean k(d.b.h0.r.q.a aVar) {
+    public final boolean k(d.b.i0.r.q.a aVar) {
         return (aVar == null || aVar.n() == null || !aVar.n().z2() || aVar.n().u1() == null) ? false : true;
     }
 
-    public final boolean l(d.b.h0.r.q.a aVar) {
+    public final boolean l(d.b.i0.r.q.a aVar) {
         return (aVar == null || aVar.n() == null || aVar.n().O0() == null || aVar.n().O0().getOptions() == null || aVar.n().O0().getOptions().size() <= 0) ? false : true;
     }
 
@@ -154,7 +154,7 @@ public class ForumEnterLayout extends RelativeLayout {
         d2.v(R.string.F_X01);
     }
 
-    public void setData(d.b.h0.r.q.a aVar) {
+    public void setData(d.b.i0.r.q.a aVar) {
         boolean z;
         this.j = aVar;
         g();

@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
 
     /* renamed from: e  reason: collision with root package name */
-    public DressItemData f21302e;
+    public DressItemData f21310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21303f;
+    public int f21311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21304g;
+    public int f21312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21305h;
+    public b f21313h;
     public d.b.c.c.g.a i = new a(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
 
     /* loaded from: classes5.dex */
@@ -36,17 +36,17 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        BackgroundPreviewModel.this.f21302e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        BackgroundPreviewModel.this.f21310e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        BackgroundPreviewModel.this.f21302e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        BackgroundPreviewModel.this.f21310e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                if (BackgroundPreviewModel.this.f21305h != null) {
-                    if (BackgroundPreviewModel.this.f21302e != null) {
-                        BackgroundPreviewModel.this.f21302e.setPropsId(BackgroundPreviewModel.this.f21303f);
-                        BackgroundPreviewModel.this.f21302e.setInUse(BackgroundPreviewModel.this.f21304g == 1);
+                if (BackgroundPreviewModel.this.f21313h != null) {
+                    if (BackgroundPreviewModel.this.f21310e != null) {
+                        BackgroundPreviewModel.this.f21310e.setPropsId(BackgroundPreviewModel.this.f21311f);
+                        BackgroundPreviewModel.this.f21310e.setInUse(BackgroundPreviewModel.this.f21312g == 1);
                     }
-                    BackgroundPreviewModel.this.f21305h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.f21302e);
+                    BackgroundPreviewModel.this.f21313h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.f21310e);
                 }
             }
         }
@@ -58,8 +58,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public BackgroundPreviewModel(int i, int i2) {
-        this.f21303f = i;
-        this.f21304g = i2;
+        this.f21311f = i;
+        this.f21312g = i2;
         registerTask();
         registerListener(this.i);
     }
@@ -67,7 +67,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.f21303f);
+        backgroundGetRequestMessage.setPropId(this.f21311f);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -82,11 +82,11 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public final void registerTask() {
-        d.b.i0.d3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-        d.b.i0.d3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+        d.b.j0.d3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+        d.b.j0.d3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
     }
 
     public void x(b bVar) {
-        this.f21305h = bVar;
+        this.f21313h = bVar;
     }
 }

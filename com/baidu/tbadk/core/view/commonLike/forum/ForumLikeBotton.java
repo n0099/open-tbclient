@@ -14,7 +14,7 @@ public class ForumLikeBotton extends CommonLikeButton {
 
     @Override // com.baidu.tbadk.core.view.commonLike.CommonLikeButton
     public void g(int i) {
-        if (this.f13277g) {
+        if (this.f13285g) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.btn_forum_focus_gray_color);
             SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_gray_border);

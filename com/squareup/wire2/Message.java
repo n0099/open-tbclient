@@ -2,7 +2,7 @@ package com.squareup.wire2;
 
 import com.squareup.wire2.Message;
 import com.squareup.wire2.Message.a;
-import d.n.a.d;
+import d.o.a.d;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.OutputStream;

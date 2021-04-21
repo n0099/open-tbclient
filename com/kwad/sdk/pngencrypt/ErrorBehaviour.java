@@ -8,9 +8,9 @@ public enum ErrorBehaviour {
     
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f36385c;
+    public final int f36480c;
 
     ErrorBehaviour(int i) {
-        this.f36385c = i;
+        this.f36480c = i;
     }
 }

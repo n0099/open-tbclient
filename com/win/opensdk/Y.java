@@ -6,12 +6,12 @@ import java.util.Set;
 public class Y {
 
     /* renamed from: a  reason: collision with root package name */
-    public X f40124a;
+    public X f40219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set f40125b = new HashSet();
+    public Set f40220b = new HashSet();
 
     public Y(X x) {
-        this.f40124a = x;
+        this.f40219a = x;
     }
 }

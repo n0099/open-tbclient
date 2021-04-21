@@ -1,0 +1,14 @@
+package d.p.a.d.e$g;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+/* loaded from: classes6.dex */
+public @interface c {
+    boolean a() default false;
+
+    int b();
+}

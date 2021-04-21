@@ -46,10 +46,10 @@ public class MessageV4 extends MessageV3 {
                     }
                 }
             } catch (JSONException e2) {
-                d.j.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
+                d.k.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
             }
         }
-        d.j.a.a.a.d(TAG, "MessageV4 " + messageV4);
+        d.k.a.a.a.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 

@@ -19,22 +19,22 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel;
-import d.b.i0.l0.y.d.b;
+import d.b.j0.l0.y.d.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, b {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15438e;
+    public TbPageContext f15446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EmotionHorizontalView f15439f;
+    public EmotionHorizontalView f15447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionHorizontalView f15440g;
+    public EmotionHorizontalView f15448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EmotionHorizontalView f15441h;
+    public EmotionHorizontalView f15449h;
     public ImageView i;
     public LinearLayout j;
     public RelativeLayout k;
@@ -48,7 +48,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public EmotionCenterChangeView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.p = null;
-        this.f15438e = tbPageContext;
+        this.f15446e = tbPageContext;
         b();
     }
 
@@ -61,7 +61,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return this.p;
     }
 
-    @Override // d.b.i0.l0.y.d.b
+    @Override // d.b.j0.l0.y.d.b
     public void B(EmotionCenterData emotionCenterData) {
         a();
         if (emotionCenterData == null || ListUtils.isEmpty(emotionCenterData.package_list)) {
@@ -70,7 +70,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         setData(emotionCenterData.package_list);
     }
 
-    @Override // d.b.i0.l0.y.d.b
+    @Override // d.b.j0.l0.y.d.b
     public void U(EmotionCenterData emotionCenterData) {
         a();
     }
@@ -85,18 +85,18 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public final void b() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_category_layout, this);
-        this.f15439f = new EmotionHorizontalView(this.f15438e);
-        this.f15440g = new EmotionHorizontalView(this.f15438e);
-        this.f15441h = new EmotionHorizontalView(this.f15438e);
-        this.f15439f.f(TbadkCoreApplication.getInst().getSkinType());
-        this.f15440g.f(TbadkCoreApplication.getInst().getSkinType());
-        this.f15441h.f(TbadkCoreApplication.getInst().getSkinType());
-        addView(this.f15439f);
-        addView(this.f15440g);
-        addView(this.f15441h);
-        this.f15439f.setVisibility(8);
-        this.f15440g.setVisibility(8);
-        this.f15441h.setVisibility(8);
+        this.f15447f = new EmotionHorizontalView(this.f15446e);
+        this.f15448g = new EmotionHorizontalView(this.f15446e);
+        this.f15449h = new EmotionHorizontalView(this.f15446e);
+        this.f15447f.f(TbadkCoreApplication.getInst().getSkinType());
+        this.f15448g.f(TbadkCoreApplication.getInst().getSkinType());
+        this.f15449h.f(TbadkCoreApplication.getInst().getSkinType());
+        addView(this.f15447f);
+        addView(this.f15448g);
+        addView(this.f15449h);
+        this.f15447f.setVisibility(8);
+        this.f15448g.setVisibility(8);
+        this.f15449h.setVisibility(8);
         this.j = (LinearLayout) findViewById(R.id.emotion_change_item);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.change_head_layout);
         this.k = relativeLayout;
@@ -109,7 +109,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         TextView textView = (TextView) findViewById(R.id.emotion_function);
         this.n = textView;
         textView.setOnClickListener(this);
-        this.o = new EmotionChangeModel(this.f15438e);
+        this.o = new EmotionChangeModel(this.f15446e);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -134,7 +134,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         }
     }
 
-    @Override // d.b.i0.l0.y.d.b
+    @Override // d.b.j0.l0.y.d.b
     public void f(EmotionCenterData emotionCenterData) {
     }
 
@@ -174,23 +174,23 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         this.k.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            this.f15439f.setVisibility(0);
-            this.f15439f.setData(list.get(0));
-            this.f15440g.setVisibility(8);
-            this.f15441h.setVisibility(8);
+            this.f15447f.setVisibility(0);
+            this.f15447f.setData(list.get(0));
+            this.f15448g.setVisibility(8);
+            this.f15449h.setVisibility(8);
         } else if (size == 2) {
-            this.f15439f.setVisibility(0);
-            this.f15439f.setData(list.get(0));
-            this.f15440g.setVisibility(0);
-            this.f15440g.setData(list.get(1));
-            this.f15441h.setVisibility(8);
+            this.f15447f.setVisibility(0);
+            this.f15447f.setData(list.get(0));
+            this.f15448g.setVisibility(0);
+            this.f15448g.setData(list.get(1));
+            this.f15449h.setVisibility(8);
         } else {
-            this.f15439f.setVisibility(0);
-            this.f15439f.setData(list.get(0));
-            this.f15440g.setVisibility(0);
-            this.f15440g.setData(list.get(1));
-            this.f15441h.setVisibility(0);
-            this.f15441h.setData(list.get(2));
+            this.f15447f.setVisibility(0);
+            this.f15447f.setData(list.get(0));
+            this.f15448g.setVisibility(0);
+            this.f15448g.setData(list.get(1));
+            this.f15449h.setVisibility(0);
+            this.f15449h.setData(list.get(2));
         }
     }
 

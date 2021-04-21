@@ -5,27 +5,27 @@ import rx.internal.operators.OnSubscribeAmb$Selection;
 public final class c<T> extends h.j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.j<? super T> f68716e;
+    public final h.j<? super T> f68863e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final OnSubscribeAmb$Selection<T> f68717f;
+    public final OnSubscribeAmb$Selection<T> f68864f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f68718g;
+    public boolean f68865g;
 
     public final boolean b() {
-        if (this.f68718g) {
+        if (this.f68865g) {
             return true;
         }
-        if (this.f68717f.get() == this) {
-            this.f68718g = true;
+        if (this.f68864f.get() == this) {
+            this.f68865g = true;
             return true;
-        } else if (this.f68717f.compareAndSet(null, this)) {
-            this.f68717f.unsubscribeOthers(this);
-            this.f68718g = true;
+        } else if (this.f68864f.compareAndSet(null, this)) {
+            this.f68864f.unsubscribeOthers(this);
+            this.f68865g = true;
             return true;
         } else {
-            this.f68717f.unsubscribeLosers();
+            this.f68864f.unsubscribeLosers();
             return false;
         }
     }
@@ -33,21 +33,21 @@ public final class c<T> extends h.j<T> {
     @Override // h.e
     public void onCompleted() {
         if (b()) {
-            this.f68716e.onCompleted();
+            this.f68863e.onCompleted();
         }
     }
 
     @Override // h.e
     public void onError(Throwable th) {
         if (b()) {
-            this.f68716e.onError(th);
+            this.f68863e.onError(th);
         }
     }
 
     @Override // h.e
     public void onNext(T t) {
         if (b()) {
-            this.f68716e.onNext(t);
+            this.f68863e.onNext(t);
         }
     }
 }

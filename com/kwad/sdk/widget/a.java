@@ -13,60 +13,60 @@ import com.kwad.sdk.utils.an;
 public class a extends RatioFrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37114a;
+    public long f37209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37115b;
+    public boolean f37210b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37116c;
+    public boolean f37211c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37117d;
+    public int f37212d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f37118e;
+    public ViewTreeObserver.OnScrollChangedListener f37213e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver f37119f;
+    public ViewTreeObserver f37214f;
 
     /* renamed from: g  reason: collision with root package name */
-    public an f37120g;
+    public an f37215g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC0453a f37121h;
+    public InterfaceC0456a f37216h;
 
     /* renamed from: com.kwad.sdk.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0453a {
+    public interface InterfaceC0456a {
         void a();
     }
 
     public a(@NonNull Context context) {
         super(context);
-        this.f37114a = 500L;
-        this.f37116c = true;
+        this.f37209a = 500L;
+        this.f37211c = true;
         b();
     }
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f37114a = 500L;
-        this.f37116c = true;
+        this.f37209a = 500L;
+        this.f37211c = true;
         b();
     }
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f37114a = 500L;
-        this.f37116c = true;
+        this.f37209a = 500L;
+        this.f37211c = true;
         b();
     }
 
     private void b() {
-        this.f37120g = new an(this);
-        this.f37117d = ah.h(getContext());
-        this.f37116c = i();
+        this.f37215g = new an(this);
+        this.f37212d = ah.h(getContext());
+        this.f37211c = i();
     }
 
     private void c() {
@@ -79,16 +79,16 @@ public class a extends RatioFrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d() {
-        if (!this.f37120g.a() || Math.abs(this.f37120g.f37040a.height() - getHeight()) > getHeight() * 0.9f || getHeight() <= 0 || getWidth() <= 0) {
+        if (!this.f37215g.a() || Math.abs(this.f37215g.f37135a.height() - getHeight()) > getHeight() * 0.9f || getHeight() <= 0 || getWidth() <= 0) {
             return false;
         }
-        Rect rect = this.f37120g.f37040a;
-        return rect.bottom > 0 && rect.top < this.f37117d;
+        Rect rect = this.f37215g.f37135a;
+        return rect.bottom > 0 && rect.top < this.f37212d;
     }
 
     private void e() {
-        if (this.f37118e == null) {
-            this.f37118e = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.widget.a.1
+        if (this.f37213e == null) {
+            this.f37213e = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.widget.a.1
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     if (a.this.d()) {
@@ -97,18 +97,18 @@ public class a extends RatioFrameLayout {
                 }
             };
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f37119f = viewTreeObserver;
+            this.f37214f = viewTreeObserver;
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f37118e);
+                viewTreeObserver.addOnScrollChangedListener(this.f37213e);
             }
         }
     }
 
     public void a() {
         k();
-        InterfaceC0453a interfaceC0453a = this.f37121h;
-        if (interfaceC0453a != null) {
-            interfaceC0453a.a();
+        InterfaceC0456a interfaceC0456a = this.f37216h;
+        if (interfaceC0456a != null) {
+            interfaceC0456a.a();
         }
     }
 
@@ -117,17 +117,17 @@ public class a extends RatioFrameLayout {
     }
 
     public void j() {
-        if (this.f37116c) {
+        if (this.f37211c) {
             c();
         }
     }
 
     public void k() {
         try {
-            if (this.f37118e != null && this.f37119f != null && this.f37119f.isAlive()) {
-                this.f37119f.removeOnScrollChangedListener(this.f37118e);
+            if (this.f37213e != null && this.f37214f != null && this.f37214f.isAlive()) {
+                this.f37214f.removeOnScrollChangedListener(this.f37213e);
             }
-            this.f37118e = null;
+            this.f37213e = null;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -148,16 +148,16 @@ public class a extends RatioFrameLayout {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         k();
-        this.f37115b = false;
+        this.f37210b = false;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         boolean z = true;
-        if (this.f37115b || (i3 | i4) != 0 || (i | i2) == 0) {
+        if (this.f37210b || (i3 | i4) != 0 || (i | i2) == 0) {
             z = false;
         } else {
-            this.f37115b = true;
+            this.f37210b = true;
         }
         super.onSizeChanged(i, i2, i3, i4);
         if (z) {
@@ -165,7 +165,7 @@ public class a extends RatioFrameLayout {
         }
     }
 
-    public void setVisibleListener(InterfaceC0453a interfaceC0453a) {
-        this.f37121h = interfaceC0453a;
+    public void setVisibleListener(InterfaceC0456a interfaceC0456a) {
+        this.f37216h = interfaceC0456a;
     }
 }

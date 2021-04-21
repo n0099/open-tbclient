@@ -11,10 +11,10 @@ import java.util.Collections;
 public class h0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41753a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", Config.OS, "lc", "lj", "ml", "hd", "d");
+    public static JsonReader.a f41848a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", Config.OS, "lc", "lj", "ml", "hd", "d");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41754b = JsonReader.a.a("n", "v");
+    public static final JsonReader.a f41849b = JsonReader.a.a("n", "v");
 
     public static ShapeStroke a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         char c2;
@@ -32,7 +32,7 @@ public class h0 {
             int i = 100;
             if (jsonReader.t()) {
                 int i2 = 1;
-                switch (jsonReader.D(f41753a)) {
+                switch (jsonReader.D(f41848a)) {
                     case 0:
                         str = jsonReader.z();
                         break;
@@ -64,7 +64,7 @@ public class h0 {
                             d.a.a.u.i.b bVar3 = null;
                             String str2 = null;
                             while (jsonReader.t()) {
-                                int D = jsonReader.D(f41754b);
+                                int D = jsonReader.D(f41849b);
                                 if (D == 0) {
                                     str2 = jsonReader.z();
                                 } else if (D != i2) {

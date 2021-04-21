@@ -1,22 +1,22 @@
 package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
-import d.b.g0.l.f;
-import d.b.g0.l.m.j.c;
-import d.b.g0.l.m.j.d;
-import d.b.g0.l.m.k.e;
+import d.b.h0.l.f;
+import d.b.h0.l.m.j.c;
+import d.b.h0.l.m.j.d;
+import d.b.h0.l.m.k.e;
 /* loaded from: classes3.dex */
 public enum Node {
     HOST("host", c.class, d.class),
-    PACKAGE("package", d.b.g0.l.m.k.d.class, e.class, true),
-    CERES("ceres", d.b.g0.l.m.h.c.class, d.b.g0.l.m.h.d.class),
-    COMMON("common", d.b.g0.l.m.i.c.class, d.b.g0.l.m.i.d.class);
+    PACKAGE("package", d.b.h0.l.m.k.d.class, e.class, true),
+    CERES("ceres", d.b.h0.l.m.h.c.class, d.b.h0.l.m.h.d.class),
+    COMMON("common", d.b.h0.l.m.i.c.class, d.b.h0.l.m.i.d.class);
     
     public static final String TAG = "LXNODE";
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends d.b.g0.l.m.e> mParamsProvider;
-    public Class<? extends d.b.g0.l.m.d> mProcessor;
+    public Class<? extends d.b.h0.l.m.e> mParamsProvider;
+    public Class<? extends d.b.h0.l.m.d> mProcessor;
 
     Node(String str, Class cls, Class cls2, boolean z) {
         this.mName = str;
@@ -35,15 +35,15 @@ public enum Node {
         return null;
     }
 
-    public static d.b.g0.l.m.e getProvider(Node node) {
-        Class<? extends d.b.g0.l.m.e> paramsProvider;
+    public static d.b.h0.l.m.e getProvider(Node node) {
+        Class<? extends d.b.h0.l.m.e> paramsProvider;
         if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
             return null;
         }
         try {
             return paramsProvider.newInstance();
         } catch (IllegalAccessException | InstantiationException e2) {
-            if (f.f49281a) {
+            if (f.f49610a) {
                 e2.printStackTrace();
             }
             return null;
@@ -54,11 +54,11 @@ public enum Node {
         return this.mName;
     }
 
-    public Class<? extends d.b.g0.l.m.e> getParamsProvider() {
+    public Class<? extends d.b.h0.l.m.e> getParamsProvider() {
         return this.mParamsProvider;
     }
 
-    public Class<? extends d.b.g0.l.m.d> getProcessor() {
+    public Class<? extends d.b.h0.l.m.d> getProcessor() {
         return this.mProcessor;
     }
 

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static l f41339a;
+    public static l f41434a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f960a;
@@ -27,8 +27,8 @@ public class m {
 
     public static synchronized l a(Context context) {
         synchronized (m.class) {
-            if (f41339a != null) {
-                return f41339a;
+            if (f41434a != null) {
+                return f41434a;
             }
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
             String string = sharedPreferences.getString("uuid", null);
@@ -51,7 +51,7 @@ public class m {
                 com.xiaomi.channel.commonutils.logger.b.m55a("read_phone_state permission changes.");
             }
             l lVar = new l(string, string2, string3, string4, string5, string6, i);
-            f41339a = lVar;
+            f41434a = lVar;
             return lVar;
         }
     }
@@ -90,11 +90,11 @@ public class m {
             String a5 = com.xiaomi.push.i.a(context, false);
             com.xiaomi.channel.commonutils.logger.b.m55a("account register:" + a5 + " mim:" + com.xiaomi.push.ax.a(context).e());
             treeMap.put("devid", a5);
-            if (f41339a != null && !TextUtils.isEmpty(f41339a.f959a)) {
-                treeMap.put("uuid", f41339a.f959a);
-                int lastIndexOf = f41339a.f959a.lastIndexOf("/");
+            if (f41434a != null && !TextUtils.isEmpty(f41434a.f959a)) {
+                treeMap.put("uuid", f41434a.f959a);
+                int lastIndexOf = f41434a.f959a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
-                    str4 = f41339a.f959a.substring(lastIndexOf + 1);
+                    str4 = f41434a.f959a.substring(lastIndexOf + 1);
                     com.xiaomi.push.ax.a(context).a(treeMap);
                     b2 = com.xiaomi.push.i.b(context);
                     if (!TextUtils.isEmpty(b2)) {
@@ -160,7 +160,7 @@ public class m {
                             l lVar = new l(string3 + "@xiaomi.com/" + str4, string2, string, str5, str6, str7, com.xiaomi.push.ab.a());
                             a(context, lVar);
                             com.xiaomi.push.i.a(context, jSONObject2.optString("vdevid"));
-                            f41339a = lVar;
+                            f41434a = lVar;
                             return lVar;
                         }
                         p.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
@@ -220,7 +220,7 @@ public class m {
         if (com.xiaomi.push.ab.b()) {
             sb = new StringBuilder();
             sb.append("http://");
-            sb.append(fm.f40804b);
+            sb.append(fm.f40899b);
             str = ":9085";
         } else if (com.xiaomi.push.o.China.name().equals(a2)) {
             sb = new StringBuilder();
@@ -257,20 +257,20 @@ public class m {
     /* renamed from: a  reason: collision with other method in class */
     public static void m616a(Context context) {
         context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
-        f41339a = null;
+        f41434a = null;
         a();
     }
 
     public static void a(Context context, l lVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
         edit.putString("uuid", lVar.f959a);
-        edit.putString("security", lVar.f41335c);
-        edit.putString("token", lVar.f41334b);
-        edit.putString(Constants.APP_ID, lVar.f41336d);
-        edit.putString("package_name", lVar.f41338f);
-        edit.putString("app_token", lVar.f41337e);
+        edit.putString("security", lVar.f41430c);
+        edit.putString("token", lVar.f41429b);
+        edit.putString(Constants.APP_ID, lVar.f41431d);
+        edit.putString("package_name", lVar.f41433f);
+        edit.putString("app_token", lVar.f41432e);
         edit.putString(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, com.xiaomi.push.i.k(context));
-        edit.putInt("env_type", lVar.f41333a);
+        edit.putInt("env_type", lVar.f41428a);
         edit.commit();
         a();
     }

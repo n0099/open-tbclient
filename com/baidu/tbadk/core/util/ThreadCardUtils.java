@@ -37,14 +37,14 @@ import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tieba.R;
 import d.b.c.e.p.k;
 import d.b.c.e.p.t;
-import d.b.h0.b1.m.f;
-import d.b.h0.r.f0.b;
-import d.b.h0.r.q.a;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.k1;
-import d.b.i0.q0.l;
-import d.b.i0.u3.i;
-import d.b.i0.x.m;
+import d.b.i0.b1.m.f;
+import d.b.i0.r.f0.b;
+import d.b.i0.r.q.a;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.k1;
+import d.b.j0.q0.l;
+import d.b.j0.u3.i;
+import d.b.j0.x.m;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -473,13 +473,13 @@ public final class ThreadCardUtils {
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-        spannableStringBuilder2.setSpan(new d.b.h0.r.f0.o.b(d.b.c.e.p.l.g(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
+        spannableStringBuilder2.setSpan(new d.b.i0.r.f0.o.b(d.b.c.e.p.l.g(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
         SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(i));
         if (z) {
             spannableStringBuilder3.setSpan(new f(2, null), 0, spannableStringBuilder3.length(), 33);
         }
         SpannableStringBuilder spannableStringBuilder4 = new SpannableStringBuilder(" ");
-        spannableStringBuilder4.setSpan(new d.b.h0.r.f0.o.b(d.b.c.e.p.l.g(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
+        spannableStringBuilder4.setSpan(new d.b.i0.r.f0.o.b(d.b.c.e.p.l.g(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
         SpannableStringBuilder spannableStringBuilder5 = new SpannableStringBuilder(str);
         spannableStringBuilder5.append((CharSequence) spannableStringBuilder2);
         if (z2) {
@@ -510,16 +510,16 @@ public final class ThreadCardUtils {
         if (originalThreadInfo == null || context == null) {
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(originalThreadInfo.f12877f, originalThreadInfo.n, null);
-        createNormalCfg.setForumId(String.valueOf(originalThreadInfo.f12876e));
+        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(originalThreadInfo.f12885f, originalThreadInfo.n, null);
+        createNormalCfg.setForumId(String.valueOf(originalThreadInfo.f12884e));
         if (i == 3) {
             createNormalCfg.setFrom("from_frs");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(originalThreadInfo.f12876e)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(originalThreadInfo.f12884e)));
         } else {
             createNormalCfg.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
         }
         if (TextUtils.isEmpty(str)) {
-            createNormalCfg.setForumName(originalThreadInfo.f12875d);
+            createNormalCfg.setForumName(originalThreadInfo.f12883d);
         } else {
             createNormalCfg.setForumName(str);
         }

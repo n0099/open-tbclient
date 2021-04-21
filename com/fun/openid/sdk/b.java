@@ -9,10 +9,10 @@ import com.baidu.android.util.devices.RomUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30503a = false;
+    public static boolean f30598a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30504b = false;
+    public static boolean f30599b = false;
 
     public static f a() {
         String str = Build.BRAND;

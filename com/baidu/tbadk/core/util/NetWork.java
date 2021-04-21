@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
 import d.b.c.e.j.b.a;
 import d.b.c.e.p.q;
-import d.b.h0.f0.f;
-import d.b.h0.r.l.c;
-import d.b.h0.r.q.q0;
-import d.b.h0.s.a.b;
+import d.b.i0.f0.f;
+import d.b.i0.r.l.c;
+import d.b.i0.r.q.q0;
+import d.b.i0.s.a.b;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -97,7 +97,7 @@ public class NetWork {
     private q0 login(String str, String str2, boolean z) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                d.b.h0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                d.b.i0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                 TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                 StringBuilder sb = new StringBuilder(32);
                 sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -140,7 +140,7 @@ public class NetWork {
                         }
                         c.g(accountData);
                         TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                        d.b.h0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                        d.b.i0.r.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                         TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                         return q0Var;
                     }
@@ -245,7 +245,7 @@ public class NetWork {
                     return null;
                 }
             }
-            d.b.i0.x0.a.b(this);
+            d.b.j0.x0.a.b(this);
             return netString;
         }
     }
@@ -273,7 +273,7 @@ public class NetWork {
 
     private void removeAccount(AccountData accountData) {
         b b2;
-        if (TextUtils.isEmpty(accountData.getID()) || (b2 = d.b.h0.s.a.a.b()) == null) {
+        if (TextUtils.isEmpty(accountData.getID()) || (b2 = d.b.i0.s.a.a.b()) == null) {
             return;
         }
         b2.c(accountData);
@@ -319,7 +319,7 @@ public class NetWork {
     }
 
     public long getNetDataSize() {
-        return this.netContext.getStat().stat.f42276b;
+        return this.netContext.getStat().stat.f42516b;
     }
 
     public int getNetErrorCode() {

@@ -9,13 +9,13 @@ import com.bytedance.sdk.openadsdk.utils.h;
 public class b extends ICommonPermissionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f29511a = new Handler(Looper.getMainLooper());
+    public Handler f29519a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public h.a f29512b;
+    public h.a f29520b;
 
     public b(h.a aVar) {
-        this.f29512b = aVar;
+        this.f29520b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -23,8 +23,8 @@ public class b extends ICommonPermissionListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.2
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.f29512b != null) {
-                    b.this.f29512b.a(str);
+                if (b.this.f29520b != null) {
+                    b.this.f29520b.a(str);
                 }
             }
         });
@@ -35,17 +35,17 @@ public class b extends ICommonPermissionListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.f29512b != null) {
-                    b.this.f29512b.a();
+                if (b.this.f29520b != null) {
+                    b.this.f29520b.a();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        if (this.f29511a == null) {
-            this.f29511a = new Handler(Looper.getMainLooper());
+        if (this.f29519a == null) {
+            this.f29519a = new Handler(Looper.getMainLooper());
         }
-        this.f29511a.post(runnable);
+        this.f29519a.post(runnable);
     }
 }

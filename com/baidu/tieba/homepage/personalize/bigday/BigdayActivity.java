@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.h0.r.d0.b;
+import d.b.i0.r.d0.b;
 import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {

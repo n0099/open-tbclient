@@ -1,7 +1,7 @@
 package com.baidu.tieba.chosen.posts.request;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import d.b.i0.y.a.d.b;
+import d.b.j0.y.a.d.b;
 import tbclient.HotThread.HotThreadResIdl;
 /* loaded from: classes4.dex */
 public class ChosenPostSocketResponse extends MvcSocketResponsedMessage<b, HotThreadResIdl> {
